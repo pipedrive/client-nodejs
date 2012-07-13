@@ -9,9 +9,24 @@ npm install pipedrive
 With a pre-set API token:
 ```
 var Pipedrive = require('pipedrive');
-var pipedrive = new Pipedrive.Client('YOUR API TOKEN');
+var pipedrive = new Pipedrive.Client('YOUR_API_TOKEN_HERE');
 ```
 
+# A simple "Hello world" that lists some deals
+
+Here's a quick example that will list some deals from your Pipedrive account:
+
+```
+var Pipedrive = require('pipedrive');
+var pipedrive = new Pipedrive.Client('YOUR_API_TOKEN_HERE');
+
+pipedrive.Deals.getAll({}, function(err, deals) {
+	if (err) throw err;
+	for (var i = 0; i < deals.length; i++) {
+		console.log(deals[i].title + ' (worth ' + deals[i].value + ' ' + deals[i].currency + ')');
+	}
+});
+```
 
 # Supported objects
 
@@ -108,7 +123,16 @@ pipedrive.Filters.getAll({ type: 'deals' }, function(filtersListErr, filtersList
 });
 ```
 
-
-
 # Actions not supported
-Attaching products to deals, adding followers to deals/organizations/persons/users.
+
+ * Attaching products to deals
+ * Adding followers to deals/organizations/persons/users
+
+# API Documentation
+
+The Pipedrive REST API documentation can be found at https://developers.pipedrive.com/v1
+
+# Licence
+
+This Pipedrive API client is distributed under the MIT licence.
+
