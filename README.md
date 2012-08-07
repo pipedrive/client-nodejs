@@ -1,3 +1,7 @@
+# Pipedrive API client for NodeJS based apps
+
+This is the official Pipedrive API wrapper/client for NodeJS apps, distributed by Pipedrive Inc free under the MIT licence. It provides you with basic functionality for operating with objects such as Deals, Persons, Organizations, Products and much more, without having to worry about the underlying networking stack and actual HTTPS requests.
+
 # Install
 
 ```
