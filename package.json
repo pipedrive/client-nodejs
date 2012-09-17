@@ -1,6 +1,6 @@
 {
 	"name": "pipedrive",
-	"version": "1.0.4",
+	"version": "1.1.0",
 	"description": "Pipedrive REST client for NodeJS",
 	"keywords":["pipedrive","CRM","sales","contacts","customers","deals","pipeline","sales pipeline"],
 	"homepage": "https://github.com/pipedrive/client-nodejs",
