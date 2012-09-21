@@ -71,10 +71,10 @@ Update an object. Returns ```error``` in case of an error to the callback.
 ### pipedrive.{Object}.getAll (params, [fn callback])
 Get all objects, optionally passing additional parameters (such as ```filter_id``` in case of deals, persons and organizations). Returns ```error, objects``` to the callback function where objects is a collection (array) of objects.
 
-### pipedrive.{Object}.delete (id, [fn callback])
+### pipedrive.{Object}.remove (id, [fn callback])
 Delete an object with a specifc ID. Returns ```error``` in case of an error to the callback.
 
-### pipedrive.{Object}.deleteMany ([Array ids], [fn callback])
+### pipedrive.{Object}.removeMany ([Array ids], [fn callback])
 Delete multiple objects using an array of IDs. Returns ```error``` in case of an error to the callback.
 
 ### pipedrive.{Object}.merge (whichId, withId, [fn callback])
