@@ -103,6 +103,39 @@ Merges the {object} with another object of the same kind with the ID given as ``
  * Organizations
  * Users
 
+# Operations with nested objects
+
+## Adding a product to a deal
+
+To add a product to a deal, simply invoke the ```addProduct``` method on a deal object.
+```
+pipedrive.Deals.get(1, function(err, deal) {
+	if (err) throw err;
+	deal.addProduct({ product_id: 1, quantity: 5, discount: 20 }, function(addErr, addData) {
+		if (addErr) throw addErr;
+		console.log('Product 1 was added to deal 1', addData);
+	});
+})
+```
+## You can add multiple products with a single request, too.
+
+To add multiple products with a single request, make the first argument of deal's ```addProduct``` method (as shown above) an array, e.g. ```[{ product_id: 1, quantity: 5, discount: 0 }, { product_id: 1, quantity: 2, discount: 20 }]```. This will add two product rows to a deal — one with a quantity of 5 and with no discount, the latter will add a separate row for the same product but with a quantity of 2 and no discount.
+
+## Remove a product from a deal
+```
+pipedrive.Deals.get(1, function(err, deal) {
+	if (err) throw err;
+	deal.getProducts(function(productsErr, attachedProducts) {
+		if (productsErr) throw productsErr;
+		_.each(attachedProducts, function(attachedProduct) {
+			deal.removeProduct({ id: attachedProduct.id }, function(removeErr, removeSuccess) {
+				if (!removeErr) console.log('Removed product ' + attachedProduct.product_id + ' from deal 1');
+			});
+		});
+	});
+})
+```
+
 # Examples
 
 ## Get 15 first deals using the first deals filter
