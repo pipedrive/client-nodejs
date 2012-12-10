@@ -162,7 +162,6 @@ pipedrive.Filters.getAll({ type: 'deals' }, function(filtersListErr, filtersList
 
 # Actions not supported
 
- * Attaching products to deals
  * Adding followers to deals/organizations/persons/users
 
 # API Documentation
