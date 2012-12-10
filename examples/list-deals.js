@@ -1,3 +1,8 @@
+if (!process.argv[2]) {
+	process.stderr.write('Please provide API token!' + "\n");
+	process.exit();
+}
+
 var Pipedrive = require(__dirname + '/../index');
 var pipedrive = new Pipedrive.Client(process.argv[2]);
 var _ = require('underscore');
@@ -18,5 +23,4 @@ pipedrive.Filters.getAll({ type: 'deals' }, function(filtersListErr, filtersList
 	else {
 		console.log('No filters found on your account, cannot fetch deals list.');
 	}
-
 });
