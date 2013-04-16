@@ -123,11 +123,11 @@ To add multiple products with a single request, make the first argument of deal'
 
 ## Remove a product from a deal
 ```
-pipedrive.Deals.get(1, function(err, deal) {
+pipedrive.Deals.get(deal_id, function(err, deal) {
 	if (err) throw err;
 	deal.getProducts(function(productsErr, attachedProducts) {
 		if (productsErr) throw productsErr;
-		_.each(attachedProducts, function(attachedProduct) {
+		attachedProducts.forEach(function(attachedProduct) {
 			deal.removeProduct({ id: attachedProduct.id }, function(removeErr, removeSuccess) {
 				if (!removeErr) console.log('Removed product ' + attachedProduct.product_id + ' from deal 1');
 			});
@@ -143,14 +143,13 @@ pipedrive.Deals.get(1, function(err, deal) {
 ```
 var Pipedrive = require('pipedrive');
 var pipedrive = new Pipedrive.Client('PUT_YOUR_API_TOKEN_HERE');
-var _ = require('underscore');
 
 pipedrive.Filters.getAll({ type: 'deals' }, function(filtersListErr, filtersList) {
 
 	if (filtersList.length > 0) {
 		pipedrive.Deals.getAll({ filter_id: filtersList[0].get('id'), start: 0, limit: 15 }, function(dealsListErr, dealsList) {
 
-			_.each(dealsList, function(deal) {
+			dealsList.forEach(function(deal) {
 				console.log(deal.get('title') + ' (worth ' + deal.get('value') + ' ' + deal.get('currency') + ')');
 			});
 
