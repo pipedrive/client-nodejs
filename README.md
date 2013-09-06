@@ -54,8 +54,8 @@ pipedrive.Deals.getAll({}, function(err, deals) {
 
 # Authorization against email and password
 
-### pipedrive.authenticate({ email: 'john@doe.com', password: 'example' }, [fn callback]);
-Fetches the Authorizations objects for the given user against email and password, ```error, data``` to the callback.
+### Pipedrive.authenticate({ email: 'john@doe.com', password: 'example' }, [fn callback]);
+Fetches the Authorizations objects for the given user against email and password, ```error, data, additionalData``` to the callback. This method ultimately returns the API tokens of the user which you can then use to instantiate the API client with, by issuing ```var pipedrive = new Pipedrive.Client('API_TOKEN_HERE')```.
 
 # Supported operations for object collections
 
