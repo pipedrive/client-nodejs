@@ -1,6 +1,8 @@
-# Pipedrive API client for NodeJS based apps
+# Pipedrive client for NodeJS based apps
 
-This is the official Pipedrive API wrapper/client for NodeJS apps, distributed by Pipedrive Inc free under the MIT licence. It provides you with basic functionality for operating with objects such as Deals, Persons, Organizations, Products and much more, without having to worry about the underlying networking stack and actual HTTPS requests.
+Pipeline is a sales pipeline software that gets you organized. It's a powerful sales CRM with effortless sales pipeline management.
+
+This is the official Pipedrive API wrapper-client for NodeJS based apps, distributed by Pipedrive Inc freely under the MIT licence. It provides you with basic functionality for operating with objects such as Deals, Persons, Organizations, Products and much more, without having to worry about the underlying networking stack and actual HTTPS requests.
 
 # Install
 
@@ -40,7 +42,9 @@ pipedrive.Deals.getAll({}, function(err, deals) {
  * Currencies
  * Deals
  * DealFields
+ * Files
  * Filters
+ * Notes
  * OrganizationFields
  * Organizations
  * Persons
@@ -55,7 +59,7 @@ pipedrive.Deals.getAll({}, function(err, deals) {
 # Authorization against email and password
 
 ### Pipedrive.authenticate({ email: 'john@doe.com', password: 'example' }, [fn callback]);
-Fetches the Authorizations objects for the given user against email and password, ```error, data, additionalData``` to the callback. This method ultimately returns the API tokens of the user which you can then use to instantiate the API client with, by issuing ```var pipedrive = new Pipedrive.Client('API_TOKEN_HERE')```.
+Fetches the possible API tokens for the given user against email and password, passing ```error, data, additionalData``` to the callback function. You can use the API tokens returned by this method to instantiate the API client by issuing ```var pipedrive = new Pipedrive.Client('API_TOKEN_HERE')```.
 
 # Supported operations for object collections
 
