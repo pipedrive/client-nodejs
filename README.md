@@ -140,6 +140,21 @@ pipedrive.Deals.get(deal_id, function(err, deal) {
 })
 ```
 
+## Search for field matches
+
+To perform a `SearchResults/field` search, there is an additional method for `SearchResults` object called `field`.
+
+The following example searches for deals that match the condition `org_id=123`
+
+```javascript
+pipedrive.SearchResults.field({
+	term: "123",
+	exact_match: "1",
+	field_type: "dealField",
+	field_key: "org_id"
+}), callback);
+```
+
 # Examples
 
 ## Get 15 first deals using the first deals filter
