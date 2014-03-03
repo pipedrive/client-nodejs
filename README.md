@@ -155,6 +155,20 @@ pipedrive.SearchResults.field({
 }), callback);
 ```
 
+## Retrieve all records for a given object type:
+
+You can request all entries for an valid object using `getAll(object, callback)`
+
+```js
+pipedrive.getAll('Organizatons', function (err, collection) {
+	// collection contains all Organizations
+});
+
+pipedrive.getAll('Persons', function (err, collection) {
+	// collection contains all Persons
+});
+```
+
 # Examples
 
 ## Get 15 first deals using the first deals filter
