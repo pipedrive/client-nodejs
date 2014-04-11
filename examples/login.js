@@ -1,5 +1,5 @@
 var Pipedrive = require(__dirname + '/../index');
-var _ = require('underscore');
+var _ = require('lodash');
 var stdin = process.openStdin()
     , tty = require('tty')
 

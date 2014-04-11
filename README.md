@@ -13,7 +13,7 @@ npm install pipedrive
 # Usage
 
 With a pre-set API token:
-```
+```js
 var Pipedrive = require('pipedrive');
 var pipedrive = new Pipedrive.Client('YOUR_API_TOKEN_HERE');
 ```
@@ -22,7 +22,7 @@ var pipedrive = new Pipedrive.Client('YOUR_API_TOKEN_HERE');
 
 Here's a quick example that will list some deals from your Pipedrive account:
 
-```
+```js
 var Pipedrive = require('pipedrive');
 var pipedrive = new Pipedrive.Client('YOUR_API_TOKEN_HERE');
 
@@ -112,7 +112,7 @@ Merges the {object} with another object of the same kind with the ID given as ``
 ## Adding a product to a deal
 
 To add a product to a deal, simply invoke the ```addProduct``` method on a deal object.
-```
+```js
 pipedrive.Deals.get(1, function(err, deal) {
 	if (err) throw err;
 	deal.addProduct({ product_id: 1, quantity: 5, discount: 20 }, function(addErr, addData) {
@@ -126,7 +126,7 @@ pipedrive.Deals.get(1, function(err, deal) {
 To add multiple products with a single request, make the first argument of deal's ```addProduct``` method (as shown above) an array, e.g. ```[{ product_id: 1, quantity: 5, discount: 0 }, { product_id: 1, quantity: 2, discount: 20 }]```. This will add two product rows to a deal — one with a quantity of 5 and with no discount, the latter will add a separate row for the same product but with a quantity of 2 and no discount.
 
 ## Remove a product from a deal
-```
+```js
 pipedrive.Deals.get(deal_id, function(err, deal) {
 	if (err) throw err;
 	deal.getProducts(function(productsErr, attachedProducts) {
@@ -140,20 +140,28 @@ pipedrive.Deals.get(deal_id, function(err, deal) {
 })
 ```
 
-## Search for field matches
+## Search for field value matches
 
-To perform a `SearchResults/field` search, there is an additional method for `SearchResults` object called `field`.
+There is an additional method to perform the `SearchResults/field` search. This can be used for field-value searches.
 
-The following example searches for deals that match the condition `org_id=123`
+The following example searches for deals that match the condition where `org_id=123`
 
-```javascript
+```js
 pipedrive.SearchResults.field({
 	term: "123",
-	exact_match: "1",
+	exact_match: true,
+	field_key: "org_id",
 	field_type: "dealField",
-	field_key: "org_id"
+	return_item_ids: true
 }), callback);
 ```
+
+**term** — the string you are searching for from field values
+**exact_match** — whether the term you supply is the entire and exact match you are looking for (if set to false, partial results are also considered a match)
+**field_key** — name of the field you are searching from
+**field_type** — type of the field you are searching from (supported types: dealField, personField, organizationField, productField)
+**return_item_ids** — if set to true, individual items that have the matching term in the given field are given; if set to false, the different distinct values that match your search term across all different values in the gievn field are given. Usually you would want this to be set to true. However, for searching across autocomplete_text type fields (such as lost_reason of dealFields), you might want to show different values that pre-exist already.
+
 
 ## Retrieve all records for a given object type:
 
@@ -173,7 +181,7 @@ pipedrive.getAll('Persons', function (err, collection) {
 
 ## Get 15 first deals using the first deals filter
 
-```
+```js
 var Pipedrive = require('pipedrive');
 var pipedrive = new Pipedrive.Client('PUT_YOUR_API_TOKEN_HERE');
 

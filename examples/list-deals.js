@@ -5,7 +5,7 @@ if (!process.argv[2]) {
 
 var Pipedrive = require(__dirname + '/../index');
 var pipedrive = new Pipedrive.Client(process.argv[2]);
-var _ = require('underscore');
+var _ = require('lodash');
 
 pipedrive.Filters.getAll({ type: 'deals' }, function(filtersListErr, filtersList) {
 	if (filtersList.length > 0) {
