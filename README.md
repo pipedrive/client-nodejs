@@ -157,12 +157,12 @@ pipedrive.SearchResults.field({
 ```
 
  * **term** — the string you are searching for from field values
-* **exact_match** (optional, default false) — whether the term you supply is the entire and exact match you are looking for (if set to false, partial results are also considered a match)
-* **field_key** — name of the field you are searching from
-* **field_type** — type of the field you are searching from (supported types: dealField, personField, organizationField, productField)
-* **return_item_ids** (optional, default false) — if set to true, individual items that have the matching term in the given field are given; if set to false, the different distinct values that match your search term across all different values in the gievn field are given. Usually you would want this to be set to true. However, for searching across autocomplete_text type fields (such as lost_reason of dealFields), you might want to show different values that pre-exist already.
-* **start** (optional, default 0) – results pagination start
-* **limit** (optional, default 100) — results pagination limit
+ * **exact_match** (optional, default false) — whether the term you supply is the entire and exact match you are looking for (if set to false, partial results are also considered a match)
+ * **field_key** — name of the field you are searching from
+ * **field_type** — type of the field you are searching from (supported types: dealField, personField, organizationField, productField)
+ * **return_item_ids** (optional, default false) — if set to true, individual items that have the matching term in the given field are given; if set to false, the different distinct values that match your search term across all different values in the gievn field are given. Usually you would want this to be set to true. However, for searching across autocomplete_text type fields (such as lost_reason of dealFields), you might want to show different values that pre-exist already.
+ * **start** (optional, default 0) – results pagination start
+ * **limit** (optional, default 100) — results pagination limit
 
 ## Retrieve all records for a given object type:
 
