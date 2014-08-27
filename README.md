@@ -1,5 +1,7 @@
 # Pipedrive client for NodeJS based apps
 
+[![NPM version](https://badge.fury.io/js/pipedrive.svg)](http://badge.fury.io/js/pipedrive)
+
 Pipeline is a sales pipeline software that gets you organized. It's a powerful sales CRM with effortless sales pipeline management. See www.pipedrive.com for details.
 
 This is the official Pipedrive API wrapper-client for NodeJS based apps, distributed by Pipedrive Inc freely under the MIT licence. It provides you with basic functionality for operating with objects such as Deals, Persons, Organizations, Products and much more, without having to worry about the underlying networking stack and actual HTTPS requests.
