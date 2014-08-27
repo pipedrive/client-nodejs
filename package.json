@@ -13,7 +13,7 @@
 		"url": "http://github.com/pipedrive/client-nodejs.git"
 	},
 	"dependencies": {
-		"qs": "~0.4",
+		"qs": "~2.1.0",
 		"lodash": "~2.4.1",
 		"fetch": "~0.3.6",
 		"mime": "~1.2.11",
