@@ -47,8 +47,8 @@ pipedrive.Deals.getAll({}, function(err, deals) {
  * Files
  * Filters
  * Notes
- * OrganizationFields
  * Organizations
+ * OrganizationFields
  * Persons
  * PersonFields
  * Pipelines
@@ -127,14 +127,14 @@ pipedrive.Deals.get(1, function(err, deal) {
 
 To add multiple products with a single request, make the first argument of deal's ```addProduct``` method (as shown above) an array, e.g. ```[{ product_id: 1, quantity: 5, discount: 0 }, { product_id: 1, quantity: 2, discount: 20 }]```. This will add two product rows to a deal — one with a quantity of 5 and with no discount, the latter will add a separate row for the same product but with a quantity of 2 and no discount.
 
-## Remove a product from a deal
+## Delete a product from a deal
 ```js
 pipedrive.Deals.get(deal_id, function(err, deal) {
 	if (err) throw err;
 	deal.getProducts(function(productsErr, attachedProducts) {
 		if (productsErr) throw productsErr;
 		attachedProducts.forEach(function(attachedProduct) {
-			deal.removeProduct({ id: attachedProduct.id }, function(removeErr, removeSuccess) {
+			deal.deleteProduct({ id: attachedProduct.id }, function(removeErr, removeSuccess) {
 				if (!removeErr) console.log('Removed product ' + attachedProduct.product_id + ' from deal 1');
 			});
 		});
@@ -205,7 +205,7 @@ pipedrive.Filters.getAll({ type: 'deals' }, function(filtersListErr, filtersList
 
 # Actions not supported
 
- * Adding followers to deals/organizations/persons/users
+ * Adding followers to organizations/persons/users
 
 # API Documentation
 
