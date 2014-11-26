@@ -222,10 +222,6 @@ pipedrive.Filters.getAll({ type: 'deals' }, function(filtersListErr, filtersList
 });
 ```
 
-# Actions not supported
-
- * Adding followers to organizations/persons/users
-
 # API Documentation
 
 The Pipedrive REST API documentation can be found at https://developers.pipedrive.com/v1
