@@ -107,7 +107,6 @@ Deletes the {object} in Pipedrive via the API. Returns ```error``` in case of an
 Merges the {object} with another object of the same kind with the ID given as ```withId```. Returns ```error``` in case of error to the callback. Merge is only supported for the following objects:
  * Persons
  * Organizations
- * Users
 
 # Operations with nested objects
 
