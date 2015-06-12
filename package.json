@@ -1,22 +1,32 @@
 {
-	"name": "pipedrive",
-	"version": "1.7.3",
-	"description": "Pipedrive REST client for NodeJS",
-	"keywords":["pipedrive","CRM","sales","contacts","customers","deals","pipeline","sales pipeline"],
-	"homepage": "https://github.com/pipedrive/client-nodejs",
-	"main":"./lib/Pipedrive",
-	"engines": {
-		"node": ">= 0.8.x"
-	},
-	"repository": {
-		"type": "git",
-		"url": "http://github.com/pipedrive/client-nodejs.git"
-	},
-	"dependencies": {
-		"qs": "~2.1.0",
-		"lodash": "~2.4.1",
-		"fetch": "~0.3.6",
-		"mime": "~1.2.11",
-		"async": "~0.9.0"
-	}
+  "name": "pipedrive",
+  "version": "2.0.0",
+  "description": "Pipedrive REST client for NodeJS",
+  "keywords": [
+    "pipedrive",
+    "CRM",
+    "sales",
+    "contacts",
+    "customers",
+    "deals",
+    "pipeline",
+    "sales pipeline"
+  ],
+  "homepage": "https://github.com/pipedrive/client-nodejs",
+  "main": "./lib/Pipedrive",
+  "engines": {
+    "node": ">= 0.8.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/pipedrive/client-nodejs.git"
+  },
+  "dependencies": {
+    "async": "~0.9.0",
+    "fetch": "~0.3.6",
+    "lodash": "~2.4.1",
+    "mime": "~1.2.11",
+    "qs": "~2.1.0",
+    "sockjs-client-node": "^0.2.1"
+  }
 }
