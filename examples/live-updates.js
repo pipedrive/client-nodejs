@@ -4,8 +4,11 @@ if (!process.argv[2]) {
 }
 
 var Pipedrive = require(__dirname + '/../index');
-var pipedrive = new Pipedrive.Client(process.argv[2]);
+var pipedrive = new Pipedrive.Client(process.argv[2], { strictMode: true });
 var _ = require('lodash');
+
+
+var start = Date.now();
 
 pipedrive.on('deal.added', function(event, data) {
 	console.log('Deal ' + event.meta.id + ' was added ('+data.current.title+', worth '+data.current.value+' '+data.current.currency+')');
