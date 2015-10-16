@@ -27,6 +27,6 @@
     "lodash": "~2.4.1",
     "mime": "~1.2.11",
     "qs": "~2.1.0",
-    "sockjs-client-node": "^0.2.1"
+    "sockjs-client": "^1.0.3"
   }
 }
