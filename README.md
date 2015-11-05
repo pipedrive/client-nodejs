@@ -1,6 +1,6 @@
 # Pipedrive client for NodeJS based apps
 
-[![NPM version](https://badge.fury.io/js/pipedrive.svg)](http://badge.fury.io/js/pipedrive)
+[![NPM version](https://badge.fury.io/js/pipedrive.svg)](http://badge.fury.io/js/pipedrive) [![Build Status](https://travis-ci.org/pipedrive/client-nodejs.svg)](https://travis-ci.org/pipedrive/client-nodejs)
 
 Pipedrive is a sales pipeline software that gets you organized. It's a powerful sales CRM with effortless sales pipeline management. See www.pipedrive.com for details.
 
