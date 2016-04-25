@@ -1,3 +1,19 @@
+/*!
+ * This basic example shows how to fetch all products
+ * attached to a deal in Pipedrive.
+ *
+ * It starts by fetching the first deal from the account,
+ * it then starts to fetch all products attached to this
+ * deal, using pagination of 3 dealProducts per page,
+ * until all dealProducts are fetched.
+ *
+ * It will then display a list of attached products along
+ * with prices and quantities on the console.
+ *
+ * Usage:
+ * node list-all-deal-products.js APITOKEN
+**/
+
 if (!process.argv[2]) {
 	process.stderr.write('Please provide API token!' + "\n");
 	process.exit();
