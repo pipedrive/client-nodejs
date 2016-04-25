@@ -17,6 +17,13 @@
  * "Live deal". Once the deal is added, the original
  * callback for the 'deal.added' event gets invoked.
  *
+ * Note that the same callback would get called in
+ * each case a new deal gets created on your Pipedrive
+ * account for as long as your app is running.
+ * You may remove live listeners similarly to how
+ * EventEmitter API states, using the .removeListener()
+ * method.
+ *
  * This example shows you how to build real-time
  * integrations using EventEmitter style in Node.js
  * apps along with your Pipedrive account data.
@@ -41,7 +48,7 @@ var _ = require('lodash');
 var start = Date.now();
 
 pipedrive.on('deal.added', function(event, data) {
-	console.log('Deal ' + event.meta.id + ' was added ('+data.current.title+', worth '+data.current.value+' '+data.current.currency+')');
+	console.log('Deal ' + event.meta.id + ' was added (' + data.current.title + ', worth ' + data.current.value + ' ' + data.current.currency + ')');
 	pipedrive.removeAllListeners();
 	process.exit();
 });
