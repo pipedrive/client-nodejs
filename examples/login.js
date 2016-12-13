@@ -29,6 +29,7 @@ process.stdin.on('data', function (char) {
 		Pipedrive.authenticate(setAuthDetails, function(error, authorizations, userData) {
 			if (error) {
 				console.log(error);
+				return;
 			}
 
 			process.stdout.write("\n");
