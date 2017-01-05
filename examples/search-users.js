@@ -16,12 +16,10 @@ var reqParams = {
 	limit: 10
 };
 
-pipedrive.SearchResults.getAll(reqParams, function(searchErr, searchResults) {
-	console.log(arguments);
-	process.exit(0);
+pipedrive.Users.find(reqParams, function(searchErr, searchResults) {
 	if (searchErr) console.log(searchErr);
 	console.log('Found ' + searchResults.length + ' results:');
 	_.each(searchResults, function(result) {
-		console.log(result.type + ' ' + result.title + ' (id: ' + result.id + ')');
+		console.log(result.name + ' (id: ' + result.id + ')');
 	});
 });
