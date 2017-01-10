@@ -87,7 +87,6 @@ Delete multiple objects using an array of IDs. Returns ```error``` in case of an
 Merge two objects of the same kind. Returns ```error``` in case of an error to the callback. Merge is only supported for the following objects:
  * Persons
  * Organizations
- * Users
 
 ### pipedrive.{Object}.find (params, [fn callback])
 Find objects of certain kind by their name/title, using `term` property supplied inside params object. Supported for:
