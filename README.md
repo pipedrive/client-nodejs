@@ -89,6 +89,13 @@ Merge two objects of the same kind. Returns ```error``` in case of an error to t
  * Organizations
  * Users
 
+### pipedrive.{Object}.find (params, [fn callback])
+Find objects of certain kind by their name/title, using `term` property supplied inside params object. Supported for:
+ * Deals
+ * Persons
+ * Organizations
+ * Users
+
 # Supported operations for each object
 
 ### {object}.get(fieldName)

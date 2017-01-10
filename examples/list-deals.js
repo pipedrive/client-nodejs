@@ -33,7 +33,7 @@ pipedrive.Filters.getAll({ type: 'deals' }, function(filtersListErr, filtersList
 				deal.getActivities(function(err, activities) {
 					if (err) console.log(err);
 					if(activities === null) activities = [];
-					console.log('* ' + deal.get('title') + ' (worth ' + deal.get('value') + ' ' + deal.get('currency') + ', has ' + activities.length + ' activit' + (activities.length != 1 ? 'ies' : 'y') + ')');	
+					console.log('* ' + deal.get('title') + ' (worth ' + deal.get('value') + ' ' + deal.get('currency') + ', has ' + activities.length + ' activit' + (activities.length != 1 ? 'ies' : 'y') + ')');
 				});
 			});
 		});
