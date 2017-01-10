@@ -16,8 +16,9 @@ var reqParams = {
 	limit: 10
 };
 
-pipedrive.Activities.getAll({ user_id: 0 }, function(err, list) {
+pipedrive.Users.find({ term: process.argv[3] }, function(err, list) {
+	console.log('Found ' + list.length + ' user(s):');
 	_.forEach(list, function(item) {
-		console.log(item.subject);
+		console.log(item.name + ' (id: ' + item.id + ')');
 	});
 });
