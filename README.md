@@ -17,7 +17,7 @@ npm install pipedrive
 With a pre-set API token:
 ```js
 var Pipedrive = require('pipedrive');
-var pipedrive = new Pipedrive.Client('YOUR_API_TOKEN_HERE');
+var pipedrive = new Pipedrive.Client('YOUR_API_TOKEN_HERE', { strictMode: true });
 ```
 
 # A simple "Hello world" that lists some deals
@@ -26,7 +26,7 @@ Here's a quick example that will list some deals from your Pipedrive account:
 
 ```js
 var Pipedrive = require('pipedrive');
-var pipedrive = new Pipedrive.Client('YOUR_API_TOKEN_HERE');
+var pipedrive = new Pipedrive.Client('YOUR_API_TOKEN_HERE', { strictMode: true });
 
 pipedrive.Deals.getAll({}, function(err, deals) {
 	if (err) throw err;
@@ -61,7 +61,7 @@ pipedrive.Deals.getAll({}, function(err, deals) {
 # Authorization against email and password
 
 ### Pipedrive.authenticate({ email: 'john@doe.com', password: 'example' }, [fn callback]);
-Fetches the possible API tokens for the given user against email and password, passing ```error, data, additionalData``` to the callback function. You can use the API tokens returned by this method to instantiate the API client by issuing ```var pipedrive = new Pipedrive.Client('API_TOKEN_HERE')```.
+Fetches the possible API tokens for the given user against email and password, passing ```error, data, additionalData``` to the callback function. You can use the API tokens returned by this method to instantiate the API client by issuing ```var pipedrive = new Pipedrive.Client('API_TOKEN_HERE', { strictMode: true })```.
 
 # Supported operations for object collections
 
@@ -87,7 +87,6 @@ Delete multiple objects using an array of IDs. Returns ```error``` in case of an
 Merge two objects of the same kind. Returns ```error``` in case of an error to the callback. Merge is only supported for the following objects:
  * Persons
  * Organizations
- * Users
 
 ### pipedrive.{Object}.find (params, [fn callback])
 Find objects of certain kind by their name/title, using `term` property supplied inside params object. Supported for:
@@ -211,7 +210,7 @@ pipedrive.getAll('Persons', function (err, collection) {
 
 ```js
 var Pipedrive = require('pipedrive');
-var pipedrive = new Pipedrive.Client('PUT_YOUR_API_TOKEN_HERE');
+var pipedrive = new Pipedrive.Client('PUT_YOUR_API_TOKEN_HERE', { strictMode: true });
 
 pipedrive.Filters.getAll({ type: 'deals' }, function(filtersListErr, filtersList) {
 
