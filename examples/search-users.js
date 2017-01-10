@@ -16,10 +16,8 @@ var reqParams = {
 	limit: 10
 };
 
-pipedrive.Users.find(reqParams, function(searchErr, searchResults) {
-	if (searchErr) console.log(searchErr);
-	console.log('Found ' + searchResults.length + ' results:');
-	_.each(searchResults, function(result) {
-		console.log(result.name + ' (id: ' + result.id + ')');
+pipedrive.Activities.getAll({ user_id: 0 }, function(err, list) {
+	_.forEach(list, function(item) {
+		console.log(item.subject);
 	});
 });
