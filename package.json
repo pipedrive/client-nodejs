@@ -22,7 +22,7 @@
     "url": "http://github.com/pipedrive/client-nodejs.git"
   },
   "scripts": {
-    "test": "node_modules/mocha/bin/mocha test"
+    "test": "./node_modules/mocha/bin/mocha"
   },
   "dependencies": {
     "async": "~0.9.0",
