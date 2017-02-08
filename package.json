@@ -12,6 +12,7 @@
     "pipeline",
     "sales pipeline"
   ],
+  "license": "MIT",
   "homepage": "https://github.com/pipedrive/client-nodejs",
   "main": "./lib/Pipedrive",
   "engines": {
