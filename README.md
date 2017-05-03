@@ -227,9 +227,9 @@ pipedrive.Filters.getAll({ type: 'deals' }, function(filtersListErr, filtersList
 });
 ```
 
-# Ad hoc data change event listeneres
+# Ad hoc data change event listeneres (beta)
 
-The API client lets you create event listeners to specific data changes in your Pipedrive account. This is very similar to Web Hooks, except the listeners are bound on an ad hoc basis and will only be executed during the lifecycle of your application. For example (see below) you may want to execute a callback every time a new deal is added to Pipedrive. Note that this callback will execute not only when you create the deal through this API client but regardless of where the deal was added from — a mobile app, the web app or through the Pipedrive API by some other integration.
+The API client lets you create event listeners to specific data changes in your Pipedrive account. This is very similar to Webhooks, except the listeners are bound on an ad hoc basis and will only be executed during the lifecycle of your application. For example (see below) you may want to execute a callback every time a new deal is added to Pipedrive. Note that this callback will execute not only when you create the deal through this API client but regardless of where the deal was added from — a mobile app, the web app or through the Pipedrive API by some other integration.
 
 ```js
 var Pipedrive = require('pipedrive');
@@ -239,6 +239,8 @@ pipedrive.on('deal.added', function(event, data) {
 	console.log('A deal was added! ' + data.current.title + ' (' + data.current.value + ' ' + data.current.currency + ')');
 });
 ```
+
+Supported event names consist of object type (deal, person, organization, ...) and type of change (`added`, `deleted`, `updated` or `merged`), joined by a dot. The list of supported object types are listed in the [Pipedrive Webhooks documentation](https://app.pipedrive.com/webhooks).
 
 To read more about ad hoc data change event listeners, check out [examples/live-updates.js](examples/live-updates.js).
 
