@@ -248,6 +248,13 @@ To read more about ad hoc data change event listeners, check out [examples/live-
 
 The Pipedrive REST API documentation can be found at https://developers.pipedrive.com/v1
 
+#Testing
+To run unit tests, execute `npm run tests`
+
+To run integration tests, you need to provide API token with environment variables:
+
+```export PIPEDRIVE_API_TOKEN='xxxxxx' && npm run test:functional```
+
 # Licence
 
 This Pipedrive API client is distributed under the MIT licence.
