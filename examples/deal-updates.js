@@ -22,8 +22,13 @@ pipedrive.Deals.getAll({ start: 0, limit: 1 }, function(dealsListErr, dealsList)
 	if (dealsListErr) console.log(dealsListErr);
 	var deal = _.first(dealsList);
 
-	deal.getUpdates(function(err, activities) {
+	console.log('Deal '+ deal.title + ' (' + deal.value + ' ' + deal.currency + ')')
+
+	deal.getUpdates(function(err, updates) {
 		if (err) console.log(err);
-		console.log(JSON.stringify(activities, null, 2));
+		_.each(updates, function(update) {
+			console.log(update.object + ' from ' + update.timestamp.split(' ')[0] + ':');
+			console.log(JSON.stringify(update.data) + '\n');
+		});
 	});
 });
