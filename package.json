@@ -1,6 +1,6 @@
 {
   "name": "pipedrive",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "Pipedrive REST client for NodeJS",
   "keywords": [
     "pipedrive",
