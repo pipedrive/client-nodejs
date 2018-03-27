@@ -54,5 +54,6 @@ pipedrive.on('deal.added', function(event, data) {
 });
 
 pipedrive.on('connect', function() {
+	console.log('Connected to Pipedrive, adding new deal...');
 	pipedrive.Deals.add({ title: 'Live deal', value: 10000, currency: 'EUR' });
 });
