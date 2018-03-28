@@ -1,4 +1,4 @@
-var should = require('should');
+var assert = require('chai').assert;
 
 describe('lib/restHandlers', function () {
 
@@ -23,14 +23,14 @@ describe('lib/restHandlers', function () {
 			var called = false;
 			var callback = function (responseError, responseData) {
 				called = true;
-				should(responseData.length).be.equal(1);
-				should(responseData[0].id).be.equal(1);
+				assert.equal(responseData.length, 1);
+				assert.equal(responseData[0].id, 1);
 			};
 
 			restHandlers.genericResponse(
 				'GET', {}, responseBody, callback, defaultRequest, defaultResponse
 			);
-			should(called).be.equal(true);
+			assert.isTrue(called);
 		});
 
 		it('should pass error in callback on response containing error', function () {
@@ -39,13 +39,13 @@ describe('lib/restHandlers', function () {
 			var called = false;
 			var callback = function (responseError) {
 				called = true;
-				should(responseError.message).be.equal('Backend error');
+				assert.equal(responseError.message, 'Backend error');
 			};
 
 			restHandlers.genericResponse(
 				'GET', {}, responseBody, callback, defaultRequest, defaultResponse
 			);
-			should(called).be.equal(true);
+			assert.isTrue(called);
 		});
 
 		describe('error cases', function () {
@@ -54,7 +54,7 @@ describe('lib/restHandlers', function () {
 					'GET', {}, {}, null, defaultRequest
 				);
 
-				should(result).be.equal(undefined);
+				assert.isUndefined(result);
 			});
 
 			it('should throw basic error if response body is not json (plain text)', function () {
@@ -63,13 +63,13 @@ describe('lib/restHandlers', function () {
 				var called = false;
 				var callback = function (responseError) {
 					called = true;
-					should(responseError.message).be.equal('Malformed Pipedrive API response');
+					assert.equal(responseError.message, 'Malformed Pipedrive API response');
 				};
 
 				restHandlers.genericResponse(
 					'GET', {}, responseBody, callback, defaultRequest, defaultResponse
 				);
-				should(called).be.equal(true);
+				assert.isTrue(called);
 			});
 
 
@@ -80,7 +80,7 @@ describe('lib/restHandlers', function () {
 					var called = false;
 					var callback = function (responseError) {
 						called = true;
-						should(responseError.message).be.equal('Pipedrive API error:Backend error');
+						assert.equal(responseError.message, 'Pipedrive API error:Backend error');
 					};
 
 					restHandlers.genericResponse(
@@ -88,7 +88,7 @@ describe('lib/restHandlers', function () {
 							statusCode: 500
 						}
 					);
-					should(called).be.equal(true);
+					assert.isTrue(called);
 				});
 
 				it('should throw "Malformed" error, if response is not json', function () {
@@ -97,7 +97,7 @@ describe('lib/restHandlers', function () {
 					var called = false;
 					var callback = function (responseError) {
 						called = true;
-						should(responseError.message).be.equal('Malformed Pipedrive API response');
+						assert.equal(responseError.message, 'Malformed Pipedrive API response');
 					};
 
 					restHandlers.genericResponse(
@@ -106,7 +106,7 @@ describe('lib/restHandlers', function () {
 							rawEncoded: responseBody
 						}
 					);
-					should(called).be.equal(true);
+					assert.isTrue(called);
 				});
 
 				describe('raw response handling', function () {
@@ -117,7 +117,7 @@ describe('lib/restHandlers', function () {
 						var called = false;
 						var callback = function (responseError) {
 							called = true;
-							should(responseError.message).be.equal('Custom error');
+							assert.equal(responseError.message, 'Custom error');
 						};
 
 						restHandlers.genericResponse(
@@ -128,7 +128,7 @@ describe('lib/restHandlers', function () {
 								}
 							}
 						);
-						should(called).be.equal(true);
+						assert.isTrue(called);
 					});
 
 					it('should throw custom error object, if body.error is missing, but rawEncoded.error is passed from rest.js', function () {
@@ -137,7 +137,7 @@ describe('lib/restHandlers', function () {
 						var called = false;
 						var callback = function (responseError) {
 							called = true;
-							should(responseError.message).be.equal('Pipedrive API error:Custom backend error');
+							assert.equal(responseError.message, 'Pipedrive API error:Custom backend error');
 						};
 
 						restHandlers.genericResponse(
@@ -146,7 +146,7 @@ describe('lib/restHandlers', function () {
 								rawEncoded: '{"error":"Custom backend error"}'
 							}
 						);
-						should(called).be.equal(true);
+						assert.isTrue(called);
 					});
 				});
 			});

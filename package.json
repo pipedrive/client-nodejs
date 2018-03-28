@@ -1,6 +1,6 @@
 {
   "name": "pipedrive",
-  "version": "3.0.3",
+  "version": "3.0.7",
   "description": "Pipedrive REST client for NodeJS",
   "keywords": [
     "pipedrive",
@@ -34,7 +34,7 @@
     "sockjs-client": "^1.0.3"
   },
   "devDependencies": {
-    "mocha": "^3.2.0",
-    "should": "^11.1.2"
+    "chai": "^4.1.2",
+    "mocha": "^3.2.0"
   }
 }

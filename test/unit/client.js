@@ -1,22 +1,38 @@
-var should = require('should');
+var assert = require('chai').assert,
+	Pipedrive = require('./../..'),
+	blueprint = require('./../../lib/blueprint');
 
-describe('client module', function() {
+describe('client module', function () {
 
-	it('should expose some of the main object types', function() {
-		var Pipedrive = require('./../..'),
-			pipedrive = new Pipedrive.Client('apitoken'),
-			blueprint = require('./../../lib/blueprint');
+	beforeEach(function () {
+		client = new Pipedrive.Client('apitoken');
+		strictClient = new Pipedrive.Client('apitoken', {strictMode: true});
+	});
 
-		// iterate through all top level objects which should be exposed, e.g. pipedrive.Deals, ...
-		blueprint.apiObjects.forEach(function(obj) {
-			should(pipedrive[obj.substr(0,1).toUpperCase() + obj.substr(1)]).be.an.Object();
+	it('should expose main API objects', function () {
+		assert.isObject(client.Activities);
+		assert.isObject(client.Deals);
+
+		// iterate through all
+		blueprint.apiObjects.forEach(function (obj) {
+			assert.isObject(client[obj.substr(0, 1).toUpperCase() + obj.substr(1)]);
 		});
 	});
 
-	it('should expose .on() listener in strict mode', function() {
-		var Pipedrive = require('./../..'),
-			pipedrive = new Pipedrive.Client('apitoken', { strictMode: true });
+	describe('client.on()', function () {
+		it('should be defined in strict mode', function () {
+			assert.isFunction(strictClient.on);
+		});
 
-		should(pipedrive.on).be.a.Function();
+		it('should not be defined in regular mode', function () {
+			assert.isUndefined(client.on);
+		});
+	});
+
+	it('client.getAll() should throw error if non-existant resource is requested', function (done) {
+		client.getAll('bananas', function (error) {
+			assert.equal(error.message, 'bananas is not supported object type for getAll()');
+			return done();
+		});
 	});
 });
