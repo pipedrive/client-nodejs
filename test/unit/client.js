@@ -1,4 +1,4 @@
-var should = require('should/as-function'),
+var assert = require('chai').assert,
 	Pipedrive = require('./../..'),
 	blueprint = require('./../../lib/blueprint');
 
@@ -10,28 +10,28 @@ describe('client module', function () {
 	});
 
 	it('should expose main API objects', function () {
-		should(client.Activities).be.an.Object();
-		should(client.Deals).be.an.Object();
+		assert.isObject(client.Activities);
+		assert.isObject(client.Deals);
 
 		// iterate through all
 		blueprint.apiObjects.forEach(function (obj) {
-			should(client[obj.substr(0, 1).toUpperCase() + obj.substr(1)]).be.an.Object();
+			assert.isObject(client[obj.substr(0, 1).toUpperCase() + obj.substr(1)]);
 		});
 	});
 
 	describe('client.on()', function () {
 		it('should be defined in strict mode', function () {
-			should(strictClient.on).be.a.Function();
+			assert.isFunction(strictClient.on);
 		});
 
 		it('should not be defined in regular mode', function () {
-			should(client.on).be.a.Undefined();
+			assert.isUndefined(client.on);
 		});
 	});
 
 	it('client.getAll() should throw error if non-existant resource is requested', function (done) {
 		client.getAll('bananas', function (error) {
-			should(error.message).equal('bananas is not supported object type for getAll()');
+			assert.equal(error.message, 'bananas is not supported object type for getAll()');
 			return done();
 		});
 	});

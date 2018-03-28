@@ -1,4 +1,4 @@
-var should = require('should');
+var assert = require('chai').assert;
 
 describe('main module', function() {
 
@@ -9,8 +9,8 @@ describe('main module', function() {
 	it('should expose top-level functionality', function() {
 		var Pipedrive = require('./../..');
 
-		should(Pipedrive.Client).be.a.Function();
-		should(Pipedrive.authenticate).be.a.Function();
+		assert.isFunction(Pipedrive.Client);
+		assert.isFunction(Pipedrive.authenticate);
 	});
 
 });

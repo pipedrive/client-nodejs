@@ -69,7 +69,7 @@ Fetches the possible API tokens for the given user against email and password, p
 Add an object. Returns ```error, data``` to the callback where data contains the ```id``` property of the newly created item.
 
 ### pipedrive.{Object}.get (id, [fn callback])
-Get specific object. Returns ```error, object```
+Get specific object. Returns ```error, object, additionalData, rawRequest, rawResponse, relatedObjects```
 
 ### pipedrive.{Object}.update (id, data, [fn callback])
 Update an object. Returns ```error``` in case of an error to the callback.
