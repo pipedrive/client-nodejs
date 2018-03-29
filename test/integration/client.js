@@ -10,15 +10,11 @@ if (!API_TOKEN) {
 
 describe('client', function () {
 
-	var client, strictClient;
-
-	beforeEach(function () {
-		client = new Pipedrive.Client(API_TOKEN);
-		strictClient = new Pipedrive.Client(API_TOKEN, {strictMode: true});
-	});
-
+	var client;
 
 	describe('client.on()', function () {
+		var strictClient = new Pipedrive.Client(API_TOKEN, {strictMode: true});
+
 		it('should allow event binding to connect and deal adding', function (done) {
 			this.timeout(10000);
 
@@ -46,6 +42,8 @@ describe('client', function () {
 	});
 
 	describe('collection.getAll()', function () {
+		client = new Pipedrive.Client(API_TOKEN);
+
 		it('should list filters and deals', function (done) {
 			client.Filters.getAll({type: 'deals'}, function (filtersListErr, filtersList) {
 
@@ -67,6 +65,8 @@ describe('client', function () {
 	});
 
 	describe('collection.add() & collection.getItem()', function () {
+		client = new Pipedrive.Client(API_TOKEN);
+
 		it('should create and get deal', function (done) {
 
 			var payloadDeal = {
@@ -96,6 +96,8 @@ describe('client', function () {
 	});
 
 	describe('сollection.find()', function () {
+		client = new Pipedrive.Client(API_TOKEN);
+
 		it('should find first person by name', function (done) {
 			client.Persons.getAll(function (err, listedPersons) {
 				assert.isTrue(listedPersons.length > 0);
@@ -113,6 +115,8 @@ describe('client', function () {
 	});
 
 	describe('item.getUpdates()', function () {
+		client = new Pipedrive.Client(API_TOKEN);
+
 		it('should get changes deal had', function (done) {
 			client.Deals.getAll({start: 0, limit: 1}, function (dealsListErr, dealsList) {
 				if (dealsListErr) console.log(dealsListErr);
