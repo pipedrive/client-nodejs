@@ -10,7 +10,8 @@ describe('CollectionItem', function () {
 	var restHandlersPath = path.normalize(__dirname + '/../../lib/restHandlers');
 
 	var restHandlerMock = {
-		editItem: sinon.spy()
+		editItem: sinon.spy(),
+		listItems: sinon.spy()
 	};
 
 	var initWithMocks = function () {
@@ -33,6 +34,7 @@ describe('CollectionItem', function () {
 	});
 
 	it('should return object', function () {
+		console.log(item);
 		assert.isObject(item);
 		assert.isFunction(item.getUpdates);
 	});
@@ -44,7 +46,16 @@ describe('CollectionItem', function () {
 			assert.isFunction(item.deleteProduct);
 		});
 
-		it('should call restHandler.editItem() when item.updateProduct() is called', function () {
+		it('.getUpdates() should call restHandler.editItem()', function () {
+			item.getUpdates({
+				id: 3
+			});
+
+			sinon.assert.calledOnce(restHandlerMock.listItems);
+			sinon.assert.calledWith(restHandlerMock.listItems, 'deals/1/flow', {id: 3});
+		});
+
+		it('.updateProduct() should call restHandler.editItem()', function () {
 			item.updateProduct({
 				id: 2
 			});
