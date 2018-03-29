@@ -1,5 +1,6 @@
 var Pipedrive = require('./../..');
 var assert = require('chai').assert;
+var _ = require('lodash');
 
 var API_TOKEN = process.env.API_TOKEN;
 if (!API_TOKEN) {
@@ -16,7 +17,35 @@ describe('client', function () {
 		strictClient = new Pipedrive.Client(API_TOKEN, {strictMode: true});
 	});
 
-	describe('.getAll()', function () {
+
+	describe('client.on()', function () {
+		it('should allow event binding to connect and deal adding', function (done) {
+			this.timeout(10000);
+
+			var deal = {title: 'Client-nodejs - .on() test', value: 10000, currency: 'EUR'};
+
+			strictClient.on('connect', function () {
+				strictClient.Deals.add(deal, function (error, result) {
+					deal.id = result.id;
+				});
+			});
+
+			strictClient.on('deal.added', function (event, data) {
+				assert.equal(data.current.title, deal.title);
+				assert.equal(data.current.value, deal.value);
+				assert.equal(data.current.currency, deal.currency);
+
+				strictClient.removeAllListeners();
+
+				//cleanup
+				strictClient.Deals.remove(deal.id, function () {
+					done();
+				});
+			});
+		});
+	});
+
+	describe('collection.getAll()', function () {
 		it('should list filters and deals', function (done) {
 			client.Filters.getAll({type: 'deals'}, function (filtersListErr, filtersList) {
 
@@ -37,7 +66,7 @@ describe('client', function () {
 		});
 	});
 
-	describe('.add() & .getItem()', function () {
+	describe('collection.add() & collection.getItem()', function () {
 		it('should create and get deal', function (done) {
 
 			var payloadDeal = {
@@ -66,34 +95,7 @@ describe('client', function () {
 		});
 	});
 
-	describe('.on()', function () {
-		it('should allow event binding to connect and deal adding', function (done) {
-			this.timeout(10000);
-
-			var deal = {title: 'Client-nodejs - .on() test', value: 10000, currency: 'EUR'};
-
-			strictClient.on('connect', function () {
-				strictClient.Deals.add(deal, function (error, result) {
-					deal.id = result.id;
-				});
-			});
-
-			strictClient.on('deal.added', function (event, data) {
-				assert.equal(data.current.title, deal.title);
-				assert.equal(data.current.value, deal.value);
-				assert.equal(data.current.currency, deal.currency);
-
-				strictClient.removeAllListeners();
-
-				//cleanup
-				strictClient.Deals.remove(deal.id, function () {
-					done();
-				});
-			});
-		});
-	});
-
-	describe('.find()', function () {
+	describe('сollection.find()', function () {
 		it('should find first person by name', function (done) {
 			client.Persons.getAll(function (err, listedPersons) {
 				assert.isTrue(listedPersons.length > 0);
@@ -108,5 +110,21 @@ describe('client', function () {
 				});
 			});
 		})
+	});
+
+	describe('item.getUpdates()', function () {
+		it('should get changes deal had', function (done) {
+			client.Deals.getAll({start: 0, limit: 1}, function (dealsListErr, dealsList) {
+				if (dealsListErr) console.log(dealsListErr);
+				var deal = _.first(dealsList);
+
+				deal.getUpdates(function (err, updates) {
+					assert.isTrue(updates.length > 0);
+					assert.equal(updates[0].object, 'dealChange');
+
+					done();
+				});
+			});
+		});
 	})
 });
