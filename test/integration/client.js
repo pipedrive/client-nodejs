@@ -8,25 +8,25 @@ if (!API_TOKEN) {
 	process.exit();
 }
 
-describe('client', function () {
+describe('client', function() {
 
 	var client;
 
-	describe('client.on()', function () {
-		var strictClient = new Pipedrive.Client(API_TOKEN, {strictMode: true});
+	describe('client.on()', function() {
+		var strictClient = new Pipedrive.Client(API_TOKEN, { strictMode: true });
 
-		it('should allow event binding to connect and deal adding', function (done) {
+		it('should allow event binding to connect and deal adding', function(done) {
 			this.timeout(10000);
 
-			var deal = {title: 'Client-nodejs - .on() test', value: 10000, currency: 'EUR'};
+			var deal = { title: 'Client-nodejs - .on() test', value: 10000, currency: 'EUR' };
 
-			strictClient.on('connect', function () {
-				strictClient.Deals.add(deal, function (error, result) {
+			strictClient.on('connect', function() {
+				strictClient.Deals.add(deal, function(error, result) {
 					deal.id = result.id;
 				});
 			});
 
-			strictClient.on('deal.added', function (event, data) {
+			strictClient.on('deal.added', function(event, data) {
 				assert.equal(data.current.title, deal.title);
 				assert.equal(data.current.value, deal.value);
 				assert.equal(data.current.currency, deal.currency);
@@ -34,25 +34,25 @@ describe('client', function () {
 				strictClient.removeAllListeners();
 
 				//cleanup
-				strictClient.Deals.remove(deal.id, function () {
+				strictClient.Deals.remove(deal.id, function() {
 					done();
 				});
 			});
 		});
 	});
 
-	describe('collection.getAll()', function () {
+	describe('collection.getAll()', function() {
 		client = new Pipedrive.Client(API_TOKEN);
 
-		it('should list filters and deals', function (done) {
-			client.Filters.getAll({type: 'deals'}, function (filtersListErr, filtersList) {
+		it('should list filters and deals', function(done) {
+			client.Filters.getAll({ type: 'deals' }, function(filtersListErr, filtersList) {
 
 				assert.isTrue(filtersList.length > 0);
 				assert.equal(filtersList[0].get('name'), 'All open deals');
 
 				client.Deals.getAll(
-					{filter_id: filtersList[0].get('id'), start: 0, limit: 5},
-					function (dealsListErr, dealsList, additionalData, rawReq, rawRes, relatedObjects) {
+					{ filter_id: filtersList[0].get('id'), start: 0, limit: 5 },
+					function(dealsListErr, dealsList, additionalData, rawReq, rawRes, relatedObjects) {
 						assert.isTrue(dealsList.length > 0);
 
 						assert.isDefined(relatedObjects.user);
@@ -64,10 +64,10 @@ describe('client', function () {
 		});
 	});
 
-	describe('collection.add() & collection.getItem()', function () {
+	describe('collection.add() & collection.getItem()', function() {
 		client = new Pipedrive.Client(API_TOKEN);
 
-		it('should create and get deal', function (done) {
+		it('should create and get deal', function(done) {
 
 			var payloadDeal = {
 				title: 'Client-nodejs - .add() test',
@@ -76,18 +76,18 @@ describe('client', function () {
 			};
 
 			//create
-			client.Deals.add(payloadDeal, function (dealAddError, createdDeal) {
+			client.Deals.add(payloadDeal, function(dealAddError, createdDeal) {
 				assert.isDefined(createdDeal.id);
 
 				//get
-				client.Deals.get(createdDeal.id, function (dealsListErr, fetchedDeal, additionalData, rawReq, rawRes, relatedObjects) {
+				client.Deals.get(createdDeal.id, function(dealsListErr, fetchedDeal, additionalData, rawReq, rawRes, relatedObjects) {
 					assert.equal(fetchedDeal.value, payloadDeal.value);
 					assert.equal(fetchedDeal.title, payloadDeal.title);
 
 					assert.isDefined(relatedObjects.user);
 
 					//cleanup
-					client.Deals.remove(createdDeal.id, function () {
+					client.Deals.remove(createdDeal.id, function() {
 						done();
 					});
 				});
@@ -95,14 +95,14 @@ describe('client', function () {
 		});
 	});
 
-	describe('сollection.find()', function () {
+	describe('сollection.find()', function() {
 		client = new Pipedrive.Client(API_TOKEN);
 
-		it('should find first person by name', function (done) {
-			client.Persons.getAll(function (err, listedPersons) {
+		it('should find first person by name', function(done) {
+			client.Persons.getAll(function(err, listedPersons) {
 				assert.isTrue(listedPersons.length > 0);
 
-				client.Persons.find({term: listedPersons[0].name}, function (error, foundPersons, additionalData, req, res, relatedObjects) {
+				client.Persons.find({ term: listedPersons[0].name }, function(error, foundPersons, additionalData, req, res, relatedObjects) {
 					assert.equal(foundPersons.length, 1);
 					assert.equal(foundPersons[0].id, listedPersons[0].id);
 
@@ -114,15 +114,15 @@ describe('client', function () {
 		})
 	});
 
-	describe('item.getUpdates()', function () {
+	describe('item.getUpdates()', function() {
 		client = new Pipedrive.Client(API_TOKEN);
 
-		it('should get changes deal had', function (done) {
-			client.Deals.getAll({start: 0, limit: 1}, function (dealsListErr, dealsList) {
+		it('should get changes deal had', function(done) {
+			client.Deals.getAll({ start: 0, limit: 1 }, function(dealsListErr, dealsList) {
 				if (dealsListErr) console.log(dealsListErr);
 				var deal = _.first(dealsList);
 
-				deal.getUpdates(function (err, updates) {
+				deal.getUpdates(function(err, updates) {
 					assert.isTrue(updates.length > 0);
 					assert.equal(updates[0].object, 'dealChange');
 
