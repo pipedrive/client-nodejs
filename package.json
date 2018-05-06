@@ -32,7 +32,6 @@
     "mime": "~1.4.1",
     "qs": "~2.1.0",
     "querystring": "^0.2.0",
-    "request": "^2.83.0",
     "sockjs-client": "^1.0.3"
   },
   "devDependencies": {
