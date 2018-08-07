@@ -30,7 +30,7 @@
     "fetch": "~0.3.6",
     "lodash": "~4.17.10",
     "mime": "~1.4.1",
-    "qs": "~2.1.0",
+    "qs": "~6.0.4",
     "sockjs-client": "^1.0.3"
   },
   "devDependencies": {
