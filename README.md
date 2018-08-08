@@ -42,21 +42,27 @@ pipedrive.Deals.getAll({}, function(err, deals) {
  * ActivityTypes
  * Authorizations
  * Currencies
+ * CompanyFeatures,
+ * CompanySettings,
  * Deals
  * DealFields
  * Files
  * Filters
+ * Goals
  * Notes
  * Organizations
  * OrganizationFields
+ * PermissionSets
  * Persons
  * PersonFields
  * Pipelines
  * Products
  * ProductFields
+ * Roles
  * SearchResults
  * Stages
  * Users
+ * Webhooks
 
 # Authorization against email and password
 
@@ -122,7 +128,7 @@ To add a product to a deal, simply invoke the ```addProduct``` method on a deal 
 ```js
 pipedrive.Deals.get(1, function(err, deal) {
 	if (err) throw err;
-	deal.addProduct({ product_id: 1, quantity: 5, discount: 20 }, function(addErr, addData) {
+	deal.addProduct({ product_id: 1, quantity: 5, item_price: 10, discount: 20 }, function(addErr, addData) {
 		if (addErr) throw addErr;
 		console.log('Product 1 was added to deal 1', addData);
 	});
