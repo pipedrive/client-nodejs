@@ -28,9 +28,9 @@
   "dependencies": {
     "async": "~0.9.0",
     "fetch": "~0.3.6",
-    "lodash": "~2.4.1",
+    "lodash": "~4.17.10",
     "mime": "~1.4.1",
-    "qs": "~2.1.0",
+    "qs": "~6.0.4",
     "sockjs-client": "^1.0.3"
   },
   "devDependencies": {
