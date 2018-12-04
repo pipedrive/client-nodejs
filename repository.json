@@ -1,0 +1,6 @@
+{
+  "name": "client-nodejs",
+  "description": "Pipedrive client for NodeJS based apps",
+  "owner": "Pipedrive",
+  "type": "library"
+}

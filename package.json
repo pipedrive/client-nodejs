@@ -1,6 +1,6 @@
 {
   "name": "pipedrive",
-  "version": "4.0.0",
+  "version": "6.0.2",
   "description": "Pipedrive REST client for NodeJS",
   "keywords": [
     "pipedrive",
@@ -16,7 +16,7 @@
   "homepage": "https://github.com/pipedrive/client-nodejs",
   "main": "./lib/Pipedrive",
   "engines": {
-    "node": ">= 0.8.x"
+    "node": ">=6.0"
   },
   "repository": {
     "type": "git",
@@ -28,15 +28,15 @@
   "dependencies": {
     "async": "~0.9.0",
     "fetch": "~0.3.6",
-    "lodash": "~2.4.1",
+    "lodash": "~4.17.10",
     "mime": "~1.4.1",
-    "qs": "~2.1.0",
+    "qs": "~6.0.4",
     "sockjs-client": "^1.0.3"
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "mocha": "^3.2.0",
+    "mocha": "^5.2.0",
     "proxyquire": "^2.0.1",
-    "sinon": "^3.2.0"
+    "sinon": "^6.1.4"
   }
 }
