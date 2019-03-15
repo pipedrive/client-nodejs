@@ -261,3 +261,7 @@ To run unit tests, execute `npm run tests`
 
 This Pipedrive API client is distributed under the MIT licence.
 
+# Contribution
+
+TBD
+
