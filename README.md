@@ -64,11 +64,6 @@ pipedrive.Deals.getAll({}, function(err, deals) {
  * Users
  * Webhooks
 
-# Authorization against email and password
-
-### Pipedrive.authenticate({ email: 'john@doe.com', password: 'example' }, [fn callback]);
-Fetches the possible API tokens for the given user against email and password, passing ```error, data, additionalData``` to the callback function. You can use the API tokens returned by this method to instantiate the API client by issuing ```var pipedrive = new Pipedrive.Client('API_TOKEN_HERE', { strictMode: true })```.
-
 # Supported operations for object collections
 
 ### pipedrive.{Object}.add (data, [fn callback])
