@@ -10,7 +10,6 @@ describe('main module', function() {
 		var Pipedrive = require('./../..');
 
 		assert.isFunction(Pipedrive.Client);
-		assert.isFunction(Pipedrive.authenticate);
 	});
 
 });
