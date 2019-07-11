@@ -19,16 +19,6 @@ describe('client module', function () {
 		});
 	});
 
-	describe('client.on()', function () {
-		it('should be defined in strict mode', function () {
-			assert.isFunction(strictClient.on);
-		});
-
-		it('should not be defined in regular mode', function () {
-			assert.isUndefined(client.on);
-		});
-	});
-
 	it('client.getAll() should throw error if non-existant resource is requested', function (done) {
 		client.getAll('bananas', function (error) {
 			assert.equal(error.message, 'bananas is not supported object type for getAll()');

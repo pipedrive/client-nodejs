@@ -17,34 +17,6 @@ describe('client', function () {
 		strictClient = new Pipedrive.Client(API_TOKEN, {strictMode: true});
 	});
 
-
-	describe('client.on()', function () {
-		it('should allow event binding to connect and deal adding', function (done) {
-			this.timeout(10000);
-
-			var deal = {title: 'Client-nodejs - .on() test', value: 10000, currency: 'EUR'};
-
-			strictClient.on('connect', function () {
-				strictClient.Deals.add(deal, function (error, result) {
-					deal.id = result.id;
-				});
-			});
-
-			strictClient.on('deal.added', function (event, data) {
-				assert.equal(data.current.title, deal.title);
-				assert.equal(data.current.value, deal.value);
-				assert.equal(data.current.currency, deal.currency);
-
-				strictClient.removeAllListeners();
-
-				//cleanup
-				strictClient.Deals.remove(deal.id, function () {
-					done();
-				});
-			});
-		});
-	});
-
 	describe('collection.getAll()', function () {
 		it('should list filters and deals', function (done) {
 			client.Filters.getAll({type: 'deals'}, function (filtersListErr, filtersList) {
