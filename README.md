@@ -9,7 +9,7 @@ This is the official Pipedrive API wrapper-client for NodeJS based apps, distrib
 # Install
 
 ```
-npm install pipedrive
+npm install
 ```
 
 # Usage
@@ -233,7 +233,7 @@ pipedrive.Filters.getAll({ type: 'deals' }, function(filtersListErr, filtersList
 The Pipedrive REST API documentation can be found at https://developers.pipedrive.com/v1
 
 # Testing
-To run unit tests, execute `npm run tests`
+To run unit tests, execute `npm run test`
 
 # Licence
 
