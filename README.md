@@ -232,14 +232,13 @@ pipedrive.Filters.getAll({ type: 'deals' }, function(filtersListErr, filtersList
 
 The Pipedrive REST API documentation can be found at https://developers.pipedrive.com/v1
 
-# Testing
-To run unit tests, execute `npm run tests`
+# Testing & Quality
+To run unit tests, execute `npm run test`
 
 # Licence
 
 This Pipedrive API client is distributed under the MIT licence.
 
 # Contribution
-
-TBD
-
+- Run tests
+- Make PR
