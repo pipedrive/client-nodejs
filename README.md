@@ -1,26 +1,43 @@
 # Pipedrive client for NodeJS based apps
-
-[![NPM version](https://badge.fury.io/js/pipedrive.svg)](http://badge.fury.io/js/pipedrive) [![Build Status](https://travis-ci.org/pipedrive/client-nodejs.svg)](https://travis-ci.org/pipedrive/client-nodejs)
-
 Pipedrive is a sales pipeline software that gets you organized. It's a powerful sales CRM with effortless sales pipeline management. See www.pipedrive.com for details.
 
 This is the official Pipedrive API wrapper-client for NodeJS based apps, distributed by Pipedrive Inc freely under the MIT licence. It provides you with basic functionality for operating with objects such as Deals, Persons, Organizations, Products and much more, without having to worry about the underlying networking stack and actual HTTPS requests.
 
-# Install
-
+## Installation
 ```
 npm install pipedrive
 ```
 
-# Usage
+## Roadmap & known issues
+- [Missing async/await promise support](https://github.com/pipedrive/client-nodejs/issues/81)
+- Missing oauth 2.0 support
 
+## API Documentation
+The Pipedrive REST API documentation can be found at https://developers.pipedrive.com/v1
+
+## Testing & Quality
+[![NPM version](https://badge.fury.io/js/pipedrive.svg)](http://badge.fury.io/js/pipedrive) [![Build Status](https://travis-ci.org/pipedrive/client-nodejs.svg)](https://travis-ci.org/pipedrive/client-nodejs)
+
+To run unit tests, execute 
+```bash
+npm run test
+```
+
+## Licence
+This Pipedrive API client is distributed under the MIT licence.
+
+## Contribution
+- Run tests
+- Make PR
+
+# How to use
 With a pre-set API token:
 ```js
 var Pipedrive = require('pipedrive');
 var pipedrive = new Pipedrive.Client('YOUR_API_TOKEN_HERE', { strictMode: true });
 ```
 
-# A simple "Hello world" that lists some deals
+### A simple "Hello world" that lists some deals
 
 Here's a quick example that will list some deals from your Pipedrive account:
 
@@ -36,7 +53,7 @@ pipedrive.Deals.getAll({}, function(err, deals) {
 });
 ```
 
-# Supported objects
+### Supported objects
 
  * Activities
  * ActivityTypes
@@ -64,60 +81,60 @@ pipedrive.Deals.getAll({}, function(err, deals) {
  * Users
  * Webhooks
 
-# Supported operations for object collections
+### Supported operations for object collections
 
-### pipedrive.{Object}.add (data, [fn callback])
+#### pipedrive.{Object}.add (data, [fn callback])
 Add an object. Returns ```error, data``` to the callback where data contains the ```id``` property of the newly created item.
 
-### pipedrive.{Object}.get (id, [fn callback])
+#### pipedrive.{Object}.get (id, [fn callback])
 Get specific object. Returns ```error, object, additionalData, rawRequest, rawResponse, relatedObjects```
 
-### pipedrive.{Object}.update (id, data, [fn callback])
+#### pipedrive.{Object}.update (id, data, [fn callback])
 Update an object. Returns ```error``` in case of an error to the callback.
 
-### pipedrive.{Object}.getAll (params, [fn callback])
+#### pipedrive.{Object}.getAll (params, [fn callback])
 Get all objects, optionally passing additional parameters (such as ```filter_id``` in case of deals, persons and organizations). Returns ```error, objects``` to the callback function where objects is a collection (array) of objects.
 
-### pipedrive.{Object}.remove (id, [fn callback])
+#### pipedrive.{Object}.remove (id, [fn callback])
 Delete an object with a specifc ID. Returns ```error``` in case of an error to the callback.
 
-### pipedrive.{Object}.removeMany ([Array ids], [fn callback])
+#### pipedrive.{Object}.removeMany ([Array ids], [fn callback])
 Delete multiple objects using an array of IDs. Returns ```error``` in case of an error to the callback.
 
-### pipedrive.{Object}.merge (whichId, withId, [fn callback])
+#### pipedrive.{Object}.merge (whichId, withId, [fn callback])
 Merge two objects of the same kind. Returns ```error``` in case of an error to the callback. Merge is only supported for the following objects:
  * Persons
  * Organizations
 
-### pipedrive.{Object}.find (params, [fn callback])
+#### pipedrive.{Object}.find (params, [fn callback])
 Find objects of certain kind by their name/title, using `term` property supplied inside params object. Supported for:
  * Deals
  * Persons
  * Organizations
  * Users
 
-# Supported operations for each object
+### Supported operations for each object
 
-### {object}.get(fieldName)
+#### {object}.get(fieldName)
 Returns the value of [fieldName] of the object.
 
-### {object}.set(fieldName, newValue)
+#### {object}.set(fieldName, newValue)
 Sets a new value of [fieldName] of the object. Returns {object}.
 
-### {object}.save([fn callback])
+#### {object}.save([fn callback])
 Updates the state of the {object} in Pipedrive via the API. Returns {object}.
 
-### {object}.remove([fn callback])
+#### {object}.remove([fn callback])
 Deletes the {object} in Pipedrive via the API. Returns ```error``` in case of an error to the callback.
 
-### {object}.merge(withId, [fn callback])
+#### {object}.merge(withId, [fn callback])
 Merges the {object} with another object of the same kind with the ID given as ```withId```. Returns ```error``` in case of error to the callback. Merge is only supported for the following objects:
  * Persons
  * Organizations
 
-# Operations with nested objects
+### Operations with nested objects
 
-## Adding a product to a deal
+#### Adding a product to a deal
 
 To add a product to a deal, simply invoke the ```addProduct``` method on a deal object.
 ```js
@@ -129,11 +146,11 @@ pipedrive.Deals.get(1, function(err, deal) {
 	});
 })
 ```
-## You can add multiple products with a single request, too.
+#### You can add multiple products with a single request, too.
 
 To add multiple products with a single request, make the first argument of deal's ```addProduct``` method (as shown above) an array, e.g. ```[{ product_id: 1, quantity: 5, discount: 0 }, { product_id: 1, quantity: 2, discount: 20 }]```. This will add two product rows to a deal — one with a quantity of 5 and with no discount, the latter will add a separate row for the same product but with a quantity of 2 and no discount.
 
-## Updating a deal product
+#### Updating a deal product
 ```js
 pipedrive.Deals.get(deal_id, function(err, deal) {
 	if (err) throw err;
@@ -152,7 +169,7 @@ pipedrive.Deals.get(deal_id, function(err, deal) {
 Updating multiple deal products in one request is not supported yet.
 
 
-## Delete a product from a deal
+#### Delete a product from a deal
 ```js
 pipedrive.Deals.get(deal_id, function(err, deal) {
 	if (err) throw err;
@@ -167,7 +184,7 @@ pipedrive.Deals.get(deal_id, function(err, deal) {
 })
 ```
 
-## Search for field value matches
+#### Search for field value matches
 
 There is an additional method to perform the `SearchResults/field` search. This can be used for field-value searches.
 
@@ -191,7 +208,7 @@ pipedrive.SearchResults.field({
  * **start** (optional, default 0) – results pagination start
  * **limit** (optional, default 100) — results pagination limit
 
-## Retrieve all records for a given object type:
+#### Retrieve all records for a given object type:
 
 You can request all entries for an valid object using `getAll(object, callback)`
 
@@ -205,9 +222,8 @@ pipedrive.getAll('Persons', function (err, collection) {
 });
 ```
 
-# Examples
-
-## Get 15 first deals using the first deals filter
+### Examples
+#### Get 15 first deals using the first deals filter
 
 ```js
 var Pipedrive = require('pipedrive');
@@ -227,18 +243,3 @@ pipedrive.Filters.getAll({ type: 'deals' }, function(filtersListErr, filtersList
 
 });
 ```
-
-# API Documentation
-
-The Pipedrive REST API documentation can be found at https://developers.pipedrive.com/v1
-
-# Testing & Quality
-To run unit tests, execute `npm run test`
-
-# Licence
-
-This Pipedrive API client is distributed under the MIT licence.
-
-# Contribution
-- Run tests
-- Make PR
