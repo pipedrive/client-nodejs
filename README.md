@@ -31,8 +31,6 @@ This Pipedrive API client is distributed under the MIT licence.
 - Make PR
 
 ## Options
-* `strictMode` - In strict mode `*_id` items in the responses are numeric IDs. Default is *false* in which case expanded
- objects are returned. Strict mode is recommended and is likely to be the default in the future.
 * `oauth` - whether the API token is to be used as OAuth bearer token instead of classic API key (default is *false*). 
 When setting `oauth` to true your application code must take care of fetching, storing and refershing the tokens.
 
