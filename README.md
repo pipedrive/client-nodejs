@@ -30,6 +30,12 @@ This Pipedrive API client is distributed under the MIT licence.
 - Run tests
 - Make PR
 
+## Options
+* `strictMode` - In strict mode `*_id` items in the responses are numeric IDs. Default is *false* in which case expanded
+ objects are returned. Strict mode is recommended and is likely to be the default in the future.
+* `oauth` - whether the API token is to be used as OAuth bearer token instead of classic API key (default is *false*). 
+When setting `oauth` to true your application code must take care of fetching, storing and refershing the tokens.
+
 # How to use
 With a pre-set API token:
 ```js
@@ -56,6 +62,7 @@ pipedrive.Deals.getAll({}, function(err, deals) {
 ### Supported objects
 
  * Activities
+ * ActivityFields
  * ActivityTypes
  * Authorizations
  * Currencies
@@ -63,6 +70,7 @@ pipedrive.Deals.getAll({}, function(err, deals) {
  * CompanySettings,
  * Deals
  * DealFields
+ * EmailThreads
  * Files
  * Filters
  * Goals
@@ -79,6 +87,7 @@ pipedrive.Deals.getAll({}, function(err, deals) {
  * SearchResults
  * Stages
  * Users
+ * userFields
  * Webhooks
 
 ### Supported operations for object collections
