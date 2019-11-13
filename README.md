@@ -56,6 +56,7 @@ pipedrive.Deals.getAll({}, function(err, deals) {
 ### Supported objects
 
  * Activities
+ * ActivityFields
  * ActivityTypes
  * Authorizations
  * Currencies
@@ -63,6 +64,7 @@ pipedrive.Deals.getAll({}, function(err, deals) {
  * CompanySettings,
  * Deals
  * DealFields
+ * EmailThreads
  * Files
  * Filters
  * Goals
@@ -79,6 +81,7 @@ pipedrive.Deals.getAll({}, function(err, deals) {
  * SearchResults
  * Stages
  * Users
+ * userFields
  * Webhooks
 
 ### Supported operations for object collections
