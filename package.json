@@ -16,7 +16,7 @@
   "homepage": "https://github.com/pipedrive/client-nodejs",
   "main": "./lib/Pipedrive",
   "engines": {
-    "node": ">=6.0"
+    "node": ">=8.0"
   },
   "repository": {
     "type": "git",
