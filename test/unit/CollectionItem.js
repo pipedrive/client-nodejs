@@ -35,7 +35,6 @@ describe('CollectionItem', function () {
 	});
 
 	it('should return object', function () {
-		console.log(item);
 		assert.isObject(item);
 		assert.isFunction(item.getUpdates);
 	});
