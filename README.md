@@ -23,11 +23,19 @@ To run unit tests, execute
 npm run test
 ```
 
+To run integration tests, execute 
+```bash
+export PIPEDRIVE_API_TOKEN=YOUR_API_TOKEN
+npm run test:integration
+```
+
+__Important!__ Integration tests will add data to the account, so please run with caution! 
+
 ## Licence
 This Pipedrive API client is distributed under the MIT licence.
 
 ## Contribution
-- Run tests
+- Run unit and integration tests
 - Make PR
 
 # How to use
