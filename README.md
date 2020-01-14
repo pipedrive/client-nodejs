@@ -10,7 +10,6 @@ npm install pipedrive
 
 ## Roadmap & known issues
 - [Missing async/await promise support](https://github.com/pipedrive/client-nodejs/issues/81)
-- [Missing oauth 2.0 support](https://github.com/pipedrive/client-nodejs/issues/78)
 
 ## API Documentation
 The Pipedrive REST API documentation can be found at https://developers.pipedrive.com/v1
