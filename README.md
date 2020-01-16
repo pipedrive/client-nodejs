@@ -10,7 +10,6 @@ npm install pipedrive
 
 ## Roadmap & known issues
 - [Missing async/await promise support](https://github.com/pipedrive/client-nodejs/issues/81)
-- [Missing oauth 2.0 support](https://github.com/pipedrive/client-nodejs/issues/78)
 
 ## API Documentation
 The Pipedrive REST API documentation can be found at https://developers.pipedrive.com/v1
@@ -38,6 +37,12 @@ This Pipedrive API client is distributed under the MIT licence.
 - Run unit and integration tests
 - Make PR
 
+## Options
+* `strictMode` - In strict mode `*_id` items in the responses are numeric IDs. Default is *false* in which case expanded
+ objects are returned. Strict mode is recommended and is likely to be the default in the future.
+* `oauth` - whether the API token is to be used as OAuth bearer token instead of classic API key (default is *false*). 
+When setting `oauth` to true your application code must take care of fetching, storing and refershing the tokens.
+
 # How to use
 With a pre-set API token:
 ```js
@@ -64,6 +69,7 @@ pipedrive.Deals.getAll({}, function(err, deals) {
 ### Supported objects
 
  * Activities
+ * ActivityFields
  * ActivityTypes
  * Authorizations
  * Currencies
@@ -71,6 +77,7 @@ pipedrive.Deals.getAll({}, function(err, deals) {
  * CompanySettings,
  * Deals
  * DealFields
+ * EmailThreads
  * Files
  * Filters
  * Goals
@@ -87,6 +94,7 @@ pipedrive.Deals.getAll({}, function(err, deals) {
  * SearchResults
  * Stages
  * Users
+ * userFields
  * Webhooks
 
 ### Supported operations for object collections
