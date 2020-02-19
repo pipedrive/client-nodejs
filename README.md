@@ -10,7 +10,7 @@ npm install pipedrive
 
 > ⚠️ Version 10 is a complete rewrite of the library. This release includes improved OAuth 2 support, async & await / promises and access to all API endpoints.
 >
-> Please use the [issues page](https://github.com/pipedrive/client-nodejs/issues) for reporting bugs or leaving feedback. Keep in mind most of the code is [automatically generated](https://github.com/pipedrive/client-nodejs/#contributing).
+> Please use the [issues page](https://github.com/pipedrive/client-nodejs/issues) for reporting bugs or leaving feedback. Note that most of the code is [automatically generated](https://github.com/pipedrive/client-nodejs/#contributing).
 
 ## API Reference
 The Pipedrive RESTful API Reference can be found at https://developers.pipedrive.com/docs/api/v1
