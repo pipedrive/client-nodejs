@@ -8,8 +8,7 @@ node_js:
 notifications:
   email:
     recipients:
-      - martin@pipedrive.com
-      - kristo.kaiv@pipedrive.com
+      - gravity.tribe@pipedrive.com
     on_success: change
     on_failure: change
 
