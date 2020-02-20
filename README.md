@@ -8,7 +8,9 @@ This is the official Pipedrive API wrapper-client for NodeJS based apps, distrib
 npm install pipedrive
 ```
 
-> ⚠️ Version 10 is a complete rewrite of the library. This release includes improved OAuth 2 support, async & await / promises and access to all API endpoints.
+> ⚠️ Version 10 is a complete rewrite of the library and introduces breaking changes in the client API. This release includes improved OAuth 2 support, async & await / promises and access to all Pipedrive API endpoints.
+>
+> If you have been using a previous version of the client and cannot upgrade immediately, [older versions](https://github.com/pipedrive/client-nodejs/releases) are still available.
 >
 > Please use the [issues page](https://github.com/pipedrive/client-nodejs/issues) for reporting bugs or leaving feedback. Note that most of the code is [automatically generated](https://github.com/pipedrive/client-nodejs/#contributing).
 
