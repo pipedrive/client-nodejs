@@ -25,7 +25,7 @@ pipedrive.Configuration.apiToken = process.argv[2];
 	try {
 		const searchResults = await pipedrive.SearchResultsController.getPerformASearchUsingASpecificFieldValue({
 			term: process.argv[3],
-			exactMatch: false,
+			exactMatch: 0,
 			fieldType: 'dealField',
 			fieldKey: 'lost_reason',
 			returnItemIds: true,
