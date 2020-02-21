@@ -33,7 +33,7 @@ pipedrive.Configuration.apiToken = process.argv[2];
 
 			for (const update of updates.data) {
 				console.log(`${update.object} from ${update.timestamp.split(' ')[0]}:`);
-				console.log(JSON.stringify(update.data));
+				console.log(JSON.stringify(update.data, null, 2));
 			}
 		} else {
 			console.log('No deals found on your account.');
