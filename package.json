@@ -27,13 +27,13 @@
     "test": "echo \"Temporarily skipping integration tests\" && exit 0"
   },
   "devDependencies": {
-    "eslint": "^3.18.0",
+    "chai": "^3.5.0",
+    "eslint": "^4.18.2",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
-    "mocha": "^5.2.0",
-    "chai": "^3.5.0"
+    "mocha": "^5.2.0"
   },
   "dependencies": {
     "moment": "^2.17.1",

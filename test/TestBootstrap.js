@@ -10,7 +10,7 @@ const configuration = require("../lib/configuration");
 
 const testConfiguration = {
     ASSERT_PRECISION: 0.01,
-    TEST_TIMEOUT: 30000
+    TEST_TIMEOUT: 10000
 };
 
 module.exports = testConfiguration;
