@@ -8,7 +8,7 @@
  * and with how many activities they are associated with.
  *
  * Usage:
- * node list-deals.js YOUR_API_TOKEN
+ * node deals-list.js YOUR_API_TOKEN
  */
 
 if (!process.argv[2]) {
