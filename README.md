@@ -163,6 +163,7 @@ The token update callback will be fired upon authorization as well as token refr
 ### Creating a client from a stored token
 
 To authorize a client from a stored access token, just set the access token in `Configuration` along with the other configuration parameters before making endpoint calls:
+> NB! This code only supports one client and should not be used as production code. Please store a separate access token for each client.
 
 
 ```JavaScript
