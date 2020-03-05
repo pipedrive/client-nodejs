@@ -5480,7 +5480,6 @@ function updateEditAPipeline(input, callback)
 ```
 
 
-
 ### <a name="get_deals_conversion_rates_in_pipeline"></a>![Method: ](https://apidocs.io/img/method.png ".PipelinesController.getDealsConversionRatesInPipeline") getDealsConversionRatesInPipeline
 
 > Returns all stage-to-stage conversion and pipeline-to-close rates for given time period.
