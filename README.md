@@ -273,6 +273,8 @@ Tests can be run in a number of ways:
 
 # Class Reference
 
+> ⚠️ NB: Even though the input parameters are in camelCase in the docs, the actual usage is still in snake_case
+
 ## <a name="list_of_controllers"></a>List of Controllers
 
 * [ActivitiesController](#activities_controller)
