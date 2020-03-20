@@ -381,8 +381,8 @@ function getAllActivitiesAssignedToAParticularUser(input, callback)
         input['type'] = 'type';
         input['start'] = 0;
         input['limit'] = 58;
-        input['startDate'] = date("D M d, Y G:i");
-        input['endDate'] = date("D M d, Y G:i");
+        input['startDate'] = '2019-11-22';
+        input['endDate'] = '2019-11-22';
         input['done'] = Object.keys(NumberBoolean)[0];
 
     controller.getAllActivitiesAssignedToAParticularUser(input, function(error, response, context) {
@@ -428,7 +428,7 @@ function addAnActivity(input, callback)
         input['subject'] = 'subject';
         input['type'] = 'type';
         input['done'] = Object.keys(NumberBoolean)[0];
-        input['dueDate'] = date("D M d, Y G:i");
+        input['dueDate'] = '2019-11-22';
         input['dueTime'] = due_time;
         input['duration'] = 'duration';
         input['userId'] = 58;
@@ -543,7 +543,7 @@ function updateEditAnActivity(input, callback)
         input['subject'] = 'subject';
         input['type'] = 'type';
         input['done'] = Object.keys(NumberBoolean)[0];
-        input['dueDate'] = date("D M d, Y G:i");
+        input['dueDate'] = '2019-11-22';
         input['dueTime'] = due_time;
         input['duration'] = 'duration';
         input['userId'] = 58;
@@ -1233,7 +1233,7 @@ function getDealsTimeline(input, callback)
 ```javascript
 
     var input = [];
-        input['startDate'] = date("D M d, Y G:i");
+        input['startDate'] = '2019-11-22';
         input['interval'] = Object.keys(interval2)[0];
         input['amount'] = 58;
         input['fieldKey'] = field_key;
@@ -2672,8 +2672,8 @@ function findGoals(input, callback)
         input['typeParamsPipelineId'] = 58;
         input['typeParamsStageId'] = 58;
         input['typeParamsActivityTypeId'] = 58;
-        input['periodStart'] = date("D M d, Y G:i");
-        input['periodEnd'] = date("D M d, Y G:i");
+        input['periodStart'] = '2019-11-22';
+        input['periodEnd'] = '2019-11-22';
 
     controller.findGoals(input, function(error, response, context) {
 
@@ -2788,8 +2788,8 @@ function getResultOfAGoal(input, callback)
 
     var input = [];
         input['id'] = 'id';
-        input['periodStart'] = date("D M d, Y G:i");
-        input['periodEnd'] = date("D M d, Y G:i");
+        input['periodStart'] = '2019-11-22';
+        input['periodEnd'] = '2019-11-22';
 
     controller.getResultOfAGoal(input, function(error, response, context) {
 
@@ -3105,8 +3105,8 @@ function getAllNotes(input, callback)
         input['start'] = 0;
         input['limit'] = 58;
         input['sort'] = 'sort';
-        input['startDate'] = date("D M d, Y G:i");
-        input['endDate'] = date("D M d, Y G:i");
+        input['startDate'] = '2019-11-22';
+        input['endDate'] = '2019-11-22';
         input['pinnedToDealFlag'] = Object.keys(NumberBoolean)[0];
         input['pinnedToOrganizationFlag'] = Object.keys(NumberBoolean)[0];
         input['pinnedToPersonFlag'] = Object.keys(NumberBoolean)[0];
@@ -5505,8 +5505,8 @@ function getDealsConversionRatesInPipeline(input, callback)
 
     var input = [];
         input['id'] = 16;
-        input['startDate'] = date("D M d, Y G:i");
-        input['endDate'] = date("D M d, Y G:i");
+        input['startDate'] = '2019-11-22';
+        input['endDate'] = '2019-11-22';
         input['userId'] = 16;
 
     controller.getDealsConversionRatesInPipeline(input, function(error, response, context) {
@@ -5589,8 +5589,8 @@ function getDealsMovementsInPipeline(input, callback)
 
     var input = [];
         input['id'] = 16;
-        input['startDate'] = date("D M d, Y G:i");
-        input['endDate'] = date("D M d, Y G:i");
+        input['startDate'] = '2019-11-22';
+        input['endDate'] = '2019-11-22';
         input['userId'] = 16;
 
     controller.getDealsMovementsInPipeline(input, function(error, response, context) {
