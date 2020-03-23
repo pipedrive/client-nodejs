@@ -24,9 +24,7 @@ pipedrive.Configuration.apiToken = process.argv[2];
 		const resp = await pipedrive.OrganizationsController.updateAnOrganization(input);
 
 		if (resp.data) {
-			const org = resp.data;
-
-			console.log(`Org name: ${org.name}, address: ${org.address}`);
+			console.log(resp.data);
 		}
 	} catch (error) {
 		console.log(error);
