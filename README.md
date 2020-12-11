@@ -72,7 +72,6 @@ You must now authorize the client.
 
 ### Authorizing your client
 
-
 Your application must obtain user authorization before it can execute an endpoint call. The SDK uses OAuth 2.0 authorization to obtain a user's consent to perform an API request on user's behalf.
 
 #### 1. Obtaining user consent
