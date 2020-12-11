@@ -1,18 +1,46 @@
 # Pipedrive client for NodeJS based apps
-Pipedrive is a sales pipeline software that gets you organized. It's a powerful sales CRM with effortless sales pipeline management. See www.pipedrive.com for details.
+Pipedrive is a sales pipeline software that gets you organized.
+It's a powerful sales CRM with effortless sales pipeline management.
+See www.pipedrive.com for details.
 
-This is the official Pipedrive API wrapper-client for NodeJS based apps, distributed by Pipedrive Inc freely under the MIT licence. It provides convenient access to the Pipedrive API, allowing you to operate with objects such as Deals, Persons, Organizations, Products and much more.
+This is the official Pipedrive API wrapper-client for NodeJS based apps, distributed by Pipedrive Inc freely under the MIT licence.
+It provides convenient access to the Pipedrive API, allowing you to operate with objects such as Deals, Persons, Organizations, Products and much more.
 
 ## Installation
 ```
 npm install pipedrive
 ```
 
-> ⚠️ Version 10 is a complete rewrite of the library and introduces breaking changes in the client API. This release includes improved OAuth 2 support, async & await / promises and access to all Pipedrive API endpoints.
+> ⚠️ With the beta version of the SDK, we have moved to an open-source SDK generator called [OpenAPI Generator](https://openapi-generator.tech).
+> This enables us to better respond to any issues you might have with the SDK.
 >
-> If you have been using a previous version of the client and cannot upgrade immediately, [older versions](https://github.com/pipedrive/client-nodejs/releases) are still available.
->
-> Please use the [issues page](https://github.com/pipedrive/client-nodejs/issues) for reporting bugs or leaving feedback. Note that most of the code is [automatically generated](https://github.com/pipedrive/client-nodejs/#contributing).
+> Please use the [issues page](https://github.com/pipedrive/client-nodejs/issues) for reporting bugs or leaving feedback.
+> Note that most of the code is [automatically generated](https://github.com/pipedrive/client-nodejs/#contributing).
+
+## Local development
+To use the library locally without publishing to a remote npm registry, first install the dependencies by changing into the directory containing `package.json` (and this README). Let's call this `JAVASCRIPT_CLIENT_DIR`. Then run:
+
+```shell
+npm install
+```
+
+Next, [link](https://docs.npmjs.com/cli/link) it globally in npm with the following, also from `JAVASCRIPT_CLIENT_DIR`:
+
+```shell
+npm link
+```
+
+To use the link you just defined in your project, switch to the directory you want to use your pipedrive from, and run:
+
+```shell
+npm link /path/to/<JAVASCRIPT_CLIENT_DIR>
+```
+
+Finally, you need to build the module:
+
+```shell
+npm run build
+```
 
 ## API Reference
 The Pipedrive RESTful API Reference can be found at https://developers.pipedrive.com/docs/api/v1
@@ -31,56 +59,68 @@ const lib = require('pipedrive');
 
 const PORT = 1800;
 
-lib.Configuration.apiToken = 'YOUR_API_TOKEN_HERE';
+const defaultClient = lib.ApiClient.instance;
+
+// Configure API key authorization: apiToken
+let apiToken = defaultClient.authentications.api_key;
+apiToken.apiKey = 'YOUR_API_TOKEN_HERE';
+
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix.api_token = 'Token';
 
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
 });
 
 app.get('/', async (req, res) => {
-    const user = await lib.UsersController.getCurrentUserData();
+    const api = new lib.DealsApi();
+    const deals = await api.dealsGet();
 
-    res.send(user);
+    res.send(deals);
 });
 
 ```
 
 ### With OAuth 2
+If you would like to use OAuth access token for making API calls then make sure the API key,
+that was described in the previous section, is not set or is set to an empty string. If both API token and OAuth access token
+are set, then the API token takes precedence.
+
 In order to setup authentication in the API client, you need the following information.
 
 | Parameter | Description |
 |-----------|-------------|
-| oAuthClientId | OAuth 2 Client ID |
-| oAuthClientSecret | OAuth 2 Client Secret |
-| oAuthRedirectUri | OAuth 2 Redirection endpoint or Callback Uri |
-
-
+| clientId | OAuth 2 Client ID |
+| clientSecret | OAuth 2 Client Secret |
+| redirectUri | OAuth 2 Redirection endpoint or Callback Uri |
 
 API client can be initialized as following:
 
 ```JavaScript
 const lib = require('pipedrive');
 
-// Configuration parameters and credentials
-lib.Configuration.oAuthClientId = "oAuthClientId"; // OAuth 2 Client ID
-lib.Configuration.oAuthClientSecret = "oAuthClientSecret"; // OAuth 2 Client Secret
-lib.Configuration.oAuthRedirectUri = "oAuthRedirectUri"; // OAuth 2 Redirection endpoint or Callback Uri
+const apiClient = lib.ApiClient.instance;
 
+// Configuration parameters and credentials
+let oauth2 = apiClient.authentications.oauth2;
+oauth2.clientId = 'clientId'; // OAuth 2 Client ID
+oauth2.clientSecret = 'clientSecret'; // OAuth 2 Client Secret
+oauth2.redirectUri = 'redirectUri'; // OAuth 2 Redirection endpoint or Callback Uri
 ```
 
 You must now authorize the client.
 
 ### Authorizing your client
 
-
-Your application must obtain user authorization before it can execute an endpoint call. The SDK uses OAuth 2.0 authorization to obtain a user's consent to perform an API request on user's behalf.
+Your application must obtain user authorization before it can execute an endpoint call.
+The SDK uses OAuth 2.0 authorization to obtain a user's consent to perform an API request on user's behalf.
 
 #### 1. Obtaining user consent
 
 To obtain user's consent, you must redirect the user to the authorization page. The `buildAuthorizationUrl()` method creates the URL to the authorization page.
+
 ```JavaScript
-const oAuthManager = lib.OAuthManager;
-const authUrl = oAuthManager.buildAuthorizationUrl();
+const authUrl = apiClient.buildAuthorizationUrl();
 // open up the authUrl in the browser
 ```
 
@@ -102,36 +142,39 @@ https://example.com/oauth/callback?error=access_denied
 
 #### 3. Authorize the client using the code
 
-After the server receives the code, it can exchange this for an *access token*. The access token is an object containing information for authorizing the client and refreshing the token itself.
+After the server receives the code, it can exchange this for an *access token*.
+The access token is an object containing information for authorizing the client and refreshing the token itself.
+In the API client all the access token fields are held separately in the `authentications.oauth2` object.
+Additionally access token expiration time as an `authentications.oauth2.expiresAt` field is calculated.
+It is measured in the number of milliseconds elapsed since January 1, 1970 00:00:00 UTC.
 
 ```JavaScript
-const tokenPromise = oAuthManager.authorize(code);
+const tokenPromise = apiClient.authorize(code);
 ```
-The Node.js SDK supports both callbacks and promises. So, the authorize call returns a promise and also returns response back in the callback (if one is provided)
-
-
+The Node.js SDK supports only promises. So, the authorize call returns a promise.
 
 ### Refreshing token
 
 Access tokens may expire after sometime. To extend its lifetime, you must refresh the token.
 
 ```JavaScript
-const refreshPromise = oAuthManager.refreshToken();
+const refreshPromise = apiClient.refreshToken();
 refreshPromise.then(() => {
     // token has been refreshed
 } , (exception) => {
-    // error occurred, exception will be of type lib/Exceptions/OAuthProviderException
+    // error occurred, exception will be of type src/exceptions/OAuthProviderException
 });
 ```
 
-If a token expires, the SDK will attempt to automatically refresh the token before the next endpoint call which requires authentication.
-
+If the access token expires, the SDK will attempt to automatically refresh it before the next endpoint call which requires authentication.
 
 ### Storing an access token for reuse
 
 It is recommended that you store the access token for reuse.
 
-This code snippet stores the access token in a session for an express application. It uses the [cookie-parser](https://www.npmjs.com/package/cookie-parser) and [cookie-session](https://www.npmjs.com/package/cookie-session) npm packages for storing the access token.
+This code snippet stores the access token in a session for an express application.
+It uses the [cookie-parser](https://www.npmjs.com/package/cookie-parser) and [cookie-session](https://www.npmjs.com/package/cookie-session) npm packages for storing the access token.
+
 ```JavaScript
 const express = require('express');
 const cookieParser = require('cookie-parser');
@@ -140,31 +183,32 @@ const cookieSession = require('cookie-session');
 const app = express();
 app.use(cookieParser());
 app.use(cookieSession({
-  name: 'session',
-  keys: ['key1']
+    name: 'session',
+    keys: ['key1']
 }));
 
 const lib = require('pipedrive');
 ...
-// store token in the session
-req.session.token = lib.Configuration.oAuthToken;
+// store access token in the session
+// note that this is only the access token field value not the whole token object
+req.session.accessToken = apiClient.authentications.oauth2.accessToken;
 ```
-However, since the the SDK will attempt to automatically refresh the token when it expires, it is recommended that you register a **token update callback** to detect any change to the access token.
+
+However, since the SDK will attempt to automatically refresh the access token when it expires,
+it is recommended that you register a **token update callback** to detect any change to the access token.
 
 ```JavaScript
-lib.Configuration.oAuthTokenUpdateCallback = function(token) {
+apiClient.authentications.oauth2.tokenUpdateCallback = function(token) {
     // getting the updated token
+    // here the token is an object, you can store the whole object or extract fields into separate values
     req.session.token = token;
 }
 ```
 
 The token update callback will be fired upon authorization as well as token refresh.
 
-### Creating a client from a stored token
-
-To authorize a client from a stored access token, just set the access token in `Configuration` along with the other configuration parameters before making endpoint calls:
+To authorize a client from a stored access token, just set the access token in api client oauth2 authentication object along with the other configuration parameters before making endpoint calls:
 > NB! This code only supports one client and should not be used as production code. Please store a separate access token for each client.
-
 
 ```JavaScript
 const express = require('express');
@@ -174,23 +218,27 @@ const cookieSession = require('cookie-session');
 const app = express();
 app.use(cookieParser());
 app.use(cookieSession({
-  name: 'session',
-  keys: ['key1']
+    name: 'session',
+    keys: ['key1']
 }));
 
 const lib = require('pipedrive');
 
 app.get('/', (req, res) => {
-    lib.Configuration.oAuthToken = req.session.token; // the access token stored in the session
+    apiClient.authentications.oauth2.accessToken = req.session.accessToken; // the access token stored in the session
 });
 ```
+
 ### Complete example
 
 This example demonstrates an express application (which uses [cookie-parser](https://www.npmjs.com/package/cookie-parser) and [cookie-session](https://www.npmjs.com/package/cookie-session)) for handling session persistence.
 
-In this example, there are 2 endpoints. The base endpoint `'/'` first checks if the token is stored in the session. If it is, API endpoints can be called using the corresponding SDK controllers.
+In this example, there are 2 endpoints. The base endpoint `'/'` first checks if the token is stored in the session.
+If it is, API endpoints can be called using the corresponding SDK controllers.
 
-However, if the token is not set in the session, then authorization URL is built and opened up. The response comes back at the `'/callback'` endpoint, which uses the code to authorize the client and store the token in the session. It then redirects back to the base endpoint for calling endpoints from the SDK.
+However, if the token is not set in the session, then authorization URL is built and opened up.
+The response comes back at the `'/callback'` endpoint, which uses the code to authorize the client and store the token in the session.
+It then redirects back to the base endpoint for calling endpoints from the SDK.
 
 ```JavaScript
 const express = require('express');
@@ -200,33 +248,35 @@ const cookieSession = require('cookie-session');
 
 app.use(cookieParser());
 app.use(cookieSession({
-  name: 'session',
-  keys: ['key1']
+    name: 'session',
+    keys: ['key1']
 }));
 const PORT = 1800;
 
 const lib = require('pipedrive');
-const oAuthManager = lib.OAuthManager;
 
-lib.Configuration.oAuthClientId = 'oAuthClientId'; // OAuth 2 Client ID
-lib.Configuration.oAuthClientSecret = 'oAuthClientSecret'; // OAuth 2 Client Secret
-lib.Configuration.oAuthRedirectUri = 'http://localhost:1800/callback'; // OAuth 2 Redirection endpoint or Callback Uri
+const apiClient = lib.ApiClient.instance;
 
+let oauth2 = apiClient.authentications.oauth2;
+oauth2.clientId = 'clientId'; // OAuth 2 Client ID
+oauth2.clientSecret = 'clientSecret'; // OAuth 2 Client Secret
+oauth2.redirectUri = 'http://localhost:1800/callback'; // OAuth 2 Redirection endpoint or Callback Uri
 
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
 });
 
 app.get('/', async (req, res) => {
-    if (req.session.token !== null && req.session.token !== undefined) {
+    if (req.session.accessToken !== null && req.session.accessToken !== undefined) {
         // token is already set in the session
         // now make API calls as required
         // client will automatically refresh the token when it expires and call the token update callback
-        const user = await lib.UsersController.getCurrentUserData();
+        const api = new lib.DealsApi();
+        const deals = await api.dealsGet();
 
-        res.send(user);
+        res.send(deals);
     } else {
-        const authUrl = oAuthManager.buildAuthorizationUrl();
+        const authUrl = apiClient.buildAuthorizationUrl();;
 
         res.redirect(authUrl);
     }
@@ -234,7786 +284,977 @@ app.get('/', async (req, res) => {
 
 app.get('/callback', (req, res) => {
     const authCode = req.query.code;
-    const promise = oAuthManager.authorize(authCode);
+    const promise = apiClient.authorize(code);
 
     promise.then(() => {
-        req.session.token = lib.Configuration.oAuthToken;
+        req.session.accessToken = apiClient.authentications.oauth2.accessToken;
         res.redirect('/');
     }, (exception) => {
-        // error occurred, exception will be of type lib/Exceptions/OAuthProviderException
+        // error occurred, exception will be of type src/exceptions/OAuthProviderException
     });
 });
 
 ```
 
-## Contributing
-Please be aware that most of the code is auto-generated. You are welcome to suggest changes and report bugs. However, any updates will have to be implemented in the underlying generator.
+## Documentation for API Endpoints
+
+All URIs are relative to *https://api.pipedrive.com/v1*
+
+Class | Method | HTTP request | Description
+------------ | ------------- | ------------- | -------------
+*Pipedrive.ActivitiesApi* | [**addActivity**](docs/ActivitiesApi.md#addActivity) | **POST** /activities | Add an Activity
+*Pipedrive.ActivitiesApi* | [**deleteActivities**](docs/ActivitiesApi.md#deleteActivities) | **DELETE** /activities | Delete multiple Activities in bulk
+*Pipedrive.ActivitiesApi* | [**deleteActivity**](docs/ActivitiesApi.md#deleteActivity) | **DELETE** /activities/{id} | Delete an Activity
+*Pipedrive.ActivitiesApi* | [**getActivities**](docs/ActivitiesApi.md#getActivities) | **GET** /activities | Get all Activities assigned to a particular User
+*Pipedrive.ActivitiesApi* | [**getActivity**](docs/ActivitiesApi.md#getActivity) | **GET** /activities/{id} | Get details of an Activity
+*Pipedrive.ActivitiesApi* | [**updateActivity**](docs/ActivitiesApi.md#updateActivity) | **PUT** /activities/{id} | Edit an Activity
+*Pipedrive.ActivityFieldsApi* | [**getActivityFields**](docs/ActivityFieldsApi.md#getActivityFields) | **GET** /activityFields | Get all activity fields
+*Pipedrive.ActivityTypesApi* | [**addActivityType**](docs/ActivityTypesApi.md#addActivityType) | **POST** /activityTypes | Add new ActivityType
+*Pipedrive.ActivityTypesApi* | [**deleteActivityType**](docs/ActivityTypesApi.md#deleteActivityType) | **DELETE** /activityTypes/{id} | Delete an ActivityType
+*Pipedrive.ActivityTypesApi* | [**deleteActivityTypes**](docs/ActivityTypesApi.md#deleteActivityTypes) | **DELETE** /activityTypes | Delete multiple ActivityTypes in bulk
+*Pipedrive.ActivityTypesApi* | [**getActivityTypes**](docs/ActivityTypesApi.md#getActivityTypes) | **GET** /activityTypes | Get all ActivityTypes
+*Pipedrive.ActivityTypesApi* | [**updateActivityType**](docs/ActivityTypesApi.md#updateActivityType) | **PUT** /activityTypes/{id} | Edit an ActivityType
+*Pipedrive.CallLogsApi* | [**addCallLog**](docs/CallLogsApi.md#addCallLog) | **POST** /callLogs | Add a call log
+*Pipedrive.CallLogsApi* | [**addCallLogAudioFile**](docs/CallLogsApi.md#addCallLogAudioFile) | **POST** /callLogs/{id}/recordings | Attach an audio file to the call log
+*Pipedrive.CallLogsApi* | [**deleteCallLog**](docs/CallLogsApi.md#deleteCallLog) | **DELETE** /callLogs/{id} | Delete a call log
+*Pipedrive.CallLogsApi* | [**getCallLog**](docs/CallLogsApi.md#getCallLog) | **GET** /callLogs/{id} | Get details of a call log
+*Pipedrive.CallLogsApi* | [**getUserCallLogs**](docs/CallLogsApi.md#getUserCallLogs) | **GET** /callLogs | Get all call logs assigned to a particular user
+*Pipedrive.CurrenciesApi* | [**getCurrencies**](docs/CurrenciesApi.md#getCurrencies) | **GET** /currencies | Get all supported currencies
+*Pipedrive.DealFieldsApi* | [**addDealField**](docs/DealFieldsApi.md#addDealField) | **POST** /dealFields | Add a new deal field
+*Pipedrive.DealFieldsApi* | [**deleteDealField**](docs/DealFieldsApi.md#deleteDealField) | **DELETE** /dealFields/{id} | Delete a deal field
+*Pipedrive.DealFieldsApi* | [**deleteDealFields**](docs/DealFieldsApi.md#deleteDealFields) | **DELETE** /dealFields | Delete multiple deal fields in bulk
+*Pipedrive.DealFieldsApi* | [**getDealField**](docs/DealFieldsApi.md#getDealField) | **GET** /dealFields/{id} | Get one deal field
+*Pipedrive.DealFieldsApi* | [**getDealFields**](docs/DealFieldsApi.md#getDealFields) | **GET** /dealFields | Get all deal fields
+*Pipedrive.DealFieldsApi* | [**updateDealField**](docs/DealFieldsApi.md#updateDealField) | **PUT** /dealFields/{id} | Update a deal field
+*Pipedrive.DealsApi* | [**addDeal**](docs/DealsApi.md#addDeal) | **POST** /deals | Add a deal
+*Pipedrive.DealsApi* | [**addDealFollower**](docs/DealsApi.md#addDealFollower) | **POST** /deals/{id}/followers | Add a follower to a deal
+*Pipedrive.DealsApi* | [**addDealParticipant**](docs/DealsApi.md#addDealParticipant) | **POST** /deals/{id}/participants | Add a participant to a deal
+*Pipedrive.DealsApi* | [**addDealProduct**](docs/DealsApi.md#addDealProduct) | **POST** /deals/{id}/products | Add a product to the deal, eventually creating a new item called a deal-product
+*Pipedrive.DealsApi* | [**deleteDeal**](docs/DealsApi.md#deleteDeal) | **DELETE** /deals/{id} | Delete a deal
+*Pipedrive.DealsApi* | [**deleteDealFollower**](docs/DealsApi.md#deleteDealFollower) | **DELETE** /deals/{id}/followers/{follower_id} | Delete a follower from a deal
+*Pipedrive.DealsApi* | [**deleteDealParticipant**](docs/DealsApi.md#deleteDealParticipant) | **DELETE** /deals/{id}/participants/{deal_participant_id} | Delete a participant from a deal
+*Pipedrive.DealsApi* | [**deleteDealProduct**](docs/DealsApi.md#deleteDealProduct) | **DELETE** /deals/{id}/products/{product_attachment_id} | Delete an attached product from a deal
+*Pipedrive.DealsApi* | [**deleteDeals**](docs/DealsApi.md#deleteDeals) | **DELETE** /deals | Delete multiple deals in bulk
+*Pipedrive.DealsApi* | [**duplicateDeal**](docs/DealsApi.md#duplicateDeal) | **POST** /deals/{id}/duplicate | Duplicate deal
+*Pipedrive.DealsApi* | [**getDeal**](docs/DealsApi.md#getDeal) | **GET** /deals/{id} | Get details of a deal
+*Pipedrive.DealsApi* | [**getDealActivities**](docs/DealsApi.md#getDealActivities) | **GET** /deals/{id}/activities | List activities associated with a deal
+*Pipedrive.DealsApi* | [**getDealFiles**](docs/DealsApi.md#getDealFiles) | **GET** /deals/{id}/files | List files attached to a deal
+*Pipedrive.DealsApi* | [**getDealFollowers**](docs/DealsApi.md#getDealFollowers) | **GET** /deals/{id}/followers | List followers of a deal
+*Pipedrive.DealsApi* | [**getDealMailMessages**](docs/DealsApi.md#getDealMailMessages) | **GET** /deals/{id}/mailMessages | List mail messages associated with a deal
+*Pipedrive.DealsApi* | [**getDealParticipants**](docs/DealsApi.md#getDealParticipants) | **GET** /deals/{id}/participants | List participants of a deal
+*Pipedrive.DealsApi* | [**getDealPersons**](docs/DealsApi.md#getDealPersons) | **GET** /deals/{id}/persons | List all persons associated with a deal
+*Pipedrive.DealsApi* | [**getDealProducts**](docs/DealsApi.md#getDealProducts) | **GET** /deals/{id}/products | List products attached to a deal
+*Pipedrive.DealsApi* | [**getDealUpdates**](docs/DealsApi.md#getDealUpdates) | **GET** /deals/{id}/flow | List updates about a deal
+*Pipedrive.DealsApi* | [**getDealUsers**](docs/DealsApi.md#getDealUsers) | **GET** /deals/{id}/permittedUsers | List permitted users
+*Pipedrive.DealsApi* | [**getDeals**](docs/DealsApi.md#getDeals) | **GET** /deals | Get all deals
+*Pipedrive.DealsApi* | [**getDealsByName**](docs/DealsApi.md#getDealsByName) | **GET** /deals/find | Find deals by name
+*Pipedrive.DealsApi* | [**getDealsSummary**](docs/DealsApi.md#getDealsSummary) | **GET** /deals/summary | Get deals summary
+*Pipedrive.DealsApi* | [**getDealsTimeline**](docs/DealsApi.md#getDealsTimeline) | **GET** /deals/timeline | Get deals timeline
+*Pipedrive.DealsApi* | [**mergeDeals**](docs/DealsApi.md#mergeDeals) | **PUT** /deals/{id}/merge | Merge two deals
+*Pipedrive.DealsApi* | [**searchDeals**](docs/DealsApi.md#searchDeals) | **GET** /deals/search | Search deals
+*Pipedrive.DealsApi* | [**updateDeal**](docs/DealsApi.md#updateDeal) | **PUT** /deals/{id} | Update a deal
+*Pipedrive.DealsApi* | [**updateDealProduct**](docs/DealsApi.md#updateDealProduct) | **PUT** /deals/{id}/products/{product_attachment_id} | Update product attachment details of the deal-product (a product already attached to a deal)
+*Pipedrive.FilesApi* | [**addFile**](docs/FilesApi.md#addFile) | **POST** /files | Add file
+*Pipedrive.FilesApi* | [**addFileAndLinkIt**](docs/FilesApi.md#addFileAndLinkIt) | **POST** /files/remote | Create a remote file and link it to an item
+*Pipedrive.FilesApi* | [**deleteFile**](docs/FilesApi.md#deleteFile) | **DELETE** /files/{id} | Delete a file
+*Pipedrive.FilesApi* | [**downloadFile**](docs/FilesApi.md#downloadFile) | **GET** /files/{id}/download | Download one file
+*Pipedrive.FilesApi* | [**getFile**](docs/FilesApi.md#getFile) | **GET** /files/{id} | Get one file
+*Pipedrive.FilesApi* | [**getFiles**](docs/FilesApi.md#getFiles) | **GET** /files | Get all files
+*Pipedrive.FilesApi* | [**linkFileToItem**](docs/FilesApi.md#linkFileToItem) | **POST** /files/remoteLink | Link a remote file to an item
+*Pipedrive.FilesApi* | [**updateFile**](docs/FilesApi.md#updateFile) | **PUT** /files/{id} | Update file details
+*Pipedrive.FiltersApi* | [**addFilter**](docs/FiltersApi.md#addFilter) | **POST** /filters | Add a new filter
+*Pipedrive.FiltersApi* | [**deleteFilter**](docs/FiltersApi.md#deleteFilter) | **DELETE** /filters/{id} | Delete a filter
+*Pipedrive.FiltersApi* | [**deleteFilters**](docs/FiltersApi.md#deleteFilters) | **DELETE** /filters | Delete multiple filters in bulk
+*Pipedrive.FiltersApi* | [**getFilter**](docs/FiltersApi.md#getFilter) | **GET** /filters/{id} | Get one filter
+*Pipedrive.FiltersApi* | [**getFilterHelpers**](docs/FiltersApi.md#getFilterHelpers) | **GET** /filters/helpers | Get all filter helpers
+*Pipedrive.FiltersApi* | [**getFilters**](docs/FiltersApi.md#getFilters) | **GET** /filters | Get all filters
+*Pipedrive.FiltersApi* | [**updateFilter**](docs/FiltersApi.md#updateFilter) | **PUT** /filters/{id} | Update filter
+*Pipedrive.GlobalMessagesApi* | [**deleteGlobalMessage**](docs/GlobalMessagesApi.md#deleteGlobalMessage) | **DELETE** /globalMessages/{id} | Dismiss a global message
+*Pipedrive.GlobalMessagesApi* | [**getGlobalMessages**](docs/GlobalMessagesApi.md#getGlobalMessages) | **GET** /globalMessages | Get global messages
+*Pipedrive.GoalsApi* | [**addGoal**](docs/GoalsApi.md#addGoal) | **POST** /goals | Add a new goal
+*Pipedrive.GoalsApi* | [**deleteGoal**](docs/GoalsApi.md#deleteGoal) | **DELETE** /goals/{id} | Delete existing goal
+*Pipedrive.GoalsApi* | [**getGoalResult**](docs/GoalsApi.md#getGoalResult) | **GET** /goals/{id}/results | Get result of a goal
+*Pipedrive.GoalsApi* | [**getGoals**](docs/GoalsApi.md#getGoals) | **GET** /goals/find | Find goals
+*Pipedrive.GoalsApi* | [**updateGoal**](docs/GoalsApi.md#updateGoal) | **PUT** /goals/{id} | Update existing goal
+*Pipedrive.ItemSearchApi* | [**searchItem**](docs/ItemSearchApi.md#searchItem) | **GET** /itemSearch | Perform a search from multiple item types
+*Pipedrive.ItemSearchApi* | [**searchItemByField**](docs/ItemSearchApi.md#searchItemByField) | **GET** /itemSearch/field | Perform a search using a specific field from an item type
+*Pipedrive.LeadsApi* | [**addLead**](docs/LeadsApi.md#addLead) | **POST** /leads | Add a lead
+*Pipedrive.LeadsApi* | [**addLeadLabel**](docs/LeadsApi.md#addLeadLabel) | **POST** /leadLabels | Add a lead label
+*Pipedrive.LeadsApi* | [**deleteLead**](docs/LeadsApi.md#deleteLead) | **DELETE** /leads/{id} | Delete a lead
+*Pipedrive.LeadsApi* | [**deleteLeadLabel**](docs/LeadsApi.md#deleteLeadLabel) | **DELETE** /leadLabels/{id} | Delete a lead label
+*Pipedrive.LeadsApi* | [**getLead**](docs/LeadsApi.md#getLead) | **GET** /leads/{id} | Get one lead
+*Pipedrive.LeadsApi* | [**getLeadLabels**](docs/LeadsApi.md#getLeadLabels) | **GET** /leadLabels | Get all lead labels
+*Pipedrive.LeadsApi* | [**getLeadSources**](docs/LeadsApi.md#getLeadSources) | **GET** /leadSources | Get all lead sources
+*Pipedrive.LeadsApi* | [**getLeads**](docs/LeadsApi.md#getLeads) | **GET** /leads | Get all leads
+*Pipedrive.LeadsApi* | [**updateLead**](docs/LeadsApi.md#updateLead) | **PATCH** /leads/{id} | Update a lead
+*Pipedrive.LeadsApi* | [**updateLeadLabel**](docs/LeadsApi.md#updateLeadLabel) | **PATCH** /leadLabels/{id} | Update a lead label
+*Pipedrive.MailMessagesApi* | [**getMailMessage**](docs/MailMessagesApi.md#getMailMessage) | **GET** /mailbox/mailMessages/{id} | Get one mail message
+*Pipedrive.MailThreadsApi* | [**deleteMailThread**](docs/MailThreadsApi.md#deleteMailThread) | **DELETE** /mailbox/mailThreads/{id} | Delete mail thread
+*Pipedrive.MailThreadsApi* | [**getMailThread**](docs/MailThreadsApi.md#getMailThread) | **GET** /mailbox/mailThreads/{id} | Get one mail thread
+*Pipedrive.MailThreadsApi* | [**getMailThreadMessages**](docs/MailThreadsApi.md#getMailThreadMessages) | **GET** /mailbox/mailThreads/{id}/mailMessages | Get all mail messages of mail thread
+*Pipedrive.MailThreadsApi* | [**getMailThreads**](docs/MailThreadsApi.md#getMailThreads) | **GET** /mailbox/mailThreads | Get mail threads
+*Pipedrive.MailThreadsApi* | [**updateMailThreadDetails**](docs/MailThreadsApi.md#updateMailThreadDetails) | **PUT** /mailbox/mailThreads/{id} | Update mail thread details
+*Pipedrive.NoteFieldsApi* | [**getNoteFields**](docs/NoteFieldsApi.md#getNoteFields) | **GET** /noteFields | Get all note fields
+*Pipedrive.NotesApi* | [**addNote**](docs/NotesApi.md#addNote) | **POST** /notes | Add a note
+*Pipedrive.NotesApi* | [**deleteNote**](docs/NotesApi.md#deleteNote) | **DELETE** /notes/{id} | Delete a note
+*Pipedrive.NotesApi* | [**getNote**](docs/NotesApi.md#getNote) | **GET** /notes/{id} | Get one note
+*Pipedrive.NotesApi* | [**getNotes**](docs/NotesApi.md#getNotes) | **GET** /notes | Get all notes
+*Pipedrive.NotesApi* | [**updateNote**](docs/NotesApi.md#updateNote) | **PUT** /notes/{id} | Update a note
+*Pipedrive.OrganizationFieldsApi* | [**addOrganizationField**](docs/OrganizationFieldsApi.md#addOrganizationField) | **POST** /organizationFields | Add a new organization field
+*Pipedrive.OrganizationFieldsApi* | [**deleteOrganizationField**](docs/OrganizationFieldsApi.md#deleteOrganizationField) | **DELETE** /organizationFields/{id} | Delete an organization field
+*Pipedrive.OrganizationFieldsApi* | [**deleteOrganizationFields**](docs/OrganizationFieldsApi.md#deleteOrganizationFields) | **DELETE** /organizationFields | Delete multiple organization fields in bulk
+*Pipedrive.OrganizationFieldsApi* | [**getOrganizationField**](docs/OrganizationFieldsApi.md#getOrganizationField) | **GET** /organizationFields/{id} | Get one organization field
+*Pipedrive.OrganizationFieldsApi* | [**getOrganizationFields**](docs/OrganizationFieldsApi.md#getOrganizationFields) | **GET** /organizationFields | Get all organization fields
+*Pipedrive.OrganizationFieldsApi* | [**updateOrganizationField**](docs/OrganizationFieldsApi.md#updateOrganizationField) | **PUT** /organizationFields/{id} | Update an organization field
+*Pipedrive.OrganizationRelationshipsApi* | [**addOrganizationRelationship**](docs/OrganizationRelationshipsApi.md#addOrganizationRelationship) | **POST** /organizationRelationships | Create an organization relationship
+*Pipedrive.OrganizationRelationshipsApi* | [**deleteOrganizationRelationship**](docs/OrganizationRelationshipsApi.md#deleteOrganizationRelationship) | **DELETE** /organizationRelationships/{id} | Delete an organization relationship
+*Pipedrive.OrganizationRelationshipsApi* | [**getOrganizationRelationShips**](docs/OrganizationRelationshipsApi.md#getOrganizationRelationShips) | **GET** /organizationRelationships | Get all relationships for organization
+*Pipedrive.OrganizationRelationshipsApi* | [**getOrganizationRelationship**](docs/OrganizationRelationshipsApi.md#getOrganizationRelationship) | **GET** /organizationRelationships/{id} | Get one organization relationship
+*Pipedrive.OrganizationRelationshipsApi* | [**updateOrganizationRelationship**](docs/OrganizationRelationshipsApi.md#updateOrganizationRelationship) | **PUT** /organizationRelationships/{id} | Update an organization relationship
+*Pipedrive.OrganizationsApi* | [**addOrganization**](docs/OrganizationsApi.md#addOrganization) | **POST** /organizations | Add an organization
+*Pipedrive.OrganizationsApi* | [**addOrganizationFollower**](docs/OrganizationsApi.md#addOrganizationFollower) | **POST** /organizations/{id}/followers | Add a follower to an organization
+*Pipedrive.OrganizationsApi* | [**deleteOrganization**](docs/OrganizationsApi.md#deleteOrganization) | **DELETE** /organizations/{id} | Delete an organization
+*Pipedrive.OrganizationsApi* | [**deleteOrganizationFollower**](docs/OrganizationsApi.md#deleteOrganizationFollower) | **DELETE** /organizations/{id}/followers/{follower_id} | Delete a follower from an organization
+*Pipedrive.OrganizationsApi* | [**deleteOrganizations**](docs/OrganizationsApi.md#deleteOrganizations) | **DELETE** /organizations | Delete multiple organizations in bulk
+*Pipedrive.OrganizationsApi* | [**getOrganization**](docs/OrganizationsApi.md#getOrganization) | **GET** /organizations/{id} | Get details of an organization
+*Pipedrive.OrganizationsApi* | [**getOrganizationActivities**](docs/OrganizationsApi.md#getOrganizationActivities) | **GET** /organizations/{id}/activities | List activities associated with an organization
+*Pipedrive.OrganizationsApi* | [**getOrganizationByName**](docs/OrganizationsApi.md#getOrganizationByName) | **GET** /organizations/find | Find organizations by name
+*Pipedrive.OrganizationsApi* | [**getOrganizationDeals**](docs/OrganizationsApi.md#getOrganizationDeals) | **GET** /organizations/{id}/deals | List deals associated with an organization
+*Pipedrive.OrganizationsApi* | [**getOrganizationFiles**](docs/OrganizationsApi.md#getOrganizationFiles) | **GET** /organizations/{id}/files | List files attached to an organization
+*Pipedrive.OrganizationsApi* | [**getOrganizationFollowers**](docs/OrganizationsApi.md#getOrganizationFollowers) | **GET** /organizations/{id}/followers | List followers of an organization
+*Pipedrive.OrganizationsApi* | [**getOrganizationMailMessages**](docs/OrganizationsApi.md#getOrganizationMailMessages) | **GET** /organizations/{id}/mailMessages | List mail messages associated with an organization
+*Pipedrive.OrganizationsApi* | [**getOrganizationPersons**](docs/OrganizationsApi.md#getOrganizationPersons) | **GET** /organizations/{id}/persons | List persons of an organization
+*Pipedrive.OrganizationsApi* | [**getOrganizationUpdates**](docs/OrganizationsApi.md#getOrganizationUpdates) | **GET** /organizations/{id}/flow | List updates about an organization
+*Pipedrive.OrganizationsApi* | [**getOrganizationUsers**](docs/OrganizationsApi.md#getOrganizationUsers) | **GET** /organizations/{id}/permittedUsers | List permitted users
+*Pipedrive.OrganizationsApi* | [**getOrganizations**](docs/OrganizationsApi.md#getOrganizations) | **GET** /organizations | Get all organizations
+*Pipedrive.OrganizationsApi* | [**mergeOrganizations**](docs/OrganizationsApi.md#mergeOrganizations) | **PUT** /organizations/{id}/merge | Merge two organizations
+*Pipedrive.OrganizationsApi* | [**searchOrganization**](docs/OrganizationsApi.md#searchOrganization) | **GET** /organizations/search | Search organizations
+*Pipedrive.OrganizationsApi* | [**updateOrganization**](docs/OrganizationsApi.md#updateOrganization) | **PUT** /organizations/{id} | Update an organization
+*Pipedrive.PermissionSetsApi* | [**getPermissionSet**](docs/PermissionSetsApi.md#getPermissionSet) | **GET** /permissionSets/{id} | Get one Permission Set
+*Pipedrive.PermissionSetsApi* | [**getPermissionSetAssignments**](docs/PermissionSetsApi.md#getPermissionSetAssignments) | **GET** /permissionSets/{id}/assignments | List Permission Set assignments
+*Pipedrive.PermissionSetsApi* | [**getPermissionSets**](docs/PermissionSetsApi.md#getPermissionSets) | **GET** /permissionSets | Get all Permission Sets
+*Pipedrive.PersonFieldsApi* | [**addPersonField**](docs/PersonFieldsApi.md#addPersonField) | **POST** /personFields | Add a new person field
+*Pipedrive.PersonFieldsApi* | [**deletePersonField**](docs/PersonFieldsApi.md#deletePersonField) | **DELETE** /personFields/{id} | Delete a person field
+*Pipedrive.PersonFieldsApi* | [**deletePersonFields**](docs/PersonFieldsApi.md#deletePersonFields) | **DELETE** /personFields | Delete multiple person fields in bulk
+*Pipedrive.PersonFieldsApi* | [**getPersonField**](docs/PersonFieldsApi.md#getPersonField) | **GET** /personFields/{id} | Get one person field
+*Pipedrive.PersonFieldsApi* | [**getPersonFields**](docs/PersonFieldsApi.md#getPersonFields) | **GET** /personFields | Get all person fields
+*Pipedrive.PersonFieldsApi* | [**updatePersonField**](docs/PersonFieldsApi.md#updatePersonField) | **PUT** /personFields/{id} | Update a person field
+*Pipedrive.PersonsApi* | [**addPerson**](docs/PersonsApi.md#addPerson) | **POST** /persons | Add a person
+*Pipedrive.PersonsApi* | [**addPersonFollower**](docs/PersonsApi.md#addPersonFollower) | **POST** /persons/{id}/followers | Add a follower to a person
+*Pipedrive.PersonsApi* | [**addPersonPicture**](docs/PersonsApi.md#addPersonPicture) | **POST** /persons/{id}/picture | Add person picture
+*Pipedrive.PersonsApi* | [**deletePerson**](docs/PersonsApi.md#deletePerson) | **DELETE** /persons/{id} | Delete a person
+*Pipedrive.PersonsApi* | [**deletePersonFollower**](docs/PersonsApi.md#deletePersonFollower) | **DELETE** /persons/{id}/followers/{follower_id} | Deletes a follower from a person.
+*Pipedrive.PersonsApi* | [**deletePersonPicture**](docs/PersonsApi.md#deletePersonPicture) | **DELETE** /persons/{id}/picture | Delete person picture
+*Pipedrive.PersonsApi* | [**deletePersons**](docs/PersonsApi.md#deletePersons) | **DELETE** /persons | Delete multiple persons in bulk
+*Pipedrive.PersonsApi* | [**findPersonByName**](docs/PersonsApi.md#findPersonByName) | **GET** /persons/find | Find persons by name
+*Pipedrive.PersonsApi* | [**getPerson**](docs/PersonsApi.md#getPerson) | **GET** /persons/{id} | Get details of a person
+*Pipedrive.PersonsApi* | [**getPersonActivities**](docs/PersonsApi.md#getPersonActivities) | **GET** /persons/{id}/activities | List activities associated with a person
+*Pipedrive.PersonsApi* | [**getPersonDeals**](docs/PersonsApi.md#getPersonDeals) | **GET** /persons/{id}/deals | List deals associated with a person
+*Pipedrive.PersonsApi* | [**getPersonFiles**](docs/PersonsApi.md#getPersonFiles) | **GET** /persons/{id}/files | List files attached to a person
+*Pipedrive.PersonsApi* | [**getPersonFollowers**](docs/PersonsApi.md#getPersonFollowers) | **GET** /persons/{id}/followers | List followers of a person
+*Pipedrive.PersonsApi* | [**getPersonMailMessages**](docs/PersonsApi.md#getPersonMailMessages) | **GET** /persons/{id}/mailMessages | List mail messages associated with a person
+*Pipedrive.PersonsApi* | [**getPersonProducts**](docs/PersonsApi.md#getPersonProducts) | **GET** /persons/{id}/products | List products associated with a person
+*Pipedrive.PersonsApi* | [**getPersonUpdates**](docs/PersonsApi.md#getPersonUpdates) | **GET** /persons/{id}/flow | List updates about a person
+*Pipedrive.PersonsApi* | [**getPersonUsers**](docs/PersonsApi.md#getPersonUsers) | **GET** /persons/{id}/permittedUsers | List permitted users
+*Pipedrive.PersonsApi* | [**getPersons**](docs/PersonsApi.md#getPersons) | **GET** /persons | Get all persons
+*Pipedrive.PersonsApi* | [**mergePersons**](docs/PersonsApi.md#mergePersons) | **PUT** /persons/{id}/merge | Merge two persons
+*Pipedrive.PersonsApi* | [**searchPersons**](docs/PersonsApi.md#searchPersons) | **GET** /persons/search | Search persons
+*Pipedrive.PersonsApi* | [**updatePerson**](docs/PersonsApi.md#updatePerson) | **PUT** /persons/{id} | Update a person
+*Pipedrive.PipelinesApi* | [**addPipeline**](docs/PipelinesApi.md#addPipeline) | **POST** /pipelines | Add a new pipeline
+*Pipedrive.PipelinesApi* | [**deletePipeline**](docs/PipelinesApi.md#deletePipeline) | **DELETE** /pipelines/{id} | Delete a pipeline
+*Pipedrive.PipelinesApi* | [**getPipeline**](docs/PipelinesApi.md#getPipeline) | **GET** /pipelines/{id} | Get one pipeline
+*Pipedrive.PipelinesApi* | [**getPipelineConversionStatistics**](docs/PipelinesApi.md#getPipelineConversionStatistics) | **GET** /pipelines/{id}/conversion_statistics | Get deals conversion rates in pipeline
+*Pipedrive.PipelinesApi* | [**getPipelineDeals**](docs/PipelinesApi.md#getPipelineDeals) | **GET** /pipelines/{id}/deals | Get deals in a pipeline
+*Pipedrive.PipelinesApi* | [**getPipelineMovementStatistics**](docs/PipelinesApi.md#getPipelineMovementStatistics) | **GET** /pipelines/{id}/movement_statistics | Get deals movements in pipeline
+*Pipedrive.PipelinesApi* | [**getPipelines**](docs/PipelinesApi.md#getPipelines) | **GET** /pipelines | Get all pipelines
+*Pipedrive.PipelinesApi* | [**updatePipeline**](docs/PipelinesApi.md#updatePipeline) | **PUT** /pipelines/{id} | Edit a pipeline
+*Pipedrive.ProductFieldsApi* | [**addProductField**](docs/ProductFieldsApi.md#addProductField) | **POST** /productFields | Add a new product field
+*Pipedrive.ProductFieldsApi* | [**deleteProductField**](docs/ProductFieldsApi.md#deleteProductField) | **DELETE** /productFields/{id} | Delete a product field
+*Pipedrive.ProductFieldsApi* | [**deleteProductFields**](docs/ProductFieldsApi.md#deleteProductFields) | **DELETE** /productFields | Delete multiple product fields in bulk
+*Pipedrive.ProductFieldsApi* | [**getProductField**](docs/ProductFieldsApi.md#getProductField) | **GET** /productFields/{id} | Get one product field
+*Pipedrive.ProductFieldsApi* | [**getProductFields**](docs/ProductFieldsApi.md#getProductFields) | **GET** /productFields | Get all product fields
+*Pipedrive.ProductFieldsApi* | [**updateProductField**](docs/ProductFieldsApi.md#updateProductField) | **PUT** /productFields/{id} | Update a product field
+*Pipedrive.ProductsApi* | [**addProduct**](docs/ProductsApi.md#addProduct) | **POST** /products | Add a product
+*Pipedrive.ProductsApi* | [**addProductFollower**](docs/ProductsApi.md#addProductFollower) | **POST** /products/{id}/followers | Add a follower to a product
+*Pipedrive.ProductsApi* | [**deleteProduct**](docs/ProductsApi.md#deleteProduct) | **DELETE** /products/{id} | Delete a product
+*Pipedrive.ProductsApi* | [**deleteProductFollower**](docs/ProductsApi.md#deleteProductFollower) | **DELETE** /products/{id}/followers/{follower_id} | Delete a follower from a product
+*Pipedrive.ProductsApi* | [**findProductsByName**](docs/ProductsApi.md#findProductsByName) | **GET** /products/find | Find products by name
+*Pipedrive.ProductsApi* | [**getProduct**](docs/ProductsApi.md#getProduct) | **GET** /products/{id} | Get one product
+*Pipedrive.ProductsApi* | [**getProductDeals**](docs/ProductsApi.md#getProductDeals) | **GET** /products/{id}/deals | Get deals where a product is attached to
+*Pipedrive.ProductsApi* | [**getProductFiles**](docs/ProductsApi.md#getProductFiles) | **GET** /products/{id}/files | List files attached to a product
+*Pipedrive.ProductsApi* | [**getProductFollowers**](docs/ProductsApi.md#getProductFollowers) | **GET** /products/{id}/followers | List followers of a product
+*Pipedrive.ProductsApi* | [**getProductUsers**](docs/ProductsApi.md#getProductUsers) | **GET** /products/{id}/permittedUsers | List permitted users
+*Pipedrive.ProductsApi* | [**getProducts**](docs/ProductsApi.md#getProducts) | **GET** /products | Get all products
+*Pipedrive.ProductsApi* | [**searchProducts**](docs/ProductsApi.md#searchProducts) | **GET** /products/search | Search products
+*Pipedrive.ProductsApi* | [**updateProduct**](docs/ProductsApi.md#updateProduct) | **PUT** /products/{id} | Update a product
+*Pipedrive.RecentsApi* | [**getRecents**](docs/RecentsApi.md#getRecents) | **GET** /recents | Get recents
+*Pipedrive.RolesApi* | [**addOrUpdateRoleSetting**](docs/RolesApi.md#addOrUpdateRoleSetting) | **POST** /roles/{id}/settings | Add or update role setting
+*Pipedrive.RolesApi* | [**addRole**](docs/RolesApi.md#addRole) | **POST** /roles | Add a role
+*Pipedrive.RolesApi* | [**addRoleAssignment**](docs/RolesApi.md#addRoleAssignment) | **POST** /roles/{id}/assignments | Add role assignment
+*Pipedrive.RolesApi* | [**deleteRole**](docs/RolesApi.md#deleteRole) | **DELETE** /roles/{id} | Delete a role
+*Pipedrive.RolesApi* | [**deleteRoleAssignment**](docs/RolesApi.md#deleteRoleAssignment) | **DELETE** /roles/{id}/assignments | Delete a role assignment
+*Pipedrive.RolesApi* | [**getRole**](docs/RolesApi.md#getRole) | **GET** /roles/{id} | Get one role
+*Pipedrive.RolesApi* | [**getRoleAssignments**](docs/RolesApi.md#getRoleAssignments) | **GET** /roles/{id}/assignments | List role assignments
+*Pipedrive.RolesApi* | [**getRoleSettings**](docs/RolesApi.md#getRoleSettings) | **GET** /roles/{id}/settings | List role settings
+*Pipedrive.RolesApi* | [**getRoleSubRoles**](docs/RolesApi.md#getRoleSubRoles) | **GET** /roles/{id}/roles | List role sub-roles
+*Pipedrive.RolesApi* | [**getRoles**](docs/RolesApi.md#getRoles) | **GET** /roles | Get all roles
+*Pipedrive.RolesApi* | [**updateRole**](docs/RolesApi.md#updateRole) | **PUT** /roles/{id} | Update role details
+*Pipedrive.SearchResultsApi* | [**search**](docs/SearchResultsApi.md#search) | **GET** /searchResults | Perform a search
+*Pipedrive.SearchResultsApi* | [**searchByField**](docs/SearchResultsApi.md#searchByField) | **GET** /searchResults/field | Perform a search using a specific field value
+*Pipedrive.StagesApi* | [**addStage**](docs/StagesApi.md#addStage) | **POST** /stages | Add a new stage
+*Pipedrive.StagesApi* | [**deleteStage**](docs/StagesApi.md#deleteStage) | **DELETE** /stages/{id} | Delete a stage
+*Pipedrive.StagesApi* | [**deleteStages**](docs/StagesApi.md#deleteStages) | **DELETE** /stages | Delete multiple stages in bulk
+*Pipedrive.StagesApi* | [**getStage**](docs/StagesApi.md#getStage) | **GET** /stages/{id} | Get one stage
+*Pipedrive.StagesApi* | [**getStageDeals**](docs/StagesApi.md#getStageDeals) | **GET** /stages/{id}/deals | Get deals in a stage
+*Pipedrive.StagesApi* | [**getStages**](docs/StagesApi.md#getStages) | **GET** /stages | Get all stages
+*Pipedrive.StagesApi* | [**updateStage**](docs/StagesApi.md#updateStage) | **PUT** /stages/{id} | Update stage details
+*Pipedrive.SubscriptionsApi* | [**addRecurringSubscription**](docs/SubscriptionsApi.md#addRecurringSubscription) | **POST** /subscriptions/recurring | Add a recurring subscription
+*Pipedrive.SubscriptionsApi* | [**addSubscriptionInstallment**](docs/SubscriptionsApi.md#addSubscriptionInstallment) | **POST** /subscriptions/installment | Add an installment subscription
+*Pipedrive.SubscriptionsApi* | [**cancelRecurringSubscription**](docs/SubscriptionsApi.md#cancelRecurringSubscription) | **PUT** /subscriptions/recurring/{id}/cancel | Cancel a recurring subscription
+*Pipedrive.SubscriptionsApi* | [**deleteSubscription**](docs/SubscriptionsApi.md#deleteSubscription) | **DELETE** /subscriptions/{id} | Delete a subscription
+*Pipedrive.SubscriptionsApi* | [**findSubscriptionByDeal**](docs/SubscriptionsApi.md#findSubscriptionByDeal) | **GET** /subscriptions/find/{dealId} | Find subscription by deal
+*Pipedrive.SubscriptionsApi* | [**getSubscription**](docs/SubscriptionsApi.md#getSubscription) | **GET** /subscriptions/{id} | Get details of a subscription
+*Pipedrive.SubscriptionsApi* | [**getSubscriptionPayments**](docs/SubscriptionsApi.md#getSubscriptionPayments) | **GET** /subscriptions/{id}/payments | Get all payments of a Subscription
+*Pipedrive.SubscriptionsApi* | [**updateRecurringSubscription**](docs/SubscriptionsApi.md#updateRecurringSubscription) | **PUT** /subscriptions/recurring/{id} | Update a recurring subscription
+*Pipedrive.SubscriptionsApi* | [**updateSubscriptionInstallment**](docs/SubscriptionsApi.md#updateSubscriptionInstallment) | **PUT** /subscriptions/installment/{id} | Update an installment subscription
+*Pipedrive.TeamsApi* | [**addTeam**](docs/TeamsApi.md#addTeam) | **POST** /teams | Add a new team
+*Pipedrive.TeamsApi* | [**addTeamUser**](docs/TeamsApi.md#addTeamUser) | **POST** /teams/{id}/users | Add users to a team
+*Pipedrive.TeamsApi* | [**deleteTeamUser**](docs/TeamsApi.md#deleteTeamUser) | **DELETE** /teams/{id}/users | Delete users from a team
+*Pipedrive.TeamsApi* | [**getTeam**](docs/TeamsApi.md#getTeam) | **GET** /teams/{id} | Get a single team
+*Pipedrive.TeamsApi* | [**getTeamUsers**](docs/TeamsApi.md#getTeamUsers) | **GET** /teams/{id}/users | Get all users in a team
+*Pipedrive.TeamsApi* | [**getTeams**](docs/TeamsApi.md#getTeams) | **GET** /teams | Get all teams
+*Pipedrive.TeamsApi* | [**getUserTeams**](docs/TeamsApi.md#getUserTeams) | **GET** /teams/user/{id} | Get all teams of a user
+*Pipedrive.TeamsApi* | [**updateTeam**](docs/TeamsApi.md#updateTeam) | **PUT** /teams/{id} | Update a team
+*Pipedrive.UserConnectionsApi* | [**getUserConnections**](docs/UserConnectionsApi.md#getUserConnections) | **GET** /userConnections | Get all user connections
+*Pipedrive.UserSettingsApi* | [**getUserSettings**](docs/UserSettingsApi.md#getUserSettings) | **GET** /userSettings | List settings of an authorized user
+*Pipedrive.UsersApi* | [**addUser**](docs/UsersApi.md#addUser) | **POST** /users | Add a new user
+*Pipedrive.UsersApi* | [**addUserBlacklistedEmail**](docs/UsersApi.md#addUserBlacklistedEmail) | **POST** /users/{id}/blacklistedEmails | Add blacklisted email address for a user
+*Pipedrive.UsersApi* | [**addUserRoleAssignment**](docs/UsersApi.md#addUserRoleAssignment) | **POST** /users/{id}/roleAssignments | Add role assignment
+*Pipedrive.UsersApi* | [**deleteUserRoleAssignment**](docs/UsersApi.md#deleteUserRoleAssignment) | **DELETE** /users/{id}/roleAssignments | Delete a role assignment
+*Pipedrive.UsersApi* | [**findUsersByName**](docs/UsersApi.md#findUsersByName) | **GET** /users/find | Find users by name
+*Pipedrive.UsersApi* | [**getCurrentUser**](docs/UsersApi.md#getCurrentUser) | **GET** /users/me | Get current user data
+*Pipedrive.UsersApi* | [**getUser**](docs/UsersApi.md#getUser) | **GET** /users/{id} | Get one user
+*Pipedrive.UsersApi* | [**getUserBlacklistedEmails**](docs/UsersApi.md#getUserBlacklistedEmails) | **GET** /users/{id}/blacklistedEmails | List blacklisted email addresses of a user
+*Pipedrive.UsersApi* | [**getUserFollowers**](docs/UsersApi.md#getUserFollowers) | **GET** /users/{id}/followers | List followers of a user
+*Pipedrive.UsersApi* | [**getUserPermissions**](docs/UsersApi.md#getUserPermissions) | **GET** /users/{id}/permissions | List user permissions
+*Pipedrive.UsersApi* | [**getUserRoleAssignments**](docs/UsersApi.md#getUserRoleAssignments) | **GET** /users/{id}/roleAssignments | List role assignments
+*Pipedrive.UsersApi* | [**getUserRoleSettings**](docs/UsersApi.md#getUserRoleSettings) | **GET** /users/{id}/roleSettings | List user role settings
+*Pipedrive.UsersApi* | [**getUsers**](docs/UsersApi.md#getUsers) | **GET** /users | Get all users
+*Pipedrive.UsersApi* | [**updateUser**](docs/UsersApi.md#updateUser) | **PUT** /users/{id} | Update user details
+*Pipedrive.WebhooksApi* | [**addWebhook**](docs/WebhooksApi.md#addWebhook) | **POST** /webhooks | Create a new webhook
+*Pipedrive.WebhooksApi* | [**deleteWebhook**](docs/WebhooksApi.md#deleteWebhook) | **DELETE** /webhooks/{id} | Delete existing webhook
+*Pipedrive.WebhooksApi* | [**getWebhooks**](docs/WebhooksApi.md#getWebhooks) | **GET** /webhooks | Get all webhooks
+
+
+## Documentation for Models
+
+ - [Pipedrive.ActivityDistributionData](docs/ActivityDistributionData.md)
+ - [Pipedrive.ActivityDistributionDataActivityDistribution](docs/ActivityDistributionDataActivityDistribution.md)
+ - [Pipedrive.ActivityDistributionDataActivityDistributionASSIGNEDTOUSERID](docs/ActivityDistributionDataActivityDistributionASSIGNEDTOUSERID.md)
+ - [Pipedrive.ActivityDistributionDataActivityDistributionASSIGNEDTOUSERIDActivities](docs/ActivityDistributionDataActivityDistributionASSIGNEDTOUSERIDActivities.md)
+ - [Pipedrive.ActivityDistributionDataWithAdditionalData](docs/ActivityDistributionDataWithAdditionalData.md)
+ - [Pipedrive.ActivityInfo](docs/ActivityInfo.md)
+ - [Pipedrive.ActivityObjectFragment](docs/ActivityObjectFragment.md)
+ - [Pipedrive.ActivityPostObject](docs/ActivityPostObject.md)
+ - [Pipedrive.ActivityPostObjectAllOf](docs/ActivityPostObjectAllOf.md)
+ - [Pipedrive.ActivityPutObject](docs/ActivityPutObject.md)
+ - [Pipedrive.ActivityPutObjectAllOf](docs/ActivityPutObjectAllOf.md)
+ - [Pipedrive.ActivityRecordAdditionalData](docs/ActivityRecordAdditionalData.md)
+ - [Pipedrive.ActivityResponseObject](docs/ActivityResponseObject.md)
+ - [Pipedrive.ActivityResponseObjectAllOf](docs/ActivityResponseObjectAllOf.md)
+ - [Pipedrive.ActivityTypeBulkDeleteResponse](docs/ActivityTypeBulkDeleteResponse.md)
+ - [Pipedrive.ActivityTypeBulkDeleteResponseAllOf](docs/ActivityTypeBulkDeleteResponseAllOf.md)
+ - [Pipedrive.ActivityTypeBulkDeleteResponseAllOfData](docs/ActivityTypeBulkDeleteResponseAllOfData.md)
+ - [Pipedrive.ActivityTypeCreateRequest](docs/ActivityTypeCreateRequest.md)
+ - [Pipedrive.ActivityTypeCreateUpdateDeleteResponse](docs/ActivityTypeCreateUpdateDeleteResponse.md)
+ - [Pipedrive.ActivityTypeCreateUpdateDeleteResponseAllOf](docs/ActivityTypeCreateUpdateDeleteResponseAllOf.md)
+ - [Pipedrive.ActivityTypeListResponse](docs/ActivityTypeListResponse.md)
+ - [Pipedrive.ActivityTypeListResponseAllOf](docs/ActivityTypeListResponseAllOf.md)
+ - [Pipedrive.ActivityTypeObjectResponse](docs/ActivityTypeObjectResponse.md)
+ - [Pipedrive.ActivityTypeUpdateRequest](docs/ActivityTypeUpdateRequest.md)
+ - [Pipedrive.AddActivityResponse200](docs/AddActivityResponse200.md)
+ - [Pipedrive.AddActivityResponse200RelatedObjects](docs/AddActivityResponse200RelatedObjects.md)
+ - [Pipedrive.AddCallLogAudioFileRequest](docs/AddCallLogAudioFileRequest.md)
+ - [Pipedrive.AddDealFollowerRequest](docs/AddDealFollowerRequest.md)
+ - [Pipedrive.AddDealParticipantRequest](docs/AddDealParticipantRequest.md)
+ - [Pipedrive.AddFile](docs/AddFile.md)
+ - [Pipedrive.AddFileAndLinkItRequest](docs/AddFileAndLinkItRequest.md)
+ - [Pipedrive.AddFileRequest](docs/AddFileRequest.md)
+ - [Pipedrive.AddFilterRequest](docs/AddFilterRequest.md)
+ - [Pipedrive.AddFollowerToPersonResponse](docs/AddFollowerToPersonResponse.md)
+ - [Pipedrive.AddFollowerToPersonResponseAllOf](docs/AddFollowerToPersonResponseAllOf.md)
+ - [Pipedrive.AddFollowerToPersonResponseAllOfData](docs/AddFollowerToPersonResponseAllOfData.md)
+ - [Pipedrive.AddLeadLabelRequest](docs/AddLeadLabelRequest.md)
+ - [Pipedrive.AddLeadRequest](docs/AddLeadRequest.md)
+ - [Pipedrive.AddNewPipeline](docs/AddNewPipeline.md)
+ - [Pipedrive.AddNewPipelineAllOf](docs/AddNewPipelineAllOf.md)
+ - [Pipedrive.AddOrUpdateGoalResponse200](docs/AddOrUpdateGoalResponse200.md)
+ - [Pipedrive.AddOrUpdateLeadLabelResponse200](docs/AddOrUpdateLeadLabelResponse200.md)
+ - [Pipedrive.AddOrUpdateRoleSettingRequest](docs/AddOrUpdateRoleSettingRequest.md)
+ - [Pipedrive.AddOrganizationFollowerRequest](docs/AddOrganizationFollowerRequest.md)
+ - [Pipedrive.AddPersonFollowerRequest](docs/AddPersonFollowerRequest.md)
+ - [Pipedrive.AddPersonPictureRequest](docs/AddPersonPictureRequest.md)
+ - [Pipedrive.AddPersonPictureResponse](docs/AddPersonPictureResponse.md)
+ - [Pipedrive.AddPersonPictureResponseAllOf](docs/AddPersonPictureResponseAllOf.md)
+ - [Pipedrive.AddPersonResponse](docs/AddPersonResponse.md)
+ - [Pipedrive.AddPersonResponseAllOf](docs/AddPersonResponseAllOf.md)
+ - [Pipedrive.AddPersonResponseAllOfRelatedObjects](docs/AddPersonResponseAllOfRelatedObjects.md)
+ - [Pipedrive.AddProductAttachmentDetails](docs/AddProductAttachmentDetails.md)
+ - [Pipedrive.AddProductAttachmentDetailsAllOf](docs/AddProductAttachmentDetailsAllOf.md)
+ - [Pipedrive.AddProductFollowerRequest](docs/AddProductFollowerRequest.md)
+ - [Pipedrive.AddProductRequestBody](docs/AddProductRequestBody.md)
+ - [Pipedrive.AddRoleAssignmentRequest](docs/AddRoleAssignmentRequest.md)
+ - [Pipedrive.AddTeamUserRequest](docs/AddTeamUserRequest.md)
+ - [Pipedrive.AddUserBlacklistedEmailRequest](docs/AddUserBlacklistedEmailRequest.md)
+ - [Pipedrive.AddUserRequest](docs/AddUserRequest.md)
+ - [Pipedrive.AddUserRoleAssignmentRequest](docs/AddUserRoleAssignmentRequest.md)
+ - [Pipedrive.AddWebhookRequest](docs/AddWebhookRequest.md)
+ - [Pipedrive.AddedDealFollower](docs/AddedDealFollower.md)
+ - [Pipedrive.AddedDealFollowerData](docs/AddedDealFollowerData.md)
+ - [Pipedrive.AdditionalBaseOrganizationItemInfo](docs/AdditionalBaseOrganizationItemInfo.md)
+ - [Pipedrive.AdditionalData](docs/AdditionalData.md)
+ - [Pipedrive.AdditionalDataWithPaginationDetails](docs/AdditionalDataWithPaginationDetails.md)
+ - [Pipedrive.AdditionalMergePersonInfo](docs/AdditionalMergePersonInfo.md)
+ - [Pipedrive.AdditionalPersonInfo](docs/AdditionalPersonInfo.md)
+ - [Pipedrive.AllOrganizationRelationshipsGetResponse](docs/AllOrganizationRelationshipsGetResponse.md)
+ - [Pipedrive.AllOrganizationRelationshipsGetResponseAllOf](docs/AllOrganizationRelationshipsGetResponseAllOf.md)
+ - [Pipedrive.AllOrganizationRelationshipsGetResponseAllOfRelatedObjects](docs/AllOrganizationRelationshipsGetResponseAllOfRelatedObjects.md)
+ - [Pipedrive.AllOrganizationsGetResponse](docs/AllOrganizationsGetResponse.md)
+ - [Pipedrive.AllOrganizationsGetResponseAllOf](docs/AllOrganizationsGetResponseAllOf.md)
+ - [Pipedrive.AllOrganizationsGetResponseAllOfRelatedObjects](docs/AllOrganizationsGetResponseAllOfRelatedObjects.md)
+ - [Pipedrive.Assignee](docs/Assignee.md)
+ - [Pipedrive.BaseCurrency](docs/BaseCurrency.md)
+ - [Pipedrive.BaseDeal](docs/BaseDeal.md)
+ - [Pipedrive.BaseFollowerItem](docs/BaseFollowerItem.md)
+ - [Pipedrive.BaseMailThread](docs/BaseMailThread.md)
+ - [Pipedrive.BaseMailThreadAllOf](docs/BaseMailThreadAllOf.md)
+ - [Pipedrive.BaseMailThreadAllOfParties](docs/BaseMailThreadAllOfParties.md)
+ - [Pipedrive.BaseMailThreadMessages](docs/BaseMailThreadMessages.md)
+ - [Pipedrive.BaseMailThreadMessagesAllOf](docs/BaseMailThreadMessagesAllOf.md)
+ - [Pipedrive.BaseNote](docs/BaseNote.md)
+ - [Pipedrive.BaseNoteDealTitle](docs/BaseNoteDealTitle.md)
+ - [Pipedrive.BaseNoteOrganization](docs/BaseNoteOrganization.md)
+ - [Pipedrive.BaseNotePerson](docs/BaseNotePerson.md)
+ - [Pipedrive.BaseOrganizationItem](docs/BaseOrganizationItem.md)
+ - [Pipedrive.BaseOrganizationItemFields](docs/BaseOrganizationItemFields.md)
+ - [Pipedrive.BaseOrganizationItemWithEditNameFlag](docs/BaseOrganizationItemWithEditNameFlag.md)
+ - [Pipedrive.BaseOrganizationItemWithEditNameFlagAllOf](docs/BaseOrganizationItemWithEditNameFlagAllOf.md)
+ - [Pipedrive.BaseOrganizationRelationshipItem](docs/BaseOrganizationRelationshipItem.md)
+ - [Pipedrive.BasePersonItem](docs/BasePersonItem.md)
+ - [Pipedrive.BasePersonItemEmail](docs/BasePersonItemEmail.md)
+ - [Pipedrive.BasePersonItemPhone](docs/BasePersonItemPhone.md)
+ - [Pipedrive.BasePipeline](docs/BasePipeline.md)
+ - [Pipedrive.BasePipelineWithSelectedFlag](docs/BasePipelineWithSelectedFlag.md)
+ - [Pipedrive.BasePipelineWithSelectedFlagAllOf](docs/BasePipelineWithSelectedFlagAllOf.md)
+ - [Pipedrive.BaseResponse](docs/BaseResponse.md)
+ - [Pipedrive.BaseResponseWithStatus](docs/BaseResponseWithStatus.md)
+ - [Pipedrive.BaseResponseWithStatusAllOf](docs/BaseResponseWithStatusAllOf.md)
+ - [Pipedrive.BaseRole](docs/BaseRole.md)
+ - [Pipedrive.BaseStage](docs/BaseStage.md)
+ - [Pipedrive.BaseTeam](docs/BaseTeam.md)
+ - [Pipedrive.BaseTeamAdditionalProperties](docs/BaseTeamAdditionalProperties.md)
+ - [Pipedrive.BaseUser](docs/BaseUser.md)
+ - [Pipedrive.BaseUserMe](docs/BaseUserMe.md)
+ - [Pipedrive.BaseUserMeAllOf](docs/BaseUserMeAllOf.md)
+ - [Pipedrive.BaseUserMeAllOfLanguage](docs/BaseUserMeAllOfLanguage.md)
+ - [Pipedrive.BaseWebhook](docs/BaseWebhook.md)
+ - [Pipedrive.BasicDeal](docs/BasicDeal.md)
+ - [Pipedrive.BasicDealProduct](docs/BasicDealProduct.md)
+ - [Pipedrive.BasicGoal](docs/BasicGoal.md)
+ - [Pipedrive.BasicOrganization](docs/BasicOrganization.md)
+ - [Pipedrive.BasicPerson](docs/BasicPerson.md)
+ - [Pipedrive.BasicProductField](docs/BasicProductField.md)
+ - [Pipedrive.BulkDeleteResponse](docs/BulkDeleteResponse.md)
+ - [Pipedrive.BulkDeleteResponseAllOf](docs/BulkDeleteResponseAllOf.md)
+ - [Pipedrive.BulkDeleteResponseAllOfData](docs/BulkDeleteResponseAllOfData.md)
+ - [Pipedrive.CalculatedFields](docs/CalculatedFields.md)
+ - [Pipedrive.CallLogObject](docs/CallLogObject.md)
+ - [Pipedrive.CallLogResponse400](docs/CallLogResponse400.md)
+ - [Pipedrive.CallLogResponse403](docs/CallLogResponse403.md)
+ - [Pipedrive.CallLogResponse404](docs/CallLogResponse404.md)
+ - [Pipedrive.CallLogResponse409](docs/CallLogResponse409.md)
+ - [Pipedrive.CallLogResponse410](docs/CallLogResponse410.md)
+ - [Pipedrive.CallLogResponse500](docs/CallLogResponse500.md)
+ - [Pipedrive.CommonMailThread](docs/CommonMailThread.md)
+ - [Pipedrive.CreateRemoteFileAndLinkItToItem](docs/CreateRemoteFileAndLinkItToItem.md)
+ - [Pipedrive.CreateTeam](docs/CreateTeam.md)
+ - [Pipedrive.Currencies](docs/Currencies.md)
+ - [Pipedrive.DealCountAndActivityInfo](docs/DealCountAndActivityInfo.md)
+ - [Pipedrive.DealFlowResponse](docs/DealFlowResponse.md)
+ - [Pipedrive.DealFlowResponseAllOf](docs/DealFlowResponseAllOf.md)
+ - [Pipedrive.DealFlowResponseAllOfData](docs/DealFlowResponseAllOfData.md)
+ - [Pipedrive.DealFlowResponseAllOfRelatedObjects](docs/DealFlowResponseAllOfRelatedObjects.md)
+ - [Pipedrive.DealListActivitiesResponse](docs/DealListActivitiesResponse.md)
+ - [Pipedrive.DealListActivitiesResponseAllOf](docs/DealListActivitiesResponseAllOf.md)
+ - [Pipedrive.DealListActivitiesResponseAllOfRelatedObjects](docs/DealListActivitiesResponseAllOfRelatedObjects.md)
+ - [Pipedrive.DealNonStrict](docs/DealNonStrict.md)
+ - [Pipedrive.DealNonStrictModeFields](docs/DealNonStrictModeFields.md)
+ - [Pipedrive.DealNonStrictModeFieldsCreatorUserId](docs/DealNonStrictModeFieldsCreatorUserId.md)
+ - [Pipedrive.DealNonStrictWithDetails](docs/DealNonStrictWithDetails.md)
+ - [Pipedrive.DealNonStrictWithDetailsAllOf](docs/DealNonStrictWithDetailsAllOf.md)
+ - [Pipedrive.DealNonStrictWithDetailsAllOfAge](docs/DealNonStrictWithDetailsAllOfAge.md)
+ - [Pipedrive.DealNonStrictWithDetailsAllOfAverageTimeToWon](docs/DealNonStrictWithDetailsAllOfAverageTimeToWon.md)
+ - [Pipedrive.DealNonStrictWithDetailsAllOfStayInPipelineStages](docs/DealNonStrictWithDetailsAllOfStayInPipelineStages.md)
+ - [Pipedrive.DealOrganizationData](docs/DealOrganizationData.md)
+ - [Pipedrive.DealOrganizationDataWithId](docs/DealOrganizationDataWithId.md)
+ - [Pipedrive.DealOrganizationDataWithIdAllOf](docs/DealOrganizationDataWithIdAllOf.md)
+ - [Pipedrive.DealParticipantCountInfo](docs/DealParticipantCountInfo.md)
+ - [Pipedrive.DealParticipants](docs/DealParticipants.md)
+ - [Pipedrive.DealPersonData](docs/DealPersonData.md)
+ - [Pipedrive.DealPersonDataPhone](docs/DealPersonDataPhone.md)
+ - [Pipedrive.DealPersonDataWithId](docs/DealPersonDataWithId.md)
+ - [Pipedrive.DealPersonDataWithIdAllOf](docs/DealPersonDataWithIdAllOf.md)
+ - [Pipedrive.DealSearchItem](docs/DealSearchItem.md)
+ - [Pipedrive.DealSearchItemItem](docs/DealSearchItemItem.md)
+ - [Pipedrive.DealSearchItemItemOrganization](docs/DealSearchItemItemOrganization.md)
+ - [Pipedrive.DealSearchItemItemOwner](docs/DealSearchItemItemOwner.md)
+ - [Pipedrive.DealSearchItemItemPerson](docs/DealSearchItemItemPerson.md)
+ - [Pipedrive.DealSearchItemItemStage](docs/DealSearchItemItemStage.md)
+ - [Pipedrive.DealSearchResponse](docs/DealSearchResponse.md)
+ - [Pipedrive.DealSearchResponseAllOf](docs/DealSearchResponseAllOf.md)
+ - [Pipedrive.DealSearchResponseAllOfData](docs/DealSearchResponseAllOfData.md)
+ - [Pipedrive.DealStrict](docs/DealStrict.md)
+ - [Pipedrive.DealStrictModeFields](docs/DealStrictModeFields.md)
+ - [Pipedrive.DealStrictWithMergeId](docs/DealStrictWithMergeId.md)
+ - [Pipedrive.DealStrictWithMergeIdAllOf](docs/DealStrictWithMergeIdAllOf.md)
+ - [Pipedrive.DealSummary](docs/DealSummary.md)
+ - [Pipedrive.DealSummaryPerCurrency](docs/DealSummaryPerCurrency.md)
+ - [Pipedrive.DealSummaryPerCurrencyFull](docs/DealSummaryPerCurrencyFull.md)
+ - [Pipedrive.DealSummaryPerCurrencyFullCURRENCYID](docs/DealSummaryPerCurrencyFullCURRENCYID.md)
+ - [Pipedrive.DealSummaryPerStages](docs/DealSummaryPerStages.md)
+ - [Pipedrive.DealSummaryPerStagesSTAGEID](docs/DealSummaryPerStagesSTAGEID.md)
+ - [Pipedrive.DealSummaryPerStagesSTAGEIDCURRENCYID](docs/DealSummaryPerStagesSTAGEIDCURRENCYID.md)
+ - [Pipedrive.DealUserData](docs/DealUserData.md)
+ - [Pipedrive.DealUserDataWithId](docs/DealUserDataWithId.md)
+ - [Pipedrive.DealUserDataWithIdAllOf](docs/DealUserDataWithIdAllOf.md)
+ - [Pipedrive.DealsCountAndActivityInfo](docs/DealsCountAndActivityInfo.md)
+ - [Pipedrive.DealsCountInfo](docs/DealsCountInfo.md)
+ - [Pipedrive.DealsMovementsInfo](docs/DealsMovementsInfo.md)
+ - [Pipedrive.DealsMovementsInfoFormattedValues](docs/DealsMovementsInfoFormattedValues.md)
+ - [Pipedrive.DealsMovementsInfoValues](docs/DealsMovementsInfoValues.md)
+ - [Pipedrive.DeleteActivitiesResponse200](docs/DeleteActivitiesResponse200.md)
+ - [Pipedrive.DeleteActivitiesResponse200Data](docs/DeleteActivitiesResponse200Data.md)
+ - [Pipedrive.DeleteActivityResponse200](docs/DeleteActivityResponse200.md)
+ - [Pipedrive.DeleteActivityResponse200Data](docs/DeleteActivityResponse200Data.md)
+ - [Pipedrive.DeleteDeal](docs/DeleteDeal.md)
+ - [Pipedrive.DeleteDealData](docs/DeleteDealData.md)
+ - [Pipedrive.DeleteDealFollower](docs/DeleteDealFollower.md)
+ - [Pipedrive.DeleteDealFollowerData](docs/DeleteDealFollowerData.md)
+ - [Pipedrive.DeleteDealParticipant](docs/DeleteDealParticipant.md)
+ - [Pipedrive.DeleteDealParticipantData](docs/DeleteDealParticipantData.md)
+ - [Pipedrive.DeleteDealProduct](docs/DeleteDealProduct.md)
+ - [Pipedrive.DeleteDealProductData](docs/DeleteDealProductData.md)
+ - [Pipedrive.DeleteFile](docs/DeleteFile.md)
+ - [Pipedrive.DeleteFileData](docs/DeleteFileData.md)
+ - [Pipedrive.DeleteGoalResponse200](docs/DeleteGoalResponse200.md)
+ - [Pipedrive.DeleteMultipleDeals](docs/DeleteMultipleDeals.md)
+ - [Pipedrive.DeleteMultipleDealsData](docs/DeleteMultipleDealsData.md)
+ - [Pipedrive.DeleteMultipleProductFieldsResponse](docs/DeleteMultipleProductFieldsResponse.md)
+ - [Pipedrive.DeleteMultipleProductFieldsResponseData](docs/DeleteMultipleProductFieldsResponseData.md)
+ - [Pipedrive.DeleteNote](docs/DeleteNote.md)
+ - [Pipedrive.DeletePersonResponse](docs/DeletePersonResponse.md)
+ - [Pipedrive.DeletePersonResponseAllOf](docs/DeletePersonResponseAllOf.md)
+ - [Pipedrive.DeletePersonResponseAllOfData](docs/DeletePersonResponseAllOfData.md)
+ - [Pipedrive.DeletePersonsInBulkResponse](docs/DeletePersonsInBulkResponse.md)
+ - [Pipedrive.DeletePersonsInBulkResponseAllOf](docs/DeletePersonsInBulkResponseAllOf.md)
+ - [Pipedrive.DeletePersonsInBulkResponseAllOfData](docs/DeletePersonsInBulkResponseAllOfData.md)
+ - [Pipedrive.DeletePipelineResponse200](docs/DeletePipelineResponse200.md)
+ - [Pipedrive.DeletePipelineResponse200Data](docs/DeletePipelineResponse200Data.md)
+ - [Pipedrive.DeleteProductFieldResponse](docs/DeleteProductFieldResponse.md)
+ - [Pipedrive.DeleteProductFieldResponseData](docs/DeleteProductFieldResponseData.md)
+ - [Pipedrive.DeleteProductFollowerResponse](docs/DeleteProductFollowerResponse.md)
+ - [Pipedrive.DeleteProductFollowerResponseData](docs/DeleteProductFollowerResponseData.md)
+ - [Pipedrive.DeleteProductResponse](docs/DeleteProductResponse.md)
+ - [Pipedrive.DeleteProductResponseData](docs/DeleteProductResponseData.md)
+ - [Pipedrive.DeleteResponse](docs/DeleteResponse.md)
+ - [Pipedrive.DeleteResponseAllOf](docs/DeleteResponseAllOf.md)
+ - [Pipedrive.DeleteResponseAllOfData](docs/DeleteResponseAllOfData.md)
+ - [Pipedrive.DeleteRole](docs/DeleteRole.md)
+ - [Pipedrive.DeleteRoleAllOf](docs/DeleteRoleAllOf.md)
+ - [Pipedrive.DeleteRoleAllOfData](docs/DeleteRoleAllOfData.md)
+ - [Pipedrive.DeleteRoleAssignment](docs/DeleteRoleAssignment.md)
+ - [Pipedrive.DeleteRoleAssignmentAllOf](docs/DeleteRoleAssignmentAllOf.md)
+ - [Pipedrive.DeleteRoleAssignmentAllOfData](docs/DeleteRoleAssignmentAllOfData.md)
+ - [Pipedrive.DeleteStageResponse200](docs/DeleteStageResponse200.md)
+ - [Pipedrive.DeleteStageResponse200Data](docs/DeleteStageResponse200Data.md)
+ - [Pipedrive.DeleteStagesResponse200](docs/DeleteStagesResponse200.md)
+ - [Pipedrive.DeleteStagesResponse200Data](docs/DeleteStagesResponse200Data.md)
+ - [Pipedrive.DeleteTeamUserRequest](docs/DeleteTeamUserRequest.md)
+ - [Pipedrive.Duration](docs/Duration.md)
+ - [Pipedrive.EditPipeline](docs/EditPipeline.md)
+ - [Pipedrive.EditPipelineAllOf](docs/EditPipelineAllOf.md)
+ - [Pipedrive.EmailInfo](docs/EmailInfo.md)
+ - [Pipedrive.ExpectedOutcome](docs/ExpectedOutcome.md)
+ - [Pipedrive.FailResponse](docs/FailResponse.md)
+ - [Pipedrive.Field](docs/Field.md)
+ - [Pipedrive.FieldCreateRequest](docs/FieldCreateRequest.md)
+ - [Pipedrive.FieldCreateRequestWithRequiredFields](docs/FieldCreateRequestWithRequiredFields.md)
+ - [Pipedrive.FieldResponse](docs/FieldResponse.md)
+ - [Pipedrive.FieldResponseAllOf](docs/FieldResponseAllOf.md)
+ - [Pipedrive.FieldType](docs/FieldType.md)
+ - [Pipedrive.FieldTypeAsString](docs/FieldTypeAsString.md)
+ - [Pipedrive.FieldUpdateRequest](docs/FieldUpdateRequest.md)
+ - [Pipedrive.FieldsResponse](docs/FieldsResponse.md)
+ - [Pipedrive.FieldsResponseAllOf](docs/FieldsResponseAllOf.md)
+ - [Pipedrive.FileData](docs/FileData.md)
+ - [Pipedrive.FileItem](docs/FileItem.md)
+ - [Pipedrive.FilterGetItem](docs/FilterGetItem.md)
+ - [Pipedrive.FilterType](docs/FilterType.md)
+ - [Pipedrive.FiltersBulkDeleteResponse](docs/FiltersBulkDeleteResponse.md)
+ - [Pipedrive.FiltersBulkDeleteResponseAllOf](docs/FiltersBulkDeleteResponseAllOf.md)
+ - [Pipedrive.FiltersBulkDeleteResponseAllOfData](docs/FiltersBulkDeleteResponseAllOfData.md)
+ - [Pipedrive.FiltersBulkGetResponse](docs/FiltersBulkGetResponse.md)
+ - [Pipedrive.FiltersBulkGetResponseAllOf](docs/FiltersBulkGetResponseAllOf.md)
+ - [Pipedrive.FiltersDeleteResponse](docs/FiltersDeleteResponse.md)
+ - [Pipedrive.FiltersDeleteResponseAllOf](docs/FiltersDeleteResponseAllOf.md)
+ - [Pipedrive.FiltersDeleteResponseAllOfData](docs/FiltersDeleteResponseAllOfData.md)
+ - [Pipedrive.FiltersGetResponse](docs/FiltersGetResponse.md)
+ - [Pipedrive.FiltersGetResponseAllOf](docs/FiltersGetResponseAllOf.md)
+ - [Pipedrive.FiltersPostResponse](docs/FiltersPostResponse.md)
+ - [Pipedrive.FiltersPostResponseAllOf](docs/FiltersPostResponseAllOf.md)
+ - [Pipedrive.FiltersPostResponseAllOfData](docs/FiltersPostResponseAllOfData.md)
+ - [Pipedrive.FindGoalResponse](docs/FindGoalResponse.md)
+ - [Pipedrive.FindProductsByNameResponse](docs/FindProductsByNameResponse.md)
+ - [Pipedrive.FindProductsByNameResponseData](docs/FindProductsByNameResponseData.md)
+ - [Pipedrive.FollowerData](docs/FollowerData.md)
+ - [Pipedrive.FollowerDataWithID](docs/FollowerDataWithID.md)
+ - [Pipedrive.FollowerDataWithIDAllOf](docs/FollowerDataWithIDAllOf.md)
+ - [Pipedrive.FullRole](docs/FullRole.md)
+ - [Pipedrive.FullRoleAllOf](docs/FullRoleAllOf.md)
+ - [Pipedrive.GetActivitiesResponse200](docs/GetActivitiesResponse200.md)
+ - [Pipedrive.GetActivitiesResponse200RelatedObjects](docs/GetActivitiesResponse200RelatedObjects.md)
+ - [Pipedrive.GetActivityResponse200](docs/GetActivityResponse200.md)
+ - [Pipedrive.GetAddProductAttachementDetails](docs/GetAddProductAttachementDetails.md)
+ - [Pipedrive.GetAddUpdateStage](docs/GetAddUpdateStage.md)
+ - [Pipedrive.GetAddedDeal](docs/GetAddedDeal.md)
+ - [Pipedrive.GetAddedDealAdditionalData](docs/GetAddedDealAdditionalData.md)
+ - [Pipedrive.GetAllFiles](docs/GetAllFiles.md)
+ - [Pipedrive.GetAllPersonsResponse](docs/GetAllPersonsResponse.md)
+ - [Pipedrive.GetAllPersonsResponseAllOf](docs/GetAllPersonsResponseAllOf.md)
+ - [Pipedrive.GetAllPipelines](docs/GetAllPipelines.md)
+ - [Pipedrive.GetAllPipelinesAllOf](docs/GetAllPipelinesAllOf.md)
+ - [Pipedrive.GetAllProductFieldsResponse](docs/GetAllProductFieldsResponse.md)
+ - [Pipedrive.GetDeal](docs/GetDeal.md)
+ - [Pipedrive.GetDealAdditionalData](docs/GetDealAdditionalData.md)
+ - [Pipedrive.GetDeals](docs/GetDeals.md)
+ - [Pipedrive.GetDealsByName](docs/GetDealsByName.md)
+ - [Pipedrive.GetDealsByNameAdditionalData](docs/GetDealsByNameAdditionalData.md)
+ - [Pipedrive.GetDealsByNameData](docs/GetDealsByNameData.md)
+ - [Pipedrive.GetDealsConversionRatesInPipeline](docs/GetDealsConversionRatesInPipeline.md)
+ - [Pipedrive.GetDealsConversionRatesInPipelineAllOf](docs/GetDealsConversionRatesInPipelineAllOf.md)
+ - [Pipedrive.GetDealsConversionRatesInPipelineAllOfData](docs/GetDealsConversionRatesInPipelineAllOfData.md)
+ - [Pipedrive.GetDealsMovementsInPipeline](docs/GetDealsMovementsInPipeline.md)
+ - [Pipedrive.GetDealsMovementsInPipelineAllOf](docs/GetDealsMovementsInPipelineAllOf.md)
+ - [Pipedrive.GetDealsMovementsInPipelineAllOfData](docs/GetDealsMovementsInPipelineAllOfData.md)
+ - [Pipedrive.GetDealsMovementsInPipelineAllOfDataAverageAgeInDays](docs/GetDealsMovementsInPipelineAllOfDataAverageAgeInDays.md)
+ - [Pipedrive.GetDealsMovementsInPipelineAllOfDataAverageAgeInDaysByStages](docs/GetDealsMovementsInPipelineAllOfDataAverageAgeInDaysByStages.md)
+ - [Pipedrive.GetDealsMovementsInPipelineAllOfDataMovementsBetweenStages](docs/GetDealsMovementsInPipelineAllOfDataMovementsBetweenStages.md)
+ - [Pipedrive.GetDealsRelatedObjects](docs/GetDealsRelatedObjects.md)
+ - [Pipedrive.GetDealsSummary](docs/GetDealsSummary.md)
+ - [Pipedrive.GetDealsSummaryData](docs/GetDealsSummaryData.md)
+ - [Pipedrive.GetDealsSummaryDataValuesTotal](docs/GetDealsSummaryDataValuesTotal.md)
+ - [Pipedrive.GetDealsSummaryDataWeightedValuesTotal](docs/GetDealsSummaryDataWeightedValuesTotal.md)
+ - [Pipedrive.GetDealsTimeline](docs/GetDealsTimeline.md)
+ - [Pipedrive.GetDealsTimelineData](docs/GetDealsTimelineData.md)
+ - [Pipedrive.GetDealsTimelineDataTotals](docs/GetDealsTimelineDataTotals.md)
+ - [Pipedrive.GetDuplicatedDeal](docs/GetDuplicatedDeal.md)
+ - [Pipedrive.GetGoalResultResponse200](docs/GetGoalResultResponse200.md)
+ - [Pipedrive.GetGoalsResponse200](docs/GetGoalsResponse200.md)
+ - [Pipedrive.GetLeadLabelsResponse200](docs/GetLeadLabelsResponse200.md)
+ - [Pipedrive.GetLeadSourcesResponse200](docs/GetLeadSourcesResponse200.md)
+ - [Pipedrive.GetLeadSourcesResponse200Data](docs/GetLeadSourcesResponse200Data.md)
+ - [Pipedrive.GetLeadsResponse200](docs/GetLeadsResponse200.md)
+ - [Pipedrive.GetMergedDeal](docs/GetMergedDeal.md)
+ - [Pipedrive.GetNotes](docs/GetNotes.md)
+ - [Pipedrive.GetOneFile](docs/GetOneFile.md)
+ - [Pipedrive.GetOnePipeline](docs/GetOnePipeline.md)
+ - [Pipedrive.GetOnePipelineAllOf](docs/GetOnePipelineAllOf.md)
+ - [Pipedrive.GetOneStage](docs/GetOneStage.md)
+ - [Pipedrive.GetPersonDetailsResponse](docs/GetPersonDetailsResponse.md)
+ - [Pipedrive.GetPersonDetailsResponseAllOf](docs/GetPersonDetailsResponseAllOf.md)
+ - [Pipedrive.GetPersonDetailsResponseAllOfAdditionalData](docs/GetPersonDetailsResponseAllOfAdditionalData.md)
+ - [Pipedrive.GetProductAttachementDetails](docs/GetProductAttachementDetails.md)
+ - [Pipedrive.GetProductFieldResponse](docs/GetProductFieldResponse.md)
+ - [Pipedrive.GetRecents](docs/GetRecents.md)
+ - [Pipedrive.GetRecentsAdditionalData](docs/GetRecentsAdditionalData.md)
+ - [Pipedrive.GetRole](docs/GetRole.md)
+ - [Pipedrive.GetRoleAllOf](docs/GetRoleAllOf.md)
+ - [Pipedrive.GetRoleAllOfAdditionalData](docs/GetRoleAllOfAdditionalData.md)
+ - [Pipedrive.GetRoleAssignments](docs/GetRoleAssignments.md)
+ - [Pipedrive.GetRoleAssignmentsAllOf](docs/GetRoleAssignmentsAllOf.md)
+ - [Pipedrive.GetRoleSettings](docs/GetRoleSettings.md)
+ - [Pipedrive.GetRoleSettingsAllOf](docs/GetRoleSettingsAllOf.md)
+ - [Pipedrive.GetRoleSubroles](docs/GetRoleSubroles.md)
+ - [Pipedrive.GetRoleSubrolesAllOf](docs/GetRoleSubrolesAllOf.md)
+ - [Pipedrive.GetRoles](docs/GetRoles.md)
+ - [Pipedrive.GetRolesAllOf](docs/GetRolesAllOf.md)
+ - [Pipedrive.GetStageDeals](docs/GetStageDeals.md)
+ - [Pipedrive.GetStages](docs/GetStages.md)
+ - [Pipedrive.GlobalMessageBaseResponse](docs/GlobalMessageBaseResponse.md)
+ - [Pipedrive.GlobalMessageData](docs/GlobalMessageData.md)
+ - [Pipedrive.GlobalMessageDelete](docs/GlobalMessageDelete.md)
+ - [Pipedrive.GlobalMessageDeleteAllOf](docs/GlobalMessageDeleteAllOf.md)
+ - [Pipedrive.GlobalMessageGet](docs/GlobalMessageGet.md)
+ - [Pipedrive.GlobalMessageGetAllOf](docs/GlobalMessageGetAllOf.md)
+ - [Pipedrive.GlobalMessageUserData](docs/GlobalMessageUserData.md)
+ - [Pipedrive.GoalResults](docs/GoalResults.md)
+ - [Pipedrive.GoalType](docs/GoalType.md)
+ - [Pipedrive.GoalsResponseComponent](docs/GoalsResponseComponent.md)
+ - [Pipedrive.IconKey](docs/IconKey.md)
+ - [Pipedrive.ItemSearchAdditionalData](docs/ItemSearchAdditionalData.md)
+ - [Pipedrive.ItemSearchAdditionalDataPagination](docs/ItemSearchAdditionalDataPagination.md)
+ - [Pipedrive.ItemSearchFieldResponse](docs/ItemSearchFieldResponse.md)
+ - [Pipedrive.ItemSearchFieldResponseAllOf](docs/ItemSearchFieldResponseAllOf.md)
+ - [Pipedrive.ItemSearchFieldResponseAllOfData](docs/ItemSearchFieldResponseAllOfData.md)
+ - [Pipedrive.ItemSearchItem](docs/ItemSearchItem.md)
+ - [Pipedrive.ItemSearchResponse](docs/ItemSearchResponse.md)
+ - [Pipedrive.ItemSearchResponseAllOf](docs/ItemSearchResponseAllOf.md)
+ - [Pipedrive.ItemSearchResponseAllOfData](docs/ItemSearchResponseAllOfData.md)
+ - [Pipedrive.LeadIdResponse200](docs/LeadIdResponse200.md)
+ - [Pipedrive.LeadIdResponse200Data](docs/LeadIdResponse200Data.md)
+ - [Pipedrive.LeadLabelColor](docs/LeadLabelColor.md)
+ - [Pipedrive.LeadLabelResponse](docs/LeadLabelResponse.md)
+ - [Pipedrive.LeadResponse](docs/LeadResponse.md)
+ - [Pipedrive.LeadResponse404](docs/LeadResponse404.md)
+ - [Pipedrive.LeadValue](docs/LeadValue.md)
+ - [Pipedrive.LinkFileToItemRequest](docs/LinkFileToItemRequest.md)
+ - [Pipedrive.LinkRemoteFileToItem](docs/LinkRemoteFileToItem.md)
+ - [Pipedrive.ListActivitiesResponse](docs/ListActivitiesResponse.md)
+ - [Pipedrive.ListActivitiesResponseAllOf](docs/ListActivitiesResponseAllOf.md)
+ - [Pipedrive.ListDealsResponse](docs/ListDealsResponse.md)
+ - [Pipedrive.ListDealsResponseAllOf](docs/ListDealsResponseAllOf.md)
+ - [Pipedrive.ListDealsResponseAllOfRelatedObjects](docs/ListDealsResponseAllOfRelatedObjects.md)
+ - [Pipedrive.ListFilesResponse](docs/ListFilesResponse.md)
+ - [Pipedrive.ListFilesResponseAllOf](docs/ListFilesResponseAllOf.md)
+ - [Pipedrive.ListFollowersResponse](docs/ListFollowersResponse.md)
+ - [Pipedrive.ListFollowersResponseAllOf](docs/ListFollowersResponseAllOf.md)
+ - [Pipedrive.ListFollowersResponseAllOfData](docs/ListFollowersResponseAllOfData.md)
+ - [Pipedrive.ListMailMessagesResponse](docs/ListMailMessagesResponse.md)
+ - [Pipedrive.ListMailMessagesResponseAllOf](docs/ListMailMessagesResponseAllOf.md)
+ - [Pipedrive.ListMailMessagesResponseAllOfData](docs/ListMailMessagesResponseAllOfData.md)
+ - [Pipedrive.ListPermittedUsersResponse](docs/ListPermittedUsersResponse.md)
+ - [Pipedrive.ListPermittedUsersResponse2](docs/ListPermittedUsersResponse2.md)
+ - [Pipedrive.ListPermittedUsersResponse2AllOf](docs/ListPermittedUsersResponse2AllOf.md)
+ - [Pipedrive.ListPermittedUsersResponseAllOf](docs/ListPermittedUsersResponseAllOf.md)
+ - [Pipedrive.ListPermittedUsersResponseAllOfData](docs/ListPermittedUsersResponseAllOfData.md)
+ - [Pipedrive.ListPersonProductsResponse](docs/ListPersonProductsResponse.md)
+ - [Pipedrive.ListPersonProductsResponseAllOf](docs/ListPersonProductsResponseAllOf.md)
+ - [Pipedrive.ListPersonProductsResponseAllOfDEALID](docs/ListPersonProductsResponseAllOfDEALID.md)
+ - [Pipedrive.ListPersonProductsResponseAllOfData](docs/ListPersonProductsResponseAllOfData.md)
+ - [Pipedrive.ListPersonsResponse](docs/ListPersonsResponse.md)
+ - [Pipedrive.ListPersonsResponseAllOf](docs/ListPersonsResponseAllOf.md)
+ - [Pipedrive.ListPersonsResponseAllOfRelatedObjects](docs/ListPersonsResponseAllOfRelatedObjects.md)
+ - [Pipedrive.ListProductAdditionalData](docs/ListProductAdditionalData.md)
+ - [Pipedrive.ListProductAdditionalDataAllOf](docs/ListProductAdditionalDataAllOf.md)
+ - [Pipedrive.ListProductsResponse](docs/ListProductsResponse.md)
+ - [Pipedrive.ListProductsResponseAllOf](docs/ListProductsResponseAllOf.md)
+ - [Pipedrive.ListProductsResponseAllOfData](docs/ListProductsResponseAllOfData.md)
+ - [Pipedrive.MailMessage](docs/MailMessage.md)
+ - [Pipedrive.MailMessageAllOf](docs/MailMessageAllOf.md)
+ - [Pipedrive.MailMessageData](docs/MailMessageData.md)
+ - [Pipedrive.MailMessageItemForList](docs/MailMessageItemForList.md)
+ - [Pipedrive.MailMessageItemForListAllOf](docs/MailMessageItemForListAllOf.md)
+ - [Pipedrive.MailParticipant](docs/MailParticipant.md)
+ - [Pipedrive.MailServiceBaseResponse](docs/MailServiceBaseResponse.md)
+ - [Pipedrive.MailThread](docs/MailThread.md)
+ - [Pipedrive.MailThreadAllOf](docs/MailThreadAllOf.md)
+ - [Pipedrive.MailThreadDelete](docs/MailThreadDelete.md)
+ - [Pipedrive.MailThreadMessages](docs/MailThreadMessages.md)
+ - [Pipedrive.MailThreadMessagesAllOf](docs/MailThreadMessagesAllOf.md)
+ - [Pipedrive.MailThreadOne](docs/MailThreadOne.md)
+ - [Pipedrive.MailThreadOneAllOf](docs/MailThreadOneAllOf.md)
+ - [Pipedrive.MailThreadParticipant](docs/MailThreadParticipant.md)
+ - [Pipedrive.MailThreadPut](docs/MailThreadPut.md)
+ - [Pipedrive.MailThreadPutAllOf](docs/MailThreadPutAllOf.md)
+ - [Pipedrive.MergeDealsRequest](docs/MergeDealsRequest.md)
+ - [Pipedrive.MergeOrganizationsRequest](docs/MergeOrganizationsRequest.md)
+ - [Pipedrive.MergePersonDealRelatedInfo](docs/MergePersonDealRelatedInfo.md)
+ - [Pipedrive.MergePersonItem](docs/MergePersonItem.md)
+ - [Pipedrive.MergePersonsRequest](docs/MergePersonsRequest.md)
+ - [Pipedrive.MergePersonsResponse](docs/MergePersonsResponse.md)
+ - [Pipedrive.MergePersonsResponseAllOf](docs/MergePersonsResponseAllOf.md)
+ - [Pipedrive.NewDeal](docs/NewDeal.md)
+ - [Pipedrive.NewDealAllOf](docs/NewDealAllOf.md)
+ - [Pipedrive.NewDealProduct](docs/NewDealProduct.md)
+ - [Pipedrive.NewDealProductAllOf](docs/NewDealProductAllOf.md)
+ - [Pipedrive.NewFollowerResponse](docs/NewFollowerResponse.md)
+ - [Pipedrive.NewFollowerResponseData](docs/NewFollowerResponseData.md)
+ - [Pipedrive.NewGoal](docs/NewGoal.md)
+ - [Pipedrive.NewOrganization](docs/NewOrganization.md)
+ - [Pipedrive.NewOrganizationAllOf](docs/NewOrganizationAllOf.md)
+ - [Pipedrive.NewPerson](docs/NewPerson.md)
+ - [Pipedrive.NewPersonAllOf](docs/NewPersonAllOf.md)
+ - [Pipedrive.NewProductField](docs/NewProductField.md)
+ - [Pipedrive.NewProductFieldAllOf](docs/NewProductFieldAllOf.md)
+ - [Pipedrive.Note](docs/Note.md)
+ - [Pipedrive.NoteCreatorUser](docs/NoteCreatorUser.md)
+ - [Pipedrive.NoteField](docs/NoteField.md)
+ - [Pipedrive.NoteFieldsResponse](docs/NoteFieldsResponse.md)
+ - [Pipedrive.NoteFieldsResponseAllOf](docs/NoteFieldsResponseAllOf.md)
+ - [Pipedrive.NumberBoolean](docs/NumberBoolean.md)
+ - [Pipedrive.NumberBooleanDefault0](docs/NumberBooleanDefault0.md)
+ - [Pipedrive.NumberBooleanDefault1](docs/NumberBooleanDefault1.md)
+ - [Pipedrive.OneLeadResponse200](docs/OneLeadResponse200.md)
+ - [Pipedrive.OrgAndOwnerId](docs/OrgAndOwnerId.md)
+ - [Pipedrive.OrganizationAddressInfo](docs/OrganizationAddressInfo.md)
+ - [Pipedrive.OrganizationCountAndAddressInfo](docs/OrganizationCountAndAddressInfo.md)
+ - [Pipedrive.OrganizationCountInfo](docs/OrganizationCountInfo.md)
+ - [Pipedrive.OrganizationData](docs/OrganizationData.md)
+ - [Pipedrive.OrganizationDataWithId](docs/OrganizationDataWithId.md)
+ - [Pipedrive.OrganizationDataWithIdAllOf](docs/OrganizationDataWithIdAllOf.md)
+ - [Pipedrive.OrganizationDataWithIdAndActiveFlag](docs/OrganizationDataWithIdAndActiveFlag.md)
+ - [Pipedrive.OrganizationDataWithIdAndActiveFlagAllOf](docs/OrganizationDataWithIdAndActiveFlagAllOf.md)
+ - [Pipedrive.OrganizationDeleteResponse](docs/OrganizationDeleteResponse.md)
+ - [Pipedrive.OrganizationDeleteResponseData](docs/OrganizationDeleteResponseData.md)
+ - [Pipedrive.OrganizationDetailsGetResponse](docs/OrganizationDetailsGetResponse.md)
+ - [Pipedrive.OrganizationDetailsGetResponseAllOf](docs/OrganizationDetailsGetResponseAllOf.md)
+ - [Pipedrive.OrganizationDetailsGetResponseAllOfAdditionalData](docs/OrganizationDetailsGetResponseAllOfAdditionalData.md)
+ - [Pipedrive.OrganizationFlowResponse](docs/OrganizationFlowResponse.md)
+ - [Pipedrive.OrganizationFlowResponseAllOf](docs/OrganizationFlowResponseAllOf.md)
+ - [Pipedrive.OrganizationFlowResponseAllOfData](docs/OrganizationFlowResponseAllOfData.md)
+ - [Pipedrive.OrganizationFlowResponseAllOfRelatedObjects](docs/OrganizationFlowResponseAllOfRelatedObjects.md)
+ - [Pipedrive.OrganizationFollowerDeleteResponse](docs/OrganizationFollowerDeleteResponse.md)
+ - [Pipedrive.OrganizationFollowerDeleteResponseData](docs/OrganizationFollowerDeleteResponseData.md)
+ - [Pipedrive.OrganizationFollowerItem](docs/OrganizationFollowerItem.md)
+ - [Pipedrive.OrganizationFollowerItemAllOf](docs/OrganizationFollowerItemAllOf.md)
+ - [Pipedrive.OrganizationFollowerPostResponse](docs/OrganizationFollowerPostResponse.md)
+ - [Pipedrive.OrganizationFollowersListResponse](docs/OrganizationFollowersListResponse.md)
+ - [Pipedrive.OrganizationItem](docs/OrganizationItem.md)
+ - [Pipedrive.OrganizationItemAllOf](docs/OrganizationItemAllOf.md)
+ - [Pipedrive.OrganizationPostResponse](docs/OrganizationPostResponse.md)
+ - [Pipedrive.OrganizationPostResponseAllOf](docs/OrganizationPostResponseAllOf.md)
+ - [Pipedrive.OrganizationRelationship](docs/OrganizationRelationship.md)
+ - [Pipedrive.OrganizationRelationshipDeleteResponse](docs/OrganizationRelationshipDeleteResponse.md)
+ - [Pipedrive.OrganizationRelationshipDeleteResponseAllOf](docs/OrganizationRelationshipDeleteResponseAllOf.md)
+ - [Pipedrive.OrganizationRelationshipDeleteResponseAllOfData](docs/OrganizationRelationshipDeleteResponseAllOfData.md)
+ - [Pipedrive.OrganizationRelationshipDetails](docs/OrganizationRelationshipDetails.md)
+ - [Pipedrive.OrganizationRelationshipGetResponse](docs/OrganizationRelationshipGetResponse.md)
+ - [Pipedrive.OrganizationRelationshipGetResponseAllOf](docs/OrganizationRelationshipGetResponseAllOf.md)
+ - [Pipedrive.OrganizationRelationshipPostResponse](docs/OrganizationRelationshipPostResponse.md)
+ - [Pipedrive.OrganizationRelationshipPostResponseAllOf](docs/OrganizationRelationshipPostResponseAllOf.md)
+ - [Pipedrive.OrganizationRelationshipUpdateResponse](docs/OrganizationRelationshipUpdateResponse.md)
+ - [Pipedrive.OrganizationRelationshipWithCalculatedFields](docs/OrganizationRelationshipWithCalculatedFields.md)
+ - [Pipedrive.OrganizationSearchItem](docs/OrganizationSearchItem.md)
+ - [Pipedrive.OrganizationSearchItemItem](docs/OrganizationSearchItemItem.md)
+ - [Pipedrive.OrganizationSearchResponse](docs/OrganizationSearchResponse.md)
+ - [Pipedrive.OrganizationSearchResponseAllOf](docs/OrganizationSearchResponseAllOf.md)
+ - [Pipedrive.OrganizationSearchResponseAllOfData](docs/OrganizationSearchResponseAllOfData.md)
+ - [Pipedrive.OrganizationUpdateResponse](docs/OrganizationUpdateResponse.md)
+ - [Pipedrive.OrganizationUpdateResponseAllOf](docs/OrganizationUpdateResponseAllOf.md)
+ - [Pipedrive.OrganizationsDeleteResponse](docs/OrganizationsDeleteResponse.md)
+ - [Pipedrive.OrganizationsDeleteResponseData](docs/OrganizationsDeleteResponseData.md)
+ - [Pipedrive.OrganizationsMergeResponse](docs/OrganizationsMergeResponse.md)
+ - [Pipedrive.OrganizationsMergeResponseData](docs/OrganizationsMergeResponseData.md)
+ - [Pipedrive.Owner](docs/Owner.md)
+ - [Pipedrive.OwnerAllOf](docs/OwnerAllOf.md)
+ - [Pipedrive.PaginationDetails](docs/PaginationDetails.md)
+ - [Pipedrive.PaginationDetailsAllOf](docs/PaginationDetailsAllOf.md)
+ - [Pipedrive.Params](docs/Params.md)
+ - [Pipedrive.PaymentItem](docs/PaymentItem.md)
+ - [Pipedrive.PaymentsResponse](docs/PaymentsResponse.md)
+ - [Pipedrive.PaymentsResponseAllOf](docs/PaymentsResponseAllOf.md)
+ - [Pipedrive.PaymentsResponseAllOfData](docs/PaymentsResponseAllOfData.md)
+ - [Pipedrive.PermissionSets](docs/PermissionSets.md)
+ - [Pipedrive.PermissionSetsAllOf](docs/PermissionSetsAllOf.md)
+ - [Pipedrive.PermissionSetsItem](docs/PermissionSetsItem.md)
+ - [Pipedrive.PersonCountAndEmailInfo](docs/PersonCountAndEmailInfo.md)
+ - [Pipedrive.PersonCountEmailDealAndActivityInfo](docs/PersonCountEmailDealAndActivityInfo.md)
+ - [Pipedrive.PersonCountInfo](docs/PersonCountInfo.md)
+ - [Pipedrive.PersonData](docs/PersonData.md)
+ - [Pipedrive.PersonDataEmail](docs/PersonDataEmail.md)
+ - [Pipedrive.PersonDataPhone](docs/PersonDataPhone.md)
+ - [Pipedrive.PersonDataWithActiveFlag](docs/PersonDataWithActiveFlag.md)
+ - [Pipedrive.PersonDataWithActiveFlagAllOf](docs/PersonDataWithActiveFlagAllOf.md)
+ - [Pipedrive.PersonFlowResponse](docs/PersonFlowResponse.md)
+ - [Pipedrive.PersonFlowResponseAllOf](docs/PersonFlowResponseAllOf.md)
+ - [Pipedrive.PersonFlowResponseAllOfData](docs/PersonFlowResponseAllOfData.md)
+ - [Pipedrive.PersonItem](docs/PersonItem.md)
+ - [Pipedrive.PersonListProduct](docs/PersonListProduct.md)
+ - [Pipedrive.PersonNameCountAndEmailInfo](docs/PersonNameCountAndEmailInfo.md)
+ - [Pipedrive.PersonNameCountAndEmailInfoWithIds](docs/PersonNameCountAndEmailInfoWithIds.md)
+ - [Pipedrive.PersonNameCountAndEmailInfoWithIdsAllOf](docs/PersonNameCountAndEmailInfoWithIdsAllOf.md)
+ - [Pipedrive.PersonNameInfo](docs/PersonNameInfo.md)
+ - [Pipedrive.PersonNameInfoWithOrgAndOwnerId](docs/PersonNameInfoWithOrgAndOwnerId.md)
+ - [Pipedrive.PersonSearchItem](docs/PersonSearchItem.md)
+ - [Pipedrive.PersonSearchItemItem](docs/PersonSearchItemItem.md)
+ - [Pipedrive.PersonSearchItemItemOrganization](docs/PersonSearchItemItemOrganization.md)
+ - [Pipedrive.PersonSearchItemItemOwner](docs/PersonSearchItemItemOwner.md)
+ - [Pipedrive.PersonSearchResponse](docs/PersonSearchResponse.md)
+ - [Pipedrive.PersonSearchResponseAllOf](docs/PersonSearchResponseAllOf.md)
+ - [Pipedrive.PersonSearchResponseAllOfData](docs/PersonSearchResponseAllOfData.md)
+ - [Pipedrive.PictureData](docs/PictureData.md)
+ - [Pipedrive.PictureDataPictures](docs/PictureDataPictures.md)
+ - [Pipedrive.PictureDataWithID](docs/PictureDataWithID.md)
+ - [Pipedrive.PictureDataWithIDAllOf](docs/PictureDataWithIDAllOf.md)
+ - [Pipedrive.PictureDataWithValue](docs/PictureDataWithValue.md)
+ - [Pipedrive.PictureDataWithValueAllOf](docs/PictureDataWithValueAllOf.md)
+ - [Pipedrive.Pipeline](docs/Pipeline.md)
+ - [Pipedrive.PipelineDetails](docs/PipelineDetails.md)
+ - [Pipedrive.PipelineDetailsAllOf](docs/PipelineDetailsAllOf.md)
+ - [Pipedrive.PostDealParticipants](docs/PostDealParticipants.md)
+ - [Pipedrive.PostGoalResponse](docs/PostGoalResponse.md)
+ - [Pipedrive.PostNote](docs/PostNote.md)
+ - [Pipedrive.PostRoleAssignment](docs/PostRoleAssignment.md)
+ - [Pipedrive.PostRoleAssignmentAllOf](docs/PostRoleAssignmentAllOf.md)
+ - [Pipedrive.PostRoleAssignmentAllOfData](docs/PostRoleAssignmentAllOfData.md)
+ - [Pipedrive.PostRoleSettings](docs/PostRoleSettings.md)
+ - [Pipedrive.PostRoleSettingsAllOf](docs/PostRoleSettingsAllOf.md)
+ - [Pipedrive.PostRoleSettingsAllOfData](docs/PostRoleSettingsAllOfData.md)
+ - [Pipedrive.PostRoles](docs/PostRoles.md)
+ - [Pipedrive.PostRolesAllOf](docs/PostRolesAllOf.md)
+ - [Pipedrive.PostRolesAllOfData](docs/PostRolesAllOfData.md)
+ - [Pipedrive.Product](docs/Product.md)
+ - [Pipedrive.ProductAttachementFields](docs/ProductAttachementFields.md)
+ - [Pipedrive.ProductAttachmentDetails](docs/ProductAttachmentDetails.md)
+ - [Pipedrive.ProductBaseDeal](docs/ProductBaseDeal.md)
+ - [Pipedrive.ProductField](docs/ProductField.md)
+ - [Pipedrive.ProductFieldAllOf](docs/ProductFieldAllOf.md)
+ - [Pipedrive.ProductListItem](docs/ProductListItem.md)
+ - [Pipedrive.ProductRequest](docs/ProductRequest.md)
+ - [Pipedrive.ProductResponse](docs/ProductResponse.md)
+ - [Pipedrive.ProductSearchItem](docs/ProductSearchItem.md)
+ - [Pipedrive.ProductSearchItemItem](docs/ProductSearchItemItem.md)
+ - [Pipedrive.ProductSearchItemItemOwner](docs/ProductSearchItemItemOwner.md)
+ - [Pipedrive.ProductSearchResponse](docs/ProductSearchResponse.md)
+ - [Pipedrive.ProductSearchResponseAllOf](docs/ProductSearchResponseAllOf.md)
+ - [Pipedrive.ProductSearchResponseAllOfData](docs/ProductSearchResponseAllOfData.md)
+ - [Pipedrive.ProductsResponse](docs/ProductsResponse.md)
+ - [Pipedrive.PutRole](docs/PutRole.md)
+ - [Pipedrive.PutRoleAllOf](docs/PutRoleAllOf.md)
+ - [Pipedrive.PutRoleAllOfData](docs/PutRoleAllOfData.md)
+ - [Pipedrive.RecentDataProduct](docs/RecentDataProduct.md)
+ - [Pipedrive.RecentsActivity](docs/RecentsActivity.md)
+ - [Pipedrive.RecentsActivityType](docs/RecentsActivityType.md)
+ - [Pipedrive.RecentsDeal](docs/RecentsDeal.md)
+ - [Pipedrive.RecentsFile](docs/RecentsFile.md)
+ - [Pipedrive.RecentsFilter](docs/RecentsFilter.md)
+ - [Pipedrive.RecentsNote](docs/RecentsNote.md)
+ - [Pipedrive.RecentsOrganization](docs/RecentsOrganization.md)
+ - [Pipedrive.RecentsPerson](docs/RecentsPerson.md)
+ - [Pipedrive.RecentsPipeline](docs/RecentsPipeline.md)
+ - [Pipedrive.RecentsProduct](docs/RecentsProduct.md)
+ - [Pipedrive.RecentsStage](docs/RecentsStage.md)
+ - [Pipedrive.RecentsUser](docs/RecentsUser.md)
+ - [Pipedrive.RelatedDealData](docs/RelatedDealData.md)
+ - [Pipedrive.RelatedDealDataDEALID](docs/RelatedDealDataDEALID.md)
+ - [Pipedrive.RelatedFollowerData](docs/RelatedFollowerData.md)
+ - [Pipedrive.RelatedOrganizationData](docs/RelatedOrganizationData.md)
+ - [Pipedrive.RelatedOrganizationDataWithActiveFlag](docs/RelatedOrganizationDataWithActiveFlag.md)
+ - [Pipedrive.RelatedOrganizationName](docs/RelatedOrganizationName.md)
+ - [Pipedrive.RelatedPersonData](docs/RelatedPersonData.md)
+ - [Pipedrive.RelatedPersonDataWithActiveFlag](docs/RelatedPersonDataWithActiveFlag.md)
+ - [Pipedrive.RelatedPictureData](docs/RelatedPictureData.md)
+ - [Pipedrive.RelatedUserData](docs/RelatedUserData.md)
+ - [Pipedrive.RelationshipOrganizationInfoItem](docs/RelationshipOrganizationInfoItem.md)
+ - [Pipedrive.RelationshipOrganizationInfoItemAllOf](docs/RelationshipOrganizationInfoItemAllOf.md)
+ - [Pipedrive.RelationshipOrganizationInfoItemWithActiveFlag](docs/RelationshipOrganizationInfoItemWithActiveFlag.md)
+ - [Pipedrive.ResponseCallLogObject](docs/ResponseCallLogObject.md)
+ - [Pipedrive.ResponseCallLogObjectAllOf](docs/ResponseCallLogObjectAllOf.md)
+ - [Pipedrive.RoleAssignment](docs/RoleAssignment.md)
+ - [Pipedrive.RoleAssignmentAllOf](docs/RoleAssignmentAllOf.md)
+ - [Pipedrive.RoleSettings](docs/RoleSettings.md)
+ - [Pipedrive.RolesAdditionalData](docs/RolesAdditionalData.md)
+ - [Pipedrive.RolesAdditionalDataPagination](docs/RolesAdditionalDataPagination.md)
+ - [Pipedrive.SinglePermissionSetsItem](docs/SinglePermissionSetsItem.md)
+ - [Pipedrive.SinglePermissionSetsItemAllOf](docs/SinglePermissionSetsItemAllOf.md)
+ - [Pipedrive.Stage](docs/Stage.md)
+ - [Pipedrive.StageConversions](docs/StageConversions.md)
+ - [Pipedrive.StageDetails](docs/StageDetails.md)
+ - [Pipedrive.StageWithPipelineInfo](docs/StageWithPipelineInfo.md)
+ - [Pipedrive.StageWithPipelineInfoAllOf](docs/StageWithPipelineInfoAllOf.md)
+ - [Pipedrive.SubRole](docs/SubRole.md)
+ - [Pipedrive.SubRoleAllOf](docs/SubRoleAllOf.md)
+ - [Pipedrive.SubscriptionInstallmentCreateRequest](docs/SubscriptionInstallmentCreateRequest.md)
+ - [Pipedrive.SubscriptionInstallmentUpdateRequest](docs/SubscriptionInstallmentUpdateRequest.md)
+ - [Pipedrive.SubscriptionItem](docs/SubscriptionItem.md)
+ - [Pipedrive.SubscriptionRecurringCancelRequest](docs/SubscriptionRecurringCancelRequest.md)
+ - [Pipedrive.SubscriptionRecurringCreateRequest](docs/SubscriptionRecurringCreateRequest.md)
+ - [Pipedrive.SubscriptionRecurringUpdateRequest](docs/SubscriptionRecurringUpdateRequest.md)
+ - [Pipedrive.SubscriptionsIdResponse](docs/SubscriptionsIdResponse.md)
+ - [Pipedrive.SubscriptionsIdResponseAllOf](docs/SubscriptionsIdResponseAllOf.md)
+ - [Pipedrive.TeamId](docs/TeamId.md)
+ - [Pipedrive.Teams](docs/Teams.md)
+ - [Pipedrive.TeamsAllOf](docs/TeamsAllOf.md)
+ - [Pipedrive.Unauthorized](docs/Unauthorized.md)
+ - [Pipedrive.UpdateActivityResponse200](docs/UpdateActivityResponse200.md)
+ - [Pipedrive.UpdateFile](docs/UpdateFile.md)
+ - [Pipedrive.UpdateFileRequest](docs/UpdateFileRequest.md)
+ - [Pipedrive.UpdateFilterRequest](docs/UpdateFilterRequest.md)
+ - [Pipedrive.UpdateLeadLabelRequest](docs/UpdateLeadLabelRequest.md)
+ - [Pipedrive.UpdateLeadRequest](docs/UpdateLeadRequest.md)
+ - [Pipedrive.UpdateMailThreadDetailsRequest](docs/UpdateMailThreadDetailsRequest.md)
+ - [Pipedrive.UpdatePersonResponse](docs/UpdatePersonResponse.md)
+ - [Pipedrive.UpdateTeam](docs/UpdateTeam.md)
+ - [Pipedrive.UpdateTeamAllOf](docs/UpdateTeamAllOf.md)
+ - [Pipedrive.UpdateTeamWithAdditionalProperties](docs/UpdateTeamWithAdditionalProperties.md)
+ - [Pipedrive.UpdateUserRequest](docs/UpdateUserRequest.md)
+ - [Pipedrive.User](docs/User.md)
+ - [Pipedrive.UserAllOf](docs/UserAllOf.md)
+ - [Pipedrive.UserAssignmentToPermissionSet](docs/UserAssignmentToPermissionSet.md)
+ - [Pipedrive.UserAssignmentsToPermissionSet](docs/UserAssignmentsToPermissionSet.md)
+ - [Pipedrive.UserAssignmentsToPermissionSetAllOf](docs/UserAssignmentsToPermissionSetAllOf.md)
+ - [Pipedrive.UserConnections](docs/UserConnections.md)
+ - [Pipedrive.UserConnectionsAllOf](docs/UserConnectionsAllOf.md)
+ - [Pipedrive.UserConnectionsAllOfData](docs/UserConnectionsAllOfData.md)
+ - [Pipedrive.UserData](docs/UserData.md)
+ - [Pipedrive.UserDataWithId](docs/UserDataWithId.md)
+ - [Pipedrive.UserIDs](docs/UserIDs.md)
+ - [Pipedrive.UserIDsAllOf](docs/UserIDsAllOf.md)
+ - [Pipedrive.UserMe](docs/UserMe.md)
+ - [Pipedrive.UserMeAllOf](docs/UserMeAllOf.md)
+ - [Pipedrive.UserPermissions](docs/UserPermissions.md)
+ - [Pipedrive.UserPermissionsAllOf](docs/UserPermissionsAllOf.md)
+ - [Pipedrive.UserPermissionsItem](docs/UserPermissionsItem.md)
+ - [Pipedrive.UserSettings](docs/UserSettings.md)
+ - [Pipedrive.UserSettingsAllOf](docs/UserSettingsAllOf.md)
+ - [Pipedrive.UserSettingsItem](docs/UserSettingsItem.md)
+ - [Pipedrive.Users](docs/Users.md)
+ - [Pipedrive.UsersAllOf](docs/UsersAllOf.md)
+ - [Pipedrive.VisibleTo](docs/VisibleTo.md)
+ - [Pipedrive.Webhook](docs/Webhook.md)
+ - [Pipedrive.WebhookAllOf](docs/WebhookAllOf.md)
+ - [Pipedrive.WebhookBadRequest](docs/WebhookBadRequest.md)
+ - [Pipedrive.WebhookBadRequestAllOf](docs/WebhookBadRequestAllOf.md)
+ - [Pipedrive.Webhooks](docs/Webhooks.md)
+ - [Pipedrive.WebhooksAllOf](docs/WebhooksAllOf.md)
+ - [Pipedrive.WebhooksDeleteForbiddenSchema](docs/WebhooksDeleteForbiddenSchema.md)
+ - [Pipedrive.WebhooksDeleteForbiddenSchemaAllOf](docs/WebhooksDeleteForbiddenSchemaAllOf.md)
+
+
+## Documentation for Authorization
+
+
+
+### api_key
+
+
+- **Type**: API key
+- **API key parameter name**: api_token
+- **Location**: URL query string
+
+
+
+### oauth2
+
+
+- **Type**: OAuth
+- **Flow**: accessCode
+- **Authorization URL**: https://oauth.pipedrive.com/oauth/authorize
+- **Scopes**: 
+  - deals:read: Read most data about deals and related entities.
+  - deals:full: Create, read, update and delete deals, its participants and followers.
+  - activities:read: Read activities, its fields and types; all files and filters.
+  - activities:full: Create, read, update and delete activities and all files and filters.
+  - contacts:read: Read data about persons and organizations, their related fields and followers.
+  - contacts:full: Create, read, update and delete persons and organizations and their followers.
+  - admin: Allows to do many things that an administrator can do in a Pipedrive company account.
+  - recents:read: Read all recent changes occured in an account.
+  - search:read: Search across the account for deals, persons, organizations, files and products and see details about the returned results.
+  - mail:read: Read mail threads and messages.
+  - mail:full: Read, update and delete mail threads. Also grants read access to mail messages.
+  - products:read: Read products, its fields, files, followers and products connected to a deal.
+  - products:full: Create, read, update and delete products and its fields; add products to deals
+  - users:read: Read data about users (people with access to a Pipedrive account), their permissions, roles and followers, as well as about teams.
+  - base: Read settings of the authorized user and currencies in an account.
+  - phone-integration: Create, read and delete call logs and its audio recordings.
 
-## How to Test
-
-These tests use Mocha framework for testing, coupled with Chai for assertions. These dependencies need to be installed for tests to run.
-Tests can be run in a number of ways:
-
-### Method 1 (Run all tests)
-
-1. Navigate to the root directory of the SDK folder from command prompt.
-2. Type `mocha --recursive` to run all the tests.
-
-### Method 2 (Run all tests)
-
-1. Navigate to the `../test/Controllers/` directory from command prompt.
-2. Type `mocha *` to run all the tests.
-
-### Method 3 (Run specific controller's tests)
-
-1. Navigate to the `../test/Controllers/` directory from command prompt.
-2. Type `mocha  Pipedrive API v1Controller`  to run all the tests in that controller file.
-
-> To increase mocha's default timeout, you can change the `TEST_TIMEOUT` parameter's value in `TestBootstrap.js`.
-
-# Class Reference
-
-## <a name="list_of_controllers"></a>List of Controllers
-
-* [ActivitiesController](#activities_controller)
-* [ActivityFieldsController](#activity_fields_controller)
-* [ActivityTypesController](#activity_types_controller)
-* [CurrenciesController](#currencies_controller)
-* [DealFieldsController](#deal_fields_controller)
-* [DealsController](#deals_controller)
-* [FilesController](#files_controller)
-* [FiltersController](#filters_controller)
-* [GlobalMessagesController](#global_messages_controller)
-* [GoalsController](#goals_controller)
-* [MailMessagesController](#mail_messages_controller)
-* [MailThreadsController](#mail_threads_controller)
-* [NoteFieldsController](#note_fields_controller)
-* [NotesController](#notes_controller)
-* [OrganizationFieldsController](#organization_fields_controller)
-* [OrganizationRelationshipsController](#organization_relationships_controller)
-* [OrganizationsController](#organizations_controller)
-* [PermissionSetsController](#permission_sets_controller)
-* [PersonFieldsController](#person_fields_controller)
-* [PersonsController](#persons_controller)
-* [PipelinesController](#pipelines_controller)
-* [ProductFieldsController](#product_fields_controller)
-* [ProductsController](#products_controller)
-* [RecentsController](#recents_controller)
-* [RolesController](#roles_controller)
-* [SearchResultsController](#search_results_controller)
-* [StagesController](#stages_controller)
-* [TeamsController](#teams_controller)
-* [UserConnectionsController](#user_connections_controller)
-* [UserSettingsController](#user_settings_controller)
-* [UsersController](#users_controller)
-* [WebhooksController](#webhooks_controller)
-
-## <a name="activities_controller"></a>![Class: ](https://apidocs.io/img/class.png ".ActivitiesController") ActivitiesController
-
-### Get singleton instance
-
-The singleton instance of the ``` ActivitiesController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.ActivitiesController;
-```
-
-### <a name="delete_multiple_activities_in_bulk"></a>![Method: ](https://apidocs.io/img/method.png ".ActivitiesController.deleteMultipleActivitiesInBulk") deleteMultipleActivitiesInBulk
-
-> Marks multiple activities as deleted.
-
-
-```javascript
-function deleteMultipleActivitiesInBulk(ids, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| ids |  ``` Required ```  | Comma-separated IDs that will be deleted |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var ids = 'ids';
-
-    controller.deleteMultipleActivitiesInBulk(ids, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_all_activities_assigned_to_a_particular_user"></a>![Method: ](https://apidocs.io/img/method.png ".ActivitiesController.getAllActivitiesAssignedToAParticularUser") getAllActivitiesAssignedToAParticularUser
-
-> Returns all activities assigned to a particular user.
-
-
-```javascript
-function getAllActivitiesAssignedToAParticularUser(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| userId |  ``` Optional ```  | ID of the user whose activities will be fetched. If omitted, the user associated with the API token will be used. If 0, activities for all company users will be fetched based on the permission sets. |
-| filterId |  ``` Optional ```  | ID of the filter to use (will narrow down results if used together with user_id parameter). |
-| type |  ``` Optional ```  | Type of the activity, can be one type or multiple types separated by a comma. This is in correlation with the key_string parameter of ActivityTypes. |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| startDate |  ``` Optional ```  | Date in format of YYYY-MM-DD from which activities to fetch from. |
-| endDate |  ``` Optional ```  | Date in format of YYYY-MM-DD until which activities to fetch to. |
-| done |  ``` Optional ```  | Whether the activity is done or not. 0 = Not done, 1 = Done. If omitted returns both Done and Not done activities. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['userId'] = 58;
-        input['filterId'] = 58;
-        input['type'] = 'type';
-        input['start'] = 0;
-        input['limit'] = 58;
-        input['startDate'] = '2019-11-22';
-        input['endDate'] = '2019-11-22';
-        input['done'] = Object.keys(NumberBoolean)[0];
-
-    controller.getAllActivitiesAssignedToAParticularUser(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_an_activity"></a>![Method: ](https://apidocs.io/img/method.png ".ActivitiesController.addAnActivity") addAnActivity
-
-> Adds a new activity. Includes more_activities_scheduled_in_context property in response's additional_data which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information on how to add an activity, see <a href="https://pipedrive.readme.io/docs/adding-an-activity" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```javascript
-function addAnActivity(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subject |  ``` Required ```  | Subject of the activity |
-| type |  ``` Required ```  | Type of the activity. This is in correlation with the key_string parameter of ActivityTypes. |
-| done |  ``` Optional ```  | TODO: Add a parameter description |
-| dueDate |  ``` Optional ```  | Due date of the activity. Format: YYYY-MM-DD |
-| dueTime |  ``` Optional ```  | Due time of the activity in UTC. Format: HH:MM |
-| duration |  ``` Optional ```  | Duration of the activity. Format: HH:MM |
-| userId |  ``` Optional ```  | ID of the user whom the activity will be assigned to. If omitted, the activity will be assigned to the authorized user. |
-| dealId |  ``` Optional ```  | ID of the deal this activity will be associated with |
-| personId |  ``` Optional ```  | ID of the person this activity will be associated with |
-| participants |  ``` Optional ```  | List of multiple persons (participants) this activity will be associated with. If omitted, single participant from person_id field is used. It requires a structure as follows: [{"person_id":1,"primary_flag":true}] |
-| orgId |  ``` Optional ```  | ID of the organization this activity will be associated with |
-| note |  ``` Optional ```  | Note of the activity (HTML format) |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['subject'] = 'subject';
-        input['type'] = 'type';
-        input['done'] = Object.keys(NumberBoolean)[0];
-        input['dueDate'] = '2019-11-22';
-        input['dueTime'] = due_time;
-        input['duration'] = 'duration';
-        input['userId'] = 58;
-        input['dealId'] = 58;
-        input['personId'] = 58;
-        input['participants'] = 'participants';
-        input['orgId'] = 58;
-        input['note'] = 'note';
-
-    controller.addAnActivity(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_an_activity"></a>![Method: ](https://apidocs.io/img/method.png ".ActivitiesController.deleteAnActivity") deleteAnActivity
-
-> Deletes an activity.
-
-
-```javascript
-function deleteAnActivity(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the activity |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 58;
-
-    controller.deleteAnActivity(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_details_of_an_activity"></a>![Method: ](https://apidocs.io/img/method.png ".ActivitiesController.getDetailsOfAnActivity") getDetailsOfAnActivity
-
-> Returns details of a specific activity.
-
-
-```javascript
-function getDetailsOfAnActivity(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the activity |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 58;
-
-    controller.getDetailsOfAnActivity(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="update_edit_an_activity"></a>![Method: ](https://apidocs.io/img/method.png ".ActivitiesController.updateEditAnActivity") updateEditAnActivity
-
-> Modifies an activity. Includes more_activities_scheduled_in_context property in response's additional_data which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data).
-
-
-```javascript
-function updateEditAnActivity(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the activity |
-| subject |  ``` Required ```  | Subject of the activity |
-| type |  ``` Required ```  | Type of the activity. This is in correlation with the key_string parameter of ActivityTypes. |
-| done |  ``` Optional ```  | TODO: Add a parameter description |
-| dueDate |  ``` Optional ```  | Due date of the activity. Format: YYYY-MM-DD |
-| dueTime |  ``` Optional ```  | Due time of the activity in UTC. Format: HH:MM |
-| duration |  ``` Optional ```  | Duration of the activity. Format: HH:MM |
-| userId |  ``` Optional ```  | ID of the user whom the activity will be assigned to. If omitted, the activity will be assigned to the authorized user. |
-| dealId |  ``` Optional ```  | ID of the deal this activity will be associated with |
-| personId |  ``` Optional ```  | ID of the person this activity will be associated with |
-| participants |  ``` Optional ```  | List of multiple persons (participants) this activity will be associated with. If omitted, single participant from person_id field is used. It requires a structure as follows: [{"person_id":1,"primary_flag":true}] |
-| orgId |  ``` Optional ```  | ID of the organization this activity will be associated with |
-| note |  ``` Optional ```  | Note of the activity (HTML format) |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['subject'] = 'subject';
-        input['type'] = 'type';
-        input['done'] = Object.keys(NumberBoolean)[0];
-        input['dueDate'] = '2019-11-22';
-        input['dueTime'] = due_time;
-        input['duration'] = 'duration';
-        input['userId'] = 58;
-        input['dealId'] = 58;
-        input['personId'] = 58;
-        input['participants'] = 'participants';
-        input['orgId'] = 58;
-        input['note'] = 'note';
-
-    controller.updateEditAnActivity(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="activity_fields_controller"></a>![Class: ](https://apidocs.io/img/class.png ".ActivityFieldsController") ActivityFieldsController
-
-### Get singleton instance
-
-The singleton instance of the ``` ActivityFieldsController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.ActivityFieldsController;
-```
-
-### <a name="get_all_fields_for_an_activity"></a>![Method: ](https://apidocs.io/img/method.png ".ActivityFieldsController.getAllFieldsForAnActivity") getAllFieldsForAnActivity
-
-> Return list of all fields for activity
-
-
-```javascript
-function getAllFieldsForAnActivity(callback)
-```
-
-#### Example Usage
-
-```javascript
-
-
-    controller.getAllFieldsForAnActivity(function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="activity_types_controller"></a>![Class: ](https://apidocs.io/img/class.png ".ActivityTypesController") ActivityTypesController
-
-### Get singleton instance
-
-The singleton instance of the ``` ActivityTypesController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.ActivityTypesController;
-```
-
-### <a name="delete_multiple_activity_types_in_bulk"></a>![Method: ](https://apidocs.io/img/method.png ".ActivityTypesController.deleteMultipleActivityTypesInBulk") deleteMultipleActivityTypesInBulk
-
-> Marks multiple activity types as deleted.
-
-
-```javascript
-function deleteMultipleActivityTypesInBulk(ids, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| ids |  ``` Required ```  | Comma-separated activity type IDs to delete |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var ids = 'ids';
-
-    controller.deleteMultipleActivityTypesInBulk(ids, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_all_activity_types"></a>![Method: ](https://apidocs.io/img/method.png ".ActivityTypesController.getAllActivityTypes") getAllActivityTypes
-
-> Returns all activity types
-
-
-```javascript
-function getAllActivityTypes(callback)
-```
-
-#### Example Usage
-
-```javascript
-
-
-    controller.getAllActivityTypes(function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_new_activity_type"></a>![Method: ](https://apidocs.io/img/method.png ".ActivityTypesController.addNewActivityType") addNewActivityType
-
-> Adds a new activity type, returns the ID, the key_string and the order number of the newly added activity type upon success.
-
-
-```javascript
-function addNewActivityType(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| name |  ``` Required ```  | Name of the activity type |
-| iconKey |  ``` Required ```  | Icon graphic to use for representing this activity type. |
-| color |  ``` Optional ```  | A designated color for the activity type in 6-character HEX format (e.g. FFFFFF for white, 000000 for black). |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['name'] = 'name';
-        input['iconKey'] = Object.keys(IconKey)[0];
-        input['color'] = 'color';
-
-    controller.addNewActivityType(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_an_activity_type"></a>![Method: ](https://apidocs.io/img/method.png ".ActivityTypesController.deleteAnActivityType") deleteAnActivityType
-
-> Marks an activity type as deleted.
-
-
-```javascript
-function deleteAnActivityType(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the activity type |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 58;
-
-    controller.deleteAnActivityType(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="update_edit_activity_type"></a>![Method: ](https://apidocs.io/img/method.png ".ActivityTypesController.updateEditActivityType") updateEditActivityType
-
-> Updates an activity type.
-
-
-```javascript
-function updateEditActivityType(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the activity type |
-| name |  ``` Optional ```  | Name of the activity type |
-| iconKey |  ``` Optional ```  | Icon graphic to use for representing this activity type. |
-| color |  ``` Optional ```  | A designated color for the activity type in 6-character HEX format (e.g. FFFFFF for white, 000000 for black). |
-| orderNr |  ``` Optional ```  | An order number for this activity type. Order numbers should be used to order the types in the activity type selections. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['name'] = 'name';
-        input['iconKey'] = Object.keys(IconKey)[0];
-        input['color'] = 'color';
-        input['orderNr'] = 58;
-
-    controller.updateEditActivityType(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="currencies_controller"></a>![Class: ](https://apidocs.io/img/class.png ".CurrenciesController") CurrenciesController
-
-### Get singleton instance
-
-The singleton instance of the ``` CurrenciesController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.CurrenciesController;
-```
-
-### <a name="get_all_supported_currencies"></a>![Method: ](https://apidocs.io/img/method.png ".CurrenciesController.getAllSupportedCurrencies") getAllSupportedCurrencies
-
-> Returns all supported currencies in given account which should be used when saving monetary values with other objects. The 'code' parameter of the returning objects is the currency code according to ISO 4217 for all non-custom currencies.
-
-
-```javascript
-function getAllSupportedCurrencies(term, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| term |  ``` Optional ```  | Optional search term that is searched for from currency's name and/or code. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var term = 'term';
-
-    controller.getAllSupportedCurrencies(term, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="deal_fields_controller"></a>![Class: ](https://apidocs.io/img/class.png ".DealFieldsController") DealFieldsController
-
-### Get singleton instance
-
-The singleton instance of the ``` DealFieldsController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.DealFieldsController;
-```
-
-### <a name="delete_multiple_deal_fields_in_bulk"></a>![Method: ](https://apidocs.io/img/method.png ".DealFieldsController.deleteMultipleDealFieldsInBulk") deleteMultipleDealFieldsInBulk
-
-> Marks multiple fields as deleted.
-
-
-```javascript
-function deleteMultipleDealFieldsInBulk(ids, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| ids |  ``` Required ```  | Comma-separated field IDs to delete |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var ids = 'ids';
-
-    controller.deleteMultipleDealFieldsInBulk(ids, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_all_deal_fields"></a>![Method: ](https://apidocs.io/img/method.png ".DealFieldsController.getAllDealFields") getAllDealFields
-
-> Returns data about all fields deals can have
-
-
-```javascript
-function getAllDealFields(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['start'] = 0;
-        input['limit'] = 58;
-
-    controller.getAllDealFields(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_a_new_deal_field"></a>![Method: ](https://apidocs.io/img/method.png ".DealFieldsController.addANewDealField") addANewDealField
-
-> Adds a new deal field. For more information on adding a new custom field, see <a href="https://pipedrive.readme.io/docs/adding-a-new-custom-field" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```javascript
-function addANewDealField(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| contentType |  ``` Optional ```  | TODO: Add a parameter description |
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['contentType'] = 'Content-Type';
-        input['body'] = {
-        id : 21
-    };
-
-    controller.addANewDealField(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_a_deal_field"></a>![Method: ](https://apidocs.io/img/method.png ".DealFieldsController.deleteADealField") deleteADealField
-
-> Marks a field as deleted. For more information on how to delete a custom field, see <a href="https://pipedrive.readme.io/docs/deleting-a-custom-field" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```javascript
-function deleteADealField(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the field |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 58;
-
-    controller.deleteADealField(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_one_deal_field"></a>![Method: ](https://apidocs.io/img/method.png ".DealFieldsController.getOneDealField") getOneDealField
-
-> Returns data about a specific deal field.
-
-
-```javascript
-function getOneDealField(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the field |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 58;
-
-    controller.getOneDealField(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="update_a_deal_field"></a>![Method: ](https://apidocs.io/img/method.png ".DealFieldsController.updateADealField") updateADealField
-
-> Updates a deal field. See an example of updating custom fields’ values in <a href=" https://pipedrive.readme.io/docs/updating-custom-field-value " target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```javascript
-function updateADealField(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the field |
-| name |  ``` Required ```  | Name of the field |
-| options |  ``` Optional ```  | When field_type is either set or enum, possible options must be supplied as a JSON-encoded sequential array, for example: ["red","blue","lilac"] |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['name'] = 'name';
-        input['options'] = 'options';
-
-    controller.updateADealField(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="deals_controller"></a>![Class: ](https://apidocs.io/img/class.png ".DealsController") DealsController
-
-### Get singleton instance
-
-The singleton instance of the ``` DealsController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.DealsController;
-```
-
-### <a name="delete_multiple_deals_in_bulk"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.deleteMultipleDealsInBulk") deleteMultipleDealsInBulk
-
-> Marks multiple deals as deleted.
-
-
-```javascript
-function deleteMultipleDealsInBulk(ids, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| ids |  ``` Required ```  | Comma-separated IDs that will be deleted |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var ids = 'ids';
-
-    controller.deleteMultipleDealsInBulk(ids, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_all_deals"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.getAllDeals") getAllDeals
-
-> Returns all deals. For more information on how to get all deals, see <a href="https://pipedrive.readme.io/docs/getting-all-deals" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```javascript
-function getAllDeals(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| userId |  ``` Optional ```  | If supplied, only deals matching the given user will be returned. |
-| filterId |  ``` Optional ```  | ID of the filter to use |
-| stageId |  ``` Optional ```  | If supplied, only deals within the given stage will be returned. |
-| status |  ``` Optional ```  ``` DefaultValue ```  | Only fetch deals with specific status. If omitted, all not deleted deals are fetched. |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| sort |  ``` Optional ```  | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). |
-| ownedByYou |  ``` Optional ```  | When supplied, only deals owned by you are returned. However filter_id takes precedence over owned_by_you when both are supplied. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['userId'] = 58;
-        input['filterId'] = 58;
-        input['stageId'] = 58;
-        input['status'] = new Status2Enum(all_not_deleted);
-        input['start'] = 0;
-        input['limit'] = 58;
-        input['sort'] = 'sort';
-        input['ownedByYou'] = Object.keys(NumberBoolean)[0];
-
-    controller.getAllDeals(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.addADeal") addADeal
-
-> Adds a new deal. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the dealFields and look for 'key' values. For more information on how to add a deal, see <a href="https://pipedrive.readme.io/docs/creating-a-deal" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```javascript
-function addADeal(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| contentType |  ``` Optional ```  | TODO: Add a parameter description |
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['contentType'] = 'Content-Type';
-        input['body'] = {
-        id : 21
-    };
-
-    controller.addADeal(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="find_deals_by_name"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.findDealsByName") findDealsByName
-
-> Searches all deals by their title.
-
-
-```javascript
-function findDealsByName(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| term |  ``` Required ```  | Search term to look for |
-| personId |  ``` Optional ```  | ID of the person the Deal is associated with. |
-| orgId |  ``` Optional ```  | ID of the organization the Deal is associated with. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['term'] = 'term';
-        input['personId'] = 58;
-        input['orgId'] = 58;
-
-    controller.findDealsByName(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_deals_summary"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.getDealsSummary") getDealsSummary
-
-> Returns summary of all the deals.
-
-
-```javascript
-function getDealsSummary(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| status |  ``` Optional ```  | Only fetch deals with specific status. open = Open, won = Won, lost = Lost |
-| filterId |  ``` Optional ```  | user_id will not be considered. Only deals matching the given filter will be returned. |
-| userId |  ``` Optional ```  | Only deals matching the given user will be returned. user_id will not be considered if you use filter_id. |
-| stageId |  ``` Optional ```  | Only deals within the given stage will be returned. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['status'] = Object.keys(status3)[0];
-        input['filterId'] = 58;
-        input['userId'] = 58;
-        input['stageId'] = 58;
-
-    controller.getDealsSummary(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_deals_timeline"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.getDealsTimeline") getDealsTimeline
-
-> Returns open and won deals, grouped by defined interval of time set in a date-type dealField (field_key) — e.g. when month is the chosen interval, and 3 months are asked starting from  January 1st, 2012, deals are returned grouped into 3 groups — January, February and March — based on the value of the given field_key.
-
-
-```javascript
-function getDealsTimeline(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| startDate |  ``` Required ```  | Date where first interval starts. Format: YYYY-MM-DD |
-| interval |  ``` Required ```  | Type of interval.<dl class="fields-list"><dt>day</dt><dd>Day</dd><dt>week</dt><dd>A full week (7 days) starting from start_date</dd><dt>month</dt><dd>A full month (depending on the number of days in given month) starting from start_date</dd><dt>quarter</dt><dd>A full quarter (3 months) starting from start_date</dd></dl> |
-| amount |  ``` Required ```  | Number of given intervals, starting from start_date, to fetch. E.g. 3 (months). |
-| fieldKey |  ``` Required ```  | The name of the date field by which to get deals by. |
-| userId |  ``` Optional ```  | If supplied, only deals matching the given user will be returned. |
-| pipelineId |  ``` Optional ```  | If supplied, only deals matching the given pipeline will be returned. |
-| filterId |  ``` Optional ```  | If supplied, only deals matching the given filter will be returned. |
-| excludeDeals |  ``` Optional ```  | Whether to exclude deals list (1) or not (0). Note that when deals are excluded, the timeline summary (counts and values) is still returned. |
-| totalsConvertCurrency |  ``` Optional ```  | 3-letter currency code of any of the supported currencies. When supplied, totals_converted is returned per each interval which contains the currency-converted total amounts in the given currency. You may also set this parameter to 'default_currency' in which case users default currency is used. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['startDate'] = '2019-11-22';
-        input['interval'] = Object.keys(interval2)[0];
-        input['amount'] = 58;
-        input['fieldKey'] = field_key;
-        input['userId'] = 58;
-        input['pipelineId'] = 58;
-        input['filterId'] = 58;
-        input['excludeDeals'] = Object.keys(NumberBoolean)[0];
-        input['totalsConvertCurrency'] = totals_convert_currency;
-
-    controller.getDealsTimeline(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.deleteADeal") deleteADeal
-
-> Marks a deal as deleted.
-
-
-```javascript
-function deleteADeal(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 58;
-
-    controller.deleteADeal(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_details_of_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.getDetailsOfADeal") getDetailsOfADeal
-
-> Returns details of a specific deal. Note that this also returns some additional fields which are not present when asking for all deals – such as deal age and stay in pipeline stages. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the 'key' value of dealFields. For more information on how to get all details of a deal, see <a href="https://pipedrive.readme.io/docs/getting-details-of-a-deal" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```javascript
-function getDetailsOfADeal(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 58;
-
-    controller.getDetailsOfADeal(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="update_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.updateADeal") updateADeal
-
-> Updates the properties of a deal. For more information on how to update a deal, see <a href="https://pipedrive.readme.io/docs/updating-a-deal" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```javascript
-function updateADeal(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| title |  ``` Optional ```  | Deal title |
-| value |  ``` Optional ```  | Value of the deal. If omitted, value will be set to 0. |
-| currency |  ``` Optional ```  | Currency of the deal. Accepts a 3-character currency code. If omitted, currency will be set to the default currency of the authorized user. |
-| userId |  ``` Optional ```  | ID of the user who will be marked as the owner of this deal. If omitted, the authorized user ID will be used. |
-| personId |  ``` Optional ```  | ID of the person this deal will be associated with |
-| orgId |  ``` Optional ```  | ID of the organization this deal will be associated with |
-| stageId |  ``` Optional ```  | ID of the stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on stage_id). If omitted, the deal will be placed in the first stage of the default pipeline. |
-| status |  ``` Optional ```  | open = Open, won = Won, lost = Lost, deleted = Deleted. If omitted, status will be set to open. |
-| probability |  ``` Optional ```  | Deal success probability percentage. Used/shown only when deal_probability for the pipeline of the deal is enabled. |
-| lostReason |  ``` Optional ```  | Optional message about why the deal was lost (to be used when status=lost) |
-| visibleTo |  ``` Optional ```  | Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<dl class="fields-list"><dt>1</dt><dd>Owner &amp; followers (private)</dd><dt>3</dt><dd>Entire company (shared)</dd></dl> |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['title'] = 'title';
-        input['value'] = 'value';
-        input['currency'] = 'currency';
-        input['userId'] = 58;
-        input['personId'] = 58;
-        input['orgId'] = 58;
-        input['stageId'] = 58;
-        input['status'] = Object.keys(Status)[0];
-        input['probability'] = 58.5644835925496;
-        input['lostReason'] = lost_reason;
-        input['visibleTo'] = Object.keys(VisibleTo)[0];
-
-    controller.updateADeal(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_activities_associated_with_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.listActivitiesAssociatedWithADeal") listActivitiesAssociatedWithADeal
-
-> Lists activities associated with a deal.
-
-
-```javascript
-function listActivitiesAssociatedWithADeal(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| done |  ``` Optional ```  | Whether the activity is done or not. 0 = Not done, 1 = Done. If omitted returns both Done and Not done activities. |
-| exclude |  ``` Optional ```  | A comma-separated string of activity IDs to exclude from result |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['start'] = 58;
-        input['limit'] = 58;
-        input['done'] = Object.keys(NumberBoolean)[0];
-        input['exclude'] = 'exclude';
-
-    controller.listActivitiesAssociatedWithADeal(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_duplicate_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.createDuplicateDeal") createDuplicateDeal
-
-> Duplicate a deal
-
-
-```javascript
-function createDuplicateDeal(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 58;
-
-    controller.createDuplicateDeal(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_files_attached_to_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.listFilesAttachedToADeal") listFilesAttachedToADeal
-
-> Lists files associated with a deal.
-
-
-```javascript
-function listFilesAttachedToADeal(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| includeDeletedFiles |  ``` Optional ```  | When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work. |
-| sort |  ``` Optional ```  | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['start'] = 58;
-        input['limit'] = 58;
-        input['includeDeletedFiles'] = Object.keys(NumberBoolean)[0];
-        input['sort'] = 'sort';
-
-    controller.listFilesAttachedToADeal(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_updates_about_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.listUpdatesAboutADeal") listUpdatesAboutADeal
-
-> Lists updates about a deal.
-
-
-```javascript
-function listUpdatesAboutADeal(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['start'] = 58;
-        input['limit'] = 58;
-
-    controller.listUpdatesAboutADeal(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_followers_of_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.listFollowersOfADeal") listFollowersOfADeal
-
-> Lists the followers of a deal.
-
-
-```javascript
-function listFollowersOfADeal(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 58;
-
-    controller.listFollowersOfADeal(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_a_follower_to_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.addAFollowerToADeal") addAFollowerToADeal
-
-> Adds a follower to a deal.
-
-
-```javascript
-function addAFollowerToADeal(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| userId |  ``` Required ```  | ID of the user |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['userId'] = 58;
-
-    controller.addAFollowerToADeal(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_a_follower_from_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.deleteAFollowerFromADeal") deleteAFollowerFromADeal
-
-> Deletes a follower from a deal.
-
-
-```javascript
-function deleteAFollowerFromADeal(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| followerId |  ``` Required ```  | ID of the follower |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['followerId'] = 58;
-
-    controller.deleteAFollowerFromADeal(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_mail_messages_associated_with_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.listMailMessagesAssociatedWithADeal") listMailMessagesAssociatedWithADeal
-
-> Lists mail messages associated with a deal.
-
-
-```javascript
-function listMailMessagesAssociatedWithADeal(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['start'] = 58;
-        input['limit'] = 58;
-
-    controller.listMailMessagesAssociatedWithADeal(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="update_merge_two_deals"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.updateMergeTwoDeals") updateMergeTwoDeals
-
-> Merges a deal with another deal. For more information on how to merge two deals, see <a href="https://pipedrive.readme.io/docs/merging-two-deals" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```javascript
-function updateMergeTwoDeals(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| mergeWithId |  ``` Required ```  | ID of the deal that the deal will be merged with |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['mergeWithId'] = 58;
-
-    controller.updateMergeTwoDeals(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_participants_of_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.listParticipantsOfADeal") listParticipantsOfADeal
-
-> Lists participants associated with a deal.
-
-
-```javascript
-function listParticipantsOfADeal(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['start'] = 58;
-        input['limit'] = 58;
-
-    controller.listParticipantsOfADeal(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_a_participant_to_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.addAParticipantToADeal") addAParticipantToADeal
-
-> Adds a participant to a deal.
-
-
-```javascript
-function addAParticipantToADeal(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| personId |  ``` Required ```  | ID of the person |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['personId'] = 58;
-
-    controller.addAParticipantToADeal(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_a_participant_from_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.deleteAParticipantFromADeal") deleteAParticipantFromADeal
-
-> Deletes a participant from a deal.
-
-
-```javascript
-function deleteAParticipantFromADeal(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| dealParticipantId |  ``` Required ```  | ID of the deal participant |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['dealParticipantId'] = 58;
-
-    controller.deleteAParticipantFromADeal(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_permitted_users"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.listPermittedUsers") listPermittedUsers
-
-> List users permitted to access a deal
-
-
-```javascript
-function listPermittedUsers(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 58;
-
-    controller.listPermittedUsers(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_all_persons_associated_with_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.listAllPersonsAssociatedWithADeal") listAllPersonsAssociatedWithADeal
-
-> Lists all persons associated with a deal, regardless of whether the person is the primary contact of the deal, or added as a participant.
-
-
-```javascript
-function listAllPersonsAssociatedWithADeal(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['start'] = 58;
-        input['limit'] = 58;
-
-    controller.listAllPersonsAssociatedWithADeal(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_products_attached_to_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.listProductsAttachedToADeal") listProductsAttachedToADeal
-
-> Lists products attached to a deal.
-
-
-```javascript
-function listProductsAttachedToADeal(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| includeProductData |  ``` Optional ```  | Whether to fetch product data along with each attached product (1) or not (0, default). |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['start'] = 58;
-        input['limit'] = 58;
-        input['includeProductData'] = Object.keys(NumberBoolean)[0];
-
-    controller.listProductsAttachedToADeal(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_a_product_to_the_deal_eventually_creating_a_new_item_called_a_deal_product"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.addAProductToTheDealEventuallyCreatingANewItemCalledADealProduct") addAProductToTheDealEventuallyCreatingANewItemCalledADealProduct
-
-> Adds a product to the deal.
-
-
-```javascript
-function addAProductToTheDealEventuallyCreatingANewItemCalledADealProduct(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| contentType |  ``` Optional ```  | TODO: Add a parameter description |
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['contentType'] = 'Content-Type';
-        input['body'] = {
-        id : 21
-    };
-
-    controller.addAProductToTheDealEventuallyCreatingANewItemCalledADealProduct(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="update_product_attachment_details_of_the_deal_product_a_product_already_attached_to_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.updateProductAttachmentDetailsOfTheDealProductAProductAlreadyAttachedToADeal") updateProductAttachmentDetailsOfTheDealProductAProductAlreadyAttachedToADeal
-
-> Updates product attachment details.
-
-
-```javascript
-function updateProductAttachmentDetailsOfTheDealProductAProductAlreadyAttachedToADeal(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| productAttachmentId |  ``` Required ```  | ID of the deal-product (the ID of the product attached to the deal) |
-| itemPrice |  ``` Optional ```  | Price at which this product will be added to the deal |
-| quantity |  ``` Optional ```  | Quantity – e.g. how many items of this product will be added to the deal |
-| discountPercentage |  ``` Optional ```  | Discount %. If omitted, will be set to 0 |
-| duration |  ``` Optional ```  | Duration of the product (when product durations are not enabled for the company or if omitted, defaults to 1) |
-| productVariationId |  ``` Optional ```  | ID of the product variation to use. When omitted, no variation will be used. |
-| comments |  ``` Optional ```  | Any textual comment associated with this product-deal attachment. Visible and editable in the application UI. |
-| enabledFlag |  ``` Optional ```  | Whether the product is enabled on the deal or not. This makes it possible to add products to a deal with specific price and discount criteria - but keep them disabled, which refrains them from being included in deal price calculation. When omitted, the product will be marked as enabled by default. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['productAttachmentId'] = 58;
-        input['itemPrice'] = 58.5644835925496;
-        input['quantity'] = 58;
-        input['discountPercentage'] = 58.5644835925496;
-        input['duration'] = 58.5644835925496;
-        input['productVariationId'] = 58;
-        input['comments'] = 'comments';
-        input['enabledFlag'] = Object.keys(NumberBoolean)[0];
-
-    controller.updateProductAttachmentDetailsOfTheDealProductAProductAlreadyAttachedToADeal(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_an_attached_product_from_a_deal"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.deleteAnAttachedProductFromADeal") deleteAnAttachedProductFromADeal
-
-> Deletes a product attachment from a deal, using the product_attachment_id.
-
-
-```javascript
-function deleteAnAttachedProductFromADeal(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the deal |
-| productAttachmentId |  ``` Required ```  | Product attachment ID. This is returned as product_attachment_id after attaching a product to a deal or as id when listing the products attached to a deal. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['productAttachmentId'] = 58;
-
-    controller.deleteAnAttachedProductFromADeal(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="files_controller"></a>![Class: ](https://apidocs.io/img/class.png ".FilesController") FilesController
-
-### Get singleton instance
-
-The singleton instance of the ``` FilesController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.FilesController;
-```
-
-### <a name="get_all_files"></a>![Method: ](https://apidocs.io/img/method.png ".FilesController.getAllFiles") getAllFiles
-
-> Returns data about all files.
-
-
-```javascript
-function getAllFiles(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| includeDeletedFiles |  ``` Optional ```  | When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work. |
-| sort |  ``` Optional ```  | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['start'] = 0;
-        input['limit'] = 58;
-        input['includeDeletedFiles'] = Object.keys(NumberBoolean)[0];
-        input['sort'] = 'sort';
-
-    controller.getAllFiles(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_file"></a>![Method: ](https://apidocs.io/img/method.png ".FilesController.addFile") addFile
-
-> Lets you upload a file and associate it with Deal, Person, Organization, Activity or Product. For more information on how to add a file, see <a href="https://pipedrive.readme.io/docs/adding-a-file" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```javascript
-function addFile(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| file |  ``` Required ```  | A single file, supplied in the multipart/form-data encoding and contained within the given boundaries. |
-| dealId |  ``` Optional ```  | ID of the deal to associate file(s) with |
-| personId |  ``` Optional ```  | ID of the person to associate file(s) with |
-| orgId |  ``` Optional ```  | ID of the organization to associate file(s) with |
-| productId |  ``` Optional ```  | ID of the product to associate file(s) with |
-| activityId |  ``` Optional ```  | ID of the activity to associate file(s) with |
-| noteId |  ``` Optional ```  | ID of the note to associate file(s) with |
-
-
-
-#### Example Usage
-
-```javascript
-
-    TestHelper.getFilePath('url', function(data) {
-        var input = [];
-        input['file'] = data;
-        input['dealId'] = 58;
-        input['personId'] = 58;
-        input['orgId'] = 58;
-        input['productId'] = 58;
-        input['activityId'] = 58;
-        input['noteId'] = 58;
-
-        controller.addFile(input, function(error, response, context) {
-
-        });
-    });
-```
-
-
-
-### <a name="create_a_remote_file_and_link_it_to_an_item"></a>![Method: ](https://apidocs.io/img/method.png ".FilesController.createARemoteFileAndLinkItToAnItem") createARemoteFileAndLinkItToAnItem
-
-> Creates a new empty file in the remote location (googledrive) that will be linked to the item you supply. For more information on how to add a remote file, see <a href="https://pipedrive.readme.io/docs/adding-a-remote-file" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```javascript
-function createARemoteFileAndLinkItToAnItem(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| fileType |  ``` Required ```  | The file type |
-| title |  ``` Required ```  | The title of the file |
-| itemType |  ``` Required ```  | The item type |
-| itemId |  ``` Required ```  | ID of the item to associate the file with |
-| remoteLocation |  ``` Required ```  | The location type to send the file to. Only googledrive is supported at the moment. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['fileType'] = Object.keys(file_type)[0];
-        input['title'] = 'title';
-        input['itemType'] = Object.keys(item_type)[0];
-        input['itemId'] = 58;
-        input['remoteLocation'] = Object.keys(remote_location)[0];
-
-    controller.createARemoteFileAndLinkItToAnItem(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_link_a_remote_file_to_an_item"></a>![Method: ](https://apidocs.io/img/method.png ".FilesController.createLinkARemoteFileToAnItem") createLinkARemoteFileToAnItem
-
-> Links an existing remote file (googledrive) to the item you supply. For more information on how to link a remote file, see <a href="https://pipedrive.readme.io/docs/adding-a-remote-file" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```javascript
-function createLinkARemoteFileToAnItem(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| itemType |  ``` Required ```  | The item type |
-| itemId |  ``` Required ```  | ID of the item to associate the file with |
-| remoteId |  ``` Required ```  | The remote item id |
-| remoteLocation |  ``` Required ```  | The location type to send the file to. Only googledrive is supported at the moment. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['itemType'] = Object.keys(item_type)[0];
-        input['itemId'] = 58;
-        input['remoteId'] = remote_id;
-        input['remoteLocation'] = Object.keys(remote_location)[0];
-
-    controller.createLinkARemoteFileToAnItem(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_a_file"></a>![Method: ](https://apidocs.io/img/method.png ".FilesController.deleteAFile") deleteAFile
-
-> Marks a file as deleted.
-
-
-```javascript
-function deleteAFile(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the file |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 58;
-
-    controller.deleteAFile(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_one_file"></a>![Method: ](https://apidocs.io/img/method.png ".FilesController.getOneFile") getOneFile
-
-> Returns data about a specific file.
-
-
-```javascript
-function getOneFile(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the file |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 58;
-
-    controller.getOneFile(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="update_file_details"></a>![Method: ](https://apidocs.io/img/method.png ".FilesController.updateFileDetails") updateFileDetails
-
-> Updates the properties of a file.
-
-
-```javascript
-function updateFileDetails(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the file |
-| name |  ``` Optional ```  | Visible name of the file |
-| description |  ``` Optional ```  | Description of the file |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['name'] = 'name';
-        input['description'] = 'description';
-
-    controller.updateFileDetails(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_download_one_file"></a>![Method: ](https://apidocs.io/img/method.png ".FilesController.getDownloadOneFile") getDownloadOneFile
-
-> Initializes a file download.
-
-
-```javascript
-function getDownloadOneFile(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the file |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 58;
-
-    controller.getDownloadOneFile(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="filters_controller"></a>![Class: ](https://apidocs.io/img/class.png ".FiltersController") FiltersController
-
-### Get singleton instance
-
-The singleton instance of the ``` FiltersController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.FiltersController;
-```
-
-### <a name="delete_multiple_filters_in_bulk"></a>![Method: ](https://apidocs.io/img/method.png ".FiltersController.deleteMultipleFiltersInBulk") deleteMultipleFiltersInBulk
-
-> Marks multiple filters as deleted.
-
-
-```javascript
-function deleteMultipleFiltersInBulk(ids, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| ids |  ``` Required ```  | Comma-separated filter IDs to delete |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var ids = 'ids';
-
-    controller.deleteMultipleFiltersInBulk(ids, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_all_filters"></a>![Method: ](https://apidocs.io/img/method.png ".FiltersController.getAllFilters") getAllFilters
-
-> Returns data about all filters
-
-
-```javascript
-function getAllFilters(type, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| type |  ``` Optional ```  | Types of filters to fetch |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var type = Object.keys(FilterType)[0];
-
-    controller.getAllFilters(type, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_a_new_filter"></a>![Method: ](https://apidocs.io/img/method.png ".FiltersController.addANewFilter") addANewFilter
-
-> Adds a new filter, returns the ID upon success. Note that in the conditions json object only one first-level condition group is supported, and it must be glued with 'AND', and only two second level condition groups are supported of which one must be glued with 'AND' and the second with 'OR'. Other combinations do not work (yet) but the syntax supports introducing them in future. For more information on how to add a new filter, see <a href="https://pipedrive.readme.io/docs/adding-a-filter" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```javascript
-function addANewFilter(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| name |  ``` Required ```  | Filter name |
-| conditions |  ``` Required ```  | Filter conditions as a JSON object. It requires a minimum structure as follows: {"glue":"and","conditions":[{"glue":"and","conditions": [CONDITION_OBJECTS]},{"glue":"or","conditions":[CONDITION_OBJECTS]}]}. Replace CONDITION_OBJECTS with JSON objects of the following structure: {"object":"","field_id":"", "operator":"","value":"", "extra_value":""} or leave the array empty. Depending on the object type you should use another API endpoint to get field_id. There are five types of objects you can choose from: "person", "deal", "organization", "product", "activity" and you can use these types of operators depending on what type of a field you have: "IS NOT NULL", "IS NULL", "<=", ">=", "<", ">", "!=", "=", "LIKE '%$%'", "NOT LIKE '%$%'", "LIKE '$%'", "NOT LIKE '$%'", "LIKE '%$'", "NOT LIKE '%$'". To get a better understanding of how filters work try creating them directly from the Pipedrive application. |
-| type |  ``` Required ```  | Type of filter to create. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['name'] = 'name';
-        input['conditions'] = 'conditions';
-        input['type'] = Object.keys(FilterType)[0];
-
-    controller.addANewFilter(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_all_filter_helpers"></a>![Method: ](https://apidocs.io/img/method.png ".FiltersController.getAllFilterHelpers") getAllFilterHelpers
-
-> Returns all supported filter helpers. It helps to know what conditions and helpers are available when you want to <a href="/docs/api/v1/#!/Filters/post_filters">add</a> or <a href="/docs/api/v1/#!/Filters/put_filters_id">update</a> filters. For more information on how filter’s helpers can be used, see <a href="https://pipedrive.readme.io/docs/adding-a-filter" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```javascript
-function getAllFilterHelpers(callback)
-```
-
-#### Example Usage
-
-```javascript
-
-
-    controller.getAllFilterHelpers(function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_a_filter"></a>![Method: ](https://apidocs.io/img/method.png ".FiltersController.deleteAFilter") deleteAFilter
-
-> Marks a filter as deleted.
-
-
-```javascript
-function deleteAFilter(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the filter |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 58;
-
-    controller.deleteAFilter(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_one_filter"></a>![Method: ](https://apidocs.io/img/method.png ".FiltersController.getOneFilter") getOneFilter
-
-> Returns data about a specific filter. Note that this also returns the condition lines of the filter.
-
-
-```javascript
-function getOneFilter(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the filter |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 58;
-
-    controller.getOneFilter(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="update_filter"></a>![Method: ](https://apidocs.io/img/method.png ".FiltersController.updateFilter") updateFilter
-
-> Updates existing filter.
-
-
-```javascript
-function updateFilter(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the filter |
-| conditions |  ``` Required ```  | Filter conditions as a JSON object. It requires a minimum structure as follows: {"glue":"and","conditions":[{"glue":"and","conditions": [CONDITION_OBJECTS]},{"glue":"or","conditions":[CONDITION_OBJECTS]}]}. Replace CONDITION_OBJECTS with JSON objects of the following structure: {"object":"","field_id":"", "operator":"","value":"", "extra_value":""} or leave the array empty. Depending on the object type you should use another API endpoint to get field_id. There are five types of objects you can choose from: "person", "deal", "organization", "product", "activity" and you can use these types of operators depending on what type of a field you have: "IS NOT NULL", "IS NULL", "<=", ">=", "<", ">", "!=", "=", "LIKE '%$%'", "NOT LIKE '%$%'", "LIKE '$%'", "NOT LIKE '$%'", "LIKE '%$'", "NOT LIKE '%$'". To get a better understanding of how filters work try creating them directly from the Pipedrive application. |
-| name |  ``` Optional ```  | Filter name |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['conditions'] = 'conditions';
-        input['name'] = 'name';
-
-    controller.updateFilter(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="global_messages_controller"></a>![Class: ](https://apidocs.io/img/class.png ".GlobalMessagesController") GlobalMessagesController
-
-### Get singleton instance
-
-The singleton instance of the ``` GlobalMessagesController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.GlobalMessagesController;
-```
-
-### <a name="get_global_messages"></a>![Method: ](https://apidocs.io/img/method.png ".GlobalMessagesController.getGlobalMessages") getGlobalMessages
-
-> Returns data about global messages to display for the authorized user.
-
-
-```javascript
-function getGlobalMessages(limit, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| limit |  ``` Optional ```  ``` DefaultValue ```  | Number of messages to get from 1 to 100. The message number 1 is returned by default. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var limit = 58;
-
-    controller.getGlobalMessages(limit, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_dismiss_a_global_message"></a>![Method: ](https://apidocs.io/img/method.png ".GlobalMessagesController.deleteDismissAGlobalMessage") deleteDismissAGlobalMessage
-
-> Removes global message from being shown, if message is dismissible
-
-
-```javascript
-function deleteDismissAGlobalMessage(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of global message to be dismissed. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 58;
-
-    controller.deleteDismissAGlobalMessage(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="goals_controller"></a>![Class: ](https://apidocs.io/img/class.png ".GoalsController") GoalsController
-
-### Get singleton instance
-
-The singleton instance of the ``` GoalsController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.GoalsController;
-```
-
-### <a name="add_a_new_goal"></a>![Method: ](https://apidocs.io/img/method.png ".GoalsController.addANewGoal") addANewGoal
-
-> Adds a new goal.
-
-
-```javascript
-function addANewGoal(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| contentType |  ``` Optional ```  | TODO: Add a parameter description |
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['contentType'] = 'Content-Type';
-        input['body'] = {
-        id : 21
-    };
-
-    controller.addANewGoal(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="find_goals"></a>![Method: ](https://apidocs.io/img/method.png ".GoalsController.findGoals") findGoals
-
-> Returns data about goals based on criteria. For searching, append `{searchField}={searchValue}` to the URL, where `searchField` can be any one of the lowest-level fields in dot-notation (e.g. `type.params.pipeline_id`; `title`). `searchValue` should be the value you are looking for on that field. Additionally, `is_active=<true|false>` can be provided to search for only active/inactive goals. When providing `period.start`, `period.end` must also be provided and vice versa.
-
-
-```javascript
-function findGoals(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| typeName |  ``` Optional ```  | Type of the goal. If provided, everyone's goals will be returned. |
-| title |  ``` Optional ```  | Title of the goal. |
-| isActive |  ``` Optional ```  ``` DefaultValue ```  | Whether goal is active or not. |
-| assigneeId |  ``` Optional ```  | ID of the user who's goal to fetch. When omitted, only your goals will be returned. |
-| assigneeType |  ``` Optional ```  | Type of the goal's assignee. If provided, everyone's goals will be returned. |
-| expectedOutcomeTarget |  ``` Optional ```  | Numeric value of the outcome. If provided, everyone's goals will be returned. |
-| expectedOutcomeTrackingMetric |  ``` Optional ```  | Tracking metric of the expected outcome of the goal. If provided, everyone's goals will be returned. |
-| expectedOutcomeCurrencyId |  ``` Optional ```  | Numeric ID of the goal's currency. Only applicable to goals with `expected_outcome.tracking_metric` with value `sum`. If provided, everyone's goals will be returned. |
-| typeParamsPipelineId |  ``` Optional ```  | ID of the pipeline or `null` for all pipelines. If provided, everyone's goals will be returned. |
-| typeParamsStageId |  ``` Optional ```  | ID of the stage. Applicable to only `deals_progressed` type of goals. If provided, everyone's goals will be returned. |
-| typeParamsActivityTypeId |  ``` Optional ```  | ID of the activity type. Applicable to only `activities_completed` or `activities_added` types of goals. If provided, everyone's goals will be returned. |
-| periodStart |  ``` Optional ```  | Start date of the period for which to find goals. Date in format of YYYY-MM-DD. When `period.start` is provided, `period.end` must be provided too. |
-| periodEnd |  ``` Optional ```  | End date of the period for which to find goals. Date in format of YYYY-MM-DD. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['typeName'] = Object.keys(type.name)[0];
-        input['title'] = 'title';
-        input['isActive'] = True;
-        input['assigneeId'] = 58;
-        input['assigneeType'] = Object.keys(assignee.type)[0];
-        input['expectedOutcomeTarget'] = 58.5644835925496;
-        input['expectedOutcomeTrackingMetric'] = Object.keys(expected_outcome.tracking_metric)[0];
-        input['expectedOutcomeCurrencyId'] = 58;
-        input['typeParamsPipelineId'] = 58;
-        input['typeParamsStageId'] = 58;
-        input['typeParamsActivityTypeId'] = 58;
-        input['periodStart'] = '2019-11-22';
-        input['periodEnd'] = '2019-11-22';
-
-    controller.findGoals(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="update_existing_goal"></a>![Method: ](https://apidocs.io/img/method.png ".GoalsController.updateExistingGoal") updateExistingGoal
-
-> Updates existing goal.
-
-
-```javascript
-function updateExistingGoal(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the goal to be updated. |
-| title |  ``` Optional ```  | Title of the goal. |
-| assignee |  ``` Optional ```  | Who is this goal assigned to. It requires the following JSON structure: { "id": "1", "type": "person" }. `type` can be either `person`, `company` or `team`. ID of the assignee person, company or team. |
-| type |  ``` Optional ```  | Type of the goal. It requires the following JSON structure: { "name": "deals_started", "params": { "pipeline_id": 1 } }. Type can be one of: `deals_won`,`deals_progressed`,`activities_completed`,`activities_added` or `deals_started`. `params` can include `pipeline_id`, `stage_id` or `activity_type_id`. `stage_id` is related to only `deals_progressed` type of goals and `activity_type_id` to `activities_completed` or `activities_added` types of goals. To track goal in all pipelines set `pipeline_id` as `null`. |
-| expectedOutcome |  ``` Optional ```  | Expected outcome of the goal. Expected outcome can be tracked either by `quantity` or by `sum`. It requires the following JSON structure: { "target": "50", "tracking_metric": "quantity" } or { "target": "50", "tracking_metric": "sum", "currency_id": 1 }. `currency_id` should only be added to `sum` type of goals. |
-| duration |  ``` Optional ```  | Date when the goal starts and ends. It requires the following JSON structure: { "start": "2019-01-01", "end": "2022-12-31" }. Date in format of YYYY-MM-DD. |
-| interval |  ``` Optional ```  | Date when the goal starts and ends. It requires the following JSON structure: { "start": "2019-01-01", "end": "2022-12-31" }. Date in format of YYYY-MM-DD. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 'id';
-        input['title'] = 'title';
-        input['assignee'] = {
-        id : 21
-    };
-        input['type'] = {
-        id : 21
-    };
-        input['expectedOutcome'] = {
-        id : 21
-    };
-        input['duration'] = {
-        id : 21
-    };
-        input['interval'] = Object.keys(Interval)[0];
-
-    controller.updateExistingGoal(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_existing_goal"></a>![Method: ](https://apidocs.io/img/method.png ".GoalsController.deleteExistingGoal") deleteExistingGoal
-
-> Marks goal as deleted.
-
-
-```javascript
-function deleteExistingGoal(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the goal to be deleted. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 'id';
-
-    controller.deleteExistingGoal(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_result_of_a_goal"></a>![Method: ](https://apidocs.io/img/method.png ".GoalsController.getResultOfAGoal") getResultOfAGoal
-
-> Gets progress of a goal for specified period.
-
-
-```javascript
-function getResultOfAGoal(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the goal that the results are looked for. |
-| periodStart |  ``` Required ```  | Start date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD. |
-| periodEnd |  ``` Required ```  | End date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 'id';
-        input['periodStart'] = '2019-11-22';
-        input['periodEnd'] = '2019-11-22';
-
-    controller.getResultOfAGoal(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="mail_messages_controller"></a>![Class: ](https://apidocs.io/img/class.png ".MailMessagesController") MailMessagesController
-
-### Get singleton instance
-
-The singleton instance of the ``` MailMessagesController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.MailMessagesController;
-```
-
-### <a name="get_one_mail_message"></a>![Method: ](https://apidocs.io/img/method.png ".MailMessagesController.getOneMailMessage") getOneMailMessage
-
-> Returns data about specific mail message.
-
-
-```javascript
-function getOneMailMessage(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the mail message to fetch. |
-| includeBody |  ``` Optional ```  | Whether to include full message body or not. 0 = Don't include, 1 = Include |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['includeBody'] = Object.keys(NumberBoolean)[0];
-
-    controller.getOneMailMessage(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="mail_threads_controller"></a>![Class: ](https://apidocs.io/img/class.png ".MailThreadsController") MailThreadsController
-
-### Get singleton instance
-
-The singleton instance of the ``` MailThreadsController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.MailThreadsController;
-```
-
-### <a name="get_mail_threads"></a>![Method: ](https://apidocs.io/img/method.png ".MailThreadsController.getMailThreads") getMailThreads
-
-> Returns mail threads in specified folder ordered by most recent message within.
-
-
-```javascript
-function getMailThreads(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| folder |  ``` Required ```  ``` DefaultValue ```  | Type of folder to fetch. |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['folder'] = new FolderEnum(inbox);
-        input['start'] = 0;
-        input['limit'] = 58;
-
-    controller.getMailThreads(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_mail_thread"></a>![Method: ](https://apidocs.io/img/method.png ".MailThreadsController.deleteMailThread") deleteMailThread
-
-> Marks mail thread as deleted.
-
-
-```javascript
-function deleteMailThread(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the mail thread |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 58;
-
-    controller.deleteMailThread(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_one_mail_thread"></a>![Method: ](https://apidocs.io/img/method.png ".MailThreadsController.getOneMailThread") getOneMailThread
-
-> Returns specific mail thread.
-
-
-```javascript
-function getOneMailThread(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the mail thread |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 58;
-
-    controller.getOneMailThread(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="update_mail_thread_details"></a>![Method: ](https://apidocs.io/img/method.png ".MailThreadsController.updateMailThreadDetails") updateMailThreadDetails
-
-> Updates the properties of a mail thread.
-
-
-```javascript
-function updateMailThreadDetails(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the mail thread |
-| dealId |  ``` Optional ```  | ID of the deal this thread is associated with |
-| sharedFlag |  ``` Optional ```  | TODO: Add a parameter description |
-| readFlag |  ``` Optional ```  | TODO: Add a parameter description |
-| archivedFlag |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['dealId'] = 58;
-        input['sharedFlag'] = Object.keys(NumberBoolean)[0];
-        input['readFlag'] = Object.keys(NumberBoolean)[0];
-        input['archivedFlag'] = Object.keys(NumberBoolean)[0];
-
-    controller.updateMailThreadDetails(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_all_mail_messages_of_mail_thread"></a>![Method: ](https://apidocs.io/img/method.png ".MailThreadsController.getAllMailMessagesOfMailThread") getAllMailMessagesOfMailThread
-
-> Get mail messages inside specified mail thread.
-
-
-```javascript
-function getAllMailMessagesOfMailThread(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the mail thread |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 58;
-
-    controller.getAllMailMessagesOfMailThread(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="note_fields_controller"></a>![Class: ](https://apidocs.io/img/class.png ".NoteFieldsController") NoteFieldsController
-
-### Get singleton instance
-
-The singleton instance of the ``` NoteFieldsController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.NoteFieldsController;
-```
-
-### <a name="get_all_fields_for_a_note"></a>![Method: ](https://apidocs.io/img/method.png ".NoteFieldsController.getAllFieldsForANote") getAllFieldsForANote
-
-> Return list of all fields for note
-
-
-```javascript
-function getAllFieldsForANote(callback)
-```
-
-#### Example Usage
-
-```javascript
-
-
-    controller.getAllFieldsForANote(function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="notes_controller"></a>![Class: ](https://apidocs.io/img/class.png ".NotesController") NotesController
-
-### Get singleton instance
-
-The singleton instance of the ``` NotesController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.NotesController;
-```
-
-### <a name="get_all_notes"></a>![Method: ](https://apidocs.io/img/method.png ".NotesController.getAllNotes") getAllNotes
-
-> Returns all notes.
-
-
-```javascript
-function getAllNotes(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| userId |  ``` Optional ```  | ID of the user whose notes to fetch. If omitted, notes by all users will be returned. |
-| dealId |  ``` Optional ```  | ID of the deal which notes to fetch. If omitted, notes about all deals with be returned. |
-| personId |  ``` Optional ```  | ID of the person whose notes to fetch. If omitted, notes about all persons with be returned. |
-| orgId |  ``` Optional ```  | ID of the organization which notes to fetch. If omitted, notes about all organizations with be returned. |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| sort |  ``` Optional ```  | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, content, add_time, update_time. |
-| startDate |  ``` Optional ```  | Date in format of YYYY-MM-DD from which notes to fetch from. |
-| endDate |  ``` Optional ```  | Date in format of YYYY-MM-DD until which notes to fetch to. |
-| pinnedToDealFlag |  ``` Optional ```  | If set, then results are filtered by note to deal pinning state. |
-| pinnedToOrganizationFlag |  ``` Optional ```  | If set, then results are filtered by note to organization pinning state. |
-| pinnedToPersonFlag |  ``` Optional ```  | If set, then results are filtered by note to person pinning state. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['userId'] = 58;
-        input['dealId'] = 58;
-        input['personId'] = 58;
-        input['orgId'] = 58;
-        input['start'] = 0;
-        input['limit'] = 58;
-        input['sort'] = 'sort';
-        input['startDate'] = '2019-11-22';
-        input['endDate'] = '2019-11-22';
-        input['pinnedToDealFlag'] = Object.keys(NumberBoolean)[0];
-        input['pinnedToOrganizationFlag'] = Object.keys(NumberBoolean)[0];
-        input['pinnedToPersonFlag'] = Object.keys(NumberBoolean)[0];
-
-    controller.getAllNotes(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_a_note"></a>![Method: ](https://apidocs.io/img/method.png ".NotesController.addANote") addANote
-
-> Adds a new note.
-
-
-```javascript
-function addANote(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| content |  ``` Required ```  | Content of the note in HTML format. Subject to sanitization on the back-end. |
-| userId |  ``` Optional ```  | ID of the user who will be marked as the author of this note. Only an admin can change the author. |
-| dealId |  ``` Optional ```  | ID of the deal the note will be attached to. |
-| personId |  ``` Optional ```  | ID of the person this note will be attached to. |
-| orgId |  ``` Optional ```  | ID of the organization this note will be attached to. |
-| addTime |  ``` Optional ```  | Optional creation date & time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS |
-| pinnedToDealFlag |  ``` Optional ```  | If set, then results are filtered by note to deal pinning state (deal_id is also required). |
-| pinnedToOrganizationFlag |  ``` Optional ```  | If set, then results are filtered by note to organization pinning state (org_id is also required). |
-| pinnedToPersonFlag |  ``` Optional ```  | If set, then results are filtered by note to person pinning state (person_id is also required). |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['content'] = 'content';
-        input['userId'] = 58;
-        input['dealId'] = 58;
-        input['personId'] = 58;
-        input['orgId'] = 58;
-        input['addTime'] = add_time;
-        input['pinnedToDealFlag'] = Object.keys(NumberBoolean)[0];
-        input['pinnedToOrganizationFlag'] = Object.keys(NumberBoolean)[0];
-        input['pinnedToPersonFlag'] = Object.keys(NumberBoolean)[0];
-
-    controller.addANote(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_a_note"></a>![Method: ](https://apidocs.io/img/method.png ".NotesController.deleteANote") deleteANote
-
-> Deletes a specific note.
-
-
-```javascript
-function deleteANote(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the note |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 58;
-
-    controller.deleteANote(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_one_note"></a>![Method: ](https://apidocs.io/img/method.png ".NotesController.getOneNote") getOneNote
-
-> Returns details about a specific note.
-
-
-```javascript
-function getOneNote(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the note |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 58;
-
-    controller.getOneNote(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="update_a_note"></a>![Method: ](https://apidocs.io/img/method.png ".NotesController.updateANote") updateANote
-
-> Updates a note.
-
-
-```javascript
-function updateANote(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the note |
-| content |  ``` Required ```  | Content of the note in HTML format. Subject to sanitization on the back-end. |
-| userId |  ``` Optional ```  | ID of the user who will be marked as the author of this note. Only an admin can change the author. |
-| dealId |  ``` Optional ```  | ID of the deal the note will be attached to. |
-| personId |  ``` Optional ```  | ID of the person this note will be attached to. |
-| orgId |  ``` Optional ```  | ID of the organization this note will be attached to. |
-| addTime |  ``` Optional ```  | Optional creation date & time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS |
-| pinnedToDealFlag |  ``` Optional ```  | If set, then results are filtered by note to deal pinning state (deal_id is also required). |
-| pinnedToOrganizationFlag |  ``` Optional ```  | If set, then results are filtered by note to organization pinning state (org_id is also required). |
-| pinnedToPersonFlag |  ``` Optional ```  | If set, then results are filtered by note to person pinning state (person_id is also required). |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['content'] = 'content';
-        input['userId'] = 58;
-        input['dealId'] = 58;
-        input['personId'] = 58;
-        input['orgId'] = 58;
-        input['addTime'] = add_time;
-        input['pinnedToDealFlag'] = Object.keys(NumberBoolean)[0];
-        input['pinnedToOrganizationFlag'] = Object.keys(NumberBoolean)[0];
-        input['pinnedToPersonFlag'] = Object.keys(NumberBoolean)[0];
-
-    controller.updateANote(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="organization_fields_controller"></a>![Class: ](https://apidocs.io/img/class.png ".OrganizationFieldsController") OrganizationFieldsController
-
-### Get singleton instance
-
-The singleton instance of the ``` OrganizationFieldsController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.OrganizationFieldsController;
-```
-
-### <a name="delete_multiple_organization_fields_in_bulk"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationFieldsController.deleteMultipleOrganizationFieldsInBulk") deleteMultipleOrganizationFieldsInBulk
-
-> Marks multiple fields as deleted.
-
-
-```javascript
-function deleteMultipleOrganizationFieldsInBulk(ids, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| ids |  ``` Required ```  | Comma-separated field IDs to delete |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var ids = 'ids';
-
-    controller.deleteMultipleOrganizationFieldsInBulk(ids, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_all_organization_fields"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationFieldsController.getAllOrganizationFields") getAllOrganizationFields
-
-> Returns data about all organization fields
-
-
-```javascript
-function getAllOrganizationFields(callback)
-```
-
-#### Example Usage
-
-```javascript
-
-
-    controller.getAllOrganizationFields(function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_a_new_organization_field"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationFieldsController.addANewOrganizationField") addANewOrganizationField
-
-> Adds a new organization field. For more information on adding a new custom field, see <a href="https://pipedrive.readme.io/docs/adding-a-new-custom-field" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```javascript
-function addANewOrganizationField(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| contentType |  ``` Optional ```  | TODO: Add a parameter description |
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['contentType'] = 'Content-Type';
-        input['body'] = {
-        id : 21
-    };
-
-    controller.addANewOrganizationField(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_an_organization_field"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationFieldsController.deleteAnOrganizationField") deleteAnOrganizationField
-
-> Marks a field as deleted. For more information on how to delete a custom field, see <a href="https://pipedrive.readme.io/docs/deleting-a-custom-field" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```javascript
-function deleteAnOrganizationField(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the field |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 58;
-
-    controller.deleteAnOrganizationField(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_one_organization_field"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationFieldsController.getOneOrganizationField") getOneOrganizationField
-
-> Returns data about a specific organization field.
-
-
-```javascript
-function getOneOrganizationField(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the field |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 58;
-
-    controller.getOneOrganizationField(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="update_an_organization_field"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationFieldsController.updateAnOrganizationField") updateAnOrganizationField
-
-> Updates an organization field. See an example of updating custom fields’ values in <a href=" https://pipedrive.readme.io/docs/updating-custom-field-value " target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```javascript
-function updateAnOrganizationField(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the field |
-| name |  ``` Required ```  | Name of the field |
-| options |  ``` Optional ```  | When field_type is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: [{"id":123,"label":"Existing Item"},{"label":"New Item"}] |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['name'] = 'name';
-        input['options'] = 'options';
-
-    controller.updateAnOrganizationField(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="organization_relationships_controller"></a>![Class: ](https://apidocs.io/img/class.png ".OrganizationRelationshipsController") OrganizationRelationshipsController
-
-### Get singleton instance
-
-The singleton instance of the ``` OrganizationRelationshipsController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.OrganizationRelationshipsController;
-```
-
-### <a name="get_all_relationships_for_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationRelationshipsController.getAllRelationshipsForOrganization") getAllRelationshipsForOrganization
-
-> Gets all of the relationships for a supplied organization id.
-
-
-```javascript
-function getAllRelationshipsForOrganization(orgId, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| orgId |  ``` Required ```  | ID of the organization to get relationships for |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var orgId = 58;
-
-    controller.getAllRelationshipsForOrganization(orgId, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_an_organization_relationship"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationRelationshipsController.createAnOrganizationRelationship") createAnOrganizationRelationship
-
-> Creates and returns an organization relationship.
-
-
-```javascript
-function createAnOrganizationRelationship(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| contentType |  ``` Optional ```  | TODO: Add a parameter description |
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['contentType'] = 'Content-Type';
-        input['body'] = {
-        id : 21
-    };
-
-    controller.createAnOrganizationRelationship(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_an_organization_relationship"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationRelationshipsController.deleteAnOrganizationRelationship") deleteAnOrganizationRelationship
-
-> Deletes an organization relationship and returns the deleted id.
-
-
-```javascript
-function deleteAnOrganizationRelationship(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization relationship |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 58;
-
-    controller.deleteAnOrganizationRelationship(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_one_organization_relationship"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationRelationshipsController.getOneOrganizationRelationship") getOneOrganizationRelationship
-
-> Finds and returns an organization relationship from its ID.
-
-
-```javascript
-function getOneOrganizationRelationship(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization relationship |
-| orgId |  ``` Optional ```  | ID of the base organization for the returned calculated values |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['orgId'] = 58;
-
-    controller.getOneOrganizationRelationship(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="update_an_organization_relationship"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationRelationshipsController.updateAnOrganizationRelationship") updateAnOrganizationRelationship
-
-> Updates and returns an organization relationship.
-
-
-```javascript
-function updateAnOrganizationRelationship(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization relationship |
-| orgId |  ``` Optional ```  | ID of the base organization for the returned calculated values |
-| type |  ``` Optional ```  | The type of organization relationship. |
-| relOwnerOrgId |  ``` Optional ```  | The owner of this relationship. If type is 'parent', then the owner is the parent and the linked organization is the daughter. |
-| relLinkedOrgId |  ``` Optional ```  | The linked organization in this relationship. If type is 'parent', then the linked organization is the daughter. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['orgId'] = 58;
-        input['type'] = Object.keys(Type)[0];
-        input['relOwnerOrgId'] = 58;
-        input['relLinkedOrgId'] = 58;
-
-    controller.updateAnOrganizationRelationship(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="organizations_controller"></a>![Class: ](https://apidocs.io/img/class.png ".OrganizationsController") OrganizationsController
-
-### Get singleton instance
-
-The singleton instance of the ``` OrganizationsController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.OrganizationsController;
-```
-
-### <a name="delete_multiple_organizations_in_bulk"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.deleteMultipleOrganizationsInBulk") deleteMultipleOrganizationsInBulk
-
-> Marks multiple organizations as deleted.
-
-
-```javascript
-function deleteMultipleOrganizationsInBulk(ids, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| ids |  ``` Required ```  | Comma-separated IDs that will be deleted |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var ids = 'ids';
-
-    controller.deleteMultipleOrganizationsInBulk(ids, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_all_organizations"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.getAllOrganizations") getAllOrganizations
-
-> Returns all organizations
-
-
-```javascript
-function getAllOrganizations(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| userId |  ``` Optional ```  | If supplied, only organizations owned by the given user will be returned. |
-| filterId |  ``` Optional ```  | ID of the filter to use |
-| firstChar |  ``` Optional ```  | If supplied, only organizations whose name starts with the specified letter will be returned (case insensitive). |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| sort |  ``` Optional ```  | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['userId'] = 58;
-        input['filterId'] = 58;
-        input['firstChar'] = first_char;
-        input['start'] = 0;
-        input['limit'] = 58;
-        input['sort'] = 'sort';
-
-    controller.getAllOrganizations(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.addAnOrganization") addAnOrganization
-
-> Adds a new organization. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the organizationFields and look for 'key' values. For more information on how to add an organization, see <a href="https://pipedrive.readme.io/docs/adding-an-organization" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```javascript
-function addAnOrganization(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| contentType |  ``` Optional ```  | TODO: Add a parameter description |
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['contentType'] = 'Content-Type';
-        input['body'] = {
-        id : 21
-    };
-
-    controller.addAnOrganization(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="find_organizations_by_name"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.findOrganizationsByName") findOrganizationsByName
-
-> Searches all organizations by their name.
-
-
-```javascript
-function findOrganizationsByName(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| term |  ``` Required ```  | Search term to look for |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['term'] = 'term';
-        input['start'] = 58;
-        input['limit'] = 58;
-
-    controller.findOrganizationsByName(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.deleteAnOrganization") deleteAnOrganization
-
-> Marks an organization as deleted.
-
-
-```javascript
-function deleteAnOrganization(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 58;
-
-    controller.deleteAnOrganization(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_details_of_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.getDetailsOfAnOrganization") getDetailsOfAnOrganization
-
-> Returns details of an organization. Note that this also returns some additional fields which are not present when asking for all organizations. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the 'key' value of organizationFields.
-
-
-```javascript
-function getDetailsOfAnOrganization(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 58;
-
-    controller.getDetailsOfAnOrganization(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="update_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.updateAnOrganization") updateAnOrganization
-
-> Updates the properties of an organization.
-
-
-```javascript
-function updateAnOrganization(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization |
-| name |  ``` Optional ```  | Organization name |
-| ownerId |  ``` Optional ```  | ID of the user who will be marked as the owner of this organization. When omitted, the authorized user ID will be used. |
-| visibleTo |  ``` Optional ```  | Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<dl class=\"fields-list\"><dt>1</dt><dd>Owner &amp; followers (private)</dd><dt>3</dt><dd>Entire company (shared)</dd></dl> |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['name'] = 'name';
-        input['ownerId'] = 58;
-        input['visibleTo'] = Object.keys(VisibleTo)[0];
-
-    controller.updateAnOrganization(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_activities_associated_with_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.listActivitiesAssociatedWithAnOrganization") listActivitiesAssociatedWithAnOrganization
-
-> Lists activities associated with an organization.
-
-
-```javascript
-function listActivitiesAssociatedWithAnOrganization(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| done |  ``` Optional ```  | Whether the activity is done or not. 0 = Not done, 1 = Done. If omitted returns both Done and Not done activities. |
-| exclude |  ``` Optional ```  | A comma-separated string of activity IDs to exclude from result |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['start'] = 58;
-        input['limit'] = 58;
-        input['done'] = Object.keys(NumberBoolean)[0];
-        input['exclude'] = 'exclude';
-
-    controller.listActivitiesAssociatedWithAnOrganization(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_deals_associated_with_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.listDealsAssociatedWithAnOrganization") listDealsAssociatedWithAnOrganization
-
-> Lists deals associated with an organization.
-
-
-```javascript
-function listDealsAssociatedWithAnOrganization(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| status |  ``` Optional ```  ``` DefaultValue ```  | Only fetch deals with specific status. If omitted, all not deleted deals are fetched. |
-| sort |  ``` Optional ```  | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). |
-| onlyPrimaryAssociation |  ``` Optional ```  | If set, only deals that are directly associated to the organization are fetched. If not set (default), all deals are fetched that are either directly or indirectly related to the organization. Indirect relations include relations through custom, organization-type fields and through persons of the given organization. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 58;
-        input['start'] = 58;
-        input['limit'] = 58;
-        input['status'] = Object.keys(status2)[0];
-        input['sort'] = 'sort';
-        input['onlyPrimaryAssociation'] = Object.keys(NumberBoolean)[0];
-
-    controller.listDealsAssociatedWithAnOrganization(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_files_attached_to_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.listFilesAttachedToAnOrganization") listFilesAttachedToAnOrganization
-
-> Lists files associated with an organization.
-
-
-```javascript
-function listFilesAttachedToAnOrganization(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| includeDeletedFiles |  ``` Optional ```  | When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work. |
-| sort |  ``` Optional ```  | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['start'] = 16;
-        input['limit'] = 16;
-        input['includeDeletedFiles'] = Object.keys(NumberBoolean)[0];
-        input['sort'] = 'sort';
-
-    controller.listFilesAttachedToAnOrganization(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_updates_about_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.listUpdatesAboutAnOrganization") listUpdatesAboutAnOrganization
-
-> Lists updates about an organization.
-
-
-```javascript
-function listUpdatesAboutAnOrganization(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['start'] = 16;
-        input['limit'] = 16;
-
-    controller.listUpdatesAboutAnOrganization(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_followers_of_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.listFollowersOfAnOrganization") listFollowersOfAnOrganization
-
-> Lists the followers of an organization.
-
-
-```javascript
-function listFollowersOfAnOrganization(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.listFollowersOfAnOrganization(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_a_follower_to_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.addAFollowerToAnOrganization") addAFollowerToAnOrganization
-
-> Adds a follower to an organization.
-
-
-```javascript
-function addAFollowerToAnOrganization(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization |
-| userId |  ``` Required ```  | ID of the user |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['userId'] = 16;
-
-    controller.addAFollowerToAnOrganization(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_a_follower_from_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.deleteAFollowerFromAnOrganization") deleteAFollowerFromAnOrganization
-
-> Deletes a follower from an organization. You can retrieve the follower_id from the <a href="https://developers.pipedrive.com/docs/api/v1/#!/Organizations/get_organizations_id_followers">List followers of an organization</a> endpoint.
-
-
-```javascript
-function deleteAFollowerFromAnOrganization(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization |
-| followerId |  ``` Required ```  | ID of the follower |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['followerId'] = 16;
-
-    controller.deleteAFollowerFromAnOrganization(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_mail_messages_associated_with_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.listMailMessagesAssociatedWithAnOrganization") listMailMessagesAssociatedWithAnOrganization
-
-> Lists mail messages associated with an organization.
-
-
-```javascript
-function listMailMessagesAssociatedWithAnOrganization(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['start'] = 16;
-        input['limit'] = 16;
-
-    controller.listMailMessagesAssociatedWithAnOrganization(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="update_merge_two_organizations"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.updateMergeTwoOrganizations") updateMergeTwoOrganizations
-
-> Merges an organization with another organization. For more information on how to merge two organizations, see <a href="https://pipedrive.readme.io/docs/merging-two-organizations" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```javascript
-function updateMergeTwoOrganizations(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization |
-| mergeWithId |  ``` Required ```  | ID of the organization that the organization will be merged with |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['mergeWithId'] = 16;
-
-    controller.updateMergeTwoOrganizations(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_permitted_users"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.listPermittedUsers") listPermittedUsers
-
-> List users permitted to access an organization
-
-
-```javascript
-function listPermittedUsers(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.listPermittedUsers(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_persons_of_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.listPersonsOfAnOrganization") listPersonsOfAnOrganization
-
-> Lists persons associated with an organization.
-
-
-```javascript
-function listPersonsOfAnOrganization(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the organization |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['start'] = 16;
-        input['limit'] = 16;
-
-    controller.listPersonsOfAnOrganization(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="permission_sets_controller"></a>![Class: ](https://apidocs.io/img/class.png ".PermissionSetsController") PermissionSetsController
-
-### Get singleton instance
-
-The singleton instance of the ``` PermissionSetsController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.PermissionSetsController;
-```
-
-### <a name="get_all_permission_sets"></a>![Method: ](https://apidocs.io/img/method.png ".PermissionSetsController.getAllPermissionSets") getAllPermissionSets
-
-> Get all Permission Sets
-
-
-```javascript
-function getAllPermissionSets(callback)
-```
-
-#### Example Usage
-
-```javascript
-
-
-    controller.getAllPermissionSets(function(error, response, context) {
-
-    
-    });
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 404 | If the User ID has no assignments, then it will return NotFound |
-
-
-
-
-### <a name="get_one_permission_set"></a>![Method: ](https://apidocs.io/img/method.png ".PermissionSetsController.getOnePermissionSet") getOnePermissionSet
-
-> Get one Permission Set
-
-
-```javascript
-function getOnePermissionSet(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the permission set |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.getOnePermissionSet(id, function(error, response, context) {
-
-    
-    });
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 404 | If the User ID has no assignments, then it will return NotFound |
-
-
-
-
-### <a name="list_permission_set_assignments"></a>![Method: ](https://apidocs.io/img/method.png ".PermissionSetsController.listPermissionSetAssignments") listPermissionSetAssignments
-
-> The list of assignments for a Permission Set
-
-
-```javascript
-function listPermissionSetAssignments(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the permission set |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['start'] = 16;
-        input['limit'] = 16;
-
-    controller.listPermissionSetAssignments(input, function(error, response, context) {
-
-    
-    });
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 404 | If the User ID has no assignments, then it will return NotFound |
-
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="person_fields_controller"></a>![Class: ](https://apidocs.io/img/class.png ".PersonFieldsController") PersonFieldsController
-
-### Get singleton instance
-
-The singleton instance of the ``` PersonFieldsController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.PersonFieldsController;
-```
-
-### <a name="delete_multiple_person_fields_in_bulk"></a>![Method: ](https://apidocs.io/img/method.png ".PersonFieldsController.deleteMultiplePersonFieldsInBulk") deleteMultiplePersonFieldsInBulk
-
-> Marks multiple fields as deleted.
-
-
-```javascript
-function deleteMultiplePersonFieldsInBulk(ids, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| ids |  ``` Required ```  | Comma-separated field IDs to delete |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var ids = 'ids';
-
-    controller.deleteMultiplePersonFieldsInBulk(ids, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_all_person_fields"></a>![Method: ](https://apidocs.io/img/method.png ".PersonFieldsController.getAllPersonFields") getAllPersonFields
-
-> Returns data about all person fields
-
-
-```javascript
-function getAllPersonFields(callback)
-```
-
-#### Example Usage
-
-```javascript
-
-
-    controller.getAllPersonFields(function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_a_new_person_field"></a>![Method: ](https://apidocs.io/img/method.png ".PersonFieldsController.addANewPersonField") addANewPersonField
-
-> Adds a new person field. For more information on adding a new custom field, see <a href="https://pipedrive.readme.io/docs/adding-a-new-custom-field" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```javascript
-function addANewPersonField(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| contentType |  ``` Optional ```  | TODO: Add a parameter description |
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['contentType'] = 'Content-Type';
-        input['body'] = {
-        id : 21
-    };
-
-    controller.addANewPersonField(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_a_person_field"></a>![Method: ](https://apidocs.io/img/method.png ".PersonFieldsController.deleteAPersonField") deleteAPersonField
-
-> Marks a field as deleted. For more information on how to delete a custom field, see <a href="https://pipedrive.readme.io/docs/deleting-a-custom-field" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```javascript
-function deleteAPersonField(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the field |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.deleteAPersonField(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_one_person_field"></a>![Method: ](https://apidocs.io/img/method.png ".PersonFieldsController.getOnePersonField") getOnePersonField
-
-> Returns data about a specific person field.
-
-
-```javascript
-function getOnePersonField(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the field |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.getOnePersonField(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="update_a_person_field"></a>![Method: ](https://apidocs.io/img/method.png ".PersonFieldsController.updateAPersonField") updateAPersonField
-
-> Updates a person field. See an example of updating custom fields’ values in <a href="https://pipedrive.readme.io/docs/updating-custom-field-value" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```javascript
-function updateAPersonField(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the field |
-| name |  ``` Required ```  | Name of the field |
-| options |  ``` Optional ```  | When field_type is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: [{"id":123,"label":"Existing Item"},{"label":"New Item"}] |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['name'] = 'name';
-        input['options'] = 'options';
-
-    controller.updateAPersonField(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="persons_controller"></a>![Class: ](https://apidocs.io/img/class.png ".PersonsController") PersonsController
-
-### Get singleton instance
-
-The singleton instance of the ``` PersonsController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.PersonsController;
-```
-
-### <a name="delete_multiple_persons_in_bulk"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.deleteMultiplePersonsInBulk") deleteMultiplePersonsInBulk
-
-> Marks multiple persons as deleted.
-
-
-```javascript
-function deleteMultiplePersonsInBulk(ids, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| ids |  ``` Optional ```  | Comma-separated IDs that will be deleted |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var ids = 'ids';
-
-    controller.deleteMultiplePersonsInBulk(ids, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_all_persons"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.getAllPersons") getAllPersons
-
-> Returns all persons
-
-
-```javascript
-function getAllPersons(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| userId |  ``` Optional ```  | If supplied, only persons owned by the given user will be returned. |
-| filterId |  ``` Optional ```  | ID of the filter to use. |
-| firstChar |  ``` Optional ```  | If supplied, only persons whose name starts with the specified letter will be returned (case insensitive). |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| sort |  ``` Optional ```  | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['userId'] = 16;
-        input['filterId'] = 16;
-        input['firstChar'] = first_char;
-        input['start'] = 0;
-        input['limit'] = 16;
-        input['sort'] = 'sort';
-
-    controller.getAllPersons(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_a_person"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.addAPerson") addAPerson
-
-> Adds a new person. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the personFields and look for 'key' values.
-
-
-```javascript
-function addAPerson(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| contentType |  ``` Optional ```  | TODO: Add a parameter description |
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['contentType'] = 'Content-Type';
-        input['body'] = {
-        id : 21
-    };
-
-    controller.addAPerson(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="find_persons_by_name"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.findPersonsByName") findPersonsByName
-
-> Searches all persons by their name.
-
-
-```javascript
-function findPersonsByName(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| term |  ``` Required ```  | Search term to look for |
-| orgId |  ``` Optional ```  | ID of the organization person is associated with. |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| searchByEmail |  ``` Optional ```  | When enabled, term will only be matched against email addresses of people. Default: false |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['term'] = 'term';
-        input['orgId'] = 16;
-        input['start'] = 16;
-        input['limit'] = 16;
-        input['searchByEmail'] = Object.keys(NumberBoolean)[0];
-
-    controller.findPersonsByName(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_a_person"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.deleteAPerson") deleteAPerson
-
-> Marks a person as deleted.
-
-
-```javascript
-function deleteAPerson(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.deleteAPerson(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_details_of_a_person"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.getDetailsOfAPerson") getDetailsOfAPerson
-
-> Returns details of a person. Note that this also returns some additional fields which are not present when asking for all persons. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the 'key' value of personFields.
-
-
-```javascript
-function getDetailsOfAPerson(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.getDetailsOfAPerson(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="update_a_person"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.updateAPerson") updateAPerson
-
-> Updates the properties of a person. For more information on how to update a person, see <a href="https://pipedrive.readme.io/docs/updating-a-person" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```javascript
-function updateAPerson(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-| name |  ``` Optional ```  | Person name |
-| ownerId |  ``` Optional ```  | ID of the user who will be marked as the owner of this person. When omitted, the authorized user ID will be used. |
-| orgId |  ``` Optional ```  | ID of the organization this person will belong to. |
-| email |  ``` Optional ```  ``` Collection ```  | Email addresses (one or more) associated with the person, presented in the same manner as received by GET request of a person. |
-| phone |  ``` Optional ```  ``` Collection ```  | Phone numbers (one or more) associated with the person, presented in the same manner as received by GET request of a person. |
-| visibleTo |  ``` Optional ```  | Visibility of the person. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<dl class="fields-list"><dt>1</dt><dd>Owner &amp; followers (private)</dd><dt>3</dt><dd>Entire company (shared)</dd></dl> |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['name'] = 'name';
-        input['ownerId'] = 16;
-        input['orgId'] = 16;
-        input['email'] = ['email'];
-        input['phone'] = ['phone'];
-        input['visibleTo'] = Object.keys(VisibleTo)[0];
-
-    controller.updateAPerson(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_activities_associated_with_a_person"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.listActivitiesAssociatedWithAPerson") listActivitiesAssociatedWithAPerson
-
-> Lists activities associated with a person.
-
-
-```javascript
-function listActivitiesAssociatedWithAPerson(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| done |  ``` Optional ```  | Whether the activity is done or not. 0 = Not done, 1 = Done. If omitted returns both Done and Not done activities. |
-| exclude |  ``` Optional ```  | A comma-separated string of activity IDs to exclude from result |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['start'] = 16;
-        input['limit'] = 16;
-        input['done'] = Object.keys(NumberBoolean)[0];
-        input['exclude'] = 'exclude';
-
-    controller.listActivitiesAssociatedWithAPerson(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_deals_associated_with_a_person"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.listDealsAssociatedWithAPerson") listDealsAssociatedWithAPerson
-
-> Lists deals associated with a person.
-
-
-```javascript
-function listDealsAssociatedWithAPerson(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| status |  ``` Optional ```  ``` DefaultValue ```  | Only fetch deals with specific status. If omitted, all not deleted deals are fetched. |
-| sort |  ``` Optional ```  | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['start'] = 16;
-        input['limit'] = 16;
-        input['status'] = Object.keys(status2)[0];
-        input['sort'] = 'sort';
-
-    controller.listDealsAssociatedWithAPerson(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_files_attached_to_a_person"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.listFilesAttachedToAPerson") listFilesAttachedToAPerson
-
-> Lists files associated with a person.
-
-
-```javascript
-function listFilesAttachedToAPerson(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| includeDeletedFiles |  ``` Optional ```  | When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work. |
-| sort |  ``` Optional ```  | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['start'] = 16;
-        input['limit'] = 16;
-        input['includeDeletedFiles'] = Object.keys(NumberBoolean)[0];
-        input['sort'] = 'sort';
-
-    controller.listFilesAttachedToAPerson(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_updates_about_a_person"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.listUpdatesAboutAPerson") listUpdatesAboutAPerson
-
-> Lists updates about a person.
-
-
-```javascript
-function listUpdatesAboutAPerson(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['start'] = 16;
-        input['limit'] = 16;
-
-    controller.listUpdatesAboutAPerson(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_followers_of_a_person"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.listFollowersOfAPerson") listFollowersOfAPerson
-
-> Lists the followers of a person.
-
-
-```javascript
-function listFollowersOfAPerson(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.listFollowersOfAPerson(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_a_follower_to_a_person"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.addAFollowerToAPerson") addAFollowerToAPerson
-
-> Adds a follower to a person.
-
-
-```javascript
-function addAFollowerToAPerson(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-| userId |  ``` Required ```  | ID of the user |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['userId'] = 16;
-
-    controller.addAFollowerToAPerson(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="deletes_a_follower_from_a_person"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.deletesAFollowerFromAPerson") deletesAFollowerFromAPerson
-
-> Delete a follower from a person
-
-
-```javascript
-function deletesAFollowerFromAPerson(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-| followerId |  ``` Required ```  | ID of the follower |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['followerId'] = 16;
-
-    controller.deletesAFollowerFromAPerson(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_mail_messages_associated_with_a_person"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.listMailMessagesAssociatedWithAPerson") listMailMessagesAssociatedWithAPerson
-
-> Lists mail messages associated with a person.
-
-
-```javascript
-function listMailMessagesAssociatedWithAPerson(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['start'] = 16;
-        input['limit'] = 16;
-
-    controller.listMailMessagesAssociatedWithAPerson(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="update_merge_two_persons"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.updateMergeTwoPersons") updateMergeTwoPersons
-
-> Merges a person with another person. For more information on how to merge two persons, see <a href="https://pipedrive.readme.io/docs/merging-two-persons" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```javascript
-function updateMergeTwoPersons(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-| mergeWithId |  ``` Required ```  | ID of the person that the person will be merged with |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['mergeWithId'] = 16;
-
-    controller.updateMergeTwoPersons(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_permitted_users"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.listPermittedUsers") listPermittedUsers
-
-> List users permitted to access a person
-
-
-```javascript
-function listPermittedUsers(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.listPermittedUsers(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_person_picture"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.deletePersonPicture") deletePersonPicture
-
-> Delete person picture
-
-
-```javascript
-function deletePersonPicture(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.deletePersonPicture(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_person_picture"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.addPersonPicture") addPersonPicture
-
-> Add a picture to a person. If a picture is already set, the old picture will be replaced. Added image (or the cropping parameters supplied with the request) should have an equal width and height and should be at least 128 pixels. GIF, JPG and PNG are accepted. All added images will be resized to 128 and 512 pixel wide squares.
-
-
-```javascript
-function addPersonPicture(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-| file |  ``` Required ```  | One image supplied in the multipart/form-data encoding. |
-| cropX |  ``` Optional ```  | X coordinate to where start cropping form (in pixels) |
-| cropY |  ``` Optional ```  | Y coordinate to where start cropping form (in pixels) |
-| cropWidth |  ``` Optional ```  | Width of cropping area (in pixels) |
-| cropHeight |  ``` Optional ```  | Height of cropping area (in pixels) |
-
-
-
-#### Example Usage
-
-```javascript
-
-    TestHelper.getFilePath('url', function(data) {
-        var input = [];
-        input['id'] = 16;
-        input['file'] = data;
-        input['cropX'] = 16;
-        input['cropY'] = 16;
-        input['cropWidth'] = 16;
-        input['cropHeight'] = 16;
-
-        controller.addPersonPicture(input, function(error, response, context) {
-
-        });
-    });
-```
-
-
-
-### <a name="list_products_associated_with_a_person"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.listProductsAssociatedWithAPerson") listProductsAssociatedWithAPerson
-
-> Lists products associated with a person.
-
-
-```javascript
-function listProductsAssociatedWithAPerson(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of a person |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['start'] = 16;
-        input['limit'] = 16;
-
-    controller.listProductsAssociatedWithAPerson(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="pipelines_controller"></a>![Class: ](https://apidocs.io/img/class.png ".PipelinesController") PipelinesController
-
-### Get singleton instance
-
-The singleton instance of the ``` PipelinesController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.PipelinesController;
-```
-
-### <a name="get_all_pipelines"></a>![Method: ](https://apidocs.io/img/method.png ".PipelinesController.getAllPipelines") getAllPipelines
-
-> Returns data about all pipelines
-
-
-```javascript
-function getAllPipelines(callback)
-```
-
-#### Example Usage
-
-```javascript
-
-
-    controller.getAllPipelines(function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_a_new_pipeline"></a>![Method: ](https://apidocs.io/img/method.png ".PipelinesController.addANewPipeline") addANewPipeline
-
-> Adds a new pipeline
-
-
-```javascript
-function addANewPipeline(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| name |  ``` Optional ```  | Name of the pipeline |
-| dealProbability |  ``` Optional ```  | TODO: Add a parameter description |
-| orderNr |  ``` Optional ```  | Defines pipelines order. First order(order_nr=0) is the default pipeline. |
-| active |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['name'] = 'name';
-        input['dealProbability'] = Object.keys(NumberBoolean)[0];
-        input['orderNr'] = 16;
-        input['active'] = Object.keys(NumberBoolean)[0];
-
-    controller.addANewPipeline(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_a_pipeline"></a>![Method: ](https://apidocs.io/img/method.png ".PipelinesController.deleteAPipeline") deleteAPipeline
-
-> Marks a pipeline as deleted.
-
-
-```javascript
-function deleteAPipeline(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the pipeline |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.deleteAPipeline(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_one_pipeline"></a>![Method: ](https://apidocs.io/img/method.png ".PipelinesController.getOnePipeline") getOnePipeline
-
-> Returns data about a specific pipeline. Also returns the summary of the deals in this pipeline across its stages.
-
-
-```javascript
-function getOnePipeline(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the pipeline |
-| totalsConvertCurrency |  ``` Optional ```  | 3-letter currency code of any of the supported currencies. When supplied, per_stages_converted is returned in deals_summary which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to 'default_currency' in which case users default currency is used. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['totalsConvertCurrency'] = totals_convert_currency;
-
-    controller.getOnePipeline(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="update_edit_a_pipeline"></a>![Method: ](https://apidocs.io/img/method.png ".PipelinesController.updateEditAPipeline") updateEditAPipeline
-
-> Updates pipeline properties
-
-
-```javascript
-function updateEditAPipeline(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the pipeline |
-| name |  ``` Optional ```  | Name of the pipeline |
-| dealProbability |  ``` Optional ```  | TODO: Add a parameter description |
-| orderNr |  ``` Optional ```  | Defines pipelines order. First order(order_nr=0) is the default pipeline. |
-| active |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['name'] = 'name';
-        input['dealProbability'] = Object.keys(NumberBoolean)[0];
-        input['orderNr'] = 16;
-        input['active'] = Object.keys(NumberBoolean)[0];
-
-    controller.updateEditAPipeline(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-### <a name="get_deals_conversion_rates_in_pipeline"></a>![Method: ](https://apidocs.io/img/method.png ".PipelinesController.getDealsConversionRatesInPipeline") getDealsConversionRatesInPipeline
-
-> Returns all stage-to-stage conversion and pipeline-to-close rates for given time period.
-
-
-```javascript
-function getDealsConversionRatesInPipeline(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the pipeline |
-| startDate |  ``` Required ```  | Start of the period. Date in format of YYYY-MM-DD. |
-| endDate |  ``` Required ```  | End of the period. Date in format of YYYY-MM-DD. |
-| userId |  ``` Optional ```  | ID of the user who's pipeline metrics statistics to fetch. If omitted, the authorized user will be used. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['startDate'] = '2019-11-22';
-        input['endDate'] = '2019-11-22';
-        input['userId'] = 16;
-
-    controller.getDealsConversionRatesInPipeline(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_deals_in_a_pipeline"></a>![Method: ](https://apidocs.io/img/method.png ".PipelinesController.getDealsInAPipeline") getDealsInAPipeline
-
-> Lists deals in a specific pipeline across all its stages
-
-
-```javascript
-function getDealsInAPipeline(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the pipeline |
-| filterId |  ``` Optional ```  | If supplied, only deals matching the given filter will be returned. |
-| userId |  ``` Optional ```  | If supplied, filter_id will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned. |
-| everyone |  ``` Optional ```  | If supplied, filter_id and user_id will not be considered – instead, deals owned by everyone will be returned. |
-| stageId |  ``` Optional ```  | If supplied, only deals within the given stage will be returned. |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| getSummary |  ``` Optional ```  | Whether to include summary of the pipeline in the additional_data or not. |
-| totalsConvertCurrency |  ``` Optional ```  | 3-letter currency code of any of the supported currencies. When supplied, per_stages_converted is returned inside deals_summary inside additional_data which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to 'default_currency' in which case users default currency is used. Only works when get_summary parameter flag is enabled. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['filterId'] = 16;
-        input['userId'] = 16;
-        input['everyone'] = Object.keys(NumberBoolean)[0];
-        input['stageId'] = 16;
-        input['start'] = 16;
-        input['limit'] = 16;
-        input['getSummary'] = Object.keys(NumberBoolean)[0];
-        input['totalsConvertCurrency'] = totals_convert_currency;
-
-    controller.getDealsInAPipeline(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_deals_movements_in_pipeline"></a>![Method: ](https://apidocs.io/img/method.png ".PipelinesController.getDealsMovementsInPipeline") getDealsMovementsInPipeline
-
-> Returns statistics for deals movements for given time period.
-
-
-```javascript
-function getDealsMovementsInPipeline(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the pipeline |
-| startDate |  ``` Required ```  | Start of the period. Date in format of YYYY-MM-DD. |
-| endDate |  ``` Required ```  | End of the period. Date in format of YYYY-MM-DD. |
-| userId |  ``` Optional ```  | ID of the user who's pipeline statistics to fetch. If omitted, the authorized user will be used. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['startDate'] = '2019-11-22';
-        input['endDate'] = '2019-11-22';
-        input['userId'] = 16;
-
-    controller.getDealsMovementsInPipeline(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="product_fields_controller"></a>![Class: ](https://apidocs.io/img/class.png ".ProductFieldsController") ProductFieldsController
-
-### Get singleton instance
-
-The singleton instance of the ``` ProductFieldsController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.ProductFieldsController;
-```
-
-### <a name="delete_multiple_product_fields_in_bulk"></a>![Method: ](https://apidocs.io/img/method.png ".ProductFieldsController.deleteMultipleProductFieldsInBulk") deleteMultipleProductFieldsInBulk
-
-> Marks multiple fields as deleted.
-
-
-```javascript
-function deleteMultipleProductFieldsInBulk(ids, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| ids |  ``` Required ```  | Comma-separated field IDs to delete |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var ids = 'ids';
-
-    controller.deleteMultipleProductFieldsInBulk(ids, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_all_product_fields"></a>![Method: ](https://apidocs.io/img/method.png ".ProductFieldsController.getAllProductFields") getAllProductFields
-
-> Returns data about all product fields
-
-
-```javascript
-function getAllProductFields(callback)
-```
-
-#### Example Usage
-
-```javascript
-
-
-    controller.getAllProductFields(function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_a_new_product_field"></a>![Method: ](https://apidocs.io/img/method.png ".ProductFieldsController.addANewProductField") addANewProductField
-
-> Adds a new product field. For more information on adding a new custom field, see <a href="https://pipedrive.readme.io/docs/adding-a-new-custom-field" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```javascript
-function addANewProductField(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| contentType |  ``` Optional ```  | TODO: Add a parameter description |
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['contentType'] = 'Content-Type';
-        input['body'] = {
-        id : 21
-    };
-
-    controller.addANewProductField(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_a_product_field"></a>![Method: ](https://apidocs.io/img/method.png ".ProductFieldsController.deleteAProductField") deleteAProductField
-
-> Marks a field as deleted. For more information on how to delete a custom field, see <a href="https://pipedrive.readme.io/docs/deleting-a-custom-field" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```javascript
-function deleteAProductField(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the Product Field |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.deleteAProductField(id, function(error, response, context) {
-
-    
-    });
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 410 | The Product Field with the specified ID does not exist or is inaccessible |
-
-
-
-
-### <a name="get_one_product_field"></a>![Method: ](https://apidocs.io/img/method.png ".ProductFieldsController.getOneProductField") getOneProductField
-
-> Returns data about a specific product field.
-
-
-```javascript
-function getOneProductField(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the Product Field |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.getOneProductField(id, function(error, response, context) {
-
-    
-    });
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 410 | The Product Field with the specified ID does not exist or is inaccessible |
-
-
-
-
-### <a name="update_a_product_field"></a>![Method: ](https://apidocs.io/img/method.png ".ProductFieldsController.updateAProductField") updateAProductField
-
-> Updates a product field. See an example of updating custom fields’ values in <a href=" https://pipedrive.readme.io/docs/updating-custom-field-value " target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```javascript
-function updateAProductField(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the Product Field |
-| name |  ``` Required ```  | Name of the field |
-| options |  ``` Optional ```  | When field_type is either set or enum, possible options must be supplied as a JSON-encoded sequential array, for example: ["red","blue","lilac"] |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['name'] = 'name';
-        input['options'] = 'options';
-
-    controller.updateAProductField(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="products_controller"></a>![Class: ](https://apidocs.io/img/class.png ".ProductsController") ProductsController
-
-### Get singleton instance
-
-The singleton instance of the ``` ProductsController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.ProductsController;
-```
-
-### <a name="get_all_products"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.getAllProducts") getAllProducts
-
-> Returns data about all products.
-
-
-```javascript
-function getAllProducts(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| userId |  ``` Optional ```  | If supplied, only products owned by the given user will be returned. |
-| filterId |  ``` Optional ```  | ID of the filter to use |
-| firstChar |  ``` Optional ```  | If supplied, only products whose name starts with the specified letter will be returned (case insensitive). |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['userId'] = 16;
-        input['filterId'] = 16;
-        input['firstChar'] = first_char;
-        input['start'] = 0;
-        input['limit'] = 16;
-
-    controller.getAllProducts(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_a_product"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.addAProduct") addAProduct
-
-> Adds a new product to the products inventory. For more information on how to add a product, see <a href="https://pipedrive.readme.io/docs/adding-a-product" target="_blank" rel="noopener noreferrer">this tutorial</a>.
-
-
-```javascript
-function addAProduct(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| contentType |  ``` Optional ```  | TODO: Add a parameter description |
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['contentType'] = 'Content-Type';
-        input['body'] = {
-        id : 21
-    };
-
-    controller.addAProduct(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="find_products_by_name"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.findProductsByName") findProductsByName
-
-> Returns data about the products that were found. If currency was set in request, prices in that currency are served back.
-
-
-```javascript
-function findProductsByName(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| term |  ``` Required ```  | Search term to look for, minimum 3 characters. |
-| currency |  ``` Optional ```  | Currency code in which prices should be returned in. If omitted, prices in user's default currency will be returned. |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['term'] = 'term';
-        input['currency'] = 'currency';
-        input['start'] = 16;
-        input['limit'] = 16;
-
-    controller.findProductsByName(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_a_product"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.deleteAProduct") deleteAProduct
-
-> Marks a product as deleted.
-
-
-```javascript
-function deleteAProduct(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the product |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.deleteAProduct(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_one_product"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.getOneProduct") getOneProduct
-
-> Returns data about a specific product.
-
-
-```javascript
-function getOneProduct(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the product |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.getOneProduct(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="update_a_product"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.updateAProduct") updateAProduct
-
-> Updates product data.
-
-
-```javascript
-function updateAProduct(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the product |
-| name |  ``` Optional ```  | Name of the product. |
-| code |  ``` Optional ```  | Product code. |
-| unit |  ``` Optional ```  | Unit in which this product is sold |
-| tax |  ``` Optional ```  | Tax percentage |
-| activeFlag |  ``` Optional ```  | Whether this product will be made active or not. |
-| visibleTo |  ``` Optional ```  | Visibility of the product. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<dl class="fields-list"><dt>1</dt><dd>Owner &amp; followers (private)</dd><dt>3</dt><dd>Entire company (shared)</dd></dl> |
-| ownerId |  ``` Optional ```  | ID of the user who will be marked as the owner of this product. When omitted, the authorized user ID will be used. |
-| prices |  ``` Optional ```  | Array of objects, each containing: currency (string), price (number), cost (number, optional), overhead_cost (number, optional). Note that there can only be one price per product per currency. When 'prices' is omitted altogether, no prices will be set up for the product. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['name'] = 'name';
-        input['code'] = 'code';
-        input['unit'] = 'unit';
-        input['tax'] = 16.841310365983;
-        input['activeFlag'] = Object.keys(NumberBoolean)[0];
-        input['visibleTo'] = Object.keys(VisibleTo)[0];
-        input['ownerId'] = 16;
-        input['prices'] = 'prices';
-
-    controller.updateAProduct(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_deals_where_a_product_is_attached_to"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.getDealsWhereAProductIsAttachedTo") getDealsWhereAProductIsAttachedTo
-
-> Returns data about deals that have a product attached to.
-
-
-```javascript
-function getDealsWhereAProductIsAttachedTo(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the product |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| status |  ``` Optional ```  ``` DefaultValue ```  | Only fetch deals with specific status. If omitted, all not deleted deals are fetched. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['start'] = 16;
-        input['limit'] = 16;
-        input['status'] = Object.keys(status2)[0];
-
-    controller.getDealsWhereAProductIsAttachedTo(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_files_attached_to_a_product"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.listFilesAttachedToAProduct") listFilesAttachedToAProduct
-
-> Lists files associated with a product.
-
-
-```javascript
-function listFilesAttachedToAProduct(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the product |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| includeDeletedFiles |  ``` Optional ```  | When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work. |
-| sort |  ``` Optional ```  | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['start'] = 16;
-        input['limit'] = 16;
-        input['includeDeletedFiles'] = Object.keys(NumberBoolean)[0];
-        input['sort'] = 'sort';
-
-    controller.listFilesAttachedToAProduct(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_followers_of_a_product"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.listFollowersOfAProduct") listFollowersOfAProduct
-
-> Lists the followers of a Product
-
-
-```javascript
-function listFollowersOfAProduct(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the product |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.listFollowersOfAProduct(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_a_follower_to_a_product"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.addAFollowerToAProduct") addAFollowerToAProduct
-
-> Adds a follower to a product.
-
-
-```javascript
-function addAFollowerToAProduct(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the product |
-| userId |  ``` Required ```  | ID of the user |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['userId'] = 16;
-
-    controller.addAFollowerToAProduct(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_a_follower_from_a_product"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.deleteAFollowerFromAProduct") deleteAFollowerFromAProduct
-
-> Deletes a follower from a product.
-
-
-```javascript
-function deleteAFollowerFromAProduct(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the product |
-| followerId |  ``` Required ```  | ID of the follower |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['followerId'] = 16;
-
-    controller.deleteAFollowerFromAProduct(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_permitted_users"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.listPermittedUsers") listPermittedUsers
-
-> Lists users permitted to access a product.
-
-
-```javascript
-function listPermittedUsers(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the product |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.listPermittedUsers(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="recents_controller"></a>![Class: ](https://apidocs.io/img/class.png ".RecentsController") RecentsController
-
-### Get singleton instance
-
-The singleton instance of the ``` RecentsController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.RecentsController;
-```
-
-### <a name="get_recents"></a>![Method: ](https://apidocs.io/img/method.png ".RecentsController.getRecents") getRecents
-
-> Returns data about all recent changes occured after given timestamp.
-
-
-```javascript
-function getRecents(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| sinceTimestamp |  ``` Required ```  | Timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS |
-| items |  ``` Optional ```  | Multiple selection of item types to include in query (optional) |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['sinceTimestamp'] = since_timestamp;
-        input['items'] = Object.keys(items)[0];
-        input['start'] = 16;
-        input['limit'] = 16;
-
-    controller.getRecents(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="roles_controller"></a>![Class: ](https://apidocs.io/img/class.png ".RolesController") RolesController
-
-### Get singleton instance
-
-The singleton instance of the ``` RolesController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.RolesController;
-```
-
-### <a name="get_all_roles"></a>![Method: ](https://apidocs.io/img/method.png ".RolesController.getAllRoles") getAllRoles
-
-> Get all roles
-
-
-```javascript
-function getAllRoles(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['start'] = 16;
-        input['limit'] = 16;
-
-    controller.getAllRoles(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_a_role"></a>![Method: ](https://apidocs.io/img/method.png ".RolesController.addARole") addARole
-
-> Add a role
-
-
-```javascript
-function addARole(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| contentType |  ``` Optional ```  | TODO: Add a parameter description |
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['contentType'] = 'Content-Type';
-        input['body'] = {
-        id : 21
-    };
-
-    controller.addARole(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_a_role"></a>![Method: ](https://apidocs.io/img/method.png ".RolesController.deleteARole") deleteARole
-
-> Delete a role
-
-
-```javascript
-function deleteARole(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the role |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.deleteARole(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_one_role"></a>![Method: ](https://apidocs.io/img/method.png ".RolesController.getOneRole") getOneRole
-
-> Get one role
-
-
-```javascript
-function getOneRole(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the role |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.getOneRole(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="update_role_details"></a>![Method: ](https://apidocs.io/img/method.png ".RolesController.updateRoleDetails") updateRoleDetails
-
-> Update role details
-
-
-```javascript
-function updateRoleDetails(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the role |
-| parentRoleId |  ``` Optional ```  | The ID of the parent Role |
-| name |  ``` Optional ```  | The name of the Role |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['parentRoleId'] = 16;
-        input['name'] = 'name';
-
-    controller.updateRoleDetails(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_a_role_assignment"></a>![Method: ](https://apidocs.io/img/method.png ".RolesController.deleteARoleAssignment") deleteARoleAssignment
-
-> Delete assignment from a role
-
-
-```javascript
-function deleteARoleAssignment(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the role |
-| userId |  ``` Required ```  | ID of the user |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['userId'] = 16;
-
-    controller.deleteARoleAssignment(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_role_assignments"></a>![Method: ](https://apidocs.io/img/method.png ".RolesController.listRoleAssignments") listRoleAssignments
-
-> List assignments for a role
-
-
-```javascript
-function listRoleAssignments(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the role |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['start'] = 16;
-        input['limit'] = 16;
-
-    controller.listRoleAssignments(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_role_assignment"></a>![Method: ](https://apidocs.io/img/method.png ".RolesController.addRoleAssignment") addRoleAssignment
-
-> Add assignment for a role
-
-
-```javascript
-function addRoleAssignment(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the role |
-| userId |  ``` Required ```  | ID of the user |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['userId'] = 16;
-
-    controller.addRoleAssignment(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_role_sub_roles"></a>![Method: ](https://apidocs.io/img/method.png ".RolesController.listRoleSubRoles") listRoleSubRoles
-
-> List role sub-roles
-
-
-```javascript
-function listRoleSubRoles(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the role |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['start'] = 16;
-        input['limit'] = 16;
-
-    controller.listRoleSubRoles(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_role_settings"></a>![Method: ](https://apidocs.io/img/method.png ".RolesController.listRoleSettings") listRoleSettings
-
-> List role settings
-
-
-```javascript
-function listRoleSettings(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the role |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.listRoleSettings(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_or_update_role_setting"></a>![Method: ](https://apidocs.io/img/method.png ".RolesController.addOrUpdateRoleSetting") addOrUpdateRoleSetting
-
-> Add or update role setting
-
-
-```javascript
-function addOrUpdateRoleSetting(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the role |
-| settingKey |  ``` Required ```  | TODO: Add a parameter description |
-| value |  ``` Required ```  | Possible values for default_visibility settings: 0...1. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['settingKey'] = Object.keys(setting_key)[0];
-        input['value'] = Object.keys(NumberBoolean)[0];
-
-    controller.addOrUpdateRoleSetting(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="search_results_controller"></a>![Class: ](https://apidocs.io/img/class.png ".SearchResultsController") SearchResultsController
-
-### Get singleton instance
-
-The singleton instance of the ``` SearchResultsController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.SearchResultsController;
-```
-
-### <a name="get_perform_a_search"></a>![Method: ](https://apidocs.io/img/method.png ".SearchResultsController.getPerformASearch") getPerformASearch
-
-> Performs a search across the account and returns SearchResults.
-
-
-```javascript
-function getPerformASearch(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| term |  ``` Required ```  | Search term to look for, minimum 2 characters. |
-| itemType |  ``` Optional ```  | Search for items of exact type. If omitted, all types of items are searched. |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. The minimum 2 character limit for the term is discarded when exact_match is enabled. It will only work if search term is 30 characters or less. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['term'] = 'term';
-        input['itemType'] = Object.keys(item_type2)[0];
-        input['start'] = 16;
-        input['limit'] = 16;
-        input['exactMatch'] = Object.keys(NumberBoolean)[0];
-
-    controller.getPerformASearch(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_perform_a_search_using_a_specific_field_value"></a>![Method: ](https://apidocs.io/img/method.png ".SearchResultsController.getPerformASearchUsingASpecificFieldValue") getPerformASearchUsingASpecificFieldValue
-
-> Performs a search from a specific field's values. Results can be either the distinct values of the field (useful for searching autocomplete field values), or actual items IDs (deals, persons, organizations or products). Works only with the following field types: varchar, varchar_auto, double, address, text, phone, date.
-
-
-```javascript
-function getPerformASearchUsingASpecificFieldValue(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| term |  ``` Required ```  | Search term to look for, minimum 2 characters. |
-| fieldType |  ``` Required ```  | Type of the field to perform the search from. |
-| fieldKey |  ``` Required ```  | Key of the field to search from. Field key can be obtained by fetching the list of fields using any of fields API GET methods (dealFields, personFields, ..). |
-| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. By default, term can be present anywhere in the resulting field values to be considered a match. The minimum 2 character limit for the term is discarded when exact_match is enabled. |
-| returnFieldKey |  ``` Optional ```  | Name of the field in search results from which the search was performed. When omitted, 'value' will be used. You may want to set this parameter to match the field_key. |
-| returnItemIds |  ``` Optional ```  | Whether to return matching items IDs in search results. When omitted or set to 0, only distinct values of the searched field are returned. When enabled, the return_field_key parameter is ignored and the results include the searched field as its own key. |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['term'] = 'term';
-        input['fieldType'] = Object.keys(field_type6)[0];
-        input['fieldKey'] = field_key;
-        input['exactMatch'] = Object.keys(NumberBoolean)[0];
-        input['returnFieldKey'] = return_field_key;
-        input['returnItemIds'] = Object.keys(NumberBoolean)[0];
-        input['start'] = 16;
-        input['limit'] = 16;
-
-    controller.getPerformASearchUsingASpecificFieldValue(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="stages_controller"></a>![Class: ](https://apidocs.io/img/class.png ".StagesController") StagesController
-
-### Get singleton instance
-
-The singleton instance of the ``` StagesController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.StagesController;
-```
-
-### <a name="delete_multiple_stages_in_bulk"></a>![Method: ](https://apidocs.io/img/method.png ".StagesController.deleteMultipleStagesInBulk") deleteMultipleStagesInBulk
-
-> Marks multiple stages as deleted.
-
-
-```javascript
-function deleteMultipleStagesInBulk(ids, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| ids |  ``` Required ```  | Comma-separated stage IDs to delete |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var ids = 'ids';
-
-    controller.deleteMultipleStagesInBulk(ids, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_all_stages"></a>![Method: ](https://apidocs.io/img/method.png ".StagesController.getAllStages") getAllStages
-
-> Returns data about all stages
-
-
-```javascript
-function getAllStages(pipelineId, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| pipelineId |  ``` Optional ```  | ID of the pipeline to fetch stages for. If omitted, stages for all pipelines will be fetched. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var pipelineId = 16;
-
-    controller.getAllStages(pipelineId, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_a_new_stage"></a>![Method: ](https://apidocs.io/img/method.png ".StagesController.addANewStage") addANewStage
-
-> Adds a new stage, returns the ID upon success.
-
-
-```javascript
-function addANewStage(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| contentType |  ``` Optional ```  | TODO: Add a parameter description |
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['contentType'] = 'Content-Type';
-        input['body'] = {
-        id : 21
-    };
-
-    controller.addANewStage(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_a_stage"></a>![Method: ](https://apidocs.io/img/method.png ".StagesController.deleteAStage") deleteAStage
-
-> Marks a stage as deleted.
-
-
-```javascript
-function deleteAStage(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the stage |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.deleteAStage(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_one_stage"></a>![Method: ](https://apidocs.io/img/method.png ".StagesController.getOneStage") getOneStage
-
-> Returns data about a specific stage
-
-
-```javascript
-function getOneStage(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the stage |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.getOneStage(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="update_stage_details"></a>![Method: ](https://apidocs.io/img/method.png ".StagesController.updateStageDetails") updateStageDetails
-
-> Updates the properties of a stage.
-
-
-```javascript
-function updateStageDetails(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the stage |
-| contentType |  ``` Optional ```  | TODO: Add a parameter description |
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['contentType'] = 'Content-Type';
-        input['body'] = {
-        id : 21
-    };
-
-    controller.updateStageDetails(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_deals_in_a_stage"></a>![Method: ](https://apidocs.io/img/method.png ".StagesController.getDealsInAStage") getDealsInAStage
-
-> Lists deals in a specific stage
-
-
-```javascript
-function getDealsInAStage(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the stage |
-| filterId |  ``` Optional ```  | If supplied, only deals matching the given filter will be returned. |
-| userId |  ``` Optional ```  | If supplied, filter_id will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned. |
-| everyone |  ``` Optional ```  | If supplied, filter_id and user_id will not be considered – instead, deals owned by everyone will be returned. |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['filterId'] = 16;
-        input['userId'] = 16;
-        input['everyone'] = Object.keys(NumberBoolean)[0];
-        input['start'] = 16;
-        input['limit'] = 16;
-
-    controller.getDealsInAStage(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="teams_controller"></a>![Class: ](https://apidocs.io/img/class.png ".TeamsController") TeamsController
-
-### Get singleton instance
-
-The singleton instance of the ``` TeamsController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.TeamsController;
-```
-
-### <a name="get_all_teams"></a>![Method: ](https://apidocs.io/img/method.png ".TeamsController.getAllTeams") getAllTeams
-
-> Returns data about teams within the company
-
-
-```javascript
-function getAllTeams(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| orderBy |  ``` Optional ```  ``` DefaultValue ```  | Field name to sort returned teams by |
-| skipUsers |  ``` Optional ```  | When enabled, the teams will not include IDs of member users |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['orderBy'] = new OrderByEnum(id);
-        input['skipUsers'] = Object.keys(NumberBoolean)[0];
-
-    controller.getAllTeams(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_a_new_team"></a>![Method: ](https://apidocs.io/img/method.png ".TeamsController.addANewTeam") addANewTeam
-
-> Adds a new team to the company and returns the created object
-
-
-```javascript
-function addANewTeam(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| name |  ``` Required ```  | The Team name |
-| managerId |  ``` Required ```  | The Team manager ID |
-| description |  ``` Optional ```  | The Team description |
-| users |  ``` Optional ```  ``` Collection ```  | IDs of the Users that belong to the Team |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['name'] = 'name';
-        input['managerId'] = 16;
-        input['description'] = 'description';
-        input['users'] = [16];
-
-    controller.addANewTeam(input, function(error, response, context) {
-
-    
-    });
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 403 | Forbidden response |
-
-
-
-
-### <a name="get_a_single_team"></a>![Method: ](https://apidocs.io/img/method.png ".TeamsController.getASingleTeam") getASingleTeam
-
-> Returns data about a specific team
-
-
-```javascript
-function getASingleTeam(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the team |
-| skipUsers |  ``` Optional ```  | When enabled, the teams will not include IDs of member users |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['skipUsers'] = Object.keys(NumberBoolean)[0];
-
-    controller.getASingleTeam(input, function(error, response, context) {
-
-    
-    });
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 404 | Team with specified ID does not exist or is inaccessible |
-
-
-
-
-### <a name="update_a_team"></a>![Method: ](https://apidocs.io/img/method.png ".TeamsController.updateATeam") updateATeam
-
-> Updates an existing team and returns the updated object
-
-
-```javascript
-function updateATeam(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the team |
-| contentType |  ``` Optional ```  | TODO: Add a parameter description |
-| body |  ``` Optional ```  | TODO: Add a parameter description |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['contentType'] = 'Content-Type';
-        input['body'] = {
-        id : 21
-    };
-
-    controller.updateATeam(input, function(error, response, context) {
-
-    
-    });
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 403 | Forbidden response |
-| 404 | Team with specified ID does not exist or is inaccessible |
-
-
-
-
-### <a name="get_all_users_in_a_team"></a>![Method: ](https://apidocs.io/img/method.png ".TeamsController.getAllUsersInATeam") getAllUsersInATeam
-
-> Returns list of all user IDs within a team
-
-
-```javascript
-function getAllUsersInATeam(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the team |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.getAllUsersInATeam(id, function(error, response, context) {
-
-    
-    });
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 404 | Team with specified ID does not exist or is inaccessible |
-
-
-
-
-### <a name="add_users_to_a_team"></a>![Method: ](https://apidocs.io/img/method.png ".TeamsController.addUsersToATeam") addUsersToATeam
-
-> Adds users to an existing team
-
-
-```javascript
-function addUsersToATeam(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the team |
-| users |  ``` Required ```  ``` Collection ```  | List of User IDs |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['users'] = [16];
-
-    controller.addUsersToATeam(input, function(error, response, context) {
-
-    
-    });
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 403 | Forbidden response |
-| 404 | Team with specified ID does not exist or is inaccessible |
-
-
-
-
-### <a name="delete_users_from_a_team"></a>![Method: ](https://apidocs.io/img/method.png ".TeamsController.deleteUsersFromATeam") deleteUsersFromATeam
-
-> Deletes users from an existing team
-
-
-```javascript
-function deleteUsersFromATeam(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the team |
-| users |  ``` Required ```  ``` Collection ```  | List of User IDs |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['users'] = [16];
-
-    controller.deleteUsersFromATeam(input, function(error, response, context) {
-
-    
-    });
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 403 | Forbidden response |
-| 404 | Team with specified ID does not exist or is inaccessible |
-
-
-
-
-### <a name="get_all_teams_of_a_user"></a>![Method: ](https://apidocs.io/img/method.png ".TeamsController.getAllTeamsOfAUser") getAllTeamsOfAUser
-
-> Returns data about all teams which have specified user as a member
-
-
-```javascript
-function getAllTeamsOfAUser(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the user |
-| orderBy |  ``` Optional ```  ``` DefaultValue ```  | Field name to sort returned teams by |
-| skipUsers |  ``` Optional ```  | When enabled, the teams will not include IDs of member users |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['orderBy'] = Object.keys(order_by)[0];
-        input['skipUsers'] = Object.keys(NumberBoolean)[0];
-
-    controller.getAllTeamsOfAUser(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="user_connections_controller"></a>![Class: ](https://apidocs.io/img/class.png ".UserConnectionsController") UserConnectionsController
-
-### Get singleton instance
-
-The singleton instance of the ``` UserConnectionsController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.UserConnectionsController;
-```
-
-### <a name="get_all_user_connections"></a>![Method: ](https://apidocs.io/img/method.png ".UserConnectionsController.getAllUserConnections") getAllUserConnections
-
-> Returns data about all connections for authorized user.
-
-
-```javascript
-function getAllUserConnections(callback)
-```
-
-#### Example Usage
-
-```javascript
-
-
-    controller.getAllUserConnections(function(error, response, context) {
-
-    
-    });
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 401 | Unauthorized response |
-
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="user_settings_controller"></a>![Class: ](https://apidocs.io/img/class.png ".UserSettingsController") UserSettingsController
-
-### Get singleton instance
-
-The singleton instance of the ``` UserSettingsController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.UserSettingsController;
-```
-
-### <a name="list_settings_of_authorized_user"></a>![Method: ](https://apidocs.io/img/method.png ".UserSettingsController.listSettingsOfAuthorizedUser") listSettingsOfAuthorizedUser
-
-> Lists settings of authorized user.
-
-
-```javascript
-function listSettingsOfAuthorizedUser(callback)
-```
-
-#### Example Usage
-
-```javascript
-
-
-    controller.listSettingsOfAuthorizedUser(function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="users_controller"></a>![Class: ](https://apidocs.io/img/class.png ".UsersController") UsersController
-
-### Get singleton instance
-
-The singleton instance of the ``` UsersController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.UsersController;
-```
-
-### <a name="get_all_users"></a>![Method: ](https://apidocs.io/img/method.png ".UsersController.getAllUsers") getAllUsers
-
-> Returns data about all users within the company
-
-
-```javascript
-function getAllUsers(callback)
-```
-
-#### Example Usage
-
-```javascript
-
-
-    controller.getAllUsers(function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_a_new_user"></a>![Method: ](https://apidocs.io/img/method.png ".UsersController.addANewUser") addANewUser
-
-> Adds a new user to the company, returns the ID upon success.
-
-
-```javascript
-function addANewUser(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| name |  ``` Required ```  | Name of the user |
-| email |  ``` Required ```  | Email of the user |
-| activeFlag |  ``` Required ```  | Whether the user is active or not. false = Not activated, true = Activated |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['name'] = 'name';
-        input['email'] = 'email';
-        input['activeFlag'] = false;
-
-    controller.addANewUser(input, function(error, response, context) {
-
-    
-    });
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 403 | Forbidden response |
-
-
-
-
-### <a name="find_users_by_name"></a>![Method: ](https://apidocs.io/img/method.png ".UsersController.findUsersByName") findUsersByName
-
-> Finds users by their name.
-
-
-```javascript
-function findUsersByName(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| term |  ``` Required ```  | Search term to look for |
-| searchByEmail |  ``` Optional ```  | When enabled, term will only be matched against email addresses of users. Default: false |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['term'] = 'term';
-        input['searchByEmail'] = Object.keys(NumberBoolean)[0];
-
-    controller.findUsersByName(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_current_user_data"></a>![Method: ](https://apidocs.io/img/method.png ".UsersController.getCurrentUserData") getCurrentUserData
-
-> Returns data about an authorized user within the company with bound company data: company ID, company name, and domain. Note that the 'locale' property means 'Date and number format' in the Pipedrive settings, not the chosen language.
-
-
-```javascript
-function getCurrentUserData(callback)
-```
-
-#### Example Usage
-
-```javascript
-
-
-    controller.getCurrentUserData(function(error, response, context) {
-
-    
-    });
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 401 | Unauthorized response |
-
-
-
-
-### <a name="get_one_user"></a>![Method: ](https://apidocs.io/img/method.png ".UsersController.getOneUser") getOneUser
-
-> Returns data about a specific user within the company
-
-
-```javascript
-function getOneUser(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the user |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.getOneUser(id, function(error, response, context) {
-
-    
-    });
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 404 | User with specified ID does not exist or is inaccessible |
-
-
-
-
-### <a name="update_user_details"></a>![Method: ](https://apidocs.io/img/method.png ".UsersController.updateUserDetails") updateUserDetails
-
-> Updates the properties of a user. Currently, only active_flag can be updated.
-
-
-```javascript
-function updateUserDetails(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the user |
-| activeFlag |  ``` Required ```  | Whether the user is active or not. false = Not activated, true = Activated |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['activeFlag'] = false;
-
-    controller.updateUserDetails(input, function(error, response, context) {
-
-    
-    });
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 403 | Forbidden response |
-| 404 | User with specified ID does not exist or is inaccessible |
-
-
-
-
-### <a name="list_blacklisted_email_addresses_of_a_user"></a>![Method: ](https://apidocs.io/img/method.png ".UsersController.listBlacklistedEmailAddressesOfAUser") listBlacklistedEmailAddressesOfAUser
-
-> Lists blacklisted email addresses of a specific user. Blacklisted emails are such that will not get synced in to Pipedrive when using the built-in Mailbox.
-
-
-```javascript
-function listBlacklistedEmailAddressesOfAUser(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the user |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.listBlacklistedEmailAddressesOfAUser(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_blacklisted_email_address_for_a_user"></a>![Method: ](https://apidocs.io/img/method.png ".UsersController.addBlacklistedEmailAddressForAUser") addBlacklistedEmailAddressForAUser
-
-> Add blacklisted email address for a specific user.
-
-
-```javascript
-function addBlacklistedEmailAddressForAUser(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the user |
-| address |  ``` Required ```  | Email address to blacklist (can contain \\* for wildcards, e.g. \\*@example.com, or john\\*@ex\\*.com) |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['address'] = 'address';
-
-    controller.addBlacklistedEmailAddressForAUser(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_followers_of_a_user"></a>![Method: ](https://apidocs.io/img/method.png ".UsersController.listFollowersOfAUser") listFollowersOfAUser
-
-> Lists followers of a specific user.
-
-
-```javascript
-function listFollowersOfAUser(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the user |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.listFollowersOfAUser(id, function(error, response, context) {
-
-    
-    });
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 403 | Forbidden response |
-
-
-
-
-### <a name="list_user_permissions"></a>![Method: ](https://apidocs.io/img/method.png ".UsersController.listUserPermissions") listUserPermissions
-
-> List aggregated permissions over all assigned permission sets for a user
-
-
-```javascript
-function listUserPermissions(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the user |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.listUserPermissions(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_a_role_assignment"></a>![Method: ](https://apidocs.io/img/method.png ".UsersController.deleteARoleAssignment") deleteARoleAssignment
-
-> Delete a role assignment for a user
-
-
-```javascript
-function deleteARoleAssignment(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the user |
-| roleId |  ``` Required ```  | ID of the role |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['roleId'] = 16;
-
-    controller.deleteARoleAssignment(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_role_assignments"></a>![Method: ](https://apidocs.io/img/method.png ".UsersController.listRoleAssignments") listRoleAssignments
-
-> List role assignments for a user
-
-
-```javascript
-function listRoleAssignments(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the user |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['start'] = 16;
-        input['limit'] = 16;
-
-    controller.listRoleAssignments(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="add_role_assignment"></a>![Method: ](https://apidocs.io/img/method.png ".UsersController.addRoleAssignment") addRoleAssignment
-
-> Add role assignment for a user
-
-
-```javascript
-function addRoleAssignment(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the user |
-| roleId |  ``` Required ```  | ID of the role |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['id'] = 16;
-        input['roleId'] = 16;
-
-    controller.addRoleAssignment(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="list_user_role_settings"></a>![Method: ](https://apidocs.io/img/method.png ".UsersController.listUserRoleSettings") listUserRoleSettings
-
-> List settings of user's assigned role
-
-
-```javascript
-function listUserRoleSettings(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | ID of the user |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.listUserRoleSettings(id, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="webhooks_controller"></a>![Class: ](https://apidocs.io/img/class.png ".WebhooksController") WebhooksController
-
-### Get singleton instance
-
-The singleton instance of the ``` WebhooksController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.WebhooksController;
-```
-
-### <a name="get_all_webhooks"></a>![Method: ](https://apidocs.io/img/method.png ".WebhooksController.getAllWebhooks") getAllWebhooks
-
-> Returns data about all webhooks of a company.
-
-
-```javascript
-function getAllWebhooks(callback)
-```
-
-#### Example Usage
-
-```javascript
-
-
-    controller.getAllWebhooks(function(error, response, context) {
-
-    
-    });
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 401 | Unauthorized response |
-
-
-
-
-### <a name="create_a_new_webhook"></a>![Method: ](https://apidocs.io/img/method.png ".WebhooksController.createANewWebhook") createANewWebhook
-
-> Creates a new webhook and returns its details. Note that specifying an event which triggers the webhook combines 2 parameters - 'event_action' and 'event_object'. E.g., use '\*.\*' for getting notifications about all events, 'added.deal' for any newly added deals, 'deleted.persons' for any deleted persons, etc. See <a href="https://pipedrive.readme.io/docs/guide-for-webhooks?utm_source=api_reference">https://pipedrive.readme.io/docs/guide-for-webhooks</a> for more details.
-
-
-```javascript
-function createANewWebhook(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionUrl |  ``` Required ```  | A full, valid, publicly accessible URL. Determines where to send the notifications. Please note that you cannot use Pipedrive API endpoints as the subscription_url. |
-| eventAction |  ``` Required ```  | Type of action to receive notifications about. Wildcard will match all supported actions. |
-| eventObject |  ``` Required ```  | Type of object to receive notifications about. Wildcard will match all supported objects. |
-| userId |  ``` Optional ```  | The ID of the user this webhook will be authorized with. If not set, current authorized user will be used. Note that this does not filter only certain user's events — rather, this specifies the user's permissions under which each event is checked. Events about objects the selected user is not entitled to access are not sent. If you want to receive notifications for all events, a top-level admin user should be used. |
-| httpAuthUser |  ``` Optional ```  | HTTP basic auth username of the subscription URL endpoint (if required). |
-| httpAuthPassword |  ``` Optional ```  | HTTP basic auth password of the subscription URL endpoint (if required). |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['subscriptionUrl'] = subscription_url;
-        input['eventAction'] = Object.keys(event_action)[0];
-        input['eventObject'] = Object.keys(event_object)[0];
-        input['userId'] = 16;
-        input['httpAuthUser'] = http_auth_user;
-        input['httpAuthPassword'] = http_auth_password;
-
-    controller.createANewWebhook(input, function(error, response, context) {
-
-    
-    });
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 400 | The bad response on webhook creation |
-| 401 | Unauthorized response |
-
-
-
-
-### <a name="delete_existing_webhook"></a>![Method: ](https://apidocs.io/img/method.png ".WebhooksController.deleteExistingWebhook") deleteExistingWebhook
-
-> Deletes the specified webhook.
-
-
-```javascript
-function deleteExistingWebhook(id, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| id |  ``` Required ```  | The ID of the webhook to delete |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var id = 16;
-
-    controller.deleteExistingWebhook(id, function(error, response, context) {
-
-    
-    });
-```
-
-#### Errors
-
-| Error Code | Error Description |
-|------------|-------------------|
-| 401 | Unauthorized response |
-| 403 | The webhook deletion forbidden response |
-| 404 | The webhook deletion not found response |
-
-
-
-
-[Back to List of Controllers](#list_of_controllers)
