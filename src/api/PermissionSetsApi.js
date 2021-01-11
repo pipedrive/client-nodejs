@@ -92,12 +92,12 @@ export default class PermissionSetsApi {
      * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UserAssignmentsToPermissionSet} and HTTP response
      */
-    getPermissionSetAssignmetsWithHttpInfo(id, opts) {
+    getPermissionSetAssignmentsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getPermissionSetAssignmets");
+        throw new Error("Missing the required parameter 'id' when calling getPermissionSetAssignments");
       }
 
       let pathParams = {
@@ -132,8 +132,8 @@ export default class PermissionSetsApi {
      * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UserAssignmentsToPermissionSet}
      */
-    getPermissionSetAssignmets(id, opts) {
-      return this.getPermissionSetAssignmetsWithHttpInfo(id, opts)
+    getPermissionSetAssignments(id, opts) {
+      return this.getPermissionSetAssignmentsWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data;
         });

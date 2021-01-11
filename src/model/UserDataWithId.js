@@ -23,7 +23,6 @@ class UserDataWithId {
     /**
      * Constructs a new <code>UserDataWithId</code>.
      * @alias module:model/UserDataWithId
-     * @extends module:model/UserData
      * @implements module:model/UserData
      */
     constructor() { 
@@ -50,8 +49,37 @@ class UserDataWithId {
         if (data) {
             obj = obj || new UserDataWithId();
             UserData.constructFromObject(data, obj);
-            UserData.constructFromObject(data, obj);
 
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+
+                delete data['id'];
+            }
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+
+                delete data['name'];
+            }
+            if (data.hasOwnProperty('email')) {
+                obj['email'] = ApiClient.convertToType(data['email'], 'String');
+
+                delete data['email'];
+            }
+            if (data.hasOwnProperty('has_pic')) {
+                obj['has_pic'] = ApiClient.convertToType(data['has_pic'], 'Number');
+
+                delete data['has_pic'];
+            }
+            if (data.hasOwnProperty('pic_hash')) {
+                obj['pic_hash'] = ApiClient.convertToType(data['pic_hash'], 'String');
+
+                delete data['pic_hash'];
+            }
+            if (data.hasOwnProperty('active_flag')) {
+                obj['active_flag'] = ApiClient.convertToType(data['active_flag'], 'Boolean');
+
+                delete data['active_flag'];
+            }
 
             if (Object.keys(data).length > 0) {
                 obj['extra'] = data;
@@ -63,6 +91,42 @@ class UserDataWithId {
 
 
 }
+
+/**
+ * The ID of the User
+ * @member {Number} id
+ */
+UserDataWithId.prototype['id'] = undefined;
+
+/**
+ * The name of the User
+ * @member {String} name
+ */
+UserDataWithId.prototype['name'] = undefined;
+
+/**
+ * The email of the User
+ * @member {String} email
+ */
+UserDataWithId.prototype['email'] = undefined;
+
+/**
+ * Whether the User has picture or not. 0 = No picture, 1 = Has picture.
+ * @member {Number} has_pic
+ */
+UserDataWithId.prototype['has_pic'] = undefined;
+
+/**
+ * The User picture hash
+ * @member {String} pic_hash
+ */
+UserDataWithId.prototype['pic_hash'] = undefined;
+
+/**
+ * If the User is activated or not
+ * @member {Boolean} active_flag
+ */
+UserDataWithId.prototype['active_flag'] = undefined;
 
 
 // Implement UserData interface:

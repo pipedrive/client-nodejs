@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import ActivityTypeCreateUpdateDeleteResponseAllOf from './ActivityTypeCreateUpdateDeleteResponseAllOf';
 import ActivityTypeObjectResponse from './ActivityTypeObjectResponse';
 import BaseResponse from './BaseResponse';
 
@@ -24,11 +25,11 @@ class ActivityTypeCreateUpdateDeleteResponse {
     /**
      * Constructs a new <code>ActivityTypeCreateUpdateDeleteResponse</code>.
      * @alias module:model/ActivityTypeCreateUpdateDeleteResponse
-     * @extends module:model/BaseResponse
      * @implements module:model/BaseResponse
+     * @implements module:model/ActivityTypeCreateUpdateDeleteResponseAllOf
      */
     constructor() { 
-        BaseResponse.initialize(this);
+        BaseResponse.initialize(this);ActivityTypeCreateUpdateDeleteResponseAllOf.initialize(this);
         ActivityTypeCreateUpdateDeleteResponse.initialize(this);
     }
 
@@ -51,8 +52,13 @@ class ActivityTypeCreateUpdateDeleteResponse {
         if (data) {
             obj = obj || new ActivityTypeCreateUpdateDeleteResponse();
             BaseResponse.constructFromObject(data, obj);
-            BaseResponse.constructFromObject(data, obj);
+            ActivityTypeCreateUpdateDeleteResponseAllOf.constructFromObject(data, obj);
 
+            if (data.hasOwnProperty('success')) {
+                obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
+
+                delete data['success'];
+            }
             if (data.hasOwnProperty('data')) {
                 obj['data'] = ActivityTypeObjectResponse.constructFromObject(data['data']);
 
@@ -71,6 +77,12 @@ class ActivityTypeCreateUpdateDeleteResponse {
 }
 
 /**
+ * If the response is successful or not
+ * @member {Boolean} success
+ */
+ActivityTypeCreateUpdateDeleteResponse.prototype['success'] = undefined;
+
+/**
  * @member {module:model/ActivityTypeObjectResponse} data
  */
 ActivityTypeCreateUpdateDeleteResponse.prototype['data'] = undefined;
@@ -82,6 +94,11 @@ ActivityTypeCreateUpdateDeleteResponse.prototype['data'] = undefined;
  * @member {Boolean} success
  */
 BaseResponse.prototype['success'] = undefined;
+// Implement ActivityTypeCreateUpdateDeleteResponseAllOf interface:
+/**
+ * @member {module:model/ActivityTypeObjectResponse} data
+ */
+ActivityTypeCreateUpdateDeleteResponseAllOf.prototype['data'] = undefined;
 
 
 

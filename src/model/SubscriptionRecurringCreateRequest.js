@@ -25,10 +25,12 @@ class SubscriptionRecurringCreateRequest {
      * @param dealId {Number} ID of the Deal this Recurring Subscription is associated with
      * @param currency {String} The currency of the Recurring Subscription. Accepts a 3-character currency code.
      * @param cadenceType {module:model/SubscriptionRecurringCreateRequest.CadenceTypeEnum} Interval between payments
+     * @param cycleAmount {Number} Amount of each payment
+     * @param startDate {Date} Start date of the Recurring Subscription. Format: YYYY-MM-DD
      */
-    constructor(dealId, currency, cadenceType) { 
+    constructor(dealId, currency, cadenceType, cycleAmount, startDate) { 
         
-        SubscriptionRecurringCreateRequest.initialize(this, dealId, currency, cadenceType);
+        SubscriptionRecurringCreateRequest.initialize(this, dealId, currency, cadenceType, cycleAmount, startDate);
     }
 
     /**
@@ -36,10 +38,12 @@ class SubscriptionRecurringCreateRequest {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, dealId, currency, cadenceType) { 
+    static initialize(obj, dealId, currency, cadenceType, cycleAmount, startDate) { 
         obj['deal_id'] = dealId;
         obj['currency'] = currency;
         obj['cadence_type'] = cadenceType;
+        obj['cycle_amount'] = cycleAmount;
+        obj['start_date'] = startDate;
     }
 
     /**

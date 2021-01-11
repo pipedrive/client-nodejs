@@ -1188,14 +1188,14 @@ export default class DealsApi {
      * Get all deals
      * Returns all deals. For more information on how to get all deals, see <a href=\"https://pipedrive.readme.io/docs/getting-all-deals\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.userId If supplied, only deals matching the given user will be returned.
+     * @param {Number} opts.userId If supplied, only deals matching the given user will be returned. However, `filter_id` and `owned_by_you` takes precedence over `user_id` when supplied.
      * @param {Number} opts.filterId ID of the filter to use
      * @param {Number} opts.stageId If supplied, only deals within the given stage will be returned.
      * @param {module:model/String} opts.status Only fetch deals with specific status. If omitted, all not deleted deals are fetched. (default to 'all_not_deleted')
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {String} opts.sort Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys).
-     * @param {module:model/NumberBoolean} opts.ownedByYou When supplied, only deals owned by you are returned. However filter_id takes precedence over owned_by_you when both are supplied.
+     * @param {module:model/NumberBoolean} opts.ownedByYou When supplied, only deals owned by you are returned. However, `filter_id` takes precedence over `owned_by_you` when both are supplied.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetDeals} and HTTP response
      */
     getDealsWithHttpInfo(opts) {
@@ -1234,14 +1234,14 @@ export default class DealsApi {
      * Get all deals
      * Returns all deals. For more information on how to get all deals, see <a href=\"https://pipedrive.readme.io/docs/getting-all-deals\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.userId If supplied, only deals matching the given user will be returned.
+     * @param {Number} opts.userId If supplied, only deals matching the given user will be returned. However, `filter_id` and `owned_by_you` takes precedence over `user_id` when supplied.
      * @param {Number} opts.filterId ID of the filter to use
      * @param {Number} opts.stageId If supplied, only deals within the given stage will be returned.
      * @param {module:model/String} opts.status Only fetch deals with specific status. If omitted, all not deleted deals are fetched. (default to 'all_not_deleted')
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {String} opts.sort Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys).
-     * @param {module:model/NumberBoolean} opts.ownedByYou When supplied, only deals owned by you are returned. However filter_id takes precedence over owned_by_you when both are supplied.
+     * @param {module:model/NumberBoolean} opts.ownedByYou When supplied, only deals owned by you are returned. However, `filter_id` takes precedence over `owned_by_you` when both are supplied.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetDeals}
      */
     getDeals(opts) {

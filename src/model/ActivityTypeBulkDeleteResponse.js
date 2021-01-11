@@ -12,6 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
+import ActivityTypeBulkDeleteResponseAllOf from './ActivityTypeBulkDeleteResponseAllOf';
+import ActivityTypeBulkDeleteResponseAllOfData from './ActivityTypeBulkDeleteResponseAllOfData';
 import BaseResponse from './BaseResponse';
 
 /**
@@ -23,11 +25,11 @@ class ActivityTypeBulkDeleteResponse {
     /**
      * Constructs a new <code>ActivityTypeBulkDeleteResponse</code>.
      * @alias module:model/ActivityTypeBulkDeleteResponse
-     * @extends module:model/BaseResponse
      * @implements module:model/BaseResponse
+     * @implements module:model/ActivityTypeBulkDeleteResponseAllOf
      */
     constructor() { 
-        BaseResponse.initialize(this);
+        BaseResponse.initialize(this);ActivityTypeBulkDeleteResponseAllOf.initialize(this);
         ActivityTypeBulkDeleteResponse.initialize(this);
     }
 
@@ -50,10 +52,15 @@ class ActivityTypeBulkDeleteResponse {
         if (data) {
             obj = obj || new ActivityTypeBulkDeleteResponse();
             BaseResponse.constructFromObject(data, obj);
-            BaseResponse.constructFromObject(data, obj);
+            ActivityTypeBulkDeleteResponseAllOf.constructFromObject(data, obj);
 
+            if (data.hasOwnProperty('success')) {
+                obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
+
+                delete data['success'];
+            }
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], Object);
+                obj['data'] = ActivityTypeBulkDeleteResponseAllOfData.constructFromObject(data['data']);
 
                 delete data['data'];
             }
@@ -70,7 +77,13 @@ class ActivityTypeBulkDeleteResponse {
 }
 
 /**
- * @member {Object} data
+ * If the response is successful or not
+ * @member {Boolean} success
+ */
+ActivityTypeBulkDeleteResponse.prototype['success'] = undefined;
+
+/**
+ * @member {module:model/ActivityTypeBulkDeleteResponseAllOfData} data
  */
 ActivityTypeBulkDeleteResponse.prototype['data'] = undefined;
 
@@ -81,6 +94,11 @@ ActivityTypeBulkDeleteResponse.prototype['data'] = undefined;
  * @member {Boolean} success
  */
 BaseResponse.prototype['success'] = undefined;
+// Implement ActivityTypeBulkDeleteResponseAllOf interface:
+/**
+ * @member {module:model/ActivityTypeBulkDeleteResponseAllOfData} data
+ */
+ActivityTypeBulkDeleteResponseAllOf.prototype['data'] = undefined;
 
 
 

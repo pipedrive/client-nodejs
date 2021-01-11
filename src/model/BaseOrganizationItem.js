@@ -12,11 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import ActivityInfo from './ActivityInfo';
-import BaseOrganizationItemAllOf from './BaseOrganizationItemAllOf';
-import DealsCountInfo from './DealsCountInfo';
-import OrganizationAddressInfo from './OrganizationAddressInfo';
-import OrganizationCountInfo from './OrganizationCountInfo';
+import AdditionalBaseOrganizationItemInfo from './AdditionalBaseOrganizationItemInfo';
+import BaseOrganizationItemFields from './BaseOrganizationItemFields';
 import Owner from './Owner';
 import PictureDataWithValue from './PictureDataWithValue';
 
@@ -29,14 +26,11 @@ class BaseOrganizationItem {
     /**
      * Constructs a new <code>BaseOrganizationItem</code>.
      * @alias module:model/BaseOrganizationItem
-     * @implements module:model/BaseOrganizationItemAllOf
-     * @implements module:model/OrganizationCountInfo
-     * @implements module:model/OrganizationAddressInfo
-     * @implements module:model/DealsCountInfo
-     * @implements module:model/ActivityInfo
+     * @implements module:model/BaseOrganizationItemFields
+     * @implements module:model/AdditionalBaseOrganizationItemInfo
      */
     constructor() { 
-        BaseOrganizationItemAllOf.initialize(this);OrganizationCountInfo.initialize(this);OrganizationAddressInfo.initialize(this);DealsCountInfo.initialize(this);ActivityInfo.initialize(this);
+        BaseOrganizationItemFields.initialize(this);AdditionalBaseOrganizationItemInfo.initialize(this);
         BaseOrganizationItem.initialize(this);
     }
 
@@ -58,11 +52,8 @@ class BaseOrganizationItem {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new BaseOrganizationItem();
-            BaseOrganizationItemAllOf.constructFromObject(data, obj);
-            OrganizationCountInfo.constructFromObject(data, obj);
-            OrganizationAddressInfo.constructFromObject(data, obj);
-            DealsCountInfo.constructFromObject(data, obj);
-            ActivityInfo.constructFromObject(data, obj);
+            BaseOrganizationItemFields.constructFromObject(data, obj);
+            AdditionalBaseOrganizationItemInfo.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
@@ -581,239 +572,236 @@ BaseOrganizationItem.prototype['last_activity_id'] = undefined;
 BaseOrganizationItem.prototype['last_activity_date'] = undefined;
 
 
-// Implement BaseOrganizationItemAllOf interface:
+// Implement BaseOrganizationItemFields interface:
 /**
  * The ID of the Organization
  * @member {Number} id
  */
-BaseOrganizationItemAllOf.prototype['id'] = undefined;
+BaseOrganizationItemFields.prototype['id'] = undefined;
 /**
  * The ID of the Company related to the Organization
  * @member {Number} company_id
  */
-BaseOrganizationItemAllOf.prototype['company_id'] = undefined;
+BaseOrganizationItemFields.prototype['company_id'] = undefined;
 /**
  * @member {module:model/Owner} owner_id
  */
-BaseOrganizationItemAllOf.prototype['owner_id'] = undefined;
+BaseOrganizationItemFields.prototype['owner_id'] = undefined;
 /**
  * The name of the Organization
  * @member {String} name
  */
-BaseOrganizationItemAllOf.prototype['name'] = undefined;
+BaseOrganizationItemFields.prototype['name'] = undefined;
 /**
  * If the Organization is activated or not
  * @member {Boolean} active_flag
  */
-BaseOrganizationItemAllOf.prototype['active_flag'] = undefined;
+BaseOrganizationItemFields.prototype['active_flag'] = undefined;
 /**
  * @member {module:model/PictureDataWithValue} picture_id
  */
-BaseOrganizationItemAllOf.prototype['picture_id'] = undefined;
+BaseOrganizationItemFields.prototype['picture_id'] = undefined;
 /**
  * The country code of the Organization
  * @member {String} country_code
  */
-BaseOrganizationItemAllOf.prototype['country_code'] = undefined;
+BaseOrganizationItemFields.prototype['country_code'] = undefined;
 /**
  * The first character of the Organization name
  * @member {String} first_char
  */
-BaseOrganizationItemAllOf.prototype['first_char'] = undefined;
+BaseOrganizationItemFields.prototype['first_char'] = undefined;
 /**
  * The creation date and time of the Organization
  * @member {String} add_time
  */
-BaseOrganizationItemAllOf.prototype['add_time'] = undefined;
+BaseOrganizationItemFields.prototype['add_time'] = undefined;
 /**
  * The last updated date and time of the Organization
  * @member {String} update_time
  */
-BaseOrganizationItemAllOf.prototype['update_time'] = undefined;
+BaseOrganizationItemFields.prototype['update_time'] = undefined;
 /**
  * The visibility group ID of who can see the Organization
  * @member {String} visible_to
  */
-BaseOrganizationItemAllOf.prototype['visible_to'] = undefined;
+BaseOrganizationItemFields.prototype['visible_to'] = undefined;
 /**
  * The ID of the label
  * @member {Number} label
  */
-BaseOrganizationItemAllOf.prototype['label'] = undefined;
+BaseOrganizationItemFields.prototype['label'] = undefined;
 /**
  * The name of the Organization owner
  * @member {String} owner_name
  */
-BaseOrganizationItemAllOf.prototype['owner_name'] = undefined;
+BaseOrganizationItemFields.prototype['owner_name'] = undefined;
 /**
  * The CC email of the Organization
  * @member {String} cc_email
  */
-BaseOrganizationItemAllOf.prototype['cc_email'] = undefined;
-// Implement OrganizationCountInfo interface:
+BaseOrganizationItemFields.prototype['cc_email'] = undefined;
+// Implement AdditionalBaseOrganizationItemInfo interface:
 /**
  * The count of email messages related to the Organization
  * @member {Number} email_messages_count
  */
-OrganizationCountInfo.prototype['email_messages_count'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['email_messages_count'] = undefined;
 /**
  * The count of Persons related to the Organization
  * @member {Number} people_count
  */
-OrganizationCountInfo.prototype['people_count'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['people_count'] = undefined;
 /**
  * The count of Activities related to the Organization
  * @member {Number} activities_count
  */
-OrganizationCountInfo.prototype['activities_count'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['activities_count'] = undefined;
 /**
  * The count of done Activities related to the Organization
  * @member {Number} done_activities_count
  */
-OrganizationCountInfo.prototype['done_activities_count'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['done_activities_count'] = undefined;
 /**
  * The count of undone Activities related to the Organization
  * @member {Number} undone_activities_count
  */
-OrganizationCountInfo.prototype['undone_activities_count'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['undone_activities_count'] = undefined;
 /**
  * The count of files related to the Organization
  * @member {Number} files_count
  */
-OrganizationCountInfo.prototype['files_count'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['files_count'] = undefined;
 /**
  * The count of notes related to the Organization
  * @member {Number} notes_count
  */
-OrganizationCountInfo.prototype['notes_count'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['notes_count'] = undefined;
 /**
  * The count of followers related to the Organization
  * @member {Number} followers_count
  */
-OrganizationCountInfo.prototype['followers_count'] = undefined;
-// Implement OrganizationAddressInfo interface:
+AdditionalBaseOrganizationItemInfo.prototype['followers_count'] = undefined;
 /**
  * The full address of the Organization
  * @member {String} address
  */
-OrganizationAddressInfo.prototype['address'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['address'] = undefined;
 /**
  * The sub-premise of the Organization location
  * @member {String} address_subpremise
  */
-OrganizationAddressInfo.prototype['address_subpremise'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['address_subpremise'] = undefined;
 /**
  * The street number of the Organization location
  * @member {String} address_street_number
  */
-OrganizationAddressInfo.prototype['address_street_number'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['address_street_number'] = undefined;
 /**
  * The route of the Organization location
  * @member {String} address_route
  */
-OrganizationAddressInfo.prototype['address_route'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['address_route'] = undefined;
 /**
  * The sub-locality of the Organization location
  * @member {String} address_sublocality
  */
-OrganizationAddressInfo.prototype['address_sublocality'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['address_sublocality'] = undefined;
 /**
  * The locality of the Organization location
  * @member {String} address_locality
  */
-OrganizationAddressInfo.prototype['address_locality'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['address_locality'] = undefined;
 /**
  * The level 1 admin area of the Organization location
  * @member {String} address_admin_area_level_1
  */
-OrganizationAddressInfo.prototype['address_admin_area_level_1'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['address_admin_area_level_1'] = undefined;
 /**
  * The level 2 admin area of the Organization location
  * @member {String} address_admin_area_level_2
  */
-OrganizationAddressInfo.prototype['address_admin_area_level_2'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['address_admin_area_level_2'] = undefined;
 /**
  * The country of the Organization location
  * @member {String} address_country
  */
-OrganizationAddressInfo.prototype['address_country'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['address_country'] = undefined;
 /**
  * The postal code of the Organization location
  * @member {String} address_postal_code
  */
-OrganizationAddressInfo.prototype['address_postal_code'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['address_postal_code'] = undefined;
 /**
  * The formatted Organization location
  * @member {String} address_formatted_address
  */
-OrganizationAddressInfo.prototype['address_formatted_address'] = undefined;
-// Implement DealsCountInfo interface:
+AdditionalBaseOrganizationItemInfo.prototype['address_formatted_address'] = undefined;
 /**
  * The count of open Deals related with the item
  * @member {Number} open_deals_count
  */
-DealsCountInfo.prototype['open_deals_count'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['open_deals_count'] = undefined;
 /**
  * The count of related open Deals related with the item
  * @member {Number} related_open_deals_count
  */
-DealsCountInfo.prototype['related_open_deals_count'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['related_open_deals_count'] = undefined;
 /**
  * The count of closed Deals related with the item
  * @member {Number} closed_deals_count
  */
-DealsCountInfo.prototype['closed_deals_count'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['closed_deals_count'] = undefined;
 /**
  * The count of related closed Deals related with the item
  * @member {Number} related_closed_deals_count
  */
-DealsCountInfo.prototype['related_closed_deals_count'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['related_closed_deals_count'] = undefined;
 /**
  * The count of won Deals related with the item
  * @member {Number} won_deals_count
  */
-DealsCountInfo.prototype['won_deals_count'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['won_deals_count'] = undefined;
 /**
  * The count of related won Deals related with the item
  * @member {Number} related_won_deals_count
  */
-DealsCountInfo.prototype['related_won_deals_count'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['related_won_deals_count'] = undefined;
 /**
  * The count of lost Deals related with the item
  * @member {Number} lost_deals_count
  */
-DealsCountInfo.prototype['lost_deals_count'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['lost_deals_count'] = undefined;
 /**
  * The count of related lost Deals related with the item
  * @member {Number} related_lost_deals_count
  */
-DealsCountInfo.prototype['related_lost_deals_count'] = undefined;
-// Implement ActivityInfo interface:
+AdditionalBaseOrganizationItemInfo.prototype['related_lost_deals_count'] = undefined;
 /**
  * The date of the next activity associated with the Deal
  * @member {String} next_activity_date
  */
-ActivityInfo.prototype['next_activity_date'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['next_activity_date'] = undefined;
 /**
  * The time of the next activity associated with the Deal
  * @member {String} next_activity_time
  */
-ActivityInfo.prototype['next_activity_time'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['next_activity_time'] = undefined;
 /**
  * The ID of the next activity associated with the Deal
  * @member {Number} next_activity_id
  */
-ActivityInfo.prototype['next_activity_id'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['next_activity_id'] = undefined;
 /**
  * The ID of the last activity associated with the Deal
  * @member {Number} last_activity_id
  */
-ActivityInfo.prototype['last_activity_id'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['last_activity_id'] = undefined;
 /**
  * The date of the last activity associated with the Deal
  * @member {String} last_activity_date
  */
-ActivityInfo.prototype['last_activity_date'] = undefined;
+AdditionalBaseOrganizationItemInfo.prototype['last_activity_date'] = undefined;
 
 
 

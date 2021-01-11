@@ -1209,14 +1209,14 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealsApi();
 let opts = {
-  'userId': 56, // Number | If supplied, only deals matching the given user will be returned.
+  'userId': 56, // Number | If supplied, only deals matching the given user will be returned. However, `filter_id` and `owned_by_you` takes precedence over `user_id` when supplied.
   'filterId': 56, // Number | ID of the filter to use
   'stageId': 56, // Number | If supplied, only deals within the given stage will be returned.
   'status': "'all_not_deleted'", // String | Only fetch deals with specific status. If omitted, all not deleted deals are fetched.
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
   'sort': "sort_example", // String | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys).
-  'ownedByYou': new Pipedrive.NumberBoolean() // NumberBoolean | When supplied, only deals owned by you are returned. However filter_id takes precedence over owned_by_you when both are supplied.
+  'ownedByYou': new Pipedrive.NumberBoolean() // NumberBoolean | When supplied, only deals owned by you are returned. However, `filter_id` takes precedence over `owned_by_you` when both are supplied.
 };
 apiInstance.getDeals(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -1231,14 +1231,14 @@ apiInstance.getDeals(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| If supplied, only deals matching the given user will be returned. | [optional] 
+ **userId** | **Number**| If supplied, only deals matching the given user will be returned. However, &#x60;filter_id&#x60; and &#x60;owned_by_you&#x60; takes precedence over &#x60;user_id&#x60; when supplied. | [optional] 
  **filterId** | **Number**| ID of the filter to use | [optional] 
  **stageId** | **Number**| If supplied, only deals within the given stage will be returned. | [optional] 
  **status** | **String**| Only fetch deals with specific status. If omitted, all not deleted deals are fetched. | [optional] [default to &#39;all_not_deleted&#39;]
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
  **sort** | **String**| Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). | [optional] 
- **ownedByYou** | [**NumberBoolean**](.md)| When supplied, only deals owned by you are returned. However filter_id takes precedence over owned_by_you when both are supplied. | [optional] 
+ **ownedByYou** | [**NumberBoolean**](.md)| When supplied, only deals owned by you are returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owned_by_you&#x60; when both are supplied. | [optional] 
 
 ### Return type
 

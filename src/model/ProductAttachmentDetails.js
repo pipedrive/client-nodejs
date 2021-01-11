@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import BasicDealProduct2 from './BasicDealProduct2';
+import BasicDealProduct from './BasicDealProduct';
 import NumberBoolean from './NumberBoolean';
 import ProductAttachementFields from './ProductAttachementFields';
 
@@ -25,11 +25,11 @@ class ProductAttachmentDetails {
     /**
      * Constructs a new <code>ProductAttachmentDetails</code>.
      * @alias module:model/ProductAttachmentDetails
-     * @implements module:model/BasicDealProduct2
+     * @implements module:model/BasicDealProduct
      * @implements module:model/ProductAttachementFields
      */
     constructor() { 
-        BasicDealProduct2.initialize(this);ProductAttachementFields.initialize(this);
+        BasicDealProduct.initialize(this);ProductAttachementFields.initialize(this);
         ProductAttachmentDetails.initialize(this);
     }
 
@@ -51,7 +51,7 @@ class ProductAttachmentDetails {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new ProductAttachmentDetails();
-            BasicDealProduct2.constructFromObject(data, obj);
+            BasicDealProduct.constructFromObject(data, obj);
             ProductAttachementFields.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('item_price')) {
@@ -289,44 +289,44 @@ ProductAttachmentDetails.prototype['tax'] = undefined;
 ProductAttachmentDetails.prototype['name'] = undefined;
 
 
-// Implement BasicDealProduct2 interface:
+// Implement BasicDealProduct interface:
 /**
  * Price at which this product will be added to the deal
  * @member {Number} item_price
  */
-BasicDealProduct2.prototype['item_price'] = undefined;
+BasicDealProduct.prototype['item_price'] = undefined;
 /**
  * Quantity – e.g. how many items of this product will be added to the deal
  * @member {Number} quantity
  */
-BasicDealProduct2.prototype['quantity'] = undefined;
+BasicDealProduct.prototype['quantity'] = undefined;
 /**
  * Discount %. If omitted, will be set to 0
  * @member {Number} discount_percentage
  * @default 0
  */
-BasicDealProduct2.prototype['discount_percentage'] = 0;
+BasicDealProduct.prototype['discount_percentage'] = 0;
 /**
  * Duration of the product (when product durations are not enabled for the company or if omitted, defaults to 1)
  * @member {Number} duration
  * @default 1
  */
-BasicDealProduct2.prototype['duration'] = 1;
+BasicDealProduct.prototype['duration'] = 1;
 /**
  * ID of the product variation to use. When omitted, no variation will be used.
  * @member {Number} product_variation_id
  */
-BasicDealProduct2.prototype['product_variation_id'] = undefined;
+BasicDealProduct.prototype['product_variation_id'] = undefined;
 /**
  * Any textual comment associated with this product-deal attachment. Visible and editable in the application UI.
  * @member {String} comments
  */
-BasicDealProduct2.prototype['comments'] = undefined;
+BasicDealProduct.prototype['comments'] = undefined;
 /**
  * Whether the product is enabled on the deal or not. This makes it possible to add products to a deal with specific price and discount criteria - but keep them disabled, which refrains them from being included in deal price calculation. When omitted, the product will be marked as enabled by default.
  * @member {module:model/NumberBoolean} enabled_flag
  */
-BasicDealProduct2.prototype['enabled_flag'] = undefined;
+BasicDealProduct.prototype['enabled_flag'] = undefined;
 // Implement ProductAttachementFields interface:
 /**
  * The ID of the deal-product (the ID of the Product attached to the Deal)

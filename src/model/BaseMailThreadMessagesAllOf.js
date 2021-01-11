@@ -13,7 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import MailThreadParticipant from './MailThreadParticipant';
-import NumberBooleanDefault02 from './NumberBooleanDefault02';
+import NumberBooleanDefault0 from './NumberBooleanDefault0';
 
 /**
  * The BaseMailThreadMessagesAllOf model module.
@@ -85,17 +85,17 @@ class BaseMailThreadMessagesAllOf {
                 delete data['draft'];
             }
             if (data.hasOwnProperty('has_body_flag')) {
-                obj['has_body_flag'] = ApiClient.convertToType(data['has_body_flag'], NumberBooleanDefault02);
+                obj['has_body_flag'] = ApiClient.convertToType(data['has_body_flag'], NumberBooleanDefault0);
 
                 delete data['has_body_flag'];
             }
             if (data.hasOwnProperty('sent_flag')) {
-                obj['sent_flag'] = ApiClient.convertToType(data['sent_flag'], NumberBooleanDefault02);
+                obj['sent_flag'] = ApiClient.convertToType(data['sent_flag'], NumberBooleanDefault0);
 
                 delete data['sent_flag'];
             }
             if (data.hasOwnProperty('sent_from_pipedrive_flag')) {
-                obj['sent_from_pipedrive_flag'] = ApiClient.convertToType(data['sent_from_pipedrive_flag'], NumberBooleanDefault02);
+                obj['sent_from_pipedrive_flag'] = ApiClient.convertToType(data['sent_from_pipedrive_flag'], NumberBooleanDefault0);
 
                 delete data['sent_from_pipedrive_flag'];
             }
@@ -170,19 +170,19 @@ BaseMailThreadMessagesAllOf.prototype['draft'] = undefined;
 
 /**
  * Whether the mail thread message has a body
- * @member {module:model/NumberBooleanDefault02} has_body_flag
+ * @member {module:model/NumberBooleanDefault0} has_body_flag
  */
 BaseMailThreadMessagesAllOf.prototype['has_body_flag'] = undefined;
 
 /**
  * Whether the mail thread message is sent
- * @member {module:model/NumberBooleanDefault02} sent_flag
+ * @member {module:model/NumberBooleanDefault0} sent_flag
  */
 BaseMailThreadMessagesAllOf.prototype['sent_flag'] = undefined;
 
 /**
  * Whether the mail thread message is sent from Pipedrive
- * @member {module:model/NumberBooleanDefault02} sent_from_pipedrive_flag
+ * @member {module:model/NumberBooleanDefault0} sent_from_pipedrive_flag
  */
 BaseMailThreadMessagesAllOf.prototype['sent_from_pipedrive_flag'] = undefined;
 

@@ -15,6 +15,7 @@ import ApiClient from '../ApiClient';
 import AdditionalData from './AdditionalData';
 import BaseResponse from './BaseResponse';
 import Field from './Field';
+import FieldsResponseAllOf from './FieldsResponseAllOf';
 
 /**
  * The FieldsResponse model module.
@@ -25,11 +26,11 @@ class FieldsResponse {
     /**
      * Constructs a new <code>FieldsResponse</code>.
      * @alias module:model/FieldsResponse
-     * @extends module:model/BaseResponse
      * @implements module:model/BaseResponse
+     * @implements module:model/FieldsResponseAllOf
      */
     constructor() { 
-        BaseResponse.initialize(this);
+        BaseResponse.initialize(this);FieldsResponseAllOf.initialize(this);
         FieldsResponse.initialize(this);
     }
 
@@ -52,8 +53,13 @@ class FieldsResponse {
         if (data) {
             obj = obj || new FieldsResponse();
             BaseResponse.constructFromObject(data, obj);
-            BaseResponse.constructFromObject(data, obj);
+            FieldsResponseAllOf.constructFromObject(data, obj);
 
+            if (data.hasOwnProperty('success')) {
+                obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
+
+                delete data['success'];
+            }
             if (data.hasOwnProperty('data')) {
                 obj['data'] = ApiClient.convertToType(data['data'], [Field]);
 
@@ -77,6 +83,12 @@ class FieldsResponse {
 }
 
 /**
+ * If the response is successful or not
+ * @member {Boolean} success
+ */
+FieldsResponse.prototype['success'] = undefined;
+
+/**
  * @member {Array.<module:model/Field>} data
  */
 FieldsResponse.prototype['data'] = undefined;
@@ -93,6 +105,15 @@ FieldsResponse.prototype['additional_data'] = undefined;
  * @member {Boolean} success
  */
 BaseResponse.prototype['success'] = undefined;
+// Implement FieldsResponseAllOf interface:
+/**
+ * @member {Array.<module:model/Field>} data
+ */
+FieldsResponseAllOf.prototype['data'] = undefined;
+/**
+ * @member {module:model/AdditionalData} additional_data
+ */
+FieldsResponseAllOf.prototype['additional_data'] = undefined;
 
 
 

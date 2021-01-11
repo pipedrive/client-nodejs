@@ -1001,7 +1001,7 @@ export default class PersonsApi {
      * Get all persons
      * Returns all persons
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.userId If supplied, only persons owned by the given user will be returned.
+     * @param {Number} opts.userId If supplied, only persons owned by the given user will be returned. However, `filter_id` takes precedence over `user_id` when both are supplied.
      * @param {Number} opts.filterId ID of the filter to use.
      * @param {String} opts.firstChar If supplied, only persons whose name starts with the specified letter will be returned (case insensitive).
      * @param {Number} opts.start Pagination start (default to 0)
@@ -1043,7 +1043,7 @@ export default class PersonsApi {
      * Get all persons
      * Returns all persons
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.userId If supplied, only persons owned by the given user will be returned.
+     * @param {Number} opts.userId If supplied, only persons owned by the given user will be returned. However, `filter_id` takes precedence over `user_id` when both are supplied.
      * @param {Number} opts.filterId ID of the filter to use.
      * @param {String} opts.firstChar If supplied, only persons whose name starts with the specified letter will be returned (case insensitive).
      * @param {Number} opts.start Pagination start (default to 0)

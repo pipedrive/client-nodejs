@@ -12,16 +12,11 @@
  */
 
 import ApiClient from '../ApiClient';
-import ActivityInfo from './ActivityInfo';
+import AdditionalPersonInfo from './AdditionalPersonInfo';
 import BasePersonItem from './BasePersonItem';
 import BasePersonItemEmail from './BasePersonItemEmail';
 import BasePersonItemPhone from './BasePersonItemPhone';
-import DealsCountInfo from './DealsCountInfo';
-import EmailInfo from './EmailInfo';
 import Owner from './Owner';
-import PersonCountInfo from './PersonCountInfo';
-import PersonItemAllOf from './PersonItemAllOf';
-import PersonNameInfo from './PersonNameInfo';
 import PictureDataWithID from './PictureDataWithID';
 import RelationshipOrganizationInfoItemWithActiveFlag from './RelationshipOrganizationInfoItemWithActiveFlag';
 
@@ -35,15 +30,10 @@ class PersonItem {
      * Constructs a new <code>PersonItem</code>.
      * @alias module:model/PersonItem
      * @implements module:model/BasePersonItem
-     * @implements module:model/PersonItemAllOf
-     * @implements module:model/PersonNameInfo
-     * @implements module:model/PersonCountInfo
-     * @implements module:model/EmailInfo
-     * @implements module:model/DealsCountInfo
-     * @implements module:model/ActivityInfo
+     * @implements module:model/AdditionalPersonInfo
      */
     constructor() { 
-        BasePersonItem.initialize(this);PersonItemAllOf.initialize(this);PersonNameInfo.initialize(this);PersonCountInfo.initialize(this);EmailInfo.initialize(this);DealsCountInfo.initialize(this);ActivityInfo.initialize(this);
+        BasePersonItem.initialize(this);AdditionalPersonInfo.initialize(this);
         PersonItem.initialize(this);
     }
 
@@ -66,12 +56,7 @@ class PersonItem {
         if (data) {
             obj = obj || new PersonItem();
             BasePersonItem.constructFromObject(data, obj);
-            PersonItemAllOf.constructFromObject(data, obj);
-            PersonNameInfo.constructFromObject(data, obj);
-            PersonCountInfo.constructFromObject(data, obj);
-            EmailInfo.constructFromObject(data, obj);
-            DealsCountInfo.constructFromObject(data, obj);
-            ActivityInfo.constructFromObject(data, obj);
+            AdditionalPersonInfo.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
@@ -604,145 +589,140 @@ BasePersonItem.prototype['owner_name'] = undefined;
  * @member {String} cc_email
  */
 BasePersonItem.prototype['cc_email'] = undefined;
-// Implement PersonItemAllOf interface:
+// Implement AdditionalPersonInfo interface:
 /**
  * @member {module:model/Owner} owner_id
  */
-PersonItemAllOf.prototype['owner_id'] = undefined;
+AdditionalPersonInfo.prototype['owner_id'] = undefined;
 /**
  * @member {module:model/RelationshipOrganizationInfoItemWithActiveFlag} org_id
  */
-PersonItemAllOf.prototype['org_id'] = undefined;
-// Implement PersonNameInfo interface:
+AdditionalPersonInfo.prototype['org_id'] = undefined;
 /**
  * The name of the Person
  * @member {String} name
  */
-PersonNameInfo.prototype['name'] = undefined;
+AdditionalPersonInfo.prototype['name'] = undefined;
 /**
  * The first name of the Person
  * @member {String} first_name
  */
-PersonNameInfo.prototype['first_name'] = undefined;
+AdditionalPersonInfo.prototype['first_name'] = undefined;
 /**
  * The last name of the Person
  * @member {String} last_name
  */
-PersonNameInfo.prototype['last_name'] = undefined;
-// Implement PersonCountInfo interface:
+AdditionalPersonInfo.prototype['last_name'] = undefined;
 /**
  * The count of email messages related to the Person
  * @member {Number} email_messages_count
  */
-PersonCountInfo.prototype['email_messages_count'] = undefined;
+AdditionalPersonInfo.prototype['email_messages_count'] = undefined;
 /**
  * The count of activities related to the Person
  * @member {Number} activities_count
  */
-PersonCountInfo.prototype['activities_count'] = undefined;
+AdditionalPersonInfo.prototype['activities_count'] = undefined;
 /**
  * The count of done activities related to the Person
  * @member {Number} done_activities_count
  */
-PersonCountInfo.prototype['done_activities_count'] = undefined;
+AdditionalPersonInfo.prototype['done_activities_count'] = undefined;
 /**
  * The count of undone activities related to the Person
  * @member {Number} undone_activities_count
  */
-PersonCountInfo.prototype['undone_activities_count'] = undefined;
+AdditionalPersonInfo.prototype['undone_activities_count'] = undefined;
 /**
  * The count of files related to the Person
  * @member {Number} files_count
  */
-PersonCountInfo.prototype['files_count'] = undefined;
+AdditionalPersonInfo.prototype['files_count'] = undefined;
 /**
  * The count of notes related to the Person
  * @member {Number} notes_count
  */
-PersonCountInfo.prototype['notes_count'] = undefined;
+AdditionalPersonInfo.prototype['notes_count'] = undefined;
 /**
  * The count of followers related to the Person
  * @member {Number} followers_count
  */
-PersonCountInfo.prototype['followers_count'] = undefined;
-// Implement EmailInfo interface:
+AdditionalPersonInfo.prototype['followers_count'] = undefined;
 /**
  * The date and time of the last incoming email associated with the Person
  * @member {String} last_incoming_mail_time
  */
-EmailInfo.prototype['last_incoming_mail_time'] = undefined;
+AdditionalPersonInfo.prototype['last_incoming_mail_time'] = undefined;
 /**
  * The date and time of the last outgoing email associated with the Person
  * @member {String} last_outgoing_mail_time
  */
-EmailInfo.prototype['last_outgoing_mail_time'] = undefined;
-// Implement DealsCountInfo interface:
+AdditionalPersonInfo.prototype['last_outgoing_mail_time'] = undefined;
 /**
  * The count of open Deals related with the item
  * @member {Number} open_deals_count
  */
-DealsCountInfo.prototype['open_deals_count'] = undefined;
+AdditionalPersonInfo.prototype['open_deals_count'] = undefined;
 /**
  * The count of related open Deals related with the item
  * @member {Number} related_open_deals_count
  */
-DealsCountInfo.prototype['related_open_deals_count'] = undefined;
+AdditionalPersonInfo.prototype['related_open_deals_count'] = undefined;
 /**
  * The count of closed Deals related with the item
  * @member {Number} closed_deals_count
  */
-DealsCountInfo.prototype['closed_deals_count'] = undefined;
+AdditionalPersonInfo.prototype['closed_deals_count'] = undefined;
 /**
  * The count of related closed Deals related with the item
  * @member {Number} related_closed_deals_count
  */
-DealsCountInfo.prototype['related_closed_deals_count'] = undefined;
+AdditionalPersonInfo.prototype['related_closed_deals_count'] = undefined;
 /**
  * The count of won Deals related with the item
  * @member {Number} won_deals_count
  */
-DealsCountInfo.prototype['won_deals_count'] = undefined;
+AdditionalPersonInfo.prototype['won_deals_count'] = undefined;
 /**
  * The count of related won Deals related with the item
  * @member {Number} related_won_deals_count
  */
-DealsCountInfo.prototype['related_won_deals_count'] = undefined;
+AdditionalPersonInfo.prototype['related_won_deals_count'] = undefined;
 /**
  * The count of lost Deals related with the item
  * @member {Number} lost_deals_count
  */
-DealsCountInfo.prototype['lost_deals_count'] = undefined;
+AdditionalPersonInfo.prototype['lost_deals_count'] = undefined;
 /**
  * The count of related lost Deals related with the item
  * @member {Number} related_lost_deals_count
  */
-DealsCountInfo.prototype['related_lost_deals_count'] = undefined;
-// Implement ActivityInfo interface:
+AdditionalPersonInfo.prototype['related_lost_deals_count'] = undefined;
 /**
  * The date of the next activity associated with the Deal
  * @member {String} next_activity_date
  */
-ActivityInfo.prototype['next_activity_date'] = undefined;
+AdditionalPersonInfo.prototype['next_activity_date'] = undefined;
 /**
  * The time of the next activity associated with the Deal
  * @member {String} next_activity_time
  */
-ActivityInfo.prototype['next_activity_time'] = undefined;
+AdditionalPersonInfo.prototype['next_activity_time'] = undefined;
 /**
  * The ID of the next activity associated with the Deal
  * @member {Number} next_activity_id
  */
-ActivityInfo.prototype['next_activity_id'] = undefined;
+AdditionalPersonInfo.prototype['next_activity_id'] = undefined;
 /**
  * The ID of the last activity associated with the Deal
  * @member {Number} last_activity_id
  */
-ActivityInfo.prototype['last_activity_id'] = undefined;
+AdditionalPersonInfo.prototype['last_activity_id'] = undefined;
 /**
  * The date of the last activity associated with the Deal
  * @member {String} last_activity_date
  */
-ActivityInfo.prototype['last_activity_date'] = undefined;
+AdditionalPersonInfo.prototype['last_activity_date'] = undefined;
 
 
 

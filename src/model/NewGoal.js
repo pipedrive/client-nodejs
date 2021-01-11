@@ -23,17 +23,11 @@ class NewGoal {
     /**
      * Constructs a new <code>NewGoal</code>.
      * @alias module:model/NewGoal
-     * @extends module:model/BasicGoal
      * @implements module:model/BasicGoal
-     * @param assignee {Object} Who is this goal assigned to. It requires the following JSON structure: { \"id\": \"1\", \"type\": \"person\" }. `type` can be either `person`, `company` or `team`. ID of the assignee person, company or team.
-     * @param type {Object} Type of the goal. It requires the following JSON structure: { \"name\": \"deals_started\", \"params\": { \"pipeline_id\": 1 } }. Type can be one of: `deals_won`,`deals_progressed`,`activities_completed`,`activities_added` or `deals_started`. `params` can include `pipeline_id`, `stage_id` or `activity_type_id`. `stage_id` is related to only `deals_progressed` type of goals and `activity_type_id` to `activities_completed` or `activities_added` types of goals. To track goal in all pipelines set `pipeline_id` as `null`.
-     * @param expectedOutcome {Object} Expected outcome of the goal. Expected outcome can be tracked either by `quantity` or by `sum`. It requires the following JSON structure: { \"target\": \"50\", \"tracking_metric\": \"quantity\" } or { \"target\": \"50\", \"tracking_metric\": \"sum\", \"currency_id\": 1 }. `currency_id` should only be added to `sum` type of goals.
-     * @param duration {Object} Date when the goal starts and ends. It requires the following JSON structure: { \"start\": \"2019-01-01\", \"end\": \"2022-12-31\" }. Date in format of YYYY-MM-DD.
-     * @param interval {module:model/NewGoal.IntervalEnum} Date when the goal starts and ends. It requires the following JSON structure: { \"start\": \"2019-01-01\", \"end\": \"2022-12-31\" }. Date in format of YYYY-MM-DD.
      */
-    constructor(assignee, type, expectedOutcome, duration, interval) { 
+    constructor() { 
         BasicGoal.initialize(this);
-        NewGoal.initialize(this, assignee, type, expectedOutcome, duration, interval);
+        NewGoal.initialize(this);
     }
 
     /**
@@ -41,7 +35,7 @@ class NewGoal {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, assignee, type, expectedOutcome, duration, interval) { 
+    static initialize(obj) { 
     }
 
     /**
@@ -55,8 +49,37 @@ class NewGoal {
         if (data) {
             obj = obj || new NewGoal();
             BasicGoal.constructFromObject(data, obj);
-            BasicGoal.constructFromObject(data, obj);
 
+            if (data.hasOwnProperty('title')) {
+                obj['title'] = ApiClient.convertToType(data['title'], 'String');
+
+                delete data['title'];
+            }
+            if (data.hasOwnProperty('assignee')) {
+                obj['assignee'] = ApiClient.convertToType(data['assignee'], Object);
+
+                delete data['assignee'];
+            }
+            if (data.hasOwnProperty('type')) {
+                obj['type'] = ApiClient.convertToType(data['type'], Object);
+
+                delete data['type'];
+            }
+            if (data.hasOwnProperty('expected_outcome')) {
+                obj['expected_outcome'] = ApiClient.convertToType(data['expected_outcome'], Object);
+
+                delete data['expected_outcome'];
+            }
+            if (data.hasOwnProperty('duration')) {
+                obj['duration'] = ApiClient.convertToType(data['duration'], Object);
+
+                delete data['duration'];
+            }
+            if (data.hasOwnProperty('interval')) {
+                obj['interval'] = ApiClient.convertToType(data['interval'], 'String');
+
+                delete data['interval'];
+            }
 
             if (Object.keys(data).length > 0) {
                 obj['extra'] = data;
@@ -68,6 +91,42 @@ class NewGoal {
 
 
 }
+
+/**
+ * Title of the goal.
+ * @member {String} title
+ */
+NewGoal.prototype['title'] = undefined;
+
+/**
+ * Who is this goal assigned to. It requires the following JSON structure: { \"id\": \"1\", \"type\": \"person\" }. `type` can be either `person`, `company` or `team`. ID of the assignee person, company or team.
+ * @member {Object} assignee
+ */
+NewGoal.prototype['assignee'] = undefined;
+
+/**
+ * Type of the goal. It requires the following JSON structure: { \"name\": \"deals_started\", \"params\": { \"pipeline_id\": 1 } }. Type can be one of: `deals_won`,`deals_progressed`,`activities_completed`,`activities_added` or `deals_started`. `params` can include `pipeline_id`, `stage_id` or `activity_type_id`. `stage_id` is related to only `deals_progressed` type of goals and `activity_type_id` to `activities_completed` or `activities_added` types of goals. To track goal in all pipelines set `pipeline_id` as `null`.
+ * @member {Object} type
+ */
+NewGoal.prototype['type'] = undefined;
+
+/**
+ * Expected outcome of the goal. Expected outcome can be tracked either by `quantity` or by `sum`. It requires the following JSON structure: { \"target\": \"50\", \"tracking_metric\": \"quantity\" } or { \"target\": \"50\", \"tracking_metric\": \"sum\", \"currency_id\": 1 }. `currency_id` should only be added to `sum` type of goals.
+ * @member {Object} expected_outcome
+ */
+NewGoal.prototype['expected_outcome'] = undefined;
+
+/**
+ * Date when the goal starts and ends. It requires the following JSON structure: { \"start\": \"2019-01-01\", \"end\": \"2022-12-31\" }. Date in format of YYYY-MM-DD.
+ * @member {Object} duration
+ */
+NewGoal.prototype['duration'] = undefined;
+
+/**
+ * Date when the goal starts and ends. It requires the following JSON structure: { \"start\": \"2019-01-01\", \"end\": \"2022-12-31\" }. Date in format of YYYY-MM-DD.
+ * @member {module:model/NewGoal.IntervalEnum} interval
+ */
+NewGoal.prototype['interval'] = undefined;
 
 
 // Implement BasicGoal interface:
@@ -102,6 +161,39 @@ BasicGoal.prototype['duration'] = undefined;
  */
 BasicGoal.prototype['interval'] = undefined;
 
+
+
+/**
+ * Allowed values for the <code>interval</code> property.
+ * @enum {String}
+ * @readonly
+ */
+NewGoal['IntervalEnum'] = {
+
+    /**
+     * value: "weekly"
+     * @const
+     */
+    "weekly": "weekly",
+
+    /**
+     * value: "monthly"
+     * @const
+     */
+    "monthly": "monthly",
+
+    /**
+     * value: "quarterly"
+     * @const
+     */
+    "quarterly": "quarterly",
+
+    /**
+     * value: "yearly"
+     * @const
+     */
+    "yearly": "yearly"
+};
 
 
 

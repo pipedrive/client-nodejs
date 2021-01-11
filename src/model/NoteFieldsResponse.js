@@ -15,6 +15,7 @@ import ApiClient from '../ApiClient';
 import AdditionalData from './AdditionalData';
 import BaseResponse from './BaseResponse';
 import NoteField from './NoteField';
+import NoteFieldsResponseAllOf from './NoteFieldsResponseAllOf';
 
 /**
  * The NoteFieldsResponse model module.
@@ -25,11 +26,11 @@ class NoteFieldsResponse {
     /**
      * Constructs a new <code>NoteFieldsResponse</code>.
      * @alias module:model/NoteFieldsResponse
-     * @extends module:model/BaseResponse
      * @implements module:model/BaseResponse
+     * @implements module:model/NoteFieldsResponseAllOf
      */
     constructor() { 
-        BaseResponse.initialize(this);
+        BaseResponse.initialize(this);NoteFieldsResponseAllOf.initialize(this);
         NoteFieldsResponse.initialize(this);
     }
 
@@ -52,8 +53,13 @@ class NoteFieldsResponse {
         if (data) {
             obj = obj || new NoteFieldsResponse();
             BaseResponse.constructFromObject(data, obj);
-            BaseResponse.constructFromObject(data, obj);
+            NoteFieldsResponseAllOf.constructFromObject(data, obj);
 
+            if (data.hasOwnProperty('success')) {
+                obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
+
+                delete data['success'];
+            }
             if (data.hasOwnProperty('data')) {
                 obj['data'] = ApiClient.convertToType(data['data'], [NoteField]);
 
@@ -77,6 +83,12 @@ class NoteFieldsResponse {
 }
 
 /**
+ * If the response is successful or not
+ * @member {Boolean} success
+ */
+NoteFieldsResponse.prototype['success'] = undefined;
+
+/**
  * @member {Array.<module:model/NoteField>} data
  */
 NoteFieldsResponse.prototype['data'] = undefined;
@@ -93,6 +105,15 @@ NoteFieldsResponse.prototype['additional_data'] = undefined;
  * @member {Boolean} success
  */
 BaseResponse.prototype['success'] = undefined;
+// Implement NoteFieldsResponseAllOf interface:
+/**
+ * @member {Array.<module:model/NoteField>} data
+ */
+NoteFieldsResponseAllOf.prototype['data'] = undefined;
+/**
+ * @member {module:model/AdditionalData} additional_data
+ */
+NoteFieldsResponseAllOf.prototype['additional_data'] = undefined;
 
 
 

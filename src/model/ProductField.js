@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import NewProductField2 from './NewProductField2';
+import NewProductField from './NewProductField';
 import ProductFieldAllOf from './ProductFieldAllOf';
 
 /**
@@ -24,13 +24,13 @@ class ProductField {
     /**
      * Constructs a new <code>ProductField</code>.
      * @alias module:model/ProductField
-     * @implements module:model/NewProductField2
+     * @implements module:model/NewProductField
      * @implements module:model/ProductFieldAllOf
      * @param name {String} Name of the field
      * @param fieldType {module:model/ProductField.FieldTypeEnum} Type of the field.<dl class=\"fields-list\"><dt>varchar</dt><dd>Text (up to 255 characters)</dd><dt>varchar_auto</dt><dd>Autocomplete text (up to 255 characters)</dd><dt>text</dt><dd>Long text (up to 65k characters)</dd><dt>double</dt><dd>Numeric value</dd><dt>monetary</dt><dd>Monetary field (has a numeric value and a currency value)</dd><dt>date</dt><dd>Date (format YYYY-MM-DD)</dd><dt>set</dt><dd>Options field with a possibility of having multiple chosen options</dd><dt>enum</dt><dd>Options field with a single possible chosen option</dd><dt>user</dt><dd>User field (contains a user ID of another Pipedrive user)</dd><dt>org</dt><dd>Organization field (contains an organization ID which is stored on the same account)</dd><dt>people</dt><dd>Person field (contains a product ID which is stored on the same account)</dd><dt>phone</dt><dd>Phone field (up to 255 numbers and/or characters)</dd><dt>time</dt><dd>Time field (format HH:MM:SS)</dd><dt>timerange</dt><dd>Time-range field (has a start time and end time value, both HH:MM:SS)</dd><dt>daterange</dt><dd>Date-range field (has a start date and end date value, both YYYY-MM-DD)</dd><dt>address</dt><dd>Address field (autocompleted by Google Maps)</dd></dl>
      */
     constructor(name, fieldType) { 
-        NewProductField2.initialize(this, name, fieldType);ProductFieldAllOf.initialize(this);
+        NewProductField.initialize(this, name, fieldType);ProductFieldAllOf.initialize(this);
         ProductField.initialize(this, name, fieldType);
     }
 
@@ -54,7 +54,7 @@ class ProductField {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new ProductField();
-            NewProductField2.constructFromObject(data, obj);
+            NewProductField.constructFromObject(data, obj);
             ProductFieldAllOf.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('name')) {
@@ -268,22 +268,22 @@ ProductField.prototype['sortable_flag'] = undefined;
 ProductField.prototype['mandatory_flag'] = undefined;
 
 
-// Implement NewProductField2 interface:
+// Implement NewProductField interface:
 /**
  * Name of the field
  * @member {String} name
  */
-NewProductField2.prototype['name'] = undefined;
+NewProductField.prototype['name'] = undefined;
 /**
  * When field_type is either set or enum, possible options must be supplied as a JSON-encoded sequential array, for example: [\"red\",\"blue\",\"lilac\"]
  * @member {Array.<Object>} options
  */
-NewProductField2.prototype['options'] = undefined;
+NewProductField.prototype['options'] = undefined;
 /**
  * Type of the field.<dl class=\"fields-list\"><dt>varchar</dt><dd>Text (up to 255 characters)</dd><dt>varchar_auto</dt><dd>Autocomplete text (up to 255 characters)</dd><dt>text</dt><dd>Long text (up to 65k characters)</dd><dt>double</dt><dd>Numeric value</dd><dt>monetary</dt><dd>Monetary field (has a numeric value and a currency value)</dd><dt>date</dt><dd>Date (format YYYY-MM-DD)</dd><dt>set</dt><dd>Options field with a possibility of having multiple chosen options</dd><dt>enum</dt><dd>Options field with a single possible chosen option</dd><dt>user</dt><dd>User field (contains a user ID of another Pipedrive user)</dd><dt>org</dt><dd>Organization field (contains an organization ID which is stored on the same account)</dd><dt>people</dt><dd>Person field (contains a product ID which is stored on the same account)</dd><dt>phone</dt><dd>Phone field (up to 255 numbers and/or characters)</dd><dt>time</dt><dd>Time field (format HH:MM:SS)</dd><dt>timerange</dt><dd>Time-range field (has a start time and end time value, both HH:MM:SS)</dd><dt>daterange</dt><dd>Date-range field (has a start date and end date value, both YYYY-MM-DD)</dd><dt>address</dt><dd>Address field (autocompleted by Google Maps)</dd></dl>
- * @member {module:model/NewProductField2.FieldTypeEnum} field_type
+ * @member {module:model/NewProductField.FieldTypeEnum} field_type
  */
-NewProductField2.prototype['field_type'] = undefined;
+NewProductField.prototype['field_type'] = undefined;
 // Implement ProductFieldAllOf interface:
 /**
  * The ID of the Product Field

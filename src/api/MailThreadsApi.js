@@ -89,16 +89,64 @@ export default class MailThreadsApi {
 
 
     /**
+     * Get one mail thread
+     * Returns specific mail thread.
+     * @param {Number} id ID of the mail thread
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MailThreadOne} and HTTP response
+     */
+    getMailThreadWithHttpInfo(id) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getMailThread");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['api_key', 'oauth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = MailThreadOne;
+      return this.apiClient.callApi(
+        '/mailbox/mailThreads/{id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get one mail thread
+     * Returns specific mail thread.
+     * @param {Number} id ID of the mail thread
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MailThreadOne}
+     */
+    getMailThread(id) {
+      return this.getMailThreadWithHttpInfo(id)
+        .then(function(response_and_data) {
+          return response_and_data;
+        });
+    }
+
+
+    /**
      * Get all mail messages of mail thread
      * Get mail messages inside specified mail thread.
      * @param {Number} id ID of the mail thread
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MailThreadMessages} and HTTP response
      */
-    getAllMailMessagesOfMailThreadWithHttpInfo(id) {
+    getMailThreadMessagesWithHttpInfo(id) {
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getAllMailMessagesOfMailThread");
+        throw new Error("Missing the required parameter 'id' when calling getMailThreadMessages");
       }
 
       let pathParams = {
@@ -128,8 +176,8 @@ export default class MailThreadsApi {
      * @param {Number} id ID of the mail thread
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MailThreadMessages}
      */
-    getAllMailMessagesOfMailThread(id) {
-      return this.getAllMailMessagesOfMailThreadWithHttpInfo(id)
+    getMailThreadMessages(id) {
+      return this.getMailThreadMessagesWithHttpInfo(id)
         .then(function(response_and_data) {
           return response_and_data;
         });
@@ -187,54 +235,6 @@ export default class MailThreadsApi {
      */
     getMailThreads(folder, opts) {
       return this.getMailThreadsWithHttpInfo(folder, opts)
-        .then(function(response_and_data) {
-          return response_and_data;
-        });
-    }
-
-
-    /**
-     * Get one mail thread
-     * Returns specific mail thread.
-     * @param {Number} id ID of the mail thread
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MailThreadOne} and HTTP response
-     */
-    getOneMailThreadWithHttpInfo(id) {
-      let postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getOneMailThread");
-      }
-
-      let pathParams = {
-        'id': id
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['api_key', 'oauth2'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = MailThreadOne;
-      return this.apiClient.callApi(
-        '/mailbox/mailThreads/{id}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Get one mail thread
-     * Returns specific mail thread.
-     * @param {Number} id ID of the mail thread
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MailThreadOne}
-     */
-    getOneMailThread(id) {
-      return this.getOneMailThreadWithHttpInfo(id)
         .then(function(response_and_data) {
           return response_and_data;
         });

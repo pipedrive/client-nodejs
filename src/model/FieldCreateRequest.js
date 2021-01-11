@@ -12,9 +12,9 @@
  */
 
 import ApiClient from '../ApiClient';
+import FieldCreateRequestWithRequiredFields from './FieldCreateRequestWithRequiredFields';
 import FieldType from './FieldType';
 import FieldTypeAsString from './FieldTypeAsString';
-import FieldUpdateRequest from './FieldUpdateRequest';
 
 /**
  * The FieldCreateRequest model module.
@@ -25,13 +25,14 @@ class FieldCreateRequest {
     /**
      * Constructs a new <code>FieldCreateRequest</code>.
      * @alias module:model/FieldCreateRequest
-     * @implements module:model/FieldUpdateRequest
+     * @implements module:model/FieldCreateRequestWithRequiredFields
      * @implements module:model/FieldType
+     * @param name {String} Name of the field
      * @param fieldType {module:model/FieldTypeAsString} 
      */
-    constructor(fieldType) { 
-        FieldUpdateRequest.initialize(this);FieldType.initialize(this, fieldType);
-        FieldCreateRequest.initialize(this, fieldType);
+    constructor(name, fieldType) { 
+        FieldCreateRequestWithRequiredFields.initialize(this);FieldType.initialize(this, fieldType);
+        FieldCreateRequest.initialize(this, name, fieldType);
     }
 
     /**
@@ -39,7 +40,8 @@ class FieldCreateRequest {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, fieldType) { 
+    static initialize(obj, name, fieldType) { 
+        obj['name'] = name;
         obj['field_type'] = fieldType;
     }
 
@@ -53,7 +55,7 @@ class FieldCreateRequest {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new FieldCreateRequest();
-            FieldUpdateRequest.constructFromObject(data, obj);
+            FieldCreateRequestWithRequiredFields.constructFromObject(data, obj);
             FieldType.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('name')) {
@@ -101,17 +103,17 @@ FieldCreateRequest.prototype['options'] = undefined;
 FieldCreateRequest.prototype['field_type'] = undefined;
 
 
-// Implement FieldUpdateRequest interface:
+// Implement FieldCreateRequestWithRequiredFields interface:
 /**
  * Name of the field
  * @member {String} name
  */
-FieldUpdateRequest.prototype['name'] = undefined;
+FieldCreateRequestWithRequiredFields.prototype['name'] = undefined;
 /**
  * When field_type is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: [{\"id\":123,\"label\":\"Existing Item\"},{\"label\":\"New Item\"}]
  * @member {String} options
  */
-FieldUpdateRequest.prototype['options'] = undefined;
+FieldCreateRequestWithRequiredFields.prototype['options'] = undefined;
 // Implement FieldType interface:
 /**
  * @member {module:model/FieldTypeAsString} field_type

@@ -14,12 +14,12 @@
 
 import ApiClient from "../ApiClient";
 import AddTeamUserRequest from '../model/AddTeamUserRequest';
-import CreateTeam2 from '../model/CreateTeam2';
+import CreateTeam from '../model/CreateTeam';
 import DeleteTeamUserRequest from '../model/DeleteTeamUserRequest';
 import FailResponse from '../model/FailResponse';
 import NumberBooleanDefault0 from '../model/NumberBooleanDefault0';
 import Teams from '../model/Teams';
-import UpdateTeam2 from '../model/UpdateTeam2';
+import UpdateTeam from '../model/UpdateTeam';
 import UserIDs from '../model/UserIDs';
 
 /**
@@ -46,12 +46,12 @@ export default class TeamsApi {
      * Add a new team
      * Adds a new team to the company and returns the created object
      * @param {Object} opts Optional parameters
-     * @param {module:model/CreateTeam2} opts.createTeam2 
+     * @param {module:model/CreateTeam} opts.createTeam 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Teams} and HTTP response
      */
     addTeamWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = opts['createTeam2'];
+      let postBody = opts['createTeam'];
 
       let pathParams = {
       };
@@ -77,7 +77,7 @@ export default class TeamsApi {
      * Add a new team
      * Adds a new team to the company and returns the created object
      * @param {Object} opts Optional parameters
-     * @param {module:model/CreateTeam2} opts.createTeam2 
+     * @param {module:model/CreateTeam} opts.createTeam 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Teams}
      */
     addTeam(opts) {
@@ -408,12 +408,12 @@ export default class TeamsApi {
      * Updates an existing team and returns the updated object
      * @param {Number} id ID of the team
      * @param {Object} opts Optional parameters
-     * @param {module:model/UpdateTeam2} opts.updateTeam2 
+     * @param {module:model/UpdateTeam} opts.updateTeam 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Teams} and HTTP response
      */
     updateTeamWithHttpInfo(id, opts) {
       opts = opts || {};
-      let postBody = opts['updateTeam2'];
+      let postBody = opts['updateTeam'];
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateTeam");
@@ -445,7 +445,7 @@ export default class TeamsApi {
      * Updates an existing team and returns the updated object
      * @param {Number} id ID of the team
      * @param {Object} opts Optional parameters
-     * @param {module:model/UpdateTeam2} opts.updateTeam2 
+     * @param {module:model/UpdateTeam} opts.updateTeam 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Teams}
      */
     updateTeam(id, opts) {
