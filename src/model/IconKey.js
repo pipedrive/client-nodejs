@@ -308,5 +308,13 @@ export default class IconKey {
     static constructFromObject(object) {
         return object;
     }
+
+    /**
+    * Initializes the fields of this object.
+    * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
+    * Only for internal use.
+    */
+    static initialize(obj) { 
+    }
 }
 

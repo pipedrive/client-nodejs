@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import NumberBooleanDefault02 from './NumberBooleanDefault02';
+import NumberBooleanDefault0 from './NumberBooleanDefault0';
 
 /**
  * The CommonMailThread model module.
@@ -74,7 +74,7 @@ class CommonMailThread {
                 delete data['snippet'];
             }
             if (data.hasOwnProperty('read_flag')) {
-                obj['read_flag'] = ApiClient.convertToType(data['read_flag'], NumberBooleanDefault02);
+                obj['read_flag'] = ApiClient.convertToType(data['read_flag'], NumberBooleanDefault0);
 
                 delete data['read_flag'];
             }
@@ -84,37 +84,37 @@ class CommonMailThread {
                 delete data['mail_tracking_status'];
             }
             if (data.hasOwnProperty('has_attachments_flag')) {
-                obj['has_attachments_flag'] = ApiClient.convertToType(data['has_attachments_flag'], NumberBooleanDefault02);
+                obj['has_attachments_flag'] = ApiClient.convertToType(data['has_attachments_flag'], NumberBooleanDefault0);
 
                 delete data['has_attachments_flag'];
             }
             if (data.hasOwnProperty('has_inline_attachments_flag')) {
-                obj['has_inline_attachments_flag'] = ApiClient.convertToType(data['has_inline_attachments_flag'], NumberBooleanDefault02);
+                obj['has_inline_attachments_flag'] = ApiClient.convertToType(data['has_inline_attachments_flag'], NumberBooleanDefault0);
 
                 delete data['has_inline_attachments_flag'];
             }
             if (data.hasOwnProperty('has_real_attachments_flag')) {
-                obj['has_real_attachments_flag'] = ApiClient.convertToType(data['has_real_attachments_flag'], NumberBooleanDefault02);
+                obj['has_real_attachments_flag'] = ApiClient.convertToType(data['has_real_attachments_flag'], NumberBooleanDefault0);
 
                 delete data['has_real_attachments_flag'];
             }
             if (data.hasOwnProperty('deleted_flag')) {
-                obj['deleted_flag'] = ApiClient.convertToType(data['deleted_flag'], NumberBooleanDefault02);
+                obj['deleted_flag'] = ApiClient.convertToType(data['deleted_flag'], NumberBooleanDefault0);
 
                 delete data['deleted_flag'];
             }
             if (data.hasOwnProperty('synced_flag')) {
-                obj['synced_flag'] = ApiClient.convertToType(data['synced_flag'], NumberBooleanDefault02);
+                obj['synced_flag'] = ApiClient.convertToType(data['synced_flag'], NumberBooleanDefault0);
 
                 delete data['synced_flag'];
             }
             if (data.hasOwnProperty('smart_bcc_flag')) {
-                obj['smart_bcc_flag'] = ApiClient.convertToType(data['smart_bcc_flag'], NumberBooleanDefault02);
+                obj['smart_bcc_flag'] = ApiClient.convertToType(data['smart_bcc_flag'], NumberBooleanDefault0);
 
                 delete data['smart_bcc_flag'];
             }
             if (data.hasOwnProperty('mail_link_tracking_enabled_flag')) {
-                obj['mail_link_tracking_enabled_flag'] = ApiClient.convertToType(data['mail_link_tracking_enabled_flag'], NumberBooleanDefault02);
+                obj['mail_link_tracking_enabled_flag'] = ApiClient.convertToType(data['mail_link_tracking_enabled_flag'], NumberBooleanDefault0);
 
                 delete data['mail_link_tracking_enabled_flag'];
             }
@@ -167,7 +167,7 @@ CommonMailThread.prototype['snippet'] = undefined;
 
 /**
  * Whether the mail thread is read
- * @member {module:model/NumberBooleanDefault02} read_flag
+ * @member {module:model/NumberBooleanDefault0} read_flag
  */
 CommonMailThread.prototype['read_flag'] = undefined;
 
@@ -179,43 +179,43 @@ CommonMailThread.prototype['mail_tracking_status'] = undefined;
 
 /**
  * Whether the mail thread has an attachment
- * @member {module:model/NumberBooleanDefault02} has_attachments_flag
+ * @member {module:model/NumberBooleanDefault0} has_attachments_flag
  */
 CommonMailThread.prototype['has_attachments_flag'] = undefined;
 
 /**
  * Whether the mail thread has inline attachments
- * @member {module:model/NumberBooleanDefault02} has_inline_attachments_flag
+ * @member {module:model/NumberBooleanDefault0} has_inline_attachments_flag
  */
 CommonMailThread.prototype['has_inline_attachments_flag'] = undefined;
 
 /**
  * Whether the mail thread has real attachments (which are not inline)
- * @member {module:model/NumberBooleanDefault02} has_real_attachments_flag
+ * @member {module:model/NumberBooleanDefault0} has_real_attachments_flag
  */
 CommonMailThread.prototype['has_real_attachments_flag'] = undefined;
 
 /**
  * Whether the mail thread is deleted
- * @member {module:model/NumberBooleanDefault02} deleted_flag
+ * @member {module:model/NumberBooleanDefault0} deleted_flag
  */
 CommonMailThread.prototype['deleted_flag'] = undefined;
 
 /**
  * Whether the mail thread is synced
- * @member {module:model/NumberBooleanDefault02} synced_flag
+ * @member {module:model/NumberBooleanDefault0} synced_flag
  */
 CommonMailThread.prototype['synced_flag'] = undefined;
 
 /**
  * Whether one of the parties of the mail thread is Bcc
- * @member {module:model/NumberBooleanDefault02} smart_bcc_flag
+ * @member {module:model/NumberBooleanDefault0} smart_bcc_flag
  */
 CommonMailThread.prototype['smart_bcc_flag'] = undefined;
 
 /**
  * Whether the link tracking of the mail thread is enabled
- * @member {module:model/NumberBooleanDefault02} mail_link_tracking_enabled_flag
+ * @member {module:model/NumberBooleanDefault0} mail_link_tracking_enabled_flag
  */
 CommonMailThread.prototype['mail_link_tracking_enabled_flag'] = undefined;
 

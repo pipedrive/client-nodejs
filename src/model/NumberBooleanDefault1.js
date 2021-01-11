@@ -23,7 +23,6 @@ class NumberBooleanDefault1 {
     /**
      * Constructs a new <code>NumberBooleanDefault1</code>.
      * @alias module:model/NumberBooleanDefault1
-     * @extends module:model/NumberBoolean
      * @implements module:model/NumberBoolean
      */
     constructor() { 
@@ -49,7 +48,6 @@ class NumberBooleanDefault1 {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new NumberBooleanDefault1();
-            NumberBoolean.constructFromObject(data, obj);
             NumberBoolean.constructFromObject(data, obj);
 
 

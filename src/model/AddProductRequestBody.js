@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import NumberBooleanDefault12 from './NumberBooleanDefault12';
+import NumberBooleanDefault1 from './NumberBooleanDefault1';
 import ProductRequest from './ProductRequest';
 import VisibleTo from './VisibleTo';
 
@@ -73,12 +73,12 @@ class AddProductRequestBody {
                 delete data['tax'];
             }
             if (data.hasOwnProperty('active_flag')) {
-                obj['active_flag'] = ApiClient.convertToType(data['active_flag'], NumberBooleanDefault12);
+                obj['active_flag'] = ApiClient.convertToType(data['active_flag'], NumberBooleanDefault1);
 
                 delete data['active_flag'];
             }
             if (data.hasOwnProperty('selectable')) {
-                obj['selectable'] = ApiClient.convertToType(data['selectable'], NumberBooleanDefault12);
+                obj['selectable'] = ApiClient.convertToType(data['selectable'], NumberBooleanDefault1);
 
                 delete data['selectable'];
             }
@@ -136,13 +136,13 @@ AddProductRequestBody.prototype['tax'] = 0;
 
 /**
  * Whether this product will be made active or not.
- * @member {module:model/NumberBooleanDefault12} active_flag
+ * @member {module:model/NumberBooleanDefault1} active_flag
  */
 AddProductRequestBody.prototype['active_flag'] = undefined;
 
 /**
  * Whether this product can be selected in Deals or not.
- * @member {module:model/NumberBooleanDefault12} selectable
+ * @member {module:model/NumberBooleanDefault1} selectable
  */
 AddProductRequestBody.prototype['selectable'] = undefined;
 
@@ -189,12 +189,12 @@ ProductRequest.prototype['unit'] = undefined;
 ProductRequest.prototype['tax'] = 0;
 /**
  * Whether this product will be made active or not.
- * @member {module:model/NumberBooleanDefault12} active_flag
+ * @member {module:model/NumberBooleanDefault1} active_flag
  */
 ProductRequest.prototype['active_flag'] = undefined;
 /**
  * Whether this product can be selected in Deals or not.
- * @member {module:model/NumberBooleanDefault12} selectable
+ * @member {module:model/NumberBooleanDefault1} selectable
  */
 ProductRequest.prototype['selectable'] = undefined;
 /**

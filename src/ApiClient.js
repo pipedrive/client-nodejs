@@ -14,6 +14,10 @@
 
 import superagent from "superagent";
 import querystring from "querystring";
+import UnauthorizedException from "./exceptions/UnauthorizedException";
+import OAuthProviderException from "./exceptions/OAuthProviderException";
+import NotFoundException from "./exceptions/NotFoundException";
+import FailResponseException from "./exceptions/FailResponseException";
 
 /**
 * @module ApiClient
@@ -41,7 +45,12 @@ class ApiClient {
          * @type {Object}
          */
         this.authentications = {
-            'api_key': {type: 'apiKey', 'in': 'query', name: 'api_token'},
+            'api_key': {
+                type: 'apiKey',
+                in: 'query',
+                name: 'api_token',
+                apiKey: ''
+            },
             'oauth2': {
                 type: 'oauth2',
                 host: 'https://oauth.pipedrive.com',
@@ -476,11 +485,7 @@ class ApiClient {
             }
         }
 
-        const isAccessTokenExpired = this.isOauth2Supported() &&
-            !!this.authentications.oauth2.expiresAt &&
-            Date.now() > this.authentications.oauth2.expiresAt;
-
-        if (isAccessTokenExpired) {
+        if (this.shouldRefreshToken()) {
             await this.refreshToken();
         }
 
@@ -489,12 +494,12 @@ class ApiClient {
         try {
             response = await request;
         } catch (error) {
-            const errorResponse = error.response;
-
             const shouldRefreshTokenAndRetry = !!(
+                !this.isApiTokenSet() &&
                 !secondRequest &&
-                errorResponse && errorResponse.statusCode === 401 &&
-                this.isOauth2Supported());
+                error.status === 401 &&
+                this.isOauth2Supported()
+            );
 
             if (shouldRefreshTokenAndRetry) {
                 await this.refreshToken();
@@ -504,7 +509,42 @@ class ApiClient {
                     returnType, apiBasePath, true);
             }
 
-            throw error;
+            if (error.status === 401) {
+                let exception = new UnauthorizedException();
+
+                if (error.response.body.error_info) {
+                    exception.errorInfo = error.response.body.error_info;
+                }
+
+                exception.context = error.response;
+
+                throw exception;
+            }
+
+            if (error.status === 404) {
+                let exception = new NotFoundException();
+
+                if (error.response.body.error_info) {
+                    exception.errorInfo = error.response.body.error_info;
+                }
+
+                exception.context = error.response;
+
+                throw exception;
+            }
+
+            let exception = new FailResponseException();
+
+            exception.message = error.response.res.statusMessage;
+            exception.errorCode = error.status;
+
+            if (error.response.body.error_info) {
+                exception.errorInfo = error.response.body.error_info;
+            }
+
+            exception.context = error.response;
+
+            throw exception;
         }
 
         const data = this.deserialize(response, returnType);
@@ -521,6 +561,31 @@ class ApiClient {
     */
     isOauth2Supported() {
         return !!(this.authentications && this.authentications.oauth2);
+    }
+
+    /**
+    * Checks whether the API token is set for the API calls.
+    * @returns {Boolean} Whether API token is set for authorization.
+    */
+    isApiTokenSet() {
+        return !!(
+            this.authentications &&
+            this.authentications.api_key &&
+            this.authentications.api_key.apiKey
+        );
+    }
+
+    /**
+    * Checks whether the oauth2 type authorizations is set for the API calls and if the access token is expired.
+    * @returns {Boolean} Whether the OAuth access token is expired.
+    */
+    shouldRefreshToken() {
+        return (
+            !this.isApiTokenSet() &&
+            this.isOauth2Supported() &&
+            !!this.authentications.oauth2.expiresAt &&
+            Date.now() > this.authentications.oauth2.expiresAt
+        );
     }
 
     /**
@@ -575,18 +640,28 @@ class ApiClient {
         const host = this.getOAuth2Property('host');
         const authorizationUrl = `${host}/oauth/token`;
 
-        const response = await superagent
-            .post(authorizationUrl)
-            .set('User-Agent', this.getUserAgent())
-            .send(`code=${code}`)
-            .send(`client_id=${clientId}`)
-            .send(`client_secret=${clientSecret}`)
-            .send(`redirect_uri=${redirectUri}`)
-            .send('grant_type=authorization_code')
+        try {
+            const response = await superagent
+                .post(authorizationUrl)
+                .set('User-Agent', this.getUserAgent())
+                .send(`code=${code}`)
+                .send(`client_id=${clientId}`)
+                .send(`client_secret=${clientSecret}`)
+                .send(`redirect_uri=${redirectUri}`)
+                .send('grant_type=authorization_code')
 
-        this.updateToken(response.body);
+            this.updateToken(response.body);
 
-        return response.body;
+            return response.body;
+        } catch (error) {
+            let exception = new OAuthProviderException();
+
+            exception.message = error.response.res.statusMessage;
+            exception.errorCode = error.status;
+            exception.context = error.response;
+
+            throw exception;
+        }
     }
 
     /**
@@ -604,17 +679,27 @@ class ApiClient {
         const host = this.getOAuth2Property('host');
         const refreshUrl = `${host}/oauth/token`;
 
-        const response = await superagent
-            .post(refreshUrl)
-            .set('User-Agent', this.getUserAgent())
-            .send(`refresh_token=${refreshToken}`)
-            .send(`client_id=${clientId}`)
-            .send(`client_secret=${clientSecret}`)
-            .send('grant_type=refresh_token');
+        try {
+            const response = await superagent
+                .post(refreshUrl)
+                .set('User-Agent', this.getUserAgent())
+                .send(`refresh_token=${refreshToken}`)
+                .send(`client_id=${clientId}`)
+                .send(`client_secret=${clientSecret}`)
+                .send('grant_type=refresh_token');
 
-        this.updateToken(response.body);
+            this.updateToken(response.body);
 
-        return response.body;
+            return response.body;
+        } catch (error) {
+            let exception = new OAuthProviderException();
+
+            exception.message = error.response.res.statusMessage;
+            exception.errorCode = error.status;
+            exception.context = error.response;
+
+            throw exception;
+        }
     }
 
     /**

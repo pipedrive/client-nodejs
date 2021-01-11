@@ -14,6 +14,7 @@
 import ApiClient from '../ApiClient';
 import BaseResponse from './BaseResponse';
 import Field from './Field';
+import FieldResponseAllOf from './FieldResponseAllOf';
 
 /**
  * The FieldResponse model module.
@@ -24,11 +25,11 @@ class FieldResponse {
     /**
      * Constructs a new <code>FieldResponse</code>.
      * @alias module:model/FieldResponse
-     * @extends module:model/BaseResponse
      * @implements module:model/BaseResponse
+     * @implements module:model/FieldResponseAllOf
      */
     constructor() { 
-        BaseResponse.initialize(this);
+        BaseResponse.initialize(this);FieldResponseAllOf.initialize(this);
         FieldResponse.initialize(this);
     }
 
@@ -51,8 +52,13 @@ class FieldResponse {
         if (data) {
             obj = obj || new FieldResponse();
             BaseResponse.constructFromObject(data, obj);
-            BaseResponse.constructFromObject(data, obj);
+            FieldResponseAllOf.constructFromObject(data, obj);
 
+            if (data.hasOwnProperty('success')) {
+                obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
+
+                delete data['success'];
+            }
             if (data.hasOwnProperty('data')) {
                 obj['data'] = Field.constructFromObject(data['data']);
 
@@ -71,6 +77,12 @@ class FieldResponse {
 }
 
 /**
+ * If the response is successful or not
+ * @member {Boolean} success
+ */
+FieldResponse.prototype['success'] = undefined;
+
+/**
  * @member {module:model/Field} data
  */
 FieldResponse.prototype['data'] = undefined;
@@ -82,6 +94,11 @@ FieldResponse.prototype['data'] = undefined;
  * @member {Boolean} success
  */
 BaseResponse.prototype['success'] = undefined;
+// Implement FieldResponseAllOf interface:
+/**
+ * @member {module:model/Field} data
+ */
+FieldResponseAllOf.prototype['data'] = undefined;
 
 
 

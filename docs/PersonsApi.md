@@ -1026,7 +1026,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi();
 let opts = {
-  'userId': 56, // Number | If supplied, only persons owned by the given user will be returned.
+  'userId': 56, // Number | If supplied, only persons owned by the given user will be returned. However, `filter_id` takes precedence over `user_id` when both are supplied.
   'filterId': 56, // Number | ID of the filter to use.
   'firstChar': "firstChar_example", // String | If supplied, only persons whose name starts with the specified letter will be returned (case insensitive).
   'start': 0, // Number | Pagination start
@@ -1046,7 +1046,7 @@ apiInstance.getPersons(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| If supplied, only persons owned by the given user will be returned. | [optional] 
+ **userId** | **Number**| If supplied, only persons owned by the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;user_id&#x60; when both are supplied. | [optional] 
  **filterId** | **Number**| ID of the filter to use. | [optional] 
  **firstChar** | **String**| If supplied, only persons whose name starts with the specified letter will be returned (case insensitive). | [optional] 
  **start** | **Number**| Pagination start | [optional] [default to 0]

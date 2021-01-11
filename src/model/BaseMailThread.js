@@ -15,7 +15,7 @@ import ApiClient from '../ApiClient';
 import BaseMailThreadAllOf from './BaseMailThreadAllOf';
 import BaseMailThreadAllOfParties from './BaseMailThreadAllOfParties';
 import CommonMailThread from './CommonMailThread';
-import NumberBooleanDefault02 from './NumberBooleanDefault02';
+import NumberBooleanDefault0 from './NumberBooleanDefault0';
 
 /**
  * The BaseMailThread model module.
@@ -81,7 +81,7 @@ class BaseMailThread {
                 delete data['snippet'];
             }
             if (data.hasOwnProperty('read_flag')) {
-                obj['read_flag'] = ApiClient.convertToType(data['read_flag'], NumberBooleanDefault02);
+                obj['read_flag'] = ApiClient.convertToType(data['read_flag'], NumberBooleanDefault0);
 
                 delete data['read_flag'];
             }
@@ -91,37 +91,37 @@ class BaseMailThread {
                 delete data['mail_tracking_status'];
             }
             if (data.hasOwnProperty('has_attachments_flag')) {
-                obj['has_attachments_flag'] = ApiClient.convertToType(data['has_attachments_flag'], NumberBooleanDefault02);
+                obj['has_attachments_flag'] = ApiClient.convertToType(data['has_attachments_flag'], NumberBooleanDefault0);
 
                 delete data['has_attachments_flag'];
             }
             if (data.hasOwnProperty('has_inline_attachments_flag')) {
-                obj['has_inline_attachments_flag'] = ApiClient.convertToType(data['has_inline_attachments_flag'], NumberBooleanDefault02);
+                obj['has_inline_attachments_flag'] = ApiClient.convertToType(data['has_inline_attachments_flag'], NumberBooleanDefault0);
 
                 delete data['has_inline_attachments_flag'];
             }
             if (data.hasOwnProperty('has_real_attachments_flag')) {
-                obj['has_real_attachments_flag'] = ApiClient.convertToType(data['has_real_attachments_flag'], NumberBooleanDefault02);
+                obj['has_real_attachments_flag'] = ApiClient.convertToType(data['has_real_attachments_flag'], NumberBooleanDefault0);
 
                 delete data['has_real_attachments_flag'];
             }
             if (data.hasOwnProperty('deleted_flag')) {
-                obj['deleted_flag'] = ApiClient.convertToType(data['deleted_flag'], NumberBooleanDefault02);
+                obj['deleted_flag'] = ApiClient.convertToType(data['deleted_flag'], NumberBooleanDefault0);
 
                 delete data['deleted_flag'];
             }
             if (data.hasOwnProperty('synced_flag')) {
-                obj['synced_flag'] = ApiClient.convertToType(data['synced_flag'], NumberBooleanDefault02);
+                obj['synced_flag'] = ApiClient.convertToType(data['synced_flag'], NumberBooleanDefault0);
 
                 delete data['synced_flag'];
             }
             if (data.hasOwnProperty('smart_bcc_flag')) {
-                obj['smart_bcc_flag'] = ApiClient.convertToType(data['smart_bcc_flag'], NumberBooleanDefault02);
+                obj['smart_bcc_flag'] = ApiClient.convertToType(data['smart_bcc_flag'], NumberBooleanDefault0);
 
                 delete data['smart_bcc_flag'];
             }
             if (data.hasOwnProperty('mail_link_tracking_enabled_flag')) {
-                obj['mail_link_tracking_enabled_flag'] = ApiClient.convertToType(data['mail_link_tracking_enabled_flag'], NumberBooleanDefault02);
+                obj['mail_link_tracking_enabled_flag'] = ApiClient.convertToType(data['mail_link_tracking_enabled_flag'], NumberBooleanDefault0);
 
                 delete data['mail_link_tracking_enabled_flag'];
             }
@@ -166,32 +166,32 @@ class BaseMailThread {
                 delete data['message_count'];
             }
             if (data.hasOwnProperty('has_draft_flag')) {
-                obj['has_draft_flag'] = ApiClient.convertToType(data['has_draft_flag'], NumberBooleanDefault02);
+                obj['has_draft_flag'] = ApiClient.convertToType(data['has_draft_flag'], NumberBooleanDefault0);
 
                 delete data['has_draft_flag'];
             }
             if (data.hasOwnProperty('has_sent_flag')) {
-                obj['has_sent_flag'] = ApiClient.convertToType(data['has_sent_flag'], NumberBooleanDefault02);
+                obj['has_sent_flag'] = ApiClient.convertToType(data['has_sent_flag'], NumberBooleanDefault0);
 
                 delete data['has_sent_flag'];
             }
             if (data.hasOwnProperty('archived_flag')) {
-                obj['archived_flag'] = ApiClient.convertToType(data['archived_flag'], NumberBooleanDefault02);
+                obj['archived_flag'] = ApiClient.convertToType(data['archived_flag'], NumberBooleanDefault0);
 
                 delete data['archived_flag'];
             }
             if (data.hasOwnProperty('shared_flag')) {
-                obj['shared_flag'] = ApiClient.convertToType(data['shared_flag'], NumberBooleanDefault02);
+                obj['shared_flag'] = ApiClient.convertToType(data['shared_flag'], NumberBooleanDefault0);
 
                 delete data['shared_flag'];
             }
             if (data.hasOwnProperty('external_deleted_flag')) {
-                obj['external_deleted_flag'] = ApiClient.convertToType(data['external_deleted_flag'], NumberBooleanDefault02);
+                obj['external_deleted_flag'] = ApiClient.convertToType(data['external_deleted_flag'], NumberBooleanDefault0);
 
                 delete data['external_deleted_flag'];
             }
             if (data.hasOwnProperty('first_message_to_me_flag')) {
-                obj['first_message_to_me_flag'] = ApiClient.convertToType(data['first_message_to_me_flag'], NumberBooleanDefault02);
+                obj['first_message_to_me_flag'] = ApiClient.convertToType(data['first_message_to_me_flag'], NumberBooleanDefault0);
 
                 delete data['first_message_to_me_flag'];
             }
@@ -236,7 +236,7 @@ class BaseMailThread {
                 delete data['deal_status'];
             }
             if (data.hasOwnProperty('all_messages_sent_flag')) {
-                obj['all_messages_sent_flag'] = ApiClient.convertToType(data['all_messages_sent_flag'], NumberBooleanDefault02);
+                obj['all_messages_sent_flag'] = ApiClient.convertToType(data['all_messages_sent_flag'], NumberBooleanDefault0);
 
                 delete data['all_messages_sent_flag'];
             }
@@ -284,7 +284,7 @@ BaseMailThread.prototype['snippet'] = undefined;
 
 /**
  * Whether the mail thread is read
- * @member {module:model/NumberBooleanDefault02} read_flag
+ * @member {module:model/NumberBooleanDefault0} read_flag
  */
 BaseMailThread.prototype['read_flag'] = undefined;
 
@@ -296,43 +296,43 @@ BaseMailThread.prototype['mail_tracking_status'] = undefined;
 
 /**
  * Whether the mail thread has an attachment
- * @member {module:model/NumberBooleanDefault02} has_attachments_flag
+ * @member {module:model/NumberBooleanDefault0} has_attachments_flag
  */
 BaseMailThread.prototype['has_attachments_flag'] = undefined;
 
 /**
  * Whether the mail thread has inline attachments
- * @member {module:model/NumberBooleanDefault02} has_inline_attachments_flag
+ * @member {module:model/NumberBooleanDefault0} has_inline_attachments_flag
  */
 BaseMailThread.prototype['has_inline_attachments_flag'] = undefined;
 
 /**
  * Whether the mail thread has real attachments (which are not inline)
- * @member {module:model/NumberBooleanDefault02} has_real_attachments_flag
+ * @member {module:model/NumberBooleanDefault0} has_real_attachments_flag
  */
 BaseMailThread.prototype['has_real_attachments_flag'] = undefined;
 
 /**
  * Whether the mail thread is deleted
- * @member {module:model/NumberBooleanDefault02} deleted_flag
+ * @member {module:model/NumberBooleanDefault0} deleted_flag
  */
 BaseMailThread.prototype['deleted_flag'] = undefined;
 
 /**
  * Whether the mail thread is synced
- * @member {module:model/NumberBooleanDefault02} synced_flag
+ * @member {module:model/NumberBooleanDefault0} synced_flag
  */
 BaseMailThread.prototype['synced_flag'] = undefined;
 
 /**
  * Whether one of the parties of the mail thread is Bcc
- * @member {module:model/NumberBooleanDefault02} smart_bcc_flag
+ * @member {module:model/NumberBooleanDefault0} smart_bcc_flag
  */
 BaseMailThread.prototype['smart_bcc_flag'] = undefined;
 
 /**
  * Whether the link tracking of the mail thread is enabled
- * @member {module:model/NumberBooleanDefault02} mail_link_tracking_enabled_flag
+ * @member {module:model/NumberBooleanDefault0} mail_link_tracking_enabled_flag
  */
 BaseMailThread.prototype['mail_link_tracking_enabled_flag'] = undefined;
 
@@ -385,37 +385,37 @@ BaseMailThread.prototype['message_count'] = undefined;
 
 /**
  * Whether the mail thread has any drafts
- * @member {module:model/NumberBooleanDefault02} has_draft_flag
+ * @member {module:model/NumberBooleanDefault0} has_draft_flag
  */
 BaseMailThread.prototype['has_draft_flag'] = undefined;
 
 /**
  * Whether the mail thread has messages sent
- * @member {module:model/NumberBooleanDefault02} has_sent_flag
+ * @member {module:model/NumberBooleanDefault0} has_sent_flag
  */
 BaseMailThread.prototype['has_sent_flag'] = undefined;
 
 /**
  * Whether the mail thread is archived
- * @member {module:model/NumberBooleanDefault02} archived_flag
+ * @member {module:model/NumberBooleanDefault0} archived_flag
  */
 BaseMailThread.prototype['archived_flag'] = undefined;
 
 /**
  * Whether the mail thread is shared
- * @member {module:model/NumberBooleanDefault02} shared_flag
+ * @member {module:model/NumberBooleanDefault0} shared_flag
  */
 BaseMailThread.prototype['shared_flag'] = undefined;
 
 /**
  * Whether the mail thread has been deleted externally
- * @member {module:model/NumberBooleanDefault02} external_deleted_flag
+ * @member {module:model/NumberBooleanDefault0} external_deleted_flag
  */
 BaseMailThread.prototype['external_deleted_flag'] = undefined;
 
 /**
  * Whether the mail thread was initialized by others
- * @member {module:model/NumberBooleanDefault02} first_message_to_me_flag
+ * @member {module:model/NumberBooleanDefault0} first_message_to_me_flag
  */
 BaseMailThread.prototype['first_message_to_me_flag'] = undefined;
 
@@ -469,7 +469,7 @@ BaseMailThread.prototype['deal_status'] = undefined;
 
 /**
  * Whether all the mail thread messages have been sent
- * @member {module:model/NumberBooleanDefault02} all_messages_sent_flag
+ * @member {module:model/NumberBooleanDefault0} all_messages_sent_flag
  */
 BaseMailThread.prototype['all_messages_sent_flag'] = undefined;
 
@@ -502,7 +502,7 @@ CommonMailThread.prototype['subject'] = undefined;
 CommonMailThread.prototype['snippet'] = undefined;
 /**
  * Whether the mail thread is read
- * @member {module:model/NumberBooleanDefault02} read_flag
+ * @member {module:model/NumberBooleanDefault0} read_flag
  */
 CommonMailThread.prototype['read_flag'] = undefined;
 /**
@@ -512,37 +512,37 @@ CommonMailThread.prototype['read_flag'] = undefined;
 CommonMailThread.prototype['mail_tracking_status'] = undefined;
 /**
  * Whether the mail thread has an attachment
- * @member {module:model/NumberBooleanDefault02} has_attachments_flag
+ * @member {module:model/NumberBooleanDefault0} has_attachments_flag
  */
 CommonMailThread.prototype['has_attachments_flag'] = undefined;
 /**
  * Whether the mail thread has inline attachments
- * @member {module:model/NumberBooleanDefault02} has_inline_attachments_flag
+ * @member {module:model/NumberBooleanDefault0} has_inline_attachments_flag
  */
 CommonMailThread.prototype['has_inline_attachments_flag'] = undefined;
 /**
  * Whether the mail thread has real attachments (which are not inline)
- * @member {module:model/NumberBooleanDefault02} has_real_attachments_flag
+ * @member {module:model/NumberBooleanDefault0} has_real_attachments_flag
  */
 CommonMailThread.prototype['has_real_attachments_flag'] = undefined;
 /**
  * Whether the mail thread is deleted
- * @member {module:model/NumberBooleanDefault02} deleted_flag
+ * @member {module:model/NumberBooleanDefault0} deleted_flag
  */
 CommonMailThread.prototype['deleted_flag'] = undefined;
 /**
  * Whether the mail thread is synced
- * @member {module:model/NumberBooleanDefault02} synced_flag
+ * @member {module:model/NumberBooleanDefault0} synced_flag
  */
 CommonMailThread.prototype['synced_flag'] = undefined;
 /**
  * Whether one of the parties of the mail thread is Bcc
- * @member {module:model/NumberBooleanDefault02} smart_bcc_flag
+ * @member {module:model/NumberBooleanDefault0} smart_bcc_flag
  */
 CommonMailThread.prototype['smart_bcc_flag'] = undefined;
 /**
  * Whether the link tracking of the mail thread is enabled
- * @member {module:model/NumberBooleanDefault02} mail_link_tracking_enabled_flag
+ * @member {module:model/NumberBooleanDefault0} mail_link_tracking_enabled_flag
  */
 CommonMailThread.prototype['mail_link_tracking_enabled_flag'] = undefined;
 /**
@@ -587,32 +587,32 @@ BaseMailThreadAllOf.prototype['snippet_sent'] = undefined;
 BaseMailThreadAllOf.prototype['message_count'] = undefined;
 /**
  * Whether the mail thread has any drafts
- * @member {module:model/NumberBooleanDefault02} has_draft_flag
+ * @member {module:model/NumberBooleanDefault0} has_draft_flag
  */
 BaseMailThreadAllOf.prototype['has_draft_flag'] = undefined;
 /**
  * Whether the mail thread has messages sent
- * @member {module:model/NumberBooleanDefault02} has_sent_flag
+ * @member {module:model/NumberBooleanDefault0} has_sent_flag
  */
 BaseMailThreadAllOf.prototype['has_sent_flag'] = undefined;
 /**
  * Whether the mail thread is archived
- * @member {module:model/NumberBooleanDefault02} archived_flag
+ * @member {module:model/NumberBooleanDefault0} archived_flag
  */
 BaseMailThreadAllOf.prototype['archived_flag'] = undefined;
 /**
  * Whether the mail thread is shared
- * @member {module:model/NumberBooleanDefault02} shared_flag
+ * @member {module:model/NumberBooleanDefault0} shared_flag
  */
 BaseMailThreadAllOf.prototype['shared_flag'] = undefined;
 /**
  * Whether the mail thread has been deleted externally
- * @member {module:model/NumberBooleanDefault02} external_deleted_flag
+ * @member {module:model/NumberBooleanDefault0} external_deleted_flag
  */
 BaseMailThreadAllOf.prototype['external_deleted_flag'] = undefined;
 /**
  * Whether the mail thread was initialized by others
- * @member {module:model/NumberBooleanDefault02} first_message_to_me_flag
+ * @member {module:model/NumberBooleanDefault0} first_message_to_me_flag
  */
 BaseMailThreadAllOf.prototype['first_message_to_me_flag'] = undefined;
 /**
@@ -657,7 +657,7 @@ BaseMailThreadAllOf.prototype['deal_id'] = undefined;
 BaseMailThreadAllOf.prototype['deal_status'] = undefined;
 /**
  * Whether all the mail thread messages have been sent
- * @member {module:model/NumberBooleanDefault02} all_messages_sent_flag
+ * @member {module:model/NumberBooleanDefault0} all_messages_sent_flag
  */
 BaseMailThreadAllOf.prototype['all_messages_sent_flag'] = undefined;
 

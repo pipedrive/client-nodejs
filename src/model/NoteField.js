@@ -64,7 +64,7 @@ class NoteField {
                 delete data['name'];
             }
             if (data.hasOwnProperty('field_type')) {
-                obj['field_type'] = ApiClient.convertToType(data['field_type'], FieldTypeAsString);
+                obj['field_type'] = FieldTypeAsString.constructFromObject(data['field_type']);
 
                 delete data['field_type'];
             }

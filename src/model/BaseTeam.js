@@ -12,10 +12,9 @@
  */
 
 import ApiClient from '../ApiClient';
-import BaseTeamAllOf from './BaseTeamAllOf';
-import BaseTeamAllOf1 from './BaseTeamAllOf1';
 import NumberBoolean from './NumberBoolean';
-import UpdateTeam from './UpdateTeam';
+import TeamId from './TeamId';
+import UpdateTeamWithAdditionalProperties from './UpdateTeamWithAdditionalProperties';
 
 /**
  * The BaseTeam model module.
@@ -26,14 +25,13 @@ class BaseTeam {
     /**
      * Constructs a new <code>BaseTeam</code>.
      * @alias module:model/BaseTeam
-     * @implements module:model/BaseTeamAllOf
-     * @implements module:model/UpdateTeam
-     * @implements module:model/BaseTeamAllOf1
+     * @implements module:model/TeamId
+     * @implements module:model/UpdateTeamWithAdditionalProperties
      * @param name {String} The Team name
      * @param managerId {Number} The Team manager ID
      */
     constructor(name, managerId) { 
-        BaseTeamAllOf.initialize(this);UpdateTeam.initialize(this, name, managerId);BaseTeamAllOf1.initialize(this);
+        TeamId.initialize(this);UpdateTeamWithAdditionalProperties.initialize(this, name, managerId);
         BaseTeam.initialize(this, name, managerId);
     }
 
@@ -57,9 +55,8 @@ class BaseTeam {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new BaseTeam();
-            BaseTeamAllOf.constructFromObject(data, obj);
-            UpdateTeam.constructFromObject(data, obj);
-            BaseTeamAllOf1.constructFromObject(data, obj);
+            TeamId.constructFromObject(data, obj);
+            UpdateTeamWithAdditionalProperties.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
@@ -173,54 +170,53 @@ BaseTeam.prototype['add_time'] = undefined;
 BaseTeam.prototype['created_by_user_id'] = undefined;
 
 
-// Implement BaseTeamAllOf interface:
+// Implement TeamId interface:
 /**
  * The Team ID
  * @member {Number} id
  */
-BaseTeamAllOf.prototype['id'] = undefined;
-// Implement UpdateTeam interface:
+TeamId.prototype['id'] = undefined;
+// Implement UpdateTeamWithAdditionalProperties interface:
 /**
  * The Team name
  * @member {String} name
  */
-UpdateTeam.prototype['name'] = undefined;
+UpdateTeamWithAdditionalProperties.prototype['name'] = undefined;
 /**
  * The Team description
  * @member {String} description
  */
-UpdateTeam.prototype['description'] = undefined;
+UpdateTeamWithAdditionalProperties.prototype['description'] = undefined;
 /**
  * The Team manager ID
  * @member {Number} manager_id
  */
-UpdateTeam.prototype['manager_id'] = undefined;
+UpdateTeamWithAdditionalProperties.prototype['manager_id'] = undefined;
 /**
  * IDs of the Users that belong to the Team
  * @member {Array} users
  */
-UpdateTeam.prototype['users'] = undefined;
+UpdateTeamWithAdditionalProperties.prototype['users'] = undefined;
 /**
  * Flag that indicates if the Team is activated
  * @member {module:model/NumberBoolean} active_flag
  */
-UpdateTeam.prototype['active_flag'] = undefined;
+UpdateTeamWithAdditionalProperties.prototype['active_flag'] = undefined;
 /**
  * Flag that indicates if the Team is deleted
  * @member {module:model/NumberBoolean} deleted_flag
  */
-UpdateTeam.prototype['deleted_flag'] = undefined;
-// Implement BaseTeamAllOf1 interface:
+UpdateTeamWithAdditionalProperties.prototype['deleted_flag'] = undefined;
 /**
  * The Team creation time. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} add_time
  */
-BaseTeamAllOf1.prototype['add_time'] = undefined;
+UpdateTeamWithAdditionalProperties.prototype['add_time'] = undefined;
 /**
  * ID of the User who created the Team
  * @member {Number} created_by_user_id
  */
-BaseTeamAllOf1.prototype['created_by_user_id'] = undefined;
+UpdateTeamWithAdditionalProperties.prototype['created_by_user_id'] = undefined;
 
 
 

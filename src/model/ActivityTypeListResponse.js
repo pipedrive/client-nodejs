@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import ActivityTypeListResponseAllOf from './ActivityTypeListResponseAllOf';
 import ActivityTypeObjectResponse from './ActivityTypeObjectResponse';
 import BaseResponse from './BaseResponse';
 
@@ -24,11 +25,11 @@ class ActivityTypeListResponse {
     /**
      * Constructs a new <code>ActivityTypeListResponse</code>.
      * @alias module:model/ActivityTypeListResponse
-     * @extends module:model/BaseResponse
      * @implements module:model/BaseResponse
+     * @implements module:model/ActivityTypeListResponseAllOf
      */
     constructor() { 
-        BaseResponse.initialize(this);
+        BaseResponse.initialize(this);ActivityTypeListResponseAllOf.initialize(this);
         ActivityTypeListResponse.initialize(this);
     }
 
@@ -51,8 +52,13 @@ class ActivityTypeListResponse {
         if (data) {
             obj = obj || new ActivityTypeListResponse();
             BaseResponse.constructFromObject(data, obj);
-            BaseResponse.constructFromObject(data, obj);
+            ActivityTypeListResponseAllOf.constructFromObject(data, obj);
 
+            if (data.hasOwnProperty('success')) {
+                obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
+
+                delete data['success'];
+            }
             if (data.hasOwnProperty('data')) {
                 obj['data'] = ApiClient.convertToType(data['data'], [ActivityTypeObjectResponse]);
 
@@ -71,6 +77,12 @@ class ActivityTypeListResponse {
 }
 
 /**
+ * If the response is successful or not
+ * @member {Boolean} success
+ */
+ActivityTypeListResponse.prototype['success'] = undefined;
+
+/**
  * The array of ActivityTypes
  * @member {Array.<module:model/ActivityTypeObjectResponse>} data
  */
@@ -83,6 +95,12 @@ ActivityTypeListResponse.prototype['data'] = undefined;
  * @member {Boolean} success
  */
 BaseResponse.prototype['success'] = undefined;
+// Implement ActivityTypeListResponseAllOf interface:
+/**
+ * The array of ActivityTypes
+ * @member {Array.<module:model/ActivityTypeObjectResponse>} data
+ */
+ActivityTypeListResponseAllOf.prototype['data'] = undefined;
 
 
 

@@ -13,7 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import MailParticipant from './MailParticipant';
-import NumberBooleanDefault02 from './NumberBooleanDefault02';
+import NumberBooleanDefault0 from './NumberBooleanDefault0';
 
 /**
  * The MailMessageData model module.
@@ -110,12 +110,12 @@ class MailMessageData {
                 delete data['mail_tracking_status'];
             }
             if (data.hasOwnProperty('mail_link_tracking_enabled_flag')) {
-                obj['mail_link_tracking_enabled_flag'] = ApiClient.convertToType(data['mail_link_tracking_enabled_flag'], NumberBooleanDefault02);
+                obj['mail_link_tracking_enabled_flag'] = ApiClient.convertToType(data['mail_link_tracking_enabled_flag'], NumberBooleanDefault0);
 
                 delete data['mail_link_tracking_enabled_flag'];
             }
             if (data.hasOwnProperty('read_flag')) {
-                obj['read_flag'] = ApiClient.convertToType(data['read_flag'], NumberBooleanDefault02);
+                obj['read_flag'] = ApiClient.convertToType(data['read_flag'], NumberBooleanDefault0);
 
                 delete data['read_flag'];
             }
@@ -125,37 +125,37 @@ class MailMessageData {
                 delete data['draft'];
             }
             if (data.hasOwnProperty('draft_flag')) {
-                obj['draft_flag'] = ApiClient.convertToType(data['draft_flag'], NumberBooleanDefault02);
+                obj['draft_flag'] = ApiClient.convertToType(data['draft_flag'], NumberBooleanDefault0);
 
                 delete data['draft_flag'];
             }
             if (data.hasOwnProperty('synced_flag')) {
-                obj['synced_flag'] = ApiClient.convertToType(data['synced_flag'], NumberBooleanDefault02);
+                obj['synced_flag'] = ApiClient.convertToType(data['synced_flag'], NumberBooleanDefault0);
 
                 delete data['synced_flag'];
             }
             if (data.hasOwnProperty('deleted_flag')) {
-                obj['deleted_flag'] = ApiClient.convertToType(data['deleted_flag'], NumberBooleanDefault02);
+                obj['deleted_flag'] = ApiClient.convertToType(data['deleted_flag'], NumberBooleanDefault0);
 
                 delete data['deleted_flag'];
             }
             if (data.hasOwnProperty('has_body_flag')) {
-                obj['has_body_flag'] = ApiClient.convertToType(data['has_body_flag'], NumberBooleanDefault02);
+                obj['has_body_flag'] = ApiClient.convertToType(data['has_body_flag'], NumberBooleanDefault0);
 
                 delete data['has_body_flag'];
             }
             if (data.hasOwnProperty('sent_flag')) {
-                obj['sent_flag'] = ApiClient.convertToType(data['sent_flag'], NumberBooleanDefault02);
+                obj['sent_flag'] = ApiClient.convertToType(data['sent_flag'], NumberBooleanDefault0);
 
                 delete data['sent_flag'];
             }
             if (data.hasOwnProperty('sent_from_pipedrive_flag')) {
-                obj['sent_from_pipedrive_flag'] = ApiClient.convertToType(data['sent_from_pipedrive_flag'], NumberBooleanDefault02);
+                obj['sent_from_pipedrive_flag'] = ApiClient.convertToType(data['sent_from_pipedrive_flag'], NumberBooleanDefault0);
 
                 delete data['sent_from_pipedrive_flag'];
             }
             if (data.hasOwnProperty('smart_bcc_flag')) {
-                obj['smart_bcc_flag'] = ApiClient.convertToType(data['smart_bcc_flag'], NumberBooleanDefault02);
+                obj['smart_bcc_flag'] = ApiClient.convertToType(data['smart_bcc_flag'], NumberBooleanDefault0);
 
                 delete data['smart_bcc_flag'];
             }
@@ -175,17 +175,17 @@ class MailMessageData {
                 delete data['update_time'];
             }
             if (data.hasOwnProperty('has_attachments_flag')) {
-                obj['has_attachments_flag'] = ApiClient.convertToType(data['has_attachments_flag'], NumberBooleanDefault02);
+                obj['has_attachments_flag'] = ApiClient.convertToType(data['has_attachments_flag'], NumberBooleanDefault0);
 
                 delete data['has_attachments_flag'];
             }
             if (data.hasOwnProperty('has_inline_attachments_flag')) {
-                obj['has_inline_attachments_flag'] = ApiClient.convertToType(data['has_inline_attachments_flag'], NumberBooleanDefault02);
+                obj['has_inline_attachments_flag'] = ApiClient.convertToType(data['has_inline_attachments_flag'], NumberBooleanDefault0);
 
                 delete data['has_inline_attachments_flag'];
             }
             if (data.hasOwnProperty('has_real_attachments_flag')) {
-                obj['has_real_attachments_flag'] = ApiClient.convertToType(data['has_real_attachments_flag'], NumberBooleanDefault02);
+                obj['has_real_attachments_flag'] = ApiClient.convertToType(data['has_real_attachments_flag'], NumberBooleanDefault0);
 
                 delete data['has_real_attachments_flag'];
             }
@@ -280,13 +280,13 @@ MailMessageData.prototype['mail_tracking_status'] = undefined;
 
 /**
  * Whether the link tracking in mail message body is enabled.
- * @member {module:model/NumberBooleanDefault02} mail_link_tracking_enabled_flag
+ * @member {module:model/NumberBooleanDefault0} mail_link_tracking_enabled_flag
  */
 MailMessageData.prototype['mail_link_tracking_enabled_flag'] = undefined;
 
 /**
  * Whether the mail message is read or not by the user
- * @member {module:model/NumberBooleanDefault02} read_flag
+ * @member {module:model/NumberBooleanDefault0} read_flag
  */
 MailMessageData.prototype['read_flag'] = undefined;
 
@@ -298,43 +298,43 @@ MailMessageData.prototype['draft'] = undefined;
 
 /**
  * Whether the mail message is a draft or not
- * @member {module:model/NumberBooleanDefault02} draft_flag
+ * @member {module:model/NumberBooleanDefault0} draft_flag
  */
 MailMessageData.prototype['draft_flag'] = undefined;
 
 /**
  * Whether the mail message is synced with the provider or not
- * @member {module:model/NumberBooleanDefault02} synced_flag
+ * @member {module:model/NumberBooleanDefault0} synced_flag
  */
 MailMessageData.prototype['synced_flag'] = undefined;
 
 /**
  * Whether the mail message is deleted or not
- * @member {module:model/NumberBooleanDefault02} deleted_flag
+ * @member {module:model/NumberBooleanDefault0} deleted_flag
  */
 MailMessageData.prototype['deleted_flag'] = undefined;
 
 /**
  * Whether the mail message has a body or not
- * @member {module:model/NumberBooleanDefault02} has_body_flag
+ * @member {module:model/NumberBooleanDefault0} has_body_flag
  */
 MailMessageData.prototype['has_body_flag'] = undefined;
 
 /**
  * Whether the mail message has been sent or not
- * @member {module:model/NumberBooleanDefault02} sent_flag
+ * @member {module:model/NumberBooleanDefault0} sent_flag
  */
 MailMessageData.prototype['sent_flag'] = undefined;
 
 /**
  * Whether the mail message has been sent from Pipedrive app or not
- * @member {module:model/NumberBooleanDefault02} sent_from_pipedrive_flag
+ * @member {module:model/NumberBooleanDefault0} sent_from_pipedrive_flag
  */
 MailMessageData.prototype['sent_from_pipedrive_flag'] = undefined;
 
 /**
  * Whether the mail message has been created by Smart Email BCC feature or not
- * @member {module:model/NumberBooleanDefault02} smart_bcc_flag
+ * @member {module:model/NumberBooleanDefault0} smart_bcc_flag
  */
 MailMessageData.prototype['smart_bcc_flag'] = undefined;
 
@@ -358,19 +358,19 @@ MailMessageData.prototype['update_time'] = undefined;
 
 /**
  * Whether the mail message has an attachment or not
- * @member {module:model/NumberBooleanDefault02} has_attachments_flag
+ * @member {module:model/NumberBooleanDefault0} has_attachments_flag
  */
 MailMessageData.prototype['has_attachments_flag'] = undefined;
 
 /**
  * Whether the mail message has an inline attachment or not
- * @member {module:model/NumberBooleanDefault02} has_inline_attachments_flag
+ * @member {module:model/NumberBooleanDefault0} has_inline_attachments_flag
  */
 MailMessageData.prototype['has_inline_attachments_flag'] = undefined;
 
 /**
  * Whether the mail message has an attachment (which is not inline) or not
- * @member {module:model/NumberBooleanDefault02} has_real_attachments_flag
+ * @member {module:model/NumberBooleanDefault0} has_real_attachments_flag
  */
 MailMessageData.prototype['has_real_attachments_flag'] = undefined;
 
