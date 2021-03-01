@@ -1,0 +1,11 @@
+# Pipedrive.ProductSearchResponse
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**success** | **Boolean** | If the response is successful or not | [optional] 
+**data** | [**ProductSearchResponseAllOfData**](ProductSearchResponseAllOfData.md) |  | [optional] 
+**additionalData** | [**ItemSearchAdditionalData**](ItemSearchAdditionalData.md) |  | [optional] 
+
+
