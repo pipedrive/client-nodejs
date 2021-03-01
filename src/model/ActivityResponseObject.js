@@ -194,14 +194,9 @@ class ActivityResponseObject {
                 delete data['notification_language_id'];
             }
             if (data.hasOwnProperty('lead_id')) {
-                obj['lead_id'] = ApiClient.convertToType(data['lead_id'], 'Number');
+                obj['lead_id'] = ApiClient.convertToType(data['lead_id'], 'String');
 
                 delete data['lead_id'];
-            }
-            if (data.hasOwnProperty('lead_title')) {
-                obj['lead_title'] = ApiClient.convertToType(data['lead_title'], 'String');
-
-                delete data['lead_title'];
             }
             if (data.hasOwnProperty('active_flag')) {
                 obj['active_flag'] = ApiClient.convertToType(data['active_flag'], 'Boolean');
@@ -549,16 +544,10 @@ ActivityResponseObject.prototype['last_notification_user_id'] = undefined;
 ActivityResponseObject.prototype['notification_language_id'] = undefined;
 
 /**
- * The ID of the Lead this Activity is associated with
- * @member {Number} lead_id
+ * The ID of the Lead in the UUID format this Activity is associated with
+ * @member {String} lead_id
  */
 ActivityResponseObject.prototype['lead_id'] = undefined;
-
-/**
- * Name of the Lead this Activity is associated with
- * @member {String} lead_title
- */
-ActivityResponseObject.prototype['lead_title'] = undefined;
 
 /**
  * Whether the Activity is active or not
@@ -902,15 +891,10 @@ ActivityResponseObjectAllOf.prototype['last_notification_user_id'] = undefined;
  */
 ActivityResponseObjectAllOf.prototype['notification_language_id'] = undefined;
 /**
- * The ID of the Lead this Activity is associated with
- * @member {Number} lead_id
+ * The ID of the Lead in the UUID format this Activity is associated with
+ * @member {String} lead_id
  */
 ActivityResponseObjectAllOf.prototype['lead_id'] = undefined;
-/**
- * Name of the Lead this Activity is associated with
- * @member {String} lead_title
- */
-ActivityResponseObjectAllOf.prototype['lead_title'] = undefined;
 /**
  * Whether the Activity is active or not
  * @member {Boolean} active_flag

@@ -370,7 +370,7 @@ BaseMailThreadMessages.prototype['message_time'] = undefined;
 BaseMailThreadMessages.prototype['add_time'] = undefined;
 
 /**
- * The time when the mail message was updated in database received
+ * The time when the mail message was updated
  * @member {Date} update_time
  */
 BaseMailThreadMessages.prototype['update_time'] = undefined;
@@ -514,7 +514,7 @@ BaseMailThreadMessagesAllOf.prototype['message_time'] = undefined;
  */
 BaseMailThreadMessagesAllOf.prototype['add_time'] = undefined;
 /**
- * The time when the mail message was updated in database received
+ * The time when the mail message was updated
  * @member {Date} update_time
  */
 BaseMailThreadMessagesAllOf.prototype['update_time'] = undefined;

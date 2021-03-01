@@ -13,5 +13,6 @@ Name | Type | Description | Notes
 **duration** | [**Duration**](Duration.md) |  | [optional] 
 **expectedOutcome** | [**ExpectedOutcome**](ExpectedOutcome.md) |  | [optional] 
 **isActive** | **Boolean** | If the goal is currently active or not | [optional] 
+**reportIds** | **[Number]** | The IDs of the reports that belong to the goal | [optional] 
 
 

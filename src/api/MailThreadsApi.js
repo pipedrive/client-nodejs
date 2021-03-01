@@ -246,7 +246,8 @@ export default class MailThreadsApi {
      * Updates the properties of a mail thread.
      * @param {Number} id ID of the mail thread
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.dealId ID of the deal this thread is associated with
+     * @param {Number} opts.dealId The ID of the deal this thread is associated with
+     * @param {String} opts.leadId The ID of the lead this thread is associated with
      * @param {module:model/NumberBoolean} opts.sharedFlag Whether this thread is shared with other users in your company
      * @param {module:model/NumberBoolean} opts.readFlag Whether this thread read or unread
      * @param {module:model/NumberBoolean} opts.archivedFlag Whether this thread is archived or not. You can only archive threads that belong to Inbox folder. Archived threads will disappear from Inbox.
@@ -269,6 +270,7 @@ export default class MailThreadsApi {
       };
       let formParams = {
         'deal_id': opts['dealId'],
+        'lead_id': opts['leadId'],
         'shared_flag': opts['sharedFlag'],
         'read_flag': opts['readFlag'],
         'archived_flag': opts['archivedFlag']
@@ -290,7 +292,8 @@ export default class MailThreadsApi {
      * Updates the properties of a mail thread.
      * @param {Number} id ID of the mail thread
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.dealId ID of the deal this thread is associated with
+     * @param {Number} opts.dealId The ID of the deal this thread is associated with
+     * @param {String} opts.leadId The ID of the lead this thread is associated with
      * @param {module:model/NumberBoolean} opts.sharedFlag Whether this thread is shared with other users in your company
      * @param {module:model/NumberBoolean} opts.readFlag Whether this thread read or unread
      * @param {module:model/NumberBoolean} opts.archivedFlag Whether this thread is archived or not. You can only archive threads that belong to Inbox folder. Archived threads will disappear from Inbox.

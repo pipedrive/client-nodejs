@@ -23,8 +23,9 @@ Name | Type | Description | Notes
 **lastMessageReceivedTimestamp** | **Date** | The last time when the mail thread has had a message received | [optional] 
 **addTime** | **Date** | The time when the mail thread was inserted to database | [optional] 
 **updateTime** | **Date** | The time when the mail thread was updated in database received | [optional] 
-**dealId** | **Number** | ID of the deal | [optional] 
+**dealId** | **Number** | The ID of the deal | [optional] 
 **dealStatus** | **String** | Status of the deal | [optional] 
+**leadId** | **String** | The ID of the lead | [optional] 
 **allMessagesSentFlag** | [**NumberBooleanDefault0**](NumberBooleanDefault0.md) | Whether all the mail thread messages have been sent | [optional] 
 
 

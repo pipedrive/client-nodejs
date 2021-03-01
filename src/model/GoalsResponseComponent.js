@@ -96,6 +96,11 @@ class GoalsResponseComponent {
 
                 delete data['is_active'];
             }
+            if (data.hasOwnProperty('report_ids')) {
+                obj['report_ids'] = ApiClient.convertToType(data['report_ids'], ['Number']);
+
+                delete data['report_ids'];
+            }
 
             if (Object.keys(data).length > 0) {
                 obj['extra'] = data;
@@ -157,6 +162,12 @@ GoalsResponseComponent.prototype['expected_outcome'] = undefined;
  * @member {Boolean} is_active
  */
 GoalsResponseComponent.prototype['is_active'] = undefined;
+
+/**
+ * The IDs of the reports that belong to the goal
+ * @member {Array.<Number>} report_ids
+ */
+GoalsResponseComponent.prototype['report_ids'] = undefined;
 
 
 
