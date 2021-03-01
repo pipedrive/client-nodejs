@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **personId** | **Number** | The ID of the Person this call is associated with | [optional] 
 **orgId** | **Number** | The ID of the Organization this call is associated with | [optional] 
 **dealId** | **Number** | The ID of the Deal this call is associated with | [optional] 
+**note** | **String** | Note for the call log in HTML format | [optional] 
 
 
 

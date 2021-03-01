@@ -53,6 +53,11 @@ class UpdateMailThreadDetailsRequest {
 
                 delete data['deal_id'];
             }
+            if (data.hasOwnProperty('lead_id')) {
+                obj['lead_id'] = ApiClient.convertToType(data['lead_id'], 'String');
+
+                delete data['lead_id'];
+            }
             if (data.hasOwnProperty('shared_flag')) {
                 obj['shared_flag'] = ApiClient.convertToType(data['shared_flag'], NumberBoolean);
 
@@ -81,10 +86,16 @@ class UpdateMailThreadDetailsRequest {
 }
 
 /**
- * ID of the deal this thread is associated with
+ * The ID of the deal this thread is associated with
  * @member {Number} deal_id
  */
 UpdateMailThreadDetailsRequest.prototype['deal_id'] = undefined;
+
+/**
+ * The ID of the lead this thread is associated with
+ * @member {String} lead_id
+ */
+UpdateMailThreadDetailsRequest.prototype['lead_id'] = undefined;
 
 /**
  * Whether this thread is shared with other users in your company

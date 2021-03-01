@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 Add a lead
 
-Creates a Lead. A Lead always has to be linked to a Person or an Organization or both. All Leads created through the Public Pipedrive API will have a Lead Source &#x60;API&#x60; assigned. If a Lead contains custom fields, the fields&#39; values will be included in the response in the same format as with the &#x60;Deals&#x60; endpoints. If a custom field&#39;s value hasn&#39;t been set for the Lead, it won&#39;t appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from Deals. See an example of updating custom fields’ values in &lt;a href&#x3D;\\\&quot; https://pipedrive.readme.io/docs/updating-custom-field-value \\\&quot; target&#x3D;\\\&quot;_blank\\\&quot; rel&#x3D;\\\&quot;noopener noreferrer\\\&quot;&gt;this tutorial&lt;/a&gt;. 
+Creates a Lead. A Lead always has to be linked to a Person or an Organization or both. All Leads created through the Public Pipedrive API will have a Lead Source &#x60;API&#x60; assigned. If a Lead contains custom fields, the fields&#39; values will be included in the response in the same format as with the &#x60;Deals&#x60; endpoints. If a custom field&#39;s value hasn&#39;t been set for the Lead, it won&#39;t appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from Deals. See an example of updating custom fields’ values in &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/updating-custom-field-value\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this tutorial&lt;/a&gt;. 
 
 ### Example
 
@@ -449,7 +449,7 @@ Name | Type | Description  | Notes
 
 Update a lead
 
-Updates one or more properties of a Lead. Only properties included in the request will be updated. Send &#x60;null&#x60; to unset a property (applicable for example for &#x60;value&#x60;, &#x60;person_id&#x60; or &#x60;organization_id&#x60;). If a Lead contains custom fields, the fields&#39; values will be included in the response in the same format as with the &#x60;Deals&#x60; endpoints. If a custom field&#39;s value hasn&#39;t been set for the Lead, it won&#39;t appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from Deals. See an example of updating custom fields’ values in &lt;a href&#x3D;\\\&quot; https://pipedrive.readme.io/docs/updating-custom-field-value \\\&quot; target&#x3D;\\\&quot;_blank\\\&quot; rel&#x3D;\\\&quot;noopener noreferrer\\\&quot;&gt;this tutorial&lt;/a&gt;. 
+Updates one or more properties of a Lead. Only properties included in the request will be updated. Send &#x60;null&#x60; to unset a property (applicable for example for &#x60;value&#x60;, &#x60;person_id&#x60; or &#x60;organization_id&#x60;). If a Lead contains custom fields, the fields&#39; values will be included in the response in the same format as with the &#x60;Deals&#x60; endpoints. If a custom field&#39;s value hasn&#39;t been set for the Lead, it won&#39;t appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from Deals. See an example of updating custom fields’ values in &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/updating-custom-field-value\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this tutorial&lt;/a&gt;. 
 
 ### Example
 

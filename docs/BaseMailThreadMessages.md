@@ -31,6 +31,6 @@ Name | Type | Description | Notes
 **sentFromPipedriveFlag** | [**NumberBooleanDefault0**](NumberBooleanDefault0.md) | Whether the mail thread message is sent from Pipedrive | [optional] 
 **messageTime** | **Date** | The time when the mail message was received or created | [optional] 
 **addTime** | **Date** | The time when the mail message was inserted to database | [optional] 
-**updateTime** | **Date** | The time when the mail message was updated in database received | [optional] 
+**updateTime** | **Date** | The time when the mail message was updated | [optional] 
 
 

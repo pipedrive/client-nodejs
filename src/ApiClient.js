@@ -639,14 +639,14 @@ class ApiClient {
         const redirectUri = this.getOAuth2Property('redirectUri');
         const host = this.getOAuth2Property('host');
         const authorizationUrl = `${host}/oauth/token`;
+        const clientIdAndSecretInBase64 = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');
 
         try {
             const response = await superagent
                 .post(authorizationUrl)
                 .set('User-Agent', this.getUserAgent())
+                .set('Authorization', `Basic ${clientIdAndSecretInBase64}`)
                 .send(`code=${code}`)
-                .send(`client_id=${clientId}`)
-                .send(`client_secret=${clientSecret}`)
                 .send(`redirect_uri=${redirectUri}`)
                 .send('grant_type=authorization_code')
 
@@ -678,14 +678,14 @@ class ApiClient {
         const clientSecret = this.getOAuth2Property('clientSecret');
         const host = this.getOAuth2Property('host');
         const refreshUrl = `${host}/oauth/token`;
+        const clientIdAndSecretInBase64 = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');
 
         try {
             const response = await superagent
                 .post(refreshUrl)
                 .set('User-Agent', this.getUserAgent())
+                .set('Authorization', `Basic ${clientIdAndSecretInBase64}`)
                 .send(`refresh_token=${refreshToken}`)
-                .send(`client_id=${clientId}`)
-                .send(`client_secret=${clientSecret}`)
                 .send('grant_type=refresh_token');
 
             this.updateToken(response.body);

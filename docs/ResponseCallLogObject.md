@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **personId** | **Number** | The ID of the Person this call is associated with | [optional] 
 **orgId** | **Number** | The ID of the Organization this call is associated with | [optional] 
 **dealId** | **Number** | The ID of the Deal this call is associated with | [optional] 
+**note** | **String** | Note for the call log in HTML format | [optional] 
 **id** | **String** | The call log ID, generated when the call log was created | [optional] 
 **hasRecording** | **Boolean** | If the call log has an audio recording attached, the value should be true | [optional] 
 **companyId** | **Number** | The Company ID of the owner of the call log | [optional] 

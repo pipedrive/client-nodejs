@@ -235,6 +235,11 @@ class BaseMailThread {
 
                 delete data['deal_status'];
             }
+            if (data.hasOwnProperty('lead_id')) {
+                obj['lead_id'] = ApiClient.convertToType(data['lead_id'], 'String');
+
+                delete data['lead_id'];
+            }
             if (data.hasOwnProperty('all_messages_sent_flag')) {
                 obj['all_messages_sent_flag'] = ApiClient.convertToType(data['all_messages_sent_flag'], NumberBooleanDefault0);
 
@@ -456,7 +461,7 @@ BaseMailThread.prototype['add_time'] = undefined;
 BaseMailThread.prototype['update_time'] = undefined;
 
 /**
- * ID of the deal
+ * The ID of the deal
  * @member {Number} deal_id
  */
 BaseMailThread.prototype['deal_id'] = undefined;
@@ -466,6 +471,12 @@ BaseMailThread.prototype['deal_id'] = undefined;
  * @member {String} deal_status
  */
 BaseMailThread.prototype['deal_status'] = undefined;
+
+/**
+ * The ID of the lead
+ * @member {String} lead_id
+ */
+BaseMailThread.prototype['lead_id'] = undefined;
 
 /**
  * Whether all the mail thread messages have been sent
@@ -646,7 +657,7 @@ BaseMailThreadAllOf.prototype['add_time'] = undefined;
  */
 BaseMailThreadAllOf.prototype['update_time'] = undefined;
 /**
- * ID of the deal
+ * The ID of the deal
  * @member {Number} deal_id
  */
 BaseMailThreadAllOf.prototype['deal_id'] = undefined;
@@ -655,6 +666,11 @@ BaseMailThreadAllOf.prototype['deal_id'] = undefined;
  * @member {String} deal_status
  */
 BaseMailThreadAllOf.prototype['deal_status'] = undefined;
+/**
+ * The ID of the lead
+ * @member {String} lead_id
+ */
+BaseMailThreadAllOf.prototype['lead_id'] = undefined;
 /**
  * Whether all the mail thread messages have been sent
  * @member {module:model/NumberBooleanDefault0} all_messages_sent_flag

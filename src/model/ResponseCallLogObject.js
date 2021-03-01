@@ -121,6 +121,11 @@ class ResponseCallLogObject {
 
                 delete data['deal_id'];
             }
+            if (data.hasOwnProperty('note')) {
+                obj['note'] = ApiClient.convertToType(data['note'], 'String');
+
+                delete data['note'];
+            }
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
 
@@ -221,6 +226,12 @@ ResponseCallLogObject.prototype['org_id'] = undefined;
 ResponseCallLogObject.prototype['deal_id'] = undefined;
 
 /**
+ * Note for the call log in HTML format
+ * @member {String} note
+ */
+ResponseCallLogObject.prototype['note'] = undefined;
+
+/**
  * The call log ID, generated when the call log was created
  * @member {String} id
  */
@@ -300,6 +311,11 @@ CallLogObject.prototype['org_id'] = undefined;
  * @member {Number} deal_id
  */
 CallLogObject.prototype['deal_id'] = undefined;
+/**
+ * Note for the call log in HTML format
+ * @member {String} note
+ */
+CallLogObject.prototype['note'] = undefined;
 // Implement ResponseCallLogObjectAllOf interface:
 /**
  * The call log ID, generated when the call log was created

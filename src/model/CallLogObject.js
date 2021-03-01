@@ -115,6 +115,11 @@ class CallLogObject {
 
                 delete data['deal_id'];
             }
+            if (data.hasOwnProperty('note')) {
+                obj['note'] = ApiClient.convertToType(data['note'], 'String');
+
+                delete data['note'];
+            }
 
             if (Object.keys(data).length > 0) {
                 obj['extra'] = data;
@@ -198,6 +203,12 @@ CallLogObject.prototype['org_id'] = undefined;
  * @member {Number} deal_id
  */
 CallLogObject.prototype['deal_id'] = undefined;
+
+/**
+ * Note for the call log in HTML format
+ * @member {String} note
+ */
+CallLogObject.prototype['note'] = undefined;
 
 
 
