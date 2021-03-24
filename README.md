@@ -285,6 +285,7 @@ Tests can be run in a number of ways:
 * [FiltersController](#filters_controller)
 * [GlobalMessagesController](#global_messages_controller)
 * [GoalsController](#goals_controller)
+* [ItemsController](#item_controller)
 * [MailMessagesController](#mail_messages_controller)
 * [MailThreadsController](#mail_threads_controller)
 * [NoteFieldsController](#note_fields_controller)
@@ -1125,6 +1126,54 @@ function addADeal(input, callback)
     };
 
     controller.addADeal(input, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="search_deals"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.searchDeals") searchDeals
+
+> Searches all Deals by title, notes and/or custom fields.
+
+
+```javascript
+function searchDeals(input, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| term |  ``` Required ```  | Search term to look for |
+| fields |  ``` Optional ```  | A comma-separated string array. The fields to perform the search from. Defaults to all of them. |
+| exact_match |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
+| person_id |  ``` Optional ```  | Will filter Deals by the provided Person ID. The upper limit of found Deals associated with the Person is 2000. |
+| organization_id |  ``` Optional ```  | Will filter Deals by the provided Organization ID. The upper limit of found Deals associated with the Organization is 2000. |
+| status |  ``` Optional ```  | Will filter Deals by the provided specific status. open = Open, won = Won, lost = Lost. The upper limit of found Deals associated with the status is 2000. |
+| include_fields |  ``` Optional ```  | Supports including optional fields in the results which are not provided by default. |
+| start |  ``` Optional ```  | Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. |
+| limit |  ``` Optional ```  | Items shown per page |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var input = [];
+        input['term'] = 'term';
+        input['fields'] = ['custom_fields'];
+        input['exact_match'] = true;
+        input['person_id'] = 58;
+        input['organization_id'] = 58;
+        input['status'] = 'won';
+        input['include_fields'] = 'deal.cc_email';
+        input['start'] = 0;
+        input['limit'] = 58;
+        
+
+    controller.searchDeals(input, function(error, response, context) {
 
     
     });
@@ -2801,6 +2850,107 @@ function getResultOfAGoal(input, callback)
 
 [Back to List of Controllers](#list_of_controllers)
 
+## <a name="items_controller"></a>![Class: ](https://apidocs.io/img/class.png ".ItemsController") ItemsController
+
+### Get singleton instance
+
+The singleton instance of the ``` ItemsController ``` class can be accessed from the API Client.
+
+```javascript
+var controller = lib.ItemsController;
+```
+
+### <a name="search_item"></a>![Method: ](https://apidocs.io/img/method.png ".ItemsController.searchItem") searchItem
+
+> Performs a search from your choice of item types and fields.
+
+
+```javascript
+function searchItem(input, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| term |  ``` Required ```  | The search term to look for. Minimum 2 characters (or 1 if using exact_match). |
+| item_types |  ``` Optional ```  | A comma-separated string array. The type of items to perform the search from. Defaults to all. |
+| fields |  ``` Optional ```  | A comma-separated string array. The type of items to perform the search from. Defaults to all. |
+| search_for_related_items |  ``` Optional ```  | When enabled, the response will include up to 100 newest related Leads and 100 newest related Deals for each found Person and Organization and up to 100 newest related Persons for each found Organization. |
+| exact_match |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
+| include_fields |  ``` Optional ```  | A comma-separated string array. Supports including optional fields in the results which are not provided by default. |
+| start |  ``` Optional ```  | Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. |
+| limit |  ``` Optional ```  | Items shown per page |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var input = [];
+        input['term'] = 'term';
+        input['item_types'] = ['deal', 'person', 'organization'];
+        input['fields'] = ['address', 'code', 'email'];
+        input['search_for_related_items'] = true;
+        input['exact_match'] = true;
+        input['include_fields'] = ['deal.cc_email', 'person.picture', 'product.price'];
+        input['start'] = 0;
+        input['limit'] = 58;
+    
+    controller.searchItem(input, function(error, response, context) {
+
+    
+    });
+```
+
+
+searchItemByField
+### <a name="search_item_by_field"></a>![Method: ](https://apidocs.io/img/method.png ".ItemsController.searchItemByField") searchItemByField
+
+> Performs a search from the values of a specific field. Results can either be the distinct values of the field (useful for searching autocomplete field values), or the IDs of actual items (Deals, Persons, Organizations or Products).
+  
+
+
+```javascript
+function searchItemByField(input, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| term |  ``` Required ```  | The search term to look for. Minimum 2 characters (or 1 if using exact_match). |
+| field_type |  ``` Required ```  | The type of the field to perform the search from. |
+| exact_match |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
+| field_key |  ``` Required ```  | The key of the field to search from. The field key can be obtained by fetching the list of the fields using any of the fields' API GET methods (dealFields, personFields, etc.). |
+| return_item_ids |  ``` Optional ```  | Whether to return the IDs of the matching items or not. When not set or set to 0 or false, only distinct values of the searched field are returned. When set to 1 or true, the ID of each found item is returned. |
+| start |  ``` Optional ```  | Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. |
+| limit |  ``` Optional ```  | Items shown per page |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var input = [];
+        input['term'] = 'term';
+        input['field_type'] = 'dealField';
+        input['exact_match'] = false;
+        input['field_key'] = 'title';
+        input['return_item_ids'] = true;
+        input['start'] = 0;
+        input['limit'] = 58;
+    
+    controller.searchItemByField(input, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+[Back to List of Controllers](#list_of_controllers)
+
 ## <a name="mail_messages_controller"></a>![Class: ](https://apidocs.io/img/class.png ".MailMessagesController") MailMessagesController
 
 ### Get singleton instance
@@ -3766,6 +3916,45 @@ function addAnOrganization(input, callback)
 
 
 
+### <a name="search_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.searchOrganization") searchOrganization
+
+> Searches all Organizations by name, address, notes and/or custom fields. This endpoint is a wrapper of /v1/itemSearch with a narrower OAuth scope.
+
+
+```javascript
+function searchOrganization(input, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| term |  ``` Required ```  | Search term to look for |
+| fields |  ``` Optional ```  | A comma-separated string array. The fields to perform the search from. Defaults to all of them. |
+| exact_match |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
+| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
+| limit |  ``` Optional ```  | Items shown per page |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var input = [];
+        input['term'] = 'term';
+        input['fields'] = ['address', 'custom_fields', 'notes', 'name'];
+        input['exact_match'] = true;
+        input['start'] = 58;
+        input['limit'] = 58;
+
+    controller.searchOrganization(input, function(error, response, context) {
+
+    
+    });
+```
+
+
+
 ### <a name="find_organizations_by_name"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.findOrganizationsByName") findOrganizationsByName
 
 > Searches all organizations by their name.
@@ -4706,6 +4895,49 @@ function addAPerson(input, callback)
     };
 
     controller.addAPerson(input, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="search_persons"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.searchPersons") searchPersons
+
+> Searches all Persons by name, email, phone, notes and/or custom fields. This endpoint is a wrapper of /v1/itemSearch with a narrower OAuth scope. Found Persons can be filtered by Organization ID.
+
+
+```javascript
+function searchPersons(input, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| term |  ``` Required ```  | The search term to look for. Minimum 2 characters (or 1 if using exact_match). |
+| fields |  ``` Optional ```  | A comma-separated string array. The fields to perform the search from. Defaults to all of them. |
+| exact_match |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
+| organization_id |  ``` Optional ```  | Will filter Deals by the provided Organization ID. The upper limit of found Deals associated with the Organization is 2000. |
+| include_fields |  ``` Optional ```  | Supports including optional fields in the results which are not provided by default. |
+| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start. |
+| limit |  ``` Optional ```  | Items shown per page. |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var input = [];
+        input['term'] = 'term';
+        input['fields'] = ['custom_fields', 'email', 'notes', 'phone', 'name'];
+        input['exact_match'] = true;
+        input['organization_id'] = 58;
+        input['include_fields'] = 'person.picture';
+        input['start'] = 0;
+        input['limit'] = 58;
+
+    controller.searchPersons(input, function(error, response, context) {
 
     
     });
@@ -5888,6 +6120,47 @@ function addAProduct(input, callback)
     };
 
     controller.addAProduct(input, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="search_products"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.searchProducts") searchProducts
+
+> Searches all Products by name, code and/or custom fields. This endpoint is a wrapper of /v1/itemSearch with a narrower OAuth scope.
+
+
+```javascript
+function searchProducts(input, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| term |  ``` Required ```  | Search term to look for, minimum 3 characters. |
+| fields |  ``` Optional ```  | A comma-separated string array. The fields to perform the search from. Defaults to all of them. |
+| exact_match |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
+| include_fields |  ``` Optional ```  | Supports including optional fields in the results which are not provided by default. |
+| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start. |
+| limit |  ``` Optional ```  | Items shown per page. |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var input = [];
+        input['term'] = 'term';
+        input['fields'] = ['code', 'custom_fields', 'name'];
+        input['exact_match'] = true;
+        input['include_fields'] = 'product.price';
+        input['start'] = 16;
+        input['limit'] = 16;
+
+    controller.searchProducts(input, function(error, response, context) {
 
     
     });
