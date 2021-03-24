@@ -1135,7 +1135,7 @@ function addADeal(input, callback)
 
 ### <a name="search_deals"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.searchDeals") searchDeals
 
-> Searches all Deals by title, notes and/or custom fields.
+> Searches all Deals by title, notes and/or custom fields. This endpoint is a wrapper of /v1/itemSearch with a narrower OAuth scope. Found Deals can be filtered by Person ID and Organization ID.
 
 
 ```javascript
