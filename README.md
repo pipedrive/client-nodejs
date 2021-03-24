@@ -1147,11 +1147,11 @@ function searchDeals(input, callback)
 |-----------|------|-------------|
 | term |  ``` Required ```  | Search term to look for |
 | fields |  ``` Optional ```  | A comma-separated string array. The fields to perform the search from. Defaults to all of them. |
-| exact_match |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
-| person_id |  ``` Optional ```  | Will filter Deals by the provided Person ID. The upper limit of found Deals associated with the Person is 2000. |
-| organization_id |  ``` Optional ```  | Will filter Deals by the provided Organization ID. The upper limit of found Deals associated with the Organization is 2000. |
+| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
+| personId |  ``` Optional ```  | Will filter Deals by the provided Person ID. The upper limit of found Deals associated with the Person is 2000. |
+| organizationId |  ``` Optional ```  | Will filter Deals by the provided Organization ID. The upper limit of found Deals associated with the Organization is 2000. |
 | status |  ``` Optional ```  | Will filter Deals by the provided specific status. open = Open, won = Won, lost = Lost. The upper limit of found Deals associated with the status is 2000. |
-| include_fields |  ``` Optional ```  | Supports including optional fields in the results which are not provided by default. |
+| includeFields |  ``` Optional ```  | Supports including optional fields in the results which are not provided by default. |
 | start |  ``` Optional ```  | Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. |
 | limit |  ``` Optional ```  | Items shown per page |
 
@@ -1164,11 +1164,11 @@ function searchDeals(input, callback)
     var input = [];
         input['term'] = 'term';
         input['fields'] = ['custom_fields'];
-        input['exact_match'] = true;
-        input['person_id'] = 58;
-        input['organization_id'] = 58;
+        input['exactMatch'] = true;
+        input['personId'] = 58;
+        input['organizationId'] = 58;
         input['status'] = 'won';
-        input['include_fields'] = 'deal.cc_email';
+        input['includeFields'] = 'deal.cc_email';
         input['start'] = 0;
         input['limit'] = 58;
         
@@ -3930,7 +3930,7 @@ function searchOrganization(input, callback)
 |-----------|------|-------------|
 | term |  ``` Required ```  | Search term to look for |
 | fields |  ``` Optional ```  | A comma-separated string array. The fields to perform the search from. Defaults to all of them. |
-| exact_match |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
+| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
 | start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
 | limit |  ``` Optional ```  | Items shown per page |
 
@@ -3943,7 +3943,7 @@ function searchOrganization(input, callback)
     var input = [];
         input['term'] = 'term';
         input['fields'] = ['address', 'custom_fields', 'notes', 'name'];
-        input['exact_match'] = true;
+        input['exactMatch'] = true;
         input['start'] = 58;
         input['limit'] = 58;
 
@@ -4916,9 +4916,9 @@ function searchPersons(input, callback)
 |-----------|------|-------------|
 | term |  ``` Required ```  | The search term to look for. Minimum 2 characters (or 1 if using exact_match). |
 | fields |  ``` Optional ```  | A comma-separated string array. The fields to perform the search from. Defaults to all of them. |
-| exact_match |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
-| organization_id |  ``` Optional ```  | Will filter Deals by the provided Organization ID. The upper limit of found Deals associated with the Organization is 2000. |
-| include_fields |  ``` Optional ```  | Supports including optional fields in the results which are not provided by default. |
+| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
+| organizationId |  ``` Optional ```  | Will filter Deals by the provided Organization ID. The upper limit of found Deals associated with the Organization is 2000. |
+| includeFields |  ``` Optional ```  | Supports including optional fields in the results which are not provided by default. |
 | start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start. |
 | limit |  ``` Optional ```  | Items shown per page. |
 
@@ -4931,9 +4931,9 @@ function searchPersons(input, callback)
     var input = [];
         input['term'] = 'term';
         input['fields'] = ['custom_fields', 'email', 'notes', 'phone', 'name'];
-        input['exact_match'] = true;
-        input['organization_id'] = 58;
-        input['include_fields'] = 'person.picture';
+        input['exactMatch'] = true;
+        input['organizationId'] = 58;
+        input['includeFields'] = 'person.picture';
         input['start'] = 0;
         input['limit'] = 58;
 
@@ -6141,8 +6141,8 @@ function searchProducts(input, callback)
 |-----------|------|-------------|
 | term |  ``` Required ```  | Search term to look for, minimum 3 characters. |
 | fields |  ``` Optional ```  | A comma-separated string array. The fields to perform the search from. Defaults to all of them. |
-| exact_match |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
-| include_fields |  ``` Optional ```  | Supports including optional fields in the results which are not provided by default. |
+| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
+| includeFields |  ``` Optional ```  | Supports including optional fields in the results which are not provided by default. |
 | start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start. |
 | limit |  ``` Optional ```  | Items shown per page. |
 
@@ -6155,8 +6155,8 @@ function searchProducts(input, callback)
     var input = [];
         input['term'] = 'term';
         input['fields'] = ['code', 'custom_fields', 'name'];
-        input['exact_match'] = true;
-        input['include_fields'] = 'product.price';
+        input['exactMatch'] = true;
+        input['includeFields'] = 'product.price';
         input['start'] = 16;
         input['limit'] = 16;
 
