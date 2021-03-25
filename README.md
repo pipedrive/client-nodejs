@@ -2872,7 +2872,7 @@ function searchItem(input, callback)
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| term |  ``` Required ```  | The search term to look for. Minimum 2 characters (or 1 if using exact_match). |
+| term |  ``` Required ```  | The search term to look for. Minimum 2 characters (or 1 if using exactMatch). |
 | itemTypes |  ``` Optional ```  | A comma-separated string array. The type of items to perform the search from. Defaults to all. |
 | fields |  ``` Optional ```  | A comma-separated string array. The type of items to perform the search from. Defaults to all. |
 | searchForRelatedItems |  ``` Optional ```  | When enabled, the response will include up to 100 newest related Leads and 100 newest related Deals for each found Person and Organization and up to 100 newest related Persons for each found Organization. |
@@ -2918,7 +2918,7 @@ function searchItemByField(input, callback)
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| term |  ``` Required ```  | The search term to look for. Minimum 2 characters (or 1 if using exact_match). |
+| term |  ``` Required ```  | The search term to look for. Minimum 2 characters (or 1 if using exactMatch). |
 | fieldType |  ``` Required ```  | The type of the field to perform the search from. |
 | exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
 | fieldKey |  ``` Required ```  | The key of the field to search from. The field key can be obtained by fetching the list of the fields using any of the fields' API GET methods (dealFields, personFields, etc.). |
@@ -6967,7 +6967,7 @@ function getPerformASearch(input, callback)
 | itemType |  ``` Optional ```  | Search for items of exact type. If omitted, all types of items are searched. |
 | start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
 | limit |  ``` Optional ```  | Items shown per page |
-| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. The minimum 2 character limit for the term is discarded when exact_match is enabled. It will only work if search term is 30 characters or less. |
+| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. The minimum 2 character limit for the term is discarded when exactMatch is enabled. It will only work if search term is 30 characters or less. |
 
 
 
@@ -7005,7 +7005,7 @@ function getPerformASearchUsingASpecificFieldValue(input, callback)
 | term |  ``` Required ```  | Search term to look for, minimum 2 characters. |
 | fieldType |  ``` Required ```  | Type of the field to perform the search from. |
 | fieldKey |  ``` Required ```  | Key of the field to search from. Field key can be obtained by fetching the list of fields using any of fields API GET methods (dealFields, personFields, ..). |
-| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. By default, term can be present anywhere in the resulting field values to be considered a match. The minimum 2 character limit for the term is discarded when exact_match is enabled. |
+| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. By default, term can be present anywhere in the resulting field values to be considered a match. The minimum 2 character limit for the term is discarded when exactMatch is enabled. |
 | returnFieldKey |  ``` Optional ```  | Name of the field in search results from which the search was performed. When omitted, 'value' will be used. You may want to set this parameter to match the field_key. |
 | returnItemIds |  ``` Optional ```  | Whether to return matching items IDs in search results. When omitted or set to 0, only distinct values of the searched field are returned. When enabled, the return_field_key parameter is ignored and the results include the searched field as its own key. |
 | start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
