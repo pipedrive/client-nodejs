@@ -2878,7 +2878,7 @@ function searchItem(input, callback)
 | searchForRelatedItems |  ``` Optional ```  | When enabled, the response will include up to 100 newest related Leads and 100 newest related Deals for each found Person and Organization and up to 100 newest related Persons for each found Organization. |
 | exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
 | includeFields |  ``` Optional ```  | A comma-separated string array. Supports including optional fields in the results which are not provided by default. |
-| start |  ``` Optional ```  | Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. |
+| start |  ``` Optional ```  | Pagination start. Note that the pagination is based on main results and does not include related items when using searchForRelatedItems parameter. |
 | limit |  ``` Optional ```  | Items shown per page |
 
 
@@ -2923,7 +2923,7 @@ function searchItemByField(input, callback)
 | exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
 | fieldKey |  ``` Required ```  | The key of the field to search from. The field key can be obtained by fetching the list of the fields using any of the fields' API GET methods (dealFields, personFields, etc.). |
 | returnItemIds |  ``` Optional ```  | Whether to return the IDs of the matching items or not. When not set or set to 0 or false, only distinct values of the searched field are returned. When set to 1 or true, the ID of each found item is returned. |
-| start |  ``` Optional ```  | Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. |
+| start |  ``` Optional ```  | Pagination start. Note that the pagination is based on main results and does not include related items when using searchForRelatedItems parameter. |
 | limit |  ``` Optional ```  | Items shown per page |
 
 
