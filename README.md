@@ -1152,7 +1152,7 @@ function searchDeals(input, callback)
 | organizationId |  ``` Optional ```  | Will filter Deals by the provided Organization ID. The upper limit of found Deals associated with the Organization is 2000. |
 | status |  ``` Optional ```  | Will filter Deals by the provided specific status. open = Open, won = Won, lost = Lost. The upper limit of found Deals associated with the status is 2000. |
 | includeFields |  ``` Optional ```  | Supports including optional fields in the results which are not provided by default. |
-| start |  ``` Optional ```  | Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. |
+| start |  ``` Optional ```  | Pagination start. Note that the pagination is based on main results and does not include related items when using searchForRelatedItems parameter. |
 | limit |  ``` Optional ```  | Items shown per page |
 
 
