@@ -2873,11 +2873,11 @@ function searchItem(input, callback)
 | Parameter | Tags | Description |
 |-----------|------|-------------|
 | term |  ``` Required ```  | The search term to look for. Minimum 2 characters (or 1 if using exact_match). |
-| item_types |  ``` Optional ```  | A comma-separated string array. The type of items to perform the search from. Defaults to all. |
+| itemTypes |  ``` Optional ```  | A comma-separated string array. The type of items to perform the search from. Defaults to all. |
 | fields |  ``` Optional ```  | A comma-separated string array. The type of items to perform the search from. Defaults to all. |
-| search_for_related_items |  ``` Optional ```  | When enabled, the response will include up to 100 newest related Leads and 100 newest related Deals for each found Person and Organization and up to 100 newest related Persons for each found Organization. |
-| exact_match |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
-| include_fields |  ``` Optional ```  | A comma-separated string array. Supports including optional fields in the results which are not provided by default. |
+| searchForRelatedItems |  ``` Optional ```  | When enabled, the response will include up to 100 newest related Leads and 100 newest related Deals for each found Person and Organization and up to 100 newest related Persons for each found Organization. |
+| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
+| includeFields |  ``` Optional ```  | A comma-separated string array. Supports including optional fields in the results which are not provided by default. |
 | start |  ``` Optional ```  | Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. |
 | limit |  ``` Optional ```  | Items shown per page |
 
@@ -2889,11 +2889,11 @@ function searchItem(input, callback)
 
     var input = [];
         input['term'] = 'term';
-        input['item_types'] = ['deal', 'person', 'organization'];
+        input['itemTypes'] = ['deal', 'person', 'organization'];
         input['fields'] = ['address', 'code', 'email'];
-        input['search_for_related_items'] = true;
-        input['exact_match'] = true;
-        input['include_fields'] = ['deal.cc_email', 'person.picture', 'product.price'];
+        input['searchForRelatedItems'] = true;
+        input['exactMatch'] = true;
+        input['includeFields'] = ['deal.cc_email', 'person.picture', 'product.price'];
         input['start'] = 0;
         input['limit'] = 58;
     
@@ -2919,10 +2919,10 @@ function searchItemByField(input, callback)
 | Parameter | Tags | Description |
 |-----------|------|-------------|
 | term |  ``` Required ```  | The search term to look for. Minimum 2 characters (or 1 if using exact_match). |
-| field_type |  ``` Required ```  | The type of the field to perform the search from. |
-| exact_match |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
-| field_key |  ``` Required ```  | The key of the field to search from. The field key can be obtained by fetching the list of the fields using any of the fields' API GET methods (dealFields, personFields, etc.). |
-| return_item_ids |  ``` Optional ```  | Whether to return the IDs of the matching items or not. When not set or set to 0 or false, only distinct values of the searched field are returned. When set to 1 or true, the ID of each found item is returned. |
+| fieldType |  ``` Required ```  | The type of the field to perform the search from. |
+| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
+| fieldKey |  ``` Required ```  | The key of the field to search from. The field key can be obtained by fetching the list of the fields using any of the fields' API GET methods (dealFields, personFields, etc.). |
+| returnItemIds |  ``` Optional ```  | Whether to return the IDs of the matching items or not. When not set or set to 0 or false, only distinct values of the searched field are returned. When set to 1 or true, the ID of each found item is returned. |
 | start |  ``` Optional ```  | Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. |
 | limit |  ``` Optional ```  | Items shown per page |
 
@@ -2934,10 +2934,10 @@ function searchItemByField(input, callback)
 
     var input = [];
         input['term'] = 'term';
-        input['field_type'] = 'dealField';
-        input['exact_match'] = false;
-        input['field_key'] = 'title';
-        input['return_item_ids'] = true;
+        input['fieldType'] = 'dealField';
+        input['exactMatch'] = false;
+        input['fieldKey'] = 'title';
+        input['returnItemIds'] = true;
         input['start'] = 0;
         input['limit'] = 58;
     
@@ -4914,7 +4914,7 @@ function searchPersons(input, callback)
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| term |  ``` Required ```  | The search term to look for. Minimum 2 characters (or 1 if using exact_match). |
+| term |  ``` Required ```  | The search term to look for. Minimum 2 characters (or 1 if using exactMatch). |
 | fields |  ``` Optional ```  | A comma-separated string array. The fields to perform the search from. Defaults to all of them. |
 | exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. It is not case sensitive. |
 | organizationId |  ``` Optional ```  | Will filter Deals by the provided Organization ID. The upper limit of found Deals associated with the Organization is 2000. |
