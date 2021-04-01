@@ -37,8 +37,7 @@
   },
   "dependencies": {
     "moment": "^2.17.1",
-    "request": "^2.55.0",
-    "fs": "0.0.1-security"
+    "request": "^2.55.0"
   },
   "eslintConfig": {
     "extends": "airbnb",
