@@ -376,7 +376,7 @@ function getAllActivitiesAssignedToAParticularUser(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['userId'] = 58;
         input['filterId'] = 58;
         input['type'] = 'type';
@@ -425,7 +425,7 @@ function addAnActivity(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['subject'] = 'subject';
         input['type'] = 'type';
         input['done'] = Object.keys(NumberBoolean)[0];
@@ -539,7 +539,7 @@ function updateEditAnActivity(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['subject'] = 'subject';
         input['type'] = 'type';
@@ -682,7 +682,7 @@ function addNewActivityType(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['name'] = 'name';
         input['iconKey'] = Object.keys(IconKey)[0];
         input['color'] = 'color';
@@ -749,7 +749,7 @@ function updateEditActivityType(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['name'] = 'name';
         input['iconKey'] = Object.keys(IconKey)[0];
@@ -869,7 +869,7 @@ function getAllDealFields(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['start'] = 0;
         input['limit'] = 58;
 
@@ -902,7 +902,7 @@ function addANewDealField(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['contentType'] = 'Content-Type';
         input['body'] = {
         id : 21
@@ -998,7 +998,7 @@ function updateADealField(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['name'] = 'name';
         input['options'] = 'options';
@@ -1080,7 +1080,7 @@ function getAllDeals(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['userId'] = 58;
         input['filterId'] = 58;
         input['stageId'] = 58;
@@ -1119,7 +1119,7 @@ function addADeal(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['contentType'] = 'Content-Type';
         input['body'] = {
         id : 21
@@ -1161,7 +1161,7 @@ function searchDeals(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['term'] = 'term';
         input['fields'] = ['custom_fields'];
         input['exactMatch'] = true;
@@ -1203,7 +1203,7 @@ function findDealsByName(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['term'] = 'term';
         input['personId'] = 58;
         input['orgId'] = 58;
@@ -1239,7 +1239,7 @@ function getDealsSummary(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['status'] = Object.keys(status3)[0];
         input['filterId'] = 58;
         input['userId'] = 58;
@@ -1281,7 +1281,7 @@ function getDealsTimeline(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['startDate'] = '2019-11-22';
         input['interval'] = Object.keys(interval2)[0];
         input['amount'] = 58;
@@ -1391,7 +1391,7 @@ function updateADeal(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['title'] = 'title';
         input['value'] = 'value';
@@ -1437,7 +1437,7 @@ function listActivitiesAssociatedWithADeal(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['start'] = 58;
         input['limit'] = 58;
@@ -1506,7 +1506,7 @@ function listFilesAttachedToADeal(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['start'] = 58;
         input['limit'] = 58;
@@ -1543,7 +1543,7 @@ function listUpdatesAboutADeal(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['start'] = 58;
         input['limit'] = 58;
@@ -1607,7 +1607,7 @@ function addAFollowerToADeal(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['userId'] = 58;
 
@@ -1640,7 +1640,7 @@ function deleteAFollowerFromADeal(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['followerId'] = 58;
 
@@ -1674,7 +1674,7 @@ function listMailMessagesAssociatedWithADeal(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['start'] = 58;
         input['limit'] = 58;
@@ -1708,7 +1708,7 @@ function updateMergeTwoDeals(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['mergeWithId'] = 58;
 
@@ -1742,7 +1742,7 @@ function listParticipantsOfADeal(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['start'] = 58;
         input['limit'] = 58;
@@ -1776,7 +1776,7 @@ function addAParticipantToADeal(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['personId'] = 58;
 
@@ -1809,7 +1809,7 @@ function deleteAParticipantFromADeal(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['dealParticipantId'] = 58;
 
@@ -1873,7 +1873,7 @@ function listAllPersonsAssociatedWithADeal(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['start'] = 58;
         input['limit'] = 58;
@@ -1909,7 +1909,7 @@ function listProductsAttachedToADeal(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['start'] = 58;
         input['limit'] = 58;
@@ -1945,7 +1945,7 @@ function addAProductToTheDealEventuallyCreatingANewItemCalledADealProduct(input,
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['contentType'] = 'Content-Type';
         input['body'] = {
@@ -1988,7 +1988,7 @@ function updateProductAttachmentDetailsOfTheDealProductAProductAlreadyAttachedTo
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['productAttachmentId'] = 58;
         input['itemPrice'] = 58.5644835925496;
@@ -2028,7 +2028,7 @@ function deleteAnAttachedProductFromADeal(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['productAttachmentId'] = 58;
 
@@ -2075,7 +2075,7 @@ function getAllFiles(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['start'] = 0;
         input['limit'] = 58;
         input['includeDeletedFiles'] = Object.keys(NumberBoolean)[0];
@@ -2116,7 +2116,7 @@ function addFile(input, callback)
 ```javascript
 
     TestHelper.getFilePath('url', function(data) {
-        var input = [];
+        var input = {};
         input['file'] = data;
         input['dealId'] = 58;
         input['personId'] = 58;
@@ -2157,7 +2157,7 @@ function createARemoteFileAndLinkItToAnItem(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['fileType'] = Object.keys(file_type)[0];
         input['title'] = 'title';
         input['itemType'] = Object.keys(item_type)[0];
@@ -2195,7 +2195,7 @@ function createLinkARemoteFileToAnItem(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['itemType'] = Object.keys(item_type)[0];
         input['itemId'] = 58;
         input['remoteId'] = remote_id;
@@ -2291,7 +2291,7 @@ function updateFileDetails(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['name'] = 'name';
         input['description'] = 'description';
@@ -2428,7 +2428,7 @@ function addANewFilter(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['name'] = 'name';
         input['conditions'] = 'conditions';
         input['type'] = Object.keys(FilterType)[0];
@@ -2545,7 +2545,7 @@ function updateFilter(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['conditions'] = 'conditions';
         input['name'] = 'name';
@@ -2663,7 +2663,7 @@ function addANewGoal(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['contentType'] = 'Content-Type';
         input['body'] = {
         id : 21
@@ -2709,7 +2709,7 @@ function findGoals(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['typeName'] = Object.keys(type.name)[0];
         input['title'] = 'title';
         input['isActive'] = True;
@@ -2758,7 +2758,7 @@ function updateExistingGoal(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 'id';
         input['title'] = 'title';
         input['assignee'] = {
@@ -2835,7 +2835,7 @@ function getResultOfAGoal(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 'id';
         input['periodStart'] = '2019-11-22';
         input['periodEnd'] = '2019-11-22';
@@ -2887,7 +2887,7 @@ function searchItem(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['term'] = 'term';
         input['itemTypes'] = ['deal', 'person', 'organization'];
         input['fields'] = ['address', 'code', 'email'];
@@ -2932,7 +2932,7 @@ function searchItemByField(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['term'] = 'term';
         input['fieldType'] = 'dealField';
         input['exactMatch'] = false;
@@ -2982,7 +2982,7 @@ function getOneMailMessage(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['includeBody'] = Object.keys(NumberBoolean)[0];
 
@@ -3028,7 +3028,7 @@ function getMailThreads(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['folder'] = new FolderEnum(inbox);
         input['start'] = 0;
         input['limit'] = 58;
@@ -3125,7 +3125,7 @@ function updateMailThreadDetails(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['dealId'] = 58;
         input['sharedFlag'] = Object.keys(NumberBoolean)[0];
@@ -3247,7 +3247,7 @@ function getAllNotes(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['userId'] = 58;
         input['dealId'] = 58;
         input['personId'] = 58;
@@ -3297,7 +3297,7 @@ function addANote(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['content'] = 'content';
         input['userId'] = 58;
         input['dealId'] = 58;
@@ -3405,7 +3405,7 @@ function updateANote(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['content'] = 'content';
         input['userId'] = 58;
@@ -3510,7 +3510,7 @@ function addANewOrganizationField(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['contentType'] = 'Content-Type';
         input['body'] = {
         id : 21
@@ -3606,7 +3606,7 @@ function updateAnOrganizationField(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['name'] = 'name';
         input['options'] = 'options';
@@ -3682,7 +3682,7 @@ function createAnOrganizationRelationship(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['contentType'] = 'Content-Type';
         input['body'] = {
         id : 21
@@ -3747,7 +3747,7 @@ function getOneOrganizationRelationship(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['orgId'] = 58;
 
@@ -3783,7 +3783,7 @@ function updateAnOrganizationRelationship(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['orgId'] = 58;
         input['type'] = Object.keys(Type)[0];
@@ -3865,7 +3865,7 @@ function getAllOrganizations(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['userId'] = 58;
         input['filterId'] = 58;
         input['firstChar'] = first_char;
@@ -3902,7 +3902,7 @@ function addAnOrganization(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['contentType'] = 'Content-Type';
         input['body'] = {
         id : 21
@@ -3940,7 +3940,7 @@ function searchOrganization(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['term'] = 'term';
         input['fields'] = ['address', 'custom_fields', 'notes', 'name'];
         input['exactMatch'] = true;
@@ -3977,7 +3977,7 @@ function findOrganizationsByName(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['term'] = 'term';
         input['start'] = 58;
         input['limit'] = 58;
@@ -4073,7 +4073,7 @@ function updateAnOrganization(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['name'] = 'name';
         input['ownerId'] = 58;
@@ -4111,7 +4111,7 @@ function listActivitiesAssociatedWithAnOrganization(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['start'] = 58;
         input['limit'] = 58;
@@ -4151,7 +4151,7 @@ function listDealsAssociatedWithAnOrganization(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 58;
         input['start'] = 58;
         input['limit'] = 58;
@@ -4191,7 +4191,7 @@ function listFilesAttachedToAnOrganization(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['start'] = 16;
         input['limit'] = 16;
@@ -4228,7 +4228,7 @@ function listUpdatesAboutAnOrganization(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['start'] = 16;
         input['limit'] = 16;
@@ -4292,7 +4292,7 @@ function addAFollowerToAnOrganization(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['userId'] = 16;
 
@@ -4325,7 +4325,7 @@ function deleteAFollowerFromAnOrganization(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['followerId'] = 16;
 
@@ -4359,7 +4359,7 @@ function listMailMessagesAssociatedWithAnOrganization(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['start'] = 16;
         input['limit'] = 16;
@@ -4393,7 +4393,7 @@ function updateMergeTwoOrganizations(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['mergeWithId'] = 16;
 
@@ -4457,7 +4457,7 @@ function listPersonsOfAnOrganization(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['start'] = 16;
         input['limit'] = 16;
@@ -4570,7 +4570,7 @@ function listPermissionSetAssignments(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['start'] = 16;
         input['limit'] = 16;
@@ -4675,7 +4675,7 @@ function addANewPersonField(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['contentType'] = 'Content-Type';
         input['body'] = {
         id : 21
@@ -4771,7 +4771,7 @@ function updateAPersonField(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['name'] = 'name';
         input['options'] = 'options';
@@ -4851,7 +4851,7 @@ function getAllPersons(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['userId'] = 16;
         input['filterId'] = 16;
         input['firstChar'] = first_char;
@@ -4888,7 +4888,7 @@ function addAPerson(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['contentType'] = 'Content-Type';
         input['body'] = {
         id : 21
@@ -4928,7 +4928,7 @@ function searchPersons(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['term'] = 'term';
         input['fields'] = ['custom_fields', 'email', 'notes', 'phone', 'name'];
         input['exactMatch'] = true;
@@ -4969,7 +4969,7 @@ function findPersonsByName(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['term'] = 'term';
         input['orgId'] = 16;
         input['start'] = 16;
@@ -5070,7 +5070,7 @@ function updateAPerson(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['name'] = 'name';
         input['ownerId'] = 16;
@@ -5111,7 +5111,7 @@ function listActivitiesAssociatedWithAPerson(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['start'] = 16;
         input['limit'] = 16;
@@ -5150,7 +5150,7 @@ function listDealsAssociatedWithAPerson(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['start'] = 16;
         input['limit'] = 16;
@@ -5189,7 +5189,7 @@ function listFilesAttachedToAPerson(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['start'] = 16;
         input['limit'] = 16;
@@ -5226,7 +5226,7 @@ function listUpdatesAboutAPerson(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['start'] = 16;
         input['limit'] = 16;
@@ -5290,7 +5290,7 @@ function addAFollowerToAPerson(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['userId'] = 16;
 
@@ -5323,7 +5323,7 @@ function deletesAFollowerFromAPerson(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['followerId'] = 16;
 
@@ -5357,7 +5357,7 @@ function listMailMessagesAssociatedWithAPerson(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['start'] = 16;
         input['limit'] = 16;
@@ -5391,7 +5391,7 @@ function updateMergeTwoPersons(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['mergeWithId'] = 16;
 
@@ -5489,7 +5489,7 @@ function addPersonPicture(input, callback)
 ```javascript
 
     TestHelper.getFilePath('url', function(data) {
-        var input = [];
+        var input = {};
         input['id'] = 16;
         input['file'] = data;
         input['cropX'] = 16;
@@ -5527,7 +5527,7 @@ function listProductsAssociatedWithAPerson(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['start'] = 16;
         input['limit'] = 16;
@@ -5597,7 +5597,7 @@ function addANewPipeline(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['name'] = 'name';
         input['dealProbability'] = Object.keys(NumberBoolean)[0];
         input['orderNr'] = 16;
@@ -5662,7 +5662,7 @@ function getOnePipeline(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['totalsConvertCurrency'] = totals_convert_currency;
 
@@ -5698,7 +5698,7 @@ function updateEditAPipeline(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['name'] = 'name';
         input['dealProbability'] = Object.keys(NumberBoolean)[0];
@@ -5735,7 +5735,7 @@ function getDealsConversionRatesInPipeline(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['startDate'] = '2019-11-22';
         input['endDate'] = '2019-11-22';
@@ -5777,7 +5777,7 @@ function getDealsInAPipeline(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['filterId'] = 16;
         input['userId'] = 16;
@@ -5819,7 +5819,7 @@ function getDealsMovementsInPipeline(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['startDate'] = '2019-11-22';
         input['endDate'] = '2019-11-22';
@@ -5918,7 +5918,7 @@ function addANewProductField(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['contentType'] = 'Content-Type';
         input['body'] = {
         id : 21
@@ -6028,7 +6028,7 @@ function updateAProductField(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['name'] = 'name';
         input['options'] = 'options';
@@ -6077,7 +6077,7 @@ function getAllProducts(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['userId'] = 16;
         input['filterId'] = 16;
         input['firstChar'] = first_char;
@@ -6113,7 +6113,7 @@ function addAProduct(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['contentType'] = 'Content-Type';
         input['body'] = {
         id : 21
@@ -6152,7 +6152,7 @@ function searchProducts(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['term'] = 'term';
         input['fields'] = ['code', 'custom_fields', 'name'];
         input['exactMatch'] = true;
@@ -6191,7 +6191,7 @@ function findProductsByName(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['term'] = 'term';
         input['currency'] = 'currency';
         input['start'] = 16;
@@ -6293,7 +6293,7 @@ function updateAProduct(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['name'] = 'name';
         input['code'] = 'code';
@@ -6335,7 +6335,7 @@ function getDealsWhereAProductIsAttachedTo(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['start'] = 16;
         input['limit'] = 16;
@@ -6373,7 +6373,7 @@ function listFilesAttachedToAProduct(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['start'] = 16;
         input['limit'] = 16;
@@ -6439,7 +6439,7 @@ function addAFollowerToAProduct(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['userId'] = 16;
 
@@ -6472,7 +6472,7 @@ function deleteAFollowerFromAProduct(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['followerId'] = 16;
 
@@ -6549,7 +6549,7 @@ function getRecents(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['sinceTimestamp'] = since_timestamp;
         input['items'] = Object.keys(items)[0];
         input['start'] = 16;
@@ -6596,7 +6596,7 @@ function getAllRoles(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['start'] = 16;
         input['limit'] = 16;
 
@@ -6629,7 +6629,7 @@ function addARole(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['contentType'] = 'Content-Type';
         input['body'] = {
         id : 21
@@ -6725,7 +6725,7 @@ function updateRoleDetails(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['parentRoleId'] = 16;
         input['name'] = 'name';
@@ -6759,7 +6759,7 @@ function deleteARoleAssignment(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['userId'] = 16;
 
@@ -6793,7 +6793,7 @@ function listRoleAssignments(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['start'] = 16;
         input['limit'] = 16;
@@ -6827,7 +6827,7 @@ function addRoleAssignment(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['userId'] = 16;
 
@@ -6861,7 +6861,7 @@ function listRoleSubRoles(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['start'] = 16;
         input['limit'] = 16;
@@ -6926,7 +6926,7 @@ function addOrUpdateRoleSetting(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['settingKey'] = Object.keys(setting_key)[0];
         input['value'] = Object.keys(NumberBoolean)[0];
@@ -6975,7 +6975,7 @@ function getPerformASearch(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['term'] = 'term';
         input['itemType'] = Object.keys(item_type2)[0];
         input['start'] = 16;
@@ -7017,7 +7017,7 @@ function getPerformASearchUsingASpecificFieldValue(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['term'] = 'term';
         input['fieldType'] = Object.keys(field_type6)[0];
         input['fieldKey'] = field_key;
@@ -7128,7 +7128,7 @@ function addANewStage(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['contentType'] = 'Content-Type';
         input['body'] = {
         id : 21
@@ -7224,7 +7224,7 @@ function updateStageDetails(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['contentType'] = 'Content-Type';
         input['body'] = {
@@ -7264,7 +7264,7 @@ function getDealsInAStage(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['filterId'] = 16;
         input['userId'] = 16;
@@ -7313,7 +7313,7 @@ function getAllTeams(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['orderBy'] = new OrderByEnum(id);
         input['skipUsers'] = Object.keys(NumberBoolean)[0];
 
@@ -7348,7 +7348,7 @@ function addANewTeam(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['name'] = 'name';
         input['managerId'] = 16;
         input['description'] = 'description';
@@ -7390,7 +7390,7 @@ function getASingleTeam(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['skipUsers'] = Object.keys(NumberBoolean)[0];
 
@@ -7431,7 +7431,7 @@ function updateATeam(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['contentType'] = 'Content-Type';
         input['body'] = {
@@ -7512,7 +7512,7 @@ function addUsersToATeam(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['users'] = [16];
 
@@ -7553,7 +7553,7 @@ function deleteUsersFromATeam(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['users'] = [16];
 
@@ -7595,7 +7595,7 @@ function getAllTeamsOfAUser(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['orderBy'] = Object.keys(order_by)[0];
         input['skipUsers'] = Object.keys(NumberBoolean)[0];
@@ -7739,7 +7739,7 @@ function addANewUser(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['name'] = 'name';
         input['email'] = 'email';
         input['activeFlag'] = false;
@@ -7780,7 +7780,7 @@ function findUsersByName(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['term'] = 'term';
         input['searchByEmail'] = Object.keys(NumberBoolean)[0];
 
@@ -7879,7 +7879,7 @@ function updateUserDetails(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['activeFlag'] = false;
 
@@ -7950,7 +7950,7 @@ function addBlacklistedEmailAddressForAUser(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['address'] = 'address';
 
@@ -8050,7 +8050,7 @@ function deleteARoleAssignment(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['roleId'] = 16;
 
@@ -8084,7 +8084,7 @@ function listRoleAssignments(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['start'] = 16;
         input['limit'] = 16;
@@ -8118,7 +8118,7 @@ function addRoleAssignment(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['id'] = 16;
         input['roleId'] = 16;
 
@@ -8226,7 +8226,7 @@ function createANewWebhook(input, callback)
 
 ```javascript
 
-    var input = [];
+    var input = {};
         input['subscriptionUrl'] = subscription_url;
         input['eventAction'] = Object.keys(event_action)[0];
         input['eventObject'] = Object.keys(event_object)[0];
