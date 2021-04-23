@@ -1,6 +1,6 @@
 {
   "name": "pipedrive",
-  "version": "10.5.0",
+  "version": "10.6.0",
   "description": "Pipedrive REST client for NodeJS",
   "keywords": [
     "pipedrive",
@@ -37,8 +37,7 @@
   },
   "dependencies": {
     "moment": "^2.17.1",
-    "request": "^2.55.0",
-    "fs": "0.0.1-security"
+    "request": "^2.88.2"
   },
   "eslintConfig": {
     "extends": "airbnb",
