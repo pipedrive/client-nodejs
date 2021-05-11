@@ -1,6 +1,6 @@
 {
   "name": "pipedrive",
-  "version": "11.0.0-rc.2",
+  "version": "11.0.0-rc.3",
   "description": "Pipedrive REST client for NodeJS",
   "license": "MIT",
   "main": "dist/index.js",
@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@babel/cli": "^7.0.0",
+    "@babel/runtime": "^7.14.0",
     "superagent": "^5.3.0"
   },
   "devDependencies": {
