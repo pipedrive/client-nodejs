@@ -42,15 +42,19 @@ export default class DealFieldsApi {
     /**
      * Add a new deal field
      * Adds a new deal field. For more information on adding a new custom field, see <a href=\"https://pipedrive.readme.io/docs/adding-a-new-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * @param {String} name Name of the field
      * @param {Object} opts Optional parameters
-     * @param {String} opts.name Name of the field
-     * @param {String} opts.options When field_type is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: [{\\\"id\\\":123,\\\"label\\\":\\\"Existing Item\\\"},{\\\"label\\\":\\\"New Item\\\"}]
+     * @param {String} opts.options When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: `[{\\\"id\\\":123,\\\"label\\\":\\\"Existing Item\\\"},{\\\"label\\\":\\\"New Item\\\"}]`
      * @param {module:model/FieldTypeAsString} opts.fieldType 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/FieldResponse} and HTTP response
      */
-    addDealFieldWithHttpInfo(opts) {
+    addDealFieldWithHttpInfo(name, opts) {
       opts = opts || {};
       let postBody = null;
+      // verify the required parameter 'name' is set
+      if (name === undefined || name === null) {
+        throw new Error("Missing the required parameter 'name' when calling addDealField");
+      }
 
       let pathParams = {
       };
@@ -59,7 +63,7 @@ export default class DealFieldsApi {
       let headerParams = {
       };
       let formParams = {
-        'name': opts['name'],
+        'name': name,
         'options': opts['options'],
         'field_type': opts['fieldType']
       };
@@ -78,14 +82,14 @@ export default class DealFieldsApi {
     /**
      * Add a new deal field
      * Adds a new deal field. For more information on adding a new custom field, see <a href=\"https://pipedrive.readme.io/docs/adding-a-new-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * @param {String} name Name of the field
      * @param {Object} opts Optional parameters
-     * @param {String} opts.name Name of the field
-     * @param {String} opts.options When field_type is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: [{\\\"id\\\":123,\\\"label\\\":\\\"Existing Item\\\"},{\\\"label\\\":\\\"New Item\\\"}]
+     * @param {String} opts.options When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: `[{\\\"id\\\":123,\\\"label\\\":\\\"Existing Item\\\"},{\\\"label\\\":\\\"New Item\\\"}]`
      * @param {module:model/FieldTypeAsString} opts.fieldType 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FieldResponse}
      */
-    addDealField(opts) {
-      return this.addDealFieldWithHttpInfo(opts)
+    addDealField(name, opts) {
+      return this.addDealFieldWithHttpInfo(name, opts)
         .then(function(response_and_data) {
           return response_and_data;
         });
@@ -283,7 +287,7 @@ export default class DealFieldsApi {
      * @param {Number} id ID of the field
      * @param {Object} opts Optional parameters
      * @param {String} opts.name Name of the field
-     * @param {String} opts.options When field_type is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: [{\\\"id\\\":123,\\\"label\\\":\\\"Existing Item\\\"},{\\\"label\\\":\\\"New Item\\\"}]
+     * @param {String} opts.options When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: `[{\\\"id\\\":123,\\\"label\\\":\\\"Existing Item\\\"},{\\\"label\\\":\\\"New Item\\\"}]`
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/FieldResponse} and HTTP response
      */
     updateDealFieldWithHttpInfo(id, opts) {
@@ -323,7 +327,7 @@ export default class DealFieldsApi {
      * @param {Number} id ID of the field
      * @param {Object} opts Optional parameters
      * @param {String} opts.name Name of the field
-     * @param {String} opts.options When field_type is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: [{\\\"id\\\":123,\\\"label\\\":\\\"Existing Item\\\"},{\\\"label\\\":\\\"New Item\\\"}]
+     * @param {String} opts.options When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: `[{\\\"id\\\":123,\\\"label\\\":\\\"Existing Item\\\"},{\\\"label\\\":\\\"New Item\\\"}]`
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FieldResponse}
      */
     updateDealField(id, opts) {

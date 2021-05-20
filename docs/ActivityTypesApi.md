@@ -38,7 +38,7 @@ let apiInstance = new Pipedrive.ActivityTypesApi();
 let name = "name_example"; // String | The name of the ActivityType
 let iconKey = new Pipedrive.IconKey(); // IconKey | 
 let opts = {
-  'color': "color_example" // String | A designated color for the ActivityType in 6-character HEX format (e.g. FFFFFF for white, 000000 for black)
+  'color': "color_example" // String | A designated color for the ActivityType in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
 };
 apiInstance.addActivityType(name, iconKey, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| The name of the ActivityType | 
  **iconKey** | [**IconKey**](IconKey.md)|  | 
- **color** | **String**| A designated color for the ActivityType in 6-character HEX format (e.g. FFFFFF for white, 000000 for black) | [optional] 
+ **color** | **String**| A designated color for the ActivityType in 6-character HEX format (e.g. &#x60;FFFFFF&#x60; for white, &#x60;000000&#x60; for black) | [optional] 
 
 ### Return type
 
@@ -253,7 +253,7 @@ let id = 56; // Number | The ID of the ActivityType
 let opts = {
   'name': "name_example", // String | The name of the ActivityType
   'iconKey': new Pipedrive.IconKey(), // IconKey | 
-  'color': "color_example", // String | A designated color for the ActivityType in 6-character HEX format (e.g. FFFFFF for white, 000000 for black)
+  'color': "color_example", // String | A designated color for the ActivityType in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
   'orderNr': 56 // Number | An order number for this ActivityType. Order numbers should be used to order the types in the ActivityType selections.
 };
 apiInstance.updateActivityType(id, opts).then((data) => {
@@ -272,7 +272,7 @@ Name | Type | Description  | Notes
  **id** | **Number**| The ID of the ActivityType | 
  **name** | **String**| The name of the ActivityType | [optional] 
  **iconKey** | [**IconKey**](IconKey.md)|  | [optional] 
- **color** | **String**| A designated color for the ActivityType in 6-character HEX format (e.g. FFFFFF for white, 000000 for black) | [optional] 
+ **color** | **String**| A designated color for the ActivityType in 6-character HEX format (e.g. &#x60;FFFFFF&#x60; for white, &#x60;000000&#x60; for black) | [optional] 
  **orderNr** | **Number**| An order number for this ActivityType. Order numbers should be used to order the types in the ActivityType selections. | [optional] 
 
 ### Return type

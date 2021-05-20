@@ -343,7 +343,7 @@ ActivityResponseObjectAllOf.prototype['done'] = undefined;
 ActivityResponseObjectAllOf.prototype['subject'] = undefined;
 
 /**
- * Type of the Activity. This is in correlation with the key_string parameter of ActivityTypes.
+ * Type of the Activity. This is in correlation with the `key_string` parameter of ActivityTypes.
  * @member {String} type
  */
 ActivityResponseObjectAllOf.prototype['type'] = undefined;
@@ -361,7 +361,7 @@ ActivityResponseObjectAllOf.prototype['user_id'] = undefined;
 ActivityResponseObjectAllOf.prototype['participants'] = undefined;
 
 /**
- * Marks if the Activity is set as 'Busy' or 'Free'. If the flag is set to true, your customers will not be able to book that time slot through any Scheduler links. The flag can also be unset. When the value of the flag is unset (null), the flag defaults to 'Busy' if it has a time set, and 'Free' if it is an all-day event without specified time.
+ * Marks if the Activity is set as 'Busy' or 'Free'. If the flag is set to `true`, your customers will not be able to book that time slot through any Scheduler links. The flag can also be unset. When the value of the flag is unset (`null`), the flag defaults to 'Busy' if it has a time set, and 'Free' if it is an all-day event without specified time.
  * @member {module:model/ActivityResponseObjectAllOf.BusyFlagEnum} busy_flag
  */
 ActivityResponseObjectAllOf.prototype['busy_flag'] = undefined;
@@ -379,13 +379,13 @@ ActivityResponseObjectAllOf.prototype['attendees'] = undefined;
 ActivityResponseObjectAllOf.prototype['company_id'] = undefined;
 
 /**
- * If the Activity references some other object, it is indicated here. For example, value \"salesphone\" refers to Activities created with Caller.
+ * If the Activity references some other object, it is indicated here. For example, value `Salesphone` refers to Activities created with Caller.
  * @member {String} reference_type
  */
 ActivityResponseObjectAllOf.prototype['reference_type'] = undefined;
 
 /**
- * Together with the reference_type, gives the ID of the other object
+ * Together with the `reference_type`, gives the ID of the other object
  * @member {Number} reference_id
  */
 ActivityResponseObjectAllOf.prototype['reference_id'] = undefined;
@@ -499,7 +499,7 @@ ActivityResponseObjectAllOf.prototype['source_timezone'] = undefined;
 ActivityResponseObjectAllOf.prototype['rec_rule'] = undefined;
 
 /**
- * Additional rules for the recurrence of the Activity, extend the rec_rule. Is important for activities synced into Pipedrive from an external calendar.
+ * Additional rules for the recurrence of the Activity, extend the `rec_rule`. Is important for activities synced into Pipedrive from an external calendar.
  * @member {String} rec_rule_extension
  */
 ActivityResponseObjectAllOf.prototype['rec_rule_extension'] = undefined;
@@ -511,7 +511,7 @@ ActivityResponseObjectAllOf.prototype['rec_rule_extension'] = undefined;
 ActivityResponseObjectAllOf.prototype['rec_master_activity_id'] = undefined;
 
 /**
- * The list of recurring Activity instances. It is in a structure as follows: [{due_date: \"2020-06-24\", due_time: \"10:00:00\"}]
+ * The list of recurring Activity instances. It is in a structure as follows: `[{due_date: \"2020-06-24\", due_time: \"10:00:00\"}]`
  * @member {Array.<Object>} series
  */
 ActivityResponseObjectAllOf.prototype['series'] = undefined;
@@ -631,7 +631,7 @@ ActivityResponseObjectAllOf.prototype['person_dropbox_bcc'] = undefined;
 ActivityResponseObjectAllOf.prototype['deal_dropbox_bcc'] = undefined;
 
 /**
- * The ID of the User to whom the Activity is assigned to. Equal to user_id.
+ * The ID of the User to whom the Activity is assigned to. Equal to `user_id`.
  * @member {Number} assigned_to_user_id
  */
 ActivityResponseObjectAllOf.prototype['assigned_to_user_id'] = undefined;

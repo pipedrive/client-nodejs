@@ -234,7 +234,7 @@ export default class FiltersApi {
 
     /**
      * Get all filter helpers
-     * Returns all supported filter helpers. It helps to know what conditions and helpers are available when you want to <a href=\"/docs/api/v1/#!/Filters/post_filters\">add</a> or <a href=\"/docs/api/v1/#!/Filters/put_filters_id\">update</a> filters. For more information on how filter’s helpers can be used, see <a href=\"https://pipedrive.readme.io/docs/adding-a-filter\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Returns all supported filter helpers. It helps to know what conditions and helpers are available when you want to <a href=\"/docs/api/v1/Filters#addFilter\">add</a> or <a href=\"/docs/api/v1/Filters#updateFilter\">update</a> filters. For more information on how filter’s helpers can be used, see <a href=\"https://pipedrive.readme.io/docs/adding-a-filter\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
      */
     getFilterHelpersWithHttpInfo() {
@@ -262,7 +262,7 @@ export default class FiltersApi {
 
     /**
      * Get all filter helpers
-     * Returns all supported filter helpers. It helps to know what conditions and helpers are available when you want to <a href=\"/docs/api/v1/#!/Filters/post_filters\">add</a> or <a href=\"/docs/api/v1/#!/Filters/put_filters_id\">update</a> filters. For more information on how filter’s helpers can be used, see <a href=\"https://pipedrive.readme.io/docs/adding-a-filter\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Returns all supported filter helpers. It helps to know what conditions and helpers are available when you want to <a href=\"/docs/api/v1/Filters#addFilter\">add</a> or <a href=\"/docs/api/v1/Filters#updateFilter\">update</a> filters. For more information on how filter’s helpers can be used, see <a href=\"https://pipedrive.readme.io/docs/adding-a-filter\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
      */
     getFilterHelpers() {

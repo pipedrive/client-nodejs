@@ -50,7 +50,7 @@ export default class RolesApi {
      * Add or update role setting
      * @param {Number} id ID of the role
      * @param {module:model/String} settingKey 
-     * @param {module:model/NumberBooleanDefault0} value Possible values for default_visibility settings: 0...1.
+     * @param {module:model/NumberBooleanDefault0} value Possible values for `default_visibility` settings: `0` or `1`
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostRoleSettings} and HTTP response
      */
     addOrUpdateRoleSettingWithHttpInfo(id, settingKey, value) {
@@ -95,7 +95,7 @@ export default class RolesApi {
      * Add or update role setting
      * @param {Number} id ID of the role
      * @param {module:model/String} settingKey 
-     * @param {module:model/NumberBooleanDefault0} value Possible values for default_visibility settings: 0...1.
+     * @param {module:model/NumberBooleanDefault0} value Possible values for `default_visibility` settings: `0` or `1`
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostRoleSettings}
      */
     addOrUpdateRoleSetting(id, settingKey, value) {

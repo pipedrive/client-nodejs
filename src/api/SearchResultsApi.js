@@ -37,7 +37,7 @@ export default class SearchResultsApi {
 
     /**
      * Perform a search
-     * <strong>This endpoint is deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/#!/ItemSearch/get_itemSearch\">/v1/itemSearch</a> instead</strong>. <br> Performs a search across the account and returns SearchResults.
+     * This endpoint is deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> instead. <br> Performs a search across the account and returns SearchResults.
      * @param {String} term Search term to look for, minimum 2 characters.
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.itemType Search for items of exact type. If omitted, all types of items are searched.
@@ -81,7 +81,7 @@ export default class SearchResultsApi {
 
     /**
      * Perform a search
-     * <strong>This endpoint is deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/#!/ItemSearch/get_itemSearch\">/v1/itemSearch</a> instead</strong>. <br> Performs a search across the account and returns SearchResults.
+     * This endpoint is deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> instead. <br> Performs a search across the account and returns SearchResults.
      * @param {String} term Search term to look for, minimum 2 characters.
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.itemType Search for items of exact type. If omitted, all types of items are searched.
@@ -100,7 +100,7 @@ export default class SearchResultsApi {
 
     /**
      * Perform a search using a specific field value
-     * <strong>This endpoint is deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/#!/ItemSearch/get_itemSearch_field\">/v1/itemSearch/field</a> instead</strong>. <br>  Performs a search from a specific field's values. Results can be either the distinct values of the field (useful for searching autocomplete field values), or actual items IDs (deals, persons, organizations or products).
+     * This endpoint is deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItemByField\">/v1/itemSearch/field</a> instead. <br>  Performs a search from a specific field's values. Results can be either the distinct values of the field (useful for searching autocomplete field values), or actual items IDs (deals, persons, organizations or products).
      * @param {String} term Search term to look for, minimum 2 characters.
      * @param {module:model/String} fieldType Type of the field to perform the search from.
      * @param {String} fieldKey Key of the field to search from. Field key can be obtained by fetching the list of fields using any of fields API GET methods (dealFields, personFields, ..).
@@ -158,7 +158,7 @@ export default class SearchResultsApi {
 
     /**
      * Perform a search using a specific field value
-     * <strong>This endpoint is deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/#!/ItemSearch/get_itemSearch_field\">/v1/itemSearch/field</a> instead</strong>. <br>  Performs a search from a specific field's values. Results can be either the distinct values of the field (useful for searching autocomplete field values), or actual items IDs (deals, persons, organizations or products).
+     * This endpoint is deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItemByField\">/v1/itemSearch/field</a> instead. <br>  Performs a search from a specific field's values. Results can be either the distinct values of the field (useful for searching autocomplete field values), or actual items IDs (deals, persons, organizations or products).
      * @param {String} term Search term to look for, minimum 2 characters.
      * @param {module:model/String} fieldType Type of the field to perform the search from.
      * @param {String} fieldKey Key of the field to search from. Field key can be obtained by fetching the list of fields using any of fields API GET methods (dealFields, personFields, ..).

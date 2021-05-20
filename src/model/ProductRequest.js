@@ -70,12 +70,12 @@ class ProductRequest {
                 delete data['tax'];
             }
             if (data.hasOwnProperty('active_flag')) {
-                obj['active_flag'] = ApiClient.convertToType(data['active_flag'], NumberBooleanDefault1);
+                obj['active_flag'] = NumberBooleanDefault1.constructFromObject(data['active_flag']);
 
                 delete data['active_flag'];
             }
             if (data.hasOwnProperty('selectable')) {
-                obj['selectable'] = ApiClient.convertToType(data['selectable'], NumberBooleanDefault1);
+                obj['selectable'] = NumberBooleanDefault1.constructFromObject(data['selectable']);
 
                 delete data['selectable'];
             }
@@ -132,19 +132,17 @@ ProductRequest.prototype['unit'] = undefined;
 ProductRequest.prototype['tax'] = 0;
 
 /**
- * Whether this product will be made active or not.
  * @member {module:model/NumberBooleanDefault1} active_flag
  */
 ProductRequest.prototype['active_flag'] = undefined;
 
 /**
- * Whether this product can be selected in Deals or not.
  * @member {module:model/NumberBooleanDefault1} selectable
  */
 ProductRequest.prototype['selectable'] = undefined;
 
 /**
- * Visibility of the product. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<dl class=\"fields-list\"><dt>1</dt><dd>Owner &amp; followers (private)</dd><dt>3</dt><dd>Entire company (shared)</dd></dl>
+ * Visibility of the product. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
  * @member {module:model/VisibleTo} visible_to
  */
 ProductRequest.prototype['visible_to'] = undefined;
@@ -156,7 +154,7 @@ ProductRequest.prototype['visible_to'] = undefined;
 ProductRequest.prototype['owner_id'] = undefined;
 
 /**
- * Array of objects, each containing: currency (string), price (number), cost (number, optional), overhead_cost (number, optional). Note that there can only be one price per product per currency. When 'prices' is omitted altogether, no prices will be set up for the product
+ * Array of objects, each containing: `currency` (string), `price` (number), `cost` (number, optional), `overhead_cost` (number, optional). Note that there can only be one price per product per currency. When `prices` is omitted altogether, no prices will be set up for the product
  * @member {Array.<Object>} prices
  */
 ProductRequest.prototype['prices'] = undefined;

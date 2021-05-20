@@ -273,7 +273,7 @@ MailMessageData.prototype['subject'] = undefined;
 MailMessageData.prototype['snippet'] = undefined;
 
 /**
- * The status of tracking mail message. Value is null if tracking is not enabled.
+ * The status of tracking mail message. Value is `null` if tracking is not enabled.
  * @member {module:model/MailMessageData.MailTrackingStatusEnum} mail_tracking_status
  */
 MailMessageData.prototype['mail_tracking_status'] = undefined;
@@ -291,7 +291,7 @@ MailMessageData.prototype['mail_link_tracking_enabled_flag'] = undefined;
 MailMessageData.prototype['read_flag'] = undefined;
 
 /**
- * If the mail message has a draft status then the value is the mail message object as JSON formatted string, otherwise null.
+ * If the mail message has a draft status then the value is the mail message object as JSON formatted string, otherwise `null`.
  * @member {String} draft
  */
 MailMessageData.prototype['draft'] = undefined;

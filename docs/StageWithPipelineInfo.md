@@ -11,11 +11,11 @@ Name | Type | Description | Notes
 **dealProbability** | **Number** | The Deal success probability percentage. Used/shown when the Deal weighted values are used. | [optional] 
 **pipelineId** | **Number** | The ID of the Pipeline to add the Stage to | [optional] 
 **rottenFlag** | **Number** | Whether Deals in this Stage can become rotten | [optional] 
-**rottenDays** | **Number** | The number of days the Deals are not updated in this Stage would become rotten. Applies only if the rotten_flag is set. | [optional] 
+**rottenDays** | **Number** | The number of days the Deals are not updated in this Stage would become rotten. Applies only if the &#x60;rotten_flag&#x60; is set. | [optional] 
 **addTime** | **String** | The Stage creation time. Format: YYYY-MM-DD HH:MM:SS. | [optional] 
 **updateTime** | **String** | The Stage update time. Format: YYYY-MM-DD HH:MM:SS. | [optional] 
 **pipelineName** | **String** | The name of the Pipeline | [optional] 
-**pipelineDealProbability** | **Boolean** | Pipeline Deal probability. When true, overrides the Stage probability. | [optional] 
+**pipelineDealProbability** | **Boolean** | Pipeline Deal probability. When &#x60;true&#x60;, overrides the Stage probability. | [optional] 
 
 
 

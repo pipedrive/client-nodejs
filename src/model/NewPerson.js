@@ -134,7 +134,7 @@ NewPerson.prototype['email'] = undefined;
 NewPerson.prototype['phone'] = undefined;
 
 /**
- * Visibility of the person. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<dl class=\"fields-list\"><dt>1</dt><dd>Owner &amp; followers (private)</dd><dt>3</dt><dd>Entire company (shared)</dd></dl>
+ * Visibility of the person. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
  * @member {module:model/VisibleTo} visible_to
  */
 NewPerson.prototype['visible_to'] = undefined;
@@ -173,7 +173,7 @@ BasicPerson.prototype['email'] = undefined;
  */
 BasicPerson.prototype['phone'] = undefined;
 /**
- * Visibility of the person. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<dl class=\"fields-list\"><dt>1</dt><dd>Owner &amp; followers (private)</dd><dt>3</dt><dd>Entire company (shared)</dd></dl>
+ * Visibility of the person. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
  * @member {module:model/VisibleTo} visible_to
  */
 BasicPerson.prototype['visible_to'] = undefined;

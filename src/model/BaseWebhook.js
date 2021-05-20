@@ -217,13 +217,13 @@ BaseWebhook.prototype['remove_time'] = undefined;
 BaseWebhook.prototype['type'] = undefined;
 
 /**
- * The username of the subscription_url of the Webhook
+ * The username of the `subscription_url` of the Webhook
  * @member {String} http_auth_user
  */
 BaseWebhook.prototype['http_auth_user'] = undefined;
 
 /**
- * The password of the subscription_url of the Webhook
+ * The password of the `subscription_url` of the Webhook
  * @member {String} http_auth_password
  */
 BaseWebhook.prototype['http_auth_password'] = undefined;

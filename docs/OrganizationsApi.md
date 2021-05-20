@@ -32,7 +32,7 @@ Method | HTTP request | Description
 
 Add an organization
 
-Adds a new organization. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the organizationFields and look for &#39;key&#39; values. For more information on how to add an organization, see &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-an-organization\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this tutorial&lt;/a&gt;.
+Adds a new organization. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the organizationFields and look for &#x60;key&#x60; values. For more information on how to add an organization, see &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-an-organization\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this tutorial&lt;/a&gt;.
 
 ### Example
 
@@ -52,7 +52,7 @@ let apiInstance = new Pipedrive.OrganizationsApi();
 let opts = {
   'name': "name_example", // String | Organization name
   'ownerId': 56, // Number | The ID of the user who will be marked as the owner of this Organization. When omitted, the authorized User ID will be used.
-  'visibleTo': new Pipedrive.VisibleTo(), // VisibleTo | Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<dl class=\\\\\\\"fields-list\\\\\\\"><dt>1</dt><dd>Owner &amp; followers (private)</dd><dt>3</dt><dd>Entire company (shared)</dd></dl>
+  'visibleTo': new Pipedrive.VisibleTo(), // VisibleTo | Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
   'addTime': "addTime_example" // String | Optional creation date & time of the organization in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
 };
 apiInstance.addOrganization(opts).then((data) => {
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Organization name | [optional] 
  **ownerId** | **Number**| The ID of the user who will be marked as the owner of this Organization. When omitted, the authorized User ID will be used. | [optional] 
- **visibleTo** | [**VisibleTo**](VisibleTo.md)| Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.&lt;dl class&#x3D;\\\\\\\&quot;fields-list\\\\\\\&quot;&gt;&lt;dt&gt;1&lt;/dt&gt;&lt;dd&gt;Owner &amp;amp; followers (private)&lt;/dd&gt;&lt;dt&gt;3&lt;/dt&gt;&lt;dd&gt;Entire company (shared)&lt;/dd&gt;&lt;/dl&gt; | [optional] 
+ **visibleTo** | [**VisibleTo**](VisibleTo.md)| Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.&lt;table&gt;&lt;tr&gt;&lt;th&gt;Value&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;1&#x60;&lt;/td&gt;&lt;td&gt;Owner &amp;amp; followers (private)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;3&#x60;&lt;/td&gt;&lt;td&gt;Entire company (shared)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; | [optional] 
  **addTime** | **String**| Optional creation date &amp; time of the organization in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS | [optional] 
 
 ### Return type
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 
 Delete a follower from an organization
 
-Deletes a follower from an organization. You can retrieve the follower_id from the &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/#!/Organizations/get_organizations_id_followers\&quot;&gt;List followers of an organization&lt;/a&gt; endpoint.
+Deletes a follower from an organization. You can retrieve the &#x60;follower_id&#x60; from the &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/Organizations#getOrganizationFollowers\&quot;&gt;List followers of an organization&lt;/a&gt; endpoint.
 
 ### Example
 
@@ -306,7 +306,7 @@ Name | Type | Description  | Notes
 
 Get details of an organization
 
-Returns details of an organization. Note that this also returns some additional fields which are not present when asking for all organizations. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the &#39;key&#39; value of organizationFields.
+Returns details of an organization. Note that this also returns some additional fields which are not present when asking for all organizations. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the &#x60;key&#x60; value of organizationFields.
 
 ### Example
 
@@ -422,7 +422,7 @@ Name | Type | Description  | Notes
 
 Find organizations by name
 
-&lt;strong&gt;This endpoint is deprecated. Please use &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/#!/Organizations/get_organizations_search\&quot;&gt;/v1/organizations/search&lt;/a&gt; or &lt;&lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/#!/ItemSearch/get_itemSearch\&quot;&gt;/v1/itemSearch&lt;/a&gt; instead&lt;/strong&gt;. &lt;br&gt; Searches all organizations by their name.
+This endpoint is deprecated. Please use &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/Organizations#searchOrganization\&quot;&gt;/v1/organizations/search&lt;/a&gt; or &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\&quot;&gt;/v1/itemSearch&lt;/a&gt; instead. &lt;br&gt; Searches all organizations by their name.
 
 ### Example
 
@@ -503,7 +503,7 @@ let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
   'status': "'all_not_deleted'", // String | Only fetch deals with specific status. If omitted, all not deleted deals are fetched.
-  'sort': "sort_example", // String | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys).
+  'sort': "sort_example", // String | Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
   'onlyPrimaryAssociation': new Pipedrive.NumberBoolean() // NumberBoolean | If set, only deals that are directly associated to the organization are fetched. If not set (default), all deals are fetched that are either directly or indirectly related to the organization. Indirect relations include relations through custom, organization-type fields and through persons of the given organization.
 };
 apiInstance.getOrganizationDeals(id, opts).then((data) => {
@@ -523,7 +523,7 @@ Name | Type | Description  | Notes
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
  **status** | **String**| Only fetch deals with specific status. If omitted, all not deleted deals are fetched. | [optional] [default to &#39;all_not_deleted&#39;]
- **sort** | **String**| Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). | [optional] 
+ **sort** | **String**| Field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). | [optional] 
  **onlyPrimaryAssociation** | [**NumberBoolean**](.md)| If set, only deals that are directly associated to the organization are fetched. If not set (default), all deals are fetched that are either directly or indirectly related to the organization. Indirect relations include relations through custom, organization-type fields and through persons of the given organization. | [optional] 
 
 ### Return type
@@ -916,7 +916,7 @@ let opts = {
   'firstChar': "firstChar_example", // String | If supplied, only organizations whose name starts with the specified letter will be returned (case insensitive).
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
-  'sort': "sort_example" // String | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys).
+  'sort': "sort_example" // String | Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
 };
 apiInstance.getOrganizations(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -936,7 +936,7 @@ Name | Type | Description  | Notes
  **firstChar** | **String**| If supplied, only organizations whose name starts with the specified letter will be returned (case insensitive). | [optional] 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
- **sort** | **String**| Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). | [optional] 
+ **sort** | **String**| Field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). | [optional] 
 
 ### Return type
 
@@ -1013,7 +1013,7 @@ Name | Type | Description  | Notes
 
 Search organizations
 
-Searches all Organizations by name, address, notes and/or custom fields. This endpoint is a wrapper of &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/#!/ItemSearch/get_itemSearch\&quot;&gt;/v1/itemSearch&lt;/a&gt; with a narrower OAuth scope.
+Searches all Organizations by name, address, notes and/or custom fields. This endpoint is a wrapper of &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\&quot;&gt;/v1/itemSearch&lt;/a&gt; with a narrower OAuth scope.
 
 ### Example
 
@@ -1030,11 +1030,11 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.OrganizationsApi();
-let term = "term_example"; // String | The search term to look for. Minimum 2 characters (or 1 if using exact_match).
+let term = "term_example"; // String | The search term to look for. Minimum 2 characters (or 1 if using `exact_match`).
 let opts = {
   'fields': "fields_example", // String | A comma-separated string array. The fields to perform the search from. Defaults to all of them.
   'exactMatch': true, // Boolean | When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
-  'start': 0, // Number | Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter.
+  'start': 0, // Number | Pagination start. Note that the pagination is based on main results and does not include related items when using `search_for_related_items` parameter.
   'limit': 56 // Number | Items shown per page
 };
 apiInstance.searchOrganization(term, opts).then((data) => {
@@ -1050,10 +1050,10 @@ apiInstance.searchOrganization(term, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **term** | **String**| The search term to look for. Minimum 2 characters (or 1 if using exact_match). | 
+ **term** | **String**| The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). | 
  **fields** | **String**| A comma-separated string array. The fields to perform the search from. Defaults to all of them. | [optional] 
  **exactMatch** | **Boolean**| When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. | [optional] 
- **start** | **Number**| Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. | [optional] [default to 0]
+ **start** | **Number**| Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter. | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
 
 ### Return type
@@ -1097,7 +1097,7 @@ let id = 56; // Number | The ID of the Organization
 let opts = {
   'name': "name_example", // String | Organization name
   'ownerId': 56, // Number | The ID of the user who will be marked as the owner of this Organization. When omitted, the authorized User ID will be used.
-  'visibleTo': new Pipedrive.VisibleTo() // VisibleTo | Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<dl class=\\\\\\\"fields-list\\\\\\\"><dt>1</dt><dd>Owner &amp; followers (private)</dd><dt>3</dt><dd>Entire company (shared)</dd></dl>
+  'visibleTo': new Pipedrive.VisibleTo() // VisibleTo | Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
 };
 apiInstance.updateOrganization(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -1115,7 +1115,7 @@ Name | Type | Description  | Notes
  **id** | **Number**| The ID of the Organization | 
  **name** | **String**| Organization name | [optional] 
  **ownerId** | **Number**| The ID of the user who will be marked as the owner of this Organization. When omitted, the authorized User ID will be used. | [optional] 
- **visibleTo** | [**VisibleTo**](VisibleTo.md)| Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.&lt;dl class&#x3D;\\\\\\\&quot;fields-list\\\\\\\&quot;&gt;&lt;dt&gt;1&lt;/dt&gt;&lt;dd&gt;Owner &amp;amp; followers (private)&lt;/dd&gt;&lt;dt&gt;3&lt;/dt&gt;&lt;dd&gt;Entire company (shared)&lt;/dd&gt;&lt;/dl&gt; | [optional] 
+ **visibleTo** | [**VisibleTo**](VisibleTo.md)| Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.&lt;table&gt;&lt;tr&gt;&lt;th&gt;Value&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;1&#x60;&lt;/td&gt;&lt;td&gt;Owner &amp;amp; followers (private)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;3&#x60;&lt;/td&gt;&lt;td&gt;Entire company (shared)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; | [optional] 
 
 ### Return type
 

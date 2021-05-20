@@ -76,6 +76,11 @@ class BaseNote {
 
                 delete data['deal'];
             }
+            if (data.hasOwnProperty('lead_id')) {
+                obj['lead_id'] = ApiClient.convertToType(data['lead_id'], 'String');
+
+                delete data['lead_id'];
+            }
             if (data.hasOwnProperty('deal_id')) {
                 obj['deal_id'] = ApiClient.convertToType(data['deal_id'], 'Number');
 
@@ -176,6 +181,12 @@ BaseNote.prototype['content'] = undefined;
  * @member {module:model/BaseNoteDealTitle} deal
  */
 BaseNote.prototype['deal'] = undefined;
+
+/**
+ * The ID of the Lead the Note is attached to
+ * @member {String} lead_id
+ */
+BaseNote.prototype['lead_id'] = undefined;
 
 /**
  * The ID of the Deal the Note is attached to

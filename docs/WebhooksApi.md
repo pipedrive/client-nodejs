@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 Create a new webhook
 
-Creates a new webhook and returns its details. Note that specifying an event which triggers the webhook combines 2 parameters - &#39;event_action&#39; and &#39;event_object&#39;. E.g., use &#39;\\*.\\*&#39; for getting notifications about all events, &#39;added.deal&#39; for any newly added deals, &#39;deleted.persons&#39; for any deleted persons, etc. See &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/guide-for-webhooks?ref&#x3D;api_reference\&quot;&gt;https://pipedrive.readme.io/docs/guide-for-webhooks&lt;/a&gt; for more details.
+Creates a new webhook and returns its details. Note that specifying an event which triggers the webhook combines 2 parameters - &#x60;event_action&#x60; and &#x60;event_object&#x60;. E.g., use &#x60;*.*&#x60; for getting notifications about all events, &#x60;added.deal&#x60; for any newly added deals, &#x60;deleted.persons&#x60; for any deleted persons, etc. See &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/guide-for-webhooks?ref&#x3D;api_reference\&quot;&gt;https://pipedrive.readme.io/docs/guide-for-webhooks&lt;/a&gt; for more details.
 
 ### Example
 
@@ -33,7 +33,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.WebhooksApi();
-let subscriptionUrl = "subscriptionUrl_example"; // String | A full, valid, publicly accessible URL. Determines where to send the notifications. Please note that you cannot use Pipedrive API endpoints as the subscription_url.
+let subscriptionUrl = "subscriptionUrl_example"; // String | A full, valid, publicly accessible URL. Determines where to send the notifications. Please note that you cannot use Pipedrive API endpoints as the `subscription_url`.
 let eventAction = "eventAction_example"; // String | Type of action to receive notifications about. Wildcard will match all supported actions.
 let eventObject = "eventObject_example"; // String | Type of object to receive notifications about. Wildcard will match all supported objects.
 let opts = {
@@ -54,7 +54,7 @@ apiInstance.addWebhook(subscriptionUrl, eventAction, eventObject, opts).then((da
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subscriptionUrl** | **String**| A full, valid, publicly accessible URL. Determines where to send the notifications. Please note that you cannot use Pipedrive API endpoints as the subscription_url. | 
+ **subscriptionUrl** | **String**| A full, valid, publicly accessible URL. Determines where to send the notifications. Please note that you cannot use Pipedrive API endpoints as the &#x60;subscription_url&#x60;. | 
  **eventAction** | **String**| Type of action to receive notifications about. Wildcard will match all supported actions. | 
  **eventObject** | **String**| Type of object to receive notifications about. Wildcard will match all supported objects. | 
  **userId** | **Number**| The ID of the user this webhook will be authorized with. If not set, current authorized user will be used. Note that this does not filter only certain user&#39;s events — rather, this specifies the user&#39;s permissions under which each event is checked. Events about objects the selected user is not entitled to access are not sent. If you want to receive notifications for all events, a top-level admin user should be used. | [optional] 

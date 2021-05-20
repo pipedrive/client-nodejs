@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **title** | **String** | The name of the Lead | 
 **ownerId** | **Number** | The ID of the User which will be the owner of the created Lead. If not provided, the user making the request will be used. | [optional] 
-**note** | **String** | The Lead note. Can contain some allowed HTML tags. | [optional] 
+**note** | **String** | The Lead note. Can contain some allowed HTML tags. (DEPRECATED - please create a &#x60;Note&#x60; object and link it to this lead via &#x60;lead_id&#x60;)  | [optional] 
 **labelIds** | **[String]** | The IDs of the Lead Labels which will be associated with the Lead | [optional] 
 **personId** | **Number** | The ID of a Person which this Lead will be linked to. If the Person does not exist yet, it needs to be created first. This property is required unless &#x60;organization_id&#x60; is specified. | [optional] 
 **organizationId** | **Number** | The ID of an Organization which this Lead will be linked to. If the Organization does not exist yet, it needs to be created first. This property is required unless &#x60;person_id&#x60; is specified. | [optional] 

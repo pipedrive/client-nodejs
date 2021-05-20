@@ -42,7 +42,7 @@ let opts = {
   'pipelineId': 56, // Number | The ID of the Pipeline to add Stage to.
   'dealProbability': 56, // Number | Deal success probability percentage. Used/shown when Deal weighted values are used
   'rottenFlag': 56, // Number | Whether Deals in this stage can become rotten
-  'rottenDays': 56 // Number | The number of days the Deals not updated in this Stage would become rotten. Applies only if the rotten_flag is set.
+  'rottenDays': 56 // Number | The number of days the Deals not updated in this Stage would become rotten. Applies only if the `rotten_flag` is set.
 };
 apiInstance.addStage(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
  **pipelineId** | **Number**| The ID of the Pipeline to add Stage to. | [optional] 
  **dealProbability** | **Number**| Deal success probability percentage. Used/shown when Deal weighted values are used | [optional] 
  **rottenFlag** | **Number**| Whether Deals in this stage can become rotten | [optional] 
- **rottenDays** | **Number**| The number of days the Deals not updated in this Stage would become rotten. Applies only if the rotten_flag is set. | [optional] 
+ **rottenDays** | **Number**| The number of days the Deals not updated in this Stage would become rotten. Applies only if the &#x60;rotten_flag&#x60; is set. | [optional] 
 
 ### Return type
 
@@ -262,8 +262,8 @@ let apiInstance = new Pipedrive.StagesApi();
 let id = 56; // Number | ID of the stage
 let opts = {
   'filterId': 56, // Number | If supplied, only deals matching the given filter will be returned.
-  'userId': 56, // Number | If supplied, filter_id will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned.
-  'everyone': new Pipedrive.NumberBoolean(), // NumberBoolean | If supplied, filter_id and user_id will not be considered – instead, deals owned by everyone will be returned.
+  'userId': 56, // Number | If supplied, `filter_id` will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned.
+  'everyone': new Pipedrive.NumberBoolean(), // NumberBoolean | If supplied, `filter_id` and `user_id` will not be considered – instead, deals owned by everyone will be returned.
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
 };
@@ -282,8 +282,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| ID of the stage | 
  **filterId** | **Number**| If supplied, only deals matching the given filter will be returned. | [optional] 
- **userId** | **Number**| If supplied, filter_id will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned. | [optional] 
- **everyone** | [**NumberBoolean**](.md)| If supplied, filter_id and user_id will not be considered – instead, deals owned by everyone will be returned. | [optional] 
+ **userId** | **Number**| If supplied, &#x60;filter_id&#x60; will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned. | [optional] 
+ **everyone** | [**NumberBoolean**](.md)| If supplied, &#x60;filter_id&#x60; and &#x60;user_id&#x60; will not be considered – instead, deals owned by everyone will be returned. | [optional] 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
 
@@ -385,7 +385,7 @@ let opts = {
   'pipelineId': 56, // Number | The ID of the Pipeline to add Stage to.
   'dealProbability': 56, // Number | Deal success probability percentage. Used/shown when Deal weighted values are used
   'rottenFlag': 56, // Number | Whether Deals in this stage can become rotten
-  'rottenDays': 56, // Number | The number of days the Deals not updated in this Stage would become rotten. Applies only if the rotten_flag is set.
+  'rottenDays': 56, // Number | The number of days the Deals not updated in this Stage would become rotten. Applies only if the `rotten_flag` is set.
   'orderNr': 56 // Number | An order number for this stage. Order numbers should be used to order the stages in the pipeline.
 };
 apiInstance.updateStage(id, opts).then((data) => {
@@ -406,7 +406,7 @@ Name | Type | Description  | Notes
  **pipelineId** | **Number**| The ID of the Pipeline to add Stage to. | [optional] 
  **dealProbability** | **Number**| Deal success probability percentage. Used/shown when Deal weighted values are used | [optional] 
  **rottenFlag** | **Number**| Whether Deals in this stage can become rotten | [optional] 
- **rottenDays** | **Number**| The number of days the Deals not updated in this Stage would become rotten. Applies only if the rotten_flag is set. | [optional] 
+ **rottenDays** | **Number**| The number of days the Deals not updated in this Stage would become rotten. Applies only if the &#x60;rotten_flag&#x60; is set. | [optional] 
  **orderNr** | **Number**| An order number for this stage. Order numbers should be used to order the stages in the pipeline. | [optional] 
 
 ### Return type

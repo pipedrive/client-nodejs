@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **pipelineId** | **Number** | The ID of the Pipeline to add Stage to. | [optional] 
 **dealProbability** | **Number** | Deal success probability percentage. Used/shown when Deal weighted values are used | [optional] 
 **rottenFlag** | **Number** | Whether Deals in this stage can become rotten | [optional] 
-**rottenDays** | **Number** | The number of days the Deals not updated in this Stage would become rotten. Applies only if the rotten_flag is set. | [optional] 
+**rottenDays** | **Number** | The number of days the Deals not updated in this Stage would become rotten. Applies only if the &#x60;rotten_flag&#x60; is set. | [optional] 
 
 
 

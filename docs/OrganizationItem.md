@@ -51,7 +51,7 @@ Name | Type | Description | Notes
 **lastActivityId** | **Number** | The ID of the last activity associated with the Deal | [optional] 
 **lastActivityDate** | **String** | The date of the last activity associated with the Deal | [optional] 
 **editName** | **Boolean** | If the company ID of the Organization and company ID of the request is same or not | [optional] 
-**lastActivity** | **Object** | Please refer to response schema of &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/#!/Activities/get_activities_id\&quot;&gt;Activity&lt;/a&gt; | [optional] 
-**nextActivity** | **Object** | Please refer to response schema of &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/#!/Activities/get_activities_id\&quot;&gt;Activity&lt;/a&gt; | [optional] 
+**lastActivity** | **Object** | Please refer to response schema of &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/Activities#getActivity\&quot;&gt;Activity&lt;/a&gt; | [optional] 
+**nextActivity** | **Object** | Please refer to response schema of &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/Activities#getActivity\&quot;&gt;Activity&lt;/a&gt; | [optional] 
 
 

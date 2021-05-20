@@ -173,13 +173,13 @@ PaymentItem.prototype['change_amount'] = undefined;
 PaymentItem.prototype['due_at'] = undefined;
 
 /**
- * Represents the movement of revenue in comparison with the previous Payment. Possible values are: New - first Payment of the subscription. Recurring - no movement. Expansion - current Payment amount > previous Payment amount. Contraction - current Payment amount < previous Payment amount. Churn - last Payment of the subscription.
+ * Represents the movement of revenue in comparison with the previous Payment. Possible values are: `New` - first Payment of the subscription. `Recurring` - no movement. `Expansion` - current Payment amount > previous Payment amount. `Contraction` - current Payment amount < previous Payment amount. `Churn` - last Payment of the subscription.
  * @member {module:model/PaymentItem.RevenueMovementTypeEnum} revenue_movement_type
  */
 PaymentItem.prototype['revenue_movement_type'] = undefined;
 
 /**
- * The type of the Payment. Possible values are: Recurring - payments occur over fixed intervals of time, Additional - extra payment not the recurring payment of the recurring subscription, Installment - payment of the installment subscription.
+ * The type of the Payment. Possible values are: `Recurring` - payments occur over fixed intervals of time, `Additional` - extra payment not the recurring payment of the recurring subscription, `Installment` - payment of the installment subscription.
  * @member {module:model/PaymentItem.PaymentTypeEnum} payment_type
  */
 PaymentItem.prototype['payment_type'] = undefined;

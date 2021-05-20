@@ -110,12 +110,12 @@ export default class FilesApi {
 
     /**
      * Create a remote file and link it to an item
-     * Creates a new empty file in the remote location (googledrive) that will be linked to the item you supply. For more information on how to add a remote file, see <a href=\"https://pipedrive.readme.io/docs/adding-a-remote-file\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Creates a new empty file in the remote location (`googledrive`) that will be linked to the item you supply. For more information on how to add a remote file, see <a href=\"https://pipedrive.readme.io/docs/adding-a-remote-file\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {module:model/String} fileType The file type
      * @param {String} title The title of the file
      * @param {module:model/String} itemType The item type
      * @param {Number} itemId ID of the item to associate the file with
-     * @param {module:model/String} remoteLocation The location type to send the file to. Only googledrive is supported at the moment.
+     * @param {module:model/String} remoteLocation The location type to send the file to. Only `googledrive` is supported at the moment.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CreateRemoteFileAndLinkItToItem} and HTTP response
      */
     addFileAndLinkItWithHttpInfo(fileType, title, itemType, itemId, remoteLocation) {
@@ -168,12 +168,12 @@ export default class FilesApi {
 
     /**
      * Create a remote file and link it to an item
-     * Creates a new empty file in the remote location (googledrive) that will be linked to the item you supply. For more information on how to add a remote file, see <a href=\"https://pipedrive.readme.io/docs/adding-a-remote-file\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Creates a new empty file in the remote location (`googledrive`) that will be linked to the item you supply. For more information on how to add a remote file, see <a href=\"https://pipedrive.readme.io/docs/adding-a-remote-file\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {module:model/String} fileType The file type
      * @param {String} title The title of the file
      * @param {module:model/String} itemType The item type
      * @param {Number} itemId ID of the item to associate the file with
-     * @param {module:model/String} remoteLocation The location type to send the file to. Only googledrive is supported at the moment.
+     * @param {module:model/String} remoteLocation The location type to send the file to. Only `googledrive` is supported at the moment.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CreateRemoteFileAndLinkItToItem}
      */
     addFileAndLinkIt(fileType, title, itemType, itemId, remoteLocation) {
@@ -207,7 +207,7 @@ export default class FilesApi {
       let formParams = {
       };
 
-      let authNames = ['api_key'];
+      let authNames = ['api_key', 'oauth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = DeleteFile;
@@ -335,7 +335,7 @@ export default class FilesApi {
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {module:model/NumberBoolean} opts.includeDeletedFiles When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
+     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetAllFiles} and HTTP response
      */
     getFilesWithHttpInfo(opts) {
@@ -373,7 +373,7 @@ export default class FilesApi {
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {module:model/NumberBoolean} opts.includeDeletedFiles When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
+     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetAllFiles}
      */
     getFiles(opts) {
@@ -386,11 +386,11 @@ export default class FilesApi {
 
     /**
      * Link a remote file to an item
-     * Links an existing remote file (googledrive) to the item you supply. For more information on how to link a remote file, see <a href=\"https://pipedrive.readme.io/docs/adding-a-remote-file\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Links an existing remote file (`googledrive`) to the item you supply. For more information on how to link a remote file, see <a href=\"https://pipedrive.readme.io/docs/adding-a-remote-file\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {module:model/String} itemType The item type
      * @param {Number} itemId ID of the item to associate the file with
      * @param {String} remoteId The remote item id
-     * @param {module:model/String} remoteLocation The location type to send the file to. Only googledrive is supported at the moment.
+     * @param {module:model/String} remoteLocation The location type to send the file to. Only `googledrive` is supported at the moment.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/LinkRemoteFileToItem} and HTTP response
      */
     linkFileToItemWithHttpInfo(itemType, itemId, remoteId, remoteLocation) {
@@ -438,11 +438,11 @@ export default class FilesApi {
 
     /**
      * Link a remote file to an item
-     * Links an existing remote file (googledrive) to the item you supply. For more information on how to link a remote file, see <a href=\"https://pipedrive.readme.io/docs/adding-a-remote-file\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Links an existing remote file (`googledrive`) to the item you supply. For more information on how to link a remote file, see <a href=\"https://pipedrive.readme.io/docs/adding-a-remote-file\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {module:model/String} itemType The item type
      * @param {Number} itemId ID of the item to associate the file with
      * @param {String} remoteId The remote item id
-     * @param {module:model/String} remoteLocation The location type to send the file to. Only googledrive is supported at the moment.
+     * @param {module:model/String} remoteLocation The location type to send the file to. Only `googledrive` is supported at the moment.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/LinkRemoteFileToItem}
      */
     linkFileToItem(itemType, itemId, remoteId, remoteLocation) {

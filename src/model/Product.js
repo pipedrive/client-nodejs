@@ -75,12 +75,12 @@ class Product {
                 delete data['tax'];
             }
             if (data.hasOwnProperty('active_flag')) {
-                obj['active_flag'] = ApiClient.convertToType(data['active_flag'], NumberBooleanDefault1);
+                obj['active_flag'] = NumberBooleanDefault1.constructFromObject(data['active_flag']);
 
                 delete data['active_flag'];
             }
             if (data.hasOwnProperty('selectable')) {
-                obj['selectable'] = ApiClient.convertToType(data['selectable'], NumberBooleanDefault1);
+                obj['selectable'] = NumberBooleanDefault1.constructFromObject(data['selectable']);
 
                 delete data['selectable'];
             }
@@ -143,13 +143,11 @@ Product.prototype['unit'] = undefined;
 Product.prototype['tax'] = 0;
 
 /**
- * Whether this product is active or not
  * @member {module:model/NumberBooleanDefault1} active_flag
  */
 Product.prototype['active_flag'] = undefined;
 
 /**
- * Whether this product is selected in Deals or not
  * @member {module:model/NumberBooleanDefault1} selectable
  */
 Product.prototype['selectable'] = undefined;

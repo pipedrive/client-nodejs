@@ -378,22 +378,22 @@ Class | Method | HTTP request | Description
 *Pipedrive.GoalsApi* | [**updateGoal**](docs/GoalsApi.md#updateGoal) | **PUT** /goals/{id} | Update existing goal
 *Pipedrive.ItemSearchApi* | [**searchItem**](docs/ItemSearchApi.md#searchItem) | **GET** /itemSearch | Perform a search from multiple item types
 *Pipedrive.ItemSearchApi* | [**searchItemByField**](docs/ItemSearchApi.md#searchItemByField) | **GET** /itemSearch/field | Perform a search using a specific field from an item type
+*Pipedrive.LeadLabelsApi* | [**addLeadLabel**](docs/LeadLabelsApi.md#addLeadLabel) | **POST** /leadLabels | Add a lead label
+*Pipedrive.LeadLabelsApi* | [**deleteLeadLabel**](docs/LeadLabelsApi.md#deleteLeadLabel) | **DELETE** /leadLabels/{id} | Delete a lead label
+*Pipedrive.LeadLabelsApi* | [**getLeadLabels**](docs/LeadLabelsApi.md#getLeadLabels) | **GET** /leadLabels | Get all lead labels
+*Pipedrive.LeadLabelsApi* | [**updateLeadLabel**](docs/LeadLabelsApi.md#updateLeadLabel) | **PATCH** /leadLabels/{id} | Update a lead label
+*Pipedrive.LeadSourcesApi* | [**getLeadSources**](docs/LeadSourcesApi.md#getLeadSources) | **GET** /leadSources | Get all lead sources
 *Pipedrive.LeadsApi* | [**addLead**](docs/LeadsApi.md#addLead) | **POST** /leads | Add a lead
-*Pipedrive.LeadsApi* | [**addLeadLabel**](docs/LeadsApi.md#addLeadLabel) | **POST** /leadLabels | Add a lead label
 *Pipedrive.LeadsApi* | [**deleteLead**](docs/LeadsApi.md#deleteLead) | **DELETE** /leads/{id} | Delete a lead
-*Pipedrive.LeadsApi* | [**deleteLeadLabel**](docs/LeadsApi.md#deleteLeadLabel) | **DELETE** /leadLabels/{id} | Delete a lead label
 *Pipedrive.LeadsApi* | [**getLead**](docs/LeadsApi.md#getLead) | **GET** /leads/{id} | Get one lead
-*Pipedrive.LeadsApi* | [**getLeadLabels**](docs/LeadsApi.md#getLeadLabels) | **GET** /leadLabels | Get all lead labels
-*Pipedrive.LeadsApi* | [**getLeadSources**](docs/LeadsApi.md#getLeadSources) | **GET** /leadSources | Get all lead sources
 *Pipedrive.LeadsApi* | [**getLeads**](docs/LeadsApi.md#getLeads) | **GET** /leads | Get all leads
 *Pipedrive.LeadsApi* | [**updateLead**](docs/LeadsApi.md#updateLead) | **PATCH** /leads/{id} | Update a lead
-*Pipedrive.LeadsApi* | [**updateLeadLabel**](docs/LeadsApi.md#updateLeadLabel) | **PATCH** /leadLabels/{id} | Update a lead label
-*Pipedrive.MailMessagesApi* | [**getMailMessage**](docs/MailMessagesApi.md#getMailMessage) | **GET** /mailbox/mailMessages/{id} | Get one mail message
-*Pipedrive.MailThreadsApi* | [**deleteMailThread**](docs/MailThreadsApi.md#deleteMailThread) | **DELETE** /mailbox/mailThreads/{id} | Delete mail thread
-*Pipedrive.MailThreadsApi* | [**getMailThread**](docs/MailThreadsApi.md#getMailThread) | **GET** /mailbox/mailThreads/{id} | Get one mail thread
-*Pipedrive.MailThreadsApi* | [**getMailThreadMessages**](docs/MailThreadsApi.md#getMailThreadMessages) | **GET** /mailbox/mailThreads/{id}/mailMessages | Get all mail messages of mail thread
-*Pipedrive.MailThreadsApi* | [**getMailThreads**](docs/MailThreadsApi.md#getMailThreads) | **GET** /mailbox/mailThreads | Get mail threads
-*Pipedrive.MailThreadsApi* | [**updateMailThreadDetails**](docs/MailThreadsApi.md#updateMailThreadDetails) | **PUT** /mailbox/mailThreads/{id} | Update mail thread details
+*Pipedrive.MailboxApi* | [**deleteMailThread**](docs/MailboxApi.md#deleteMailThread) | **DELETE** /mailbox/mailThreads/{id} | Delete mail thread
+*Pipedrive.MailboxApi* | [**getMailMessage**](docs/MailboxApi.md#getMailMessage) | **GET** /mailbox/mailMessages/{id} | Get one mail message
+*Pipedrive.MailboxApi* | [**getMailThread**](docs/MailboxApi.md#getMailThread) | **GET** /mailbox/mailThreads/{id} | Get one mail thread
+*Pipedrive.MailboxApi* | [**getMailThreadMessages**](docs/MailboxApi.md#getMailThreadMessages) | **GET** /mailbox/mailThreads/{id}/mailMessages | Get all mail messages of mail thread
+*Pipedrive.MailboxApi* | [**getMailThreads**](docs/MailboxApi.md#getMailThreads) | **GET** /mailbox/mailThreads | Get mail threads
+*Pipedrive.MailboxApi* | [**updateMailThreadDetails**](docs/MailboxApi.md#updateMailThreadDetails) | **PUT** /mailbox/mailThreads/{id} | Update mail thread details
 *Pipedrive.NoteFieldsApi* | [**getNoteFields**](docs/NoteFieldsApi.md#getNoteFields) | **GET** /noteFields | Get all note fields
 *Pipedrive.NotesApi* | [**addNote**](docs/NotesApi.md#addNote) | **POST** /notes | Add a note
 *Pipedrive.NotesApi* | [**deleteNote**](docs/NotesApi.md#deleteNote) | **DELETE** /notes/{id} | Delete a note
@@ -788,7 +788,6 @@ Class | Method | HTTP request | Description
  - [Pipedrive.FailResponse](docs/FailResponse.md)
  - [Pipedrive.Field](docs/Field.md)
  - [Pipedrive.FieldCreateRequest](docs/FieldCreateRequest.md)
- - [Pipedrive.FieldCreateRequestWithRequiredFields](docs/FieldCreateRequestWithRequiredFields.md)
  - [Pipedrive.FieldResponse](docs/FieldResponse.md)
  - [Pipedrive.FieldResponseAllOf](docs/FieldResponseAllOf.md)
  - [Pipedrive.FieldType](docs/FieldType.md)

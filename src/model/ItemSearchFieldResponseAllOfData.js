@@ -77,7 +77,7 @@ class ItemSearchFieldResponseAllOfData {
 ItemSearchFieldResponseAllOfData.prototype['id'] = undefined;
 
 /**
- * The value of the searched field_key
+ * The value of the searched `field_key`
  * @member {module:model/AnyType} $field_key
  */
 ItemSearchFieldResponseAllOfData.prototype['$field_key'] = undefined;

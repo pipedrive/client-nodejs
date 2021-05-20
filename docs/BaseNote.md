@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **addTime** | **String** | The creation date and time of the Note | [optional] 
 **content** | **String** | Content of the Note in HTML format. Subject to sanitization on the back-end. | [optional] 
 **deal** | [**BaseNoteDealTitle**](BaseNoteDealTitle.md) |  | [optional] 
+**leadId** | **String** | The ID of the Lead the Note is attached to | [optional] 
 **dealId** | **Number** | The ID of the Deal the Note is attached to | [optional] 
 **lastUpdateUserId** | **Number** | The ID of the User who updated the Note last | [optional] 
 **orgId** | **Number** | The ID of the Organization this Note is attached to | [optional] 

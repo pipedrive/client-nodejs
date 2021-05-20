@@ -92,13 +92,13 @@ OrganizationRelationship.prototype['org_id'] = undefined;
 OrganizationRelationship.prototype['type'] = undefined;
 
 /**
- * The owner of this relationship. If type is 'parent', then the owner is the parent and the linked organization is the daughter.
+ * The owner of this relationship. If type is `parent`, then the owner is the parent and the linked organization is the daughter.
  * @member {Number} rel_owner_org_id
  */
 OrganizationRelationship.prototype['rel_owner_org_id'] = undefined;
 
 /**
- * The linked organization in this relationship. If type is 'parent', then the linked organization is the daughter.
+ * The linked organization in this relationship. If type is `parent`, then the linked organization is the daughter.
  * @member {Number} rel_linked_org_id
  */
 OrganizationRelationship.prototype['rel_linked_org_id'] = undefined;

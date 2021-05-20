@@ -242,7 +242,7 @@ RecentDataProduct.prototype['add_time'] = undefined;
 RecentDataProduct.prototype['update_time'] = undefined;
 
 /**
- * Array of objects, each containing: currency (string), price (number), cost (number, optional), overhead_cost (number, optional). Note that there can only be one price per product per currency. When 'prices' is omitted altogether, no prices will be set up for the product.
+ * Array of objects, each containing: `currency` (string), `price` (number), `cost` (number, optional), `overhead_cost` (number, optional). Note that there can only be one price per product per currency. When `prices` is omitted altogether, no prices will be set up for the product.
  * @member {Array.<Object>} prices
  */
 RecentDataProduct.prototype['prices'] = undefined;

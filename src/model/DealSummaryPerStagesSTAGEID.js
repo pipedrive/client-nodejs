@@ -22,7 +22,7 @@ import DealSummaryPerStagesSTAGEIDCURRENCYID from './DealSummaryPerStagesSTAGEID
 class DealSummaryPerStagesSTAGEID {
     /**
      * Constructs a new <code>DealSummaryPerStagesSTAGEID</code>.
-     * The currency summaries per stage. This parameter is dynamic and changes according to stage_id value.
+     * The currency summaries per stage. This parameter is dynamic and changes according to &#x60;stage_id&#x60; value.
      * @alias module:model/DealSummaryPerStagesSTAGEID
      */
     constructor() { 

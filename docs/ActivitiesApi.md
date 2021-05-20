@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 Add an Activity
 
-Adds a new Activity. Includes more_activities_scheduled_in_context property in response&#39;s additional_data which indicates whether there are more undone Activities scheduled with the same Deal, Person or Organization (depending on the supplied data). For more information on how to add an Activity, see &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-an-activity\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this tutorial&lt;/a&gt;.
+Adds a new Activity. Includes &#x60;more_activities_scheduled_in_context&#x60; property in response&#39;s &#x60;additional_data&#x60; which indicates whether there are more undone Activities scheduled with the same Deal, Person or Organization (depending on the supplied data). For more information on how to add an Activity, see &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-an-activity\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this tutorial&lt;/a&gt;.
 
 ### Example
 
@@ -199,8 +199,8 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new Pipedrive.ActivitiesApi();
 let opts = {
   'userId': 56, // Number | The ID of the User whose Activities will be fetched. If omitted, the User associated with the API token will be used. If 0, Activities for all company Users will be fetched based on the permission sets.
-  'filterId': 56, // Number | The ID of the Filter to use (will narrow down results if used together with user_id parameter)
-  'type': "type_example", // String | Type of the Activity, can be one type or multiple types separated by a comma. This is in correlation with the key_string parameter of ActivityTypes.
+  'filterId': 56, // Number | The ID of the Filter to use (will narrow down results if used together with `user_id` parameter)
+  'type': "type_example", // String | Type of the Activity, can be one type or multiple types separated by a comma. This is in correlation with the `key_string` parameter of ActivityTypes.
   'limit': 100, // Number | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned.
   'start': 0, // Number | For pagination, the position that represents the first result for the page
   'startDate': new Date("2013-10-20"), // Date | Use the Activity due date where you wish to begin fetching Activities from. Insert due date in YYYY-MM-DD format.
@@ -221,8 +221,8 @@ apiInstance.getActivities(opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| The ID of the User whose Activities will be fetched. If omitted, the User associated with the API token will be used. If 0, Activities for all company Users will be fetched based on the permission sets. | [optional] 
- **filterId** | **Number**| The ID of the Filter to use (will narrow down results if used together with user_id parameter) | [optional] 
- **type** | **String**| Type of the Activity, can be one type or multiple types separated by a comma. This is in correlation with the key_string parameter of ActivityTypes. | [optional] 
+ **filterId** | **Number**| The ID of the Filter to use (will narrow down results if used together with &#x60;user_id&#x60; parameter) | [optional] 
+ **type** | **String**| Type of the Activity, can be one type or multiple types separated by a comma. This is in correlation with the &#x60;key_string&#x60; parameter of ActivityTypes. | [optional] 
  **limit** | **Number**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. | [optional] 
  **start** | **Number**| For pagination, the position that represents the first result for the page | [optional] 
  **startDate** | **Date**| Use the Activity due date where you wish to begin fetching Activities from. Insert due date in YYYY-MM-DD format. | [optional] 
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 
 Edit an Activity
 
-Modifies an Activity. Includes more_activities_scheduled_in_context property in response&#39;s additional_data which indicates whether there are more undone activities scheduled with the same Deal, Person or Organization (depending on the supplied data).
+Modifies an Activity. Includes &#x60;more_activities_scheduled_in_context&#x60; property in response&#39;s &#x60;additional_data&#x60; which indicates whether there are more undone activities scheduled with the same Deal, Person or Organization (depending on the supplied data).
 
 ### Example
 

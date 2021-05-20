@@ -105,7 +105,7 @@ GlobalMessageGet.prototype['data'] = undefined;
 GlobalMessageGet.prototype['handle_time'] = undefined;
 
 /**
- * The list of timers formatted by name and elapsed time in ms (such as app, app_xss_clean, app_sanitizer_xss)
+ * The list of timers formatted by name and elapsed time in ms (such as `app`, `app_xss_clean`, `app_sanitizer_xss`)
  * @member {Object} _req_time_ctx_ms
  */
 GlobalMessageGet.prototype['_req_time_ctx_ms'] = undefined;
@@ -129,7 +129,7 @@ GlobalMessageGetAllOf.prototype['data'] = undefined;
  */
 GlobalMessageGetAllOf.prototype['handle_time'] = undefined;
 /**
- * The list of timers formatted by name and elapsed time in ms (such as app, app_xss_clean, app_sanitizer_xss)
+ * The list of timers formatted by name and elapsed time in ms (such as `app`, `app_xss_clean`, `app_sanitizer_xss`)
  * @member {Object} _req_time_ctx_ms
  */
 GlobalMessageGetAllOf.prototype['_req_time_ctx_ms'] = undefined;

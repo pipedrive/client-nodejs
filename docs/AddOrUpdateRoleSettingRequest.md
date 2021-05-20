@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **settingKey** | **String** |  | 
-**value** | [**NumberBooleanDefault0**](NumberBooleanDefault0.md) | Possible values for default_visibility settings: 0...1. | 
+**value** | [**NumberBooleanDefault0**](NumberBooleanDefault0.md) | Possible values for &#x60;default_visibility&#x60; settings: &#x60;0&#x60; or &#x60;1&#x60; | 
 
 
 

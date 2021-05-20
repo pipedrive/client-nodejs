@@ -26,7 +26,7 @@ class AddFileAndLinkItRequest {
      * @param title {String} The title of the file
      * @param itemType {module:model/AddFileAndLinkItRequest.ItemTypeEnum} The item type
      * @param itemId {Number} ID of the item to associate the file with
-     * @param remoteLocation {module:model/AddFileAndLinkItRequest.RemoteLocationEnum} The location type to send the file to. Only googledrive is supported at the moment.
+     * @param remoteLocation {module:model/AddFileAndLinkItRequest.RemoteLocationEnum} The location type to send the file to. Only `googledrive` is supported at the moment.
      */
     constructor(fileType, title, itemType, itemId, remoteLocation) { 
         
@@ -119,7 +119,7 @@ AddFileAndLinkItRequest.prototype['item_type'] = undefined;
 AddFileAndLinkItRequest.prototype['item_id'] = undefined;
 
 /**
- * The location type to send the file to. Only googledrive is supported at the moment.
+ * The location type to send the file to. Only `googledrive` is supported at the moment.
  * @member {module:model/AddFileAndLinkItRequest.RemoteLocationEnum} remote_location
  */
 AddFileAndLinkItRequest.prototype['remote_location'] = undefined;

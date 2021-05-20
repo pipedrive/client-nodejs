@@ -22,7 +22,7 @@ class AddWebhookRequest {
     /**
      * Constructs a new <code>AddWebhookRequest</code>.
      * @alias module:model/AddWebhookRequest
-     * @param subscriptionUrl {String} A full, valid, publicly accessible URL. Determines where to send the notifications. Please note that you cannot use Pipedrive API endpoints as the subscription_url.
+     * @param subscriptionUrl {String} A full, valid, publicly accessible URL. Determines where to send the notifications. Please note that you cannot use Pipedrive API endpoints as the `subscription_url`.
      * @param eventAction {module:model/AddWebhookRequest.EventActionEnum} Type of action to receive notifications about. Wildcard will match all supported actions.
      * @param eventObject {module:model/AddWebhookRequest.EventObjectEnum} Type of object to receive notifications about. Wildcard will match all supported objects.
      */
@@ -96,7 +96,7 @@ class AddWebhookRequest {
 }
 
 /**
- * A full, valid, publicly accessible URL. Determines where to send the notifications. Please note that you cannot use Pipedrive API endpoints as the subscription_url.
+ * A full, valid, publicly accessible URL. Determines where to send the notifications. Please note that you cannot use Pipedrive API endpoints as the `subscription_url`.
  * @member {String} subscription_url
  */
 AddWebhookRequest.prototype['subscription_url'] = undefined;

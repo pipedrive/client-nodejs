@@ -91,7 +91,7 @@ ActivityTypeCreateRequest.prototype['name'] = undefined;
 ActivityTypeCreateRequest.prototype['icon_key'] = undefined;
 
 /**
- * A designated color for the ActivityType in 6-character HEX format (e.g. FFFFFF for white, 000000 for black)
+ * A designated color for the ActivityType in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
  * @member {String} color
  */
 ActivityTypeCreateRequest.prototype['color'] = undefined;

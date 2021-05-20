@@ -49,7 +49,7 @@ export default class StagesApi {
      * @param {Number} opts.pipelineId The ID of the Pipeline to add Stage to.
      * @param {Number} opts.dealProbability Deal success probability percentage. Used/shown when Deal weighted values are used
      * @param {module:model/Number} opts.rottenFlag Whether Deals in this stage can become rotten
-     * @param {Number} opts.rottenDays The number of days the Deals not updated in this Stage would become rotten. Applies only if the rotten_flag is set.
+     * @param {Number} opts.rottenDays The number of days the Deals not updated in this Stage would become rotten. Applies only if the `rotten_flag` is set.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetAddUpdateStage} and HTTP response
      */
     addStageWithHttpInfo(opts) {
@@ -89,7 +89,7 @@ export default class StagesApi {
      * @param {Number} opts.pipelineId The ID of the Pipeline to add Stage to.
      * @param {Number} opts.dealProbability Deal success probability percentage. Used/shown when Deal weighted values are used
      * @param {module:model/Number} opts.rottenFlag Whether Deals in this stage can become rotten
-     * @param {Number} opts.rottenDays The number of days the Deals not updated in this Stage would become rotten. Applies only if the rotten_flag is set.
+     * @param {Number} opts.rottenDays The number of days the Deals not updated in this Stage would become rotten. Applies only if the `rotten_flag` is set.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetAddUpdateStage}
      */
     addStage(opts) {
@@ -250,8 +250,8 @@ export default class StagesApi {
      * @param {Number} id ID of the stage
      * @param {Object} opts Optional parameters
      * @param {Number} opts.filterId If supplied, only deals matching the given filter will be returned.
-     * @param {Number} opts.userId If supplied, filter_id will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned.
-     * @param {module:model/NumberBoolean} opts.everyone If supplied, filter_id and user_id will not be considered – instead, deals owned by everyone will be returned.
+     * @param {Number} opts.userId If supplied, `filter_id` will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned.
+     * @param {module:model/NumberBoolean} opts.everyone If supplied, `filter_id` and `user_id` will not be considered – instead, deals owned by everyone will be returned.
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetStageDeals} and HTTP response
@@ -296,8 +296,8 @@ export default class StagesApi {
      * @param {Number} id ID of the stage
      * @param {Object} opts Optional parameters
      * @param {Number} opts.filterId If supplied, only deals matching the given filter will be returned.
-     * @param {Number} opts.userId If supplied, filter_id will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned.
-     * @param {module:model/NumberBoolean} opts.everyone If supplied, filter_id and user_id will not be considered – instead, deals owned by everyone will be returned.
+     * @param {Number} opts.userId If supplied, `filter_id` will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned.
+     * @param {module:model/NumberBoolean} opts.everyone If supplied, `filter_id` and `user_id` will not be considered – instead, deals owned by everyone will be returned.
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetStageDeals}
@@ -366,7 +366,7 @@ export default class StagesApi {
      * @param {Number} opts.pipelineId The ID of the Pipeline to add Stage to.
      * @param {Number} opts.dealProbability Deal success probability percentage. Used/shown when Deal weighted values are used
      * @param {module:model/Number} opts.rottenFlag Whether Deals in this stage can become rotten
-     * @param {Number} opts.rottenDays The number of days the Deals not updated in this Stage would become rotten. Applies only if the rotten_flag is set.
+     * @param {Number} opts.rottenDays The number of days the Deals not updated in this Stage would become rotten. Applies only if the `rotten_flag` is set.
      * @param {Number} opts.orderNr An order number for this stage. Order numbers should be used to order the stages in the pipeline.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetAddUpdateStage} and HTTP response
      */
@@ -414,7 +414,7 @@ export default class StagesApi {
      * @param {Number} opts.pipelineId The ID of the Pipeline to add Stage to.
      * @param {Number} opts.dealProbability Deal success probability percentage. Used/shown when Deal weighted values are used
      * @param {module:model/Number} opts.rottenFlag Whether Deals in this stage can become rotten
-     * @param {Number} opts.rottenDays The number of days the Deals not updated in this Stage would become rotten. Applies only if the rotten_flag is set.
+     * @param {Number} opts.rottenDays The number of days the Deals not updated in this Stage would become rotten. Applies only if the `rotten_flag` is set.
      * @param {Number} opts.orderNr An order number for this stage. Order numbers should be used to order the stages in the pipeline.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetAddUpdateStage}
      */

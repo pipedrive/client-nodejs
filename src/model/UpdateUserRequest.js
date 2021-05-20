@@ -22,7 +22,7 @@ class UpdateUserRequest {
     /**
      * Constructs a new <code>UpdateUserRequest</code>.
      * @alias module:model/UpdateUserRequest
-     * @param activeFlag {Boolean} Whether the user is active or not. false = Not activated, true = Activated
+     * @param activeFlag {Boolean} Whether the user is active or not. `false` = Not activated, `true` = Activated
      */
     constructor(activeFlag) { 
         
@@ -67,7 +67,7 @@ class UpdateUserRequest {
 }
 
 /**
- * Whether the user is active or not. false = Not activated, true = Activated
+ * Whether the user is active or not. `false` = Not activated, `true` = Activated
  * @member {Boolean} active_flag
  * @default true
  */

@@ -93,7 +93,7 @@ Pipeline.prototype['name'] = undefined;
 Pipeline.prototype['deal_probability'] = undefined;
 
 /**
- * Defines the order of Pipelines. First order (order_nr=0) is the default Pipeline.
+ * Defines the order of Pipelines. First order (`order_nr=0`) is the default Pipeline.
  * @member {Number} order_nr
  */
 Pipeline.prototype['order_nr'] = undefined;

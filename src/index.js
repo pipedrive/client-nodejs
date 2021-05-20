@@ -253,7 +253,6 @@ import ExpectedOutcome from './model/ExpectedOutcome';
 import FailResponse from './model/FailResponse';
 import Field from './model/Field';
 import FieldCreateRequest from './model/FieldCreateRequest';
-import FieldCreateRequestWithRequiredFields from './model/FieldCreateRequestWithRequiredFields';
 import FieldResponse from './model/FieldResponse';
 import FieldResponseAllOf from './model/FieldResponseAllOf';
 import FieldType from './model/FieldType';
@@ -696,9 +695,10 @@ import FiltersApi from './api/FiltersApi';
 import GlobalMessagesApi from './api/GlobalMessagesApi';
 import GoalsApi from './api/GoalsApi';
 import ItemSearchApi from './api/ItemSearchApi';
+import LeadLabelsApi from './api/LeadLabelsApi';
+import LeadSourcesApi from './api/LeadSourcesApi';
 import LeadsApi from './api/LeadsApi';
-import MailMessagesApi from './api/MailMessagesApi';
-import MailThreadsApi from './api/MailThreadsApi';
+import MailboxApi from './api/MailboxApi';
 import NoteFieldsApi from './api/NoteFieldsApi';
 import NotesApi from './api/NotesApi';
 import OrganizationFieldsApi from './api/OrganizationFieldsApi';
@@ -2199,12 +2199,6 @@ export {
      * @property {module:model/FieldCreateRequest}
      */
     FieldCreateRequest,
-
-    /**
-     * The FieldCreateRequestWithRequiredFields model constructor.
-     * @property {module:model/FieldCreateRequestWithRequiredFields}
-     */
-    FieldCreateRequestWithRequiredFields,
 
     /**
      * The FieldResponse model constructor.
@@ -4859,22 +4853,28 @@ export {
     ItemSearchApi,
 
     /**
+    * The LeadLabelsApi service constructor.
+    * @property {module:api/LeadLabelsApi}
+    */
+    LeadLabelsApi,
+
+    /**
+    * The LeadSourcesApi service constructor.
+    * @property {module:api/LeadSourcesApi}
+    */
+    LeadSourcesApi,
+
+    /**
     * The LeadsApi service constructor.
     * @property {module:api/LeadsApi}
     */
     LeadsApi,
 
     /**
-    * The MailMessagesApi service constructor.
-    * @property {module:api/MailMessagesApi}
+    * The MailboxApi service constructor.
+    * @property {module:api/MailboxApi}
     */
-    MailMessagesApi,
-
-    /**
-    * The MailThreadsApi service constructor.
-    * @property {module:api/MailThreadsApi}
-    */
-    MailThreadsApi,
+    MailboxApi,
 
     /**
     * The NoteFieldsApi service constructor.

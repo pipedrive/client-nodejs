@@ -46,7 +46,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new Pipedrive.UsersApi();
 let name = "name_example"; // String | Name of the user
 let email = "email_example"; // String | Email of the user
-let activeFlag = true; // Boolean | Whether the user is active or not. false = Not activated, true = Activated
+let activeFlag = true; // Boolean | Whether the user is active or not. `false` = Not activated, `true` = Activated
 apiInstance.addUser(name, email, activeFlag).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Name of the user | 
  **email** | **String**| Email of the user | 
- **activeFlag** | **Boolean**| Whether the user is active or not. false &#x3D; Not activated, true &#x3D; Activated | [default to true]
+ **activeFlag** | **Boolean**| Whether the user is active or not. &#x60;false&#x60; &#x3D; Not activated, &#x60;true&#x60; &#x3D; Activated | [default to true]
 
 ### Return type
 
@@ -262,7 +262,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new Pipedrive.UsersApi();
 let term = "term_example"; // String | Search term to look for
 let opts = {
-  'searchByEmail': new Pipedrive.NumberBooleanDefault0() // NumberBooleanDefault0 | When enabled, term will only be matched against email addresses of users. Default: false
+  'searchByEmail': new Pipedrive.NumberBooleanDefault0() // NumberBooleanDefault0 | When enabled, term will only be matched against email addresses of users. Default: `false`
 };
 apiInstance.findUsersByName(term, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -278,7 +278,7 @@ apiInstance.findUsersByName(term, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **term** | **String**| Search term to look for | 
- **searchByEmail** | [**NumberBooleanDefault0**](.md)| When enabled, term will only be matched against email addresses of users. Default: false | [optional] 
+ **searchByEmail** | [**NumberBooleanDefault0**](.md)| When enabled, term will only be matched against email addresses of users. Default: &#x60;false&#x60; | [optional] 
 
 ### Return type
 
@@ -300,7 +300,7 @@ Name | Type | Description  | Notes
 
 Get current user data
 
-Returns data about an authorized user within the company with bound company data: company ID, company name, and domain. Note that the &#39;locale&#39; property means &#39;Date and number format&#39; in the Pipedrive settings, not the chosen language.
+Returns data about an authorized user within the company with bound company data: company ID, company name, and domain. Note that the &#x60;locale&#x60; property means &#39;Date/number format&#39; in the Pipedrive account settings, not the chosen language.
 
 ### Example
 
@@ -719,7 +719,7 @@ This endpoint does not need any parameter.
 
 Update user details
 
-Updates the properties of a user. Currently, only active_flag can be updated.
+Updates the properties of a user. Currently, only &#x60;active_flag&#x60; can be updated.
 
 ### Example
 
@@ -737,7 +737,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.UsersApi();
 let id = 56; // Number | ID of the user
-let activeFlag = true; // Boolean | Whether the user is active or not. false = Not activated, true = Activated
+let activeFlag = true; // Boolean | Whether the user is active or not. `false` = Not activated, `true` = Activated
 apiInstance.updateUser(id, activeFlag).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -752,7 +752,7 @@ apiInstance.updateUser(id, activeFlag).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| ID of the user | 
- **activeFlag** | **Boolean**| Whether the user is active or not. false &#x3D; Not activated, true &#x3D; Activated | [default to true]
+ **activeFlag** | **Boolean**| Whether the user is active or not. &#x60;false&#x60; &#x3D; Not activated, &#x60;true&#x60; &#x3D; Activated | [default to true]
 
 ### Return type
 

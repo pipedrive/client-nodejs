@@ -12,61 +12,43 @@
  */
 
 import ApiClient from '../ApiClient';
-import NumberBoolean from './NumberBoolean';
-
 /**
- * The NumberBooleanDefault0 model module.
- * @module model/NumberBooleanDefault0
- * @version 1.0.0
- */
-class NumberBooleanDefault0 {
+* Enum class NumberBooleanDefault0.
+* @enum {}
+* @readonly
+*/
+export default class NumberBooleanDefault0 {
+    
+        /**
+         * value: 0
+         * @const
+         */
+        "0" = 0;
+
+    
+        /**
+         * value: 1
+         * @const
+         */
+        "1" = 1;
+
+    
+
     /**
-     * Constructs a new <code>NumberBooleanDefault0</code>.
-     * @alias module:model/NumberBooleanDefault0
-     * @implements module:model/NumberBoolean
-     */
-    constructor() { 
-        NumberBoolean.initialize(this);
-        NumberBooleanDefault0.initialize(this);
+    * Returns a <code>NumberBooleanDefault0</code> enum value from a Javascript object name.
+    * @param {Object} data The plain JavaScript object containing the name of the enum value.
+    * @return {module:model/NumberBooleanDefault0} The enum <code>NumberBooleanDefault0</code> value.
+    */
+    static constructFromObject(object) {
+        return object;
     }
 
     /**
-     * Initializes the fields of this object.
-     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
-     * Only for internal use.
-     */
+    * Initializes the fields of this object.
+    * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
+    * Only for internal use.
+    */
     static initialize(obj) { 
     }
-
-    /**
-     * Constructs a <code>NumberBooleanDefault0</code> from a plain JavaScript object, optionally creating a new instance.
-     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/NumberBooleanDefault0} obj Optional instance to populate.
-     * @return {module:model/NumberBooleanDefault0} The populated <code>NumberBooleanDefault0</code> instance.
-     */
-    static constructFromObject(data, obj) {
-        if (data) {
-            obj = obj || new NumberBooleanDefault0();
-            NumberBoolean.constructFromObject(data, obj);
-
-
-            if (Object.keys(data).length > 0) {
-                obj['extra'] = data;
-            }
-
-        }
-        return obj;
-    }
-
-
 }
-
-
-// Implement NumberBoolean interface:
-
-
-
-
-export default NumberBooleanDefault0;
 

@@ -38,8 +38,8 @@ let apiInstance = new Pipedrive.OrganizationRelationshipsApi();
 let opts = {
   'orgId': 56, // Number | ID of the base organization for the returned calculated values
   'type': "type_example", // String | The type of organization relationship
-  'relOwnerOrgId': 56, // Number | The owner of this relationship. If type is 'parent', then the owner is the parent and the linked organization is the daughter.
-  'relLinkedOrgId': 56 // Number | The linked organization in this relationship. If type is 'parent', then the linked organization is the daughter.
+  'relOwnerOrgId': 56, // Number | The owner of this relationship. If type is `parent`, then the owner is the parent and the linked organization is the daughter.
+  'relLinkedOrgId': 56 // Number | The linked organization in this relationship. If type is `parent`, then the linked organization is the daughter.
 };
 apiInstance.addOrganizationRelationship(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -56,8 +56,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orgId** | **Number**| ID of the base organization for the returned calculated values | [optional] 
  **type** | **String**| The type of organization relationship | [optional] 
- **relOwnerOrgId** | **Number**| The owner of this relationship. If type is &#39;parent&#39;, then the owner is the parent and the linked organization is the daughter. | [optional] 
- **relLinkedOrgId** | **Number**| The linked organization in this relationship. If type is &#39;parent&#39;, then the linked organization is the daughter. | [optional] 
+ **relOwnerOrgId** | **Number**| The owner of this relationship. If type is &#x60;parent&#x60;, then the owner is the parent and the linked organization is the daughter. | [optional] 
+ **relLinkedOrgId** | **Number**| The linked organization in this relationship. If type is &#x60;parent&#x60;, then the linked organization is the daughter. | [optional] 
 
 ### Return type
 
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 
 Get all relationships for organization
 
-Gets all of the relationships for a supplied organization id.
+Gets all of the relationships for a supplied organization ID.
 
 ### Example
 
@@ -263,8 +263,8 @@ let id = 56; // Number | ID of the organization relationship
 let opts = {
   'orgId': 56, // Number | ID of the base organization for the returned calculated values
   'type': "type_example", // String | The type of organization relationship
-  'relOwnerOrgId': 56, // Number | The owner of this relationship. If type is 'parent', then the owner is the parent and the linked organization is the daughter.
-  'relLinkedOrgId': 56 // Number | The linked organization in this relationship. If type is 'parent', then the linked organization is the daughter.
+  'relOwnerOrgId': 56, // Number | The owner of this relationship. If type is `parent`, then the owner is the parent and the linked organization is the daughter.
+  'relLinkedOrgId': 56 // Number | The linked organization in this relationship. If type is `parent`, then the linked organization is the daughter.
 };
 apiInstance.updateOrganizationRelationship(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -282,8 +282,8 @@ Name | Type | Description  | Notes
  **id** | **Number**| ID of the organization relationship | 
  **orgId** | **Number**| ID of the base organization for the returned calculated values | [optional] 
  **type** | **String**| The type of organization relationship | [optional] 
- **relOwnerOrgId** | **Number**| The owner of this relationship. If type is &#39;parent&#39;, then the owner is the parent and the linked organization is the daughter. | [optional] 
- **relLinkedOrgId** | **Number**| The linked organization in this relationship. If type is &#39;parent&#39;, then the linked organization is the daughter. | [optional] 
+ **relOwnerOrgId** | **Number**| The owner of this relationship. If type is &#x60;parent&#x60;, then the owner is the parent and the linked organization is the daughter. | [optional] 
+ **relLinkedOrgId** | **Number**| The linked organization in this relationship. If type is &#x60;parent&#x60;, then the linked organization is the daughter. | [optional] 
 
 ### Return type
 

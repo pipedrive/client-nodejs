@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class DealSummaryPerCurrencyFullCURRENCYID {
     /**
      * Constructs a new <code>DealSummaryPerCurrencyFullCURRENCYID</code>.
-     * The currency summary. This parameter is dynamic and changes according to currency_id value.
+     * The currency summary. This parameter is dynamic and changes according to &#x60;currency_id&#x60; value.
      * @alias module:model/DealSummaryPerCurrencyFullCURRENCYID
      */
     constructor() { 

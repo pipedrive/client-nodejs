@@ -593,13 +593,13 @@ OrganizationItem.prototype['last_activity_date'] = undefined;
 OrganizationItem.prototype['edit_name'] = undefined;
 
 /**
- * Please refer to response schema of <a href=\"https://developers.pipedrive.com/docs/api/v1/#!/Activities/get_activities_id\">Activity</a>
+ * Please refer to response schema of <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivity\">Activity</a>
  * @member {Object} last_activity
  */
 OrganizationItem.prototype['last_activity'] = undefined;
 
 /**
- * Please refer to response schema of <a href=\"https://developers.pipedrive.com/docs/api/v1/#!/Activities/get_activities_id\">Activity</a>
+ * Please refer to response schema of <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivity\">Activity</a>
  * @member {Object} next_activity
  */
 OrganizationItem.prototype['next_activity'] = undefined;
@@ -841,12 +841,12 @@ BaseOrganizationItemWithEditNameFlag.prototype['last_activity_date'] = undefined
 BaseOrganizationItemWithEditNameFlag.prototype['edit_name'] = undefined;
 // Implement OrganizationItemAllOf interface:
 /**
- * Please refer to response schema of <a href=\"https://developers.pipedrive.com/docs/api/v1/#!/Activities/get_activities_id\">Activity</a>
+ * Please refer to response schema of <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivity\">Activity</a>
  * @member {Object} last_activity
  */
 OrganizationItemAllOf.prototype['last_activity'] = undefined;
 /**
- * Please refer to response schema of <a href=\"https://developers.pipedrive.com/docs/api/v1/#!/Activities/get_activities_id\">Activity</a>
+ * Please refer to response schema of <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivity\">Activity</a>
  * @member {Object} next_activity
  */
 OrganizationItemAllOf.prototype['next_activity'] = undefined;

@@ -168,7 +168,7 @@ StageWithPipelineInfo.prototype['pipeline_id'] = undefined;
 StageWithPipelineInfo.prototype['rotten_flag'] = undefined;
 
 /**
- * The number of days the Deals are not updated in this Stage would become rotten. Applies only if the rotten_flag is set.
+ * The number of days the Deals are not updated in this Stage would become rotten. Applies only if the `rotten_flag` is set.
  * @member {Number} rotten_days
  */
 StageWithPipelineInfo.prototype['rotten_days'] = undefined;
@@ -192,7 +192,7 @@ StageWithPipelineInfo.prototype['update_time'] = undefined;
 StageWithPipelineInfo.prototype['pipeline_name'] = undefined;
 
 /**
- * Pipeline Deal probability. When true, overrides the Stage probability.
+ * Pipeline Deal probability. When `true`, overrides the Stage probability.
  * @member {Boolean} pipeline_deal_probability
  */
 StageWithPipelineInfo.prototype['pipeline_deal_probability'] = undefined;
@@ -235,7 +235,7 @@ BaseStage.prototype['pipeline_id'] = undefined;
  */
 BaseStage.prototype['rotten_flag'] = undefined;
 /**
- * The number of days the Deals are not updated in this Stage would become rotten. Applies only if the rotten_flag is set.
+ * The number of days the Deals are not updated in this Stage would become rotten. Applies only if the `rotten_flag` is set.
  * @member {Number} rotten_days
  */
 BaseStage.prototype['rotten_days'] = undefined;
@@ -256,7 +256,7 @@ BaseStage.prototype['update_time'] = undefined;
  */
 StageWithPipelineInfoAllOf.prototype['pipeline_name'] = undefined;
 /**
- * Pipeline Deal probability. When true, overrides the Stage probability.
+ * Pipeline Deal probability. When `true`, overrides the Stage probability.
  * @member {Boolean} pipeline_deal_probability
  */
 StageWithPipelineInfoAllOf.prototype['pipeline_deal_probability'] = undefined;

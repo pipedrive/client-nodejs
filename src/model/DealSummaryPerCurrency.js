@@ -66,7 +66,7 @@ class DealSummaryPerCurrency {
 }
 
 /**
- * Deals count per currency. This parameter is dynamic and changes according to currency_id value.
+ * Deals count per currency. This parameter is dynamic and changes according to `currency_id` value.
  * @member {Number} CURRENCY_ID
  */
 DealSummaryPerCurrency.prototype['CURRENCY_ID'] = undefined;

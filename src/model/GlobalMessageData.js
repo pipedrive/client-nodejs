@@ -115,7 +115,7 @@ GlobalMessageData.prototype['company_id'] = undefined;
 GlobalMessageData.prototype['type_info'] = undefined;
 
 /**
- * The User data for the Global Message (such as user_id, name, email, phone)
+ * The User data for the Global Message (such as `user_id`, `name`, `email`, `phone`)
  * @member {Object} user_data
  */
 GlobalMessageData.prototype['user_data'] = undefined;

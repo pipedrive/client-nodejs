@@ -201,13 +201,13 @@ ActivityPostObject.prototype['location'] = undefined;
 ActivityPostObject.prototype['public_description'] = undefined;
 
 /**
- * Subject of the Activity. When value for subject is not set, it will be given a default value \"Call\".
+ * Subject of the Activity. When value for subject is not set, it will be given a default value `Call`.
  * @member {String} subject
  */
 ActivityPostObject.prototype['subject'] = undefined;
 
 /**
- * Type of the Activity. This is in correlation with the key_string parameter of ActivityTypes. When value for type is not set, it will be given a default value \"call\".
+ * Type of the Activity. This is in correlation with the `key_string` parameter of ActivityTypes. When value for type is not set, it will be given a default value `Call`.
  * @member {String} type
  */
 ActivityPostObject.prototype['type'] = undefined;
@@ -219,19 +219,19 @@ ActivityPostObject.prototype['type'] = undefined;
 ActivityPostObject.prototype['user_id'] = undefined;
 
 /**
- * List of multiple Persons (participants) this Activity is associated with. If omitted, single participant from person_id field is used. It requires a structure as follows: [{\"person_id\":1,\"primary_flag\":true}]
+ * List of multiple Persons (participants) this Activity is associated with. If omitted, single participant from `person_id` field is used. It requires a structure as follows: `[{\"person_id\":1,\"primary_flag\":true}]`
  * @member {Array.<Object>} participants
  */
 ActivityPostObject.prototype['participants'] = undefined;
 
 /**
- * Set the Activity as 'Busy' or 'Free'. If the flag is set to true, your customers will not be able to book that time slot through any Scheduler links. The flag can also be unset by never setting it or overriding it with null. When the value of the flag is unset (null), the flag defaults to 'Busy' if it has a time set, and 'Free' if it is an all-day event without specified time.
+ * Set the Activity as 'Busy' or 'Free'. If the flag is set to `true`, your customers will not be able to book that time slot through any Scheduler links. The flag can also be unset by never setting it or overriding it with `null`. When the value of the flag is unset (`null`), the flag defaults to 'Busy' if it has a time set, and 'Free' if it is an all-day event without specified time.
  * @member {module:model/ActivityPostObject.BusyFlagEnum} busy_flag
  */
 ActivityPostObject.prototype['busy_flag'] = undefined;
 
 /**
- * Attendees of the Activity. This can be either your existing Pipedrive contacts or an external email address. It requires a structure as follows: [{\"email_address\":\"mail@example.org\"}] or [{\"person_id\":1, \"email_address\":\"mail@example.org\"}]
+ * Attendees of the Activity. This can be either your existing Pipedrive contacts or an external email address. It requires a structure as follows: `[{\"email_address\":\"mail@example.org\"}]` or `[{\"person_id\":1, \"email_address\":\"mail@example.org\"}]`
  * @member {Array.<Object>} attendees
  */
 ActivityPostObject.prototype['attendees'] = undefined;
@@ -291,12 +291,12 @@ ActivityObjectFragment.prototype['location'] = undefined;
 ActivityObjectFragment.prototype['public_description'] = undefined;
 // Implement ActivityPostObjectAllOf interface:
 /**
- * Subject of the Activity. When value for subject is not set, it will be given a default value \"Call\".
+ * Subject of the Activity. When value for subject is not set, it will be given a default value `Call`.
  * @member {String} subject
  */
 ActivityPostObjectAllOf.prototype['subject'] = undefined;
 /**
- * Type of the Activity. This is in correlation with the key_string parameter of ActivityTypes. When value for type is not set, it will be given a default value \"call\".
+ * Type of the Activity. This is in correlation with the `key_string` parameter of ActivityTypes. When value for type is not set, it will be given a default value `Call`.
  * @member {String} type
  */
 ActivityPostObjectAllOf.prototype['type'] = undefined;
@@ -306,17 +306,17 @@ ActivityPostObjectAllOf.prototype['type'] = undefined;
  */
 ActivityPostObjectAllOf.prototype['user_id'] = undefined;
 /**
- * List of multiple Persons (participants) this Activity is associated with. If omitted, single participant from person_id field is used. It requires a structure as follows: [{\"person_id\":1,\"primary_flag\":true}]
+ * List of multiple Persons (participants) this Activity is associated with. If omitted, single participant from `person_id` field is used. It requires a structure as follows: `[{\"person_id\":1,\"primary_flag\":true}]`
  * @member {Array.<Object>} participants
  */
 ActivityPostObjectAllOf.prototype['participants'] = undefined;
 /**
- * Set the Activity as 'Busy' or 'Free'. If the flag is set to true, your customers will not be able to book that time slot through any Scheduler links. The flag can also be unset by never setting it or overriding it with null. When the value of the flag is unset (null), the flag defaults to 'Busy' if it has a time set, and 'Free' if it is an all-day event without specified time.
+ * Set the Activity as 'Busy' or 'Free'. If the flag is set to `true`, your customers will not be able to book that time slot through any Scheduler links. The flag can also be unset by never setting it or overriding it with `null`. When the value of the flag is unset (`null`), the flag defaults to 'Busy' if it has a time set, and 'Free' if it is an all-day event without specified time.
  * @member {module:model/ActivityPostObjectAllOf.BusyFlagEnum} busy_flag
  */
 ActivityPostObjectAllOf.prototype['busy_flag'] = undefined;
 /**
- * Attendees of the Activity. This can be either your existing Pipedrive contacts or an external email address. It requires a structure as follows: [{\"email_address\":\"mail@example.org\"}] or [{\"person_id\":1, \"email_address\":\"mail@example.org\"}]
+ * Attendees of the Activity. This can be either your existing Pipedrive contacts or an external email address. It requires a structure as follows: `[{\"email_address\":\"mail@example.org\"}]` or `[{\"person_id\":1, \"email_address\":\"mail@example.org\"}]`
  * @member {Array.<Object>} attendees
  */
 ActivityPostObjectAllOf.prototype['attendees'] = undefined;

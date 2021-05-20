@@ -12,9 +12,9 @@
  */
 
 import ApiClient from '../ApiClient';
-import FieldCreateRequestWithRequiredFields from './FieldCreateRequestWithRequiredFields';
 import FieldType from './FieldType';
 import FieldTypeAsString from './FieldTypeAsString';
+import FieldUpdateRequest from './FieldUpdateRequest';
 
 /**
  * The FieldCreateRequest model module.
@@ -25,13 +25,13 @@ class FieldCreateRequest {
     /**
      * Constructs a new <code>FieldCreateRequest</code>.
      * @alias module:model/FieldCreateRequest
-     * @implements module:model/FieldCreateRequestWithRequiredFields
+     * @implements module:model/FieldUpdateRequest
      * @implements module:model/FieldType
      * @param name {String} Name of the field
      * @param fieldType {module:model/FieldTypeAsString} 
      */
     constructor(name, fieldType) { 
-        FieldCreateRequestWithRequiredFields.initialize(this);FieldType.initialize(this, fieldType);
+        FieldUpdateRequest.initialize(this);FieldType.initialize(this, fieldType);
         FieldCreateRequest.initialize(this, name, fieldType);
     }
 
@@ -55,7 +55,7 @@ class FieldCreateRequest {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new FieldCreateRequest();
-            FieldCreateRequestWithRequiredFields.constructFromObject(data, obj);
+            FieldUpdateRequest.constructFromObject(data, obj);
             FieldType.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('name')) {
@@ -92,7 +92,7 @@ class FieldCreateRequest {
 FieldCreateRequest.prototype['name'] = undefined;
 
 /**
- * When field_type is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: [{\"id\":123,\"label\":\"Existing Item\"},{\"label\":\"New Item\"}]
+ * When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: `[{\"id\":123,\"label\":\"Existing Item\"},{\"label\":\"New Item\"}]`
  * @member {String} options
  */
 FieldCreateRequest.prototype['options'] = undefined;
@@ -103,17 +103,17 @@ FieldCreateRequest.prototype['options'] = undefined;
 FieldCreateRequest.prototype['field_type'] = undefined;
 
 
-// Implement FieldCreateRequestWithRequiredFields interface:
+// Implement FieldUpdateRequest interface:
 /**
  * Name of the field
  * @member {String} name
  */
-FieldCreateRequestWithRequiredFields.prototype['name'] = undefined;
+FieldUpdateRequest.prototype['name'] = undefined;
 /**
- * When field_type is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: [{\"id\":123,\"label\":\"Existing Item\"},{\"label\":\"New Item\"}]
+ * When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: `[{\"id\":123,\"label\":\"Existing Item\"},{\"label\":\"New Item\"}]`
  * @member {String} options
  */
-FieldCreateRequestWithRequiredFields.prototype['options'] = undefined;
+FieldUpdateRequest.prototype['options'] = undefined;
 // Implement FieldType interface:
 /**
  * @member {module:model/FieldTypeAsString} field_type

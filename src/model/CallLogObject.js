@@ -139,7 +139,7 @@ class CallLogObject {
 CallLogObject.prototype['user_id'] = undefined;
 
 /**
- * If specified, this activity will be converted into a call log, with the information provided. When this field is used, you don't need to specify deal_id, person_id or org_id, as they will be ignored in favor of the values already available in the activity.
+ * If specified, this activity will be converted into a call log, with the information provided. When this field is used, you don't need to specify `deal_id`, `person_id` or `org_id`, as they will be ignored in favor of the values already available in the activity.
  * @member {Number} activity_id
  */
 CallLogObject.prototype['activity_id'] = undefined;
