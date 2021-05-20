@@ -45,8 +45,8 @@ export default class OrganizationRelationshipsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.orgId ID of the base organization for the returned calculated values
      * @param {module:model/String} opts.type The type of organization relationship
-     * @param {Number} opts.relOwnerOrgId The owner of this relationship. If type is 'parent', then the owner is the parent and the linked organization is the daughter.
-     * @param {Number} opts.relLinkedOrgId The linked organization in this relationship. If type is 'parent', then the linked organization is the daughter.
+     * @param {Number} opts.relOwnerOrgId The owner of this relationship. If type is `parent`, then the owner is the parent and the linked organization is the daughter.
+     * @param {Number} opts.relLinkedOrgId The linked organization in this relationship. If type is `parent`, then the linked organization is the daughter.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationRelationshipPostResponse} and HTTP response
      */
     addOrganizationRelationshipWithHttpInfo(opts) {
@@ -83,8 +83,8 @@ export default class OrganizationRelationshipsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.orgId ID of the base organization for the returned calculated values
      * @param {module:model/String} opts.type The type of organization relationship
-     * @param {Number} opts.relOwnerOrgId The owner of this relationship. If type is 'parent', then the owner is the parent and the linked organization is the daughter.
-     * @param {Number} opts.relLinkedOrgId The linked organization in this relationship. If type is 'parent', then the linked organization is the daughter.
+     * @param {Number} opts.relOwnerOrgId The owner of this relationship. If type is `parent`, then the owner is the parent and the linked organization is the daughter.
+     * @param {Number} opts.relLinkedOrgId The linked organization in this relationship. If type is `parent`, then the linked organization is the daughter.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationRelationshipPostResponse}
      */
     addOrganizationRelationship(opts) {
@@ -145,7 +145,7 @@ export default class OrganizationRelationshipsApi {
 
     /**
      * Get all relationships for organization
-     * Gets all of the relationships for a supplied organization id.
+     * Gets all of the relationships for a supplied organization ID.
      * @param {Number} orgId ID of the organization to get relationships for
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AllOrganizationRelationshipsGetResponse} and HTTP response
      */
@@ -179,7 +179,7 @@ export default class OrganizationRelationshipsApi {
 
     /**
      * Get all relationships for organization
-     * Gets all of the relationships for a supplied organization id.
+     * Gets all of the relationships for a supplied organization ID.
      * @param {Number} orgId ID of the organization to get relationships for
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AllOrganizationRelationshipsGetResponse}
      */
@@ -252,8 +252,8 @@ export default class OrganizationRelationshipsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.orgId ID of the base organization for the returned calculated values
      * @param {module:model/String} opts.type The type of organization relationship
-     * @param {Number} opts.relOwnerOrgId The owner of this relationship. If type is 'parent', then the owner is the parent and the linked organization is the daughter.
-     * @param {Number} opts.relLinkedOrgId The linked organization in this relationship. If type is 'parent', then the linked organization is the daughter.
+     * @param {Number} opts.relOwnerOrgId The owner of this relationship. If type is `parent`, then the owner is the parent and the linked organization is the daughter.
+     * @param {Number} opts.relLinkedOrgId The linked organization in this relationship. If type is `parent`, then the linked organization is the daughter.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationRelationshipUpdateResponse} and HTTP response
      */
     updateOrganizationRelationshipWithHttpInfo(id, opts) {
@@ -296,8 +296,8 @@ export default class OrganizationRelationshipsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.orgId ID of the base organization for the returned calculated values
      * @param {module:model/String} opts.type The type of organization relationship
-     * @param {Number} opts.relOwnerOrgId The owner of this relationship. If type is 'parent', then the owner is the parent and the linked organization is the daughter.
-     * @param {Number} opts.relLinkedOrgId The linked organization in this relationship. If type is 'parent', then the linked organization is the daughter.
+     * @param {Number} opts.relOwnerOrgId The owner of this relationship. If type is `parent`, then the owner is the parent and the linked organization is the daughter.
+     * @param {Number} opts.relLinkedOrgId The linked organization in this relationship. If type is `parent`, then the linked organization is the daughter.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationRelationshipUpdateResponse}
      */
     updateOrganizationRelationship(id, opts) {

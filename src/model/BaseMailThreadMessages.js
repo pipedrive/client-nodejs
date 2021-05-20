@@ -334,7 +334,7 @@ BaseMailThreadMessages.prototype['body_url'] = undefined;
 BaseMailThreadMessages.prototype['mail_thread_id'] = undefined;
 
 /**
- * If the mail message has a draft status then the value is the mail message object as JSON formatted string, otherwise null.
+ * If the mail message has a draft status then the value is the mail message object as JSON formatted string, otherwise `null`.
  * @member {String} draft
  */
 BaseMailThreadMessages.prototype['draft'] = undefined;
@@ -370,7 +370,7 @@ BaseMailThreadMessages.prototype['message_time'] = undefined;
 BaseMailThreadMessages.prototype['add_time'] = undefined;
 
 /**
- * The time when the mail message was updated
+ * The time when the mail message was updated in database received
  * @member {Date} update_time
  */
 BaseMailThreadMessages.prototype['update_time'] = undefined;
@@ -484,7 +484,7 @@ BaseMailThreadMessagesAllOf.prototype['body_url'] = undefined;
  */
 BaseMailThreadMessagesAllOf.prototype['mail_thread_id'] = undefined;
 /**
- * If the mail message has a draft status then the value is the mail message object as JSON formatted string, otherwise null.
+ * If the mail message has a draft status then the value is the mail message object as JSON formatted string, otherwise `null`.
  * @member {String} draft
  */
 BaseMailThreadMessagesAllOf.prototype['draft'] = undefined;
@@ -514,7 +514,7 @@ BaseMailThreadMessagesAllOf.prototype['message_time'] = undefined;
  */
 BaseMailThreadMessagesAllOf.prototype['add_time'] = undefined;
 /**
- * The time when the mail message was updated
+ * The time when the mail message was updated in database received
  * @member {Date} update_time
  */
 BaseMailThreadMessagesAllOf.prototype['update_time'] = undefined;

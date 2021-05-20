@@ -45,7 +45,7 @@ export default class ActivitiesApi {
 
     /**
      * Add an Activity
-     * Adds a new Activity. Includes more_activities_scheduled_in_context property in response's additional_data which indicates whether there are more undone Activities scheduled with the same Deal, Person or Organization (depending on the supplied data). For more information on how to add an Activity, see <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Adds a new Activity. Includes `more_activities_scheduled_in_context` property in response's `additional_data` which indicates whether there are more undone Activities scheduled with the same Deal, Person or Organization (depending on the supplied data). For more information on how to add an Activity, see <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Object} opts Optional parameters
      * @param {module:model/ActivityPostObject} opts.activityPostObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddActivityResponse200} and HTTP response
@@ -76,7 +76,7 @@ export default class ActivitiesApi {
 
     /**
      * Add an Activity
-     * Adds a new Activity. Includes more_activities_scheduled_in_context property in response's additional_data which indicates whether there are more undone Activities scheduled with the same Deal, Person or Organization (depending on the supplied data). For more information on how to add an Activity, see <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Adds a new Activity. Includes `more_activities_scheduled_in_context` property in response's `additional_data` which indicates whether there are more undone Activities scheduled with the same Deal, Person or Organization (depending on the supplied data). For more information on how to add an Activity, see <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Object} opts Optional parameters
      * @param {module:model/ActivityPostObject} opts.activityPostObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddActivityResponse200}
@@ -190,8 +190,8 @@ export default class ActivitiesApi {
      * Returns all Activities assigned to a particular User.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId The ID of the User whose Activities will be fetched. If omitted, the User associated with the API token will be used. If 0, Activities for all company Users will be fetched based on the permission sets.
-     * @param {Number} opts.filterId The ID of the Filter to use (will narrow down results if used together with user_id parameter)
-     * @param {String} opts.type Type of the Activity, can be one type or multiple types separated by a comma. This is in correlation with the key_string parameter of ActivityTypes.
+     * @param {Number} opts.filterId The ID of the Filter to use (will narrow down results if used together with `user_id` parameter)
+     * @param {String} opts.type Type of the Activity, can be one type or multiple types separated by a comma. This is in correlation with the `key_string` parameter of ActivityTypes.
      * @param {Number} opts.limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned.
      * @param {Number} opts.start For pagination, the position that represents the first result for the page
      * @param {Date} opts.startDate Use the Activity due date where you wish to begin fetching Activities from. Insert due date in YYYY-MM-DD format.
@@ -236,8 +236,8 @@ export default class ActivitiesApi {
      * Returns all Activities assigned to a particular User.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId The ID of the User whose Activities will be fetched. If omitted, the User associated with the API token will be used. If 0, Activities for all company Users will be fetched based on the permission sets.
-     * @param {Number} opts.filterId The ID of the Filter to use (will narrow down results if used together with user_id parameter)
-     * @param {String} opts.type Type of the Activity, can be one type or multiple types separated by a comma. This is in correlation with the key_string parameter of ActivityTypes.
+     * @param {Number} opts.filterId The ID of the Filter to use (will narrow down results if used together with `user_id` parameter)
+     * @param {String} opts.type Type of the Activity, can be one type or multiple types separated by a comma. This is in correlation with the `key_string` parameter of ActivityTypes.
      * @param {Number} opts.limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned.
      * @param {Number} opts.start For pagination, the position that represents the first result for the page
      * @param {Date} opts.startDate Use the Activity due date where you wish to begin fetching Activities from. Insert due date in YYYY-MM-DD format.
@@ -303,7 +303,7 @@ export default class ActivitiesApi {
 
     /**
      * Edit an Activity
-     * Modifies an Activity. Includes more_activities_scheduled_in_context property in response's additional_data which indicates whether there are more undone activities scheduled with the same Deal, Person or Organization (depending on the supplied data).
+     * Modifies an Activity. Includes `more_activities_scheduled_in_context` property in response's `additional_data` which indicates whether there are more undone activities scheduled with the same Deal, Person or Organization (depending on the supplied data).
      * @param {Number} id The ID of the Activity
      * @param {Object} opts Optional parameters
      * @param {module:model/ActivityPutObject} opts.activityPutObject 
@@ -340,7 +340,7 @@ export default class ActivitiesApi {
 
     /**
      * Edit an Activity
-     * Modifies an Activity. Includes more_activities_scheduled_in_context property in response's additional_data which indicates whether there are more undone activities scheduled with the same Deal, Person or Organization (depending on the supplied data).
+     * Modifies an Activity. Includes `more_activities_scheduled_in_context` property in response's `additional_data` which indicates whether there are more undone activities scheduled with the same Deal, Person or Organization (depending on the supplied data).
      * @param {Number} id The ID of the Activity
      * @param {Object} opts Optional parameters
      * @param {module:model/ActivityPutObject} opts.activityPutObject 

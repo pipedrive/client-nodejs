@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **itemType** | **String** | The item type | 
 **itemId** | **Number** | ID of the item to associate the file with | 
 **remoteId** | **String** | The remote item id | 
-**remoteLocation** | **String** | The location type to send the file to. Only googledrive is supported at the moment. | 
+**remoteLocation** | **String** | The location type to send the file to. Only &#x60;googledrive&#x60; is supported at the moment. | 
 
 
 

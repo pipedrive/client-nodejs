@@ -79,7 +79,7 @@ class BaseTeam {
                 delete data['manager_id'];
             }
             if (data.hasOwnProperty('users')) {
-                obj['users'] = ApiClient.convertToType(data['users'], Array);
+                obj['users'] = ApiClient.convertToType(data['users'], ['Number']);
 
                 delete data['users'];
             }
@@ -140,8 +140,8 @@ BaseTeam.prototype['description'] = undefined;
 BaseTeam.prototype['manager_id'] = undefined;
 
 /**
- * IDs of the Users that belong to the Team
- * @member {Array} users
+ * List of User IDs
+ * @member {Array.<Number>} users
  */
 BaseTeam.prototype['users'] = undefined;
 
@@ -193,8 +193,8 @@ UpdateTeamWithAdditionalProperties.prototype['description'] = undefined;
  */
 UpdateTeamWithAdditionalProperties.prototype['manager_id'] = undefined;
 /**
- * IDs of the Users that belong to the Team
- * @member {Array} users
+ * List of User IDs
+ * @member {Array.<Number>} users
  */
 UpdateTeamWithAdditionalProperties.prototype['users'] = undefined;
 /**

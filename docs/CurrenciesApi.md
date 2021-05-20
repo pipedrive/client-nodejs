@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Get all supported currencies
 
-Returns all supported currencies in given account which should be used when saving monetary values with other objects. The &#39;code&#39; parameter of the returning objects is the currency code according to ISO 4217 for all non-custom currencies.
+Returns all supported currencies in given account which should be used when saving monetary values with other objects. The &#x60;code&#x60; parameter of the returning objects is the currency code according to ISO 4217 for all non-custom currencies.
 
 ### Example
 

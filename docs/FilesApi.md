@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 
 Create a remote file and link it to an item
 
-Creates a new empty file in the remote location (googledrive) that will be linked to the item you supply. For more information on how to add a remote file, see &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-a-remote-file\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this tutorial&lt;/a&gt;.
+Creates a new empty file in the remote location (&#x60;googledrive&#x60;) that will be linked to the item you supply. For more information on how to add a remote file, see &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-a-remote-file\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this tutorial&lt;/a&gt;.
 
 ### Example
 
@@ -107,7 +107,7 @@ let fileType = "fileType_example"; // String | The file type
 let title = "title_example"; // String | The title of the file
 let itemType = "itemType_example"; // String | The item type
 let itemId = 56; // Number | ID of the item to associate the file with
-let remoteLocation = "remoteLocation_example"; // String | The location type to send the file to. Only googledrive is supported at the moment.
+let remoteLocation = "remoteLocation_example"; // String | The location type to send the file to. Only `googledrive` is supported at the moment.
 apiInstance.addFileAndLinkIt(fileType, title, itemType, itemId, remoteLocation).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
  **title** | **String**| The title of the file | 
  **itemType** | **String**| The item type | 
  **itemId** | **Number**| ID of the item to associate the file with | 
- **remoteLocation** | **String**| The location type to send the file to. Only googledrive is supported at the moment. | 
+ **remoteLocation** | **String**| The location type to send the file to. Only &#x60;googledrive&#x60; is supported at the moment. | 
 
 ### Return type
 
@@ -159,6 +159,9 @@ let api_key = defaultClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = defaultClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.FilesApi();
 let id = 56; // Number | ID of the file
@@ -183,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key)
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -324,7 +327,7 @@ let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
   'includeDeletedFiles': new Pipedrive.NumberBoolean(), // NumberBoolean | When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
-  'sort': "sort_example" // String | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
+  'sort': "sort_example" // String | Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
 };
 apiInstance.getFiles(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -342,7 +345,7 @@ Name | Type | Description  | Notes
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
  **includeDeletedFiles** | [**NumberBoolean**](.md)| When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work. | [optional] 
- **sort** | **String**| Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment. | [optional] 
+ **sort** | **String**| Field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment. | [optional] 
 
 ### Return type
 
@@ -364,7 +367,7 @@ Name | Type | Description  | Notes
 
 Link a remote file to an item
 
-Links an existing remote file (googledrive) to the item you supply. For more information on how to link a remote file, see &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-a-remote-file\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this tutorial&lt;/a&gt;.
+Links an existing remote file (&#x60;googledrive&#x60;) to the item you supply. For more information on how to link a remote file, see &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-a-remote-file\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this tutorial&lt;/a&gt;.
 
 ### Example
 
@@ -384,7 +387,7 @@ let apiInstance = new Pipedrive.FilesApi();
 let itemType = "itemType_example"; // String | The item type
 let itemId = 56; // Number | ID of the item to associate the file with
 let remoteId = "remoteId_example"; // String | The remote item id
-let remoteLocation = "remoteLocation_example"; // String | The location type to send the file to. Only googledrive is supported at the moment.
+let remoteLocation = "remoteLocation_example"; // String | The location type to send the file to. Only `googledrive` is supported at the moment.
 apiInstance.linkFileToItem(itemType, itemId, remoteId, remoteLocation).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -401,7 +404,7 @@ Name | Type | Description  | Notes
  **itemType** | **String**| The item type | 
  **itemId** | **Number**| ID of the item to associate the file with | 
  **remoteId** | **String**| The remote item id | 
- **remoteLocation** | **String**| The location type to send the file to. Only googledrive is supported at the moment. | 
+ **remoteLocation** | **String**| The location type to send the file to. Only &#x60;googledrive&#x60; is supported at the moment. | 
 
 ### Return type
 

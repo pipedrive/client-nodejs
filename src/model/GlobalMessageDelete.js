@@ -104,7 +104,7 @@ GlobalMessageDelete.prototype['data'] = undefined;
 GlobalMessageDelete.prototype['handle_time'] = undefined;
 
 /**
- * The list of timers formatted by name and elapsed time in ms (such as app, app_xss_clean, db_connect)
+ * The list of timers formatted by name and elapsed time in ms (such as `app`, `app_xss_clean`, `db_connect`)
  * @member {Object} _req_time_ctx_ms
  */
 GlobalMessageDelete.prototype['_req_time_ctx_ms'] = undefined;
@@ -127,7 +127,7 @@ GlobalMessageDeleteAllOf.prototype['data'] = undefined;
  */
 GlobalMessageDeleteAllOf.prototype['handle_time'] = undefined;
 /**
- * The list of timers formatted by name and elapsed time in ms (such as app, app_xss_clean, db_connect)
+ * The list of timers formatted by name and elapsed time in ms (such as `app`, `app_xss_clean`, `db_connect`)
  * @member {Object} _req_time_ctx_ms
  */
 GlobalMessageDeleteAllOf.prototype['_req_time_ctx_ms'] = undefined;

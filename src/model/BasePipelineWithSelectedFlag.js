@@ -129,7 +129,7 @@ BasePipelineWithSelectedFlag.prototype['name'] = undefined;
 BasePipelineWithSelectedFlag.prototype['url_title'] = undefined;
 
 /**
- * Defines the order of Pipelines. First order (order_nr=0) is the default Pipeline.
+ * Defines the order of Pipelines. First order (`order_nr=0`) is the default Pipeline.
  * @member {Number} order_nr
  */
 BasePipelineWithSelectedFlag.prototype['order_nr'] = undefined;
@@ -182,7 +182,7 @@ BasePipeline.prototype['name'] = undefined;
  */
 BasePipeline.prototype['url_title'] = undefined;
 /**
- * Defines the order of Pipelines. First order (order_nr=0) is the default Pipeline.
+ * Defines the order of Pipelines. First order (`order_nr=0`) is the default Pipeline.
  * @member {Number} order_nr
  */
 BasePipeline.prototype['order_nr'] = undefined;

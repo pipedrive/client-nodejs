@@ -252,7 +252,7 @@ export default class ProductsApi {
 
     /**
      * Find products by name
-     * <strong>This endpoint is deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/#!/Products/get_products_search\">/v1/products/search</a> or <a href=\"https://developers.pipedrive.com/docs/api/v1/#!/ItemSearch/get_itemSearch\">/v1/itemSearch</a> instead</strong>. <br> Returns data about the products that were found. If currency was set in request, prices in that currency are served back.
+     * This endpoint is deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Products#searchProducts\">/v1/products/search</a> or <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> instead. <br> Returns data about the products that were found. If currency was set in request, prices in that currency are served back.
      * @param {String} term Search term to look for, minimum 3 characters.
      * @param {Object} opts Optional parameters
      * @param {String} opts.currency Currency code in which prices should be returned in. If omitted, prices in user's default currency will be returned.
@@ -294,7 +294,7 @@ export default class ProductsApi {
 
     /**
      * Find products by name
-     * <strong>This endpoint is deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/#!/Products/get_products_search\">/v1/products/search</a> or <a href=\"https://developers.pipedrive.com/docs/api/v1/#!/ItemSearch/get_itemSearch\">/v1/itemSearch</a> instead</strong>. <br> Returns data about the products that were found. If currency was set in request, prices in that currency are served back.
+     * This endpoint is deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Products#searchProducts\">/v1/products/search</a> or <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> instead. <br> Returns data about the products that were found. If currency was set in request, prices in that currency are served back.
      * @param {String} term Search term to look for, minimum 3 characters.
      * @param {Object} opts Optional parameters
      * @param {String} opts.currency Currency code in which prices should be returned in. If omitted, prices in user's default currency will be returned.
@@ -426,7 +426,7 @@ export default class ProductsApi {
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {module:model/NumberBoolean} opts.includeDeletedFiles When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
+     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListFilesResponse} and HTTP response
      */
     getProductFilesWithHttpInfo(id, opts) {
@@ -470,7 +470,7 @@ export default class ProductsApi {
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {module:model/NumberBoolean} opts.includeDeletedFiles When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
+     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListFilesResponse}
      */
     getProductFiles(id, opts) {
@@ -638,13 +638,13 @@ export default class ProductsApi {
 
     /**
      * Search products
-     * Searches all Products by name, code and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/#!/ItemSearch/get_itemSearch\">/v1/itemSearch</a> with a narrower OAuth scope.
-     * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using exact_match).
+     * Searches all Products by name, code and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope.
+     * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`).
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.fields A comma-separated string array. The fields to perform the search from. Defaults to all of them.
      * @param {module:model/Boolean} opts.exactMatch When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
      * @param {module:model/String} opts.includeFields Supports including optional fields in the results which are not provided by default.
-     * @param {Number} opts.start Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. (default to 0)
+     * @param {Number} opts.start Pagination start. Note that the pagination is based on main results and does not include related items when using `search_for_related_items` parameter. (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ProductSearchResponse} and HTTP response
      */
@@ -684,13 +684,13 @@ export default class ProductsApi {
 
     /**
      * Search products
-     * Searches all Products by name, code and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/#!/ItemSearch/get_itemSearch\">/v1/itemSearch</a> with a narrower OAuth scope.
-     * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using exact_match).
+     * Searches all Products by name, code and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope.
+     * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`).
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.fields A comma-separated string array. The fields to perform the search from. Defaults to all of them.
      * @param {module:model/Boolean} opts.exactMatch When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
      * @param {module:model/String} opts.includeFields Supports including optional fields in the results which are not provided by default.
-     * @param {Number} opts.start Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. (default to 0)
+     * @param {Number} opts.start Pagination start. Note that the pagination is based on main results and does not include related items when using `search_for_related_items` parameter. (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ProductSearchResponse}
      */

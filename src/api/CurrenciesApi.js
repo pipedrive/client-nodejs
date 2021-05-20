@@ -37,7 +37,7 @@ export default class CurrenciesApi {
 
     /**
      * Get all supported currencies
-     * Returns all supported currencies in given account which should be used when saving monetary values with other objects. The 'code' parameter of the returning objects is the currency code according to ISO 4217 for all non-custom currencies.
+     * Returns all supported currencies in given account which should be used when saving monetary values with other objects. The `code` parameter of the returning objects is the currency code according to ISO 4217 for all non-custom currencies.
      * @param {Object} opts Optional parameters
      * @param {String} opts.term Optional search term that is searched for from currency's name and/or code.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Currencies} and HTTP response
@@ -69,7 +69,7 @@ export default class CurrenciesApi {
 
     /**
      * Get all supported currencies
-     * Returns all supported currencies in given account which should be used when saving monetary values with other objects. The 'code' parameter of the returning objects is the currency code according to ISO 4217 for all non-custom currencies.
+     * Returns all supported currencies in given account which should be used when saving monetary values with other objects. The `code` parameter of the returning objects is the currency code according to ISO 4217 for all non-custom currencies.
      * @param {Object} opts Optional parameters
      * @param {String} opts.term Optional search term that is searched for from currency's name and/or code.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Currencies}

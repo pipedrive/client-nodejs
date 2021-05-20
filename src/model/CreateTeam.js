@@ -67,7 +67,7 @@ class CreateTeam {
                 delete data['manager_id'];
             }
             if (data.hasOwnProperty('users')) {
-                obj['users'] = ApiClient.convertToType(data['users'], Array);
+                obj['users'] = ApiClient.convertToType(data['users'], ['Number']);
 
                 delete data['users'];
             }
@@ -102,8 +102,8 @@ CreateTeam.prototype['description'] = undefined;
 CreateTeam.prototype['manager_id'] = undefined;
 
 /**
- * IDs of the Users that belong to the Team
- * @member {Array} users
+ * List of User IDs
+ * @member {Array.<Number>} users
  */
 CreateTeam.prototype['users'] = undefined;
 

@@ -39,14 +39,14 @@ export default class ItemSearchApi {
     /**
      * Perform a search from multiple item types
      * Performs a search from your choice of item types and fields.
-     * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using exact_match).
+     * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`).
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.itemTypes A comma-separated string array. The type of items to perform the search from. Defaults to all.
-     * @param {module:model/String} opts.fields A comma-separated string array. The fields to perform the search from. Defaults to all. Relevant for each item type are:<br> <table> <tr><th><b>Item type</b></th><th><b>Field</b></th></tr> <tr><td>Deal</td><td>custom_fields, notes, title</td></tr> <tr><td>Person</td><td>custom_fields, email, name, notes, phone</td></tr> <tr><td>Organization</td><td>address, custom_fields, name, notes</td></tr> <tr><td>Product</td><td>code, custom_fields, name</td></tr> <tr><td>Lead</td><td>email, organization_name, person_name, phone, title</td></tr> <tr><td>File</td><td>name</td></tr> <tr><td>Mail attachment</td><td>name</td></tr> </table>
+     * @param {module:model/String} opts.fields A comma-separated string array. The fields to perform the search from. Defaults to all. Relevant for each item type are:<br> <table> <tr><th><b>Item type</b></th><th><b>Field</b></th></tr> <tr><td>Deal</td><td>`custom_fields`, `notes`, `title`</td></tr> <tr><td>Person</td><td>`custom_fields`, `email`, `name`, `notes`, `phone`</td></tr> <tr><td>Organization</td><td>`address`, `custom_fields`, `name`, `notes`</td></tr> <tr><td>Product</td><td>`code`, `custom_fields`, `name`</td></tr> <tr><td>Lead</td><td>`email`, `organization_name`, `person_name`, `phone`, `title`</td></tr> <tr><td>File</td><td>`name`</td></tr> <tr><td>Mail attachment</td><td>`name`</td></tr> </table> <br> When searching for Leads, the email, organization_name, person_name, and phone fields will return results only for Leads not linked to contacts. For searching Leads by Person or Organization values, please use `search_for_related_items`.
      * @param {module:model/Boolean} opts.searchForRelatedItems When enabled, the response will include up to 100 newest related Leads and 100 newest related Deals for each found Person and Organization and up to 100 newest related Persons for each found Organization.
      * @param {module:model/Boolean} opts.exactMatch When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
      * @param {module:model/String} opts.includeFields A comma-separated string array. Supports including optional fields in the results which are not provided by default.
-     * @param {Number} opts.start Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. (default to 0)
+     * @param {Number} opts.start Pagination start. Note that the pagination is based on main results and does not include related items when using `search_for_related_items` parameter. (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ItemSearchResponse} and HTTP response
      */
@@ -89,14 +89,14 @@ export default class ItemSearchApi {
     /**
      * Perform a search from multiple item types
      * Performs a search from your choice of item types and fields.
-     * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using exact_match).
+     * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`).
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.itemTypes A comma-separated string array. The type of items to perform the search from. Defaults to all.
-     * @param {module:model/String} opts.fields A comma-separated string array. The fields to perform the search from. Defaults to all. Relevant for each item type are:<br> <table> <tr><th><b>Item type</b></th><th><b>Field</b></th></tr> <tr><td>Deal</td><td>custom_fields, notes, title</td></tr> <tr><td>Person</td><td>custom_fields, email, name, notes, phone</td></tr> <tr><td>Organization</td><td>address, custom_fields, name, notes</td></tr> <tr><td>Product</td><td>code, custom_fields, name</td></tr> <tr><td>Lead</td><td>email, organization_name, person_name, phone, title</td></tr> <tr><td>File</td><td>name</td></tr> <tr><td>Mail attachment</td><td>name</td></tr> </table>
+     * @param {module:model/String} opts.fields A comma-separated string array. The fields to perform the search from. Defaults to all. Relevant for each item type are:<br> <table> <tr><th><b>Item type</b></th><th><b>Field</b></th></tr> <tr><td>Deal</td><td>`custom_fields`, `notes`, `title`</td></tr> <tr><td>Person</td><td>`custom_fields`, `email`, `name`, `notes`, `phone`</td></tr> <tr><td>Organization</td><td>`address`, `custom_fields`, `name`, `notes`</td></tr> <tr><td>Product</td><td>`code`, `custom_fields`, `name`</td></tr> <tr><td>Lead</td><td>`email`, `organization_name`, `person_name`, `phone`, `title`</td></tr> <tr><td>File</td><td>`name`</td></tr> <tr><td>Mail attachment</td><td>`name`</td></tr> </table> <br> When searching for Leads, the email, organization_name, person_name, and phone fields will return results only for Leads not linked to contacts. For searching Leads by Person or Organization values, please use `search_for_related_items`.
      * @param {module:model/Boolean} opts.searchForRelatedItems When enabled, the response will include up to 100 newest related Leads and 100 newest related Deals for each found Person and Organization and up to 100 newest related Persons for each found Organization.
      * @param {module:model/Boolean} opts.exactMatch When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
      * @param {module:model/String} opts.includeFields A comma-separated string array. Supports including optional fields in the results which are not provided by default.
-     * @param {Number} opts.start Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. (default to 0)
+     * @param {Number} opts.start Pagination start. Note that the pagination is based on main results and does not include related items when using `search_for_related_items` parameter. (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ItemSearchResponse}
      */
@@ -111,12 +111,12 @@ export default class ItemSearchApi {
     /**
      * Perform a search using a specific field from an item type
      * Performs a search from the values of a specific field. Results can either be the distinct values of the field (useful for searching autocomplete field values), or the IDs of actual items (Deals, Persons, Organizations or Products).
-     * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using exact_match).
+     * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`).
      * @param {module:model/String} fieldType The type of the field to perform the search from
      * @param {String} fieldKey The key of the field to search from. The field key can be obtained by fetching the list of the fields using any of the fields' API GET methods (dealFields, personFields, etc.).
      * @param {Object} opts Optional parameters
      * @param {module:model/Boolean} opts.exactMatch When enabled, only full exact matches against the given term are returned. The search <b>is</b> case sensitive. (default to false)
-     * @param {module:model/Boolean} opts.returnItemIds Whether to return the IDs of the matching items or not. When not set or set to 0 or false, only distinct values of the searched field are returned. When set to 1 or true, the ID of each found item is returned.
+     * @param {module:model/Boolean} opts.returnItemIds Whether to return the IDs of the matching items or not. When not set or set to `0` or `false`, only distinct values of the searched field are returned. When set to `1` or `true`, the ID of each found item is returned.
      * @param {Number} opts.start Pagination start
      * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ItemSearchFieldResponse} and HTTP response
@@ -167,12 +167,12 @@ export default class ItemSearchApi {
     /**
      * Perform a search using a specific field from an item type
      * Performs a search from the values of a specific field. Results can either be the distinct values of the field (useful for searching autocomplete field values), or the IDs of actual items (Deals, Persons, Organizations or Products).
-     * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using exact_match).
+     * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`).
      * @param {module:model/String} fieldType The type of the field to perform the search from
      * @param {String} fieldKey The key of the field to search from. The field key can be obtained by fetching the list of the fields using any of the fields' API GET methods (dealFields, personFields, etc.).
      * @param {Object} opts Optional parameters
      * @param {module:model/Boolean} opts.exactMatch When enabled, only full exact matches against the given term are returned. The search <b>is</b> case sensitive. (default to false)
-     * @param {module:model/Boolean} opts.returnItemIds Whether to return the IDs of the matching items or not. When not set or set to 0 or false, only distinct values of the searched field are returned. When set to 1 or true, the ID of each found item is returned.
+     * @param {module:model/Boolean} opts.returnItemIds Whether to return the IDs of the matching items or not. When not set or set to `0` or `false`, only distinct values of the searched field are returned. When set to `1` or `true`, the ID of each found item is returned.
      * @param {Number} opts.start Pagination start
      * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ItemSearchFieldResponse}

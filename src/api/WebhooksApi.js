@@ -42,8 +42,8 @@ export default class WebhooksApi {
 
     /**
      * Create a new webhook
-     * Creates a new webhook and returns its details. Note that specifying an event which triggers the webhook combines 2 parameters - 'event_action' and 'event_object'. E.g., use '\\*.\\*' for getting notifications about all events, 'added.deal' for any newly added deals, 'deleted.persons' for any deleted persons, etc. See <a href=\"https://pipedrive.readme.io/docs/guide-for-webhooks?ref=api_reference\">https://pipedrive.readme.io/docs/guide-for-webhooks</a> for more details.
-     * @param {String} subscriptionUrl A full, valid, publicly accessible URL. Determines where to send the notifications. Please note that you cannot use Pipedrive API endpoints as the subscription_url.
+     * Creates a new webhook and returns its details. Note that specifying an event which triggers the webhook combines 2 parameters - `event_action` and `event_object`. E.g., use `*.*` for getting notifications about all events, `added.deal` for any newly added deals, `deleted.persons` for any deleted persons, etc. See <a href=\"https://pipedrive.readme.io/docs/guide-for-webhooks?ref=api_reference\">https://pipedrive.readme.io/docs/guide-for-webhooks</a> for more details.
+     * @param {String} subscriptionUrl A full, valid, publicly accessible URL. Determines where to send the notifications. Please note that you cannot use Pipedrive API endpoints as the `subscription_url`.
      * @param {module:model/String} eventAction Type of action to receive notifications about. Wildcard will match all supported actions.
      * @param {module:model/String} eventObject Type of object to receive notifications about. Wildcard will match all supported objects.
      * @param {Object} opts Optional parameters
@@ -96,8 +96,8 @@ export default class WebhooksApi {
 
     /**
      * Create a new webhook
-     * Creates a new webhook and returns its details. Note that specifying an event which triggers the webhook combines 2 parameters - 'event_action' and 'event_object'. E.g., use '\\*.\\*' for getting notifications about all events, 'added.deal' for any newly added deals, 'deleted.persons' for any deleted persons, etc. See <a href=\"https://pipedrive.readme.io/docs/guide-for-webhooks?ref=api_reference\">https://pipedrive.readme.io/docs/guide-for-webhooks</a> for more details.
-     * @param {String} subscriptionUrl A full, valid, publicly accessible URL. Determines where to send the notifications. Please note that you cannot use Pipedrive API endpoints as the subscription_url.
+     * Creates a new webhook and returns its details. Note that specifying an event which triggers the webhook combines 2 parameters - `event_action` and `event_object`. E.g., use `*.*` for getting notifications about all events, `added.deal` for any newly added deals, `deleted.persons` for any deleted persons, etc. See <a href=\"https://pipedrive.readme.io/docs/guide-for-webhooks?ref=api_reference\">https://pipedrive.readme.io/docs/guide-for-webhooks</a> for more details.
+     * @param {String} subscriptionUrl A full, valid, publicly accessible URL. Determines where to send the notifications. Please note that you cannot use Pipedrive API endpoints as the `subscription_url`.
      * @param {module:model/String} eventAction Type of action to receive notifications about. Wildcard will match all supported actions.
      * @param {module:model/String} eventObject Type of object to receive notifications about. Wildcard will match all supported objects.
      * @param {Object} opts Optional parameters

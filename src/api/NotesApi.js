@@ -44,13 +44,15 @@ export default class NotesApi {
      * @param {String} content Content of the note in HTML format. Subject to sanitization on the back-end.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId ID of the user who will be marked as the author of this note. Only an admin can change the author.
-     * @param {Number} opts.dealId ID of the deal the note will be attached to.
-     * @param {Number} opts.personId ID of the person this note will be attached to.
-     * @param {Number} opts.orgId ID of the organization this note will be attached to.
+     * @param {String} opts.leadId The ID of the lead the note will be attached to
+     * @param {Number} opts.dealId The ID of the deal the note will be attached to
+     * @param {Number} opts.personId The ID of the person this note will be attached to
+     * @param {Number} opts.orgId The ID of the organization this note will be attached to
      * @param {String} opts.addTime Optional creation date & time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
-     * @param {module:model/NumberBoolean} opts.pinnedToDealFlag If set, then results are filtered by note to deal pinning state (deal_id is also required).
-     * @param {module:model/NumberBoolean} opts.pinnedToOrganizationFlag If set, then results are filtered by note to organization pinning state (org_id is also required).
-     * @param {module:model/NumberBoolean} opts.pinnedToPersonFlag If set, then results are filtered by note to person pinning state (person_id is also required).
+     * @param {module:model/NumberBoolean} opts.pinnedToLeadFlag If set, then results are filtered by note to lead pinning state (lead_id is also required)
+     * @param {module:model/NumberBoolean} opts.pinnedToDealFlag If set, then results are filtered by note to deal pinning state (`deal_id` is also required).
+     * @param {module:model/NumberBoolean} opts.pinnedToOrganizationFlag If set, then results are filtered by note to organization pinning state (`org_id` is also required).
+     * @param {module:model/NumberBoolean} opts.pinnedToPersonFlag If set, then results are filtered by note to person pinning state (`person_id` is also required).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostNote} and HTTP response
      */
     addNoteWithHttpInfo(content, opts) {
@@ -70,10 +72,12 @@ export default class NotesApi {
       let formParams = {
         'content': content,
         'user_id': opts['userId'],
+        'lead_id': opts['leadId'],
         'deal_id': opts['dealId'],
         'person_id': opts['personId'],
         'org_id': opts['orgId'],
         'add_time': opts['addTime'],
+        'pinned_to_lead_flag': opts['pinnedToLeadFlag'],
         'pinned_to_deal_flag': opts['pinnedToDealFlag'],
         'pinned_to_organization_flag': opts['pinnedToOrganizationFlag'],
         'pinned_to_person_flag': opts['pinnedToPersonFlag']
@@ -96,13 +100,15 @@ export default class NotesApi {
      * @param {String} content Content of the note in HTML format. Subject to sanitization on the back-end.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId ID of the user who will be marked as the author of this note. Only an admin can change the author.
-     * @param {Number} opts.dealId ID of the deal the note will be attached to.
-     * @param {Number} opts.personId ID of the person this note will be attached to.
-     * @param {Number} opts.orgId ID of the organization this note will be attached to.
+     * @param {String} opts.leadId The ID of the lead the note will be attached to
+     * @param {Number} opts.dealId The ID of the deal the note will be attached to
+     * @param {Number} opts.personId The ID of the person this note will be attached to
+     * @param {Number} opts.orgId The ID of the organization this note will be attached to
      * @param {String} opts.addTime Optional creation date & time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
-     * @param {module:model/NumberBoolean} opts.pinnedToDealFlag If set, then results are filtered by note to deal pinning state (deal_id is also required).
-     * @param {module:model/NumberBoolean} opts.pinnedToOrganizationFlag If set, then results are filtered by note to organization pinning state (org_id is also required).
-     * @param {module:model/NumberBoolean} opts.pinnedToPersonFlag If set, then results are filtered by note to person pinning state (person_id is also required).
+     * @param {module:model/NumberBoolean} opts.pinnedToLeadFlag If set, then results are filtered by note to lead pinning state (lead_id is also required)
+     * @param {module:model/NumberBoolean} opts.pinnedToDealFlag If set, then results are filtered by note to deal pinning state (`deal_id` is also required).
+     * @param {module:model/NumberBoolean} opts.pinnedToOrganizationFlag If set, then results are filtered by note to organization pinning state (`org_id` is also required).
+     * @param {module:model/NumberBoolean} opts.pinnedToPersonFlag If set, then results are filtered by note to person pinning state (`person_id` is also required).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostNote}
      */
     addNote(content, opts) {
@@ -213,18 +219,20 @@ export default class NotesApi {
      * Get all notes
      * Returns all notes.
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.userId ID of the user whose notes to fetch. If omitted, notes by all users will be returned.
-     * @param {Number} opts.dealId ID of the deal which notes to fetch. If omitted, notes about all deals with be returned.
-     * @param {Number} opts.personId ID of the person whose notes to fetch. If omitted, notes about all persons with be returned.
-     * @param {Number} opts.orgId ID of the organization which notes to fetch. If omitted, notes about all organizations with be returned.
+     * @param {Number} opts.userId The ID of the user whose notes to fetch. If omitted, notes by all users will be returned.
+     * @param {String} opts.leadId The ID of the lead which notes to fetch. If omitted, notes about all leads with be returned.
+     * @param {Number} opts.dealId The ID of the deal which notes to fetch. If omitted, notes about all deals with be returned.
+     * @param {Number} opts.personId The ID of the person whose notes to fetch. If omitted, notes about all persons with be returned.
+     * @param {Number} opts.orgId The ID of the organization which notes to fetch. If omitted, notes about all organizations with be returned
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, content, add_time, update_time.
-     * @param {Date} opts.startDate Date in format of YYYY-MM-DD from which notes to fetch from.
+     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `content`, `add_time`, `update_time`.
+     * @param {Date} opts.startDate Date in format of YYYY-MM-DD from which notes to fetch.
      * @param {Date} opts.endDate Date in format of YYYY-MM-DD until which notes to fetch to.
-     * @param {module:model/NumberBoolean} opts.pinnedToDealFlag If set, then results are filtered by note to deal pinning state.
-     * @param {module:model/NumberBoolean} opts.pinnedToOrganizationFlag If set, then results are filtered by note to organization pinning state.
-     * @param {module:model/NumberBoolean} opts.pinnedToPersonFlag If set, then results are filtered by note to person pinning state.
+     * @param {module:model/NumberBoolean} opts.pinnedToLeadFlag If set, then results are filtered by note to lead pinning state
+     * @param {module:model/NumberBoolean} opts.pinnedToDealFlag If set, then results are filtered by note to deal pinning state
+     * @param {module:model/NumberBoolean} opts.pinnedToOrganizationFlag If set, then results are filtered by note to organization pinning state
+     * @param {module:model/NumberBoolean} opts.pinnedToPersonFlag If set, then results are filtered by note to person pinning state
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetNotes} and HTTP response
      */
     getNotesWithHttpInfo(opts) {
@@ -235,6 +243,7 @@ export default class NotesApi {
       };
       let queryParams = {
         'user_id': opts['userId'],
+        'lead_id': opts['leadId'],
         'deal_id': opts['dealId'],
         'person_id': opts['personId'],
         'org_id': opts['orgId'],
@@ -243,6 +252,7 @@ export default class NotesApi {
         'sort': opts['sort'],
         'start_date': opts['startDate'],
         'end_date': opts['endDate'],
+        'pinned_to_lead_flag': opts['pinnedToLeadFlag'],
         'pinned_to_deal_flag': opts['pinnedToDealFlag'],
         'pinned_to_organization_flag': opts['pinnedToOrganizationFlag'],
         'pinned_to_person_flag': opts['pinnedToPersonFlag']
@@ -267,18 +277,20 @@ export default class NotesApi {
      * Get all notes
      * Returns all notes.
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.userId ID of the user whose notes to fetch. If omitted, notes by all users will be returned.
-     * @param {Number} opts.dealId ID of the deal which notes to fetch. If omitted, notes about all deals with be returned.
-     * @param {Number} opts.personId ID of the person whose notes to fetch. If omitted, notes about all persons with be returned.
-     * @param {Number} opts.orgId ID of the organization which notes to fetch. If omitted, notes about all organizations with be returned.
+     * @param {Number} opts.userId The ID of the user whose notes to fetch. If omitted, notes by all users will be returned.
+     * @param {String} opts.leadId The ID of the lead which notes to fetch. If omitted, notes about all leads with be returned.
+     * @param {Number} opts.dealId The ID of the deal which notes to fetch. If omitted, notes about all deals with be returned.
+     * @param {Number} opts.personId The ID of the person whose notes to fetch. If omitted, notes about all persons with be returned.
+     * @param {Number} opts.orgId The ID of the organization which notes to fetch. If omitted, notes about all organizations with be returned
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, content, add_time, update_time.
-     * @param {Date} opts.startDate Date in format of YYYY-MM-DD from which notes to fetch from.
+     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `content`, `add_time`, `update_time`.
+     * @param {Date} opts.startDate Date in format of YYYY-MM-DD from which notes to fetch.
      * @param {Date} opts.endDate Date in format of YYYY-MM-DD until which notes to fetch to.
-     * @param {module:model/NumberBoolean} opts.pinnedToDealFlag If set, then results are filtered by note to deal pinning state.
-     * @param {module:model/NumberBoolean} opts.pinnedToOrganizationFlag If set, then results are filtered by note to organization pinning state.
-     * @param {module:model/NumberBoolean} opts.pinnedToPersonFlag If set, then results are filtered by note to person pinning state.
+     * @param {module:model/NumberBoolean} opts.pinnedToLeadFlag If set, then results are filtered by note to lead pinning state
+     * @param {module:model/NumberBoolean} opts.pinnedToDealFlag If set, then results are filtered by note to deal pinning state
+     * @param {module:model/NumberBoolean} opts.pinnedToOrganizationFlag If set, then results are filtered by note to organization pinning state
+     * @param {module:model/NumberBoolean} opts.pinnedToPersonFlag If set, then results are filtered by note to person pinning state
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetNotes}
      */
     getNotes(opts) {
@@ -296,13 +308,15 @@ export default class NotesApi {
      * @param {String} content Content of the note in HTML format. Subject to sanitization on the back-end.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId ID of the user who will be marked as the author of this note. Only an admin can change the author.
-     * @param {Number} opts.dealId ID of the deal the note will be attached to.
-     * @param {Number} opts.personId ID of the person this note will be attached to.
-     * @param {Number} opts.orgId ID of the organization this note will be attached to.
+     * @param {String} opts.leadId The ID of the lead the note will be attached to
+     * @param {Number} opts.dealId The ID of the deal the note will be attached to
+     * @param {Number} opts.personId The ID of the person this note will be attached to
+     * @param {Number} opts.orgId The ID of the organization this note will be attached to
      * @param {String} opts.addTime Optional creation date & time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
-     * @param {module:model/NumberBoolean} opts.pinnedToDealFlag If set, then results are filtered by note to deal pinning state (deal_id is also required).
-     * @param {module:model/NumberBoolean} opts.pinnedToOrganizationFlag If set, then results are filtered by note to organization pinning state (org_id is also required).
-     * @param {module:model/NumberBoolean} opts.pinnedToPersonFlag If set, then results are filtered by note to person pinning state (person_id is also required).
+     * @param {module:model/NumberBoolean} opts.pinnedToLeadFlag If set, then results are filtered by note to lead pinning state (lead_id is also required)
+     * @param {module:model/NumberBoolean} opts.pinnedToDealFlag If set, then results are filtered by note to deal pinning state (`deal_id` is also required).
+     * @param {module:model/NumberBoolean} opts.pinnedToOrganizationFlag If set, then results are filtered by note to organization pinning state (`org_id` is also required).
+     * @param {module:model/NumberBoolean} opts.pinnedToPersonFlag If set, then results are filtered by note to person pinning state (`person_id` is also required).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostNote} and HTTP response
      */
     updateNoteWithHttpInfo(id, content, opts) {
@@ -327,10 +341,12 @@ export default class NotesApi {
       let formParams = {
         'content': content,
         'user_id': opts['userId'],
+        'lead_id': opts['leadId'],
         'deal_id': opts['dealId'],
         'person_id': opts['personId'],
         'org_id': opts['orgId'],
         'add_time': opts['addTime'],
+        'pinned_to_lead_flag': opts['pinnedToLeadFlag'],
         'pinned_to_deal_flag': opts['pinnedToDealFlag'],
         'pinned_to_organization_flag': opts['pinnedToOrganizationFlag'],
         'pinned_to_person_flag': opts['pinnedToPersonFlag']
@@ -354,13 +370,15 @@ export default class NotesApi {
      * @param {String} content Content of the note in HTML format. Subject to sanitization on the back-end.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId ID of the user who will be marked as the author of this note. Only an admin can change the author.
-     * @param {Number} opts.dealId ID of the deal the note will be attached to.
-     * @param {Number} opts.personId ID of the person this note will be attached to.
-     * @param {Number} opts.orgId ID of the organization this note will be attached to.
+     * @param {String} opts.leadId The ID of the lead the note will be attached to
+     * @param {Number} opts.dealId The ID of the deal the note will be attached to
+     * @param {Number} opts.personId The ID of the person this note will be attached to
+     * @param {Number} opts.orgId The ID of the organization this note will be attached to
      * @param {String} opts.addTime Optional creation date & time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
-     * @param {module:model/NumberBoolean} opts.pinnedToDealFlag If set, then results are filtered by note to deal pinning state (deal_id is also required).
-     * @param {module:model/NumberBoolean} opts.pinnedToOrganizationFlag If set, then results are filtered by note to organization pinning state (org_id is also required).
-     * @param {module:model/NumberBoolean} opts.pinnedToPersonFlag If set, then results are filtered by note to person pinning state (person_id is also required).
+     * @param {module:model/NumberBoolean} opts.pinnedToLeadFlag If set, then results are filtered by note to lead pinning state (lead_id is also required)
+     * @param {module:model/NumberBoolean} opts.pinnedToDealFlag If set, then results are filtered by note to deal pinning state (`deal_id` is also required).
+     * @param {module:model/NumberBoolean} opts.pinnedToOrganizationFlag If set, then results are filtered by note to organization pinning state (`org_id` is also required).
+     * @param {module:model/NumberBoolean} opts.pinnedToPersonFlag If set, then results are filtered by note to person pinning state (`person_id` is also required).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostNote}
      */
     updateNote(id, content, opts) {

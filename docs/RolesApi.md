@@ -38,7 +38,7 @@ api_key.apiKey = 'YOUR API KEY';
 let apiInstance = new Pipedrive.RolesApi();
 let id = 56; // Number | ID of the role
 let settingKey = "settingKey_example"; // String | 
-let value = new Pipedrive.NumberBooleanDefault0(); // NumberBooleanDefault0 | Possible values for default_visibility settings: 0...1.
+let value = new Pipedrive.NumberBooleanDefault0(); // NumberBooleanDefault0 | Possible values for `default_visibility` settings: `0` or `1`
 apiInstance.addOrUpdateRoleSetting(id, settingKey, value).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| ID of the role | 
  **settingKey** | **String**|  | 
- **value** | [**NumberBooleanDefault0**](NumberBooleanDefault0.md)| Possible values for default_visibility settings: 0...1. | 
+ **value** | [**NumberBooleanDefault0**](NumberBooleanDefault0.md)| Possible values for &#x60;default_visibility&#x60; settings: &#x60;0&#x60; or &#x60;1&#x60; | 
 
 ### Return type
 

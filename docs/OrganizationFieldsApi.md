@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## addOrganizationField
 
-> FieldResponse addOrganizationField(opts)
+> FieldResponse addOrganizationField(name, opts)
 
 Add a new organization field
 
@@ -36,12 +36,12 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.OrganizationFieldsApi();
+let name = "name_example"; // String | Name of the field
 let opts = {
-  'name': "name_example", // String | Name of the field
-  'options': "options_example", // String | When field_type is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: [{\\\"id\\\":123,\\\"label\\\":\\\"Existing Item\\\"},{\\\"label\\\":\\\"New Item\\\"}]
+  'options': "options_example", // String | When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: `[{\\\"id\\\":123,\\\"label\\\":\\\"Existing Item\\\"},{\\\"label\\\":\\\"New Item\\\"}]`
   'fieldType': new Pipedrive.FieldTypeAsString() // FieldTypeAsString | 
 };
-apiInstance.addOrganizationField(opts).then((data) => {
+apiInstance.addOrganizationField(name, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -54,8 +54,8 @@ apiInstance.addOrganizationField(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Name of the field | [optional] 
- **options** | **String**| When field_type is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: [{\\\&quot;id\\\&quot;:123,\\\&quot;label\\\&quot;:\\\&quot;Existing Item\\\&quot;},{\\\&quot;label\\\&quot;:\\\&quot;New Item\\\&quot;}] | [optional] 
+ **name** | **String**| Name of the field | 
+ **options** | **String**| When &#x60;field_type&#x60; is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: &#x60;[{\\\&quot;id\\\&quot;:123,\\\&quot;label\\\&quot;:\\\&quot;Existing Item\\\&quot;},{\\\&quot;label\\\&quot;:\\\&quot;New Item\\\&quot;}]&#x60; | [optional] 
  **fieldType** | [**FieldTypeAsString**](FieldTypeAsString.md)|  | [optional] 
 
 ### Return type
@@ -306,7 +306,7 @@ let apiInstance = new Pipedrive.OrganizationFieldsApi();
 let id = 56; // Number | ID of the field
 let opts = {
   'name': "name_example", // String | Name of the field
-  'options': "options_example" // String | When field_type is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: [{\\\"id\\\":123,\\\"label\\\":\\\"Existing Item\\\"},{\\\"label\\\":\\\"New Item\\\"}]
+  'options': "options_example" // String | When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: `[{\\\"id\\\":123,\\\"label\\\":\\\"Existing Item\\\"},{\\\"label\\\":\\\"New Item\\\"}]`
 };
 apiInstance.updateOrganizationField(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -323,7 +323,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| ID of the field | 
  **name** | **String**| Name of the field | [optional] 
- **options** | **String**| When field_type is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: [{\\\&quot;id\\\&quot;:123,\\\&quot;label\\\&quot;:\\\&quot;Existing Item\\\&quot;},{\\\&quot;label\\\&quot;:\\\&quot;New Item\\\&quot;}] | [optional] 
+ **options** | **String**| When &#x60;field_type&#x60; is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: &#x60;[{\\\&quot;id\\\&quot;:123,\\\&quot;label\\\&quot;:\\\&quot;Existing Item\\\&quot;},{\\\&quot;label\\\&quot;:\\\&quot;New Item\\\&quot;}]&#x60; | [optional] 
 
 ### Return type
 

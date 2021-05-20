@@ -24,7 +24,7 @@ class AddOrUpdateRoleSettingRequest {
      * Constructs a new <code>AddOrUpdateRoleSettingRequest</code>.
      * @alias module:model/AddOrUpdateRoleSettingRequest
      * @param settingKey {module:model/AddOrUpdateRoleSettingRequest.SettingKeyEnum} 
-     * @param value {module:model/NumberBooleanDefault0} Possible values for default_visibility settings: 0...1.
+     * @param value {module:model/NumberBooleanDefault0} Possible values for `default_visibility` settings: `0` or `1`
      */
     constructor(settingKey, value) { 
         
@@ -80,7 +80,7 @@ class AddOrUpdateRoleSettingRequest {
 AddOrUpdateRoleSettingRequest.prototype['setting_key'] = undefined;
 
 /**
- * Possible values for default_visibility settings: 0...1.
+ * Possible values for `default_visibility` settings: `0` or `1`
  * @member {module:model/NumberBooleanDefault0} value
  */
 AddOrUpdateRoleSettingRequest.prototype['value'] = undefined;

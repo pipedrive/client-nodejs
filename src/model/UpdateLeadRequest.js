@@ -118,7 +118,7 @@ UpdateLeadRequest.prototype['title'] = undefined;
 UpdateLeadRequest.prototype['owner_id'] = undefined;
 
 /**
- * The Lead note. Can contain some allowed HTML tags such as `<a>`, `<b>`, etc.
+ * The Lead note. Can contain some allowed HTML tags. (DEPRECATED - please use a `Note` object instead, until the removal of this field, we will update the first `Note` linked to this lead ourselves) 
  * @member {String} note
  */
 UpdateLeadRequest.prototype['note'] = undefined;
@@ -136,7 +136,7 @@ UpdateLeadRequest.prototype['label_ids'] = undefined;
 UpdateLeadRequest.prototype['person_id'] = undefined;
 
 /**
- * The ID of an Organization which this Lead will be linked to. If the Organization does not exist yet, it needs to be created first. A Lead always has to be linked to a Person or Organization or both. 
+ * The ID of an Organization which this Lead will be linked to. If the Organization does not exist yet, it needs to be created first. A Lead always has to be linked to a Person or Organization or both.
  * @member {Number} organization_id
  */
 UpdateLeadRequest.prototype['organization_id'] = undefined;

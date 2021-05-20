@@ -76,7 +76,7 @@ class FieldUpdateRequest {
 FieldUpdateRequest.prototype['name'] = undefined;
 
 /**
- * When field_type is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: [{\"id\":123,\"label\":\"Existing Item\"},{\"label\":\"New Item\"}]
+ * When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: `[{\"id\":123,\"label\":\"Existing Item\"},{\"label\":\"New Item\"}]`
  * @member {String} options
  */
 FieldUpdateRequest.prototype['options'] = undefined;

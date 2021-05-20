@@ -49,7 +49,7 @@ export default class PipelinesApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.name The name of the Pipeline
      * @param {module:model/NumberBoolean} opts.dealProbability Whether Deal probability is disabled or enabled for this Pipeline
-     * @param {Number} opts.orderNr Defines the order of Pipelines. First order (order_nr=0) is the default Pipeline.
+     * @param {Number} opts.orderNr Defines the order of Pipelines. First order (`order_nr=0`) is the default Pipeline.
      * @param {module:model/NumberBoolean} opts.active Whether this Pipeline will be made inactive (hidden) or active
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddNewPipeline} and HTTP response
      */
@@ -87,7 +87,7 @@ export default class PipelinesApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.name The name of the Pipeline
      * @param {module:model/NumberBoolean} opts.dealProbability Whether Deal probability is disabled or enabled for this Pipeline
-     * @param {Number} opts.orderNr Defines the order of Pipelines. First order (order_nr=0) is the default Pipeline.
+     * @param {Number} opts.orderNr Defines the order of Pipelines. First order (`order_nr=0`) is the default Pipeline.
      * @param {module:model/NumberBoolean} opts.active Whether this Pipeline will be made inactive (hidden) or active
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddNewPipeline}
      */
@@ -152,7 +152,7 @@ export default class PipelinesApi {
      * Returns data about a specific pipeline. Also returns the summary of the deals in this pipeline across its stages.
      * @param {Number} id ID of the pipeline
      * @param {Object} opts Optional parameters
-     * @param {String} opts.totalsConvertCurrency 3-letter currency code of any of the supported currencies. When supplied, per_stages_converted is returned in deals_summary which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to 'default_currency' in which case users default currency is used.
+     * @param {String} opts.totalsConvertCurrency 3-letter currency code of any of the supported currencies. When supplied, `per_stages_converted` is returned in `deals_summary` which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to `default_currency` in which case users default currency is used.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetOnePipeline} and HTTP response
      */
     getPipelineWithHttpInfo(id, opts) {
@@ -190,7 +190,7 @@ export default class PipelinesApi {
      * Returns data about a specific pipeline. Also returns the summary of the deals in this pipeline across its stages.
      * @param {Number} id ID of the pipeline
      * @param {Object} opts Optional parameters
-     * @param {String} opts.totalsConvertCurrency 3-letter currency code of any of the supported currencies. When supplied, per_stages_converted is returned in deals_summary which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to 'default_currency' in which case users default currency is used.
+     * @param {String} opts.totalsConvertCurrency 3-letter currency code of any of the supported currencies. When supplied, `per_stages_converted` is returned in `deals_summary` which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to `default_currency` in which case users default currency is used.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetOnePipeline}
      */
     getPipeline(id, opts) {
@@ -275,13 +275,13 @@ export default class PipelinesApi {
      * @param {Number} id ID of the pipeline
      * @param {Object} opts Optional parameters
      * @param {Number} opts.filterId If supplied, only deals matching the given filter will be returned.
-     * @param {Number} opts.userId If supplied, filter_id will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned.
-     * @param {module:model/NumberBoolean} opts.everyone If supplied, filter_id and user_id will not be considered – instead, deals owned by everyone will be returned.
+     * @param {Number} opts.userId If supplied, `filter_id` will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned.
+     * @param {module:model/NumberBoolean} opts.everyone If supplied, `filter_id` and `user_id` will not be considered – instead, deals owned by everyone will be returned.
      * @param {Number} opts.stageId If supplied, only deals within the given stage will be returned.
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {module:model/NumberBoolean} opts.getSummary Whether to include summary of the pipeline in the additional_data or not.
-     * @param {String} opts.totalsConvertCurrency 3-letter currency code of any of the supported currencies. When supplied, per_stages_converted is returned inside deals_summary inside additional_data which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to 'default_currency' in which case users default currency is used. Only works when get_summary parameter flag is enabled.
+     * @param {module:model/NumberBoolean} opts.getSummary Whether to include summary of the pipeline in the `additional_data` or not.
+     * @param {String} opts.totalsConvertCurrency 3-letter currency code of any of the supported currencies. When supplied, `per_stages_converted` is returned inside `deals_summary` inside `additional_data` which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to `default_currency` in which case users default currency is used. Only works when `get_summary` parameter flag is enabled.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetStageDeals} and HTTP response
      */
     getPipelineDealsWithHttpInfo(id, opts) {
@@ -327,13 +327,13 @@ export default class PipelinesApi {
      * @param {Number} id ID of the pipeline
      * @param {Object} opts Optional parameters
      * @param {Number} opts.filterId If supplied, only deals matching the given filter will be returned.
-     * @param {Number} opts.userId If supplied, filter_id will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned.
-     * @param {module:model/NumberBoolean} opts.everyone If supplied, filter_id and user_id will not be considered – instead, deals owned by everyone will be returned.
+     * @param {Number} opts.userId If supplied, `filter_id` will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned.
+     * @param {module:model/NumberBoolean} opts.everyone If supplied, `filter_id` and `user_id` will not be considered – instead, deals owned by everyone will be returned.
      * @param {Number} opts.stageId If supplied, only deals within the given stage will be returned.
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {module:model/NumberBoolean} opts.getSummary Whether to include summary of the pipeline in the additional_data or not.
-     * @param {String} opts.totalsConvertCurrency 3-letter currency code of any of the supported currencies. When supplied, per_stages_converted is returned inside deals_summary inside additional_data which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to 'default_currency' in which case users default currency is used. Only works when get_summary parameter flag is enabled.
+     * @param {module:model/NumberBoolean} opts.getSummary Whether to include summary of the pipeline in the `additional_data` or not.
+     * @param {String} opts.totalsConvertCurrency 3-letter currency code of any of the supported currencies. When supplied, `per_stages_converted` is returned inside `deals_summary` inside `additional_data` which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to `default_currency` in which case users default currency is used. Only works when `get_summary` parameter flag is enabled.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetStageDeals}
      */
     getPipelineDeals(id, opts) {
@@ -460,7 +460,7 @@ export default class PipelinesApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.name The name of the Pipeline
      * @param {module:model/NumberBoolean} opts.dealProbability Whether Deal probability is disabled or enabled for this Pipeline
-     * @param {Number} opts.orderNr Defines the order of Pipelines. First order (order_nr=0) is the default Pipeline.
+     * @param {Number} opts.orderNr Defines the order of Pipelines. First order (`order_nr=0`) is the default Pipeline.
      * @param {module:model/NumberBoolean} opts.active Whether this Pipeline will be made inactive (hidden) or active
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/EditPipeline} and HTTP response
      */
@@ -504,7 +504,7 @@ export default class PipelinesApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.name The name of the Pipeline
      * @param {module:model/NumberBoolean} opts.dealProbability Whether Deal probability is disabled or enabled for this Pipeline
-     * @param {Number} opts.orderNr Defines the order of Pipelines. First order (order_nr=0) is the default Pipeline.
+     * @param {Number} opts.orderNr Defines the order of Pipelines. First order (`order_nr=0`) is the default Pipeline.
      * @param {module:model/NumberBoolean} opts.active Whether this Pipeline will be made inactive (hidden) or active
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EditPipeline}
      */

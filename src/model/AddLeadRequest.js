@@ -115,7 +115,7 @@ AddLeadRequest.prototype['title'] = undefined;
 AddLeadRequest.prototype['owner_id'] = undefined;
 
 /**
- * The Lead note. Can contain some allowed HTML tags.
+ * The Lead note. Can contain some allowed HTML tags. (DEPRECATED - please create a `Note` object and link it to this lead via `lead_id`) 
  * @member {String} note
  */
 AddLeadRequest.prototype['note'] = undefined;

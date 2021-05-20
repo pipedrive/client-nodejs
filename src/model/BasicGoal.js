@@ -102,7 +102,7 @@ BasicGoal.prototype['title'] = undefined;
 BasicGoal.prototype['assignee'] = undefined;
 
 /**
- * Type of the goal. It requires the following JSON structure: { \"name\": \"deals_started\", \"params\": { \"pipeline_id\": 1 } }. Type can be one of: `deals_won`,`deals_progressed`,`activities_completed`,`activities_added`, `deals_started` or `revenue_forecast`. `params` can include `pipeline_id`, `stage_id` or `activity_type_id`. `stage_id` is related to only `deals_progressed` type of goals and `activity_type_id` to `activities_completed` or `activities_added` types of goals. To track goal in all pipelines set `pipeline_id` as `null`.
+ * Type of the goal. It requires the following JSON structure: { \"name\": \"deals_started\", \"params\": { \"pipeline_id\": 1 } }. Type can be one of: `deals_won`, `deals_progressed`, `activities_completed`, `activities_added`, `deals_started` or `revenue_forecast`. `params` can include `pipeline_id`, `stage_id` or `activity_type_id`. `stage_id` is related to only `deals_progressed` type of goals and `activity_type_id` to `activities_completed` or `activities_added` types of goals. To track goal in all pipelines set `pipeline_id` as `null`.
  * @member {Object} type
  */
 BasicGoal.prototype['type'] = undefined;

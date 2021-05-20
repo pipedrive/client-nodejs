@@ -77,7 +77,7 @@ class ItemSearchResponseAllOfData {
 ItemSearchResponseAllOfData.prototype['items'] = undefined;
 
 /**
- * The array of related items if search_for_related_items was enabled
+ * The array of related items if `search_for_related_items` was enabled
  * @member {Array.<module:model/ItemSearchItem>} related_items
  */
 ItemSearchResponseAllOfData.prototype['related_items'] = undefined;

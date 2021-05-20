@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 
 Find products by name
 
-&lt;strong&gt;This endpoint is deprecated. Please use &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/#!/Products/get_products_search\&quot;&gt;/v1/products/search&lt;/a&gt; or &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/#!/ItemSearch/get_itemSearch\&quot;&gt;/v1/itemSearch&lt;/a&gt; instead&lt;/strong&gt;. &lt;br&gt; Returns data about the products that were found. If currency was set in request, prices in that currency are served back.
+This endpoint is deprecated. Please use &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/Products#searchProducts\&quot;&gt;/v1/products/search&lt;/a&gt; or &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\&quot;&gt;/v1/itemSearch&lt;/a&gt; instead. &lt;br&gt; Returns data about the products that were found. If currency was set in request, prices in that currency are served back.
 
 ### Example
 
@@ -437,7 +437,7 @@ let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
   'includeDeletedFiles': new Pipedrive.NumberBoolean(), // NumberBoolean | When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
-  'sort': "sort_example" // String | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
+  'sort': "sort_example" // String | Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
 };
 apiInstance.getProductFiles(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -456,7 +456,7 @@ Name | Type | Description  | Notes
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
  **includeDeletedFiles** | [**NumberBoolean**](.md)| When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work. | [optional] 
- **sort** | **String**| Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment. | [optional] 
+ **sort** | **String**| Field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment. | [optional] 
 
 ### Return type
 
@@ -644,7 +644,7 @@ Name | Type | Description  | Notes
 
 Search products
 
-Searches all Products by name, code and/or custom fields. This endpoint is a wrapper of &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/#!/ItemSearch/get_itemSearch\&quot;&gt;/v1/itemSearch&lt;/a&gt; with a narrower OAuth scope.
+Searches all Products by name, code and/or custom fields. This endpoint is a wrapper of &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\&quot;&gt;/v1/itemSearch&lt;/a&gt; with a narrower OAuth scope.
 
 ### Example
 
@@ -661,12 +661,12 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductsApi();
-let term = "term_example"; // String | The search term to look for. Minimum 2 characters (or 1 if using exact_match).
+let term = "term_example"; // String | The search term to look for. Minimum 2 characters (or 1 if using `exact_match`).
 let opts = {
   'fields': "fields_example", // String | A comma-separated string array. The fields to perform the search from. Defaults to all of them.
   'exactMatch': true, // Boolean | When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
   'includeFields': "includeFields_example", // String | Supports including optional fields in the results which are not provided by default.
-  'start': 0, // Number | Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter.
+  'start': 0, // Number | Pagination start. Note that the pagination is based on main results and does not include related items when using `search_for_related_items` parameter.
   'limit': 56 // Number | Items shown per page
 };
 apiInstance.searchProducts(term, opts).then((data) => {
@@ -682,11 +682,11 @@ apiInstance.searchProducts(term, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **term** | **String**| The search term to look for. Minimum 2 characters (or 1 if using exact_match). | 
+ **term** | **String**| The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). | 
  **fields** | **String**| A comma-separated string array. The fields to perform the search from. Defaults to all of them. | [optional] 
  **exactMatch** | **Boolean**| When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. | [optional] 
  **includeFields** | **String**| Supports including optional fields in the results which are not provided by default. | [optional] 
- **start** | **Number**| Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. | [optional] [default to 0]
+ **start** | **Number**| Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter. | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
 
 ### Return type

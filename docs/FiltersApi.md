@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 
 Get all filter helpers
 
-Returns all supported filter helpers. It helps to know what conditions and helpers are available when you want to &lt;a href&#x3D;\&quot;/docs/api/v1/#!/Filters/post_filters\&quot;&gt;add&lt;/a&gt; or &lt;a href&#x3D;\&quot;/docs/api/v1/#!/Filters/put_filters_id\&quot;&gt;update&lt;/a&gt; filters. For more information on how filter’s helpers can be used, see &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-a-filter\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this tutorial&lt;/a&gt;.
+Returns all supported filter helpers. It helps to know what conditions and helpers are available when you want to &lt;a href&#x3D;\&quot;/docs/api/v1/Filters#addFilter\&quot;&gt;add&lt;/a&gt; or &lt;a href&#x3D;\&quot;/docs/api/v1/Filters#updateFilter\&quot;&gt;update&lt;/a&gt; filters. For more information on how filter’s helpers can be used, see &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-a-filter\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this tutorial&lt;/a&gt;.
 
 ### Example
 

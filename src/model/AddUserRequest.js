@@ -24,7 +24,7 @@ class AddUserRequest {
      * @alias module:model/AddUserRequest
      * @param name {String} Name of the user
      * @param email {String} Email of the user
-     * @param activeFlag {Boolean} Whether the user is active or not. false = Not activated, true = Activated
+     * @param activeFlag {Boolean} Whether the user is active or not. `false` = Not activated, `true` = Activated
      */
     constructor(name, email, activeFlag) { 
         
@@ -93,7 +93,7 @@ AddUserRequest.prototype['name'] = undefined;
 AddUserRequest.prototype['email'] = undefined;
 
 /**
- * Whether the user is active or not. false = Not activated, true = Activated
+ * Whether the user is active or not. `false` = Not activated, `true` = Activated
  * @member {Boolean} active_flag
  * @default true
  */

@@ -144,7 +144,7 @@ SubscriptionRecurringCreateRequest.prototype['description'] = undefined;
 SubscriptionRecurringCreateRequest.prototype['cadence_type'] = undefined;
 
 /**
- * Shows how many payments the Subscription has. Note that one field must be set: cycles_count or infinite. If cycles_count is set, then cycle_amount and start_date are also required.
+ * Shows how many payments the Subscription has. Note that one field must be set: `cycles_count` or `infinite`. If `cycles_count` is set, then `cycle_amount` and `start_date` are also required.
  * @member {Number} cycles_count
  */
 SubscriptionRecurringCreateRequest.prototype['cycles_count'] = undefined;
@@ -162,7 +162,7 @@ SubscriptionRecurringCreateRequest.prototype['cycle_amount'] = undefined;
 SubscriptionRecurringCreateRequest.prototype['start_date'] = undefined;
 
 /**
- * This indicates that the Recurring Subscription will last until it's manually canceled or deleted. Note that only one field must be set: cycles_count or infinite.
+ * This indicates that the Recurring Subscription will last until it's manually canceled or deleted. Note that only one field must be set: `cycles_count` or `infinite`.
  * @member {Boolean} infinite
  */
 SubscriptionRecurringCreateRequest.prototype['infinite'] = undefined;

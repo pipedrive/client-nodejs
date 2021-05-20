@@ -51,7 +51,7 @@ export default class UsersApi {
      * Adds a new user to the company, returns the ID upon success.
      * @param {String} name Name of the user
      * @param {String} email Email of the user
-     * @param {Boolean} activeFlag Whether the user is active or not. false = Not activated, true = Activated
+     * @param {Boolean} activeFlag Whether the user is active or not. `false` = Not activated, `true` = Activated
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/User} and HTTP response
      */
     addUserWithHttpInfo(name, email, activeFlag) {
@@ -97,7 +97,7 @@ export default class UsersApi {
      * Adds a new user to the company, returns the ID upon success.
      * @param {String} name Name of the user
      * @param {String} email Email of the user
-     * @param {Boolean} activeFlag Whether the user is active or not. false = Not activated, true = Activated
+     * @param {Boolean} activeFlag Whether the user is active or not. `false` = Not activated, `true` = Activated
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/User}
      */
     addUser(name, email, activeFlag) {
@@ -278,7 +278,7 @@ export default class UsersApi {
      * Finds users by their name.
      * @param {String} term Search term to look for
      * @param {Object} opts Optional parameters
-     * @param {module:model/NumberBooleanDefault0} opts.searchByEmail When enabled, term will only be matched against email addresses of users. Default: false
+     * @param {module:model/NumberBooleanDefault0} opts.searchByEmail When enabled, term will only be matched against email addresses of users. Default: `false`
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Users} and HTTP response
      */
     findUsersByNameWithHttpInfo(term, opts) {
@@ -316,7 +316,7 @@ export default class UsersApi {
      * Finds users by their name.
      * @param {String} term Search term to look for
      * @param {Object} opts Optional parameters
-     * @param {module:model/NumberBooleanDefault0} opts.searchByEmail When enabled, term will only be matched against email addresses of users. Default: false
+     * @param {module:model/NumberBooleanDefault0} opts.searchByEmail When enabled, term will only be matched against email addresses of users. Default: `false`
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Users}
      */
     findUsersByName(term, opts) {
@@ -329,7 +329,7 @@ export default class UsersApi {
 
     /**
      * Get current user data
-     * Returns data about an authorized user within the company with bound company data: company ID, company name, and domain. Note that the 'locale' property means 'Date and number format' in the Pipedrive settings, not the chosen language.
+     * Returns data about an authorized user within the company with bound company data: company ID, company name, and domain. Note that the `locale` property means 'Date/number format' in the Pipedrive account settings, not the chosen language.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UserMe} and HTTP response
      */
     getCurrentUserWithHttpInfo() {
@@ -357,7 +357,7 @@ export default class UsersApi {
 
     /**
      * Get current user data
-     * Returns data about an authorized user within the company with bound company data: company ID, company name, and domain. Note that the 'locale' property means 'Date and number format' in the Pipedrive settings, not the chosen language.
+     * Returns data about an authorized user within the company with bound company data: company ID, company name, and domain. Note that the `locale` property means 'Date/number format' in the Pipedrive account settings, not the chosen language.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UserMe}
      */
     getCurrentUser() {
@@ -708,9 +708,9 @@ export default class UsersApi {
 
     /**
      * Update user details
-     * Updates the properties of a user. Currently, only active_flag can be updated.
+     * Updates the properties of a user. Currently, only `active_flag` can be updated.
      * @param {Number} id ID of the user
-     * @param {Boolean} activeFlag Whether the user is active or not. false = Not activated, true = Activated
+     * @param {Boolean} activeFlag Whether the user is active or not. `false` = Not activated, `true` = Activated
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/User} and HTTP response
      */
     updateUserWithHttpInfo(id, activeFlag) {
@@ -748,9 +748,9 @@ export default class UsersApi {
 
     /**
      * Update user details
-     * Updates the properties of a user. Currently, only active_flag can be updated.
+     * Updates the properties of a user. Currently, only `active_flag` can be updated.
      * @param {Number} id ID of the user
-     * @param {Boolean} activeFlag Whether the user is active or not. false = Not activated, true = Activated
+     * @param {Boolean} activeFlag Whether the user is active or not. `false` = Not activated, `true` = Activated
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/User}
      */
     updateUser(id, activeFlag) {

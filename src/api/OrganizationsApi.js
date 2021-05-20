@@ -56,11 +56,11 @@ export default class OrganizationsApi {
 
     /**
      * Add an organization
-     * Adds a new organization. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the organizationFields and look for 'key' values. For more information on how to add an organization, see <a href=\"https://pipedrive.readme.io/docs/adding-an-organization\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Adds a new organization. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the organizationFields and look for `key` values. For more information on how to add an organization, see <a href=\"https://pipedrive.readme.io/docs/adding-an-organization\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Object} opts Optional parameters
      * @param {String} opts.name Organization name
      * @param {Number} opts.ownerId The ID of the user who will be marked as the owner of this Organization. When omitted, the authorized User ID will be used.
-     * @param {module:model/VisibleTo} opts.visibleTo Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<dl class=\\\\\\\"fields-list\\\\\\\"><dt>1</dt><dd>Owner &amp; followers (private)</dd><dt>3</dt><dd>Entire company (shared)</dd></dl>
+     * @param {module:model/VisibleTo} opts.visibleTo Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
      * @param {String} opts.addTime Optional creation date & time of the organization in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationPostResponse} and HTTP response
      */
@@ -94,11 +94,11 @@ export default class OrganizationsApi {
 
     /**
      * Add an organization
-     * Adds a new organization. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the organizationFields and look for 'key' values. For more information on how to add an organization, see <a href=\"https://pipedrive.readme.io/docs/adding-an-organization\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Adds a new organization. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the organizationFields and look for `key` values. For more information on how to add an organization, see <a href=\"https://pipedrive.readme.io/docs/adding-an-organization\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Object} opts Optional parameters
      * @param {String} opts.name Organization name
      * @param {Number} opts.ownerId The ID of the user who will be marked as the owner of this Organization. When omitted, the authorized User ID will be used.
-     * @param {module:model/VisibleTo} opts.visibleTo Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<dl class=\\\\\\\"fields-list\\\\\\\"><dt>1</dt><dd>Owner &amp; followers (private)</dd><dt>3</dt><dd>Entire company (shared)</dd></dl>
+     * @param {module:model/VisibleTo} opts.visibleTo Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
      * @param {String} opts.addTime Optional creation date & time of the organization in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationPostResponse}
      */
@@ -215,7 +215,7 @@ export default class OrganizationsApi {
 
     /**
      * Delete a follower from an organization
-     * Deletes a follower from an organization. You can retrieve the follower_id from the <a href=\"https://developers.pipedrive.com/docs/api/v1/#!/Organizations/get_organizations_id_followers\">List followers of an organization</a> endpoint.
+     * Deletes a follower from an organization. You can retrieve the `follower_id` from the <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#getOrganizationFollowers\">List followers of an organization</a> endpoint.
      * @param {Number} id The ID of the Organization
      * @param {Number} followerId The ID of the follower
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationFollowerDeleteResponse} and HTTP response
@@ -255,7 +255,7 @@ export default class OrganizationsApi {
 
     /**
      * Delete a follower from an organization
-     * Deletes a follower from an organization. You can retrieve the follower_id from the <a href=\"https://developers.pipedrive.com/docs/api/v1/#!/Organizations/get_organizations_id_followers\">List followers of an organization</a> endpoint.
+     * Deletes a follower from an organization. You can retrieve the `follower_id` from the <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#getOrganizationFollowers\">List followers of an organization</a> endpoint.
      * @param {Number} id The ID of the Organization
      * @param {Number} followerId The ID of the follower
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationFollowerDeleteResponse}
@@ -318,7 +318,7 @@ export default class OrganizationsApi {
 
     /**
      * Get details of an organization
-     * Returns details of an organization. Note that this also returns some additional fields which are not present when asking for all organizations. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the 'key' value of organizationFields.
+     * Returns details of an organization. Note that this also returns some additional fields which are not present when asking for all organizations. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of organizationFields.
      * @param {Number} id The ID of the Organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationDetailsGetResponse} and HTTP response
      */
@@ -352,7 +352,7 @@ export default class OrganizationsApi {
 
     /**
      * Get details of an organization
-     * Returns details of an organization. Note that this also returns some additional fields which are not present when asking for all organizations. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the 'key' value of organizationFields.
+     * Returns details of an organization. Note that this also returns some additional fields which are not present when asking for all organizations. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of organizationFields.
      * @param {Number} id The ID of the Organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationDetailsGetResponse}
      */
@@ -429,7 +429,7 @@ export default class OrganizationsApi {
 
     /**
      * Find organizations by name
-     * <strong>This endpoint is deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/#!/Organizations/get_organizations_search\">/v1/organizations/search</a> or <<a href=\"https://developers.pipedrive.com/docs/api/v1/#!/ItemSearch/get_itemSearch\">/v1/itemSearch</a> instead</strong>. <br> Searches all organizations by their name.
+     * This endpoint is deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#searchOrganization\">/v1/organizations/search</a> or <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> instead. <br> Searches all organizations by their name.
      * @param {String} term Search term to look for
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
@@ -469,7 +469,7 @@ export default class OrganizationsApi {
 
     /**
      * Find organizations by name
-     * <strong>This endpoint is deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/#!/Organizations/get_organizations_search\">/v1/organizations/search</a> or <<a href=\"https://developers.pipedrive.com/docs/api/v1/#!/ItemSearch/get_itemSearch\">/v1/itemSearch</a> instead</strong>. <br> Searches all organizations by their name.
+     * This endpoint is deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#searchOrganization\">/v1/organizations/search</a> or <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> instead. <br> Searches all organizations by their name.
      * @param {String} term Search term to look for
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
@@ -492,7 +492,7 @@ export default class OrganizationsApi {
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {module:model/String} opts.status Only fetch deals with specific status. If omitted, all not deleted deals are fetched. (default to 'all_not_deleted')
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys).
+     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
      * @param {module:model/NumberBoolean} opts.onlyPrimaryAssociation If set, only deals that are directly associated to the organization are fetched. If not set (default), all deals are fetched that are either directly or indirectly related to the organization. Indirect relations include relations through custom, organization-type fields and through persons of the given organization.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListDealsResponse} and HTTP response
      */
@@ -538,7 +538,7 @@ export default class OrganizationsApi {
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {module:model/String} opts.status Only fetch deals with specific status. If omitted, all not deleted deals are fetched. (default to 'all_not_deleted')
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys).
+     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
      * @param {module:model/NumberBoolean} opts.onlyPrimaryAssociation If set, only deals that are directly associated to the organization are fetched. If not set (default), all deals are fetched that are either directly or indirectly related to the organization. Indirect relations include relations through custom, organization-type fields and through persons of the given organization.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListDealsResponse}
      */
@@ -895,7 +895,7 @@ export default class OrganizationsApi {
      * @param {String} opts.firstChar If supplied, only organizations whose name starts with the specified letter will be returned (case insensitive).
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys).
+     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AllOrganizationsGetResponse} and HTTP response
      */
     getOrganizationsWithHttpInfo(opts) {
@@ -937,7 +937,7 @@ export default class OrganizationsApi {
      * @param {String} opts.firstChar If supplied, only organizations whose name starts with the specified letter will be returned (case insensitive).
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys).
+     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AllOrganizationsGetResponse}
      */
     getOrganizations(opts) {
@@ -1005,12 +1005,12 @@ export default class OrganizationsApi {
 
     /**
      * Search organizations
-     * Searches all Organizations by name, address, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/#!/ItemSearch/get_itemSearch\">/v1/itemSearch</a> with a narrower OAuth scope.
-     * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using exact_match).
+     * Searches all Organizations by name, address, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope.
+     * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`).
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.fields A comma-separated string array. The fields to perform the search from. Defaults to all of them.
      * @param {module:model/Boolean} opts.exactMatch When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
-     * @param {Number} opts.start Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. (default to 0)
+     * @param {Number} opts.start Pagination start. Note that the pagination is based on main results and does not include related items when using `search_for_related_items` parameter. (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationSearchResponse} and HTTP response
      */
@@ -1049,12 +1049,12 @@ export default class OrganizationsApi {
 
     /**
      * Search organizations
-     * Searches all Organizations by name, address, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/#!/ItemSearch/get_itemSearch\">/v1/itemSearch</a> with a narrower OAuth scope.
-     * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using exact_match).
+     * Searches all Organizations by name, address, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope.
+     * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`).
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.fields A comma-separated string array. The fields to perform the search from. Defaults to all of them.
      * @param {module:model/Boolean} opts.exactMatch When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
-     * @param {Number} opts.start Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. (default to 0)
+     * @param {Number} opts.start Pagination start. Note that the pagination is based on main results and does not include related items when using `search_for_related_items` parameter. (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationSearchResponse}
      */
@@ -1073,7 +1073,7 @@ export default class OrganizationsApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.name Organization name
      * @param {Number} opts.ownerId The ID of the user who will be marked as the owner of this Organization. When omitted, the authorized User ID will be used.
-     * @param {module:model/VisibleTo} opts.visibleTo Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<dl class=\\\\\\\"fields-list\\\\\\\"><dt>1</dt><dd>Owner &amp; followers (private)</dd><dt>3</dt><dd>Entire company (shared)</dd></dl>
+     * @param {module:model/VisibleTo} opts.visibleTo Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationUpdateResponse} and HTTP response
      */
     updateOrganizationWithHttpInfo(id, opts) {
@@ -1115,7 +1115,7 @@ export default class OrganizationsApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.name Organization name
      * @param {Number} opts.ownerId The ID of the user who will be marked as the owner of this Organization. When omitted, the authorized User ID will be used.
-     * @param {module:model/VisibleTo} opts.visibleTo Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<dl class=\\\\\\\"fields-list\\\\\\\"><dt>1</dt><dd>Owner &amp; followers (private)</dd><dt>3</dt><dd>Entire company (shared)</dd></dl>
+     * @param {module:model/VisibleTo} opts.visibleTo Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationUpdateResponse}
      */
     updateOrganization(id, opts) {

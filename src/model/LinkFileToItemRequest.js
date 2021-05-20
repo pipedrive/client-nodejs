@@ -25,7 +25,7 @@ class LinkFileToItemRequest {
      * @param itemType {module:model/LinkFileToItemRequest.ItemTypeEnum} The item type
      * @param itemId {Number} ID of the item to associate the file with
      * @param remoteId {String} The remote item id
-     * @param remoteLocation {module:model/LinkFileToItemRequest.RemoteLocationEnum} The location type to send the file to. Only googledrive is supported at the moment.
+     * @param remoteLocation {module:model/LinkFileToItemRequest.RemoteLocationEnum} The location type to send the file to. Only `googledrive` is supported at the moment.
      */
     constructor(itemType, itemId, remoteId, remoteLocation) { 
         
@@ -106,7 +106,7 @@ LinkFileToItemRequest.prototype['item_id'] = undefined;
 LinkFileToItemRequest.prototype['remote_id'] = undefined;
 
 /**
- * The location type to send the file to. Only googledrive is supported at the moment.
+ * The location type to send the file to. Only `googledrive` is supported at the moment.
  * @member {module:model/LinkFileToItemRequest.RemoteLocationEnum} remote_location
  */
 LinkFileToItemRequest.prototype['remote_location'] = undefined;

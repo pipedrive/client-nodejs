@@ -165,7 +165,7 @@ LeadResponse.prototype['owner_id'] = undefined;
 LeadResponse.prototype['creator_id'] = undefined;
 
 /**
- * The Lead note. Can contain some allowed HTML tags.
+ * The Lead note. Can contain some allowed HTML tags. (DEPRECATED - please use a `Note` object instead, until the removal of this field, we will update the first note linked to this lead ourselves) 
  * @member {String} note
  */
 LeadResponse.prototype['note'] = undefined;

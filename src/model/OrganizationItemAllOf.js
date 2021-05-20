@@ -70,13 +70,13 @@ class OrganizationItemAllOf {
 }
 
 /**
- * Please refer to response schema of <a href=\"https://developers.pipedrive.com/docs/api/v1/#!/Activities/get_activities_id\">Activity</a>
+ * Please refer to response schema of <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivity\">Activity</a>
  * @member {Object} last_activity
  */
 OrganizationItemAllOf.prototype['last_activity'] = undefined;
 
 /**
- * Please refer to response schema of <a href=\"https://developers.pipedrive.com/docs/api/v1/#!/Activities/get_activities_id\">Activity</a>
+ * Please refer to response schema of <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivity\">Activity</a>
  * @member {Object} next_activity
  */
 OrganizationItemAllOf.prototype['next_activity'] = undefined;

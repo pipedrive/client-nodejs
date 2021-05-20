@@ -157,7 +157,7 @@ BasicDeal.prototype['person_id'] = undefined;
 BasicDeal.prototype['org_id'] = undefined;
 
 /**
- * ID of the stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on stage_id). If omitted, the deal will be placed in the first stage of the default pipeline.
+ * ID of the stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on `stage_id`). If omitted, the deal will be placed in the first stage of the default pipeline.
  * @member {Number} stage_id
  */
 BasicDeal.prototype['stage_id'] = undefined;
@@ -175,7 +175,7 @@ BasicDeal.prototype['status'] = undefined;
 BasicDeal.prototype['expected_close_date'] = undefined;
 
 /**
- * Deal success probability percentage. Used/shown only when deal_probability for the pipeline of the deal is enabled.
+ * Deal success probability percentage. Used/shown only when `deal_probability` for the pipeline of the deal is enabled.
  * @member {Number} probability
  */
 BasicDeal.prototype['probability'] = undefined;
@@ -187,7 +187,7 @@ BasicDeal.prototype['probability'] = undefined;
 BasicDeal.prototype['lost_reason'] = undefined;
 
 /**
- * Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<dl class=\"fields-list\"><dt>1</dt><dd>Owner &amp; followers (private)</dd><dt>3</dt><dd>Entire company (shared)</dd></dl>
+ * Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
  * @member {module:model/VisibleTo} visible_to
  */
 BasicDeal.prototype['visible_to'] = undefined;

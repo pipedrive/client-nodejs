@@ -1,8 +1,10 @@
 # Pipedrive.NumberBooleanDefault1
 
-## Properties
+## Enum
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+
+* `0` (value: `0`)
+
+* `1` (value: `1`)
 
 

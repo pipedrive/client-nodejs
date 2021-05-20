@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**subscriptionUrl** | **String** | A full, valid, publicly accessible URL. Determines where to send the notifications. Please note that you cannot use Pipedrive API endpoints as the subscription_url. | 
+**subscriptionUrl** | **String** | A full, valid, publicly accessible URL. Determines where to send the notifications. Please note that you cannot use Pipedrive API endpoints as the &#x60;subscription_url&#x60;. | 
 **eventAction** | **String** | Type of action to receive notifications about. Wildcard will match all supported actions. | 
 **eventObject** | **String** | Type of object to receive notifications about. Wildcard will match all supported objects. | 
 **userId** | **Number** | The ID of the user this webhook will be authorized with. If not set, current authorized user will be used. Note that this does not filter only certain user&#39;s events — rather, this specifies the user&#39;s permissions under which each event is checked. Events about objects the selected user is not entitled to access are not sent. If you want to receive notifications for all events, a top-level admin user should be used. | [optional] 

@@ -44,7 +44,7 @@ export default class ActivityTypesApi {
      * @param {String} name The name of the ActivityType
      * @param {module:model/IconKey} iconKey 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.color A designated color for the ActivityType in 6-character HEX format (e.g. FFFFFF for white, 000000 for black)
+     * @param {String} opts.color A designated color for the ActivityType in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ActivityTypeCreateUpdateDeleteResponse} and HTTP response
      */
     addActivityTypeWithHttpInfo(name, iconKey, opts) {
@@ -88,7 +88,7 @@ export default class ActivityTypesApi {
      * @param {String} name The name of the ActivityType
      * @param {module:model/IconKey} iconKey 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.color A designated color for the ActivityType in 6-character HEX format (e.g. FFFFFF for white, 000000 for black)
+     * @param {String} opts.color A designated color for the ActivityType in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ActivityTypeCreateUpdateDeleteResponse}
      */
     addActivityType(name, iconKey, opts) {
@@ -243,7 +243,7 @@ export default class ActivityTypesApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.name The name of the ActivityType
      * @param {module:model/IconKey} opts.iconKey 
-     * @param {String} opts.color A designated color for the ActivityType in 6-character HEX format (e.g. FFFFFF for white, 000000 for black)
+     * @param {String} opts.color A designated color for the ActivityType in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
      * @param {Number} opts.orderNr An order number for this ActivityType. Order numbers should be used to order the types in the ActivityType selections.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ActivityTypeCreateUpdateDeleteResponse} and HTTP response
      */
@@ -287,7 +287,7 @@ export default class ActivityTypesApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.name The name of the ActivityType
      * @param {module:model/IconKey} opts.iconKey 
-     * @param {String} opts.color A designated color for the ActivityType in 6-character HEX format (e.g. FFFFFF for white, 000000 for black)
+     * @param {String} opts.color A designated color for the ActivityType in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
      * @param {Number} opts.orderNr An order number for this ActivityType. Order numbers should be used to order the types in the ActivityType selections.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ActivityTypeCreateUpdateDeleteResponse}
      */

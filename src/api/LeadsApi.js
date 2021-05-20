@@ -13,16 +13,11 @@
 
 
 import ApiClient from "../ApiClient";
-import AddLeadLabelRequest from '../model/AddLeadLabelRequest';
 import AddLeadRequest from '../model/AddLeadRequest';
-import AddOrUpdateLeadLabelResponse200 from '../model/AddOrUpdateLeadLabelResponse200';
-import GetLeadLabelsResponse200 from '../model/GetLeadLabelsResponse200';
-import GetLeadSourcesResponse200 from '../model/GetLeadSourcesResponse200';
 import GetLeadsResponse200 from '../model/GetLeadsResponse200';
 import LeadIdResponse200 from '../model/LeadIdResponse200';
 import LeadResponse404 from '../model/LeadResponse404';
 import OneLeadResponse200 from '../model/OneLeadResponse200';
-import UpdateLeadLabelRequest from '../model/UpdateLeadLabelRequest';
 import UpdateLeadRequest from '../model/UpdateLeadRequest';
 
 /**
@@ -47,7 +42,7 @@ export default class LeadsApi {
 
     /**
      * Add a lead
-     * Creates a Lead. A Lead always has to be linked to a Person or an Organization or both. All Leads created through the Public Pipedrive API will have a Lead Source `API` assigned. If a Lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the Lead, it won't appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from Deals. See an example of updating custom fields’ values in <a href=\"https://pipedrive.readme.io/docs/updating-custom-field-value\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>. 
+     * Creates a Lead. A Lead always has to be linked to a Person or an Organization or both. All Leads created through the Public Pipedrive API will have a Lead Source `API` assigned. If a Lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the Lead, it won't appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from Deals. See an example of updating custom fields’ values in <a href=\"https://pipedrive.readme.io/docs/updating-custom-field-value\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Object} opts Optional parameters
      * @param {module:model/AddLeadRequest} opts.addLeadRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OneLeadResponse200} and HTTP response
@@ -78,59 +73,13 @@ export default class LeadsApi {
 
     /**
      * Add a lead
-     * Creates a Lead. A Lead always has to be linked to a Person or an Organization or both. All Leads created through the Public Pipedrive API will have a Lead Source `API` assigned. If a Lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the Lead, it won't appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from Deals. See an example of updating custom fields’ values in <a href=\"https://pipedrive.readme.io/docs/updating-custom-field-value\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>. 
+     * Creates a Lead. A Lead always has to be linked to a Person or an Organization or both. All Leads created through the Public Pipedrive API will have a Lead Source `API` assigned. If a Lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the Lead, it won't appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from Deals. See an example of updating custom fields’ values in <a href=\"https://pipedrive.readme.io/docs/updating-custom-field-value\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Object} opts Optional parameters
      * @param {module:model/AddLeadRequest} opts.addLeadRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OneLeadResponse200}
      */
     addLead(opts) {
       return this.addLeadWithHttpInfo(opts)
-        .then(function(response_and_data) {
-          return response_and_data;
-        });
-    }
-
-
-    /**
-     * Add a lead label
-     * Creates a Lead Label
-     * @param {Object} opts Optional parameters
-     * @param {module:model/AddLeadLabelRequest} opts.addLeadLabelRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddOrUpdateLeadLabelResponse200} and HTTP response
-     */
-    addLeadLabelWithHttpInfo(opts) {
-      opts = opts || {};
-      let postBody = opts['addLeadLabelRequest'];
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['api_key', 'oauth2'];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = AddOrUpdateLeadLabelResponse200;
-      return this.apiClient.callApi(
-        '/leadLabels', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Add a lead label
-     * Creates a Lead Label
-     * @param {Object} opts Optional parameters
-     * @param {module:model/AddLeadLabelRequest} opts.addLeadLabelRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddOrUpdateLeadLabelResponse200}
-     */
-    addLeadLabel(opts) {
-      return this.addLeadLabelWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data;
         });
@@ -186,56 +135,8 @@ export default class LeadsApi {
 
 
     /**
-     * Delete a lead label
-     * Deletes a specific Lead Label
-     * @param {String} id The ID of the Lead Label
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/LeadIdResponse200} and HTTP response
-     */
-    deleteLeadLabelWithHttpInfo(id) {
-      let postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling deleteLeadLabel");
-      }
-
-      let pathParams = {
-        'id': id
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['api_key', 'oauth2'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = LeadIdResponse200;
-      return this.apiClient.callApi(
-        '/leadLabels/{id}', 'DELETE',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Delete a lead label
-     * Deletes a specific Lead Label
-     * @param {String} id The ID of the Lead Label
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/LeadIdResponse200}
-     */
-    deleteLeadLabel(id) {
-      return this.deleteLeadLabelWithHttpInfo(id)
-        .then(function(response_and_data) {
-          return response_and_data;
-        });
-    }
-
-
-    /**
      * Get one lead
-     * Returns details of a specific Lead. If a Lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the Lead, it won't appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from Deals. 
+     * Returns details of a specific Lead. If a Lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the Lead, it won't appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from Deals.
      * @param {String} id The ID of the Lead
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OneLeadResponse200} and HTTP response
      */
@@ -269,94 +170,12 @@ export default class LeadsApi {
 
     /**
      * Get one lead
-     * Returns details of a specific Lead. If a Lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the Lead, it won't appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from Deals. 
+     * Returns details of a specific Lead. If a Lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the Lead, it won't appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from Deals.
      * @param {String} id The ID of the Lead
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OneLeadResponse200}
      */
     getLead(id) {
       return this.getLeadWithHttpInfo(id)
-        .then(function(response_and_data) {
-          return response_and_data;
-        });
-    }
-
-
-    /**
-     * Get all lead labels
-     * Returns details of all Lead Labels. This endpoint does not support pagination and all Labels are always returned.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetLeadLabelsResponse200} and HTTP response
-     */
-    getLeadLabelsWithHttpInfo() {
-      let postBody = null;
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['api_key', 'oauth2'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = GetLeadLabelsResponse200;
-      return this.apiClient.callApi(
-        '/leadLabels', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Get all lead labels
-     * Returns details of all Lead Labels. This endpoint does not support pagination and all Labels are always returned.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetLeadLabelsResponse200}
-     */
-    getLeadLabels() {
-      return this.getLeadLabelsWithHttpInfo()
-        .then(function(response_and_data) {
-          return response_and_data;
-        });
-    }
-
-
-    /**
-     * Get all lead sources
-     * Returns all Lead Sources. Please note that the list of Lead Sources is fixed, it cannot be modified. All Leads created through the Public Pipedrive API will have a Lead Source `API` assigned. 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetLeadSourcesResponse200} and HTTP response
-     */
-    getLeadSourcesWithHttpInfo() {
-      let postBody = null;
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['api_key', 'oauth2'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = GetLeadSourcesResponse200;
-      return this.apiClient.callApi(
-        '/leadSources', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Get all lead sources
-     * Returns all Lead Sources. Please note that the list of Lead Sources is fixed, it cannot be modified. All Leads created through the Public Pipedrive API will have a Lead Source `API` assigned. 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetLeadSourcesResponse200}
-     */
-    getLeadSources() {
-      return this.getLeadSourcesWithHttpInfo()
         .then(function(response_and_data) {
           return response_and_data;
         });
@@ -418,7 +237,7 @@ export default class LeadsApi {
 
     /**
      * Update a lead
-     * Updates one or more properties of a Lead. Only properties included in the request will be updated. Send `null` to unset a property (applicable for example for `value`, `person_id` or `organization_id`). If a Lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the Lead, it won't appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from Deals. See an example of updating custom fields’ values in <a href=\"https://pipedrive.readme.io/docs/updating-custom-field-value\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>. 
+     * Updates one or more properties of a Lead. Only properties included in the request will be updated. Send `null` to unset a property (applicable for example for `value`, `person_id` or `organization_id`). If a Lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the Lead, it won't appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from Deals. See an example of updating custom fields’ values in <a href=\"https://pipedrive.readme.io/docs/updating-custom-field-value\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {String} id The ID of the Lead
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateLeadRequest} opts.updateLeadRequest 
@@ -455,7 +274,7 @@ export default class LeadsApi {
 
     /**
      * Update a lead
-     * Updates one or more properties of a Lead. Only properties included in the request will be updated. Send `null` to unset a property (applicable for example for `value`, `person_id` or `organization_id`). If a Lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the Lead, it won't appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from Deals. See an example of updating custom fields’ values in <a href=\"https://pipedrive.readme.io/docs/updating-custom-field-value\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>. 
+     * Updates one or more properties of a Lead. Only properties included in the request will be updated. Send `null` to unset a property (applicable for example for `value`, `person_id` or `organization_id`). If a Lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the Lead, it won't appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from Deals. See an example of updating custom fields’ values in <a href=\"https://pipedrive.readme.io/docs/updating-custom-field-value\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {String} id The ID of the Lead
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateLeadRequest} opts.updateLeadRequest 
@@ -463,59 +282,6 @@ export default class LeadsApi {
      */
     updateLead(id, opts) {
       return this.updateLeadWithHttpInfo(id, opts)
-        .then(function(response_and_data) {
-          return response_and_data;
-        });
-    }
-
-
-    /**
-     * Update a lead label
-     * Updates one or more properties of a Lead Label. Only properties included in the request will be updated. 
-     * @param {String} id The ID of the Lead Label
-     * @param {Object} opts Optional parameters
-     * @param {module:model/UpdateLeadLabelRequest} opts.updateLeadLabelRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddOrUpdateLeadLabelResponse200} and HTTP response
-     */
-    updateLeadLabelWithHttpInfo(id, opts) {
-      opts = opts || {};
-      let postBody = opts['updateLeadLabelRequest'];
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling updateLeadLabel");
-      }
-
-      let pathParams = {
-        'id': id
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['api_key', 'oauth2'];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = AddOrUpdateLeadLabelResponse200;
-      return this.apiClient.callApi(
-        '/leadLabels/{id}', 'PATCH',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Update a lead label
-     * Updates one or more properties of a Lead Label. Only properties included in the request will be updated. 
-     * @param {String} id The ID of the Lead Label
-     * @param {Object} opts Optional parameters
-     * @param {module:model/UpdateLeadLabelRequest} opts.updateLeadLabelRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddOrUpdateLeadLabelResponse200}
-     */
-    updateLeadLabel(id, opts) {
-      return this.updateLeadLabelWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data;
         });

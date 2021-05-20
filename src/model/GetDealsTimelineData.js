@@ -23,7 +23,7 @@ import GetDealsTimelineDataTotals from './GetDealsTimelineDataTotals';
 class GetDealsTimelineData {
     /**
      * Constructs a new <code>GetDealsTimelineData</code>.
-     * Open and won Deals grouped into periods by defined interval, amount and date-type dealField (field_key)
+     * Open and won Deals grouped into periods by defined interval, amount and date-type dealField (&#x60;field_key&#x60;)
      * @alias module:model/GetDealsTimelineData
      */
     constructor() { 

@@ -109,7 +109,7 @@ Stage.prototype['deal_probability'] = undefined;
 Stage.prototype['rotten_flag'] = undefined;
 
 /**
- * The number of days the Deals not updated in this Stage would become rotten. Applies only if the rotten_flag is set.
+ * The number of days the Deals not updated in this Stage would become rotten. Applies only if the `rotten_flag` is set.
  * @member {Number} rotten_days
  */
 Stage.prototype['rotten_days'] = undefined;

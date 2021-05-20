@@ -60,6 +60,11 @@ class Note {
 
                 delete data['user_id'];
             }
+            if (data.hasOwnProperty('lead_id')) {
+                obj['lead_id'] = ApiClient.convertToType(data['lead_id'], 'String');
+
+                delete data['lead_id'];
+            }
             if (data.hasOwnProperty('deal_id')) {
                 obj['deal_id'] = ApiClient.convertToType(data['deal_id'], 'Number');
 
@@ -79,6 +84,11 @@ class Note {
                 obj['add_time'] = ApiClient.convertToType(data['add_time'], 'String');
 
                 delete data['add_time'];
+            }
+            if (data.hasOwnProperty('pinned_to_lead_flag')) {
+                obj['pinned_to_lead_flag'] = ApiClient.convertToType(data['pinned_to_lead_flag'], NumberBoolean);
+
+                delete data['pinned_to_lead_flag'];
             }
             if (data.hasOwnProperty('pinned_to_deal_flag')) {
                 obj['pinned_to_deal_flag'] = ApiClient.convertToType(data['pinned_to_deal_flag'], NumberBoolean);
@@ -120,19 +130,25 @@ Note.prototype['content'] = undefined;
 Note.prototype['user_id'] = undefined;
 
 /**
- * ID of the deal the note will be attached to.
+ * The ID of the lead the note will be attached to
+ * @member {String} lead_id
+ */
+Note.prototype['lead_id'] = undefined;
+
+/**
+ * The ID of the deal the note will be attached to
  * @member {Number} deal_id
  */
 Note.prototype['deal_id'] = undefined;
 
 /**
- * ID of the person this note will be attached to.
+ * The ID of the person this note will be attached to
  * @member {Number} person_id
  */
 Note.prototype['person_id'] = undefined;
 
 /**
- * ID of the organization this note will be attached to.
+ * The ID of the organization this note will be attached to
  * @member {Number} org_id
  */
 Note.prototype['org_id'] = undefined;
@@ -144,19 +160,25 @@ Note.prototype['org_id'] = undefined;
 Note.prototype['add_time'] = undefined;
 
 /**
- * If set, then results are filtered by note to deal pinning state (deal_id is also required).
+ * If set, then results are filtered by note to lead pinning state (lead_id is also required)
+ * @member {module:model/NumberBoolean} pinned_to_lead_flag
+ */
+Note.prototype['pinned_to_lead_flag'] = undefined;
+
+/**
+ * If set, then results are filtered by note to deal pinning state (`deal_id` is also required).
  * @member {module:model/NumberBoolean} pinned_to_deal_flag
  */
 Note.prototype['pinned_to_deal_flag'] = undefined;
 
 /**
- * If set, then results are filtered by note to organization pinning state (org_id is also required).
+ * If set, then results are filtered by note to organization pinning state (`org_id` is also required).
  * @member {module:model/NumberBoolean} pinned_to_organization_flag
  */
 Note.prototype['pinned_to_organization_flag'] = undefined;
 
 /**
- * If set, then results are filtered by note to person pinning state (person_id is also required).
+ * If set, then results are filtered by note to person pinning state (`person_id` is also required).
  * @member {module:model/NumberBoolean} pinned_to_person_flag
  */
 Note.prototype['pinned_to_person_flag'] = undefined;

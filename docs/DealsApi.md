@@ -41,7 +41,7 @@ Method | HTTP request | Description
 
 Add a deal
 
-Adds a new deal. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the dealFields and look for &#39;key&#39; values. For more information on how to add a deal, see &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/creating-a-deal\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this tutorial&lt;/a&gt;.
+Adds a new deal. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the dealFields and look for &#x60;key&#x60; values. For more information on how to add a deal, see &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/creating-a-deal\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this tutorial&lt;/a&gt;.
 
 ### Example
 
@@ -65,12 +65,12 @@ let opts = {
   'userId': 56, // Number | ID of the user who will be marked as the owner of this deal. If omitted, the authorized user ID will be used.
   'personId': 56, // Number | ID of the person this deal will be associated with
   'orgId': 56, // Number | ID of the organization this deal will be associated with
-  'stageId': 56, // Number | ID of the stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on stage_id). If omitted, the deal will be placed in the first stage of the default pipeline.
+  'stageId': 56, // Number | ID of the stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on `stage_id`). If omitted, the deal will be placed in the first stage of the default pipeline.
   'status': "status_example", // String | open = Open, won = Won, lost = Lost, deleted = Deleted. If omitted, status will be set to open.
   'expectedCloseDate': new Date("2013-10-20"), // Date | The expected close date of the Deal. In ISO 8601 format: YYYY-MM-DD.
-  'probability': 3.4, // Number | Deal success probability percentage. Used/shown only when deal_probability for the pipeline of the deal is enabled.
+  'probability': 3.4, // Number | Deal success probability percentage. Used/shown only when `deal_probability` for the pipeline of the deal is enabled.
   'lostReason': "lostReason_example", // String | Optional message about why the deal was lost (to be used when status=lost)
-  'visibleTo': new Pipedrive.VisibleTo(), // VisibleTo | Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<dl class=\\\"fields-list\\\"><dt>1</dt><dd>Owner &amp; followers (private)</dd><dt>3</dt><dd>Entire company (shared)</dd></dl>
+  'visibleTo': new Pipedrive.VisibleTo(), // VisibleTo | Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
   'addTime': "addTime_example" // String | Optional creation date & time of the deal in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
 };
 apiInstance.addDeal(opts).then((data) => {
@@ -92,12 +92,12 @@ Name | Type | Description  | Notes
  **userId** | **Number**| ID of the user who will be marked as the owner of this deal. If omitted, the authorized user ID will be used. | [optional] 
  **personId** | **Number**| ID of the person this deal will be associated with | [optional] 
  **orgId** | **Number**| ID of the organization this deal will be associated with | [optional] 
- **stageId** | **Number**| ID of the stage this deal will be placed in a pipeline (note that you can&#39;t supply the ID of the pipeline as this will be assigned automatically based on stage_id). If omitted, the deal will be placed in the first stage of the default pipeline. | [optional] 
+ **stageId** | **Number**| ID of the stage this deal will be placed in a pipeline (note that you can&#39;t supply the ID of the pipeline as this will be assigned automatically based on &#x60;stage_id&#x60;). If omitted, the deal will be placed in the first stage of the default pipeline. | [optional] 
  **status** | **String**| open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost, deleted &#x3D; Deleted. If omitted, status will be set to open. | [optional] 
  **expectedCloseDate** | **Date**| The expected close date of the Deal. In ISO 8601 format: YYYY-MM-DD. | [optional] 
- **probability** | **Number**| Deal success probability percentage. Used/shown only when deal_probability for the pipeline of the deal is enabled. | [optional] 
+ **probability** | **Number**| Deal success probability percentage. Used/shown only when &#x60;deal_probability&#x60; for the pipeline of the deal is enabled. | [optional] 
  **lostReason** | **String**| Optional message about why the deal was lost (to be used when status&#x3D;lost) | [optional] 
- **visibleTo** | [**VisibleTo**](VisibleTo.md)| Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.&lt;dl class&#x3D;\\\&quot;fields-list\\\&quot;&gt;&lt;dt&gt;1&lt;/dt&gt;&lt;dd&gt;Owner &amp;amp; followers (private)&lt;/dd&gt;&lt;dt&gt;3&lt;/dt&gt;&lt;dd&gt;Entire company (shared)&lt;/dd&gt;&lt;/dl&gt; | [optional] 
+ **visibleTo** | [**VisibleTo**](VisibleTo.md)| Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.&lt;table&gt;&lt;tr&gt;&lt;th&gt;Value&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;1&#x60;&lt;/td&gt;&lt;td&gt;Owner &amp;amp; followers (private)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;3&#x60;&lt;/td&gt;&lt;td&gt;Entire company (shared)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; | [optional] 
  **addTime** | **String**| Optional creation date &amp; time of the deal in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS | [optional] 
 
 ### Return type
@@ -450,7 +450,7 @@ Name | Type | Description  | Notes
 
 Delete an attached product from a deal
 
-Deletes a product attachment from a deal, using the product_attachment_id.
+Deletes a product attachment from a deal, using the &#x60;product_attachment_id&#x60;.
 
 ### Example
 
@@ -465,7 +465,7 @@ api_key.apiKey = 'YOUR API KEY';
 
 let apiInstance = new Pipedrive.DealsApi();
 let id = 56; // Number | ID of the deal
-let productAttachmentId = 56; // Number | Product attachment ID. This is returned as product_attachment_id after attaching a product to a deal or as id when listing the products attached to a deal.
+let productAttachmentId = 56; // Number | Product attachment ID. This is returned as `product_attachment_id` after attaching a product to a deal or as id when listing the products attached to a deal.
 apiInstance.deleteDealProduct(id, productAttachmentId).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -480,7 +480,7 @@ apiInstance.deleteDealProduct(id, productAttachmentId).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| ID of the deal | 
- **productAttachmentId** | **Number**| Product attachment ID. This is returned as product_attachment_id after attaching a product to a deal or as id when listing the products attached to a deal. | 
+ **productAttachmentId** | **Number**| Product attachment ID. This is returned as &#x60;product_attachment_id&#x60; after attaching a product to a deal or as id when listing the products attached to a deal. | 
 
 ### Return type
 
@@ -608,7 +608,7 @@ Name | Type | Description  | Notes
 
 Get details of a deal
 
-Returns details of a specific deal. Note that this also returns some additional fields which are not present when asking for all deals – such as deal age and stay in pipeline stages. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the &#39;key&#39; value of dealFields. For more information on how to get all details of a deal, see &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/getting-details-of-a-deal\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this tutorial&lt;/a&gt;.
+Returns details of a specific deal. Note that this also returns some additional fields which are not present when asking for all deals – such as deal age and stay in pipeline stages. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the &#x60;key&#x60; value of dealFields. For more information on how to get all details of a deal, see &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/getting-details-of-a-deal\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this tutorial&lt;/a&gt;.
 
 ### Example
 
@@ -746,7 +746,7 @@ let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
   'includeDeletedFiles': new Pipedrive.NumberBoolean(), // NumberBoolean | When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
-  'sort': "sort_example" // String | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
+  'sort': "sort_example" // String | Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
 };
 apiInstance.getDealFiles(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -765,7 +765,7 @@ Name | Type | Description  | Notes
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
  **includeDeletedFiles** | [**NumberBoolean**](.md)| When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work. | [optional] 
- **sort** | **String**| Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment. | [optional] 
+ **sort** | **String**| Field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment. | [optional] 
 
 ### Return type
 
@@ -1215,7 +1215,7 @@ let opts = {
   'status': "'all_not_deleted'", // String | Only fetch deals with specific status. If omitted, all not deleted deals are fetched.
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
-  'sort': "sort_example", // String | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys).
+  'sort': "sort_example", // String | Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
   'ownedByYou': new Pipedrive.NumberBoolean() // NumberBoolean | When supplied, only deals owned by you are returned. However, `filter_id` takes precedence over `owned_by_you` when both are supplied.
 };
 apiInstance.getDeals(opts).then((data) => {
@@ -1237,7 +1237,7 @@ Name | Type | Description  | Notes
  **status** | **String**| Only fetch deals with specific status. If omitted, all not deleted deals are fetched. | [optional] [default to &#39;all_not_deleted&#39;]
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
- **sort** | **String**| Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). | [optional] 
+ **sort** | **String**| Field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). | [optional] 
  **ownedByYou** | [**NumberBoolean**](.md)| When supplied, only deals owned by you are returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owned_by_you&#x60; when both are supplied. | [optional] 
 
 ### Return type
@@ -1260,7 +1260,7 @@ Name | Type | Description  | Notes
 
 Find deals by name
 
-&lt;strong&gt;This endpoint is deprecated. Please use &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/#!/Deals/get_deals_search\&quot;&gt;/v1/deals/search&lt;/a&gt; or &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/#!/ItemSearch/get_itemSearch\&quot;&gt;/v1/itemSearch&lt;/a&gt; instead&lt;/strong&gt;. &lt;br&gt; Searches all deals by their title.
+This endpoint is deprecated. Please use &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1//Deals#searchDeals\&quot;&gt;/v1/deals/search&lt;/a&gt; or &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\&quot;&gt;/v1/itemSearch&lt;/a&gt; instead. &lt;br&gt; Searches all deals by their title.
 
 ### Example
 
@@ -1338,8 +1338,8 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new Pipedrive.DealsApi();
 let opts = {
   'status': "status_example", // String | Only fetch deals with specific status. open = Open, won = Won, lost = Lost
-  'filterId': 56, // Number | user_id will not be considered. Only deals matching the given filter will be returned.
-  'userId': 56, // Number | Only deals matching the given user will be returned. user_id will not be considered if you use filter_id.
+  'filterId': 56, // Number | <code>user_id</code> will not be considered. Only deals matching the given filter will be returned.
+  'userId': 56, // Number | Only deals matching the given user will be returned. `user_id` will not be considered if you use `filter_id`.
   'stageId': 56 // Number | Only deals within the given stage will be returned.
 };
 apiInstance.getDealsSummary(opts).then((data) => {
@@ -1356,8 +1356,8 @@ apiInstance.getDealsSummary(opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **status** | **String**| Only fetch deals with specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost | [optional] 
- **filterId** | **Number**| user_id will not be considered. Only deals matching the given filter will be returned. | [optional] 
- **userId** | **Number**| Only deals matching the given user will be returned. user_id will not be considered if you use filter_id. | [optional] 
+ **filterId** | **Number**| &lt;code&gt;user_id&lt;/code&gt; will not be considered. Only deals matching the given filter will be returned. | [optional] 
+ **userId** | **Number**| Only deals matching the given user will be returned. &#x60;user_id&#x60; will not be considered if you use &#x60;filter_id&#x60;. | [optional] 
  **stageId** | **Number**| Only deals within the given stage will be returned. | [optional] 
 
 ### Return type
@@ -1380,7 +1380,7 @@ Name | Type | Description  | Notes
 
 Get deals timeline
 
-Returns open and won deals, grouped by defined interval of time set in a date-type dealField (field_key) — e.g. when month is the chosen interval, and 3 months are asked starting from  January 1st, 2012, deals are returned grouped into 3 groups — January, February and March — based on the value of the given field_key.
+Returns open and won deals, grouped by defined interval of time set in a date-type dealField (&#x60;field_key&#x60;) — e.g. when month is the chosen interval, and 3 months are asked starting from  January 1st, 2012, deals are returned grouped into 3 groups — January, February and March — based on the value of the given &#x60;field_key&#x60;.
 
 ### Example
 
@@ -1398,15 +1398,15 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealsApi();
 let startDate = new Date("2013-10-20"); // Date | Date where the first interval starts. Format: YYYY-MM-DD
-let interval = "interval_example"; // String | The type of interval<dl class=\"fields-list\"><dt>day</dt><dd>Day</dd><dt>week</dt><dd>A full week (7 days) starting from start_date</dd><dt>month</dt><dd>A full month (depending on the number of days in given month) starting from start_date</dd><dt>quarter</dt><dd>A full quarter (3 months) starting from start_date</dd></dl>
-let amount = 56; // Number | The number of given intervals, starting from start_date, to fetch. E.g. 3 (months).
+let interval = "interval_example"; // String | The type of interval<table><tr><th>Value</th><th>Description</th></tr><tr><td>`day`</td><td>Day</td></tr><tr><td>`week`</td><td>A full week (7 days) starting from `start_date`</td></tr><tr><td>`month`</td><td>A full month (depending on the number of days in given month) starting from `start_date`</td></tr><tr><td>`quarter`</td><td>A full quarter (3 months) starting from `start_date`</td></tr></table>
+let amount = 56; // Number | The number of given intervals, starting from `start_date`, to fetch. E.g. 3 (months).
 let fieldKey = "fieldKey_example"; // String | The date field key which deals will be retrieved from
 let opts = {
   'userId': 56, // Number | If supplied, only deals matching the given user will be returned.
   'pipelineId': 56, // Number | If supplied, only deals matching the given pipeline will be returned
   'filterId': 56, // Number | If supplied, only deals matching the given filter will be returned
   'excludeDeals': new Pipedrive.NumberBoolean(), // NumberBoolean | Whether to exclude deals list (1) or not (0). Note that when deals are excluded, the timeline summary (counts and values) is still returned.
-  'totalsConvertCurrency': "totalsConvertCurrency_example" // String | 3-letter currency code of any of the supported currencies. When supplied, totals_converted is returned per each interval which contains the currency-converted total amounts in the given currency. You may also set this parameter to 'default_currency' in which case users default currency is used.
+  'totalsConvertCurrency': "totalsConvertCurrency_example" // String | 3-letter currency code of any of the supported currencies. When supplied, `totals_converted` is returned per each interval which contains the currency-converted total amounts in the given currency. You may also set this parameter to `default_currency` in which case users default currency is used.
 };
 apiInstance.getDealsTimeline(startDate, interval, amount, fieldKey, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -1422,14 +1422,14 @@ apiInstance.getDealsTimeline(startDate, interval, amount, fieldKey, opts).then((
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **startDate** | **Date**| Date where the first interval starts. Format: YYYY-MM-DD | 
- **interval** | **String**| The type of interval&lt;dl class&#x3D;\&quot;fields-list\&quot;&gt;&lt;dt&gt;day&lt;/dt&gt;&lt;dd&gt;Day&lt;/dd&gt;&lt;dt&gt;week&lt;/dt&gt;&lt;dd&gt;A full week (7 days) starting from start_date&lt;/dd&gt;&lt;dt&gt;month&lt;/dt&gt;&lt;dd&gt;A full month (depending on the number of days in given month) starting from start_date&lt;/dd&gt;&lt;dt&gt;quarter&lt;/dt&gt;&lt;dd&gt;A full quarter (3 months) starting from start_date&lt;/dd&gt;&lt;/dl&gt; | 
- **amount** | **Number**| The number of given intervals, starting from start_date, to fetch. E.g. 3 (months). | 
+ **interval** | **String**| The type of interval&lt;table&gt;&lt;tr&gt;&lt;th&gt;Value&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;day&#x60;&lt;/td&gt;&lt;td&gt;Day&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;week&#x60;&lt;/td&gt;&lt;td&gt;A full week (7 days) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;month&#x60;&lt;/td&gt;&lt;td&gt;A full month (depending on the number of days in given month) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;quarter&#x60;&lt;/td&gt;&lt;td&gt;A full quarter (3 months) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; | 
+ **amount** | **Number**| The number of given intervals, starting from &#x60;start_date&#x60;, to fetch. E.g. 3 (months). | 
  **fieldKey** | **String**| The date field key which deals will be retrieved from | 
  **userId** | **Number**| If supplied, only deals matching the given user will be returned. | [optional] 
  **pipelineId** | **Number**| If supplied, only deals matching the given pipeline will be returned | [optional] 
  **filterId** | **Number**| If supplied, only deals matching the given filter will be returned | [optional] 
  **excludeDeals** | [**NumberBoolean**](.md)| Whether to exclude deals list (1) or not (0). Note that when deals are excluded, the timeline summary (counts and values) is still returned. | [optional] 
- **totalsConvertCurrency** | **String**| 3-letter currency code of any of the supported currencies. When supplied, totals_converted is returned per each interval which contains the currency-converted total amounts in the given currency. You may also set this parameter to &#39;default_currency&#39; in which case users default currency is used. | [optional] 
+ **totalsConvertCurrency** | **String**| 3-letter currency code of any of the supported currencies. When supplied, &#x60;totals_converted&#x60; is returned per each interval which contains the currency-converted total amounts in the given currency. You may also set this parameter to &#x60;default_currency&#x60; in which case users default currency is used. | [optional] 
 
 ### Return type
 
@@ -1506,7 +1506,7 @@ Name | Type | Description  | Notes
 
 Search deals
 
-Searches all Deals by title, notes and/or custom fields. This endpoint is a wrapper of &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/#!/ItemSearch/get_itemSearch\&quot;&gt;/v1/itemSearch&lt;/a&gt; with a narrower OAuth scope. Found Deals can be filtered by Person ID and Organization ID.
+Searches all Deals by title, notes and/or custom fields. This endpoint is a wrapper of &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\&quot;&gt;/v1/itemSearch&lt;/a&gt; with a narrower OAuth scope. Found Deals can be filtered by Person ID and Organization ID.
 
 ### Example
 
@@ -1523,7 +1523,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealsApi();
-let term = "term_example"; // String | The search term to look for. Minimum 2 characters (or 1 if using exact_match).
+let term = "term_example"; // String | The search term to look for. Minimum 2 characters (or 1 if using `exact_match`).
 let opts = {
   'fields': "fields_example", // String | A comma-separated string array. The fields to perform the search from. Defaults to all of them.
   'exactMatch': true, // Boolean | When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
@@ -1531,7 +1531,7 @@ let opts = {
   'organizationId': 56, // Number | Will filter Deals by the provided Organization ID. The upper limit of found Deals associated with the Organization is 2000.
   'status': "status_example", // String | Will filter Deals by the provided specific status. open = Open, won = Won, lost = Lost. The upper limit of found Deals associated with the status is 2000.
   'includeFields': "includeFields_example", // String | Supports including optional fields in the results which are not provided by default.
-  'start': 0, // Number | Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter.
+  'start': 0, // Number | Pagination start. Note that the pagination is based on main results and does not include related items when using `search_for_related_items` parameter.
   'limit': 56 // Number | Items shown per page
 };
 apiInstance.searchDeals(term, opts).then((data) => {
@@ -1547,14 +1547,14 @@ apiInstance.searchDeals(term, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **term** | **String**| The search term to look for. Minimum 2 characters (or 1 if using exact_match). | 
+ **term** | **String**| The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). | 
  **fields** | **String**| A comma-separated string array. The fields to perform the search from. Defaults to all of them. | [optional] 
  **exactMatch** | **Boolean**| When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. | [optional] 
  **personId** | **Number**| Will filter Deals by the provided Person ID. The upper limit of found Deals associated with the Person is 2000. | [optional] 
  **organizationId** | **Number**| Will filter Deals by the provided Organization ID. The upper limit of found Deals associated with the Organization is 2000. | [optional] 
  **status** | **String**| Will filter Deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found Deals associated with the status is 2000. | [optional] 
  **includeFields** | **String**| Supports including optional fields in the results which are not provided by default. | [optional] 
- **start** | **Number**| Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. | [optional] [default to 0]
+ **start** | **Number**| Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter. | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
 
 ### Return type
@@ -1602,12 +1602,12 @@ let opts = {
   'userId': 56, // Number | ID of the user who will be marked as the owner of this deal. If omitted, the authorized user ID will be used.
   'personId': 56, // Number | ID of the person this deal will be associated with
   'orgId': 56, // Number | ID of the organization this deal will be associated with
-  'stageId': 56, // Number | ID of the stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on stage_id). If omitted, the deal will be placed in the first stage of the default pipeline.
+  'stageId': 56, // Number | ID of the stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on `stage_id`). If omitted, the deal will be placed in the first stage of the default pipeline.
   'status': "status_example", // String | open = Open, won = Won, lost = Lost, deleted = Deleted. If omitted, status will be set to open.
   'expectedCloseDate': new Date("2013-10-20"), // Date | The expected close date of the Deal. In ISO 8601 format: YYYY-MM-DD.
-  'probability': 3.4, // Number | Deal success probability percentage. Used/shown only when deal_probability for the pipeline of the deal is enabled.
+  'probability': 3.4, // Number | Deal success probability percentage. Used/shown only when `deal_probability` for the pipeline of the deal is enabled.
   'lostReason': "lostReason_example", // String | Optional message about why the deal was lost (to be used when status=lost)
-  'visibleTo': new Pipedrive.VisibleTo() // VisibleTo | Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<dl class=\\\"fields-list\\\"><dt>1</dt><dd>Owner &amp; followers (private)</dd><dt>3</dt><dd>Entire company (shared)</dd></dl>
+  'visibleTo': new Pipedrive.VisibleTo() // VisibleTo | Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
 };
 apiInstance.updateDeal(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -1629,12 +1629,12 @@ Name | Type | Description  | Notes
  **userId** | **Number**| ID of the user who will be marked as the owner of this deal. If omitted, the authorized user ID will be used. | [optional] 
  **personId** | **Number**| ID of the person this deal will be associated with | [optional] 
  **orgId** | **Number**| ID of the organization this deal will be associated with | [optional] 
- **stageId** | **Number**| ID of the stage this deal will be placed in a pipeline (note that you can&#39;t supply the ID of the pipeline as this will be assigned automatically based on stage_id). If omitted, the deal will be placed in the first stage of the default pipeline. | [optional] 
+ **stageId** | **Number**| ID of the stage this deal will be placed in a pipeline (note that you can&#39;t supply the ID of the pipeline as this will be assigned automatically based on &#x60;stage_id&#x60;). If omitted, the deal will be placed in the first stage of the default pipeline. | [optional] 
  **status** | **String**| open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost, deleted &#x3D; Deleted. If omitted, status will be set to open. | [optional] 
  **expectedCloseDate** | **Date**| The expected close date of the Deal. In ISO 8601 format: YYYY-MM-DD. | [optional] 
- **probability** | **Number**| Deal success probability percentage. Used/shown only when deal_probability for the pipeline of the deal is enabled. | [optional] 
+ **probability** | **Number**| Deal success probability percentage. Used/shown only when &#x60;deal_probability&#x60; for the pipeline of the deal is enabled. | [optional] 
  **lostReason** | **String**| Optional message about why the deal was lost (to be used when status&#x3D;lost) | [optional] 
- **visibleTo** | [**VisibleTo**](VisibleTo.md)| Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.&lt;dl class&#x3D;\\\&quot;fields-list\\\&quot;&gt;&lt;dt&gt;1&lt;/dt&gt;&lt;dd&gt;Owner &amp;amp; followers (private)&lt;/dd&gt;&lt;dt&gt;3&lt;/dt&gt;&lt;dd&gt;Entire company (shared)&lt;/dd&gt;&lt;/dl&gt; | [optional] 
+ **visibleTo** | [**VisibleTo**](VisibleTo.md)| Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.&lt;table&gt;&lt;tr&gt;&lt;th&gt;Value&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;1&#x60;&lt;/td&gt;&lt;td&gt;Owner &amp;amp; followers (private)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;3&#x60;&lt;/td&gt;&lt;td&gt;Entire company (shared)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; | [optional] 
 
 ### Return type
 

@@ -67,7 +67,7 @@ export default class DealsApi {
 
     /**
      * Add a deal
-     * Adds a new deal. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the dealFields and look for 'key' values. For more information on how to add a deal, see <a href=\"https://pipedrive.readme.io/docs/creating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Adds a new deal. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the dealFields and look for `key` values. For more information on how to add a deal, see <a href=\"https://pipedrive.readme.io/docs/creating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Object} opts Optional parameters
      * @param {String} opts.title Deal title
      * @param {String} opts.value Value of the deal. If omitted, value will be set to 0.
@@ -75,12 +75,12 @@ export default class DealsApi {
      * @param {Number} opts.userId ID of the user who will be marked as the owner of this deal. If omitted, the authorized user ID will be used.
      * @param {Number} opts.personId ID of the person this deal will be associated with
      * @param {Number} opts.orgId ID of the organization this deal will be associated with
-     * @param {Number} opts.stageId ID of the stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on stage_id). If omitted, the deal will be placed in the first stage of the default pipeline.
+     * @param {Number} opts.stageId ID of the stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on `stage_id`). If omitted, the deal will be placed in the first stage of the default pipeline.
      * @param {module:model/String} opts.status open = Open, won = Won, lost = Lost, deleted = Deleted. If omitted, status will be set to open.
      * @param {Date} opts.expectedCloseDate The expected close date of the Deal. In ISO 8601 format: YYYY-MM-DD.
-     * @param {Number} opts.probability Deal success probability percentage. Used/shown only when deal_probability for the pipeline of the deal is enabled.
+     * @param {Number} opts.probability Deal success probability percentage. Used/shown only when `deal_probability` for the pipeline of the deal is enabled.
      * @param {String} opts.lostReason Optional message about why the deal was lost (to be used when status=lost)
-     * @param {module:model/VisibleTo} opts.visibleTo Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<dl class=\\\"fields-list\\\"><dt>1</dt><dd>Owner &amp; followers (private)</dd><dt>3</dt><dd>Entire company (shared)</dd></dl>
+     * @param {module:model/VisibleTo} opts.visibleTo Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
      * @param {String} opts.addTime Optional creation date & time of the deal in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetAddedDeal} and HTTP response
      */
@@ -123,7 +123,7 @@ export default class DealsApi {
 
     /**
      * Add a deal
-     * Adds a new deal. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the dealFields and look for 'key' values. For more information on how to add a deal, see <a href=\"https://pipedrive.readme.io/docs/creating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Adds a new deal. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the dealFields and look for `key` values. For more information on how to add a deal, see <a href=\"https://pipedrive.readme.io/docs/creating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Object} opts Optional parameters
      * @param {String} opts.title Deal title
      * @param {String} opts.value Value of the deal. If omitted, value will be set to 0.
@@ -131,12 +131,12 @@ export default class DealsApi {
      * @param {Number} opts.userId ID of the user who will be marked as the owner of this deal. If omitted, the authorized user ID will be used.
      * @param {Number} opts.personId ID of the person this deal will be associated with
      * @param {Number} opts.orgId ID of the organization this deal will be associated with
-     * @param {Number} opts.stageId ID of the stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on stage_id). If omitted, the deal will be placed in the first stage of the default pipeline.
+     * @param {Number} opts.stageId ID of the stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on `stage_id`). If omitted, the deal will be placed in the first stage of the default pipeline.
      * @param {module:model/String} opts.status open = Open, won = Won, lost = Lost, deleted = Deleted. If omitted, status will be set to open.
      * @param {Date} opts.expectedCloseDate The expected close date of the Deal. In ISO 8601 format: YYYY-MM-DD.
-     * @param {Number} opts.probability Deal success probability percentage. Used/shown only when deal_probability for the pipeline of the deal is enabled.
+     * @param {Number} opts.probability Deal success probability percentage. Used/shown only when `deal_probability` for the pipeline of the deal is enabled.
      * @param {String} opts.lostReason Optional message about why the deal was lost (to be used when status=lost)
-     * @param {module:model/VisibleTo} opts.visibleTo Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<dl class=\\\"fields-list\\\"><dt>1</dt><dd>Owner &amp; followers (private)</dd><dt>3</dt><dd>Entire company (shared)</dd></dl>
+     * @param {module:model/VisibleTo} opts.visibleTo Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
      * @param {String} opts.addTime Optional creation date & time of the deal in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetAddedDeal}
      */
@@ -471,9 +471,9 @@ export default class DealsApi {
 
     /**
      * Delete an attached product from a deal
-     * Deletes a product attachment from a deal, using the product_attachment_id.
+     * Deletes a product attachment from a deal, using the `product_attachment_id`.
      * @param {Number} id ID of the deal
-     * @param {Number} productAttachmentId Product attachment ID. This is returned as product_attachment_id after attaching a product to a deal or as id when listing the products attached to a deal.
+     * @param {Number} productAttachmentId Product attachment ID. This is returned as `product_attachment_id` after attaching a product to a deal or as id when listing the products attached to a deal.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteDealProduct} and HTTP response
      */
     deleteDealProductWithHttpInfo(id, productAttachmentId) {
@@ -511,9 +511,9 @@ export default class DealsApi {
 
     /**
      * Delete an attached product from a deal
-     * Deletes a product attachment from a deal, using the product_attachment_id.
+     * Deletes a product attachment from a deal, using the `product_attachment_id`.
      * @param {Number} id ID of the deal
-     * @param {Number} productAttachmentId Product attachment ID. This is returned as product_attachment_id after attaching a product to a deal or as id when listing the products attached to a deal.
+     * @param {Number} productAttachmentId Product attachment ID. This is returned as `product_attachment_id` after attaching a product to a deal or as id when listing the products attached to a deal.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteDealProduct}
      */
     deleteDealProduct(id, productAttachmentId) {
@@ -622,7 +622,7 @@ export default class DealsApi {
 
     /**
      * Get details of a deal
-     * Returns details of a specific deal. Note that this also returns some additional fields which are not present when asking for all deals – such as deal age and stay in pipeline stages. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the 'key' value of dealFields. For more information on how to get all details of a deal, see <a href=\"https://pipedrive.readme.io/docs/getting-details-of-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Returns details of a specific deal. Note that this also returns some additional fields which are not present when asking for all deals – such as deal age and stay in pipeline stages. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of dealFields. For more information on how to get all details of a deal, see <a href=\"https://pipedrive.readme.io/docs/getting-details-of-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Number} id ID of the deal
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetDeal} and HTTP response
      */
@@ -656,7 +656,7 @@ export default class DealsApi {
 
     /**
      * Get details of a deal
-     * Returns details of a specific deal. Note that this also returns some additional fields which are not present when asking for all deals – such as deal age and stay in pipeline stages. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the 'key' value of dealFields. For more information on how to get all details of a deal, see <a href=\"https://pipedrive.readme.io/docs/getting-details-of-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Returns details of a specific deal. Note that this also returns some additional fields which are not present when asking for all deals – such as deal age and stay in pipeline stages. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of dealFields. For more information on how to get all details of a deal, see <a href=\"https://pipedrive.readme.io/docs/getting-details-of-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Number} id ID of the deal
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetDeal}
      */
@@ -739,7 +739,7 @@ export default class DealsApi {
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {module:model/NumberBoolean} opts.includeDeletedFiles When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
+     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListFilesResponse} and HTTP response
      */
     getDealFilesWithHttpInfo(id, opts) {
@@ -783,7 +783,7 @@ export default class DealsApi {
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {module:model/NumberBoolean} opts.includeDeletedFiles When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
+     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListFilesResponse}
      */
     getDealFiles(id, opts) {
@@ -1194,7 +1194,7 @@ export default class DealsApi {
      * @param {module:model/String} opts.status Only fetch deals with specific status. If omitted, all not deleted deals are fetched. (default to 'all_not_deleted')
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys).
+     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
      * @param {module:model/NumberBoolean} opts.ownedByYou When supplied, only deals owned by you are returned. However, `filter_id` takes precedence over `owned_by_you` when both are supplied.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetDeals} and HTTP response
      */
@@ -1240,7 +1240,7 @@ export default class DealsApi {
      * @param {module:model/String} opts.status Only fetch deals with specific status. If omitted, all not deleted deals are fetched. (default to 'all_not_deleted')
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys).
+     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
      * @param {module:model/NumberBoolean} opts.ownedByYou When supplied, only deals owned by you are returned. However, `filter_id` takes precedence over `owned_by_you` when both are supplied.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetDeals}
      */
@@ -1254,7 +1254,7 @@ export default class DealsApi {
 
     /**
      * Find deals by name
-     * <strong>This endpoint is deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/#!/Deals/get_deals_search\">/v1/deals/search</a> or <a href=\"https://developers.pipedrive.com/docs/api/v1/#!/ItemSearch/get_itemSearch\">/v1/itemSearch</a> instead</strong>. <br> Searches all deals by their title.
+     * This endpoint is deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1//Deals#searchDeals\">/v1/deals/search</a> or <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> instead. <br> Searches all deals by their title.
      * @param {String} term Search term to look for
      * @param {Object} opts Optional parameters
      * @param {Number} opts.personId ID of the person the Deal is associated with.
@@ -1294,7 +1294,7 @@ export default class DealsApi {
 
     /**
      * Find deals by name
-     * <strong>This endpoint is deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/#!/Deals/get_deals_search\">/v1/deals/search</a> or <a href=\"https://developers.pipedrive.com/docs/api/v1/#!/ItemSearch/get_itemSearch\">/v1/itemSearch</a> instead</strong>. <br> Searches all deals by their title.
+     * This endpoint is deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1//Deals#searchDeals\">/v1/deals/search</a> or <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> instead. <br> Searches all deals by their title.
      * @param {String} term Search term to look for
      * @param {Object} opts Optional parameters
      * @param {Number} opts.personId ID of the person the Deal is associated with.
@@ -1314,8 +1314,8 @@ export default class DealsApi {
      * Returns summary of all the deals.
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.status Only fetch deals with specific status. open = Open, won = Won, lost = Lost
-     * @param {Number} opts.filterId user_id will not be considered. Only deals matching the given filter will be returned.
-     * @param {Number} opts.userId Only deals matching the given user will be returned. user_id will not be considered if you use filter_id.
+     * @param {Number} opts.filterId <code>user_id</code> will not be considered. Only deals matching the given filter will be returned.
+     * @param {Number} opts.userId Only deals matching the given user will be returned. `user_id` will not be considered if you use `filter_id`.
      * @param {Number} opts.stageId Only deals within the given stage will be returned.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetDealsSummary} and HTTP response
      */
@@ -1352,8 +1352,8 @@ export default class DealsApi {
      * Returns summary of all the deals.
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.status Only fetch deals with specific status. open = Open, won = Won, lost = Lost
-     * @param {Number} opts.filterId user_id will not be considered. Only deals matching the given filter will be returned.
-     * @param {Number} opts.userId Only deals matching the given user will be returned. user_id will not be considered if you use filter_id.
+     * @param {Number} opts.filterId <code>user_id</code> will not be considered. Only deals matching the given filter will be returned.
+     * @param {Number} opts.userId Only deals matching the given user will be returned. `user_id` will not be considered if you use `filter_id`.
      * @param {Number} opts.stageId Only deals within the given stage will be returned.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetDealsSummary}
      */
@@ -1367,17 +1367,17 @@ export default class DealsApi {
 
     /**
      * Get deals timeline
-     * Returns open and won deals, grouped by defined interval of time set in a date-type dealField (field_key) — e.g. when month is the chosen interval, and 3 months are asked starting from  January 1st, 2012, deals are returned grouped into 3 groups — January, February and March — based on the value of the given field_key.
+     * Returns open and won deals, grouped by defined interval of time set in a date-type dealField (`field_key`) — e.g. when month is the chosen interval, and 3 months are asked starting from  January 1st, 2012, deals are returned grouped into 3 groups — January, February and March — based on the value of the given `field_key`.
      * @param {Date} startDate Date where the first interval starts. Format: YYYY-MM-DD
-     * @param {module:model/String} interval The type of interval<dl class=\"fields-list\"><dt>day</dt><dd>Day</dd><dt>week</dt><dd>A full week (7 days) starting from start_date</dd><dt>month</dt><dd>A full month (depending on the number of days in given month) starting from start_date</dd><dt>quarter</dt><dd>A full quarter (3 months) starting from start_date</dd></dl>
-     * @param {Number} amount The number of given intervals, starting from start_date, to fetch. E.g. 3 (months).
+     * @param {module:model/String} interval The type of interval<table><tr><th>Value</th><th>Description</th></tr><tr><td>`day`</td><td>Day</td></tr><tr><td>`week`</td><td>A full week (7 days) starting from `start_date`</td></tr><tr><td>`month`</td><td>A full month (depending on the number of days in given month) starting from `start_date`</td></tr><tr><td>`quarter`</td><td>A full quarter (3 months) starting from `start_date`</td></tr></table>
+     * @param {Number} amount The number of given intervals, starting from `start_date`, to fetch. E.g. 3 (months).
      * @param {String} fieldKey The date field key which deals will be retrieved from
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId If supplied, only deals matching the given user will be returned.
      * @param {Number} opts.pipelineId If supplied, only deals matching the given pipeline will be returned
      * @param {Number} opts.filterId If supplied, only deals matching the given filter will be returned
      * @param {module:model/NumberBoolean} opts.excludeDeals Whether to exclude deals list (1) or not (0). Note that when deals are excluded, the timeline summary (counts and values) is still returned.
-     * @param {String} opts.totalsConvertCurrency 3-letter currency code of any of the supported currencies. When supplied, totals_converted is returned per each interval which contains the currency-converted total amounts in the given currency. You may also set this parameter to 'default_currency' in which case users default currency is used.
+     * @param {String} opts.totalsConvertCurrency 3-letter currency code of any of the supported currencies. When supplied, `totals_converted` is returned per each interval which contains the currency-converted total amounts in the given currency. You may also set this parameter to `default_currency` in which case users default currency is used.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetDealsTimeline} and HTTP response
      */
     getDealsTimelineWithHttpInfo(startDate, interval, amount, fieldKey, opts) {
@@ -1431,17 +1431,17 @@ export default class DealsApi {
 
     /**
      * Get deals timeline
-     * Returns open and won deals, grouped by defined interval of time set in a date-type dealField (field_key) — e.g. when month is the chosen interval, and 3 months are asked starting from  January 1st, 2012, deals are returned grouped into 3 groups — January, February and March — based on the value of the given field_key.
+     * Returns open and won deals, grouped by defined interval of time set in a date-type dealField (`field_key`) — e.g. when month is the chosen interval, and 3 months are asked starting from  January 1st, 2012, deals are returned grouped into 3 groups — January, February and March — based on the value of the given `field_key`.
      * @param {Date} startDate Date where the first interval starts. Format: YYYY-MM-DD
-     * @param {module:model/String} interval The type of interval<dl class=\"fields-list\"><dt>day</dt><dd>Day</dd><dt>week</dt><dd>A full week (7 days) starting from start_date</dd><dt>month</dt><dd>A full month (depending on the number of days in given month) starting from start_date</dd><dt>quarter</dt><dd>A full quarter (3 months) starting from start_date</dd></dl>
-     * @param {Number} amount The number of given intervals, starting from start_date, to fetch. E.g. 3 (months).
+     * @param {module:model/String} interval The type of interval<table><tr><th>Value</th><th>Description</th></tr><tr><td>`day`</td><td>Day</td></tr><tr><td>`week`</td><td>A full week (7 days) starting from `start_date`</td></tr><tr><td>`month`</td><td>A full month (depending on the number of days in given month) starting from `start_date`</td></tr><tr><td>`quarter`</td><td>A full quarter (3 months) starting from `start_date`</td></tr></table>
+     * @param {Number} amount The number of given intervals, starting from `start_date`, to fetch. E.g. 3 (months).
      * @param {String} fieldKey The date field key which deals will be retrieved from
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId If supplied, only deals matching the given user will be returned.
      * @param {Number} opts.pipelineId If supplied, only deals matching the given pipeline will be returned
      * @param {Number} opts.filterId If supplied, only deals matching the given filter will be returned
      * @param {module:model/NumberBoolean} opts.excludeDeals Whether to exclude deals list (1) or not (0). Note that when deals are excluded, the timeline summary (counts and values) is still returned.
-     * @param {String} opts.totalsConvertCurrency 3-letter currency code of any of the supported currencies. When supplied, totals_converted is returned per each interval which contains the currency-converted total amounts in the given currency. You may also set this parameter to 'default_currency' in which case users default currency is used.
+     * @param {String} opts.totalsConvertCurrency 3-letter currency code of any of the supported currencies. When supplied, `totals_converted` is returned per each interval which contains the currency-converted total amounts in the given currency. You may also set this parameter to `default_currency` in which case users default currency is used.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetDealsTimeline}
      */
     getDealsTimeline(startDate, interval, amount, fieldKey, opts) {
@@ -1509,8 +1509,8 @@ export default class DealsApi {
 
     /**
      * Search deals
-     * Searches all Deals by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/#!/ItemSearch/get_itemSearch\">/v1/itemSearch</a> with a narrower OAuth scope. Found Deals can be filtered by Person ID and Organization ID.
-     * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using exact_match).
+     * Searches all Deals by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found Deals can be filtered by Person ID and Organization ID.
+     * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`).
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.fields A comma-separated string array. The fields to perform the search from. Defaults to all of them.
      * @param {module:model/Boolean} opts.exactMatch When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
@@ -1518,7 +1518,7 @@ export default class DealsApi {
      * @param {Number} opts.organizationId Will filter Deals by the provided Organization ID. The upper limit of found Deals associated with the Organization is 2000.
      * @param {module:model/String} opts.status Will filter Deals by the provided specific status. open = Open, won = Won, lost = Lost. The upper limit of found Deals associated with the status is 2000.
      * @param {module:model/String} opts.includeFields Supports including optional fields in the results which are not provided by default.
-     * @param {Number} opts.start Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. (default to 0)
+     * @param {Number} opts.start Pagination start. Note that the pagination is based on main results and does not include related items when using `search_for_related_items` parameter. (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DealSearchResponse} and HTTP response
      */
@@ -1561,8 +1561,8 @@ export default class DealsApi {
 
     /**
      * Search deals
-     * Searches all Deals by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/#!/ItemSearch/get_itemSearch\">/v1/itemSearch</a> with a narrower OAuth scope. Found Deals can be filtered by Person ID and Organization ID.
-     * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using exact_match).
+     * Searches all Deals by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found Deals can be filtered by Person ID and Organization ID.
+     * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`).
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.fields A comma-separated string array. The fields to perform the search from. Defaults to all of them.
      * @param {module:model/Boolean} opts.exactMatch When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
@@ -1570,7 +1570,7 @@ export default class DealsApi {
      * @param {Number} opts.organizationId Will filter Deals by the provided Organization ID. The upper limit of found Deals associated with the Organization is 2000.
      * @param {module:model/String} opts.status Will filter Deals by the provided specific status. open = Open, won = Won, lost = Lost. The upper limit of found Deals associated with the status is 2000.
      * @param {module:model/String} opts.includeFields Supports including optional fields in the results which are not provided by default.
-     * @param {Number} opts.start Pagination start. Note that the pagination is based on main results and does not include related items when using search_for_related_items parameter. (default to 0)
+     * @param {Number} opts.start Pagination start. Note that the pagination is based on main results and does not include related items when using `search_for_related_items` parameter. (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DealSearchResponse}
      */
@@ -1593,12 +1593,12 @@ export default class DealsApi {
      * @param {Number} opts.userId ID of the user who will be marked as the owner of this deal. If omitted, the authorized user ID will be used.
      * @param {Number} opts.personId ID of the person this deal will be associated with
      * @param {Number} opts.orgId ID of the organization this deal will be associated with
-     * @param {Number} opts.stageId ID of the stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on stage_id). If omitted, the deal will be placed in the first stage of the default pipeline.
+     * @param {Number} opts.stageId ID of the stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on `stage_id`). If omitted, the deal will be placed in the first stage of the default pipeline.
      * @param {module:model/String} opts.status open = Open, won = Won, lost = Lost, deleted = Deleted. If omitted, status will be set to open.
      * @param {Date} opts.expectedCloseDate The expected close date of the Deal. In ISO 8601 format: YYYY-MM-DD.
-     * @param {Number} opts.probability Deal success probability percentage. Used/shown only when deal_probability for the pipeline of the deal is enabled.
+     * @param {Number} opts.probability Deal success probability percentage. Used/shown only when `deal_probability` for the pipeline of the deal is enabled.
      * @param {String} opts.lostReason Optional message about why the deal was lost (to be used when status=lost)
-     * @param {module:model/VisibleTo} opts.visibleTo Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<dl class=\\\"fields-list\\\"><dt>1</dt><dd>Owner &amp; followers (private)</dd><dt>3</dt><dd>Entire company (shared)</dd></dl>
+     * @param {module:model/VisibleTo} opts.visibleTo Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetAddedDeal} and HTTP response
      */
     updateDealWithHttpInfo(id, opts) {
@@ -1653,12 +1653,12 @@ export default class DealsApi {
      * @param {Number} opts.userId ID of the user who will be marked as the owner of this deal. If omitted, the authorized user ID will be used.
      * @param {Number} opts.personId ID of the person this deal will be associated with
      * @param {Number} opts.orgId ID of the organization this deal will be associated with
-     * @param {Number} opts.stageId ID of the stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on stage_id). If omitted, the deal will be placed in the first stage of the default pipeline.
+     * @param {Number} opts.stageId ID of the stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on `stage_id`). If omitted, the deal will be placed in the first stage of the default pipeline.
      * @param {module:model/String} opts.status open = Open, won = Won, lost = Lost, deleted = Deleted. If omitted, status will be set to open.
      * @param {Date} opts.expectedCloseDate The expected close date of the Deal. In ISO 8601 format: YYYY-MM-DD.
-     * @param {Number} opts.probability Deal success probability percentage. Used/shown only when deal_probability for the pipeline of the deal is enabled.
+     * @param {Number} opts.probability Deal success probability percentage. Used/shown only when `deal_probability` for the pipeline of the deal is enabled.
      * @param {String} opts.lostReason Optional message about why the deal was lost (to be used when status=lost)
-     * @param {module:model/VisibleTo} opts.visibleTo Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<dl class=\\\"fields-list\\\"><dt>1</dt><dd>Owner &amp; followers (private)</dd><dt>3</dt><dd>Entire company (shared)</dd></dl>
+     * @param {module:model/VisibleTo} opts.visibleTo Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetAddedDeal}
      */
     updateDeal(id, opts) {

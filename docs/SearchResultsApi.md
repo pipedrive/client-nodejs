@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 Perform a search
 
-&lt;strong&gt;This endpoint is deprecated. Please use &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/#!/ItemSearch/get_itemSearch\&quot;&gt;/v1/itemSearch&lt;/a&gt; instead&lt;/strong&gt;. &lt;br&gt; Performs a search across the account and returns SearchResults.
+This endpoint is deprecated. Please use &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\&quot;&gt;/v1/itemSearch&lt;/a&gt; instead. &lt;br&gt; Performs a search across the account and returns SearchResults.
 
 ### Example
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 Perform a search using a specific field value
 
-&lt;strong&gt;This endpoint is deprecated. Please use &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/#!/ItemSearch/get_itemSearch_field\&quot;&gt;/v1/itemSearch/field&lt;/a&gt; instead&lt;/strong&gt;. &lt;br&gt;  Performs a search from a specific field&#39;s values. Results can be either the distinct values of the field (useful for searching autocomplete field values), or actual items IDs (deals, persons, organizations or products).
+This endpoint is deprecated. Please use &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItemByField\&quot;&gt;/v1/itemSearch/field&lt;/a&gt; instead. &lt;br&gt;  Performs a search from a specific field&#39;s values. Results can be either the distinct values of the field (useful for searching autocomplete field values), or actual items IDs (deals, persons, organizations or products).
 
 ### Example
 
