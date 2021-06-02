@@ -59,8 +59,21 @@ export default class GlobalMessagesApi {
       let formParams = {
       };
 
-      let authNames = ['api_key'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key'];
       let accepts = ['application/json'];
       let returnType = GlobalMessageDelete;
       return this.apiClient.callApi(
@@ -105,8 +118,21 @@ export default class GlobalMessagesApi {
       let formParams = {
       };
 
-      let authNames = ['api_key'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key'];
       let accepts = ['application/json'];
       let returnType = GlobalMessageGet;
       return this.apiClient.callApi(

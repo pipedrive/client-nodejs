@@ -77,8 +77,27 @@ export default class FilesApi {
         'activity_id': opts['activityId']
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+        'file',
+        'dealId',
+        'personId',
+        'orgId',
+        'productId',
+        'activityId'
+      ];
+
       let contentTypes = ['multipart/form-data'];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = AddFile;
       return this.apiClient.callApi(
@@ -155,8 +174,26 @@ export default class FilesApi {
         'remote_location': remoteLocation
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+        'fileType',
+        'title',
+        'itemType',
+        'itemId',
+        'remoteLocation'
+      ];
+
       let contentTypes = ['application/x-www-form-urlencoded'];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = CreateRemoteFileAndLinkItToItem;
       return this.apiClient.callApi(
@@ -207,8 +244,21 @@ export default class FilesApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = DeleteFile;
       return this.apiClient.callApi(
@@ -255,8 +305,21 @@ export default class FilesApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/octet-stream'];
       let returnType = File;
       return this.apiClient.callApi(
@@ -303,8 +366,21 @@ export default class FilesApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = GetOneFile;
       return this.apiClient.callApi(
@@ -355,8 +431,21 @@ export default class FilesApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = GetAllFiles;
       return this.apiClient.callApi(
@@ -425,8 +514,25 @@ export default class FilesApi {
         'remote_location': remoteLocation
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+        'itemType',
+        'itemId',
+        'remoteId',
+        'remoteLocation'
+      ];
+
       let contentTypes = ['application/x-www-form-urlencoded'];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = LinkRemoteFileToItem;
       return this.apiClient.callApi(
@@ -482,8 +588,23 @@ export default class FilesApi {
         'description': opts['description']
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+        'name',
+        'description'
+      ];
+
       let contentTypes = ['application/x-www-form-urlencoded'];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = UpdateFile;
       return this.apiClient.callApi(
