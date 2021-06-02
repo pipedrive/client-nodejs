@@ -80,7 +80,7 @@ export default class WebhooksApi {
         'event_object': eventObject,
         'user_id': opts['userId'],
         'http_auth_user': opts['httpAuthUser'],
-        'http_auth_password': opts['httpAuthPassword']
+        'http_auth_password': opts['httpAuthPassword'],
       };
 
       let formParamArray = [
@@ -89,10 +89,10 @@ export default class WebhooksApi {
         'eventObject',
         'userId',
         'httpAuthUser',
-        'httpAuthPassword'
+        'httpAuthPassword',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -103,8 +103,8 @@ export default class WebhooksApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = Webhook;
       return this.apiClient.callApi(
         '/webhooks', 'POST',
@@ -147,7 +147,7 @@ export default class WebhooksApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -170,8 +170,8 @@ export default class WebhooksApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = BaseResponseWithStatus;
       return this.apiClient.callApi(
         '/webhooks/{id}', 'DELETE',
@@ -225,8 +225,8 @@ export default class WebhooksApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = Webhooks;
       return this.apiClient.callApi(
         '/webhooks', 'GET',

@@ -67,8 +67,8 @@ export default class UserConnectionsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = UserConnections;
       return this.apiClient.callApi(
         '/userConnections', 'GET',

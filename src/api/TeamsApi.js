@@ -65,7 +65,7 @@ export default class TeamsApi {
       let formParamArray = [
       ];
 
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -76,8 +76,8 @@ export default class TeamsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = Teams;
       return this.apiClient.callApi(
         '/teams', 'POST',
@@ -118,7 +118,7 @@ export default class TeamsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -130,7 +130,7 @@ export default class TeamsApi {
       let formParamArray = [
       ];
 
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -141,8 +141,8 @@ export default class TeamsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = UserIDs;
       return this.apiClient.callApi(
         '/teams/{id}/users', 'POST',
@@ -184,7 +184,7 @@ export default class TeamsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -196,7 +196,7 @@ export default class TeamsApi {
       let formParamArray = [
       ];
 
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -207,8 +207,8 @@ export default class TeamsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = UserIDs;
       return this.apiClient.callApi(
         '/teams/{id}/users', 'DELETE',
@@ -250,10 +250,10 @@ export default class TeamsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
-        'skip_users': opts['skipUsers']
+        'skip_users': opts['skipUsers'],
       };
       let headerParams = {
       };
@@ -274,8 +274,8 @@ export default class TeamsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = Teams;
       return this.apiClient.callApi(
         '/teams/{id}', 'GET',
@@ -314,7 +314,7 @@ export default class TeamsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -337,8 +337,8 @@ export default class TeamsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = UserIDs;
       return this.apiClient.callApi(
         '/teams/{id}/users', 'GET',
@@ -377,7 +377,7 @@ export default class TeamsApi {
       };
       let queryParams = {
         'order_by': opts['orderBy'],
-        'skip_users': opts['skipUsers']
+        'skip_users': opts['skipUsers'],
       };
       let headerParams = {
       };
@@ -398,8 +398,8 @@ export default class TeamsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = Teams;
       return this.apiClient.callApi(
         '/teams', 'GET',
@@ -442,11 +442,11 @@ export default class TeamsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'order_by': opts['orderBy'],
-        'skip_users': opts['skipUsers']
+        'skip_users': opts['skipUsers'],
       };
       let headerParams = {
       };
@@ -467,8 +467,8 @@ export default class TeamsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = Teams;
       return this.apiClient.callApi(
         '/teams/user/{id}', 'GET',
@@ -511,7 +511,7 @@ export default class TeamsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -523,7 +523,7 @@ export default class TeamsApi {
       let formParamArray = [
       ];
 
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -534,8 +534,8 @@ export default class TeamsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = Teams;
       return this.apiClient.callApi(
         '/teams/{id}', 'PUT',

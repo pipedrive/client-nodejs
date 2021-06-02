@@ -56,7 +56,7 @@ export default class MailboxApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -79,8 +79,8 @@ export default class MailboxApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = MailThreadDelete;
       return this.apiClient.callApi(
         '/mailbox/mailThreads/{id}', 'DELETE',
@@ -120,10 +120,10 @@ export default class MailboxApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
-        'include_body': opts['includeBody']
+        'include_body': opts['includeBody'],
       };
       let headerParams = {
       };
@@ -144,8 +144,8 @@ export default class MailboxApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = MailMessage;
       return this.apiClient.callApi(
         '/mailbox/mailMessages/{id}', 'GET',
@@ -184,7 +184,7 @@ export default class MailboxApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -207,8 +207,8 @@ export default class MailboxApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = MailThreadOne;
       return this.apiClient.callApi(
         '/mailbox/mailThreads/{id}', 'GET',
@@ -245,7 +245,7 @@ export default class MailboxApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -268,8 +268,8 @@ export default class MailboxApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = MailThreadMessages;
       return this.apiClient.callApi(
         '/mailbox/mailThreads/{id}/mailMessages', 'GET',
@@ -314,7 +314,7 @@ export default class MailboxApi {
       let queryParams = {
         'folder': folder,
         'start': opts['start'],
-        'limit': opts['limit']
+        'limit': opts['limit'],
       };
       let headerParams = {
       };
@@ -335,8 +335,8 @@ export default class MailboxApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = MailThread;
       return this.apiClient.callApi(
         '/mailbox/mailThreads', 'GET',
@@ -383,7 +383,7 @@ export default class MailboxApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -394,7 +394,7 @@ export default class MailboxApi {
         'lead_id': opts['leadId'],
         'shared_flag': opts['sharedFlag'],
         'read_flag': opts['readFlag'],
-        'archived_flag': opts['archivedFlag']
+        'archived_flag': opts['archivedFlag'],
       };
 
       let formParamArray = [
@@ -402,10 +402,10 @@ export default class MailboxApi {
         'leadId',
         'sharedFlag',
         'readFlag',
-        'archivedFlag'
+        'archivedFlag',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -416,8 +416,8 @@ export default class MailboxApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = MailThreadPut;
       return this.apiClient.callApi(
         '/mailbox/mailThreads/{id}', 'PUT',

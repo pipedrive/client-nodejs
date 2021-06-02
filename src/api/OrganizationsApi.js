@@ -18,7 +18,7 @@ import ListActivitiesResponse from '../model/ListActivitiesResponse';
 import ListDealsResponse from '../model/ListDealsResponse';
 import ListFilesResponse from '../model/ListFilesResponse';
 import ListMailMessagesResponse from '../model/ListMailMessagesResponse';
-import ListPermittedUsersResponse2 from '../model/ListPermittedUsersResponse2';
+import ListPermittedUsersResponse1 from '../model/ListPermittedUsersResponse1';
 import ListPersonsResponse from '../model/ListPersonsResponse';
 import NumberBoolean from '../model/NumberBoolean';
 import OrganizationDeleteResponse from '../model/OrganizationDeleteResponse';
@@ -78,17 +78,17 @@ export default class OrganizationsApi {
         'name': opts['name'],
         'owner_id': opts['ownerId'],
         'visible_to': opts['visibleTo'],
-        'add_time': opts['addTime']
+        'add_time': opts['addTime'],
       };
 
       let formParamArray = [
         'name',
         'ownerId',
         'visibleTo',
-        'addTime'
+        'addTime',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -99,8 +99,8 @@ export default class OrganizationsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = OrganizationPostResponse;
       return this.apiClient.callApi(
         '/organizations', 'POST',
@@ -146,21 +146,21 @@ export default class OrganizationsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
       let headerParams = {
       };
       let formParams = {
-        'user_id': userId
+        'user_id': userId,
       };
 
       let formParamArray = [
-        'userId'
+        'userId',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -171,8 +171,8 @@ export default class OrganizationsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = OrganizationFollowerPostResponse;
       return this.apiClient.callApi(
         '/organizations/{id}/followers', 'POST',
@@ -210,7 +210,7 @@ export default class OrganizationsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -233,8 +233,8 @@ export default class OrganizationsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = OrganizationDeleteResponse;
       return this.apiClient.callApi(
         '/organizations/{id}', 'DELETE',
@@ -277,7 +277,7 @@ export default class OrganizationsApi {
 
       let pathParams = {
         'id': id,
-        'follower_id': followerId
+        'follower_id': followerId,
       };
       let queryParams = {
       };
@@ -300,8 +300,8 @@ export default class OrganizationsApi {
         }
       }
 
-      let authNames = ['api_key'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', ];
+      let accepts = ['application/json', ];
       let returnType = OrganizationFollowerDeleteResponse;
       return this.apiClient.callApi(
         '/organizations/{id}/followers/{follower_id}', 'DELETE',
@@ -341,7 +341,7 @@ export default class OrganizationsApi {
       let pathParams = {
       };
       let queryParams = {
-        'ids': ids
+        'ids': ids,
       };
       let headerParams = {
       };
@@ -362,8 +362,8 @@ export default class OrganizationsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = OrganizationsDeleteResponse;
       return this.apiClient.callApi(
         '/organizations', 'DELETE',
@@ -400,7 +400,7 @@ export default class OrganizationsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -423,8 +423,8 @@ export default class OrganizationsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = OrganizationDetailsGetResponse;
       return this.apiClient.callApi(
         '/organizations/{id}', 'GET',
@@ -467,13 +467,13 @@ export default class OrganizationsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'start': opts['start'],
         'limit': opts['limit'],
         'done': opts['done'],
-        'exclude': opts['exclude']
+        'exclude': opts['exclude'],
       };
       let headerParams = {
       };
@@ -494,8 +494,8 @@ export default class OrganizationsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = ListActivitiesResponse;
       return this.apiClient.callApi(
         '/organizations/{id}/activities', 'GET',
@@ -545,7 +545,7 @@ export default class OrganizationsApi {
       let queryParams = {
         'term': term,
         'start': opts['start'],
-        'limit': opts['limit']
+        'limit': opts['limit'],
       };
       let headerParams = {
       };
@@ -566,8 +566,8 @@ export default class OrganizationsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = Object;
       return this.apiClient.callApi(
         '/organizations/find', 'GET',
@@ -614,14 +614,14 @@ export default class OrganizationsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'start': opts['start'],
         'limit': opts['limit'],
         'status': opts['status'],
         'sort': opts['sort'],
-        'only_primary_association': opts['onlyPrimaryAssociation']
+        'only_primary_association': opts['onlyPrimaryAssociation'],
       };
       let headerParams = {
       };
@@ -642,8 +642,8 @@ export default class OrganizationsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = ListDealsResponse;
       return this.apiClient.callApi(
         '/organizations/{id}/deals', 'GET',
@@ -692,13 +692,13 @@ export default class OrganizationsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'start': opts['start'],
         'limit': opts['limit'],
         'include_deleted_files': opts['includeDeletedFiles'],
-        'sort': opts['sort']
+        'sort': opts['sort'],
       };
       let headerParams = {
       };
@@ -719,8 +719,8 @@ export default class OrganizationsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = ListFilesResponse;
       return this.apiClient.callApi(
         '/organizations/{id}/files', 'GET',
@@ -762,7 +762,7 @@ export default class OrganizationsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -785,8 +785,8 @@ export default class OrganizationsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = OrganizationFollowersListResponse;
       return this.apiClient.callApi(
         '/organizations/{id}/followers', 'GET',
@@ -827,11 +827,11 @@ export default class OrganizationsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'start': opts['start'],
-        'limit': opts['limit']
+        'limit': opts['limit'],
       };
       let headerParams = {
       };
@@ -852,8 +852,8 @@ export default class OrganizationsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = ListMailMessagesResponse;
       return this.apiClient.callApi(
         '/organizations/{id}/mailMessages', 'GET',
@@ -897,11 +897,11 @@ export default class OrganizationsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'start': opts['start'],
-        'limit': opts['limit']
+        'limit': opts['limit'],
       };
       let headerParams = {
       };
@@ -922,8 +922,8 @@ export default class OrganizationsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = ListPersonsResponse;
       return this.apiClient.callApi(
         '/organizations/{id}/persons', 'GET',
@@ -969,13 +969,13 @@ export default class OrganizationsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'start': opts['start'],
         'limit': opts['limit'],
         'all_changes': opts['allChanges'],
-        'items': opts['items']
+        'items': opts['items'],
       };
       let headerParams = {
       };
@@ -996,8 +996,8 @@ export default class OrganizationsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = OrganizationFlowResponse;
       return this.apiClient.callApi(
         '/organizations/{id}/flow', 'GET',
@@ -1029,7 +1029,7 @@ export default class OrganizationsApi {
      * List permitted users
      * List users permitted to access an organization
      * @param {Number} id The ID of the Organization
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListPermittedUsersResponse2} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListPermittedUsersResponse1} and HTTP response
      */
     getOrganizationUsersWithHttpInfo(id) {
       let postBody = null;
@@ -1039,7 +1039,7 @@ export default class OrganizationsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -1062,9 +1062,9 @@ export default class OrganizationsApi {
         }
       }
 
-      let authNames = ['api_key'];
-      let accepts = ['application/json'];
-      let returnType = ListPermittedUsersResponse2;
+      let authNames = ['api_key', ];
+      let accepts = ['application/json', ];
+      let returnType = ListPermittedUsersResponse1;
       return this.apiClient.callApi(
         '/organizations/{id}/permittedUsers', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1076,7 +1076,7 @@ export default class OrganizationsApi {
      * List permitted users
      * List users permitted to access an organization
      * @param {Number} id The ID of the Organization
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListPermittedUsersResponse2}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListPermittedUsersResponse1}
      */
     getOrganizationUsers(id) {
       return this.getOrganizationUsersWithHttpInfo(id)
@@ -1110,7 +1110,7 @@ export default class OrganizationsApi {
         'first_char': opts['firstChar'],
         'start': opts['start'],
         'limit': opts['limit'],
-        'sort': opts['sort']
+        'sort': opts['sort'],
       };
       let headerParams = {
       };
@@ -1131,8 +1131,8 @@ export default class OrganizationsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = AllOrganizationsGetResponse;
       return this.apiClient.callApi(
         '/organizations', 'GET',
@@ -1180,21 +1180,21 @@ export default class OrganizationsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
       let headerParams = {
       };
       let formParams = {
-        'merge_with_id': mergeWithId
+        'merge_with_id': mergeWithId,
       };
 
       let formParamArray = [
-        'mergeWithId'
+        'mergeWithId',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -1205,8 +1205,8 @@ export default class OrganizationsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = OrganizationsMergeResponse;
       return this.apiClient.callApi(
         '/organizations/{id}/merge', 'PUT',
@@ -1256,7 +1256,7 @@ export default class OrganizationsApi {
         'fields': opts['fields'],
         'exact_match': opts['exactMatch'],
         'start': opts['start'],
-        'limit': opts['limit']
+        'limit': opts['limit'],
       };
       let headerParams = {
       };
@@ -1277,8 +1277,8 @@ export default class OrganizationsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = OrganizationSearchResponse;
       return this.apiClient.callApi(
         '/organizations/search', 'GET',
@@ -1325,7 +1325,7 @@ export default class OrganizationsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -1334,16 +1334,16 @@ export default class OrganizationsApi {
       let formParams = {
         'name': opts['name'],
         'owner_id': opts['ownerId'],
-        'visible_to': opts['visibleTo']
+        'visible_to': opts['visibleTo'],
       };
 
       let formParamArray = [
         'name',
         'ownerId',
-        'visibleTo'
+        'visibleTo',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -1354,8 +1354,8 @@ export default class OrganizationsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = OrganizationUpdateResponse;
       return this.apiClient.callApi(
         '/organizations/{id}', 'PUT',

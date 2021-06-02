@@ -65,7 +65,7 @@ export default class FiltersApi {
       let formParamArray = [
       ];
 
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -76,8 +76,8 @@ export default class FiltersApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = FiltersPostResponse;
       return this.apiClient.callApi(
         '/filters', 'POST',
@@ -115,7 +115,7 @@ export default class FiltersApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -138,8 +138,8 @@ export default class FiltersApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = FiltersDeleteResponse;
       return this.apiClient.callApi(
         '/filters/{id}', 'DELETE',
@@ -178,7 +178,7 @@ export default class FiltersApi {
       let pathParams = {
       };
       let queryParams = {
-        'ids': ids
+        'ids': ids,
       };
       let headerParams = {
       };
@@ -199,8 +199,8 @@ export default class FiltersApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = FiltersBulkDeleteResponse;
       return this.apiClient.callApi(
         '/filters', 'DELETE',
@@ -237,7 +237,7 @@ export default class FiltersApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -260,8 +260,8 @@ export default class FiltersApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = FiltersGetResponse;
       return this.apiClient.callApi(
         '/filters/{id}', 'GET',
@@ -315,8 +315,8 @@ export default class FiltersApi {
         }
       }
 
-      let authNames = ['api_key'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', ];
+      let accepts = ['application/json', ];
       let returnType = Object;
       return this.apiClient.callApi(
         '/filters/helpers', 'GET',
@@ -352,7 +352,7 @@ export default class FiltersApi {
       let pathParams = {
       };
       let queryParams = {
-        'type': opts['type']
+        'type': opts['type'],
       };
       let headerParams = {
       };
@@ -373,8 +373,8 @@ export default class FiltersApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = FiltersBulkGetResponse;
       return this.apiClient.callApi(
         '/filters', 'GET',
@@ -415,7 +415,7 @@ export default class FiltersApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -427,7 +427,7 @@ export default class FiltersApi {
       let formParamArray = [
       ];
 
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -438,8 +438,8 @@ export default class FiltersApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = FiltersPostResponse;
       return this.apiClient.callApi(
         '/filters/{id}', 'PUT',

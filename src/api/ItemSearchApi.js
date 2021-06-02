@@ -68,7 +68,7 @@ export default class ItemSearchApi {
         'exact_match': opts['exactMatch'],
         'include_fields': opts['includeFields'],
         'start': opts['start'],
-        'limit': opts['limit']
+        'limit': opts['limit'],
       };
       let headerParams = {
       };
@@ -89,8 +89,8 @@ export default class ItemSearchApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = ItemSearchResponse;
       return this.apiClient.callApi(
         '/itemSearch', 'GET',
@@ -159,7 +159,7 @@ export default class ItemSearchApi {
         'field_key': fieldKey,
         'return_item_ids': opts['returnItemIds'],
         'start': opts['start'],
-        'limit': opts['limit']
+        'limit': opts['limit'],
       };
       let headerParams = {
       };
@@ -180,8 +180,8 @@ export default class ItemSearchApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['applicatoin/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['applicatoin/json', ];
       let returnType = ItemSearchFieldResponse;
       return this.apiClient.callApi(
         '/itemSearch/field', 'GET',

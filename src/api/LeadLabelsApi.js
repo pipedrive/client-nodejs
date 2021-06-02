@@ -63,7 +63,7 @@ export default class LeadLabelsApi {
       let formParamArray = [
       ];
 
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -74,8 +74,8 @@ export default class LeadLabelsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = AddOrUpdateLeadLabelResponse200;
       return this.apiClient.callApi(
         '/leadLabels', 'POST',
@@ -113,7 +113,7 @@ export default class LeadLabelsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -136,8 +136,8 @@ export default class LeadLabelsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = LeadIdResponse200;
       return this.apiClient.callApi(
         '/leadLabels/{id}', 'DELETE',
@@ -191,8 +191,8 @@ export default class LeadLabelsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetLeadLabelsResponse200;
       return this.apiClient.callApi(
         '/leadLabels', 'GET',
@@ -231,7 +231,7 @@ export default class LeadLabelsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -243,7 +243,7 @@ export default class LeadLabelsApi {
       let formParamArray = [
       ];
 
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -254,8 +254,8 @@ export default class LeadLabelsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = AddOrUpdateLeadLabelResponse200;
       return this.apiClient.callApi(
         '/leadLabels/{id}', 'PATCH',

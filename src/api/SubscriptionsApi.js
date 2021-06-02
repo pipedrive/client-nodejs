@@ -64,7 +64,7 @@ export default class SubscriptionsApi {
       let formParamArray = [
       ];
 
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -75,8 +75,8 @@ export default class SubscriptionsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = SubscriptionsIdResponse;
       return this.apiClient.callApi(
         '/subscriptions/recurring', 'POST',
@@ -123,7 +123,7 @@ export default class SubscriptionsApi {
       let formParamArray = [
       ];
 
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -134,8 +134,8 @@ export default class SubscriptionsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = SubscriptionsIdResponse;
       return this.apiClient.callApi(
         '/subscriptions/installment', 'POST',
@@ -176,7 +176,7 @@ export default class SubscriptionsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -188,7 +188,7 @@ export default class SubscriptionsApi {
       let formParamArray = [
       ];
 
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -199,8 +199,8 @@ export default class SubscriptionsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = SubscriptionsIdResponse;
       return this.apiClient.callApi(
         '/subscriptions/recurring/{id}/cancel', 'PUT',
@@ -239,7 +239,7 @@ export default class SubscriptionsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -262,8 +262,8 @@ export default class SubscriptionsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = SubscriptionsIdResponse;
       return this.apiClient.callApi(
         '/subscriptions/{id}', 'DELETE',
@@ -300,7 +300,7 @@ export default class SubscriptionsApi {
       }
 
       let pathParams = {
-        'dealId': dealId
+        'dealId': dealId,
       };
       let queryParams = {
       };
@@ -323,8 +323,8 @@ export default class SubscriptionsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = SubscriptionsIdResponse;
       return this.apiClient.callApi(
         '/subscriptions/find/{dealId}', 'GET',
@@ -361,7 +361,7 @@ export default class SubscriptionsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -384,8 +384,8 @@ export default class SubscriptionsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = SubscriptionsIdResponse;
       return this.apiClient.callApi(
         '/subscriptions/{id}', 'GET',
@@ -422,7 +422,7 @@ export default class SubscriptionsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -445,8 +445,8 @@ export default class SubscriptionsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = PaymentsResponse;
       return this.apiClient.callApi(
         '/subscriptions/{id}/payments', 'GET',
@@ -486,7 +486,7 @@ export default class SubscriptionsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -498,7 +498,7 @@ export default class SubscriptionsApi {
       let formParamArray = [
       ];
 
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -509,8 +509,8 @@ export default class SubscriptionsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = SubscriptionsIdResponse;
       return this.apiClient.callApi(
         '/subscriptions/recurring/{id}', 'PUT',
@@ -552,7 +552,7 @@ export default class SubscriptionsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -564,7 +564,7 @@ export default class SubscriptionsApi {
       let formParamArray = [
       ];
 
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -575,8 +575,8 @@ export default class SubscriptionsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = SubscriptionsIdResponse;
       return this.apiClient.callApi(
         '/subscriptions/installment/{id}', 'PUT',

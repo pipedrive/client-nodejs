@@ -68,16 +68,16 @@ export default class ActivityTypesApi {
       let formParams = {
         'name': name,
         'icon_key': iconKey,
-        'color': opts['color']
+        'color': opts['color'],
       };
 
       let formParamArray = [
         'name',
         'iconKey',
-        'color'
+        'color',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -88,8 +88,8 @@ export default class ActivityTypesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = ActivityTypeCreateUpdateDeleteResponse;
       return this.apiClient.callApi(
         '/activityTypes', 'POST',
@@ -129,7 +129,7 @@ export default class ActivityTypesApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -152,8 +152,8 @@ export default class ActivityTypesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = ActivityTypeCreateUpdateDeleteResponse;
       return this.apiClient.callApi(
         '/activityTypes/{id}', 'DELETE',
@@ -192,7 +192,7 @@ export default class ActivityTypesApi {
       let pathParams = {
       };
       let queryParams = {
-        'ids': ids
+        'ids': ids,
       };
       let headerParams = {
       };
@@ -213,8 +213,8 @@ export default class ActivityTypesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = ActivityTypeBulkDeleteResponse;
       return this.apiClient.callApi(
         '/activityTypes', 'DELETE',
@@ -268,8 +268,8 @@ export default class ActivityTypesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = ActivityTypeListResponse;
       return this.apiClient.callApi(
         '/activityTypes', 'GET',
@@ -311,7 +311,7 @@ export default class ActivityTypesApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -321,17 +321,17 @@ export default class ActivityTypesApi {
         'name': opts['name'],
         'icon_key': opts['iconKey'],
         'color': opts['color'],
-        'order_nr': opts['orderNr']
+        'order_nr': opts['orderNr'],
       };
 
       let formParamArray = [
         'name',
         'iconKey',
         'color',
-        'orderNr'
+        'orderNr',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -342,8 +342,8 @@ export default class ActivityTypesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = ActivityTypeCreateUpdateDeleteResponse;
       return this.apiClient.callApi(
         '/activityTypes/{id}', 'PUT',

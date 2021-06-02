@@ -59,7 +59,7 @@ export default class RecentsApi {
         'since_timestamp': sinceTimestamp,
         'items': opts['items'],
         'start': opts['start'],
-        'limit': opts['limit']
+        'limit': opts['limit'],
       };
       let headerParams = {
       };
@@ -80,8 +80,8 @@ export default class RecentsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetRecents;
       return this.apiClient.callApi(
         '/recents', 'GET',

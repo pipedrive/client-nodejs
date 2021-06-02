@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import AnyType from './AnyType';
 
 /**
  * The ItemSearchFieldResponseAllOfData model module.
@@ -54,7 +53,7 @@ class ItemSearchFieldResponseAllOfData {
                 delete data['id'];
             }
             if (data.hasOwnProperty('$field_key')) {
-                obj['$field_key'] = ApiClient.convertToType(data['$field_key'], AnyType);
+                obj['$field_key'] = ApiClient.convertToType(data['$field_key'], Object);
 
                 delete data['$field_key'];
             }
@@ -78,7 +77,7 @@ ItemSearchFieldResponseAllOfData.prototype['id'] = undefined;
 
 /**
  * The value of the searched `field_key`
- * @member {module:model/AnyType} $field_key
+ * @member {Object} $field_key
  */
 ItemSearchFieldResponseAllOfData.prototype['$field_key'] = undefined;
 

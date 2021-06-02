@@ -67,7 +67,7 @@ export default class StagesApi {
         'pipeline_id': opts['pipelineId'],
         'deal_probability': opts['dealProbability'],
         'rotten_flag': opts['rottenFlag'],
-        'rotten_days': opts['rottenDays']
+        'rotten_days': opts['rottenDays'],
       };
 
       let formParamArray = [
@@ -75,10 +75,10 @@ export default class StagesApi {
         'pipelineId',
         'dealProbability',
         'rottenFlag',
-        'rottenDays'
+        'rottenDays',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -89,8 +89,8 @@ export default class StagesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetAddUpdateStage;
       return this.apiClient.callApi(
         '/stages', 'POST',
@@ -132,7 +132,7 @@ export default class StagesApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -155,8 +155,8 @@ export default class StagesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = DeleteStageResponse200;
       return this.apiClient.callApi(
         '/stages/{id}', 'DELETE',
@@ -195,7 +195,7 @@ export default class StagesApi {
       let pathParams = {
       };
       let queryParams = {
-        'ids': ids
+        'ids': ids,
       };
       let headerParams = {
       };
@@ -216,8 +216,8 @@ export default class StagesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = DeleteStagesResponse200;
       return this.apiClient.callApi(
         '/stages', 'DELETE',
@@ -254,7 +254,7 @@ export default class StagesApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -277,8 +277,8 @@ export default class StagesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetOneStage;
       return this.apiClient.callApi(
         '/stages/{id}', 'GET',
@@ -322,14 +322,14 @@ export default class StagesApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'filter_id': opts['filterId'],
         'user_id': opts['userId'],
         'everyone': opts['everyone'],
         'start': opts['start'],
-        'limit': opts['limit']
+        'limit': opts['limit'],
       };
       let headerParams = {
       };
@@ -350,8 +350,8 @@ export default class StagesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetStageDeals;
       return this.apiClient.callApi(
         '/stages/{id}/deals', 'GET',
@@ -394,7 +394,7 @@ export default class StagesApi {
       let pathParams = {
       };
       let queryParams = {
-        'pipeline_id': opts['pipelineId']
+        'pipeline_id': opts['pipelineId'],
       };
       let headerParams = {
       };
@@ -415,8 +415,8 @@ export default class StagesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetStages;
       return this.apiClient.callApi(
         '/stages', 'GET',
@@ -462,7 +462,7 @@ export default class StagesApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -474,7 +474,7 @@ export default class StagesApi {
         'deal_probability': opts['dealProbability'],
         'rotten_flag': opts['rottenFlag'],
         'rotten_days': opts['rottenDays'],
-        'order_nr': opts['orderNr']
+        'order_nr': opts['orderNr'],
       };
 
       let formParamArray = [
@@ -483,10 +483,10 @@ export default class StagesApi {
         'dealProbability',
         'rottenFlag',
         'rottenDays',
-        'orderNr'
+        'orderNr',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -497,8 +497,8 @@ export default class StagesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetAddUpdateStage;
       return this.apiClient.callApi(
         '/stages/{id}', 'PUT',

@@ -65,16 +65,16 @@ export default class PersonFieldsApi {
       let formParams = {
         'name': name,
         'options': opts['options'],
-        'field_type': opts['fieldType']
+        'field_type': opts['fieldType'],
       };
 
       let formParamArray = [
         'name',
         'options',
-        'fieldType'
+        'fieldType',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -85,8 +85,8 @@ export default class PersonFieldsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = FieldResponse;
       return this.apiClient.callApi(
         '/personFields', 'POST',
@@ -126,7 +126,7 @@ export default class PersonFieldsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -149,8 +149,8 @@ export default class PersonFieldsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = DeleteResponse;
       return this.apiClient.callApi(
         '/personFields/{id}', 'DELETE',
@@ -189,7 +189,7 @@ export default class PersonFieldsApi {
       let pathParams = {
       };
       let queryParams = {
-        'ids': ids
+        'ids': ids,
       };
       let headerParams = {
       };
@@ -210,8 +210,8 @@ export default class PersonFieldsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = BulkDeleteResponse;
       return this.apiClient.callApi(
         '/personFields', 'DELETE',
@@ -248,7 +248,7 @@ export default class PersonFieldsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -271,8 +271,8 @@ export default class PersonFieldsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = FieldResponse;
       return this.apiClient.callApi(
         '/personFields/{id}', 'GET',
@@ -326,8 +326,8 @@ export default class PersonFieldsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = FieldsResponse;
       return this.apiClient.callApi(
         '/personFields', 'GET',
@@ -367,7 +367,7 @@ export default class PersonFieldsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -375,15 +375,15 @@ export default class PersonFieldsApi {
       };
       let formParams = {
         'name': opts['name'],
-        'options': opts['options']
+        'options': opts['options'],
       };
 
       let formParamArray = [
         'name',
-        'options'
+        'options',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -394,8 +394,8 @@ export default class PersonFieldsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = FieldResponse;
       return this.apiClient.callApi(
         '/personFields/{id}', 'PUT',

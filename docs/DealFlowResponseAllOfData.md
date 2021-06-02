@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_object** | **String** | The type of the Deal update. (Possible object types - dealChange, note, activity, mailMessage, invoice, document, file) | [optional] 
+**object** | **String** | The type of the Deal update. (Possible object types - dealChange, note, activity, mailMessage, invoice, document, file) | [optional] 
 **timestamp** | **String** | The creation date and time of the update | [optional] 
 **data** | **Object** | The data related to the update | [optional] 
 

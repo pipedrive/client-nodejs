@@ -71,7 +71,7 @@ export default class ProductsApi {
       let formParamArray = [
       ];
 
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -82,8 +82,8 @@ export default class ProductsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = ProductResponse;
       return this.apiClient.callApi(
         '/products', 'POST',
@@ -124,7 +124,7 @@ export default class ProductsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -136,7 +136,7 @@ export default class ProductsApi {
       let formParamArray = [
       ];
 
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -147,8 +147,8 @@ export default class ProductsApi {
         }
       }
 
-      let authNames = ['api_key'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', ];
+      let accepts = ['application/json', ];
       let returnType = NewFollowerResponse;
       return this.apiClient.callApi(
         '/products/{id}/followers', 'POST',
@@ -187,7 +187,7 @@ export default class ProductsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -210,8 +210,8 @@ export default class ProductsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = DeleteProductResponse;
       return this.apiClient.callApi(
         '/products/{id}', 'DELETE',
@@ -254,7 +254,7 @@ export default class ProductsApi {
 
       let pathParams = {
         'id': id,
-        'follower_id': followerId
+        'follower_id': followerId,
       };
       let queryParams = {
       };
@@ -277,8 +277,8 @@ export default class ProductsApi {
         }
       }
 
-      let authNames = ['api_key'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', ];
+      let accepts = ['application/json', ];
       let returnType = DeleteProductFollowerResponse;
       return this.apiClient.callApi(
         '/products/{id}/followers/{follower_id}', 'DELETE',
@@ -326,7 +326,7 @@ export default class ProductsApi {
         'term': term,
         'currency': opts['currency'],
         'start': opts['start'],
-        'limit': opts['limit']
+        'limit': opts['limit'],
       };
       let headerParams = {
       };
@@ -347,8 +347,8 @@ export default class ProductsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = FindProductsByNameResponse;
       return this.apiClient.callApi(
         '/products/find', 'GET',
@@ -389,7 +389,7 @@ export default class ProductsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -412,8 +412,8 @@ export default class ProductsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = ProductResponse;
       return this.apiClient.callApi(
         '/products/{id}', 'GET',
@@ -455,12 +455,12 @@ export default class ProductsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'start': opts['start'],
         'limit': opts['limit'],
-        'status': opts['status']
+        'status': opts['status'],
       };
       let headerParams = {
       };
@@ -481,8 +481,8 @@ export default class ProductsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = BasicDeal;
       return this.apiClient.callApi(
         '/products/{id}/deals', 'GET',
@@ -529,13 +529,13 @@ export default class ProductsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'start': opts['start'],
         'limit': opts['limit'],
         'include_deleted_files': opts['includeDeletedFiles'],
-        'sort': opts['sort']
+        'sort': opts['sort'],
       };
       let headerParams = {
       };
@@ -556,8 +556,8 @@ export default class ProductsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = ListFilesResponse;
       return this.apiClient.callApi(
         '/products/{id}/files', 'GET',
@@ -599,7 +599,7 @@ export default class ProductsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -622,8 +622,8 @@ export default class ProductsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = UserIDs;
       return this.apiClient.callApi(
         '/products/{id}/followers', 'GET',
@@ -660,7 +660,7 @@ export default class ProductsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -683,8 +683,8 @@ export default class ProductsApi {
         }
       }
 
-      let authNames = ['api_key'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', ];
+      let accepts = ['application/json', ];
       let returnType = UserIDs;
       return this.apiClient.callApi(
         '/products/{id}/permittedUsers', 'GET',
@@ -729,7 +729,7 @@ export default class ProductsApi {
         'filter_id': opts['filterId'],
         'first_char': opts['firstChar'],
         'start': opts['start'],
-        'limit': opts['limit']
+        'limit': opts['limit'],
       };
       let headerParams = {
       };
@@ -750,8 +750,8 @@ export default class ProductsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = ProductsResponse;
       return this.apiClient.callApi(
         '/products', 'GET',
@@ -807,7 +807,7 @@ export default class ProductsApi {
         'exact_match': opts['exactMatch'],
         'include_fields': opts['includeFields'],
         'start': opts['start'],
-        'limit': opts['limit']
+        'limit': opts['limit'],
       };
       let headerParams = {
       };
@@ -828,8 +828,8 @@ export default class ProductsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = ProductSearchResponse;
       return this.apiClient.callApi(
         '/products/search', 'GET',
@@ -875,7 +875,7 @@ export default class ProductsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -887,7 +887,7 @@ export default class ProductsApi {
       let formParamArray = [
       ];
 
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -898,8 +898,8 @@ export default class ProductsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = ProductResponse;
       return this.apiClient.callApi(
         '/products/{id}', 'PUT',

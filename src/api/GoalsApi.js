@@ -66,7 +66,7 @@ export default class GoalsApi {
         'type': opts['type'],
         'expected_outcome': opts['expectedOutcome'],
         'duration': opts['duration'],
-        'interval': opts['interval']
+        'interval': opts['interval'],
       };
 
       let formParamArray = [
@@ -75,10 +75,10 @@ export default class GoalsApi {
         'type',
         'expectedOutcome',
         'duration',
-        'interval'
+        'interval',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -89,8 +89,8 @@ export default class GoalsApi {
         }
       }
 
-      let authNames = ['api_key'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', ];
+      let accepts = ['application/json', ];
       let returnType = AddOrUpdateGoalResponse200;
       return this.apiClient.callApi(
         '/goals', 'POST',
@@ -133,7 +133,7 @@ export default class GoalsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -156,8 +156,8 @@ export default class GoalsApi {
         }
       }
 
-      let authNames = ['api_key'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', ];
+      let accepts = ['application/json', ];
       let returnType = DeleteGoalResponse200;
       return this.apiClient.callApi(
         '/goals/{id}', 'DELETE',
@@ -204,11 +204,11 @@ export default class GoalsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'period.start': periodStart,
-        'period.end': periodEnd
+        'period.end': periodEnd,
       };
       let headerParams = {
       };
@@ -229,8 +229,8 @@ export default class GoalsApi {
         }
       }
 
-      let authNames = ['api_key'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', ];
+      let accepts = ['application/json', ];
       let returnType = GetGoalResultResponse200;
       return this.apiClient.callApi(
         '/goals/{id}/results', 'GET',
@@ -293,7 +293,7 @@ export default class GoalsApi {
         'type.params.stage_id': opts['typeParamsStageId'],
         'type.params.activity_type_id': opts['typeParamsActivityTypeId'],
         'period.start': opts['periodStart'],
-        'period.end': opts['periodEnd']
+        'period.end': opts['periodEnd'],
       };
       let headerParams = {
       };
@@ -314,8 +314,8 @@ export default class GoalsApi {
         }
       }
 
-      let authNames = ['api_key'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', ];
+      let accepts = ['application/json', ];
       let returnType = GetGoalsResponse200;
       return this.apiClient.callApi(
         '/goals/find', 'GET',
@@ -373,7 +373,7 @@ export default class GoalsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -385,7 +385,7 @@ export default class GoalsApi {
         'type': opts['type'],
         'expected_outcome': opts['expectedOutcome'],
         'duration': opts['duration'],
-        'interval': opts['interval']
+        'interval': opts['interval'],
       };
 
       let formParamArray = [
@@ -394,10 +394,10 @@ export default class GoalsApi {
         'type',
         'expectedOutcome',
         'duration',
-        'interval'
+        'interval',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -408,8 +408,8 @@ export default class GoalsApi {
         }
       }
 
-      let authNames = ['api_key'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', ];
+      let accepts = ['application/json', ];
       let returnType = AddOrUpdateGoalResponse200;
       return this.apiClient.callApi(
         '/goals/{id}', 'PUT',

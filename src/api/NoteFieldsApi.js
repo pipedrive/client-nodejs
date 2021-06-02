@@ -66,8 +66,8 @@ export default class NoteFieldsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = NoteFieldsResponse;
       return this.apiClient.callApi(
         '/noteFields', 'GET',

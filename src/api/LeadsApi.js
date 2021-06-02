@@ -63,7 +63,7 @@ export default class LeadsApi {
       let formParamArray = [
       ];
 
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -74,8 +74,8 @@ export default class LeadsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = OneLeadResponse200;
       return this.apiClient.callApi(
         '/leads', 'POST',
@@ -113,7 +113,7 @@ export default class LeadsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -136,8 +136,8 @@ export default class LeadsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = LeadIdResponse200;
       return this.apiClient.callApi(
         '/leads/{id}', 'DELETE',
@@ -174,7 +174,7 @@ export default class LeadsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -197,8 +197,8 @@ export default class LeadsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = OneLeadResponse200;
       return this.apiClient.callApi(
         '/leads/{id}', 'GET',
@@ -239,7 +239,7 @@ export default class LeadsApi {
       let queryParams = {
         'limit': opts['limit'],
         'start': opts['start'],
-        'archived_status': opts['archivedStatus']
+        'archived_status': opts['archivedStatus'],
       };
       let headerParams = {
       };
@@ -260,8 +260,8 @@ export default class LeadsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetLeadsResponse200;
       return this.apiClient.callApi(
         '/leads', 'GET',
@@ -304,7 +304,7 @@ export default class LeadsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -316,7 +316,7 @@ export default class LeadsApi {
       let formParamArray = [
       ];
 
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -327,8 +327,8 @@ export default class LeadsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = OneLeadResponse200;
       return this.apiClient.callApi(
         '/leads/{id}', 'PATCH',

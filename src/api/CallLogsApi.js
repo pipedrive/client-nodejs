@@ -65,7 +65,7 @@ export default class CallLogsApi {
       let formParamArray = [
       ];
 
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -76,8 +76,8 @@ export default class CallLogsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = BaseResponse;
       return this.apiClient.callApi(
         '/callLogs', 'POST',
@@ -120,21 +120,21 @@ export default class CallLogsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
       let headerParams = {
       };
       let formParams = {
-        'file': file
+        'file': file,
       };
 
       let formParamArray = [
-        'file'
+        'file',
       ];
 
-      let contentTypes = ['multipart/form-data'];
+      let contentTypes = ['multipart/form-data', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -145,8 +145,8 @@ export default class CallLogsApi {
         }
       }
 
-      let authNames = ['oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = BaseResponse;
       return this.apiClient.callApi(
         '/callLogs/{id}/recordings', 'POST',
@@ -184,7 +184,7 @@ export default class CallLogsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -207,8 +207,8 @@ export default class CallLogsApi {
         }
       }
 
-      let authNames = ['oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = BaseResponse;
       return this.apiClient.callApi(
         '/callLogs/{id}', 'DELETE',
@@ -245,7 +245,7 @@ export default class CallLogsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -268,8 +268,8 @@ export default class CallLogsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = BaseResponse;
       return this.apiClient.callApi(
         '/callLogs/{id}', 'GET',
@@ -308,7 +308,7 @@ export default class CallLogsApi {
       };
       let queryParams = {
         'limit': opts['limit'],
-        'start': opts['start']
+        'start': opts['start'],
       };
       let headerParams = {
       };
@@ -329,8 +329,8 @@ export default class CallLogsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = BaseResponse;
       return this.apiClient.callApi(
         '/callLogs', 'GET',

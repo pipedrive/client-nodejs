@@ -66,8 +66,8 @@ export default class ActivityFieldsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = FieldsResponse;
       return this.apiClient.callApi(
         '/activityFields', 'GET',
