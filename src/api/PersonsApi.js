@@ -75,8 +75,21 @@ export default class PersonsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = ['application/json'];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = AddPersonResponse;
       return this.apiClient.callApi(
@@ -130,8 +143,22 @@ export default class PersonsApi {
         'user_id': userId
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+        'userId'
+      ];
+
       let contentTypes = ['application/x-www-form-urlencoded'];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = AddFollowerToPersonResponse;
       return this.apiClient.callApi(
@@ -195,8 +222,26 @@ export default class PersonsApi {
         'crop_height': opts['cropHeight']
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+        'file',
+        'cropX',
+        'cropY',
+        'cropWidth',
+        'cropHeight'
+      ];
+
       let contentTypes = ['multipart/form-data'];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = AddPersonPictureResponse;
       return this.apiClient.callApi(
@@ -249,8 +294,21 @@ export default class PersonsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = DeletePersonResponse;
       return this.apiClient.callApi(
@@ -303,8 +361,21 @@ export default class PersonsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key'];
       let accepts = ['application/json'];
       let returnType = DeletePersonResponse;
       return this.apiClient.callApi(
@@ -352,8 +423,21 @@ export default class PersonsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = DeletePersonResponse;
       return this.apiClient.callApi(
@@ -398,8 +482,21 @@ export default class PersonsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = DeletePersonsInBulkResponse;
       return this.apiClient.callApi(
@@ -457,8 +554,21 @@ export default class PersonsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = Object;
       return this.apiClient.callApi(
@@ -510,8 +620,21 @@ export default class PersonsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = GetPersonDetailsResponse;
       return this.apiClient.callApi(
@@ -568,8 +691,21 @@ export default class PersonsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = ListActivitiesResponse;
       return this.apiClient.callApi(
@@ -631,8 +767,21 @@ export default class PersonsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = ListDealsResponse;
       return this.apiClient.callApi(
@@ -694,8 +843,21 @@ export default class PersonsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = ListFilesResponse;
       return this.apiClient.callApi(
@@ -747,8 +909,21 @@ export default class PersonsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = ListFollowersResponse;
       return this.apiClient.callApi(
@@ -801,8 +976,21 @@ export default class PersonsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = ListMailMessagesResponse;
       return this.apiClient.callApi(
@@ -858,8 +1046,21 @@ export default class PersonsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key'];
       let accepts = ['application/json'];
       let returnType = ListPersonProductsResponse;
       return this.apiClient.callApi(
@@ -919,8 +1120,21 @@ export default class PersonsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = PersonFlowResponse;
       return this.apiClient.callApi(
@@ -972,8 +1186,21 @@ export default class PersonsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key'];
       let accepts = ['application/json'];
       let returnType = ListPermittedUsersResponse2;
       return this.apiClient.callApi(
@@ -1028,8 +1255,21 @@ export default class PersonsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = GetAllPersonsResponse;
       return this.apiClient.callApi(
@@ -1088,8 +1328,22 @@ export default class PersonsApi {
         'merge_with_id': mergeWithId
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+        'mergeWithId'
+      ];
+
       let contentTypes = ['application/x-www-form-urlencoded'];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = MergePersonsResponse;
       return this.apiClient.callApi(
@@ -1151,8 +1405,21 @@ export default class PersonsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = PersonSearchResponse;
       return this.apiClient.callApi(
@@ -1209,8 +1476,21 @@ export default class PersonsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = ['application/json'];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = UpdatePersonResponse;
       return this.apiClient.callApi(

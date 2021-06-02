@@ -80,8 +80,23 @@ export default class RolesApi {
         'value': value
       };
 
-      let authNames = ['api_key'];
+      let formParamArray = [
+        'settingKey',
+        'value'
+      ];
+
       let contentTypes = ['application/x-www-form-urlencoded'];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key'];
       let accepts = ['application/json'];
       let returnType = PostRoleSettings;
       return this.apiClient.callApi(
@@ -128,8 +143,23 @@ export default class RolesApi {
         'name': opts['name']
       };
 
-      let authNames = ['api_key'];
+      let formParamArray = [
+        'parentRoleId',
+        'name'
+      ];
+
       let contentTypes = ['application/x-www-form-urlencoded'];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key'];
       let accepts = ['application/json'];
       let returnType = PostRoles;
       return this.apiClient.callApi(
@@ -183,8 +213,22 @@ export default class RolesApi {
         'user_id': userId
       };
 
-      let authNames = ['api_key'];
+      let formParamArray = [
+        'userId'
+      ];
+
       let contentTypes = ['application/x-www-form-urlencoded'];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key'];
       let accepts = ['application/json'];
       let returnType = PostRoleAssignment;
       return this.apiClient.callApi(
@@ -231,8 +275,21 @@ export default class RolesApi {
       let formParams = {
       };
 
-      let authNames = ['api_key'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key'];
       let accepts = ['application/json'];
       let returnType = DeleteRole;
       return this.apiClient.callApi(
@@ -284,8 +341,21 @@ export default class RolesApi {
       let formParams = {
       };
 
-      let authNames = ['api_key'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key'];
       let accepts = ['application/json'];
       let returnType = DeleteRoleAssignment;
       return this.apiClient.callApi(
@@ -332,8 +402,21 @@ export default class RolesApi {
       let formParams = {
       };
 
-      let authNames = ['api_key'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key'];
       let accepts = ['application/json'];
       let returnType = GetRole;
       return this.apiClient.callApi(
@@ -385,8 +468,21 @@ export default class RolesApi {
       let formParams = {
       };
 
-      let authNames = ['api_key'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key'];
       let accepts = ['application/json'];
       let returnType = GetRoleAssignments;
       return this.apiClient.callApi(
@@ -435,8 +531,21 @@ export default class RolesApi {
       let formParams = {
       };
 
-      let authNames = ['api_key'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key'];
       let accepts = ['application/json'];
       let returnType = GetRoleSettings;
       return this.apiClient.callApi(
@@ -487,8 +596,21 @@ export default class RolesApi {
       let formParams = {
       };
 
-      let authNames = ['api_key'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key'];
       let accepts = ['application/json'];
       let returnType = GetRoleSubroles;
       return this.apiClient.callApi(
@@ -536,8 +658,21 @@ export default class RolesApi {
       let formParams = {
       };
 
-      let authNames = ['api_key'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key'];
       let accepts = ['application/json'];
       let returnType = GetRoles;
       return this.apiClient.callApi(
@@ -590,8 +725,23 @@ export default class RolesApi {
         'name': opts['name']
       };
 
-      let authNames = ['api_key'];
+      let formParamArray = [
+        'parentRoleId',
+        'name'
+      ];
+
       let contentTypes = ['application/x-www-form-urlencoded'];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key'];
       let accepts = ['application/json'];
       let returnType = PutRole;
       return this.apiClient.callApi(

@@ -66,8 +66,25 @@ export default class OrganizationRelationshipsApi {
         'rel_linked_org_id': opts['relLinkedOrgId']
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+        'orgId',
+        'type',
+        'relOwnerOrgId',
+        'relLinkedOrgId'
+      ];
+
       let contentTypes = ['application/x-www-form-urlencoded'];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = OrganizationRelationshipPostResponse;
       return this.apiClient.callApi(
@@ -118,8 +135,21 @@ export default class OrganizationRelationshipsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = OrganizationRelationshipDeleteResponse;
       return this.apiClient.callApi(
@@ -166,8 +196,21 @@ export default class OrganizationRelationshipsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = AllOrganizationRelationshipsGetResponse;
       return this.apiClient.callApi(
@@ -218,8 +261,21 @@ export default class OrganizationRelationshipsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = OrganizationRelationshipGetResponse;
       return this.apiClient.callApi(
@@ -278,8 +334,25 @@ export default class OrganizationRelationshipsApi {
         'rel_linked_org_id': opts['relLinkedOrgId']
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+        'orgId',
+        'type',
+        'relOwnerOrgId',
+        'relLinkedOrgId'
+      ];
+
       let contentTypes = ['application/x-www-form-urlencoded'];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = OrganizationRelationshipUpdateResponse;
       return this.apiClient.callApi(

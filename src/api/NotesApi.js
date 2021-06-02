@@ -83,8 +83,32 @@ export default class NotesApi {
         'pinned_to_person_flag': opts['pinnedToPersonFlag']
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+        'content',
+        'userId',
+        'leadId',
+        'dealId',
+        'personId',
+        'orgId',
+        'addTime',
+        'pinnedToLeadFlag',
+        'pinnedToDealFlag',
+        'pinnedToOrganizationFlag',
+        'pinnedToPersonFlag'
+      ];
+
       let contentTypes = ['application/x-www-form-urlencoded'];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = PostNote;
       return this.apiClient.callApi(
@@ -142,8 +166,21 @@ export default class NotesApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = DeleteNote;
       return this.apiClient.callApi(
@@ -190,8 +227,21 @@ export default class NotesApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = PostNote;
       return this.apiClient.callApi(
@@ -262,8 +312,21 @@ export default class NotesApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = GetNotes;
       return this.apiClient.callApi(
@@ -352,8 +415,32 @@ export default class NotesApi {
         'pinned_to_person_flag': opts['pinnedToPersonFlag']
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+        'content',
+        'userId',
+        'leadId',
+        'dealId',
+        'personId',
+        'orgId',
+        'addTime',
+        'pinnedToLeadFlag',
+        'pinnedToDealFlag',
+        'pinnedToOrganizationFlag',
+        'pinnedToPersonFlag'
+      ];
+
       let contentTypes = ['application/x-www-form-urlencoded'];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = PostNote;
       return this.apiClient.callApi(

@@ -65,8 +65,21 @@ export default class MailboxApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = MailThreadDelete;
       return this.apiClient.callApi(
@@ -117,8 +130,21 @@ export default class MailboxApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = MailMessage;
       return this.apiClient.callApi(
@@ -167,8 +193,21 @@ export default class MailboxApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = MailThreadOne;
       return this.apiClient.callApi(
@@ -215,8 +254,21 @@ export default class MailboxApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = MailThreadMessages;
       return this.apiClient.callApi(
@@ -269,8 +321,21 @@ export default class MailboxApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = MailThread;
       return this.apiClient.callApi(
@@ -332,8 +397,26 @@ export default class MailboxApi {
         'archived_flag': opts['archivedFlag']
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+        'dealId',
+        'leadId',
+        'sharedFlag',
+        'readFlag',
+        'archivedFlag'
+      ];
+
       let contentTypes = ['application/x-www-form-urlencoded'];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = MailThreadPut;
       return this.apiClient.callApi(

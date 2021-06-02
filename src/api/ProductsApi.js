@@ -68,8 +68,21 @@ export default class ProductsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = ['application/json'];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = ProductResponse;
       return this.apiClient.callApi(
@@ -120,8 +133,21 @@ export default class ProductsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key'];
+      let formParamArray = [
+      ];
+
       let contentTypes = ['application/json'];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key'];
       let accepts = ['application/json'];
       let returnType = NewFollowerResponse;
       return this.apiClient.callApi(
@@ -170,8 +196,21 @@ export default class ProductsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = DeleteProductResponse;
       return this.apiClient.callApi(
@@ -224,8 +263,21 @@ export default class ProductsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key'];
       let accepts = ['application/json'];
       let returnType = DeleteProductFollowerResponse;
       return this.apiClient.callApi(
@@ -281,8 +333,21 @@ export default class ProductsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = FindProductsByNameResponse;
       return this.apiClient.callApi(
@@ -333,8 +398,21 @@ export default class ProductsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = ProductResponse;
       return this.apiClient.callApi(
@@ -389,8 +467,21 @@ export default class ProductsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = BasicDeal;
       return this.apiClient.callApi(
@@ -451,8 +542,21 @@ export default class ProductsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = ListFilesResponse;
       return this.apiClient.callApi(
@@ -504,8 +608,21 @@ export default class ProductsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = UserIDs;
       return this.apiClient.callApi(
@@ -552,8 +669,21 @@ export default class ProductsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key'];
       let accepts = ['application/json'];
       let returnType = UserIDs;
       return this.apiClient.callApi(
@@ -606,8 +736,21 @@ export default class ProductsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = ProductsResponse;
       return this.apiClient.callApi(
@@ -671,8 +814,21 @@ export default class ProductsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = [];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = ProductSearchResponse;
       return this.apiClient.callApi(
@@ -728,8 +884,21 @@ export default class ProductsApi {
       let formParams = {
       };
 
-      let authNames = ['api_key', 'oauth2'];
+      let formParamArray = [
+      ];
+
       let contentTypes = ['application/json'];
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+
+      if (isUrlEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2'];
       let accepts = ['application/json'];
       let returnType = ProductResponse;
       return this.apiClient.callApi(
