@@ -839,7 +839,7 @@ Name | Type | Description  | Notes
 
 ## getOrganizationUsers
 
-> ListPermittedUsersResponse2 getOrganizationUsers(id)
+> ListPermittedUsersResponse1 getOrganizationUsers(id)
 
 List permitted users
 
@@ -875,7 +875,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListPermittedUsersResponse2**](ListPermittedUsersResponse2.md)
+[**ListPermittedUsersResponse1**](ListPermittedUsersResponse1.md)
 
 ### Authorization
 

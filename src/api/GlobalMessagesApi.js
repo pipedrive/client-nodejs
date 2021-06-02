@@ -50,7 +50,7 @@ export default class GlobalMessagesApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -73,8 +73,8 @@ export default class GlobalMessagesApi {
         }
       }
 
-      let authNames = ['api_key'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', ];
+      let accepts = ['application/json', ];
       let returnType = GlobalMessageDelete;
       return this.apiClient.callApi(
         '/globalMessages/{id}', 'DELETE',
@@ -111,7 +111,7 @@ export default class GlobalMessagesApi {
       let pathParams = {
       };
       let queryParams = {
-        'limit': opts['limit']
+        'limit': opts['limit'],
       };
       let headerParams = {
       };
@@ -132,8 +132,8 @@ export default class GlobalMessagesApi {
         }
       }
 
-      let authNames = ['api_key'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', ];
+      let accepts = ['application/json', ];
       let returnType = GlobalMessageGet;
       return this.apiClient.callApi(
         '/globalMessages', 'GET',

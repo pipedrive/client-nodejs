@@ -30,21 +30,14 @@ import ActivityResponseObjectAllOf from './model/ActivityResponseObjectAllOf';
 import ActivityTypeBulkDeleteResponse from './model/ActivityTypeBulkDeleteResponse';
 import ActivityTypeBulkDeleteResponseAllOf from './model/ActivityTypeBulkDeleteResponseAllOf';
 import ActivityTypeBulkDeleteResponseAllOfData from './model/ActivityTypeBulkDeleteResponseAllOfData';
-import ActivityTypeCreateRequest from './model/ActivityTypeCreateRequest';
 import ActivityTypeCreateUpdateDeleteResponse from './model/ActivityTypeCreateUpdateDeleteResponse';
 import ActivityTypeCreateUpdateDeleteResponseAllOf from './model/ActivityTypeCreateUpdateDeleteResponseAllOf';
 import ActivityTypeListResponse from './model/ActivityTypeListResponse';
 import ActivityTypeListResponseAllOf from './model/ActivityTypeListResponseAllOf';
 import ActivityTypeObjectResponse from './model/ActivityTypeObjectResponse';
-import ActivityTypeUpdateRequest from './model/ActivityTypeUpdateRequest';
 import AddActivityResponse200 from './model/AddActivityResponse200';
 import AddActivityResponse200RelatedObjects from './model/AddActivityResponse200RelatedObjects';
-import AddCallLogAudioFileRequest from './model/AddCallLogAudioFileRequest';
-import AddDealFollowerRequest from './model/AddDealFollowerRequest';
-import AddDealParticipantRequest from './model/AddDealParticipantRequest';
 import AddFile from './model/AddFile';
-import AddFileAndLinkItRequest from './model/AddFileAndLinkItRequest';
-import AddFileRequest from './model/AddFileRequest';
 import AddFilterRequest from './model/AddFilterRequest';
 import AddFollowerToPersonResponse from './model/AddFollowerToPersonResponse';
 import AddFollowerToPersonResponseAllOf from './model/AddFollowerToPersonResponseAllOf';
@@ -55,10 +48,6 @@ import AddNewPipeline from './model/AddNewPipeline';
 import AddNewPipelineAllOf from './model/AddNewPipelineAllOf';
 import AddOrUpdateGoalResponse200 from './model/AddOrUpdateGoalResponse200';
 import AddOrUpdateLeadLabelResponse200 from './model/AddOrUpdateLeadLabelResponse200';
-import AddOrUpdateRoleSettingRequest from './model/AddOrUpdateRoleSettingRequest';
-import AddOrganizationFollowerRequest from './model/AddOrganizationFollowerRequest';
-import AddPersonFollowerRequest from './model/AddPersonFollowerRequest';
-import AddPersonPictureRequest from './model/AddPersonPictureRequest';
 import AddPersonPictureResponse from './model/AddPersonPictureResponse';
 import AddPersonPictureResponseAllOf from './model/AddPersonPictureResponseAllOf';
 import AddPersonResponse from './model/AddPersonResponse';
@@ -68,12 +57,7 @@ import AddProductAttachmentDetails from './model/AddProductAttachmentDetails';
 import AddProductAttachmentDetailsAllOf from './model/AddProductAttachmentDetailsAllOf';
 import AddProductFollowerRequest from './model/AddProductFollowerRequest';
 import AddProductRequestBody from './model/AddProductRequestBody';
-import AddRoleAssignmentRequest from './model/AddRoleAssignmentRequest';
 import AddTeamUserRequest from './model/AddTeamUserRequest';
-import AddUserBlacklistedEmailRequest from './model/AddUserBlacklistedEmailRequest';
-import AddUserRequest from './model/AddUserRequest';
-import AddUserRoleAssignmentRequest from './model/AddUserRoleAssignmentRequest';
-import AddWebhookRequest from './model/AddWebhookRequest';
 import AddedDealFollower from './model/AddedDealFollower';
 import AddedDealFollowerData from './model/AddedDealFollowerData';
 import AdditionalBaseOrganizationItemInfo from './model/AdditionalBaseOrganizationItemInfo';
@@ -125,8 +109,6 @@ import BaseUserMeAllOfLanguage from './model/BaseUserMeAllOfLanguage';
 import BaseWebhook from './model/BaseWebhook';
 import BasicDeal from './model/BasicDeal';
 import BasicDealProduct from './model/BasicDealProduct';
-import BasicGoal from './model/BasicGoal';
-import BasicOrganization from './model/BasicOrganization';
 import BasicPerson from './model/BasicPerson';
 import BasicProductField from './model/BasicProductField';
 import BulkDeleteResponse from './model/BulkDeleteResponse';
@@ -252,12 +234,9 @@ import EmailInfo from './model/EmailInfo';
 import ExpectedOutcome from './model/ExpectedOutcome';
 import FailResponse from './model/FailResponse';
 import Field from './model/Field';
-import FieldCreateRequest from './model/FieldCreateRequest';
 import FieldResponse from './model/FieldResponse';
 import FieldResponseAllOf from './model/FieldResponseAllOf';
-import FieldType from './model/FieldType';
 import FieldTypeAsString from './model/FieldTypeAsString';
-import FieldUpdateRequest from './model/FieldUpdateRequest';
 import FieldsResponse from './model/FieldsResponse';
 import FieldsResponseAllOf from './model/FieldsResponseAllOf';
 import FileData from './model/FileData';
@@ -381,7 +360,6 @@ import LeadLabelResponse from './model/LeadLabelResponse';
 import LeadResponse from './model/LeadResponse';
 import LeadResponse404 from './model/LeadResponse404';
 import LeadValue from './model/LeadValue';
-import LinkFileToItemRequest from './model/LinkFileToItemRequest';
 import LinkRemoteFileToItem from './model/LinkRemoteFileToItem';
 import ListActivitiesResponse from './model/ListActivitiesResponse';
 import ListActivitiesResponseAllOf from './model/ListActivitiesResponseAllOf';
@@ -397,8 +375,8 @@ import ListMailMessagesResponse from './model/ListMailMessagesResponse';
 import ListMailMessagesResponseAllOf from './model/ListMailMessagesResponseAllOf';
 import ListMailMessagesResponseAllOfData from './model/ListMailMessagesResponseAllOfData';
 import ListPermittedUsersResponse from './model/ListPermittedUsersResponse';
-import ListPermittedUsersResponse2 from './model/ListPermittedUsersResponse2';
-import ListPermittedUsersResponse2AllOf from './model/ListPermittedUsersResponse2AllOf';
+import ListPermittedUsersResponse1 from './model/ListPermittedUsersResponse1';
+import ListPermittedUsersResponse1AllOf from './model/ListPermittedUsersResponse1AllOf';
 import ListPermittedUsersResponseAllOf from './model/ListPermittedUsersResponseAllOf';
 import ListPermittedUsersResponseAllOfData from './model/ListPermittedUsersResponseAllOfData';
 import ListPersonProductsResponse from './model/ListPersonProductsResponse';
@@ -430,27 +408,18 @@ import MailThreadOneAllOf from './model/MailThreadOneAllOf';
 import MailThreadParticipant from './model/MailThreadParticipant';
 import MailThreadPut from './model/MailThreadPut';
 import MailThreadPutAllOf from './model/MailThreadPutAllOf';
-import MergeDealsRequest from './model/MergeDealsRequest';
-import MergeOrganizationsRequest from './model/MergeOrganizationsRequest';
 import MergePersonDealRelatedInfo from './model/MergePersonDealRelatedInfo';
 import MergePersonItem from './model/MergePersonItem';
-import MergePersonsRequest from './model/MergePersonsRequest';
 import MergePersonsResponse from './model/MergePersonsResponse';
 import MergePersonsResponseAllOf from './model/MergePersonsResponseAllOf';
-import NewDeal from './model/NewDeal';
-import NewDealAllOf from './model/NewDealAllOf';
 import NewDealProduct from './model/NewDealProduct';
 import NewDealProductAllOf from './model/NewDealProductAllOf';
 import NewFollowerResponse from './model/NewFollowerResponse';
 import NewFollowerResponseData from './model/NewFollowerResponseData';
-import NewGoal from './model/NewGoal';
-import NewOrganization from './model/NewOrganization';
-import NewOrganizationAllOf from './model/NewOrganizationAllOf';
 import NewPerson from './model/NewPerson';
 import NewPersonAllOf from './model/NewPersonAllOf';
 import NewProductField from './model/NewProductField';
 import NewProductFieldAllOf from './model/NewProductFieldAllOf';
-import Note from './model/Note';
 import NoteCreatorUser from './model/NoteCreatorUser';
 import NoteField from './model/NoteField';
 import NoteFieldsResponse from './model/NoteFieldsResponse';
@@ -487,7 +456,6 @@ import OrganizationItem from './model/OrganizationItem';
 import OrganizationItemAllOf from './model/OrganizationItemAllOf';
 import OrganizationPostResponse from './model/OrganizationPostResponse';
 import OrganizationPostResponseAllOf from './model/OrganizationPostResponseAllOf';
-import OrganizationRelationship from './model/OrganizationRelationship';
 import OrganizationRelationshipDeleteResponse from './model/OrganizationRelationshipDeleteResponse';
 import OrganizationRelationshipDeleteResponseAllOf from './model/OrganizationRelationshipDeleteResponseAllOf';
 import OrganizationRelationshipDeleteResponseAllOfData from './model/OrganizationRelationshipDeleteResponseAllOfData';
@@ -552,7 +520,6 @@ import PictureDataWithID from './model/PictureDataWithID';
 import PictureDataWithIDAllOf from './model/PictureDataWithIDAllOf';
 import PictureDataWithValue from './model/PictureDataWithValue';
 import PictureDataWithValueAllOf from './model/PictureDataWithValueAllOf';
-import Pipeline from './model/Pipeline';
 import PipelineDetails from './model/PipelineDetails';
 import PipelineDetailsAllOf from './model/PipelineDetailsAllOf';
 import PostDealParticipants from './model/PostDealParticipants';
@@ -621,7 +588,6 @@ import RolesAdditionalData from './model/RolesAdditionalData';
 import RolesAdditionalDataPagination from './model/RolesAdditionalDataPagination';
 import SinglePermissionSetsItem from './model/SinglePermissionSetsItem';
 import SinglePermissionSetsItemAllOf from './model/SinglePermissionSetsItemAllOf';
-import Stage from './model/Stage';
 import StageConversions from './model/StageConversions';
 import StageDetails from './model/StageDetails';
 import StageWithPipelineInfo from './model/StageWithPipelineInfo';
@@ -642,16 +608,13 @@ import TeamsAllOf from './model/TeamsAllOf';
 import Unauthorized from './model/Unauthorized';
 import UpdateActivityResponse200 from './model/UpdateActivityResponse200';
 import UpdateFile from './model/UpdateFile';
-import UpdateFileRequest from './model/UpdateFileRequest';
 import UpdateFilterRequest from './model/UpdateFilterRequest';
 import UpdateLeadLabelRequest from './model/UpdateLeadLabelRequest';
 import UpdateLeadRequest from './model/UpdateLeadRequest';
-import UpdateMailThreadDetailsRequest from './model/UpdateMailThreadDetailsRequest';
 import UpdatePersonResponse from './model/UpdatePersonResponse';
 import UpdateTeam from './model/UpdateTeam';
 import UpdateTeamAllOf from './model/UpdateTeamAllOf';
 import UpdateTeamWithAdditionalProperties from './model/UpdateTeamWithAdditionalProperties';
-import UpdateUserRequest from './model/UpdateUserRequest';
 import User from './model/User';
 import UserAllOf from './model/UserAllOf';
 import UserAssignmentToPermissionSet from './model/UserAssignmentToPermissionSet';
@@ -863,12 +826,6 @@ export {
     ActivityTypeBulkDeleteResponseAllOfData,
 
     /**
-     * The ActivityTypeCreateRequest model constructor.
-     * @property {module:model/ActivityTypeCreateRequest}
-     */
-    ActivityTypeCreateRequest,
-
-    /**
      * The ActivityTypeCreateUpdateDeleteResponse model constructor.
      * @property {module:model/ActivityTypeCreateUpdateDeleteResponse}
      */
@@ -899,12 +856,6 @@ export {
     ActivityTypeObjectResponse,
 
     /**
-     * The ActivityTypeUpdateRequest model constructor.
-     * @property {module:model/ActivityTypeUpdateRequest}
-     */
-    ActivityTypeUpdateRequest,
-
-    /**
      * The AddActivityResponse200 model constructor.
      * @property {module:model/AddActivityResponse200}
      */
@@ -917,40 +868,10 @@ export {
     AddActivityResponse200RelatedObjects,
 
     /**
-     * The AddCallLogAudioFileRequest model constructor.
-     * @property {module:model/AddCallLogAudioFileRequest}
-     */
-    AddCallLogAudioFileRequest,
-
-    /**
-     * The AddDealFollowerRequest model constructor.
-     * @property {module:model/AddDealFollowerRequest}
-     */
-    AddDealFollowerRequest,
-
-    /**
-     * The AddDealParticipantRequest model constructor.
-     * @property {module:model/AddDealParticipantRequest}
-     */
-    AddDealParticipantRequest,
-
-    /**
      * The AddFile model constructor.
      * @property {module:model/AddFile}
      */
     AddFile,
-
-    /**
-     * The AddFileAndLinkItRequest model constructor.
-     * @property {module:model/AddFileAndLinkItRequest}
-     */
-    AddFileAndLinkItRequest,
-
-    /**
-     * The AddFileRequest model constructor.
-     * @property {module:model/AddFileRequest}
-     */
-    AddFileRequest,
 
     /**
      * The AddFilterRequest model constructor.
@@ -1013,30 +934,6 @@ export {
     AddOrUpdateLeadLabelResponse200,
 
     /**
-     * The AddOrUpdateRoleSettingRequest model constructor.
-     * @property {module:model/AddOrUpdateRoleSettingRequest}
-     */
-    AddOrUpdateRoleSettingRequest,
-
-    /**
-     * The AddOrganizationFollowerRequest model constructor.
-     * @property {module:model/AddOrganizationFollowerRequest}
-     */
-    AddOrganizationFollowerRequest,
-
-    /**
-     * The AddPersonFollowerRequest model constructor.
-     * @property {module:model/AddPersonFollowerRequest}
-     */
-    AddPersonFollowerRequest,
-
-    /**
-     * The AddPersonPictureRequest model constructor.
-     * @property {module:model/AddPersonPictureRequest}
-     */
-    AddPersonPictureRequest,
-
-    /**
      * The AddPersonPictureResponse model constructor.
      * @property {module:model/AddPersonPictureResponse}
      */
@@ -1091,40 +988,10 @@ export {
     AddProductRequestBody,
 
     /**
-     * The AddRoleAssignmentRequest model constructor.
-     * @property {module:model/AddRoleAssignmentRequest}
-     */
-    AddRoleAssignmentRequest,
-
-    /**
      * The AddTeamUserRequest model constructor.
      * @property {module:model/AddTeamUserRequest}
      */
     AddTeamUserRequest,
-
-    /**
-     * The AddUserBlacklistedEmailRequest model constructor.
-     * @property {module:model/AddUserBlacklistedEmailRequest}
-     */
-    AddUserBlacklistedEmailRequest,
-
-    /**
-     * The AddUserRequest model constructor.
-     * @property {module:model/AddUserRequest}
-     */
-    AddUserRequest,
-
-    /**
-     * The AddUserRoleAssignmentRequest model constructor.
-     * @property {module:model/AddUserRoleAssignmentRequest}
-     */
-    AddUserRoleAssignmentRequest,
-
-    /**
-     * The AddWebhookRequest model constructor.
-     * @property {module:model/AddWebhookRequest}
-     */
-    AddWebhookRequest,
 
     /**
      * The AddedDealFollower model constructor.
@@ -1431,18 +1298,6 @@ export {
      * @property {module:model/BasicDealProduct}
      */
     BasicDealProduct,
-
-    /**
-     * The BasicGoal model constructor.
-     * @property {module:model/BasicGoal}
-     */
-    BasicGoal,
-
-    /**
-     * The BasicOrganization model constructor.
-     * @property {module:model/BasicOrganization}
-     */
-    BasicOrganization,
 
     /**
      * The BasicPerson model constructor.
@@ -2195,12 +2050,6 @@ export {
     Field,
 
     /**
-     * The FieldCreateRequest model constructor.
-     * @property {module:model/FieldCreateRequest}
-     */
-    FieldCreateRequest,
-
-    /**
      * The FieldResponse model constructor.
      * @property {module:model/FieldResponse}
      */
@@ -2213,22 +2062,10 @@ export {
     FieldResponseAllOf,
 
     /**
-     * The FieldType model constructor.
-     * @property {module:model/FieldType}
-     */
-    FieldType,
-
-    /**
      * The FieldTypeAsString model constructor.
      * @property {module:model/FieldTypeAsString}
      */
     FieldTypeAsString,
-
-    /**
-     * The FieldUpdateRequest model constructor.
-     * @property {module:model/FieldUpdateRequest}
-     */
-    FieldUpdateRequest,
 
     /**
      * The FieldsResponse model constructor.
@@ -2969,12 +2806,6 @@ export {
     LeadValue,
 
     /**
-     * The LinkFileToItemRequest model constructor.
-     * @property {module:model/LinkFileToItemRequest}
-     */
-    LinkFileToItemRequest,
-
-    /**
      * The LinkRemoteFileToItem model constructor.
      * @property {module:model/LinkRemoteFileToItem}
      */
@@ -3065,16 +2896,16 @@ export {
     ListPermittedUsersResponse,
 
     /**
-     * The ListPermittedUsersResponse2 model constructor.
-     * @property {module:model/ListPermittedUsersResponse2}
+     * The ListPermittedUsersResponse1 model constructor.
+     * @property {module:model/ListPermittedUsersResponse1}
      */
-    ListPermittedUsersResponse2,
+    ListPermittedUsersResponse1,
 
     /**
-     * The ListPermittedUsersResponse2AllOf model constructor.
-     * @property {module:model/ListPermittedUsersResponse2AllOf}
+     * The ListPermittedUsersResponse1AllOf model constructor.
+     * @property {module:model/ListPermittedUsersResponse1AllOf}
      */
-    ListPermittedUsersResponse2AllOf,
+    ListPermittedUsersResponse1AllOf,
 
     /**
      * The ListPermittedUsersResponseAllOf model constructor.
@@ -3263,18 +3094,6 @@ export {
     MailThreadPutAllOf,
 
     /**
-     * The MergeDealsRequest model constructor.
-     * @property {module:model/MergeDealsRequest}
-     */
-    MergeDealsRequest,
-
-    /**
-     * The MergeOrganizationsRequest model constructor.
-     * @property {module:model/MergeOrganizationsRequest}
-     */
-    MergeOrganizationsRequest,
-
-    /**
      * The MergePersonDealRelatedInfo model constructor.
      * @property {module:model/MergePersonDealRelatedInfo}
      */
@@ -3287,12 +3106,6 @@ export {
     MergePersonItem,
 
     /**
-     * The MergePersonsRequest model constructor.
-     * @property {module:model/MergePersonsRequest}
-     */
-    MergePersonsRequest,
-
-    /**
      * The MergePersonsResponse model constructor.
      * @property {module:model/MergePersonsResponse}
      */
@@ -3303,18 +3116,6 @@ export {
      * @property {module:model/MergePersonsResponseAllOf}
      */
     MergePersonsResponseAllOf,
-
-    /**
-     * The NewDeal model constructor.
-     * @property {module:model/NewDeal}
-     */
-    NewDeal,
-
-    /**
-     * The NewDealAllOf model constructor.
-     * @property {module:model/NewDealAllOf}
-     */
-    NewDealAllOf,
 
     /**
      * The NewDealProduct model constructor.
@@ -3341,24 +3142,6 @@ export {
     NewFollowerResponseData,
 
     /**
-     * The NewGoal model constructor.
-     * @property {module:model/NewGoal}
-     */
-    NewGoal,
-
-    /**
-     * The NewOrganization model constructor.
-     * @property {module:model/NewOrganization}
-     */
-    NewOrganization,
-
-    /**
-     * The NewOrganizationAllOf model constructor.
-     * @property {module:model/NewOrganizationAllOf}
-     */
-    NewOrganizationAllOf,
-
-    /**
      * The NewPerson model constructor.
      * @property {module:model/NewPerson}
      */
@@ -3381,12 +3164,6 @@ export {
      * @property {module:model/NewProductFieldAllOf}
      */
     NewProductFieldAllOf,
-
-    /**
-     * The Note model constructor.
-     * @property {module:model/Note}
-     */
-    Note,
 
     /**
      * The NoteCreatorUser model constructor.
@@ -3603,12 +3380,6 @@ export {
      * @property {module:model/OrganizationPostResponseAllOf}
      */
     OrganizationPostResponseAllOf,
-
-    /**
-     * The OrganizationRelationship model constructor.
-     * @property {module:model/OrganizationRelationship}
-     */
-    OrganizationRelationship,
 
     /**
      * The OrganizationRelationshipDeleteResponse model constructor.
@@ -3993,12 +3764,6 @@ export {
      * @property {module:model/PictureDataWithValueAllOf}
      */
     PictureDataWithValueAllOf,
-
-    /**
-     * The Pipeline model constructor.
-     * @property {module:model/Pipeline}
-     */
-    Pipeline,
 
     /**
      * The PipelineDetails model constructor.
@@ -4409,12 +4174,6 @@ export {
     SinglePermissionSetsItemAllOf,
 
     /**
-     * The Stage model constructor.
-     * @property {module:model/Stage}
-     */
-    Stage,
-
-    /**
      * The StageConversions model constructor.
      * @property {module:model/StageConversions}
      */
@@ -4535,12 +4294,6 @@ export {
     UpdateFile,
 
     /**
-     * The UpdateFileRequest model constructor.
-     * @property {module:model/UpdateFileRequest}
-     */
-    UpdateFileRequest,
-
-    /**
      * The UpdateFilterRequest model constructor.
      * @property {module:model/UpdateFilterRequest}
      */
@@ -4557,12 +4310,6 @@ export {
      * @property {module:model/UpdateLeadRequest}
      */
     UpdateLeadRequest,
-
-    /**
-     * The UpdateMailThreadDetailsRequest model constructor.
-     * @property {module:model/UpdateMailThreadDetailsRequest}
-     */
-    UpdateMailThreadDetailsRequest,
 
     /**
      * The UpdatePersonResponse model constructor.
@@ -4587,12 +4334,6 @@ export {
      * @property {module:model/UpdateTeamWithAdditionalProperties}
      */
     UpdateTeamWithAdditionalProperties,
-
-    /**
-     * The UpdateUserRequest model constructor.
-     * @property {module:model/UpdateUserRequest}
-     */
-    UpdateUserRequest,
 
     /**
      * The User model constructor.

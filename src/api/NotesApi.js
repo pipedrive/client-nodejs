@@ -80,7 +80,7 @@ export default class NotesApi {
         'pinned_to_lead_flag': opts['pinnedToLeadFlag'],
         'pinned_to_deal_flag': opts['pinnedToDealFlag'],
         'pinned_to_organization_flag': opts['pinnedToOrganizationFlag'],
-        'pinned_to_person_flag': opts['pinnedToPersonFlag']
+        'pinned_to_person_flag': opts['pinnedToPersonFlag'],
       };
 
       let formParamArray = [
@@ -94,10 +94,10 @@ export default class NotesApi {
         'pinnedToLeadFlag',
         'pinnedToDealFlag',
         'pinnedToOrganizationFlag',
-        'pinnedToPersonFlag'
+        'pinnedToPersonFlag',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -108,8 +108,8 @@ export default class NotesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = PostNote;
       return this.apiClient.callApi(
         '/notes', 'POST',
@@ -157,7 +157,7 @@ export default class NotesApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -180,8 +180,8 @@ export default class NotesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = DeleteNote;
       return this.apiClient.callApi(
         '/notes/{id}', 'DELETE',
@@ -218,7 +218,7 @@ export default class NotesApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -241,8 +241,8 @@ export default class NotesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = PostNote;
       return this.apiClient.callApi(
         '/notes/{id}', 'GET',
@@ -305,7 +305,7 @@ export default class NotesApi {
         'pinned_to_lead_flag': opts['pinnedToLeadFlag'],
         'pinned_to_deal_flag': opts['pinnedToDealFlag'],
         'pinned_to_organization_flag': opts['pinnedToOrganizationFlag'],
-        'pinned_to_person_flag': opts['pinnedToPersonFlag']
+        'pinned_to_person_flag': opts['pinnedToPersonFlag'],
       };
       let headerParams = {
       };
@@ -326,8 +326,8 @@ export default class NotesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetNotes;
       return this.apiClient.callApi(
         '/notes', 'GET',
@@ -395,7 +395,7 @@ export default class NotesApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -412,7 +412,7 @@ export default class NotesApi {
         'pinned_to_lead_flag': opts['pinnedToLeadFlag'],
         'pinned_to_deal_flag': opts['pinnedToDealFlag'],
         'pinned_to_organization_flag': opts['pinnedToOrganizationFlag'],
-        'pinned_to_person_flag': opts['pinnedToPersonFlag']
+        'pinned_to_person_flag': opts['pinnedToPersonFlag'],
       };
 
       let formParamArray = [
@@ -426,10 +426,10 @@ export default class NotesApi {
         'pinnedToLeadFlag',
         'pinnedToDealFlag',
         'pinnedToOrganizationFlag',
-        'pinnedToPersonFlag'
+        'pinnedToPersonFlag',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -440,8 +440,8 @@ export default class NotesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = PostNote;
       return this.apiClient.callApi(
         '/notes/{id}', 'PUT',

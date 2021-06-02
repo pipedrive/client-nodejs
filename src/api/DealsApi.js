@@ -107,7 +107,7 @@ export default class DealsApi {
         'probability': opts['probability'],
         'lost_reason': opts['lostReason'],
         'visible_to': opts['visibleTo'],
-        'add_time': opts['addTime']
+        'add_time': opts['addTime'],
       };
 
       let formParamArray = [
@@ -123,10 +123,10 @@ export default class DealsApi {
         'probability',
         'lostReason',
         'visibleTo',
-        'addTime'
+        'addTime',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -137,8 +137,8 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetAddedDeal;
       return this.apiClient.callApi(
         '/deals', 'POST',
@@ -193,21 +193,21 @@ export default class DealsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
       let headerParams = {
       };
       let formParams = {
-        'user_id': userId
+        'user_id': userId,
       };
 
       let formParamArray = [
-        'userId'
+        'userId',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -218,8 +218,8 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = AddedDealFollower;
       return this.apiClient.callApi(
         '/deals/{id}/followers', 'POST',
@@ -262,21 +262,21 @@ export default class DealsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
       let headerParams = {
       };
       let formParams = {
-        'person_id': personId
+        'person_id': personId,
       };
 
       let formParamArray = [
-        'personId'
+        'personId',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -287,8 +287,8 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = PostDealParticipants;
       return this.apiClient.callApi(
         '/deals/{id}/participants', 'POST',
@@ -329,7 +329,7 @@ export default class DealsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -341,7 +341,7 @@ export default class DealsApi {
       let formParamArray = [
       ];
 
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -352,8 +352,8 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetAddProductAttachementDetails;
       return this.apiClient.callApi(
         '/deals/{id}/products', 'POST',
@@ -392,7 +392,7 @@ export default class DealsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -415,8 +415,8 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = DeleteDeal;
       return this.apiClient.callApi(
         '/deals/{id}', 'DELETE',
@@ -459,7 +459,7 @@ export default class DealsApi {
 
       let pathParams = {
         'id': id,
-        'follower_id': followerId
+        'follower_id': followerId,
       };
       let queryParams = {
       };
@@ -482,8 +482,8 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = DeleteDealFollower;
       return this.apiClient.callApi(
         '/deals/{id}/followers/{follower_id}', 'DELETE',
@@ -527,7 +527,7 @@ export default class DealsApi {
 
       let pathParams = {
         'id': id,
-        'deal_participant_id': dealParticipantId
+        'deal_participant_id': dealParticipantId,
       };
       let queryParams = {
       };
@@ -550,8 +550,8 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = DeleteDealParticipant;
       return this.apiClient.callApi(
         '/deals/{id}/participants/{deal_participant_id}', 'DELETE',
@@ -595,7 +595,7 @@ export default class DealsApi {
 
       let pathParams = {
         'id': id,
-        'product_attachment_id': productAttachmentId
+        'product_attachment_id': productAttachmentId,
       };
       let queryParams = {
       };
@@ -618,8 +618,8 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', ];
+      let accepts = ['application/json', ];
       let returnType = DeleteDealProduct;
       return this.apiClient.callApi(
         '/deals/{id}/products/{product_attachment_id}', 'DELETE',
@@ -659,7 +659,7 @@ export default class DealsApi {
       let pathParams = {
       };
       let queryParams = {
-        'ids': ids
+        'ids': ids,
       };
       let headerParams = {
       };
@@ -680,8 +680,8 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = DeleteMultipleDeals;
       return this.apiClient.callApi(
         '/deals', 'DELETE',
@@ -718,7 +718,7 @@ export default class DealsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -741,8 +741,8 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetDuplicatedDeal;
       return this.apiClient.callApi(
         '/deals/{id}/duplicate', 'POST',
@@ -779,7 +779,7 @@ export default class DealsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -802,8 +802,8 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetDeal;
       return this.apiClient.callApi(
         '/deals/{id}', 'GET',
@@ -846,13 +846,13 @@ export default class DealsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'start': opts['start'],
         'limit': opts['limit'],
         'done': opts['done'],
-        'exclude': opts['exclude']
+        'exclude': opts['exclude'],
       };
       let headerParams = {
       };
@@ -873,8 +873,8 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = DealListActivitiesResponse;
       return this.apiClient.callApi(
         '/deals/{id}/activities', 'GET',
@@ -922,13 +922,13 @@ export default class DealsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'start': opts['start'],
         'limit': opts['limit'],
         'include_deleted_files': opts['includeDeletedFiles'],
-        'sort': opts['sort']
+        'sort': opts['sort'],
       };
       let headerParams = {
       };
@@ -949,8 +949,8 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = ListFilesResponse;
       return this.apiClient.callApi(
         '/deals/{id}/files', 'GET',
@@ -992,7 +992,7 @@ export default class DealsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -1015,8 +1015,8 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = ListFollowersResponse;
       return this.apiClient.callApi(
         '/deals/{id}/followers', 'GET',
@@ -1057,11 +1057,11 @@ export default class DealsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'start': opts['start'],
-        'limit': opts['limit']
+        'limit': opts['limit'],
       };
       let headerParams = {
       };
@@ -1082,8 +1082,8 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = ListMailMessagesResponse;
       return this.apiClient.callApi(
         '/deals/{id}/mailMessages', 'GET',
@@ -1127,11 +1127,11 @@ export default class DealsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'start': opts['start'],
-        'limit': opts['limit']
+        'limit': opts['limit'],
       };
       let headerParams = {
       };
@@ -1152,8 +1152,8 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = DealParticipants;
       return this.apiClient.callApi(
         '/deals/{id}/participants', 'GET',
@@ -1197,11 +1197,11 @@ export default class DealsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'start': opts['start'],
-        'limit': opts['limit']
+        'limit': opts['limit'],
       };
       let headerParams = {
       };
@@ -1222,8 +1222,8 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = ListPersonsResponse;
       return this.apiClient.callApi(
         '/deals/{id}/persons', 'GET',
@@ -1268,12 +1268,12 @@ export default class DealsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'start': opts['start'],
         'limit': opts['limit'],
-        'include_product_data': opts['includeProductData']
+        'include_product_data': opts['includeProductData'],
       };
       let headerParams = {
       };
@@ -1294,8 +1294,8 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = ListProductsResponse;
       return this.apiClient.callApi(
         '/deals/{id}/products', 'GET',
@@ -1342,13 +1342,13 @@ export default class DealsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'start': opts['start'],
         'limit': opts['limit'],
         'all_changes': opts['allChanges'],
-        'items': opts['items']
+        'items': opts['items'],
       };
       let headerParams = {
       };
@@ -1369,8 +1369,8 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = DealFlowResponse;
       return this.apiClient.callApi(
         '/deals/{id}/flow', 'GET',
@@ -1412,7 +1412,7 @@ export default class DealsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -1435,8 +1435,8 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', ];
+      let accepts = ['application/json', ];
       let returnType = ListPermittedUsersResponse;
       return this.apiClient.callApi(
         '/deals/{id}/permittedUsers', 'GET',
@@ -1487,7 +1487,7 @@ export default class DealsApi {
         'start': opts['start'],
         'limit': opts['limit'],
         'sort': opts['sort'],
-        'owned_by_you': opts['ownedByYou']
+        'owned_by_you': opts['ownedByYou'],
       };
       let headerParams = {
       };
@@ -1508,8 +1508,8 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetDeals;
       return this.apiClient.callApi(
         '/deals', 'GET',
@@ -1562,7 +1562,7 @@ export default class DealsApi {
       let queryParams = {
         'term': term,
         'person_id': opts['personId'],
-        'org_id': opts['orgId']
+        'org_id': opts['orgId'],
       };
       let headerParams = {
       };
@@ -1583,8 +1583,8 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetDealsByName;
       return this.apiClient.callApi(
         '/deals/find', 'GET',
@@ -1630,7 +1630,7 @@ export default class DealsApi {
         'status': opts['status'],
         'filter_id': opts['filterId'],
         'user_id': opts['userId'],
-        'stage_id': opts['stageId']
+        'stage_id': opts['stageId'],
       };
       let headerParams = {
       };
@@ -1651,8 +1651,8 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetDealsSummary;
       return this.apiClient.callApi(
         '/deals/summary', 'GET',
@@ -1725,7 +1725,7 @@ export default class DealsApi {
         'pipeline_id': opts['pipelineId'],
         'filter_id': opts['filterId'],
         'exclude_deals': opts['excludeDeals'],
-        'totals_convert_currency': opts['totalsConvertCurrency']
+        'totals_convert_currency': opts['totalsConvertCurrency'],
       };
       let headerParams = {
       };
@@ -1746,8 +1746,8 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetDealsTimeline;
       return this.apiClient.callApi(
         '/deals/timeline', 'GET',
@@ -1798,21 +1798,21 @@ export default class DealsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
       let headerParams = {
       };
       let formParams = {
-        'merge_with_id': mergeWithId
+        'merge_with_id': mergeWithId,
       };
 
       let formParamArray = [
-        'mergeWithId'
+        'mergeWithId',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -1823,8 +1823,8 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetMergedDeal;
       return this.apiClient.callApi(
         '/deals/{id}/merge', 'PUT',
@@ -1882,7 +1882,7 @@ export default class DealsApi {
         'status': opts['status'],
         'include_fields': opts['includeFields'],
         'start': opts['start'],
-        'limit': opts['limit']
+        'limit': opts['limit'],
       };
       let headerParams = {
       };
@@ -1903,8 +1903,8 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = DealSearchResponse;
       return this.apiClient.callApi(
         '/deals/search', 'GET',
@@ -1964,7 +1964,7 @@ export default class DealsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -1982,7 +1982,7 @@ export default class DealsApi {
         'expected_close_date': opts['expectedCloseDate'],
         'probability': opts['probability'],
         'lost_reason': opts['lostReason'],
-        'visible_to': opts['visibleTo']
+        'visible_to': opts['visibleTo'],
       };
 
       let formParamArray = [
@@ -1997,10 +1997,10 @@ export default class DealsApi {
         'expectedCloseDate',
         'probability',
         'lostReason',
-        'visibleTo'
+        'visibleTo',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -2011,8 +2011,8 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetAddedDeal;
       return this.apiClient.callApi(
         '/deals/{id}', 'PUT',
@@ -2071,7 +2071,7 @@ export default class DealsApi {
 
       let pathParams = {
         'id': id,
-        'product_attachment_id': productAttachmentId
+        'product_attachment_id': productAttachmentId,
       };
       let queryParams = {
       };
@@ -2083,7 +2083,7 @@ export default class DealsApi {
       let formParamArray = [
       ];
 
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -2094,8 +2094,8 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', ];
+      let accepts = ['application/json', ];
       let returnType = GetProductAttachementDetails;
       return this.apiClient.callApi(
         '/deals/{id}/products/{product_attachment_id}', 'PUT',

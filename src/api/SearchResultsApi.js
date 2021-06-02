@@ -61,7 +61,7 @@ export default class SearchResultsApi {
         'item_type': opts['itemType'],
         'start': opts['start'],
         'limit': opts['limit'],
-        'exact_match': opts['exactMatch']
+        'exact_match': opts['exactMatch'],
       };
       let headerParams = {
       };
@@ -82,8 +82,8 @@ export default class SearchResultsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = Object;
       return this.apiClient.callApi(
         '/searchResults', 'GET',
@@ -151,7 +151,7 @@ export default class SearchResultsApi {
         'return_field_key': opts['returnFieldKey'],
         'return_item_ids': opts['returnItemIds'],
         'start': opts['start'],
-        'limit': opts['limit']
+        'limit': opts['limit'],
       };
       let headerParams = {
       };
@@ -172,8 +172,8 @@ export default class SearchResultsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = Object;
       return this.apiClient.callApi(
         '/searchResults/field', 'GET',

@@ -66,7 +66,7 @@ export default class ActivitiesApi {
       let formParamArray = [
       ];
 
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -77,8 +77,8 @@ export default class ActivitiesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = AddActivityResponse200;
       return this.apiClient.callApi(
         '/activities', 'POST',
@@ -118,7 +118,7 @@ export default class ActivitiesApi {
       let pathParams = {
       };
       let queryParams = {
-        'ids': ids
+        'ids': ids,
       };
       let headerParams = {
       };
@@ -139,8 +139,8 @@ export default class ActivitiesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = DeleteActivitiesResponse200;
       return this.apiClient.callApi(
         '/activities', 'DELETE',
@@ -177,7 +177,7 @@ export default class ActivitiesApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -200,8 +200,8 @@ export default class ActivitiesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = DeleteActivityResponse200;
       return this.apiClient.callApi(
         '/activities/{id}', 'DELETE',
@@ -252,7 +252,7 @@ export default class ActivitiesApi {
         'start': opts['start'],
         'start_date': opts['startDate'],
         'end_date': opts['endDate'],
-        'done': opts['done']
+        'done': opts['done'],
       };
       let headerParams = {
       };
@@ -273,8 +273,8 @@ export default class ActivitiesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetActivitiesResponse200;
       return this.apiClient.callApi(
         '/activities', 'GET',
@@ -319,7 +319,7 @@ export default class ActivitiesApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -342,8 +342,8 @@ export default class ActivitiesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetActivityResponse200;
       return this.apiClient.callApi(
         '/activities/{id}', 'GET',
@@ -383,7 +383,7 @@ export default class ActivitiesApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -395,7 +395,7 @@ export default class ActivitiesApi {
       let formParamArray = [
       ];
 
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -406,8 +406,8 @@ export default class ActivitiesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = UpdateActivityResponse200;
       return this.apiClient.callApi(
         '/activities/{id}', 'PUT',

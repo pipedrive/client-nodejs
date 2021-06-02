@@ -66,8 +66,8 @@ export default class LeadSourcesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetLeadSourcesResponse200;
       return this.apiClient.callApi(
         '/leadSources', 'GET',

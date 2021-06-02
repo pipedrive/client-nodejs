@@ -50,7 +50,7 @@ export default class PermissionSetsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -73,8 +73,8 @@ export default class PermissionSetsApi {
         }
       }
 
-      let authNames = ['api_key'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', ];
+      let accepts = ['application/json', ];
       let returnType = SinglePermissionSetsItem;
       return this.apiClient.callApi(
         '/permissionSets/{id}', 'GET',
@@ -114,11 +114,11 @@ export default class PermissionSetsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'start': opts['start'],
-        'limit': opts['limit']
+        'limit': opts['limit'],
       };
       let headerParams = {
       };
@@ -139,8 +139,8 @@ export default class PermissionSetsApi {
         }
       }
 
-      let authNames = ['api_key'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', ];
+      let accepts = ['application/json', ];
       let returnType = UserAssignmentsToPermissionSet;
       return this.apiClient.callApi(
         '/permissionSets/{id}/assignments', 'GET',
@@ -196,8 +196,8 @@ export default class PermissionSetsApi {
         }
       }
 
-      let authNames = ['api_key'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', ];
+      let accepts = ['application/json', ];
       let returnType = PermissionSets;
       return this.apiClient.callApi(
         '/permissionSets', 'GET',

@@ -67,8 +67,8 @@ export default class UserSettingsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = UserSettings;
       return this.apiClient.callApi(
         '/userSettings', 'GET',

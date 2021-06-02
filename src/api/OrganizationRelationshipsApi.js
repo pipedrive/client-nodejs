@@ -63,17 +63,17 @@ export default class OrganizationRelationshipsApi {
         'org_id': opts['orgId'],
         'type': opts['type'],
         'rel_owner_org_id': opts['relOwnerOrgId'],
-        'rel_linked_org_id': opts['relLinkedOrgId']
+        'rel_linked_org_id': opts['relLinkedOrgId'],
       };
 
       let formParamArray = [
         'orgId',
         'type',
         'relOwnerOrgId',
-        'relLinkedOrgId'
+        'relLinkedOrgId',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -84,8 +84,8 @@ export default class OrganizationRelationshipsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = OrganizationRelationshipPostResponse;
       return this.apiClient.callApi(
         '/organizationRelationships', 'POST',
@@ -126,7 +126,7 @@ export default class OrganizationRelationshipsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -149,8 +149,8 @@ export default class OrganizationRelationshipsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = OrganizationRelationshipDeleteResponse;
       return this.apiClient.callApi(
         '/organizationRelationships/{id}', 'DELETE',
@@ -189,7 +189,7 @@ export default class OrganizationRelationshipsApi {
       let pathParams = {
       };
       let queryParams = {
-        'org_id': orgId
+        'org_id': orgId,
       };
       let headerParams = {
       };
@@ -210,8 +210,8 @@ export default class OrganizationRelationshipsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = AllOrganizationRelationshipsGetResponse;
       return this.apiClient.callApi(
         '/organizationRelationships', 'GET',
@@ -251,10 +251,10 @@ export default class OrganizationRelationshipsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
-        'org_id': opts['orgId']
+        'org_id': opts['orgId'],
       };
       let headerParams = {
       };
@@ -275,8 +275,8 @@ export default class OrganizationRelationshipsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = OrganizationRelationshipGetResponse;
       return this.apiClient.callApi(
         '/organizationRelationships/{id}', 'GET',
@@ -321,7 +321,7 @@ export default class OrganizationRelationshipsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -331,17 +331,17 @@ export default class OrganizationRelationshipsApi {
         'org_id': opts['orgId'],
         'type': opts['type'],
         'rel_owner_org_id': opts['relOwnerOrgId'],
-        'rel_linked_org_id': opts['relLinkedOrgId']
+        'rel_linked_org_id': opts['relLinkedOrgId'],
       };
 
       let formParamArray = [
         'orgId',
         'type',
         'relOwnerOrgId',
-        'relLinkedOrgId'
+        'relLinkedOrgId',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -352,8 +352,8 @@ export default class OrganizationRelationshipsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = OrganizationRelationshipUpdateResponse;
       return this.apiClient.callApi(
         '/organizationRelationships/{id}', 'PUT',

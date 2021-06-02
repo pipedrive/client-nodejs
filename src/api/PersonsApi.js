@@ -26,7 +26,7 @@ import ListDealsResponse from '../model/ListDealsResponse';
 import ListFilesResponse from '../model/ListFilesResponse';
 import ListFollowersResponse from '../model/ListFollowersResponse';
 import ListMailMessagesResponse from '../model/ListMailMessagesResponse';
-import ListPermittedUsersResponse2 from '../model/ListPermittedUsersResponse2';
+import ListPermittedUsersResponse1 from '../model/ListPermittedUsersResponse1';
 import ListPersonProductsResponse from '../model/ListPersonProductsResponse';
 import MergePersonsResponse from '../model/MergePersonsResponse';
 import NewPerson from '../model/NewPerson';
@@ -78,7 +78,7 @@ export default class PersonsApi {
       let formParamArray = [
       ];
 
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -89,8 +89,8 @@ export default class PersonsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = AddPersonResponse;
       return this.apiClient.callApi(
         '/persons', 'POST',
@@ -133,21 +133,21 @@ export default class PersonsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
       let headerParams = {
       };
       let formParams = {
-        'user_id': userId
+        'user_id': userId,
       };
 
       let formParamArray = [
-        'userId'
+        'userId',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -158,8 +158,8 @@ export default class PersonsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = AddFollowerToPersonResponse;
       return this.apiClient.callApi(
         '/persons/{id}/followers', 'POST',
@@ -208,7 +208,7 @@ export default class PersonsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -219,7 +219,7 @@ export default class PersonsApi {
         'crop_x': opts['cropX'],
         'crop_y': opts['cropY'],
         'crop_width': opts['cropWidth'],
-        'crop_height': opts['cropHeight']
+        'crop_height': opts['cropHeight'],
       };
 
       let formParamArray = [
@@ -227,10 +227,10 @@ export default class PersonsApi {
         'cropX',
         'cropY',
         'cropWidth',
-        'cropHeight'
+        'cropHeight',
       ];
 
-      let contentTypes = ['multipart/form-data'];
+      let contentTypes = ['multipart/form-data', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -241,8 +241,8 @@ export default class PersonsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = AddPersonPictureResponse;
       return this.apiClient.callApi(
         '/persons/{id}/picture', 'POST',
@@ -285,7 +285,7 @@ export default class PersonsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -308,8 +308,8 @@ export default class PersonsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = DeletePersonResponse;
       return this.apiClient.callApi(
         '/persons/{id}', 'DELETE',
@@ -352,7 +352,7 @@ export default class PersonsApi {
 
       let pathParams = {
         'id': id,
-        'follower_id': followerId
+        'follower_id': followerId,
       };
       let queryParams = {
       };
@@ -375,8 +375,8 @@ export default class PersonsApi {
         }
       }
 
-      let authNames = ['api_key'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', ];
+      let accepts = ['application/json', ];
       let returnType = DeletePersonResponse;
       return this.apiClient.callApi(
         '/persons/{id}/followers/{follower_id}', 'DELETE',
@@ -414,7 +414,7 @@ export default class PersonsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -437,8 +437,8 @@ export default class PersonsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = DeletePersonResponse;
       return this.apiClient.callApi(
         '/persons/{id}/picture', 'DELETE',
@@ -475,7 +475,7 @@ export default class PersonsApi {
       let pathParams = {
       };
       let queryParams = {
-        'ids': opts['ids']
+        'ids': opts['ids'],
       };
       let headerParams = {
       };
@@ -496,8 +496,8 @@ export default class PersonsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = DeletePersonsInBulkResponse;
       return this.apiClient.callApi(
         '/persons', 'DELETE',
@@ -547,7 +547,7 @@ export default class PersonsApi {
         'org_id': opts['orgId'],
         'start': opts['start'],
         'limit': opts['limit'],
-        'search_by_email': opts['searchByEmail']
+        'search_by_email': opts['searchByEmail'],
       };
       let headerParams = {
       };
@@ -568,8 +568,8 @@ export default class PersonsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = Object;
       return this.apiClient.callApi(
         '/persons/find', 'GET',
@@ -611,7 +611,7 @@ export default class PersonsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -634,8 +634,8 @@ export default class PersonsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetPersonDetailsResponse;
       return this.apiClient.callApi(
         '/persons/{id}', 'GET',
@@ -678,13 +678,13 @@ export default class PersonsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'start': opts['start'],
         'limit': opts['limit'],
         'done': opts['done'],
-        'exclude': opts['exclude']
+        'exclude': opts['exclude'],
       };
       let headerParams = {
       };
@@ -705,8 +705,8 @@ export default class PersonsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = ListActivitiesResponse;
       return this.apiClient.callApi(
         '/persons/{id}/activities', 'GET',
@@ -754,13 +754,13 @@ export default class PersonsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'start': opts['start'],
         'limit': opts['limit'],
         'status': opts['status'],
-        'sort': opts['sort']
+        'sort': opts['sort'],
       };
       let headerParams = {
       };
@@ -781,8 +781,8 @@ export default class PersonsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = ListDealsResponse;
       return this.apiClient.callApi(
         '/persons/{id}/deals', 'GET',
@@ -830,13 +830,13 @@ export default class PersonsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'start': opts['start'],
         'limit': opts['limit'],
         'include_deleted_files': opts['includeDeletedFiles'],
-        'sort': opts['sort']
+        'sort': opts['sort'],
       };
       let headerParams = {
       };
@@ -857,8 +857,8 @@ export default class PersonsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = ListFilesResponse;
       return this.apiClient.callApi(
         '/persons/{id}/files', 'GET',
@@ -900,7 +900,7 @@ export default class PersonsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -923,8 +923,8 @@ export default class PersonsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = ListFollowersResponse;
       return this.apiClient.callApi(
         '/persons/{id}/followers', 'GET',
@@ -965,11 +965,11 @@ export default class PersonsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'start': opts['start'],
-        'limit': opts['limit']
+        'limit': opts['limit'],
       };
       let headerParams = {
       };
@@ -990,8 +990,8 @@ export default class PersonsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = ListMailMessagesResponse;
       return this.apiClient.callApi(
         '/persons/{id}/mailMessages', 'GET',
@@ -1035,11 +1035,11 @@ export default class PersonsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'start': opts['start'],
-        'limit': opts['limit']
+        'limit': opts['limit'],
       };
       let headerParams = {
       };
@@ -1060,8 +1060,8 @@ export default class PersonsApi {
         }
       }
 
-      let authNames = ['api_key'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', ];
+      let accepts = ['application/json', ];
       let returnType = ListPersonProductsResponse;
       return this.apiClient.callApi(
         '/persons/{id}/products', 'GET',
@@ -1107,13 +1107,13 @@ export default class PersonsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'start': opts['start'],
         'limit': opts['limit'],
         'all_changes': opts['allChanges'],
-        'items': opts['items']
+        'items': opts['items'],
       };
       let headerParams = {
       };
@@ -1134,8 +1134,8 @@ export default class PersonsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = PersonFlowResponse;
       return this.apiClient.callApi(
         '/persons/{id}/flow', 'GET',
@@ -1167,7 +1167,7 @@ export default class PersonsApi {
      * List permitted users
      * List users permitted to access a person
      * @param {Number} id ID of a person
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListPermittedUsersResponse2} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListPermittedUsersResponse1} and HTTP response
      */
     getPersonUsersWithHttpInfo(id) {
       let postBody = null;
@@ -1177,7 +1177,7 @@ export default class PersonsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -1200,9 +1200,9 @@ export default class PersonsApi {
         }
       }
 
-      let authNames = ['api_key'];
-      let accepts = ['application/json'];
-      let returnType = ListPermittedUsersResponse2;
+      let authNames = ['api_key', ];
+      let accepts = ['application/json', ];
+      let returnType = ListPermittedUsersResponse1;
       return this.apiClient.callApi(
         '/persons/{id}/permittedUsers', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1214,7 +1214,7 @@ export default class PersonsApi {
      * List permitted users
      * List users permitted to access a person
      * @param {Number} id ID of a person
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListPermittedUsersResponse2}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListPermittedUsersResponse1}
      */
     getPersonUsers(id) {
       return this.getPersonUsersWithHttpInfo(id)
@@ -1248,7 +1248,7 @@ export default class PersonsApi {
         'first_char': opts['firstChar'],
         'start': opts['start'],
         'limit': opts['limit'],
-        'sort': opts['sort']
+        'sort': opts['sort'],
       };
       let headerParams = {
       };
@@ -1269,8 +1269,8 @@ export default class PersonsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetAllPersonsResponse;
       return this.apiClient.callApi(
         '/persons', 'GET',
@@ -1318,21 +1318,21 @@ export default class PersonsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
       let headerParams = {
       };
       let formParams = {
-        'merge_with_id': mergeWithId
+        'merge_with_id': mergeWithId,
       };
 
       let formParamArray = [
-        'mergeWithId'
+        'mergeWithId',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -1343,8 +1343,8 @@ export default class PersonsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = MergePersonsResponse;
       return this.apiClient.callApi(
         '/persons/{id}/merge', 'PUT',
@@ -1398,7 +1398,7 @@ export default class PersonsApi {
         'organization_id': opts['organizationId'],
         'include_fields': opts['includeFields'],
         'start': opts['start'],
-        'limit': opts['limit']
+        'limit': opts['limit'],
       };
       let headerParams = {
       };
@@ -1419,8 +1419,8 @@ export default class PersonsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = PersonSearchResponse;
       return this.apiClient.callApi(
         '/persons/search', 'GET',
@@ -1467,7 +1467,7 @@ export default class PersonsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -1479,7 +1479,7 @@ export default class PersonsApi {
       let formParamArray = [
       ];
 
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -1490,8 +1490,8 @@ export default class PersonsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = UpdatePersonResponse;
       return this.apiClient.callApi(
         '/persons/{id}', 'PUT',

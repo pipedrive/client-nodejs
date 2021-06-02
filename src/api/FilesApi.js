@@ -74,7 +74,7 @@ export default class FilesApi {
         'person_id': opts['personId'],
         'org_id': opts['orgId'],
         'product_id': opts['productId'],
-        'activity_id': opts['activityId']
+        'activity_id': opts['activityId'],
       };
 
       let formParamArray = [
@@ -83,10 +83,10 @@ export default class FilesApi {
         'personId',
         'orgId',
         'productId',
-        'activityId'
+        'activityId',
       ];
 
-      let contentTypes = ['multipart/form-data'];
+      let contentTypes = ['multipart/form-data', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -97,8 +97,8 @@ export default class FilesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = AddFile;
       return this.apiClient.callApi(
         '/files', 'POST',
@@ -171,7 +171,7 @@ export default class FilesApi {
         'title': title,
         'item_type': itemType,
         'item_id': itemId,
-        'remote_location': remoteLocation
+        'remote_location': remoteLocation,
       };
 
       let formParamArray = [
@@ -179,10 +179,10 @@ export default class FilesApi {
         'title',
         'itemType',
         'itemId',
-        'remoteLocation'
+        'remoteLocation',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -193,8 +193,8 @@ export default class FilesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = CreateRemoteFileAndLinkItToItem;
       return this.apiClient.callApi(
         '/files/remote', 'POST',
@@ -235,7 +235,7 @@ export default class FilesApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -258,8 +258,8 @@ export default class FilesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = DeleteFile;
       return this.apiClient.callApi(
         '/files/{id}', 'DELETE',
@@ -296,7 +296,7 @@ export default class FilesApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -319,8 +319,8 @@ export default class FilesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/octet-stream'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/octet-stream', ];
       let returnType = File;
       return this.apiClient.callApi(
         '/files/{id}/download', 'GET',
@@ -357,7 +357,7 @@ export default class FilesApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -380,8 +380,8 @@ export default class FilesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetOneFile;
       return this.apiClient.callApi(
         '/files/{id}', 'GET',
@@ -424,7 +424,7 @@ export default class FilesApi {
         'start': opts['start'],
         'limit': opts['limit'],
         'include_deleted_files': opts['includeDeletedFiles'],
-        'sort': opts['sort']
+        'sort': opts['sort'],
       };
       let headerParams = {
       };
@@ -445,8 +445,8 @@ export default class FilesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetAllFiles;
       return this.apiClient.callApi(
         '/files', 'GET',
@@ -511,17 +511,17 @@ export default class FilesApi {
         'item_type': itemType,
         'item_id': itemId,
         'remote_id': remoteId,
-        'remote_location': remoteLocation
+        'remote_location': remoteLocation,
       };
 
       let formParamArray = [
         'itemType',
         'itemId',
         'remoteId',
-        'remoteLocation'
+        'remoteLocation',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -532,8 +532,8 @@ export default class FilesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = LinkRemoteFileToItem;
       return this.apiClient.callApi(
         '/files/remoteLink', 'POST',
@@ -577,7 +577,7 @@ export default class FilesApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -585,15 +585,15 @@ export default class FilesApi {
       };
       let formParams = {
         'name': opts['name'],
-        'description': opts['description']
+        'description': opts['description'],
       };
 
       let formParamArray = [
         'name',
-        'description'
+        'description',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -604,8 +604,8 @@ export default class FilesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = UpdateFile;
       return this.apiClient.callApi(
         '/files/{id}', 'PUT',

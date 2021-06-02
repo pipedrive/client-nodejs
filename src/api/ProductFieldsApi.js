@@ -64,7 +64,7 @@ export default class ProductFieldsApi {
       let formParamArray = [
       ];
 
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -75,8 +75,8 @@ export default class ProductFieldsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetProductFieldResponse;
       return this.apiClient.callApi(
         '/productFields', 'POST',
@@ -114,7 +114,7 @@ export default class ProductFieldsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -137,8 +137,8 @@ export default class ProductFieldsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = DeleteProductFieldResponse;
       return this.apiClient.callApi(
         '/productFields/{id}', 'DELETE',
@@ -177,7 +177,7 @@ export default class ProductFieldsApi {
       let pathParams = {
       };
       let queryParams = {
-        'ids': ids
+        'ids': ids,
       };
       let headerParams = {
       };
@@ -198,8 +198,8 @@ export default class ProductFieldsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = DeleteMultipleProductFieldsResponse;
       return this.apiClient.callApi(
         '/productFields', 'DELETE',
@@ -236,7 +236,7 @@ export default class ProductFieldsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -259,8 +259,8 @@ export default class ProductFieldsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetProductFieldResponse;
       return this.apiClient.callApi(
         '/productFields/{id}', 'GET',
@@ -314,8 +314,8 @@ export default class ProductFieldsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetAllProductFieldsResponse;
       return this.apiClient.callApi(
         '/productFields', 'GET',
@@ -354,7 +354,7 @@ export default class ProductFieldsApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -366,7 +366,7 @@ export default class ProductFieldsApi {
       let formParamArray = [
       ];
 
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -377,8 +377,8 @@ export default class ProductFieldsApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetProductFieldResponse;
       return this.apiClient.callApi(
         '/productFields/{id}', 'PUT',

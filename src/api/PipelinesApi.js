@@ -67,17 +67,17 @@ export default class PipelinesApi {
         'name': opts['name'],
         'deal_probability': opts['dealProbability'],
         'order_nr': opts['orderNr'],
-        'active': opts['active']
+        'active': opts['active'],
       };
 
       let formParamArray = [
         'name',
         'dealProbability',
         'orderNr',
-        'active'
+        'active',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -88,8 +88,8 @@ export default class PipelinesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = AddNewPipeline;
       return this.apiClient.callApi(
         '/pipelines', 'POST',
@@ -130,7 +130,7 @@ export default class PipelinesApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -153,8 +153,8 @@ export default class PipelinesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = DeletePipelineResponse200;
       return this.apiClient.callApi(
         '/pipelines/{id}', 'DELETE',
@@ -194,10 +194,10 @@ export default class PipelinesApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
-        'totals_convert_currency': opts['totalsConvertCurrency']
+        'totals_convert_currency': opts['totalsConvertCurrency'],
       };
       let headerParams = {
       };
@@ -218,8 +218,8 @@ export default class PipelinesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetOnePipeline;
       return this.apiClient.callApi(
         '/pipelines/{id}', 'GET',
@@ -271,12 +271,12 @@ export default class PipelinesApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'start_date': startDate,
         'end_date': endDate,
-        'user_id': opts['userId']
+        'user_id': opts['userId'],
       };
       let headerParams = {
       };
@@ -297,8 +297,8 @@ export default class PipelinesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetDealsConversionRatesInPipeline;
       return this.apiClient.callApi(
         '/pipelines/{id}/conversion_statistics', 'GET',
@@ -349,7 +349,7 @@ export default class PipelinesApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'filter_id': opts['filterId'],
@@ -359,7 +359,7 @@ export default class PipelinesApi {
         'start': opts['start'],
         'limit': opts['limit'],
         'get_summary': opts['getSummary'],
-        'totals_convert_currency': opts['totalsConvertCurrency']
+        'totals_convert_currency': opts['totalsConvertCurrency'],
       };
       let headerParams = {
       };
@@ -380,8 +380,8 @@ export default class PipelinesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetStageDeals;
       return this.apiClient.callApi(
         '/pipelines/{id}/deals', 'GET',
@@ -440,12 +440,12 @@ export default class PipelinesApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'start_date': startDate,
         'end_date': endDate,
-        'user_id': opts['userId']
+        'user_id': opts['userId'],
       };
       let headerParams = {
       };
@@ -466,8 +466,8 @@ export default class PipelinesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetDealsMovementsInPipeline;
       return this.apiClient.callApi(
         '/pipelines/{id}/movement_statistics', 'GET',
@@ -525,8 +525,8 @@ export default class PipelinesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetAllPipelines;
       return this.apiClient.callApi(
         '/pipelines', 'GET',
@@ -568,7 +568,7 @@ export default class PipelinesApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -578,17 +578,17 @@ export default class PipelinesApi {
         'name': opts['name'],
         'deal_probability': opts['dealProbability'],
         'order_nr': opts['orderNr'],
-        'active': opts['active']
+        'active': opts['active'],
       };
 
       let formParamArray = [
         'name',
         'dealProbability',
         'orderNr',
-        'active'
+        'active',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -599,8 +599,8 @@ export default class PipelinesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = EditPipeline;
       return this.apiClient.callApi(
         '/pipelines/{id}', 'PUT',

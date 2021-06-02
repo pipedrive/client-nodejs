@@ -49,7 +49,7 @@ export default class CurrenciesApi {
       let pathParams = {
       };
       let queryParams = {
-        'term': opts['term']
+        'term': opts['term'],
       };
       let headerParams = {
       };
@@ -70,8 +70,8 @@ export default class CurrenciesApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = Currencies;
       return this.apiClient.callApi(
         '/currencies', 'GET',

@@ -78,16 +78,16 @@ export default class UsersApi {
       let formParams = {
         'name': name,
         'email': email,
-        'active_flag': activeFlag
+        'active_flag': activeFlag,
       };
 
       let formParamArray = [
         'name',
         'email',
-        'activeFlag'
+        'activeFlag',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -98,8 +98,8 @@ export default class UsersApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = User;
       return this.apiClient.callApi(
         '/users', 'POST',
@@ -143,21 +143,21 @@ export default class UsersApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
       let headerParams = {
       };
       let formParams = {
-        'address': address
+        'address': address,
       };
 
       let formParamArray = [
-        'address'
+        'address',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -168,8 +168,8 @@ export default class UsersApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = Object;
       return this.apiClient.callApi(
         '/users/{id}/blacklistedEmails', 'POST',
@@ -212,21 +212,21 @@ export default class UsersApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
       let headerParams = {
       };
       let formParams = {
-        'role_id': roleId
+        'role_id': roleId,
       };
 
       let formParamArray = [
-        'roleId'
+        'roleId',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -237,8 +237,8 @@ export default class UsersApi {
         }
       }
 
-      let authNames = ['api_key'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', ];
+      let accepts = ['application/json', ];
       let returnType = PostRoleAssignment;
       return this.apiClient.callApi(
         '/users/{id}/roleAssignments', 'POST',
@@ -281,10 +281,10 @@ export default class UsersApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
-        'role_id': roleId
+        'role_id': roleId,
       };
       let headerParams = {
       };
@@ -305,8 +305,8 @@ export default class UsersApi {
         }
       }
 
-      let authNames = ['api_key'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', ];
+      let accepts = ['application/json', ];
       let returnType = DeleteRoleAssignment;
       return this.apiClient.callApi(
         '/users/{id}/roleAssignments', 'DELETE',
@@ -350,7 +350,7 @@ export default class UsersApi {
       };
       let queryParams = {
         'term': term,
-        'search_by_email': opts['searchByEmail']
+        'search_by_email': opts['searchByEmail'],
       };
       let headerParams = {
       };
@@ -371,8 +371,8 @@ export default class UsersApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = Users;
       return this.apiClient.callApi(
         '/users/find', 'GET',
@@ -428,8 +428,8 @@ export default class UsersApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = UserMe;
       return this.apiClient.callApi(
         '/users/me', 'GET',
@@ -465,7 +465,7 @@ export default class UsersApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -488,8 +488,8 @@ export default class UsersApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = User;
       return this.apiClient.callApi(
         '/users/{id}', 'GET',
@@ -526,7 +526,7 @@ export default class UsersApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -549,8 +549,8 @@ export default class UsersApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = Object;
       return this.apiClient.callApi(
         '/users/{id}/blacklistedEmails', 'GET',
@@ -587,7 +587,7 @@ export default class UsersApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -610,8 +610,8 @@ export default class UsersApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = UserIDs;
       return this.apiClient.callApi(
         '/users/{id}/followers', 'GET',
@@ -648,7 +648,7 @@ export default class UsersApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -671,8 +671,8 @@ export default class UsersApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = UserPermissions;
       return this.apiClient.callApi(
         '/users/{id}/permissions', 'GET',
@@ -713,11 +713,11 @@ export default class UsersApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
         'start': opts['start'],
-        'limit': opts['limit']
+        'limit': opts['limit'],
       };
       let headerParams = {
       };
@@ -738,8 +738,8 @@ export default class UsersApi {
         }
       }
 
-      let authNames = ['api_key'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', ];
+      let accepts = ['application/json', ];
       let returnType = GetRoleAssignments;
       return this.apiClient.callApi(
         '/users/{id}/roleAssignments', 'GET',
@@ -779,7 +779,7 @@ export default class UsersApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
@@ -802,8 +802,8 @@ export default class UsersApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = GetRoleSettings;
       return this.apiClient.callApi(
         '/users/{id}/roleSettings', 'GET',
@@ -857,8 +857,8 @@ export default class UsersApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = Users;
       return this.apiClient.callApi(
         '/users', 'GET',
@@ -899,21 +899,21 @@ export default class UsersApi {
       }
 
       let pathParams = {
-        'id': id
+        'id': id,
       };
       let queryParams = {
       };
       let headerParams = {
       };
       let formParams = {
-        'active_flag': activeFlag
+        'active_flag': activeFlag,
       };
 
       let formParamArray = [
-        'activeFlag'
+        'activeFlag',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded'];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
       if (isUrlEncoded) {
@@ -924,8 +924,8 @@ export default class UsersApi {
         }
       }
 
-      let authNames = ['api_key', 'oauth2'];
-      let accepts = ['application/json'];
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
       let returnType = User;
       return this.apiClient.callApi(
         '/users/{id}', 'PUT',
