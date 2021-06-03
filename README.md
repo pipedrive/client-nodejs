@@ -301,7 +301,6 @@ Tests can be run in a number of ways:
 * [ProductsController](#products_controller)
 * [RecentsController](#recents_controller)
 * [RolesController](#roles_controller)
-* [SearchResultsController](#search_results_controller)
 * [StagesController](#stages_controller)
 * [TeamsController](#teams_controller)
 * [UserConnectionsController](#user_connections_controller)
@@ -1178,42 +1177,6 @@ function searchDeals(input, callback)
     
     });
 ```
-
-
-
-### <a name="find_deals_by_name"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.findDealsByName") findDealsByName
-
-> Searches all deals by their title.
-
-
-```javascript
-function findDealsByName(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| term |  ``` Required ```  | Search term to look for |
-| personId |  ``` Optional ```  | ID of the person the Deal is associated with. |
-| orgId |  ``` Optional ```  | ID of the organization the Deal is associated with. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = {};
-        input['term'] = 'term';
-        input['personId'] = 58;
-        input['orgId'] = 58;
-
-    controller.findDealsByName(input, function(error, response, context) {
-
-    
-    });
-```
-
 
 
 ### <a name="get_deals_summary"></a>![Method: ](https://apidocs.io/img/method.png ".DealsController.getDealsSummary") getDealsSummary
@@ -3954,42 +3917,6 @@ function searchOrganization(input, callback)
 ```
 
 
-
-### <a name="find_organizations_by_name"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.findOrganizationsByName") findOrganizationsByName
-
-> Searches all organizations by their name.
-
-
-```javascript
-function findOrganizationsByName(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| term |  ``` Required ```  | Search term to look for |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = {};
-        input['term'] = 'term';
-        input['start'] = 58;
-        input['limit'] = 58;
-
-    controller.findOrganizationsByName(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
 ### <a name="delete_an_organization"></a>![Method: ](https://apidocs.io/img/method.png ".OrganizationsController.deleteAnOrganization") deleteAnOrganization
 
 > Marks an organization as deleted.
@@ -4942,46 +4869,6 @@ function searchPersons(input, callback)
     
     });
 ```
-
-
-
-### <a name="find_persons_by_name"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.findPersonsByName") findPersonsByName
-
-> Searches all persons by their name.
-
-
-```javascript
-function findPersonsByName(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| term |  ``` Required ```  | Search term to look for |
-| orgId |  ``` Optional ```  | ID of the organization person is associated with. |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| searchByEmail |  ``` Optional ```  | When enabled, term will only be matched against email addresses of people. Default: false |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = {};
-        input['term'] = 'term';
-        input['orgId'] = 16;
-        input['start'] = 16;
-        input['limit'] = 16;
-        input['searchByEmail'] = Object.keys(NumberBoolean)[0];
-
-    controller.findPersonsByName(input, function(error, response, context) {
-
-    
-    });
-```
-
 
 
 ### <a name="delete_a_person"></a>![Method: ](https://apidocs.io/img/method.png ".PersonsController.deleteAPerson") deleteAPerson
@@ -6168,43 +6055,6 @@ function searchProducts(input, callback)
 
 
 
-### <a name="find_products_by_name"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.findProductsByName") findProductsByName
-
-> Returns data about the products that were found. If currency was set in request, prices in that currency are served back.
-
-
-```javascript
-function findProductsByName(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| term |  ``` Required ```  | Search term to look for, minimum 3 characters. |
-| currency |  ``` Optional ```  | Currency code in which prices should be returned in. If omitted, prices in user's default currency will be returned. |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = {};
-        input['term'] = 'term';
-        input['currency'] = 'currency';
-        input['start'] = 16;
-        input['limit'] = 16;
-
-    controller.findProductsByName(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
 ### <a name="delete_a_product"></a>![Method: ](https://apidocs.io/img/method.png ".ProductsController.deleteAProduct") deleteAProduct
 
 > Marks a product as deleted.
@@ -6932,102 +6782,6 @@ function addOrUpdateRoleSetting(input, callback)
         input['value'] = Object.keys(NumberBoolean)[0];
 
     controller.addOrUpdateRoleSetting(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="search_results_controller"></a>![Class: ](https://apidocs.io/img/class.png ".SearchResultsController") SearchResultsController
-
-### Get singleton instance
-
-The singleton instance of the ``` SearchResultsController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.SearchResultsController;
-```
-
-### <a name="get_perform_a_search"></a>![Method: ](https://apidocs.io/img/method.png ".SearchResultsController.getPerformASearch") getPerformASearch
-
-> Performs a search across the account and returns SearchResults.
-
-
-```javascript
-function getPerformASearch(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| term |  ``` Required ```  | Search term to look for, minimum 2 characters. |
-| itemType |  ``` Optional ```  | Search for items of exact type. If omitted, all types of items are searched. |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. The minimum 2 character limit for the term is discarded when exactMatch is enabled. It will only work if search term is 30 characters or less. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = {};
-        input['term'] = 'term';
-        input['itemType'] = Object.keys(item_type2)[0];
-        input['start'] = 16;
-        input['limit'] = 16;
-        input['exactMatch'] = Object.keys(NumberBoolean)[0];
-
-    controller.getPerformASearch(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_perform_a_search_using_a_specific_field_value"></a>![Method: ](https://apidocs.io/img/method.png ".SearchResultsController.getPerformASearchUsingASpecificFieldValue") getPerformASearchUsingASpecificFieldValue
-
-> Performs a search from a specific field's values. Results can be either the distinct values of the field (useful for searching autocomplete field values), or actual items IDs (deals, persons, organizations or products). Works only with the following field types: varchar, varchar_auto, double, address, text, phone, date.
-
-
-```javascript
-function getPerformASearchUsingASpecificFieldValue(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| term |  ``` Required ```  | Search term to look for, minimum 2 characters. |
-| fieldType |  ``` Required ```  | Type of the field to perform the search from. |
-| fieldKey |  ``` Required ```  | Key of the field to search from. Field key can be obtained by fetching the list of fields using any of fields API GET methods (dealFields, personFields, ..). |
-| exactMatch |  ``` Optional ```  | When enabled, only full exact matches against the given term are returned. By default, term can be present anywhere in the resulting field values to be considered a match. The minimum 2 character limit for the term is discarded when exactMatch is enabled. |
-| returnFieldKey |  ``` Optional ```  | Name of the field in search results from which the search was performed. When omitted, 'value' will be used. You may want to set this parameter to match the field_key. |
-| returnItemIds |  ``` Optional ```  | Whether to return matching items IDs in search results. When omitted or set to 0, only distinct values of the searched field are returned. When enabled, the return_field_key parameter is ignored and the results include the searched field as its own key. |
-| start |  ``` Optional ```  ``` DefaultValue ```  | Pagination start |
-| limit |  ``` Optional ```  | Items shown per page |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = {};
-        input['term'] = 'term';
-        input['fieldType'] = Object.keys(field_type6)[0];
-        input['fieldKey'] = field_key;
-        input['exactMatch'] = Object.keys(NumberBoolean)[0];
-        input['returnFieldKey'] = return_field_key;
-        input['returnItemIds'] = Object.keys(NumberBoolean)[0];
-        input['start'] = 16;
-        input['limit'] = 16;
-
-    controller.getPerformASearchUsingASpecificFieldValue(input, function(error, response, context) {
 
     
     });
