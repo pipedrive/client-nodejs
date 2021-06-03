@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+* Deleted `MailThreads` and `MailMessages` from API operation groups and combined them under `Mailbox` group.
+* Extracted `LeadLabels` and `LeadSources` API operation groups from `Leads` group.
 ### Added
 * Added support for custom fields for `Content-Type: application/x-www-form-urlencoded`
 ### Deleted
