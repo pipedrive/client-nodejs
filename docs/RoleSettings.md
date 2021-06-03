@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **dealDefaultVisibility** | **Number** | The default visibility level of the Deals for the Role | [optional] 
+**leadDefaultVisibility** | **Number** | The default visibility level of the Leads for the Role | [optional] 
 **orgDefaultVisibility** | **Number** | The default visibility level of the Organizations for the Role | [optional] 
 **personDefaultVisibility** | **Number** | The default visibility level of the People for the Role | [optional] 
 **productDefaultVisibility** | **Number** | The default visibility level of the Products for the Role | [optional] 
