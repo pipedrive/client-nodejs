@@ -98,9 +98,12 @@ export default class NotesApi {
       ];
 
       let contentTypes = ['application/x-www-form-urlencoded', ];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -170,9 +173,12 @@ export default class NotesApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -231,9 +237,12 @@ export default class NotesApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -316,9 +325,12 @@ export default class NotesApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -430,9 +442,12 @@ export default class NotesApi {
       ];
 
       let contentTypes = ['application/x-www-form-urlencoded', ];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
