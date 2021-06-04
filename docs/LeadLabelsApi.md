@@ -34,9 +34,9 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.LeadLabelsApi();
-let opts = {
-  'addLeadLabelRequest': new Pipedrive.AddLeadLabelRequest() // AddLeadLabelRequest | 
-};
+let opts = Pipedrive.AddLeadLabelRequest.constructFromObject({
+  // Properties that you want to update
+});
 apiInstance.addLeadLabel(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -192,9 +192,9 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.LeadLabelsApi();
 let id = null; // String | The ID of the Lead Label
-let opts = {
-  'updateLeadLabelRequest': new Pipedrive.UpdateLeadLabelRequest() // UpdateLeadLabelRequest | 
-};
+let opts = Pipedrive.UpdateLeadLabelRequest.constructFromObject({
+  // Properties that you want to update
+});
 apiInstance.updateLeadLabel(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {

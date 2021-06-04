@@ -35,9 +35,9 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.CallLogsApi();
-let opts = {
-  'callLogObject': new Pipedrive.CallLogObject() // CallLogObject | 
-};
+let opts = Pipedrive.CallLogObject.constructFromObject({
+  // Properties that you want to update
+});
 apiInstance.addCallLog(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {

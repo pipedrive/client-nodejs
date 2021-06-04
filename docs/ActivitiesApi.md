@@ -36,9 +36,9 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ActivitiesApi();
-let opts = {
-  'activityPostObject': new Pipedrive.ActivityPostObject() // ActivityPostObject | 
-};
+let opts = Pipedrive.ActivityPostObject.constructFromObject({
+  // Properties that you want to update
+});
 apiInstance.addActivity(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -320,9 +320,9 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ActivitiesApi();
 let id = 56; // Number | The ID of the Activity
-let opts = {
-  'activityPutObject': new Pipedrive.ActivityPutObject() // ActivityPutObject | 
-};
+let opts = Pipedrive.ActivityPutObject.constructFromObject({
+  // Properties that you want to update
+});
 apiInstance.updateActivity(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
