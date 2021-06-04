@@ -35,6 +35,3 @@ node_modules
 .openapi-generator
 .idea
 dist
-.travis.yml
-mocha.opts
-git_push.sh
