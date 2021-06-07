@@ -112,6 +112,7 @@ export default class ActivitiesApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteActivitiesResponse200} and HTTP response
      */
     deleteActivitiesWithHttpInfo(ids) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'ids' is set
       if (ids === undefined || ids === null) {
@@ -176,6 +177,7 @@ export default class ActivitiesApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteActivityResponse200} and HTTP response
      */
     deleteActivityWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -324,6 +326,7 @@ export default class ActivitiesApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetActivityResponse200} and HTTP response
      */
     getActivityWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {

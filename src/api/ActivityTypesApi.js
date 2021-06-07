@@ -125,6 +125,7 @@ export default class ActivityTypesApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ActivityTypeCreateUpdateDeleteResponse} and HTTP response
      */
     deleteActivityTypeWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -189,6 +190,7 @@ export default class ActivityTypesApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ActivityTypeBulkDeleteResponse} and HTTP response
      */
     deleteActivityTypesWithHttpInfo(ids) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'ids' is set
       if (ids === undefined || ids === null) {
@@ -252,6 +254,7 @@ export default class ActivityTypesApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ActivityTypeListResponse} and HTTP response
      */
     getActivityTypesWithHttpInfo() {
+      const opts = {}
       let postBody = null;
 
       let pathParams = {

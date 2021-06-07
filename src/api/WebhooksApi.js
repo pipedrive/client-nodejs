@@ -143,6 +143,7 @@ export default class WebhooksApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BaseResponseWithStatus} and HTTP response
      */
     deleteWebhookWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -206,6 +207,7 @@ export default class WebhooksApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Webhooks} and HTTP response
      */
     getWebhooksWithHttpInfo() {
+      const opts = {}
       let postBody = null;
 
       let pathParams = {

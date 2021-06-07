@@ -42,6 +42,7 @@ export default class UserSettingsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UserSettings} and HTTP response
      */
     getUserSettingsWithHttpInfo() {
+      const opts = {}
       let postBody = null;
 
       let pathParams = {

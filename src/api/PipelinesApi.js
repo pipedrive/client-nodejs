@@ -126,6 +126,7 @@ export default class PipelinesApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeletePipelineResponse200} and HTTP response
      */
     deletePipelineWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -518,6 +519,7 @@ export default class PipelinesApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetAllPipelines} and HTTP response
      */
     getPipelinesWithHttpInfo() {
+      const opts = {}
       let postBody = null;
 
       let pathParams = {

@@ -42,6 +42,7 @@ export default class UserConnectionsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UserConnections} and HTTP response
      */
     getUserConnectionsWithHttpInfo() {
+      const opts = {}
       let postBody = null;
 
       let pathParams = {
