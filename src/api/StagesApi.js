@@ -128,6 +128,7 @@ export default class StagesApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteStageResponse200} and HTTP response
      */
     deleteStageWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -192,6 +193,7 @@ export default class StagesApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteStagesResponse200} and HTTP response
      */
     deleteStagesWithHttpInfo(ids) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'ids' is set
       if (ids === undefined || ids === null) {
@@ -256,6 +258,7 @@ export default class StagesApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetOneStage} and HTTP response
      */
     getStageWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {

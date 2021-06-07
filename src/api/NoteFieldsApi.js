@@ -41,6 +41,7 @@ export default class NoteFieldsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/NoteFieldsResponse} and HTTP response
      */
     getNoteFieldsWithHttpInfo() {
+      const opts = {}
       let postBody = null;
 
       let pathParams = {

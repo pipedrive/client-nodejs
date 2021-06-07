@@ -41,6 +41,7 @@ export default class ActivityFieldsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/FieldsResponse} and HTTP response
      */
     getActivityFieldsWithHttpInfo() {
+      const opts = {}
       let postBody = null;
 
       let pathParams = {

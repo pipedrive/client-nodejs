@@ -110,6 +110,7 @@ export default class ProductFieldsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteProductFieldResponse} and HTTP response
      */
     deleteProductFieldWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -174,6 +175,7 @@ export default class ProductFieldsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteMultipleProductFieldsResponse} and HTTP response
      */
     deleteProductFieldsWithHttpInfo(ids) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'ids' is set
       if (ids === undefined || ids === null) {
@@ -238,6 +240,7 @@ export default class ProductFieldsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetProductFieldResponse} and HTTP response
      */
     getProductFieldWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -301,6 +304,7 @@ export default class ProductFieldsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetAllProductFieldsResponse} and HTTP response
      */
     getProductFieldsWithHttpInfo() {
+      const opts = {}
       let postBody = null;
 
       let pathParams = {

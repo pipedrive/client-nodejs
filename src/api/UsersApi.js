@@ -55,6 +55,7 @@ export default class UsersApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/User} and HTTP response
      */
     addUserWithHttpInfo(name, email, activeFlag) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'name' is set
       if (name === undefined || name === null) {
@@ -135,6 +136,7 @@ export default class UsersApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
      */
     addUserBlacklistedEmailWithHttpInfo(id, address) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -207,6 +209,7 @@ export default class UsersApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostRoleAssignment} and HTTP response
      */
     addUserRoleAssignmentWithHttpInfo(id, roleId) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -279,6 +282,7 @@ export default class UsersApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteRoleAssignment} and HTTP response
      */
     deleteUserRoleAssignmentWithHttpInfo(id, roleId) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -418,6 +422,7 @@ export default class UsersApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UserMe} and HTTP response
      */
     getCurrentUserWithHttpInfo() {
+      const opts = {}
       let postBody = null;
 
       let pathParams = {
@@ -476,6 +481,7 @@ export default class UsersApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/User} and HTTP response
      */
     getUserWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -540,6 +546,7 @@ export default class UsersApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
      */
     getUserBlacklistedEmailsWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -604,6 +611,7 @@ export default class UsersApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UserIDs} and HTTP response
      */
     getUserFollowersWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -668,6 +676,7 @@ export default class UsersApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UserPermissions} and HTTP response
      */
     getUserPermissionsWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -805,6 +814,7 @@ export default class UsersApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetRoleSettings} and HTTP response
      */
     getUserRoleSettingsWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -868,6 +878,7 @@ export default class UsersApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Users} and HTTP response
      */
     getUsersWithHttpInfo() {
+      const opts = {}
       let postBody = null;
 
       let pathParams = {
@@ -927,6 +938,7 @@ export default class UsersApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/User} and HTTP response
      */
     updateUserWithHttpInfo(id, activeFlag) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {

@@ -43,6 +43,7 @@ export default class GlobalMessagesApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GlobalMessageDelete} and HTTP response
      */
     deleteGlobalMessageWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {

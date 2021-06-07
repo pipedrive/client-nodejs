@@ -122,6 +122,7 @@ export default class OrganizationRelationshipsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationRelationshipDeleteResponse} and HTTP response
      */
     deleteOrganizationRelationshipWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -186,6 +187,7 @@ export default class OrganizationRelationshipsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AllOrganizationRelationshipsGetResponse} and HTTP response
      */
     getOrganizationRelationShipsWithHttpInfo(orgId) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'orgId' is set
       if (orgId === undefined || orgId === null) {

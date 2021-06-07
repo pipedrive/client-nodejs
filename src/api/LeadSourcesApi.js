@@ -41,6 +41,7 @@ export default class LeadSourcesApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetLeadSourcesResponse200} and HTTP response
      */
     getLeadSourcesWithHttpInfo() {
+      const opts = {}
       let postBody = null;
 
       let pathParams = {

@@ -53,11 +53,6 @@ class RoleSettings {
 
                 delete data['deal_default_visibility'];
             }
-            if (data.hasOwnProperty('lead_default_visibility')) {
-                obj['lead_default_visibility'] = ApiClient.convertToType(data['lead_default_visibility'], 'Number');
-
-                delete data['lead_default_visibility'];
-            }
             if (data.hasOwnProperty('org_default_visibility')) {
                 obj['org_default_visibility'] = ApiClient.convertToType(data['org_default_visibility'], 'Number');
 
@@ -110,12 +105,6 @@ class RoleSettings {
  * @member {Number} deal_default_visibility
  */
 RoleSettings.prototype['deal_default_visibility'] = undefined;
-
-/**
- * The default visibility level of the Leads for the Role
- * @member {Number} lead_default_visibility
- */
-RoleSettings.prototype['lead_default_visibility'] = undefined;
 
 /**
  * The default visibility level of the Organizations for the Role

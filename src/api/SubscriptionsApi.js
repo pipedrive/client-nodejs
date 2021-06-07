@@ -241,6 +241,7 @@ export default class SubscriptionsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SubscriptionsIdResponse} and HTTP response
      */
     deleteSubscriptionWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -305,6 +306,7 @@ export default class SubscriptionsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SubscriptionsIdResponse} and HTTP response
      */
     findSubscriptionByDealWithHttpInfo(dealId) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'dealId' is set
       if (dealId === undefined || dealId === null) {
@@ -369,6 +371,7 @@ export default class SubscriptionsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SubscriptionsIdResponse} and HTTP response
      */
     getSubscriptionWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -433,6 +436,7 @@ export default class SubscriptionsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PaymentsResponse} and HTTP response
      */
     getSubscriptionPaymentsWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {

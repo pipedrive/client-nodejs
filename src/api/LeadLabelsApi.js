@@ -109,6 +109,7 @@ export default class LeadLabelsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/LeadIdResponse200} and HTTP response
      */
     deleteLeadLabelWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -172,6 +173,7 @@ export default class LeadLabelsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetLeadLabelsResponse200} and HTTP response
      */
     getLeadLabelsWithHttpInfo() {
+      const opts = {}
       let postBody = null;
 
       let pathParams = {

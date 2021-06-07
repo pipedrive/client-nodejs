@@ -125,6 +125,7 @@ export default class PersonsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddFollowerToPersonResponse} and HTTP response
      */
     addPersonFollowerWithHttpInfo(id, userId) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -287,6 +288,7 @@ export default class PersonsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeletePersonResponse} and HTTP response
      */
     deletePersonWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -352,6 +354,7 @@ export default class PersonsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeletePersonResponse} and HTTP response
      */
     deletePersonFollowerWithHttpInfo(id, followerId) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -422,6 +425,7 @@ export default class PersonsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeletePersonResponse} and HTTP response
      */
     deletePersonPictureWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -628,6 +632,7 @@ export default class PersonsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetPersonDetailsResponse} and HTTP response
      */
     getPersonWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -929,6 +934,7 @@ export default class PersonsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListFollowersResponse} and HTTP response
      */
     getPersonFollowersWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -1218,6 +1224,7 @@ export default class PersonsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListPermittedUsersResponse1} and HTTP response
      */
     getPersonUsersWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -1361,6 +1368,7 @@ export default class PersonsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MergePersonsResponse} and HTTP response
      */
     mergePersonsWithHttpInfo(id, mergeWithId) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
