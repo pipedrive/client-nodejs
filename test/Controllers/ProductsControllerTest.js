@@ -15,7 +15,6 @@ const testConfiguration = require("../TestBootstrap");
 
 const controller = testerlib.ProductsController;
 const Product = testerlib.Product;
-const FindProductsByNameResponse = testerlib.FindProductsByNameResponse;
 const NumberBooleanEnum = testerlib.NumberBooleanEnum;
 const VisibleToEnum = testerlib.VisibleToEnum;
 const BasicDeal = testerlib.BasicDeal;

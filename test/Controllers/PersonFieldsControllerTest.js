@@ -61,7 +61,6 @@ const Pipeline = testerlib.Pipeline;
 const Product = testerlib.Product;
 const NewFollowerResponse = testerlib.NewFollowerResponse;
 const DeleteProductFollowerResponse = testerlib.DeleteProductFollowerResponse;
-const FindProductsByNameResponse = testerlib.FindProductsByNameResponse;
 const BasicProductField = testerlib.BasicProductField;
 const NewProductField = testerlib.NewProductField;
 const ProductField = testerlib.ProductField;
