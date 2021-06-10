@@ -70,6 +70,11 @@ class DealPersonData {
 
                 delete data['phone'];
             }
+            if (data.hasOwnProperty('owner_id')) {
+                obj['owner_id'] = ApiClient.convertToType(data['owner_id'], 'Number');
+
+                delete data['owner_id'];
+            }
 
             if (Object.keys(data).length > 0) {
                 obj['extra'] = data;
@@ -105,6 +110,12 @@ DealPersonData.prototype['email'] = undefined;
  * @member {Array.<module:model/DealPersonDataPhone>} phone
  */
 DealPersonData.prototype['phone'] = undefined;
+
+/**
+ * The ID of the owner of the Person that is associated with the Deal
+ * @member {Number} owner_id
+ */
+DealPersonData.prototype['owner_id'] = undefined;
 
 
 

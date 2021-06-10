@@ -51,9 +51,9 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi();
-let opts = Pipedrive.NewPerson.constructFromObject({
-  // Properties that you want to update
-});
+let opts = {
+  'newPerson': new Pipedrive.NewPerson() // NewPerson | 
+};
 apiInstance.addPerson(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -1213,9 +1213,9 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi();
 let id = 56; // Number | ID of a person
-let opts = Pipedrive.BasicPerson.constructFromObject({
-  // Properties that you want to update
-});
+let opts = {
+  'basicPerson': new Pipedrive.BasicPerson() // BasicPerson | 
+};
 apiInstance.updatePerson(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {

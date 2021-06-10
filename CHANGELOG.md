@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Changed
+* Extended `DELETE /calllogs/{id}` security with `api_key` property.
+* Extended `POST /callLogs/{id}/recordings` security with `api_key` property.
+##  [0.1.1] - 2021-06-02
+### Changed
+* Extended `GET /v1/roles/{id}/settings` response with `lead_default_visibility` property.
+* Extended `POST /v1/roles/{id}/settings` request payload with  `lead_default_visibility` property.
+### Changed
 * Deleted `MailThreads` and `MailMessages` from API operation groups and combined them under `Mailbox` group.
 * Extracted `LeadLabels` and `LeadSources` API operation groups from `Leads` group.
 ### Added

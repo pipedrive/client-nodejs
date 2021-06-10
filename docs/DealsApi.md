@@ -248,9 +248,9 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealsApi();
 let id = 56; // Number | ID of the deal
-let opts = Pipedrive.NewDealProduct.constructFromObject({
-  // Properties that you want to update
-});
+let opts = {
+  'newDealProduct': new Pipedrive.NewDealProduct() // NewDealProduct | 
+};
 apiInstance.addDealProduct(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -1672,9 +1672,9 @@ api_key.apiKey = 'YOUR API KEY';
 let apiInstance = new Pipedrive.DealsApi();
 let id = 56; // Number | ID of the deal
 let productAttachmentId = 56; // Number | ID of the deal-product (the ID of the product attached to the deal)
-let opts = Pipedrive.BasicDealProduct.constructFromObject({
-  // Properties that you want to update
-});
+let opts = {
+  'basicDealProduct': new Pipedrive.BasicDealProduct() // BasicDealProduct | 
+};
 apiInstance.updateDealProduct(id, productAttachmentId, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {

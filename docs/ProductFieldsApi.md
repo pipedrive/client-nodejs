@@ -36,9 +36,9 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductFieldsApi();
-let opts = Pipedrive.NewProductField.constructFromObject({
-  // Properties that you want to update
-});
+let opts = {
+  'newProductField': new Pipedrive.NewProductField() // NewProductField | 
+};
 apiInstance.addProductField(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -300,9 +300,9 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductFieldsApi();
 let id = 56; // Number | ID of the Product Field
-let opts = Pipedrive.BasicProductField.constructFromObject({
-  // Properties that you want to update
-});
+let opts = {
+  'basicProductField': new Pipedrive.BasicProductField() // BasicProductField | 
+};
 apiInstance.updateProductField(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {

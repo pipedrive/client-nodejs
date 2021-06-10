@@ -43,9 +43,9 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductsApi();
-let opts = Pipedrive.AddProductRequestBody.constructFromObject({
-  // Properties that you want to update
-});
+let opts = {
+  'addProductRequestBody': new Pipedrive.AddProductRequestBody() // AddProductRequestBody | 
+};
 apiInstance.addProduct(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -96,9 +96,9 @@ api_key.apiKey = 'YOUR API KEY';
 
 let apiInstance = new Pipedrive.ProductsApi();
 let id = 56; // Number | ID of the product
-let opts = Pipedrive.AddProductFollowerRequest.constructFromObject({
-  // Properties that you want to update
-});
+let opts = {
+  'addProductFollowerRequest': new Pipedrive.AddProductFollowerRequest() // AddProductFollowerRequest | 
+};
 apiInstance.addProductFollower(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -727,9 +727,9 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductsApi();
 let id = 56; // Number | ID of the product
-let opts = Pipedrive.ProductRequest.constructFromObject({
-  // Properties that you want to update
-});
+let opts = {
+  'productRequest': new Pipedrive.ProductRequest() // ProductRequest | 
+};
 apiInstance.updateProduct(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
