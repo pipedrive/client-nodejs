@@ -75,6 +75,11 @@ class DealPersonDataWithId {
 
                 delete data['phone'];
             }
+            if (data.hasOwnProperty('owner_id')) {
+                obj['owner_id'] = ApiClient.convertToType(data['owner_id'], 'Number');
+
+                delete data['owner_id'];
+            }
             if (data.hasOwnProperty('value')) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
 
@@ -117,6 +122,12 @@ DealPersonDataWithId.prototype['email'] = undefined;
 DealPersonDataWithId.prototype['phone'] = undefined;
 
 /**
+ * The ID of the owner of the Person that is associated with the Deal
+ * @member {Number} owner_id
+ */
+DealPersonDataWithId.prototype['owner_id'] = undefined;
+
+/**
  * The ID of the Person associated with the Deal
  * @member {Number} value
  */
@@ -144,6 +155,11 @@ DealPersonData.prototype['email'] = undefined;
  * @member {Array.<module:model/DealPersonDataPhone>} phone
  */
 DealPersonData.prototype['phone'] = undefined;
+/**
+ * The ID of the owner of the Person that is associated with the Deal
+ * @member {Number} owner_id
+ */
+DealPersonData.prototype['owner_id'] = undefined;
 // Implement DealPersonDataWithIdAllOf interface:
 /**
  * The ID of the Person associated with the Deal

@@ -69,6 +69,11 @@ class PersonData {
 
                 delete data['phone'];
             }
+            if (data.hasOwnProperty('owner_id')) {
+                obj['owner_id'] = ApiClient.convertToType(data['owner_id'], 'Number');
+
+                delete data['owner_id'];
+            }
 
             if (Object.keys(data).length > 0) {
                 obj['extra'] = data;
@@ -104,6 +109,12 @@ PersonData.prototype['email'] = undefined;
  * @member {Array.<module:model/PersonDataPhone>} phone
  */
 PersonData.prototype['phone'] = undefined;
+
+/**
+ * The ID of the owner of the Person that is associated with the item
+ * @member {Number} owner_id
+ */
+PersonData.prototype['owner_id'] = undefined;
 
 
 

@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **name** | **String** | The name of the Person associated with the item | [optional] 
 **email** | [**[PersonDataEmail]**](PersonDataEmail.md) | The emails of the Person associated with the item | [optional] 
 **phone** | [**[PersonDataPhone]**](PersonDataPhone.md) | The phone numbers of the Person associated with the item | [optional] 
+**ownerId** | **Number** | The ID of the owner of the Person that is associated with the item | [optional] 
 
 

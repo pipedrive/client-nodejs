@@ -39,9 +39,9 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.SubscriptionsApi();
-let opts = Pipedrive.SubscriptionRecurringCreateRequest.constructFromObject({
-  // Properties that you want to update
-});
+let opts = {
+  'subscriptionRecurringCreateRequest': new Pipedrive.SubscriptionRecurringCreateRequest() // SubscriptionRecurringCreateRequest | 
+};
 apiInstance.addRecurringSubscription(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -94,9 +94,9 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.SubscriptionsApi();
-let opts = Pipedrive.SubscriptionInstallmentCreateRequest.constructFromObject({
-  // Properties that you want to update
-});
+let opts = {
+  'subscriptionInstallmentCreateRequest': new Pipedrive.SubscriptionInstallmentCreateRequest() // SubscriptionInstallmentCreateRequest | 
+};
 apiInstance.addSubscriptionInstallment(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -150,9 +150,9 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.SubscriptionsApi();
 let id = 56; // Number | ID of the Subscription
-let opts = Pipedrive.SubscriptionRecurringCancelRequest.constructFromObject({
-  // Properties that you want to update
-});
+let opts = {
+  'subscriptionRecurringCancelRequest': new Pipedrive.SubscriptionRecurringCancelRequest() // SubscriptionRecurringCancelRequest | 
+};
 apiInstance.cancelRecurringSubscription(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -419,9 +419,9 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.SubscriptionsApi();
 let id = 56; // Number | ID of the Subscription
-let opts = Pipedrive.SubscriptionRecurringUpdateRequest.constructFromObject({
-  // Properties that you want to update
-});
+let opts = {
+  'subscriptionRecurringUpdateRequest': new Pipedrive.SubscriptionRecurringUpdateRequest() // SubscriptionRecurringUpdateRequest | 
+};
 apiInstance.updateRecurringSubscription(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -476,9 +476,9 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.SubscriptionsApi();
 let id = 56; // Number | ID of the Subscription
-let opts = Pipedrive.SubscriptionInstallmentUpdateRequest.constructFromObject({
-  // Properties that you want to update
-});
+let opts = {
+  'subscriptionInstallmentUpdateRequest': new Pipedrive.SubscriptionInstallmentUpdateRequest() // SubscriptionInstallmentUpdateRequest | 
+};
 apiInstance.updateSubscriptionInstallment(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {

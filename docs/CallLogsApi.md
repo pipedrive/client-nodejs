@@ -35,9 +35,9 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.CallLogsApi();
-let opts = Pipedrive.CallLogObject.constructFromObject({
-  // Properties that you want to update
-});
+let opts = {
+  'callLogObject': new Pipedrive.CallLogObject() // CallLogObject | 
+};
 apiInstance.addCallLog(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -80,6 +80,11 @@ Adds an audio recording to the call log. That audio can be played by those who h
 ```javascript
 import Pipedrive from 'pipedrive';
 let defaultClient = Pipedrive.ApiClient.instance;
+// Configure API key authorization: api_key
+let api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
@@ -109,7 +114,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -130,6 +135,11 @@ Deletes a call log. If there is an audio recording attached to it, it will also 
 ```javascript
 import Pipedrive from 'pipedrive';
 let defaultClient = Pipedrive.ApiClient.instance;
+// Configure API key authorization: api_key
+let api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
 let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
@@ -157,7 +167,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 

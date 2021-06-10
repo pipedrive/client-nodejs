@@ -64,12 +64,9 @@ export default class LeadLabelsApi {
       ];
 
       let contentTypes = ['application/json', ];
-      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
-      const isJSON = contentTypes.includes('application/json');
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
-      if (isJSON) {
-        postBody = { ...postBody, ...opts };
-      } else if (isURLEncoded) {
+      if (isUrlEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -109,7 +106,6 @@ export default class LeadLabelsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/LeadIdResponse200} and HTTP response
      */
     deleteLeadLabelWithHttpInfo(id) {
-      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -130,12 +126,9 @@ export default class LeadLabelsApi {
       ];
 
       let contentTypes = [];
-      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
-      const isJSON = contentTypes.includes('application/json');
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
-      if (isJSON) {
-        postBody = { ...postBody, ...opts };
-      } else if (isURLEncoded) {
+      if (isUrlEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -173,7 +166,6 @@ export default class LeadLabelsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetLeadLabelsResponse200} and HTTP response
      */
     getLeadLabelsWithHttpInfo() {
-      const opts = {}
       let postBody = null;
 
       let pathParams = {
@@ -189,12 +181,9 @@ export default class LeadLabelsApi {
       ];
 
       let contentTypes = [];
-      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
-      const isJSON = contentTypes.includes('application/json');
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
-      if (isJSON) {
-        postBody = { ...postBody, ...opts };
-      } else if (isURLEncoded) {
+      if (isUrlEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -255,12 +244,9 @@ export default class LeadLabelsApi {
       ];
 
       let contentTypes = ['application/json', ];
-      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
-      const isJSON = contentTypes.includes('application/json');
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
-      if (isJSON) {
-        postBody = { ...postBody, ...opts };
-      } else if (isURLEncoded) {
+      if (isUrlEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];

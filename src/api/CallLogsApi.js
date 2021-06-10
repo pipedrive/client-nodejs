@@ -66,12 +66,9 @@ export default class CallLogsApi {
       ];
 
       let contentTypes = ['application/json', ];
-      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
-      const isJSON = contentTypes.includes('application/json');
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
-      if (isJSON) {
-        postBody = { ...postBody, ...opts };
-      } else if (isURLEncoded) {
+      if (isUrlEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -112,7 +109,6 @@ export default class CallLogsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BaseResponse} and HTTP response
      */
     addCallLogAudioFileWithHttpInfo(id, file) {
-      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -139,12 +135,9 @@ export default class CallLogsApi {
       ];
 
       let contentTypes = ['multipart/form-data', ];
-      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
-      const isJSON = contentTypes.includes('application/json');
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
-      if (isJSON) {
-        postBody = { ...postBody, ...opts };
-      } else if (isURLEncoded) {
+      if (isUrlEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -152,7 +145,7 @@ export default class CallLogsApi {
         }
       }
 
-      let authNames = ['oauth2', ];
+      let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
       let returnType = BaseResponse;
       return this.apiClient.callApi(
@@ -184,7 +177,6 @@ export default class CallLogsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BaseResponse} and HTTP response
      */
     deleteCallLogWithHttpInfo(id) {
-      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -205,12 +197,9 @@ export default class CallLogsApi {
       ];
 
       let contentTypes = [];
-      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
-      const isJSON = contentTypes.includes('application/json');
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
-      if (isJSON) {
-        postBody = { ...postBody, ...opts };
-      } else if (isURLEncoded) {
+      if (isUrlEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -218,7 +207,7 @@ export default class CallLogsApi {
         }
       }
 
-      let authNames = ['oauth2', ];
+      let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
       let returnType = BaseResponse;
       return this.apiClient.callApi(
@@ -249,7 +238,6 @@ export default class CallLogsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BaseResponse} and HTTP response
      */
     getCallLogWithHttpInfo(id) {
-      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -270,12 +258,9 @@ export default class CallLogsApi {
       ];
 
       let contentTypes = [];
-      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
-      const isJSON = contentTypes.includes('application/json');
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
-      if (isJSON) {
-        postBody = { ...postBody, ...opts };
-      } else if (isURLEncoded) {
+      if (isUrlEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -334,12 +319,9 @@ export default class CallLogsApi {
       ];
 
       let contentTypes = [];
-      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
-      const isJSON = contentTypes.includes('application/json');
+      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
 
-      if (isJSON) {
-        postBody = { ...postBody, ...opts };
-      } else if (isURLEncoded) {
+      if (isUrlEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];

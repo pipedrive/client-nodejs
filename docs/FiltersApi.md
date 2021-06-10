@@ -37,9 +37,9 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.FiltersApi();
-let opts = Pipedrive.AddFilterRequest.constructFromObject({
-  // Properties that you want to update
-});
+let opts = {
+  'addFilterRequest': new Pipedrive.AddFilterRequest() // AddFilterRequest | 
+};
 apiInstance.addFilter(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -353,9 +353,9 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.FiltersApi();
 let id = 56; // Number | The ID of the filter
-let opts = Pipedrive.UpdateFilterRequest.constructFromObject({
-  // Properties that you want to update
-});
+let opts = {
+  'updateFilterRequest': new Pipedrive.UpdateFilterRequest() // UpdateFilterRequest | 
+};
 apiInstance.updateFilter(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
