@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+* `Team` (singular) schema for endpoints that deal with a signle team
+### Changed
+* `TeamSuccess` response schema to refer to `Team` (singular) instead of `Teams` (plural)
 ### Changed
 * Extended `DELETE /calllogs/{id}` security with `api_key` property.
 * Extended `POST /callLogs/{id}/recordings` security with `api_key` property.

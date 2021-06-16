@@ -1137,6 +1137,8 @@ Class | Method | HTTP request | Description
  - [Pipedrive.SubscriptionRecurringUpdateRequest](docs/SubscriptionRecurringUpdateRequest.md)
  - [Pipedrive.SubscriptionsIdResponse](docs/SubscriptionsIdResponse.md)
  - [Pipedrive.SubscriptionsIdResponseAllOf](docs/SubscriptionsIdResponseAllOf.md)
+ - [Pipedrive.Team](docs/Team.md)
+ - [Pipedrive.TeamAllOf](docs/TeamAllOf.md)
  - [Pipedrive.TeamId](docs/TeamId.md)
  - [Pipedrive.Teams](docs/Teams.md)
  - [Pipedrive.TeamsAllOf](docs/TeamsAllOf.md)

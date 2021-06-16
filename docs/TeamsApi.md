@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## addTeam
 
-> Teams addTeam(opts)
+> Team addTeam(opts)
 
 Add a new team
 
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Teams**](Teams.md)
+[**Team**](Team.md)
 
 ### Authorization
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ## getTeam
 
-> Teams getTeam(id, opts)
+> Team getTeam(id, opts)
 
 Get a single team
 
@@ -229,7 +229,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Teams**](Teams.md)
+[**Team**](Team.md)
 
 ### Authorization
 
@@ -412,7 +412,7 @@ Name | Type | Description  | Notes
 
 ## updateTeam
 
-> Teams updateTeam(id, opts)
+> Team updateTeam(id, opts)
 
 Update a team
 
@@ -455,7 +455,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Teams**](Teams.md)
+[**Team**](Team.md)
 
 ### Authorization
 

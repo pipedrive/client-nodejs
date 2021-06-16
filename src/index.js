@@ -602,6 +602,8 @@ import SubscriptionRecurringCreateRequest from './model/SubscriptionRecurringCre
 import SubscriptionRecurringUpdateRequest from './model/SubscriptionRecurringUpdateRequest';
 import SubscriptionsIdResponse from './model/SubscriptionsIdResponse';
 import SubscriptionsIdResponseAllOf from './model/SubscriptionsIdResponseAllOf';
+import Team from './model/Team';
+import TeamAllOf from './model/TeamAllOf';
 import TeamId from './model/TeamId';
 import Teams from './model/Teams';
 import TeamsAllOf from './model/TeamsAllOf';
@@ -4256,6 +4258,18 @@ export {
      * @property {module:model/SubscriptionsIdResponseAllOf}
      */
     SubscriptionsIdResponseAllOf,
+
+    /**
+     * The Team model constructor.
+     * @property {module:model/Team}
+     */
+    Team,
+
+    /**
+     * The TeamAllOf model constructor.
+     * @property {module:model/TeamAllOf}
+     */
+    TeamAllOf,
 
     /**
      * The TeamId model constructor.

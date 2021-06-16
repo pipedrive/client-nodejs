@@ -18,6 +18,7 @@ import CreateTeam from '../model/CreateTeam';
 import DeleteTeamUserRequest from '../model/DeleteTeamUserRequest';
 import FailResponse from '../model/FailResponse';
 import NumberBooleanDefault0 from '../model/NumberBooleanDefault0';
+import Team from '../model/Team';
 import Teams from '../model/Teams';
 import UpdateTeam from '../model/UpdateTeam';
 import UserIDs from '../model/UserIDs';
@@ -47,7 +48,7 @@ export default class TeamsApi {
      * Adds a new team to the company and returns the created object
      * @param {Object} opts Optional parameters
      * @param {module:model/CreateTeam} opts.createTeam 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Teams} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Team} and HTTP response
      */
     addTeamWithHttpInfo(opts) {
       opts = opts || {};
@@ -78,7 +79,7 @@ export default class TeamsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = Teams;
+      let returnType = Team;
       return this.apiClient.callApi(
         '/teams', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -91,7 +92,7 @@ export default class TeamsApi {
      * Adds a new team to the company and returns the created object
      * @param {Object} opts Optional parameters
      * @param {module:model/CreateTeam} opts.createTeam 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Teams}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Team}
      */
     addTeam(opts) {
       return this.addTeamWithHttpInfo(opts)
@@ -239,7 +240,7 @@ export default class TeamsApi {
      * @param {Number} id ID of the team
      * @param {Object} opts Optional parameters
      * @param {module:model/NumberBooleanDefault0} opts.skipUsers When enabled, the teams will not include IDs of member users
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Teams} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Team} and HTTP response
      */
     getTeamWithHttpInfo(id, opts) {
       opts = opts || {};
@@ -276,7 +277,7 @@ export default class TeamsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = Teams;
+      let returnType = Team;
       return this.apiClient.callApi(
         '/teams/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -290,7 +291,7 @@ export default class TeamsApi {
      * @param {Number} id ID of the team
      * @param {Object} opts Optional parameters
      * @param {module:model/NumberBooleanDefault0} opts.skipUsers When enabled, the teams will not include IDs of member users
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Teams}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Team}
      */
     getTeam(id, opts) {
       return this.getTeamWithHttpInfo(id, opts)
@@ -500,7 +501,7 @@ export default class TeamsApi {
      * @param {Number} id ID of the team
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateTeam} opts.updateTeam 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Teams} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Team} and HTTP response
      */
     updateTeamWithHttpInfo(id, opts) {
       opts = opts || {};
@@ -536,7 +537,7 @@ export default class TeamsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = Teams;
+      let returnType = Team;
       return this.apiClient.callApi(
         '/teams/{id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -550,7 +551,7 @@ export default class TeamsApi {
      * @param {Number} id ID of the team
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateTeam} opts.updateTeam 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Teams}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Team}
      */
     updateTeam(id, opts) {
       return this.updateTeamWithHttpInfo(id, opts)
