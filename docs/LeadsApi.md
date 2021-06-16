@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Add a lead
 
-Creates a Lead. A Lead always has to be linked to a Person or an Organization or both. All Leads created through the Public Pipedrive API will have a Lead Source &#x60;API&#x60; assigned. If a Lead contains custom fields, the fields&#39; values will be included in the response in the same format as with the &#x60;Deals&#x60; endpoints. If a custom field&#39;s value hasn&#39;t been set for the Lead, it won&#39;t appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from Deals. See an example of updating custom fields’ values in &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/updating-custom-field-value\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this tutorial&lt;/a&gt;.
+Creates a Lead. A Lead always has to be linked to a Person or an Organization or both. All Leads created through the Pipedrive API will have a Lead Source &#x60;API&#x60; assigned. Here&#39;s the tutorial for &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-a-lead\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;adding a Lead&lt;/a&gt;. If a Lead contains custom fields, the fields&#39; values will be included in the response in the same format as with the &#x60;Deals&#x60; endpoints. If a custom field&#39;s value hasn&#39;t been set for the Lead, it won&#39;t appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields&#39; structure from Deals. See an example given in the &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/updating-custom-field-value\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;updating custom fields&#39; values tutorial&lt;/a&gt;.
 
 ### Example
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 Get all leads
 
-Returns multiple Leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using &#x60;limit&#x60; and &#x60;start&#x60; query parameters. If a Lead contains custom fields, the fields&#39; values will be included in the response in the same format as with the &#x60;Deals&#x60; endpoints. If a custom field&#39;s value hasn&#39;t been set for the Lead, it won&#39;t appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from Deals. 
+Returns multiple Leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using &#x60;limit&#x60; and &#x60;start&#x60; query parameters. If a Lead contains custom fields, the fields&#39; values will be included in the response in the same format as with the &#x60;Deals&#x60; endpoints. If a custom field&#39;s value hasn&#39;t been set for the Lead, it won&#39;t appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields&#39; structure from Deals. 
 
 ### Example
 

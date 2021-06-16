@@ -20,7 +20,6 @@ import GetRoleAssignments from '../model/GetRoleAssignments';
 import GetRoleSettings from '../model/GetRoleSettings';
 import GetRoleSubroles from '../model/GetRoleSubroles';
 import GetRoles from '../model/GetRoles';
-import NumberBooleanDefault0 from '../model/NumberBooleanDefault0';
 import PostRoleAssignment from '../model/PostRoleAssignment';
 import PostRoleSettings from '../model/PostRoleSettings';
 import PostRoles from '../model/PostRoles';
@@ -50,7 +49,7 @@ export default class RolesApi {
      * Add or update role setting
      * @param {Number} id ID of the role
      * @param {module:model/String} settingKey 
-     * @param {module:model/NumberBooleanDefault0} value Possible values for `default_visibility` settings: `0` or `1`
+     * @param {module:model/Object} value Possible values for `default_visibility` settings: `1`, `3`, `5` or `7`
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostRoleSettings} and HTTP response
      */
     addOrUpdateRoleSettingWithHttpInfo(id, settingKey, value) {
@@ -110,7 +109,7 @@ export default class RolesApi {
      * Add or update role setting
      * @param {Number} id ID of the role
      * @param {module:model/String} settingKey 
-     * @param {module:model/NumberBooleanDefault0} value Possible values for `default_visibility` settings: `0` or `1`
+     * @param {module:model/Object} value Possible values for `default_visibility` settings: `1`, `3`, `5` or `7`
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostRoleSettings}
      */
     addOrUpdateRoleSetting(id, settingKey, value) {
