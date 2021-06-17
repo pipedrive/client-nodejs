@@ -705,7 +705,7 @@ Name | Type | Description  | Notes
 
 ## updateProduct
 
-> ProductResponse updateProduct(id, opts)
+> UpdateProductResponse updateProduct(id, opts)
 
 Update a product
 
@@ -748,7 +748,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProductResponse**](ProductResponse.md)
+[**UpdateProductResponse**](UpdateProductResponse.md)
 
 ### Authorization
 

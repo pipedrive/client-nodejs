@@ -71,6 +71,7 @@ import AllOrganizationRelationshipsGetResponseAllOfRelatedObjects from './model/
 import AllOrganizationsGetResponse from './model/AllOrganizationsGetResponse';
 import AllOrganizationsGetResponseAllOf from './model/AllOrganizationsGetResponseAllOf';
 import AllOrganizationsGetResponseAllOfRelatedObjects from './model/AllOrganizationsGetResponseAllOfRelatedObjects';
+import ArrayPrices from './model/ArrayPrices';
 import Assignee from './model/Assignee';
 import BaseCurrency from './model/BaseCurrency';
 import BaseDeal from './model/BaseDeal';
@@ -95,6 +96,7 @@ import BasePersonItemPhone from './model/BasePersonItemPhone';
 import BasePipeline from './model/BasePipeline';
 import BasePipelineWithSelectedFlag from './model/BasePipelineWithSelectedFlag';
 import BasePipelineWithSelectedFlagAllOf from './model/BasePipelineWithSelectedFlagAllOf';
+import BaseProduct from './model/BaseProduct';
 import BaseResponse from './model/BaseResponse';
 import BaseResponseWithStatus from './model/BaseResponseWithStatus';
 import BaseResponseWithStatusAllOf from './model/BaseResponseWithStatusAllOf';
@@ -427,6 +429,7 @@ import NoteFieldsResponseAllOf from './model/NoteFieldsResponseAllOf';
 import NumberBoolean from './model/NumberBoolean';
 import NumberBooleanDefault0 from './model/NumberBooleanDefault0';
 import NumberBooleanDefault1 from './model/NumberBooleanDefault1';
+import ObjectPrices from './model/ObjectPrices';
 import OneLeadResponse200 from './model/OneLeadResponse200';
 import OrgAndOwnerId from './model/OrgAndOwnerId';
 import OrganizationAddressInfo from './model/OrganizationAddressInfo';
@@ -534,7 +537,6 @@ import PostRoleSettingsAllOfData from './model/PostRoleSettingsAllOfData';
 import PostRoles from './model/PostRoles';
 import PostRolesAllOf from './model/PostRolesAllOf';
 import PostRolesAllOfData from './model/PostRolesAllOfData';
-import Product from './model/Product';
 import ProductAttachementFields from './model/ProductAttachementFields';
 import ProductAttachmentDetails from './model/ProductAttachmentDetails';
 import ProductBaseDeal from './model/ProductBaseDeal';
@@ -549,6 +551,8 @@ import ProductSearchItemItemOwner from './model/ProductSearchItemItemOwner';
 import ProductSearchResponse from './model/ProductSearchResponse';
 import ProductSearchResponseAllOf from './model/ProductSearchResponseAllOf';
 import ProductSearchResponseAllOfData from './model/ProductSearchResponseAllOfData';
+import ProductWithArrayPrices from './model/ProductWithArrayPrices';
+import ProductWithObjectPrices from './model/ProductWithObjectPrices';
 import ProductsResponse from './model/ProductsResponse';
 import PutRole from './model/PutRole';
 import PutRoleAllOf from './model/PutRoleAllOf';
@@ -614,6 +618,7 @@ import UpdateFilterRequest from './model/UpdateFilterRequest';
 import UpdateLeadLabelRequest from './model/UpdateLeadLabelRequest';
 import UpdateLeadRequest from './model/UpdateLeadRequest';
 import UpdatePersonResponse from './model/UpdatePersonResponse';
+import UpdateProductResponse from './model/UpdateProductResponse';
 import UpdateTeam from './model/UpdateTeam';
 import UpdateTeamAllOf from './model/UpdateTeamAllOf';
 import UpdateTeamWithAdditionalProperties from './model/UpdateTeamWithAdditionalProperties';
@@ -1074,6 +1079,12 @@ export {
     AllOrganizationsGetResponseAllOfRelatedObjects,
 
     /**
+     * The ArrayPrices model constructor.
+     * @property {module:model/ArrayPrices}
+     */
+    ArrayPrices,
+
+    /**
      * The Assignee model constructor.
      * @property {module:model/Assignee}
      */
@@ -1216,6 +1227,12 @@ export {
      * @property {module:model/BasePipelineWithSelectedFlagAllOf}
      */
     BasePipelineWithSelectedFlagAllOf,
+
+    /**
+     * The BaseProduct model constructor.
+     * @property {module:model/BaseProduct}
+     */
+    BaseProduct,
 
     /**
      * The BaseResponse model constructor.
@@ -3210,6 +3227,12 @@ export {
     NumberBooleanDefault1,
 
     /**
+     * The ObjectPrices model constructor.
+     * @property {module:model/ObjectPrices}
+     */
+    ObjectPrices,
+
+    /**
      * The OneLeadResponse200 model constructor.
      * @property {module:model/OneLeadResponse200}
      */
@@ -3852,12 +3875,6 @@ export {
     PostRolesAllOfData,
 
     /**
-     * The Product model constructor.
-     * @property {module:model/Product}
-     */
-    Product,
-
-    /**
      * The ProductAttachementFields model constructor.
      * @property {module:model/ProductAttachementFields}
      */
@@ -3940,6 +3957,18 @@ export {
      * @property {module:model/ProductSearchResponseAllOfData}
      */
     ProductSearchResponseAllOfData,
+
+    /**
+     * The ProductWithArrayPrices model constructor.
+     * @property {module:model/ProductWithArrayPrices}
+     */
+    ProductWithArrayPrices,
+
+    /**
+     * The ProductWithObjectPrices model constructor.
+     * @property {module:model/ProductWithObjectPrices}
+     */
+    ProductWithObjectPrices,
 
     /**
      * The ProductsResponse model constructor.
@@ -4330,6 +4359,12 @@ export {
      * @property {module:model/UpdatePersonResponse}
      */
     UpdatePersonResponse,
+
+    /**
+     * The UpdateProductResponse model constructor.
+     * @property {module:model/UpdateProductResponse}
+     */
+    UpdateProductResponse,
 
     /**
      * The UpdateTeam model constructor.
