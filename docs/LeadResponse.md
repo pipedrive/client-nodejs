@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **title** | **String** | The title of the Lead | [optional] 
 **ownerId** | **Number** | The ID of the User who owns the Lead | [optional] 
 **creatorId** | **Number** | The ID of the User who created the Lead | [optional] 
-**note** | **String** | The Lead note. Can contain some allowed HTML tags. (DEPRECATED - please use a &#x60;Note&#x60; object instead, until the removal of this field, we will update the first note linked to this lead ourselves)  | [optional] 
 **labelIds** | **[String]** | The IDs of the Lead Labels which are associated with the Lead | [optional] 
 **personId** | **Number** | The ID of a Person which this Lead is linked to | [optional] 
 **organizationId** | **Number** | The ID of an Organization which this Lead is linked to | [optional] 

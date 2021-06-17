@@ -53,6 +53,7 @@ export default class RolesApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostRoleSettings} and HTTP response
      */
     addOrUpdateRoleSettingWithHttpInfo(id, settingKey, value) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -85,9 +86,12 @@ export default class RolesApi {
       ];
 
       let contentTypes = ['application/x-www-form-urlencoded', ];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -148,9 +152,12 @@ export default class RolesApi {
       ];
 
       let contentTypes = ['application/x-www-form-urlencoded', ];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -191,6 +198,7 @@ export default class RolesApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostRoleAssignment} and HTTP response
      */
     addRoleAssignmentWithHttpInfo(id, userId) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -217,9 +225,12 @@ export default class RolesApi {
       ];
 
       let contentTypes = ['application/x-www-form-urlencoded', ];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -258,6 +269,7 @@ export default class RolesApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteRole} and HTTP response
      */
     deleteRoleWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -278,9 +290,12 @@ export default class RolesApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -319,6 +334,7 @@ export default class RolesApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteRoleAssignment} and HTTP response
      */
     deleteRoleAssignmentWithHttpInfo(id, userId) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -344,9 +360,12 @@ export default class RolesApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -385,6 +404,7 @@ export default class RolesApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetRole} and HTTP response
      */
     getRoleWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -405,9 +425,12 @@ export default class RolesApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -471,9 +494,12 @@ export default class RolesApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -514,6 +540,7 @@ export default class RolesApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetRoleSettings} and HTTP response
      */
     getRoleSettingsWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -534,9 +561,12 @@ export default class RolesApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -599,9 +629,12 @@ export default class RolesApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -661,9 +694,12 @@ export default class RolesApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -730,9 +766,12 @@ export default class RolesApi {
       ];
 
       let contentTypes = ['application/x-www-form-urlencoded', ];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];

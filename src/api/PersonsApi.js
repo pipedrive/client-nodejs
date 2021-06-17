@@ -79,9 +79,12 @@ export default class PersonsApi {
       ];
 
       let contentTypes = ['application/json', ];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -122,6 +125,7 @@ export default class PersonsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddFollowerToPersonResponse} and HTTP response
      */
     addPersonFollowerWithHttpInfo(id, userId) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -148,9 +152,12 @@ export default class PersonsApi {
       ];
 
       let contentTypes = ['application/x-www-form-urlencoded', ];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -231,9 +238,12 @@ export default class PersonsApi {
       ];
 
       let contentTypes = ['multipart/form-data', ];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -278,6 +288,7 @@ export default class PersonsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeletePersonResponse} and HTTP response
      */
     deletePersonWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -298,9 +309,12 @@ export default class PersonsApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -340,6 +354,7 @@ export default class PersonsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeletePersonResponse} and HTTP response
      */
     deletePersonFollowerWithHttpInfo(id, followerId) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -365,9 +380,12 @@ export default class PersonsApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -407,6 +425,7 @@ export default class PersonsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeletePersonResponse} and HTTP response
      */
     deletePersonPictureWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -427,9 +446,12 @@ export default class PersonsApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -486,9 +508,12 @@ export default class PersonsApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -558,9 +583,12 @@ export default class PersonsApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -604,6 +632,7 @@ export default class PersonsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetPersonDetailsResponse} and HTTP response
      */
     getPersonWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -624,9 +653,12 @@ export default class PersonsApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -695,9 +727,12 @@ export default class PersonsApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -771,9 +806,12 @@ export default class PersonsApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -847,9 +885,12 @@ export default class PersonsApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -893,6 +934,7 @@ export default class PersonsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListFollowersResponse} and HTTP response
      */
     getPersonFollowersWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -913,9 +955,12 @@ export default class PersonsApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -980,9 +1025,12 @@ export default class PersonsApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -1050,9 +1098,12 @@ export default class PersonsApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -1124,9 +1175,12 @@ export default class PersonsApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -1170,6 +1224,7 @@ export default class PersonsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListPermittedUsersResponse1} and HTTP response
      */
     getPersonUsersWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -1190,9 +1245,12 @@ export default class PersonsApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -1259,9 +1317,12 @@ export default class PersonsApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -1307,6 +1368,7 @@ export default class PersonsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MergePersonsResponse} and HTTP response
      */
     mergePersonsWithHttpInfo(id, mergeWithId) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -1333,9 +1395,12 @@ export default class PersonsApi {
       ];
 
       let contentTypes = ['application/x-www-form-urlencoded', ];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -1409,9 +1474,12 @@ export default class PersonsApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -1480,9 +1548,12 @@ export default class PersonsApi {
       ];
 
       let contentTypes = ['application/json', ];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];

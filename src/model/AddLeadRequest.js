@@ -60,11 +60,6 @@ class AddLeadRequest {
 
                 delete data['owner_id'];
             }
-            if (data.hasOwnProperty('note')) {
-                obj['note'] = ApiClient.convertToType(data['note'], 'String');
-
-                delete data['note'];
-            }
             if (data.hasOwnProperty('label_ids')) {
                 obj['label_ids'] = ApiClient.convertToType(data['label_ids'], ['String']);
 
@@ -113,12 +108,6 @@ AddLeadRequest.prototype['title'] = undefined;
  * @member {Number} owner_id
  */
 AddLeadRequest.prototype['owner_id'] = undefined;
-
-/**
- * The Lead note. Can contain some allowed HTML tags. (DEPRECATED - please create a `Note` object and link it to this lead via `lead_id`) 
- * @member {String} note
- */
-AddLeadRequest.prototype['note'] = undefined;
 
 /**
  * The IDs of the Lead Labels which will be associated with the Lead

@@ -38,9 +38,9 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.TeamsApi();
-let opts = {
-  'createTeam': new Pipedrive.CreateTeam() // CreateTeam | 
-};
+let opts = Pipedrive.CreateTeam.constructFromObject({
+  // Properties that you want to update
+});
 apiInstance.addTeam(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -94,9 +94,9 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.TeamsApi();
 let id = 56; // Number | ID of the team
-let opts = {
-  'addTeamUserRequest': new Pipedrive.AddTeamUserRequest() // AddTeamUserRequest | 
-};
+let opts = Pipedrive.AddTeamUserRequest.constructFromObject({
+  // Properties that you want to update
+});
 apiInstance.addTeamUser(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -151,9 +151,9 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.TeamsApi();
 let id = 56; // Number | ID of the team
-let opts = {
-  'deleteTeamUserRequest': new Pipedrive.DeleteTeamUserRequest() // DeleteTeamUserRequest | 
-};
+let opts = Pipedrive.DeleteTeamUserRequest.constructFromObject({
+  // Properties that you want to update
+});
 apiInstance.deleteTeamUser(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -434,9 +434,9 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.TeamsApi();
 let id = 56; // Number | ID of the team
-let opts = {
-  'updateTeam': new Pipedrive.UpdateTeam() // UpdateTeam | 
-};
+let opts = Pipedrive.UpdateTeam.constructFromObject({
+  // Properties that you want to update
+});
 apiInstance.updateTeam(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {

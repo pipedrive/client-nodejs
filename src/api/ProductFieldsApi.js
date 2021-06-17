@@ -65,9 +65,12 @@ export default class ProductFieldsApi {
       ];
 
       let contentTypes = ['application/json', ];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -107,6 +110,7 @@ export default class ProductFieldsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteProductFieldResponse} and HTTP response
      */
     deleteProductFieldWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -127,9 +131,12 @@ export default class ProductFieldsApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -168,6 +175,7 @@ export default class ProductFieldsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteMultipleProductFieldsResponse} and HTTP response
      */
     deleteProductFieldsWithHttpInfo(ids) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'ids' is set
       if (ids === undefined || ids === null) {
@@ -188,9 +196,12 @@ export default class ProductFieldsApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -229,6 +240,7 @@ export default class ProductFieldsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetProductFieldResponse} and HTTP response
      */
     getProductFieldWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -249,9 +261,12 @@ export default class ProductFieldsApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -289,6 +304,7 @@ export default class ProductFieldsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetAllProductFieldsResponse} and HTTP response
      */
     getProductFieldsWithHttpInfo() {
+      const opts = {}
       let postBody = null;
 
       let pathParams = {
@@ -304,9 +320,12 @@ export default class ProductFieldsApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -367,9 +386,12 @@ export default class ProductFieldsApi {
       ];
 
       let contentTypes = ['application/json', ];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];

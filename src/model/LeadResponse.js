@@ -68,11 +68,6 @@ class LeadResponse {
 
                 delete data['creator_id'];
             }
-            if (data.hasOwnProperty('note')) {
-                obj['note'] = ApiClient.convertToType(data['note'], 'String');
-
-                delete data['note'];
-            }
             if (data.hasOwnProperty('label_ids')) {
                 obj['label_ids'] = ApiClient.convertToType(data['label_ids'], ['String']);
 
@@ -163,12 +158,6 @@ LeadResponse.prototype['owner_id'] = undefined;
  * @member {Number} creator_id
  */
 LeadResponse.prototype['creator_id'] = undefined;
-
-/**
- * The Lead note. Can contain some allowed HTML tags. (DEPRECATED - please use a `Note` object instead, until the removal of this field, we will update the first note linked to this lead ourselves) 
- * @member {String} note
- */
-LeadResponse.prototype['note'] = undefined;
 
 /**
  * The IDs of the Lead Labels which are associated with the Lead

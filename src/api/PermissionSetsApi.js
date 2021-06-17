@@ -43,6 +43,7 @@ export default class PermissionSetsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SinglePermissionSetsItem} and HTTP response
      */
     getPermissionSetWithHttpInfo(id) {
+      const opts = {}
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -63,9 +64,12 @@ export default class PermissionSetsApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -129,9 +133,12 @@ export default class PermissionSetsApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
@@ -171,6 +178,7 @@ export default class PermissionSetsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PermissionSets} and HTTP response
      */
     getPermissionSetsWithHttpInfo() {
+      const opts = {}
       let postBody = null;
 
       let pathParams = {
@@ -186,9 +194,12 @@ export default class PermissionSetsApi {
       ];
 
       let contentTypes = [];
-      const isUrlEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
 
-      if (isUrlEncoded) {
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
         for (let key in opts) {
           if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
             formParams[key] = opts[key];
