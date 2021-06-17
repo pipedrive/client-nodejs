@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
+* `UpdateProductResponse` for `PUT /products/{id}` 
+### Changed
+* Split `Product` schema into `BaseProduct` and `ProductWithArrayPrices` or `ProductWithObjectPrices` to represent `prices` property with `array` type and `object` type respectively
+* Use the new `ProductWithObjectPrices` in `UpdateProductResponse`
+### Added
 * `Team` (singular) schema for endpoints that deal with a signle team
 ### Changed
 * `TeamSuccess` response schema to refer to `Team` (singular) instead of `Teams` (plural)

@@ -13,21 +13,21 @@
 
 import ApiClient from '../ApiClient';
 import GetActivitiesResponse200RelatedObjects from './GetActivitiesResponse200RelatedObjects';
-import ProductWithArrayPrices from './ProductWithArrayPrices';
+import ProductWithObjectPrices from './ProductWithObjectPrices';
 
 /**
- * The ProductResponse model module.
- * @module model/ProductResponse
+ * The UpdateProductResponse model module.
+ * @module model/UpdateProductResponse
  * @version 1.0.0
  */
-class ProductResponse {
+class UpdateProductResponse {
     /**
-     * Constructs a new <code>ProductResponse</code>.
-     * @alias module:model/ProductResponse
+     * Constructs a new <code>UpdateProductResponse</code>.
+     * @alias module:model/UpdateProductResponse
      */
     constructor() { 
         
-        ProductResponse.initialize(this);
+        UpdateProductResponse.initialize(this);
     }
 
     /**
@@ -39,15 +39,15 @@ class ProductResponse {
     }
 
     /**
-     * Constructs a <code>ProductResponse</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>UpdateProductResponse</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/ProductResponse} obj Optional instance to populate.
-     * @return {module:model/ProductResponse} The populated <code>ProductResponse</code> instance.
+     * @param {module:model/UpdateProductResponse} obj Optional instance to populate.
+     * @return {module:model/UpdateProductResponse} The populated <code>UpdateProductResponse</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new ProductResponse();
+            obj = obj || new UpdateProductResponse();
 
             if (data.hasOwnProperty('success')) {
                 obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
@@ -55,7 +55,7 @@ class ProductResponse {
                 delete data['success'];
             }
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ProductWithArrayPrices.constructFromObject(data['data']);
+                obj['data'] = ProductWithObjectPrices.constructFromObject(data['data']);
 
                 delete data['data'];
             }
@@ -80,22 +80,22 @@ class ProductResponse {
  * If the response is successful or not
  * @member {Boolean} success
  */
-ProductResponse.prototype['success'] = undefined;
+UpdateProductResponse.prototype['success'] = undefined;
 
 /**
- * @member {module:model/ProductWithArrayPrices} data
+ * @member {module:model/ProductWithObjectPrices} data
  */
-ProductResponse.prototype['data'] = undefined;
+UpdateProductResponse.prototype['data'] = undefined;
 
 /**
  * @member {module:model/GetActivitiesResponse200RelatedObjects} related_objects
  */
-ProductResponse.prototype['related_objects'] = undefined;
+UpdateProductResponse.prototype['related_objects'] = undefined;
 
 
 
 
 
 
-export default ProductResponse;
+export default UpdateProductResponse;
 

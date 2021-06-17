@@ -26,6 +26,7 @@ import ProductRequest from '../model/ProductRequest';
 import ProductResponse from '../model/ProductResponse';
 import ProductSearchResponse from '../model/ProductSearchResponse';
 import ProductsResponse from '../model/ProductsResponse';
+import UpdateProductResponse from '../model/UpdateProductResponse';
 import UserIDs from '../model/UserIDs';
 
 /**
@@ -864,7 +865,7 @@ export default class ProductsApi {
      * @param {Number} id ID of the product
      * @param {Object} opts Optional parameters
      * @param {module:model/ProductRequest} opts.productRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ProductResponse} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UpdateProductResponse} and HTTP response
      */
     updateProductWithHttpInfo(id, opts) {
       opts = opts || {};
@@ -900,7 +901,7 @@ export default class ProductsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = ProductResponse;
+      let returnType = UpdateProductResponse;
       return this.apiClient.callApi(
         '/products/{id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -914,7 +915,7 @@ export default class ProductsApi {
      * @param {Number} id ID of the product
      * @param {Object} opts Optional parameters
      * @param {module:model/ProductRequest} opts.productRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ProductResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UpdateProductResponse}
      */
     updateProduct(id, opts) {
       return this.updateProductWithHttpInfo(id, opts)
