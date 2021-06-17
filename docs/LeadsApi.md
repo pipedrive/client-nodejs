@@ -35,9 +35,9 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.LeadsApi();
-let opts = {
-  'addLeadRequest': new Pipedrive.AddLeadRequest() // AddLeadRequest | 
-};
+let opts = Pipedrive.AddLeadRequest.constructFromObject({
+  // Properties that you want to update
+});
 apiInstance.addLead(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -256,9 +256,9 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.LeadsApi();
 let id = null; // String | The ID of the Lead
-let opts = {
-  'updateLeadRequest': new Pipedrive.UpdateLeadRequest() // UpdateLeadRequest | 
-};
+let opts = Pipedrive.UpdateLeadRequest.constructFromObject({
+  // Properties that you want to update
+});
 apiInstance.updateLead(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
