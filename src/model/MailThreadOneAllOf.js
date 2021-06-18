@@ -66,7 +66,7 @@ class MailThreadOneAllOf {
 }
 
 /**
- * The array of mail threads
+ * The mail thread object
  * @member {module:model/BaseMailThread} data
  */
 MailThreadOneAllOf.prototype['data'] = undefined;

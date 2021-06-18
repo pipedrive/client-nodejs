@@ -938,6 +938,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.MailThread](docs/MailThread.md)
  - [Pipedrive.MailThreadAllOf](docs/MailThreadAllOf.md)
  - [Pipedrive.MailThreadDelete](docs/MailThreadDelete.md)
+ - [Pipedrive.MailThreadDeleteAllOf](docs/MailThreadDeleteAllOf.md)
  - [Pipedrive.MailThreadMessages](docs/MailThreadMessages.md)
  - [Pipedrive.MailThreadMessagesAllOf](docs/MailThreadMessagesAllOf.md)
  - [Pipedrive.MailThreadOne](docs/MailThreadOne.md)
