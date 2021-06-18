@@ -15,18 +15,18 @@ import ApiClient from '../ApiClient';
 import BaseMailThread from './BaseMailThread';
 
 /**
- * The MailThreadPutAllOf model module.
- * @module model/MailThreadPutAllOf
+ * The MailThreadDeleteAllOf model module.
+ * @module model/MailThreadDeleteAllOf
  * @version 1.0.0
  */
-class MailThreadPutAllOf {
+class MailThreadDeleteAllOf {
     /**
-     * Constructs a new <code>MailThreadPutAllOf</code>.
-     * @alias module:model/MailThreadPutAllOf
+     * Constructs a new <code>MailThreadDeleteAllOf</code>.
+     * @alias module:model/MailThreadDeleteAllOf
      */
     constructor() { 
         
-        MailThreadPutAllOf.initialize(this);
+        MailThreadDeleteAllOf.initialize(this);
     }
 
     /**
@@ -38,18 +38,18 @@ class MailThreadPutAllOf {
     }
 
     /**
-     * Constructs a <code>MailThreadPutAllOf</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>MailThreadDeleteAllOf</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/MailThreadPutAllOf} obj Optional instance to populate.
-     * @return {module:model/MailThreadPutAllOf} The populated <code>MailThreadPutAllOf</code> instance.
+     * @param {module:model/MailThreadDeleteAllOf} obj Optional instance to populate.
+     * @return {module:model/MailThreadDeleteAllOf} The populated <code>MailThreadDeleteAllOf</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new MailThreadPutAllOf();
+            obj = obj || new MailThreadDeleteAllOf();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = BaseMailThread.constructFromObject(data['data']);
+                obj['data'] = ApiClient.convertToType(data['data'], [BaseMailThread]);
 
                 delete data['data'];
             }
@@ -66,14 +66,15 @@ class MailThreadPutAllOf {
 }
 
 /**
- * @member {module:model/BaseMailThread} data
+ * An array of mail threads
+ * @member {Array.<module:model/BaseMailThread>} data
  */
-MailThreadPutAllOf.prototype['data'] = undefined;
+MailThreadDeleteAllOf.prototype['data'] = undefined;
 
 
 
 
 
 
-export default MailThreadPutAllOf;
+export default MailThreadDeleteAllOf;
 

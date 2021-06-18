@@ -403,6 +403,7 @@ import MailServiceBaseResponse from './model/MailServiceBaseResponse';
 import MailThread from './model/MailThread';
 import MailThreadAllOf from './model/MailThreadAllOf';
 import MailThreadDelete from './model/MailThreadDelete';
+import MailThreadDeleteAllOf from './model/MailThreadDeleteAllOf';
 import MailThreadMessages from './model/MailThreadMessages';
 import MailThreadMessagesAllOf from './model/MailThreadMessagesAllOf';
 import MailThreadOne from './model/MailThreadOne';
@@ -3069,6 +3070,12 @@ export {
      * @property {module:model/MailThreadDelete}
      */
     MailThreadDelete,
+
+    /**
+     * The MailThreadDeleteAllOf model constructor.
+     * @property {module:model/MailThreadDeleteAllOf}
+     */
+    MailThreadDeleteAllOf,
 
     /**
      * The MailThreadMessages model constructor.

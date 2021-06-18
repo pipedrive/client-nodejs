@@ -83,7 +83,7 @@ class MailThreadOne {
 MailThreadOne.prototype['success'] = undefined;
 
 /**
- * The array of mail threads
+ * The mail thread object
  * @member {module:model/BaseMailThread} data
  */
 MailThreadOne.prototype['data'] = undefined;
@@ -97,7 +97,7 @@ MailThreadOne.prototype['data'] = undefined;
 BaseResponse.prototype['success'] = undefined;
 // Implement MailThreadOneAllOf interface:
 /**
- * The array of mail threads
+ * The mail thread object
  * @member {module:model/BaseMailThread} data
  */
 MailThreadOneAllOf.prototype['data'] = undefined;

@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**BaseMailThread**](BaseMailThread.md) | The array of mail threads | [optional] 
+**data** | [**BaseMailThread**](BaseMailThread.md) | The mail thread object | [optional] 
 
 

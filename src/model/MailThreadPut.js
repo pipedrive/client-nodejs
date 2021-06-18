@@ -60,7 +60,7 @@ class MailThreadPut {
                 delete data['success'];
             }
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [BaseMailThread]);
+                obj['data'] = BaseMailThread.constructFromObject(data['data']);
 
                 delete data['data'];
             }
@@ -83,8 +83,7 @@ class MailThreadPut {
 MailThreadPut.prototype['success'] = undefined;
 
 /**
- * An array of mail threads
- * @member {Array.<module:model/BaseMailThread>} data
+ * @member {module:model/BaseMailThread} data
  */
 MailThreadPut.prototype['data'] = undefined;
 
@@ -97,8 +96,7 @@ MailThreadPut.prototype['data'] = undefined;
 BaseResponse.prototype['success'] = undefined;
 // Implement MailThreadPutAllOf interface:
 /**
- * An array of mail threads
- * @member {Array.<module:model/BaseMailThread>} data
+ * @member {module:model/BaseMailThread} data
  */
 MailThreadPutAllOf.prototype['data'] = undefined;
 
