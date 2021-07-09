@@ -528,13 +528,11 @@ Class | Method | HTTP request | Description
 *Pipedrive.UserConnectionsApi* | [**getUserConnections**](docs/UserConnectionsApi.md#getUserConnections) | **GET** /userConnections | Get all user connections
 *Pipedrive.UserSettingsApi* | [**getUserSettings**](docs/UserSettingsApi.md#getUserSettings) | **GET** /userSettings | List settings of an authorized user
 *Pipedrive.UsersApi* | [**addUser**](docs/UsersApi.md#addUser) | **POST** /users | Add a new user
-*Pipedrive.UsersApi* | [**addUserBlacklistedEmail**](docs/UsersApi.md#addUserBlacklistedEmail) | **POST** /users/{id}/blacklistedEmails | Add blacklisted email address for a user
 *Pipedrive.UsersApi* | [**addUserRoleAssignment**](docs/UsersApi.md#addUserRoleAssignment) | **POST** /users/{id}/roleAssignments | Add role assignment
 *Pipedrive.UsersApi* | [**deleteUserRoleAssignment**](docs/UsersApi.md#deleteUserRoleAssignment) | **DELETE** /users/{id}/roleAssignments | Delete a role assignment
 *Pipedrive.UsersApi* | [**findUsersByName**](docs/UsersApi.md#findUsersByName) | **GET** /users/find | Find users by name
 *Pipedrive.UsersApi* | [**getCurrentUser**](docs/UsersApi.md#getCurrentUser) | **GET** /users/me | Get current user data
 *Pipedrive.UsersApi* | [**getUser**](docs/UsersApi.md#getUser) | **GET** /users/{id} | Get one user
-*Pipedrive.UsersApi* | [**getUserBlacklistedEmails**](docs/UsersApi.md#getUserBlacklistedEmails) | **GET** /users/{id}/blacklistedEmails | List blacklisted email addresses of a user
 *Pipedrive.UsersApi* | [**getUserFollowers**](docs/UsersApi.md#getUserFollowers) | **GET** /users/{id}/followers | List followers of a user
 *Pipedrive.UsersApi* | [**getUserPermissions**](docs/UsersApi.md#getUserPermissions) | **GET** /users/{id}/permissions | List user permissions
 *Pipedrive.UsersApi* | [**getUserRoleAssignments**](docs/UsersApi.md#getUserRoleAssignments) | **GET** /users/{id}/roleAssignments | List role assignments

@@ -5,13 +5,11 @@ All URIs are relative to *https://api.pipedrive.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addUser**](UsersApi.md#addUser) | **POST** /users | Add a new user
-[**addUserBlacklistedEmail**](UsersApi.md#addUserBlacklistedEmail) | **POST** /users/{id}/blacklistedEmails | Add blacklisted email address for a user
 [**addUserRoleAssignment**](UsersApi.md#addUserRoleAssignment) | **POST** /users/{id}/roleAssignments | Add role assignment
 [**deleteUserRoleAssignment**](UsersApi.md#deleteUserRoleAssignment) | **DELETE** /users/{id}/roleAssignments | Delete a role assignment
 [**findUsersByName**](UsersApi.md#findUsersByName) | **GET** /users/find | Find users by name
 [**getCurrentUser**](UsersApi.md#getCurrentUser) | **GET** /users/me | Get current user data
 [**getUser**](UsersApi.md#getUser) | **GET** /users/{id} | Get one user
-[**getUserBlacklistedEmails**](UsersApi.md#getUserBlacklistedEmails) | **GET** /users/{id}/blacklistedEmails | List blacklisted email addresses of a user
 [**getUserFollowers**](UsersApi.md#getUserFollowers) | **GET** /users/{id}/followers | List followers of a user
 [**getUserPermissions**](UsersApi.md#getUserPermissions) | **GET** /users/{id}/permissions | List user permissions
 [**getUserRoleAssignments**](UsersApi.md#getUserRoleAssignments) | **GET** /users/{id}/roleAssignments | List role assignments
@@ -67,61 +65,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**User**](User.md)
-
-### Authorization
-
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/x-www-form-urlencoded
-- **Accept**: application/json
-
-
-## addUserBlacklistedEmail
-
-> Object addUserBlacklistedEmail(id, address)
-
-Add blacklisted email address for a user
-
-Add blacklisted email address for a specific user.
-
-### Example
-
-```javascript
-import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
-// Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
-api_key.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.apiKeyPrefix = 'Token';
-// Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
-oauth2.accessToken = 'YOUR ACCESS TOKEN';
-
-let apiInstance = new Pipedrive.UsersApi();
-let id = 56; // Number | ID of the user
-let address = "address_example"; // String | Email address to blacklist (can contain \\\\\\\\* for wildcards, e.g. \\\\\\\\*@example.com, or john\\\\\\\\*@ex\\\\\\\\*.com)
-apiInstance.addUserBlacklistedEmail(id, address).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the user | 
- **address** | **String**| Email address to blacklist (can contain \\\\\\\\* for wildcards, e.g. \\\\\\\\*@example.com, or john\\\\\\\\*@ex\\\\\\\\*.com) | 
-
-### Return type
-
-**Object**
 
 ### Authorization
 
@@ -385,59 +328,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**User**](User.md)
-
-### Authorization
-
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## getUserBlacklistedEmails
-
-> Object getUserBlacklistedEmails(id)
-
-List blacklisted email addresses of a user
-
-Lists blacklisted email addresses of a specific user. Blacklisted emails are such that will not get synced in to Pipedrive when using the built-in Mailbox.
-
-### Example
-
-```javascript
-import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
-// Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
-api_key.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.apiKeyPrefix = 'Token';
-// Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
-oauth2.accessToken = 'YOUR ACCESS TOKEN';
-
-let apiInstance = new Pipedrive.UsersApi();
-let id = 56; // Number | ID of the user
-apiInstance.getUserBlacklistedEmails(id).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the user | 
-
-### Return type
-
-**Object**
 
 ### Authorization
 

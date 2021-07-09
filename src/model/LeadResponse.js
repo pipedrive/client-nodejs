@@ -178,7 +178,7 @@ LeadResponse.prototype['person_id'] = undefined;
 LeadResponse.prototype['organization_id'] = undefined;
 
 /**
- * Defines where the Lead comes from. Will be `API` if the Lead was created through the Public API and will be empty string if the Lead was created manually through the UI. 
+ * Defines where the Lead comes from. Will be `API` if the Lead was created through the Public API and will be `Manually created` if the Lead was created manually through the UI. 
  * @member {String} source_name
  */
 LeadResponse.prototype['source_name'] = undefined;

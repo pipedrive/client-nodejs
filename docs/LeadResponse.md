@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **labelIds** | **[String]** | The IDs of the Lead Labels which are associated with the Lead | [optional] 
 **personId** | **Number** | The ID of a Person which this Lead is linked to | [optional] 
 **organizationId** | **Number** | The ID of an Organization which this Lead is linked to | [optional] 
-**sourceName** | **String** | Defines where the Lead comes from. Will be &#x60;API&#x60; if the Lead was created through the Public API and will be empty string if the Lead was created manually through the UI.  | [optional] 
+**sourceName** | **String** | Defines where the Lead comes from. Will be &#x60;API&#x60; if the Lead was created through the Public API and will be &#x60;Manually created&#x60; if the Lead was created manually through the UI.  | [optional] 
 **isArchived** | **Boolean** | A flag indicating whether the Lead is archived or not | [optional] 
 **wasSeen** | **Boolean** | A flag indicating whether the Lead was seen by someone in the Pipedrive UI | [optional] 
 **value** | [**LeadValue**](LeadValue.md) |  | [optional] 

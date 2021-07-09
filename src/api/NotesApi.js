@@ -49,7 +49,7 @@ export default class NotesApi {
      * @param {Number} opts.personId The ID of the person this note will be attached to
      * @param {Number} opts.orgId The ID of the organization this note will be attached to
      * @param {String} opts.addTime Optional creation date & time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
-     * @param {module:model/NumberBoolean} opts.pinnedToLeadFlag If set, then results are filtered by note to lead pinning state (lead_id is also required)
+     * @param {module:model/NumberBoolean} opts.pinnedToLeadFlag If set, then results are filtered by note to lead pinning state (`lead_id` is also required)
      * @param {module:model/NumberBoolean} opts.pinnedToDealFlag If set, then results are filtered by note to deal pinning state (`deal_id` is also required).
      * @param {module:model/NumberBoolean} opts.pinnedToOrganizationFlag If set, then results are filtered by note to organization pinning state (`org_id` is also required).
      * @param {module:model/NumberBoolean} opts.pinnedToPersonFlag If set, then results are filtered by note to person pinning state (`person_id` is also required).
@@ -132,7 +132,7 @@ export default class NotesApi {
      * @param {Number} opts.personId The ID of the person this note will be attached to
      * @param {Number} opts.orgId The ID of the organization this note will be attached to
      * @param {String} opts.addTime Optional creation date & time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
-     * @param {module:model/NumberBoolean} opts.pinnedToLeadFlag If set, then results are filtered by note to lead pinning state (lead_id is also required)
+     * @param {module:model/NumberBoolean} opts.pinnedToLeadFlag If set, then results are filtered by note to lead pinning state (`lead_id` is also required)
      * @param {module:model/NumberBoolean} opts.pinnedToDealFlag If set, then results are filtered by note to deal pinning state (`deal_id` is also required).
      * @param {module:model/NumberBoolean} opts.pinnedToOrganizationFlag If set, then results are filtered by note to organization pinning state (`org_id` is also required).
      * @param {module:model/NumberBoolean} opts.pinnedToPersonFlag If set, then results are filtered by note to person pinning state (`person_id` is also required).
@@ -281,10 +281,10 @@ export default class NotesApi {
      * Returns all notes.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId The ID of the user whose notes to fetch. If omitted, notes by all users will be returned.
-     * @param {String} opts.leadId The ID of the lead which notes to fetch. If omitted, notes about all leads with be returned.
-     * @param {Number} opts.dealId The ID of the deal which notes to fetch. If omitted, notes about all deals with be returned.
-     * @param {Number} opts.personId The ID of the person whose notes to fetch. If omitted, notes about all persons with be returned.
-     * @param {Number} opts.orgId The ID of the organization which notes to fetch. If omitted, notes about all organizations with be returned
+     * @param {String} opts.leadId The ID of the lead which notes to fetch. If omitted, notes about all leads will be returned.
+     * @param {Number} opts.dealId The ID of the deal which notes to fetch. If omitted, notes about all deals will be returned.
+     * @param {Number} opts.personId The ID of the person whose notes to fetch. If omitted, notes about all persons will be returned.
+     * @param {Number} opts.orgId The ID of the organization which notes to fetch. If omitted, notes about all organizations will be returned
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `content`, `add_time`, `update_time`.
@@ -355,10 +355,10 @@ export default class NotesApi {
      * Returns all notes.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId The ID of the user whose notes to fetch. If omitted, notes by all users will be returned.
-     * @param {String} opts.leadId The ID of the lead which notes to fetch. If omitted, notes about all leads with be returned.
-     * @param {Number} opts.dealId The ID of the deal which notes to fetch. If omitted, notes about all deals with be returned.
-     * @param {Number} opts.personId The ID of the person whose notes to fetch. If omitted, notes about all persons with be returned.
-     * @param {Number} opts.orgId The ID of the organization which notes to fetch. If omitted, notes about all organizations with be returned
+     * @param {String} opts.leadId The ID of the lead which notes to fetch. If omitted, notes about all leads will be returned.
+     * @param {Number} opts.dealId The ID of the deal which notes to fetch. If omitted, notes about all deals will be returned.
+     * @param {Number} opts.personId The ID of the person whose notes to fetch. If omitted, notes about all persons will be returned.
+     * @param {Number} opts.orgId The ID of the organization which notes to fetch. If omitted, notes about all organizations will be returned
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `content`, `add_time`, `update_time`.
@@ -390,7 +390,7 @@ export default class NotesApi {
      * @param {Number} opts.personId The ID of the person this note will be attached to
      * @param {Number} opts.orgId The ID of the organization this note will be attached to
      * @param {String} opts.addTime Optional creation date & time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
-     * @param {module:model/NumberBoolean} opts.pinnedToLeadFlag If set, then results are filtered by note to lead pinning state (lead_id is also required)
+     * @param {module:model/NumberBoolean} opts.pinnedToLeadFlag If set, then results are filtered by note to lead pinning state (`lead_id` is also required)
      * @param {module:model/NumberBoolean} opts.pinnedToDealFlag If set, then results are filtered by note to deal pinning state (`deal_id` is also required).
      * @param {module:model/NumberBoolean} opts.pinnedToOrganizationFlag If set, then results are filtered by note to organization pinning state (`org_id` is also required).
      * @param {module:model/NumberBoolean} opts.pinnedToPersonFlag If set, then results are filtered by note to person pinning state (`person_id` is also required).
@@ -479,7 +479,7 @@ export default class NotesApi {
      * @param {Number} opts.personId The ID of the person this note will be attached to
      * @param {Number} opts.orgId The ID of the organization this note will be attached to
      * @param {String} opts.addTime Optional creation date & time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
-     * @param {module:model/NumberBoolean} opts.pinnedToLeadFlag If set, then results are filtered by note to lead pinning state (lead_id is also required)
+     * @param {module:model/NumberBoolean} opts.pinnedToLeadFlag If set, then results are filtered by note to lead pinning state (`lead_id` is also required)
      * @param {module:model/NumberBoolean} opts.pinnedToDealFlag If set, then results are filtered by note to deal pinning state (`deal_id` is also required).
      * @param {module:model/NumberBoolean} opts.pinnedToOrganizationFlag If set, then results are filtered by note to organization pinning state (`org_id` is also required).
      * @param {module:model/NumberBoolean} opts.pinnedToPersonFlag If set, then results are filtered by note to person pinning state (`person_id` is also required).
