@@ -43,7 +43,7 @@ let opts = {
   'personId': 56, // Number | The ID of the person this note will be attached to
   'orgId': 56, // Number | The ID of the organization this note will be attached to
   'addTime': "addTime_example", // String | Optional creation date & time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
-  'pinnedToLeadFlag': new Pipedrive.NumberBoolean(), // NumberBoolean | If set, then results are filtered by note to lead pinning state (lead_id is also required)
+  'pinnedToLeadFlag': new Pipedrive.NumberBoolean(), // NumberBoolean | If set, then results are filtered by note to lead pinning state (`lead_id` is also required)
   'pinnedToDealFlag': new Pipedrive.NumberBoolean(), // NumberBoolean | If set, then results are filtered by note to deal pinning state (`deal_id` is also required).
   'pinnedToOrganizationFlag': new Pipedrive.NumberBoolean(), // NumberBoolean | If set, then results are filtered by note to organization pinning state (`org_id` is also required).
   'pinnedToPersonFlag': new Pipedrive.NumberBoolean() // NumberBoolean | If set, then results are filtered by note to person pinning state (`person_id` is also required).
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
  **personId** | **Number**| The ID of the person this note will be attached to | [optional] 
  **orgId** | **Number**| The ID of the organization this note will be attached to | [optional] 
  **addTime** | **String**| Optional creation date &amp; time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS | [optional] 
- **pinnedToLeadFlag** | [**NumberBoolean**](NumberBoolean.md)| If set, then results are filtered by note to lead pinning state (lead_id is also required) | [optional] 
+ **pinnedToLeadFlag** | [**NumberBoolean**](NumberBoolean.md)| If set, then results are filtered by note to lead pinning state (&#x60;lead_id&#x60; is also required) | [optional] 
  **pinnedToDealFlag** | [**NumberBoolean**](NumberBoolean.md)| If set, then results are filtered by note to deal pinning state (&#x60;deal_id&#x60; is also required). | [optional] 
  **pinnedToOrganizationFlag** | [**NumberBoolean**](NumberBoolean.md)| If set, then results are filtered by note to organization pinning state (&#x60;org_id&#x60; is also required). | [optional] 
  **pinnedToPersonFlag** | [**NumberBoolean**](NumberBoolean.md)| If set, then results are filtered by note to person pinning state (&#x60;person_id&#x60; is also required). | [optional] 
@@ -218,10 +218,10 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new Pipedrive.NotesApi();
 let opts = {
   'userId': 56, // Number | The ID of the user whose notes to fetch. If omitted, notes by all users will be returned.
-  'leadId': null, // String | The ID of the lead which notes to fetch. If omitted, notes about all leads with be returned.
-  'dealId': 56, // Number | The ID of the deal which notes to fetch. If omitted, notes about all deals with be returned.
-  'personId': 56, // Number | The ID of the person whose notes to fetch. If omitted, notes about all persons with be returned.
-  'orgId': 56, // Number | The ID of the organization which notes to fetch. If omitted, notes about all organizations with be returned
+  'leadId': null, // String | The ID of the lead which notes to fetch. If omitted, notes about all leads will be returned.
+  'dealId': 56, // Number | The ID of the deal which notes to fetch. If omitted, notes about all deals will be returned.
+  'personId': 56, // Number | The ID of the person whose notes to fetch. If omitted, notes about all persons will be returned.
+  'orgId': 56, // Number | The ID of the organization which notes to fetch. If omitted, notes about all organizations will be returned
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
   'sort': "sort_example", // String | Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `content`, `add_time`, `update_time`.
@@ -246,10 +246,10 @@ apiInstance.getNotes(opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| The ID of the user whose notes to fetch. If omitted, notes by all users will be returned. | [optional] 
- **leadId** | [**String**](.md)| The ID of the lead which notes to fetch. If omitted, notes about all leads with be returned. | [optional] 
- **dealId** | **Number**| The ID of the deal which notes to fetch. If omitted, notes about all deals with be returned. | [optional] 
- **personId** | **Number**| The ID of the person whose notes to fetch. If omitted, notes about all persons with be returned. | [optional] 
- **orgId** | **Number**| The ID of the organization which notes to fetch. If omitted, notes about all organizations with be returned | [optional] 
+ **leadId** | [**String**](.md)| The ID of the lead which notes to fetch. If omitted, notes about all leads will be returned. | [optional] 
+ **dealId** | **Number**| The ID of the deal which notes to fetch. If omitted, notes about all deals will be returned. | [optional] 
+ **personId** | **Number**| The ID of the person whose notes to fetch. If omitted, notes about all persons will be returned. | [optional] 
+ **orgId** | **Number**| The ID of the organization which notes to fetch. If omitted, notes about all organizations will be returned | [optional] 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
  **sort** | **String**| Field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: &#x60;id&#x60;, &#x60;user_id&#x60;, &#x60;deal_id&#x60;, &#x60;person_id&#x60;, &#x60;org_id&#x60;, &#x60;content&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;. | [optional] 
@@ -306,7 +306,7 @@ let opts = {
   'personId': 56, // Number | The ID of the person this note will be attached to
   'orgId': 56, // Number | The ID of the organization this note will be attached to
   'addTime': "addTime_example", // String | Optional creation date & time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
-  'pinnedToLeadFlag': new Pipedrive.NumberBoolean(), // NumberBoolean | If set, then results are filtered by note to lead pinning state (lead_id is also required)
+  'pinnedToLeadFlag': new Pipedrive.NumberBoolean(), // NumberBoolean | If set, then results are filtered by note to lead pinning state (`lead_id` is also required)
   'pinnedToDealFlag': new Pipedrive.NumberBoolean(), // NumberBoolean | If set, then results are filtered by note to deal pinning state (`deal_id` is also required).
   'pinnedToOrganizationFlag': new Pipedrive.NumberBoolean(), // NumberBoolean | If set, then results are filtered by note to organization pinning state (`org_id` is also required).
   'pinnedToPersonFlag': new Pipedrive.NumberBoolean() // NumberBoolean | If set, then results are filtered by note to person pinning state (`person_id` is also required).
@@ -332,7 +332,7 @@ Name | Type | Description  | Notes
  **personId** | **Number**| The ID of the person this note will be attached to | [optional] 
  **orgId** | **Number**| The ID of the organization this note will be attached to | [optional] 
  **addTime** | **String**| Optional creation date &amp; time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS | [optional] 
- **pinnedToLeadFlag** | [**NumberBoolean**](NumberBoolean.md)| If set, then results are filtered by note to lead pinning state (lead_id is also required) | [optional] 
+ **pinnedToLeadFlag** | [**NumberBoolean**](NumberBoolean.md)| If set, then results are filtered by note to lead pinning state (&#x60;lead_id&#x60; is also required) | [optional] 
  **pinnedToDealFlag** | [**NumberBoolean**](NumberBoolean.md)| If set, then results are filtered by note to deal pinning state (&#x60;deal_id&#x60; is also required). | [optional] 
  **pinnedToOrganizationFlag** | [**NumberBoolean**](NumberBoolean.md)| If set, then results are filtered by note to organization pinning state (&#x60;org_id&#x60; is also required). | [optional] 
  **pinnedToPersonFlag** | [**NumberBoolean**](NumberBoolean.md)| If set, then results are filtered by note to person pinning state (&#x60;person_id&#x60; is also required). | [optional] 
