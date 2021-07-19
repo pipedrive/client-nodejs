@@ -408,8 +408,8 @@ Class | Method | HTTP request | Description
 *Pipedrive.OrganizationFieldsApi* | [**updateOrganizationField**](docs/OrganizationFieldsApi.md#updateOrganizationField) | **PUT** /organizationFields/{id} | Update an organization field
 *Pipedrive.OrganizationRelationshipsApi* | [**addOrganizationRelationship**](docs/OrganizationRelationshipsApi.md#addOrganizationRelationship) | **POST** /organizationRelationships | Create an organization relationship
 *Pipedrive.OrganizationRelationshipsApi* | [**deleteOrganizationRelationship**](docs/OrganizationRelationshipsApi.md#deleteOrganizationRelationship) | **DELETE** /organizationRelationships/{id} | Delete an organization relationship
-*Pipedrive.OrganizationRelationshipsApi* | [**getOrganizationRelationShips**](docs/OrganizationRelationshipsApi.md#getOrganizationRelationShips) | **GET** /organizationRelationships | Get all relationships for organization
 *Pipedrive.OrganizationRelationshipsApi* | [**getOrganizationRelationship**](docs/OrganizationRelationshipsApi.md#getOrganizationRelationship) | **GET** /organizationRelationships/{id} | Get one organization relationship
+*Pipedrive.OrganizationRelationshipsApi* | [**getOrganizationRelationships**](docs/OrganizationRelationshipsApi.md#getOrganizationRelationships) | **GET** /organizationRelationships | Get all relationships for organization
 *Pipedrive.OrganizationRelationshipsApi* | [**updateOrganizationRelationship**](docs/OrganizationRelationshipsApi.md#updateOrganizationRelationship) | **PUT** /organizationRelationships/{id} | Update an organization relationship
 *Pipedrive.OrganizationsApi* | [**addOrganization**](docs/OrganizationsApi.md#addOrganization) | **POST** /organizations | Add an organization
 *Pipedrive.OrganizationsApi* | [**addOrganizationFollower**](docs/OrganizationsApi.md#addOrganizationFollower) | **POST** /organizations/{id}/followers | Add a follower to an organization
