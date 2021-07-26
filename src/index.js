@@ -73,6 +73,7 @@ import AllOrganizationsGetResponseAllOf from './model/AllOrganizationsGetRespons
 import AllOrganizationsGetResponseAllOfRelatedObjects from './model/AllOrganizationsGetResponseAllOfRelatedObjects';
 import ArrayPrices from './model/ArrayPrices';
 import Assignee from './model/Assignee';
+import BaseComment from './model/BaseComment';
 import BaseCurrency from './model/BaseCurrency';
 import BaseDeal from './model/BaseDeal';
 import BaseFollowerItem from './model/BaseFollowerItem';
@@ -111,6 +112,7 @@ import BaseUserMeAllOfLanguage from './model/BaseUserMeAllOfLanguage';
 import BaseWebhook from './model/BaseWebhook';
 import BasicDeal from './model/BasicDeal';
 import BasicDealProduct from './model/BasicDealProduct';
+import BasicGoal from './model/BasicGoal';
 import BasicPerson from './model/BasicPerson';
 import BasicProductField from './model/BasicProductField';
 import BulkDeleteResponse from './model/BulkDeleteResponse';
@@ -185,6 +187,7 @@ import DeleteActivitiesResponse200 from './model/DeleteActivitiesResponse200';
 import DeleteActivitiesResponse200Data from './model/DeleteActivitiesResponse200Data';
 import DeleteActivityResponse200 from './model/DeleteActivityResponse200';
 import DeleteActivityResponse200Data from './model/DeleteActivityResponse200Data';
+import DeleteComment from './model/DeleteComment';
 import DeleteDeal from './model/DeleteDeal';
 import DeleteDealData from './model/DeleteDealData';
 import DeleteDealFollower from './model/DeleteDealFollower';
@@ -279,6 +282,7 @@ import GetAllPersonsResponseAllOf from './model/GetAllPersonsResponseAllOf';
 import GetAllPipelines from './model/GetAllPipelines';
 import GetAllPipelinesAllOf from './model/GetAllPipelinesAllOf';
 import GetAllProductFieldsResponse from './model/GetAllProductFieldsResponse';
+import GetComments from './model/GetComments';
 import GetDeal from './model/GetDeal';
 import GetDealAdditionalData from './model/GetDealAdditionalData';
 import GetDeals from './model/GetDeals';
@@ -419,6 +423,7 @@ import NewDealProduct from './model/NewDealProduct';
 import NewDealProductAllOf from './model/NewDealProductAllOf';
 import NewFollowerResponse from './model/NewFollowerResponse';
 import NewFollowerResponseData from './model/NewFollowerResponseData';
+import NewGoal from './model/NewGoal';
 import NewPerson from './model/NewPerson';
 import NewPersonAllOf from './model/NewPersonAllOf';
 import NewProductField from './model/NewProductField';
@@ -526,6 +531,7 @@ import PictureDataWithValue from './model/PictureDataWithValue';
 import PictureDataWithValueAllOf from './model/PictureDataWithValueAllOf';
 import PipelineDetails from './model/PipelineDetails';
 import PipelineDetailsAllOf from './model/PipelineDetailsAllOf';
+import PostComment from './model/PostComment';
 import PostDealParticipants from './model/PostDealParticipants';
 import PostGoalResponse from './model/PostGoalResponse';
 import PostNote from './model/PostNote';
@@ -1092,6 +1098,12 @@ export {
     Assignee,
 
     /**
+     * The BaseComment model constructor.
+     * @property {module:model/BaseComment}
+     */
+    BaseComment,
+
+    /**
      * The BaseCurrency model constructor.
      * @property {module:model/BaseCurrency}
      */
@@ -1318,6 +1330,12 @@ export {
      * @property {module:model/BasicDealProduct}
      */
     BasicDealProduct,
+
+    /**
+     * The BasicGoal model constructor.
+     * @property {module:model/BasicGoal}
+     */
+    BasicGoal,
 
     /**
      * The BasicPerson model constructor.
@@ -1762,6 +1780,12 @@ export {
      * @property {module:model/DeleteActivityResponse200Data}
      */
     DeleteActivityResponse200Data,
+
+    /**
+     * The DeleteComment model constructor.
+     * @property {module:model/DeleteComment}
+     */
+    DeleteComment,
 
     /**
      * The DeleteDeal model constructor.
@@ -2326,6 +2350,12 @@ export {
      * @property {module:model/GetAllProductFieldsResponse}
      */
     GetAllProductFieldsResponse,
+
+    /**
+     * The GetComments model constructor.
+     * @property {module:model/GetComments}
+     */
+    GetComments,
 
     /**
      * The GetDeal model constructor.
@@ -3168,6 +3198,12 @@ export {
     NewFollowerResponseData,
 
     /**
+     * The NewGoal model constructor.
+     * @property {module:model/NewGoal}
+     */
+    NewGoal,
+
+    /**
      * The NewPerson model constructor.
      * @property {module:model/NewPerson}
      */
@@ -3808,6 +3844,12 @@ export {
      * @property {module:model/PipelineDetailsAllOf}
      */
     PipelineDetailsAllOf,
+
+    /**
+     * The PostComment model constructor.
+     * @property {module:model/PostComment}
+     */
+    PostComment,
 
     /**
      * The PostDealParticipants model constructor.
