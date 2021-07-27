@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
+- added product and related_objects sections to example of `GET /deals/{id}/products` endpoint documentation
+### Added
 - added required flag for pipeline name in `POST /pipelines` endpoint documentation
 ### Changed
 * Updated `MailThreadPut` schema to represent `object` in response instead of an `array`

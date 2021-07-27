@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import ProductWithObjectPrices from './ProductWithObjectPrices';
 
 /**
  * The ProductListItem model module.
@@ -157,6 +158,11 @@ class ProductListItem {
 
                 delete data['quantity'];
             }
+            if (data.hasOwnProperty('product')) {
+                obj['product'] = ProductWithObjectPrices.constructFromObject(data['product']);
+
+                delete data['product'];
+            }
 
             if (Object.keys(data).length > 0) {
                 obj['extra'] = data;
@@ -300,6 +306,11 @@ ProductListItem.prototype['quantity_formatted'] = undefined;
  * @member {Number} quantity
  */
 ProductListItem.prototype['quantity'] = undefined;
+
+/**
+ * @member {module:model/ProductWithObjectPrices} product
+ */
+ProductListItem.prototype['product'] = undefined;
 
 
 
