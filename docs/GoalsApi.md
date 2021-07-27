@@ -32,14 +32,9 @@ api_key.apiKey = 'YOUR API KEY';
 //api_key.apiKeyPrefix = 'Token';
 
 let apiInstance = new Pipedrive.GoalsApi();
-let opts = {
-  'title': "title_example", // String | Title of the goal.
-  'assignee': null, // Object | Who is this goal assigned to. It requires the following JSON structure: { \\\"id\\\": \\\"1\\\", \\\"type\\\": \\\"person\\\" }. `type` can be either `person`, `company` or `team`. ID of the assignee person, company or team.
-  'type': null, // Object | Type of the goal. It requires the following JSON structure: { \\\"name\\\": \\\"deals_started\\\", \\\"params\\\": { \\\"pipeline_id\\\": 1 } }. Type can be one of: `deals_won`, `deals_progressed`, `activities_completed`, `activities_added`, `deals_started` or `revenue_forecast`. `params` can include `pipeline_id`, `stage_id` or `activity_type_id`. `stage_id` is related to only `deals_progressed` type of goals and `activity_type_id` to `activities_completed` or `activities_added` types of goals. To track goal in all pipelines set `pipeline_id` as `null`.
-  'expectedOutcome': null, // Object | Expected outcome of the goal. Expected outcome can be tracked either by `quantity` or by `sum`. It requires the following JSON structure: { \\\"target\\\": \\\"50\\\", \\\"tracking_metric\\\": \\\"quantity\\\" } or { \\\"target\\\": \\\"50\\\", \\\"tracking_metric\\\": \\\"sum\\\", \\\"currency_id\\\": 1 }. `currency_id` should only be added to `sum` type of goals.
-  'duration': null, // Object | Date when the goal starts and ends. It requires the following JSON structure: { \\\"start\\\": \\\"2019-01-01\\\", \\\"end\\\": \\\"2022-12-31\\\" }. Date in format of YYYY-MM-DD. \\\"end\\\" can be set to `null` for an infinite, open-ended goal.
-  'interval': "interval_example" // String | Date when the goal starts and ends. It requires the following JSON structure: { \\\"start\\\": \\\"2019-01-01\\\", \\\"end\\\": \\\"2022-12-31\\\" }. Date in format of YYYY-MM-DD.
-};
+let opts = Pipedrive.NewGoal.constructFromObject({
+  // Properties that you want to update
+});
 apiInstance.addGoal(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -53,12 +48,7 @@ apiInstance.addGoal(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **title** | **String**| Title of the goal. | [optional] 
- **assignee** | [**Object**](Object.md)| Who is this goal assigned to. It requires the following JSON structure: { \\\&quot;id\\\&quot;: \\\&quot;1\\\&quot;, \\\&quot;type\\\&quot;: \\\&quot;person\\\&quot; }. &#x60;type&#x60; can be either &#x60;person&#x60;, &#x60;company&#x60; or &#x60;team&#x60;. ID of the assignee person, company or team. | [optional] 
- **type** | [**Object**](Object.md)| Type of the goal. It requires the following JSON structure: { \\\&quot;name\\\&quot;: \\\&quot;deals_started\\\&quot;, \\\&quot;params\\\&quot;: { \\\&quot;pipeline_id\\\&quot;: 1 } }. Type can be one of: &#x60;deals_won&#x60;, &#x60;deals_progressed&#x60;, &#x60;activities_completed&#x60;, &#x60;activities_added&#x60;, &#x60;deals_started&#x60; or &#x60;revenue_forecast&#x60;. &#x60;params&#x60; can include &#x60;pipeline_id&#x60;, &#x60;stage_id&#x60; or &#x60;activity_type_id&#x60;. &#x60;stage_id&#x60; is related to only &#x60;deals_progressed&#x60; type of goals and &#x60;activity_type_id&#x60; to &#x60;activities_completed&#x60; or &#x60;activities_added&#x60; types of goals. To track goal in all pipelines set &#x60;pipeline_id&#x60; as &#x60;null&#x60;. | [optional] 
- **expectedOutcome** | [**Object**](Object.md)| Expected outcome of the goal. Expected outcome can be tracked either by &#x60;quantity&#x60; or by &#x60;sum&#x60;. It requires the following JSON structure: { \\\&quot;target\\\&quot;: \\\&quot;50\\\&quot;, \\\&quot;tracking_metric\\\&quot;: \\\&quot;quantity\\\&quot; } or { \\\&quot;target\\\&quot;: \\\&quot;50\\\&quot;, \\\&quot;tracking_metric\\\&quot;: \\\&quot;sum\\\&quot;, \\\&quot;currency_id\\\&quot;: 1 }. &#x60;currency_id&#x60; should only be added to &#x60;sum&#x60; type of goals. | [optional] 
- **duration** | [**Object**](Object.md)| Date when the goal starts and ends. It requires the following JSON structure: { \\\&quot;start\\\&quot;: \\\&quot;2019-01-01\\\&quot;, \\\&quot;end\\\&quot;: \\\&quot;2022-12-31\\\&quot; }. Date in format of YYYY-MM-DD. \\\&quot;end\\\&quot; can be set to &#x60;null&#x60; for an infinite, open-ended goal. | [optional] 
- **interval** | **String**| Date when the goal starts and ends. It requires the following JSON structure: { \\\&quot;start\\\&quot;: \\\&quot;2019-01-01\\\&quot;, \\\&quot;end\\\&quot;: \\\&quot;2022-12-31\\\&quot; }. Date in format of YYYY-MM-DD. | [optional] 
+ **newGoal** | [**NewGoal**](NewGoal.md)|  | [optional] 
 
 ### Return type
 
@@ -70,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -281,7 +271,7 @@ let opts = {
   'type': null, // Object | Type of the goal. It requires the following JSON structure: { \\\"name\\\": \\\"deals_started\\\", \\\"params\\\": { \\\"pipeline_id\\\": 1 } }. Type can be one of: `deals_won`, `deals_progressed`, `activities_completed`, `activities_added`, `deals_started` or `revenue_forecast`. `params` can include `pipeline_id`, `stage_id` or `activity_type_id`. `stage_id` is related to only `deals_progressed` type of goals and `activity_type_id` to `activities_completed` or `activities_added` types of goals. To track goal in all pipelines set `pipeline_id` as `null`.
   'expectedOutcome': null, // Object | Expected outcome of the goal. Expected outcome can be tracked either by `quantity` or by `sum`. It requires the following JSON structure: { \\\"target\\\": \\\"50\\\", \\\"tracking_metric\\\": \\\"quantity\\\" } or { \\\"target\\\": \\\"50\\\", \\\"tracking_metric\\\": \\\"sum\\\", \\\"currency_id\\\": 1 }. `currency_id` should only be added to `sum` type of goals.
   'duration': null, // Object | Date when the goal starts and ends. It requires the following JSON structure: { \\\"start\\\": \\\"2019-01-01\\\", \\\"end\\\": \\\"2022-12-31\\\" }. Date in format of YYYY-MM-DD. \\\"end\\\" can be set to `null` for an infinite, open-ended goal.
-  'interval': "interval_example" // String | Date when the goal starts and ends. It requires the following JSON structure: { \\\"start\\\": \\\"2019-01-01\\\", \\\"end\\\": \\\"2022-12-31\\\" }. Date in format of YYYY-MM-DD.
+  'interval': "interval_example" // String | Interval of the goal
 };
 apiInstance.updateGoal(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -302,7 +292,7 @@ Name | Type | Description  | Notes
  **type** | [**Object**](Object.md)| Type of the goal. It requires the following JSON structure: { \\\&quot;name\\\&quot;: \\\&quot;deals_started\\\&quot;, \\\&quot;params\\\&quot;: { \\\&quot;pipeline_id\\\&quot;: 1 } }. Type can be one of: &#x60;deals_won&#x60;, &#x60;deals_progressed&#x60;, &#x60;activities_completed&#x60;, &#x60;activities_added&#x60;, &#x60;deals_started&#x60; or &#x60;revenue_forecast&#x60;. &#x60;params&#x60; can include &#x60;pipeline_id&#x60;, &#x60;stage_id&#x60; or &#x60;activity_type_id&#x60;. &#x60;stage_id&#x60; is related to only &#x60;deals_progressed&#x60; type of goals and &#x60;activity_type_id&#x60; to &#x60;activities_completed&#x60; or &#x60;activities_added&#x60; types of goals. To track goal in all pipelines set &#x60;pipeline_id&#x60; as &#x60;null&#x60;. | [optional] 
  **expectedOutcome** | [**Object**](Object.md)| Expected outcome of the goal. Expected outcome can be tracked either by &#x60;quantity&#x60; or by &#x60;sum&#x60;. It requires the following JSON structure: { \\\&quot;target\\\&quot;: \\\&quot;50\\\&quot;, \\\&quot;tracking_metric\\\&quot;: \\\&quot;quantity\\\&quot; } or { \\\&quot;target\\\&quot;: \\\&quot;50\\\&quot;, \\\&quot;tracking_metric\\\&quot;: \\\&quot;sum\\\&quot;, \\\&quot;currency_id\\\&quot;: 1 }. &#x60;currency_id&#x60; should only be added to &#x60;sum&#x60; type of goals. | [optional] 
  **duration** | [**Object**](Object.md)| Date when the goal starts and ends. It requires the following JSON structure: { \\\&quot;start\\\&quot;: \\\&quot;2019-01-01\\\&quot;, \\\&quot;end\\\&quot;: \\\&quot;2022-12-31\\\&quot; }. Date in format of YYYY-MM-DD. \\\&quot;end\\\&quot; can be set to &#x60;null&#x60; for an infinite, open-ended goal. | [optional] 
- **interval** | **String**| Date when the goal starts and ends. It requires the following JSON structure: { \\\&quot;start\\\&quot;: \\\&quot;2019-01-01\\\&quot;, \\\&quot;end\\\&quot;: \\\&quot;2022-12-31\\\&quot; }. Date in format of YYYY-MM-DD. | [optional] 
+ **interval** | **String**| Interval of the goal | [optional] 
 
 ### Return type
 

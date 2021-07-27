@@ -396,9 +396,14 @@ Class | Method | HTTP request | Description
 *Pipedrive.MailboxApi* | [**updateMailThreadDetails**](docs/MailboxApi.md#updateMailThreadDetails) | **PUT** /mailbox/mailThreads/{id} | Update mail thread details
 *Pipedrive.NoteFieldsApi* | [**getNoteFields**](docs/NoteFieldsApi.md#getNoteFields) | **GET** /noteFields | Get all note fields
 *Pipedrive.NotesApi* | [**addNote**](docs/NotesApi.md#addNote) | **POST** /notes | Add a note
+*Pipedrive.NotesApi* | [**addNoteComment**](docs/NotesApi.md#addNoteComment) | **POST** /notes/{id}/comments | Add a comment to a note
+*Pipedrive.NotesApi* | [**deleteComment**](docs/NotesApi.md#deleteComment) | **DELETE** /notes/{id}/comments/{commentId} | Delete a comment related to a note
 *Pipedrive.NotesApi* | [**deleteNote**](docs/NotesApi.md#deleteNote) | **DELETE** /notes/{id} | Delete a note
+*Pipedrive.NotesApi* | [**getComment**](docs/NotesApi.md#getComment) | **GET** /notes/{id}/comments/{commentId} | Get one comment
 *Pipedrive.NotesApi* | [**getNote**](docs/NotesApi.md#getNote) | **GET** /notes/{id} | Get one note
+*Pipedrive.NotesApi* | [**getNoteComments**](docs/NotesApi.md#getNoteComments) | **GET** /notes/{id}/comments | Get all comments for a note
 *Pipedrive.NotesApi* | [**getNotes**](docs/NotesApi.md#getNotes) | **GET** /notes | Get all notes
+*Pipedrive.NotesApi* | [**updateCommentForNote**](docs/NotesApi.md#updateCommentForNote) | **PUT** /notes/{id}/comments/{commentId} | Update a comment related to a note
 *Pipedrive.NotesApi* | [**updateNote**](docs/NotesApi.md#updateNote) | **PUT** /notes/{id} | Update a note
 *Pipedrive.OrganizationFieldsApi* | [**addOrganizationField**](docs/OrganizationFieldsApi.md#addOrganizationField) | **POST** /organizationFields | Add a new organization field
 *Pipedrive.OrganizationFieldsApi* | [**deleteOrganizationField**](docs/OrganizationFieldsApi.md#deleteOrganizationField) | **DELETE** /organizationFields/{id} | Delete an organization field
@@ -408,8 +413,8 @@ Class | Method | HTTP request | Description
 *Pipedrive.OrganizationFieldsApi* | [**updateOrganizationField**](docs/OrganizationFieldsApi.md#updateOrganizationField) | **PUT** /organizationFields/{id} | Update an organization field
 *Pipedrive.OrganizationRelationshipsApi* | [**addOrganizationRelationship**](docs/OrganizationRelationshipsApi.md#addOrganizationRelationship) | **POST** /organizationRelationships | Create an organization relationship
 *Pipedrive.OrganizationRelationshipsApi* | [**deleteOrganizationRelationship**](docs/OrganizationRelationshipsApi.md#deleteOrganizationRelationship) | **DELETE** /organizationRelationships/{id} | Delete an organization relationship
-*Pipedrive.OrganizationRelationshipsApi* | [**getOrganizationRelationShips**](docs/OrganizationRelationshipsApi.md#getOrganizationRelationShips) | **GET** /organizationRelationships | Get all relationships for organization
 *Pipedrive.OrganizationRelationshipsApi* | [**getOrganizationRelationship**](docs/OrganizationRelationshipsApi.md#getOrganizationRelationship) | **GET** /organizationRelationships/{id} | Get one organization relationship
+*Pipedrive.OrganizationRelationshipsApi* | [**getOrganizationRelationships**](docs/OrganizationRelationshipsApi.md#getOrganizationRelationships) | **GET** /organizationRelationships | Get all relationships for organization
 *Pipedrive.OrganizationRelationshipsApi* | [**updateOrganizationRelationship**](docs/OrganizationRelationshipsApi.md#updateOrganizationRelationship) | **PUT** /organizationRelationships/{id} | Update an organization relationship
 *Pipedrive.OrganizationsApi* | [**addOrganization**](docs/OrganizationsApi.md#addOrganization) | **POST** /organizations | Add an organization
 *Pipedrive.OrganizationsApi* | [**addOrganizationFollower**](docs/OrganizationsApi.md#addOrganizationFollower) | **POST** /organizations/{id}/followers | Add a follower to an organization
@@ -585,7 +590,6 @@ Class | Method | HTTP request | Description
  - [Pipedrive.AddPersonPictureResponseAllOf](docs/AddPersonPictureResponseAllOf.md)
  - [Pipedrive.AddPersonResponse](docs/AddPersonResponse.md)
  - [Pipedrive.AddPersonResponseAllOf](docs/AddPersonResponseAllOf.md)
- - [Pipedrive.AddPersonResponseAllOfRelatedObjects](docs/AddPersonResponseAllOfRelatedObjects.md)
  - [Pipedrive.AddProductAttachmentDetails](docs/AddProductAttachmentDetails.md)
  - [Pipedrive.AddProductAttachmentDetailsAllOf](docs/AddProductAttachmentDetailsAllOf.md)
  - [Pipedrive.AddProductFollowerRequest](docs/AddProductFollowerRequest.md)
@@ -606,6 +610,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.AllOrganizationsGetResponseAllOfRelatedObjects](docs/AllOrganizationsGetResponseAllOfRelatedObjects.md)
  - [Pipedrive.ArrayPrices](docs/ArrayPrices.md)
  - [Pipedrive.Assignee](docs/Assignee.md)
+ - [Pipedrive.BaseComment](docs/BaseComment.md)
  - [Pipedrive.BaseCurrency](docs/BaseCurrency.md)
  - [Pipedrive.BaseDeal](docs/BaseDeal.md)
  - [Pipedrive.BaseFollowerItem](docs/BaseFollowerItem.md)
@@ -644,6 +649,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.BaseWebhook](docs/BaseWebhook.md)
  - [Pipedrive.BasicDeal](docs/BasicDeal.md)
  - [Pipedrive.BasicDealProduct](docs/BasicDealProduct.md)
+ - [Pipedrive.BasicGoal](docs/BasicGoal.md)
  - [Pipedrive.BasicPerson](docs/BasicPerson.md)
  - [Pipedrive.BasicProductField](docs/BasicProductField.md)
  - [Pipedrive.BulkDeleteResponse](docs/BulkDeleteResponse.md)
@@ -718,6 +724,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.DeleteActivitiesResponse200Data](docs/DeleteActivitiesResponse200Data.md)
  - [Pipedrive.DeleteActivityResponse200](docs/DeleteActivityResponse200.md)
  - [Pipedrive.DeleteActivityResponse200Data](docs/DeleteActivityResponse200Data.md)
+ - [Pipedrive.DeleteComment](docs/DeleteComment.md)
  - [Pipedrive.DeleteDeal](docs/DeleteDeal.md)
  - [Pipedrive.DeleteDealData](docs/DeleteDealData.md)
  - [Pipedrive.DeleteDealFollower](docs/DeleteDealFollower.md)
@@ -812,6 +819,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.GetAllPipelines](docs/GetAllPipelines.md)
  - [Pipedrive.GetAllPipelinesAllOf](docs/GetAllPipelinesAllOf.md)
  - [Pipedrive.GetAllProductFieldsResponse](docs/GetAllProductFieldsResponse.md)
+ - [Pipedrive.GetComments](docs/GetComments.md)
  - [Pipedrive.GetDeal](docs/GetDeal.md)
  - [Pipedrive.GetDealAdditionalData](docs/GetDealAdditionalData.md)
  - [Pipedrive.GetDeals](docs/GetDeals.md)
@@ -926,6 +934,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.ListProductsResponse](docs/ListProductsResponse.md)
  - [Pipedrive.ListProductsResponseAllOf](docs/ListProductsResponseAllOf.md)
  - [Pipedrive.ListProductsResponseAllOfData](docs/ListProductsResponseAllOfData.md)
+ - [Pipedrive.ListProductsResponseAllOfRelatedObjects](docs/ListProductsResponseAllOfRelatedObjects.md)
  - [Pipedrive.MailMessage](docs/MailMessage.md)
  - [Pipedrive.MailMessageAllOf](docs/MailMessageAllOf.md)
  - [Pipedrive.MailMessageData](docs/MailMessageData.md)
@@ -952,6 +961,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.NewDealProductAllOf](docs/NewDealProductAllOf.md)
  - [Pipedrive.NewFollowerResponse](docs/NewFollowerResponse.md)
  - [Pipedrive.NewFollowerResponseData](docs/NewFollowerResponseData.md)
+ - [Pipedrive.NewGoal](docs/NewGoal.md)
  - [Pipedrive.NewPerson](docs/NewPerson.md)
  - [Pipedrive.NewPersonAllOf](docs/NewPersonAllOf.md)
  - [Pipedrive.NewProductField](docs/NewProductField.md)
@@ -1059,6 +1069,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.PictureDataWithValueAllOf](docs/PictureDataWithValueAllOf.md)
  - [Pipedrive.PipelineDetails](docs/PipelineDetails.md)
  - [Pipedrive.PipelineDetailsAllOf](docs/PipelineDetailsAllOf.md)
+ - [Pipedrive.PostComment](docs/PostComment.md)
  - [Pipedrive.PostDealParticipants](docs/PostDealParticipants.md)
  - [Pipedrive.PostGoalResponse](docs/PostGoalResponse.md)
  - [Pipedrive.PostNote](docs/PostNote.md)

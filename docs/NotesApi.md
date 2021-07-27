@@ -5,9 +5,14 @@ All URIs are relative to *https://api.pipedrive.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addNote**](NotesApi.md#addNote) | **POST** /notes | Add a note
+[**addNoteComment**](NotesApi.md#addNoteComment) | **POST** /notes/{id}/comments | Add a comment to a note
+[**deleteComment**](NotesApi.md#deleteComment) | **DELETE** /notes/{id}/comments/{commentId} | Delete a comment related to a note
 [**deleteNote**](NotesApi.md#deleteNote) | **DELETE** /notes/{id} | Delete a note
+[**getComment**](NotesApi.md#getComment) | **GET** /notes/{id}/comments/{commentId} | Get one comment
 [**getNote**](NotesApi.md#getNote) | **GET** /notes/{id} | Get one note
+[**getNoteComments**](NotesApi.md#getNoteComments) | **GET** /notes/{id}/comments | Get all comments for a note
 [**getNotes**](NotesApi.md#getNotes) | **GET** /notes | Get all notes
+[**updateCommentForNote**](NotesApi.md#updateCommentForNote) | **PUT** /notes/{id}/comments/{commentId} | Update a comment related to a note
 [**updateNote**](NotesApi.md#updateNote) | **PUT** /notes/{id} | Update a note
 
 
@@ -87,6 +92,116 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## addNoteComment
+
+> PostComment addNoteComment(id, content)
+
+Add a comment to a note
+
+Adds a new comment to a note.
+
+### Example
+
+```javascript
+import Pipedrive from 'pipedrive';
+let defaultClient = Pipedrive.ApiClient.instance;
+// Configure API key authorization: api_key
+let api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = defaultClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new Pipedrive.NotesApi();
+let id = 56; // Number | ID of the note
+let content = "content_example"; // String | Content of the comment in HTML format. Subject to sanitization on the back-end.
+apiInstance.addNoteComment(id, content).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| ID of the note | 
+ **content** | **String**| Content of the comment in HTML format. Subject to sanitization on the back-end. | 
+
+### Return type
+
+[**PostComment**](PostComment.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/x-www-form-urlencoded
+- **Accept**: application/json
+
+
+## deleteComment
+
+> DeleteComment deleteComment(id, commentId)
+
+Delete a comment related to a note
+
+Deletes a comment.
+
+### Example
+
+```javascript
+import Pipedrive from 'pipedrive';
+let defaultClient = Pipedrive.ApiClient.instance;
+// Configure API key authorization: api_key
+let api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = defaultClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new Pipedrive.NotesApi();
+let id = 56; // Number | ID of the note
+let commentId = null; // String | ID of the comment
+apiInstance.deleteComment(id, commentId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| ID of the note | 
+ **commentId** | [**String**](.md)| ID of the comment | 
+
+### Return type
+
+[**DeleteComment**](DeleteComment.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## deleteNote
 
 > DeleteNote deleteNote(id)
@@ -140,6 +255,61 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## getComment
+
+> PostComment getComment(id, commentId)
+
+Get one comment
+
+Returns details about a comment
+
+### Example
+
+```javascript
+import Pipedrive from 'pipedrive';
+let defaultClient = Pipedrive.ApiClient.instance;
+// Configure API key authorization: api_key
+let api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = defaultClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new Pipedrive.NotesApi();
+let id = 56; // Number | ID of the note
+let commentId = null; // String | ID of the comment
+apiInstance.getComment(id, commentId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| ID of the note | 
+ **commentId** | [**String**](.md)| ID of the comment | 
+
+### Return type
+
+[**PostComment**](PostComment.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## getNote
 
 > PostNote getNote(id)
@@ -182,6 +352,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PostNote**](PostNote.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getNoteComments
+
+> GetComments getNoteComments(id, opts)
+
+Get all comments for a note
+
+Returns all comments associated with a Note.
+
+### Example
+
+```javascript
+import Pipedrive from 'pipedrive';
+let defaultClient = Pipedrive.ApiClient.instance;
+// Configure API key authorization: api_key
+let api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = defaultClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new Pipedrive.NotesApi();
+let id = 56; // Number | ID of the note
+let opts = {
+  'start': 0, // Number | Pagination start
+  'limit': 56 // Number | Items shown per page
+};
+apiInstance.getNoteComments(id, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| ID of the note | 
+ **start** | **Number**| Pagination start | [optional] [default to 0]
+ **limit** | **Number**| Items shown per page | [optional] 
+
+### Return type
+
+[**GetComments**](GetComments.md)
 
 ### Authorization
 
@@ -271,6 +500,63 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## updateCommentForNote
+
+> PostComment updateCommentForNote(id, commentId, content)
+
+Update a comment related to a note
+
+Updates a comment related to a note.
+
+### Example
+
+```javascript
+import Pipedrive from 'pipedrive';
+let defaultClient = Pipedrive.ApiClient.instance;
+// Configure API key authorization: api_key
+let api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = defaultClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new Pipedrive.NotesApi();
+let id = 56; // Number | ID of the note
+let commentId = null; // String | ID of the comment
+let content = "content_example"; // String | Content of the comment in HTML format. Subject to sanitization on the back-end.
+apiInstance.updateCommentForNote(id, commentId, content).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| ID of the note | 
+ **commentId** | [**String**](.md)| ID of the comment | 
+ **content** | **String**| Content of the comment in HTML format. Subject to sanitization on the back-end. | 
+
+### Return type
+
+[**PostComment**](PostComment.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/x-www-form-urlencoded
 - **Accept**: application/json
 
 
