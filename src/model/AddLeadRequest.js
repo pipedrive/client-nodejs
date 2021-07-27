@@ -13,6 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import LeadValue from './LeadValue';
+import VisibleTo from './VisibleTo';
 
 /**
  * The AddLeadRequest model module.
@@ -85,6 +86,16 @@ class AddLeadRequest {
 
                 delete data['expected_close_date'];
             }
+            if (data.hasOwnProperty('visible_to')) {
+                obj['visible_to'] = ApiClient.convertToType(data['visible_to'], VisibleTo);
+
+                delete data['visible_to'];
+            }
+            if (data.hasOwnProperty('was_seen')) {
+                obj['was_seen'] = ApiClient.convertToType(data['was_seen'], 'Boolean');
+
+                delete data['was_seen'];
+            }
 
             if (Object.keys(data).length > 0) {
                 obj['extra'] = data;
@@ -138,8 +149,41 @@ AddLeadRequest.prototype['value'] = undefined;
  */
 AddLeadRequest.prototype['expected_close_date'] = undefined;
 
+/**
+ * Visibility of the Lead. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
+ * @member {module:model/VisibleTo} visible_to
+ */
+AddLeadRequest.prototype['visible_to'] = undefined;
+
+/**
+ * A flag indicating whether the Lead was seen by someone in the Pipedrive UI
+ * @member {module:model/AddLeadRequest.WasSeenEnum} was_seen
+ */
+AddLeadRequest.prototype['was_seen'] = undefined;
 
 
+
+
+
+/**
+ * Allowed values for the <code>was_seen</code> property.
+ * @enum {Boolean}
+ * @readonly
+ */
+AddLeadRequest['WasSeenEnum'] = {
+
+    /**
+     * value: "true"
+     * @const
+     */
+    "true": "true",
+
+    /**
+     * value: "false"
+     * @const
+     */
+    "false": "false"
+};
 
 
 

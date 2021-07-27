@@ -181,71 +181,6 @@ export default class OrganizationRelationshipsApi {
 
 
     /**
-     * Get all relationships for organization
-     * Gets all of the relationships for a supplied organization ID.
-     * @param {Number} orgId ID of the organization to get relationships for
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AllOrganizationRelationshipsGetResponse} and HTTP response
-     */
-    getOrganizationRelationShipsWithHttpInfo(orgId) {
-      const opts = {}
-      let postBody = null;
-      // verify the required parameter 'orgId' is set
-      if (orgId === undefined || orgId === null) {
-        throw new Error("Missing the required parameter 'orgId' when calling getOrganizationRelationShips");
-      }
-
-      let pathParams = {
-      };
-      let queryParams = {
-        'org_id': orgId,
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let formParamArray = [
-      ];
-
-      let contentTypes = [];
-      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
-      const isJSON = contentTypes.includes('application/json');
-
-      if (isJSON) {
-        postBody = { ...postBody, ...opts };
-      } else if (isURLEncoded) {
-        for (let key in opts) {
-          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
-            formParams[key] = opts[key];
-          }
-        }
-      }
-
-      let authNames = ['api_key', 'oauth2', ];
-      let accepts = ['application/json', ];
-      let returnType = AllOrganizationRelationshipsGetResponse;
-      return this.apiClient.callApi(
-        '/organizationRelationships', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Get all relationships for organization
-     * Gets all of the relationships for a supplied organization ID.
-     * @param {Number} orgId ID of the organization to get relationships for
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AllOrganizationRelationshipsGetResponse}
-     */
-    getOrganizationRelationShips(orgId) {
-      return this.getOrganizationRelationShipsWithHttpInfo(orgId)
-        .then(function(response_and_data) {
-          return response_and_data;
-        });
-    }
-
-
-    /**
      * Get one organization relationship
      * Finds and returns an organization relationship from its ID.
      * @param {Number} id ID of the organization relationship
@@ -309,6 +244,71 @@ export default class OrganizationRelationshipsApi {
      */
     getOrganizationRelationship(id, opts) {
       return this.getOrganizationRelationshipWithHttpInfo(id, opts)
+        .then(function(response_and_data) {
+          return response_and_data;
+        });
+    }
+
+
+    /**
+     * Get all relationships for organization
+     * Gets all of the relationships for a supplied organization ID.
+     * @param {Number} orgId ID of the organization to get relationships for
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AllOrganizationRelationshipsGetResponse} and HTTP response
+     */
+    getOrganizationRelationshipsWithHttpInfo(orgId) {
+      const opts = {}
+      let postBody = null;
+      // verify the required parameter 'orgId' is set
+      if (orgId === undefined || orgId === null) {
+        throw new Error("Missing the required parameter 'orgId' when calling getOrganizationRelationships");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'org_id': orgId,
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let formParamArray = [
+      ];
+
+      let contentTypes = [];
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
+
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
+      let returnType = AllOrganizationRelationshipsGetResponse;
+      return this.apiClient.callApi(
+        '/organizationRelationships', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get all relationships for organization
+     * Gets all of the relationships for a supplied organization ID.
+     * @param {Number} orgId ID of the organization to get relationships for
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AllOrganizationRelationshipsGetResponse}
+     */
+    getOrganizationRelationships(orgId) {
+      return this.getOrganizationRelationshipsWithHttpInfo(orgId)
         .then(function(response_and_data) {
           return response_and_data;
         });

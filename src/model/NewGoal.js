@@ -123,7 +123,7 @@ NewGoal.prototype['expected_outcome'] = undefined;
 NewGoal.prototype['duration'] = undefined;
 
 /**
- * Date when the goal starts and ends. It requires the following JSON structure: { \"start\": \"2019-01-01\", \"end\": \"2022-12-31\" }. Date in format of YYYY-MM-DD.
+ * Interval of the goal
  * @member {module:model/NewGoal.IntervalEnum} interval
  */
 NewGoal.prototype['interval'] = undefined;
@@ -156,7 +156,7 @@ BasicGoal.prototype['expected_outcome'] = undefined;
  */
 BasicGoal.prototype['duration'] = undefined;
 /**
- * Date when the goal starts and ends. It requires the following JSON structure: { \"start\": \"2019-01-01\", \"end\": \"2022-12-31\" }. Date in format of YYYY-MM-DD.
+ * Interval of the goal
  * @member {module:model/BasicGoal.IntervalEnum} interval
  */
 BasicGoal.prototype['interval'] = undefined;
