@@ -6,8 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addOrganizationRelationship**](OrganizationRelationshipsApi.md#addOrganizationRelationship) | **POST** /organizationRelationships | Create an organization relationship
 [**deleteOrganizationRelationship**](OrganizationRelationshipsApi.md#deleteOrganizationRelationship) | **DELETE** /organizationRelationships/{id} | Delete an organization relationship
-[**getOrganizationRelationShips**](OrganizationRelationshipsApi.md#getOrganizationRelationShips) | **GET** /organizationRelationships | Get all relationships for organization
 [**getOrganizationRelationship**](OrganizationRelationshipsApi.md#getOrganizationRelationship) | **GET** /organizationRelationships/{id} | Get one organization relationship
+[**getOrganizationRelationships**](OrganizationRelationshipsApi.md#getOrganizationRelationships) | **GET** /organizationRelationships | Get all relationships for organization
 [**updateOrganizationRelationship**](OrganizationRelationshipsApi.md#updateOrganizationRelationship) | **PUT** /organizationRelationships/{id} | Update an organization relationship
 
 
@@ -126,59 +126,6 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## getOrganizationRelationShips
-
-> AllOrganizationRelationshipsGetResponse getOrganizationRelationShips(orgId)
-
-Get all relationships for organization
-
-Gets all of the relationships for a supplied organization ID.
-
-### Example
-
-```javascript
-import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
-// Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
-api_key.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.apiKeyPrefix = 'Token';
-// Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
-oauth2.accessToken = 'YOUR ACCESS TOKEN';
-
-let apiInstance = new Pipedrive.OrganizationRelationshipsApi();
-let orgId = 56; // Number | ID of the organization to get relationships for
-apiInstance.getOrganizationRelationShips(orgId).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orgId** | **Number**| ID of the organization to get relationships for | 
-
-### Return type
-
-[**AllOrganizationRelationshipsGetResponse**](AllOrganizationRelationshipsGetResponse.md)
-
-### Authorization
-
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
 ## getOrganizationRelationship
 
 > OrganizationRelationshipGetResponse getOrganizationRelationship(id, opts)
@@ -225,6 +172,59 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**OrganizationRelationshipGetResponse**](OrganizationRelationshipGetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getOrganizationRelationships
+
+> AllOrganizationRelationshipsGetResponse getOrganizationRelationships(orgId)
+
+Get all relationships for organization
+
+Gets all of the relationships for a supplied organization ID.
+
+### Example
+
+```javascript
+import Pipedrive from 'pipedrive';
+let defaultClient = Pipedrive.ApiClient.instance;
+// Configure API key authorization: api_key
+let api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = defaultClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new Pipedrive.OrganizationRelationshipsApi();
+let orgId = 56; // Number | ID of the organization to get relationships for
+apiInstance.getOrganizationRelationships(orgId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orgId** | **Number**| ID of the organization to get relationships for | 
+
+### Return type
+
+[**AllOrganizationRelationshipsGetResponse**](AllOrganizationRelationshipsGetResponse.md)
 
 ### Authorization
 
