@@ -4,25 +4,30 @@ const mockServerClient = mockServer.mockServerClient;
 let lib;
 
 describe('oauth2 accessToken', () => {
+	let oauth2;
+	let pdClient;
+	let base64ClientIdAndSecret;
+
+
 	beforeEach(async () => {
 		jest.resetModules();
 
 		lib = require('../../dist');
 
-		await mockServerClient("localhost", 1080, null, false).clear('/oauth/token', 'ALL');
-	});
+		await mockServerClient('localhost', 1080, null, false).clear('/oauth/token', 'ALL');
 
-	it('should refresh accessToken with valid refreshToken', async () => {
-		const pdClient = lib.ApiClient.instance;
-		const oauth2 = pdClient.authentications.oauth2;
+		pdClient = lib.ApiClient.instance;
+		oauth2 = pdClient.authentications.oauth2;
 
 		oauth2.host = 'http://localhost:1080';
 		oauth2.clientId = 'fakeClientId';
 		oauth2.clientSecret = 'fakeClientSecret';
 		oauth2.redirectUri = 'https://example.org';
-		oauth2.refreshToken = 'fakeRefreshToken';
+		base64ClientIdAndSecret = Buffer.from(`${oauth2.clientId}:${oauth2.clientSecret}`).toString('base64');
+	});
 
-		const base64ClientIdAndSecret = Buffer.from(`${oauth2.clientId}:${oauth2.clientSecret}`).toString('base64');
+	it('should refresh accessToken with valid refreshToken', async () => {
+		oauth2.refreshToken = 'fakeRefreshToken';
 
 		await mockServerClient("localhost", 1080, null, false).mockAnyResponse({
 			httpRequest: {
@@ -66,14 +71,6 @@ describe('oauth2 accessToken', () => {
 	});
 
 	it('should throw refreshToken is not set', async () => {
-		const pdClient = lib.ApiClient.instance;
-		const oauth2 = pdClient.authentications.oauth2;
-
-		oauth2.host = 'http://localhost:1080';
-		oauth2.clientId = 'fakeClientId';
-		oauth2.clientSecret = 'fakeClientSecret';
-		oauth2.redirectUri = 'https://example.org';
-
 		try {
 			expect(
 				await pdClient.refreshToken()
@@ -84,16 +81,7 @@ describe('oauth2 accessToken', () => {
 	});
 
 	it('should throw wrong refresh token', async () => {
-		const pdClient = lib.ApiClient.instance;
-		const oauth2 = pdClient.authentications.oauth2;
-
-		oauth2.host = 'http://localhost:1080';
-		oauth2.clientId = 'fakeClientId';
-		oauth2.clientSecret = 'fakeClientSecret';
-		oauth2.redirectUri = 'https://example.org';
 		oauth2.refreshToken = 'wrongRefreshToken';
-
-		const base64ClientIdAndSecret = Buffer.from(`${oauth2.clientId}:${oauth2.clientSecret}`).toString('base64');
 
 		await mockServerClient("localhost", 1080, null, false).mockAnyResponse({
 			httpRequest: {

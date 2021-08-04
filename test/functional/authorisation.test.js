@@ -4,26 +4,28 @@ const mockServerClient = mockServer.mockServerClient;
 let lib;
 
 describe('oauth2 authorization', () => {
+	let pdClient;
+	let oauth2;
+	let base64ClientIdAndSecret;
+
 	beforeEach(async () => {
 		jest.resetModules();
 
 		lib = require('../../dist');
 
-		await mockServerClient("localhost", 1080, null, false).clear('/oauth/token', 'ALL');
-	});
+		await mockServerClient('localhost', 1080, null, false).clear('/oauth/token', 'ALL');
 
-	it('should authorize and save access and refresh tokens', async () => {
-		const pdClient = lib.ApiClient.instance;
-		const oauth2 = pdClient.authentications.oauth2;
+		pdClient = lib.ApiClient.instance;
+		oauth2 = pdClient.authentications.oauth2;
 
 		oauth2.host = 'http://localhost:1080';
-
 		oauth2.clientId = 'fakeClientId';
 		oauth2.clientSecret = 'fakeClientSecret';
 		oauth2.redirectUri = 'https://example.org';
+		base64ClientIdAndSecret = Buffer.from(`${oauth2.clientId}:${oauth2.clientSecret}`).toString('base64');
+	});
 
-		const base64ClientIdAndSecret = Buffer.from(`${oauth2.clientId}:${oauth2.clientSecret}`).toString('base64');
-
+	it('should authorize and save access and refresh tokens', async () => {
 		await mockServerClient("localhost", 1080, null, false).mockAnyResponse({
 			httpRequest: {
 				method: 'POST',
@@ -66,10 +68,7 @@ describe('oauth2 authorization', () => {
 	});
 
 	it('should throw clientId is not set', async () => {
-		const pdClient = lib.ApiClient.instance;
-		const oauth2 = pdClient.authentications.oauth2;
-
-		oauth2.host = 'http://localhost:1080';
+		oauth2.clientId = null;
 
 		try {
 			expect(
@@ -81,11 +80,7 @@ describe('oauth2 authorization', () => {
 	});
 
 	it('should throw clientSecret is not set', async () => {
-		const pdClient = lib.ApiClient.instance;
-		const oauth2 = pdClient.authentications.oauth2;
-
-		oauth2.host = 'http://localhost:1080';
-		oauth2.clientId = 'fakeClientId';
+		oauth2.clientSecret = null;
 
 		try {
 			expect(
@@ -97,12 +92,7 @@ describe('oauth2 authorization', () => {
 	});
 
 	it('should throw redirectUri is not set', async () => {
-		const pdClient = lib.ApiClient.instance;
-		const oauth2 = pdClient.authentications.oauth2;
-
-		oauth2.host = 'http://localhost:1080';
-		oauth2.clientId = 'fakeClientId';
-		oauth2.clientSecret = 'fakeClientSecret';
+		oauth2.redirectUri = null;
 
 		try {
 			expect(
@@ -114,16 +104,6 @@ describe('oauth2 authorization', () => {
 	});
 
 	it('should throw wrong auth_code', async () => {
-		const pdClient = lib.ApiClient.instance;
-		const oauth2 = pdClient.authentications.oauth2;
-
-		oauth2.host = 'http://localhost:1080';
-		oauth2.clientId = 'fakeClientId';
-		oauth2.clientSecret = 'fakeClientSecret';
-		oauth2.redirectUri = 'https://example.org';
-
-		const base64ClientIdAndSecret = Buffer.from(`${oauth2.clientId}:${oauth2.clientSecret}`).toString('base64');
-
 		await mockServerClient("localhost", 1080, null, false).mockAnyResponse({
 			httpRequest: {
 				method: 'POST',
