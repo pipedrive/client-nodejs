@@ -474,7 +474,7 @@ Name | Type | Description  | Notes
 
 ## getProductFollowers
 
-> UserIDs getProductFollowers(id)
+> ListProductFollowersResponse getProductFollowers(id, opts)
 
 List followers of a product
 
@@ -496,7 +496,11 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductsApi();
 let id = 56; // Number | ID of the product
-apiInstance.getProductFollowers(id).then((data) => {
+let opts = {
+  'start': 0, // Number | Pagination start
+  'limit': 56 // Number | Items shown per page
+};
+apiInstance.getProductFollowers(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -510,10 +514,12 @@ apiInstance.getProductFollowers(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| ID of the product | 
+ **start** | **Number**| Pagination start | [optional] [default to 0]
+ **limit** | **Number**| Items shown per page | [optional] 
 
 ### Return type
 
-[**UserIDs**](UserIDs.md)
+[**ListProductFollowersResponse**](ListProductFollowersResponse.md)
 
 ### Authorization
 
@@ -600,8 +606,9 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new Pipedrive.ProductsApi();
 let opts = {
   'userId': 56, // Number | If supplied, only products owned by the given user will be returned.
-  'filterId': 56, // Number | ID of the filter to use
+  'ids': [null], // [Number] | An array of integers with the IDs of the products that sould be returned in the response.
   'firstChar': "firstChar_example", // String | If supplied, only products whose name starts with the specified letter will be returned (case insensitive).
+  'getSummary': true, // Boolean | If supplied, response will return the total numbers of products in the `additional_data.summary.total_count` property
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
 };
@@ -619,8 +626,9 @@ apiInstance.getProducts(opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| If supplied, only products owned by the given user will be returned. | [optional] 
- **filterId** | **Number**| ID of the filter to use | [optional] 
+ **ids** | [**[Number]**](Number.md)| An array of integers with the IDs of the products that sould be returned in the response. | [optional] 
  **firstChar** | **String**| If supplied, only products whose name starts with the specified letter will be returned (case insensitive). | [optional] 
+ **getSummary** | **Boolean**| If supplied, response will return the total numbers of products in the &#x60;additional_data.summary.total_count&#x60; property | [optional] 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
 
