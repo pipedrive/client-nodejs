@@ -4,6 +4,9 @@ const mockServerClient = mockServer.mockServerClient;
 
 let lib;
 
+const clientId = 'fakeClientId';
+const clientSecret = 'fakeClientSecret';
+
 function setUpPdClientWithOAuth(isTokenExpired = false) {
 	const pdClient = lib.ApiClient.instance;
 
@@ -12,8 +15,8 @@ function setUpPdClientWithOAuth(isTokenExpired = false) {
 	const oauth2 = pdClient.authentications.oauth2;
 
 	oauth2.host = 'http://localhost:1080';
-	oauth2.clientId = 'fakeClientId';
-	oauth2.clientSecret = 'fakeClientSecret';
+	oauth2.clientId = clientId;
+	oauth2.clientSecret = clientSecret;
 	oauth2.redirectUri = 'https://example.org';
 	oauth2.accessToken = 'fakeAccessToken';
 	oauth2.refreshToken = 'fakeRefreshToken';
@@ -26,11 +29,16 @@ function setUpPdClientWithOAuth(isTokenExpired = false) {
 }
 
 async function mockTokenRefresh() {
+	const base64ClientIdAndSecret = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');
+
 	return await mockServerClient('localhost', 1080, null, false).mockAnyResponse({
 		httpRequest: {
 			method: 'POST',
 			path: '/oauth/token',
-			body: 'refresh_token=fakeRefreshToken&client_id=fakeClientId&client_secret=fakeClientSecret&grant_type=refresh_token',
+			body: 'refresh_token=fakeRefreshToken&grant_type=refresh_token',
+			headers: {
+				'Authorization': [`Basic ${base64ClientIdAndSecret}`],
+			},
 		},
 		httpResponse: {
 			statusCode: 200,
@@ -143,7 +151,7 @@ describe('automatic token refresh in api calls', () => {
 				await new lib.UsersApi().getUsers()
 			).toThrow();
 		} catch (error) {
-			expect(error.response.statusCode).toEqual(404);
+			expect(error.errorCode).toEqual(404);
 		}
 	});
 

@@ -4,20 +4,39 @@ const mockServerClient = mockServer.mockServerClient;
 let lib;
 
 describe('oauth2 accessToken', () => {
+	let oauth2;
+	let pdClient;
+	let base64ClientIdAndSecret;
+
+
 	beforeEach(async () => {
 		jest.resetModules();
 
 		lib = require('../../dist');
 
-		await mockServerClient("localhost", 1080, null, false).clear('/oauth/token', 'ALL');
+		await mockServerClient('localhost', 1080, null, false).clear('/oauth/token', 'ALL');
+
+		pdClient = lib.ApiClient.instance;
+		oauth2 = pdClient.authentications.oauth2;
+
+		oauth2.host = 'http://localhost:1080';
+		oauth2.clientId = 'fakeClientId';
+		oauth2.clientSecret = 'fakeClientSecret';
+		oauth2.redirectUri = 'https://example.org';
+		base64ClientIdAndSecret = Buffer.from(`${oauth2.clientId}:${oauth2.clientSecret}`).toString('base64');
 	});
 
 	it('should refresh accessToken with valid refreshToken', async () => {
+		oauth2.refreshToken = 'fakeRefreshToken';
+
 		await mockServerClient("localhost", 1080, null, false).mockAnyResponse({
 			httpRequest: {
 				method: 'POST',
 				path: '/oauth/token',
-				body: 'refresh_token=fakeRefreshToken&client_id=fakeClientId&client_secret=fakeClientSecret&grant_type=refresh_token',
+				body: 'refresh_token=fakeRefreshToken&grant_type=refresh_token',
+				headers: {
+					'Authorization': [`Basic ${base64ClientIdAndSecret}`],
+				},
 			},
 			httpResponse: {
 				statusCode: 200,
@@ -34,15 +53,6 @@ describe('oauth2 accessToken', () => {
 				})
 			},
 		});
-
-		const pdClient = lib.ApiClient.instance;
-		const oauth2 = pdClient.authentications.oauth2;
-
-		oauth2.host = 'http://localhost:1080';
-		oauth2.clientId = 'fakeClientId';
-		oauth2.clientSecret = 'fakeClientSecret';
-		oauth2.redirectUri = 'https://example.org';
-		oauth2.refreshToken = 'fakeRefreshToken';
 
 		const auth = await pdClient.refreshToken();
 
@@ -61,14 +71,6 @@ describe('oauth2 accessToken', () => {
 	});
 
 	it('should throw refreshToken is not set', async () => {
-		const pdClient = lib.ApiClient.instance;
-		const oauth2 = pdClient.authentications.oauth2;
-
-		oauth2.host = 'http://localhost:1080';
-		oauth2.clientId = 'fakeClientId';
-		oauth2.clientSecret = 'fakeClientSecret';
-		oauth2.redirectUri = 'https://example.org';
-
 		try {
 			expect(
 				await pdClient.refreshToken()
@@ -79,11 +81,16 @@ describe('oauth2 accessToken', () => {
 	});
 
 	it('should throw wrong refresh token', async () => {
+		oauth2.refreshToken = 'wrongRefreshToken';
+
 		await mockServerClient("localhost", 1080, null, false).mockAnyResponse({
 			httpRequest: {
 				method: 'POST',
 				path: '/oauth/token',
-				body: 'refresh_token=wrongRefreshToken&client_id=fakeClientId&client_secret=fakeClientSecret&grant_type=refresh_token',
+				headers: {
+					'Authorization': [`Basic ${base64ClientIdAndSecret}`],
+				},
+				body: 'refresh_token=wrongRefreshToken&grant_type=refresh_token',
 			},
 			httpResponse: {
 				statusCode: 400,
@@ -98,21 +105,12 @@ describe('oauth2 accessToken', () => {
 			},
 		});
 
-		const pdClient = lib.ApiClient.instance;
-		const oauth2 = pdClient.authentications.oauth2;
-
-		oauth2.host = 'http://localhost:1080';
-		oauth2.clientId = 'fakeClientId';
-		oauth2.clientSecret = 'fakeClientSecret';
-		oauth2.redirectUri = 'https://example.org';
-		oauth2.refreshToken = 'wrongRefreshToken';
-
 		try {
 			expect(
 				await pdClient.refreshToken()
 			).toThrow();
 		} catch (error) {
-			expect(error.response.text).toBe('{"success":"false","message":"Invalid grant: refresh token is invalid","error":"invalid_grant"}');
+			expect(error.context.error.text).toBe('{"success":"false","message":"Invalid grant: refresh token is invalid","error":"invalid_grant"}');
 		}
 	});
 });

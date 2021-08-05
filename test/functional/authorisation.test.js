@@ -4,12 +4,25 @@ const mockServerClient = mockServer.mockServerClient;
 let lib;
 
 describe('oauth2 authorization', () => {
+	let pdClient;
+	let oauth2;
+	let base64ClientIdAndSecret;
+
 	beforeEach(async () => {
 		jest.resetModules();
 
 		lib = require('../../dist');
 
-		await mockServerClient("localhost", 1080, null, false).clear('/oauth/token', 'ALL');
+		await mockServerClient('localhost', 1080, null, false).clear('/oauth/token', 'ALL');
+
+		pdClient = lib.ApiClient.instance;
+		oauth2 = pdClient.authentications.oauth2;
+
+		oauth2.host = 'http://localhost:1080';
+		oauth2.clientId = 'fakeClientId';
+		oauth2.clientSecret = 'fakeClientSecret';
+		oauth2.redirectUri = 'https://example.org';
+		base64ClientIdAndSecret = Buffer.from(`${oauth2.clientId}:${oauth2.clientSecret}`).toString('base64');
 	});
 
 	it('should authorize and save access and refresh tokens', async () => {
@@ -17,7 +30,10 @@ describe('oauth2 authorization', () => {
 			httpRequest: {
 				method: 'POST',
 				path: '/oauth/token',
-				body: 'code=fakeAuthCode&client_id=fakeClientId&client_secret=fakeClientSecret&redirect_uri=https://example.org&grant_type=authorization_code',
+				body: 'code=fakeAuthCode&redirect_uri=https://example.org&grant_type=authorization_code',
+				headers: {
+					'Authorization': [`Basic ${base64ClientIdAndSecret}`],
+				},
 			},
 			httpResponse: {
 				statusCode: 200,
@@ -34,15 +50,6 @@ describe('oauth2 authorization', () => {
 				})
 			},
 		});
-
-		const pdClient = lib.ApiClient.instance;
-		const oauth2 = pdClient.authentications.oauth2;
-
-		oauth2.host = 'http://localhost:1080';
-
-		oauth2.clientId = 'fakeClientId';
-		oauth2.clientSecret = 'fakeClientSecret';
-		oauth2.redirectUri = 'https://example.org';
 
 		const auth = await pdClient.authorize('fakeAuthCode');
 
@@ -61,10 +68,7 @@ describe('oauth2 authorization', () => {
 	});
 
 	it('should throw clientId is not set', async () => {
-		const pdClient = lib.ApiClient.instance;
-		const oauth2 = pdClient.authentications.oauth2;
-
-		oauth2.host = 'http://localhost:1080';
+		oauth2.clientId = null;
 
 		try {
 			expect(
@@ -76,11 +80,7 @@ describe('oauth2 authorization', () => {
 	});
 
 	it('should throw clientSecret is not set', async () => {
-		const pdClient = lib.ApiClient.instance;
-		const oauth2 = pdClient.authentications.oauth2;
-
-		oauth2.host = 'http://localhost:1080';
-		oauth2.clientId = 'fakeClientId';
+		oauth2.clientSecret = null;
 
 		try {
 			expect(
@@ -92,12 +92,7 @@ describe('oauth2 authorization', () => {
 	});
 
 	it('should throw redirectUri is not set', async () => {
-		const pdClient = lib.ApiClient.instance;
-		const oauth2 = pdClient.authentications.oauth2;
-
-		oauth2.host = 'http://localhost:1080';
-		oauth2.clientId = 'fakeClientId';
-		oauth2.clientSecret = 'fakeClientSecret';
+		oauth2.redirectUri = null;
 
 		try {
 			expect(
@@ -113,7 +108,10 @@ describe('oauth2 authorization', () => {
 			httpRequest: {
 				method: 'POST',
 				path: '/oauth/token',
-				body: 'code=wrongAuthCode&client_id=fakeClientId&client_secret=fakeClientSecret&redirect_uri=https://example.org&grant_type=authorization_code',
+				body: 'code=wrongAuthCode&redirect_uri=https://example.org&grant_type=authorization_code',
+				headers: {
+					'Authorization': [`Basic ${base64ClientIdAndSecret}`],
+				},
 			},
 			httpResponse: {
 				statusCode: 400,
@@ -128,20 +126,12 @@ describe('oauth2 authorization', () => {
 			},
 		});
 
-		const pdClient = lib.ApiClient.instance;
-		const oauth2 = pdClient.authentications.oauth2;
-
-		oauth2.host = 'http://localhost:1080';
-		oauth2.clientId = 'fakeClientId';
-		oauth2.clientSecret = 'fakeClientSecret';
-		oauth2.redirectUri = 'https://example.org';
-
 		try {
 			expect(
 				await pdClient.authorize('wrongAuthCode')
 			).toThrow();
 		} catch (error) {
-			expect(error.response.text).toBe('{"success":"false","message":"Invalid grant: authorization code is invalid","error":"invalid_grant"}');
+			expect(error.context.error.text).toBe('{"success":"false","message":"Invalid grant: authorization code is invalid","error":"invalid_grant"}');
 		}
 	});
 });
