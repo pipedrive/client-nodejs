@@ -14,6 +14,7 @@
 import ApiClient from '../ApiClient';
 import ListProductAdditionalData from './ListProductAdditionalData';
 import ListProductsResponseAllOfData from './ListProductsResponseAllOfData';
+import ListProductsResponseAllOfRelatedObjects from './ListProductsResponseAllOfRelatedObjects';
 
 /**
  * The ListProductsResponseAllOf model module.
@@ -59,6 +60,11 @@ class ListProductsResponseAllOf {
 
                 delete data['additional_data'];
             }
+            if (data.hasOwnProperty('related_objects')) {
+                obj['related_objects'] = ListProductsResponseAllOfRelatedObjects.constructFromObject(data['related_objects']);
+
+                delete data['related_objects'];
+            }
 
             if (Object.keys(data).length > 0) {
                 obj['extra'] = data;
@@ -80,6 +86,11 @@ ListProductsResponseAllOf.prototype['data'] = undefined;
  * @member {module:model/ListProductAdditionalData} additional_data
  */
 ListProductsResponseAllOf.prototype['additional_data'] = undefined;
+
+/**
+ * @member {module:model/ListProductsResponseAllOfRelatedObjects} related_objects
+ */
+ListProductsResponseAllOf.prototype['related_objects'] = undefined;
 
 
 

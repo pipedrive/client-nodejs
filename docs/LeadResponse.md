@@ -19,5 +19,7 @@ Name | Type | Description | Notes
 **nextActivityId** | **Number** | The ID of the next activity associated with the Lead | [optional] 
 **addTime** | **Date** | The date and time of when the Lead was created. In ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. | [optional] 
 **updateTime** | **Date** | The date and time of when the Lead was last updated. In ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. | [optional] 
+**visibleTo** | [**VisibleTo**](VisibleTo.md) | Visibility of the Lead. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.&lt;table&gt;&lt;tr&gt;&lt;th&gt;Value&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;1&#x60;&lt;/td&gt;&lt;td&gt;Owner &amp;amp; followers (private)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;3&#x60;&lt;/td&gt;&lt;td&gt;Entire company (shared)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; | [optional] 
+**ccEmail** | **String** | The CC email of the lead | [optional] 
 
 

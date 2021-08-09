@@ -13,9 +13,12 @@
 
 
 import ApiClient from "../ApiClient";
+import DeleteComment from '../model/DeleteComment';
 import DeleteNote from '../model/DeleteNote';
+import GetComments from '../model/GetComments';
 import GetNotes from '../model/GetNotes';
 import NumberBoolean from '../model/NumberBoolean';
+import PostComment from '../model/PostComment';
 import PostNote from '../model/PostNote';
 
 /**
@@ -147,6 +150,151 @@ export default class NotesApi {
 
 
     /**
+     * Add a comment to a note
+     * Adds a new comment to a note.
+     * @param {Number} id ID of the note
+     * @param {String} content Content of the comment in HTML format. Subject to sanitization on the back-end.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostComment} and HTTP response
+     */
+    addNoteCommentWithHttpInfo(id, content) {
+      const opts = {}
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling addNoteComment");
+      }
+      // verify the required parameter 'content' is set
+      if (content === undefined || content === null) {
+        throw new Error("Missing the required parameter 'content' when calling addNoteComment");
+      }
+
+      let pathParams = {
+        'id': id,
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+        'content': content,
+      };
+
+      let formParamArray = [
+        'content',
+      ];
+
+      let contentTypes = ['application/x-www-form-urlencoded', ];
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
+
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
+      let returnType = PostComment;
+      return this.apiClient.callApi(
+        '/notes/{id}/comments', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Add a comment to a note
+     * Adds a new comment to a note.
+     * @param {Number} id ID of the note
+     * @param {String} content Content of the comment in HTML format. Subject to sanitization on the back-end.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostComment}
+     */
+    addNoteComment(id, content) {
+      return this.addNoteCommentWithHttpInfo(id, content)
+        .then(function(response_and_data) {
+          return response_and_data;
+        });
+    }
+
+
+    /**
+     * Delete a comment related to a note
+     * Deletes a comment.
+     * @param {Number} id ID of the note
+     * @param {String} commentId ID of the comment
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteComment} and HTTP response
+     */
+    deleteCommentWithHttpInfo(id, commentId) {
+      const opts = {}
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling deleteComment");
+      }
+      // verify the required parameter 'commentId' is set
+      if (commentId === undefined || commentId === null) {
+        throw new Error("Missing the required parameter 'commentId' when calling deleteComment");
+      }
+
+      let pathParams = {
+        'id': id,
+        'commentId': commentId,
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let formParamArray = [
+      ];
+
+      let contentTypes = [];
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
+
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
+      let returnType = DeleteComment;
+      return this.apiClient.callApi(
+        '/notes/{id}/comments/{commentId}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Delete a comment related to a note
+     * Deletes a comment.
+     * @param {Number} id ID of the note
+     * @param {String} commentId ID of the comment
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteComment}
+     */
+    deleteComment(id, commentId) {
+      return this.deleteCommentWithHttpInfo(id, commentId)
+        .then(function(response_and_data) {
+          return response_and_data;
+        });
+    }
+
+
+    /**
      * Delete a note
      * Deletes a specific note.
      * @param {Number} id ID of the note
@@ -212,6 +360,78 @@ export default class NotesApi {
 
 
     /**
+     * Get one comment
+     * Returns details about a comment
+     * @param {Number} id ID of the note
+     * @param {String} commentId ID of the comment
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostComment} and HTTP response
+     */
+    getCommentWithHttpInfo(id, commentId) {
+      const opts = {}
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getComment");
+      }
+      // verify the required parameter 'commentId' is set
+      if (commentId === undefined || commentId === null) {
+        throw new Error("Missing the required parameter 'commentId' when calling getComment");
+      }
+
+      let pathParams = {
+        'id': id,
+        'commentId': commentId,
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let formParamArray = [
+      ];
+
+      let contentTypes = [];
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
+
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
+      let returnType = PostComment;
+      return this.apiClient.callApi(
+        '/notes/{id}/comments/{commentId}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get one comment
+     * Returns details about a comment
+     * @param {Number} id ID of the note
+     * @param {String} commentId ID of the comment
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostComment}
+     */
+    getComment(id, commentId) {
+      return this.getCommentWithHttpInfo(id, commentId)
+        .then(function(response_and_data) {
+          return response_and_data;
+        });
+    }
+
+
+    /**
      * Get one note
      * Returns details about a specific note.
      * @param {Number} id ID of the note
@@ -270,6 +490,79 @@ export default class NotesApi {
      */
     getNote(id) {
       return this.getNoteWithHttpInfo(id)
+        .then(function(response_and_data) {
+          return response_and_data;
+        });
+    }
+
+
+    /**
+     * Get all comments for a note
+     * Returns all comments associated with a Note.
+     * @param {Number} id ID of the note
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.start Pagination start (default to 0)
+     * @param {Number} opts.limit Items shown per page
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetComments} and HTTP response
+     */
+    getNoteCommentsWithHttpInfo(id, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getNoteComments");
+      }
+
+      let pathParams = {
+        'id': id,
+      };
+      let queryParams = {
+        'start': opts['start'],
+        'limit': opts['limit'],
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let formParamArray = [
+      ];
+
+      let contentTypes = [];
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
+
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
+      let returnType = GetComments;
+      return this.apiClient.callApi(
+        '/notes/{id}/comments', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get all comments for a note
+     * Returns all comments associated with a Note.
+     * @param {Number} id ID of the note
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.start Pagination start (default to 0)
+     * @param {Number} opts.limit Items shown per page
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetComments}
+     */
+    getNoteComments(id, opts) {
+      return this.getNoteCommentsWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data;
         });
@@ -372,6 +665,86 @@ export default class NotesApi {
      */
     getNotes(opts) {
       return this.getNotesWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data;
+        });
+    }
+
+
+    /**
+     * Update a comment related to a note
+     * Updates a comment related to a note.
+     * @param {Number} id ID of the note
+     * @param {String} commentId ID of the comment
+     * @param {String} content Content of the comment in HTML format. Subject to sanitization on the back-end.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostComment} and HTTP response
+     */
+    updateCommentForNoteWithHttpInfo(id, commentId, content) {
+      const opts = {}
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling updateCommentForNote");
+      }
+      // verify the required parameter 'commentId' is set
+      if (commentId === undefined || commentId === null) {
+        throw new Error("Missing the required parameter 'commentId' when calling updateCommentForNote");
+      }
+      // verify the required parameter 'content' is set
+      if (content === undefined || content === null) {
+        throw new Error("Missing the required parameter 'content' when calling updateCommentForNote");
+      }
+
+      let pathParams = {
+        'id': id,
+        'commentId': commentId,
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+        'content': content,
+      };
+
+      let formParamArray = [
+        'content',
+      ];
+
+      let contentTypes = ['application/x-www-form-urlencoded', ];
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
+
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
+      let returnType = PostComment;
+      return this.apiClient.callApi(
+        '/notes/{id}/comments/{commentId}', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Update a comment related to a note
+     * Updates a comment related to a note.
+     * @param {Number} id ID of the note
+     * @param {String} commentId ID of the comment
+     * @param {String} content Content of the comment in HTML format. Subject to sanitization on the back-end.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostComment}
+     */
+    updateCommentForNote(id, commentId, content) {
+      return this.updateCommentForNoteWithHttpInfo(id, commentId, content)
         .then(function(response_and_data) {
           return response_and_data;
         });

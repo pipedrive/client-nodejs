@@ -20,6 +20,7 @@ import DeleteProductFollowerResponse from '../model/DeleteProductFollowerRespons
 import DeleteProductResponse from '../model/DeleteProductResponse';
 import FindProductsByNameResponse from '../model/FindProductsByNameResponse';
 import ListFilesResponse from '../model/ListFilesResponse';
+import ListProductFollowersResponse from '../model/ListProductFollowersResponse';
 import NewFollowerResponse from '../model/NewFollowerResponse';
 import NumberBoolean from '../model/NumberBoolean';
 import ProductRequest from '../model/ProductRequest';
@@ -51,7 +52,7 @@ export default class ProductsApi {
 
     /**
      * Add a product
-     * Adds a new product to the products inventory. For more information on how to add a product, see <a href=\"https://pipedrive.readme.io/docs/adding-a-product\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Adds a new product to the Products inventory. For more information on how to add a product, see <a href=\"https://pipedrive.readme.io/docs/adding-a-product\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Object} opts Optional parameters
      * @param {module:model/AddProductRequestBody} opts.addProductRequestBody 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ProductResponse} and HTTP response
@@ -98,7 +99,7 @@ export default class ProductsApi {
 
     /**
      * Add a product
-     * Adds a new product to the products inventory. For more information on how to add a product, see <a href=\"https://pipedrive.readme.io/docs/adding-a-product\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Adds a new product to the Products inventory. For more information on how to add a product, see <a href=\"https://pipedrive.readme.io/docs/adding-a-product\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Object} opts Optional parameters
      * @param {module:model/AddProductRequestBody} opts.addProductRequestBody 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ProductResponse}
@@ -617,10 +618,13 @@ export default class ProductsApi {
      * List followers of a product
      * Lists the followers of a Product
      * @param {Number} id ID of the product
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UserIDs} and HTTP response
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.start Pagination start (default to 0)
+     * @param {Number} opts.limit Items shown per page
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListProductFollowersResponse} and HTTP response
      */
-    getProductFollowersWithHttpInfo(id) {
-      const opts = {}
+    getProductFollowersWithHttpInfo(id, opts) {
+      opts = opts || {};
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -631,6 +635,8 @@ export default class ProductsApi {
         'id': id,
       };
       let queryParams = {
+        'start': opts['start'],
+        'limit': opts['limit'],
       };
       let headerParams = {
       };
@@ -656,7 +662,7 @@ export default class ProductsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = UserIDs;
+      let returnType = ListProductFollowersResponse;
       return this.apiClient.callApi(
         '/products/{id}/followers', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -668,10 +674,13 @@ export default class ProductsApi {
      * List followers of a product
      * Lists the followers of a Product
      * @param {Number} id ID of the product
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UserIDs}
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.start Pagination start (default to 0)
+     * @param {Number} opts.limit Items shown per page
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListProductFollowersResponse}
      */
-    getProductFollowers(id) {
-      return this.getProductFollowersWithHttpInfo(id)
+    getProductFollowers(id, opts) {
+      return this.getProductFollowersWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data;
         });
@@ -745,11 +754,12 @@ export default class ProductsApi {
 
     /**
      * Get all products
-     * Returns data about all products.
+     * Returns data about all Products
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.userId If supplied, only products owned by the given user will be returned.
-     * @param {Number} opts.filterId ID of the filter to use
-     * @param {String} opts.firstChar If supplied, only products whose name starts with the specified letter will be returned (case insensitive).
+     * @param {Number} opts.userId If supplied, only Products owned by the given user will be returned
+     * @param {Array.<Number>} opts.ids An array of integers with the IDs of the Products that sould be returned in the response
+     * @param {String} opts.firstChar If supplied, only Products whose name starts with the specified letter will be returned (case insensitive)
+     * @param {Boolean} opts.getSummary If supplied, response will return the total numbers of Products in the `additional_data.summary.total_count` property
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ProductsResponse} and HTTP response
@@ -762,8 +772,9 @@ export default class ProductsApi {
       };
       let queryParams = {
         'user_id': opts['userId'],
-        'filter_id': opts['filterId'],
+        'ids': this.apiClient.buildCollectionParam(opts['ids'], 'csv'),
         'first_char': opts['firstChar'],
+        'get_summary': opts['getSummary'],
         'start': opts['start'],
         'limit': opts['limit'],
       };
@@ -801,11 +812,12 @@ export default class ProductsApi {
 
     /**
      * Get all products
-     * Returns data about all products.
+     * Returns data about all Products
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.userId If supplied, only products owned by the given user will be returned.
-     * @param {Number} opts.filterId ID of the filter to use
-     * @param {String} opts.firstChar If supplied, only products whose name starts with the specified letter will be returned (case insensitive).
+     * @param {Number} opts.userId If supplied, only Products owned by the given user will be returned
+     * @param {Array.<Number>} opts.ids An array of integers with the IDs of the Products that sould be returned in the response
+     * @param {String} opts.firstChar If supplied, only Products whose name starts with the specified letter will be returned (case insensitive)
+     * @param {Boolean} opts.getSummary If supplied, response will return the total numbers of Products in the `additional_data.summary.total_count` property
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ProductsResponse}

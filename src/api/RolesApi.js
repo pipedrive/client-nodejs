@@ -349,17 +349,18 @@ export default class RolesApi {
         'id': id,
       };
       let queryParams = {
-        'user_id': userId,
       };
       let headerParams = {
       };
       let formParams = {
+        'user_id': userId,
       };
 
       let formParamArray = [
+        'userId',
       ];
 
-      let contentTypes = [];
+      let contentTypes = ['application/x-www-form-urlencoded', ];
       const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
       const isJSON = contentTypes.includes('application/json');
 
