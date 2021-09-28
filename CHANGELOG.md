@@ -8,7 +8,11 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 ### Added
-* added required flag for pipeline name in `POST /pipelines` endpoint documentation
+* Support for endpoints added and changed endpoints changed after March 31, 2021
+* Support for multiple instances [issue #176](https://github.com/pipedrive/client-nodejs/issues/176)
+* Convenience functions regarding OAuth 2.0 lifecycle including `buildAuthorizationUrl`, `authorize` and `refreshToken`
+* Support for changing the host URL [issue #228](https://github.com/pipedrive/client-nodejs/issues/228)
+* Support for both snake_case and camelCase
 * `UpdateProductResponse` for `PUT /products/{id}`
 * `Team` (singular) schema for endpoints that deal with a single team
 * Added support for custom fields for `Content-Type: application/x-www-form-urlencoded`
