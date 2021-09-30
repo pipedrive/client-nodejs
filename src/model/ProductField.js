@@ -166,7 +166,7 @@ class ProductField {
 ProductField.prototype['name'] = undefined;
 
 /**
- * When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array, for example: `[\"red\",\"blue\",\"lilac\"]`
+ * When `field_type` is either `set` or `enum`, possible options must be supplied as a JSON-encoded sequential array, for example:</br>`[{\"label\":\"red\"}, {\"label\":\"blue\"}, {\"label\":\"lilac\"}]`
  * @member {Array.<Object>} options
  */
 ProductField.prototype['options'] = undefined;
@@ -275,7 +275,7 @@ ProductField.prototype['mandatory_flag'] = undefined;
  */
 NewProductField.prototype['name'] = undefined;
 /**
- * When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array, for example: `[\"red\",\"blue\",\"lilac\"]`
+ * When `field_type` is either `set` or `enum`, possible options must be supplied as a JSON-encoded sequential array, for example:</br>`[{\"label\":\"red\"}, {\"label\":\"blue\"}, {\"label\":\"lilac\"}]`
  * @member {Array.<Object>} options
  */
 NewProductField.prototype['options'] = undefined;

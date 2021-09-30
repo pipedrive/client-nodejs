@@ -13,22 +13,21 @@
 
 import ApiClient from '../ApiClient';
 import AdditionalData from './AdditionalData';
-import GetActivitiesResponse200RelatedObjects from './GetActivitiesResponse200RelatedObjects';
-import ProductResponse from './ProductResponse';
+import BaseComment from './BaseComment';
 
 /**
- * The ProductsResponse model module.
- * @module model/ProductsResponse
+ * The GetComments model module.
+ * @module model/GetComments
  * @version 1.0.0
  */
-class ProductsResponse {
+class GetComments {
     /**
-     * Constructs a new <code>ProductsResponse</code>.
-     * @alias module:model/ProductsResponse
+     * Constructs a new <code>GetComments</code>.
+     * @alias module:model/GetComments
      */
     constructor() { 
         
-        ProductsResponse.initialize(this);
+        GetComments.initialize(this);
     }
 
     /**
@@ -40,15 +39,15 @@ class ProductsResponse {
     }
 
     /**
-     * Constructs a <code>ProductsResponse</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>GetComments</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/ProductsResponse} obj Optional instance to populate.
-     * @return {module:model/ProductsResponse} The populated <code>ProductsResponse</code> instance.
+     * @param {module:model/GetComments} obj Optional instance to populate.
+     * @return {module:model/GetComments} The populated <code>GetComments</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new ProductsResponse();
+            obj = obj || new GetComments();
 
             if (data.hasOwnProperty('success')) {
                 obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
@@ -56,7 +55,7 @@ class ProductsResponse {
                 delete data['success'];
             }
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [ProductResponse]);
+                obj['data'] = ApiClient.convertToType(data['data'], [BaseComment]);
 
                 delete data['data'];
             }
@@ -64,11 +63,6 @@ class ProductsResponse {
                 obj['additional_data'] = AdditionalData.constructFromObject(data['additional_data']);
 
                 delete data['additional_data'];
-            }
-            if (data.hasOwnProperty('related_objects')) {
-                obj['related_objects'] = GetActivitiesResponse200RelatedObjects.constructFromObject(data['related_objects']);
-
-                delete data['related_objects'];
             }
 
             if (Object.keys(data).length > 0) {
@@ -83,31 +77,26 @@ class ProductsResponse {
 }
 
 /**
- * If the response is successful or not
+ * If the request was successful or not
  * @member {Boolean} success
  */
-ProductsResponse.prototype['success'] = undefined;
+GetComments.prototype['success'] = undefined;
 
 /**
- * Array containing data for all Products
- * @member {Array.<module:model/ProductResponse>} data
+ * The array of Comments
+ * @member {Array.<module:model/BaseComment>} data
  */
-ProductsResponse.prototype['data'] = undefined;
+GetComments.prototype['data'] = undefined;
 
 /**
  * @member {module:model/AdditionalData} additional_data
  */
-ProductsResponse.prototype['additional_data'] = undefined;
-
-/**
- * @member {module:model/GetActivitiesResponse200RelatedObjects} related_objects
- */
-ProductsResponse.prototype['related_objects'] = undefined;
+GetComments.prototype['additional_data'] = undefined;
 
 
 
 
 
 
-export default ProductsResponse;
+export default GetComments;
 

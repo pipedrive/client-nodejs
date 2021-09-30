@@ -13,6 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import LeadValue from './LeadValue';
+import VisibleTo from './VisibleTo';
 
 /**
  * The LeadResponse model module.
@@ -123,6 +124,16 @@ class LeadResponse {
 
                 delete data['update_time'];
             }
+            if (data.hasOwnProperty('visible_to')) {
+                obj['visible_to'] = ApiClient.convertToType(data['visible_to'], VisibleTo);
+
+                delete data['visible_to'];
+            }
+            if (data.hasOwnProperty('cc_email')) {
+                obj['cc_email'] = ApiClient.convertToType(data['cc_email'], 'String');
+
+                delete data['cc_email'];
+            }
 
             if (Object.keys(data).length > 0) {
                 obj['extra'] = data;
@@ -223,6 +234,18 @@ LeadResponse.prototype['add_time'] = undefined;
  * @member {Date} update_time
  */
 LeadResponse.prototype['update_time'] = undefined;
+
+/**
+ * Visibility of the Lead. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
+ * @member {module:model/VisibleTo} visible_to
+ */
+LeadResponse.prototype['visible_to'] = undefined;
+
+/**
+ * The CC email of the lead
+ * @member {String} cc_email
+ */
+LeadResponse.prototype['cc_email'] = undefined;
 
 
 

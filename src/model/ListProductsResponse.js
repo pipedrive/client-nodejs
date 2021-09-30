@@ -16,6 +16,7 @@ import BaseResponse from './BaseResponse';
 import ListProductAdditionalData from './ListProductAdditionalData';
 import ListProductsResponseAllOf from './ListProductsResponseAllOf';
 import ListProductsResponseAllOfData from './ListProductsResponseAllOfData';
+import ListProductsResponseAllOfRelatedObjects from './ListProductsResponseAllOfRelatedObjects';
 
 /**
  * The ListProductsResponse model module.
@@ -70,6 +71,11 @@ class ListProductsResponse {
 
                 delete data['additional_data'];
             }
+            if (data.hasOwnProperty('related_objects')) {
+                obj['related_objects'] = ListProductsResponseAllOfRelatedObjects.constructFromObject(data['related_objects']);
+
+                delete data['related_objects'];
+            }
 
             if (Object.keys(data).length > 0) {
                 obj['extra'] = data;
@@ -98,6 +104,11 @@ ListProductsResponse.prototype['data'] = undefined;
  */
 ListProductsResponse.prototype['additional_data'] = undefined;
 
+/**
+ * @member {module:model/ListProductsResponseAllOfRelatedObjects} related_objects
+ */
+ListProductsResponse.prototype['related_objects'] = undefined;
+
 
 // Implement BaseResponse interface:
 /**
@@ -114,6 +125,10 @@ ListProductsResponseAllOf.prototype['data'] = undefined;
  * @member {module:model/ListProductAdditionalData} additional_data
  */
 ListProductsResponseAllOf.prototype['additional_data'] = undefined;
+/**
+ * @member {module:model/ListProductsResponseAllOfRelatedObjects} related_objects
+ */
+ListProductsResponseAllOf.prototype['related_objects'] = undefined;
 
 
 
