@@ -450,7 +450,7 @@ class ApiClient {
             var _formParams = this.normalizeParams(formParams);
             for (var key in _formParams) {
                 if (_formParams.hasOwnProperty(key)) {
-                    if (this.isFileParam(_formParams[key])) {
+                    if (key === 'file' || this.isFileParam(_formParams[key])) {
                         // file field
                         request.attach(key, _formParams[key]);
                     } else {

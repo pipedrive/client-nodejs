@@ -297,7 +297,7 @@ export default class FilesApi {
      * Download one file
      * Initializes a file download.
      * @param {Number} id ID of the file
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link File} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Blob} and HTTP response
      */
     downloadFileWithHttpInfo(id) {
       const opts = {}
@@ -336,7 +336,7 @@ export default class FilesApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/octet-stream', ];
-      let returnType = File;
+      let returnType = 'Blob';
       return this.apiClient.callApi(
         '/files/{id}/download', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -348,7 +348,7 @@ export default class FilesApi {
      * Download one file
      * Initializes a file download.
      * @param {Number} id ID of the file
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link File}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Blob}
      */
     downloadFile(id) {
       return this.downloadFileWithHttpInfo(id)

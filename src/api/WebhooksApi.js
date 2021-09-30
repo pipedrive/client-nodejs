@@ -13,6 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
+import AddWebhookRequest from '../model/AddWebhookRequest';
 import BaseResponseWithStatus from '../model/BaseResponseWithStatus';
 import Unauthorized from '../model/Unauthorized';
 import Webhook from '../model/Webhook';
@@ -43,30 +44,13 @@ export default class WebhooksApi {
     /**
      * Create a new webhook
      * Creates a new webhook and returns its details. Note that specifying an event which triggers the webhook combines 2 parameters - `event_action` and `event_object`. E.g., use `*.*` for getting notifications about all events, `added.deal` for any newly added deals, `deleted.persons` for any deleted persons, etc. See <a href=\"https://pipedrive.readme.io/docs/guide-for-webhooks?ref=api_reference\">https://pipedrive.readme.io/docs/guide-for-webhooks</a> for more details.
-     * @param {String} subscriptionUrl A full, valid, publicly accessible URL. Determines where to send the notifications. Please note that you cannot use Pipedrive API endpoints as the `subscription_url`.
-     * @param {module:model/String} eventAction Type of action to receive notifications about. Wildcard will match all supported actions.
-     * @param {module:model/String} eventObject Type of object to receive notifications about. Wildcard will match all supported objects.
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.userId The ID of the user this webhook will be authorized with. If not set, current authorized user will be used. Note that this does not filter only certain user's events — rather, this specifies the user's permissions under which each event is checked. Events about objects the selected user is not entitled to access are not sent. If you want to receive notifications for all events, a top-level admin user should be used.
-     * @param {String} opts.httpAuthUser HTTP basic auth username of the subscription URL endpoint (if required).
-     * @param {String} opts.httpAuthPassword HTTP basic auth password of the subscription URL endpoint (if required).
+     * @param {module:model/AddWebhookRequest} opts.addWebhookRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Webhook} and HTTP response
      */
-    addWebhookWithHttpInfo(subscriptionUrl, eventAction, eventObject, opts) {
+    addWebhookWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = null;
-      // verify the required parameter 'subscriptionUrl' is set
-      if (subscriptionUrl === undefined || subscriptionUrl === null) {
-        throw new Error("Missing the required parameter 'subscriptionUrl' when calling addWebhook");
-      }
-      // verify the required parameter 'eventAction' is set
-      if (eventAction === undefined || eventAction === null) {
-        throw new Error("Missing the required parameter 'eventAction' when calling addWebhook");
-      }
-      // verify the required parameter 'eventObject' is set
-      if (eventObject === undefined || eventObject === null) {
-        throw new Error("Missing the required parameter 'eventObject' when calling addWebhook");
-      }
+      let postBody = opts['addWebhookRequest'];
 
       let pathParams = {
       };
@@ -75,24 +59,12 @@ export default class WebhooksApi {
       let headerParams = {
       };
       let formParams = {
-        'subscription_url': subscriptionUrl,
-        'event_action': eventAction,
-        'event_object': eventObject,
-        'user_id': opts['userId'],
-        'http_auth_user': opts['httpAuthUser'],
-        'http_auth_password': opts['httpAuthPassword'],
       };
 
       let formParamArray = [
-        'subscriptionUrl',
-        'eventAction',
-        'eventObject',
-        'userId',
-        'httpAuthUser',
-        'httpAuthPassword',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded', ];
+      let contentTypes = ['application/json', ];
       const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
       const isJSON = contentTypes.includes('application/json');
 
@@ -119,17 +91,12 @@ export default class WebhooksApi {
     /**
      * Create a new webhook
      * Creates a new webhook and returns its details. Note that specifying an event which triggers the webhook combines 2 parameters - `event_action` and `event_object`. E.g., use `*.*` for getting notifications about all events, `added.deal` for any newly added deals, `deleted.persons` for any deleted persons, etc. See <a href=\"https://pipedrive.readme.io/docs/guide-for-webhooks?ref=api_reference\">https://pipedrive.readme.io/docs/guide-for-webhooks</a> for more details.
-     * @param {String} subscriptionUrl A full, valid, publicly accessible URL. Determines where to send the notifications. Please note that you cannot use Pipedrive API endpoints as the `subscription_url`.
-     * @param {module:model/String} eventAction Type of action to receive notifications about. Wildcard will match all supported actions.
-     * @param {module:model/String} eventObject Type of object to receive notifications about. Wildcard will match all supported objects.
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.userId The ID of the user this webhook will be authorized with. If not set, current authorized user will be used. Note that this does not filter only certain user's events — rather, this specifies the user's permissions under which each event is checked. Events about objects the selected user is not entitled to access are not sent. If you want to receive notifications for all events, a top-level admin user should be used.
-     * @param {String} opts.httpAuthUser HTTP basic auth username of the subscription URL endpoint (if required).
-     * @param {String} opts.httpAuthPassword HTTP basic auth password of the subscription URL endpoint (if required).
+     * @param {module:model/AddWebhookRequest} opts.addWebhookRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Webhook}
      */
-    addWebhook(subscriptionUrl, eventAction, eventObject, opts) {
-      return this.addWebhookWithHttpInfo(subscriptionUrl, eventAction, eventObject, opts)
+    addWebhook(opts) {
+      return this.addWebhookWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data;
         });

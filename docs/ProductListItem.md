@@ -26,5 +26,6 @@ Name | Type | Description | Notes
 **sumFormatted** | **String** | Formatted sum of the Product | [optional] 
 **quantityFormatted** | **String** | Formatted quantity of the Product | [optional] 
 **quantity** | **Number** | Quantity of the Product | [optional] 
+**product** | [**ProductWithObjectPrices**](ProductWithObjectPrices.md) |  | [optional] 
 
 
