@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 ## downloadFile
 
-> File downloadFile(id)
+> Blob downloadFile(id)
 
 Download one file
 
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**File**
+**Blob**
 
 ### Authorization
 

@@ -13,8 +13,8 @@
 
 import ApiClient from '../ApiClient';
 import AddPersonResponseAllOf from './AddPersonResponseAllOf';
-import AddPersonResponseAllOfRelatedObjects from './AddPersonResponseAllOfRelatedObjects';
 import BaseResponse from './BaseResponse';
+import ListProductsResponseAllOfRelatedObjects from './ListProductsResponseAllOfRelatedObjects';
 import PersonItem from './PersonItem';
 
 /**
@@ -66,7 +66,7 @@ class AddPersonResponse {
                 delete data['data'];
             }
             if (data.hasOwnProperty('related_objects')) {
-                obj['related_objects'] = AddPersonResponseAllOfRelatedObjects.constructFromObject(data['related_objects']);
+                obj['related_objects'] = ListProductsResponseAllOfRelatedObjects.constructFromObject(data['related_objects']);
 
                 delete data['related_objects'];
             }
@@ -94,7 +94,7 @@ AddPersonResponse.prototype['success'] = undefined;
 AddPersonResponse.prototype['data'] = undefined;
 
 /**
- * @member {module:model/AddPersonResponseAllOfRelatedObjects} related_objects
+ * @member {module:model/ListProductsResponseAllOfRelatedObjects} related_objects
  */
 AddPersonResponse.prototype['related_objects'] = undefined;
 
@@ -111,7 +111,7 @@ BaseResponse.prototype['success'] = undefined;
  */
 AddPersonResponseAllOf.prototype['data'] = undefined;
 /**
- * @member {module:model/AddPersonResponseAllOfRelatedObjects} related_objects
+ * @member {module:model/ListProductsResponseAllOfRelatedObjects} related_objects
  */
 AddPersonResponseAllOf.prototype['related_objects'] = undefined;
 

@@ -12,8 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import BasicProductField from './BasicProductField';
-import NewProductFieldAllOf from './NewProductFieldAllOf';
 
 /**
  * The NewProductField model module.
@@ -24,13 +22,11 @@ class NewProductField {
     /**
      * Constructs a new <code>NewProductField</code>.
      * @alias module:model/NewProductField
-     * @implements module:model/BasicProductField
-     * @implements module:model/NewProductFieldAllOf
      * @param name {String} Name of the field
      * @param fieldType {module:model/NewProductField.FieldTypeEnum} Type of the field<table><tr><th>Value</th><th>Description</th></tr><tr><td>`varchar`</td><td>Text (up to 255 characters)</td><tr><td>`varchar_auto`</td><td>Autocomplete text (up to 255 characters)</td><tr><td>`text`</td><td>Long text (up to 65k characters)</td><tr><td>`double`</td><td>Numeric value</td><tr><td>`monetary`</td><td>Monetary field (has a numeric value and a currency value)</td><tr><td>`date`</td><td>Date (format YYYY-MM-DD)</td><tr><td>`set`</td><td>Options field with a possibility of having multiple chosen options</td><tr><td>`enum`</td><td>Options field with a single possible chosen option</td><tr><td>`user`</td><td>User field (contains a user ID of another Pipedrive user)</td><tr><td>`org`</td><td>Organization field (contains an organization ID which is stored on the same account)</td><tr><td>`people`</td><td>Person field (contains a product ID which is stored on the same account)</td><tr><td>`phone`</td><td>Phone field (up to 255 numbers and/or characters)</td><tr><td>`time`</td><td>Time field (format HH:MM:SS)</td><tr><td>`timerange`</td><td>Time-range field (has a start time and end time value, both HH:MM:SS)</td><tr><td>`daterange`</td><td>Date-range field (has a start date and end date value, both YYYY-MM-DD)</td><tr><td>`address`</td><td>Address field (autocompleted by Google Maps)</dd></table>
      */
     constructor(name, fieldType) { 
-        BasicProductField.initialize(this, name);NewProductFieldAllOf.initialize(this, name, fieldType);
+        
         NewProductField.initialize(this, name, fieldType);
     }
 
@@ -54,8 +50,6 @@ class NewProductField {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new NewProductField();
-            BasicProductField.constructFromObject(data, obj);
-            NewProductFieldAllOf.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
@@ -91,7 +85,7 @@ class NewProductField {
 NewProductField.prototype['name'] = undefined;
 
 /**
- * When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array, for example: `[\"red\",\"blue\",\"lilac\"]`
+ * When `field_type` is either `set` or `enum`, possible options must be supplied as a JSON-encoded sequential array, for example:</br>`[{\"label\":\"red\"}, {\"label\":\"blue\"}, {\"label\":\"lilac\"}]`
  * @member {Array.<Object>} options
  */
 NewProductField.prototype['options'] = undefined;
@@ -103,33 +97,6 @@ NewProductField.prototype['options'] = undefined;
 NewProductField.prototype['field_type'] = undefined;
 
 
-// Implement BasicProductField interface:
-/**
- * Name of the field
- * @member {String} name
- */
-BasicProductField.prototype['name'] = undefined;
-/**
- * When field_type is either set or enum, possible options on update must be supplied as an array of objects each containing id and label, for example: [{\"id\":1, \"label\":\"red\"},{\"id\":2, \"label\":\"blue\"},{\"id\":3, \"label\":\"lilac\"}]
- * @member {Array.<Object>} options
- */
-BasicProductField.prototype['options'] = undefined;
-// Implement NewProductFieldAllOf interface:
-/**
- * Name of the field
- * @member {String} name
- */
-NewProductFieldAllOf.prototype['name'] = undefined;
-/**
- * When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array, for example: `[\"red\",\"blue\",\"lilac\"]`
- * @member {Array.<Object>} options
- */
-NewProductFieldAllOf.prototype['options'] = undefined;
-/**
- * Type of the field<table><tr><th>Value</th><th>Description</th></tr><tr><td>`varchar`</td><td>Text (up to 255 characters)</td><tr><td>`varchar_auto`</td><td>Autocomplete text (up to 255 characters)</td><tr><td>`text`</td><td>Long text (up to 65k characters)</td><tr><td>`double`</td><td>Numeric value</td><tr><td>`monetary`</td><td>Monetary field (has a numeric value and a currency value)</td><tr><td>`date`</td><td>Date (format YYYY-MM-DD)</td><tr><td>`set`</td><td>Options field with a possibility of having multiple chosen options</td><tr><td>`enum`</td><td>Options field with a single possible chosen option</td><tr><td>`user`</td><td>User field (contains a user ID of another Pipedrive user)</td><tr><td>`org`</td><td>Organization field (contains an organization ID which is stored on the same account)</td><tr><td>`people`</td><td>Person field (contains a product ID which is stored on the same account)</td><tr><td>`phone`</td><td>Phone field (up to 255 numbers and/or characters)</td><tr><td>`time`</td><td>Time field (format HH:MM:SS)</td><tr><td>`timerange`</td><td>Time-range field (has a start time and end time value, both HH:MM:SS)</td><tr><td>`daterange`</td><td>Date-range field (has a start date and end date value, both YYYY-MM-DD)</td><tr><td>`address`</td><td>Address field (autocompleted by Google Maps)</dd></table>
- * @member {module:model/NewProductFieldAllOf.FieldTypeEnum} field_type
- */
-NewProductFieldAllOf.prototype['field_type'] = undefined;
 
 
 

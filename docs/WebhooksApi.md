@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## addWebhook
 
-> Webhook addWebhook(subscriptionUrl, eventAction, eventObject, opts)
+> Webhook addWebhook(opts)
 
 Create a new webhook
 
@@ -33,15 +33,10 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.WebhooksApi();
-let subscriptionUrl = "subscriptionUrl_example"; // String | A full, valid, publicly accessible URL. Determines where to send the notifications. Please note that you cannot use Pipedrive API endpoints as the `subscription_url`.
-let eventAction = "eventAction_example"; // String | Type of action to receive notifications about. Wildcard will match all supported actions.
-let eventObject = "eventObject_example"; // String | Type of object to receive notifications about. Wildcard will match all supported objects.
-let opts = {
-  'userId': 56, // Number | The ID of the user this webhook will be authorized with. If not set, current authorized user will be used. Note that this does not filter only certain user's events — rather, this specifies the user's permissions under which each event is checked. Events about objects the selected user is not entitled to access are not sent. If you want to receive notifications for all events, a top-level admin user should be used.
-  'httpAuthUser': "httpAuthUser_example", // String | HTTP basic auth username of the subscription URL endpoint (if required).
-  'httpAuthPassword': "httpAuthPassword_example" // String | HTTP basic auth password of the subscription URL endpoint (if required).
-};
-apiInstance.addWebhook(subscriptionUrl, eventAction, eventObject, opts).then((data) => {
+let opts = Pipedrive.AddWebhookRequest.constructFromObject({
+  // Properties that you want to update
+});
+apiInstance.addWebhook(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -54,12 +49,7 @@ apiInstance.addWebhook(subscriptionUrl, eventAction, eventObject, opts).then((da
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subscriptionUrl** | **String**| A full, valid, publicly accessible URL. Determines where to send the notifications. Please note that you cannot use Pipedrive API endpoints as the &#x60;subscription_url&#x60;. | 
- **eventAction** | **String**| Type of action to receive notifications about. Wildcard will match all supported actions. | 
- **eventObject** | **String**| Type of object to receive notifications about. Wildcard will match all supported objects. | 
- **userId** | **Number**| The ID of the user this webhook will be authorized with. If not set, current authorized user will be used. Note that this does not filter only certain user&#39;s events — rather, this specifies the user&#39;s permissions under which each event is checked. Events about objects the selected user is not entitled to access are not sent. If you want to receive notifications for all events, a top-level admin user should be used. | [optional] 
- **httpAuthUser** | **String**| HTTP basic auth username of the subscription URL endpoint (if required). | [optional] 
- **httpAuthPassword** | **String**| HTTP basic auth password of the subscription URL endpoint (if required). | [optional] 
+ **addWebhookRequest** | [**AddWebhookRequest**](AddWebhookRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -71,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

@@ -7,6 +7,8 @@ The format of it is based on [Keep a Changelog](http://keepachangelog.com/en/1.0
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Changed
+- Changed POST /v1/webhooks to accept `application/json` instead of `application/x-www-form-urlencoded` to reflect the reality
 ### Added
 * Support for endpoints added and changed endpoints changed after March 31, 2021
 * Support for multiple instances [issue #176](https://github.com/pipedrive/client-nodejs/issues/176)
