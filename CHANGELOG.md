@@ -7,6 +7,12 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Added
+- Adding pagination parameters documentation for endpoints:
+* api/v1/DealFields#getDealFields
+* api/v1/OrganizationFields#getOrganizationFields
+* api/v1/PersonFields#getPersonFields
+* api/v1/ProductFields#getProductFields
 ### Changed
 - Changed POST /v1/webhooks to accept `application/json` instead of `application/x-www-form-urlencoded` to reflect the reality
 ### Added

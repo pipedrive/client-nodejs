@@ -311,8 +311,8 @@ export default class CallLogsApi {
      * Get all call logs assigned to a particular user
      * Returns all call logs assigned to a particular user
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.limit For pagination, the limit of entries to be returned
-     * @param {Number} opts.start For pagination, the position that represents the first result for the page
+     * @param {Number} opts.start Pagination start (default to 0)
+     * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BaseResponse} and HTTP response
      */
     getUserCallLogsWithHttpInfo(opts) {
@@ -322,8 +322,8 @@ export default class CallLogsApi {
       let pathParams = {
       };
       let queryParams = {
-        'limit': opts['limit'],
         'start': opts['start'],
+        'limit': opts['limit'],
       };
       let headerParams = {
       };
@@ -361,8 +361,8 @@ export default class CallLogsApi {
      * Get all call logs assigned to a particular user
      * Returns all call logs assigned to a particular user
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.limit For pagination, the limit of entries to be returned
-     * @param {Number} opts.start For pagination, the position that represents the first result for the page
+     * @param {Number} opts.start Pagination start (default to 0)
+     * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BaseResponse}
      */
     getUserCallLogs(opts) {
