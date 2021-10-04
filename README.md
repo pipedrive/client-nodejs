@@ -47,11 +47,9 @@ app.get('/', async (req, res) => {
 ```
 
 ### With OAuth 2
-If you would like to use an OAuth access token for making API calls, then make sure the API key described in the previous section is not set or is set to an empty string. If both API token and OAuth access token are both set, then the API token takes precedence.
+If you would like to use an OAuth access token for making API calls, then make sure the API key described in the previous section is not set or is set to an empty string. If both API token and OAuth access token are set, then the API token takes precedence.
 
 To set up authentication in the API client, you need the following information. You can receive the necessary client tokens through a Sandbox account (get it [here](https://developers.pipedrive.com/start-here)) and generate the tokens (detailed steps [here](https://pipedrive.readme.io/docs/marketplace-manager#section-how-to-get-your-client-id-and-client-secret)).
-
-In order to setup authentication in the API client, you need the following information.
 
 | Parameter | Description |
 |-----------|-------------|
