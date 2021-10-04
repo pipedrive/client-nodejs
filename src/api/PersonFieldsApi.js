@@ -313,15 +313,20 @@ export default class PersonFieldsApi {
     /**
      * Get all person fields
      * Returns data about all person fields
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.start Pagination start (default to 0)
+     * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/FieldsResponse} and HTTP response
      */
-    getPersonFieldsWithHttpInfo() {
-      const opts = {}
+    getPersonFieldsWithHttpInfo(opts) {
+      opts = opts || {};
       let postBody = null;
 
       let pathParams = {
       };
       let queryParams = {
+        'start': opts['start'],
+        'limit': opts['limit'],
       };
       let headerParams = {
       };
@@ -358,10 +363,13 @@ export default class PersonFieldsApi {
     /**
      * Get all person fields
      * Returns data about all person fields
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.start Pagination start (default to 0)
+     * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FieldsResponse}
      */
-    getPersonFields() {
-      return this.getPersonFieldsWithHttpInfo()
+    getPersonFields(opts) {
+      return this.getPersonFieldsWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data;
         });

@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 
 ## getDealFields
 
-> FieldsResponse getDealFields()
+> FieldsResponse getDealFields(opts)
 
 Get all deal fields
 
@@ -256,7 +256,11 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealFieldsApi();
-apiInstance.getDealFields().then((data) => {
+let opts = {
+  'start': 0, // Number | Pagination start
+  'limit': 56 // Number | Items shown per page
+};
+apiInstance.getDealFields(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -266,7 +270,11 @@ apiInstance.getDealFields().then((data) => {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **start** | **Number**| Pagination start | [optional] [default to 0]
+ **limit** | **Number**| Items shown per page | [optional] 
 
 ### Return type
 

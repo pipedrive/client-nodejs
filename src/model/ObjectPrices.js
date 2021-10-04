@@ -54,7 +54,7 @@ class ObjectPrices {
             }
 
             if (Object.keys(data).length > 0) {
-                obj['extra'] = data;
+                Object.assign(obj, data);
             }
 
         }

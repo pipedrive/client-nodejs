@@ -301,15 +301,20 @@ export default class ProductFieldsApi {
     /**
      * Get all product fields
      * Returns data about all product fields
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.start Pagination start (default to 0)
+     * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetAllProductFieldsResponse} and HTTP response
      */
-    getProductFieldsWithHttpInfo() {
-      const opts = {}
+    getProductFieldsWithHttpInfo(opts) {
+      opts = opts || {};
       let postBody = null;
 
       let pathParams = {
       };
       let queryParams = {
+        'start': opts['start'],
+        'limit': opts['limit'],
       };
       let headerParams = {
       };
@@ -346,10 +351,13 @@ export default class ProductFieldsApi {
     /**
      * Get all product fields
      * Returns data about all product fields
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.start Pagination start (default to 0)
+     * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetAllProductFieldsResponse}
      */
-    getProductFields() {
-      return this.getProductFieldsWithHttpInfo()
+    getProductFields(opts) {
+      return this.getProductFieldsWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data;
         });
