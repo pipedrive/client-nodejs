@@ -36,7 +36,8 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 * Updated documentation for search endpoint: include Lead as one of the possible returned entities in related objects
 ### Removed
 * Deleted deprecated `note` field from all lead related documents.
-* Fixed typo in lead example response (`crrency` to `currency`)
 * Deleted unused files (copied latest auto-generated version)
+### Fixed
+* Fixed typo in lead example response (`crrency` to `currency`)
 
 [Unreleased]: https://github.com/pipedrive/api-docs/compare/v1.0.0...HEAD
