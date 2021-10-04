@@ -11,69 +11,34 @@ It provides convenient access to the Pipedrive API, allowing you to operate with
 npm install pipedrive
 ```
 
-> ⚠️ With the beta version of the SDK, we have moved to an open-source SDK generator called [OpenAPI Generator](https://openapi-generator.tech).
-> This enables us to better respond to any issues you might have with the SDK.
->
-> Please use the [issues page](https://github.com/pipedrive/client-nodejs/issues) for reporting bugs or leaving feedback.
-> Note that most of the code is [automatically generated](https://github.com/pipedrive/client-nodejs/#contributing).
-
-## Local development
-To use the library locally without publishing to a remote npm registry, first install the dependencies by changing into the directory containing `package.json` (and this README). Let's call this `JAVASCRIPT_CLIENT_DIR`. Then run:
-
-```shell
-npm install
-```
-
-Next, [link](https://docs.npmjs.com/cli/link) it globally in npm with the following, also from `JAVASCRIPT_CLIENT_DIR`:
-
-```shell
-npm link
-```
-
-To use the link you just defined in your project, switch to the directory you want to use your pipedrive from, and run:
-
-```shell
-npm link /path/to/<JAVASCRIPT_CLIENT_DIR>
-```
-
-Finally, you need to build the module:
-
-```shell
-npm run build
-```
-
 ## API Reference
-The Pipedrive RESTful API Reference can be found at https://developers.pipedrive.com/docs/api/v1
+The Pipedrive RESTful API Reference can be found at https://developers.pipedrive.com/docs/api/v1.
+Pipedrive API’s core concepts for its usage can be found in our [Developer documentation](https://pipedrive.readme.io/docs/core-api-concepts-about-pipedrive-api).
 
-## License
-This Pipedrive API client is distributed under the MIT license.
-
-## How to use
+## How to use it?
 
 ### With a pre-set API token
+You can retrieve the api_token from your existing Pipedrive account’s settings page. A step-by-step guide is available [here](https://pipedrive.readme.io/docs/how-to-find-the-api-token).
 
 ```JavaScript
 const express = require('express');
 const app = express();
-const lib = require('pipedrive');
+const pipedrive = require('pipedrive');
 
 const PORT = 1800;
 
-const defaultClient = lib.ApiClient.instance;
+const defaultClient = pipedrive.ApiClient.instance;
 
 // Configure API key authorization: apiToken
 let apiToken = defaultClient.authentications.api_key;
 apiToken.apiKey = 'YOUR_API_TOKEN_HERE';
-
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.apiKeyPrefix.api_token = 'Token';
 
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
 });
 
 app.get('/', async (req, res) => {
-    const api = new lib.DealsApi();
+    const api = new pipedrive.DealsApi();
     const deals = await api.getDeals();
 
     res.send(deals);
@@ -82,11 +47,9 @@ app.get('/', async (req, res) => {
 ```
 
 ### With OAuth 2
-If you would like to use OAuth access token for making API calls then make sure the API key,
-that was described in the previous section, is not set or is set to an empty string. If both API token and OAuth access token
-are set, then the API token takes precedence.
+If you would like to use an OAuth access token for making API calls, then make sure the API key described in the previous section is not set or is set to an empty string. If both API token and OAuth access token are set, then the API token takes precedence.
 
-In order to setup authentication in the API client, you need the following information.
+To set up authentication in the API client, you need the following information. You can receive the necessary client tokens through a Sandbox account (get it [here](https://developers.pipedrive.com/start-here)) and generate the tokens (detailed steps [here](https://pipedrive.readme.io/docs/marketplace-manager#section-how-to-get-your-client-id-and-client-secret)).
 
 | Parameter | Description |
 |-----------|-------------|
@@ -94,12 +57,12 @@ In order to setup authentication in the API client, you need the following infor
 | clientSecret | OAuth 2 Client Secret |
 | redirectUri | OAuth 2 Redirection endpoint or Callback Uri |
 
-API client can be initialized as following:
+Next, initialize the API client as follows:
 
 ```JavaScript
-const lib = require('pipedrive');
+const pipedrive = require('pipedrive');
 
-const apiClient = lib.ApiClient.instance;
+const apiClient = pipedrive.ApiClient.instance;
 
 // Configuration parameters and credentials
 let oauth2 = apiClient.authentications.oauth2;
@@ -112,8 +75,7 @@ You must now authorize the client.
 
 ### Authorizing your client
 
-Your application must obtain user authorization before it can execute an endpoint call.
-The SDK uses OAuth 2.0 authorization to obtain a user's consent to perform an API request on user's behalf.
+Your application must obtain user authorization before it can execute an endpoint call. The SDK uses OAuth 2.0 authorization to obtain a user's consent to perform an API request on the user's behalf. Details about how the OAuth2.0 flow works in Pipedrive, how long tokens are valid, and more, can be found [here](https://pipedrive.readme.io/docs/marketplace-oauth-authorization).
 
 #### 1. Obtaining user consent
 
@@ -396,14 +358,9 @@ Class | Method | HTTP request | Description
 *Pipedrive.MailboxApi* | [**updateMailThreadDetails**](docs/MailboxApi.md#updateMailThreadDetails) | **PUT** /mailbox/mailThreads/{id} | Update mail thread details
 *Pipedrive.NoteFieldsApi* | [**getNoteFields**](docs/NoteFieldsApi.md#getNoteFields) | **GET** /noteFields | Get all note fields
 *Pipedrive.NotesApi* | [**addNote**](docs/NotesApi.md#addNote) | **POST** /notes | Add a note
-*Pipedrive.NotesApi* | [**addNoteComment**](docs/NotesApi.md#addNoteComment) | **POST** /notes/{id}/comments | Add a comment to a note
-*Pipedrive.NotesApi* | [**deleteComment**](docs/NotesApi.md#deleteComment) | **DELETE** /notes/{id}/comments/{commentId} | Delete a comment related to a note
 *Pipedrive.NotesApi* | [**deleteNote**](docs/NotesApi.md#deleteNote) | **DELETE** /notes/{id} | Delete a note
-*Pipedrive.NotesApi* | [**getComment**](docs/NotesApi.md#getComment) | **GET** /notes/{id}/comments/{commentId} | Get one comment
 *Pipedrive.NotesApi* | [**getNote**](docs/NotesApi.md#getNote) | **GET** /notes/{id} | Get one note
-*Pipedrive.NotesApi* | [**getNoteComments**](docs/NotesApi.md#getNoteComments) | **GET** /notes/{id}/comments | Get all comments for a note
 *Pipedrive.NotesApi* | [**getNotes**](docs/NotesApi.md#getNotes) | **GET** /notes | Get all notes
-*Pipedrive.NotesApi* | [**updateCommentForNote**](docs/NotesApi.md#updateCommentForNote) | **PUT** /notes/{id}/comments/{commentId} | Update a comment related to a note
 *Pipedrive.NotesApi* | [**updateNote**](docs/NotesApi.md#updateNote) | **PUT** /notes/{id} | Update a note
 *Pipedrive.OrganizationFieldsApi* | [**addOrganizationField**](docs/OrganizationFieldsApi.md#addOrganizationField) | **POST** /organizationFields | Add a new organization field
 *Pipedrive.OrganizationFieldsApi* | [**deleteOrganizationField**](docs/OrganizationFieldsApi.md#deleteOrganizationField) | **DELETE** /organizationFields/{id} | Delete an organization field
@@ -595,7 +552,6 @@ Class | Method | HTTP request | Description
  - [Pipedrive.AddProductFollowerRequest](docs/AddProductFollowerRequest.md)
  - [Pipedrive.AddProductRequestBody](docs/AddProductRequestBody.md)
  - [Pipedrive.AddTeamUserRequest](docs/AddTeamUserRequest.md)
- - [Pipedrive.AddWebhookRequest](docs/AddWebhookRequest.md)
  - [Pipedrive.AddedDealFollower](docs/AddedDealFollower.md)
  - [Pipedrive.AddedDealFollowerData](docs/AddedDealFollowerData.md)
  - [Pipedrive.AdditionalBaseOrganizationItemInfo](docs/AdditionalBaseOrganizationItemInfo.md)
@@ -611,7 +567,6 @@ Class | Method | HTTP request | Description
  - [Pipedrive.AllOrganizationsGetResponseAllOfRelatedObjects](docs/AllOrganizationsGetResponseAllOfRelatedObjects.md)
  - [Pipedrive.ArrayPrices](docs/ArrayPrices.md)
  - [Pipedrive.Assignee](docs/Assignee.md)
- - [Pipedrive.BaseComment](docs/BaseComment.md)
  - [Pipedrive.BaseCurrency](docs/BaseCurrency.md)
  - [Pipedrive.BaseDeal](docs/BaseDeal.md)
  - [Pipedrive.BaseFollowerItem](docs/BaseFollowerItem.md)
@@ -725,7 +680,6 @@ Class | Method | HTTP request | Description
  - [Pipedrive.DeleteActivitiesResponse200Data](docs/DeleteActivitiesResponse200Data.md)
  - [Pipedrive.DeleteActivityResponse200](docs/DeleteActivityResponse200.md)
  - [Pipedrive.DeleteActivityResponse200Data](docs/DeleteActivityResponse200Data.md)
- - [Pipedrive.DeleteComment](docs/DeleteComment.md)
  - [Pipedrive.DeleteDeal](docs/DeleteDeal.md)
  - [Pipedrive.DeleteDealData](docs/DeleteDealData.md)
  - [Pipedrive.DeleteDealFollower](docs/DeleteDealFollower.md)
@@ -820,7 +774,6 @@ Class | Method | HTTP request | Description
  - [Pipedrive.GetAllPipelines](docs/GetAllPipelines.md)
  - [Pipedrive.GetAllPipelinesAllOf](docs/GetAllPipelinesAllOf.md)
  - [Pipedrive.GetAllProductFieldsResponse](docs/GetAllProductFieldsResponse.md)
- - [Pipedrive.GetComments](docs/GetComments.md)
  - [Pipedrive.GetDeal](docs/GetDeal.md)
  - [Pipedrive.GetDealAdditionalData](docs/GetDealAdditionalData.md)
  - [Pipedrive.GetDeals](docs/GetDeals.md)
@@ -1072,7 +1025,6 @@ Class | Method | HTTP request | Description
  - [Pipedrive.PictureDataWithValueAllOf](docs/PictureDataWithValueAllOf.md)
  - [Pipedrive.PipelineDetails](docs/PipelineDetails.md)
  - [Pipedrive.PipelineDetailsAllOf](docs/PipelineDetailsAllOf.md)
- - [Pipedrive.PostComment](docs/PostComment.md)
  - [Pipedrive.PostDealParticipants](docs/PostDealParticipants.md)
  - [Pipedrive.PostGoalResponse](docs/PostGoalResponse.md)
  - [Pipedrive.PostNote](docs/PostNote.md)

@@ -1,49 +1,43 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
-and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+The Changelog file gives an overview of all of the notable changes affecting the project.
+The file format of it is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/), and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+
+For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
 ### Changed
 - Changed POST /v1/webhooks to accept `application/json` instead of `application/x-www-form-urlencoded` to reflect the reality
 ### Added
-- added required flag for pipeline name in `POST /pipelines` endpoint documentation
+* Support for endpoints added and updated endpoints changed after March 31, 2021
+* Support for multiple instances [issue #176](https://github.com/pipedrive/client-nodejs/issues/176)
+* Convenience functions regarding OAuth 2.0 lifecycle including `buildAuthorizationUrl`, `authorize` and `refreshToken`
+* Support for changing the host URL [issue #228](https://github.com/pipedrive/client-nodejs/issues/228)
+* Support for both snake_case and camelCase in request parameters
+* `UpdateProductResponse` for `PUT /products/{id}`
+* `Team` (singular) schema for endpoints that deal with a single team
+* Support for custom fields for `Content-Type: application/x-www-form-urlencoded` type requests
+* Added note field to call logs.
 ### Changed
 * Updated `MailThreadPut` schema to represent `object` in response instead of an `array`
 * Updated description for `MailThreadOne`
-### Removed
-* Deleted deprecated `note` field from all lead related documents.
-* Fixed typo in lead example response (`crrency` to `currency`)
-### Added
-* `UpdateProductResponse` for `PUT /products/{id}` 
-### Changed
 * Split `Product` schema into `BaseProduct` and `ProductWithArrayPrices` or `ProductWithObjectPrices` to represent `prices` property with `array` type and `object` type respectively
 * Use the new `ProductWithObjectPrices` in `UpdateProductResponse`
-### Added
-* `Team` (singular) schema for endpoints that deal with a signle team
-### Changed
 * `TeamSuccess` response schema to refer to `Team` (singular) instead of `Teams` (plural)
-### Changed
 * Extended `DELETE /calllogs/{id}` security with `api_key` property.
 * Extended `POST /callLogs/{id}/recordings` security with `api_key` property.
-##  [0.1.1] - 2021-06-02
-### Changed
 * Extended `GET /v1/roles/{id}/settings` response with `lead_default_visibility` property.
 * Extended `POST /v1/roles/{id}/settings` request payload with  `lead_default_visibility` property.
-### Changed
 * Deleted `MailThreads` and `MailMessages` from API operation groups and combined them under `Mailbox` group.
 * Extracted `LeadLabels` and `LeadSources` API operation groups from `Leads` group.
-### Added
-* Added support for custom fields for `Content-Type: application/x-www-form-urlencoded`
-### Deleted
+* Deleted `MailThreads` and `MailMessages` from API operation groups and combined them under `Mailbox` group.
+* Extracted `LeadLabels` and `LeadSources` API operation groups from `Leads` group.
+* Updated documentation for search endpoint: include Lead as one of the possible returned entities in related objects
+### Removed
+* Deleted deprecated `note` field from all lead related documents.
 * Deleted unused files (copied latest auto-generated version)
-### Changed
-* Deleted `MailThreads` and `MailMessages` from API operation groups and combined them under `Mailbox` group.
-* Extracted `LeadLabels` and `LeadSources` API operation groups from `Leads` group.
-### Added
-* Add note field to call logs.
-### Added
-* Add into documentation that also a Lead is one of the possible returned entities in related objects for the search endpoint.
+### Fixed
+* Fixed typo in lead example response (`crrency` to `currency`)
 
 [Unreleased]: https://github.com/pipedrive/api-docs/compare/v1.0.0...HEAD
