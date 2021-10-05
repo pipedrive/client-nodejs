@@ -135,8 +135,8 @@ api_key.apiKey = 'YOUR API KEY';
 
 let apiInstance = new Pipedrive.GoalsApi();
 let id = "id_example"; // String | ID of the goal that the results are looked for.
-let periodStart = new Date("2013-10-20"); // Date | Start date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD.
-let periodEnd = new Date("2013-10-20"); // Date | End date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD.
+let periodStart = new Date("2013-10-20"); // Date | Start date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD. This date must be the same or after the goal duration start date.
+let periodEnd = new Date("2013-10-20"); // Date | End date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD. This date must be the same or before the goal duration end date.
 apiInstance.getGoalResult(id, periodStart, periodEnd).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -151,8 +151,8 @@ apiInstance.getGoalResult(id, periodStart, periodEnd).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the goal that the results are looked for. | 
- **periodStart** | **Date**| Start date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD. | 
- **periodEnd** | **Date**| End date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD. | 
+ **periodStart** | **Date**| Start date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD. This date must be the same or after the goal duration start date. | 
+ **periodEnd** | **Date**| End date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD. This date must be the same or before the goal duration end date. | 
 
 ### Return type
 

@@ -170,8 +170,8 @@ export default class GoalsApi {
      * Get result of a goal
      * Gets progress of a goal for specified period.
      * @param {String} id ID of the goal that the results are looked for.
-     * @param {Date} periodStart Start date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD.
-     * @param {Date} periodEnd End date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD.
+     * @param {Date} periodStart Start date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD. This date must be the same or after the goal duration start date.
+     * @param {Date} periodEnd End date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD. This date must be the same or before the goal duration end date.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetGoalResultResponse200} and HTTP response
      */
     getGoalResultWithHttpInfo(id, periodStart, periodEnd) {
@@ -233,8 +233,8 @@ export default class GoalsApi {
      * Get result of a goal
      * Gets progress of a goal for specified period.
      * @param {String} id ID of the goal that the results are looked for.
-     * @param {Date} periodStart Start date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD.
-     * @param {Date} periodEnd End date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD.
+     * @param {Date} periodStart Start date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD. This date must be the same or after the goal duration start date.
+     * @param {Date} periodEnd End date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD. This date must be the same or before the goal duration end date.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetGoalResultResponse200}
      */
     getGoalResult(id, periodStart, periodEnd) {
