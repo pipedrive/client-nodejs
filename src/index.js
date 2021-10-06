@@ -655,6 +655,8 @@ import UpdateLeadLabelRequest from './model/UpdateLeadLabelRequest';
 import UpdateLeadRequest from './model/UpdateLeadRequest';
 import UpdatePersonResponse from './model/UpdatePersonResponse';
 import UpdateProductResponse from './model/UpdateProductResponse';
+import UpdateStageRequest from './model/UpdateStageRequest';
+import UpdateStageRequestAllOf from './model/UpdateStageRequestAllOf';
 import UpdateTeam from './model/UpdateTeam';
 import UpdateTeamAllOf from './model/UpdateTeamAllOf';
 import UpdateTeamWithAdditionalProperties from './model/UpdateTeamWithAdditionalProperties';
@@ -4617,6 +4619,18 @@ export {
      * @property {module:model/UpdateProductResponse}
      */
     UpdateProductResponse,
+
+    /**
+     * The UpdateStageRequest model constructor.
+     * @property {module:model/UpdateStageRequest}
+     */
+    UpdateStageRequest,
+
+    /**
+     * The UpdateStageRequestAllOf model constructor.
+     * @property {module:model/UpdateStageRequestAllOf}
+     */
+    UpdateStageRequestAllOf,
 
     /**
      * The UpdateTeam model constructor.

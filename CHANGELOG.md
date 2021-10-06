@@ -6,6 +6,10 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
+## 12.0.1
+### Fixed
+* Fixed UNKNOWN_BASE_TYPE error related to updateStage
+
 ## 12.0.0
 ### Added
 * Support for endpoints added and updated endpoints changed after March 31, 2021
