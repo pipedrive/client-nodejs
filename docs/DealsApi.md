@@ -58,21 +58,9 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealsApi();
-let opts = {
-  'title': "title_example", // String | Deal title
-  'value': "value_example", // String | Value of the deal. If omitted, value will be set to 0.
-  'currency': "currency_example", // String | Currency of the deal. Accepts a 3-character currency code. If omitted, currency will be set to the default currency of the authorized user.
-  'userId': 56, // Number | ID of the user who will be marked as the owner of this deal. If omitted, the authorized user ID will be used.
-  'personId': 56, // Number | ID of the person this deal will be associated with
-  'orgId': 56, // Number | ID of the organization this deal will be associated with
-  'stageId': 56, // Number | ID of the stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on `stage_id`). If omitted, the deal will be placed in the first stage of the default pipeline.
-  'status': "status_example", // String | open = Open, won = Won, lost = Lost, deleted = Deleted. If omitted, status will be set to open.
-  'expectedCloseDate': new Date("2013-10-20"), // Date | The expected close date of the Deal. In ISO 8601 format: YYYY-MM-DD.
-  'probability': 3.4, // Number | Deal success probability percentage. Used/shown only when `deal_probability` for the pipeline of the deal is enabled.
-  'lostReason': "lostReason_example", // String | Optional message about why the deal was lost (to be used when status=lost)
-  'visibleTo': new Pipedrive.VisibleTo(), // VisibleTo | Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
-  'addTime': "addTime_example" // String | Optional creation date & time of the deal in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
-};
+let opts = Pipedrive.NewDeal.constructFromObject({
+  // Properties that you want to update
+});
 apiInstance.addDeal(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -86,19 +74,7 @@ apiInstance.addDeal(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **title** | **String**| Deal title | [optional] 
- **value** | **String**| Value of the deal. If omitted, value will be set to 0. | [optional] 
- **currency** | **String**| Currency of the deal. Accepts a 3-character currency code. If omitted, currency will be set to the default currency of the authorized user. | [optional] 
- **userId** | **Number**| ID of the user who will be marked as the owner of this deal. If omitted, the authorized user ID will be used. | [optional] 
- **personId** | **Number**| ID of the person this deal will be associated with | [optional] 
- **orgId** | **Number**| ID of the organization this deal will be associated with | [optional] 
- **stageId** | **Number**| ID of the stage this deal will be placed in a pipeline (note that you can&#39;t supply the ID of the pipeline as this will be assigned automatically based on &#x60;stage_id&#x60;). If omitted, the deal will be placed in the first stage of the default pipeline. | [optional] 
- **status** | **String**| open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost, deleted &#x3D; Deleted. If omitted, status will be set to open. | [optional] 
- **expectedCloseDate** | **Date**| The expected close date of the Deal. In ISO 8601 format: YYYY-MM-DD. | [optional] 
- **probability** | **Number**| Deal success probability percentage. Used/shown only when &#x60;deal_probability&#x60; for the pipeline of the deal is enabled. | [optional] 
- **lostReason** | **String**| Optional message about why the deal was lost (to be used when status&#x3D;lost) | [optional] 
- **visibleTo** | [**VisibleTo**](VisibleTo.md)| Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.&lt;table&gt;&lt;tr&gt;&lt;th&gt;Value&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;1&#x60;&lt;/td&gt;&lt;td&gt;Owner &amp;amp; followers (private)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;3&#x60;&lt;/td&gt;&lt;td&gt;Entire company (shared)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; | [optional] 
- **addTime** | **String**| Optional creation date &amp; time of the deal in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS | [optional] 
+ **newDeal** | [**NewDeal**](NewDeal.md)|  | [optional] 
 
 ### Return type
 
@@ -110,13 +86,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## addDealFollower
 
-> AddedDealFollower addDealFollower(id, userId)
+> AddedDealFollower addDealFollower(id, opts)
 
 Add a follower to a deal
 
@@ -138,8 +114,10 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealsApi();
 let id = 56; // Number | ID of the deal
-let userId = 56; // Number | ID of the user
-apiInstance.addDealFollower(id, userId).then((data) => {
+let opts = Pipedrive.AddDealFollowerRequest.constructFromObject({
+  // Properties that you want to update
+});
+apiInstance.addDealFollower(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -153,7 +131,7 @@ apiInstance.addDealFollower(id, userId).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| ID of the deal | 
- **userId** | **Number**| ID of the user | 
+ **addDealFollowerRequest** | [**AddDealFollowerRequest**](AddDealFollowerRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -165,13 +143,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## addDealParticipant
 
-> PostDealParticipants addDealParticipant(id, personId)
+> PostDealParticipants addDealParticipant(id, opts)
 
 Add a participant to a deal
 
@@ -193,8 +171,10 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealsApi();
 let id = 56; // Number | ID of the deal
-let personId = 56; // Number | ID of the person
-apiInstance.addDealParticipant(id, personId).then((data) => {
+let opts = Pipedrive.AddDealParticipantRequest.constructFromObject({
+  // Properties that you want to update
+});
+apiInstance.addDealParticipant(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -208,7 +188,7 @@ apiInstance.addDealParticipant(id, personId).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| ID of the deal | 
- **personId** | **Number**| ID of the person | 
+ **addDealParticipantRequest** | [**AddDealParticipantRequest**](AddDealParticipantRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -220,7 +200,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -1447,7 +1427,7 @@ Name | Type | Description  | Notes
 
 ## mergeDeals
 
-> GetMergedDeal mergeDeals(id, mergeWithId)
+> GetMergedDeal mergeDeals(id, opts)
 
 Merge two deals
 
@@ -1469,8 +1449,10 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealsApi();
 let id = 56; // Number | ID of the deal
-let mergeWithId = 56; // Number | ID of the deal that the deal will be merged with
-apiInstance.mergeDeals(id, mergeWithId).then((data) => {
+let opts = Pipedrive.MergeDealsRequest.constructFromObject({
+  // Properties that you want to update
+});
+apiInstance.mergeDeals(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -1484,7 +1466,7 @@ apiInstance.mergeDeals(id, mergeWithId).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| ID of the deal | 
- **mergeWithId** | **Number**| ID of the deal that the deal will be merged with | 
+ **mergeDealsRequest** | [**MergeDealsRequest**](MergeDealsRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -1496,7 +1478,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -1595,20 +1577,9 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealsApi();
 let id = 56; // Number | ID of the deal
-let opts = {
-  'title': "title_example", // String | Deal title
-  'value': "value_example", // String | Value of the deal. If omitted, value will be set to 0.
-  'currency': "currency_example", // String | Currency of the deal. Accepts a 3-character currency code. If omitted, currency will be set to the default currency of the authorized user.
-  'userId': 56, // Number | ID of the user who will be marked as the owner of this deal. If omitted, the authorized user ID will be used.
-  'personId': 56, // Number | ID of the person this deal will be associated with
-  'orgId': 56, // Number | ID of the organization this deal will be associated with
-  'stageId': 56, // Number | ID of the stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on `stage_id`). If omitted, the deal will be placed in the first stage of the default pipeline.
-  'status': "status_example", // String | open = Open, won = Won, lost = Lost, deleted = Deleted. If omitted, status will be set to open.
-  'expectedCloseDate': new Date("2013-10-20"), // Date | The expected close date of the Deal. In ISO 8601 format: YYYY-MM-DD.
-  'probability': 3.4, // Number | Deal success probability percentage. Used/shown only when `deal_probability` for the pipeline of the deal is enabled.
-  'lostReason': "lostReason_example", // String | Optional message about why the deal was lost (to be used when status=lost)
-  'visibleTo': new Pipedrive.VisibleTo() // VisibleTo | Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
-};
+let opts = Pipedrive.BasicDeal.constructFromObject({
+  // Properties that you want to update
+});
 apiInstance.updateDeal(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -1623,18 +1594,7 @@ apiInstance.updateDeal(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| ID of the deal | 
- **title** | **String**| Deal title | [optional] 
- **value** | **String**| Value of the deal. If omitted, value will be set to 0. | [optional] 
- **currency** | **String**| Currency of the deal. Accepts a 3-character currency code. If omitted, currency will be set to the default currency of the authorized user. | [optional] 
- **userId** | **Number**| ID of the user who will be marked as the owner of this deal. If omitted, the authorized user ID will be used. | [optional] 
- **personId** | **Number**| ID of the person this deal will be associated with | [optional] 
- **orgId** | **Number**| ID of the organization this deal will be associated with | [optional] 
- **stageId** | **Number**| ID of the stage this deal will be placed in a pipeline (note that you can&#39;t supply the ID of the pipeline as this will be assigned automatically based on &#x60;stage_id&#x60;). If omitted, the deal will be placed in the first stage of the default pipeline. | [optional] 
- **status** | **String**| open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost, deleted &#x3D; Deleted. If omitted, status will be set to open. | [optional] 
- **expectedCloseDate** | **Date**| The expected close date of the Deal. In ISO 8601 format: YYYY-MM-DD. | [optional] 
- **probability** | **Number**| Deal success probability percentage. Used/shown only when &#x60;deal_probability&#x60; for the pipeline of the deal is enabled. | [optional] 
- **lostReason** | **String**| Optional message about why the deal was lost (to be used when status&#x3D;lost) | [optional] 
- **visibleTo** | [**VisibleTo**](VisibleTo.md)| Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.&lt;table&gt;&lt;tr&gt;&lt;th&gt;Value&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;1&#x60;&lt;/td&gt;&lt;td&gt;Owner &amp;amp; followers (private)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;3&#x60;&lt;/td&gt;&lt;td&gt;Entire company (shared)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; | [optional] 
+ **basicDeal** | [**BasicDeal**](BasicDeal.md)|  | [optional] 
 
 ### Return type
 
@@ -1646,7 +1606,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

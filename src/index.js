@@ -37,6 +37,8 @@ import ActivityTypeListResponseAllOf from './model/ActivityTypeListResponseAllOf
 import ActivityTypeObjectResponse from './model/ActivityTypeObjectResponse';
 import AddActivityResponse200 from './model/AddActivityResponse200';
 import AddActivityResponse200RelatedObjects from './model/AddActivityResponse200RelatedObjects';
+import AddDealFollowerRequest from './model/AddDealFollowerRequest';
+import AddDealParticipantRequest from './model/AddDealParticipantRequest';
 import AddFile from './model/AddFile';
 import AddFilterRequest from './model/AddFilterRequest';
 import AddFollowerToPersonResponse from './model/AddFollowerToPersonResponse';
@@ -46,8 +48,13 @@ import AddLeadLabelRequest from './model/AddLeadLabelRequest';
 import AddLeadRequest from './model/AddLeadRequest';
 import AddNewPipeline from './model/AddNewPipeline';
 import AddNewPipelineAllOf from './model/AddNewPipelineAllOf';
+import AddNoteRequest from './model/AddNoteRequest';
+import AddNoteRequestAllOf from './model/AddNoteRequestAllOf';
 import AddOrUpdateGoalResponse200 from './model/AddOrUpdateGoalResponse200';
 import AddOrUpdateLeadLabelResponse200 from './model/AddOrUpdateLeadLabelResponse200';
+import AddOrganizationFollowerRequest from './model/AddOrganizationFollowerRequest';
+import AddOrganizationRelationshipRequest from './model/AddOrganizationRelationshipRequest';
+import AddPersonFollowerRequest from './model/AddPersonFollowerRequest';
 import AddPersonPictureResponse from './model/AddPersonPictureResponse';
 import AddPersonPictureResponseAllOf from './model/AddPersonPictureResponseAllOf';
 import AddPersonResponse from './model/AddPersonResponse';
@@ -113,6 +120,7 @@ import BaseWebhook from './model/BaseWebhook';
 import BasicDeal from './model/BasicDeal';
 import BasicDealProduct from './model/BasicDealProduct';
 import BasicGoal from './model/BasicGoal';
+import BasicOrganization from './model/BasicOrganization';
 import BasicPerson from './model/BasicPerson';
 import BasicProductField from './model/BasicProductField';
 import BulkDeleteResponse from './model/BulkDeleteResponse';
@@ -126,6 +134,7 @@ import CallLogResponse404 from './model/CallLogResponse404';
 import CallLogResponse409 from './model/CallLogResponse409';
 import CallLogResponse410 from './model/CallLogResponse410';
 import CallLogResponse500 from './model/CallLogResponse500';
+import CommentPostPutObject from './model/CommentPostPutObject';
 import CommonMailThread from './model/CommonMailThread';
 import CreateRemoteFileAndLinkItToItem from './model/CreateRemoteFileAndLinkItToItem';
 import CreateTeam from './model/CreateTeam';
@@ -239,9 +248,13 @@ import EmailInfo from './model/EmailInfo';
 import ExpectedOutcome from './model/ExpectedOutcome';
 import FailResponse from './model/FailResponse';
 import Field from './model/Field';
+import FieldCreateRequest from './model/FieldCreateRequest';
+import FieldCreateRequestAllOf from './model/FieldCreateRequestAllOf';
 import FieldResponse from './model/FieldResponse';
 import FieldResponseAllOf from './model/FieldResponseAllOf';
+import FieldType from './model/FieldType';
 import FieldTypeAsString from './model/FieldTypeAsString';
+import FieldUpdateRequest from './model/FieldUpdateRequest';
 import FieldsResponse from './model/FieldsResponse';
 import FieldsResponseAllOf from './model/FieldsResponseAllOf';
 import FileData from './model/FileData';
@@ -419,22 +432,32 @@ import MailThreadOneAllOf from './model/MailThreadOneAllOf';
 import MailThreadParticipant from './model/MailThreadParticipant';
 import MailThreadPut from './model/MailThreadPut';
 import MailThreadPutAllOf from './model/MailThreadPutAllOf';
+import MergeDealsRequest from './model/MergeDealsRequest';
+import MergeOrganizationsRequest from './model/MergeOrganizationsRequest';
 import MergePersonDealRelatedInfo from './model/MergePersonDealRelatedInfo';
 import MergePersonItem from './model/MergePersonItem';
+import MergePersonsRequest from './model/MergePersonsRequest';
 import MergePersonsResponse from './model/MergePersonsResponse';
 import MergePersonsResponseAllOf from './model/MergePersonsResponseAllOf';
+import NewDeal from './model/NewDeal';
+import NewDealAllOf from './model/NewDealAllOf';
 import NewDealProduct from './model/NewDealProduct';
 import NewDealProductAllOf from './model/NewDealProductAllOf';
 import NewFollowerResponse from './model/NewFollowerResponse';
 import NewFollowerResponseData from './model/NewFollowerResponseData';
 import NewGoal from './model/NewGoal';
+import NewOrganization from './model/NewOrganization';
+import NewOrganizationAllOf from './model/NewOrganizationAllOf';
 import NewPerson from './model/NewPerson';
 import NewPersonAllOf from './model/NewPersonAllOf';
 import NewProductField from './model/NewProductField';
+import Note from './model/Note';
+import NoteConnectToParams from './model/NoteConnectToParams';
 import NoteCreatorUser from './model/NoteCreatorUser';
 import NoteField from './model/NoteField';
 import NoteFieldsResponse from './model/NoteFieldsResponse';
 import NoteFieldsResponseAllOf from './model/NoteFieldsResponseAllOf';
+import NoteParams from './model/NoteParams';
 import NumberBoolean from './model/NumberBoolean';
 import NumberBooleanDefault0 from './model/NumberBooleanDefault0';
 import NumberBooleanDefault1 from './model/NumberBooleanDefault1';
@@ -468,6 +491,7 @@ import OrganizationItem from './model/OrganizationItem';
 import OrganizationItemAllOf from './model/OrganizationItemAllOf';
 import OrganizationPostResponse from './model/OrganizationPostResponse';
 import OrganizationPostResponseAllOf from './model/OrganizationPostResponseAllOf';
+import OrganizationRelationship from './model/OrganizationRelationship';
 import OrganizationRelationshipDeleteResponse from './model/OrganizationRelationshipDeleteResponse';
 import OrganizationRelationshipDeleteResponseAllOf from './model/OrganizationRelationshipDeleteResponseAllOf';
 import OrganizationRelationshipDeleteResponseAllOfData from './model/OrganizationRelationshipDeleteResponseAllOfData';
@@ -532,6 +556,7 @@ import PictureDataWithID from './model/PictureDataWithID';
 import PictureDataWithIDAllOf from './model/PictureDataWithIDAllOf';
 import PictureDataWithValue from './model/PictureDataWithValue';
 import PictureDataWithValueAllOf from './model/PictureDataWithValueAllOf';
+import Pipeline from './model/Pipeline';
 import PipelineDetails from './model/PipelineDetails';
 import PipelineDetailsAllOf from './model/PipelineDetailsAllOf';
 import PostComment from './model/PostComment';
@@ -602,6 +627,7 @@ import RolesAdditionalData from './model/RolesAdditionalData';
 import RolesAdditionalDataPagination from './model/RolesAdditionalDataPagination';
 import SinglePermissionSetsItem from './model/SinglePermissionSetsItem';
 import SinglePermissionSetsItemAllOf from './model/SinglePermissionSetsItemAllOf';
+import Stage from './model/Stage';
 import StageConversions from './model/StageConversions';
 import StageDetails from './model/StageDetails';
 import StageWithPipelineInfo from './model/StageWithPipelineInfo';
@@ -885,6 +911,18 @@ export {
     AddActivityResponse200RelatedObjects,
 
     /**
+     * The AddDealFollowerRequest model constructor.
+     * @property {module:model/AddDealFollowerRequest}
+     */
+    AddDealFollowerRequest,
+
+    /**
+     * The AddDealParticipantRequest model constructor.
+     * @property {module:model/AddDealParticipantRequest}
+     */
+    AddDealParticipantRequest,
+
+    /**
      * The AddFile model constructor.
      * @property {module:model/AddFile}
      */
@@ -939,6 +977,18 @@ export {
     AddNewPipelineAllOf,
 
     /**
+     * The AddNoteRequest model constructor.
+     * @property {module:model/AddNoteRequest}
+     */
+    AddNoteRequest,
+
+    /**
+     * The AddNoteRequestAllOf model constructor.
+     * @property {module:model/AddNoteRequestAllOf}
+     */
+    AddNoteRequestAllOf,
+
+    /**
      * The AddOrUpdateGoalResponse200 model constructor.
      * @property {module:model/AddOrUpdateGoalResponse200}
      */
@@ -949,6 +999,24 @@ export {
      * @property {module:model/AddOrUpdateLeadLabelResponse200}
      */
     AddOrUpdateLeadLabelResponse200,
+
+    /**
+     * The AddOrganizationFollowerRequest model constructor.
+     * @property {module:model/AddOrganizationFollowerRequest}
+     */
+    AddOrganizationFollowerRequest,
+
+    /**
+     * The AddOrganizationRelationshipRequest model constructor.
+     * @property {module:model/AddOrganizationRelationshipRequest}
+     */
+    AddOrganizationRelationshipRequest,
+
+    /**
+     * The AddPersonFollowerRequest model constructor.
+     * @property {module:model/AddPersonFollowerRequest}
+     */
+    AddPersonFollowerRequest,
 
     /**
      * The AddPersonPictureResponse model constructor.
@@ -1341,6 +1409,12 @@ export {
     BasicGoal,
 
     /**
+     * The BasicOrganization model constructor.
+     * @property {module:model/BasicOrganization}
+     */
+    BasicOrganization,
+
+    /**
      * The BasicPerson model constructor.
      * @property {module:model/BasicPerson}
      */
@@ -1417,6 +1491,12 @@ export {
      * @property {module:model/CallLogResponse500}
      */
     CallLogResponse500,
+
+    /**
+     * The CommentPostPutObject model constructor.
+     * @property {module:model/CommentPostPutObject}
+     */
+    CommentPostPutObject,
 
     /**
      * The CommonMailThread model constructor.
@@ -2097,6 +2177,18 @@ export {
     Field,
 
     /**
+     * The FieldCreateRequest model constructor.
+     * @property {module:model/FieldCreateRequest}
+     */
+    FieldCreateRequest,
+
+    /**
+     * The FieldCreateRequestAllOf model constructor.
+     * @property {module:model/FieldCreateRequestAllOf}
+     */
+    FieldCreateRequestAllOf,
+
+    /**
      * The FieldResponse model constructor.
      * @property {module:model/FieldResponse}
      */
@@ -2109,10 +2201,22 @@ export {
     FieldResponseAllOf,
 
     /**
+     * The FieldType model constructor.
+     * @property {module:model/FieldType}
+     */
+    FieldType,
+
+    /**
      * The FieldTypeAsString model constructor.
      * @property {module:model/FieldTypeAsString}
      */
     FieldTypeAsString,
+
+    /**
+     * The FieldUpdateRequest model constructor.
+     * @property {module:model/FieldUpdateRequest}
+     */
+    FieldUpdateRequest,
 
     /**
      * The FieldsResponse model constructor.
@@ -3177,6 +3281,18 @@ export {
     MailThreadPutAllOf,
 
     /**
+     * The MergeDealsRequest model constructor.
+     * @property {module:model/MergeDealsRequest}
+     */
+    MergeDealsRequest,
+
+    /**
+     * The MergeOrganizationsRequest model constructor.
+     * @property {module:model/MergeOrganizationsRequest}
+     */
+    MergeOrganizationsRequest,
+
+    /**
      * The MergePersonDealRelatedInfo model constructor.
      * @property {module:model/MergePersonDealRelatedInfo}
      */
@@ -3189,6 +3305,12 @@ export {
     MergePersonItem,
 
     /**
+     * The MergePersonsRequest model constructor.
+     * @property {module:model/MergePersonsRequest}
+     */
+    MergePersonsRequest,
+
+    /**
      * The MergePersonsResponse model constructor.
      * @property {module:model/MergePersonsResponse}
      */
@@ -3199,6 +3321,18 @@ export {
      * @property {module:model/MergePersonsResponseAllOf}
      */
     MergePersonsResponseAllOf,
+
+    /**
+     * The NewDeal model constructor.
+     * @property {module:model/NewDeal}
+     */
+    NewDeal,
+
+    /**
+     * The NewDealAllOf model constructor.
+     * @property {module:model/NewDealAllOf}
+     */
+    NewDealAllOf,
 
     /**
      * The NewDealProduct model constructor.
@@ -3231,6 +3365,18 @@ export {
     NewGoal,
 
     /**
+     * The NewOrganization model constructor.
+     * @property {module:model/NewOrganization}
+     */
+    NewOrganization,
+
+    /**
+     * The NewOrganizationAllOf model constructor.
+     * @property {module:model/NewOrganizationAllOf}
+     */
+    NewOrganizationAllOf,
+
+    /**
      * The NewPerson model constructor.
      * @property {module:model/NewPerson}
      */
@@ -3247,6 +3393,18 @@ export {
      * @property {module:model/NewProductField}
      */
     NewProductField,
+
+    /**
+     * The Note model constructor.
+     * @property {module:model/Note}
+     */
+    Note,
+
+    /**
+     * The NoteConnectToParams model constructor.
+     * @property {module:model/NoteConnectToParams}
+     */
+    NoteConnectToParams,
 
     /**
      * The NoteCreatorUser model constructor.
@@ -3271,6 +3429,12 @@ export {
      * @property {module:model/NoteFieldsResponseAllOf}
      */
     NoteFieldsResponseAllOf,
+
+    /**
+     * The NoteParams model constructor.
+     * @property {module:model/NoteParams}
+     */
+    NoteParams,
 
     /**
      * The NumberBoolean model constructor.
@@ -3469,6 +3633,12 @@ export {
      * @property {module:model/OrganizationPostResponseAllOf}
      */
     OrganizationPostResponseAllOf,
+
+    /**
+     * The OrganizationRelationship model constructor.
+     * @property {module:model/OrganizationRelationship}
+     */
+    OrganizationRelationship,
 
     /**
      * The OrganizationRelationshipDeleteResponse model constructor.
@@ -3853,6 +4023,12 @@ export {
      * @property {module:model/PictureDataWithValueAllOf}
      */
     PictureDataWithValueAllOf,
+
+    /**
+     * The Pipeline model constructor.
+     * @property {module:model/Pipeline}
+     */
+    Pipeline,
 
     /**
      * The PipelineDetails model constructor.
@@ -4273,6 +4449,12 @@ export {
      * @property {module:model/SinglePermissionSetsItemAllOf}
      */
     SinglePermissionSetsItemAllOf,
+
+    /**
+     * The Stage model constructor.
+     * @property {module:model/Stage}
+     */
+    Stage,
 
     /**
      * The StageConversions model constructor.

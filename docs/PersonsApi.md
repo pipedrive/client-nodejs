@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 ## addPersonFollower
 
-> AddFollowerToPersonResponse addPersonFollower(id, userId)
+> AddFollowerToPersonResponse addPersonFollower(id, opts)
 
 Add a follower to a person
 
@@ -107,8 +107,10 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi();
 let id = 56; // Number | ID of a person
-let userId = 56; // Number | ID of the user
-apiInstance.addPersonFollower(id, userId).then((data) => {
+let opts = Pipedrive.AddPersonFollowerRequest.constructFromObject({
+  // Properties that you want to update
+});
+apiInstance.addPersonFollower(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -122,7 +124,7 @@ apiInstance.addPersonFollower(id, userId).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| ID of a person | 
- **userId** | **Number**| ID of the user | 
+ **addPersonFollowerRequest** | [**AddPersonFollowerRequest**](AddPersonFollowerRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -134,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -1069,7 +1071,7 @@ Name | Type | Description  | Notes
 
 ## mergePersons
 
-> MergePersonsResponse mergePersons(id, mergeWithId)
+> MergePersonsResponse mergePersons(id, opts)
 
 Merge two persons
 
@@ -1091,8 +1093,10 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi();
 let id = 56; // Number | ID of a person
-let mergeWithId = 56; // Number | The ID of the Person that will not be overwritten. This Person’s data will be prioritized in case of conflict with the other Person.
-apiInstance.mergePersons(id, mergeWithId).then((data) => {
+let opts = Pipedrive.MergePersonsRequest.constructFromObject({
+  // Properties that you want to update
+});
+apiInstance.mergePersons(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -1106,7 +1110,7 @@ apiInstance.mergePersons(id, mergeWithId).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| ID of a person | 
- **mergeWithId** | **Number**| The ID of the Person that will not be overwritten. This Person’s data will be prioritized in case of conflict with the other Person. | 
+ **mergePersonsRequest** | [**MergePersonsRequest**](MergePersonsRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -1118,7 +1122,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

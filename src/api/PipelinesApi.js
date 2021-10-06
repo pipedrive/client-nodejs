@@ -22,6 +22,7 @@ import GetDealsMovementsInPipeline from '../model/GetDealsMovementsInPipeline';
 import GetOnePipeline from '../model/GetOnePipeline';
 import GetStageDeals from '../model/GetStageDeals';
 import NumberBoolean from '../model/NumberBoolean';
+import Pipeline from '../model/Pipeline';
 
 /**
 * Pipelines service.
@@ -47,15 +48,12 @@ export default class PipelinesApi {
      * Add a new pipeline
      * Adds a new pipeline
      * @param {Object} opts Optional parameters
-     * @param {String} opts.name The name of the Pipeline
-     * @param {module:model/NumberBoolean} opts.dealProbability Whether Deal probability is disabled or enabled for this Pipeline
-     * @param {Number} opts.orderNr Defines the order of Pipelines. First order (`order_nr=0`) is the default Pipeline.
-     * @param {module:model/NumberBoolean} opts.active Whether this Pipeline will be made inactive (hidden) or active
+     * @param {module:model/Pipeline} opts.pipeline 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddNewPipeline} and HTTP response
      */
     addPipelineWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = null;
+      let postBody = opts['pipeline'];
 
       let pathParams = {
       };
@@ -64,20 +62,12 @@ export default class PipelinesApi {
       let headerParams = {
       };
       let formParams = {
-        'name': opts['name'],
-        'deal_probability': opts['dealProbability'],
-        'order_nr': opts['orderNr'],
-        'active': opts['active'],
       };
 
       let formParamArray = [
-        'name',
-        'dealProbability',
-        'orderNr',
-        'active',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded', ];
+      let contentTypes = ['application/json', ];
       const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
       const isJSON = contentTypes.includes('application/json');
 
@@ -105,10 +95,7 @@ export default class PipelinesApi {
      * Add a new pipeline
      * Adds a new pipeline
      * @param {Object} opts Optional parameters
-     * @param {String} opts.name The name of the Pipeline
-     * @param {module:model/NumberBoolean} opts.dealProbability Whether Deal probability is disabled or enabled for this Pipeline
-     * @param {Number} opts.orderNr Defines the order of Pipelines. First order (`order_nr=0`) is the default Pipeline.
-     * @param {module:model/NumberBoolean} opts.active Whether this Pipeline will be made inactive (hidden) or active
+     * @param {module:model/Pipeline} opts.pipeline 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddNewPipeline}
      */
     addPipeline(opts) {
@@ -576,15 +563,12 @@ export default class PipelinesApi {
      * Updates pipeline properties
      * @param {Number} id ID of the pipeline
      * @param {Object} opts Optional parameters
-     * @param {String} opts.name The name of the Pipeline
-     * @param {module:model/NumberBoolean} opts.dealProbability Whether Deal probability is disabled or enabled for this Pipeline
-     * @param {Number} opts.orderNr Defines the order of Pipelines. First order (`order_nr=0`) is the default Pipeline.
-     * @param {module:model/NumberBoolean} opts.active Whether this Pipeline will be made inactive (hidden) or active
+     * @param {module:model/Pipeline} opts.pipeline 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/EditPipeline} and HTTP response
      */
     updatePipelineWithHttpInfo(id, opts) {
       opts = opts || {};
-      let postBody = null;
+      let postBody = opts['pipeline'];
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updatePipeline");
@@ -598,20 +582,12 @@ export default class PipelinesApi {
       let headerParams = {
       };
       let formParams = {
-        'name': opts['name'],
-        'deal_probability': opts['dealProbability'],
-        'order_nr': opts['orderNr'],
-        'active': opts['active'],
       };
 
       let formParamArray = [
-        'name',
-        'dealProbability',
-        'orderNr',
-        'active',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded', ];
+      let contentTypes = ['application/json', ];
       const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
       const isJSON = contentTypes.includes('application/json');
 
@@ -640,10 +616,7 @@ export default class PipelinesApi {
      * Updates pipeline properties
      * @param {Number} id ID of the pipeline
      * @param {Object} opts Optional parameters
-     * @param {String} opts.name The name of the Pipeline
-     * @param {module:model/NumberBoolean} opts.dealProbability Whether Deal probability is disabled or enabled for this Pipeline
-     * @param {Number} opts.orderNr Defines the order of Pipelines. First order (`order_nr=0`) is the default Pipeline.
-     * @param {module:model/NumberBoolean} opts.active Whether this Pipeline will be made inactive (hidden) or active
+     * @param {module:model/Pipeline} opts.pipeline 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EditPipeline}
      */
     updatePipeline(id, opts) {

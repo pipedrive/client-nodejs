@@ -13,10 +13,13 @@
 
 
 import ApiClient from "../ApiClient";
+import AddNoteRequest from '../model/AddNoteRequest';
+import CommentPostPutObject from '../model/CommentPostPutObject';
 import DeleteComment from '../model/DeleteComment';
 import DeleteNote from '../model/DeleteNote';
 import GetComments from '../model/GetComments';
 import GetNotes from '../model/GetNotes';
+import Note from '../model/Note';
 import NumberBoolean from '../model/NumberBoolean';
 import PostComment from '../model/PostComment';
 import PostNote from '../model/PostNote';
@@ -44,27 +47,13 @@ export default class NotesApi {
     /**
      * Add a note
      * Adds a new note.
-     * @param {String} content Content of the note in HTML format. Subject to sanitization on the back-end.
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.userId ID of the user who will be marked as the author of this note. Only an admin can change the author.
-     * @param {String} opts.leadId The ID of the lead the note will be attached to
-     * @param {Number} opts.dealId The ID of the deal the note will be attached to
-     * @param {Number} opts.personId The ID of the person this note will be attached to
-     * @param {Number} opts.orgId The ID of the organization this note will be attached to
-     * @param {String} opts.addTime Optional creation date & time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
-     * @param {module:model/NumberBoolean} opts.pinnedToLeadFlag If set, then results are filtered by note to lead pinning state (`lead_id` is also required)
-     * @param {module:model/NumberBoolean} opts.pinnedToDealFlag If set, then results are filtered by note to deal pinning state (`deal_id` is also required).
-     * @param {module:model/NumberBoolean} opts.pinnedToOrganizationFlag If set, then results are filtered by note to organization pinning state (`org_id` is also required).
-     * @param {module:model/NumberBoolean} opts.pinnedToPersonFlag If set, then results are filtered by note to person pinning state (`person_id` is also required).
+     * @param {module:model/AddNoteRequest} opts.addNoteRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostNote} and HTTP response
      */
-    addNoteWithHttpInfo(content, opts) {
+    addNoteWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = null;
-      // verify the required parameter 'content' is set
-      if (content === undefined || content === null) {
-        throw new Error("Missing the required parameter 'content' when calling addNote");
-      }
+      let postBody = opts['addNoteRequest'];
 
       let pathParams = {
       };
@@ -73,34 +62,12 @@ export default class NotesApi {
       let headerParams = {
       };
       let formParams = {
-        'content': content,
-        'user_id': opts['userId'],
-        'lead_id': opts['leadId'],
-        'deal_id': opts['dealId'],
-        'person_id': opts['personId'],
-        'org_id': opts['orgId'],
-        'add_time': opts['addTime'],
-        'pinned_to_lead_flag': opts['pinnedToLeadFlag'],
-        'pinned_to_deal_flag': opts['pinnedToDealFlag'],
-        'pinned_to_organization_flag': opts['pinnedToOrganizationFlag'],
-        'pinned_to_person_flag': opts['pinnedToPersonFlag'],
       };
 
       let formParamArray = [
-        'content',
-        'userId',
-        'leadId',
-        'dealId',
-        'personId',
-        'orgId',
-        'addTime',
-        'pinnedToLeadFlag',
-        'pinnedToDealFlag',
-        'pinnedToOrganizationFlag',
-        'pinnedToPersonFlag',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded', ];
+      let contentTypes = ['application/json', ];
       const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
       const isJSON = contentTypes.includes('application/json');
 
@@ -127,22 +94,12 @@ export default class NotesApi {
     /**
      * Add a note
      * Adds a new note.
-     * @param {String} content Content of the note in HTML format. Subject to sanitization on the back-end.
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.userId ID of the user who will be marked as the author of this note. Only an admin can change the author.
-     * @param {String} opts.leadId The ID of the lead the note will be attached to
-     * @param {Number} opts.dealId The ID of the deal the note will be attached to
-     * @param {Number} opts.personId The ID of the person this note will be attached to
-     * @param {Number} opts.orgId The ID of the organization this note will be attached to
-     * @param {String} opts.addTime Optional creation date & time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
-     * @param {module:model/NumberBoolean} opts.pinnedToLeadFlag If set, then results are filtered by note to lead pinning state (`lead_id` is also required)
-     * @param {module:model/NumberBoolean} opts.pinnedToDealFlag If set, then results are filtered by note to deal pinning state (`deal_id` is also required).
-     * @param {module:model/NumberBoolean} opts.pinnedToOrganizationFlag If set, then results are filtered by note to organization pinning state (`org_id` is also required).
-     * @param {module:model/NumberBoolean} opts.pinnedToPersonFlag If set, then results are filtered by note to person pinning state (`person_id` is also required).
+     * @param {module:model/AddNoteRequest} opts.addNoteRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostNote}
      */
-    addNote(content, opts) {
-      return this.addNoteWithHttpInfo(content, opts)
+    addNote(opts) {
+      return this.addNoteWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data;
         });
@@ -153,19 +110,16 @@ export default class NotesApi {
      * Add a comment to a note
      * Adds a new comment to a note.
      * @param {Number} id ID of the note
-     * @param {String} content Content of the comment in HTML format. Subject to sanitization on the back-end.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/CommentPostPutObject} opts.commentPostPutObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostComment} and HTTP response
      */
-    addNoteCommentWithHttpInfo(id, content) {
-      const opts = {}
-      let postBody = null;
+    addNoteCommentWithHttpInfo(id, opts) {
+      opts = opts || {};
+      let postBody = opts['commentPostPutObject'];
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling addNoteComment");
-      }
-      // verify the required parameter 'content' is set
-      if (content === undefined || content === null) {
-        throw new Error("Missing the required parameter 'content' when calling addNoteComment");
       }
 
       let pathParams = {
@@ -176,14 +130,12 @@ export default class NotesApi {
       let headerParams = {
       };
       let formParams = {
-        'content': content,
       };
 
       let formParamArray = [
-        'content',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded', ];
+      let contentTypes = ['application/json', ];
       const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
       const isJSON = contentTypes.includes('application/json');
 
@@ -211,11 +163,12 @@ export default class NotesApi {
      * Add a comment to a note
      * Adds a new comment to a note.
      * @param {Number} id ID of the note
-     * @param {String} content Content of the comment in HTML format. Subject to sanitization on the back-end.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/CommentPostPutObject} opts.commentPostPutObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostComment}
      */
-    addNoteComment(id, content) {
-      return this.addNoteCommentWithHttpInfo(id, content)
+    addNoteComment(id, opts) {
+      return this.addNoteCommentWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data;
         });
@@ -676,12 +629,13 @@ export default class NotesApi {
      * Updates a comment related to a note.
      * @param {Number} id ID of the note
      * @param {String} commentId ID of the comment
-     * @param {String} content Content of the comment in HTML format. Subject to sanitization on the back-end.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/CommentPostPutObject} opts.commentPostPutObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostComment} and HTTP response
      */
-    updateCommentForNoteWithHttpInfo(id, commentId, content) {
-      const opts = {}
-      let postBody = null;
+    updateCommentForNoteWithHttpInfo(id, commentId, opts) {
+      opts = opts || {};
+      let postBody = opts['commentPostPutObject'];
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateCommentForNote");
@@ -689,10 +643,6 @@ export default class NotesApi {
       // verify the required parameter 'commentId' is set
       if (commentId === undefined || commentId === null) {
         throw new Error("Missing the required parameter 'commentId' when calling updateCommentForNote");
-      }
-      // verify the required parameter 'content' is set
-      if (content === undefined || content === null) {
-        throw new Error("Missing the required parameter 'content' when calling updateCommentForNote");
       }
 
       let pathParams = {
@@ -704,14 +654,12 @@ export default class NotesApi {
       let headerParams = {
       };
       let formParams = {
-        'content': content,
       };
 
       let formParamArray = [
-        'content',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded', ];
+      let contentTypes = ['application/json', ];
       const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
       const isJSON = contentTypes.includes('application/json');
 
@@ -740,11 +688,12 @@ export default class NotesApi {
      * Updates a comment related to a note.
      * @param {Number} id ID of the note
      * @param {String} commentId ID of the comment
-     * @param {String} content Content of the comment in HTML format. Subject to sanitization on the back-end.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/CommentPostPutObject} opts.commentPostPutObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostComment}
      */
-    updateCommentForNote(id, commentId, content) {
-      return this.updateCommentForNoteWithHttpInfo(id, commentId, content)
+    updateCommentForNote(id, commentId, opts) {
+      return this.updateCommentForNoteWithHttpInfo(id, commentId, opts)
         .then(function(response_and_data) {
           return response_and_data;
         });
@@ -755,30 +704,16 @@ export default class NotesApi {
      * Update a note
      * Updates a note.
      * @param {Number} id ID of the note
-     * @param {String} content Content of the note in HTML format. Subject to sanitization on the back-end.
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.userId ID of the user who will be marked as the author of this note. Only an admin can change the author.
-     * @param {String} opts.leadId The ID of the lead the note will be attached to
-     * @param {Number} opts.dealId The ID of the deal the note will be attached to
-     * @param {Number} opts.personId The ID of the person this note will be attached to
-     * @param {Number} opts.orgId The ID of the organization this note will be attached to
-     * @param {String} opts.addTime Optional creation date & time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
-     * @param {module:model/NumberBoolean} opts.pinnedToLeadFlag If set, then results are filtered by note to lead pinning state (`lead_id` is also required)
-     * @param {module:model/NumberBoolean} opts.pinnedToDealFlag If set, then results are filtered by note to deal pinning state (`deal_id` is also required).
-     * @param {module:model/NumberBoolean} opts.pinnedToOrganizationFlag If set, then results are filtered by note to organization pinning state (`org_id` is also required).
-     * @param {module:model/NumberBoolean} opts.pinnedToPersonFlag If set, then results are filtered by note to person pinning state (`person_id` is also required).
+     * @param {module:model/Note} opts.note 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostNote} and HTTP response
      */
-    updateNoteWithHttpInfo(id, content, opts) {
+    updateNoteWithHttpInfo(id, opts) {
       opts = opts || {};
-      let postBody = null;
+      let postBody = opts['note'];
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateNote");
-      }
-      // verify the required parameter 'content' is set
-      if (content === undefined || content === null) {
-        throw new Error("Missing the required parameter 'content' when calling updateNote");
       }
 
       let pathParams = {
@@ -789,34 +724,12 @@ export default class NotesApi {
       let headerParams = {
       };
       let formParams = {
-        'content': content,
-        'user_id': opts['userId'],
-        'lead_id': opts['leadId'],
-        'deal_id': opts['dealId'],
-        'person_id': opts['personId'],
-        'org_id': opts['orgId'],
-        'add_time': opts['addTime'],
-        'pinned_to_lead_flag': opts['pinnedToLeadFlag'],
-        'pinned_to_deal_flag': opts['pinnedToDealFlag'],
-        'pinned_to_organization_flag': opts['pinnedToOrganizationFlag'],
-        'pinned_to_person_flag': opts['pinnedToPersonFlag'],
       };
 
       let formParamArray = [
-        'content',
-        'userId',
-        'leadId',
-        'dealId',
-        'personId',
-        'orgId',
-        'addTime',
-        'pinnedToLeadFlag',
-        'pinnedToDealFlag',
-        'pinnedToOrganizationFlag',
-        'pinnedToPersonFlag',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded', ];
+      let contentTypes = ['application/json', ];
       const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
       const isJSON = contentTypes.includes('application/json');
 
@@ -844,22 +757,12 @@ export default class NotesApi {
      * Update a note
      * Updates a note.
      * @param {Number} id ID of the note
-     * @param {String} content Content of the note in HTML format. Subject to sanitization on the back-end.
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.userId ID of the user who will be marked as the author of this note. Only an admin can change the author.
-     * @param {String} opts.leadId The ID of the lead the note will be attached to
-     * @param {Number} opts.dealId The ID of the deal the note will be attached to
-     * @param {Number} opts.personId The ID of the person this note will be attached to
-     * @param {Number} opts.orgId The ID of the organization this note will be attached to
-     * @param {String} opts.addTime Optional creation date & time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
-     * @param {module:model/NumberBoolean} opts.pinnedToLeadFlag If set, then results are filtered by note to lead pinning state (`lead_id` is also required)
-     * @param {module:model/NumberBoolean} opts.pinnedToDealFlag If set, then results are filtered by note to deal pinning state (`deal_id` is also required).
-     * @param {module:model/NumberBoolean} opts.pinnedToOrganizationFlag If set, then results are filtered by note to organization pinning state (`org_id` is also required).
-     * @param {module:model/NumberBoolean} opts.pinnedToPersonFlag If set, then results are filtered by note to person pinning state (`person_id` is also required).
+     * @param {module:model/Note} opts.note 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostNote}
      */
-    updateNote(id, content, opts) {
-      return this.updateNoteWithHttpInfo(id, content, opts)
+    updateNote(id, opts) {
+      return this.updateNoteWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data;
         });

@@ -12,26 +12,25 @@
  */
 
 import ApiClient from '../ApiClient';
-import NoteConnectToParams from './NoteConnectToParams';
+import AddNoteRequestAllOf from './AddNoteRequestAllOf';
 import NoteParams from './NoteParams';
 import NumberBoolean from './NumberBoolean';
 
 /**
- * The Note model module.
- * @module model/Note
+ * The AddNoteRequest model module.
+ * @module model/AddNoteRequest
  * @version 1.0.0
  */
-class Note {
+class AddNoteRequest {
     /**
-     * Constructs a new <code>Note</code>.
-     * @alias module:model/Note
-     * @implements module:model/NoteConnectToParams
+     * Constructs a new <code>AddNoteRequest</code>.
+     * @alias module:model/AddNoteRequest
+     * @implements module:model/AddNoteRequestAllOf
      * @implements module:model/NoteParams
-     * @param content {String} Content of the note in HTML format. Subject to sanitization on the back-end.
      */
-    constructor(content) { 
-        NoteConnectToParams.initialize(this);NoteParams.initialize(this);
-        Note.initialize(this, content);
+    constructor() { 
+        AddNoteRequestAllOf.initialize(this);NoteParams.initialize(this);
+        AddNoteRequest.initialize(this);
     }
 
     /**
@@ -39,21 +38,20 @@ class Note {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, content) { 
-        obj['content'] = content;
+    static initialize(obj) { 
     }
 
     /**
-     * Constructs a <code>Note</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>AddNoteRequest</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/Note} obj Optional instance to populate.
-     * @return {module:model/Note} The populated <code>Note</code> instance.
+     * @param {module:model/AddNoteRequest} obj Optional instance to populate.
+     * @return {module:model/AddNoteRequest} The populated <code>AddNoteRequest</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new Note();
-            NoteConnectToParams.constructFromObject(data, obj);
+            obj = obj || new AddNoteRequest();
+            AddNoteRequestAllOf.constructFromObject(data, obj);
             NoteParams.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('lead_id')) {
@@ -124,93 +122,93 @@ class Note {
 }
 
 /**
- * The ID of the lead the note will be attached to
+ * The ID of the Lead the note will be attached to. This property is required unless one of (`deal_id/person_id/org_id`) is specified.
  * @member {String} lead_id
  */
-Note.prototype['lead_id'] = undefined;
+AddNoteRequest.prototype['lead_id'] = undefined;
 
 /**
- * The ID of the deal the note will be attached to
+ * The ID of the Deal the note will be attached to. This property is required unless one of (`lead_id/person_id/org_id`) is specified.
  * @member {Number} deal_id
  */
-Note.prototype['deal_id'] = undefined;
+AddNoteRequest.prototype['deal_id'] = undefined;
 
 /**
- * The ID of the person this note will be attached to
+ * The ID of the Person this note will be attached to. This property is required unless one of (`deal_id/lead_id/org_id`) is specified.
  * @member {Number} person_id
  */
-Note.prototype['person_id'] = undefined;
+AddNoteRequest.prototype['person_id'] = undefined;
 
 /**
- * The ID of the organization this note will be attached to
+ * The ID of the Organization this note will be attached to. This property is required unless one of (`deal_id/lead_id/person_id`) is specified.
  * @member {Number} org_id
  */
-Note.prototype['org_id'] = undefined;
+AddNoteRequest.prototype['org_id'] = undefined;
 
 /**
  * Content of the note in HTML format. Subject to sanitization on the back-end.
  * @member {String} content
  */
-Note.prototype['content'] = undefined;
+AddNoteRequest.prototype['content'] = undefined;
 
 /**
  * ID of the user who will be marked as the author of this note. Only an admin can change the author.
  * @member {Number} user_id
  */
-Note.prototype['user_id'] = undefined;
+AddNoteRequest.prototype['user_id'] = undefined;
 
 /**
  * Optional creation date & time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} add_time
  */
-Note.prototype['add_time'] = undefined;
+AddNoteRequest.prototype['add_time'] = undefined;
 
 /**
  * If set, then results are filtered by note to lead pinning state (`lead_id` is also required)
  * @member {module:model/NumberBoolean} pinned_to_lead_flag
  */
-Note.prototype['pinned_to_lead_flag'] = undefined;
+AddNoteRequest.prototype['pinned_to_lead_flag'] = undefined;
 
 /**
  * If set, then results are filtered by note to deal pinning state (`deal_id` is also required).
  * @member {module:model/NumberBoolean} pinned_to_deal_flag
  */
-Note.prototype['pinned_to_deal_flag'] = undefined;
+AddNoteRequest.prototype['pinned_to_deal_flag'] = undefined;
 
 /**
  * If set, then results are filtered by note to organization pinning state (`org_id` is also required).
  * @member {module:model/NumberBoolean} pinned_to_organization_flag
  */
-Note.prototype['pinned_to_organization_flag'] = undefined;
+AddNoteRequest.prototype['pinned_to_organization_flag'] = undefined;
 
 /**
  * If set, then results are filtered by note to person pinning state (`person_id` is also required).
  * @member {module:model/NumberBoolean} pinned_to_person_flag
  */
-Note.prototype['pinned_to_person_flag'] = undefined;
+AddNoteRequest.prototype['pinned_to_person_flag'] = undefined;
 
 
-// Implement NoteConnectToParams interface:
+// Implement AddNoteRequestAllOf interface:
 /**
- * The ID of the lead the note will be attached to
+ * The ID of the Lead the note will be attached to. This property is required unless one of (`deal_id/person_id/org_id`) is specified.
  * @member {String} lead_id
  */
-NoteConnectToParams.prototype['lead_id'] = undefined;
+AddNoteRequestAllOf.prototype['lead_id'] = undefined;
 /**
- * The ID of the deal the note will be attached to
+ * The ID of the Deal the note will be attached to. This property is required unless one of (`lead_id/person_id/org_id`) is specified.
  * @member {Number} deal_id
  */
-NoteConnectToParams.prototype['deal_id'] = undefined;
+AddNoteRequestAllOf.prototype['deal_id'] = undefined;
 /**
- * The ID of the person this note will be attached to
+ * The ID of the Person this note will be attached to. This property is required unless one of (`deal_id/lead_id/org_id`) is specified.
  * @member {Number} person_id
  */
-NoteConnectToParams.prototype['person_id'] = undefined;
+AddNoteRequestAllOf.prototype['person_id'] = undefined;
 /**
- * The ID of the organization this note will be attached to
+ * The ID of the Organization this note will be attached to. This property is required unless one of (`deal_id/lead_id/person_id`) is specified.
  * @member {Number} org_id
  */
-NoteConnectToParams.prototype['org_id'] = undefined;
+AddNoteRequestAllOf.prototype['org_id'] = undefined;
 // Implement NoteParams interface:
 /**
  * Content of the note in HTML format. Subject to sanitization on the back-end.
@@ -251,5 +249,5 @@ NoteParams.prototype['pinned_to_person_flag'] = undefined;
 
 
 
-export default Note;
+export default AddNoteRequest;
 

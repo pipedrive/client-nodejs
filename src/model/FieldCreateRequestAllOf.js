@@ -14,18 +14,19 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The FieldUpdateRequest model module.
- * @module model/FieldUpdateRequest
+ * The FieldCreateRequestAllOf model module.
+ * @module model/FieldCreateRequestAllOf
  * @version 1.0.0
  */
-class FieldUpdateRequest {
+class FieldCreateRequestAllOf {
     /**
-     * Constructs a new <code>FieldUpdateRequest</code>.
-     * @alias module:model/FieldUpdateRequest
+     * Constructs a new <code>FieldCreateRequestAllOf</code>.
+     * @alias module:model/FieldCreateRequestAllOf
+     * @param name {String} Name of the field
      */
-    constructor() { 
+    constructor(name) { 
         
-        FieldUpdateRequest.initialize(this);
+        FieldCreateRequestAllOf.initialize(this, name);
     }
 
     /**
@@ -33,19 +34,20 @@ class FieldUpdateRequest {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, name) { 
+        obj['name'] = name;
     }
 
     /**
-     * Constructs a <code>FieldUpdateRequest</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>FieldCreateRequestAllOf</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/FieldUpdateRequest} obj Optional instance to populate.
-     * @return {module:model/FieldUpdateRequest} The populated <code>FieldUpdateRequest</code> instance.
+     * @param {module:model/FieldCreateRequestAllOf} obj Optional instance to populate.
+     * @return {module:model/FieldCreateRequestAllOf} The populated <code>FieldCreateRequestAllOf</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new FieldUpdateRequest();
+            obj = obj || new FieldCreateRequestAllOf();
 
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
@@ -78,20 +80,20 @@ class FieldUpdateRequest {
  * Name of the field
  * @member {String} name
  */
-FieldUpdateRequest.prototype['name'] = undefined;
+FieldCreateRequestAllOf.prototype['name'] = undefined;
 
 /**
- * When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: `[{\"id\":123,\"label\":\"Existing Item\"},{\"label\":\"New Item\"}]`
+ * When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. Example: `[{\"label\":\"New Item\"}]`
  * @member {String} options
  */
-FieldUpdateRequest.prototype['options'] = undefined;
+FieldCreateRequestAllOf.prototype['options'] = undefined;
 
 /**
  * Whether the field is available in 'add new' modal or not (both in web and mobile app)
- * @member {module:model/FieldUpdateRequest.AddVisibleFlagEnum} add_visible_flag
+ * @member {module:model/FieldCreateRequestAllOf.AddVisibleFlagEnum} add_visible_flag
  * @default true
  */
-FieldUpdateRequest.prototype['add_visible_flag'] = true;
+FieldCreateRequestAllOf.prototype['add_visible_flag'] = true;
 
 
 
@@ -102,7 +104,7 @@ FieldUpdateRequest.prototype['add_visible_flag'] = true;
  * @enum {Boolean}
  * @readonly
  */
-FieldUpdateRequest['AddVisibleFlagEnum'] = {
+FieldCreateRequestAllOf['AddVisibleFlagEnum'] = {
 
     /**
      * value: "true"
@@ -119,5 +121,5 @@ FieldUpdateRequest['AddVisibleFlagEnum'] = {
 
 
 
-export default FieldUpdateRequest;
+export default FieldCreateRequestAllOf;
 

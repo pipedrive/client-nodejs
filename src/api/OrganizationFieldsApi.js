@@ -15,8 +15,9 @@
 import ApiClient from "../ApiClient";
 import BulkDeleteResponse from '../model/BulkDeleteResponse';
 import DeleteResponse from '../model/DeleteResponse';
+import FieldCreateRequest from '../model/FieldCreateRequest';
 import FieldResponse from '../model/FieldResponse';
-import FieldTypeAsString from '../model/FieldTypeAsString';
+import FieldUpdateRequest from '../model/FieldUpdateRequest';
 import FieldsResponse from '../model/FieldsResponse';
 
 /**
@@ -43,15 +44,12 @@ export default class OrganizationFieldsApi {
      * Add a new organization field
      * Adds a new organization field. For more information on adding a new custom field, see <a href=\"https://pipedrive.readme.io/docs/adding-a-new-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.name Name of the field
-     * @param {String} opts.options When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. Example: `[{\\\"label\\\":\\\"New Item\\\"}]`
-     * @param {module:model/Boolean} opts.addVisibleFlag Whether the field is available in 'add new' modal or not (both in web and mobile app) (default to true)
-     * @param {module:model/FieldTypeAsString} opts.fieldType 
+     * @param {module:model/FieldCreateRequest} opts.fieldCreateRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/FieldResponse} and HTTP response
      */
     addOrganizationFieldWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = null;
+      let postBody = opts['fieldCreateRequest'];
 
       let pathParams = {
       };
@@ -60,20 +58,12 @@ export default class OrganizationFieldsApi {
       let headerParams = {
       };
       let formParams = {
-        'name': opts['name'],
-        'options': opts['options'],
-        'add_visible_flag': opts['addVisibleFlag'],
-        'field_type': opts['fieldType'],
       };
 
       let formParamArray = [
-        'name',
-        'options',
-        'addVisibleFlag',
-        'fieldType',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded', ];
+      let contentTypes = ['application/json', ];
       const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
       const isJSON = contentTypes.includes('application/json');
 
@@ -101,10 +91,7 @@ export default class OrganizationFieldsApi {
      * Add a new organization field
      * Adds a new organization field. For more information on adding a new custom field, see <a href=\"https://pipedrive.readme.io/docs/adding-a-new-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.name Name of the field
-     * @param {String} opts.options When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. Example: `[{\\\"label\\\":\\\"New Item\\\"}]`
-     * @param {module:model/Boolean} opts.addVisibleFlag Whether the field is available in 'add new' modal or not (both in web and mobile app) (default to true)
-     * @param {module:model/FieldTypeAsString} opts.fieldType 
+     * @param {module:model/FieldCreateRequest} opts.fieldCreateRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FieldResponse}
      */
     addOrganizationField(opts) {
@@ -381,14 +368,12 @@ export default class OrganizationFieldsApi {
      * Updates an organization field. See an example of updating custom fields’ values in <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Number} id ID of the field
      * @param {Object} opts Optional parameters
-     * @param {String} opts.name Name of the field
-     * @param {String} opts.options When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: `[{\\\"id\\\":123,\\\"label\\\":\\\"Existing Item\\\"},{\\\"label\\\":\\\"New Item\\\"}]`
-     * @param {module:model/Boolean} opts.addVisibleFlag Whether the field is available in 'add new' modal or not (both in web and mobile app) (default to true)
+     * @param {module:model/FieldUpdateRequest} opts.fieldUpdateRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/FieldResponse} and HTTP response
      */
     updateOrganizationFieldWithHttpInfo(id, opts) {
       opts = opts || {};
-      let postBody = null;
+      let postBody = opts['fieldUpdateRequest'];
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateOrganizationField");
@@ -402,18 +387,12 @@ export default class OrganizationFieldsApi {
       let headerParams = {
       };
       let formParams = {
-        'name': opts['name'],
-        'options': opts['options'],
-        'add_visible_flag': opts['addVisibleFlag'],
       };
 
       let formParamArray = [
-        'name',
-        'options',
-        'addVisibleFlag',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded', ];
+      let contentTypes = ['application/json', ];
       const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
       const isJSON = contentTypes.includes('application/json');
 
@@ -442,9 +421,7 @@ export default class OrganizationFieldsApi {
      * Updates an organization field. See an example of updating custom fields’ values in <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Number} id ID of the field
      * @param {Object} opts Optional parameters
-     * @param {String} opts.name Name of the field
-     * @param {String} opts.options When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: `[{\\\"id\\\":123,\\\"label\\\":\\\"Existing Item\\\"},{\\\"label\\\":\\\"New Item\\\"}]`
-     * @param {module:model/Boolean} opts.addVisibleFlag Whether the field is available in 'add new' modal or not (both in web and mobile app) (default to true)
+     * @param {module:model/FieldUpdateRequest} opts.fieldUpdateRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FieldResponse}
      */
     updateOrganizationField(id, opts) {

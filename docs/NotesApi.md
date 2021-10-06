@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 ## addNote
 
-> PostNote addNote(content, opts)
+> PostNote addNote(opts)
 
 Add a note
 
@@ -40,20 +40,10 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.NotesApi();
-let content = "content_example"; // String | Content of the note in HTML format. Subject to sanitization on the back-end.
-let opts = {
-  'userId': 56, // Number | ID of the user who will be marked as the author of this note. Only an admin can change the author.
-  'leadId': null, // String | The ID of the lead the note will be attached to
-  'dealId': 56, // Number | The ID of the deal the note will be attached to
-  'personId': 56, // Number | The ID of the person this note will be attached to
-  'orgId': 56, // Number | The ID of the organization this note will be attached to
-  'addTime': "addTime_example", // String | Optional creation date & time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
-  'pinnedToLeadFlag': new Pipedrive.NumberBoolean(), // NumberBoolean | If set, then results are filtered by note to lead pinning state (`lead_id` is also required)
-  'pinnedToDealFlag': new Pipedrive.NumberBoolean(), // NumberBoolean | If set, then results are filtered by note to deal pinning state (`deal_id` is also required).
-  'pinnedToOrganizationFlag': new Pipedrive.NumberBoolean(), // NumberBoolean | If set, then results are filtered by note to organization pinning state (`org_id` is also required).
-  'pinnedToPersonFlag': new Pipedrive.NumberBoolean() // NumberBoolean | If set, then results are filtered by note to person pinning state (`person_id` is also required).
-};
-apiInstance.addNote(content, opts).then((data) => {
+let opts = Pipedrive.AddNoteRequest.constructFromObject({
+  // Properties that you want to update
+});
+apiInstance.addNote(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -66,17 +56,7 @@ apiInstance.addNote(content, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content** | **String**| Content of the note in HTML format. Subject to sanitization on the back-end. | 
- **userId** | **Number**| ID of the user who will be marked as the author of this note. Only an admin can change the author. | [optional] 
- **leadId** | [**String**](String.md)| The ID of the lead the note will be attached to | [optional] 
- **dealId** | **Number**| The ID of the deal the note will be attached to | [optional] 
- **personId** | **Number**| The ID of the person this note will be attached to | [optional] 
- **orgId** | **Number**| The ID of the organization this note will be attached to | [optional] 
- **addTime** | **String**| Optional creation date &amp; time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS | [optional] 
- **pinnedToLeadFlag** | [**NumberBoolean**](NumberBoolean.md)| If set, then results are filtered by note to lead pinning state (&#x60;lead_id&#x60; is also required) | [optional] 
- **pinnedToDealFlag** | [**NumberBoolean**](NumberBoolean.md)| If set, then results are filtered by note to deal pinning state (&#x60;deal_id&#x60; is also required). | [optional] 
- **pinnedToOrganizationFlag** | [**NumberBoolean**](NumberBoolean.md)| If set, then results are filtered by note to organization pinning state (&#x60;org_id&#x60; is also required). | [optional] 
- **pinnedToPersonFlag** | [**NumberBoolean**](NumberBoolean.md)| If set, then results are filtered by note to person pinning state (&#x60;person_id&#x60; is also required). | [optional] 
+ **addNoteRequest** | [**AddNoteRequest**](AddNoteRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -88,13 +68,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## addNoteComment
 
-> PostComment addNoteComment(id, content)
+> PostComment addNoteComment(id, opts)
 
 Add a comment to a note
 
@@ -116,8 +96,10 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.NotesApi();
 let id = 56; // Number | ID of the note
-let content = "content_example"; // String | Content of the comment in HTML format. Subject to sanitization on the back-end.
-apiInstance.addNoteComment(id, content).then((data) => {
+let opts = Pipedrive.CommentPostPutObject.constructFromObject({
+  // Properties that you want to update
+});
+apiInstance.addNoteComment(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -131,7 +113,7 @@ apiInstance.addNoteComment(id, content).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| ID of the note | 
- **content** | **String**| Content of the comment in HTML format. Subject to sanitization on the back-end. | 
+ **commentPostPutObject** | [**CommentPostPutObject**](CommentPostPutObject.md)|  | [optional] 
 
 ### Return type
 
@@ -143,7 +125,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -505,7 +487,7 @@ Name | Type | Description  | Notes
 
 ## updateCommentForNote
 
-> PostComment updateCommentForNote(id, commentId, content)
+> PostComment updateCommentForNote(id, commentId, opts)
 
 Update a comment related to a note
 
@@ -528,8 +510,10 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new Pipedrive.NotesApi();
 let id = 56; // Number | ID of the note
 let commentId = null; // String | ID of the comment
-let content = "content_example"; // String | Content of the comment in HTML format. Subject to sanitization on the back-end.
-apiInstance.updateCommentForNote(id, commentId, content).then((data) => {
+let opts = Pipedrive.CommentPostPutObject.constructFromObject({
+  // Properties that you want to update
+});
+apiInstance.updateCommentForNote(id, commentId, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -544,7 +528,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| ID of the note | 
  **commentId** | [**String**](.md)| ID of the comment | 
- **content** | **String**| Content of the comment in HTML format. Subject to sanitization on the back-end. | 
+ **commentPostPutObject** | [**CommentPostPutObject**](CommentPostPutObject.md)|  | [optional] 
 
 ### Return type
 
@@ -556,13 +540,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## updateNote
 
-> PostNote updateNote(id, content, opts)
+> PostNote updateNote(id, opts)
 
 Update a note
 
@@ -584,20 +568,10 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.NotesApi();
 let id = 56; // Number | ID of the note
-let content = "content_example"; // String | Content of the note in HTML format. Subject to sanitization on the back-end.
-let opts = {
-  'userId': 56, // Number | ID of the user who will be marked as the author of this note. Only an admin can change the author.
-  'leadId': null, // String | The ID of the lead the note will be attached to
-  'dealId': 56, // Number | The ID of the deal the note will be attached to
-  'personId': 56, // Number | The ID of the person this note will be attached to
-  'orgId': 56, // Number | The ID of the organization this note will be attached to
-  'addTime': "addTime_example", // String | Optional creation date & time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
-  'pinnedToLeadFlag': new Pipedrive.NumberBoolean(), // NumberBoolean | If set, then results are filtered by note to lead pinning state (`lead_id` is also required)
-  'pinnedToDealFlag': new Pipedrive.NumberBoolean(), // NumberBoolean | If set, then results are filtered by note to deal pinning state (`deal_id` is also required).
-  'pinnedToOrganizationFlag': new Pipedrive.NumberBoolean(), // NumberBoolean | If set, then results are filtered by note to organization pinning state (`org_id` is also required).
-  'pinnedToPersonFlag': new Pipedrive.NumberBoolean() // NumberBoolean | If set, then results are filtered by note to person pinning state (`person_id` is also required).
-};
-apiInstance.updateNote(id, content, opts).then((data) => {
+let opts = Pipedrive.Note.constructFromObject({
+  // Properties that you want to update
+});
+apiInstance.updateNote(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -611,17 +585,7 @@ apiInstance.updateNote(id, content, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| ID of the note | 
- **content** | **String**| Content of the note in HTML format. Subject to sanitization on the back-end. | 
- **userId** | **Number**| ID of the user who will be marked as the author of this note. Only an admin can change the author. | [optional] 
- **leadId** | [**String**](String.md)| The ID of the lead the note will be attached to | [optional] 
- **dealId** | **Number**| The ID of the deal the note will be attached to | [optional] 
- **personId** | **Number**| The ID of the person this note will be attached to | [optional] 
- **orgId** | **Number**| The ID of the organization this note will be attached to | [optional] 
- **addTime** | **String**| Optional creation date &amp; time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS | [optional] 
- **pinnedToLeadFlag** | [**NumberBoolean**](NumberBoolean.md)| If set, then results are filtered by note to lead pinning state (&#x60;lead_id&#x60; is also required) | [optional] 
- **pinnedToDealFlag** | [**NumberBoolean**](NumberBoolean.md)| If set, then results are filtered by note to deal pinning state (&#x60;deal_id&#x60; is also required). | [optional] 
- **pinnedToOrganizationFlag** | [**NumberBoolean**](NumberBoolean.md)| If set, then results are filtered by note to organization pinning state (&#x60;org_id&#x60; is also required). | [optional] 
- **pinnedToPersonFlag** | [**NumberBoolean**](NumberBoolean.md)| If set, then results are filtered by note to person pinning state (&#x60;person_id&#x60; is also required). | [optional] 
+ **note** | [**Note**](Note.md)|  | [optional] 
 
 ### Return type
 
@@ -633,6 +597,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 

@@ -37,13 +37,9 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.StagesApi();
-let opts = {
-  'name': "name_example", // String | Name of the Stage
-  'pipelineId': 56, // Number | The ID of the Pipeline to add Stage to.
-  'dealProbability': 56, // Number | Deal success probability percentage. Used/shown when Deal weighted values are used
-  'rottenFlag': 56, // Number | Whether Deals in this stage can become rotten
-  'rottenDays': 56 // Number | The number of days the Deals not updated in this Stage would become rotten. Applies only if the `rotten_flag` is set.
-};
+let opts = Pipedrive.Stage.constructFromObject({
+  // Properties that you want to update
+});
 apiInstance.addStage(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -57,11 +53,7 @@ apiInstance.addStage(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Name of the Stage | [optional] 
- **pipelineId** | **Number**| The ID of the Pipeline to add Stage to. | [optional] 
- **dealProbability** | **Number**| Deal success probability percentage. Used/shown when Deal weighted values are used | [optional] 
- **rottenFlag** | **Number**| Whether Deals in this stage can become rotten | [optional] 
- **rottenDays** | **Number**| The number of days the Deals not updated in this Stage would become rotten. Applies only if the &#x60;rotten_flag&#x60; is set. | [optional] 
+ **stage** | [**Stage**](Stage.md)|  | [optional] 
 
 ### Return type
 
@@ -73,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -380,14 +372,9 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.StagesApi();
 let id = 56; // Number | ID of the stage
-let opts = {
-  'name': "name_example", // String | Name of the Stage
-  'pipelineId': 56, // Number | The ID of the Pipeline to add Stage to.
-  'dealProbability': 56, // Number | Deal success probability percentage. Used/shown when Deal weighted values are used
-  'rottenFlag': 56, // Number | Whether Deals in this stage can become rotten
-  'rottenDays': 56, // Number | The number of days the Deals not updated in this Stage would become rotten. Applies only if the `rotten_flag` is set.
-  'orderNr': 56 // Number | An order number for this stage. Order numbers should be used to order the stages in the pipeline.
-};
+let opts = Pipedrive.UNKNOWN_BASE_TYPE.constructFromObject({
+  // Properties that you want to update
+});
 apiInstance.updateStage(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -402,12 +389,7 @@ apiInstance.updateStage(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| ID of the stage | 
- **name** | **String**| Name of the Stage | [optional] 
- **pipelineId** | **Number**| The ID of the Pipeline to add Stage to. | [optional] 
- **dealProbability** | **Number**| Deal success probability percentage. Used/shown when Deal weighted values are used | [optional] 
- **rottenFlag** | **Number**| Whether Deals in this stage can become rotten | [optional] 
- **rottenDays** | **Number**| The number of days the Deals not updated in this Stage would become rotten. Applies only if the &#x60;rotten_flag&#x60; is set. | [optional] 
- **orderNr** | **Number**| An order number for this stage. Order numbers should be used to order the stages in the pipeline. | [optional] 
+ **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | [optional] 
 
 ### Return type
 
@@ -419,6 +401,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 

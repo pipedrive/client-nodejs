@@ -12,9 +12,9 @@
  */
 
 import ApiClient from '../ApiClient';
+import FieldCreateRequestAllOf from './FieldCreateRequestAllOf';
 import FieldType from './FieldType';
 import FieldTypeAsString from './FieldTypeAsString';
-import FieldUpdateRequest from './FieldUpdateRequest';
 
 /**
  * The FieldCreateRequest model module.
@@ -25,13 +25,13 @@ class FieldCreateRequest {
     /**
      * Constructs a new <code>FieldCreateRequest</code>.
      * @alias module:model/FieldCreateRequest
-     * @implements module:model/FieldUpdateRequest
+     * @implements module:model/FieldCreateRequestAllOf
      * @implements module:model/FieldType
      * @param name {String} Name of the field
      * @param fieldType {module:model/FieldTypeAsString} 
      */
     constructor(name, fieldType) { 
-        FieldUpdateRequest.initialize(this);FieldType.initialize(this, fieldType);
+        FieldCreateRequestAllOf.initialize(this, name);FieldType.initialize(this, fieldType);
         FieldCreateRequest.initialize(this, name, fieldType);
     }
 
@@ -55,7 +55,7 @@ class FieldCreateRequest {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new FieldCreateRequest();
-            FieldUpdateRequest.constructFromObject(data, obj);
+            FieldCreateRequestAllOf.constructFromObject(data, obj);
             FieldType.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('name')) {
@@ -68,6 +68,11 @@ class FieldCreateRequest {
 
                 delete data['options'];
             }
+            if (data.hasOwnProperty('add_visible_flag')) {
+                obj['add_visible_flag'] = ApiClient.convertToType(data['add_visible_flag'], 'Boolean');
+
+                delete data['add_visible_flag'];
+            }
             if (data.hasOwnProperty('field_type')) {
                 obj['field_type'] = FieldTypeAsString.constructFromObject(data['field_type']);
 
@@ -75,7 +80,7 @@ class FieldCreateRequest {
             }
 
             if (Object.keys(data).length > 0) {
-                obj['extra'] = data;
+                Object.assign(obj, data);
             }
 
         }
@@ -92,10 +97,17 @@ class FieldCreateRequest {
 FieldCreateRequest.prototype['name'] = undefined;
 
 /**
- * When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: `[{\"id\":123,\"label\":\"Existing Item\"},{\"label\":\"New Item\"}]`
+ * When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. Example: `[{\"label\":\"New Item\"}]`
  * @member {String} options
  */
 FieldCreateRequest.prototype['options'] = undefined;
+
+/**
+ * Whether the field is available in 'add new' modal or not (both in web and mobile app)
+ * @member {module:model/FieldCreateRequest.AddVisibleFlagEnum} add_visible_flag
+ * @default true
+ */
+FieldCreateRequest.prototype['add_visible_flag'] = true;
 
 /**
  * @member {module:model/FieldTypeAsString} field_type
@@ -103,23 +115,50 @@ FieldCreateRequest.prototype['options'] = undefined;
 FieldCreateRequest.prototype['field_type'] = undefined;
 
 
-// Implement FieldUpdateRequest interface:
+// Implement FieldCreateRequestAllOf interface:
 /**
  * Name of the field
  * @member {String} name
  */
-FieldUpdateRequest.prototype['name'] = undefined;
+FieldCreateRequestAllOf.prototype['name'] = undefined;
 /**
- * When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: `[{\"id\":123,\"label\":\"Existing Item\"},{\"label\":\"New Item\"}]`
+ * When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. Example: `[{\"label\":\"New Item\"}]`
  * @member {String} options
  */
-FieldUpdateRequest.prototype['options'] = undefined;
+FieldCreateRequestAllOf.prototype['options'] = undefined;
+/**
+ * Whether the field is available in 'add new' modal or not (both in web and mobile app)
+ * @member {module:model/FieldCreateRequestAllOf.AddVisibleFlagEnum} add_visible_flag
+ * @default true
+ */
+FieldCreateRequestAllOf.prototype['add_visible_flag'] = true;
 // Implement FieldType interface:
 /**
  * @member {module:model/FieldTypeAsString} field_type
  */
 FieldType.prototype['field_type'] = undefined;
 
+
+
+/**
+ * Allowed values for the <code>add_visible_flag</code> property.
+ * @enum {Boolean}
+ * @readonly
+ */
+FieldCreateRequest['AddVisibleFlagEnum'] = {
+
+    /**
+     * value: "true"
+     * @const
+     */
+    "true": "true",
+
+    /**
+     * value: "false"
+     * @const
+     */
+    "false": "false"
+};
 
 
 
