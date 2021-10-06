@@ -1155,6 +1155,8 @@ Class | Method | HTTP request | Description
  - [Pipedrive.UpdateLeadRequest](docs/UpdateLeadRequest.md)
  - [Pipedrive.UpdatePersonResponse](docs/UpdatePersonResponse.md)
  - [Pipedrive.UpdateProductResponse](docs/UpdateProductResponse.md)
+ - [Pipedrive.UpdateStageRequest](docs/UpdateStageRequest.md)
+ - [Pipedrive.UpdateStageRequestAllOf](docs/UpdateStageRequestAllOf.md)
  - [Pipedrive.UpdateTeam](docs/UpdateTeam.md)
  - [Pipedrive.UpdateTeamAllOf](docs/UpdateTeamAllOf.md)
  - [Pipedrive.UpdateTeamWithAdditionalProperties](docs/UpdateTeamWithAdditionalProperties.md)

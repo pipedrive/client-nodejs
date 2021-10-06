@@ -372,7 +372,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.StagesApi();
 let id = 56; // Number | ID of the stage
-let opts = Pipedrive.UNKNOWN_BASE_TYPE.constructFromObject({
+let opts = Pipedrive.UpdateStageRequest.constructFromObject({
   // Properties that you want to update
 });
 apiInstance.updateStage(id, opts).then((data) => {
@@ -389,7 +389,7 @@ apiInstance.updateStage(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| ID of the stage | 
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | [optional] 
+ **updateStageRequest** | [**UpdateStageRequest**](UpdateStageRequest.md)|  | [optional] 
 
 ### Return type
 
