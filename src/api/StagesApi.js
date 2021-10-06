@@ -21,7 +21,7 @@ import GetStageDeals from '../model/GetStageDeals';
 import GetStages from '../model/GetStages';
 import NumberBoolean from '../model/NumberBoolean';
 import Stage from '../model/Stage';
-import UNKNOWN_BASE_TYPE from '../model/UNKNOWN_BASE_TYPE';
+import UpdateStageRequest from '../model/UpdateStageRequest';
 
 /**
 * Stages service.
@@ -450,12 +450,12 @@ export default class StagesApi {
      * Updates the properties of a stage.
      * @param {Number} id ID of the stage
      * @param {Object} opts Optional parameters
-     * @param {module:model/UNKNOWN_BASE_TYPE} opts.UNKNOWN_BASE_TYPE 
+     * @param {module:model/UpdateStageRequest} opts.updateStageRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetAddUpdateStage} and HTTP response
      */
     updateStageWithHttpInfo(id, opts) {
       opts = opts || {};
-      let postBody = opts['UNKNOWN_BASE_TYPE'];
+      let postBody = opts['updateStageRequest'];
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateStage");
@@ -503,7 +503,7 @@ export default class StagesApi {
      * Updates the properties of a stage.
      * @param {Number} id ID of the stage
      * @param {Object} opts Optional parameters
-     * @param {module:model/UNKNOWN_BASE_TYPE} opts.UNKNOWN_BASE_TYPE 
+     * @param {module:model/UpdateStageRequest} opts.updateStageRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetAddUpdateStage}
      */
     updateStage(id, opts) {

@@ -80,7 +80,6 @@ import AllOrganizationsGetResponseAllOf from './model/AllOrganizationsGetRespons
 import AllOrganizationsGetResponseAllOfRelatedObjects from './model/AllOrganizationsGetResponseAllOfRelatedObjects';
 import ArrayPrices from './model/ArrayPrices';
 import Assignee from './model/Assignee';
-import BaseComment from './model/BaseComment';
 import BaseCurrency from './model/BaseCurrency';
 import BaseDeal from './model/BaseDeal';
 import BaseFollowerItem from './model/BaseFollowerItem';
@@ -134,7 +133,6 @@ import CallLogResponse404 from './model/CallLogResponse404';
 import CallLogResponse409 from './model/CallLogResponse409';
 import CallLogResponse410 from './model/CallLogResponse410';
 import CallLogResponse500 from './model/CallLogResponse500';
-import CommentPostPutObject from './model/CommentPostPutObject';
 import CommonMailThread from './model/CommonMailThread';
 import CreateRemoteFileAndLinkItToItem from './model/CreateRemoteFileAndLinkItToItem';
 import CreateTeam from './model/CreateTeam';
@@ -196,7 +194,6 @@ import DeleteActivitiesResponse200 from './model/DeleteActivitiesResponse200';
 import DeleteActivitiesResponse200Data from './model/DeleteActivitiesResponse200Data';
 import DeleteActivityResponse200 from './model/DeleteActivityResponse200';
 import DeleteActivityResponse200Data from './model/DeleteActivityResponse200Data';
-import DeleteComment from './model/DeleteComment';
 import DeleteDeal from './model/DeleteDeal';
 import DeleteDealData from './model/DeleteDealData';
 import DeleteDealFollower from './model/DeleteDealFollower';
@@ -295,7 +292,6 @@ import GetAllPersonsResponseAllOf from './model/GetAllPersonsResponseAllOf';
 import GetAllPipelines from './model/GetAllPipelines';
 import GetAllPipelinesAllOf from './model/GetAllPipelinesAllOf';
 import GetAllProductFieldsResponse from './model/GetAllProductFieldsResponse';
-import GetComments from './model/GetComments';
 import GetDeal from './model/GetDeal';
 import GetDealAdditionalData from './model/GetDealAdditionalData';
 import GetDeals from './model/GetDeals';
@@ -559,7 +555,6 @@ import PictureDataWithValueAllOf from './model/PictureDataWithValueAllOf';
 import Pipeline from './model/Pipeline';
 import PipelineDetails from './model/PipelineDetails';
 import PipelineDetailsAllOf from './model/PipelineDetailsAllOf';
-import PostComment from './model/PostComment';
 import PostDealParticipants from './model/PostDealParticipants';
 import PostGoalResponse from './model/PostGoalResponse';
 import PostNote from './model/PostNote';
@@ -655,6 +650,8 @@ import UpdateLeadLabelRequest from './model/UpdateLeadLabelRequest';
 import UpdateLeadRequest from './model/UpdateLeadRequest';
 import UpdatePersonResponse from './model/UpdatePersonResponse';
 import UpdateProductResponse from './model/UpdateProductResponse';
+import UpdateStageRequest from './model/UpdateStageRequest';
+import UpdateStageRequestAllOf from './model/UpdateStageRequestAllOf';
 import UpdateTeam from './model/UpdateTeam';
 import UpdateTeamAllOf from './model/UpdateTeamAllOf';
 import UpdateTeamWithAdditionalProperties from './model/UpdateTeamWithAdditionalProperties';
@@ -1169,12 +1166,6 @@ export {
     Assignee,
 
     /**
-     * The BaseComment model constructor.
-     * @property {module:model/BaseComment}
-     */
-    BaseComment,
-
-    /**
      * The BaseCurrency model constructor.
      * @property {module:model/BaseCurrency}
      */
@@ -1491,12 +1482,6 @@ export {
      * @property {module:model/CallLogResponse500}
      */
     CallLogResponse500,
-
-    /**
-     * The CommentPostPutObject model constructor.
-     * @property {module:model/CommentPostPutObject}
-     */
-    CommentPostPutObject,
 
     /**
      * The CommonMailThread model constructor.
@@ -1863,12 +1848,6 @@ export {
      * @property {module:model/DeleteActivityResponse200Data}
      */
     DeleteActivityResponse200Data,
-
-    /**
-     * The DeleteComment model constructor.
-     * @property {module:model/DeleteComment}
-     */
-    DeleteComment,
 
     /**
      * The DeleteDeal model constructor.
@@ -2457,12 +2436,6 @@ export {
      * @property {module:model/GetAllProductFieldsResponse}
      */
     GetAllProductFieldsResponse,
-
-    /**
-     * The GetComments model constructor.
-     * @property {module:model/GetComments}
-     */
-    GetComments,
 
     /**
      * The GetDeal model constructor.
@@ -4043,12 +4016,6 @@ export {
     PipelineDetailsAllOf,
 
     /**
-     * The PostComment model constructor.
-     * @property {module:model/PostComment}
-     */
-    PostComment,
-
-    /**
      * The PostDealParticipants model constructor.
      * @property {module:model/PostDealParticipants}
      */
@@ -4617,6 +4584,18 @@ export {
      * @property {module:model/UpdateProductResponse}
      */
     UpdateProductResponse,
+
+    /**
+     * The UpdateStageRequest model constructor.
+     * @property {module:model/UpdateStageRequest}
+     */
+    UpdateStageRequest,
+
+    /**
+     * The UpdateStageRequestAllOf model constructor.
+     * @property {module:model/UpdateStageRequestAllOf}
+     */
+    UpdateStageRequestAllOf,
 
     /**
      * The UpdateTeam model constructor.
