@@ -13,7 +13,10 @@
 
 
 import ApiClient from "../ApiClient";
+import AddDealFollowerRequest from '../model/AddDealFollowerRequest';
+import AddDealParticipantRequest from '../model/AddDealParticipantRequest';
 import AddedDealFollower from '../model/AddedDealFollower';
+import BasicDeal from '../model/BasicDeal';
 import BasicDealProduct from '../model/BasicDealProduct';
 import DealFlowResponse from '../model/DealFlowResponse';
 import DealListActivitiesResponse from '../model/DealListActivitiesResponse';
@@ -40,10 +43,11 @@ import ListMailMessagesResponse from '../model/ListMailMessagesResponse';
 import ListPermittedUsersResponse from '../model/ListPermittedUsersResponse';
 import ListPersonsResponse from '../model/ListPersonsResponse';
 import ListProductsResponse from '../model/ListProductsResponse';
+import MergeDealsRequest from '../model/MergeDealsRequest';
+import NewDeal from '../model/NewDeal';
 import NewDealProduct from '../model/NewDealProduct';
 import NumberBoolean from '../model/NumberBoolean';
 import PostDealParticipants from '../model/PostDealParticipants';
-import VisibleTo from '../model/VisibleTo';
 
 /**
 * Deals service.
@@ -69,24 +73,12 @@ export default class DealsApi {
      * Add a deal
      * Adds a new deal. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the dealFields and look for `key` values. For more information on how to add a deal, see <a href=\"https://pipedrive.readme.io/docs/creating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.title Deal title
-     * @param {String} opts.value Value of the deal. If omitted, value will be set to 0.
-     * @param {String} opts.currency Currency of the deal. Accepts a 3-character currency code. If omitted, currency will be set to the default currency of the authorized user.
-     * @param {Number} opts.userId ID of the user who will be marked as the owner of this deal. If omitted, the authorized user ID will be used.
-     * @param {Number} opts.personId ID of the person this deal will be associated with
-     * @param {Number} opts.orgId ID of the organization this deal will be associated with
-     * @param {Number} opts.stageId ID of the stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on `stage_id`). If omitted, the deal will be placed in the first stage of the default pipeline.
-     * @param {module:model/String} opts.status open = Open, won = Won, lost = Lost, deleted = Deleted. If omitted, status will be set to open.
-     * @param {Date} opts.expectedCloseDate The expected close date of the Deal. In ISO 8601 format: YYYY-MM-DD.
-     * @param {Number} opts.probability Deal success probability percentage. Used/shown only when `deal_probability` for the pipeline of the deal is enabled.
-     * @param {String} opts.lostReason Optional message about why the deal was lost (to be used when status=lost)
-     * @param {module:model/VisibleTo} opts.visibleTo Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
-     * @param {String} opts.addTime Optional creation date & time of the deal in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
+     * @param {module:model/NewDeal} opts.newDeal 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetAddedDeal} and HTTP response
      */
     addDealWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = null;
+      let postBody = opts['newDeal'];
 
       let pathParams = {
       };
@@ -95,38 +87,12 @@ export default class DealsApi {
       let headerParams = {
       };
       let formParams = {
-        'title': opts['title'],
-        'value': opts['value'],
-        'currency': opts['currency'],
-        'user_id': opts['userId'],
-        'person_id': opts['personId'],
-        'org_id': opts['orgId'],
-        'stage_id': opts['stageId'],
-        'status': opts['status'],
-        'expected_close_date': opts['expectedCloseDate'],
-        'probability': opts['probability'],
-        'lost_reason': opts['lostReason'],
-        'visible_to': opts['visibleTo'],
-        'add_time': opts['addTime'],
       };
 
       let formParamArray = [
-        'title',
-        'value',
-        'currency',
-        'userId',
-        'personId',
-        'orgId',
-        'stageId',
-        'status',
-        'expectedCloseDate',
-        'probability',
-        'lostReason',
-        'visibleTo',
-        'addTime',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded', ];
+      let contentTypes = ['application/json', ];
       const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
       const isJSON = contentTypes.includes('application/json');
 
@@ -154,19 +120,7 @@ export default class DealsApi {
      * Add a deal
      * Adds a new deal. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the dealFields and look for `key` values. For more information on how to add a deal, see <a href=\"https://pipedrive.readme.io/docs/creating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.title Deal title
-     * @param {String} opts.value Value of the deal. If omitted, value will be set to 0.
-     * @param {String} opts.currency Currency of the deal. Accepts a 3-character currency code. If omitted, currency will be set to the default currency of the authorized user.
-     * @param {Number} opts.userId ID of the user who will be marked as the owner of this deal. If omitted, the authorized user ID will be used.
-     * @param {Number} opts.personId ID of the person this deal will be associated with
-     * @param {Number} opts.orgId ID of the organization this deal will be associated with
-     * @param {Number} opts.stageId ID of the stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on `stage_id`). If omitted, the deal will be placed in the first stage of the default pipeline.
-     * @param {module:model/String} opts.status open = Open, won = Won, lost = Lost, deleted = Deleted. If omitted, status will be set to open.
-     * @param {Date} opts.expectedCloseDate The expected close date of the Deal. In ISO 8601 format: YYYY-MM-DD.
-     * @param {Number} opts.probability Deal success probability percentage. Used/shown only when `deal_probability` for the pipeline of the deal is enabled.
-     * @param {String} opts.lostReason Optional message about why the deal was lost (to be used when status=lost)
-     * @param {module:model/VisibleTo} opts.visibleTo Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
-     * @param {String} opts.addTime Optional creation date & time of the deal in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
+     * @param {module:model/NewDeal} opts.newDeal 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetAddedDeal}
      */
     addDeal(opts) {
@@ -181,19 +135,16 @@ export default class DealsApi {
      * Add a follower to a deal
      * Adds a follower to a deal.
      * @param {Number} id ID of the deal
-     * @param {Number} userId ID of the user
+     * @param {Object} opts Optional parameters
+     * @param {module:model/AddDealFollowerRequest} opts.addDealFollowerRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddedDealFollower} and HTTP response
      */
-    addDealFollowerWithHttpInfo(id, userId) {
-      const opts = {}
-      let postBody = null;
+    addDealFollowerWithHttpInfo(id, opts) {
+      opts = opts || {};
+      let postBody = opts['addDealFollowerRequest'];
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling addDealFollower");
-      }
-      // verify the required parameter 'userId' is set
-      if (userId === undefined || userId === null) {
-        throw new Error("Missing the required parameter 'userId' when calling addDealFollower");
       }
 
       let pathParams = {
@@ -204,14 +155,12 @@ export default class DealsApi {
       let headerParams = {
       };
       let formParams = {
-        'user_id': userId,
       };
 
       let formParamArray = [
-        'userId',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded', ];
+      let contentTypes = ['application/json', ];
       const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
       const isJSON = contentTypes.includes('application/json');
 
@@ -239,11 +188,12 @@ export default class DealsApi {
      * Add a follower to a deal
      * Adds a follower to a deal.
      * @param {Number} id ID of the deal
-     * @param {Number} userId ID of the user
+     * @param {Object} opts Optional parameters
+     * @param {module:model/AddDealFollowerRequest} opts.addDealFollowerRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddedDealFollower}
      */
-    addDealFollower(id, userId) {
-      return this.addDealFollowerWithHttpInfo(id, userId)
+    addDealFollower(id, opts) {
+      return this.addDealFollowerWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data;
         });
@@ -254,19 +204,16 @@ export default class DealsApi {
      * Add a participant to a deal
      * Adds a participant to a deal.
      * @param {Number} id ID of the deal
-     * @param {Number} personId ID of the person
+     * @param {Object} opts Optional parameters
+     * @param {module:model/AddDealParticipantRequest} opts.addDealParticipantRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostDealParticipants} and HTTP response
      */
-    addDealParticipantWithHttpInfo(id, personId) {
-      const opts = {}
-      let postBody = null;
+    addDealParticipantWithHttpInfo(id, opts) {
+      opts = opts || {};
+      let postBody = opts['addDealParticipantRequest'];
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling addDealParticipant");
-      }
-      // verify the required parameter 'personId' is set
-      if (personId === undefined || personId === null) {
-        throw new Error("Missing the required parameter 'personId' when calling addDealParticipant");
       }
 
       let pathParams = {
@@ -277,14 +224,12 @@ export default class DealsApi {
       let headerParams = {
       };
       let formParams = {
-        'person_id': personId,
       };
 
       let formParamArray = [
-        'personId',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded', ];
+      let contentTypes = ['application/json', ];
       const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
       const isJSON = contentTypes.includes('application/json');
 
@@ -312,11 +257,12 @@ export default class DealsApi {
      * Add a participant to a deal
      * Adds a participant to a deal.
      * @param {Number} id ID of the deal
-     * @param {Number} personId ID of the person
+     * @param {Object} opts Optional parameters
+     * @param {module:model/AddDealParticipantRequest} opts.addDealParticipantRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostDealParticipants}
      */
-    addDealParticipant(id, personId) {
-      return this.addDealParticipantWithHttpInfo(id, personId)
+    addDealParticipant(id, opts) {
+      return this.addDealParticipantWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data;
         });
@@ -1866,19 +1812,16 @@ export default class DealsApi {
      * Merge two deals
      * Merges a deal with another deal. For more information on how to merge two deals, see <a href=\"https://pipedrive.readme.io/docs/merging-two-deals\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Number} id ID of the deal
-     * @param {Number} mergeWithId ID of the deal that the deal will be merged with
+     * @param {Object} opts Optional parameters
+     * @param {module:model/MergeDealsRequest} opts.mergeDealsRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetMergedDeal} and HTTP response
      */
-    mergeDealsWithHttpInfo(id, mergeWithId) {
-      const opts = {}
-      let postBody = null;
+    mergeDealsWithHttpInfo(id, opts) {
+      opts = opts || {};
+      let postBody = opts['mergeDealsRequest'];
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling mergeDeals");
-      }
-      // verify the required parameter 'mergeWithId' is set
-      if (mergeWithId === undefined || mergeWithId === null) {
-        throw new Error("Missing the required parameter 'mergeWithId' when calling mergeDeals");
       }
 
       let pathParams = {
@@ -1889,14 +1832,12 @@ export default class DealsApi {
       let headerParams = {
       };
       let formParams = {
-        'merge_with_id': mergeWithId,
       };
 
       let formParamArray = [
-        'mergeWithId',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded', ];
+      let contentTypes = ['application/json', ];
       const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
       const isJSON = contentTypes.includes('application/json');
 
@@ -1924,11 +1865,12 @@ export default class DealsApi {
      * Merge two deals
      * Merges a deal with another deal. For more information on how to merge two deals, see <a href=\"https://pipedrive.readme.io/docs/merging-two-deals\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Number} id ID of the deal
-     * @param {Number} mergeWithId ID of the deal that the deal will be merged with
+     * @param {Object} opts Optional parameters
+     * @param {module:model/MergeDealsRequest} opts.mergeDealsRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetMergedDeal}
      */
-    mergeDeals(id, mergeWithId) {
-      return this.mergeDealsWithHttpInfo(id, mergeWithId)
+    mergeDeals(id, opts) {
+      return this.mergeDealsWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data;
         });
@@ -2031,23 +1973,12 @@ export default class DealsApi {
      * Updates the properties of a deal. For more information on how to update a deal, see <a href=\"https://pipedrive.readme.io/docs/updating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Number} id ID of the deal
      * @param {Object} opts Optional parameters
-     * @param {String} opts.title Deal title
-     * @param {String} opts.value Value of the deal. If omitted, value will be set to 0.
-     * @param {String} opts.currency Currency of the deal. Accepts a 3-character currency code. If omitted, currency will be set to the default currency of the authorized user.
-     * @param {Number} opts.userId ID of the user who will be marked as the owner of this deal. If omitted, the authorized user ID will be used.
-     * @param {Number} opts.personId ID of the person this deal will be associated with
-     * @param {Number} opts.orgId ID of the organization this deal will be associated with
-     * @param {Number} opts.stageId ID of the stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on `stage_id`). If omitted, the deal will be placed in the first stage of the default pipeline.
-     * @param {module:model/String} opts.status open = Open, won = Won, lost = Lost, deleted = Deleted. If omitted, status will be set to open.
-     * @param {Date} opts.expectedCloseDate The expected close date of the Deal. In ISO 8601 format: YYYY-MM-DD.
-     * @param {Number} opts.probability Deal success probability percentage. Used/shown only when `deal_probability` for the pipeline of the deal is enabled.
-     * @param {String} opts.lostReason Optional message about why the deal was lost (to be used when status=lost)
-     * @param {module:model/VisibleTo} opts.visibleTo Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
+     * @param {module:model/BasicDeal} opts.basicDeal 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetAddedDeal} and HTTP response
      */
     updateDealWithHttpInfo(id, opts) {
       opts = opts || {};
-      let postBody = null;
+      let postBody = opts['basicDeal'];
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateDeal");
@@ -2061,36 +1992,12 @@ export default class DealsApi {
       let headerParams = {
       };
       let formParams = {
-        'title': opts['title'],
-        'value': opts['value'],
-        'currency': opts['currency'],
-        'user_id': opts['userId'],
-        'person_id': opts['personId'],
-        'org_id': opts['orgId'],
-        'stage_id': opts['stageId'],
-        'status': opts['status'],
-        'expected_close_date': opts['expectedCloseDate'],
-        'probability': opts['probability'],
-        'lost_reason': opts['lostReason'],
-        'visible_to': opts['visibleTo'],
       };
 
       let formParamArray = [
-        'title',
-        'value',
-        'currency',
-        'userId',
-        'personId',
-        'orgId',
-        'stageId',
-        'status',
-        'expectedCloseDate',
-        'probability',
-        'lostReason',
-        'visibleTo',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded', ];
+      let contentTypes = ['application/json', ];
       const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
       const isJSON = contentTypes.includes('application/json');
 
@@ -2119,18 +2026,7 @@ export default class DealsApi {
      * Updates the properties of a deal. For more information on how to update a deal, see <a href=\"https://pipedrive.readme.io/docs/updating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Number} id ID of the deal
      * @param {Object} opts Optional parameters
-     * @param {String} opts.title Deal title
-     * @param {String} opts.value Value of the deal. If omitted, value will be set to 0.
-     * @param {String} opts.currency Currency of the deal. Accepts a 3-character currency code. If omitted, currency will be set to the default currency of the authorized user.
-     * @param {Number} opts.userId ID of the user who will be marked as the owner of this deal. If omitted, the authorized user ID will be used.
-     * @param {Number} opts.personId ID of the person this deal will be associated with
-     * @param {Number} opts.orgId ID of the organization this deal will be associated with
-     * @param {Number} opts.stageId ID of the stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on `stage_id`). If omitted, the deal will be placed in the first stage of the default pipeline.
-     * @param {module:model/String} opts.status open = Open, won = Won, lost = Lost, deleted = Deleted. If omitted, status will be set to open.
-     * @param {Date} opts.expectedCloseDate The expected close date of the Deal. In ISO 8601 format: YYYY-MM-DD.
-     * @param {Number} opts.probability Deal success probability percentage. Used/shown only when `deal_probability` for the pipeline of the deal is enabled.
-     * @param {String} opts.lostReason Optional message about why the deal was lost (to be used when status=lost)
-     * @param {module:model/VisibleTo} opts.visibleTo Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
+     * @param {module:model/BasicDeal} opts.basicDeal 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetAddedDeal}
      */
     updateDeal(id, opts) {

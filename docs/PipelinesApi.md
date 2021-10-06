@@ -38,12 +38,9 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PipelinesApi();
-let opts = {
-  'name': "name_example", // String | The name of the Pipeline
-  'dealProbability': new Pipedrive.NumberBoolean(), // NumberBoolean | Whether Deal probability is disabled or enabled for this Pipeline
-  'orderNr': 56, // Number | Defines the order of Pipelines. First order (`order_nr=0`) is the default Pipeline.
-  'active': new Pipedrive.NumberBoolean() // NumberBoolean | Whether this Pipeline will be made inactive (hidden) or active
-};
+let opts = Pipedrive.Pipeline.constructFromObject({
+  // Properties that you want to update
+});
 apiInstance.addPipeline(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -57,10 +54,7 @@ apiInstance.addPipeline(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| The name of the Pipeline | [optional] 
- **dealProbability** | [**NumberBoolean**](NumberBoolean.md)| Whether Deal probability is disabled or enabled for this Pipeline | [optional] 
- **orderNr** | **Number**| Defines the order of Pipelines. First order (&#x60;order_nr&#x3D;0&#x60;) is the default Pipeline. | [optional] 
- **active** | [**NumberBoolean**](NumberBoolean.md)| Whether this Pipeline will be made inactive (hidden) or active | [optional] 
+ **pipeline** | [**Pipeline**](Pipeline.md)|  | [optional] 
 
 ### Return type
 
@@ -72,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -452,12 +446,9 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PipelinesApi();
 let id = 56; // Number | ID of the pipeline
-let opts = {
-  'name': "name_example", // String | The name of the Pipeline
-  'dealProbability': new Pipedrive.NumberBoolean(), // NumberBoolean | Whether Deal probability is disabled or enabled for this Pipeline
-  'orderNr': 56, // Number | Defines the order of Pipelines. First order (`order_nr=0`) is the default Pipeline.
-  'active': new Pipedrive.NumberBoolean() // NumberBoolean | Whether this Pipeline will be made inactive (hidden) or active
-};
+let opts = Pipedrive.Pipeline.constructFromObject({
+  // Properties that you want to update
+});
 apiInstance.updatePipeline(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -472,10 +463,7 @@ apiInstance.updatePipeline(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| ID of the pipeline | 
- **name** | **String**| The name of the Pipeline | [optional] 
- **dealProbability** | [**NumberBoolean**](NumberBoolean.md)| Whether Deal probability is disabled or enabled for this Pipeline | [optional] 
- **orderNr** | **Number**| Defines the order of Pipelines. First order (&#x60;order_nr&#x3D;0&#x60;) is the default Pipeline. | [optional] 
- **active** | [**NumberBoolean**](NumberBoolean.md)| Whether this Pipeline will be made inactive (hidden) or active | [optional] 
+ **pipeline** | [**Pipeline**](Pipeline.md)|  | [optional] 
 
 ### Return type
 
@@ -487,6 +475,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 

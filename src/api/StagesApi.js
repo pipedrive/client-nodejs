@@ -20,6 +20,8 @@ import GetOneStage from '../model/GetOneStage';
 import GetStageDeals from '../model/GetStageDeals';
 import GetStages from '../model/GetStages';
 import NumberBoolean from '../model/NumberBoolean';
+import Stage from '../model/Stage';
+import UNKNOWN_BASE_TYPE from '../model/UNKNOWN_BASE_TYPE';
 
 /**
 * Stages service.
@@ -45,16 +47,12 @@ export default class StagesApi {
      * Add a new stage
      * Adds a new stage, returns the ID upon success.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.name Name of the Stage
-     * @param {Number} opts.pipelineId The ID of the Pipeline to add Stage to.
-     * @param {Number} opts.dealProbability Deal success probability percentage. Used/shown when Deal weighted values are used
-     * @param {module:model/Number} opts.rottenFlag Whether Deals in this stage can become rotten
-     * @param {Number} opts.rottenDays The number of days the Deals not updated in this Stage would become rotten. Applies only if the `rotten_flag` is set.
+     * @param {module:model/Stage} opts.stage 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetAddUpdateStage} and HTTP response
      */
     addStageWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = null;
+      let postBody = opts['stage'];
 
       let pathParams = {
       };
@@ -63,22 +61,12 @@ export default class StagesApi {
       let headerParams = {
       };
       let formParams = {
-        'name': opts['name'],
-        'pipeline_id': opts['pipelineId'],
-        'deal_probability': opts['dealProbability'],
-        'rotten_flag': opts['rottenFlag'],
-        'rotten_days': opts['rottenDays'],
       };
 
       let formParamArray = [
-        'name',
-        'pipelineId',
-        'dealProbability',
-        'rottenFlag',
-        'rottenDays',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded', ];
+      let contentTypes = ['application/json', ];
       const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
       const isJSON = contentTypes.includes('application/json');
 
@@ -106,11 +94,7 @@ export default class StagesApi {
      * Add a new stage
      * Adds a new stage, returns the ID upon success.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.name Name of the Stage
-     * @param {Number} opts.pipelineId The ID of the Pipeline to add Stage to.
-     * @param {Number} opts.dealProbability Deal success probability percentage. Used/shown when Deal weighted values are used
-     * @param {module:model/Number} opts.rottenFlag Whether Deals in this stage can become rotten
-     * @param {Number} opts.rottenDays The number of days the Deals not updated in this Stage would become rotten. Applies only if the `rotten_flag` is set.
+     * @param {module:model/Stage} opts.stage 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetAddUpdateStage}
      */
     addStage(opts) {
@@ -466,17 +450,12 @@ export default class StagesApi {
      * Updates the properties of a stage.
      * @param {Number} id ID of the stage
      * @param {Object} opts Optional parameters
-     * @param {String} opts.name Name of the Stage
-     * @param {Number} opts.pipelineId The ID of the Pipeline to add Stage to.
-     * @param {Number} opts.dealProbability Deal success probability percentage. Used/shown when Deal weighted values are used
-     * @param {module:model/Number} opts.rottenFlag Whether Deals in this stage can become rotten
-     * @param {Number} opts.rottenDays The number of days the Deals not updated in this Stage would become rotten. Applies only if the `rotten_flag` is set.
-     * @param {Number} opts.orderNr An order number for this stage. Order numbers should be used to order the stages in the pipeline.
+     * @param {module:model/UNKNOWN_BASE_TYPE} opts.UNKNOWN_BASE_TYPE 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetAddUpdateStage} and HTTP response
      */
     updateStageWithHttpInfo(id, opts) {
       opts = opts || {};
-      let postBody = null;
+      let postBody = opts['UNKNOWN_BASE_TYPE'];
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateStage");
@@ -490,24 +469,12 @@ export default class StagesApi {
       let headerParams = {
       };
       let formParams = {
-        'name': opts['name'],
-        'pipeline_id': opts['pipelineId'],
-        'deal_probability': opts['dealProbability'],
-        'rotten_flag': opts['rottenFlag'],
-        'rotten_days': opts['rottenDays'],
-        'order_nr': opts['orderNr'],
       };
 
       let formParamArray = [
-        'name',
-        'pipelineId',
-        'dealProbability',
-        'rottenFlag',
-        'rottenDays',
-        'orderNr',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded', ];
+      let contentTypes = ['application/json', ];
       const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
       const isJSON = contentTypes.includes('application/json');
 
@@ -536,12 +503,7 @@ export default class StagesApi {
      * Updates the properties of a stage.
      * @param {Number} id ID of the stage
      * @param {Object} opts Optional parameters
-     * @param {String} opts.name Name of the Stage
-     * @param {Number} opts.pipelineId The ID of the Pipeline to add Stage to.
-     * @param {Number} opts.dealProbability Deal success probability percentage. Used/shown when Deal weighted values are used
-     * @param {module:model/Number} opts.rottenFlag Whether Deals in this stage can become rotten
-     * @param {Number} opts.rottenDays The number of days the Deals not updated in this Stage would become rotten. Applies only if the `rotten_flag` is set.
-     * @param {Number} opts.orderNr An order number for this stage. Order numbers should be used to order the stages in the pipeline.
+     * @param {module:model/UNKNOWN_BASE_TYPE} opts.UNKNOWN_BASE_TYPE 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetAddUpdateStage}
      */
     updateStage(id, opts) {

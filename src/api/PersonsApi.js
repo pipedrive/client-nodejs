@@ -14,6 +14,7 @@
 
 import ApiClient from "../ApiClient";
 import AddFollowerToPersonResponse from '../model/AddFollowerToPersonResponse';
+import AddPersonFollowerRequest from '../model/AddPersonFollowerRequest';
 import AddPersonPictureResponse from '../model/AddPersonPictureResponse';
 import AddPersonResponse from '../model/AddPersonResponse';
 import BasicPerson from '../model/BasicPerson';
@@ -28,6 +29,7 @@ import ListFollowersResponse from '../model/ListFollowersResponse';
 import ListMailMessagesResponse from '../model/ListMailMessagesResponse';
 import ListPermittedUsersResponse1 from '../model/ListPermittedUsersResponse1';
 import ListPersonProductsResponse from '../model/ListPersonProductsResponse';
+import MergePersonsRequest from '../model/MergePersonsRequest';
 import MergePersonsResponse from '../model/MergePersonsResponse';
 import NewPerson from '../model/NewPerson';
 import NumberBoolean from '../model/NumberBoolean';
@@ -121,19 +123,16 @@ export default class PersonsApi {
      * Add a follower to a person
      * Adds a follower to a person.
      * @param {Number} id ID of a person
-     * @param {Number} userId ID of the user
+     * @param {Object} opts Optional parameters
+     * @param {module:model/AddPersonFollowerRequest} opts.addPersonFollowerRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddFollowerToPersonResponse} and HTTP response
      */
-    addPersonFollowerWithHttpInfo(id, userId) {
-      const opts = {}
-      let postBody = null;
+    addPersonFollowerWithHttpInfo(id, opts) {
+      opts = opts || {};
+      let postBody = opts['addPersonFollowerRequest'];
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling addPersonFollower");
-      }
-      // verify the required parameter 'userId' is set
-      if (userId === undefined || userId === null) {
-        throw new Error("Missing the required parameter 'userId' when calling addPersonFollower");
       }
 
       let pathParams = {
@@ -144,14 +143,12 @@ export default class PersonsApi {
       let headerParams = {
       };
       let formParams = {
-        'user_id': userId,
       };
 
       let formParamArray = [
-        'userId',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded', ];
+      let contentTypes = ['application/json', ];
       const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
       const isJSON = contentTypes.includes('application/json');
 
@@ -179,11 +176,12 @@ export default class PersonsApi {
      * Add a follower to a person
      * Adds a follower to a person.
      * @param {Number} id ID of a person
-     * @param {Number} userId ID of the user
+     * @param {Object} opts Optional parameters
+     * @param {module:model/AddPersonFollowerRequest} opts.addPersonFollowerRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddFollowerToPersonResponse}
      */
-    addPersonFollower(id, userId) {
-      return this.addPersonFollowerWithHttpInfo(id, userId)
+    addPersonFollower(id, opts) {
+      return this.addPersonFollowerWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data;
         });
@@ -1364,19 +1362,16 @@ export default class PersonsApi {
      * Merge two persons
      * Merges a person with another person. For more information on how to merge two persons, see <a href=\"https://pipedrive.readme.io/docs/merging-two-persons\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Number} id ID of a person
-     * @param {Number} mergeWithId The ID of the Person that will not be overwritten. This Person’s data will be prioritized in case of conflict with the other Person.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/MergePersonsRequest} opts.mergePersonsRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MergePersonsResponse} and HTTP response
      */
-    mergePersonsWithHttpInfo(id, mergeWithId) {
-      const opts = {}
-      let postBody = null;
+    mergePersonsWithHttpInfo(id, opts) {
+      opts = opts || {};
+      let postBody = opts['mergePersonsRequest'];
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling mergePersons");
-      }
-      // verify the required parameter 'mergeWithId' is set
-      if (mergeWithId === undefined || mergeWithId === null) {
-        throw new Error("Missing the required parameter 'mergeWithId' when calling mergePersons");
       }
 
       let pathParams = {
@@ -1387,14 +1382,12 @@ export default class PersonsApi {
       let headerParams = {
       };
       let formParams = {
-        'merge_with_id': mergeWithId,
       };
 
       let formParamArray = [
-        'mergeWithId',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded', ];
+      let contentTypes = ['application/json', ];
       const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
       const isJSON = contentTypes.includes('application/json');
 
@@ -1422,11 +1415,12 @@ export default class PersonsApi {
      * Merge two persons
      * Merges a person with another person. For more information on how to merge two persons, see <a href=\"https://pipedrive.readme.io/docs/merging-two-persons\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Number} id ID of a person
-     * @param {Number} mergeWithId The ID of the Person that will not be overwritten. This Person’s data will be prioritized in case of conflict with the other Person.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/MergePersonsRequest} opts.mergePersonsRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MergePersonsResponse}
      */
-    mergePersons(id, mergeWithId) {
-      return this.mergePersonsWithHttpInfo(id, mergeWithId)
+    mergePersons(id, opts) {
+      return this.mergePersonsWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data;
         });

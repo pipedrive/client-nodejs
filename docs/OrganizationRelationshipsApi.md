@@ -35,12 +35,9 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.OrganizationRelationshipsApi();
-let opts = {
-  'orgId': 56, // Number | ID of the base organization for the returned calculated values
-  'type': "type_example", // String | The type of organization relationship
-  'relOwnerOrgId': 56, // Number | The owner of this relationship. If type is `parent`, then the owner is the parent and the linked organization is the daughter.
-  'relLinkedOrgId': 56 // Number | The linked organization in this relationship. If type is `parent`, then the linked organization is the daughter.
-};
+let opts = Pipedrive.AddOrganizationRelationshipRequest.constructFromObject({
+  // Properties that you want to update
+});
 apiInstance.addOrganizationRelationship(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -54,10 +51,7 @@ apiInstance.addOrganizationRelationship(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orgId** | **Number**| ID of the base organization for the returned calculated values | [optional] 
- **type** | **String**| The type of organization relationship | [optional] 
- **relOwnerOrgId** | **Number**| The owner of this relationship. If type is &#x60;parent&#x60;, then the owner is the parent and the linked organization is the daughter. | [optional] 
- **relLinkedOrgId** | **Number**| The linked organization in this relationship. If type is &#x60;parent&#x60;, then the linked organization is the daughter. | [optional] 
+ **addOrganizationRelationshipRequest** | [**AddOrganizationRelationshipRequest**](AddOrganizationRelationshipRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -69,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -260,12 +254,9 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.OrganizationRelationshipsApi();
 let id = 56; // Number | ID of the organization relationship
-let opts = {
-  'orgId': 56, // Number | ID of the base organization for the returned calculated values
-  'type': "type_example", // String | The type of organization relationship
-  'relOwnerOrgId': 56, // Number | The owner of this relationship. If type is `parent`, then the owner is the parent and the linked organization is the daughter.
-  'relLinkedOrgId': 56 // Number | The linked organization in this relationship. If type is `parent`, then the linked organization is the daughter.
-};
+let opts = Pipedrive.OrganizationRelationship.constructFromObject({
+  // Properties that you want to update
+});
 apiInstance.updateOrganizationRelationship(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -280,10 +271,7 @@ apiInstance.updateOrganizationRelationship(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| ID of the organization relationship | 
- **orgId** | **Number**| ID of the base organization for the returned calculated values | [optional] 
- **type** | **String**| The type of organization relationship | [optional] 
- **relOwnerOrgId** | **Number**| The owner of this relationship. If type is &#x60;parent&#x60;, then the owner is the parent and the linked organization is the daughter. | [optional] 
- **relLinkedOrgId** | **Number**| The linked organization in this relationship. If type is &#x60;parent&#x60;, then the linked organization is the daughter. | [optional] 
+ **organizationRelationship** | [**OrganizationRelationship**](OrganizationRelationship.md)|  | [optional] 
 
 ### Return type
 
@@ -295,6 +283,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 

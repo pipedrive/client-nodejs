@@ -49,12 +49,9 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.OrganizationsApi();
-let opts = {
-  'name': "name_example", // String | Organization name
-  'ownerId': 56, // Number | The ID of the user who will be marked as the owner of this Organization. When omitted, the authorized User ID will be used.
-  'visibleTo': new Pipedrive.VisibleTo(), // VisibleTo | Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
-  'addTime': "addTime_example" // String | Optional creation date & time of the organization in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
-};
+let opts = Pipedrive.NewOrganization.constructFromObject({
+  // Properties that you want to update
+});
 apiInstance.addOrganization(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -68,10 +65,7 @@ apiInstance.addOrganization(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Organization name | [optional] 
- **ownerId** | **Number**| The ID of the user who will be marked as the owner of this Organization. When omitted, the authorized User ID will be used. | [optional] 
- **visibleTo** | [**VisibleTo**](VisibleTo.md)| Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.&lt;table&gt;&lt;tr&gt;&lt;th&gt;Value&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;1&#x60;&lt;/td&gt;&lt;td&gt;Owner &amp;amp; followers (private)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;3&#x60;&lt;/td&gt;&lt;td&gt;Entire company (shared)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; | [optional] 
- **addTime** | **String**| Optional creation date &amp; time of the organization in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS | [optional] 
+ **newOrganization** | [**NewOrganization**](NewOrganization.md)|  | [optional] 
 
 ### Return type
 
@@ -83,13 +77,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## addOrganizationFollower
 
-> OrganizationFollowerPostResponse addOrganizationFollower(id, userId)
+> OrganizationFollowerPostResponse addOrganizationFollower(id, opts)
 
 Add a follower to an organization
 
@@ -111,8 +105,10 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.OrganizationsApi();
 let id = 56; // Number | The ID of the Organization
-let userId = 56; // Number | The ID of the user
-apiInstance.addOrganizationFollower(id, userId).then((data) => {
+let opts = Pipedrive.AddOrganizationFollowerRequest.constructFromObject({
+  // Properties that you want to update
+});
+apiInstance.addOrganizationFollower(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -126,7 +122,7 @@ apiInstance.addOrganizationFollower(id, userId).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the Organization | 
- **userId** | **Number**| The ID of the user | 
+ **addOrganizationFollowerRequest** | [**AddOrganizationFollowerRequest**](AddOrganizationFollowerRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -138,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -954,7 +950,7 @@ Name | Type | Description  | Notes
 
 ## mergeOrganizations
 
-> OrganizationsMergeResponse mergeOrganizations(id, mergeWithId)
+> OrganizationsMergeResponse mergeOrganizations(id, opts)
 
 Merge two organizations
 
@@ -976,8 +972,10 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.OrganizationsApi();
 let id = 56; // Number | The ID of the Organization
-let mergeWithId = 56; // Number | The ID of the Organization that the Organization will be merged with
-apiInstance.mergeOrganizations(id, mergeWithId).then((data) => {
+let opts = Pipedrive.MergeOrganizationsRequest.constructFromObject({
+  // Properties that you want to update
+});
+apiInstance.mergeOrganizations(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -991,7 +989,7 @@ apiInstance.mergeOrganizations(id, mergeWithId).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the Organization | 
- **mergeWithId** | **Number**| The ID of the Organization that the Organization will be merged with | 
+ **mergeOrganizationsRequest** | [**MergeOrganizationsRequest**](MergeOrganizationsRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -1003,7 +1001,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -1094,11 +1092,9 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.OrganizationsApi();
 let id = 56; // Number | The ID of the Organization
-let opts = {
-  'name': "name_example", // String | Organization name
-  'ownerId': 56, // Number | The ID of the user who will be marked as the owner of this Organization. When omitted, the authorized User ID will be used.
-  'visibleTo': new Pipedrive.VisibleTo() // VisibleTo | Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
-};
+let opts = Pipedrive.BasicOrganization.constructFromObject({
+  // Properties that you want to update
+});
 apiInstance.updateOrganization(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -1113,9 +1109,7 @@ apiInstance.updateOrganization(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the Organization | 
- **name** | **String**| Organization name | [optional] 
- **ownerId** | **Number**| The ID of the user who will be marked as the owner of this Organization. When omitted, the authorized User ID will be used. | [optional] 
- **visibleTo** | [**VisibleTo**](VisibleTo.md)| Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.&lt;table&gt;&lt;tr&gt;&lt;th&gt;Value&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;1&#x60;&lt;/td&gt;&lt;td&gt;Owner &amp;amp; followers (private)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;3&#x60;&lt;/td&gt;&lt;td&gt;Entire company (shared)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; | [optional] 
+ **basicOrganization** | [**BasicOrganization**](BasicOrganization.md)|  | [optional] 
 
 ### Return type
 
@@ -1127,6 +1121,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 

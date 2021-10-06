@@ -7,6 +7,15 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Changed
+- Changed POST/PUT for endpoints to accept `application/json` instead of `application/x-www-form-urlencoded`
+- Added required fields to the OrganizationRelationship and Notes POST endpoints
+# [0.1.22] - 2021-10-05
+### Fixed
+- Fixed GET /goals/:id/results `period.start` parameter description with specified possible dates
+- Fixed GET /goals/:id/results `period.end` parameter description with specified possible dates
+- Fixed `GET /goal/:id/results` error handling in cases when period.start or period.end dates are out of possible range
+- Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 ### Added
 - Adding pagination parameters documentation for endpoints:
 * api/v1/DealFields#getDealFields

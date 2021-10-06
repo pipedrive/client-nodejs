@@ -13,13 +13,17 @@
 
 
 import ApiClient from "../ApiClient";
+import AddOrganizationFollowerRequest from '../model/AddOrganizationFollowerRequest';
 import AllOrganizationsGetResponse from '../model/AllOrganizationsGetResponse';
+import BasicOrganization from '../model/BasicOrganization';
 import ListActivitiesResponse from '../model/ListActivitiesResponse';
 import ListDealsResponse from '../model/ListDealsResponse';
 import ListFilesResponse from '../model/ListFilesResponse';
 import ListMailMessagesResponse from '../model/ListMailMessagesResponse';
 import ListPermittedUsersResponse1 from '../model/ListPermittedUsersResponse1';
 import ListPersonsResponse from '../model/ListPersonsResponse';
+import MergeOrganizationsRequest from '../model/MergeOrganizationsRequest';
+import NewOrganization from '../model/NewOrganization';
 import NumberBoolean from '../model/NumberBoolean';
 import OrganizationDeleteResponse from '../model/OrganizationDeleteResponse';
 import OrganizationDetailsGetResponse from '../model/OrganizationDetailsGetResponse';
@@ -32,7 +36,6 @@ import OrganizationSearchResponse from '../model/OrganizationSearchResponse';
 import OrganizationUpdateResponse from '../model/OrganizationUpdateResponse';
 import OrganizationsDeleteResponse from '../model/OrganizationsDeleteResponse';
 import OrganizationsMergeResponse from '../model/OrganizationsMergeResponse';
-import VisibleTo from '../model/VisibleTo';
 
 /**
 * Organizations service.
@@ -58,15 +61,12 @@ export default class OrganizationsApi {
      * Add an organization
      * Adds a new organization. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the organizationFields and look for `key` values. For more information on how to add an organization, see <a href=\"https://pipedrive.readme.io/docs/adding-an-organization\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.name Organization name
-     * @param {Number} opts.ownerId The ID of the user who will be marked as the owner of this Organization. When omitted, the authorized User ID will be used.
-     * @param {module:model/VisibleTo} opts.visibleTo Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
-     * @param {String} opts.addTime Optional creation date & time of the organization in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
+     * @param {module:model/NewOrganization} opts.newOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationPostResponse} and HTTP response
      */
     addOrganizationWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = null;
+      let postBody = opts['newOrganization'];
 
       let pathParams = {
       };
@@ -75,20 +75,12 @@ export default class OrganizationsApi {
       let headerParams = {
       };
       let formParams = {
-        'name': opts['name'],
-        'owner_id': opts['ownerId'],
-        'visible_to': opts['visibleTo'],
-        'add_time': opts['addTime'],
       };
 
       let formParamArray = [
-        'name',
-        'ownerId',
-        'visibleTo',
-        'addTime',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded', ];
+      let contentTypes = ['application/json', ];
       const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
       const isJSON = contentTypes.includes('application/json');
 
@@ -116,10 +108,7 @@ export default class OrganizationsApi {
      * Add an organization
      * Adds a new organization. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the organizationFields and look for `key` values. For more information on how to add an organization, see <a href=\"https://pipedrive.readme.io/docs/adding-an-organization\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.name Organization name
-     * @param {Number} opts.ownerId The ID of the user who will be marked as the owner of this Organization. When omitted, the authorized User ID will be used.
-     * @param {module:model/VisibleTo} opts.visibleTo Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
-     * @param {String} opts.addTime Optional creation date & time of the organization in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
+     * @param {module:model/NewOrganization} opts.newOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationPostResponse}
      */
     addOrganization(opts) {
@@ -134,19 +123,16 @@ export default class OrganizationsApi {
      * Add a follower to an organization
      * Adds a follower to an organization.
      * @param {Number} id The ID of the Organization
-     * @param {Number} userId The ID of the user
+     * @param {Object} opts Optional parameters
+     * @param {module:model/AddOrganizationFollowerRequest} opts.addOrganizationFollowerRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationFollowerPostResponse} and HTTP response
      */
-    addOrganizationFollowerWithHttpInfo(id, userId) {
-      const opts = {}
-      let postBody = null;
+    addOrganizationFollowerWithHttpInfo(id, opts) {
+      opts = opts || {};
+      let postBody = opts['addOrganizationFollowerRequest'];
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling addOrganizationFollower");
-      }
-      // verify the required parameter 'userId' is set
-      if (userId === undefined || userId === null) {
-        throw new Error("Missing the required parameter 'userId' when calling addOrganizationFollower");
       }
 
       let pathParams = {
@@ -157,14 +143,12 @@ export default class OrganizationsApi {
       let headerParams = {
       };
       let formParams = {
-        'user_id': userId,
       };
 
       let formParamArray = [
-        'userId',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded', ];
+      let contentTypes = ['application/json', ];
       const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
       const isJSON = contentTypes.includes('application/json');
 
@@ -192,11 +176,12 @@ export default class OrganizationsApi {
      * Add a follower to an organization
      * Adds a follower to an organization.
      * @param {Number} id The ID of the Organization
-     * @param {Number} userId The ID of the user
+     * @param {Object} opts Optional parameters
+     * @param {module:model/AddOrganizationFollowerRequest} opts.addOrganizationFollowerRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationFollowerPostResponse}
      */
-    addOrganizationFollower(id, userId) {
-      return this.addOrganizationFollowerWithHttpInfo(id, userId)
+    addOrganizationFollower(id, opts) {
+      return this.addOrganizationFollowerWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data;
         });
@@ -1220,19 +1205,16 @@ export default class OrganizationsApi {
      * Merge two organizations
      * Merges an organization with another organization. For more information on how to merge two organizations, see <a href=\"https://pipedrive.readme.io/docs/merging-two-organizations\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Number} id The ID of the Organization
-     * @param {Number} mergeWithId The ID of the Organization that the Organization will be merged with
+     * @param {Object} opts Optional parameters
+     * @param {module:model/MergeOrganizationsRequest} opts.mergeOrganizationsRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationsMergeResponse} and HTTP response
      */
-    mergeOrganizationsWithHttpInfo(id, mergeWithId) {
-      const opts = {}
-      let postBody = null;
+    mergeOrganizationsWithHttpInfo(id, opts) {
+      opts = opts || {};
+      let postBody = opts['mergeOrganizationsRequest'];
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling mergeOrganizations");
-      }
-      // verify the required parameter 'mergeWithId' is set
-      if (mergeWithId === undefined || mergeWithId === null) {
-        throw new Error("Missing the required parameter 'mergeWithId' when calling mergeOrganizations");
       }
 
       let pathParams = {
@@ -1243,14 +1225,12 @@ export default class OrganizationsApi {
       let headerParams = {
       };
       let formParams = {
-        'merge_with_id': mergeWithId,
       };
 
       let formParamArray = [
-        'mergeWithId',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded', ];
+      let contentTypes = ['application/json', ];
       const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
       const isJSON = contentTypes.includes('application/json');
 
@@ -1278,11 +1258,12 @@ export default class OrganizationsApi {
      * Merge two organizations
      * Merges an organization with another organization. For more information on how to merge two organizations, see <a href=\"https://pipedrive.readme.io/docs/merging-two-organizations\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Number} id The ID of the Organization
-     * @param {Number} mergeWithId The ID of the Organization that the Organization will be merged with
+     * @param {Object} opts Optional parameters
+     * @param {module:model/MergeOrganizationsRequest} opts.mergeOrganizationsRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationsMergeResponse}
      */
-    mergeOrganizations(id, mergeWithId) {
-      return this.mergeOrganizationsWithHttpInfo(id, mergeWithId)
+    mergeOrganizations(id, opts) {
+      return this.mergeOrganizationsWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data;
         });
@@ -1373,14 +1354,12 @@ export default class OrganizationsApi {
      * Updates the properties of an organization.
      * @param {Number} id The ID of the Organization
      * @param {Object} opts Optional parameters
-     * @param {String} opts.name Organization name
-     * @param {Number} opts.ownerId The ID of the user who will be marked as the owner of this Organization. When omitted, the authorized User ID will be used.
-     * @param {module:model/VisibleTo} opts.visibleTo Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
+     * @param {module:model/BasicOrganization} opts.basicOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationUpdateResponse} and HTTP response
      */
     updateOrganizationWithHttpInfo(id, opts) {
       opts = opts || {};
-      let postBody = null;
+      let postBody = opts['basicOrganization'];
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateOrganization");
@@ -1394,18 +1373,12 @@ export default class OrganizationsApi {
       let headerParams = {
       };
       let formParams = {
-        'name': opts['name'],
-        'owner_id': opts['ownerId'],
-        'visible_to': opts['visibleTo'],
       };
 
       let formParamArray = [
-        'name',
-        'ownerId',
-        'visibleTo',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded', ];
+      let contentTypes = ['application/json', ];
       const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
       const isJSON = contentTypes.includes('application/json');
 
@@ -1434,9 +1407,7 @@ export default class OrganizationsApi {
      * Updates the properties of an organization.
      * @param {Number} id The ID of the Organization
      * @param {Object} opts Optional parameters
-     * @param {String} opts.name Organization name
-     * @param {Number} opts.ownerId The ID of the user who will be marked as the owner of this Organization. When omitted, the authorized User ID will be used.
-     * @param {module:model/VisibleTo} opts.visibleTo Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
+     * @param {module:model/BasicOrganization} opts.basicOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationUpdateResponse}
      */
     updateOrganization(id, opts) {

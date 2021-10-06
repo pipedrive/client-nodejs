@@ -36,12 +36,9 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealFieldsApi();
-let opts = {
-  'name': "name_example", // String | Name of the field
-  'options': "options_example", // String | When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. Example: `[{\\\"label\\\":\\\"New Item\\\"}]`
-  'addVisibleFlag': true, // Boolean | Whether the field is available in 'add new' modal or not (both in web and mobile app)
-  'fieldType': new Pipedrive.FieldTypeAsString() // FieldTypeAsString | 
-};
+let opts = Pipedrive.FieldCreateRequest.constructFromObject({
+  // Properties that you want to update
+});
 apiInstance.addDealField(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -55,10 +52,7 @@ apiInstance.addDealField(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Name of the field | [optional] 
- **options** | **String**| When &#x60;field_type&#x60; is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. Example: &#x60;[{\\\&quot;label\\\&quot;:\\\&quot;New Item\\\&quot;}]&#x60; | [optional] 
- **addVisibleFlag** | **Boolean**| Whether the field is available in &#39;add new&#39; modal or not (both in web and mobile app) | [optional] [default to true]
- **fieldType** | [**FieldTypeAsString**](FieldTypeAsString.md)|  | [optional] 
+ **fieldCreateRequest** | [**FieldCreateRequest**](FieldCreateRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -70,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -314,11 +308,9 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealFieldsApi();
 let id = 56; // Number | ID of the field
-let opts = {
-  'name': "name_example", // String | Name of the field
-  'options': "options_example", // String | When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: `[{\\\"id\\\":123,\\\"label\\\":\\\"Existing Item\\\"},{\\\"label\\\":\\\"New Item\\\"}]`
-  'addVisibleFlag': true // Boolean | Whether the field is available in 'add new' modal or not (both in web and mobile app)
-};
+let opts = Pipedrive.FieldUpdateRequest.constructFromObject({
+  // Properties that you want to update
+});
 apiInstance.updateDealField(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -333,9 +325,7 @@ apiInstance.updateDealField(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| ID of the field | 
- **name** | **String**| Name of the field | [optional] 
- **options** | **String**| When &#x60;field_type&#x60; is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: &#x60;[{\\\&quot;id\\\&quot;:123,\\\&quot;label\\\&quot;:\\\&quot;Existing Item\\\&quot;},{\\\&quot;label\\\&quot;:\\\&quot;New Item\\\&quot;}]&#x60; | [optional] 
- **addVisibleFlag** | **Boolean**| Whether the field is available in &#39;add new&#39; modal or not (both in web and mobile app) | [optional] [default to true]
+ **fieldUpdateRequest** | [**FieldUpdateRequest**](FieldUpdateRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -347,6 +337,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 
