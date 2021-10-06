@@ -7,29 +7,6 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
-### Changed
-- Changed POST/PUT for endpoints to accept `application/json` instead of `application/x-www-form-urlencoded`
-- Added required fields to the OrganizationRelationship and Notes POST endpoints
-# [0.1.22] - 2021-10-05
-### Fixed
-- Fixed GET /goals/:id/results `period.start` parameter description with specified possible dates
-- Fixed GET /goals/:id/results `period.end` parameter description with specified possible dates
-- Fixed `GET /goal/:id/results` error handling in cases when period.start or period.end dates are out of possible range
-- Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
-### Added
-- Adding pagination parameters documentation for endpoints:
-* api/v1/DealFields#getDealFields
-* api/v1/OrganizationFields#getOrganizationFields
-* api/v1/PersonFields#getPersonFields
-* api/v1/ProductFields#getProductFields
-### Added
-- Adding pagination parameters documentation for endpoints:
-* api/v1/DealFields#getDealFields
-* api/v1/OrganizationFields#getOrganizationFields
-* api/v1/PersonFields#getPersonFields
-* api/v1/ProductFields#getProductFields
-### Changed
-- Changed POST /v1/webhooks to accept `application/json` instead of `application/x-www-form-urlencoded` to reflect the reality
 ### Added
 * Support for endpoints added and updated endpoints changed after March 31, 2021
 * Support for multiple instances [issue #176](https://github.com/pipedrive/client-nodejs/issues/176)
@@ -40,7 +17,19 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 * `Team` (singular) schema for endpoints that deal with a single team
 * Support for custom fields for `Content-Type: application/x-www-form-urlencoded` type requests
 * Added note field to call logs.
+* Adding pagination parameters documentation for endpoints:
+  * api/v1/DealFields#getDealFields
+  * api/v1/OrganizationFields#getOrganizationFields
+  * api/v1/PersonFields#getPersonFields
+  * api/v1/ProductFields#getProductFields
+* Added pagination parameters documentation for endpoints:
+  * api/v1/DealFields#getDealFields
+  * api/v1/OrganizationFields#getOrganizationFields
+  * api/v1/PersonFields#getPersonFields
+  * api/v1/ProductFields#getProductFields
 ### Changed
+* Changed POST/PUT for a lot of endpoints to accept `application/json` instead of `application/x-www-form-urlencoded`
+* Added required fields to the OrganizationRelationship and Notes POST endpoints
 * Updated `MailThreadPut` schema to represent `object` in response instead of an `array`
 * Updated description for `MailThreadOne`
 * Split `Product` schema into `BaseProduct` and `ProductWithArrayPrices` or `ProductWithObjectPrices` to represent `prices` property with `array` type and `object` type respectively
@@ -55,10 +44,15 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 * Deleted `MailThreads` and `MailMessages` from API operation groups and combined them under `Mailbox` group.
 * Extracted `LeadLabels` and `LeadSources` API operation groups from `Leads` group.
 * Updated documentation for search endpoint: include Lead as one of the possible returned entities in related objects
+* Changed POST /v1/webhooks to accept `application/json` instead of `application/x-www-form-urlencoded` to reflect the reality
 ### Removed
 * Deleted deprecated `note` field from all lead related documents.
 * Deleted unused files (copied latest auto-generated version)
 ### Fixed
+* Fixed GET /goals/:id/results `period.start` parameter description with specified possible dates
+* Fixed GET /goals/:id/results `period.end` parameter description with specified possible dates
+* Fixed `GET /goal/:id/results` error handling in cases when period.start or period.end dates are out of possible range
+* Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
 [Unreleased]: https://github.com/pipedrive/api-docs/compare/v1.0.0...HEAD
