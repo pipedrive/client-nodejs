@@ -17,7 +17,7 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 * `Team` (singular) schema for endpoints that deal with a single team
 * Support for custom fields for `Content-Type: application/x-www-form-urlencoded` type requests
 * Added note field to call logs.
-* Adding pagination parameters documentation for endpoints:
+* Added pagination parameters documentation for endpoints:
   * api/v1/DealFields#getDealFields
   * api/v1/OrganizationFields#getOrganizationFields
   * api/v1/PersonFields#getPersonFields
