@@ -22,11 +22,6 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
   * api/v1/OrganizationFields#getOrganizationFields
   * api/v1/PersonFields#getPersonFields
   * api/v1/ProductFields#getProductFields
-* Added pagination parameters documentation for endpoints:
-  * api/v1/DealFields#getDealFields
-  * api/v1/OrganizationFields#getOrganizationFields
-  * api/v1/PersonFields#getPersonFields
-  * api/v1/ProductFields#getProductFields
 ### Changed
 * Changed POST/PUT for a lot of endpoints to accept `application/json` instead of `application/x-www-form-urlencoded`
 * Added required fields to the OrganizationRelationship and Notes POST endpoints
