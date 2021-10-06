@@ -1,0 +1,168 @@
+# Pipedrive.WebhooksApi
+
+All URIs are relative to *https://api.pipedrive.com/v1*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**addWebhook**](WebhooksApi.md#addWebhook) | **POST** /webhooks | Create a new webhook
+[**deleteWebhook**](WebhooksApi.md#deleteWebhook) | **DELETE** /webhooks/{id} | Delete existing webhook
+[**getWebhooks**](WebhooksApi.md#getWebhooks) | **GET** /webhooks | Get all webhooks
+
+
+
+## addWebhook
+
+> Webhook addWebhook(opts)
+
+Create a new webhook
+
+Creates a new webhook and returns its details. Note that specifying an event which triggers the webhook combines 2 parameters - &#x60;event_action&#x60; and &#x60;event_object&#x60;. E.g., use &#x60;*.*&#x60; for getting notifications about all events, &#x60;added.deal&#x60; for any newly added deals, &#x60;deleted.persons&#x60; for any deleted persons, etc. See &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/guide-for-webhooks?ref&#x3D;api_reference\&quot;&gt;https://pipedrive.readme.io/docs/guide-for-webhooks&lt;/a&gt; for more details.
+
+### Example
+
+```javascript
+import Pipedrive from 'pipedrive';
+let defaultClient = Pipedrive.ApiClient.instance;
+// Configure API key authorization: api_key
+let api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = defaultClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new Pipedrive.WebhooksApi();
+let opts = Pipedrive.AddWebhookRequest.constructFromObject({
+  // Properties that you want to update
+});
+apiInstance.addWebhook(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **addWebhookRequest** | [**AddWebhookRequest**](AddWebhookRequest.md)|  | [optional] 
+
+### Return type
+
+[**Webhook**](Webhook.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## deleteWebhook
+
+> BaseResponseWithStatus deleteWebhook(id)
+
+Delete existing webhook
+
+Deletes the specified webhook.
+
+### Example
+
+```javascript
+import Pipedrive from 'pipedrive';
+let defaultClient = Pipedrive.ApiClient.instance;
+// Configure API key authorization: api_key
+let api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = defaultClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new Pipedrive.WebhooksApi();
+let id = 56; // Number | The ID of the webhook to delete
+apiInstance.deleteWebhook(id).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| The ID of the webhook to delete | 
+
+### Return type
+
+[**BaseResponseWithStatus**](BaseResponseWithStatus.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getWebhooks
+
+> Webhooks getWebhooks()
+
+Get all webhooks
+
+Returns data about all webhooks of a company.
+
+### Example
+
+```javascript
+import Pipedrive from 'pipedrive';
+let defaultClient = Pipedrive.ApiClient.instance;
+// Configure API key authorization: api_key
+let api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = defaultClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new Pipedrive.WebhooksApi();
+apiInstance.getWebhooks().then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Webhooks**](Webhooks.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+

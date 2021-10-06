@@ -1,59 +1,58 @@
 {
   "name": "pipedrive",
-  "version": "11.0.0",
+  "version": "12.0.0",
   "description": "Pipedrive REST client for NodeJS",
-  "keywords": [
-    "pipedrive",
-    "CRM",
-    "sales",
-    "contacts",
-    "customers",
-    "deals",
-    "pipeline",
-    "sales pipeline"
-  ],
   "license": "MIT",
-  "homepage": "https://github.com/pipedrive/client-nodejs",
-  "main": "./lib/index.js",
-  "engines": {
-    "node": ">=8.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "http://github.com/pipedrive/client-nodejs.git"
-  },
+  "main": "dist/index.js",
   "scripts": {
-    "lint": "eslint lib",
-    "test": "echo \"Temporarily skipping integration tests\" && exit 0"
+    "build": "babel src -d dist",
+    "prepack": "npm run build",
+    "test": "echo \"Temporarily skipping unit tests\" && exit 0",
+    "test:functional": "node ./test/functional/environment.js",
+    "test:functional:start": "node ./test/functional/environment.js --start-environment",
+    "test:functional:stop": "node ./test/functional/environment.js --stop-environment"
   },
-  "devDependencies": {
-    "chai": "^3.5.0",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^14.1.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-react": "^6.10.3",
-    "mocha": "^7.1.1"
+  "browser": {
+    "fs": false
   },
   "dependencies": {
-    "moment": "^2.17.1",
-    "request": "^2.88.2"
+    "@babel/cli": "^7.0.0",
+    "@babel/runtime": "^7.14.0",
+    "superagent": "^5.3.0"
   },
-  "eslintConfig": {
-    "extends": "airbnb",
-    "env": {
-      "commonjs": true,
-      "node": true,
-      "mocha": true
-    },
-    "rules": {
-      "indent": [
-        "error",
-        4
-      ],
-      "no-underscore-dangle": 0,
-      "strict": 0,
-      "prefer-rest-params": 0
-    }
-  }
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/plugin-proposal-do-expressions": "^7.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+    "@babel/plugin-proposal-function-bind": "^7.0.0",
+    "@babel/plugin-proposal-function-sent": "^7.0.0",
+    "@babel/plugin-proposal-json-strings": "^7.0.0",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
+    "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "axios": "^0.21.0",
+    "expect.js": "^0.3.1",
+    "jest": "^26.6.3",
+    "minimist": "^1.2.5",
+    "mocha": "^8.0.1",
+    "mockserver-client": "^5.11.2",
+    "mockserver-node": "^5.11.2",
+    "regenerator-runtime": "^0.13.7",
+    "shelljs": "^0.8.4",
+    "sinon": "^7.2.0"
+  },
+  "files": [
+    "dist"
+  ]
 }
