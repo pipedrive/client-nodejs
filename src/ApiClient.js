@@ -733,7 +733,7 @@ class ApiClient {
         }
 
         if (!!token.api_domain) {
-            this.basePath = `${token.api_domain}/v1`;
+            this.basePath = `${token.api_domain}/api/v1`;
         }
 
         if (typeof (oauth2.tokenUpdateCallback) === 'function') {
