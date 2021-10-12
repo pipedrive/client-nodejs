@@ -15,7 +15,6 @@
 import ApiClient from "../ApiClient";
 import AddProductFollowerRequest from '../model/AddProductFollowerRequest';
 import AddProductRequestBody from '../model/AddProductRequestBody';
-import BasicDeal from '../model/BasicDeal';
 import DeleteProductFollowerResponse from '../model/DeleteProductFollowerResponse';
 import DeleteProductResponse from '../model/DeleteProductResponse';
 import FindProductsByNameResponse from '../model/FindProductsByNameResponse';
@@ -27,6 +26,7 @@ import ProductRequest from '../model/ProductRequest';
 import ProductResponse from '../model/ProductResponse';
 import ProductSearchResponse from '../model/ProductSearchResponse';
 import ProductsResponse from '../model/ProductsResponse';
+import UpdateDealRequest from '../model/UpdateDealRequest';
 import UpdateProductResponse from '../model/UpdateProductResponse';
 import UserIDs from '../model/UserIDs';
 
@@ -467,7 +467,7 @@ export default class ProductsApi {
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {module:model/String} opts.status Only fetch deals with specific status. If omitted, all not deleted deals are fetched. (default to 'all_not_deleted')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BasicDeal} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UpdateDealRequest} and HTTP response
      */
     getProductDealsWithHttpInfo(id, opts) {
       opts = opts || {};
@@ -509,7 +509,7 @@ export default class ProductsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = BasicDeal;
+      let returnType = UpdateDealRequest;
       return this.apiClient.callApi(
         '/products/{id}/deals', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -525,7 +525,7 @@ export default class ProductsApi {
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {module:model/String} opts.status Only fetch deals with specific status. If omitted, all not deleted deals are fetched. (default to 'all_not_deleted')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BasicDeal}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UpdateDealRequest}
      */
     getProductDeals(id, opts) {
       return this.getProductDealsWithHttpInfo(id, opts)

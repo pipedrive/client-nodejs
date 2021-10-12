@@ -16,7 +16,6 @@ import ApiClient from "../ApiClient";
 import AddDealFollowerRequest from '../model/AddDealFollowerRequest';
 import AddDealParticipantRequest from '../model/AddDealParticipantRequest';
 import AddedDealFollower from '../model/AddedDealFollower';
-import BasicDeal from '../model/BasicDeal';
 import BasicDealProduct from '../model/BasicDealProduct';
 import DealFlowResponse from '../model/DealFlowResponse';
 import DealListActivitiesResponse from '../model/DealListActivitiesResponse';
@@ -48,6 +47,7 @@ import NewDeal from '../model/NewDeal';
 import NewDealProduct from '../model/NewDealProduct';
 import NumberBoolean from '../model/NumberBoolean';
 import PostDealParticipants from '../model/PostDealParticipants';
+import UpdateDealRequest from '../model/UpdateDealRequest';
 
 /**
 * Deals service.
@@ -1973,12 +1973,12 @@ export default class DealsApi {
      * Updates the properties of a deal. For more information on how to update a deal, see <a href=\"https://pipedrive.readme.io/docs/updating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Number} id ID of the deal
      * @param {Object} opts Optional parameters
-     * @param {module:model/BasicDeal} opts.basicDeal 
+     * @param {module:model/UpdateDealRequest} opts.updateDealRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetAddedDeal} and HTTP response
      */
     updateDealWithHttpInfo(id, opts) {
       opts = opts || {};
-      let postBody = opts['basicDeal'];
+      let postBody = opts['updateDealRequest'];
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateDeal");
@@ -2026,7 +2026,7 @@ export default class DealsApi {
      * Updates the properties of a deal. For more information on how to update a deal, see <a href=\"https://pipedrive.readme.io/docs/updating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Number} id ID of the deal
      * @param {Object} opts Optional parameters
-     * @param {module:model/BasicDeal} opts.basicDeal 
+     * @param {module:model/UpdateDealRequest} opts.updateDealRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetAddedDeal}
      */
     updateDeal(id, opts) {

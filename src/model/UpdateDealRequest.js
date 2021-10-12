@@ -13,27 +13,24 @@
 
 import ApiClient from '../ApiClient';
 import BasicDeal from './BasicDeal';
-import NewDealAllOf from './NewDealAllOf';
-import RequredTitleParameter from './RequredTitleParameter';
+import DealTitleParameter from './DealTitleParameter';
 import VisibleTo from './VisibleTo';
 
 /**
- * The NewDeal model module.
- * @module model/NewDeal
+ * The UpdateDealRequest model module.
+ * @module model/UpdateDealRequest
  * @version 1.0.0
  */
-class NewDeal {
+class UpdateDealRequest {
     /**
-     * Constructs a new <code>NewDeal</code>.
-     * @alias module:model/NewDeal
-     * @implements module:model/RequredTitleParameter
+     * Constructs a new <code>UpdateDealRequest</code>.
+     * @alias module:model/UpdateDealRequest
+     * @implements module:model/DealTitleParameter
      * @implements module:model/BasicDeal
-     * @implements module:model/NewDealAllOf
-     * @param title {String} Deal title
      */
-    constructor(title) { 
-        RequredTitleParameter.initialize(this, title);BasicDeal.initialize(this);NewDealAllOf.initialize(this);
-        NewDeal.initialize(this, title);
+    constructor() { 
+        DealTitleParameter.initialize(this);BasicDeal.initialize(this);
+        UpdateDealRequest.initialize(this);
     }
 
     /**
@@ -41,23 +38,21 @@ class NewDeal {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, title) { 
-        obj['title'] = title;
+    static initialize(obj) { 
     }
 
     /**
-     * Constructs a <code>NewDeal</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>UpdateDealRequest</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/NewDeal} obj Optional instance to populate.
-     * @return {module:model/NewDeal} The populated <code>NewDeal</code> instance.
+     * @param {module:model/UpdateDealRequest} obj Optional instance to populate.
+     * @return {module:model/UpdateDealRequest} The populated <code>UpdateDealRequest</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new NewDeal();
-            RequredTitleParameter.constructFromObject(data, obj);
+            obj = obj || new UpdateDealRequest();
+            DealTitleParameter.constructFromObject(data, obj);
             BasicDeal.constructFromObject(data, obj);
-            NewDealAllOf.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('title')) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
@@ -119,11 +114,6 @@ class NewDeal {
 
                 delete data['visible_to'];
             }
-            if (data.hasOwnProperty('add_time')) {
-                obj['add_time'] = ApiClient.convertToType(data['add_time'], 'String');
-
-                delete data['add_time'];
-            }
 
             if (Object.keys(data).length > 0) {
                 Object.assign(obj, data);
@@ -140,87 +130,81 @@ class NewDeal {
  * Deal title
  * @member {String} title
  */
-NewDeal.prototype['title'] = undefined;
+UpdateDealRequest.prototype['title'] = undefined;
 
 /**
  * Value of the deal. If omitted, value will be set to 0.
  * @member {String} value
  */
-NewDeal.prototype['value'] = undefined;
+UpdateDealRequest.prototype['value'] = undefined;
 
 /**
  * Currency of the deal. Accepts a 3-character currency code. If omitted, currency will be set to the default currency of the authorized user.
  * @member {String} currency
  */
-NewDeal.prototype['currency'] = undefined;
+UpdateDealRequest.prototype['currency'] = undefined;
 
 /**
  * The ID of the User which will be the owner of the created Deal. If not provided, the user making the request will be used.
  * @member {Number} user_id
  */
-NewDeal.prototype['user_id'] = undefined;
+UpdateDealRequest.prototype['user_id'] = undefined;
 
 /**
  * The ID of a Person which this Deal will be linked to. If the Person does not exist yet, it needs to be created first. This property is required unless `org_id` is specified.
  * @member {Number} person_id
  */
-NewDeal.prototype['person_id'] = undefined;
+UpdateDealRequest.prototype['person_id'] = undefined;
 
 /**
  * The ID of an Organization which this Deal will be linked to. If the Organization does not exist yet, it needs to be created first. This property is required unless `person_id` is specified.
  * @member {Number} org_id
  */
-NewDeal.prototype['org_id'] = undefined;
+UpdateDealRequest.prototype['org_id'] = undefined;
 
 /**
  * The ID of a stage this Deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on `stage_id`). If omitted, the deal will be placed in the first stage of the default pipeline.
  * @member {Number} stage_id
  */
-NewDeal.prototype['stage_id'] = undefined;
+UpdateDealRequest.prototype['stage_id'] = undefined;
 
 /**
  * open = Open, won = Won, lost = Lost, deleted = Deleted. If omitted, status will be set to open.
- * @member {module:model/NewDeal.StatusEnum} status
+ * @member {module:model/UpdateDealRequest.StatusEnum} status
  */
-NewDeal.prototype['status'] = undefined;
+UpdateDealRequest.prototype['status'] = undefined;
 
 /**
  * The expected close date of the Deal. In ISO 8601 format: YYYY-MM-DD.
  * @member {Date} expected_close_date
  */
-NewDeal.prototype['expected_close_date'] = undefined;
+UpdateDealRequest.prototype['expected_close_date'] = undefined;
 
 /**
  * Deal success probability percentage. Used/shown only when `deal_probability` for the pipeline of the deal is enabled.
  * @member {Number} probability
  */
-NewDeal.prototype['probability'] = undefined;
+UpdateDealRequest.prototype['probability'] = undefined;
 
 /**
  * Optional message about why the deal was lost (to be used when status=lost)
  * @member {String} lost_reason
  */
-NewDeal.prototype['lost_reason'] = undefined;
+UpdateDealRequest.prototype['lost_reason'] = undefined;
 
 /**
  * Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
  * @member {module:model/VisibleTo} visible_to
  */
-NewDeal.prototype['visible_to'] = undefined;
-
-/**
- * Optional creation date & time of the deal in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
- * @member {String} add_time
- */
-NewDeal.prototype['add_time'] = undefined;
+UpdateDealRequest.prototype['visible_to'] = undefined;
 
 
-// Implement RequredTitleParameter interface:
+// Implement DealTitleParameter interface:
 /**
  * Deal title
  * @member {String} title
  */
-RequredTitleParameter.prototype['title'] = undefined;
+DealTitleParameter.prototype['title'] = undefined;
 // Implement BasicDeal interface:
 /**
  * Value of the deal. If omitted, value will be set to 0.
@@ -277,12 +261,6 @@ BasicDeal.prototype['lost_reason'] = undefined;
  * @member {module:model/VisibleTo} visible_to
  */
 BasicDeal.prototype['visible_to'] = undefined;
-// Implement NewDealAllOf interface:
-/**
- * Optional creation date & time of the deal in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
- * @member {String} add_time
- */
-NewDealAllOf.prototype['add_time'] = undefined;
 
 
 
@@ -291,7 +269,7 @@ NewDealAllOf.prototype['add_time'] = undefined;
  * @enum {String}
  * @readonly
  */
-NewDeal['StatusEnum'] = {
+UpdateDealRequest['StatusEnum'] = {
 
     /**
      * value: "open"
@@ -326,5 +304,5 @@ NewDeal['StatusEnum'] = {
 
 
 
-export default NewDeal;
+export default UpdateDealRequest;
 

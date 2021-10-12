@@ -48,11 +48,6 @@ class BasicDeal {
         if (data) {
             obj = obj || new BasicDeal();
 
-            if (data.hasOwnProperty('title')) {
-                obj['title'] = ApiClient.convertToType(data['title'], 'String');
-
-                delete data['title'];
-            }
             if (data.hasOwnProperty('value')) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
 
@@ -121,12 +116,6 @@ class BasicDeal {
 }
 
 /**
- * Deal title
- * @member {String} title
- */
-BasicDeal.prototype['title'] = undefined;
-
-/**
  * Value of the deal. If omitted, value will be set to 0.
  * @member {String} value
  */
@@ -139,25 +128,25 @@ BasicDeal.prototype['value'] = undefined;
 BasicDeal.prototype['currency'] = undefined;
 
 /**
- * ID of the user who will be marked as the owner of this deal. If omitted, the authorized user ID will be used.
+ * The ID of the User which will be the owner of the created Deal. If not provided, the user making the request will be used.
  * @member {Number} user_id
  */
 BasicDeal.prototype['user_id'] = undefined;
 
 /**
- * ID of the person this deal will be associated with
+ * The ID of a Person which this Deal will be linked to. If the Person does not exist yet, it needs to be created first. This property is required unless `org_id` is specified.
  * @member {Number} person_id
  */
 BasicDeal.prototype['person_id'] = undefined;
 
 /**
- * ID of the organization this deal will be associated with
+ * The ID of an Organization which this Deal will be linked to. If the Organization does not exist yet, it needs to be created first. This property is required unless `person_id` is specified.
  * @member {Number} org_id
  */
 BasicDeal.prototype['org_id'] = undefined;
 
 /**
- * ID of the stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on `stage_id`). If omitted, the deal will be placed in the first stage of the default pipeline.
+ * The ID of a stage this Deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on `stage_id`). If omitted, the deal will be placed in the first stage of the default pipeline.
  * @member {Number} stage_id
  */
 BasicDeal.prototype['stage_id'] = undefined;

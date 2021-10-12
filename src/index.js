@@ -184,6 +184,7 @@ import DealSummaryPerCurrencyFullCURRENCYID from './model/DealSummaryPerCurrency
 import DealSummaryPerStages from './model/DealSummaryPerStages';
 import DealSummaryPerStagesSTAGEID from './model/DealSummaryPerStagesSTAGEID';
 import DealSummaryPerStagesSTAGEIDCURRENCYID from './model/DealSummaryPerStagesSTAGEIDCURRENCYID';
+import DealTitleParameter from './model/DealTitleParameter';
 import DealUserData from './model/DealUserData';
 import DealUserDataWithId from './model/DealUserDataWithId';
 import DealUserDataWithIdAllOf from './model/DealUserDataWithIdAllOf';
@@ -618,6 +619,7 @@ import RelatedUserData from './model/RelatedUserData';
 import RelationshipOrganizationInfoItem from './model/RelationshipOrganizationInfoItem';
 import RelationshipOrganizationInfoItemAllOf from './model/RelationshipOrganizationInfoItemAllOf';
 import RelationshipOrganizationInfoItemWithActiveFlag from './model/RelationshipOrganizationInfoItemWithActiveFlag';
+import RequredTitleParameter from './model/RequredTitleParameter';
 import ResponseCallLogObject from './model/ResponseCallLogObject';
 import ResponseCallLogObjectAllOf from './model/ResponseCallLogObjectAllOf';
 import RoleAssignment from './model/RoleAssignment';
@@ -649,6 +651,7 @@ import Teams from './model/Teams';
 import TeamsAllOf from './model/TeamsAllOf';
 import Unauthorized from './model/Unauthorized';
 import UpdateActivityResponse200 from './model/UpdateActivityResponse200';
+import UpdateDealRequest from './model/UpdateDealRequest';
 import UpdateFile from './model/UpdateFile';
 import UpdateFilterRequest from './model/UpdateFilterRequest';
 import UpdateLeadLabelRequest from './model/UpdateLeadLabelRequest';
@@ -1793,6 +1796,12 @@ export {
      * @property {module:model/DealSummaryPerStagesSTAGEIDCURRENCYID}
      */
     DealSummaryPerStagesSTAGEIDCURRENCYID,
+
+    /**
+     * The DealTitleParameter model constructor.
+     * @property {module:model/DealTitleParameter}
+     */
+    DealTitleParameter,
 
     /**
      * The DealUserData model constructor.
@@ -4399,6 +4408,12 @@ export {
     RelationshipOrganizationInfoItemWithActiveFlag,
 
     /**
+     * The RequredTitleParameter model constructor.
+     * @property {module:model/RequredTitleParameter}
+     */
+    RequredTitleParameter,
+
+    /**
      * The ResponseCallLogObject model constructor.
      * @property {module:model/ResponseCallLogObject}
      */
@@ -4583,6 +4598,12 @@ export {
      * @property {module:model/UpdateActivityResponse200}
      */
     UpdateActivityResponse200,
+
+    /**
+     * The UpdateDealRequest model constructor.
+     * @property {module:model/UpdateDealRequest}
+     */
+    UpdateDealRequest,
 
     /**
      * The UpdateFile model constructor.

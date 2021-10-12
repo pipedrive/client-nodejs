@@ -350,7 +350,7 @@ Name | Type | Description  | Notes
 
 ## getProductDeals
 
-> BasicDeal getProductDeals(id, opts)
+> UpdateDealRequest getProductDeals(id, opts)
 
 Get deals where a product is attached to
 
@@ -397,7 +397,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BasicDeal**](BasicDeal.md)
+[**UpdateDealRequest**](UpdateDealRequest.md)
 
 ### Authorization
 
