@@ -1,10 +1,10 @@
-# Pipedrive.NewDeal
+# Pipedrive.UpdateDealRequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**title** | **String** | Deal title | 
+**title** | **String** | Deal title | [optional] 
 **value** | **String** | Value of the deal. If omitted, value will be set to 0. | [optional] 
 **currency** | **String** | Currency of the deal. Accepts a 3-character currency code. If omitted, currency will be set to the default currency of the authorized user. | [optional] 
 **userId** | **Number** | The ID of the User which will be the owner of the created Deal. If not provided, the user making the request will be used. | [optional] 
@@ -16,7 +16,6 @@ Name | Type | Description | Notes
 **probability** | **Number** | Deal success probability percentage. Used/shown only when &#x60;deal_probability&#x60; for the pipeline of the deal is enabled. | [optional] 
 **lostReason** | **String** | Optional message about why the deal was lost (to be used when status&#x3D;lost) | [optional] 
 **visibleTo** | [**VisibleTo**](VisibleTo.md) | Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.&lt;table&gt;&lt;tr&gt;&lt;th&gt;Value&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;1&#x60;&lt;/td&gt;&lt;td&gt;Owner &amp;amp; followers (private)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;3&#x60;&lt;/td&gt;&lt;td&gt;Entire company (shared)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; | [optional] 
-**addTime** | **String** | Optional creation date &amp; time of the deal in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS | [optional] 
 
 
 

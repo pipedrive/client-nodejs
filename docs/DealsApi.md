@@ -1577,7 +1577,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealsApi();
 let id = 56; // Number | ID of the deal
-let opts = Pipedrive.BasicDeal.constructFromObject({
+let opts = Pipedrive.UpdateDealRequest.constructFromObject({
   // Properties that you want to update
 });
 apiInstance.updateDeal(id, opts).then((data) => {
@@ -1594,7 +1594,7 @@ apiInstance.updateDeal(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| ID of the deal | 
- **basicDeal** | [**BasicDeal**](BasicDeal.md)|  | [optional] 
+ **updateDealRequest** | [**UpdateDealRequest**](UpdateDealRequest.md)|  | [optional] 
 
 ### Return type
 
