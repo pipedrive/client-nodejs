@@ -8,13 +8,13 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## 12.1.0
 ### Removed
-- Removed deprecated endpoints that were deleted:
-* GET /deals/find
-* GET /persons/find
-* GET /organizations/find
-* GET /products/find
-* GET /searchResults
-* GET /searchResults/field
+* Removed deprecated endpoints that were deleted:
+  * GET /deals/find
+  * GET /persons/find
+  * GET /organizations/find
+  * GET /products/find
+  * GET /searchResults
+  * GET /searchResults/field
 
 ## 12.0.3
 ### Changed
