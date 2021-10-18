@@ -276,8 +276,6 @@ import FiltersPostResponse from './model/FiltersPostResponse';
 import FiltersPostResponseAllOf from './model/FiltersPostResponseAllOf';
 import FiltersPostResponseAllOfData from './model/FiltersPostResponseAllOfData';
 import FindGoalResponse from './model/FindGoalResponse';
-import FindProductsByNameResponse from './model/FindProductsByNameResponse';
-import FindProductsByNameResponseData from './model/FindProductsByNameResponseData';
 import FollowerData from './model/FollowerData';
 import FollowerDataWithID from './model/FollowerDataWithID';
 import FollowerDataWithIDAllOf from './model/FollowerDataWithIDAllOf';
@@ -300,9 +298,6 @@ import GetComments from './model/GetComments';
 import GetDeal from './model/GetDeal';
 import GetDealAdditionalData from './model/GetDealAdditionalData';
 import GetDeals from './model/GetDeals';
-import GetDealsByName from './model/GetDealsByName';
-import GetDealsByNameAdditionalData from './model/GetDealsByNameAdditionalData';
-import GetDealsByNameData from './model/GetDealsByNameData';
 import GetDealsConversionRatesInPipeline from './model/GetDealsConversionRatesInPipeline';
 import GetDealsConversionRatesInPipelineAllOf from './model/GetDealsConversionRatesInPipelineAllOf';
 import GetDealsConversionRatesInPipelineAllOfData from './model/GetDealsConversionRatesInPipelineAllOfData';
@@ -723,7 +718,6 @@ import ProductFieldsApi from './api/ProductFieldsApi';
 import ProductsApi from './api/ProductsApi';
 import RecentsApi from './api/RecentsApi';
 import RolesApi from './api/RolesApi';
-import SearchResultsApi from './api/SearchResultsApi';
 import StagesApi from './api/StagesApi';
 import SubscriptionsApi from './api/SubscriptionsApi';
 import TeamsApi from './api/TeamsApi';
@@ -2350,18 +2344,6 @@ export {
     FindGoalResponse,
 
     /**
-     * The FindProductsByNameResponse model constructor.
-     * @property {module:model/FindProductsByNameResponse}
-     */
-    FindProductsByNameResponse,
-
-    /**
-     * The FindProductsByNameResponseData model constructor.
-     * @property {module:model/FindProductsByNameResponseData}
-     */
-    FindProductsByNameResponseData,
-
-    /**
      * The FollowerData model constructor.
      * @property {module:model/FollowerData}
      */
@@ -2492,24 +2474,6 @@ export {
      * @property {module:model/GetDeals}
      */
     GetDeals,
-
-    /**
-     * The GetDealsByName model constructor.
-     * @property {module:model/GetDealsByName}
-     */
-    GetDealsByName,
-
-    /**
-     * The GetDealsByNameAdditionalData model constructor.
-     * @property {module:model/GetDealsByNameAdditionalData}
-     */
-    GetDealsByNameAdditionalData,
-
-    /**
-     * The GetDealsByNameData model constructor.
-     * @property {module:model/GetDealsByNameData}
-     */
-    GetDealsByNameData,
 
     /**
      * The GetDealsConversionRatesInPipeline model constructor.
@@ -5030,12 +4994,6 @@ export {
     * @property {module:api/RolesApi}
     */
     RolesApi,
-
-    /**
-    * The SearchResultsApi service constructor.
-    * @property {module:api/SearchResultsApi}
-    */
-    SearchResultsApi,
 
     /**
     * The StagesApi service constructor.

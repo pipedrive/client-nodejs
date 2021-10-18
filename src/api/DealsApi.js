@@ -30,7 +30,6 @@ import GetAddProductAttachementDetails from '../model/GetAddProductAttachementDe
 import GetAddedDeal from '../model/GetAddedDeal';
 import GetDeal from '../model/GetDeal';
 import GetDeals from '../model/GetDeals';
-import GetDealsByName from '../model/GetDealsByName';
 import GetDealsSummary from '../model/GetDealsSummary';
 import GetDealsTimeline from '../model/GetDealsTimeline';
 import GetDuplicatedDeal from '../model/GetDuplicatedDeal';
@@ -1554,79 +1553,6 @@ export default class DealsApi {
      */
     getDeals(opts) {
       return this.getDealsWithHttpInfo(opts)
-        .then(function(response_and_data) {
-          return response_and_data;
-        });
-    }
-
-
-    /**
-     * Find deals by name
-     * This endpoint is deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1//Deals#searchDeals\">/v1/deals/search</a> or <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> instead. <br> Searches all deals by their title.
-     * @param {String} term Search term to look for
-     * @param {Object} opts Optional parameters
-     * @param {Number} opts.personId ID of the person the Deal is associated with.
-     * @param {Number} opts.orgId ID of the organization the Deal is associated with.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetDealsByName} and HTTP response
-     */
-    getDealsByNameWithHttpInfo(term, opts) {
-      opts = opts || {};
-      let postBody = null;
-      // verify the required parameter 'term' is set
-      if (term === undefined || term === null) {
-        throw new Error("Missing the required parameter 'term' when calling getDealsByName");
-      }
-
-      let pathParams = {
-      };
-      let queryParams = {
-        'term': term,
-        'person_id': opts['personId'],
-        'org_id': opts['orgId'],
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let formParamArray = [
-      ];
-
-      let contentTypes = [];
-      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
-      const isJSON = contentTypes.includes('application/json');
-
-      if (isJSON) {
-        postBody = { ...postBody, ...opts };
-      } else if (isURLEncoded) {
-        for (let key in opts) {
-          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
-            formParams[key] = opts[key];
-          }
-        }
-      }
-
-      let authNames = ['api_key', 'oauth2', ];
-      let accepts = ['application/json', ];
-      let returnType = GetDealsByName;
-      return this.apiClient.callApi(
-        '/deals/find', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Find deals by name
-     * This endpoint is deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1//Deals#searchDeals\">/v1/deals/search</a> or <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> instead. <br> Searches all deals by their title.
-     * @param {String} term Search term to look for
-     * @param {Object} opts Optional parameters
-     * @param {Number} opts.personId ID of the person the Deal is associated with.
-     * @param {Number} opts.orgId ID of the organization the Deal is associated with.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetDealsByName}
-     */
-    getDealsByName(term, opts) {
-      return this.getDealsByNameWithHttpInfo(term, opts)
         .then(function(response_and_data) {
           return response_and_data;
         });
