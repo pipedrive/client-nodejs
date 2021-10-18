@@ -17,7 +17,6 @@ import AddProductFollowerRequest from '../model/AddProductFollowerRequest';
 import AddProductRequestBody from '../model/AddProductRequestBody';
 import DeleteProductFollowerResponse from '../model/DeleteProductFollowerResponse';
 import DeleteProductResponse from '../model/DeleteProductResponse';
-import FindProductsByNameResponse from '../model/FindProductsByNameResponse';
 import ListFilesResponse from '../model/ListFilesResponse';
 import ListProductFollowersResponse from '../model/ListProductFollowersResponse';
 import NewFollowerResponse from '../model/NewFollowerResponse';
@@ -312,82 +311,6 @@ export default class ProductsApi {
      */
     deleteProductFollower(id, followerId) {
       return this.deleteProductFollowerWithHttpInfo(id, followerId)
-        .then(function(response_and_data) {
-          return response_and_data;
-        });
-    }
-
-
-    /**
-     * Find products by name
-     * This endpoint is deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Products#searchProducts\">/v1/products/search</a> or <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> instead. <br> Returns data about the products that were found. If currency was set in request, prices in that currency are served back.
-     * @param {String} term Search term to look for, minimum 3 characters.
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.currency Currency code in which prices should be returned in. If omitted, prices in user's default currency will be returned.
-     * @param {Number} opts.start Pagination start (default to 0)
-     * @param {Number} opts.limit Items shown per page
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/FindProductsByNameResponse} and HTTP response
-     */
-    findProductsByNameWithHttpInfo(term, opts) {
-      opts = opts || {};
-      let postBody = null;
-      // verify the required parameter 'term' is set
-      if (term === undefined || term === null) {
-        throw new Error("Missing the required parameter 'term' when calling findProductsByName");
-      }
-
-      let pathParams = {
-      };
-      let queryParams = {
-        'term': term,
-        'currency': opts['currency'],
-        'start': opts['start'],
-        'limit': opts['limit'],
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let formParamArray = [
-      ];
-
-      let contentTypes = [];
-      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
-      const isJSON = contentTypes.includes('application/json');
-
-      if (isJSON) {
-        postBody = { ...postBody, ...opts };
-      } else if (isURLEncoded) {
-        for (let key in opts) {
-          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
-            formParams[key] = opts[key];
-          }
-        }
-      }
-
-      let authNames = ['api_key', 'oauth2', ];
-      let accepts = ['application/json', ];
-      let returnType = FindProductsByNameResponse;
-      return this.apiClient.callApi(
-        '/products/find', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Find products by name
-     * This endpoint is deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Products#searchProducts\">/v1/products/search</a> or <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> instead. <br> Returns data about the products that were found. If currency was set in request, prices in that currency are served back.
-     * @param {String} term Search term to look for, minimum 3 characters.
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.currency Currency code in which prices should be returned in. If omitted, prices in user's default currency will be returned.
-     * @param {Number} opts.start Pagination start (default to 0)
-     * @param {Number} opts.limit Items shown per page
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FindProductsByNameResponse}
-     */
-    findProductsByName(term, opts) {
-      return this.findProductsByNameWithHttpInfo(term, opts)
         .then(function(response_and_data) {
           return response_and_data;
         });

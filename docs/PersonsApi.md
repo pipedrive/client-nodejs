@@ -11,7 +11,6 @@ Method | HTTP request | Description
 [**deletePersonFollower**](PersonsApi.md#deletePersonFollower) | **DELETE** /persons/{id}/followers/{follower_id} | Deletes a follower from a person.
 [**deletePersonPicture**](PersonsApi.md#deletePersonPicture) | **DELETE** /persons/{id}/picture | Delete person picture
 [**deletePersons**](PersonsApi.md#deletePersons) | **DELETE** /persons | Delete multiple persons in bulk
-[**findPersonByName**](PersonsApi.md#findPersonByName) | **GET** /persons/find | Find persons by name
 [**getPerson**](PersonsApi.md#getPerson) | **GET** /persons/{id} | Get details of a person
 [**getPersonActivities**](PersonsApi.md#getPersonActivities) | **GET** /persons/{id}/activities | List activities associated with a person
 [**getPersonDeals**](PersonsApi.md#getPersonDeals) | **GET** /persons/{id}/deals | List deals associated with a person
@@ -407,69 +406,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DeletePersonsInBulkResponse**](DeletePersonsInBulkResponse.md)
-
-### Authorization
-
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## findPersonByName
-
-> Object findPersonByName(term, opts)
-
-Find persons by name
-
-This endpoint is deprecated. Please use &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/Persons#searchPersons\&quot;&gt;/v1/persons/search&lt;/a&gt; or &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\&quot;&gt;/v1/itemSearch&lt;/a&gt; instead. &lt;br&gt; Searches all persons by their name.
-
-### Example
-
-```javascript
-import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
-// Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
-api_key.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.apiKeyPrefix = 'Token';
-// Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
-oauth2.accessToken = 'YOUR ACCESS TOKEN';
-
-let apiInstance = new Pipedrive.PersonsApi();
-let term = "term_example"; // String | Search term to look for
-let opts = {
-  'orgId': 56, // Number | ID of the organization person is associated with.
-  'start': 0, // Number | Pagination start
-  'limit': 56, // Number | Items shown per page
-  'searchByEmail': new Pipedrive.NumberBoolean() // NumberBoolean | When enabled, term will only be matched against email addresses of people. Default: false
-};
-apiInstance.findPersonByName(term, opts).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **term** | **String**| Search term to look for | 
- **orgId** | **Number**| ID of the organization person is associated with. | [optional] 
- **start** | **Number**| Pagination start | [optional] [default to 0]
- **limit** | **Number**| Items shown per page | [optional] 
- **searchByEmail** | [**NumberBoolean**](.md)| When enabled, term will only be matched against email addresses of people. Default: false | [optional] 
-
-### Return type
-
-**Object**
 
 ### Authorization
 
