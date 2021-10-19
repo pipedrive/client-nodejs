@@ -179,7 +179,7 @@ describe('automatic token refresh in api calls', () => {
 		await mockServerClient('localhost', 1080, null, false).mockAnyResponse({
 			httpRequest: {
 				method: 'GET',
-				path: '/v1/users',
+				path: '/api/v1/users',
 				headers: {
 					Authorization: ['Bearer freshAccessToken'],
 				},
