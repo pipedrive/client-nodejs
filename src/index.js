@@ -69,6 +69,7 @@ import AddedDealFollower from './model/AddedDealFollower';
 import AddedDealFollowerData from './model/AddedDealFollowerData';
 import AdditionalBaseOrganizationItemInfo from './model/AdditionalBaseOrganizationItemInfo';
 import AdditionalData from './model/AdditionalData';
+import AdditionalDataWithPagination from './model/AdditionalDataWithPagination';
 import AdditionalDataWithPaginationDetails from './model/AdditionalDataWithPaginationDetails';
 import AdditionalMergePersonInfo from './model/AdditionalMergePersonInfo';
 import AdditionalPersonInfo from './model/AdditionalPersonInfo';
@@ -1100,6 +1101,12 @@ export {
      * @property {module:model/AdditionalData}
      */
     AdditionalData,
+
+    /**
+     * The AdditionalDataWithPagination model constructor.
+     * @property {module:model/AdditionalDataWithPagination}
+     */
+    AdditionalDataWithPagination,
 
     /**
      * The AdditionalDataWithPaginationDetails model constructor.

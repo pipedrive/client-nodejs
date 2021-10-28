@@ -563,6 +563,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.AddedDealFollowerData](docs/AddedDealFollowerData.md)
  - [Pipedrive.AdditionalBaseOrganizationItemInfo](docs/AdditionalBaseOrganizationItemInfo.md)
  - [Pipedrive.AdditionalData](docs/AdditionalData.md)
+ - [Pipedrive.AdditionalDataWithPagination](docs/AdditionalDataWithPagination.md)
  - [Pipedrive.AdditionalDataWithPaginationDetails](docs/AdditionalDataWithPaginationDetails.md)
  - [Pipedrive.AdditionalMergePersonInfo](docs/AdditionalMergePersonInfo.md)
  - [Pipedrive.AdditionalPersonInfo](docs/AdditionalPersonInfo.md)
