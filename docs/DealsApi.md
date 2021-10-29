@@ -25,7 +25,6 @@ Method | HTTP request | Description
 [**getDealUpdates**](DealsApi.md#getDealUpdates) | **GET** /deals/{id}/flow | List updates about a deal
 [**getDealUsers**](DealsApi.md#getDealUsers) | **GET** /deals/{id}/permittedUsers | List permitted users
 [**getDeals**](DealsApi.md#getDeals) | **GET** /deals | Get all deals
-[**getDealsByName**](DealsApi.md#getDealsByName) | **GET** /deals/find | Find deals by name
 [**getDealsSummary**](DealsApi.md#getDealsSummary) | **GET** /deals/summary | Get deals summary
 [**getDealsTimeline**](DealsApi.md#getDealsTimeline) | **GET** /deals/timeline | Get deals timeline
 [**mergeDeals**](DealsApi.md#mergeDeals) | **PUT** /deals/{id}/merge | Merge two deals
@@ -1223,65 +1222,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetDeals**](GetDeals.md)
-
-### Authorization
-
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## getDealsByName
-
-> GetDealsByName getDealsByName(term, opts)
-
-Find deals by name
-
-This endpoint is deprecated. Please use &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1//Deals#searchDeals\&quot;&gt;/v1/deals/search&lt;/a&gt; or &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\&quot;&gt;/v1/itemSearch&lt;/a&gt; instead. &lt;br&gt; Searches all deals by their title.
-
-### Example
-
-```javascript
-import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
-// Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
-api_key.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.apiKeyPrefix = 'Token';
-// Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
-oauth2.accessToken = 'YOUR ACCESS TOKEN';
-
-let apiInstance = new Pipedrive.DealsApi();
-let term = "term_example"; // String | Search term to look for
-let opts = {
-  'personId': 56, // Number | ID of the person the Deal is associated with.
-  'orgId': 56 // Number | ID of the organization the Deal is associated with.
-};
-apiInstance.getDealsByName(term, opts).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **term** | **String**| Search term to look for | 
- **personId** | **Number**| ID of the person the Deal is associated with. | [optional] 
- **orgId** | **Number**| ID of the organization the Deal is associated with. | [optional] 
-
-### Return type
-
-[**GetDealsByName**](GetDealsByName.md)
 
 ### Authorization
 

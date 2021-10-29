@@ -8,6 +8,23 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## 12.2.0
+### Changed
+- Changed notes and comments endpoints additional_data to match the correct pagination response
+structure
+* GET /notes
+* GET /notes/:id/comments
+
+## 12.1.0
+### Removed
+* Removed deprecated endpoints that were deleted:
+  * GET /deals/find
+  * GET /persons/find
+  * GET /organizations/find
+  * GET /products/find
+  * GET /searchResults
+  * GET /searchResults/field
+
 ## 12.0.3
 ### Changed
 - Changed addDeal POST endpoint to include required person_id or org_id

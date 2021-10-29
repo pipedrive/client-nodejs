@@ -1,4 +1,5 @@
 const mockServer = require('mockserver-client');
+const {BaseUser} = require("../../dist");
 
 const mockServerClient = mockServer.mockServerClient;
 
@@ -113,7 +114,6 @@ describe('automatic token refresh in api calls', () => {
 					name: 'John Doe',
 				},
 			],
-			extra: {}
 		});
 	});
 
@@ -124,15 +124,11 @@ describe('automatic token refresh in api calls', () => {
 
 		const users = await new lib.UsersApi().getUsers();
 
+		const expectedUser = BaseUser.constructFromObject({ id: 1 ,name: 'John Doe' });
+
 		expect(users).toEqual({
 			success: true,
-			data: [
-				{
-					id: 1,
-					name: 'John Doe',
-				},
-			],
-			extra: {}
+			data: [expectedUser],
 		});
 	});
 
@@ -183,7 +179,7 @@ describe('automatic token refresh in api calls', () => {
 		await mockServerClient('localhost', 1080, null, false).mockAnyResponse({
 			httpRequest: {
 				method: 'GET',
-				path: '/v1/users',
+				path: '/api/v1/users',
 				headers: {
 					Authorization: ['Bearer freshAccessToken'],
 				},
@@ -212,7 +208,6 @@ describe('automatic token refresh in api calls', () => {
 					name: 'John Doe',
 				},
 			],
-			extra: {}
 		});
 	});
 });

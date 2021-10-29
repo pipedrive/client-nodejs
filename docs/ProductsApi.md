@@ -8,7 +8,6 @@ Method | HTTP request | Description
 [**addProductFollower**](ProductsApi.md#addProductFollower) | **POST** /products/{id}/followers | Add a follower to a product
 [**deleteProduct**](ProductsApi.md#deleteProduct) | **DELETE** /products/{id} | Delete a product
 [**deleteProductFollower**](ProductsApi.md#deleteProductFollower) | **DELETE** /products/{id}/followers/{follower_id} | Delete a follower from a product
-[**findProductsByName**](ProductsApi.md#findProductsByName) | **GET** /products/find | Find products by name
 [**getProduct**](ProductsApi.md#getProduct) | **GET** /products/{id} | Get one product
 [**getProductDeals**](ProductsApi.md#getProductDeals) | **GET** /products/{id}/deals | Get deals where a product is attached to
 [**getProductFiles**](ProductsApi.md#getProductFiles) | **GET** /products/{id}/files | List files attached to a product
@@ -227,67 +226,6 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [api_key](../README.md#api_key)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## findProductsByName
-
-> FindProductsByNameResponse findProductsByName(term, opts)
-
-Find products by name
-
-This endpoint is deprecated. Please use &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/Products#searchProducts\&quot;&gt;/v1/products/search&lt;/a&gt; or &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\&quot;&gt;/v1/itemSearch&lt;/a&gt; instead. &lt;br&gt; Returns data about the products that were found. If currency was set in request, prices in that currency are served back.
-
-### Example
-
-```javascript
-import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
-// Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
-api_key.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.apiKeyPrefix = 'Token';
-// Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
-oauth2.accessToken = 'YOUR ACCESS TOKEN';
-
-let apiInstance = new Pipedrive.ProductsApi();
-let term = "term_example"; // String | Search term to look for, minimum 3 characters.
-let opts = {
-  'currency': "currency_example", // String | Currency code in which prices should be returned in. If omitted, prices in user's default currency will be returned.
-  'start': 0, // Number | Pagination start
-  'limit': 56 // Number | Items shown per page
-};
-apiInstance.findProductsByName(term, opts).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **term** | **String**| Search term to look for, minimum 3 characters. | 
- **currency** | **String**| Currency code in which prices should be returned in. If omitted, prices in user&#39;s default currency will be returned. | [optional] 
- **start** | **Number**| Pagination start | [optional] [default to 0]
- **limit** | **Number**| Items shown per page | [optional] 
-
-### Return type
-
-[**FindProductsByNameResponse**](FindProductsByNameResponse.md)
-
-### Authorization
-
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 

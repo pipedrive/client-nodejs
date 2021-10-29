@@ -309,7 +309,6 @@ Class | Method | HTTP request | Description
 *Pipedrive.DealsApi* | [**getDealUpdates**](docs/DealsApi.md#getDealUpdates) | **GET** /deals/{id}/flow | List updates about a deal
 *Pipedrive.DealsApi* | [**getDealUsers**](docs/DealsApi.md#getDealUsers) | **GET** /deals/{id}/permittedUsers | List permitted users
 *Pipedrive.DealsApi* | [**getDeals**](docs/DealsApi.md#getDeals) | **GET** /deals | Get all deals
-*Pipedrive.DealsApi* | [**getDealsByName**](docs/DealsApi.md#getDealsByName) | **GET** /deals/find | Find deals by name
 *Pipedrive.DealsApi* | [**getDealsSummary**](docs/DealsApi.md#getDealsSummary) | **GET** /deals/summary | Get deals summary
 *Pipedrive.DealsApi* | [**getDealsTimeline**](docs/DealsApi.md#getDealsTimeline) | **GET** /deals/timeline | Get deals timeline
 *Pipedrive.DealsApi* | [**mergeDeals**](docs/DealsApi.md#mergeDeals) | **PUT** /deals/{id}/merge | Merge two deals
@@ -385,7 +384,6 @@ Class | Method | HTTP request | Description
 *Pipedrive.OrganizationsApi* | [**deleteOrganizations**](docs/OrganizationsApi.md#deleteOrganizations) | **DELETE** /organizations | Delete multiple organizations in bulk
 *Pipedrive.OrganizationsApi* | [**getOrganization**](docs/OrganizationsApi.md#getOrganization) | **GET** /organizations/{id} | Get details of an organization
 *Pipedrive.OrganizationsApi* | [**getOrganizationActivities**](docs/OrganizationsApi.md#getOrganizationActivities) | **GET** /organizations/{id}/activities | List activities associated with an organization
-*Pipedrive.OrganizationsApi* | [**getOrganizationByName**](docs/OrganizationsApi.md#getOrganizationByName) | **GET** /organizations/find | Find organizations by name
 *Pipedrive.OrganizationsApi* | [**getOrganizationDeals**](docs/OrganizationsApi.md#getOrganizationDeals) | **GET** /organizations/{id}/deals | List deals associated with an organization
 *Pipedrive.OrganizationsApi* | [**getOrganizationFiles**](docs/OrganizationsApi.md#getOrganizationFiles) | **GET** /organizations/{id}/files | List files attached to an organization
 *Pipedrive.OrganizationsApi* | [**getOrganizationFollowers**](docs/OrganizationsApi.md#getOrganizationFollowers) | **GET** /organizations/{id}/followers | List followers of an organization
@@ -413,7 +411,6 @@ Class | Method | HTTP request | Description
 *Pipedrive.PersonsApi* | [**deletePersonFollower**](docs/PersonsApi.md#deletePersonFollower) | **DELETE** /persons/{id}/followers/{follower_id} | Deletes a follower from a person.
 *Pipedrive.PersonsApi* | [**deletePersonPicture**](docs/PersonsApi.md#deletePersonPicture) | **DELETE** /persons/{id}/picture | Delete person picture
 *Pipedrive.PersonsApi* | [**deletePersons**](docs/PersonsApi.md#deletePersons) | **DELETE** /persons | Delete multiple persons in bulk
-*Pipedrive.PersonsApi* | [**findPersonByName**](docs/PersonsApi.md#findPersonByName) | **GET** /persons/find | Find persons by name
 *Pipedrive.PersonsApi* | [**getPerson**](docs/PersonsApi.md#getPerson) | **GET** /persons/{id} | Get details of a person
 *Pipedrive.PersonsApi* | [**getPersonActivities**](docs/PersonsApi.md#getPersonActivities) | **GET** /persons/{id}/activities | List activities associated with a person
 *Pipedrive.PersonsApi* | [**getPersonDeals**](docs/PersonsApi.md#getPersonDeals) | **GET** /persons/{id}/deals | List deals associated with a person
@@ -445,7 +442,6 @@ Class | Method | HTTP request | Description
 *Pipedrive.ProductsApi* | [**addProductFollower**](docs/ProductsApi.md#addProductFollower) | **POST** /products/{id}/followers | Add a follower to a product
 *Pipedrive.ProductsApi* | [**deleteProduct**](docs/ProductsApi.md#deleteProduct) | **DELETE** /products/{id} | Delete a product
 *Pipedrive.ProductsApi* | [**deleteProductFollower**](docs/ProductsApi.md#deleteProductFollower) | **DELETE** /products/{id}/followers/{follower_id} | Delete a follower from a product
-*Pipedrive.ProductsApi* | [**findProductsByName**](docs/ProductsApi.md#findProductsByName) | **GET** /products/find | Find products by name
 *Pipedrive.ProductsApi* | [**getProduct**](docs/ProductsApi.md#getProduct) | **GET** /products/{id} | Get one product
 *Pipedrive.ProductsApi* | [**getProductDeals**](docs/ProductsApi.md#getProductDeals) | **GET** /products/{id}/deals | Get deals where a product is attached to
 *Pipedrive.ProductsApi* | [**getProductFiles**](docs/ProductsApi.md#getProductFiles) | **GET** /products/{id}/files | List files attached to a product
@@ -466,8 +462,6 @@ Class | Method | HTTP request | Description
 *Pipedrive.RolesApi* | [**getRoleSubRoles**](docs/RolesApi.md#getRoleSubRoles) | **GET** /roles/{id}/roles | List role sub-roles
 *Pipedrive.RolesApi* | [**getRoles**](docs/RolesApi.md#getRoles) | **GET** /roles | Get all roles
 *Pipedrive.RolesApi* | [**updateRole**](docs/RolesApi.md#updateRole) | **PUT** /roles/{id} | Update role details
-*Pipedrive.SearchResultsApi* | [**search**](docs/SearchResultsApi.md#search) | **GET** /searchResults | Perform a search
-*Pipedrive.SearchResultsApi* | [**searchByField**](docs/SearchResultsApi.md#searchByField) | **GET** /searchResults/field | Perform a search using a specific field value
 *Pipedrive.StagesApi* | [**addStage**](docs/StagesApi.md#addStage) | **POST** /stages | Add a new stage
 *Pipedrive.StagesApi* | [**deleteStage**](docs/StagesApi.md#deleteStage) | **DELETE** /stages/{id} | Delete a stage
 *Pipedrive.StagesApi* | [**deleteStages**](docs/StagesApi.md#deleteStages) | **DELETE** /stages | Delete multiple stages in bulk
@@ -569,6 +563,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.AddedDealFollowerData](docs/AddedDealFollowerData.md)
  - [Pipedrive.AdditionalBaseOrganizationItemInfo](docs/AdditionalBaseOrganizationItemInfo.md)
  - [Pipedrive.AdditionalData](docs/AdditionalData.md)
+ - [Pipedrive.AdditionalDataWithPagination](docs/AdditionalDataWithPagination.md)
  - [Pipedrive.AdditionalDataWithPaginationDetails](docs/AdditionalDataWithPaginationDetails.md)
  - [Pipedrive.AdditionalMergePersonInfo](docs/AdditionalMergePersonInfo.md)
  - [Pipedrive.AdditionalPersonInfo](docs/AdditionalPersonInfo.md)
@@ -776,8 +771,6 @@ Class | Method | HTTP request | Description
  - [Pipedrive.FiltersPostResponseAllOf](docs/FiltersPostResponseAllOf.md)
  - [Pipedrive.FiltersPostResponseAllOfData](docs/FiltersPostResponseAllOfData.md)
  - [Pipedrive.FindGoalResponse](docs/FindGoalResponse.md)
- - [Pipedrive.FindProductsByNameResponse](docs/FindProductsByNameResponse.md)
- - [Pipedrive.FindProductsByNameResponseData](docs/FindProductsByNameResponseData.md)
  - [Pipedrive.FollowerData](docs/FollowerData.md)
  - [Pipedrive.FollowerDataWithID](docs/FollowerDataWithID.md)
  - [Pipedrive.FollowerDataWithIDAllOf](docs/FollowerDataWithIDAllOf.md)
@@ -800,9 +793,6 @@ Class | Method | HTTP request | Description
  - [Pipedrive.GetDeal](docs/GetDeal.md)
  - [Pipedrive.GetDealAdditionalData](docs/GetDealAdditionalData.md)
  - [Pipedrive.GetDeals](docs/GetDeals.md)
- - [Pipedrive.GetDealsByName](docs/GetDealsByName.md)
- - [Pipedrive.GetDealsByNameAdditionalData](docs/GetDealsByNameAdditionalData.md)
- - [Pipedrive.GetDealsByNameData](docs/GetDealsByNameData.md)
  - [Pipedrive.GetDealsConversionRatesInPipeline](docs/GetDealsConversionRatesInPipeline.md)
  - [Pipedrive.GetDealsConversionRatesInPipelineAllOf](docs/GetDealsConversionRatesInPipelineAllOf.md)
  - [Pipedrive.GetDealsConversionRatesInPipelineAllOfData](docs/GetDealsConversionRatesInPipelineAllOfData.md)

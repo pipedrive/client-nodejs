@@ -11,7 +11,6 @@ Method | HTTP request | Description
 [**deleteOrganizations**](OrganizationsApi.md#deleteOrganizations) | **DELETE** /organizations | Delete multiple organizations in bulk
 [**getOrganization**](OrganizationsApi.md#getOrganization) | **GET** /organizations/{id} | Get details of an organization
 [**getOrganizationActivities**](OrganizationsApi.md#getOrganizationActivities) | **GET** /organizations/{id}/activities | List activities associated with an organization
-[**getOrganizationByName**](OrganizationsApi.md#getOrganizationByName) | **GET** /organizations/find | Find organizations by name
 [**getOrganizationDeals**](OrganizationsApi.md#getOrganizationDeals) | **GET** /organizations/{id}/deals | List deals associated with an organization
 [**getOrganizationFiles**](OrganizationsApi.md#getOrganizationFiles) | **GET** /organizations/{id}/files | List files attached to an organization
 [**getOrganizationFollowers**](OrganizationsApi.md#getOrganizationFollowers) | **GET** /organizations/{id}/followers | List followers of an organization
@@ -401,65 +400,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ListActivitiesResponse**](ListActivitiesResponse.md)
-
-### Authorization
-
-[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## getOrganizationByName
-
-> Object getOrganizationByName(term, opts)
-
-Find organizations by name
-
-This endpoint is deprecated. Please use &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/Organizations#searchOrganization\&quot;&gt;/v1/organizations/search&lt;/a&gt; or &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\&quot;&gt;/v1/itemSearch&lt;/a&gt; instead. &lt;br&gt; Searches all organizations by their name.
-
-### Example
-
-```javascript
-import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
-// Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
-api_key.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.apiKeyPrefix = 'Token';
-// Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
-oauth2.accessToken = 'YOUR ACCESS TOKEN';
-
-let apiInstance = new Pipedrive.OrganizationsApi();
-let term = "term_example"; // String | Search term to look for
-let opts = {
-  'start': 0, // Number | Pagination start
-  'limit': 56 // Number | Items shown per page
-};
-apiInstance.getOrganizationByName(term, opts).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **term** | **String**| Search term to look for | 
- **start** | **Number**| Pagination start | [optional] [default to 0]
- **limit** | **Number**| Items shown per page | [optional] 
-
-### Return type
-
-**Object**
 
 ### Authorization
 

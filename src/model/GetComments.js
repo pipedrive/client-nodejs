@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import AdditionalData from './AdditionalData';
+import AdditionalDataWithPagination from './AdditionalDataWithPagination';
 import BaseComment from './BaseComment';
 
 /**
@@ -60,7 +60,7 @@ class GetComments {
                 delete data['data'];
             }
             if (data.hasOwnProperty('additional_data')) {
-                obj['additional_data'] = AdditionalData.constructFromObject(data['additional_data']);
+                obj['additional_data'] = AdditionalDataWithPagination.constructFromObject(data['additional_data']);
 
                 delete data['additional_data'];
             }
@@ -89,7 +89,7 @@ GetComments.prototype['success'] = undefined;
 GetComments.prototype['data'] = undefined;
 
 /**
- * @member {module:model/AdditionalData} additional_data
+ * @member {module:model/AdditionalDataWithPagination} additional_data
  */
 GetComments.prototype['additional_data'] = undefined;
 
