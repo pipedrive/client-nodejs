@@ -55,13 +55,6 @@ export default class FieldTypeAsString {
 
     
         /**
-         * value: "int"
-         * @const
-         */
-        "int" = "int";
-
-    
-        /**
          * value: "monetary"
          * @const
          */

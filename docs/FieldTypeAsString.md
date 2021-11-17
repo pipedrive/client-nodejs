@@ -13,8 +13,6 @@
 
 * `enum` (value: `"enum"`)
 
-* `int` (value: `"int"`)
-
 * `monetary` (value: `"monetary"`)
 
 * `org` (value: `"org"`)
