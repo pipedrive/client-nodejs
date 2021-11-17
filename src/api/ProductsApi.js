@@ -680,6 +680,7 @@ export default class ProductsApi {
      * Returns data about all Products
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId If supplied, only Products owned by the given user will be returned
+     * @param {Number} opts.filterId ID of the filter to use
      * @param {Array.<Number>} opts.ids An array of integers with the IDs of the Products that sould be returned in the response
      * @param {String} opts.firstChar If supplied, only Products whose name starts with the specified letter will be returned (case insensitive)
      * @param {Boolean} opts.getSummary If supplied, response will return the total numbers of Products in the `additional_data.summary.total_count` property
@@ -695,6 +696,7 @@ export default class ProductsApi {
       };
       let queryParams = {
         'user_id': opts['userId'],
+        'filter_id': opts['filterId'],
         'ids': this.apiClient.buildCollectionParam(opts['ids'], 'csv'),
         'first_char': opts['firstChar'],
         'get_summary': opts['getSummary'],
@@ -738,6 +740,7 @@ export default class ProductsApi {
      * Returns data about all Products
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId If supplied, only Products owned by the given user will be returned
+     * @param {Number} opts.filterId ID of the filter to use
      * @param {Array.<Number>} opts.ids An array of integers with the IDs of the Products that sould be returned in the response
      * @param {String} opts.firstChar If supplied, only Products whose name starts with the specified letter will be returned (case insensitive)
      * @param {Boolean} opts.getSummary If supplied, response will return the total numbers of Products in the `additional_data.summary.total_count` property

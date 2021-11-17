@@ -544,6 +544,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new Pipedrive.ProductsApi();
 let opts = {
   'userId': 56, // Number | If supplied, only Products owned by the given user will be returned
+  'filterId': 56, // Number | ID of the filter to use
   'ids': [null], // [Number] | An array of integers with the IDs of the Products that sould be returned in the response
   'firstChar': "firstChar_example", // String | If supplied, only Products whose name starts with the specified letter will be returned (case insensitive)
   'getSummary': true, // Boolean | If supplied, response will return the total numbers of Products in the `additional_data.summary.total_count` property
@@ -564,6 +565,7 @@ apiInstance.getProducts(opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| If supplied, only Products owned by the given user will be returned | [optional] 
+ **filterId** | **Number**| ID of the filter to use | [optional] 
  **ids** | [**[Number]**](Number.md)| An array of integers with the IDs of the Products that sould be returned in the response | [optional] 
  **firstChar** | **String**| If supplied, only Products whose name starts with the specified letter will be returned (case insensitive) | [optional] 
  **getSummary** | **Boolean**| If supplied, response will return the total numbers of Products in the &#x60;additional_data.summary.total_count&#x60; property | [optional] 
