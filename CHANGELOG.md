@@ -8,6 +8,12 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## 13.0.0
+### Removed
+- Removed `int` type from `POST /v1/organizationFields` field_type values
+- Removed `int` type from `POST /v1/personFields` field_type values
+- Removed `int` type from `POST /v1/dealFields` field_type values
+
 ## 12.2.0
 ### Changed
 - Changed notes and comments endpoints additional_data to match the correct pagination response
