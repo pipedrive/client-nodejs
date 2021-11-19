@@ -1,0 +1,7 @@
+projectKey=Pipedrive:Pipedrive:client-nodejs
+serverUrl=https://sonarqube.pipedrive.tools
+serverVersion=8.7.0.41497
+branch=master - Ruudi Vinter
+dashboardUrl=https://sonarqube.pipedrive.tools/dashboard?id=Pipedrive%3APipedrive%3Aclient-nodejs&branch=master+-+Ruudi+Vinter
+ceTaskId=AX03ny5HMPeasASJehYF
+ceTaskUrl=https://sonarqube.pipedrive.tools/api/ce/task?id=AX03ny5HMPeasASJehYF
