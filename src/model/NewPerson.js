@@ -12,6 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
+import BasePersonItemEmail from './BasePersonItemEmail';
+import BasePersonItemPhone from './BasePersonItemPhone';
 import BasicPerson from './BasicPerson';
 import NewPersonAllOf from './NewPersonAllOf';
 import VisibleTo from './VisibleTo';
@@ -72,12 +74,12 @@ class NewPerson {
                 delete data['org_id'];
             }
             if (data.hasOwnProperty('email')) {
-                obj['email'] = ApiClient.convertToType(data['email'], ['String']);
+                obj['email'] = ApiClient.convertToType(data['email'], [BasePersonItemEmail]);
 
                 delete data['email'];
             }
             if (data.hasOwnProperty('phone')) {
-                obj['phone'] = ApiClient.convertToType(data['phone'], ['String']);
+                obj['phone'] = ApiClient.convertToType(data['phone'], [BasePersonItemPhone]);
 
                 delete data['phone'];
             }
@@ -122,14 +124,14 @@ NewPerson.prototype['owner_id'] = undefined;
 NewPerson.prototype['org_id'] = undefined;
 
 /**
- * Email addresses (one or more) associated with the person, presented in the same manner as received by GET request of a person.
- * @member {Array.<String>} email
+ * List of email data related to the Person
+ * @member {Array.<module:model/BasePersonItemEmail>} email
  */
 NewPerson.prototype['email'] = undefined;
 
 /**
- * Phone numbers (one or more) associated with the person, presented in the same manner as received by GET request of a person.
- * @member {Array.<String>} phone
+ * List of phone data related to the Person
+ * @member {Array.<module:model/BasePersonItemPhone>} phone
  */
 NewPerson.prototype['phone'] = undefined;
 
@@ -163,13 +165,13 @@ BasicPerson.prototype['owner_id'] = undefined;
  */
 BasicPerson.prototype['org_id'] = undefined;
 /**
- * Email addresses (one or more) associated with the person, presented in the same manner as received by GET request of a person.
- * @member {Array.<String>} email
+ * List of email data related to the Person
+ * @member {Array.<module:model/BasePersonItemEmail>} email
  */
 BasicPerson.prototype['email'] = undefined;
 /**
- * Phone numbers (one or more) associated with the person, presented in the same manner as received by GET request of a person.
- * @member {Array.<String>} phone
+ * List of phone data related to the Person
+ * @member {Array.<module:model/BasePersonItemPhone>} phone
  */
 BasicPerson.prototype['phone'] = undefined;
 /**

@@ -7,6 +7,9 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Fixed
+- Fixed items type for `email` and `phone` body parameters
+* POST /persons
 ## 13.0.1
 ### Added
 - Added `filter_id` to `GET /products` query parameters that was wrongfully removed in 0.1.18
