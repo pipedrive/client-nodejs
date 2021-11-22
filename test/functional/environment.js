@@ -27,7 +27,9 @@ async function runTests() {
 
 	console.log(`./node_modules/.bin/jest ${options.join(' ')}`);
 
-	await shell.exec(`./node_modules/.bin/jest ${options.join(' ')}`);
+	const { code, } = await shell.exec(`./node_modules/.bin/jest ${options.join(' ')}`);
+
+	return code;
 }
 
 async function main() {
@@ -43,9 +45,9 @@ async function main() {
 	}
 
 	try {
-		await runTests();
+		const code = await runTests();
 
-		process.exit(0);
+		process.exit(code || 0);
 	} catch (error) {
 		console.log(error);
 		process.exit(1);
