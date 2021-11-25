@@ -10,7 +10,9 @@
     "test": "npm run test:functional:start && npm run test:functional && npm run test:functional:stop",
     "test:functional": "node ./test/functional/environment.js",
     "test:functional:start": "node ./test/functional/environment.js --start-environment",
-    "test:functional:stop": "node ./test/functional/environment.js --stop-environment"
+    "test:functional:stop": "node ./test/functional/environment.js --stop-environment",
+    "sonar": "pipedrive-sonar-scanner",
+    "test:coverage": "npm run test:functional:start && npm run test:functional -- --collectCoverage && npm run test:functional:stop"
   },
   "browser": {
     "fs": false
@@ -41,6 +43,7 @@
     "@babel/plugin-transform-runtime": "^7.12.1",
     "@babel/preset-env": "^7.0.0",
     "@babel/register": "^7.0.0",
+    "@pipedrive/sonar-scanner": "^3.3.0",
     "axios": "^0.21.0",
     "expect.js": "^0.3.1",
     "jest": "^26.6.3",
