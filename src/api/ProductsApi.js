@@ -154,7 +154,7 @@ export default class ProductsApi {
         }
       }
 
-      let authNames = ['api_key', ];
+      let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
       let returnType = NewFollowerResponse;
       return this.apiClient.callApi(
@@ -292,7 +292,7 @@ export default class ProductsApi {
         }
       }
 
-      let authNames = ['api_key', ];
+      let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
       let returnType = DeleteProductFollowerResponse;
       return this.apiClient.callApi(
@@ -681,7 +681,7 @@ export default class ProductsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId If supplied, only Products owned by the given user will be returned
      * @param {Number} opts.filterId ID of the filter to use
-     * @param {Array.<Number>} opts.ids An array of integers with the IDs of the Products that sould be returned in the response
+     * @param {Array.<Number>} opts.ids An array of integers with the IDs of the Products that should be returned in the response
      * @param {String} opts.firstChar If supplied, only Products whose name starts with the specified letter will be returned (case insensitive)
      * @param {Boolean} opts.getSummary If supplied, response will return the total numbers of Products in the `additional_data.summary.total_count` property
      * @param {Number} opts.start Pagination start (default to 0)
@@ -741,7 +741,7 @@ export default class ProductsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId If supplied, only Products owned by the given user will be returned
      * @param {Number} opts.filterId ID of the filter to use
-     * @param {Array.<Number>} opts.ids An array of integers with the IDs of the Products that sould be returned in the response
+     * @param {Array.<Number>} opts.ids An array of integers with the IDs of the Products that should be returned in the response
      * @param {String} opts.firstChar If supplied, only Products whose name starts with the specified letter will be returned (case insensitive)
      * @param {Boolean} opts.getSummary If supplied, response will return the total numbers of Products in the `additional_data.summary.total_count` property
      * @param {Number} opts.start Pagination start (default to 0)

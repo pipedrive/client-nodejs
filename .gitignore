@@ -35,7 +35,3 @@ node_modules
 .openapi-generator
 .idea
 dist
-client-nodejs.iml
-
-# Sonaqube related files
-.sonar

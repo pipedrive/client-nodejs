@@ -92,6 +92,9 @@ let api_key = defaultClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = defaultClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductsApi();
 let id = 56; // Number | ID of the product
@@ -120,7 +123,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key)
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -199,6 +202,9 @@ let api_key = defaultClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = defaultClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductsApi();
 let id = 56; // Number | ID of the product
@@ -225,7 +231,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_key](../README.md#api_key)
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -545,7 +551,7 @@ let apiInstance = new Pipedrive.ProductsApi();
 let opts = {
   'userId': 56, // Number | If supplied, only Products owned by the given user will be returned
   'filterId': 56, // Number | ID of the filter to use
-  'ids': [null], // [Number] | An array of integers with the IDs of the Products that sould be returned in the response
+  'ids': [null], // [Number] | An array of integers with the IDs of the Products that should be returned in the response
   'firstChar': "firstChar_example", // String | If supplied, only Products whose name starts with the specified letter will be returned (case insensitive)
   'getSummary': true, // Boolean | If supplied, response will return the total numbers of Products in the `additional_data.summary.total_count` property
   'start': 0, // Number | Pagination start
@@ -566,7 +572,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| If supplied, only Products owned by the given user will be returned | [optional] 
  **filterId** | **Number**| ID of the filter to use | [optional] 
- **ids** | [**[Number]**](Number.md)| An array of integers with the IDs of the Products that sould be returned in the response | [optional] 
+ **ids** | [**[Number]**](Number.md)| An array of integers with the IDs of the Products that should be returned in the response | [optional] 
  **firstChar** | **String**| If supplied, only Products whose name starts with the specified letter will be returned (case insensitive) | [optional] 
  **getSummary** | **Boolean**| If supplied, response will return the total numbers of Products in the &#x60;additional_data.summary.total_count&#x60; property | [optional] 
  **start** | **Number**| Pagination start | [optional] [default to 0]

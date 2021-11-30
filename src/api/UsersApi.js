@@ -643,7 +643,7 @@ export default class UsersApi {
         }
       }
 
-      let authNames = ['api_key', ];
+      let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
       let returnType = GetRoleAssignments;
       return this.apiClient.callApi(
