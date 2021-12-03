@@ -1,5 +1,5 @@
 const mockServer = require('mockserver-client');
-const {BaseUser} = require("../../dist");
+const {BaseUser} = require("../../src");
 
 const mockServerClient = mockServer.mockServerClient;
 
@@ -89,7 +89,7 @@ describe('automatic token refresh in api calls', () => {
 	beforeEach(async () => {
 		jest.resetModules();
 
-		lib = require('../../dist');
+		lib = require('../../src');
 
 		await mockServerClient('localhost', 1080, null, false).clear('/oauth/token', 'ALL');
 		await mockServerClient('localhost', 1080, null, false).clear('/v1/users', 'ALL');

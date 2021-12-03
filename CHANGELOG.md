@@ -8,6 +8,11 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## 13.0.3
+### Changed
+- Changed/improved `subscription_url` body parameter description
+* POST /webhooks
+
 ## 13.0.2
 ### Fixed
 - Fixed items type for `email` and `phone` body parameters
