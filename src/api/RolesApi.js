@@ -47,9 +47,10 @@ export default class RolesApi {
 
     /**
      * Add or update role setting
+     * Add or update the visibility setting for a role
      * @param {Number} id ID of the role
      * @param {module:model/String} settingKey 
-     * @param {module:model/Object} value Possible values for `default_visibility` settings: `1`, `3`, `5` or `7`
+     * @param {module:model/Number} value Possible values for the `default_visibility` setting depending on the subscription plan:<br> <table class='role-setting'> <caption><b>Essential / Advanced plan</b></caption> <tr><th><b>Value</b></th><th><b>Description</b></th></tr> <tr><td>`1`</td><td>Owner & Followers</td></tr> <tr><td>`3`</td><td>Entire company</td></tr> </table> <br> <table class='role-setting'> <caption><b>Professional / Enterprise plan</b></caption> <tr><th><b>Value</b></th><th><b>Description</b></th></tr> <tr><td>`1`</td><td>Owner only</td></tr> <tr><td>`3`</td><td>Owner&#39;s visibility group</td></tr> <tr><td>`5`</td><td>Owner&#39;s visibility group and sub-groups</td></tr> <tr><td>`7`</td><td>Entire company</td></tr> </table> <br> Read more about visibility groups <a href='https://support.pipedrive.com/en/article/visibility-groups'>here</a>.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostRoleSettings} and HTTP response
      */
     addOrUpdateRoleSettingWithHttpInfo(id, settingKey, value) {
@@ -111,9 +112,10 @@ export default class RolesApi {
 
     /**
      * Add or update role setting
+     * Add or update the visibility setting for a role
      * @param {Number} id ID of the role
      * @param {module:model/String} settingKey 
-     * @param {module:model/Object} value Possible values for `default_visibility` settings: `1`, `3`, `5` or `7`
+     * @param {module:model/Number} value Possible values for the `default_visibility` setting depending on the subscription plan:<br> <table class='role-setting'> <caption><b>Essential / Advanced plan</b></caption> <tr><th><b>Value</b></th><th><b>Description</b></th></tr> <tr><td>`1`</td><td>Owner & Followers</td></tr> <tr><td>`3`</td><td>Entire company</td></tr> </table> <br> <table class='role-setting'> <caption><b>Professional / Enterprise plan</b></caption> <tr><th><b>Value</b></th><th><b>Description</b></th></tr> <tr><td>`1`</td><td>Owner only</td></tr> <tr><td>`3`</td><td>Owner&#39;s visibility group</td></tr> <tr><td>`5`</td><td>Owner&#39;s visibility group and sub-groups</td></tr> <tr><td>`7`</td><td>Entire company</td></tr> </table> <br> Read more about visibility groups <a href='https://support.pipedrive.com/en/article/visibility-groups'>here</a>.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostRoleSettings}
      */
     addOrUpdateRoleSetting(id, settingKey, value) {
