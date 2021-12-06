@@ -11,7 +11,7 @@ describe('oauth2 authorization', () => {
 	beforeEach(async () => {
 		jest.resetModules();
 
-		lib = require('../../dist');
+		lib = require('../../src');
 
 		await mockServerClient('localhost', 1080, null, false).clear('/oauth/token', 'ALL');
 
