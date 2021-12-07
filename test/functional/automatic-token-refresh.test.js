@@ -39,6 +39,7 @@ async function mockTokenRefresh() {
 			body: 'refresh_token=fakeRefreshToken&grant_type=refresh_token',
 			headers: {
 				'Authorization': [`Basic ${base64ClientIdAndSecret}`],
+				'User-Agent': [`Pipedrive-SDK-Javascript-${require('../../package.json').version}`],
 			},
 		},
 		httpResponse: {
@@ -96,25 +97,32 @@ describe('automatic token refresh in api calls', () => {
 	});
 
 	it('should refresh expired access token before making api call', async () => {
-		const pdClient = setUpPdClientWithOAuth(true);
+		try {
+			const pdClient = setUpPdClientWithOAuth(true);
 
-		await mockTokenRefresh();
+			await mockTokenRefresh();
 
-		await mockGetUsers();
+			await mockGetUsers();
 
-		const users = await new lib.UsersApi().getUsers();
+			const users = await new lib.UsersApi().getUsers();
 
-		expect(pdClient.authentications.oauth2.accessToken).toEqual('freshAccessToken');
+			expect(pdClient.authentications.oauth2.accessToken).toEqual('freshAccessToken');
 
-		expect(users).toEqual({
-			success: true,
-			data: [
-				{
-					id: 1,
-					name: 'John Doe',
-				},
-			],
-		});
+			expect(users).toEqual({
+				success: true,
+				data: [
+					{
+						id: 1,
+						name: 'John Doe',
+					},
+				],
+			});
+		}catch(err) {
+			console.log('Logging error!');
+			console.log(err.message);
+			console.log(JSON.stringify(err));
+		}
+		expect.assertions(2);
 	});
 
 	it('should have correct User-Agent request header in api call', async () => {
@@ -196,18 +204,24 @@ describe('automatic token refresh in api calls', () => {
 			},
 		});
 
-		const users = await new lib.UsersApi().getUsers();
+		try {
+			const users = await new lib.UsersApi().getUsers();
+			expect(pdClient.authentications.oauth2.accessToken).toEqual('freshAccessToken');
 
-		expect(pdClient.authentications.oauth2.accessToken).toEqual('freshAccessToken');
-
-		expect(users).toEqual({
-			success: true,
-			data: [
-				{
-					id: 1,
-					name: 'John Doe',
-				},
-			],
-		});
+			expect(users).toEqual({
+				success: true,
+				data: [
+					{
+						id: 1,
+						name: 'John Doe',
+					},
+				],
+			});
+		}catch(err) {
+			console.log('Logging error!');
+			console.log(err.message);
+			console.log(JSON.stringify(err));
+		}
+		expect.assertions(2);
 	});
 });
