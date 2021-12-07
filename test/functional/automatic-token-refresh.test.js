@@ -203,18 +203,24 @@ describe('automatic token refresh in api calls', () => {
 			},
 		});
 
-		const users = await new lib.UsersApi().getUsers();
+		try {
+			const users = await new lib.UsersApi().getUsers();
+			expect(pdClient.authentications.oauth2.accessToken).toEqual('freshAccessToken');
 
-		expect(pdClient.authentications.oauth2.accessToken).toEqual('freshAccessToken');
-
-		expect(users).toEqual({
-			success: true,
-			data: [
-				{
-					id: 1,
-					name: 'John Doe',
-				},
-			],
-		});
+			expect(users).toEqual({
+				success: true,
+				data: [
+					{
+						id: 1,
+						name: 'John Doe',
+					},
+				],
+			});
+		}catch(err) {
+			console.log('Logging error!');
+			console.log(err.message);
+			console.log(JSON.stringify(err));
+		}
+		expect.assertions(2);
 	});
 });
