@@ -39,6 +39,7 @@ async function mockTokenRefresh() {
 			body: 'refresh_token=fakeRefreshToken&grant_type=refresh_token',
 			headers: {
 				'Authorization': [`Basic ${base64ClientIdAndSecret}`],
+				'User-Agent': [`Pipedrive-SDK-Javascript-${require('../../package.json').version}`],
 			},
 		},
 		httpResponse: {
