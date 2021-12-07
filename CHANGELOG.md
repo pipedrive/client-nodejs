@@ -8,10 +8,6 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
-## 13.1.0
-### Added
-- Added `required` parameters for `POST` endpoints on the client side. 
-
 ## 13.0.4
 ### Fixed
 - Fixed typo in `ids` query parameter description in GET /products
