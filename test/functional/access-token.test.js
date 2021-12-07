@@ -12,7 +12,7 @@ describe('oauth2 accessToken', () => {
 	beforeEach(async () => {
 		jest.resetModules();
 
-		lib = require('../../dist');
+		lib = require('../../src');
 
 		await mockServerClient('localhost', 1080, null, false).clear('/oauth/token', 'ALL');
 
