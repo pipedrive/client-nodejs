@@ -5,7 +5,8 @@ const shell = require('shelljs');
 function startEnvironment() {
 	mockServer.start_mockserver({
 		serverPort: 1080,
-		trace: true
+		trace: true,
+		verbose: true,
 	});
 }
 function stopEnvironment() {
