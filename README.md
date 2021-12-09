@@ -1208,6 +1208,10 @@ Class | Method | HTTP request | Description
 - **Scopes**: 
   - deals:read: Read most data about deals and related entities.
   - deals:full: Create, read, update and delete deals, its participants and followers.
+  - goals:read: Read data on all goals.
+  - goals:full: Create, read, update and delete goals.
+  - leads:read: Read leads and leads labels.
+  - leads:full: Create, read, update and delete leads and leads labels
   - activities:read: Read activities, its fields and types; all files and filters.
   - activities:full: Create, read, update and delete activities and all files and filters.
   - contacts:read: Read data about persons and organizations, their related fields and followers.

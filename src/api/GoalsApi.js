@@ -76,7 +76,7 @@ export default class GoalsApi {
         }
       }
 
-      let authNames = ['api_key', ];
+      let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
       let returnType = AddOrUpdateGoalResponse200;
       return this.apiClient.callApi(
@@ -142,7 +142,7 @@ export default class GoalsApi {
         }
       }
 
-      let authNames = ['api_key', ];
+      let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
       let returnType = DeleteGoalResponse200;
       return this.apiClient.callApi(
@@ -219,7 +219,7 @@ export default class GoalsApi {
         }
       }
 
-      let authNames = ['api_key', ];
+      let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
       let returnType = GetGoalResultResponse200;
       return this.apiClient.callApi(
@@ -307,7 +307,7 @@ export default class GoalsApi {
         }
       }
 
-      let authNames = ['api_key', ];
+      let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
       let returnType = GetGoalsResponse200;
       return this.apiClient.callApi(
@@ -404,7 +404,7 @@ export default class GoalsApi {
         }
       }
 
-      let authNames = ['api_key', ];
+      let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
       let returnType = AddOrUpdateGoalResponse200;
       return this.apiClient.callApi(

@@ -593,7 +593,7 @@ export default class DealsApi {
         }
       }
 
-      let authNames = ['api_key', ];
+      let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
       let returnType = DeleteDealProduct;
       return this.apiClient.callApi(
