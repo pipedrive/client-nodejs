@@ -154,7 +154,7 @@ export default class ProductsApi {
         }
       }
 
-      let authNames = ['api_key', ];
+      let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
       let returnType = NewFollowerResponse;
       return this.apiClient.callApi(
@@ -292,7 +292,7 @@ export default class ProductsApi {
         }
       }
 
-      let authNames = ['api_key', ];
+      let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
       let returnType = DeleteProductFollowerResponse;
       return this.apiClient.callApi(

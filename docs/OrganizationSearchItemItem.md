@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **address** | **String** | The address of the Organization | [optional] 
 **visibleTo** | **Number** | The visibility of the Organization | [optional] 
 **owner** | [**DealSearchItemItemOwner**](DealSearchItemItemOwner.md) |  | [optional] 
-**customFields** | **Number** | Custom fields | [optional] 
+**customFields** | **[String]** | Custom fields | [optional] 
 **notes** | **[String]** | An array of Notes | [optional] 
 
 
