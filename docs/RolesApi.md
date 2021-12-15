@@ -24,6 +24,8 @@ Method | HTTP request | Description
 
 Add or update role setting
 
+Add or update the visibility setting for a role
+
 ### Example
 
 ```javascript
@@ -38,7 +40,7 @@ api_key.apiKey = 'YOUR API KEY';
 let apiInstance = new Pipedrive.RolesApi();
 let id = 56; // Number | ID of the role
 let settingKey = "settingKey_example"; // String | 
-let value = null; // Object | Possible values for `default_visibility` settings: `1`, `3`, `5` or `7`
+let value = 56; // Number | Possible values for the `default_visibility` setting depending on the subscription plan:<br> <table class='role-setting'> <caption><b>Essential / Advanced plan</b></caption> <tr><th><b>Value</b></th><th><b>Description</b></th></tr> <tr><td>`1`</td><td>Owner & Followers</td></tr> <tr><td>`3`</td><td>Entire company</td></tr> </table> <br> <table class='role-setting'> <caption><b>Professional / Enterprise plan</b></caption> <tr><th><b>Value</b></th><th><b>Description</b></th></tr> <tr><td>`1`</td><td>Owner only</td></tr> <tr><td>`3`</td><td>Owner&#39;s visibility group</td></tr> <tr><td>`5`</td><td>Owner&#39;s visibility group and sub-groups</td></tr> <tr><td>`7`</td><td>Entire company</td></tr> </table> <br> Read more about visibility groups <a href='https://support.pipedrive.com/en/article/visibility-groups'>here</a>.
 apiInstance.addOrUpdateRoleSetting(id, settingKey, value).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -54,7 +56,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| ID of the role | 
  **settingKey** | **String**|  | 
- **value** | [**Object**](Object.md)| Possible values for &#x60;default_visibility&#x60; settings: &#x60;1&#x60;, &#x60;3&#x60;, &#x60;5&#x60; or &#x60;7&#x60; | 
+ **value** | **Number**| Possible values for the &#x60;default_visibility&#x60; setting depending on the subscription plan:&lt;br&gt; &lt;table class&#x3D;&#39;role-setting&#39;&gt; &lt;caption&gt;&lt;b&gt;Essential / Advanced plan&lt;/b&gt;&lt;/caption&gt; &lt;tr&gt;&lt;th&gt;&lt;b&gt;Value&lt;/b&gt;&lt;/th&gt;&lt;th&gt;&lt;b&gt;Description&lt;/b&gt;&lt;/th&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&#x60;1&#x60;&lt;/td&gt;&lt;td&gt;Owner &amp; Followers&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&#x60;3&#x60;&lt;/td&gt;&lt;td&gt;Entire company&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; &lt;br&gt; &lt;table class&#x3D;&#39;role-setting&#39;&gt; &lt;caption&gt;&lt;b&gt;Professional / Enterprise plan&lt;/b&gt;&lt;/caption&gt; &lt;tr&gt;&lt;th&gt;&lt;b&gt;Value&lt;/b&gt;&lt;/th&gt;&lt;th&gt;&lt;b&gt;Description&lt;/b&gt;&lt;/th&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&#x60;1&#x60;&lt;/td&gt;&lt;td&gt;Owner only&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&#x60;3&#x60;&lt;/td&gt;&lt;td&gt;Owner&amp;#39;s visibility group&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&#x60;5&#x60;&lt;/td&gt;&lt;td&gt;Owner&amp;#39;s visibility group and sub-groups&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&#x60;7&#x60;&lt;/td&gt;&lt;td&gt;Entire company&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; &lt;br&gt; Read more about visibility groups &lt;a href&#x3D;&#39;https://support.pipedrive.com/en/article/visibility-groups&#39;&gt;here&lt;/a&gt;. | 
 
 ### Return type
 
