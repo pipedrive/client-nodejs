@@ -145,7 +145,7 @@ AddProductRequestBody.prototype['active_flag'] = undefined;
 AddProductRequestBody.prototype['selectable'] = undefined;
 
 /**
- * Visibility of the product. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
+ * Visibility of the product. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user. Read more about visibility groups <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.<h4>Essential / Advanced plan</h4><table><tr><th style=\"width: 40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers</td><tr><td>`3`</td><td>Entire company</td></tr></table><h4>Professional / Enterprise plan</h4><table><tr><th style=\"width: 40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner only</td><tr><td>`3`</td><td>Owner's visibility group</td></tr><tr><td>`5`</td><td>Owner's visibility group and sub-groups</td></tr><tr><td>`7`</td><td>Entire company</td></tr></table>
  * @member {module:model/VisibleTo} visible_to
  */
 AddProductRequestBody.prototype['visible_to'] = undefined;
@@ -157,7 +157,7 @@ AddProductRequestBody.prototype['visible_to'] = undefined;
 AddProductRequestBody.prototype['owner_id'] = undefined;
 
 /**
- * Array of objects, each containing: `currency` (string), `price` (number), `cost` (number, optional), `overhead_cost` (number, optional). Note that there can only be one price per product per currency. When `prices` is omitted altogether, no prices will be set up for the product
+ * Object containing price objects, where each key is the price currency code, and each value is the price object. Each price object contains: `currency` (string), `price` (number), `cost` (number, optional), `overhead_cost` (number, optional). Note that there can only be one price per product per currency. When `prices` is omitted altogether, no prices will be set up for the product.
  * @member {Array.<Object>} prices
  */
 AddProductRequestBody.prototype['prices'] = undefined;
@@ -194,7 +194,7 @@ ProductRequest.prototype['active_flag'] = undefined;
  */
 ProductRequest.prototype['selectable'] = undefined;
 /**
- * Visibility of the product. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
+ * Visibility of the product. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user. Read more about visibility groups <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.<h4>Essential / Advanced plan</h4><table><tr><th style=\"width: 40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers</td><tr><td>`3`</td><td>Entire company</td></tr></table><h4>Professional / Enterprise plan</h4><table><tr><th style=\"width: 40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner only</td><tr><td>`3`</td><td>Owner's visibility group</td></tr><tr><td>`5`</td><td>Owner's visibility group and sub-groups</td></tr><tr><td>`7`</td><td>Entire company</td></tr></table>
  * @member {module:model/VisibleTo} visible_to
  */
 ProductRequest.prototype['visible_to'] = undefined;
@@ -204,7 +204,7 @@ ProductRequest.prototype['visible_to'] = undefined;
  */
 ProductRequest.prototype['owner_id'] = undefined;
 /**
- * Array of objects, each containing: `currency` (string), `price` (number), `cost` (number, optional), `overhead_cost` (number, optional). Note that there can only be one price per product per currency. When `prices` is omitted altogether, no prices will be set up for the product
+ * Object containing price objects, where each key is the price currency code, and each value is the price object. Each price object contains: `currency` (string), `price` (number), `cost` (number, optional), `overhead_cost` (number, optional). Note that there can only be one price per product per currency. When `prices` is omitted altogether, no prices will be set up for the product.
  * @member {Array.<Object>} prices
  */
 ProductRequest.prototype['prices'] = undefined;
