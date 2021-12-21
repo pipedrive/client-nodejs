@@ -1,16 +1,18 @@
 const mockServer = require('mockserver-node');
 const minimist = require('minimist');
 const shell = require('shelljs');
+const getPort = require('get-port');
 
-function startEnvironment() {
+function startEnvironment(serverPort) {
 	mockServer.start_mockserver({
-		serverPort: 1080,
+		serverPort,
 		trace: true
 	});
 }
-function stopEnvironment() {
+
+function stopEnvironment(serverPort) {
 	mockServer.stop_mockserver({
-		serverPort: 1080
+		serverPort
 	});
 }
 
@@ -34,14 +36,15 @@ async function runTests() {
 
 async function main() {
 	const argv = minimist(process.argv);
+	const port = await getPort();
 
 	if (argv['start-environment']) {
-		await startEnvironment();
+		await startEnvironment(port);
 		process.exit(0);
 	}
 
 	if (argv['stop-environment']) {
-		return stopEnvironment();
+		return stopEnvironment(port);
 	}
 
 	try {
