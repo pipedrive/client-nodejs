@@ -4,14 +4,14 @@ const shell = require('shelljs');
 const getPort = require('get-port');
 
 function startEnvironment(serverPort) {
-	mockServer.start_mockserver({
+	return mockServer.start_mockserver({
 		serverPort,
 		trace: true
 	});
 }
 
 function stopEnvironment(serverPort) {
-	mockServer.stop_mockserver({
+	return mockServer.stop_mockserver({
 		serverPort
 	});
 }
@@ -41,21 +41,15 @@ async function main() {
 	process.env.MOCK_PORT = port;
 	process.env.MOCK_SERVER = `http://localhost:${port}`
 
-	if (argv['start-environment']) {
-		await startEnvironment(port);
-		process.exit(0);
-	}
-
-	if (argv['stop-environment']) {
-		return stopEnvironment(port);
-	}
-
 	try {
+		await startEnvironment(port);
 		const code = await runTests();
+		stopEnvironment(port);
 
 		process.exit(code || 0);
 	} catch (error) {
 		console.log(error);
+		stopEnvironment(port);
 		process.exit(1);
 	}
 }
