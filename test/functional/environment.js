@@ -17,6 +17,8 @@ function stopEnvironment(serverPort) {
 }
 
 async function runTests() {
+	const ignoreArgs = ['--start-environment','--stop-environment']
+	const extraOptions = process.argv.slice(2).filter(arg=> !ignoreArgs.includes(arg));
 	const options = [
 		`-c ${__dirname}/jest.config.js`,
 		'--verbose',
@@ -24,7 +26,7 @@ async function runTests() {
 		'--detectOpenHandles',
 		'--forceExit',
 		'--color',
-		...process.argv.slice(2),
+		...extraOptions,
 	];
 
 	console.log(`./node_modules/.bin/jest ${options.join(' ')}`);
