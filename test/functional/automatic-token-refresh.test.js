@@ -11,11 +11,11 @@ const clientSecret = 'fakeClientSecret';
 function setUpPdClientWithOAuth(isTokenExpired = false) {
 	const pdClient = lib.ApiClient.instance;
 
-	pdClient.basePath = 'http://localhost:1080/v1';
+	pdClient.basePath = `${process.env.MOCK_SERVER}/v1`;
 
 	const oauth2 = pdClient.authentications.oauth2;
 
-	oauth2.host = 'http://localhost:1080';
+	oauth2.host = process.env.MOCK_SERVER
 	oauth2.clientId = clientId;
 	oauth2.clientSecret = clientSecret;
 	oauth2.redirectUri = 'https://example.org';
@@ -32,7 +32,7 @@ function setUpPdClientWithOAuth(isTokenExpired = false) {
 async function mockTokenRefresh() {
 	const base64ClientIdAndSecret = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');
 
-	return await mockServerClient('localhost', 1080, null, false).mockAnyResponse({
+	return await mockServerClient('localhost', +process.env.MOCK_PORT, null, false).mockAnyResponse({
 		httpRequest: {
 			method: 'POST',
 			path: '/oauth/token',
@@ -53,14 +53,14 @@ async function mockTokenRefresh() {
 				refresh_token: 'freshRefreshToken',
 				scope: 'deals:full,users:full,1337',
 				expires_in: '3600',
-				api_domain: 'http://localhost:1080',
+				api_domain: process.env.MOCK_SERVER,
 			}),
 		},
 	});
 }
 
 async function mockGetUsers() {
-	return await mockServerClient('localhost', 1080, null, false).mockAnyResponse({
+	return await mockServerClient('localhost', +process.env.MOCK_PORT, null, false).mockAnyResponse({
 		httpRequest: {
 			method: 'GET',
 			path: '/v1/users',
@@ -92,8 +92,8 @@ describe('automatic token refresh in api calls', () => {
 
 		lib = require('../../src');
 
-		await mockServerClient('localhost', 1080, null, false).clear('/oauth/token', 'ALL');
-		await mockServerClient('localhost', 1080, null, false).clear('/v1/users', 'ALL');
+		await mockServerClient('localhost', +process.env.MOCK_PORT, null, false).clear('/oauth/token', 'ALL');
+		await mockServerClient('localhost', +process.env.MOCK_PORT, null, false).clear('/v1/users', 'ALL');
 	});
 
 	it('should refresh expired access token before making api call', async () => {
@@ -143,7 +143,7 @@ describe('automatic token refresh in api calls', () => {
 	it('should throw in case of incorrect User-Agent request header in api call', async () => {
 		const pdClient = lib.ApiClient.instance;
 
-		pdClient.basePath = 'http://localhost:1080/v1';
+		pdClient.basePath = `${process.env.MOCK_SERVER}/v1`;
 		pdClient.defaultHeaders = {
 			'User-Agent': 'Wrong-User-Agent',
 		}
@@ -164,7 +164,7 @@ describe('automatic token refresh in api calls', () => {
 
 		await mockTokenRefresh();
 
-		await mockServerClient('localhost', 1080, null, false).mockAnyResponse({
+		await mockServerClient('localhost', +process.env.MOCK_PORT, null, false).mockAnyResponse({
 			httpRequest: {
 				method: 'GET',
 				path: '/v1/users',
@@ -184,7 +184,7 @@ describe('automatic token refresh in api calls', () => {
 			},
 		];
 
-		await mockServerClient('localhost', 1080, null, false).mockAnyResponse({
+		await mockServerClient('localhost', +process.env.MOCK_PORT, null, false).mockAnyResponse({
 			httpRequest: {
 				method: 'GET',
 				path: '/api/v1/users',
