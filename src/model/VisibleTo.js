@@ -33,6 +33,20 @@ export default class VisibleTo {
         "3" = "3";
 
     
+        /**
+         * value: "5"
+         * @const
+         */
+        "5" = "5";
+
+    
+        /**
+         * value: "7"
+         * @const
+         */
+        "7" = "7";
+
+    
 
     /**
     * Returns a <code>VisibleTo</code> enum value from a Javascript object name.

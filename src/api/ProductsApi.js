@@ -154,7 +154,7 @@ export default class ProductsApi {
         }
       }
 
-      let authNames = ['api_key', ];
+      let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
       let returnType = NewFollowerResponse;
       return this.apiClient.callApi(
@@ -249,7 +249,7 @@ export default class ProductsApi {
      * Delete a follower from a product
      * Deletes a follower from a product.
      * @param {Number} id ID of the product
-     * @param {Number} followerId ID of the follower
+     * @param {Number} followerId ID of the relationship between the follower and the product
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteProductFollowerResponse} and HTTP response
      */
     deleteProductFollowerWithHttpInfo(id, followerId) {
@@ -292,7 +292,7 @@ export default class ProductsApi {
         }
       }
 
-      let authNames = ['api_key', ];
+      let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
       let returnType = DeleteProductFollowerResponse;
       return this.apiClient.callApi(
@@ -306,7 +306,7 @@ export default class ProductsApi {
      * Delete a follower from a product
      * Deletes a follower from a product.
      * @param {Number} id ID of the product
-     * @param {Number} followerId ID of the follower
+     * @param {Number} followerId ID of the relationship between the follower and the product
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteProductFollowerResponse}
      */
     deleteProductFollower(id, followerId) {
