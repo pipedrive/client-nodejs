@@ -39,7 +39,7 @@ async function main() {
 	const port = await getPort();
 
 	process.env.MOCK_PORT = port;
-	process.env.MOCK_SERVER = `http://localhost:${port}`
+	process.env.MOCK_SERVER = `http://localhost:${port}`;
 
 	if (argv['start-environment']) {
 		await startEnvironment(port);
