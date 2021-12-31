@@ -4,21 +4,19 @@ const shell = require('shelljs');
 const getPort = require('get-port');
 
 function startEnvironment(serverPort) {
-	return mockServer.start_mockserver({
+	mockServer.start_mockserver({
 		serverPort,
 		trace: true
 	});
 }
 
 function stopEnvironment(serverPort) {
-	return mockServer.stop_mockserver({
+	mockServer.stop_mockserver({
 		serverPort
 	});
 }
 
 async function runTests() {
-	const ignoreArgs = ['--start-environment','--stop-environment']
-	const extraOptions = process.argv.slice(2).filter(arg=> !ignoreArgs.includes(arg));
 	const options = [
 		`-c ${__dirname}/jest.config.js`,
 		'--verbose',
@@ -26,7 +24,7 @@ async function runTests() {
 		'--detectOpenHandles',
 		'--forceExit',
 		'--color',
-		...extraOptions,
+		...process.argv.slice(2),
 	];
 
 	console.log(`./node_modules/.bin/jest ${options.join(' ')}`);
@@ -43,15 +41,21 @@ async function main() {
 	process.env.MOCK_PORT = port;
 	process.env.MOCK_SERVER = `http://localhost:${port}`
 
-	try {
+	if (argv['start-environment']) {
 		await startEnvironment(port);
+		process.exit(0);
+	}
+
+	if (argv['stop-environment']) {
+		return stopEnvironment(port);
+	}
+
+	try {
 		const code = await runTests();
-		stopEnvironment(port);
 
 		process.exit(code || 0);
 	} catch (error) {
 		console.log(error);
-		stopEnvironment(port);
 		process.exit(1);
 	}
 }
