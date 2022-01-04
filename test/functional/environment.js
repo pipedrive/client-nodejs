@@ -1,18 +1,39 @@
 const mockServer = require('mockserver-node');
 const minimist = require('minimist');
 const shell = require('shelljs');
+const fs = require('fs');
+const path = require('path');
 const getPort = require('get-port');
 
-function startEnvironment(serverPort) {
-	mockServer.start_mockserver({
-		serverPort,
+async function getMockedServerPort() {
+	const portPath = path.resolve(__dirname, '.func.test.port');
+
+	if (fs.existsSync(portPath)) {
+		return fs.readFileSync(
+			portPath,
+			'utf-8'
+		);
+	} else {
+		const port = await getPort();
+
+		fs.writeFileSync(
+			portPath,
+			JSON.stringify(port)
+		);
+
+		return port;
+	}
+}
+
+function startEnvironment(port) {
+	return mockServer.start_mockserver({
+		serverPort: port,
 		trace: true
 	});
 }
-
-function stopEnvironment(serverPort) {
-	mockServer.stop_mockserver({
-		serverPort
+function stopEnvironment() {
+	return mockServer.stop_mockserver({
+		serverPort: port
 	});
 }
 
@@ -34,12 +55,10 @@ async function runTests() {
 	return code;
 }
 
-async function main() {
-	const argv = minimist(process.argv);
-	const port = await getPort();
 
-	process.env.MOCK_PORT = port;
-	process.env.MOCK_SERVER = `http://localhost:${port}`;
+async function main() {
+	const port = await getMockedServerPort();
+	const argv = minimist(process.argv);
 
 	if (argv['start-environment']) {
 		await startEnvironment(port);
@@ -58,6 +77,7 @@ async function main() {
 		console.log(error);
 		process.exit(1);
 	}
+
 }
 
 main();
