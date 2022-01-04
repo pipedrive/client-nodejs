@@ -31,7 +31,7 @@ function startEnvironment(port) {
 		trace: true
 	});
 }
-function stopEnvironment() {
+function stopEnvironment(port) {
 	return mockServer.stop_mockserver({
 		serverPort: port
 	});
