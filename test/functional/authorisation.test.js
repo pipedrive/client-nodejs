@@ -13,12 +13,12 @@ describe('oauth2 authorization', () => {
 
 		lib = require('../../src');
 
-		await mockServerClient('localhost', +process.env.MOCK_PORT, null, false).clear('/oauth/token', 'ALL');
+		await mockServerClient('localhost', global.MOCK_PORT, null, false).clear('/oauth/token', 'ALL');
 
 		pdClient = lib.ApiClient.instance;
 		oauth2 = pdClient.authentications.oauth2;
 
-		oauth2.host = process.env.MOCK_SERVER;
+		oauth2.host = global.MOCK_SERVER;
 		oauth2.clientId = 'fakeClientId';
 		oauth2.clientSecret = 'fakeClientSecret';
 		oauth2.redirectUri = 'https://example.org';
@@ -26,7 +26,7 @@ describe('oauth2 authorization', () => {
 	});
 
 	it('should authorize and save access and refresh tokens', async () => {
-		await mockServerClient("localhost", +process.env.MOCK_PORT, null, false).mockAnyResponse({
+		await mockServerClient("localhost", global.MOCK_PORT, null, false).mockAnyResponse({
 			httpRequest: {
 				method: 'POST',
 				path: '/oauth/token',
@@ -46,7 +46,7 @@ describe('oauth2 authorization', () => {
 					refresh_token: 'freshRefreshToken',
 					scope: 'deals:full,users:full,1337',
 					expires_in: '3600',
-					api_domain: process.env.MOCK_SERVER,
+					api_domain: global.MOCK_SERVER,
 				})
 			},
 		});
@@ -59,7 +59,7 @@ describe('oauth2 authorization', () => {
 				refresh_token: 'freshRefreshToken',
 				scope: 'deals:full,users:full,1337',
 				expires_in: '3600',
-				api_domain: process.env.MOCK_SERVER
+				api_domain: global.MOCK_SERVER
 			}
 		);
 
@@ -104,7 +104,7 @@ describe('oauth2 authorization', () => {
 	});
 
 	it('should throw wrong auth_code', async () => {
-		await mockServerClient("localhost", +process.env.MOCK_PORT, null, false).mockAnyResponse({
+		await mockServerClient("localhost", global.MOCK_PORT, null, false).mockAnyResponse({
 			httpRequest: {
 				method: 'POST',
 				path: '/oauth/token',

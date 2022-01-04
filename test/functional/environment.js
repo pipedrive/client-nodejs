@@ -2,18 +2,41 @@ const mockServer = require('mockserver-node');
 const minimist = require('minimist');
 const shell = require('shelljs');
 const getPort = require('get-port');
+const path = require('path');
+const fs = require('fs');
+const JestNodeEnvironment = require('jest-environment-node');
 
 function startEnvironment(serverPort) {
-	mockServer.start_mockserver({
+	return mockServer.start_mockserver({
 		serverPort,
 		trace: true
 	});
 }
 
 function stopEnvironment(serverPort) {
-	mockServer.stop_mockserver({
+	return mockServer.stop_mockserver({
 		serverPort
 	});
+}
+
+async function getMockedServerPort() {
+	const portPath = path.resolve(__dirname, '.func.test.port');
+
+	if (fs.existsSync(portPath)) {
+		return fs.readFileSync(
+			portPath,
+			'utf-8'
+		);
+	} else {
+		const port = await getPort();
+
+		fs.writeFileSync(
+			portPath,
+			JSON.stringify(port)
+		);
+
+		return port;
+	}
 }
 
 async function runTests() {
@@ -36,10 +59,8 @@ async function runTests() {
 
 async function main() {
 	const argv = minimist(process.argv);
-	const port = await getPort();
+	const port = await getMockedServerPort();
 
-	process.env.MOCK_PORT = port;
-	process.env.MOCK_SERVER = `http://localhost:${port}`;
 
 	if (argv['start-environment']) {
 		await startEnvironment(port);
@@ -52,12 +73,26 @@ async function main() {
 
 	try {
 		const code = await runTests();
-
 		process.exit(code || 0);
 	} catch (error) {
 		console.log(error);
 		process.exit(1);
 	}
 }
+class JestEnvironment extends JestNodeEnvironment {
+	async setup() {
+		await super.setup();
+		const port = await getMockedServerPort();
+		this.global.MOCK_PORT = port;
+		this.global.MOCK_SERVER = `http://localhost:${port}`;
+	}
+}
 
-main();
+
+if (require.main === module) {
+	main();
+} else {
+	module.exports = {
+		JestEnvironment,
+	};
+}
