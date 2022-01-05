@@ -14,6 +14,7 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 ### Added
 - Added type to `POST /roles/{id}/settings` `value` parameter 
 - Added description to `POST /roles/{id}/settings`
+
 ## 13.0.5
 ### Changed
 - Changed Organization `custom_fields` type to a string array
