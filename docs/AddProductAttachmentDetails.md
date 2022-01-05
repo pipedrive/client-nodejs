@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **duration** | **Number** | Duration of the product (when product durations are not enabled for the company or if omitted, defaults to 1) | [optional] [default to 1]
 **productVariationId** | **Number** | ID of the product variation to use. When omitted, no variation will be used. | [optional] 
 **comments** | **String** | Any textual comment associated with this product-deal attachment. Visible and editable in the application UI. | [optional] 
+**tax** | **Number** | The Product tax | [optional] 
 **enabledFlag** | [**NumberBoolean**](NumberBoolean.md) | Whether the product is enabled on the deal or not. This makes it possible to add products to a deal with specific price and discount criteria - but keep them disabled, which refrains them from being included in deal price calculation. When omitted, the product will be marked as enabled by default. | [optional] 
 **id** | **Number** | The ID of the deal-product (the ID of the Product attached to the Deal) | [optional] 
 **companyId** | **Number** | The ID of the Company | [optional] 
@@ -22,7 +23,6 @@ Name | Type | Description | Notes
 **addTime** | **String** | The date and time when the Product was added to the Deal | [optional] 
 **lastEdit** | **String** | The date and time when the Deal Product was last edited | [optional] 
 **activeFlag** | **Boolean** | Boolean indicates if the Product is activated or not | [optional] 
-**tax** | **Number** | The Product tax | [optional] 
 **name** | **String** | The Product name | [optional] 
 **productAttachmentId** | **Number** | The ID of the deal-product (the ID of the Product attached to the Deal) | [optional] 
 

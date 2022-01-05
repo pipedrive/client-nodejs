@@ -208,7 +208,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductsApi();
 let id = 56; // Number | ID of the product
-let followerId = 56; // Number | ID of the follower
+let followerId = 56; // Number | ID of the relationship between the follower and the product
 apiInstance.deleteProductFollower(id, followerId).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -223,7 +223,7 @@ apiInstance.deleteProductFollower(id, followerId).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| ID of the product | 
- **followerId** | **Number**| ID of the follower | 
+ **followerId** | **Number**| ID of the relationship between the follower and the product | 
 
 ### Return type
 
