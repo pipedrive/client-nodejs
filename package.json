@@ -1,6 +1,6 @@
 {
   "name": "pipedrive",
-  "version": "13.0.4",
+  "version": "13.0.5",
   "description": "Pipedrive REST client for NodeJS",
   "license": "MIT",
   "main": "dist/index.js",
@@ -44,7 +44,7 @@
     "@babel/plugin-transform-runtime": "^7.12.1",
     "@babel/preset-env": "^7.0.0",
     "@babel/register": "^7.0.0",
-    "@pipedrive/sonar-scanner": "^3.3.0",
+    "@pipedrive/sonar-scanner": "^3.3.1",
     "axios": "^0.21.0",
     "expect.js": "^0.3.1",
     "get-port": "^5.1.1",
