@@ -7,11 +7,20 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+
+## 13.0.6
 ### Fixed
 - Fixed `POST /roles/{id}/settings` `value` parameter description
 ### Added
 - Added type to `POST /roles/{id}/settings` `value` parameter 
 - Added description to `POST /roles/{id}/settings`
+## 13.0.5
+### Changed
+- Changed Organization `custom_fields` type to a string array
+
+## 13.0.4
+### Fixed
+- Fixed typo in `ids` query parameter description in GET /products
 
 ## 13.0.3
 ### Changed
