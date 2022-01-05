@@ -20,6 +20,7 @@
   "dependencies": {
     "@babel/cli": "^7.0.0",
     "@babel/runtime": "^7.14.0",
+    "jest-environment-node": "^27.4.4",
     "superagent": "^5.3.0"
   },
   "devDependencies": {
@@ -46,6 +47,7 @@
     "@pipedrive/sonar-scanner": "^3.3.0",
     "axios": "^0.21.0",
     "expect.js": "^0.3.1",
+    "get-port": "^5.1.1",
     "jest": "^26.6.3",
     "minimist": "^1.2.5",
     "mocha": "^8.0.1",
@@ -53,8 +55,7 @@
     "mockserver-node": "^5.11.2",
     "regenerator-runtime": "^0.13.7",
     "shelljs": "^0.8.4",
-    "sinon": "^7.2.0",
-    "get-port": "^5.1.1"
+    "sinon": "^7.2.0"
   },
   "files": [
     "dist"
