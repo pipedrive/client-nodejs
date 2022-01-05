@@ -8,6 +8,12 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## 13.0.7
+### Changed
+- Changed/improve Products `visible_to` type, and differentiate options by plans
+* POST /products
+* PUT /products/{id}
+
 ## 13.0.6
 ### Fixed
 - Fixed `POST /roles/{id}/settings` `value` parameter description
