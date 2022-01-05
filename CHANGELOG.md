@@ -12,6 +12,21 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 * POST /products
 * PUT /products/{id}
 
+## 13.0.6
+### Fixed
+- Fixed `POST /roles/{id}/settings` `value` parameter description
+### Added
+- Added type to `POST /roles/{id}/settings` `value` parameter 
+- Added description to `POST /roles/{id}/settings`
+
+## 13.0.5
+### Changed
+- Changed Organization `custom_fields` type to a string array
+
+## 13.0.4
+### Fixed
+- Fixed typo in `ids` query parameter description in GET /products
+
 ## 13.0.3
 ### Changed
 - Changed/improved `subscription_url` body parameter description
