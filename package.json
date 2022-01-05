@@ -1,6 +1,6 @@
 {
   "name": "pipedrive",
-  "version": "13.0.4",
+  "version": "13.0.5",
   "description": "Pipedrive REST client for NodeJS",
   "license": "MIT",
   "main": "dist/index.js",
@@ -55,8 +55,7 @@
     "mockserver-node": "^5.11.2",
     "regenerator-runtime": "^0.13.7",
     "shelljs": "^0.8.4",
-    "sinon": "^7.2.0",
-    "get-port": "^5.1.1"
+    "sinon": "^7.2.0"
   },
   "files": [
     "dist"
