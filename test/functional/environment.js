@@ -9,7 +9,8 @@ const JestNodeEnvironment = require('jest-environment-node');
 function startEnvironment(serverPort) {
 	return mockServer.start_mockserver({
 		serverPort,
-		trace: true
+		trace: true,
+		verbose: true,
 	});
 }
 
