@@ -10,6 +10,15 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 ### Changed
 - Changed Organization `custom_fields` type to a string array
 
+## 13.0.4
+### Fixed
+- Fixed typo in `ids` query parameter description in GET /products
+
+## 13.0.3
+### Changed
+- Changed/improved `subscription_url` body parameter description
+* POST /webhooks
+
 ## 13.0.2
 ### Fixed
 - Fixed items type for `email` and `phone` body parameters

@@ -1,0 +1,11 @@
+{
+  "sonarConfiguration": {
+	"active": false
+  },
+  "sonarScanBranchProtection": {
+	"active": false
+  },
+  "sonarCodeAnalysis": {
+	"active": false
+  }
+}
