@@ -14,6 +14,27 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 - Improved `follower_id` description
 * DELETE /v1/products/{id}/followers/{follower_id}
 
+## 13.0.8
+### Changed
+- Improve Products `price` description
+
+## 13.0.7
+### Changed
+- Changed/improve Products `visible_to` type, and differentiate options by plans
+* POST /products
+* PUT /products/{id}
+
+## 13.0.6
+### Fixed
+- Fixed `POST /roles/{id}/settings` `value` parameter description
+### Added
+- Added type to `POST /roles/{id}/settings` `value` parameter 
+- Added description to `POST /roles/{id}/settings`
+
+## 13.0.5
+### Changed
+- Changed Organization `custom_fields` type to a string array
+
 ## 13.0.4
 ### Fixed
 - Fixed typo in `ids` query parameter description in GET /products
