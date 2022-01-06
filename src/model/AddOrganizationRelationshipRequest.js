@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import OrganizationRelationship from './OrganizationRelationship';
 
 /**
  * The AddOrganizationRelationshipRequest model module.
@@ -23,13 +22,12 @@ class AddOrganizationRelationshipRequest {
     /**
      * Constructs a new <code>AddOrganizationRelationshipRequest</code>.
      * @alias module:model/AddOrganizationRelationshipRequest
-     * @implements module:model/OrganizationRelationship
      * @param type {module:model/AddOrganizationRelationshipRequest.TypeEnum} The type of organization relationship
      * @param relOwnerOrgId {Number} The owner of this relationship. If type is `parent`, then the owner is the parent and the linked organization is the daughter.
      * @param relLinkedOrgId {Number} The linked organization in this relationship. If type is `parent`, then the linked organization is the daughter.
      */
     constructor(type, relOwnerOrgId, relLinkedOrgId) { 
-        OrganizationRelationship.initialize(this);
+        
         AddOrganizationRelationshipRequest.initialize(this, type, relOwnerOrgId, relLinkedOrgId);
     }
 
@@ -54,7 +52,6 @@ class AddOrganizationRelationshipRequest {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new AddOrganizationRelationshipRequest();
-            OrganizationRelationship.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('org_id')) {
                 obj['org_id'] = ApiClient.convertToType(data['org_id'], 'Number');
@@ -113,27 +110,6 @@ AddOrganizationRelationshipRequest.prototype['rel_owner_org_id'] = undefined;
 AddOrganizationRelationshipRequest.prototype['rel_linked_org_id'] = undefined;
 
 
-// Implement OrganizationRelationship interface:
-/**
- * ID of the base organization for the returned calculated values
- * @member {Number} org_id
- */
-OrganizationRelationship.prototype['org_id'] = undefined;
-/**
- * The type of organization relationship
- * @member {module:model/OrganizationRelationship.TypeEnum} type
- */
-OrganizationRelationship.prototype['type'] = undefined;
-/**
- * The owner of this relationship. If type is `parent`, then the owner is the parent and the linked organization is the daughter.
- * @member {Number} rel_owner_org_id
- */
-OrganizationRelationship.prototype['rel_owner_org_id'] = undefined;
-/**
- * The linked organization in this relationship. If type is `parent`, then the linked organization is the daughter.
- * @member {Number} rel_linked_org_id
- */
-OrganizationRelationship.prototype['rel_linked_org_id'] = undefined;
 
 
 
