@@ -11,6 +11,14 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 ### Fixed
 - Fix `POST /organizationRelationships` 'required' labels not showing
 
+## 13.0.9
+### Added
+- Added `tax` parameter on add product to the deal.
+* POST /v1/deals/{id}/products
+* PUT /v1/deals/{id}/products/{product_attachment_id}
+- Improved `follower_id` description
+* DELETE /v1/products/{id}/followers/{follower_id}
+
 ## 13.0.8
 ### Changed
 - Improve Products `price` description
