@@ -84,6 +84,11 @@ class ProductAttachmentDetails {
 
                 delete data['comments'];
             }
+            if (data.hasOwnProperty('tax')) {
+                obj['tax'] = ApiClient.convertToType(data['tax'], 'Number');
+
+                delete data['tax'];
+            }
             if (data.hasOwnProperty('enabled_flag')) {
                 obj['enabled_flag'] = ApiClient.convertToType(data['enabled_flag'], NumberBoolean);
 
@@ -144,11 +149,6 @@ class ProductAttachmentDetails {
 
                 delete data['active_flag'];
             }
-            if (data.hasOwnProperty('tax')) {
-                obj['tax'] = ApiClient.convertToType(data['tax'], 'Number');
-
-                delete data['tax'];
-            }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
 
@@ -203,6 +203,12 @@ ProductAttachmentDetails.prototype['product_variation_id'] = undefined;
  * @member {String} comments
  */
 ProductAttachmentDetails.prototype['comments'] = undefined;
+
+/**
+ * The Product tax
+ * @member {Number} tax
+ */
+ProductAttachmentDetails.prototype['tax'] = undefined;
 
 /**
  * Whether the product is enabled on the deal or not. This makes it possible to add products to a deal with specific price and discount criteria - but keep them disabled, which refrains them from being included in deal price calculation. When omitted, the product will be marked as enabled by default.
@@ -277,12 +283,6 @@ ProductAttachmentDetails.prototype['last_edit'] = undefined;
 ProductAttachmentDetails.prototype['active_flag'] = undefined;
 
 /**
- * The Product tax
- * @member {Number} tax
- */
-ProductAttachmentDetails.prototype['tax'] = undefined;
-
-/**
  * The Product name
  * @member {String} name
  */
@@ -322,6 +322,12 @@ BasicDealProduct.prototype['product_variation_id'] = undefined;
  * @member {String} comments
  */
 BasicDealProduct.prototype['comments'] = undefined;
+/**
+ * Tax percentage
+ * @member {Number} tax
+ * @default 0
+ */
+BasicDealProduct.prototype['tax'] = 0;
 /**
  * Whether the product is enabled on the deal or not. This makes it possible to add products to a deal with specific price and discount criteria - but keep them disabled, which refrains them from being included in deal price calculation. When omitted, the product will be marked as enabled by default.
  * @member {module:model/NumberBoolean} enabled_flag
