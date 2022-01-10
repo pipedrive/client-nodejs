@@ -35,4 +35,3 @@ node_modules
 .openapi-generator
 .idea
 dist
-.func.test.port

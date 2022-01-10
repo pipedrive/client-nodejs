@@ -126,7 +126,7 @@ export default class ItemSearchApi {
 
     /**
      * Perform a search using a specific field from an item type
-     * Performs a search from the values of a specific field. Results can either be the distinct values of the field (useful for searching autocomplete field values), or the IDs of actual items (Deals, Persons, Organizations or Products).
+     * Performs a search from the values of a specific field. Results can either be the distinct values of the field (useful for searching autocomplete field values), or the IDs of actual items (Deals, Leads, Persons, Organizations or Products).
      * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`).
      * @param {module:model/String} fieldType The type of the field to perform the search from
      * @param {String} fieldKey The key of the field to search from. The field key can be obtained by fetching the list of the fields using any of the fields' API GET methods (dealFields, personFields, etc.).
@@ -198,7 +198,7 @@ export default class ItemSearchApi {
 
     /**
      * Perform a search using a specific field from an item type
-     * Performs a search from the values of a specific field. Results can either be the distinct values of the field (useful for searching autocomplete field values), or the IDs of actual items (Deals, Persons, Organizations or Products).
+     * Performs a search from the values of a specific field. Results can either be the distinct values of the field (useful for searching autocomplete field values), or the IDs of actual items (Deals, Leads, Persons, Organizations or Products).
      * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`).
      * @param {module:model/String} fieldType The type of the field to perform the search from
      * @param {String} fieldKey The key of the field to search from. The field key can be obtained by fetching the list of the fields using any of the fields' API GET methods (dealFields, personFields, etc.).
