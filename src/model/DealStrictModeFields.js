@@ -85,31 +85,31 @@ class DealStrictModeFields {
 }
 
 /**
- * The ID of the Deal
+ * The ID of the deal
  * @member {Number} id
  */
 DealStrictModeFields.prototype['id'] = undefined;
 
 /**
- * The ID of the Deal creator
+ * The ID of the deal creator
  * @member {Number} creator_user_id
  */
 DealStrictModeFields.prototype['creator_user_id'] = undefined;
 
 /**
- * The ID of the User
+ * The ID of the user
  * @member {Number} user_id
  */
 DealStrictModeFields.prototype['user_id'] = undefined;
 
 /**
- * The ID of the Person associated with the Deal
+ * The ID of the person associated with the deal
  * @member {Number} person_id
  */
 DealStrictModeFields.prototype['person_id'] = undefined;
 
 /**
- * The ID of the Organization associated with the Deal
+ * The ID of the organization associated with the deal
  * @member {Number} org_id
  */
 DealStrictModeFields.prototype['org_id'] = undefined;

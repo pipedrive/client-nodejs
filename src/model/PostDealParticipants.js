@@ -83,7 +83,7 @@ class PostDealParticipants {
 PostDealParticipants.prototype['success'] = undefined;
 
 /**
- * The object of Participant
+ * The object of participant
  * @member {module:model/PersonItem} data
  */
 PostDealParticipants.prototype['data'] = undefined;

@@ -92,13 +92,13 @@ NoteConnectToParams.prototype['lead_id'] = undefined;
 NoteConnectToParams.prototype['deal_id'] = undefined;
 
 /**
- * The ID of the person this note will be attached to
+ * The ID of the person the note will be attached to
  * @member {Number} person_id
  */
 NoteConnectToParams.prototype['person_id'] = undefined;
 
 /**
- * The ID of the organization this note will be attached to
+ * The ID of the organization the note will be attached to
  * @member {Number} org_id
  */
 NoteConnectToParams.prototype['org_id'] = undefined;

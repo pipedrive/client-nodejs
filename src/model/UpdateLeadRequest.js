@@ -112,37 +112,37 @@ class UpdateLeadRequest {
 }
 
 /**
- * The name of the Lead
+ * The name of the lead
  * @member {String} title
  */
 UpdateLeadRequest.prototype['title'] = undefined;
 
 /**
- * The ID of the User which will be the owner of the created Lead. If not provided, the user making the request will be used.
+ * The ID of the user which will be the owner of the created lead. If not provided, the user making the request will be used.
  * @member {Number} owner_id
  */
 UpdateLeadRequest.prototype['owner_id'] = undefined;
 
 /**
- * The IDs of the Lead Labels which will be associated with the Lead
+ * The IDs of the lead labels which will be associated with the lead
  * @member {Array.<String>} label_ids
  */
 UpdateLeadRequest.prototype['label_ids'] = undefined;
 
 /**
- * The ID of a Person which this Lead will be linked to. If the Person does not exist yet, it needs to be created first. A Lead always has to be linked to a Person or Organization or both. 
+ * The ID of a person which this lead will be linked to. If the person does not exist yet, it needs to be created first. A lead always has to be linked to a person or organization or both. 
  * @member {Number} person_id
  */
 UpdateLeadRequest.prototype['person_id'] = undefined;
 
 /**
- * The ID of an Organization which this Lead will be linked to. If the Organization does not exist yet, it needs to be created first. A Lead always has to be linked to a Person or Organization or both.
+ * The ID of an organization which this lead will be linked to. If the organization does not exist yet, it needs to be created first. A lead always has to be linked to a person or organization or both.
  * @member {Number} organization_id
  */
 UpdateLeadRequest.prototype['organization_id'] = undefined;
 
 /**
- * A flag indicating whether the Lead is archived or not
+ * A flag indicating whether the lead is archived or not
  * @member {Boolean} is_archived
  */
 UpdateLeadRequest.prototype['is_archived'] = undefined;
@@ -153,19 +153,19 @@ UpdateLeadRequest.prototype['is_archived'] = undefined;
 UpdateLeadRequest.prototype['value'] = undefined;
 
 /**
- * The date of when the Deal which will be created from the Lead is expected to be closed. In ISO 8601 format: YYYY-MM-DD.
+ * The date of when the deal which will be created from the lead is expected to be closed. In ISO 8601 format: YYYY-MM-DD.
  * @member {Date} expected_close_date
  */
 UpdateLeadRequest.prototype['expected_close_date'] = undefined;
 
 /**
- * Visibility of the lead. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
+ * The visibility of the lead. If omitted, the visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
  * @member {module:model/VisibleTo} visible_to
  */
 UpdateLeadRequest.prototype['visible_to'] = undefined;
 
 /**
- * A flag indicating whether the Lead was seen by someone in the Pipedrive UI
+ * A flag indicating whether the lead was seen by someone in the Pipedrive UI
  * @member {module:model/UpdateLeadRequest.WasSeenEnum} was_seen
  */
 UpdateLeadRequest.prototype['was_seen'] = undefined;

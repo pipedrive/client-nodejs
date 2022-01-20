@@ -38,13 +38,14 @@ export default class PermissionSetsApi {
 
 
     /**
-     * Get one Permission Set
-     * @param {Number} id ID of the permission set
+     * Get one permission set
+     * @param {Number} id The ID of the permission set
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SinglePermissionSetsItem} and HTTP response
      */
     getPermissionSetWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getPermissionSet");
@@ -88,8 +89,8 @@ export default class PermissionSetsApi {
     }
 
     /**
-     * Get one Permission Set
-     * @param {Number} id ID of the permission set
+     * Get one permission set
+     * @param {Number} id The ID of the permission set
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SinglePermissionSetsItem}
      */
     getPermissionSet(id) {
@@ -101,9 +102,9 @@ export default class PermissionSetsApi {
 
 
     /**
-     * List Permission Set assignments
-     * The list of assignments for a Permission Set
-     * @param {Number} id ID of the permission set
+     * List permission set assignments
+     * The list of assignments for a permission set.
+     * @param {Number} id The ID of the permission set
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -112,10 +113,13 @@ export default class PermissionSetsApi {
     getPermissionSetAssignmentsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getPermissionSetAssignments");
       }
+
+
 
       let pathParams = {
         'id': id,
@@ -157,9 +161,9 @@ export default class PermissionSetsApi {
     }
 
     /**
-     * List Permission Set assignments
-     * The list of assignments for a Permission Set
-     * @param {Number} id ID of the permission set
+     * List permission set assignments
+     * The list of assignments for a permission set.
+     * @param {Number} id The ID of the permission set
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -174,7 +178,7 @@ export default class PermissionSetsApi {
 
 
     /**
-     * Get all Permission Sets
+     * Get all permission sets
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PermissionSets} and HTTP response
      */
     getPermissionSetsWithHttpInfo() {
@@ -218,7 +222,7 @@ export default class PermissionSetsApi {
     }
 
     /**
-     * Get all Permission Sets
+     * Get all permission sets
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PermissionSets}
      */
     getPermissionSets() {

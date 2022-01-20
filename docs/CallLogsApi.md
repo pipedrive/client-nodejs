@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Add a call log
 
-Adds a new call log
+Adds a new call log.
 
 ### Example
 
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 
 Get details of a call log
 
-Returns details of a specific call log
+Returns details of a specific call log.
 
 ### Example
 
@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 
 Get all call logs assigned to a particular user
 
-Returns all call logs assigned to a particular user
+Returns all call logs assigned to a particular user.
 
 ### Example
 

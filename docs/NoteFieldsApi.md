@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Get all note fields
 
-Returns data about all note fields
+Returns data about all note fields.
 
 ### Example
 

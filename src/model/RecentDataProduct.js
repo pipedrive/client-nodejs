@@ -145,44 +145,44 @@ class RecentDataProduct {
 }
 
 /**
- * ID of the Product
+ * The ID of the product
  * @member {Number} id
  */
 RecentDataProduct.prototype['id'] = undefined;
 
 /**
- * Name of the product
+ * The name of the product
  * @member {String} name
  */
 RecentDataProduct.prototype['name'] = undefined;
 
 /**
- * Product code
+ * The product code
  * @member {String} code
  */
 RecentDataProduct.prototype['code'] = undefined;
 
 /**
- * Description of the Product
+ * The description of the product
  * @member {String} description
  */
 RecentDataProduct.prototype['description'] = undefined;
 
 /**
- * Unit in which this product is sold
+ * The unit in which this product is sold
  * @member {String} unit
  */
 RecentDataProduct.prototype['unit'] = undefined;
 
 /**
- * Tax percentage
+ * The tax percentage
  * @member {Number} tax
  * @default 0
  */
 RecentDataProduct.prototype['tax'] = 0;
 
 /**
- * Category of the Product
+ * The category of the product
  * @member {String} category
  */
 RecentDataProduct.prototype['category'] = undefined;
@@ -194,49 +194,49 @@ RecentDataProduct.prototype['category'] = undefined;
 RecentDataProduct.prototype['active_flag'] = undefined;
 
 /**
- * Whether this product can be selected in Deals or not
+ * Whether this product can be selected in deals or not
  * @member {Boolean} selectable
  */
 RecentDataProduct.prototype['selectable'] = undefined;
 
 /**
- * First letter of the Product name
+ * The first letter of the product name
  * @member {String} first_char
  */
 RecentDataProduct.prototype['first_char'] = undefined;
 
 /**
- * Visibility of the product. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.
+ * The visibility of the product. If omitted, the visibility will be set to the default visibility setting of this item type for the authorized user.
  * @member {Number} visible_to
  */
 RecentDataProduct.prototype['visible_to'] = undefined;
 
 /**
- * ID of the user who will be marked as the owner of this product. When omitted, authorized user ID will be used
+ * The ID of the user who will be marked as the owner of this product. When omitted, authorized user ID will be used.
  * @member {Number} owner_id
  */
 RecentDataProduct.prototype['owner_id'] = undefined;
 
 /**
- * Files count
+ * The count of files
  * @member {Number} files_count
  */
 RecentDataProduct.prototype['files_count'] = undefined;
 
 /**
- * Followers count
+ * The count of followers
  * @member {Number} followers_count
  */
 RecentDataProduct.prototype['followers_count'] = undefined;
 
 /**
- * Date and time when the Product was added to the Deal
+ * The date and time when the product was added to the deal
  * @member {String} add_time
  */
 RecentDataProduct.prototype['add_time'] = undefined;
 
 /**
- * Date and time when the Product was updated to the Deal
+ * The date and time when the product was updated to the deal
  * @member {String} update_time
  */
 RecentDataProduct.prototype['update_time'] = undefined;

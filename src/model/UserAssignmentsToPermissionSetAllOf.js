@@ -66,7 +66,7 @@ class UserAssignmentsToPermissionSetAllOf {
 }
 
 /**
- * An array of the assignments of the User
+ * An array of the assignments of the user
  * @member {Array.<module:model/UserAssignmentToPermissionSet>} data
  */
 UserAssignmentsToPermissionSetAllOf.prototype['data'] = undefined;

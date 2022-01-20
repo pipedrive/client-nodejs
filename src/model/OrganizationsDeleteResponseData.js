@@ -65,7 +65,7 @@ class OrganizationsDeleteResponseData {
 }
 
 /**
- * The IDs of the Organizations that were deleted
+ * The IDs of the organizations that were deleted
  * @member {Array.<Number>} id
  */
 OrganizationsDeleteResponseData.prototype['id'] = undefined;

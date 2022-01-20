@@ -12,8 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
+import DealPersonDataEmail from './DealPersonDataEmail';
 import DealPersonDataPhone from './DealPersonDataPhone';
-import PersonDataEmail from './PersonDataEmail';
 
 /**
  * The DealPersonData model module.
@@ -23,7 +23,7 @@ import PersonDataEmail from './PersonDataEmail';
 class DealPersonData {
     /**
      * Constructs a new <code>DealPersonData</code>.
-     * The Person who is associated with the Deal
+     * The person who is associated with the deal
      * @alias module:model/DealPersonData
      */
     constructor() { 
@@ -61,7 +61,7 @@ class DealPersonData {
                 delete data['name'];
             }
             if (data.hasOwnProperty('email')) {
-                obj['email'] = ApiClient.convertToType(data['email'], [PersonDataEmail]);
+                obj['email'] = ApiClient.convertToType(data['email'], [DealPersonDataEmail]);
 
                 delete data['email'];
             }
@@ -88,31 +88,31 @@ class DealPersonData {
 }
 
 /**
- * If the associated Person is activated or not
+ * Whether the associated person is active or not
  * @member {Boolean} active_flag
  */
 DealPersonData.prototype['active_flag'] = undefined;
 
 /**
- * The name of the Person associated with the Deal
+ * The name of the person associated with the deal
  * @member {String} name
  */
 DealPersonData.prototype['name'] = undefined;
 
 /**
- * The emails of the Person associated with the Deal
- * @member {Array.<module:model/PersonDataEmail>} email
+ * The emails of the person associated with the deal
+ * @member {Array.<module:model/DealPersonDataEmail>} email
  */
 DealPersonData.prototype['email'] = undefined;
 
 /**
- * The phone numbers of the Person associated with the Deal
+ * The phone numbers of the person associated with the deal
  * @member {Array.<module:model/DealPersonDataPhone>} phone
  */
 DealPersonData.prototype['phone'] = undefined;
 
 /**
- * The ID of the owner of the Person that is associated with the Deal
+ * The ID of the owner of the person that is associated with the deal
  * @member {Number} owner_id
  */
 DealPersonData.prototype['owner_id'] = undefined;

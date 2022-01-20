@@ -4,12 +4,12 @@ All URIs are relative to *https://api.pipedrive.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addActivity**](ActivitiesApi.md#addActivity) | **POST** /activities | Add an Activity
-[**deleteActivities**](ActivitiesApi.md#deleteActivities) | **DELETE** /activities | Delete multiple Activities in bulk
-[**deleteActivity**](ActivitiesApi.md#deleteActivity) | **DELETE** /activities/{id} | Delete an Activity
-[**getActivities**](ActivitiesApi.md#getActivities) | **GET** /activities | Get all Activities assigned to a particular User
-[**getActivity**](ActivitiesApi.md#getActivity) | **GET** /activities/{id} | Get details of an Activity
-[**updateActivity**](ActivitiesApi.md#updateActivity) | **PUT** /activities/{id} | Edit an Activity
+[**addActivity**](ActivitiesApi.md#addActivity) | **POST** /activities | Add an activity
+[**deleteActivities**](ActivitiesApi.md#deleteActivities) | **DELETE** /activities | Delete multiple activities in bulk
+[**deleteActivity**](ActivitiesApi.md#deleteActivity) | **DELETE** /activities/{id} | Delete an activity
+[**getActivities**](ActivitiesApi.md#getActivities) | **GET** /activities | Get all activities assigned to a particular user
+[**getActivity**](ActivitiesApi.md#getActivity) | **GET** /activities/{id} | Get details of an activity
+[**updateActivity**](ActivitiesApi.md#updateActivity) | **PUT** /activities/{id} | Update an activity
 
 
 
@@ -17,9 +17,9 @@ Method | HTTP request | Description
 
 > AddActivityResponse200 addActivity(opts)
 
-Add an Activity
+Add an activity
 
-Adds a new Activity. Includes &#x60;more_activities_scheduled_in_context&#x60; property in response&#39;s &#x60;additional_data&#x60; which indicates whether there are more undone Activities scheduled with the same Deal, Person or Organization (depending on the supplied data). For more information on how to add an Activity, see &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-an-activity\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this tutorial&lt;/a&gt;.
+Adds a new activity. Includes &#x60;more_activities_scheduled_in_context&#x60; property in response&#39;s &#x60;additional_data&#x60; which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information on how to add an activity, see &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-an-activity\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this tutorial&lt;/a&gt;.
 
 ### Example
 
@@ -72,9 +72,9 @@ Name | Type | Description  | Notes
 
 > DeleteActivitiesResponse200 deleteActivities(ids)
 
-Delete multiple Activities in bulk
+Delete multiple activities in bulk
 
-Marks multiple Activities as deleted
+Marks multiple activities as deleted.
 
 ### Example
 
@@ -91,7 +91,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ActivitiesApi();
-let ids = "ids_example"; // String | Comma-separated IDs of Activities that will be deleted
+let ids = "ids_example"; // String | The comma-separated IDs of activities that will be deleted
 apiInstance.deleteActivities(ids).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -105,7 +105,7 @@ apiInstance.deleteActivities(ids).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **String**| Comma-separated IDs of Activities that will be deleted | 
+ **ids** | **String**| The comma-separated IDs of activities that will be deleted | 
 
 ### Return type
 
@@ -125,9 +125,9 @@ Name | Type | Description  | Notes
 
 > DeleteActivityResponse200 deleteActivity(id)
 
-Delete an Activity
+Delete an activity
 
-Deletes an Activity
+Marks an activity as deleted.
 
 ### Example
 
@@ -144,7 +144,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ActivitiesApi();
-let id = 56; // Number | The ID of the Activity
+let id = 56; // Number | The ID of the activity
 apiInstance.deleteActivity(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -158,7 +158,7 @@ apiInstance.deleteActivity(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The ID of the Activity | 
+ **id** | **Number**| The ID of the activity | 
 
 ### Return type
 
@@ -178,9 +178,9 @@ Name | Type | Description  | Notes
 
 > GetActivitiesResponse200 getActivities(opts)
 
-Get all Activities assigned to a particular User
+Get all activities assigned to a particular user
 
-Returns all Activities assigned to a particular User.
+Returns all activities assigned to a particular user.
 
 ### Example
 
@@ -198,14 +198,14 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ActivitiesApi();
 let opts = {
-  'userId': 56, // Number | The ID of the User whose Activities will be fetched. If omitted, the User associated with the API token will be used. If 0, Activities for all company Users will be fetched based on the permission sets.
-  'filterId': 56, // Number | The ID of the Filter to use (will narrow down results if used together with `user_id` parameter)
-  'type': "type_example", // String | Type of the Activity, can be one type or multiple types separated by a comma. This is in correlation with the `key_string` parameter of ActivityTypes.
+  'userId': 56, // Number | The ID of the user whose activities will be fetched. If omitted, the user associated with the API token will be used. If 0, activities for all company users will be fetched based on the permission sets.
+  'filterId': 56, // Number | The ID of the filter to use (will narrow down results if used together with `user_id` parameter)
+  'type': "type_example", // String | The type of the activity, can be one type or multiple types separated by a comma. This is in correlation with the `key_string` parameter of ActivityTypes.
   'limit': 100, // Number | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned.
   'start': 0, // Number | For pagination, the position that represents the first result for the page
-  'startDate': new Date("2013-10-20"), // Date | Use the Activity due date where you wish to begin fetching Activities from. Insert due date in YYYY-MM-DD format.
-  'endDate': new Date("2013-10-20"), // Date | Use the Activity due date where you wish to stop fetching Activities from. Insert due date in YYYY-MM-DD format.
-  'done': new Pipedrive.NumberBoolean() // NumberBoolean | Whether the Activity is done or not. 0 = Not done, 1 = Done. If omitted returns both Done and Not done activities.
+  'startDate': new Date("2013-10-20"), // Date | Use the activity due date where you wish to begin fetching activities from. Insert due date in YYYY-MM-DD format.
+  'endDate': new Date("2013-10-20"), // Date | Use the activity due date where you wish to stop fetching activities from. Insert due date in YYYY-MM-DD format.
+  'done': new Pipedrive.NumberBoolean() // NumberBoolean | Whether the activity is done or not. 0 = Not done, 1 = Done. If omitted returns both done and not done activities.
 };
 apiInstance.getActivities(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -220,14 +220,14 @@ apiInstance.getActivities(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| The ID of the User whose Activities will be fetched. If omitted, the User associated with the API token will be used. If 0, Activities for all company Users will be fetched based on the permission sets. | [optional] 
- **filterId** | **Number**| The ID of the Filter to use (will narrow down results if used together with &#x60;user_id&#x60; parameter) | [optional] 
- **type** | **String**| Type of the Activity, can be one type or multiple types separated by a comma. This is in correlation with the &#x60;key_string&#x60; parameter of ActivityTypes. | [optional] 
+ **userId** | **Number**| The ID of the user whose activities will be fetched. If omitted, the user associated with the API token will be used. If 0, activities for all company users will be fetched based on the permission sets. | [optional] 
+ **filterId** | **Number**| The ID of the filter to use (will narrow down results if used together with &#x60;user_id&#x60; parameter) | [optional] 
+ **type** | **String**| The type of the activity, can be one type or multiple types separated by a comma. This is in correlation with the &#x60;key_string&#x60; parameter of ActivityTypes. | [optional] 
  **limit** | **Number**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. | [optional] 
  **start** | **Number**| For pagination, the position that represents the first result for the page | [optional] 
- **startDate** | **Date**| Use the Activity due date where you wish to begin fetching Activities from. Insert due date in YYYY-MM-DD format. | [optional] 
- **endDate** | **Date**| Use the Activity due date where you wish to stop fetching Activities from. Insert due date in YYYY-MM-DD format. | [optional] 
- **done** | [**NumberBoolean**](.md)| Whether the Activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted returns both Done and Not done activities. | [optional] 
+ **startDate** | **Date**| Use the activity due date where you wish to begin fetching activities from. Insert due date in YYYY-MM-DD format. | [optional] 
+ **endDate** | **Date**| Use the activity due date where you wish to stop fetching activities from. Insert due date in YYYY-MM-DD format. | [optional] 
+ **done** | [**NumberBoolean**](.md)| Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted returns both done and not done activities. | [optional] 
 
 ### Return type
 
@@ -247,9 +247,9 @@ Name | Type | Description  | Notes
 
 > GetActivityResponse200 getActivity(id)
 
-Get details of an Activity
+Get details of an activity
 
-Returns details of a specific Activity
+Returns the details of a specific activity.
 
 ### Example
 
@@ -266,7 +266,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ActivitiesApi();
-let id = 56; // Number | The ID of the Activity
+let id = 56; // Number | The ID of the activity
 apiInstance.getActivity(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -280,7 +280,7 @@ apiInstance.getActivity(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The ID of the Activity | 
+ **id** | **Number**| The ID of the activity | 
 
 ### Return type
 
@@ -300,9 +300,9 @@ Name | Type | Description  | Notes
 
 > UpdateActivityResponse200 updateActivity(id, opts)
 
-Edit an Activity
+Update an activity
 
-Modifies an Activity. Includes &#x60;more_activities_scheduled_in_context&#x60; property in response&#39;s &#x60;additional_data&#x60; which indicates whether there are more undone activities scheduled with the same Deal, Person or Organization (depending on the supplied data).
+Updates an activity. Includes &#x60;more_activities_scheduled_in_context&#x60; property in response&#39;s &#x60;additional_data&#x60; which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data).
 
 ### Example
 
@@ -319,7 +319,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ActivitiesApi();
-let id = 56; // Number | The ID of the Activity
+let id = 56; // Number | The ID of the activity
 let opts = Pipedrive.ActivityPutObject.constructFromObject({
   // Properties that you want to update
 });
@@ -336,7 +336,7 @@ apiInstance.updateActivity(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The ID of the Activity | 
+ **id** | **Number**| The ID of the activity | 
  **activityPutObject** | [**ActivityPutObject**](ActivityPutObject.md)|  | [optional] 
 
 ### Return type

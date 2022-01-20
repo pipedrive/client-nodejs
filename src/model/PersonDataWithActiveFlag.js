@@ -25,7 +25,7 @@ import PersonDataWithActiveFlagAllOf from './PersonDataWithActiveFlagAllOf';
 class PersonDataWithActiveFlag {
     /**
      * Constructs a new <code>PersonDataWithActiveFlag</code>.
-     * The ID of the Person associated with the item
+     * The ID of the person associated with the item
      * @alias module:model/PersonDataWithActiveFlag
      * @implements module:model/PersonDataWithActiveFlagAllOf
      * @implements module:model/PersonData
@@ -99,37 +99,37 @@ class PersonDataWithActiveFlag {
 }
 
 /**
- * If the associated Person is active or not
+ * Whether the associated person is active or not
  * @member {Boolean} active_flag
  */
 PersonDataWithActiveFlag.prototype['active_flag'] = undefined;
 
 /**
- * The ID of the Person associated with the item
+ * The ID of the person associated with the item
  * @member {Number} id
  */
 PersonDataWithActiveFlag.prototype['id'] = undefined;
 
 /**
- * The name of the Person associated with the item
+ * The name of the person associated with the item
  * @member {String} name
  */
 PersonDataWithActiveFlag.prototype['name'] = undefined;
 
 /**
- * The emails of the Person associated with the item
+ * The emails of the person associated with the item
  * @member {Array.<module:model/PersonDataEmail>} email
  */
 PersonDataWithActiveFlag.prototype['email'] = undefined;
 
 /**
- * The phone numbers of the Person associated with the item
+ * The phone numbers of the person associated with the item
  * @member {Array.<module:model/PersonDataPhone>} phone
  */
 PersonDataWithActiveFlag.prototype['phone'] = undefined;
 
 /**
- * The ID of the owner of the Person that is associated with the item
+ * The ID of the owner of the person that is associated with the item
  * @member {Number} owner_id
  */
 PersonDataWithActiveFlag.prototype['owner_id'] = undefined;
@@ -137,33 +137,33 @@ PersonDataWithActiveFlag.prototype['owner_id'] = undefined;
 
 // Implement PersonDataWithActiveFlagAllOf interface:
 /**
- * If the associated Person is active or not
+ * Whether the associated person is active or not
  * @member {Boolean} active_flag
  */
 PersonDataWithActiveFlagAllOf.prototype['active_flag'] = undefined;
 // Implement PersonData interface:
 /**
- * The ID of the Person associated with the item
+ * The ID of the person associated with the item
  * @member {Number} id
  */
 PersonData.prototype['id'] = undefined;
 /**
- * The name of the Person associated with the item
+ * The name of the person associated with the item
  * @member {String} name
  */
 PersonData.prototype['name'] = undefined;
 /**
- * The emails of the Person associated with the item
+ * The emails of the person associated with the item
  * @member {Array.<module:model/PersonDataEmail>} email
  */
 PersonData.prototype['email'] = undefined;
 /**
- * The phone numbers of the Person associated with the item
+ * The phone numbers of the person associated with the item
  * @member {Array.<module:model/PersonDataPhone>} phone
  */
 PersonData.prototype['phone'] = undefined;
 /**
- * The ID of the owner of the Person that is associated with the item
+ * The ID of the owner of the person that is associated with the item
  * @member {Number} owner_id
  */
 PersonData.prototype['owner_id'] = undefined;

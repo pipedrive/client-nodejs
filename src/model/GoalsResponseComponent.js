@@ -114,13 +114,13 @@ class GoalsResponseComponent {
 }
 
 /**
- * ID of the goal
+ * The ID of the goal
  * @member {String} id
  */
 GoalsResponseComponent.prototype['id'] = undefined;
 
 /**
- * ID of the creator of the goal
+ * The ID of the creator of the goal
  * @member {String} owner_id
  */
 GoalsResponseComponent.prototype['owner_id'] = undefined;
@@ -142,7 +142,7 @@ GoalsResponseComponent.prototype['type'] = undefined;
 GoalsResponseComponent.prototype['assignee'] = undefined;
 
 /**
- * Interval of the goal
+ * The interval of the goal
  * @member {String} interval
  */
 GoalsResponseComponent.prototype['interval'] = undefined;
@@ -158,7 +158,7 @@ GoalsResponseComponent.prototype['duration'] = undefined;
 GoalsResponseComponent.prototype['expected_outcome'] = undefined;
 
 /**
- * If the goal is currently active or not
+ * Whether the goal is currently active or not
  * @member {Boolean} is_active
  */
 GoalsResponseComponent.prototype['is_active'] = undefined;

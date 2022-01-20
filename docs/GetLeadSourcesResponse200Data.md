@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | The unique name of a Lead Source | [optional] 
+**name** | **String** | The unique name of a lead source | [optional] 
 
 

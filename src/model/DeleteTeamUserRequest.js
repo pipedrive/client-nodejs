@@ -22,7 +22,7 @@ class DeleteTeamUserRequest {
     /**
      * Constructs a new <code>DeleteTeamUserRequest</code>.
      * @alias module:model/DeleteTeamUserRequest
-     * @param users {Array.<Number>} List of User IDs
+     * @param users {Array.<Number>} The list of user IDs
      */
     constructor(users) { 
         
@@ -67,7 +67,7 @@ class DeleteTeamUserRequest {
 }
 
 /**
- * List of User IDs
+ * The list of user IDs
  * @member {Array.<Number>} users
  */
 DeleteTeamUserRequest.prototype['users'] = undefined;

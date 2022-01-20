@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | The ID of the Person the Deal is associated with | [optional] 
-**name** | **String** | The name of the Person the Deal is associated with | [optional] 
+**id** | **Number** | The ID of the person the deal is associated with | [optional] 
+**name** | **String** | The name of the person the deal is associated with | [optional] 
 
 

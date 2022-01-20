@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class FileItem {
     /**
      * Constructs a new <code>FileItem</code>.
-     * The File data
+     * The file data
      * @alias module:model/FileItem
      */
     constructor() { 
@@ -191,85 +191,85 @@ class FileItem {
 }
 
 /**
- * The ID of the File
+ * The ID of the file
  * @member {Number} id
  */
 FileItem.prototype['id'] = undefined;
 
 /**
- * The ID of the User to associate the File with
+ * The ID of the user to associate the file with
  * @member {Number} user_id
  */
 FileItem.prototype['user_id'] = undefined;
 
 /**
- * The ID of the Deal to associate the File with
+ * The ID of the deal to associate the file with
  * @member {Number} deal_id
  */
 FileItem.prototype['deal_id'] = undefined;
 
 /**
- * The ID of the Person to associate the File with
+ * The ID of the person to associate the file with
  * @member {Number} person_id
  */
 FileItem.prototype['person_id'] = undefined;
 
 /**
- * The ID of the Organization to associate the File with
+ * The ID of the organization to associate the file with
  * @member {Number} org_id
  */
 FileItem.prototype['org_id'] = undefined;
 
 /**
- * The ID of the Product to associate the File with
+ * The ID of the product to associate the file with
  * @member {Number} product_id
  */
 FileItem.prototype['product_id'] = undefined;
 
 /**
- * The ID of the Activity to associate the File with
+ * The ID of the activity to associate the file with
  * @member {Number} activity_id
  */
 FileItem.prototype['activity_id'] = undefined;
 
 /**
- * The date and time when the File was added/created. Format: YYYY-MM-DD HH:MM:SS
+ * The date and time when the file was added/created. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} add_time
  */
 FileItem.prototype['add_time'] = undefined;
 
 /**
- * The last updated date and time of the File. Format: YYYY-MM-DD HH:MM:SS
+ * The last updated date and time of the file. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} update_time
  */
 FileItem.prototype['update_time'] = undefined;
 
 /**
- * The original name of the File
+ * The original name of the file
  * @member {String} file_name
  */
 FileItem.prototype['file_name'] = undefined;
 
 /**
- * The size of the File
+ * The size of the file
  * @member {String} file_size
  */
 FileItem.prototype['file_size'] = undefined;
 
 /**
- * Whether the User is active or not. false = Not activated, true = Activated
+ * Whether the user is active or not. false = Not activated, true = Activated
  * @member {Boolean} active_flag
  */
 FileItem.prototype['active_flag'] = undefined;
 
 /**
- * Whether the File was uploaded as inline or not
+ * Whether the file was uploaded as inline or not
  * @member {Boolean} inline_flag
  */
 FileItem.prototype['inline_flag'] = undefined;
 
 /**
- * The location type to send the File to. Only googledrive is supported at the moment.
+ * The location type to send the file to. Only googledrive is supported at the moment.
  * @member {String} remote_location
  */
 FileItem.prototype['remote_location'] = undefined;
@@ -293,55 +293,55 @@ FileItem.prototype['cid'] = undefined;
 FileItem.prototype['s3_bucket'] = undefined;
 
 /**
- * The ID of the mail message to associate the File with
+ * The ID of the mail message to associate the file with
  * @member {String} mail_message_id
  */
 FileItem.prototype['mail_message_id'] = undefined;
 
 /**
- * The ID of the mail template to associate the File with
+ * The ID of the mail template to associate the file with
  * @member {String} mail_template_id
  */
 FileItem.prototype['mail_template_id'] = undefined;
 
 /**
- * The name of the Deal associated with the File
+ * The name of the deal associated with the dile
  * @member {String} deal_name
  */
 FileItem.prototype['deal_name'] = undefined;
 
 /**
- * The name of the Person associated with the File
+ * The name of the person associated with the file
  * @member {String} person_name
  */
 FileItem.prototype['person_name'] = undefined;
 
 /**
- * The name of the Organization associated with the File
+ * The name of the organization associated with the file
  * @member {String} org_name
  */
 FileItem.prototype['org_name'] = undefined;
 
 /**
- * The name of the Product associated with the File
+ * The name of the product associated with the file
  * @member {String} product_name
  */
 FileItem.prototype['product_name'] = undefined;
 
 /**
- * The URL of the download File
+ * The URL of the download file
  * @member {String} url
  */
 FileItem.prototype['url'] = undefined;
 
 /**
- * The visible name of the File
+ * The visible name of the file
  * @member {String} name
  */
 FileItem.prototype['name'] = undefined;
 
 /**
- * The description of the File
+ * The description of the file
  * @member {String} description
  */
 FileItem.prototype['description'] = undefined;

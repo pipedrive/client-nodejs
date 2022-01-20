@@ -77,7 +77,7 @@ class GetStages {
 GetStages.prototype['success'] = undefined;
 
 /**
- * The array of Stages
+ * The array of stages
  * @member {Array.<module:model/StageWithPipelineInfo>} data
  */
 GetStages.prototype['data'] = undefined;

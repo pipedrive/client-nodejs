@@ -72,7 +72,7 @@ class ListMailMessagesResponseAllOf {
 }
 
 /**
- * The array of Mail Messages
+ * The array of mail messages
  * @member {Array.<module:model/ListMailMessagesResponseAllOfData>} data
  */
 ListMailMessagesResponseAllOf.prototype['data'] = undefined;

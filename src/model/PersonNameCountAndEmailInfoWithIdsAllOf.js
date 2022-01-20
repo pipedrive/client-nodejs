@@ -75,19 +75,19 @@ class PersonNameCountAndEmailInfoWithIdsAllOf {
 }
 
 /**
- * The ID of the owner related to the Person
+ * The ID of the owner related to the person
  * @member {Number} owner_id
  */
 PersonNameCountAndEmailInfoWithIdsAllOf.prototype['owner_id'] = undefined;
 
 /**
- * The ID of the Organization related to the Person
+ * The ID of the organization related to the person
  * @member {Number} org_id
  */
 PersonNameCountAndEmailInfoWithIdsAllOf.prototype['org_id'] = undefined;
 
 /**
- * The ID of the Person with what the main Person was merged
+ * The ID of the person with what the main person was merged
  * @member {Number} merge_what_id
  */
 PersonNameCountAndEmailInfoWithIdsAllOf.prototype['merge_what_id'] = undefined;

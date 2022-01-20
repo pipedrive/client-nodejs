@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[BaseOrganizationItem]**](BaseOrganizationItem.md) | The array of Organizations | [optional] 
-**additionalData** | [**ItemSearchAdditionalData**](ItemSearchAdditionalData.md) |  | [optional] 
-**relatedObjects** | [**AllOrganizationsGetResponseAllOfRelatedObjects**](AllOrganizationsGetResponseAllOfRelatedObjects.md) |  | [optional] 
+**data** | [**[BaseOrganizationItem]**](BaseOrganizationItem.md) | The array of organizations | [optional] 
+**additional_data** | [**ItemSearchAdditionalData**](ItemSearchAdditionalData.md) |  | [optional] 
+**related_objects** | [**AllOrganizationsGetResponseAllOfRelatedObjects**](AllOrganizationsGetResponseAllOfRelatedObjects.md) |  | [optional] 
 
 

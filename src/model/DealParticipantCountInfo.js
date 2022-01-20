@@ -70,13 +70,13 @@ class DealParticipantCountInfo {
 }
 
 /**
- * The count of open participant Deals related with the item
+ * The count of open participant deals related with the item
  * @member {Number} participant_open_deals_count
  */
 DealParticipantCountInfo.prototype['participant_open_deals_count'] = undefined;
 
 /**
- * The count of closed participant Deals related with the item
+ * The count of closed participant deals related with the item
  * @member {Number} participant_closed_deals_count
  */
 DealParticipantCountInfo.prototype['participant_closed_deals_count'] = undefined;

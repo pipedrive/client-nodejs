@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**averageTimeToWon** | [**DealNonStrictWithDetailsAllOfAverageTimeToWon**](DealNonStrictWithDetailsAllOfAverageTimeToWon.md) |  | [optional] 
-**averageStageProgress** | **Number** | The average of the Deal stage progression | [optional] 
+**average_time_to_won** | [**DealNonStrictWithDetailsAllOfAverageTimeToWon**](DealNonStrictWithDetailsAllOfAverageTimeToWon.md) |  | [optional] 
+**average_stage_progress** | **Number** | The average of the deal stage progression | [optional] 
 **age** | [**DealNonStrictWithDetailsAllOfAge**](DealNonStrictWithDetailsAllOfAge.md) |  | [optional] 
-**stayInPipelineStages** | [**DealNonStrictWithDetailsAllOfStayInPipelineStages**](DealNonStrictWithDetailsAllOfStayInPipelineStages.md) |  | [optional] 
-**lastActivity** | **Object** | The details of the last activity associated with the Deal | [optional] 
-**nextActivity** | **Object** | The details of the next activity associated with the Deal | [optional] 
+**stay_in_pipeline_stages** | [**DealNonStrictWithDetailsAllOfStayInPipelineStages**](DealNonStrictWithDetailsAllOfStayInPipelineStages.md) |  | [optional] 
+**last_activity** | **Object** | The details of the last activity associated with the deal | [optional] 
+**next_activity** | **Object** | The details of the next activity associated with the deal | [optional] 
 
 

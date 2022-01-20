@@ -87,31 +87,31 @@ class PersonData {
 }
 
 /**
- * The ID of the Person associated with the item
+ * The ID of the person associated with the item
  * @member {Number} id
  */
 PersonData.prototype['id'] = undefined;
 
 /**
- * The name of the Person associated with the item
+ * The name of the person associated with the item
  * @member {String} name
  */
 PersonData.prototype['name'] = undefined;
 
 /**
- * The emails of the Person associated with the item
+ * The emails of the person associated with the item
  * @member {Array.<module:model/PersonDataEmail>} email
  */
 PersonData.prototype['email'] = undefined;
 
 /**
- * The phone numbers of the Person associated with the item
+ * The phone numbers of the person associated with the item
  * @member {Array.<module:model/PersonDataPhone>} phone
  */
 PersonData.prototype['phone'] = undefined;
 
 /**
- * The ID of the owner of the Person that is associated with the item
+ * The ID of the owner of the person that is associated with the item
  * @member {Number} owner_id
  */
 PersonData.prototype['owner_id'] = undefined;

@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class DealNonStrictModeFieldsCreatorUserId {
     /**
      * Constructs a new <code>DealNonStrictModeFieldsCreatorUserId</code>.
-     * The creator of the Deal
+     * The creator of the deal
      * @alias module:model/DealNonStrictModeFieldsCreatorUserId
      */
     constructor() { 
@@ -96,19 +96,19 @@ class DealNonStrictModeFieldsCreatorUserId {
 }
 
 /**
- * The ID of the Deal creator
+ * The ID of the deal creator
  * @member {Number} id
  */
 DealNonStrictModeFieldsCreatorUserId.prototype['id'] = undefined;
 
 /**
- * The name of the Deal creator
+ * The name of the deal creator
  * @member {String} name
  */
 DealNonStrictModeFieldsCreatorUserId.prototype['name'] = undefined;
 
 /**
- * The email of the Deal creator
+ * The email of the deal creator
  * @member {String} email
  */
 DealNonStrictModeFieldsCreatorUserId.prototype['email'] = undefined;
@@ -126,13 +126,13 @@ DealNonStrictModeFieldsCreatorUserId.prototype['has_pic'] = undefined;
 DealNonStrictModeFieldsCreatorUserId.prototype['pic_hash'] = undefined;
 
 /**
- * If the creator is activated or not
+ * Whether the creator is active or not
  * @member {Boolean} active_flag
  */
 DealNonStrictModeFieldsCreatorUserId.prototype['active_flag'] = undefined;
 
 /**
- * The ID of the Deal creator
+ * The ID of the deal creator
  * @member {Number} value
  */
 DealNonStrictModeFieldsCreatorUserId.prototype['value'] = undefined;

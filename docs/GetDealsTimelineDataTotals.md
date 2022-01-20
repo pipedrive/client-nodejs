@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **Number** | The number of Deals for the given period | [optional] 
-**values** | **Object** | The total values of Deals grouped by Deal currency | [optional] 
-**weightedValues** | **Object** | The total weighted values of Deals for the given period grouped by Deal currency. The weighted value of a Deal is calculated as probability times Deal value. | [optional] 
-**openCount** | **Number** | The number of open Deals for the given period | [optional] 
-**openValues** | **Object** | The total values of open Deals for the given period grouped by Deal currency | [optional] 
-**weightedOpenValues** | **Object** | The total weighted values of open Deals for the given period grouped by Deal currency. The weighted value of a Deal is calculated as probability times Deal value. | [optional] 
-**wonCount** | **Number** | The number of won Deals for the given period | [optional] 
-**wonValues** | **Object** | The total values of won Deals for the given period grouped by Deal currency | [optional] 
+**count** | **Number** | The number of deals for the given period | [optional] 
+**values** | **Object** | The total values of deals grouped by deal currency | [optional] 
+**weighted_values** | **Object** | The total weighted values of deals for the given period grouped by deal currency. The weighted value of a deal is calculated as probability times deal value. | [optional] 
+**open_count** | **Number** | The number of open deals for the given period | [optional] 
+**open_values** | **Object** | The total values of open deals for the given period grouped by deal currency | [optional] 
+**weighted_open_values** | **Object** | The total weighted values of open deals for the given period grouped by deal currency. The weighted value of a deal is calculated as probability times deal value. | [optional] 
+**won_count** | **Number** | The number of won deals for the given period | [optional] 
+**won_values** | **Object** | The total values of won deals for the given period grouped by deal currency | [optional] 
 
 

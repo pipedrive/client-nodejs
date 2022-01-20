@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | The ID of the Deal | [optional] 
-**type** | **String** | The type of the Item | [optional] 
-**title** | **String** | The title of the Deal | [optional] 
-**value** | **Number** | The value of the Deal | [optional] 
-**currency** | **Number** | The currency of the Deal | [optional] 
-**status** | **String** | The status of the Deal | [optional] 
-**visibleTo** | **Number** | The visibility of the Deal | [optional] 
+**id** | **Number** | The ID of the deal | [optional] 
+**type** | **String** | The type of the item | [optional] 
+**title** | **String** | The title of the deal | [optional] 
+**value** | **Number** | The value of the deal | [optional] 
+**currency** | **Number** | The currency of the deal | [optional] 
+**status** | **String** | The status of the deal | [optional] 
+**visible_to** | **Number** | The visibility of the deal | [optional] 
 **owner** | [**DealSearchItemItemOwner**](DealSearchItemItemOwner.md) |  | [optional] 
 **stage** | [**DealSearchItemItemStage**](DealSearchItemItemStage.md) |  | [optional] 
 **person** | [**DealSearchItemItemPerson**](DealSearchItemItemPerson.md) |  | [optional] 
 **organization** | [**DealSearchItemItemOrganization**](DealSearchItemItemOrganization.md) |  | [optional] 
-**customFields** | **Number** | Custom fields | [optional] 
-**notes** | **[String]** | An array of Notes | [optional] 
+**custom_fields** | **Number** | Custom fields | [optional] 
+**notes** | **[String]** | An array of notes | [optional] 
 
 

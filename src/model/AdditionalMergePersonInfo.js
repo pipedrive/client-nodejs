@@ -216,181 +216,181 @@ class AdditionalMergePersonInfo {
 }
 
 /**
- * The ID of the owner related to the Person
+ * The ID of the owner related to the person
  * @member {Number} owner_id
  */
 AdditionalMergePersonInfo.prototype['owner_id'] = undefined;
 
 /**
- * The ID of the Organization related to the Person
+ * The ID of the organization related to the person
  * @member {Number} org_id
  */
 AdditionalMergePersonInfo.prototype['org_id'] = undefined;
 
 /**
- * The ID of the Person with what the main Person was merged
+ * The ID of the person with what the main person was merged
  * @member {Number} merge_what_id
  */
 AdditionalMergePersonInfo.prototype['merge_what_id'] = undefined;
 
 /**
- * The name of the Person
+ * The name of the person
  * @member {String} name
  */
 AdditionalMergePersonInfo.prototype['name'] = undefined;
 
 /**
- * The first name of the Person
+ * The first name of the person
  * @member {String} first_name
  */
 AdditionalMergePersonInfo.prototype['first_name'] = undefined;
 
 /**
- * The last name of the Person
+ * The last name of the person
  * @member {String} last_name
  */
 AdditionalMergePersonInfo.prototype['last_name'] = undefined;
 
 /**
- * The count of email messages related to the Person
+ * The count of email messages related to the person
  * @member {Number} email_messages_count
  */
 AdditionalMergePersonInfo.prototype['email_messages_count'] = undefined;
 
 /**
- * The count of activities related to the Person
+ * The count of activities related to the person
  * @member {Number} activities_count
  */
 AdditionalMergePersonInfo.prototype['activities_count'] = undefined;
 
 /**
- * The count of done activities related to the Person
+ * The count of done activities related to the person
  * @member {Number} done_activities_count
  */
 AdditionalMergePersonInfo.prototype['done_activities_count'] = undefined;
 
 /**
- * The count of undone activities related to the Person
+ * The count of undone activities related to the person
  * @member {Number} undone_activities_count
  */
 AdditionalMergePersonInfo.prototype['undone_activities_count'] = undefined;
 
 /**
- * The count of files related to the Person
+ * The count of files related to the person
  * @member {Number} files_count
  */
 AdditionalMergePersonInfo.prototype['files_count'] = undefined;
 
 /**
- * The count of notes related to the Person
+ * The count of notes related to the person
  * @member {Number} notes_count
  */
 AdditionalMergePersonInfo.prototype['notes_count'] = undefined;
 
 /**
- * The count of followers related to the Person
+ * The count of followers related to the person
  * @member {Number} followers_count
  */
 AdditionalMergePersonInfo.prototype['followers_count'] = undefined;
 
 /**
- * The date and time of the last incoming email associated with the Person
+ * The date and time of the last incoming email associated with the person
  * @member {String} last_incoming_mail_time
  */
 AdditionalMergePersonInfo.prototype['last_incoming_mail_time'] = undefined;
 
 /**
- * The date and time of the last outgoing email associated with the Person
+ * The date and time of the last outgoing email associated with the person
  * @member {String} last_outgoing_mail_time
  */
 AdditionalMergePersonInfo.prototype['last_outgoing_mail_time'] = undefined;
 
 /**
- * The count of open Deals related with the item
+ * The count of open deals related with the item
  * @member {Number} open_deals_count
  */
 AdditionalMergePersonInfo.prototype['open_deals_count'] = undefined;
 
 /**
- * The count of related open Deals related with the item
+ * The count of related open deals related with the item
  * @member {Number} related_open_deals_count
  */
 AdditionalMergePersonInfo.prototype['related_open_deals_count'] = undefined;
 
 /**
- * The count of closed Deals related with the item
+ * The count of closed deals related with the item
  * @member {Number} closed_deals_count
  */
 AdditionalMergePersonInfo.prototype['closed_deals_count'] = undefined;
 
 /**
- * The count of related closed Deals related with the item
+ * The count of related closed deals related with the item
  * @member {Number} related_closed_deals_count
  */
 AdditionalMergePersonInfo.prototype['related_closed_deals_count'] = undefined;
 
 /**
- * The count of won Deals related with the item
+ * The count of won deals related with the item
  * @member {Number} won_deals_count
  */
 AdditionalMergePersonInfo.prototype['won_deals_count'] = undefined;
 
 /**
- * The count of related won Deals related with the item
+ * The count of related won deals related with the item
  * @member {Number} related_won_deals_count
  */
 AdditionalMergePersonInfo.prototype['related_won_deals_count'] = undefined;
 
 /**
- * The count of lost Deals related with the item
+ * The count of lost deals related with the item
  * @member {Number} lost_deals_count
  */
 AdditionalMergePersonInfo.prototype['lost_deals_count'] = undefined;
 
 /**
- * The count of related lost Deals related with the item
+ * The count of related lost deals related with the item
  * @member {Number} related_lost_deals_count
  */
 AdditionalMergePersonInfo.prototype['related_lost_deals_count'] = undefined;
 
 /**
- * The date of the next activity associated with the Deal
+ * The date of the next activity associated with the deal
  * @member {String} next_activity_date
  */
 AdditionalMergePersonInfo.prototype['next_activity_date'] = undefined;
 
 /**
- * The time of the next activity associated with the Deal
+ * The time of the next activity associated with the deal
  * @member {String} next_activity_time
  */
 AdditionalMergePersonInfo.prototype['next_activity_time'] = undefined;
 
 /**
- * The ID of the next activity associated with the Deal
+ * The ID of the next activity associated with the deal
  * @member {Number} next_activity_id
  */
 AdditionalMergePersonInfo.prototype['next_activity_id'] = undefined;
 
 /**
- * The ID of the last activity associated with the Deal
+ * The ID of the last activity associated with the deal
  * @member {Number} last_activity_id
  */
 AdditionalMergePersonInfo.prototype['last_activity_id'] = undefined;
 
 /**
- * The date of the last activity associated with the Deal
+ * The date of the last activity associated with the deal
  * @member {String} last_activity_date
  */
 AdditionalMergePersonInfo.prototype['last_activity_date'] = undefined;
 
 /**
- * The count of open participant Deals related with the item
+ * The count of open participant deals related with the item
  * @member {Number} participant_open_deals_count
  */
 AdditionalMergePersonInfo.prototype['participant_open_deals_count'] = undefined;
 
 /**
- * The count of closed participant Deals related with the item
+ * The count of closed participant deals related with the item
  * @member {Number} participant_closed_deals_count
  */
 AdditionalMergePersonInfo.prototype['participant_closed_deals_count'] = undefined;
@@ -398,153 +398,153 @@ AdditionalMergePersonInfo.prototype['participant_closed_deals_count'] = undefine
 
 // Implement PersonNameCountAndEmailInfoWithIds interface:
 /**
- * The ID of the owner related to the Person
+ * The ID of the owner related to the person
  * @member {Number} owner_id
  */
 PersonNameCountAndEmailInfoWithIds.prototype['owner_id'] = undefined;
 /**
- * The ID of the Organization related to the Person
+ * The ID of the organization related to the person
  * @member {Number} org_id
  */
 PersonNameCountAndEmailInfoWithIds.prototype['org_id'] = undefined;
 /**
- * The ID of the Person with what the main Person was merged
+ * The ID of the person with what the main person was merged
  * @member {Number} merge_what_id
  */
 PersonNameCountAndEmailInfoWithIds.prototype['merge_what_id'] = undefined;
 /**
- * The name of the Person
+ * The name of the person
  * @member {String} name
  */
 PersonNameCountAndEmailInfoWithIds.prototype['name'] = undefined;
 /**
- * The first name of the Person
+ * The first name of the person
  * @member {String} first_name
  */
 PersonNameCountAndEmailInfoWithIds.prototype['first_name'] = undefined;
 /**
- * The last name of the Person
+ * The last name of the person
  * @member {String} last_name
  */
 PersonNameCountAndEmailInfoWithIds.prototype['last_name'] = undefined;
 /**
- * The count of email messages related to the Person
+ * The count of email messages related to the person
  * @member {Number} email_messages_count
  */
 PersonNameCountAndEmailInfoWithIds.prototype['email_messages_count'] = undefined;
 /**
- * The count of activities related to the Person
+ * The count of activities related to the person
  * @member {Number} activities_count
  */
 PersonNameCountAndEmailInfoWithIds.prototype['activities_count'] = undefined;
 /**
- * The count of done activities related to the Person
+ * The count of done activities related to the person
  * @member {Number} done_activities_count
  */
 PersonNameCountAndEmailInfoWithIds.prototype['done_activities_count'] = undefined;
 /**
- * The count of undone activities related to the Person
+ * The count of undone activities related to the person
  * @member {Number} undone_activities_count
  */
 PersonNameCountAndEmailInfoWithIds.prototype['undone_activities_count'] = undefined;
 /**
- * The count of files related to the Person
+ * The count of files related to the person
  * @member {Number} files_count
  */
 PersonNameCountAndEmailInfoWithIds.prototype['files_count'] = undefined;
 /**
- * The count of notes related to the Person
+ * The count of notes related to the person
  * @member {Number} notes_count
  */
 PersonNameCountAndEmailInfoWithIds.prototype['notes_count'] = undefined;
 /**
- * The count of followers related to the Person
+ * The count of followers related to the person
  * @member {Number} followers_count
  */
 PersonNameCountAndEmailInfoWithIds.prototype['followers_count'] = undefined;
 /**
- * The date and time of the last incoming email associated with the Person
+ * The date and time of the last incoming email associated with the person
  * @member {String} last_incoming_mail_time
  */
 PersonNameCountAndEmailInfoWithIds.prototype['last_incoming_mail_time'] = undefined;
 /**
- * The date and time of the last outgoing email associated with the Person
+ * The date and time of the last outgoing email associated with the person
  * @member {String} last_outgoing_mail_time
  */
 PersonNameCountAndEmailInfoWithIds.prototype['last_outgoing_mail_time'] = undefined;
 // Implement MergePersonDealRelatedInfo interface:
 /**
- * The count of open Deals related with the item
+ * The count of open deals related with the item
  * @member {Number} open_deals_count
  */
 MergePersonDealRelatedInfo.prototype['open_deals_count'] = undefined;
 /**
- * The count of related open Deals related with the item
+ * The count of related open deals related with the item
  * @member {Number} related_open_deals_count
  */
 MergePersonDealRelatedInfo.prototype['related_open_deals_count'] = undefined;
 /**
- * The count of closed Deals related with the item
+ * The count of closed deals related with the item
  * @member {Number} closed_deals_count
  */
 MergePersonDealRelatedInfo.prototype['closed_deals_count'] = undefined;
 /**
- * The count of related closed Deals related with the item
+ * The count of related closed deals related with the item
  * @member {Number} related_closed_deals_count
  */
 MergePersonDealRelatedInfo.prototype['related_closed_deals_count'] = undefined;
 /**
- * The count of won Deals related with the item
+ * The count of won deals related with the item
  * @member {Number} won_deals_count
  */
 MergePersonDealRelatedInfo.prototype['won_deals_count'] = undefined;
 /**
- * The count of related won Deals related with the item
+ * The count of related won deals related with the item
  * @member {Number} related_won_deals_count
  */
 MergePersonDealRelatedInfo.prototype['related_won_deals_count'] = undefined;
 /**
- * The count of lost Deals related with the item
+ * The count of lost deals related with the item
  * @member {Number} lost_deals_count
  */
 MergePersonDealRelatedInfo.prototype['lost_deals_count'] = undefined;
 /**
- * The count of related lost Deals related with the item
+ * The count of related lost deals related with the item
  * @member {Number} related_lost_deals_count
  */
 MergePersonDealRelatedInfo.prototype['related_lost_deals_count'] = undefined;
 /**
- * The date of the next activity associated with the Deal
+ * The date of the next activity associated with the deal
  * @member {String} next_activity_date
  */
 MergePersonDealRelatedInfo.prototype['next_activity_date'] = undefined;
 /**
- * The time of the next activity associated with the Deal
+ * The time of the next activity associated with the deal
  * @member {String} next_activity_time
  */
 MergePersonDealRelatedInfo.prototype['next_activity_time'] = undefined;
 /**
- * The ID of the next activity associated with the Deal
+ * The ID of the next activity associated with the deal
  * @member {Number} next_activity_id
  */
 MergePersonDealRelatedInfo.prototype['next_activity_id'] = undefined;
 /**
- * The ID of the last activity associated with the Deal
+ * The ID of the last activity associated with the deal
  * @member {Number} last_activity_id
  */
 MergePersonDealRelatedInfo.prototype['last_activity_id'] = undefined;
 /**
- * The date of the last activity associated with the Deal
+ * The date of the last activity associated with the deal
  * @member {String} last_activity_date
  */
 MergePersonDealRelatedInfo.prototype['last_activity_date'] = undefined;
 /**
- * The count of open participant Deals related with the item
+ * The count of open participant deals related with the item
  * @member {Number} participant_open_deals_count
  */
 MergePersonDealRelatedInfo.prototype['participant_open_deals_count'] = undefined;
 /**
- * The count of closed participant Deals related with the item
+ * The count of closed participant deals related with the item
  * @member {Number} participant_closed_deals_count
  */
 MergePersonDealRelatedInfo.prototype['participant_closed_deals_count'] = undefined;

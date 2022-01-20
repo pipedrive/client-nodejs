@@ -128,13 +128,13 @@ UserSettingsItem.prototype['marketplace_app_extensions_vendor'] = undefined;
 UserSettingsItem.prototype['marketplace_team'] = undefined;
 
 /**
- * Number of results shown in list by default
+ * The number of results shown in list by default
  * @member {Number} list_limit
  */
 UserSettingsItem.prototype['list_limit'] = undefined;
 
 /**
- * If beta app is enabled
+ * Whether beta app is enabled
  * @member {Boolean} beta_app
  */
 UserSettingsItem.prototype['beta_app'] = undefined;
@@ -146,7 +146,7 @@ UserSettingsItem.prototype['beta_app'] = undefined;
 UserSettingsItem.prototype['prevent_salesphone_callto_override'] = undefined;
 
 /**
- * The destination of File upload
+ * The destination of file upload
  * @member {String} file_upload_destination
  */
 UserSettingsItem.prototype['file_upload_destination'] = undefined;
@@ -158,13 +158,13 @@ UserSettingsItem.prototype['file_upload_destination'] = undefined;
 UserSettingsItem.prototype['callto_link_syntax'] = undefined;
 
 /**
- * If the expected close date of the Deal is filled automatically or not
+ * Whether the expected close date of the deal is filled automatically or not
  * @member {Boolean} autofill_deal_expected_close_date
  */
 UserSettingsItem.prototype['autofill_deal_expected_close_date'] = undefined;
 
 /**
- * Allow the vendors to duplicate a Person
+ * Allow the vendors to duplicate a person
  * @member {String} person_duplicate_condition
  */
 UserSettingsItem.prototype['person_duplicate_condition'] = undefined;

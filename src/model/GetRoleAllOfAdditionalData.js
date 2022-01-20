@@ -22,7 +22,7 @@ import RoleSettings from './RoleSettings';
 class GetRoleAllOfAdditionalData {
     /**
      * Constructs a new <code>GetRoleAllOfAdditionalData</code>.
-     * The additional data in the Role
+     * The additional data in the role
      * @alias module:model/GetRoleAllOfAdditionalData
      */
     constructor() { 

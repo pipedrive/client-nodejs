@@ -96,43 +96,43 @@ class ActivityPutObjectAllOf {
 }
 
 /**
- * Subject of the Activity
+ * The subject of the activity
  * @member {String} subject
  */
 ActivityPutObjectAllOf.prototype['subject'] = undefined;
 
 /**
- * Type of the Activity. This is in correlation with the `key_string` parameter of ActivityTypes.
+ * The type of the activity. This is in correlation with the `key_string` parameter of ActivityTypes.
  * @member {String} type
  */
 ActivityPutObjectAllOf.prototype['type'] = undefined;
 
 /**
- * The ID of the User whom the Activity is assigned to
+ * The ID of the user whom the activity is assigned to
  * @member {Number} user_id
  */
 ActivityPutObjectAllOf.prototype['user_id'] = undefined;
 
 /**
- * List of multiple Persons (participants) this Activity is associated with. It requires a structure as follows: `[{\"person_id\":1,\"primary_flag\":true}]`
+ * List of multiple persons (participants) this activity is associated with. It requires a structure as follows: `[{\"person_id\":1,\"primary_flag\":true}]`
  * @member {Array.<Object>} participants
  */
 ActivityPutObjectAllOf.prototype['participants'] = undefined;
 
 /**
- * Set the Activity as 'Busy' or 'Free'. If the flag is set to `true`, your customers will not be able to book that time slot through any Scheduler links. The flag can also be unset by never setting it or overriding it with `null`. When the value of the flag is unset (`null`), the flag defaults to 'Busy' if it has a time set, and 'Free' if it is an all-day event without specified time.
+ * Set the activity as 'Busy' or 'Free'. If the flag is set to `true`, your customers will not be able to book that time slot through any Scheduler links. The flag can also be unset by never setting it or overriding it with `null`. When the value of the flag is unset (`null`), the flag defaults to 'Busy' if it has a time set, and 'Free' if it is an all-day event without specified time.
  * @member {module:model/ActivityPutObjectAllOf.BusyFlagEnum} busy_flag
  */
 ActivityPutObjectAllOf.prototype['busy_flag'] = undefined;
 
 /**
- * Attendees of the Activity. This can be either your existing Pipedrive contacts or an external email address. It requires a structure as follows: `[{\"email_address\":\"mail@example.org\"}]` or `[{\"person_id\":1, \"email_address\":\"mail@example.org\"}]`
+ * The attendees of the activity. This can be either your existing Pipedrive contacts or an external email address. It requires a structure as follows: `[{\"email_address\":\"mail@example.org\"}]` or `[{\"person_id\":1, \"email_address\":\"mail@example.org\"}]`
  * @member {Array.<Object>} attendees
  */
 ActivityPutObjectAllOf.prototype['attendees'] = undefined;
 
 /**
- * Whether the Activity is done or not. 0 = Not done, 1 = Done
+ * Whether the activity is done or not. 0 = Not done, 1 = Done
  * @member {module:model/NumberBoolean} done
  */
 ActivityPutObjectAllOf.prototype['done'] = undefined;

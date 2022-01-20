@@ -81,7 +81,7 @@ class DealPersonDataPhone {
 DealPersonDataPhone.prototype['label'] = undefined;
 
 /**
- * The phone number of the Person associated with the Deal
+ * The phone number of the person associated with the deal
  * @member {String} value
  */
 DealPersonDataPhone.prototype['value'] = undefined;

@@ -110,25 +110,25 @@ class AddProductRequestBody {
 }
 
 /**
- * Name of the product.
+ * The name of the product
  * @member {String} name
  */
 AddProductRequestBody.prototype['name'] = undefined;
 
 /**
- * Product code.
+ * The product code
  * @member {String} code
  */
 AddProductRequestBody.prototype['code'] = undefined;
 
 /**
- * Unit in which this product is sold
+ * The unit in which this product is sold
  * @member {String} unit
  */
 AddProductRequestBody.prototype['unit'] = undefined;
 
 /**
- * Tax percentage
+ * The tax percentage
  * @member {Number} tax
  * @default 0
  */
@@ -145,13 +145,13 @@ AddProductRequestBody.prototype['active_flag'] = undefined;
 AddProductRequestBody.prototype['selectable'] = undefined;
 
 /**
- * Visibility of the product. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user. Read more about visibility groups <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.<h4>Essential / Advanced plan</h4><table><tr><th style=\"width: 40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers</td><tr><td>`3`</td><td>Entire company</td></tr></table><h4>Professional / Enterprise plan</h4><table><tr><th style=\"width: 40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner only</td><tr><td>`3`</td><td>Owner's visibility group</td></tr><tr><td>`5`</td><td>Owner's visibility group and sub-groups</td></tr><tr><td>`7`</td><td>Entire company</td></tr></table>
+ * The visibility of the product. If omitted, the visibility will be set to the default visibility setting of this item type for the authorized user. Read more about visibility groups <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.<h4>Essential / Advanced plan</h4><table><tr><th style=\"width: 40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers</td><tr><td>`3`</td><td>Entire company</td></tr></table><h4>Professional / Enterprise plan</h4><table><tr><th style=\"width: 40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner only</td><tr><td>`3`</td><td>Owner's visibility group</td></tr><tr><td>`5`</td><td>Owner's visibility group and sub-groups</td></tr><tr><td>`7`</td><td>Entire company</td></tr></table>
  * @member {module:model/VisibleTo} visible_to
  */
 AddProductRequestBody.prototype['visible_to'] = undefined;
 
 /**
- * ID of the user who will be marked as the owner of this product. When omitted, the authorized user ID will be used.
+ * The ID of the user who will be marked as the owner of this product. When omitted, the authorized user ID will be used.
  * @member {Number} owner_id
  */
 AddProductRequestBody.prototype['owner_id'] = undefined;
@@ -165,22 +165,22 @@ AddProductRequestBody.prototype['prices'] = undefined;
 
 // Implement ProductRequest interface:
 /**
- * Name of the product.
+ * The name of the product
  * @member {String} name
  */
 ProductRequest.prototype['name'] = undefined;
 /**
- * Product code.
+ * The product code
  * @member {String} code
  */
 ProductRequest.prototype['code'] = undefined;
 /**
- * Unit in which this product is sold
+ * The unit in which this product is sold
  * @member {String} unit
  */
 ProductRequest.prototype['unit'] = undefined;
 /**
- * Tax percentage
+ * The tax percentage
  * @member {Number} tax
  * @default 0
  */
@@ -194,12 +194,12 @@ ProductRequest.prototype['active_flag'] = undefined;
  */
 ProductRequest.prototype['selectable'] = undefined;
 /**
- * Visibility of the product. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user. Read more about visibility groups <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.<h4>Essential / Advanced plan</h4><table><tr><th style=\"width: 40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers</td><tr><td>`3`</td><td>Entire company</td></tr></table><h4>Professional / Enterprise plan</h4><table><tr><th style=\"width: 40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner only</td><tr><td>`3`</td><td>Owner's visibility group</td></tr><tr><td>`5`</td><td>Owner's visibility group and sub-groups</td></tr><tr><td>`7`</td><td>Entire company</td></tr></table>
+ * The visibility of the product. If omitted, the visibility will be set to the default visibility setting of this item type for the authorized user. Read more about visibility groups <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.<h4>Essential / Advanced plan</h4><table><tr><th style=\"width: 40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers</td><tr><td>`3`</td><td>Entire company</td></tr></table><h4>Professional / Enterprise plan</h4><table><tr><th style=\"width: 40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner only</td><tr><td>`3`</td><td>Owner's visibility group</td></tr><tr><td>`5`</td><td>Owner's visibility group and sub-groups</td></tr><tr><td>`7`</td><td>Entire company</td></tr></table>
  * @member {module:model/VisibleTo} visible_to
  */
 ProductRequest.prototype['visible_to'] = undefined;
 /**
- * ID of the user who will be marked as the owner of this product. When omitted, the authorized user ID will be used.
+ * The ID of the user who will be marked as the owner of this product. When omitted, the authorized user ID will be used.
  * @member {Number} owner_id
  */
 ProductRequest.prototype['owner_id'] = undefined;

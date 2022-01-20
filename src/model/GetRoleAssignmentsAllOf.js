@@ -72,7 +72,7 @@ class GetRoleAssignmentsAllOf {
 }
 
 /**
- * The Role assignments
+ * The role assignments
  * @member {Array.<module:model/RoleAssignment>} data
  */
 GetRoleAssignmentsAllOf.prototype['data'] = undefined;

@@ -22,7 +22,7 @@ class AddTeamUserRequest {
     /**
      * Constructs a new <code>AddTeamUserRequest</code>.
      * @alias module:model/AddTeamUserRequest
-     * @param users {Array.<Number>} List of User IDs
+     * @param users {Array.<Number>} The list of user IDs
      */
     constructor(users) { 
         
@@ -67,7 +67,7 @@ class AddTeamUserRequest {
 }
 
 /**
- * List of User IDs
+ * The list of user IDs
  * @member {Array.<Number>} users
  */
 AddTeamUserRequest.prototype['users'] = undefined;

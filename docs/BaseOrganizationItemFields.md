@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | The ID of the Organization | [optional] 
-**companyId** | **Number** | The ID of the Company related to the Organization | [optional] 
-**ownerId** | [**Owner**](Owner.md) |  | [optional] 
-**name** | **String** | The name of the Organization | [optional] 
-**activeFlag** | **Boolean** | If the Organization is activated or not | [optional] 
-**pictureId** | [**PictureDataWithValue**](PictureDataWithValue.md) |  | [optional] 
-**countryCode** | **String** | The country code of the Organization | [optional] 
-**firstChar** | **String** | The first character of the Organization name | [optional] 
-**addTime** | **String** | The creation date and time of the Organization | [optional] 
-**updateTime** | **String** | The last updated date and time of the Organization | [optional] 
-**visibleTo** | **String** | The visibility group ID of who can see the Organization | [optional] 
+**id** | **Number** | The ID of the organization | [optional] 
+**company_id** | **Number** | The ID of the company related to the organization | [optional] 
+**owner_id** | [**Owner**](Owner.md) |  | [optional] 
+**name** | **String** | The name of the organization | [optional] 
+**active_flag** | **Boolean** | Whether the organization is active or not | [optional] 
+**picture_id** | [**PictureDataWithValue**](PictureDataWithValue.md) |  | [optional] 
+**country_code** | **String** | The country code of the organization | [optional] 
+**first_char** | **String** | The first character of the organization name | [optional] 
+**add_time** | **String** | The creation date and time of the organization | [optional] 
+**update_time** | **String** | The last updated date and time of the organization | [optional] 
+**visible_to** | **String** | The visibility group ID of who can see the organization | [optional] 
 **label** | **Number** | The ID of the label | [optional] 
-**ownerName** | **String** | The name of the Organization owner | [optional] 
-**ccEmail** | **String** | The CC email of the Organization | [optional] 
+**owner_name** | **String** | The name of the organization owner | [optional] 
+**cc_email** | **String** | The BCC email of the organization | [optional] 
 
 

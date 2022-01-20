@@ -96,43 +96,43 @@ class ActivityPostObjectAllOf {
 }
 
 /**
- * Subject of the Activity. When value for subject is not set, it will be given a default value `Call`.
+ * The subject of the activity. When value for subject is not set, it will be given a default value `Call`.
  * @member {String} subject
  */
 ActivityPostObjectAllOf.prototype['subject'] = undefined;
 
 /**
- * Type of the Activity. This is in correlation with the `key_string` parameter of ActivityTypes. When value for type is not set, it will be given a default value `Call`.
+ * The type of the activity. This is in correlation with the `key_string` parameter of ActivityTypes. When value for type is not set, it will be given a default value `Call`.
  * @member {String} type
  */
 ActivityPostObjectAllOf.prototype['type'] = undefined;
 
 /**
- * The ID of the User whom the Activity is assigned to. If omitted, the Activity is assigned to the authorized User.
+ * The ID of the user whom the activity is assigned to. If omitted, the activity is assigned to the authorized user.
  * @member {Number} user_id
  */
 ActivityPostObjectAllOf.prototype['user_id'] = undefined;
 
 /**
- * List of multiple Persons (participants) this Activity is associated with. If omitted, single participant from `person_id` field is used. It requires a structure as follows: `[{\"person_id\":1,\"primary_flag\":true}]`
+ * List of multiple persons (participants) this activity is associated with. If omitted, single participant from `person_id` field is used. It requires a structure as follows: `[{\"person_id\":1,\"primary_flag\":true}]`
  * @member {Array.<Object>} participants
  */
 ActivityPostObjectAllOf.prototype['participants'] = undefined;
 
 /**
- * Set the Activity as 'Busy' or 'Free'. If the flag is set to `true`, your customers will not be able to book that time slot through any Scheduler links. The flag can also be unset by never setting it or overriding it with `null`. When the value of the flag is unset (`null`), the flag defaults to 'Busy' if it has a time set, and 'Free' if it is an all-day event without specified time.
+ * Set the activity as 'Busy' or 'Free'. If the flag is set to `true`, your customers will not be able to book that time slot through any Scheduler links. The flag can also be unset by never setting it or overriding it with `null`. When the value of the flag is unset (`null`), the flag defaults to 'Busy' if it has a time set, and 'Free' if it is an all-day event without specified time.
  * @member {module:model/ActivityPostObjectAllOf.BusyFlagEnum} busy_flag
  */
 ActivityPostObjectAllOf.prototype['busy_flag'] = undefined;
 
 /**
- * Attendees of the Activity. This can be either your existing Pipedrive contacts or an external email address. It requires a structure as follows: `[{\"email_address\":\"mail@example.org\"}]` or `[{\"person_id\":1, \"email_address\":\"mail@example.org\"}]`
+ * The attendees of the activity. This can be either your existing Pipedrive contacts or an external email address. It requires a structure as follows: `[{\"email_address\":\"mail@example.org\"}]` or `[{\"person_id\":1, \"email_address\":\"mail@example.org\"}]`
  * @member {Array.<Object>} attendees
  */
 ActivityPostObjectAllOf.prototype['attendees'] = undefined;
 
 /**
- * Whether the Activity is done or not. 0 = Not done, 1 = Done
+ * Whether the activity is done or not. 0 = Not done, 1 = Done
  * @member {module:model/NumberBoolean} done
  */
 ActivityPostObjectAllOf.prototype['done'] = undefined;

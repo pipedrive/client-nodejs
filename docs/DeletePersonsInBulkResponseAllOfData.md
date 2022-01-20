@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **[Number]** | The list of deleted Persons IDs | [optional] 
+**id** | **[Number]** | The list of deleted persons IDs | [optional] 
 
 

@@ -87,7 +87,7 @@ ResponseCallLogObjectAllOf.prototype['id'] = undefined;
 ResponseCallLogObjectAllOf.prototype['has_recording'] = undefined;
 
 /**
- * The Company ID of the owner of the call log
+ * The company ID of the owner of the call log
  * @member {Number} company_id
  */
 ResponseCallLogObjectAllOf.prototype['company_id'] = undefined;

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | Name of the goal type | [optional] 
+**name** | **String** | The name of the goal type | [optional] 
 **params** | [**Params**](Params.md) |  | [optional] 
 
 

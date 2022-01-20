@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | The Team name | 
-**description** | **String** | The Team description | [optional] 
-**managerId** | **Number** | The Team manager ID | 
-**users** | **[Number]** | List of User IDs | [optional] 
+**name** | **String** | The team name | 
+**description** | **String** | The team description | [optional] 
+**manager_id** | **Number** | The team manager ID | 
+**users** | **[Number]** | The list of user IDs | [optional] 
 
 

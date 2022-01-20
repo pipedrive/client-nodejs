@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**mergeWithId** | **Number** | The ID of the Organization that the Organization will be merged with | 
+**merge_with_id** | **Number** | The ID of the organization that the organization will be merged with | 
 
 

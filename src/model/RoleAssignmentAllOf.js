@@ -80,19 +80,19 @@ class RoleAssignmentAllOf {
 }
 
 /**
- * The User ID
+ * The user ID
  * @member {Number} user_id
  */
 RoleAssignmentAllOf.prototype['user_id'] = undefined;
 
 /**
- * The Role ID
+ * The role ID
  * @member {Number} role_id
  */
 RoleAssignmentAllOf.prototype['role_id'] = undefined;
 
 /**
- * Whether the Role is active or not
+ * Whether the role is active or not
  * @member {Boolean} active_flag
  */
 RoleAssignmentAllOf.prototype['active_flag'] = undefined;

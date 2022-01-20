@@ -45,7 +45,7 @@ export default class TeamsApi {
 
     /**
      * Add a new team
-     * Adds a new team to the company and returns the created object
+     * Adds a new team to the company and returns the created object.
      * @param {Object} opts Optional parameters
      * @param {module:model/CreateTeam} opts.createTeam 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Team} and HTTP response
@@ -53,6 +53,13 @@ export default class TeamsApi {
     addTeamWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = opts['createTeam'];
+
+      if (opts['name'] === undefined || opts['name'] === null) {
+        throw new Error("Missing the required parameter 'name' when calling addTeam");
+      }
+      if (opts['manager_id'] === undefined || opts['manager_id'] === null) {
+        throw new Error("Missing the required parameter 'manager_id' when calling addTeam");
+      }
 
       let pathParams = {
       };
@@ -92,7 +99,7 @@ export default class TeamsApi {
 
     /**
      * Add a new team
-     * Adds a new team to the company and returns the created object
+     * Adds a new team to the company and returns the created object.
      * @param {Object} opts Optional parameters
      * @param {module:model/CreateTeam} opts.createTeam 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Team}
@@ -107,8 +114,8 @@ export default class TeamsApi {
 
     /**
      * Add users to a team
-     * Adds users to an existing team
-     * @param {Number} id ID of the team
+     * Adds users to an existing team.
+     * @param {Number} id The ID of the team
      * @param {Object} opts Optional parameters
      * @param {module:model/AddTeamUserRequest} opts.addTeamUserRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UserIDs} and HTTP response
@@ -116,9 +123,14 @@ export default class TeamsApi {
     addTeamUserWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['addTeamUserRequest'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling addTeamUser");
+      }
+
+      if (opts['users'] === undefined || opts['users'] === null) {
+        throw new Error("Missing the required parameter 'users' when calling addTeamUser");
       }
 
       let pathParams = {
@@ -160,8 +172,8 @@ export default class TeamsApi {
 
     /**
      * Add users to a team
-     * Adds users to an existing team
-     * @param {Number} id ID of the team
+     * Adds users to an existing team.
+     * @param {Number} id The ID of the team
      * @param {Object} opts Optional parameters
      * @param {module:model/AddTeamUserRequest} opts.addTeamUserRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UserIDs}
@@ -176,8 +188,8 @@ export default class TeamsApi {
 
     /**
      * Delete users from a team
-     * Deletes users from an existing team
-     * @param {Number} id ID of the team
+     * Deletes users from an existing team.
+     * @param {Number} id The ID of the team
      * @param {Object} opts Optional parameters
      * @param {module:model/DeleteTeamUserRequest} opts.deleteTeamUserRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UserIDs} and HTTP response
@@ -185,9 +197,14 @@ export default class TeamsApi {
     deleteTeamUserWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['deleteTeamUserRequest'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteTeamUser");
+      }
+
+      if (opts['users'] === undefined || opts['users'] === null) {
+        throw new Error("Missing the required parameter 'users' when calling deleteTeamUser");
       }
 
       let pathParams = {
@@ -229,8 +246,8 @@ export default class TeamsApi {
 
     /**
      * Delete users from a team
-     * Deletes users from an existing team
-     * @param {Number} id ID of the team
+     * Deletes users from an existing team.
+     * @param {Number} id The ID of the team
      * @param {Object} opts Optional parameters
      * @param {module:model/DeleteTeamUserRequest} opts.deleteTeamUserRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UserIDs}
@@ -245,8 +262,8 @@ export default class TeamsApi {
 
     /**
      * Get a single team
-     * Returns data about a specific team
-     * @param {Number} id ID of the team
+     * Returns data about a specific team.
+     * @param {Number} id The ID of the team
      * @param {Object} opts Optional parameters
      * @param {module:model/NumberBooleanDefault0} opts.skipUsers When enabled, the teams will not include IDs of member users
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Team} and HTTP response
@@ -254,10 +271,12 @@ export default class TeamsApi {
     getTeamWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getTeam");
       }
+
 
       let pathParams = {
         'id': id,
@@ -299,8 +318,8 @@ export default class TeamsApi {
 
     /**
      * Get a single team
-     * Returns data about a specific team
-     * @param {Number} id ID of the team
+     * Returns data about a specific team.
+     * @param {Number} id The ID of the team
      * @param {Object} opts Optional parameters
      * @param {module:model/NumberBooleanDefault0} opts.skipUsers When enabled, the teams will not include IDs of member users
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Team}
@@ -315,13 +334,14 @@ export default class TeamsApi {
 
     /**
      * Get all users in a team
-     * Returns list of all user IDs within a team
-     * @param {Number} id ID of the team
+     * Returns a list of all user IDs within a team.
+     * @param {Number} id The ID of the team
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UserIDs} and HTTP response
      */
     getTeamUsersWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getTeamUsers");
@@ -366,8 +386,8 @@ export default class TeamsApi {
 
     /**
      * Get all users in a team
-     * Returns list of all user IDs within a team
-     * @param {Number} id ID of the team
+     * Returns a list of all user IDs within a team.
+     * @param {Number} id The ID of the team
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UserIDs}
      */
     getTeamUsers(id) {
@@ -380,15 +400,17 @@ export default class TeamsApi {
 
     /**
      * Get all teams
-     * Returns data about teams within the company
+     * Returns data about teams within the company.
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.orderBy Field name to sort returned teams by (default to 'id')
+     * @param {module:model/String} opts.orderBy The field name to sort returned teams by (default to 'id')
      * @param {module:model/NumberBooleanDefault0} opts.skipUsers When enabled, the teams will not include IDs of member users
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Teams} and HTTP response
      */
     getTeamsWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
+
+
 
       let pathParams = {
       };
@@ -430,9 +452,9 @@ export default class TeamsApi {
 
     /**
      * Get all teams
-     * Returns data about teams within the company
+     * Returns data about teams within the company.
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.orderBy Field name to sort returned teams by (default to 'id')
+     * @param {module:model/String} opts.orderBy The field name to sort returned teams by (default to 'id')
      * @param {module:model/NumberBooleanDefault0} opts.skipUsers When enabled, the teams will not include IDs of member users
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Teams}
      */
@@ -446,20 +468,23 @@ export default class TeamsApi {
 
     /**
      * Get all teams of a user
-     * Returns data about all teams which have specified user as a member
-     * @param {Number} id ID of the user
+     * Returns data about all teams which have the specified user as a member.
+     * @param {Number} id The ID of the user
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.orderBy Field name to sort returned teams by (default to 'id')
+     * @param {module:model/String} opts.orderBy The field name to sort returned teams by (default to 'id')
      * @param {module:model/NumberBooleanDefault0} opts.skipUsers When enabled, the teams will not include IDs of member users
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Teams} and HTTP response
      */
     getUserTeamsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getUserTeams");
       }
+
+
 
       let pathParams = {
         'id': id,
@@ -502,10 +527,10 @@ export default class TeamsApi {
 
     /**
      * Get all teams of a user
-     * Returns data about all teams which have specified user as a member
-     * @param {Number} id ID of the user
+     * Returns data about all teams which have the specified user as a member.
+     * @param {Number} id The ID of the user
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.orderBy Field name to sort returned teams by (default to 'id')
+     * @param {module:model/String} opts.orderBy The field name to sort returned teams by (default to 'id')
      * @param {module:model/NumberBooleanDefault0} opts.skipUsers When enabled, the teams will not include IDs of member users
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Teams}
      */
@@ -519,8 +544,8 @@ export default class TeamsApi {
 
     /**
      * Update a team
-     * Updates an existing team and returns the updated object
-     * @param {Number} id ID of the team
+     * Updates an existing team and returns the updated object.
+     * @param {Number} id The ID of the team
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateTeam} opts.updateTeam 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Team} and HTTP response
@@ -528,10 +553,12 @@ export default class TeamsApi {
     updateTeamWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['updateTeam'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateTeam");
       }
+
 
       let pathParams = {
         'id': id,
@@ -572,8 +599,8 @@ export default class TeamsApi {
 
     /**
      * Update a team
-     * Updates an existing team and returns the updated object
-     * @param {Number} id ID of the team
+     * Updates an existing team and returns the updated object.
+     * @param {Number} id The ID of the team
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateTeam} opts.updateTeam 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Team}

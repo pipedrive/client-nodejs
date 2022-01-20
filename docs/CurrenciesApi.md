@@ -32,7 +32,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.CurrenciesApi();
 let opts = {
-  'term': "term_example" // String | Optional search term that is searched for from currency's name and/or code.
+  'term': "term_example" // String | Optional search term that is searched for from currency's name and/or code
 };
 apiInstance.getCurrencies(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -47,7 +47,7 @@ apiInstance.getCurrencies(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **term** | **String**| Optional search term that is searched for from currency&#39;s name and/or code. | [optional] 
+ **term** | **String**| Optional search term that is searched for from currency&#39;s name and/or code | [optional] 
 
 ### Return type
 

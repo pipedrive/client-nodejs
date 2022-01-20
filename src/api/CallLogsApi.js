@@ -44,7 +44,7 @@ export default class CallLogsApi {
 
     /**
      * Add a call log
-     * Adds a new call log
+     * Adds a new call log.
      * @param {Object} opts Optional parameters
      * @param {module:model/CallLogObject} opts.callLogObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BaseResponse} and HTTP response
@@ -52,6 +52,19 @@ export default class CallLogsApi {
     addCallLogWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = opts['callLogObject'];
+
+      if (opts['outcome'] === undefined || opts['outcome'] === null) {
+        throw new Error("Missing the required parameter 'outcome' when calling addCallLog");
+      }
+      if (opts['to_phone_number'] === undefined || opts['to_phone_number'] === null) {
+        throw new Error("Missing the required parameter 'to_phone_number' when calling addCallLog");
+      }
+      if (opts['start_time'] === undefined || opts['start_time'] === null) {
+        throw new Error("Missing the required parameter 'start_time' when calling addCallLog");
+      }
+      if (opts['end_time'] === undefined || opts['end_time'] === null) {
+        throw new Error("Missing the required parameter 'end_time' when calling addCallLog");
+      }
 
       let pathParams = {
       };
@@ -91,7 +104,7 @@ export default class CallLogsApi {
 
     /**
      * Add a call log
-     * Adds a new call log
+     * Adds a new call log.
      * @param {Object} opts Optional parameters
      * @param {module:model/CallLogObject} opts.callLogObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BaseResponse}
@@ -114,10 +127,12 @@ export default class CallLogsApi {
     addCallLogAudioFileWithHttpInfo(id, file) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling addCallLogAudioFile");
       }
+
       // verify the required parameter 'file' is set
       if (file === undefined || file === null) {
         throw new Error("Missing the required parameter 'file' when calling addCallLogAudioFile");
@@ -186,6 +201,7 @@ export default class CallLogsApi {
     deleteCallLogWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteCallLog");
@@ -244,13 +260,14 @@ export default class CallLogsApi {
 
     /**
      * Get details of a call log
-     * Returns details of a specific call log
+     * Returns details of a specific call log.
      * @param {String} id The ID received when you create the call log
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BaseResponse} and HTTP response
      */
     getCallLogWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getCallLog");
@@ -295,7 +312,7 @@ export default class CallLogsApi {
 
     /**
      * Get details of a call log
-     * Returns details of a specific call log
+     * Returns details of a specific call log.
      * @param {String} id The ID received when you create the call log
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BaseResponse}
      */
@@ -309,7 +326,7 @@ export default class CallLogsApi {
 
     /**
      * Get all call logs assigned to a particular user
-     * Returns all call logs assigned to a particular user
+     * Returns all call logs assigned to a particular user.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -318,6 +335,8 @@ export default class CallLogsApi {
     getUserCallLogsWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
+
+
 
       let pathParams = {
       };
@@ -359,7 +378,7 @@ export default class CallLogsApi {
 
     /**
      * Get all call logs assigned to a particular user
-     * Returns all call logs assigned to a particular user
+     * Returns all call logs assigned to a particular user.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page

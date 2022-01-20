@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Add a lead
 
-Creates a Lead. A Lead always has to be linked to a Person or an Organization or both. All Leads created through the Pipedrive API will have a Lead Source &#x60;API&#x60; assigned. Here&#39;s the tutorial for &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-a-lead\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;adding a Lead&lt;/a&gt;. If a Lead contains custom fields, the fields&#39; values will be included in the response in the same format as with the &#x60;Deals&#x60; endpoints. If a custom field&#39;s value hasn&#39;t been set for the Lead, it won&#39;t appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields&#39; structure from Deals. See an example given in the &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/updating-custom-field-value\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;updating custom fields&#39; values tutorial&lt;/a&gt;.
+Creates a lead. A lead always has to be linked to a person or an organization or both. All leads created through the Pipedrive API will have a lead source &#x60;API&#x60; assigned. Here&#39;s the tutorial for &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-a-lead\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;adding a lead&lt;/a&gt;. If a lead contains custom fields, the fields&#39; values will be included in the response in the same format as with the &#x60;Deals&#x60; endpoints. If a custom field&#39;s value hasn&#39;t been set for the lead, it won&#39;t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields&#39; structure from deals. See an example given in the &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/updating-custom-field-value\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;updating custom fields&#39; values tutorial&lt;/a&gt;.
 
 ### Example
 
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 Delete a lead
 
-Deletes a specific Lead
+Deletes a specific lead.
 
 ### Example
 
@@ -90,7 +90,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.LeadsApi();
-let id = null; // String | The ID of the Lead
+let id = "id_example"; // String | The ID of the lead
 apiInstance.deleteLead(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -104,7 +104,7 @@ apiInstance.deleteLead(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**String**](.md)| The ID of the Lead | 
+ **id** | **String**| The ID of the lead | 
 
 ### Return type
 
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 Get one lead
 
-Returns details of a specific Lead. If a Lead contains custom fields, the fields&#39; values will be included in the response in the same format as with the &#x60;Deals&#x60; endpoints. If a custom field&#39;s value hasn&#39;t been set for the Lead, it won&#39;t appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from Deals.
+Returns details of a specific lead. If a lead contains custom fields, the fields&#39; values will be included in the response in the same format as with the &#x60;Deals&#x60; endpoints. If a custom field&#39;s value hasn&#39;t been set for the lead, it won&#39;t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from deals.
 
 ### Example
 
@@ -143,7 +143,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.LeadsApi();
-let id = null; // String | The ID of the Lead
+let id = "id_example"; // String | The ID of the lead
 apiInstance.getLead(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -157,7 +157,7 @@ apiInstance.getLead(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**String**](.md)| The ID of the Lead | 
+ **id** | **String**| The ID of the lead | 
 
 ### Return type
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 Get all leads
 
-Returns multiple Leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using &#x60;limit&#x60; and &#x60;start&#x60; query parameters. If a Lead contains custom fields, the fields&#39; values will be included in the response in the same format as with the &#x60;Deals&#x60; endpoints. If a custom field&#39;s value hasn&#39;t been set for the Lead, it won&#39;t appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields&#39; structure from Deals. 
+Returns multiple leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using &#x60;limit&#x60; and &#x60;start&#x60; query parameters. If a lead contains custom fields, the fields&#39; values will be included in the response in the same format as with the &#x60;Deals&#x60; endpoints. If a custom field&#39;s value hasn&#39;t been set for the lead, it won&#39;t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields&#39; structure from deals. 
 
 ### Example
 
@@ -199,7 +199,7 @@ let apiInstance = new Pipedrive.LeadsApi();
 let opts = {
   'limit': 100, // Number | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned.
   'start': 0, // Number | For pagination, the position that represents the first result for the page
-  'archivedStatus': "archivedStatus_example" // String | Filtering based on archived status of a Lead. If not provided, `All` is used.
+  'archivedStatus': "archivedStatus_example" // String | Filtering based on the archived status of a lead. If not provided, `All` is used.
 };
 apiInstance.getLeads(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -216,7 +216,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Number**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. | [optional] 
  **start** | **Number**| For pagination, the position that represents the first result for the page | [optional] 
- **archivedStatus** | **String**| Filtering based on archived status of a Lead. If not provided, &#x60;All&#x60; is used. | [optional] 
+ **archivedStatus** | **String**| Filtering based on the archived status of a lead. If not provided, &#x60;All&#x60; is used. | [optional] 
 
 ### Return type
 
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 
 Update a lead
 
-Updates one or more properties of a Lead. Only properties included in the request will be updated. Send &#x60;null&#x60; to unset a property (applicable for example for &#x60;value&#x60;, &#x60;person_id&#x60; or &#x60;organization_id&#x60;). If a Lead contains custom fields, the fields&#39; values will be included in the response in the same format as with the &#x60;Deals&#x60; endpoints. If a custom field&#39;s value hasn&#39;t been set for the Lead, it won&#39;t appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from Deals. See an example of updating custom fields’ values in &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/updating-custom-field-value\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this tutorial&lt;/a&gt;.
+Updates one or more properties of a lead. Only properties included in the request will be updated. Send &#x60;null&#x60; to unset a property (applicable for example for &#x60;value&#x60;, &#x60;person_id&#x60; or &#x60;organization_id&#x60;). If a lead contains custom fields, the fields&#39; values will be included in the response in the same format as with the &#x60;Deals&#x60; endpoints. If a custom field&#39;s value hasn&#39;t been set for the lead, it won&#39;t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from deals. See an example of updating custom fields’ values in &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/updating-custom-field-value\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this tutorial&lt;/a&gt;.
 
 ### Example
 
@@ -255,7 +255,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.LeadsApi();
-let id = null; // String | The ID of the Lead
+let id = "id_example"; // String | The ID of the lead
 let opts = Pipedrive.UpdateLeadRequest.constructFromObject({
   // Properties that you want to update
 });
@@ -272,7 +272,7 @@ apiInstance.updateLead(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**String**](.md)| The ID of the Lead | 
+ **id** | **String**| The ID of the lead | 
  **updateLeadRequest** | [**UpdateLeadRequest**](UpdateLeadRequest.md)|  | [optional] 
 
 ### Return type

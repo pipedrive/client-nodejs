@@ -47,8 +47,8 @@ export default class RolesApi {
 
     /**
      * Add or update role setting
-     * Add or update the visibility setting for a role
-     * @param {Number} id ID of the role
+     * Adds or updates the visibility setting for a role.
+     * @param {Number} id The ID of the role
      * @param {module:model/String} settingKey 
      * @param {module:model/Number} value Possible values for the `default_visibility` setting depending on the subscription plan:<br> <table class='role-setting'> <caption><b>Essential / Advanced plan</b></caption> <tr><th><b>Value</b></th><th><b>Description</b></th></tr> <tr><td>`1`</td><td>Owner & Followers</td></tr> <tr><td>`3`</td><td>Entire company</td></tr> </table> <br> <table class='role-setting'> <caption><b>Professional / Enterprise plan</b></caption> <tr><th><b>Value</b></th><th><b>Description</b></th></tr> <tr><td>`1`</td><td>Owner only</td></tr> <tr><td>`3`</td><td>Owner&#39;s visibility group</td></tr> <tr><td>`5`</td><td>Owner&#39;s visibility group and sub-groups</td></tr> <tr><td>`7`</td><td>Entire company</td></tr> </table> <br> Read more about visibility groups <a href='https://support.pipedrive.com/en/article/visibility-groups'>here</a>.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostRoleSettings} and HTTP response
@@ -56,14 +56,17 @@ export default class RolesApi {
     addOrUpdateRoleSettingWithHttpInfo(id, settingKey, value) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling addOrUpdateRoleSetting");
       }
+
       // verify the required parameter 'settingKey' is set
       if (settingKey === undefined || settingKey === null) {
         throw new Error("Missing the required parameter 'settingKey' when calling addOrUpdateRoleSetting");
       }
+
       // verify the required parameter 'value' is set
       if (value === undefined || value === null) {
         throw new Error("Missing the required parameter 'value' when calling addOrUpdateRoleSetting");
@@ -112,8 +115,8 @@ export default class RolesApi {
 
     /**
      * Add or update role setting
-     * Add or update the visibility setting for a role
-     * @param {Number} id ID of the role
+     * Adds or updates the visibility setting for a role.
+     * @param {Number} id The ID of the role
      * @param {module:model/String} settingKey 
      * @param {module:model/Number} value Possible values for the `default_visibility` setting depending on the subscription plan:<br> <table class='role-setting'> <caption><b>Essential / Advanced plan</b></caption> <tr><th><b>Value</b></th><th><b>Description</b></th></tr> <tr><td>`1`</td><td>Owner & Followers</td></tr> <tr><td>`3`</td><td>Entire company</td></tr> </table> <br> <table class='role-setting'> <caption><b>Professional / Enterprise plan</b></caption> <tr><th><b>Value</b></th><th><b>Description</b></th></tr> <tr><td>`1`</td><td>Owner only</td></tr> <tr><td>`3`</td><td>Owner&#39;s visibility group</td></tr> <tr><td>`5`</td><td>Owner&#39;s visibility group and sub-groups</td></tr> <tr><td>`7`</td><td>Entire company</td></tr> </table> <br> Read more about visibility groups <a href='https://support.pipedrive.com/en/article/visibility-groups'>here</a>.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostRoleSettings}
@@ -129,13 +132,15 @@ export default class RolesApi {
     /**
      * Add a role
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.parentRoleId The ID of the parent Role
-     * @param {String} opts.name The name of the Role
+     * @param {Number} opts.parentRoleId The ID of the parent role
+     * @param {String} opts.name The name of the role
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostRoles} and HTTP response
      */
     addRoleWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
+
+
 
       let pathParams = {
       };
@@ -180,8 +185,8 @@ export default class RolesApi {
     /**
      * Add a role
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.parentRoleId The ID of the parent Role
-     * @param {String} opts.name The name of the Role
+     * @param {Number} opts.parentRoleId The ID of the parent role
+     * @param {String} opts.name The name of the role
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostRoles}
      */
     addRole(opts) {
@@ -194,18 +199,20 @@ export default class RolesApi {
 
     /**
      * Add role assignment
-     * Add assignment for a role
-     * @param {Number} id ID of the role
-     * @param {Number} userId ID of the user
+     * Adds assignment for a role.
+     * @param {Number} id The ID of the role
+     * @param {Number} userId The ID of the user
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostRoleAssignment} and HTTP response
      */
     addRoleAssignmentWithHttpInfo(id, userId) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling addRoleAssignment");
       }
+
       // verify the required parameter 'userId' is set
       if (userId === undefined || userId === null) {
         throw new Error("Missing the required parameter 'userId' when calling addRoleAssignment");
@@ -252,9 +259,9 @@ export default class RolesApi {
 
     /**
      * Add role assignment
-     * Add assignment for a role
-     * @param {Number} id ID of the role
-     * @param {Number} userId ID of the user
+     * Adds assignment for a role.
+     * @param {Number} id The ID of the role
+     * @param {Number} userId The ID of the user
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostRoleAssignment}
      */
     addRoleAssignment(id, userId) {
@@ -267,12 +274,13 @@ export default class RolesApi {
 
     /**
      * Delete a role
-     * @param {Number} id ID of the role
+     * @param {Number} id The ID of the role
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteRole} and HTTP response
      */
     deleteRoleWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteRole");
@@ -317,7 +325,7 @@ export default class RolesApi {
 
     /**
      * Delete a role
-     * @param {Number} id ID of the role
+     * @param {Number} id The ID of the role
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteRole}
      */
     deleteRole(id) {
@@ -330,18 +338,20 @@ export default class RolesApi {
 
     /**
      * Delete a role assignment
-     * Delete assignment from a role
-     * @param {Number} id ID of the role
-     * @param {Number} userId ID of the user
+     * Deletes assignment from a role.
+     * @param {Number} id The ID of the role
+     * @param {Number} userId The ID of the user
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteRoleAssignment} and HTTP response
      */
     deleteRoleAssignmentWithHttpInfo(id, userId) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteRoleAssignment");
       }
+
       // verify the required parameter 'userId' is set
       if (userId === undefined || userId === null) {
         throw new Error("Missing the required parameter 'userId' when calling deleteRoleAssignment");
@@ -388,9 +398,9 @@ export default class RolesApi {
 
     /**
      * Delete a role assignment
-     * Delete assignment from a role
-     * @param {Number} id ID of the role
-     * @param {Number} userId ID of the user
+     * Deletes assignment from a role.
+     * @param {Number} id The ID of the role
+     * @param {Number} userId The ID of the user
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteRoleAssignment}
      */
     deleteRoleAssignment(id, userId) {
@@ -403,12 +413,13 @@ export default class RolesApi {
 
     /**
      * Get one role
-     * @param {Number} id ID of the role
+     * @param {Number} id The ID of the role
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetRole} and HTTP response
      */
     getRoleWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getRole");
@@ -453,7 +464,7 @@ export default class RolesApi {
 
     /**
      * Get one role
-     * @param {Number} id ID of the role
+     * @param {Number} id The ID of the role
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetRole}
      */
     getRole(id) {
@@ -466,8 +477,8 @@ export default class RolesApi {
 
     /**
      * List role assignments
-     * List assignments for a role
-     * @param {Number} id ID of the role
+     * Lists assignments for a role.
+     * @param {Number} id The ID of the role
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -476,10 +487,13 @@ export default class RolesApi {
     getRoleAssignmentsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getRoleAssignments");
       }
+
+
 
       let pathParams = {
         'id': id,
@@ -522,8 +536,8 @@ export default class RolesApi {
 
     /**
      * List role assignments
-     * List assignments for a role
-     * @param {Number} id ID of the role
+     * Lists assignments for a role.
+     * @param {Number} id The ID of the role
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -539,12 +553,13 @@ export default class RolesApi {
 
     /**
      * List role settings
-     * @param {Number} id ID of the role
+     * @param {Number} id The ID of the role
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetRoleSettings} and HTTP response
      */
     getRoleSettingsWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getRoleSettings");
@@ -589,7 +604,7 @@ export default class RolesApi {
 
     /**
      * List role settings
-     * @param {Number} id ID of the role
+     * @param {Number} id The ID of the role
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetRoleSettings}
      */
     getRoleSettings(id) {
@@ -602,7 +617,7 @@ export default class RolesApi {
 
     /**
      * List role sub-roles
-     * @param {Number} id ID of the role
+     * @param {Number} id The ID of the role
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -611,10 +626,13 @@ export default class RolesApi {
     getRoleSubRolesWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getRoleSubRoles");
       }
+
+
 
       let pathParams = {
         'id': id,
@@ -657,7 +675,7 @@ export default class RolesApi {
 
     /**
      * List role sub-roles
-     * @param {Number} id ID of the role
+     * @param {Number} id The ID of the role
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -681,6 +699,8 @@ export default class RolesApi {
     getRolesWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
+
+
 
       let pathParams = {
       };
@@ -737,19 +757,22 @@ export default class RolesApi {
 
     /**
      * Update role details
-     * @param {Number} id ID of the role
+     * @param {Number} id The ID of the role
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.parentRoleId The ID of the parent Role
-     * @param {String} opts.name The name of the Role
+     * @param {Number} opts.parentRoleId The ID of the parent role
+     * @param {String} opts.name The name of the role
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PutRole} and HTTP response
      */
     updateRoleWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateRole");
       }
+
+
 
       let pathParams = {
         'id': id,
@@ -794,10 +817,10 @@ export default class RolesApi {
 
     /**
      * Update role details
-     * @param {Number} id ID of the role
+     * @param {Number} id The ID of the role
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.parentRoleId The ID of the parent Role
-     * @param {String} opts.name The name of the Role
+     * @param {Number} opts.parentRoleId The ID of the parent role
+     * @param {String} opts.name The name of the role
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PutRole}
      */
     updateRole(id, opts) {

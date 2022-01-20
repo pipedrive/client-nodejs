@@ -23,7 +23,7 @@ import OrganizationDataWithIdAndActiveFlagAllOf from './OrganizationDataWithIdAn
 class OrganizationDataWithIdAndActiveFlag {
     /**
      * Constructs a new <code>OrganizationDataWithIdAndActiveFlag</code>.
-     * The ID of the Organization associated with the item
+     * The ID of the organization associated with the item
      * @alias module:model/OrganizationDataWithIdAndActiveFlag
      * @implements module:model/OrganizationDataWithIdAndActiveFlagAllOf
      * @implements module:model/OrganizationDataWithId
@@ -102,43 +102,43 @@ class OrganizationDataWithIdAndActiveFlag {
 }
 
 /**
- * If the associated Organization is active or not
+ * Whether the associated organization is active or not
  * @member {Boolean} active_flag
  */
 OrganizationDataWithIdAndActiveFlag.prototype['active_flag'] = undefined;
 
 /**
- * The ID of the Organization associated with the item
+ * The ID of the organization associated with the item
  * @member {Number} id
  */
 OrganizationDataWithIdAndActiveFlag.prototype['id'] = undefined;
 
 /**
- * The name of the Organization associated with the item
+ * The name of the organization associated with the item
  * @member {String} name
  */
 OrganizationDataWithIdAndActiveFlag.prototype['name'] = undefined;
 
 /**
- * The number of people connected with the Organization that is associated with the item
+ * The number of people connected with the organization that is associated with the item
  * @member {Number} people_count
  */
 OrganizationDataWithIdAndActiveFlag.prototype['people_count'] = undefined;
 
 /**
- * The ID of the owner of the Organization that is associated with the item
+ * The ID of the owner of the organization that is associated with the item
  * @member {Number} owner_id
  */
 OrganizationDataWithIdAndActiveFlag.prototype['owner_id'] = undefined;
 
 /**
- * The address of the Organization
+ * The address of the organization
  * @member {String} address
  */
 OrganizationDataWithIdAndActiveFlag.prototype['address'] = undefined;
 
 /**
- * The CC email of the Organization associated with the item
+ * The BCC email of the organization associated with the item
  * @member {String} cc_email
  */
 OrganizationDataWithIdAndActiveFlag.prototype['cc_email'] = undefined;
@@ -146,38 +146,38 @@ OrganizationDataWithIdAndActiveFlag.prototype['cc_email'] = undefined;
 
 // Implement OrganizationDataWithIdAndActiveFlagAllOf interface:
 /**
- * If the associated Organization is active or not
+ * Whether the associated organization is active or not
  * @member {Boolean} active_flag
  */
 OrganizationDataWithIdAndActiveFlagAllOf.prototype['active_flag'] = undefined;
 // Implement OrganizationDataWithId interface:
 /**
- * The ID of the Organization associated with the item
+ * The ID of the organization associated with the item
  * @member {Number} id
  */
 OrganizationDataWithId.prototype['id'] = undefined;
 /**
- * The name of the Organization associated with the item
+ * The name of the organization associated with the item
  * @member {String} name
  */
 OrganizationDataWithId.prototype['name'] = undefined;
 /**
- * The number of people connected with the Organization that is associated with the item
+ * The number of people connected with the organization that is associated with the item
  * @member {Number} people_count
  */
 OrganizationDataWithId.prototype['people_count'] = undefined;
 /**
- * The ID of the owner of the Organization that is associated with the item
+ * The ID of the owner of the organization that is associated with the item
  * @member {Number} owner_id
  */
 OrganizationDataWithId.prototype['owner_id'] = undefined;
 /**
- * The address of the Organization
+ * The address of the organization
  * @member {String} address
  */
 OrganizationDataWithId.prototype['address'] = undefined;
 /**
- * The CC email of the Organization associated with the item
+ * The BCC email of the organization associated with the item
  * @member {String} cc_email
  */
 OrganizationDataWithId.prototype['cc_email'] = undefined;

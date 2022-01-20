@@ -66,7 +66,7 @@ class AdditionalDataWithPagination {
 }
 
 /**
- * Pagination details of the list
+ * The pagination details of the list
  * @member {module:model/AdditionalData} pagination
  */
 AdditionalDataWithPagination.prototype['pagination'] = undefined;

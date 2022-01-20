@@ -91,7 +91,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonFieldsApi();
-let id = 56; // Number | ID of the field
+let id = 56; // Number | The ID of the field
 apiInstance.deletePersonField(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -105,7 +105,7 @@ apiInstance.deletePersonField(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the field | 
+ **id** | **Number**| The ID of the field | 
 
 ### Return type
 
@@ -144,7 +144,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonFieldsApi();
-let ids = "ids_example"; // String | Comma-separated field IDs to delete
+let ids = "ids_example"; // String | The comma-separated field IDs to delete
 apiInstance.deletePersonFields(ids).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -158,7 +158,7 @@ apiInstance.deletePersonFields(ids).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **String**| Comma-separated field IDs to delete | 
+ **ids** | **String**| The comma-separated field IDs to delete | 
 
 ### Return type
 
@@ -197,7 +197,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonFieldsApi();
-let id = 56; // Number | ID of the field
+let id = 56; // Number | The ID of the field
 apiInstance.getPersonField(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -211,7 +211,7 @@ apiInstance.getPersonField(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the field | 
+ **id** | **Number**| The ID of the field | 
 
 ### Return type
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 Get all person fields
 
-Returns data about all person fields
+Returns data about all person fields.
 
 ### Example
 
@@ -307,7 +307,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonFieldsApi();
-let id = 56; // Number | ID of the field
+let id = 56; // Number | The ID of the field
 let opts = Pipedrive.FieldUpdateRequest.constructFromObject({
   // Properties that you want to update
 });
@@ -324,7 +324,7 @@ apiInstance.updatePersonField(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the field | 
+ **id** | **Number**| The ID of the field | 
  **fieldUpdateRequest** | [**FieldUpdateRequest**](FieldUpdateRequest.md)|  | [optional] 
 
 ### Return type

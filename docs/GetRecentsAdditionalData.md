@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**sinceTimestamp** | **String** | Timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS | [optional] 
-**lastTimestampOnPage** | **String** | Timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS | [optional] 
+**since_timestamp** | **String** | The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS | [optional] 
+**last_timestamp_on_page** | **String** | The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS | [optional] 
 **pagination** | [**AdditionalData**](AdditionalData.md) |  | [optional] 
 
 

@@ -135,91 +135,91 @@ class ProductFieldAllOf {
 }
 
 /**
- * The ID of the Product Field
+ * The ID of the product field
  * @member {Number} id
  */
 ProductFieldAllOf.prototype['id'] = undefined;
 
 /**
- * The key of the Product Field
+ * The key of the product field
  * @member {String} key
  */
 ProductFieldAllOf.prototype['key'] = undefined;
 
 /**
- * Position (index) of the Product Field in the detail view
+ * The position (index) of the product field in the detail view
  * @member {Number} order_nr
  */
 ProductFieldAllOf.prototype['order_nr'] = undefined;
 
 /**
- * The Product Field creation time. Format: YYYY-MM-DD HH:MM:SS
+ * The product field creation time. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} add_time
  */
 ProductFieldAllOf.prototype['add_time'] = undefined;
 
 /**
- * The Product Field last update time. Format: YYYY-MM-DD HH:MM:SS
+ * The product field last update time. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} update_time
  */
 ProductFieldAllOf.prototype['update_time'] = undefined;
 
 /**
- * The ID of the last user to update the Product Field
+ * The ID of the last user to update the product field
  * @member {Number} last_updated_by_user_id
  */
 ProductFieldAllOf.prototype['last_updated_by_user_id'] = undefined;
 
 /**
- * Whether or not the Product Field is currently active
+ * Whether or not the product field is currently active
  * @member {Boolean} active_flag
  */
 ProductFieldAllOf.prototype['active_flag'] = undefined;
 
 /**
- * Whether or not the Product Field Name and metadata is editable
+ * Whether or not the product field name and metadata is editable
  * @member {Boolean} edit_flag
  */
 ProductFieldAllOf.prototype['edit_flag'] = undefined;
 
 /**
- * Whether or not the Product Field is visible in the Add Product Modal
+ * Whether or not the product field is visible in the Add Product Modal
  * @member {Boolean} add_visible_flag
  */
 ProductFieldAllOf.prototype['add_visible_flag'] = undefined;
 
 /**
- * Whether or not the Product Field is marked as important
+ * Whether or not the product field is marked as important
  * @member {Boolean} important_flag
  */
 ProductFieldAllOf.prototype['important_flag'] = undefined;
 
 /**
- * Whether or not the Product Field data can be edited
+ * Whether or not the product field data can be edited
  * @member {Boolean} bulk_edit_allowed
  */
 ProductFieldAllOf.prototype['bulk_edit_allowed'] = undefined;
 
 /**
- * Whether or not the Product Field is searchable
+ * Whether or not the product field is searchable
  * @member {Boolean} searchable_flag
  */
 ProductFieldAllOf.prototype['searchable_flag'] = undefined;
 
 /**
- * Whether or not the Product Field value can be used when filtering searches
+ * Whether or not the product field value can be used when filtering searches
  * @member {Boolean} filtering_allowed
  */
 ProductFieldAllOf.prototype['filtering_allowed'] = undefined;
 
 /**
- * Whether or not the Product Field is sortable
+ * Whether or not the product field is sortable
  * @member {Boolean} sortable_flag
  */
 ProductFieldAllOf.prototype['sortable_flag'] = undefined;
 
 /**
- * Whether or not the Product Field is mandatory when creating products
+ * Whether or not the product field is mandatory when creating products
  * @member {Boolean} mandatory_flag
  */
 ProductFieldAllOf.prototype['mandatory_flag'] = undefined;

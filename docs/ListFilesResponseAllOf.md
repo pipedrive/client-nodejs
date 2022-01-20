@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[FileItem]**](FileItem.md) | The array of Files | [optional] 
-**additionalData** | [**AdditionalData**](AdditionalData.md) |  | [optional] 
+**data** | [**[FileItem]**](FileItem.md) | The array of files | [optional] 
+**additional_data** | [**AdditionalData**](AdditionalData.md) |  | [optional] 
 
 

@@ -65,7 +65,7 @@ class OrganizationRelationshipDeleteResponseAllOfData {
 }
 
 /**
- * The ID of the deleted Organization Relationship
+ * The ID of the deleted organization relationship
  * @member {Number} id
  */
 OrganizationRelationshipDeleteResponseAllOfData.prototype['id'] = undefined;

@@ -81,13 +81,13 @@ class BasePersonItemEmail {
 BasePersonItemEmail.prototype['value'] = undefined;
 
 /**
- * Boolean that indicates if email is primary for the Person or not
+ * Boolean that indicates if email is primary for the person or not
  * @member {Boolean} primary
  */
 BasePersonItemEmail.prototype['primary'] = undefined;
 
 /**
- * Label that indicates the type of the email. (Possible values - work, home or other)
+ * The label that indicates the type of the email. (Possible values - work, home or other)
  * @member {String} label
  */
 BasePersonItemEmail.prototype['label'] = undefined;

@@ -49,22 +49,25 @@ export default class UsersApi {
     /**
      * Add a new user
      * Adds a new user to the company, returns the ID upon success.
-     * @param {String} name Name of the user
-     * @param {String} email Email of the user
+     * @param {String} name The name of the user
+     * @param {String} email The email of the user
      * @param {Boolean} activeFlag Whether the user is active or not. `false` = Not activated, `true` = Activated
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/User} and HTTP response
      */
     addUserWithHttpInfo(name, email, activeFlag) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'name' is set
       if (name === undefined || name === null) {
         throw new Error("Missing the required parameter 'name' when calling addUser");
       }
+
       // verify the required parameter 'email' is set
       if (email === undefined || email === null) {
         throw new Error("Missing the required parameter 'email' when calling addUser");
       }
+
       // verify the required parameter 'activeFlag' is set
       if (activeFlag === undefined || activeFlag === null) {
         throw new Error("Missing the required parameter 'activeFlag' when calling addUser");
@@ -115,8 +118,8 @@ export default class UsersApi {
     /**
      * Add a new user
      * Adds a new user to the company, returns the ID upon success.
-     * @param {String} name Name of the user
-     * @param {String} email Email of the user
+     * @param {String} name The name of the user
+     * @param {String} email The email of the user
      * @param {Boolean} activeFlag Whether the user is active or not. `false` = Not activated, `true` = Activated
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/User}
      */
@@ -130,18 +133,20 @@ export default class UsersApi {
 
     /**
      * Add role assignment
-     * Add role assignment for a user
-     * @param {Number} id ID of the user
-     * @param {Number} roleId ID of the role
+     * Adds a role assignment for a user.
+     * @param {Number} id The ID of the user
+     * @param {Number} roleId The ID of the role
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostRoleAssignment} and HTTP response
      */
     addUserRoleAssignmentWithHttpInfo(id, roleId) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling addUserRoleAssignment");
       }
+
       // verify the required parameter 'roleId' is set
       if (roleId === undefined || roleId === null) {
         throw new Error("Missing the required parameter 'roleId' when calling addUserRoleAssignment");
@@ -188,9 +193,9 @@ export default class UsersApi {
 
     /**
      * Add role assignment
-     * Add role assignment for a user
-     * @param {Number} id ID of the user
-     * @param {Number} roleId ID of the role
+     * Adds a role assignment for a user.
+     * @param {Number} id The ID of the user
+     * @param {Number} roleId The ID of the role
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostRoleAssignment}
      */
     addUserRoleAssignment(id, roleId) {
@@ -203,18 +208,20 @@ export default class UsersApi {
 
     /**
      * Delete a role assignment
-     * Delete a role assignment for a user
-     * @param {Number} id ID of the user
-     * @param {Number} roleId ID of the role
+     * Deletes a role assignment for a user.
+     * @param {Number} id The ID of the user
+     * @param {Number} roleId The ID of the role
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteRoleAssignment} and HTTP response
      */
     deleteUserRoleAssignmentWithHttpInfo(id, roleId) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteUserRoleAssignment");
       }
+
       // verify the required parameter 'roleId' is set
       if (roleId === undefined || roleId === null) {
         throw new Error("Missing the required parameter 'roleId' when calling deleteUserRoleAssignment");
@@ -261,9 +268,9 @@ export default class UsersApi {
 
     /**
      * Delete a role assignment
-     * Delete a role assignment for a user
-     * @param {Number} id ID of the user
-     * @param {Number} roleId ID of the role
+     * Deletes a role assignment for a user.
+     * @param {Number} id The ID of the user
+     * @param {Number} roleId The ID of the role
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteRoleAssignment}
      */
     deleteUserRoleAssignment(id, roleId) {
@@ -277,18 +284,20 @@ export default class UsersApi {
     /**
      * Find users by name
      * Finds users by their name.
-     * @param {String} term Search term to look for
+     * @param {String} term The search term to look for
      * @param {Object} opts Optional parameters
-     * @param {module:model/NumberBooleanDefault0} opts.searchByEmail When enabled, term will only be matched against email addresses of users. Default: `false`
+     * @param {module:model/NumberBooleanDefault0} opts.searchByEmail When enabled, the term will only be matched against email addresses of users. Default: `false`
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Users} and HTTP response
      */
     findUsersByNameWithHttpInfo(term, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'term' is set
       if (term === undefined || term === null) {
         throw new Error("Missing the required parameter 'term' when calling findUsersByName");
       }
+
 
       let pathParams = {
       };
@@ -331,9 +340,9 @@ export default class UsersApi {
     /**
      * Find users by name
      * Finds users by their name.
-     * @param {String} term Search term to look for
+     * @param {String} term The search term to look for
      * @param {Object} opts Optional parameters
-     * @param {module:model/NumberBooleanDefault0} opts.searchByEmail When enabled, term will only be matched against email addresses of users. Default: `false`
+     * @param {module:model/NumberBooleanDefault0} opts.searchByEmail When enabled, the term will only be matched against email addresses of users. Default: `false`
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Users}
      */
     findUsersByName(term, opts) {
@@ -404,13 +413,14 @@ export default class UsersApi {
 
     /**
      * Get one user
-     * Returns data about a specific user within the company
-     * @param {Number} id ID of the user
+     * Returns data about a specific user within the company.
+     * @param {Number} id The ID of the user
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/User} and HTTP response
      */
     getUserWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getUser");
@@ -455,8 +465,8 @@ export default class UsersApi {
 
     /**
      * Get one user
-     * Returns data about a specific user within the company
-     * @param {Number} id ID of the user
+     * Returns data about a specific user within the company.
+     * @param {Number} id The ID of the user
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/User}
      */
     getUser(id) {
@@ -469,13 +479,14 @@ export default class UsersApi {
 
     /**
      * List followers of a user
-     * Lists followers of a specific user.
-     * @param {Number} id ID of the user
+     * Lists the followers of a specific user.
+     * @param {Number} id The ID of the user
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UserIDs} and HTTP response
      */
     getUserFollowersWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getUserFollowers");
@@ -520,8 +531,8 @@ export default class UsersApi {
 
     /**
      * List followers of a user
-     * Lists followers of a specific user.
-     * @param {Number} id ID of the user
+     * Lists the followers of a specific user.
+     * @param {Number} id The ID of the user
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UserIDs}
      */
     getUserFollowers(id) {
@@ -534,13 +545,14 @@ export default class UsersApi {
 
     /**
      * List user permissions
-     * List aggregated permissions over all assigned permission sets for a user
-     * @param {Number} id ID of the user
+     * Lists aggregated permissions over all assigned permission sets for a user.
+     * @param {Number} id The ID of the user
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UserPermissions} and HTTP response
      */
     getUserPermissionsWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getUserPermissions");
@@ -585,8 +597,8 @@ export default class UsersApi {
 
     /**
      * List user permissions
-     * List aggregated permissions over all assigned permission sets for a user
-     * @param {Number} id ID of the user
+     * Lists aggregated permissions over all assigned permission sets for a user.
+     * @param {Number} id The ID of the user
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UserPermissions}
      */
     getUserPermissions(id) {
@@ -599,8 +611,8 @@ export default class UsersApi {
 
     /**
      * List role assignments
-     * List role assignments for a user
-     * @param {Number} id ID of the user
+     * Lists role assignments for a user.
+     * @param {Number} id The ID of the user
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -609,10 +621,13 @@ export default class UsersApi {
     getUserRoleAssignmentsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getUserRoleAssignments");
       }
+
+
 
       let pathParams = {
         'id': id,
@@ -655,8 +670,8 @@ export default class UsersApi {
 
     /**
      * List role assignments
-     * List role assignments for a user
-     * @param {Number} id ID of the user
+     * Lists role assignments for a user.
+     * @param {Number} id The ID of the user
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -672,13 +687,14 @@ export default class UsersApi {
 
     /**
      * List user role settings
-     * List settings of user's assigned role
-     * @param {Number} id ID of the user
+     * Lists the settings of user's assigned role.
+     * @param {Number} id The ID of the user
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetRoleSettings} and HTTP response
      */
     getUserRoleSettingsWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getUserRoleSettings");
@@ -723,8 +739,8 @@ export default class UsersApi {
 
     /**
      * List user role settings
-     * List settings of user's assigned role
-     * @param {Number} id ID of the user
+     * Lists the settings of user's assigned role.
+     * @param {Number} id The ID of the user
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetRoleSettings}
      */
     getUserRoleSettings(id) {
@@ -737,7 +753,7 @@ export default class UsersApi {
 
     /**
      * Get all users
-     * Returns data about all users within the company
+     * Returns data about all users within the company.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Users} and HTTP response
      */
     getUsersWithHttpInfo() {
@@ -782,7 +798,7 @@ export default class UsersApi {
 
     /**
      * Get all users
-     * Returns data about all users within the company
+     * Returns data about all users within the company.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Users}
      */
     getUsers() {
@@ -796,17 +812,19 @@ export default class UsersApi {
     /**
      * Update user details
      * Updates the properties of a user. Currently, only `active_flag` can be updated.
-     * @param {Number} id ID of the user
+     * @param {Number} id The ID of the user
      * @param {Boolean} activeFlag Whether the user is active or not. `false` = Not activated, `true` = Activated
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/User} and HTTP response
      */
     updateUserWithHttpInfo(id, activeFlag) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateUser");
       }
+
       // verify the required parameter 'activeFlag' is set
       if (activeFlag === undefined || activeFlag === null) {
         throw new Error("Missing the required parameter 'activeFlag' when calling updateUser");
@@ -854,7 +872,7 @@ export default class UsersApi {
     /**
      * Update user details
      * Updates the properties of a user. Currently, only `active_flag` can be updated.
-     * @param {Number} id ID of the user
+     * @param {Number} id The ID of the user
      * @param {Boolean} activeFlag Whether the user is active or not. `false` = Not activated, `true` = Activated
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/User}
      */

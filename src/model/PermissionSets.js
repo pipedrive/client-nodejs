@@ -83,7 +83,7 @@ class PermissionSets {
 PermissionSets.prototype['success'] = undefined;
 
 /**
- * The array of Permission Set
+ * The array of permission set
  * @member {Array.<module:model/PermissionSetsItem>} data
  */
 PermissionSets.prototype['data'] = undefined;
@@ -97,7 +97,7 @@ PermissionSets.prototype['data'] = undefined;
 BaseResponse.prototype['success'] = undefined;
 // Implement PermissionSetsAllOf interface:
 /**
- * The array of Permission Set
+ * The array of permission set
  * @member {Array.<module:model/PermissionSetsItem>} data
  */
 PermissionSetsAllOf.prototype['data'] = undefined;

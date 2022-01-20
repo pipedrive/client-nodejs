@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**userId** | **Number** | The ID of the user that was added as Follower | [optional] 
-**id** | **Number** | The ID of the Follower | [optional] 
-**productId** | **Number** | The ID of the Product | [optional] 
-**addTime** | **String** | The Follower creation time. Format: YYYY-MM-DD HH:MM:SS | [optional] 
+**user_id** | **Number** | The ID of the user that was added as follower | [optional] 
+**id** | **Number** | The ID of the follower | [optional] 
+**product_id** | **Number** | The ID of the product | [optional] 
+**add_time** | **String** | The follower creation time. Format: YYYY-MM-DD HH:MM:SS | [optional] 
 
 

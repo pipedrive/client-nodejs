@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ownerId** | [**Owner**](Owner.md) |  | [optional] 
-**orgId** | [**RelationshipOrganizationInfoItemWithActiveFlag**](RelationshipOrganizationInfoItemWithActiveFlag.md) |  | [optional] 
-**name** | **String** | The name of the Person | [optional] 
-**firstName** | **String** | The first name of the Person | [optional] 
-**lastName** | **String** | The last name of the Person | [optional] 
+**owner_id** | [**Owner**](Owner.md) |  | [optional] 
+**org_id** | [**RelationshipOrganizationInfoItemWithActiveFlag**](RelationshipOrganizationInfoItemWithActiveFlag.md) |  | [optional] 
+**name** | **String** | The name of the person | [optional] 
+**first_name** | **String** | The first name of the person | [optional] 
+**last_name** | **String** | The last name of the person | [optional] 
 
 

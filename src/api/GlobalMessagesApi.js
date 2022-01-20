@@ -38,13 +38,14 @@ export default class GlobalMessagesApi {
 
     /**
      * Dismiss a global message
-     * Removes global message from being shown, if message is dismissible
-     * @param {Number} id ID of global message to be dismissed.
+     * Removes a global message from being shown if the message is dismissible.
+     * @param {Number} id The ID of the global message to be dismissed
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GlobalMessageDelete} and HTTP response
      */
     deleteGlobalMessageWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteGlobalMessage");
@@ -89,8 +90,8 @@ export default class GlobalMessagesApi {
 
     /**
      * Dismiss a global message
-     * Removes global message from being shown, if message is dismissible
-     * @param {Number} id ID of global message to be dismissed.
+     * Removes a global message from being shown if the message is dismissible.
+     * @param {Number} id The ID of the global message to be dismissed
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GlobalMessageDelete}
      */
     deleteGlobalMessage(id) {
@@ -103,14 +104,15 @@ export default class GlobalMessagesApi {
 
     /**
      * Get global messages
-     * Returns data about global messages to display for the authorized user.
+     * Returns data about the global messages to display for the authorized user.
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.limit Number of messages to get from 1 to 100. The message number 1 is returned by default. (default to 1)
+     * @param {Number} opts.limit The number of messages to get from 1 to 100. The message number 1 is returned by default. (default to 1)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GlobalMessageGet} and HTTP response
      */
     getGlobalMessagesWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
+
 
       let pathParams = {
       };
@@ -151,9 +153,9 @@ export default class GlobalMessagesApi {
 
     /**
      * Get global messages
-     * Returns data about global messages to display for the authorized user.
+     * Returns data about the global messages to display for the authorized user.
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.limit Number of messages to get from 1 to 100. The message number 1 is returned by default. (default to 1)
+     * @param {Number} opts.limit The number of messages to get from 1 to 100. The message number 1 is returned by default. (default to 1)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GlobalMessageGet}
      */
     getGlobalMessages(opts) {

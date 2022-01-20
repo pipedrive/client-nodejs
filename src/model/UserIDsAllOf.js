@@ -65,7 +65,7 @@ class UserIDsAllOf {
 }
 
 /**
- * List of User IDs
+ * The list of user IDs
  * @member {Array.<Number>} data
  */
 UserIDsAllOf.prototype['data'] = undefined;

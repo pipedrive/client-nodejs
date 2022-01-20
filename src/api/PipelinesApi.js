@@ -46,7 +46,7 @@ export default class PipelinesApi {
 
     /**
      * Add a new pipeline
-     * Adds a new pipeline
+     * Adds a new pipeline.
      * @param {Object} opts Optional parameters
      * @param {module:model/Pipeline} opts.pipeline 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddNewPipeline} and HTTP response
@@ -54,6 +54,7 @@ export default class PipelinesApi {
     addPipelineWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = opts['pipeline'];
+
 
       let pathParams = {
       };
@@ -93,7 +94,7 @@ export default class PipelinesApi {
 
     /**
      * Add a new pipeline
-     * Adds a new pipeline
+     * Adds a new pipeline.
      * @param {Object} opts Optional parameters
      * @param {module:model/Pipeline} opts.pipeline 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddNewPipeline}
@@ -109,12 +110,13 @@ export default class PipelinesApi {
     /**
      * Delete a pipeline
      * Marks a pipeline as deleted.
-     * @param {Number} id ID of the pipeline
+     * @param {Number} id The ID of the pipeline
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeletePipelineResponse200} and HTTP response
      */
     deletePipelineWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deletePipeline");
@@ -160,7 +162,7 @@ export default class PipelinesApi {
     /**
      * Delete a pipeline
      * Marks a pipeline as deleted.
-     * @param {Number} id ID of the pipeline
+     * @param {Number} id The ID of the pipeline
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeletePipelineResponse200}
      */
     deletePipeline(id) {
@@ -174,18 +176,20 @@ export default class PipelinesApi {
     /**
      * Get one pipeline
      * Returns data about a specific pipeline. Also returns the summary of the deals in this pipeline across its stages.
-     * @param {Number} id ID of the pipeline
+     * @param {Number} id The ID of the pipeline
      * @param {Object} opts Optional parameters
-     * @param {String} opts.totalsConvertCurrency 3-letter currency code of any of the supported currencies. When supplied, `per_stages_converted` is returned in `deals_summary` which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to `default_currency` in which case users default currency is used.
+     * @param {String} opts.totalsConvertCurrency The 3-letter currency code of any of the supported currencies. When supplied, `per_stages_converted` is returned in `deals_summary` which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to `default_currency` in which case users default currency is used.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetOnePipeline} and HTTP response
      */
     getPipelineWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getPipeline");
       }
+
 
       let pathParams = {
         'id': id,
@@ -228,9 +232,9 @@ export default class PipelinesApi {
     /**
      * Get one pipeline
      * Returns data about a specific pipeline. Also returns the summary of the deals in this pipeline across its stages.
-     * @param {Number} id ID of the pipeline
+     * @param {Number} id The ID of the pipeline
      * @param {Object} opts Optional parameters
-     * @param {String} opts.totalsConvertCurrency 3-letter currency code of any of the supported currencies. When supplied, `per_stages_converted` is returned in `deals_summary` which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to `default_currency` in which case users default currency is used.
+     * @param {String} opts.totalsConvertCurrency The 3-letter currency code of any of the supported currencies. When supplied, `per_stages_converted` is returned in `deals_summary` which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to `default_currency` in which case users default currency is used.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetOnePipeline}
      */
     getPipeline(id, opts) {
@@ -243,29 +247,33 @@ export default class PipelinesApi {
 
     /**
      * Get deals conversion rates in pipeline
-     * Returns all stage-to-stage conversion and pipeline-to-close rates for given time period.
-     * @param {Number} id ID of the pipeline
-     * @param {Date} startDate Start of the period. Date in format of YYYY-MM-DD.
-     * @param {Date} endDate End of the period. Date in format of YYYY-MM-DD.
+     * Returns all stage-to-stage conversion and pipeline-to-close rates for the given time period.
+     * @param {Number} id The ID of the pipeline
+     * @param {Date} startDate The start of the period. Date in format of YYYY-MM-DD.
+     * @param {Date} endDate The end of the period. Date in format of YYYY-MM-DD.
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.userId ID of the user who's pipeline metrics statistics to fetch. If omitted, the authorized user will be used.
+     * @param {Number} opts.userId The ID of the user who's pipeline metrics statistics to fetch. If omitted, the authorized user will be used.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetDealsConversionRatesInPipeline} and HTTP response
      */
     getPipelineConversionStatisticsWithHttpInfo(id, startDate, endDate, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getPipelineConversionStatistics");
       }
+
       // verify the required parameter 'startDate' is set
       if (startDate === undefined || startDate === null) {
         throw new Error("Missing the required parameter 'startDate' when calling getPipelineConversionStatistics");
       }
+
       // verify the required parameter 'endDate' is set
       if (endDate === undefined || endDate === null) {
         throw new Error("Missing the required parameter 'endDate' when calling getPipelineConversionStatistics");
       }
+
 
       let pathParams = {
         'id': id,
@@ -309,12 +317,12 @@ export default class PipelinesApi {
 
     /**
      * Get deals conversion rates in pipeline
-     * Returns all stage-to-stage conversion and pipeline-to-close rates for given time period.
-     * @param {Number} id ID of the pipeline
-     * @param {Date} startDate Start of the period. Date in format of YYYY-MM-DD.
-     * @param {Date} endDate End of the period. Date in format of YYYY-MM-DD.
+     * Returns all stage-to-stage conversion and pipeline-to-close rates for the given time period.
+     * @param {Number} id The ID of the pipeline
+     * @param {Date} startDate The start of the period. Date in format of YYYY-MM-DD.
+     * @param {Date} endDate The end of the period. Date in format of YYYY-MM-DD.
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.userId ID of the user who's pipeline metrics statistics to fetch. If omitted, the authorized user will be used.
+     * @param {Number} opts.userId The ID of the user who's pipeline metrics statistics to fetch. If omitted, the authorized user will be used.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetDealsConversionRatesInPipeline}
      */
     getPipelineConversionStatistics(id, startDate, endDate, opts) {
@@ -327,26 +335,35 @@ export default class PipelinesApi {
 
     /**
      * Get deals in a pipeline
-     * Lists deals in a specific pipeline across all its stages
-     * @param {Number} id ID of the pipeline
+     * Lists deals in a specific pipeline across all its stages.
+     * @param {Number} id The ID of the pipeline
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.filterId If supplied, only deals matching the given filter will be returned.
+     * @param {Number} opts.filterId If supplied, only deals matching the given filter will be returned
      * @param {Number} opts.userId If supplied, `filter_id` will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned.
-     * @param {module:model/NumberBoolean} opts.everyone If supplied, `filter_id` and `user_id` will not be considered – instead, deals owned by everyone will be returned.
-     * @param {Number} opts.stageId If supplied, only deals within the given stage will be returned.
+     * @param {module:model/NumberBoolean} opts.everyone If supplied, `filter_id` and `user_id` will not be considered – instead, deals owned by everyone will be returned
+     * @param {Number} opts.stageId If supplied, only deals within the given stage will be returned
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {module:model/NumberBoolean} opts.getSummary Whether to include summary of the pipeline in the `additional_data` or not.
-     * @param {String} opts.totalsConvertCurrency 3-letter currency code of any of the supported currencies. When supplied, `per_stages_converted` is returned inside `deals_summary` inside `additional_data` which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to `default_currency` in which case users default currency is used. Only works when `get_summary` parameter flag is enabled.
+     * @param {module:model/NumberBoolean} opts.getSummary Whether to include a summary of the pipeline in the `additional_data` or not
+     * @param {String} opts.totalsConvertCurrency The 3-letter currency code of any of the supported currencies. When supplied, `per_stages_converted` is returned inside `deals_summary` inside `additional_data` which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to `default_currency` in which case users default currency is used. Only works when `get_summary` parameter flag is enabled.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetStageDeals} and HTTP response
      */
     getPipelineDealsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getPipelineDeals");
       }
+
+
+
+
+
+
+
+
 
       let pathParams = {
         'id': id,
@@ -395,17 +412,17 @@ export default class PipelinesApi {
 
     /**
      * Get deals in a pipeline
-     * Lists deals in a specific pipeline across all its stages
-     * @param {Number} id ID of the pipeline
+     * Lists deals in a specific pipeline across all its stages.
+     * @param {Number} id The ID of the pipeline
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.filterId If supplied, only deals matching the given filter will be returned.
+     * @param {Number} opts.filterId If supplied, only deals matching the given filter will be returned
      * @param {Number} opts.userId If supplied, `filter_id` will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned.
-     * @param {module:model/NumberBoolean} opts.everyone If supplied, `filter_id` and `user_id` will not be considered – instead, deals owned by everyone will be returned.
-     * @param {Number} opts.stageId If supplied, only deals within the given stage will be returned.
+     * @param {module:model/NumberBoolean} opts.everyone If supplied, `filter_id` and `user_id` will not be considered – instead, deals owned by everyone will be returned
+     * @param {Number} opts.stageId If supplied, only deals within the given stage will be returned
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {module:model/NumberBoolean} opts.getSummary Whether to include summary of the pipeline in the `additional_data` or not.
-     * @param {String} opts.totalsConvertCurrency 3-letter currency code of any of the supported currencies. When supplied, `per_stages_converted` is returned inside `deals_summary` inside `additional_data` which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to `default_currency` in which case users default currency is used. Only works when `get_summary` parameter flag is enabled.
+     * @param {module:model/NumberBoolean} opts.getSummary Whether to include a summary of the pipeline in the `additional_data` or not
+     * @param {String} opts.totalsConvertCurrency The 3-letter currency code of any of the supported currencies. When supplied, `per_stages_converted` is returned inside `deals_summary` inside `additional_data` which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to `default_currency` in which case users default currency is used. Only works when `get_summary` parameter flag is enabled.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetStageDeals}
      */
     getPipelineDeals(id, opts) {
@@ -418,29 +435,33 @@ export default class PipelinesApi {
 
     /**
      * Get deals movements in pipeline
-     * Returns statistics for deals movements for given time period.
-     * @param {Number} id ID of the pipeline
-     * @param {Date} startDate Start of the period. Date in format of YYYY-MM-DD.
-     * @param {Date} endDate End of the period. Date in format of YYYY-MM-DD.
+     * Returns statistics for deals movements for the given time period.
+     * @param {Number} id The ID of the pipeline
+     * @param {Date} startDate The start of the period. Date in format of YYYY-MM-DD.
+     * @param {Date} endDate The end of the period. Date in format of YYYY-MM-DD.
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.userId ID of the user who's pipeline statistics to fetch. If omitted, the authorized user will be used.
+     * @param {Number} opts.userId The ID of the user who's pipeline statistics to fetch. If omitted, the authorized user will be used.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetDealsMovementsInPipeline} and HTTP response
      */
     getPipelineMovementStatisticsWithHttpInfo(id, startDate, endDate, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getPipelineMovementStatistics");
       }
+
       // verify the required parameter 'startDate' is set
       if (startDate === undefined || startDate === null) {
         throw new Error("Missing the required parameter 'startDate' when calling getPipelineMovementStatistics");
       }
+
       // verify the required parameter 'endDate' is set
       if (endDate === undefined || endDate === null) {
         throw new Error("Missing the required parameter 'endDate' when calling getPipelineMovementStatistics");
       }
+
 
       let pathParams = {
         'id': id,
@@ -484,12 +505,12 @@ export default class PipelinesApi {
 
     /**
      * Get deals movements in pipeline
-     * Returns statistics for deals movements for given time period.
-     * @param {Number} id ID of the pipeline
-     * @param {Date} startDate Start of the period. Date in format of YYYY-MM-DD.
-     * @param {Date} endDate End of the period. Date in format of YYYY-MM-DD.
+     * Returns statistics for deals movements for the given time period.
+     * @param {Number} id The ID of the pipeline
+     * @param {Date} startDate The start of the period. Date in format of YYYY-MM-DD.
+     * @param {Date} endDate The end of the period. Date in format of YYYY-MM-DD.
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.userId ID of the user who's pipeline statistics to fetch. If omitted, the authorized user will be used.
+     * @param {Number} opts.userId The ID of the user who's pipeline statistics to fetch. If omitted, the authorized user will be used.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetDealsMovementsInPipeline}
      */
     getPipelineMovementStatistics(id, startDate, endDate, opts) {
@@ -502,7 +523,7 @@ export default class PipelinesApi {
 
     /**
      * Get all pipelines
-     * Returns data about all pipelines
+     * Returns data about all pipelines.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetAllPipelines} and HTTP response
      */
     getPipelinesWithHttpInfo() {
@@ -547,7 +568,7 @@ export default class PipelinesApi {
 
     /**
      * Get all pipelines
-     * Returns data about all pipelines
+     * Returns data about all pipelines.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetAllPipelines}
      */
     getPipelines() {
@@ -559,9 +580,9 @@ export default class PipelinesApi {
 
 
     /**
-     * Edit a pipeline
-     * Updates pipeline properties
-     * @param {Number} id ID of the pipeline
+     * Update a pipeline
+     * Updates the properties of a pipeline.
+     * @param {Number} id The ID of the pipeline
      * @param {Object} opts Optional parameters
      * @param {module:model/Pipeline} opts.pipeline 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/EditPipeline} and HTTP response
@@ -569,10 +590,12 @@ export default class PipelinesApi {
     updatePipelineWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['pipeline'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updatePipeline");
       }
+
 
       let pathParams = {
         'id': id,
@@ -612,9 +635,9 @@ export default class PipelinesApi {
     }
 
     /**
-     * Edit a pipeline
-     * Updates pipeline properties
-     * @param {Number} id ID of the pipeline
+     * Update a pipeline
+     * Updates the properties of a pipeline.
+     * @param {Number} id The ID of the pipeline
      * @param {Object} opts Optional parameters
      * @param {module:model/Pipeline} opts.pipeline 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EditPipeline}

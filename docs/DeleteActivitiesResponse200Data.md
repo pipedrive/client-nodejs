@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **[Number]** | An array of IDs of Activities that were deleted | [optional] 
+**id** | **[Number]** | An array of the IDs of activities that were deleted | [optional] 
 
 

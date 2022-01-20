@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**deleteActivityType**](ActivityTypesApi.md#deleteActivityType) | **DELETE** /activityTypes/{id} | Delete an ActivityType
 [**deleteActivityTypes**](ActivityTypesApi.md#deleteActivityTypes) | **DELETE** /activityTypes | Delete multiple ActivityTypes in bulk
 [**getActivityTypes**](ActivityTypesApi.md#getActivityTypes) | **GET** /activityTypes | Get all ActivityTypes
-[**updateActivityType**](ActivityTypesApi.md#updateActivityType) | **PUT** /activityTypes/{id} | Edit an ActivityType
+[**updateActivityType**](ActivityTypesApi.md#updateActivityType) | **PUT** /activityTypes/{id} | Update an ActivityType
 
 
 
@@ -147,7 +147,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ActivityTypesApi();
-let ids = "ids_example"; // String | Comma-separated ActivityType IDs
+let ids = "ids_example"; // String | The comma-separated ActivityType IDs
 apiInstance.deleteActivityTypes(ids).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -161,7 +161,7 @@ apiInstance.deleteActivityTypes(ids).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **String**| Comma-separated ActivityType IDs | 
+ **ids** | **String**| The comma-separated ActivityType IDs | 
 
 ### Return type
 
@@ -230,7 +230,7 @@ This endpoint does not need any parameter.
 
 > ActivityTypeCreateUpdateDeleteResponse updateActivityType(id, opts)
 
-Edit an ActivityType
+Update an ActivityType
 
 Updates an ActivityType.
 

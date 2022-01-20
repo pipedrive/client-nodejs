@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | The ID of removed Product | [optional] 
+**id** | **Number** | The ID of the removed product | [optional] 
 
 

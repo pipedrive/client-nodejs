@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**userId** | **Number** | The User ID who added the Follower | [optional] 
-**id** | **Number** | The Follower ID | [optional] 
-**dealId** | **Number** | The ID of the Deal which the Follower was added to | [optional] 
-**addTime** | **String** | The date and time when the Deal Follower was added | [optional] 
+**user_id** | **Number** | The user ID who added the follower | [optional] 
+**id** | **Number** | The follower ID | [optional] 
+**deal_id** | **Number** | The ID of the deal which the follower was added to | [optional] 
+**add_time** | **String** | The date and time when the deal follower was added | [optional] 
 
 

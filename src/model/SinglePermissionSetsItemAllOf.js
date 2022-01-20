@@ -65,7 +65,7 @@ class SinglePermissionSetsItemAllOf {
 }
 
 /**
- * A permission assigned to this Permission Set
+ * A permission assigned to this permission set
  * @member {Array.<String>} contents
  */
 SinglePermissionSetsItemAllOf.prototype['contents'] = undefined;

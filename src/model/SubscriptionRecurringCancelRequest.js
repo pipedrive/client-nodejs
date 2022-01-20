@@ -65,7 +65,7 @@ class SubscriptionRecurringCancelRequest {
 }
 
 /**
- * Subscription termination date. All payments after specified date will be deleted. Default value is the current date.
+ * The subscription termination date. All payments after specified date will be deleted. Default value is the current date.
  * @member {Date} end_date
  */
 SubscriptionRecurringCancelRequest.prototype['end_date'] = undefined;

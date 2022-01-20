@@ -12,9 +12,9 @@
  */
 
 import ApiClient from '../ApiClient';
-import BasePersonItemEmail from './BasePersonItemEmail';
 import BasePersonItemPhone from './BasePersonItemPhone';
 import BasicPerson from './BasicPerson';
+import BasicPersonEmail from './BasicPersonEmail';
 import NewPersonAllOf from './NewPersonAllOf';
 import VisibleTo from './VisibleTo';
 
@@ -29,7 +29,7 @@ class NewPerson {
      * @alias module:model/NewPerson
      * @implements module:model/BasicPerson
      * @implements module:model/NewPersonAllOf
-     * @param name {String} Person name
+     * @param name {String} The name of the person
      */
     constructor(name) { 
         BasicPerson.initialize(this);NewPersonAllOf.initialize(this);
@@ -74,7 +74,7 @@ class NewPerson {
                 delete data['org_id'];
             }
             if (data.hasOwnProperty('email')) {
-                obj['email'] = ApiClient.convertToType(data['email'], [BasePersonItemEmail]);
+                obj['email'] = ApiClient.convertToType(data['email'], [BasicPersonEmail]);
 
                 delete data['email'];
             }
@@ -106,43 +106,43 @@ class NewPerson {
 }
 
 /**
- * Person name
+ * The name of the person
  * @member {String} name
  */
 NewPerson.prototype['name'] = undefined;
 
 /**
- * ID of the user who will be marked as the owner of this person. When omitted, the authorized user ID will be used.
+ * The ID of the user who will be marked as the owner of this person. When omitted, the authorized user ID will be used.
  * @member {Number} owner_id
  */
 NewPerson.prototype['owner_id'] = undefined;
 
 /**
- * ID of the organization this person will belong to.
+ * The ID of the organization this person will belong to
  * @member {Number} org_id
  */
 NewPerson.prototype['org_id'] = undefined;
 
 /**
- * List of email data related to the Person
- * @member {Array.<module:model/BasePersonItemEmail>} email
+ * List of email data related to the person
+ * @member {Array.<module:model/BasicPersonEmail>} email
  */
 NewPerson.prototype['email'] = undefined;
 
 /**
- * List of phone data related to the Person
+ * List of phone data related to the person
  * @member {Array.<module:model/BasePersonItemPhone>} phone
  */
 NewPerson.prototype['phone'] = undefined;
 
 /**
- * Visibility of the person. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
+ * The visibility of the person. If omitted, the visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
  * @member {module:model/VisibleTo} visible_to
  */
 NewPerson.prototype['visible_to'] = undefined;
 
 /**
- * Optional creation date & time of the person in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
+ * The optional creation date & time of the person in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} add_time
  */
 NewPerson.prototype['add_time'] = undefined;
@@ -150,38 +150,38 @@ NewPerson.prototype['add_time'] = undefined;
 
 // Implement BasicPerson interface:
 /**
- * Person name
+ * The name of the person
  * @member {String} name
  */
 BasicPerson.prototype['name'] = undefined;
 /**
- * ID of the user who will be marked as the owner of this person. When omitted, the authorized user ID will be used.
+ * The ID of the user who will be marked as the owner of this person. When omitted, the authorized user ID will be used.
  * @member {Number} owner_id
  */
 BasicPerson.prototype['owner_id'] = undefined;
 /**
- * ID of the organization this person will belong to.
+ * The ID of the organization this person will belong to
  * @member {Number} org_id
  */
 BasicPerson.prototype['org_id'] = undefined;
 /**
- * List of email data related to the Person
- * @member {Array.<module:model/BasePersonItemEmail>} email
+ * List of email data related to the person
+ * @member {Array.<module:model/BasicPersonEmail>} email
  */
 BasicPerson.prototype['email'] = undefined;
 /**
- * List of phone data related to the Person
+ * List of phone data related to the person
  * @member {Array.<module:model/BasePersonItemPhone>} phone
  */
 BasicPerson.prototype['phone'] = undefined;
 /**
- * Visibility of the person. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
+ * The visibility of the person. If omitted, the visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
  * @member {module:model/VisibleTo} visible_to
  */
 BasicPerson.prototype['visible_to'] = undefined;
 // Implement NewPersonAllOf interface:
 /**
- * Optional creation date & time of the person in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
+ * The optional creation date & time of the person in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} add_time
  */
 NewPersonAllOf.prototype['add_time'] = undefined;

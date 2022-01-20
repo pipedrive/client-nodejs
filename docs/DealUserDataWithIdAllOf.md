@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | **Number** | The ID of the User | [optional] 
+**value** | **Number** | The ID of the user | [optional] 
 
 

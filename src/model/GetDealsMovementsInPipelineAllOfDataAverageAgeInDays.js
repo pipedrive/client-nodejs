@@ -22,7 +22,7 @@ import GetDealsMovementsInPipelineAllOfDataAverageAgeInDaysByStages from './GetD
 class GetDealsMovementsInPipelineAllOfDataAverageAgeInDays {
     /**
      * Constructs a new <code>GetDealsMovementsInPipelineAllOfDataAverageAgeInDays</code>.
-     * Moved Deals average age in days
+     * The moved deals average age in days
      * @alias module:model/GetDealsMovementsInPipelineAllOfDataAverageAgeInDays
      */
     constructor() { 
@@ -72,13 +72,13 @@ class GetDealsMovementsInPipelineAllOfDataAverageAgeInDays {
 }
 
 /**
- * Moved Deals average age across all Stages
+ * The moved deals average age across all stages
  * @member {Number} across_all_stages
  */
 GetDealsMovementsInPipelineAllOfDataAverageAgeInDays.prototype['across_all_stages'] = undefined;
 
 /**
- * Moved Deals average age by Stages
+ * The moved deals average age by stages
  * @member {Array.<module:model/GetDealsMovementsInPipelineAllOfDataAverageAgeInDaysByStages>} by_stages
  */
 GetDealsMovementsInPipelineAllOfDataAverageAgeInDays.prototype['by_stages'] = undefined;

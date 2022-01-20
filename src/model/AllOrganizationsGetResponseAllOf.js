@@ -78,7 +78,7 @@ class AllOrganizationsGetResponseAllOf {
 }
 
 /**
- * The array of Organizations
+ * The array of organizations
  * @member {Array.<module:model/BaseOrganizationItem>} data
  */
 AllOrganizationsGetResponseAllOf.prototype['data'] = undefined;

@@ -65,7 +65,7 @@ class DealOrganizationDataWithIdAllOf {
 }
 
 /**
- * The ID of the Organization associated with the Deal
+ * The ID of the organization associated with the deal
  * @member {Number} value
  */
 DealOrganizationDataWithIdAllOf.prototype['value'] = undefined;

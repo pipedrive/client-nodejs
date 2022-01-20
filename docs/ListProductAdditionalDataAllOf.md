@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**productsQuantityTotal** | **Number** | Total quantity of the Products | [optional] 
-**productsSumTotal** | **Number** | Total sum of the Products | [optional] 
-**variationsEnabled** | **Boolean** | Is variations enabled or not | [optional] 
-**productsQuantityTotalFormatted** | **String** | Total formatted quantity of the Products | [optional] 
-**productsSumTotalFormatted** | **String** | Total formatted sum of the Products | [optional] 
+**products_quantity_total** | **Number** | The total quantity of the products | [optional] 
+**products_sum_total** | **Number** | The total sum of the products | [optional] 
+**variations_enabled** | **Boolean** | Whether variations is enabled or not | [optional] 
+**products_quantity_total_formatted** | **String** | The total formatted quantity of the products | [optional] 
+**products_sum_total_formatted** | **String** | The total formatted sum of the products | [optional] 
 
 

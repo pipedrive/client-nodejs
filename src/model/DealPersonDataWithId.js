@@ -13,9 +13,9 @@
 
 import ApiClient from '../ApiClient';
 import DealPersonData from './DealPersonData';
+import DealPersonDataEmail from './DealPersonDataEmail';
 import DealPersonDataPhone from './DealPersonDataPhone';
 import DealPersonDataWithIdAllOf from './DealPersonDataWithIdAllOf';
-import PersonDataEmail from './PersonDataEmail';
 
 /**
  * The DealPersonDataWithId model module.
@@ -66,7 +66,7 @@ class DealPersonDataWithId {
                 delete data['name'];
             }
             if (data.hasOwnProperty('email')) {
-                obj['email'] = ApiClient.convertToType(data['email'], [PersonDataEmail]);
+                obj['email'] = ApiClient.convertToType(data['email'], [DealPersonDataEmail]);
 
                 delete data['email'];
             }
@@ -98,37 +98,37 @@ class DealPersonDataWithId {
 }
 
 /**
- * If the associated Person is activated or not
+ * Whether the associated person is active or not
  * @member {Boolean} active_flag
  */
 DealPersonDataWithId.prototype['active_flag'] = undefined;
 
 /**
- * The name of the Person associated with the Deal
+ * The name of the person associated with the deal
  * @member {String} name
  */
 DealPersonDataWithId.prototype['name'] = undefined;
 
 /**
- * The emails of the Person associated with the Deal
- * @member {Array.<module:model/PersonDataEmail>} email
+ * The emails of the person associated with the deal
+ * @member {Array.<module:model/DealPersonDataEmail>} email
  */
 DealPersonDataWithId.prototype['email'] = undefined;
 
 /**
- * The phone numbers of the Person associated with the Deal
+ * The phone numbers of the person associated with the deal
  * @member {Array.<module:model/DealPersonDataPhone>} phone
  */
 DealPersonDataWithId.prototype['phone'] = undefined;
 
 /**
- * The ID of the owner of the Person that is associated with the Deal
+ * The ID of the owner of the person that is associated with the deal
  * @member {Number} owner_id
  */
 DealPersonDataWithId.prototype['owner_id'] = undefined;
 
 /**
- * The ID of the Person associated with the Deal
+ * The ID of the person associated with the deal
  * @member {Number} value
  */
 DealPersonDataWithId.prototype['value'] = undefined;
@@ -136,33 +136,33 @@ DealPersonDataWithId.prototype['value'] = undefined;
 
 // Implement DealPersonData interface:
 /**
- * If the associated Person is activated or not
+ * Whether the associated person is active or not
  * @member {Boolean} active_flag
  */
 DealPersonData.prototype['active_flag'] = undefined;
 /**
- * The name of the Person associated with the Deal
+ * The name of the person associated with the deal
  * @member {String} name
  */
 DealPersonData.prototype['name'] = undefined;
 /**
- * The emails of the Person associated with the Deal
- * @member {Array.<module:model/PersonDataEmail>} email
+ * The emails of the person associated with the deal
+ * @member {Array.<module:model/DealPersonDataEmail>} email
  */
 DealPersonData.prototype['email'] = undefined;
 /**
- * The phone numbers of the Person associated with the Deal
+ * The phone numbers of the person associated with the deal
  * @member {Array.<module:model/DealPersonDataPhone>} phone
  */
 DealPersonData.prototype['phone'] = undefined;
 /**
- * The ID of the owner of the Person that is associated with the Deal
+ * The ID of the owner of the person that is associated with the deal
  * @member {Number} owner_id
  */
 DealPersonData.prototype['owner_id'] = undefined;
 // Implement DealPersonDataWithIdAllOf interface:
 /**
- * The ID of the Person associated with the Deal
+ * The ID of the person associated with the deal
  * @member {Number} value
  */
 DealPersonDataWithIdAllOf.prototype['value'] = undefined;

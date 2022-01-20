@@ -68,6 +68,7 @@ export default class OrganizationsApi {
       opts = opts || {};
       let postBody = opts['newOrganization'];
 
+
       let pathParams = {
       };
       let queryParams = {
@@ -122,7 +123,7 @@ export default class OrganizationsApi {
     /**
      * Add a follower to an organization
      * Adds a follower to an organization.
-     * @param {Number} id The ID of the Organization
+     * @param {Number} id The ID of the organization
      * @param {Object} opts Optional parameters
      * @param {module:model/AddOrganizationFollowerRequest} opts.addOrganizationFollowerRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationFollowerPostResponse} and HTTP response
@@ -130,9 +131,14 @@ export default class OrganizationsApi {
     addOrganizationFollowerWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['addOrganizationFollowerRequest'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling addOrganizationFollower");
+      }
+
+      if (opts['user_id'] === undefined || opts['user_id'] === null) {
+        throw new Error("Missing the required parameter 'user_id' when calling addOrganizationFollower");
       }
 
       let pathParams = {
@@ -175,7 +181,7 @@ export default class OrganizationsApi {
     /**
      * Add a follower to an organization
      * Adds a follower to an organization.
-     * @param {Number} id The ID of the Organization
+     * @param {Number} id The ID of the organization
      * @param {Object} opts Optional parameters
      * @param {module:model/AddOrganizationFollowerRequest} opts.addOrganizationFollowerRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationFollowerPostResponse}
@@ -191,12 +197,13 @@ export default class OrganizationsApi {
     /**
      * Delete an organization
      * Marks an organization as deleted.
-     * @param {Number} id The ID of the Organization
+     * @param {Number} id The ID of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationDeleteResponse} and HTTP response
      */
     deleteOrganizationWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteOrganization");
@@ -242,7 +249,7 @@ export default class OrganizationsApi {
     /**
      * Delete an organization
      * Marks an organization as deleted.
-     * @param {Number} id The ID of the Organization
+     * @param {Number} id The ID of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationDeleteResponse}
      */
     deleteOrganization(id) {
@@ -256,17 +263,19 @@ export default class OrganizationsApi {
     /**
      * Delete a follower from an organization
      * Deletes a follower from an organization. You can retrieve the `follower_id` from the <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#getOrganizationFollowers\">List followers of an organization</a> endpoint.
-     * @param {Number} id The ID of the Organization
+     * @param {Number} id The ID of the organization
      * @param {Number} followerId The ID of the follower
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationFollowerDeleteResponse} and HTTP response
      */
     deleteOrganizationFollowerWithHttpInfo(id, followerId) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteOrganizationFollower");
       }
+
       // verify the required parameter 'followerId' is set
       if (followerId === undefined || followerId === null) {
         throw new Error("Missing the required parameter 'followerId' when calling deleteOrganizationFollower");
@@ -313,7 +322,7 @@ export default class OrganizationsApi {
     /**
      * Delete a follower from an organization
      * Deletes a follower from an organization. You can retrieve the `follower_id` from the <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#getOrganizationFollowers\">List followers of an organization</a> endpoint.
-     * @param {Number} id The ID of the Organization
+     * @param {Number} id The ID of the organization
      * @param {Number} followerId The ID of the follower
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationFollowerDeleteResponse}
      */
@@ -328,12 +337,13 @@ export default class OrganizationsApi {
     /**
      * Delete multiple organizations in bulk
      * Marks multiple organizations as deleted.
-     * @param {String} ids Comma-separated IDs that will be deleted
+     * @param {String} ids The comma-separated IDs that will be deleted
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationsDeleteResponse} and HTTP response
      */
     deleteOrganizationsWithHttpInfo(ids) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'ids' is set
       if (ids === undefined || ids === null) {
         throw new Error("Missing the required parameter 'ids' when calling deleteOrganizations");
@@ -379,7 +389,7 @@ export default class OrganizationsApi {
     /**
      * Delete multiple organizations in bulk
      * Marks multiple organizations as deleted.
-     * @param {String} ids Comma-separated IDs that will be deleted
+     * @param {String} ids The comma-separated IDs that will be deleted
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationsDeleteResponse}
      */
     deleteOrganizations(ids) {
@@ -393,12 +403,13 @@ export default class OrganizationsApi {
     /**
      * Get details of an organization
      * Returns details of an organization. Note that this also returns some additional fields which are not present when asking for all organizations. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of organizationFields.
-     * @param {Number} id The ID of the Organization
+     * @param {Number} id The ID of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationDetailsGetResponse} and HTTP response
      */
     getOrganizationWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getOrganization");
@@ -444,7 +455,7 @@ export default class OrganizationsApi {
     /**
      * Get details of an organization
      * Returns details of an organization. Note that this also returns some additional fields which are not present when asking for all organizations. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of organizationFields.
-     * @param {Number} id The ID of the Organization
+     * @param {Number} id The ID of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationDetailsGetResponse}
      */
     getOrganization(id) {
@@ -458,7 +469,7 @@ export default class OrganizationsApi {
     /**
      * List activities associated with an organization
      * Lists activities associated with an organization.
-     * @param {Number} id The ID of the Organization
+     * @param {Number} id The ID of the organization
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -469,10 +480,15 @@ export default class OrganizationsApi {
     getOrganizationActivitiesWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getOrganizationActivities");
       }
+
+
+
+
 
       let pathParams = {
         'id': id,
@@ -518,7 +534,7 @@ export default class OrganizationsApi {
     /**
      * List activities associated with an organization
      * Lists activities associated with an organization.
-     * @param {Number} id The ID of the Organization
+     * @param {Number} id The ID of the organization
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -537,22 +553,28 @@ export default class OrganizationsApi {
     /**
      * List deals associated with an organization
      * Lists deals associated with an organization.
-     * @param {Number} id The ID of the Organization
+     * @param {Number} id The ID of the organization
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {module:model/String} opts.status Only fetch deals with specific status. If omitted, all not deleted deals are fetched. (default to 'all_not_deleted')
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
+     * @param {module:model/String} opts.status Only fetch deals with a specific status. If omitted, all not deleted deals are fetched. (default to 'all_not_deleted')
+     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
      * @param {module:model/NumberBoolean} opts.onlyPrimaryAssociation If set, only deals that are directly associated to the organization are fetched. If not set (default), all deals are fetched that are either directly or indirectly related to the organization. Indirect relations include relations through custom, organization-type fields and through persons of the given organization.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListDealsResponse} and HTTP response
      */
     getOrganizationDealsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getOrganizationDeals");
       }
+
+
+
+
+
 
       let pathParams = {
         'id': id,
@@ -599,12 +621,12 @@ export default class OrganizationsApi {
     /**
      * List deals associated with an organization
      * Lists deals associated with an organization.
-     * @param {Number} id The ID of the Organization
+     * @param {Number} id The ID of the organization
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {module:model/String} opts.status Only fetch deals with specific status. If omitted, all not deleted deals are fetched. (default to 'all_not_deleted')
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
+     * @param {module:model/String} opts.status Only fetch deals with a specific status. If omitted, all not deleted deals are fetched. (default to 'all_not_deleted')
+     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
      * @param {module:model/NumberBoolean} opts.onlyPrimaryAssociation If set, only deals that are directly associated to the organization are fetched. If not set (default), all deals are fetched that are either directly or indirectly related to the organization. Indirect relations include relations through custom, organization-type fields and through persons of the given organization.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListDealsResponse}
      */
@@ -619,21 +641,26 @@ export default class OrganizationsApi {
     /**
      * List files attached to an organization
      * Lists files associated with an organization.
-     * @param {Number} id The ID of the Organization
+     * @param {Number} id The ID of the organization
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {module:model/NumberBoolean} opts.includeDeletedFiles When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
+     * @param {String} opts.sort The field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListFilesResponse} and HTTP response
      */
     getOrganizationFilesWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getOrganizationFiles");
       }
+
+
+
+
 
       let pathParams = {
         'id': id,
@@ -679,12 +706,12 @@ export default class OrganizationsApi {
     /**
      * List files attached to an organization
      * Lists files associated with an organization.
-     * @param {Number} id The ID of the Organization
+     * @param {Number} id The ID of the organization
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {module:model/NumberBoolean} opts.includeDeletedFiles When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
+     * @param {String} opts.sort The field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListFilesResponse}
      */
     getOrganizationFiles(id, opts) {
@@ -698,12 +725,13 @@ export default class OrganizationsApi {
     /**
      * List followers of an organization
      * Lists the followers of an organization.
-     * @param {Number} id The ID of the Organization
+     * @param {Number} id The ID of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationFollowersListResponse} and HTTP response
      */
     getOrganizationFollowersWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getOrganizationFollowers");
@@ -749,7 +777,7 @@ export default class OrganizationsApi {
     /**
      * List followers of an organization
      * Lists the followers of an organization.
-     * @param {Number} id The ID of the Organization
+     * @param {Number} id The ID of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationFollowersListResponse}
      */
     getOrganizationFollowers(id) {
@@ -763,7 +791,7 @@ export default class OrganizationsApi {
     /**
      * List mail messages associated with an organization
      * Lists mail messages associated with an organization.
-     * @param {Number} id The ID of the Organization
+     * @param {Number} id The ID of the organization
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -772,10 +800,13 @@ export default class OrganizationsApi {
     getOrganizationMailMessagesWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getOrganizationMailMessages");
       }
+
+
 
       let pathParams = {
         'id': id,
@@ -819,7 +850,7 @@ export default class OrganizationsApi {
     /**
      * List mail messages associated with an organization
      * Lists mail messages associated with an organization.
-     * @param {Number} id The ID of the Organization
+     * @param {Number} id The ID of the organization
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -836,7 +867,7 @@ export default class OrganizationsApi {
     /**
      * List persons of an organization
      * Lists persons associated with an organization.
-     * @param {Number} id The ID of the Organization
+     * @param {Number} id The ID of the organization
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -845,10 +876,13 @@ export default class OrganizationsApi {
     getOrganizationPersonsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getOrganizationPersons");
       }
+
+
 
       let pathParams = {
         'id': id,
@@ -892,7 +926,7 @@ export default class OrganizationsApi {
     /**
      * List persons of an organization
      * Lists persons associated with an organization.
-     * @param {Number} id The ID of the Organization
+     * @param {Number} id The ID of the organization
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -909,21 +943,26 @@ export default class OrganizationsApi {
     /**
      * List updates about an organization
      * Lists updates about an organization.
-     * @param {Number} id The ID of the Organization
+     * @param {Number} id The ID of the organization
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {String} opts.allChanges Whether to show custom field updates or not. 1 = Include custom field changes. If omitted returns changes without custom field updates.
+     * @param {String} opts.allChanges Whether to show custom field updates or not. 1 = Include custom field changes. If omitted, returns changes without custom field updates.
      * @param {String} opts.items A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationFlowResponse} and HTTP response
      */
     getOrganizationUpdatesWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getOrganizationUpdates");
       }
+
+
+
+
 
       let pathParams = {
         'id': id,
@@ -969,11 +1008,11 @@ export default class OrganizationsApi {
     /**
      * List updates about an organization
      * Lists updates about an organization.
-     * @param {Number} id The ID of the Organization
+     * @param {Number} id The ID of the organization
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {String} opts.allChanges Whether to show custom field updates or not. 1 = Include custom field changes. If omitted returns changes without custom field updates.
+     * @param {String} opts.allChanges Whether to show custom field updates or not. 1 = Include custom field changes. If omitted, returns changes without custom field updates.
      * @param {String} opts.items A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationFlowResponse}
      */
@@ -987,13 +1026,14 @@ export default class OrganizationsApi {
 
     /**
      * List permitted users
-     * List users permitted to access an organization
-     * @param {Number} id The ID of the Organization
+     * List users permitted to access an organization.
+     * @param {Number} id The ID of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListPermittedUsersResponse1} and HTTP response
      */
     getOrganizationUsersWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getOrganizationUsers");
@@ -1038,8 +1078,8 @@ export default class OrganizationsApi {
 
     /**
      * List permitted users
-     * List users permitted to access an organization
-     * @param {Number} id The ID of the Organization
+     * List users permitted to access an organization.
+     * @param {Number} id The ID of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListPermittedUsersResponse1}
      */
     getOrganizationUsers(id) {
@@ -1052,19 +1092,25 @@ export default class OrganizationsApi {
 
     /**
      * Get all organizations
-     * Returns all organizations
+     * Returns all organizations.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId If supplied, only organizations owned by the given user will be returned. However, `filter_id` takes precedence over `user_id` when both are supplied.
-     * @param {Number} opts.filterId ID of the filter to use
-     * @param {String} opts.firstChar If supplied, only organizations whose name starts with the specified letter will be returned (case insensitive).
+     * @param {Number} opts.filterId The ID of the filter to use
+     * @param {String} opts.firstChar If supplied, only organizations whose name starts with the specified letter will be returned (case insensitive)
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
+     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AllOrganizationsGetResponse} and HTTP response
      */
     getOrganizationsWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
+
+
+
+
+
+
 
       let pathParams = {
       };
@@ -1110,14 +1156,14 @@ export default class OrganizationsApi {
 
     /**
      * Get all organizations
-     * Returns all organizations
+     * Returns all organizations.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId If supplied, only organizations owned by the given user will be returned. However, `filter_id` takes precedence over `user_id` when both are supplied.
-     * @param {Number} opts.filterId ID of the filter to use
-     * @param {String} opts.firstChar If supplied, only organizations whose name starts with the specified letter will be returned (case insensitive).
+     * @param {Number} opts.filterId The ID of the filter to use
+     * @param {String} opts.firstChar If supplied, only organizations whose name starts with the specified letter will be returned (case insensitive)
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
+     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AllOrganizationsGetResponse}
      */
     getOrganizations(opts) {
@@ -1131,7 +1177,7 @@ export default class OrganizationsApi {
     /**
      * Merge two organizations
      * Merges an organization with another organization. For more information on how to merge two organizations, see <a href=\"https://pipedrive.readme.io/docs/merging-two-organizations\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
-     * @param {Number} id The ID of the Organization
+     * @param {Number} id The ID of the organization
      * @param {Object} opts Optional parameters
      * @param {module:model/MergeOrganizationsRequest} opts.mergeOrganizationsRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationsMergeResponse} and HTTP response
@@ -1139,9 +1185,14 @@ export default class OrganizationsApi {
     mergeOrganizationsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['mergeOrganizationsRequest'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling mergeOrganizations");
+      }
+
+      if (opts['merge_with_id'] === undefined || opts['merge_with_id'] === null) {
+        throw new Error("Missing the required parameter 'merge_with_id' when calling mergeOrganizations");
       }
 
       let pathParams = {
@@ -1184,7 +1235,7 @@ export default class OrganizationsApi {
     /**
      * Merge two organizations
      * Merges an organization with another organization. For more information on how to merge two organizations, see <a href=\"https://pipedrive.readme.io/docs/merging-two-organizations\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
-     * @param {Number} id The ID of the Organization
+     * @param {Number} id The ID of the organization
      * @param {Object} opts Optional parameters
      * @param {module:model/MergeOrganizationsRequest} opts.mergeOrganizationsRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationsMergeResponse}
@@ -1199,7 +1250,7 @@ export default class OrganizationsApi {
 
     /**
      * Search organizations
-     * Searches all Organizations by name, address, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope.
+     * Searches all organizations by name, address, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope.
      * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`).
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.fields A comma-separated string array. The fields to perform the search from. Defaults to all of them.
@@ -1211,10 +1262,15 @@ export default class OrganizationsApi {
     searchOrganizationWithHttpInfo(term, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'term' is set
       if (term === undefined || term === null) {
         throw new Error("Missing the required parameter 'term' when calling searchOrganization");
       }
+
+
+
+
 
       let pathParams = {
       };
@@ -1259,7 +1315,7 @@ export default class OrganizationsApi {
 
     /**
      * Search organizations
-     * Searches all Organizations by name, address, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope.
+     * Searches all organizations by name, address, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope.
      * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`).
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.fields A comma-separated string array. The fields to perform the search from. Defaults to all of them.
@@ -1279,7 +1335,7 @@ export default class OrganizationsApi {
     /**
      * Update an organization
      * Updates the properties of an organization.
-     * @param {Number} id The ID of the Organization
+     * @param {Number} id The ID of the organization
      * @param {Object} opts Optional parameters
      * @param {module:model/BasicOrganization} opts.basicOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationUpdateResponse} and HTTP response
@@ -1287,10 +1343,12 @@ export default class OrganizationsApi {
     updateOrganizationWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['basicOrganization'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateOrganization");
       }
+
 
       let pathParams = {
         'id': id,
@@ -1332,7 +1390,7 @@ export default class OrganizationsApi {
     /**
      * Update an organization
      * Updates the properties of an organization.
-     * @param {Number} id The ID of the Organization
+     * @param {Number} id The ID of the organization
      * @param {Object} opts Optional parameters
      * @param {module:model/BasicOrganization} opts.basicOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationUpdateResponse}

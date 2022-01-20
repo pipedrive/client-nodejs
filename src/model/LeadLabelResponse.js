@@ -86,13 +86,13 @@ class LeadLabelResponse {
 }
 
 /**
- * The unique ID of the Lead Label
+ * The unique ID of the lead label
  * @member {String} id
  */
 LeadLabelResponse.prototype['id'] = undefined;
 
 /**
- * The name of the Lead Label
+ * The name of the lead label
  * @member {String} name
  */
 LeadLabelResponse.prototype['name'] = undefined;
@@ -103,13 +103,13 @@ LeadLabelResponse.prototype['name'] = undefined;
 LeadLabelResponse.prototype['color'] = undefined;
 
 /**
- * The date and time of when the Lead Label was created. In ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+ * The date and time of when the lead label was created. In ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
  * @member {Date} add_time
  */
 LeadLabelResponse.prototype['add_time'] = undefined;
 
 /**
- * The date and time of when the Lead Label was last updated. In ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+ * The date and time of when the lead label was last updated. In ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
  * @member {Date} update_time
  */
 LeadLabelResponse.prototype['update_time'] = undefined;

@@ -103,19 +103,19 @@ PersonNameInfoWithOrgAndOwnerId.prototype['owner_id'] = undefined;
 PersonNameInfoWithOrgAndOwnerId.prototype['org_id'] = undefined;
 
 /**
- * The name of the Person
+ * The name of the person
  * @member {String} name
  */
 PersonNameInfoWithOrgAndOwnerId.prototype['name'] = undefined;
 
 /**
- * The first name of the Person
+ * The first name of the person
  * @member {String} first_name
  */
 PersonNameInfoWithOrgAndOwnerId.prototype['first_name'] = undefined;
 
 /**
- * The last name of the Person
+ * The last name of the person
  * @member {String} last_name
  */
 PersonNameInfoWithOrgAndOwnerId.prototype['last_name'] = undefined;
@@ -132,17 +132,17 @@ OrgAndOwnerId.prototype['owner_id'] = undefined;
 OrgAndOwnerId.prototype['org_id'] = undefined;
 // Implement PersonNameInfo interface:
 /**
- * The name of the Person
+ * The name of the person
  * @member {String} name
  */
 PersonNameInfo.prototype['name'] = undefined;
 /**
- * The first name of the Person
+ * The first name of the person
  * @member {String} first_name
  */
 PersonNameInfo.prototype['first_name'] = undefined;
 /**
- * The last name of the Person
+ * The last name of the person
  * @member {String} last_name
  */
 PersonNameInfo.prototype['last_name'] = undefined;

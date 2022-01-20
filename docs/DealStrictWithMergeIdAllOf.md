@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**mergeWhatId** | **Number** | The Deal ID of the Deal which the original Deal was merged with | [optional] 
+**merge_what_id** | **Number** | The deal ID of the deal which the original deal was merged with | [optional] 
 
 

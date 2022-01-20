@@ -82,7 +82,7 @@ class UserIDs {
 UserIDs.prototype['success'] = undefined;
 
 /**
- * List of User IDs
+ * The list of user IDs
  * @member {Array.<Number>} data
  */
 UserIDs.prototype['data'] = undefined;
@@ -96,7 +96,7 @@ UserIDs.prototype['data'] = undefined;
 BaseResponse.prototype['success'] = undefined;
 // Implement UserIDsAllOf interface:
 /**
- * List of User IDs
+ * The list of user IDs
  * @member {Array.<Number>} data
  */
 UserIDsAllOf.prototype['data'] = undefined;

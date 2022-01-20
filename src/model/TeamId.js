@@ -65,7 +65,7 @@ class TeamId {
 }
 
 /**
- * The Team ID
+ * The team ID
  * @member {Number} id
  */
 TeamId.prototype['id'] = undefined;

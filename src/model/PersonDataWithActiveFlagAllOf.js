@@ -65,7 +65,7 @@ class PersonDataWithActiveFlagAllOf {
 }
 
 /**
- * If the associated Person is active or not
+ * Whether the associated person is active or not
  * @member {Boolean} active_flag
  */
 PersonDataWithActiveFlagAllOf.prototype['active_flag'] = undefined;

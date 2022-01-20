@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | The ID of the Organization that was deleted | [optional] 
+**id** | **Number** | The ID of the organization that was deleted | [optional] 
 
 

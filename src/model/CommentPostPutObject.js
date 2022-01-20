@@ -22,7 +22,7 @@ class CommentPostPutObject {
     /**
      * Constructs a new <code>CommentPostPutObject</code>.
      * @alias module:model/CommentPostPutObject
-     * @param content {String} Content of the comment in HTML format. Subject to sanitization on the back-end.
+     * @param content {String} The content of the comment in HTML format. Subject to sanitization on the back-end.
      */
     constructor(content) { 
         
@@ -67,7 +67,7 @@ class CommentPostPutObject {
 }
 
 /**
- * Content of the comment in HTML format. Subject to sanitization on the back-end.
+ * The content of the comment in HTML format. Subject to sanitization on the back-end.
  * @member {String} content
  */
 CommentPostPutObject.prototype['content'] = undefined;

@@ -43,7 +43,7 @@ export default class SubscriptionsApi {
 
     /**
      * Add a recurring subscription
-     * Adds a new recurring Subscription.
+     * Adds a new recurring subscription.
      * @param {Object} opts Optional parameters
      * @param {module:model/SubscriptionRecurringCreateRequest} opts.subscriptionRecurringCreateRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SubscriptionsIdResponse} and HTTP response
@@ -51,6 +51,22 @@ export default class SubscriptionsApi {
     addRecurringSubscriptionWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = opts['subscriptionRecurringCreateRequest'];
+
+      if (opts['deal_id'] === undefined || opts['deal_id'] === null) {
+        throw new Error("Missing the required parameter 'deal_id' when calling addRecurringSubscription");
+      }
+      if (opts['currency'] === undefined || opts['currency'] === null) {
+        throw new Error("Missing the required parameter 'currency' when calling addRecurringSubscription");
+      }
+      if (opts['cadence_type'] === undefined || opts['cadence_type'] === null) {
+        throw new Error("Missing the required parameter 'cadence_type' when calling addRecurringSubscription");
+      }
+      if (opts['cycle_amount'] === undefined || opts['cycle_amount'] === null) {
+        throw new Error("Missing the required parameter 'cycle_amount' when calling addRecurringSubscription");
+      }
+      if (opts['start_date'] === undefined || opts['start_date'] === null) {
+        throw new Error("Missing the required parameter 'start_date' when calling addRecurringSubscription");
+      }
 
       let pathParams = {
       };
@@ -90,7 +106,7 @@ export default class SubscriptionsApi {
 
     /**
      * Add a recurring subscription
-     * Adds a new recurring Subscription.
+     * Adds a new recurring subscription.
      * @param {Object} opts Optional parameters
      * @param {module:model/SubscriptionRecurringCreateRequest} opts.subscriptionRecurringCreateRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SubscriptionsIdResponse}
@@ -105,7 +121,7 @@ export default class SubscriptionsApi {
 
     /**
      * Add an installment subscription
-     * Adds a new installment Subscription.
+     * Adds a new installment subscription.
      * @param {Object} opts Optional parameters
      * @param {module:model/SubscriptionInstallmentCreateRequest} opts.subscriptionInstallmentCreateRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SubscriptionsIdResponse} and HTTP response
@@ -113,6 +129,16 @@ export default class SubscriptionsApi {
     addSubscriptionInstallmentWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = opts['subscriptionInstallmentCreateRequest'];
+
+      if (opts['deal_id'] === undefined || opts['deal_id'] === null) {
+        throw new Error("Missing the required parameter 'deal_id' when calling addSubscriptionInstallment");
+      }
+      if (opts['currency'] === undefined || opts['currency'] === null) {
+        throw new Error("Missing the required parameter 'currency' when calling addSubscriptionInstallment");
+      }
+      if (opts['payments'] === undefined || opts['payments'] === null) {
+        throw new Error("Missing the required parameter 'payments' when calling addSubscriptionInstallment");
+      }
 
       let pathParams = {
       };
@@ -152,7 +178,7 @@ export default class SubscriptionsApi {
 
     /**
      * Add an installment subscription
-     * Adds a new installment Subscription.
+     * Adds a new installment subscription.
      * @param {Object} opts Optional parameters
      * @param {module:model/SubscriptionInstallmentCreateRequest} opts.subscriptionInstallmentCreateRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SubscriptionsIdResponse}
@@ -167,8 +193,8 @@ export default class SubscriptionsApi {
 
     /**
      * Cancel a recurring subscription
-     * Cancels a recurring Subscription.
-     * @param {Number} id ID of the Subscription
+     * Cancels a recurring subscription.
+     * @param {Number} id The ID of the subscription
      * @param {Object} opts Optional parameters
      * @param {module:model/SubscriptionRecurringCancelRequest} opts.subscriptionRecurringCancelRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SubscriptionsIdResponse} and HTTP response
@@ -176,10 +202,12 @@ export default class SubscriptionsApi {
     cancelRecurringSubscriptionWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['subscriptionRecurringCancelRequest'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling cancelRecurringSubscription");
       }
+
 
       let pathParams = {
         'id': id,
@@ -220,8 +248,8 @@ export default class SubscriptionsApi {
 
     /**
      * Cancel a recurring subscription
-     * Cancels a recurring Subscription.
-     * @param {Number} id ID of the Subscription
+     * Cancels a recurring subscription.
+     * @param {Number} id The ID of the subscription
      * @param {Object} opts Optional parameters
      * @param {module:model/SubscriptionRecurringCancelRequest} opts.subscriptionRecurringCancelRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SubscriptionsIdResponse}
@@ -236,13 +264,14 @@ export default class SubscriptionsApi {
 
     /**
      * Delete a subscription
-     * Marks an installment or a recurring Subscription as deleted.
-     * @param {Number} id ID of the Subscription
+     * Marks an installment or a recurring subscription as deleted.
+     * @param {Number} id The ID of the subscription
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SubscriptionsIdResponse} and HTTP response
      */
     deleteSubscriptionWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteSubscription");
@@ -287,8 +316,8 @@ export default class SubscriptionsApi {
 
     /**
      * Delete a subscription
-     * Marks an installment or a recurring Subscription as deleted.
-     * @param {Number} id ID of the Subscription
+     * Marks an installment or a recurring subscription as deleted.
+     * @param {Number} id The ID of the subscription
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SubscriptionsIdResponse}
      */
     deleteSubscription(id) {
@@ -301,13 +330,14 @@ export default class SubscriptionsApi {
 
     /**
      * Find subscription by deal
-     * Returns details of an installment or a recurring Subscription by Deal ID.
-     * @param {Number} dealId ID of the Deal
+     * Returns details of an installment or a recurring subscription by the deal ID.
+     * @param {Number} dealId The ID of the deal
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SubscriptionsIdResponse} and HTTP response
      */
     findSubscriptionByDealWithHttpInfo(dealId) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'dealId' is set
       if (dealId === undefined || dealId === null) {
         throw new Error("Missing the required parameter 'dealId' when calling findSubscriptionByDeal");
@@ -352,8 +382,8 @@ export default class SubscriptionsApi {
 
     /**
      * Find subscription by deal
-     * Returns details of an installment or a recurring Subscription by Deal ID.
-     * @param {Number} dealId ID of the Deal
+     * Returns details of an installment or a recurring subscription by the deal ID.
+     * @param {Number} dealId The ID of the deal
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SubscriptionsIdResponse}
      */
     findSubscriptionByDeal(dealId) {
@@ -366,13 +396,14 @@ export default class SubscriptionsApi {
 
     /**
      * Get details of a subscription
-     * Returns details of an installment or a recurring Subscription.
-     * @param {Number} id ID of the Subscription
+     * Returns details of an installment or a recurring subscription.
+     * @param {Number} id The ID of the subscription
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SubscriptionsIdResponse} and HTTP response
      */
     getSubscriptionWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getSubscription");
@@ -417,8 +448,8 @@ export default class SubscriptionsApi {
 
     /**
      * Get details of a subscription
-     * Returns details of an installment or a recurring Subscription.
-     * @param {Number} id ID of the Subscription
+     * Returns details of an installment or a recurring subscription.
+     * @param {Number} id The ID of the subscription
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SubscriptionsIdResponse}
      */
     getSubscription(id) {
@@ -430,14 +461,15 @@ export default class SubscriptionsApi {
 
 
     /**
-     * Get all payments of a Subscription
-     * Returns all payments of an installment or recurring Subscription.
-     * @param {Number} id ID of the Subscription
+     * Get all payments of a subscription
+     * Returns all payments of an installment or recurring subscription.
+     * @param {Number} id The ID of the subscription
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PaymentsResponse} and HTTP response
      */
     getSubscriptionPaymentsWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getSubscriptionPayments");
@@ -481,9 +513,9 @@ export default class SubscriptionsApi {
     }
 
     /**
-     * Get all payments of a Subscription
-     * Returns all payments of an installment or recurring Subscription.
-     * @param {Number} id ID of the Subscription
+     * Get all payments of a subscription
+     * Returns all payments of an installment or recurring subscription.
+     * @param {Number} id The ID of the subscription
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PaymentsResponse}
      */
     getSubscriptionPayments(id) {
@@ -496,8 +528,8 @@ export default class SubscriptionsApi {
 
     /**
      * Update a recurring subscription
-     * Updates a recurring Subscription.
-     * @param {Number} id ID of the Subscription
+     * Updates a recurring subscription.
+     * @param {Number} id The ID of the subscription
      * @param {Object} opts Optional parameters
      * @param {module:model/SubscriptionRecurringUpdateRequest} opts.subscriptionRecurringUpdateRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SubscriptionsIdResponse} and HTTP response
@@ -505,9 +537,14 @@ export default class SubscriptionsApi {
     updateRecurringSubscriptionWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['subscriptionRecurringUpdateRequest'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateRecurringSubscription");
+      }
+
+      if (opts['effective_date'] === undefined || opts['effective_date'] === null) {
+        throw new Error("Missing the required parameter 'effective_date' when calling updateRecurringSubscription");
       }
 
       let pathParams = {
@@ -549,8 +586,8 @@ export default class SubscriptionsApi {
 
     /**
      * Update a recurring subscription
-     * Updates a recurring Subscription.
-     * @param {Number} id ID of the Subscription
+     * Updates a recurring subscription.
+     * @param {Number} id The ID of the subscription
      * @param {Object} opts Optional parameters
      * @param {module:model/SubscriptionRecurringUpdateRequest} opts.subscriptionRecurringUpdateRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SubscriptionsIdResponse}
@@ -565,8 +602,8 @@ export default class SubscriptionsApi {
 
     /**
      * Update an installment subscription
-     * Updates an installment Subscription.
-     * @param {Number} id ID of the Subscription
+     * Updates an installment subscription.
+     * @param {Number} id The ID of the subscription
      * @param {Object} opts Optional parameters
      * @param {module:model/SubscriptionInstallmentUpdateRequest} opts.subscriptionInstallmentUpdateRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SubscriptionsIdResponse} and HTTP response
@@ -574,9 +611,14 @@ export default class SubscriptionsApi {
     updateSubscriptionInstallmentWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['subscriptionInstallmentUpdateRequest'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateSubscriptionInstallment");
+      }
+
+      if (opts['payments'] === undefined || opts['payments'] === null) {
+        throw new Error("Missing the required parameter 'payments' when calling updateSubscriptionInstallment");
       }
 
       let pathParams = {
@@ -618,8 +660,8 @@ export default class SubscriptionsApi {
 
     /**
      * Update an installment subscription
-     * Updates an installment Subscription.
-     * @param {Number} id ID of the Subscription
+     * Updates an installment subscription.
+     * @param {Number} id The ID of the subscription
      * @param {Object} opts Optional parameters
      * @param {module:model/SubscriptionInstallmentUpdateRequest} opts.subscriptionInstallmentUpdateRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SubscriptionsIdResponse}

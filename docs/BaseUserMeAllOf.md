@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**companyId** | **Number** | The User company ID | [optional] 
-**companyName** | **String** | The User company name | [optional] 
-**companyDomain** | **String** | The User company domain | [optional] 
-**companyCountry** | **String** | The User company country | [optional] 
-**companyIndustry** | **String** | The User company industry | [optional] 
+**company_id** | **Number** | The user company ID | [optional] 
+**company_name** | **String** | The user company name | [optional] 
+**company_domain** | **String** | The user company domain | [optional] 
+**company_country** | **String** | The user company country | [optional] 
+**company_industry** | **String** | The user company industry | [optional] 
 **language** | [**BaseUserMeAllOfLanguage**](BaseUserMeAllOfLanguage.md) |  | [optional] 
 
 

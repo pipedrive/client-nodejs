@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | The name of the Lead Label | 
+**name** | **String** | The name of the lead label | 
 **color** | [**LeadLabelColor**](LeadLabelColor.md) |  | 
 
 

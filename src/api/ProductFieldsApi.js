@@ -52,6 +52,13 @@ export default class ProductFieldsApi {
       opts = opts || {};
       let postBody = opts['newProductField'];
 
+      if (opts['name'] === undefined || opts['name'] === null) {
+        throw new Error("Missing the required parameter 'name' when calling addProductField");
+      }
+      if (opts['field_type'] === undefined || opts['field_type'] === null) {
+        throw new Error("Missing the required parameter 'field_type' when calling addProductField");
+      }
+
       let pathParams = {
       };
       let queryParams = {
@@ -106,12 +113,13 @@ export default class ProductFieldsApi {
     /**
      * Delete a product field
      * Marks a field as deleted. For more information on how to delete a custom field, see <a href=\"https://pipedrive.readme.io/docs/deleting-a-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
-     * @param {Number} id ID of the Product Field
+     * @param {Number} id The ID of the product field
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteProductFieldResponse} and HTTP response
      */
     deleteProductFieldWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteProductField");
@@ -157,7 +165,7 @@ export default class ProductFieldsApi {
     /**
      * Delete a product field
      * Marks a field as deleted. For more information on how to delete a custom field, see <a href=\"https://pipedrive.readme.io/docs/deleting-a-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
-     * @param {Number} id ID of the Product Field
+     * @param {Number} id The ID of the product field
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteProductFieldResponse}
      */
     deleteProductField(id) {
@@ -171,12 +179,13 @@ export default class ProductFieldsApi {
     /**
      * Delete multiple product fields in bulk
      * Marks multiple fields as deleted.
-     * @param {String} ids Comma-separated field IDs to delete
+     * @param {String} ids The comma-separated field IDs to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteMultipleProductFieldsResponse} and HTTP response
      */
     deleteProductFieldsWithHttpInfo(ids) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'ids' is set
       if (ids === undefined || ids === null) {
         throw new Error("Missing the required parameter 'ids' when calling deleteProductFields");
@@ -222,7 +231,7 @@ export default class ProductFieldsApi {
     /**
      * Delete multiple product fields in bulk
      * Marks multiple fields as deleted.
-     * @param {String} ids Comma-separated field IDs to delete
+     * @param {String} ids The comma-separated field IDs to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteMultipleProductFieldsResponse}
      */
     deleteProductFields(ids) {
@@ -236,12 +245,13 @@ export default class ProductFieldsApi {
     /**
      * Get one product field
      * Returns data about a specific product field.
-     * @param {Number} id ID of the Product Field
+     * @param {Number} id The ID of the product field
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetProductFieldResponse} and HTTP response
      */
     getProductFieldWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getProductField");
@@ -287,7 +297,7 @@ export default class ProductFieldsApi {
     /**
      * Get one product field
      * Returns data about a specific product field.
-     * @param {Number} id ID of the Product Field
+     * @param {Number} id The ID of the product field
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetProductFieldResponse}
      */
     getProductField(id) {
@@ -300,7 +310,7 @@ export default class ProductFieldsApi {
 
     /**
      * Get all product fields
-     * Returns data about all product fields
+     * Returns data about all product fields.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -309,6 +319,8 @@ export default class ProductFieldsApi {
     getProductFieldsWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
+
+
 
       let pathParams = {
       };
@@ -350,7 +362,7 @@ export default class ProductFieldsApi {
 
     /**
      * Get all product fields
-     * Returns data about all product fields
+     * Returns data about all product fields.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -367,7 +379,7 @@ export default class ProductFieldsApi {
     /**
      * Update a product field
      * Updates a product field. See an example of updating custom fields’ values in <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
-     * @param {Number} id ID of the Product Field
+     * @param {Number} id The ID of the product field
      * @param {Object} opts Optional parameters
      * @param {module:model/BasicProductField} opts.basicProductField 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetProductFieldResponse} and HTTP response
@@ -375,9 +387,14 @@ export default class ProductFieldsApi {
     updateProductFieldWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['basicProductField'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateProductField");
+      }
+
+      if (opts['name'] === undefined || opts['name'] === null) {
+        throw new Error("Missing the required parameter 'name' when calling updateProductField");
       }
 
       let pathParams = {
@@ -420,7 +437,7 @@ export default class ProductFieldsApi {
     /**
      * Update a product field
      * Updates a product field. See an example of updating custom fields’ values in <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
-     * @param {Number} id ID of the Product Field
+     * @param {Number} id The ID of the product field
      * @param {Object} opts Optional parameters
      * @param {module:model/BasicProductField} opts.basicProductField 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetProductFieldResponse}

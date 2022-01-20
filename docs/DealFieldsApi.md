@@ -91,7 +91,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealFieldsApi();
-let id = 56; // Number | ID of the field
+let id = 56; // Number | The ID of the field
 apiInstance.deleteDealField(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -105,7 +105,7 @@ apiInstance.deleteDealField(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the field | 
+ **id** | **Number**| The ID of the field | 
 
 ### Return type
 
@@ -144,7 +144,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealFieldsApi();
-let ids = "ids_example"; // String | Comma-separated field IDs to delete
+let ids = "ids_example"; // String | The comma-separated field IDs to delete
 apiInstance.deleteDealFields(ids).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -158,7 +158,7 @@ apiInstance.deleteDealFields(ids).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **String**| Comma-separated field IDs to delete | 
+ **ids** | **String**| The comma-separated field IDs to delete | 
 
 ### Return type
 
@@ -197,7 +197,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealFieldsApi();
-let id = 56; // Number | ID of the field
+let id = 56; // Number | The ID of the field
 apiInstance.getDealField(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -211,7 +211,7 @@ apiInstance.getDealField(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the field | 
+ **id** | **Number**| The ID of the field | 
 
 ### Return type
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 Get all deal fields
 
-Returns data about all deal fields
+Returns data about all deal fields.
 
 ### Example
 
@@ -307,7 +307,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealFieldsApi();
-let id = 56; // Number | ID of the field
+let id = 56; // Number | The ID of the field
 let opts = Pipedrive.FieldUpdateRequest.constructFromObject({
   // Properties that you want to update
 });
@@ -324,7 +324,7 @@ apiInstance.updateDealField(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the field | 
+ **id** | **Number**| The ID of the field | 
  **fieldUpdateRequest** | [**FieldUpdateRequest**](FieldUpdateRequest.md)|  | [optional] 
 
 ### Return type

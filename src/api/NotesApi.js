@@ -55,6 +55,7 @@ export default class NotesApi {
       opts = opts || {};
       let postBody = opts['addNoteRequest'];
 
+
       let pathParams = {
       };
       let queryParams = {
@@ -109,7 +110,7 @@ export default class NotesApi {
     /**
      * Add a comment to a note
      * Adds a new comment to a note.
-     * @param {Number} id ID of the note
+     * @param {Number} id The ID of the note
      * @param {Object} opts Optional parameters
      * @param {module:model/CommentPostPutObject} opts.commentPostPutObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostComment} and HTTP response
@@ -117,9 +118,14 @@ export default class NotesApi {
     addNoteCommentWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['commentPostPutObject'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling addNoteComment");
+      }
+
+      if (opts['content'] === undefined || opts['content'] === null) {
+        throw new Error("Missing the required parameter 'content' when calling addNoteComment");
       }
 
       let pathParams = {
@@ -162,7 +168,7 @@ export default class NotesApi {
     /**
      * Add a comment to a note
      * Adds a new comment to a note.
-     * @param {Number} id ID of the note
+     * @param {Number} id The ID of the note
      * @param {Object} opts Optional parameters
      * @param {module:model/CommentPostPutObject} opts.commentPostPutObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostComment}
@@ -178,17 +184,19 @@ export default class NotesApi {
     /**
      * Delete a comment related to a note
      * Deletes a comment.
-     * @param {Number} id ID of the note
-     * @param {String} commentId ID of the comment
+     * @param {Number} id The ID of the note
+     * @param {String} commentId The ID of the comment
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteComment} and HTTP response
      */
     deleteCommentWithHttpInfo(id, commentId) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteComment");
       }
+
       // verify the required parameter 'commentId' is set
       if (commentId === undefined || commentId === null) {
         throw new Error("Missing the required parameter 'commentId' when calling deleteComment");
@@ -235,8 +243,8 @@ export default class NotesApi {
     /**
      * Delete a comment related to a note
      * Deletes a comment.
-     * @param {Number} id ID of the note
-     * @param {String} commentId ID of the comment
+     * @param {Number} id The ID of the note
+     * @param {String} commentId The ID of the comment
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteComment}
      */
     deleteComment(id, commentId) {
@@ -250,12 +258,13 @@ export default class NotesApi {
     /**
      * Delete a note
      * Deletes a specific note.
-     * @param {Number} id ID of the note
+     * @param {Number} id The ID of the note
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteNote} and HTTP response
      */
     deleteNoteWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteNote");
@@ -301,7 +310,7 @@ export default class NotesApi {
     /**
      * Delete a note
      * Deletes a specific note.
-     * @param {Number} id ID of the note
+     * @param {Number} id The ID of the note
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteNote}
      */
     deleteNote(id) {
@@ -314,18 +323,20 @@ export default class NotesApi {
 
     /**
      * Get one comment
-     * Returns details about a comment
-     * @param {Number} id ID of the note
-     * @param {String} commentId ID of the comment
+     * Returns the details of a comment.
+     * @param {Number} id The ID of the note
+     * @param {String} commentId The ID of the comment
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostComment} and HTTP response
      */
     getCommentWithHttpInfo(id, commentId) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getComment");
       }
+
       // verify the required parameter 'commentId' is set
       if (commentId === undefined || commentId === null) {
         throw new Error("Missing the required parameter 'commentId' when calling getComment");
@@ -371,9 +382,9 @@ export default class NotesApi {
 
     /**
      * Get one comment
-     * Returns details about a comment
-     * @param {Number} id ID of the note
-     * @param {String} commentId ID of the comment
+     * Returns the details of a comment.
+     * @param {Number} id The ID of the note
+     * @param {String} commentId The ID of the comment
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostComment}
      */
     getComment(id, commentId) {
@@ -387,12 +398,13 @@ export default class NotesApi {
     /**
      * Get one note
      * Returns details about a specific note.
-     * @param {Number} id ID of the note
+     * @param {Number} id The ID of the note
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostNote} and HTTP response
      */
     getNoteWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getNote");
@@ -438,7 +450,7 @@ export default class NotesApi {
     /**
      * Get one note
      * Returns details about a specific note.
-     * @param {Number} id ID of the note
+     * @param {Number} id The ID of the note
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostNote}
      */
     getNote(id) {
@@ -451,8 +463,8 @@ export default class NotesApi {
 
     /**
      * Get all comments for a note
-     * Returns all comments associated with a Note.
-     * @param {Number} id ID of the note
+     * Returns all comments associated with a note.
+     * @param {Number} id The ID of the note
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -461,10 +473,13 @@ export default class NotesApi {
     getNoteCommentsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getNoteComments");
       }
+
+
 
       let pathParams = {
         'id': id,
@@ -507,8 +522,8 @@ export default class NotesApi {
 
     /**
      * Get all comments for a note
-     * Returns all comments associated with a Note.
-     * @param {Number} id ID of the note
+     * Returns all comments associated with a note.
+     * @param {Number} id The ID of the note
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -530,21 +545,35 @@ export default class NotesApi {
      * @param {String} opts.leadId The ID of the lead which notes to fetch. If omitted, notes about all leads will be returned.
      * @param {Number} opts.dealId The ID of the deal which notes to fetch. If omitted, notes about all deals will be returned.
      * @param {Number} opts.personId The ID of the person whose notes to fetch. If omitted, notes about all persons will be returned.
-     * @param {Number} opts.orgId The ID of the organization which notes to fetch. If omitted, notes about all organizations will be returned
+     * @param {Number} opts.orgId The ID of the organization which notes to fetch. If omitted, notes about all organizations will be returned.
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `content`, `add_time`, `update_time`.
-     * @param {Date} opts.startDate Date in format of YYYY-MM-DD from which notes to fetch.
-     * @param {Date} opts.endDate Date in format of YYYY-MM-DD until which notes to fetch to.
-     * @param {module:model/NumberBoolean} opts.pinnedToLeadFlag If set, then results are filtered by note to lead pinning state
-     * @param {module:model/NumberBoolean} opts.pinnedToDealFlag If set, then results are filtered by note to deal pinning state
-     * @param {module:model/NumberBoolean} opts.pinnedToOrganizationFlag If set, then results are filtered by note to organization pinning state
-     * @param {module:model/NumberBoolean} opts.pinnedToPersonFlag If set, then results are filtered by note to person pinning state
+     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `content`, `add_time`, `update_time`.
+     * @param {Date} opts.startDate The date in format of YYYY-MM-DD from which notes to fetch
+     * @param {Date} opts.endDate The date in format of YYYY-MM-DD until which notes to fetch to
+     * @param {module:model/NumberBoolean} opts.pinnedToLeadFlag If set, the results are filtered by note to lead pinning state
+     * @param {module:model/NumberBoolean} opts.pinnedToDealFlag If set, the results are filtered by note to deal pinning state
+     * @param {module:model/NumberBoolean} opts.pinnedToOrganizationFlag If set, the results are filtered by note to organization pinning state
+     * @param {module:model/NumberBoolean} opts.pinnedToPersonFlag If set, the results are filtered by note to person pinning state
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetNotes} and HTTP response
      */
     getNotesWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       let pathParams = {
       };
@@ -604,16 +633,16 @@ export default class NotesApi {
      * @param {String} opts.leadId The ID of the lead which notes to fetch. If omitted, notes about all leads will be returned.
      * @param {Number} opts.dealId The ID of the deal which notes to fetch. If omitted, notes about all deals will be returned.
      * @param {Number} opts.personId The ID of the person whose notes to fetch. If omitted, notes about all persons will be returned.
-     * @param {Number} opts.orgId The ID of the organization which notes to fetch. If omitted, notes about all organizations will be returned
+     * @param {Number} opts.orgId The ID of the organization which notes to fetch. If omitted, notes about all organizations will be returned.
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `content`, `add_time`, `update_time`.
-     * @param {Date} opts.startDate Date in format of YYYY-MM-DD from which notes to fetch.
-     * @param {Date} opts.endDate Date in format of YYYY-MM-DD until which notes to fetch to.
-     * @param {module:model/NumberBoolean} opts.pinnedToLeadFlag If set, then results are filtered by note to lead pinning state
-     * @param {module:model/NumberBoolean} opts.pinnedToDealFlag If set, then results are filtered by note to deal pinning state
-     * @param {module:model/NumberBoolean} opts.pinnedToOrganizationFlag If set, then results are filtered by note to organization pinning state
-     * @param {module:model/NumberBoolean} opts.pinnedToPersonFlag If set, then results are filtered by note to person pinning state
+     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `content`, `add_time`, `update_time`.
+     * @param {Date} opts.startDate The date in format of YYYY-MM-DD from which notes to fetch
+     * @param {Date} opts.endDate The date in format of YYYY-MM-DD until which notes to fetch to
+     * @param {module:model/NumberBoolean} opts.pinnedToLeadFlag If set, the results are filtered by note to lead pinning state
+     * @param {module:model/NumberBoolean} opts.pinnedToDealFlag If set, the results are filtered by note to deal pinning state
+     * @param {module:model/NumberBoolean} opts.pinnedToOrganizationFlag If set, the results are filtered by note to organization pinning state
+     * @param {module:model/NumberBoolean} opts.pinnedToPersonFlag If set, the results are filtered by note to person pinning state
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetNotes}
      */
     getNotes(opts) {
@@ -627,8 +656,8 @@ export default class NotesApi {
     /**
      * Update a comment related to a note
      * Updates a comment related to a note.
-     * @param {Number} id ID of the note
-     * @param {String} commentId ID of the comment
+     * @param {Number} id The ID of the note
+     * @param {String} commentId The ID of the comment
      * @param {Object} opts Optional parameters
      * @param {module:model/CommentPostPutObject} opts.commentPostPutObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostComment} and HTTP response
@@ -636,13 +665,19 @@ export default class NotesApi {
     updateCommentForNoteWithHttpInfo(id, commentId, opts) {
       opts = opts || {};
       let postBody = opts['commentPostPutObject'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateCommentForNote");
       }
+
       // verify the required parameter 'commentId' is set
       if (commentId === undefined || commentId === null) {
         throw new Error("Missing the required parameter 'commentId' when calling updateCommentForNote");
+      }
+
+      if (opts['content'] === undefined || opts['content'] === null) {
+        throw new Error("Missing the required parameter 'content' when calling updateCommentForNote");
       }
 
       let pathParams = {
@@ -686,8 +721,8 @@ export default class NotesApi {
     /**
      * Update a comment related to a note
      * Updates a comment related to a note.
-     * @param {Number} id ID of the note
-     * @param {String} commentId ID of the comment
+     * @param {Number} id The ID of the note
+     * @param {String} commentId The ID of the comment
      * @param {Object} opts Optional parameters
      * @param {module:model/CommentPostPutObject} opts.commentPostPutObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostComment}
@@ -703,7 +738,7 @@ export default class NotesApi {
     /**
      * Update a note
      * Updates a note.
-     * @param {Number} id ID of the note
+     * @param {Number} id The ID of the note
      * @param {Object} opts Optional parameters
      * @param {module:model/Note} opts.note 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostNote} and HTTP response
@@ -711,10 +746,12 @@ export default class NotesApi {
     updateNoteWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['note'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateNote");
       }
+
 
       let pathParams = {
         'id': id,
@@ -756,7 +793,7 @@ export default class NotesApi {
     /**
      * Update a note
      * Updates a note.
-     * @param {Number} id ID of the note
+     * @param {Number} id The ID of the note
      * @param {Object} opts Optional parameters
      * @param {module:model/Note} opts.note 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostNote}

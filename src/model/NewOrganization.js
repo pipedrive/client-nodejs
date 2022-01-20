@@ -27,7 +27,7 @@ class NewOrganization {
      * @alias module:model/NewOrganization
      * @implements module:model/BasicOrganization
      * @implements module:model/NewOrganizationAllOf
-     * @param name {String} Organization name
+     * @param name {String} The name of the organization
      */
     constructor(name) { 
         BasicOrganization.initialize(this);NewOrganizationAllOf.initialize(this);
@@ -89,25 +89,25 @@ class NewOrganization {
 }
 
 /**
- * Organization name
+ * The name of the organization
  * @member {String} name
  */
 NewOrganization.prototype['name'] = undefined;
 
 /**
- * The ID of the user who will be marked as the owner of this Organization. When omitted, the authorized User ID will be used.
+ * The ID of the user who will be marked as the owner of this organization. When omitted, the authorized user ID will be used.
  * @member {Number} owner_id
  */
 NewOrganization.prototype['owner_id'] = undefined;
 
 /**
- * Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
+ * The visibility of the organization. If omitted, the visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
  * @member {module:model/VisibleTo} visible_to
  */
 NewOrganization.prototype['visible_to'] = undefined;
 
 /**
- * Optional creation date & time of the organization in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
+ * The optional creation date & time of the organization in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} add_time
  */
 NewOrganization.prototype['add_time'] = undefined;
@@ -115,23 +115,23 @@ NewOrganization.prototype['add_time'] = undefined;
 
 // Implement BasicOrganization interface:
 /**
- * Organization name
+ * The name of the organization
  * @member {String} name
  */
 BasicOrganization.prototype['name'] = undefined;
 /**
- * The ID of the user who will be marked as the owner of this Organization. When omitted, the authorized User ID will be used.
+ * The ID of the user who will be marked as the owner of this organization. When omitted, the authorized user ID will be used.
  * @member {Number} owner_id
  */
 BasicOrganization.prototype['owner_id'] = undefined;
 /**
- * Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
+ * The visibility of the organization. If omitted, the visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
  * @member {module:model/VisibleTo} visible_to
  */
 BasicOrganization.prototype['visible_to'] = undefined;
 // Implement NewOrganizationAllOf interface:
 /**
- * Optional creation date & time of the organization in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
+ * The optional creation date & time of the organization in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} add_time
  */
 NewOrganizationAllOf.prototype['add_time'] = undefined;

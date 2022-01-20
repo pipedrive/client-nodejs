@@ -75,19 +75,19 @@ class StageConversions {
 }
 
 /**
- * The Stage ID from where conversion starts
+ * The stage ID from where conversion starts
  * @member {Number} from_stage_id
  */
 StageConversions.prototype['from_stage_id'] = undefined;
 
 /**
- * The Stage ID to where conversion ends
+ * The stage ID to where conversion ends
  * @member {Number} to_stage_id
  */
 StageConversions.prototype['to_stage_id'] = undefined;
 
 /**
- * Conversion rate
+ * The conversion rate
  * @member {Number} conversion_rate
  */
 StageConversions.prototype['conversion_rate'] = undefined;

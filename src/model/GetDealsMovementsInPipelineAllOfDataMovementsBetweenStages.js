@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class GetDealsMovementsInPipelineAllOfDataMovementsBetweenStages {
     /**
      * Constructs a new <code>GetDealsMovementsInPipelineAllOfDataMovementsBetweenStages</code>.
-     * Movements between Stages
+     * Movements between stages
      * @alias module:model/GetDealsMovementsInPipelineAllOfDataMovementsBetweenStages
      */
     constructor() { 
@@ -66,7 +66,7 @@ class GetDealsMovementsInPipelineAllOfDataMovementsBetweenStages {
 }
 
 /**
- * The count of the Deals that have been moved between Stages
+ * The count of the deals that have been moved between stages
  * @member {Number} count
  */
 GetDealsMovementsInPipelineAllOfDataMovementsBetweenStages.prototype['count'] = undefined;

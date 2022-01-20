@@ -313,13 +313,13 @@ class OrganizationItem {
 }
 
 /**
- * The ID of the Organization
+ * The ID of the organization
  * @member {Number} id
  */
 OrganizationItem.prototype['id'] = undefined;
 
 /**
- * The ID of the Company related to the Organization
+ * The ID of the company related to the organization
  * @member {Number} company_id
  */
 OrganizationItem.prototype['company_id'] = undefined;
@@ -330,13 +330,13 @@ OrganizationItem.prototype['company_id'] = undefined;
 OrganizationItem.prototype['owner_id'] = undefined;
 
 /**
- * The name of the Organization
+ * The name of the organization
  * @member {String} name
  */
 OrganizationItem.prototype['name'] = undefined;
 
 /**
- * If the Organization is activated or not
+ * Whether the organization is active or not
  * @member {Boolean} active_flag
  */
 OrganizationItem.prototype['active_flag'] = undefined;
@@ -347,31 +347,31 @@ OrganizationItem.prototype['active_flag'] = undefined;
 OrganizationItem.prototype['picture_id'] = undefined;
 
 /**
- * The country code of the Organization
+ * The country code of the organization
  * @member {String} country_code
  */
 OrganizationItem.prototype['country_code'] = undefined;
 
 /**
- * The first character of the Organization name
+ * The first character of the organization name
  * @member {String} first_char
  */
 OrganizationItem.prototype['first_char'] = undefined;
 
 /**
- * The creation date and time of the Organization
+ * The creation date and time of the organization
  * @member {String} add_time
  */
 OrganizationItem.prototype['add_time'] = undefined;
 
 /**
- * The last updated date and time of the Organization
+ * The last updated date and time of the organization
  * @member {String} update_time
  */
 OrganizationItem.prototype['update_time'] = undefined;
 
 /**
- * The visibility group ID of who can see the Organization
+ * The visibility group ID of who can see the organization
  * @member {String} visible_to
  */
 OrganizationItem.prototype['visible_to'] = undefined;
@@ -383,211 +383,211 @@ OrganizationItem.prototype['visible_to'] = undefined;
 OrganizationItem.prototype['label'] = undefined;
 
 /**
- * The name of the Organization owner
+ * The name of the organization owner
  * @member {String} owner_name
  */
 OrganizationItem.prototype['owner_name'] = undefined;
 
 /**
- * The CC email of the Organization
+ * The BCC email of the organization
  * @member {String} cc_email
  */
 OrganizationItem.prototype['cc_email'] = undefined;
 
 /**
- * The count of email messages related to the Organization
+ * The count of email messages related to the organization
  * @member {Number} email_messages_count
  */
 OrganizationItem.prototype['email_messages_count'] = undefined;
 
 /**
- * The count of Persons related to the Organization
+ * The count of persons related to the organization
  * @member {Number} people_count
  */
 OrganizationItem.prototype['people_count'] = undefined;
 
 /**
- * The count of Activities related to the Organization
+ * The count of activities related to the organization
  * @member {Number} activities_count
  */
 OrganizationItem.prototype['activities_count'] = undefined;
 
 /**
- * The count of done Activities related to the Organization
+ * The count of done activities related to the organization
  * @member {Number} done_activities_count
  */
 OrganizationItem.prototype['done_activities_count'] = undefined;
 
 /**
- * The count of undone Activities related to the Organization
+ * The count of undone activities related to the organization
  * @member {Number} undone_activities_count
  */
 OrganizationItem.prototype['undone_activities_count'] = undefined;
 
 /**
- * The count of files related to the Organization
+ * The count of files related to the organization
  * @member {Number} files_count
  */
 OrganizationItem.prototype['files_count'] = undefined;
 
 /**
- * The count of notes related to the Organization
+ * The count of notes related to the organization
  * @member {Number} notes_count
  */
 OrganizationItem.prototype['notes_count'] = undefined;
 
 /**
- * The count of followers related to the Organization
+ * The count of followers related to the organization
  * @member {Number} followers_count
  */
 OrganizationItem.prototype['followers_count'] = undefined;
 
 /**
- * The full address of the Organization
+ * The full address of the organization
  * @member {String} address
  */
 OrganizationItem.prototype['address'] = undefined;
 
 /**
- * The sub-premise of the Organization location
+ * The sub-premise of the organization location
  * @member {String} address_subpremise
  */
 OrganizationItem.prototype['address_subpremise'] = undefined;
 
 /**
- * The street number of the Organization location
+ * The street number of the organization location
  * @member {String} address_street_number
  */
 OrganizationItem.prototype['address_street_number'] = undefined;
 
 /**
- * The route of the Organization location
+ * The route of the organization location
  * @member {String} address_route
  */
 OrganizationItem.prototype['address_route'] = undefined;
 
 /**
- * The sub-locality of the Organization location
+ * The sub-locality of the organization location
  * @member {String} address_sublocality
  */
 OrganizationItem.prototype['address_sublocality'] = undefined;
 
 /**
- * The locality of the Organization location
+ * The locality of the organization location
  * @member {String} address_locality
  */
 OrganizationItem.prototype['address_locality'] = undefined;
 
 /**
- * The level 1 admin area of the Organization location
+ * The level 1 admin area of the organization location
  * @member {String} address_admin_area_level_1
  */
 OrganizationItem.prototype['address_admin_area_level_1'] = undefined;
 
 /**
- * The level 2 admin area of the Organization location
+ * The level 2 admin area of the organization location
  * @member {String} address_admin_area_level_2
  */
 OrganizationItem.prototype['address_admin_area_level_2'] = undefined;
 
 /**
- * The country of the Organization location
+ * The country of the organization location
  * @member {String} address_country
  */
 OrganizationItem.prototype['address_country'] = undefined;
 
 /**
- * The postal code of the Organization location
+ * The postal code of the organization location
  * @member {String} address_postal_code
  */
 OrganizationItem.prototype['address_postal_code'] = undefined;
 
 /**
- * The formatted Organization location
+ * The formatted organization location
  * @member {String} address_formatted_address
  */
 OrganizationItem.prototype['address_formatted_address'] = undefined;
 
 /**
- * The count of open Deals related with the item
+ * The count of open deals related with the item
  * @member {Number} open_deals_count
  */
 OrganizationItem.prototype['open_deals_count'] = undefined;
 
 /**
- * The count of related open Deals related with the item
+ * The count of related open deals related with the item
  * @member {Number} related_open_deals_count
  */
 OrganizationItem.prototype['related_open_deals_count'] = undefined;
 
 /**
- * The count of closed Deals related with the item
+ * The count of closed deals related with the item
  * @member {Number} closed_deals_count
  */
 OrganizationItem.prototype['closed_deals_count'] = undefined;
 
 /**
- * The count of related closed Deals related with the item
+ * The count of related closed deals related with the item
  * @member {Number} related_closed_deals_count
  */
 OrganizationItem.prototype['related_closed_deals_count'] = undefined;
 
 /**
- * The count of won Deals related with the item
+ * The count of won deals related with the item
  * @member {Number} won_deals_count
  */
 OrganizationItem.prototype['won_deals_count'] = undefined;
 
 /**
- * The count of related won Deals related with the item
+ * The count of related won deals related with the item
  * @member {Number} related_won_deals_count
  */
 OrganizationItem.prototype['related_won_deals_count'] = undefined;
 
 /**
- * The count of lost Deals related with the item
+ * The count of lost deals related with the item
  * @member {Number} lost_deals_count
  */
 OrganizationItem.prototype['lost_deals_count'] = undefined;
 
 /**
- * The count of related lost Deals related with the item
+ * The count of related lost deals related with the item
  * @member {Number} related_lost_deals_count
  */
 OrganizationItem.prototype['related_lost_deals_count'] = undefined;
 
 /**
- * The date of the next activity associated with the Deal
+ * The date of the next activity associated with the deal
  * @member {String} next_activity_date
  */
 OrganizationItem.prototype['next_activity_date'] = undefined;
 
 /**
- * The time of the next activity associated with the Deal
+ * The time of the next activity associated with the deal
  * @member {String} next_activity_time
  */
 OrganizationItem.prototype['next_activity_time'] = undefined;
 
 /**
- * The ID of the next activity associated with the Deal
+ * The ID of the next activity associated with the deal
  * @member {Number} next_activity_id
  */
 OrganizationItem.prototype['next_activity_id'] = undefined;
 
 /**
- * The ID of the last activity associated with the Deal
+ * The ID of the last activity associated with the deal
  * @member {Number} last_activity_id
  */
 OrganizationItem.prototype['last_activity_id'] = undefined;
 
 /**
- * The date of the last activity associated with the Deal
+ * The date of the last activity associated with the deal
  * @member {String} last_activity_date
  */
 OrganizationItem.prototype['last_activity_date'] = undefined;
 
 /**
- * If the company ID of the Organization and company ID of the request is same or not
+ * If the company ID of the organization and company ID of the request is same or not
  * @member {Boolean} edit_name
  */
 OrganizationItem.prototype['edit_name'] = undefined;
@@ -607,12 +607,12 @@ OrganizationItem.prototype['next_activity'] = undefined;
 
 // Implement BaseOrganizationItemWithEditNameFlag interface:
 /**
- * The ID of the Organization
+ * The ID of the organization
  * @member {Number} id
  */
 BaseOrganizationItemWithEditNameFlag.prototype['id'] = undefined;
 /**
- * The ID of the Company related to the Organization
+ * The ID of the company related to the organization
  * @member {Number} company_id
  */
 BaseOrganizationItemWithEditNameFlag.prototype['company_id'] = undefined;
@@ -621,12 +621,12 @@ BaseOrganizationItemWithEditNameFlag.prototype['company_id'] = undefined;
  */
 BaseOrganizationItemWithEditNameFlag.prototype['owner_id'] = undefined;
 /**
- * The name of the Organization
+ * The name of the organization
  * @member {String} name
  */
 BaseOrganizationItemWithEditNameFlag.prototype['name'] = undefined;
 /**
- * If the Organization is activated or not
+ * Whether the organization is active or not
  * @member {Boolean} active_flag
  */
 BaseOrganizationItemWithEditNameFlag.prototype['active_flag'] = undefined;
@@ -635,27 +635,27 @@ BaseOrganizationItemWithEditNameFlag.prototype['active_flag'] = undefined;
  */
 BaseOrganizationItemWithEditNameFlag.prototype['picture_id'] = undefined;
 /**
- * The country code of the Organization
+ * The country code of the organization
  * @member {String} country_code
  */
 BaseOrganizationItemWithEditNameFlag.prototype['country_code'] = undefined;
 /**
- * The first character of the Organization name
+ * The first character of the organization name
  * @member {String} first_char
  */
 BaseOrganizationItemWithEditNameFlag.prototype['first_char'] = undefined;
 /**
- * The creation date and time of the Organization
+ * The creation date and time of the organization
  * @member {String} add_time
  */
 BaseOrganizationItemWithEditNameFlag.prototype['add_time'] = undefined;
 /**
- * The last updated date and time of the Organization
+ * The last updated date and time of the organization
  * @member {String} update_time
  */
 BaseOrganizationItemWithEditNameFlag.prototype['update_time'] = undefined;
 /**
- * The visibility group ID of who can see the Organization
+ * The visibility group ID of who can see the organization
  * @member {String} visible_to
  */
 BaseOrganizationItemWithEditNameFlag.prototype['visible_to'] = undefined;
@@ -665,177 +665,177 @@ BaseOrganizationItemWithEditNameFlag.prototype['visible_to'] = undefined;
  */
 BaseOrganizationItemWithEditNameFlag.prototype['label'] = undefined;
 /**
- * The name of the Organization owner
+ * The name of the organization owner
  * @member {String} owner_name
  */
 BaseOrganizationItemWithEditNameFlag.prototype['owner_name'] = undefined;
 /**
- * The CC email of the Organization
+ * The BCC email of the organization
  * @member {String} cc_email
  */
 BaseOrganizationItemWithEditNameFlag.prototype['cc_email'] = undefined;
 /**
- * The count of email messages related to the Organization
+ * The count of email messages related to the organization
  * @member {Number} email_messages_count
  */
 BaseOrganizationItemWithEditNameFlag.prototype['email_messages_count'] = undefined;
 /**
- * The count of Persons related to the Organization
+ * The count of persons related to the organization
  * @member {Number} people_count
  */
 BaseOrganizationItemWithEditNameFlag.prototype['people_count'] = undefined;
 /**
- * The count of Activities related to the Organization
+ * The count of activities related to the organization
  * @member {Number} activities_count
  */
 BaseOrganizationItemWithEditNameFlag.prototype['activities_count'] = undefined;
 /**
- * The count of done Activities related to the Organization
+ * The count of done activities related to the organization
  * @member {Number} done_activities_count
  */
 BaseOrganizationItemWithEditNameFlag.prototype['done_activities_count'] = undefined;
 /**
- * The count of undone Activities related to the Organization
+ * The count of undone activities related to the organization
  * @member {Number} undone_activities_count
  */
 BaseOrganizationItemWithEditNameFlag.prototype['undone_activities_count'] = undefined;
 /**
- * The count of files related to the Organization
+ * The count of files related to the organization
  * @member {Number} files_count
  */
 BaseOrganizationItemWithEditNameFlag.prototype['files_count'] = undefined;
 /**
- * The count of notes related to the Organization
+ * The count of notes related to the organization
  * @member {Number} notes_count
  */
 BaseOrganizationItemWithEditNameFlag.prototype['notes_count'] = undefined;
 /**
- * The count of followers related to the Organization
+ * The count of followers related to the organization
  * @member {Number} followers_count
  */
 BaseOrganizationItemWithEditNameFlag.prototype['followers_count'] = undefined;
 /**
- * The full address of the Organization
+ * The full address of the organization
  * @member {String} address
  */
 BaseOrganizationItemWithEditNameFlag.prototype['address'] = undefined;
 /**
- * The sub-premise of the Organization location
+ * The sub-premise of the organization location
  * @member {String} address_subpremise
  */
 BaseOrganizationItemWithEditNameFlag.prototype['address_subpremise'] = undefined;
 /**
- * The street number of the Organization location
+ * The street number of the organization location
  * @member {String} address_street_number
  */
 BaseOrganizationItemWithEditNameFlag.prototype['address_street_number'] = undefined;
 /**
- * The route of the Organization location
+ * The route of the organization location
  * @member {String} address_route
  */
 BaseOrganizationItemWithEditNameFlag.prototype['address_route'] = undefined;
 /**
- * The sub-locality of the Organization location
+ * The sub-locality of the organization location
  * @member {String} address_sublocality
  */
 BaseOrganizationItemWithEditNameFlag.prototype['address_sublocality'] = undefined;
 /**
- * The locality of the Organization location
+ * The locality of the organization location
  * @member {String} address_locality
  */
 BaseOrganizationItemWithEditNameFlag.prototype['address_locality'] = undefined;
 /**
- * The level 1 admin area of the Organization location
+ * The level 1 admin area of the organization location
  * @member {String} address_admin_area_level_1
  */
 BaseOrganizationItemWithEditNameFlag.prototype['address_admin_area_level_1'] = undefined;
 /**
- * The level 2 admin area of the Organization location
+ * The level 2 admin area of the organization location
  * @member {String} address_admin_area_level_2
  */
 BaseOrganizationItemWithEditNameFlag.prototype['address_admin_area_level_2'] = undefined;
 /**
- * The country of the Organization location
+ * The country of the organization location
  * @member {String} address_country
  */
 BaseOrganizationItemWithEditNameFlag.prototype['address_country'] = undefined;
 /**
- * The postal code of the Organization location
+ * The postal code of the organization location
  * @member {String} address_postal_code
  */
 BaseOrganizationItemWithEditNameFlag.prototype['address_postal_code'] = undefined;
 /**
- * The formatted Organization location
+ * The formatted organization location
  * @member {String} address_formatted_address
  */
 BaseOrganizationItemWithEditNameFlag.prototype['address_formatted_address'] = undefined;
 /**
- * The count of open Deals related with the item
+ * The count of open deals related with the item
  * @member {Number} open_deals_count
  */
 BaseOrganizationItemWithEditNameFlag.prototype['open_deals_count'] = undefined;
 /**
- * The count of related open Deals related with the item
+ * The count of related open deals related with the item
  * @member {Number} related_open_deals_count
  */
 BaseOrganizationItemWithEditNameFlag.prototype['related_open_deals_count'] = undefined;
 /**
- * The count of closed Deals related with the item
+ * The count of closed deals related with the item
  * @member {Number} closed_deals_count
  */
 BaseOrganizationItemWithEditNameFlag.prototype['closed_deals_count'] = undefined;
 /**
- * The count of related closed Deals related with the item
+ * The count of related closed deals related with the item
  * @member {Number} related_closed_deals_count
  */
 BaseOrganizationItemWithEditNameFlag.prototype['related_closed_deals_count'] = undefined;
 /**
- * The count of won Deals related with the item
+ * The count of won deals related with the item
  * @member {Number} won_deals_count
  */
 BaseOrganizationItemWithEditNameFlag.prototype['won_deals_count'] = undefined;
 /**
- * The count of related won Deals related with the item
+ * The count of related won deals related with the item
  * @member {Number} related_won_deals_count
  */
 BaseOrganizationItemWithEditNameFlag.prototype['related_won_deals_count'] = undefined;
 /**
- * The count of lost Deals related with the item
+ * The count of lost deals related with the item
  * @member {Number} lost_deals_count
  */
 BaseOrganizationItemWithEditNameFlag.prototype['lost_deals_count'] = undefined;
 /**
- * The count of related lost Deals related with the item
+ * The count of related lost deals related with the item
  * @member {Number} related_lost_deals_count
  */
 BaseOrganizationItemWithEditNameFlag.prototype['related_lost_deals_count'] = undefined;
 /**
- * The date of the next activity associated with the Deal
+ * The date of the next activity associated with the deal
  * @member {String} next_activity_date
  */
 BaseOrganizationItemWithEditNameFlag.prototype['next_activity_date'] = undefined;
 /**
- * The time of the next activity associated with the Deal
+ * The time of the next activity associated with the deal
  * @member {String} next_activity_time
  */
 BaseOrganizationItemWithEditNameFlag.prototype['next_activity_time'] = undefined;
 /**
- * The ID of the next activity associated with the Deal
+ * The ID of the next activity associated with the deal
  * @member {Number} next_activity_id
  */
 BaseOrganizationItemWithEditNameFlag.prototype['next_activity_id'] = undefined;
 /**
- * The ID of the last activity associated with the Deal
+ * The ID of the last activity associated with the deal
  * @member {Number} last_activity_id
  */
 BaseOrganizationItemWithEditNameFlag.prototype['last_activity_id'] = undefined;
 /**
- * The date of the last activity associated with the Deal
+ * The date of the last activity associated with the deal
  * @member {String} last_activity_date
  */
 BaseOrganizationItemWithEditNameFlag.prototype['last_activity_date'] = undefined;
 /**
- * If the company ID of the Organization and company ID of the request is same or not
+ * If the company ID of the organization and company ID of the request is same or not
  * @member {Boolean} edit_name
  */
 BaseOrganizationItemWithEditNameFlag.prototype['edit_name'] = undefined;

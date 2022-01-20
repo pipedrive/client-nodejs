@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class DealUserData {
     /**
      * Constructs a new <code>DealUserData</code>.
-     * The User who is associated with the Deal
+     * The user who is associated with the deal
      * @alias module:model/DealUserData
      */
     constructor() { 
@@ -91,37 +91,37 @@ class DealUserData {
 }
 
 /**
- * The ID of the User
+ * The ID of the user
  * @member {Number} id
  */
 DealUserData.prototype['id'] = undefined;
 
 /**
- * The Name of the User
+ * The name of the user
  * @member {String} name
  */
 DealUserData.prototype['name'] = undefined;
 
 /**
- * The email of the User
+ * The email of the user
  * @member {String} email
  */
 DealUserData.prototype['email'] = undefined;
 
 /**
- * If the User has a picture or not
+ * If the user has a picture or not
  * @member {Boolean} has_pic
  */
 DealUserData.prototype['has_pic'] = undefined;
 
 /**
- * The User picture hash
+ * The user picture hash
  * @member {String} pic_hash
  */
 DealUserData.prototype['pic_hash'] = undefined;
 
 /**
- * If the User is activated or not
+ * Whether the user is active or not
  * @member {Boolean} active_flag
  */
 DealUserData.prototype['active_flag'] = undefined;

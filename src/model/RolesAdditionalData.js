@@ -22,7 +22,7 @@ import RolesAdditionalDataPagination from './RolesAdditionalDataPagination';
 class RolesAdditionalData {
     /**
      * Constructs a new <code>RolesAdditionalData</code>.
-     * The additional data in the Role list
+     * The additional data in the role list
      * @alias module:model/RolesAdditionalData
      */
     constructor() { 

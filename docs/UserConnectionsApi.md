@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Get all user connections
 
-Returns data about all connections for authorized user.
+Returns data about all connections for the authorized user.
 
 ### Example
 

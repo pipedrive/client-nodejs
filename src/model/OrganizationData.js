@@ -85,31 +85,31 @@ class OrganizationData {
 }
 
 /**
- * The name of the Organization associated with the item
+ * The name of the organization associated with the item
  * @member {String} name
  */
 OrganizationData.prototype['name'] = undefined;
 
 /**
- * The number of people connected with the Organization that is associated with the item
+ * The number of people connected with the organization that is associated with the item
  * @member {Number} people_count
  */
 OrganizationData.prototype['people_count'] = undefined;
 
 /**
- * The ID of the owner of the Organization that is associated with the item
+ * The ID of the owner of the organization that is associated with the item
  * @member {Number} owner_id
  */
 OrganizationData.prototype['owner_id'] = undefined;
 
 /**
- * The address of the Organization
+ * The address of the organization
  * @member {String} address
  */
 OrganizationData.prototype['address'] = undefined;
 
 /**
- * The CC email of the Organization associated with the item
+ * The BCC email of the organization associated with the item
  * @member {String} cc_email
  */
 OrganizationData.prototype['cc_email'] = undefined;

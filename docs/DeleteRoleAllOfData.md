@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | The ID of the deleted Role | [optional] 
+**id** | **Number** | The ID of the deleted role | [optional] 
 
 

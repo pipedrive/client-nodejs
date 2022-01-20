@@ -85,31 +85,31 @@ class ActivityInfo {
 }
 
 /**
- * The date of the next activity associated with the Deal
+ * The date of the next activity associated with the deal
  * @member {String} next_activity_date
  */
 ActivityInfo.prototype['next_activity_date'] = undefined;
 
 /**
- * The time of the next activity associated with the Deal
+ * The time of the next activity associated with the deal
  * @member {String} next_activity_time
  */
 ActivityInfo.prototype['next_activity_time'] = undefined;
 
 /**
- * The ID of the next activity associated with the Deal
+ * The ID of the next activity associated with the deal
  * @member {Number} next_activity_id
  */
 ActivityInfo.prototype['next_activity_id'] = undefined;
 
 /**
- * The ID of the last activity associated with the Deal
+ * The ID of the last activity associated with the deal
  * @member {Number} last_activity_id
  */
 ActivityInfo.prototype['last_activity_id'] = undefined;
 
 /**
- * The date of the last activity associated with the Deal
+ * The date of the last activity associated with the deal
  * @member {String} last_activity_date
  */
 ActivityInfo.prototype['last_activity_date'] = undefined;

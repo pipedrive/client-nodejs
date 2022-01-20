@@ -27,7 +27,7 @@ class Note {
      * @alias module:model/Note
      * @implements module:model/NoteConnectToParams
      * @implements module:model/NoteParams
-     * @param content {String} Content of the note in HTML format. Subject to sanitization on the back-end.
+     * @param content {String} The content of the note in HTML format. Subject to sanitization on the back-end.
      */
     constructor(content) { 
         NoteConnectToParams.initialize(this);NoteParams.initialize(this);
@@ -136,55 +136,55 @@ Note.prototype['lead_id'] = undefined;
 Note.prototype['deal_id'] = undefined;
 
 /**
- * The ID of the person this note will be attached to
+ * The ID of the person the note will be attached to
  * @member {Number} person_id
  */
 Note.prototype['person_id'] = undefined;
 
 /**
- * The ID of the organization this note will be attached to
+ * The ID of the organization the note will be attached to
  * @member {Number} org_id
  */
 Note.prototype['org_id'] = undefined;
 
 /**
- * Content of the note in HTML format. Subject to sanitization on the back-end.
+ * The content of the note in HTML format. Subject to sanitization on the back-end.
  * @member {String} content
  */
 Note.prototype['content'] = undefined;
 
 /**
- * ID of the user who will be marked as the author of this note. Only an admin can change the author.
+ * The ID of the user who will be marked as the author of the note. Only an admin can change the author.
  * @member {Number} user_id
  */
 Note.prototype['user_id'] = undefined;
 
 /**
- * Optional creation date & time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
+ * The optional creation date & time of the note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} add_time
  */
 Note.prototype['add_time'] = undefined;
 
 /**
- * If set, then results are filtered by note to lead pinning state (`lead_id` is also required)
+ * If set, the results are filtered by note to lead pinning state (`lead_id` is also required)
  * @member {module:model/NumberBoolean} pinned_to_lead_flag
  */
 Note.prototype['pinned_to_lead_flag'] = undefined;
 
 /**
- * If set, then results are filtered by note to deal pinning state (`deal_id` is also required).
+ * If set, the results are filtered by note to deal pinning state (`deal_id` is also required)
  * @member {module:model/NumberBoolean} pinned_to_deal_flag
  */
 Note.prototype['pinned_to_deal_flag'] = undefined;
 
 /**
- * If set, then results are filtered by note to organization pinning state (`org_id` is also required).
+ * If set, the results are filtered by note to organization pinning state (`org_id` is also required)
  * @member {module:model/NumberBoolean} pinned_to_organization_flag
  */
 Note.prototype['pinned_to_organization_flag'] = undefined;
 
 /**
- * If set, then results are filtered by note to person pinning state (`person_id` is also required).
+ * If set, the results are filtered by note to person pinning state (`person_id` is also required)
  * @member {module:model/NumberBoolean} pinned_to_person_flag
  */
 Note.prototype['pinned_to_person_flag'] = undefined;
@@ -202,48 +202,48 @@ NoteConnectToParams.prototype['lead_id'] = undefined;
  */
 NoteConnectToParams.prototype['deal_id'] = undefined;
 /**
- * The ID of the person this note will be attached to
+ * The ID of the person the note will be attached to
  * @member {Number} person_id
  */
 NoteConnectToParams.prototype['person_id'] = undefined;
 /**
- * The ID of the organization this note will be attached to
+ * The ID of the organization the note will be attached to
  * @member {Number} org_id
  */
 NoteConnectToParams.prototype['org_id'] = undefined;
 // Implement NoteParams interface:
 /**
- * Content of the note in HTML format. Subject to sanitization on the back-end.
+ * The content of the note in HTML format. Subject to sanitization on the back-end.
  * @member {String} content
  */
 NoteParams.prototype['content'] = undefined;
 /**
- * ID of the user who will be marked as the author of this note. Only an admin can change the author.
+ * The ID of the user who will be marked as the author of the note. Only an admin can change the author.
  * @member {Number} user_id
  */
 NoteParams.prototype['user_id'] = undefined;
 /**
- * Optional creation date & time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
+ * The optional creation date & time of the note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} add_time
  */
 NoteParams.prototype['add_time'] = undefined;
 /**
- * If set, then results are filtered by note to lead pinning state (`lead_id` is also required)
+ * If set, the results are filtered by note to lead pinning state (`lead_id` is also required)
  * @member {module:model/NumberBoolean} pinned_to_lead_flag
  */
 NoteParams.prototype['pinned_to_lead_flag'] = undefined;
 /**
- * If set, then results are filtered by note to deal pinning state (`deal_id` is also required).
+ * If set, the results are filtered by note to deal pinning state (`deal_id` is also required)
  * @member {module:model/NumberBoolean} pinned_to_deal_flag
  */
 NoteParams.prototype['pinned_to_deal_flag'] = undefined;
 /**
- * If set, then results are filtered by note to organization pinning state (`org_id` is also required).
+ * If set, the results are filtered by note to organization pinning state (`org_id` is also required)
  * @member {module:model/NumberBoolean} pinned_to_organization_flag
  */
 NoteParams.prototype['pinned_to_organization_flag'] = undefined;
 /**
- * If set, then results are filtered by note to person pinning state (`person_id` is also required).
+ * If set, the results are filtered by note to person pinning state (`person_id` is also required)
  * @member {module:model/NumberBoolean} pinned_to_person_flag
  */
 NoteParams.prototype['pinned_to_person_flag'] = undefined;

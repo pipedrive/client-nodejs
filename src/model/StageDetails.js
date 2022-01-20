@@ -24,7 +24,7 @@ import PipelineDetailsAllOf from './PipelineDetailsAllOf';
 class StageDetails {
     /**
      * Constructs a new <code>StageDetails</code>.
-     * The Stage object
+     * The stage object
      * @alias module:model/StageDetails
      * @implements module:model/BaseStage
      * @implements module:model/PipelineDetailsAllOf
@@ -123,61 +123,61 @@ class StageDetails {
 }
 
 /**
- * The ID of the Stage
+ * The ID of the stage
  * @member {Number} id
  */
 StageDetails.prototype['id'] = undefined;
 
 /**
- * Defines the order of the Stage
+ * Defines the order of the stage
  * @member {Number} order_nr
  */
 StageDetails.prototype['order_nr'] = undefined;
 
 /**
- * The name of the Stage
+ * The name of the stage
  * @member {String} name
  */
 StageDetails.prototype['name'] = undefined;
 
 /**
- * If the Stage is active or deleted
+ * Whether the stage is active or deleted
  * @member {Boolean} active_flag
  */
 StageDetails.prototype['active_flag'] = undefined;
 
 /**
- * The Deal success probability percentage. Used/shown when the Deal weighted values are used.
+ * The success probability percentage of the deal. Used/shown when the deal weighted values are used.
  * @member {Number} deal_probability
  */
 StageDetails.prototype['deal_probability'] = undefined;
 
 /**
- * The ID of the Pipeline to add the Stage to
+ * The ID of the pipeline to add the stage to
  * @member {Number} pipeline_id
  */
 StageDetails.prototype['pipeline_id'] = undefined;
 
 /**
- * Whether Deals in this Stage can become rotten
+ * Whether deals in this stage can become rotten
  * @member {module:model/StageDetails.RottenFlagEnum} rotten_flag
  */
 StageDetails.prototype['rotten_flag'] = undefined;
 
 /**
- * The number of days the Deals are not updated in this Stage would become rotten. Applies only if the `rotten_flag` is set.
+ * The number of days the deals not updated in this stage would become rotten. Applies only if the `rotten_flag` is set.
  * @member {Number} rotten_days
  */
 StageDetails.prototype['rotten_days'] = undefined;
 
 /**
- * The Stage creation time. Format: YYYY-MM-DD HH:MM:SS.
+ * The stage creation time. Format: YYYY-MM-DD HH:MM:SS.
  * @member {String} add_time
  */
 StageDetails.prototype['add_time'] = undefined;
 
 /**
- * The Stage update time. Format: YYYY-MM-DD HH:MM:SS.
+ * The stage update time. Format: YYYY-MM-DD HH:MM:SS.
  * @member {String} update_time
  */
 StageDetails.prototype['update_time'] = undefined;
@@ -190,52 +190,52 @@ StageDetails.prototype['deals_summary'] = undefined;
 
 // Implement BaseStage interface:
 /**
- * The ID of the Stage
+ * The ID of the stage
  * @member {Number} id
  */
 BaseStage.prototype['id'] = undefined;
 /**
- * Defines the order of the Stage
+ * Defines the order of the stage
  * @member {Number} order_nr
  */
 BaseStage.prototype['order_nr'] = undefined;
 /**
- * The name of the Stage
+ * The name of the stage
  * @member {String} name
  */
 BaseStage.prototype['name'] = undefined;
 /**
- * If the Stage is active or deleted
+ * Whether the stage is active or deleted
  * @member {Boolean} active_flag
  */
 BaseStage.prototype['active_flag'] = undefined;
 /**
- * The Deal success probability percentage. Used/shown when the Deal weighted values are used.
+ * The success probability percentage of the deal. Used/shown when the deal weighted values are used.
  * @member {Number} deal_probability
  */
 BaseStage.prototype['deal_probability'] = undefined;
 /**
- * The ID of the Pipeline to add the Stage to
+ * The ID of the pipeline to add the stage to
  * @member {Number} pipeline_id
  */
 BaseStage.prototype['pipeline_id'] = undefined;
 /**
- * Whether Deals in this Stage can become rotten
+ * Whether deals in this stage can become rotten
  * @member {module:model/BaseStage.RottenFlagEnum} rotten_flag
  */
 BaseStage.prototype['rotten_flag'] = undefined;
 /**
- * The number of days the Deals are not updated in this Stage would become rotten. Applies only if the `rotten_flag` is set.
+ * The number of days the deals not updated in this stage would become rotten. Applies only if the `rotten_flag` is set.
  * @member {Number} rotten_days
  */
 BaseStage.prototype['rotten_days'] = undefined;
 /**
- * The Stage creation time. Format: YYYY-MM-DD HH:MM:SS.
+ * The stage creation time. Format: YYYY-MM-DD HH:MM:SS.
  * @member {String} add_time
  */
 BaseStage.prototype['add_time'] = undefined;
 /**
- * The Stage update time. Format: YYYY-MM-DD HH:MM:SS.
+ * The stage update time. Format: YYYY-MM-DD HH:MM:SS.
  * @member {String} update_time
  */
 BaseStage.prototype['update_time'] = undefined;

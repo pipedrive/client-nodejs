@@ -81,13 +81,13 @@ class PersonDataPhone {
 PersonDataPhone.prototype['label'] = undefined;
 
 /**
- * The phone number of the Person associated with the item
+ * The phone number of the person associated with the item
  * @member {String} value
  */
 PersonDataPhone.prototype['value'] = undefined;
 
 /**
- * If this is the primary phone number or not
+ * Whether this is the primary phone number or not
  * @member {Boolean} primary
  */
 PersonDataPhone.prototype['primary'] = undefined;

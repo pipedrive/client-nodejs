@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 Add file
 
-Lets you upload a file and associate it with Deal, Person, Organization, Activity or Product. For more information on how to add a file, see &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-a-file\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this tutorial&lt;/a&gt;.
+Lets you upload a file and associate it with deal, person, organization, activity or product. For more information on how to add a file, see &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-a-file\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this tutorial&lt;/a&gt;.
 
 ### Example
 
@@ -38,13 +38,13 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.FilesApi();
-let file = "/path/to/file"; // File | A single file, supplied in the multipart/form-data encoding and contained within the given boundaries.
+let file = "/path/to/file"; // File | A single file, supplied in the multipart/form-data encoding and contained within the given boundaries
 let opts = {
-  'dealId': 56, // Number | ID of the deal to associate file(s) with
-  'personId': 56, // Number | ID of the person to associate file(s) with
-  'orgId': 56, // Number | ID of the organization to associate file(s) with
-  'productId': 56, // Number | ID of the product to associate file(s) with
-  'activityId': 56 // Number | ID of the activity to associate file(s) with
+  'dealId': 56, // Number | The ID of the deal to associate file(s) with
+  'personId': 56, // Number | The ID of the person to associate file(s) with
+  'orgId': 56, // Number | The ID of the organization to associate file(s) with
+  'productId': 56, // Number | The ID of the product to associate file(s) with
+  'activityId': 56 // Number | The ID of the activity to associate file(s) with
 };
 apiInstance.addFile(file, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -59,12 +59,12 @@ apiInstance.addFile(file, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **File**| A single file, supplied in the multipart/form-data encoding and contained within the given boundaries. | 
- **dealId** | **Number**| ID of the deal to associate file(s) with | [optional] 
- **personId** | **Number**| ID of the person to associate file(s) with | [optional] 
- **orgId** | **Number**| ID of the organization to associate file(s) with | [optional] 
- **productId** | **Number**| ID of the product to associate file(s) with | [optional] 
- **activityId** | **Number**| ID of the activity to associate file(s) with | [optional] 
+ **file** | **File**| A single file, supplied in the multipart/form-data encoding and contained within the given boundaries | 
+ **dealId** | **Number**| The ID of the deal to associate file(s) with | [optional] 
+ **personId** | **Number**| The ID of the person to associate file(s) with | [optional] 
+ **orgId** | **Number**| The ID of the organization to associate file(s) with | [optional] 
+ **productId** | **Number**| The ID of the product to associate file(s) with | [optional] 
+ **activityId** | **Number**| The ID of the activity to associate file(s) with | [optional] 
 
 ### Return type
 
@@ -106,7 +106,7 @@ let apiInstance = new Pipedrive.FilesApi();
 let fileType = "fileType_example"; // String | The file type
 let title = "title_example"; // String | The title of the file
 let itemType = "itemType_example"; // String | The item type
-let itemId = 56; // Number | ID of the item to associate the file with
+let itemId = 56; // Number | The ID of the item to associate the file with
 let remoteLocation = "remoteLocation_example"; // String | The location type to send the file to. Only `googledrive` is supported at the moment.
 apiInstance.addFileAndLinkIt(fileType, title, itemType, itemId, remoteLocation).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
  **fileType** | **String**| The file type | 
  **title** | **String**| The title of the file | 
  **itemType** | **String**| The item type | 
- **itemId** | **Number**| ID of the item to associate the file with | 
+ **itemId** | **Number**| The ID of the item to associate the file with | 
  **remoteLocation** | **String**| The location type to send the file to. Only &#x60;googledrive&#x60; is supported at the moment. | 
 
 ### Return type
@@ -164,7 +164,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.FilesApi();
-let id = 56; // Number | ID of the file
+let id = 56; // Number | The ID of the file
 apiInstance.deleteFile(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -178,7 +178,7 @@ apiInstance.deleteFile(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the file | 
+ **id** | **Number**| The ID of the file | 
 
 ### Return type
 
@@ -217,7 +217,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.FilesApi();
-let id = 56; // Number | ID of the file
+let id = 56; // Number | The ID of the file
 apiInstance.downloadFile(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -231,7 +231,7 @@ apiInstance.downloadFile(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the file | 
+ **id** | **Number**| The ID of the file | 
 
 ### Return type
 
@@ -270,7 +270,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.FilesApi();
-let id = 56; // Number | ID of the file
+let id = 56; // Number | The ID of the file
 apiInstance.getFile(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -284,7 +284,7 @@ apiInstance.getFile(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the file | 
+ **id** | **Number**| The ID of the file | 
 
 ### Return type
 
@@ -327,7 +327,7 @@ let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
   'includeDeletedFiles': new Pipedrive.NumberBoolean(), // NumberBoolean | When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
-  'sort': "sort_example" // String | Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
+  'sort': "sort_example" // String | The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
 };
 apiInstance.getFiles(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -345,7 +345,7 @@ Name | Type | Description  | Notes
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
  **includeDeletedFiles** | [**NumberBoolean**](.md)| When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work. | [optional] 
- **sort** | **String**| Field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment. | [optional] 
+ **sort** | **String**| The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment. | [optional] 
 
 ### Return type
 
@@ -385,8 +385,8 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.FilesApi();
 let itemType = "itemType_example"; // String | The item type
-let itemId = 56; // Number | ID of the item to associate the file with
-let remoteId = "remoteId_example"; // String | The remote item id
+let itemId = 56; // Number | The ID of the item to associate the file with
+let remoteId = "remoteId_example"; // String | The remote item ID
 let remoteLocation = "remoteLocation_example"; // String | The location type to send the file to. Only `googledrive` is supported at the moment.
 apiInstance.linkFileToItem(itemType, itemId, remoteId, remoteLocation).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -402,8 +402,8 @@ apiInstance.linkFileToItem(itemType, itemId, remoteId, remoteLocation).then((dat
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemType** | **String**| The item type | 
- **itemId** | **Number**| ID of the item to associate the file with | 
- **remoteId** | **String**| The remote item id | 
+ **itemId** | **Number**| The ID of the item to associate the file with | 
+ **remoteId** | **String**| The remote item ID | 
  **remoteLocation** | **String**| The location type to send the file to. Only &#x60;googledrive&#x60; is supported at the moment. | 
 
 ### Return type
@@ -443,10 +443,10 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.FilesApi();
-let id = 56; // Number | ID of the file
+let id = 56; // Number | The ID of the file
 let opts = {
-  'name': "name_example", // String | Visible name of the file
-  'description': "description_example" // String | Description of the file
+  'name': "name_example", // String | The visible name of the file
+  'description': "description_example" // String | The description of the file
 };
 apiInstance.updateFile(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -461,9 +461,9 @@ apiInstance.updateFile(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the file | 
- **name** | **String**| Visible name of the file | [optional] 
- **description** | **String**| Description of the file | [optional] 
+ **id** | **Number**| The ID of the file | 
+ **name** | **String**| The visible name of the file | [optional] 
+ **description** | **String**| The description of the file | [optional] 
 
 ### Return type
 

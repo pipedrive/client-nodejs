@@ -37,7 +37,7 @@ export default class LeadSourcesApi {
 
     /**
      * Get all lead sources
-     * Returns all Lead Sources. Please note that the list of Lead Sources is fixed, it cannot be modified. All Leads created through the Public Pipedrive API will have a Lead Source `API` assigned. 
+     * Returns all lead sources. Please note that the list of lead sources is fixed, it cannot be modified. All leads created through the Public Pipedrive API will have a lead source `API` assigned. 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetLeadSourcesResponse200} and HTTP response
      */
     getLeadSourcesWithHttpInfo() {
@@ -82,7 +82,7 @@ export default class LeadSourcesApi {
 
     /**
      * Get all lead sources
-     * Returns all Lead Sources. Please note that the list of Lead Sources is fixed, it cannot be modified. All Leads created through the Public Pipedrive API will have a Lead Source `API` assigned. 
+     * Returns all lead sources. Please note that the list of lead sources is fixed, it cannot be modified. All leads created through the Public Pipedrive API will have a lead source `API` assigned. 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetLeadSourcesResponse200}
      */
     getLeadSources() {

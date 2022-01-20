@@ -89,7 +89,7 @@ class ListActivitiesResponse {
 ListActivitiesResponse.prototype['success'] = undefined;
 
 /**
- * The array of Activities
+ * The array of activities
  * @member {Array.<module:model/ActivityResponseObject>} data
  */
 ListActivitiesResponse.prototype['data'] = undefined;
@@ -108,7 +108,7 @@ ListActivitiesResponse.prototype['additional_data'] = undefined;
 BaseResponse.prototype['success'] = undefined;
 // Implement ListActivitiesResponseAllOf interface:
 /**
- * The array of Activities
+ * The array of activities
  * @member {Array.<module:model/ActivityResponseObject>} data
  */
 ListActivitiesResponseAllOf.prototype['data'] = undefined;

@@ -65,7 +65,7 @@ class FullRoleAllOf {
 }
 
 /**
- * The level of Role in the role hierarchy
+ * The level of role in the role hierarchy
  * @member {Number} level
  */
 FullRoleAllOf.prototype['level'] = undefined;

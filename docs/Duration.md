@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**start** | **String** | Start date of the goal | [optional] 
-**end** | **String** | End date of the goal | [optional] 
+**start** | **String** | The start date of the goal | [optional] 
+**end** | **String** | The end date of the goal | [optional] 
 
 

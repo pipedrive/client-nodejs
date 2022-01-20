@@ -27,7 +27,7 @@ class FieldCreateRequest {
      * @alias module:model/FieldCreateRequest
      * @implements module:model/FieldCreateRequestAllOf
      * @implements module:model/FieldType
-     * @param name {String} Name of the field
+     * @param name {String} The name of the field
      * @param fieldType {module:model/FieldTypeAsString} 
      */
     constructor(name, fieldType) { 
@@ -91,7 +91,7 @@ class FieldCreateRequest {
 }
 
 /**
- * Name of the field
+ * The name of the field
  * @member {String} name
  */
 FieldCreateRequest.prototype['name'] = undefined;
@@ -103,7 +103,7 @@ FieldCreateRequest.prototype['name'] = undefined;
 FieldCreateRequest.prototype['options'] = undefined;
 
 /**
- * Whether the field is available in 'add new' modal or not (both in web and mobile app)
+ * Whether the field is available in the 'add new' modal or not (both in the web and mobile app)
  * @member {module:model/FieldCreateRequest.AddVisibleFlagEnum} add_visible_flag
  * @default true
  */
@@ -117,7 +117,7 @@ FieldCreateRequest.prototype['field_type'] = undefined;
 
 // Implement FieldCreateRequestAllOf interface:
 /**
- * Name of the field
+ * The name of the field
  * @member {String} name
  */
 FieldCreateRequestAllOf.prototype['name'] = undefined;
@@ -127,7 +127,7 @@ FieldCreateRequestAllOf.prototype['name'] = undefined;
  */
 FieldCreateRequestAllOf.prototype['options'] = undefined;
 /**
- * Whether the field is available in 'add new' modal or not (both in web and mobile app)
+ * Whether the field is available in the 'add new' modal or not (both in the web and mobile app)
  * @member {module:model/FieldCreateRequestAllOf.AddVisibleFlagEnum} add_visible_flag
  * @default true
  */

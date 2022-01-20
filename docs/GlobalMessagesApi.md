@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 Dismiss a global message
 
-Removes global message from being shown, if message is dismissible
+Removes a global message from being shown if the message is dismissible.
 
 ### Example
 
@@ -29,7 +29,7 @@ api_key.apiKey = 'YOUR API KEY';
 //api_key.apiKeyPrefix = 'Token';
 
 let apiInstance = new Pipedrive.GlobalMessagesApi();
-let id = 56; // Number | ID of global message to be dismissed.
+let id = 56; // Number | The ID of the global message to be dismissed
 apiInstance.deleteGlobalMessage(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -43,7 +43,7 @@ apiInstance.deleteGlobalMessage(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of global message to be dismissed. | 
+ **id** | **Number**| The ID of the global message to be dismissed | 
 
 ### Return type
 
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 Get global messages
 
-Returns data about global messages to display for the authorized user.
+Returns data about the global messages to display for the authorized user.
 
 ### Example
 
@@ -80,7 +80,7 @@ api_key.apiKey = 'YOUR API KEY';
 
 let apiInstance = new Pipedrive.GlobalMessagesApi();
 let opts = {
-  'limit': 1 // Number | Number of messages to get from 1 to 100. The message number 1 is returned by default.
+  'limit': 1 // Number | The number of messages to get from 1 to 100. The message number 1 is returned by default.
 };
 apiInstance.getGlobalMessages(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -95,7 +95,7 @@ apiInstance.getGlobalMessages(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **Number**| Number of messages to get from 1 to 100. The message number 1 is returned by default. | [optional] [default to 1]
+ **limit** | **Number**| The number of messages to get from 1 to 100. The message number 1 is returned by default. | [optional] [default to 1]
 
 ### Return type
 

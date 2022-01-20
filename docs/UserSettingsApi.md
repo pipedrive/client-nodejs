@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 List settings of an authorized user
 
-List settings of an authorized user. Example response contains a shortened list of settings.
+Lists the settings of an authorized user. Example response contains a shortened list of settings.
 
 ### Example
 

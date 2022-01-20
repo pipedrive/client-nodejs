@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class GetDealsMovementsInPipelineAllOfDataAverageAgeInDaysByStages {
     /**
      * Constructs a new <code>GetDealsMovementsInPipelineAllOfDataAverageAgeInDaysByStages</code>.
-     * Moved Deals average age by the Stage
+     * The moved deals average age by the stage
      * @alias module:model/GetDealsMovementsInPipelineAllOfDataAverageAgeInDaysByStages
      */
     constructor() { 
@@ -71,13 +71,13 @@ class GetDealsMovementsInPipelineAllOfDataAverageAgeInDaysByStages {
 }
 
 /**
- * The Stage ID
+ * The stage ID
  * @member {Number} stage_id
  */
 GetDealsMovementsInPipelineAllOfDataAverageAgeInDaysByStages.prototype['stage_id'] = undefined;
 
 /**
- * Average Deals age in specific Stage
+ * The average deals age in specific stage
  * @member {Number} value
  */
 GetDealsMovementsInPipelineAllOfDataAverageAgeInDaysByStages.prototype['value'] = undefined;

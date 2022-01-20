@@ -22,7 +22,7 @@ class MergePersonsRequest {
     /**
      * Constructs a new <code>MergePersonsRequest</code>.
      * @alias module:model/MergePersonsRequest
-     * @param mergeWithId {Number} The ID of the Person that will not be overwritten. This Person’s data will be prioritized in case of conflict with the other Person.
+     * @param mergeWithId {Number} The ID of the person that will not be overwritten. This person’s data will be prioritized in case of conflict with the other person.
      */
     constructor(mergeWithId) { 
         
@@ -67,7 +67,7 @@ class MergePersonsRequest {
 }
 
 /**
- * The ID of the Person that will not be overwritten. This Person’s data will be prioritized in case of conflict with the other Person.
+ * The ID of the person that will not be overwritten. This person’s data will be prioritized in case of conflict with the other person.
  * @member {Number} merge_with_id
  */
 MergePersonsRequest.prototype['merge_with_id'] = undefined;

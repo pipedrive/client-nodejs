@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**dropboxEmail** | **String** | Dropbox email for the Person | [optional] 
+**dropbox_email** | **String** | Dropbox email for the person | [optional] 
 
 

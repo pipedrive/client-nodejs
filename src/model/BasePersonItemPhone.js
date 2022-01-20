@@ -75,19 +75,19 @@ class BasePersonItemPhone {
 }
 
 /**
- * Phone number
+ * The phone number
  * @member {String} value
  */
 BasePersonItemPhone.prototype['value'] = undefined;
 
 /**
- * Boolean that indicates if phone number is primary for the Person or not
+ * Boolean that indicates if phone number is primary for the person or not
  * @member {Boolean} primary
  */
 BasePersonItemPhone.prototype['primary'] = undefined;
 
 /**
- * Label that indicates the type of the phone number. (Possible values - work, home, mobile or other)
+ * The label that indicates the type of the phone number. (Possible values - work, home, mobile or other)
  * @member {String} label
  */
 BasePersonItemPhone.prototype['label'] = undefined;

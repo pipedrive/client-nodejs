@@ -77,7 +77,7 @@ class GetAddProductAttachementDetails {
 GetAddProductAttachementDetails.prototype['success'] = undefined;
 
 /**
- * The added Product object attached to the Deal
+ * The added product object attached to the deal
  * @member {module:model/AddProductAttachmentDetails} data
  */
 GetAddProductAttachementDetails.prototype['data'] = undefined;

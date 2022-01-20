@@ -70,13 +70,13 @@ class BaseTeamAdditionalProperties {
 }
 
 /**
- * The Team creation time. Format: YYYY-MM-DD HH:MM:SS
+ * The team creation time. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} add_time
  */
 BaseTeamAdditionalProperties.prototype['add_time'] = undefined;
 
 /**
- * ID of the User who created the Team
+ * The ID of the user who created the team
  * @member {Number} created_by_user_id
  */
 BaseTeamAdditionalProperties.prototype['created_by_user_id'] = undefined;

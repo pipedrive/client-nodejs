@@ -22,7 +22,7 @@ import GlobalMessageUserData from './GlobalMessageUserData';
 class GlobalMessageData {
     /**
      * Constructs a new <code>GlobalMessageData</code>.
-     * The Global Message data
+     * The global message data
      * @alias module:model/GlobalMessageData
      */
     constructor() { 
@@ -92,19 +92,19 @@ class GlobalMessageData {
 }
 
 /**
- * The ID of the Global Message
+ * The ID of the global message
  * @member {Number} id
  */
 GlobalMessageData.prototype['id'] = undefined;
 
 /**
- * The ID of the User related to the Global Message
+ * The ID of the user related to the global message
  * @member {Number} user_id
  */
 GlobalMessageData.prototype['user_id'] = undefined;
 
 /**
- * The ID of the Company related to the Global Message
+ * The ID of the company related to the global message
  * @member {Number} company_id
  */
 GlobalMessageData.prototype['company_id'] = undefined;
@@ -115,13 +115,13 @@ GlobalMessageData.prototype['company_id'] = undefined;
 GlobalMessageData.prototype['type_info'] = undefined;
 
 /**
- * The User data for the Global Message (such as `user_id`, `name`, `email`, `phone`)
+ * The user data for the global message (such as `user_id`, `name`, `email`, `phone`)
  * @member {Object} user_data
  */
 GlobalMessageData.prototype['user_data'] = undefined;
 
 /**
- * HTML for each returned Global Message to render views
+ * HTML for each returned global message to render views
  * @member {String} html
  */
 GlobalMessageData.prototype['html'] = undefined;

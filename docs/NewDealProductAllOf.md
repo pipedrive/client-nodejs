@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**productId** | **Number** | ID of the product that will be attached | 
+**product_id** | **Number** | The ID of the product that will be attached | 
 
 

@@ -24,7 +24,7 @@ import GetDealsMovementsInPipelineAllOfDataMovementsBetweenStages from './GetDea
 class GetDealsMovementsInPipelineAllOfData {
     /**
      * Constructs a new <code>GetDealsMovementsInPipelineAllOfData</code>.
-     * The Pipeline object
+     * The pipeline object
      * @alias module:model/GetDealsMovementsInPipelineAllOfData
      */
     constructor() { 

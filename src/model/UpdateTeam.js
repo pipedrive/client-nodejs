@@ -27,8 +27,8 @@ class UpdateTeam {
      * @alias module:model/UpdateTeam
      * @implements module:model/CreateTeam
      * @implements module:model/UpdateTeamAllOf
-     * @param name {String} The Team name
-     * @param managerId {Number} The Team manager ID
+     * @param name {String} The team name
+     * @param managerId {Number} The team manager ID
      */
     constructor(name, managerId) { 
         CreateTeam.initialize(this, name, managerId);UpdateTeamAllOf.initialize(this);
@@ -101,37 +101,37 @@ class UpdateTeam {
 }
 
 /**
- * The Team name
+ * The team name
  * @member {String} name
  */
 UpdateTeam.prototype['name'] = undefined;
 
 /**
- * The Team description
+ * The team description
  * @member {String} description
  */
 UpdateTeam.prototype['description'] = undefined;
 
 /**
- * The Team manager ID
+ * The team manager ID
  * @member {Number} manager_id
  */
 UpdateTeam.prototype['manager_id'] = undefined;
 
 /**
- * List of User IDs
+ * The list of user IDs
  * @member {Array.<Number>} users
  */
 UpdateTeam.prototype['users'] = undefined;
 
 /**
- * Flag that indicates if the Team is activated
+ * Flag that indicates whether the team is active
  * @member {module:model/NumberBoolean} active_flag
  */
 UpdateTeam.prototype['active_flag'] = undefined;
 
 /**
- * Flag that indicates if the Team is deleted
+ * Flag that indicates whether the team is deleted
  * @member {module:model/NumberBoolean} deleted_flag
  */
 UpdateTeam.prototype['deleted_flag'] = undefined;
@@ -139,33 +139,33 @@ UpdateTeam.prototype['deleted_flag'] = undefined;
 
 // Implement CreateTeam interface:
 /**
- * The Team name
+ * The team name
  * @member {String} name
  */
 CreateTeam.prototype['name'] = undefined;
 /**
- * The Team description
+ * The team description
  * @member {String} description
  */
 CreateTeam.prototype['description'] = undefined;
 /**
- * The Team manager ID
+ * The team manager ID
  * @member {Number} manager_id
  */
 CreateTeam.prototype['manager_id'] = undefined;
 /**
- * List of User IDs
+ * The list of user IDs
  * @member {Array.<Number>} users
  */
 CreateTeam.prototype['users'] = undefined;
 // Implement UpdateTeamAllOf interface:
 /**
- * Flag that indicates if the Team is activated
+ * Flag that indicates whether the team is active
  * @member {module:model/NumberBoolean} active_flag
  */
 UpdateTeamAllOf.prototype['active_flag'] = undefined;
 /**
- * Flag that indicates if the Team is deleted
+ * Flag that indicates whether the team is deleted
  * @member {module:model/NumberBoolean} deleted_flag
  */
 UpdateTeamAllOf.prototype['deleted_flag'] = undefined;

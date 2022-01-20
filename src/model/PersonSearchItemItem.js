@@ -112,7 +112,7 @@ class PersonSearchItemItem {
 }
 
 /**
- * The ID of the Person
+ * The ID of the person
  * @member {Number} id
  */
 PersonSearchItemItem.prototype['id'] = undefined;
@@ -124,7 +124,7 @@ PersonSearchItemItem.prototype['id'] = undefined;
 PersonSearchItemItem.prototype['type'] = undefined;
 
 /**
- * The name of the Person
+ * The name of the person
  * @member {String} name
  */
 PersonSearchItemItem.prototype['name'] = undefined;
@@ -142,7 +142,7 @@ PersonSearchItemItem.prototype['phones'] = undefined;
 PersonSearchItemItem.prototype['emails'] = undefined;
 
 /**
- * The visibility of the Person
+ * The visibility of the person
  * @member {Number} visible_to
  */
 PersonSearchItemItem.prototype['visible_to'] = undefined;
@@ -164,7 +164,7 @@ PersonSearchItemItem.prototype['organization'] = undefined;
 PersonSearchItemItem.prototype['custom_fields'] = undefined;
 
 /**
- * An array of Notes
+ * An array of notes
  * @member {Array.<String>} notes
  */
 PersonSearchItemItem.prototype['notes'] = undefined;

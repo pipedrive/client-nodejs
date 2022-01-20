@@ -22,7 +22,7 @@ class AddDealParticipantRequest {
     /**
      * Constructs a new <code>AddDealParticipantRequest</code>.
      * @alias module:model/AddDealParticipantRequest
-     * @param personId {Number} ID of the person
+     * @param personId {Number} The ID of the person
      */
     constructor(personId) { 
         
@@ -67,7 +67,7 @@ class AddDealParticipantRequest {
 }
 
 /**
- * ID of the person
+ * The ID of the person
  * @member {Number} person_id
  */
 AddDealParticipantRequest.prototype['person_id'] = undefined;

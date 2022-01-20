@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **success** | **Boolean** | If the response is successful or not | [optional] 
 **data** | [**PersonItem**](PersonItem.md) |  | [optional] 
-**additionalData** | [**GetPersonDetailsResponseAllOfAdditionalData**](GetPersonDetailsResponseAllOfAdditionalData.md) |  | [optional] 
-**relatedObjects** | [**AllOrganizationsGetResponseAllOfRelatedObjects**](AllOrganizationsGetResponseAllOfRelatedObjects.md) |  | [optional] 
+**additional_data** | [**GetPersonDetailsResponseAllOfAdditionalData**](GetPersonDetailsResponseAllOfAdditionalData.md) |  | [optional] 
+**related_objects** | [**AllOrganizationsGetResponseAllOfRelatedObjects**](AllOrganizationsGetResponseAllOfRelatedObjects.md) |  | [optional] 
 
 

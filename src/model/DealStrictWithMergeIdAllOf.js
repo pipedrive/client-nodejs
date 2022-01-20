@@ -65,7 +65,7 @@ class DealStrictWithMergeIdAllOf {
 }
 
 /**
- * The Deal ID of the Deal which the original Deal was merged with
+ * The deal ID of the deal which the original deal was merged with
  * @member {Number} merge_what_id
  */
 DealStrictWithMergeIdAllOf.prototype['merge_what_id'] = undefined;

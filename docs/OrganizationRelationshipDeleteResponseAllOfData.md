@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | The ID of the deleted Organization Relationship | [optional] 
+**id** | **Number** | The ID of the deleted organization relationship | [optional] 
 
 

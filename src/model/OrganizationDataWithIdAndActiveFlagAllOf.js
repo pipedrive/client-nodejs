@@ -65,7 +65,7 @@ class OrganizationDataWithIdAndActiveFlagAllOf {
 }
 
 /**
- * If the associated Organization is active or not
+ * Whether the associated organization is active or not
  * @member {Boolean} active_flag
  */
 OrganizationDataWithIdAndActiveFlagAllOf.prototype['active_flag'] = undefined;

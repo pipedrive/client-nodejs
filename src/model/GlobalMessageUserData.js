@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class GlobalMessageUserData {
     /**
      * Constructs a new <code>GlobalMessageUserData</code>.
-     * The Global Message type info
+     * The global message type info
      * @alias module:model/GlobalMessageUserData
      */
     constructor() { 
@@ -76,13 +76,13 @@ class GlobalMessageUserData {
 }
 
 /**
- * The Global Message type for validation checks
+ * The global message type for validation checks
  * @member {String} message_type
  */
 GlobalMessageUserData.prototype['message_type'] = undefined;
 
 /**
- * Whether a User can dismiss the Global Message or not
+ * Whether a user can dismiss the global message or not
  * @member {Boolean} dismissible_flag
  */
 GlobalMessageUserData.prototype['dismissible_flag'] = undefined;

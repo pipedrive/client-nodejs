@@ -101,37 +101,37 @@ class Owner {
 }
 
 /**
- * The ID of the User
+ * The ID of the user
  * @member {Number} id
  */
 Owner.prototype['id'] = undefined;
 
 /**
- * The name of the User
+ * The name of the user
  * @member {String} name
  */
 Owner.prototype['name'] = undefined;
 
 /**
- * The email of the User
+ * The email of the user
  * @member {String} email
  */
 Owner.prototype['email'] = undefined;
 
 /**
- * Whether the User has picture or not. 0 = No picture, 1 = Has picture.
+ * Whether the user has picture or not. 0 = No picture, 1 = Has picture.
  * @member {Number} has_pic
  */
 Owner.prototype['has_pic'] = undefined;
 
 /**
- * The User picture hash
+ * The user picture hash
  * @member {String} pic_hash
  */
 Owner.prototype['pic_hash'] = undefined;
 
 /**
- * If the User is activated or not
+ * Whether the user is active or not
  * @member {Boolean} active_flag
  */
 Owner.prototype['active_flag'] = undefined;
@@ -145,32 +145,32 @@ Owner.prototype['value'] = undefined;
 
 // Implement UserData interface:
 /**
- * The ID of the User
+ * The ID of the user
  * @member {Number} id
  */
 UserData.prototype['id'] = undefined;
 /**
- * The name of the User
+ * The name of the user
  * @member {String} name
  */
 UserData.prototype['name'] = undefined;
 /**
- * The email of the User
+ * The email of the user
  * @member {String} email
  */
 UserData.prototype['email'] = undefined;
 /**
- * Whether the User has picture or not. 0 = No picture, 1 = Has picture.
+ * Whether the user has picture or not. 0 = No picture, 1 = Has picture.
  * @member {Number} has_pic
  */
 UserData.prototype['has_pic'] = undefined;
 /**
- * The User picture hash
+ * The user picture hash
  * @member {String} pic_hash
  */
 UserData.prototype['pic_hash'] = undefined;
 /**
- * If the User is activated or not
+ * Whether the user is active or not
  * @member {Boolean} active_flag
  */
 UserData.prototype['active_flag'] = undefined;

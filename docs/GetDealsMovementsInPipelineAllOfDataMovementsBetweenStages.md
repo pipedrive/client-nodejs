@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **Number** | The count of the Deals that have been moved between Stages | [optional] 
+**count** | **Number** | The count of the deals that have been moved between stages | [optional] 
 
 

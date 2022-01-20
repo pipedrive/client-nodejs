@@ -50,14 +50,17 @@ export default class ActivityTypesApi {
     addActivityTypeWithHttpInfo(name, iconKey, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'name' is set
       if (name === undefined || name === null) {
         throw new Error("Missing the required parameter 'name' when calling addActivityType");
       }
+
       // verify the required parameter 'iconKey' is set
       if (iconKey === undefined || iconKey === null) {
         throw new Error("Missing the required parameter 'iconKey' when calling addActivityType");
       }
+
 
       let pathParams = {
       };
@@ -127,6 +130,7 @@ export default class ActivityTypesApi {
     deleteActivityTypeWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteActivityType");
@@ -186,12 +190,13 @@ export default class ActivityTypesApi {
     /**
      * Delete multiple ActivityTypes in bulk
      * Marks multiple ActivityTypes as deleted.
-     * @param {String} ids Comma-separated ActivityType IDs
+     * @param {String} ids The comma-separated ActivityType IDs
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ActivityTypeBulkDeleteResponse} and HTTP response
      */
     deleteActivityTypesWithHttpInfo(ids) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'ids' is set
       if (ids === undefined || ids === null) {
         throw new Error("Missing the required parameter 'ids' when calling deleteActivityTypes");
@@ -237,7 +242,7 @@ export default class ActivityTypesApi {
     /**
      * Delete multiple ActivityTypes in bulk
      * Marks multiple ActivityTypes as deleted.
-     * @param {String} ids Comma-separated ActivityType IDs
+     * @param {String} ids The comma-separated ActivityType IDs
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ActivityTypeBulkDeleteResponse}
      */
     deleteActivityTypes(ids) {
@@ -307,7 +312,7 @@ export default class ActivityTypesApi {
 
 
     /**
-     * Edit an ActivityType
+     * Update an ActivityType
      * Updates an ActivityType.
      * @param {Number} id The ID of the ActivityType
      * @param {Object} opts Optional parameters
@@ -320,10 +325,15 @@ export default class ActivityTypesApi {
     updateActivityTypeWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateActivityType");
       }
+
+
+
+
 
       let pathParams = {
         'id': id,
@@ -371,7 +381,7 @@ export default class ActivityTypesApi {
     }
 
     /**
-     * Edit an ActivityType
+     * Update an ActivityType
      * Updates an ActivityType.
      * @param {Number} id The ID of the ActivityType
      * @param {Object} opts Optional parameters

@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class NoteCreatorUser {
     /**
      * Constructs a new <code>NoteCreatorUser</code>.
-     * The User who created the Note
+     * The user who created the note
      * @alias module:model/NoteCreatorUser
      */
     constructor() { 
@@ -81,25 +81,25 @@ class NoteCreatorUser {
 }
 
 /**
- * The Email of the Note creator
+ * The email of the note creator
  * @member {String} email
  */
 NoteCreatorUser.prototype['email'] = undefined;
 
 /**
- * The URL of the Note creator avatar picture
+ * The URL of the note creator avatar picture
  * @member {String} icon_url
  */
 NoteCreatorUser.prototype['icon_url'] = undefined;
 
 /**
- * If the Note is created by you or not
+ * Whether the note is created by you or not
  * @member {Boolean} is_you
  */
 NoteCreatorUser.prototype['is_you'] = undefined;
 
 /**
- * The name of the Note creator
+ * The name of the note creator
  * @member {String} name
  */
 NoteCreatorUser.prototype['name'] = undefined;

@@ -22,11 +22,11 @@ class SubscriptionRecurringCreateRequest {
     /**
      * Constructs a new <code>SubscriptionRecurringCreateRequest</code>.
      * @alias module:model/SubscriptionRecurringCreateRequest
-     * @param dealId {Number} ID of the Deal this Recurring Subscription is associated with
-     * @param currency {String} The currency of the Recurring Subscription. Accepts a 3-character currency code.
-     * @param cadenceType {module:model/SubscriptionRecurringCreateRequest.CadenceTypeEnum} Interval between payments
-     * @param cycleAmount {Number} Amount of each payment
-     * @param startDate {Date} Start date of the Recurring Subscription. Format: YYYY-MM-DD
+     * @param dealId {Number} The ID of the deal this recurring subscription is associated with
+     * @param currency {String} The currency of the recurring subscription. Accepts a 3-character currency code.
+     * @param cadenceType {module:model/SubscriptionRecurringCreateRequest.CadenceTypeEnum} The interval between payments
+     * @param cycleAmount {Number} The amount of each payment
+     * @param startDate {Date} The start date of the recurring subscription. Format: YYYY-MM-DD
      */
     constructor(dealId, currency, cadenceType, cycleAmount, startDate) { 
         
@@ -120,49 +120,49 @@ class SubscriptionRecurringCreateRequest {
 }
 
 /**
- * ID of the Deal this Recurring Subscription is associated with
+ * The ID of the deal this recurring subscription is associated with
  * @member {Number} deal_id
  */
 SubscriptionRecurringCreateRequest.prototype['deal_id'] = undefined;
 
 /**
- * The currency of the Recurring Subscription. Accepts a 3-character currency code.
+ * The currency of the recurring subscription. Accepts a 3-character currency code.
  * @member {String} currency
  */
 SubscriptionRecurringCreateRequest.prototype['currency'] = undefined;
 
 /**
- * Description of the Recurring Subscription
+ * The description of the recurring subscription
  * @member {String} description
  */
 SubscriptionRecurringCreateRequest.prototype['description'] = undefined;
 
 /**
- * Interval between payments
+ * The interval between payments
  * @member {module:model/SubscriptionRecurringCreateRequest.CadenceTypeEnum} cadence_type
  */
 SubscriptionRecurringCreateRequest.prototype['cadence_type'] = undefined;
 
 /**
- * Shows how many payments the Subscription has. Note that one field must be set: `cycles_count` or `infinite`. If `cycles_count` is set, then `cycle_amount` and `start_date` are also required.
+ * Shows how many payments the subscription has. Note that one field must be set: `cycles_count` or `infinite`. If `cycles_count` is set, then `cycle_amount` and `start_date` are also required.
  * @member {Number} cycles_count
  */
 SubscriptionRecurringCreateRequest.prototype['cycles_count'] = undefined;
 
 /**
- * Amount of each payment
+ * The amount of each payment
  * @member {Number} cycle_amount
  */
 SubscriptionRecurringCreateRequest.prototype['cycle_amount'] = undefined;
 
 /**
- * Start date of the Recurring Subscription. Format: YYYY-MM-DD
+ * The start date of the recurring subscription. Format: YYYY-MM-DD
  * @member {Date} start_date
  */
 SubscriptionRecurringCreateRequest.prototype['start_date'] = undefined;
 
 /**
- * This indicates that the Recurring Subscription will last until it's manually canceled or deleted. Note that only one field must be set: `cycles_count` or `infinite`.
+ * This indicates that the recurring subscription will last until it's manually canceled or deleted. Note that only one field must be set: `cycles_count` or `infinite`.
  * @member {Boolean} infinite
  */
 SubscriptionRecurringCreateRequest.prototype['infinite'] = undefined;
@@ -174,7 +174,7 @@ SubscriptionRecurringCreateRequest.prototype['infinite'] = undefined;
 SubscriptionRecurringCreateRequest.prototype['payments'] = undefined;
 
 /**
- * Indicates that the Deal value must be set to Recurring Subscription's MRR value
+ * Indicates that the deal value must be set to recurring subscription's MRR value
  * @member {Boolean} update_deal_value
  */
 SubscriptionRecurringCreateRequest.prototype['update_deal_value'] = undefined;

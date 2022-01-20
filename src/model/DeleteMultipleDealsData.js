@@ -65,7 +65,7 @@ class DeleteMultipleDealsData {
 }
 
 /**
- * The list of deleted Deals IDs
+ * The list of deleted deals IDs
  * @member {Array.<Number>} id
  */
 DeleteMultipleDealsData.prototype['id'] = undefined;

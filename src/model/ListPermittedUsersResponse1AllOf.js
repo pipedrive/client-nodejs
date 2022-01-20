@@ -65,7 +65,7 @@ class ListPermittedUsersResponse1AllOf {
 }
 
 /**
- * The list of permitted Users IDs
+ * The list of permitted user IDs
  * @member {Array.<Number>} data
  */
 ListPermittedUsersResponse1AllOf.prototype['data'] = undefined;

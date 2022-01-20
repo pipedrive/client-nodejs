@@ -50,6 +50,7 @@ export default class GoalsApi {
       opts = opts || {};
       let postBody = opts['newGoal'];
 
+
       let pathParams = {
       };
       let queryParams = {
@@ -103,13 +104,14 @@ export default class GoalsApi {
 
     /**
      * Delete existing goal
-     * Marks goal as deleted.
-     * @param {String} id ID of the goal to be deleted.
+     * Marks a goal as deleted.
+     * @param {String} id The ID of the goal to be deleted
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteGoalResponse200} and HTTP response
      */
     deleteGoalWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteGoal");
@@ -154,8 +156,8 @@ export default class GoalsApi {
 
     /**
      * Delete existing goal
-     * Marks goal as deleted.
-     * @param {String} id ID of the goal to be deleted.
+     * Marks a goal as deleted.
+     * @param {String} id The ID of the goal to be deleted
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteGoalResponse200}
      */
     deleteGoal(id) {
@@ -168,23 +170,26 @@ export default class GoalsApi {
 
     /**
      * Get result of a goal
-     * Gets progress of a goal for specified period.
-     * @param {String} id ID of the goal that the results are looked for.
-     * @param {Date} periodStart Start date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD. This date must be the same or after the goal duration start date.
-     * @param {Date} periodEnd End date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD. This date must be the same or before the goal duration end date.
+     * Gets the progress of a goal for the specified period.
+     * @param {String} id The ID of the goal that the results are looked for
+     * @param {Date} periodStart The start date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD. This date must be the same or after the goal duration start date.
+     * @param {Date} periodEnd The end date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD. This date must be the same or before the goal duration end date.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetGoalResultResponse200} and HTTP response
      */
     getGoalResultWithHttpInfo(id, periodStart, periodEnd) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getGoalResult");
       }
+
       // verify the required parameter 'periodStart' is set
       if (periodStart === undefined || periodStart === null) {
         throw new Error("Missing the required parameter 'periodStart' when calling getGoalResult");
       }
+
       // verify the required parameter 'periodEnd' is set
       if (periodEnd === undefined || periodEnd === null) {
         throw new Error("Missing the required parameter 'periodEnd' when calling getGoalResult");
@@ -231,10 +236,10 @@ export default class GoalsApi {
 
     /**
      * Get result of a goal
-     * Gets progress of a goal for specified period.
-     * @param {String} id ID of the goal that the results are looked for.
-     * @param {Date} periodStart Start date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD. This date must be the same or after the goal duration start date.
-     * @param {Date} periodEnd End date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD. This date must be the same or before the goal duration end date.
+     * Gets the progress of a goal for the specified period.
+     * @param {String} id The ID of the goal that the results are looked for
+     * @param {Date} periodStart The start date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD. This date must be the same or after the goal duration start date.
+     * @param {Date} periodEnd The end date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD. This date must be the same or before the goal duration end date.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetGoalResultResponse200}
      */
     getGoalResult(id, periodStart, periodEnd) {
@@ -249,24 +254,37 @@ export default class GoalsApi {
      * Find goals
      * Returns data about goals based on criteria. For searching, append `{searchField}={searchValue}` to the URL, where `searchField` can be any one of the lowest-level fields in dot-notation (e.g. `type.params.pipeline_id`; `title`). `searchValue` should be the value you are looking for on that field. Additionally, `is_active=<true|false>` can be provided to search for only active/inactive goals. When providing `period.start`, `period.end` must also be provided and vice versa.
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.typeName Type of the goal. If provided, everyone's goals will be returned.
-     * @param {String} opts.title Title of the goal.
-     * @param {module:model/Boolean} opts.isActive Whether goal is active or not. (default to true)
-     * @param {Number} opts.assigneeId ID of the user who's goal to fetch. When omitted, only your goals will be returned.
-     * @param {module:model/String} opts.assigneeType Type of the goal's assignee. If provided, everyone's goals will be returned.
-     * @param {Number} opts.expectedOutcomeTarget Numeric value of the outcome. If provided, everyone's goals will be returned.
-     * @param {module:model/String} opts.expectedOutcomeTrackingMetric Tracking metric of the expected outcome of the goal. If provided, everyone's goals will be returned.
-     * @param {Number} opts.expectedOutcomeCurrencyId Numeric ID of the goal's currency. Only applicable to goals with `expected_outcome.tracking_metric` with value `sum`. If provided, everyone's goals will be returned.
-     * @param {Number} opts.typeParamsPipelineId ID of the pipeline or `null` for all pipelines. If provided, everyone's goals will be returned.
-     * @param {Number} opts.typeParamsStageId ID of the stage. Applicable to only `deals_progressed` type of goals. If provided, everyone's goals will be returned.
-     * @param {Number} opts.typeParamsActivityTypeId ID of the activity type. Applicable to only `activities_completed` or `activities_added` types of goals. If provided, everyone's goals will be returned.
-     * @param {Date} opts.periodStart Start date of the period for which to find goals. Date in format of YYYY-MM-DD. When `period.start` is provided, `period.end` must be provided too.
-     * @param {Date} opts.periodEnd End date of the period for which to find goals. Date in format of YYYY-MM-DD.
+     * @param {module:model/String} opts.typeName The type of the goal. If provided, everyone's goals will be returned.
+     * @param {String} opts.title The title of the goal
+     * @param {module:model/Boolean} opts.isActive Whether the goal is active or not (default to true)
+     * @param {Number} opts.assigneeId The ID of the user who's goal to fetch. When omitted, only your goals will be returned.
+     * @param {module:model/String} opts.assigneeType The type of the goal's assignee. If provided, everyone's goals will be returned.
+     * @param {Number} opts.expectedOutcomeTarget The numeric value of the outcome. If provided, everyone's goals will be returned.
+     * @param {module:model/String} opts.expectedOutcomeTrackingMetric The tracking metric of the expected outcome of the goal. If provided, everyone's goals will be returned.
+     * @param {Number} opts.expectedOutcomeCurrencyId The numeric ID of the goal's currency. Only applicable to goals with `expected_outcome.tracking_metric` with value `sum`. If provided, everyone's goals will be returned.
+     * @param {Number} opts.typeParamsPipelineId The ID of the pipeline or `null` for all pipelines. If provided, everyone's goals will be returned.
+     * @param {Number} opts.typeParamsStageId The ID of the stage. Applicable to only `deals_progressed` type of goals. If provided, everyone's goals will be returned.
+     * @param {Number} opts.typeParamsActivityTypeId The ID of the activity type. Applicable to only `activities_completed` or `activities_added` types of goals. If provided, everyone's goals will be returned.
+     * @param {Date} opts.periodStart The start date of the period for which to find goals. Date in format of YYYY-MM-DD. When `period.start` is provided, `period.end` must be provided too.
+     * @param {Date} opts.periodEnd The end date of the period for which to find goals. Date in format of YYYY-MM-DD.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetGoalsResponse200} and HTTP response
      */
     getGoalsWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       let pathParams = {
       };
@@ -321,19 +339,19 @@ export default class GoalsApi {
      * Find goals
      * Returns data about goals based on criteria. For searching, append `{searchField}={searchValue}` to the URL, where `searchField` can be any one of the lowest-level fields in dot-notation (e.g. `type.params.pipeline_id`; `title`). `searchValue` should be the value you are looking for on that field. Additionally, `is_active=<true|false>` can be provided to search for only active/inactive goals. When providing `period.start`, `period.end` must also be provided and vice versa.
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.typeName Type of the goal. If provided, everyone's goals will be returned.
-     * @param {String} opts.title Title of the goal.
-     * @param {module:model/Boolean} opts.isActive Whether goal is active or not. (default to true)
-     * @param {Number} opts.assigneeId ID of the user who's goal to fetch. When omitted, only your goals will be returned.
-     * @param {module:model/String} opts.assigneeType Type of the goal's assignee. If provided, everyone's goals will be returned.
-     * @param {Number} opts.expectedOutcomeTarget Numeric value of the outcome. If provided, everyone's goals will be returned.
-     * @param {module:model/String} opts.expectedOutcomeTrackingMetric Tracking metric of the expected outcome of the goal. If provided, everyone's goals will be returned.
-     * @param {Number} opts.expectedOutcomeCurrencyId Numeric ID of the goal's currency. Only applicable to goals with `expected_outcome.tracking_metric` with value `sum`. If provided, everyone's goals will be returned.
-     * @param {Number} opts.typeParamsPipelineId ID of the pipeline or `null` for all pipelines. If provided, everyone's goals will be returned.
-     * @param {Number} opts.typeParamsStageId ID of the stage. Applicable to only `deals_progressed` type of goals. If provided, everyone's goals will be returned.
-     * @param {Number} opts.typeParamsActivityTypeId ID of the activity type. Applicable to only `activities_completed` or `activities_added` types of goals. If provided, everyone's goals will be returned.
-     * @param {Date} opts.periodStart Start date of the period for which to find goals. Date in format of YYYY-MM-DD. When `period.start` is provided, `period.end` must be provided too.
-     * @param {Date} opts.periodEnd End date of the period for which to find goals. Date in format of YYYY-MM-DD.
+     * @param {module:model/String} opts.typeName The type of the goal. If provided, everyone's goals will be returned.
+     * @param {String} opts.title The title of the goal
+     * @param {module:model/Boolean} opts.isActive Whether the goal is active or not (default to true)
+     * @param {Number} opts.assigneeId The ID of the user who's goal to fetch. When omitted, only your goals will be returned.
+     * @param {module:model/String} opts.assigneeType The type of the goal's assignee. If provided, everyone's goals will be returned.
+     * @param {Number} opts.expectedOutcomeTarget The numeric value of the outcome. If provided, everyone's goals will be returned.
+     * @param {module:model/String} opts.expectedOutcomeTrackingMetric The tracking metric of the expected outcome of the goal. If provided, everyone's goals will be returned.
+     * @param {Number} opts.expectedOutcomeCurrencyId The numeric ID of the goal's currency. Only applicable to goals with `expected_outcome.tracking_metric` with value `sum`. If provided, everyone's goals will be returned.
+     * @param {Number} opts.typeParamsPipelineId The ID of the pipeline or `null` for all pipelines. If provided, everyone's goals will be returned.
+     * @param {Number} opts.typeParamsStageId The ID of the stage. Applicable to only `deals_progressed` type of goals. If provided, everyone's goals will be returned.
+     * @param {Number} opts.typeParamsActivityTypeId The ID of the activity type. Applicable to only `activities_completed` or `activities_added` types of goals. If provided, everyone's goals will be returned.
+     * @param {Date} opts.periodStart The start date of the period for which to find goals. Date in format of YYYY-MM-DD. When `period.start` is provided, `period.end` must be provided too.
+     * @param {Date} opts.periodEnd The end date of the period for which to find goals. Date in format of YYYY-MM-DD.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetGoalsResponse200}
      */
     getGoals(opts) {
@@ -346,24 +364,31 @@ export default class GoalsApi {
 
     /**
      * Update existing goal
-     * Updates existing goal.
-     * @param {String} id ID of the goal to be updated.
+     * Updates an existing goal.
+     * @param {String} id The ID of the goal to be updated
      * @param {Object} opts Optional parameters
-     * @param {String} opts.title Title of the goal.
-     * @param {Object} opts.assignee Who is this goal assigned to. It requires the following JSON structure: { \\\"id\\\": \\\"1\\\", \\\"type\\\": \\\"person\\\" }. `type` can be either `person`, `company` or `team`. ID of the assignee person, company or team.
-     * @param {Object} opts.type Type of the goal. It requires the following JSON structure: { \\\"name\\\": \\\"deals_started\\\", \\\"params\\\": { \\\"pipeline_id\\\": 1 } }. Type can be one of: `deals_won`, `deals_progressed`, `activities_completed`, `activities_added`, `deals_started` or `revenue_forecast`. `params` can include `pipeline_id`, `stage_id` or `activity_type_id`. `stage_id` is related to only `deals_progressed` type of goals and `activity_type_id` to `activities_completed` or `activities_added` types of goals. To track goal in all pipelines set `pipeline_id` as `null`.
-     * @param {Object} opts.expectedOutcome Expected outcome of the goal. Expected outcome can be tracked either by `quantity` or by `sum`. It requires the following JSON structure: { \\\"target\\\": \\\"50\\\", \\\"tracking_metric\\\": \\\"quantity\\\" } or { \\\"target\\\": \\\"50\\\", \\\"tracking_metric\\\": \\\"sum\\\", \\\"currency_id\\\": 1 }. `currency_id` should only be added to `sum` type of goals.
-     * @param {Object} opts.duration Date when the goal starts and ends. It requires the following JSON structure: { \\\"start\\\": \\\"2019-01-01\\\", \\\"end\\\": \\\"2022-12-31\\\" }. Date in format of YYYY-MM-DD. \\\"end\\\" can be set to `null` for an infinite, open-ended goal.
-     * @param {module:model/String} opts.interval Interval of the goal
+     * @param {String} opts.title The title of the goal
+     * @param {Object.<String, Object>} opts.assignee Who this goal is assigned to. It requires the following JSON structure: { \\\"id\\\": \\\"1\\\", \\\"type\\\": \\\"person\\\" }. `type` can be either `person`, `company` or `team`. ID of the assignee person, company or team.
+     * @param {Object.<String, Object>} opts.type The type of the goal. It requires the following JSON structure: { \\\"name\\\": \\\"deals_started\\\", \\\"params\\\": { \\\"pipeline_id\\\": 1 } }. Type can be one of: `deals_won`, `deals_progressed`, `activities_completed`, `activities_added`, `deals_started` or `revenue_forecast`. `params` can include `pipeline_id`, `stage_id` or `activity_type_id`. `stage_id` is related to only `deals_progressed` type of goals and `activity_type_id` to `activities_completed` or `activities_added` types of goals. To track goal in all pipelines set `pipeline_id` as `null`.
+     * @param {Object.<String, Object>} opts.expectedOutcome The expected outcome of the goal. Expected outcome can be tracked either by `quantity` or by `sum`. It requires the following JSON structure: { \\\"target\\\": \\\"50\\\", \\\"tracking_metric\\\": \\\"quantity\\\" } or { \\\"target\\\": \\\"50\\\", \\\"tracking_metric\\\": \\\"sum\\\", \\\"currency_id\\\": 1 }. `currency_id` should only be added to `sum` type of goals.
+     * @param {Object.<String, Object>} opts.duration The date when the goal starts and ends. It requires the following JSON structure: { \\\"start\\\": \\\"2019-01-01\\\", \\\"end\\\": \\\"2022-12-31\\\" }. Date in format of YYYY-MM-DD. \\\"end\\\" can be set to `null` for an infinite, open-ended goal.
+     * @param {module:model/String} opts.interval The interval of the goal
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddOrUpdateGoalResponse200} and HTTP response
      */
     updateGoalWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateGoal");
       }
+
+
+
+
+
+
 
       let pathParams = {
         'id': id,
@@ -416,15 +441,15 @@ export default class GoalsApi {
 
     /**
      * Update existing goal
-     * Updates existing goal.
-     * @param {String} id ID of the goal to be updated.
+     * Updates an existing goal.
+     * @param {String} id The ID of the goal to be updated
      * @param {Object} opts Optional parameters
-     * @param {String} opts.title Title of the goal.
-     * @param {Object} opts.assignee Who is this goal assigned to. It requires the following JSON structure: { \\\"id\\\": \\\"1\\\", \\\"type\\\": \\\"person\\\" }. `type` can be either `person`, `company` or `team`. ID of the assignee person, company or team.
-     * @param {Object} opts.type Type of the goal. It requires the following JSON structure: { \\\"name\\\": \\\"deals_started\\\", \\\"params\\\": { \\\"pipeline_id\\\": 1 } }. Type can be one of: `deals_won`, `deals_progressed`, `activities_completed`, `activities_added`, `deals_started` or `revenue_forecast`. `params` can include `pipeline_id`, `stage_id` or `activity_type_id`. `stage_id` is related to only `deals_progressed` type of goals and `activity_type_id` to `activities_completed` or `activities_added` types of goals. To track goal in all pipelines set `pipeline_id` as `null`.
-     * @param {Object} opts.expectedOutcome Expected outcome of the goal. Expected outcome can be tracked either by `quantity` or by `sum`. It requires the following JSON structure: { \\\"target\\\": \\\"50\\\", \\\"tracking_metric\\\": \\\"quantity\\\" } or { \\\"target\\\": \\\"50\\\", \\\"tracking_metric\\\": \\\"sum\\\", \\\"currency_id\\\": 1 }. `currency_id` should only be added to `sum` type of goals.
-     * @param {Object} opts.duration Date when the goal starts and ends. It requires the following JSON structure: { \\\"start\\\": \\\"2019-01-01\\\", \\\"end\\\": \\\"2022-12-31\\\" }. Date in format of YYYY-MM-DD. \\\"end\\\" can be set to `null` for an infinite, open-ended goal.
-     * @param {module:model/String} opts.interval Interval of the goal
+     * @param {String} opts.title The title of the goal
+     * @param {Object.<String, Object>} opts.assignee Who this goal is assigned to. It requires the following JSON structure: { \\\"id\\\": \\\"1\\\", \\\"type\\\": \\\"person\\\" }. `type` can be either `person`, `company` or `team`. ID of the assignee person, company or team.
+     * @param {Object.<String, Object>} opts.type The type of the goal. It requires the following JSON structure: { \\\"name\\\": \\\"deals_started\\\", \\\"params\\\": { \\\"pipeline_id\\\": 1 } }. Type can be one of: `deals_won`, `deals_progressed`, `activities_completed`, `activities_added`, `deals_started` or `revenue_forecast`. `params` can include `pipeline_id`, `stage_id` or `activity_type_id`. `stage_id` is related to only `deals_progressed` type of goals and `activity_type_id` to `activities_completed` or `activities_added` types of goals. To track goal in all pipelines set `pipeline_id` as `null`.
+     * @param {Object.<String, Object>} opts.expectedOutcome The expected outcome of the goal. Expected outcome can be tracked either by `quantity` or by `sum`. It requires the following JSON structure: { \\\"target\\\": \\\"50\\\", \\\"tracking_metric\\\": \\\"quantity\\\" } or { \\\"target\\\": \\\"50\\\", \\\"tracking_metric\\\": \\\"sum\\\", \\\"currency_id\\\": 1 }. `currency_id` should only be added to `sum` type of goals.
+     * @param {Object.<String, Object>} opts.duration The date when the goal starts and ends. It requires the following JSON structure: { \\\"start\\\": \\\"2019-01-01\\\", \\\"end\\\": \\\"2022-12-31\\\" }. Date in format of YYYY-MM-DD. \\\"end\\\" can be set to `null` for an infinite, open-ended goal.
+     * @param {module:model/String} opts.interval The interval of the goal
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddOrUpdateGoalResponse200}
      */
     updateGoal(id, opts) {

@@ -71,7 +71,7 @@ class UpdateLeadLabelRequest {
 }
 
 /**
- * The name of the Lead Label
+ * The name of the lead label
  * @member {String} name
  */
 UpdateLeadLabelRequest.prototype['name'] = undefined;

@@ -89,7 +89,7 @@ class ListFilesResponse {
 ListFilesResponse.prototype['success'] = undefined;
 
 /**
- * The array of Files
+ * The array of files
  * @member {Array.<module:model/FileItem>} data
  */
 ListFilesResponse.prototype['data'] = undefined;
@@ -108,7 +108,7 @@ ListFilesResponse.prototype['additional_data'] = undefined;
 BaseResponse.prototype['success'] = undefined;
 // Implement ListFilesResponseAllOf interface:
 /**
- * The array of Files
+ * The array of files
  * @member {Array.<module:model/FileItem>} data
  */
 ListFilesResponseAllOf.prototype['data'] = undefined;

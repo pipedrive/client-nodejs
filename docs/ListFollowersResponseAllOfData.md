@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**userId** | **Number** | The ID of the User | [optional] 
-**id** | **Number** | The ID of the User follower | [optional] 
-**personId** | **Number** | The ID of the Person | [optional] 
-**addTime** | **String** | The date and time when the Follower was added to the Person | [optional] 
+**user_id** | **Number** | The ID of the user | [optional] 
+**id** | **Number** | The ID of the user follower | [optional] 
+**person_id** | **Number** | The ID of the person | [optional] 
+**add_time** | **String** | The date and time when the follower was added to the person | [optional] 
 
 

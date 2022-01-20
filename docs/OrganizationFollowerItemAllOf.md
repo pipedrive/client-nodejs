@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**orgId** | **Number** | The ID of the Organization | [optional] 
+**org_id** | **Number** | The ID of the organization | [optional] 
 
 

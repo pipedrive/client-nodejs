@@ -65,7 +65,7 @@ class DealSearchItemItemOwner {
 }
 
 /**
- * The ID of the owner of the Deal
+ * The ID of the owner of the deal
  * @member {Number} id
  */
 DealSearchItemItemOwner.prototype['id'] = undefined;

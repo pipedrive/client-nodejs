@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | The ID of the Organization Relationship | [optional] 
-**type** | **String** | The type of the Relationship | [optional] 
-**relOwnerOrgId** | [**RelationshipOrganizationInfoItem**](RelationshipOrganizationInfoItem.md) |  | [optional] 
-**relLinkedOrgId** | [**RelationshipOrganizationInfoItem**](RelationshipOrganizationInfoItem.md) |  | [optional] 
-**addTime** | **String** | The creation date and time of the Relationship | [optional] 
-**updateTime** | **String** | The last updated date and time of the Relationship | [optional] 
-**activeFlag** | **String** | If the Relationship is active or not | [optional] 
-**calculatedType** | **String** | The calculated type of the Relationship with the linked Organization | [optional] 
-**calculatedRelatedOrgId** | **Number** | The ID of the linked Organization | [optional] 
-**relatedOrganizationName** | **String** | The name of the linked Organization | [optional] 
+**id** | **Number** | The ID of the organization relationship | [optional] 
+**type** | **String** | The type of the relationship | [optional] 
+**rel_owner_org_id** | [**RelationshipOrganizationInfoItem**](RelationshipOrganizationInfoItem.md) |  | [optional] 
+**rel_linked_org_id** | [**RelationshipOrganizationInfoItem**](RelationshipOrganizationInfoItem.md) |  | [optional] 
+**add_time** | **String** | The creation date and time of the relationship | [optional] 
+**update_time** | **String** | The last updated date and time of the relationship | [optional] 
+**active_flag** | **String** | Whether the relationship is active or not | [optional] 
+**calculated_type** | **String** | The calculated type of the relationship with the linked organization | [optional] 
+**calculated_related_org_id** | **Number** | The ID of the linked organization | [optional] 
+**related_organization_name** | **String** | The name of the linked organization | [optional] 
 
 

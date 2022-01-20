@@ -52,6 +52,16 @@ export default class OrganizationRelationshipsApi {
       opts = opts || {};
       let postBody = opts['addOrganizationRelationshipRequest'];
 
+      if (opts['type'] === undefined || opts['type'] === null) {
+        throw new Error("Missing the required parameter 'type' when calling addOrganizationRelationship");
+      }
+      if (opts['rel_owner_org_id'] === undefined || opts['rel_owner_org_id'] === null) {
+        throw new Error("Missing the required parameter 'rel_owner_org_id' when calling addOrganizationRelationship");
+      }
+      if (opts['rel_linked_org_id'] === undefined || opts['rel_linked_org_id'] === null) {
+        throw new Error("Missing the required parameter 'rel_linked_org_id' when calling addOrganizationRelationship");
+      }
+
       let pathParams = {
       };
       let queryParams = {
@@ -105,13 +115,14 @@ export default class OrganizationRelationshipsApi {
 
     /**
      * Delete an organization relationship
-     * Deletes an organization relationship and returns the deleted id.
-     * @param {Number} id ID of the organization relationship
+     * Deletes an organization relationship and returns the deleted ID.
+     * @param {Number} id The ID of the organization relationship
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationRelationshipDeleteResponse} and HTTP response
      */
     deleteOrganizationRelationshipWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteOrganizationRelationship");
@@ -156,8 +167,8 @@ export default class OrganizationRelationshipsApi {
 
     /**
      * Delete an organization relationship
-     * Deletes an organization relationship and returns the deleted id.
-     * @param {Number} id ID of the organization relationship
+     * Deletes an organization relationship and returns the deleted ID.
+     * @param {Number} id The ID of the organization relationship
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationRelationshipDeleteResponse}
      */
     deleteOrganizationRelationship(id) {
@@ -171,18 +182,20 @@ export default class OrganizationRelationshipsApi {
     /**
      * Get one organization relationship
      * Finds and returns an organization relationship from its ID.
-     * @param {Number} id ID of the organization relationship
+     * @param {Number} id The ID of the organization relationship
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.orgId ID of the base organization for the returned calculated values
+     * @param {Number} opts.orgId The ID of the base organization for the returned calculated values
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationRelationshipGetResponse} and HTTP response
      */
     getOrganizationRelationshipWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getOrganizationRelationship");
       }
+
 
       let pathParams = {
         'id': id,
@@ -225,9 +238,9 @@ export default class OrganizationRelationshipsApi {
     /**
      * Get one organization relationship
      * Finds and returns an organization relationship from its ID.
-     * @param {Number} id ID of the organization relationship
+     * @param {Number} id The ID of the organization relationship
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.orgId ID of the base organization for the returned calculated values
+     * @param {Number} opts.orgId The ID of the base organization for the returned calculated values
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationRelationshipGetResponse}
      */
     getOrganizationRelationship(id, opts) {
@@ -241,12 +254,13 @@ export default class OrganizationRelationshipsApi {
     /**
      * Get all relationships for organization
      * Gets all of the relationships for a supplied organization ID.
-     * @param {Number} orgId ID of the organization to get relationships for
+     * @param {Number} orgId The ID of the organization to get relationships for
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AllOrganizationRelationshipsGetResponse} and HTTP response
      */
     getOrganizationRelationshipsWithHttpInfo(orgId) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'orgId' is set
       if (orgId === undefined || orgId === null) {
         throw new Error("Missing the required parameter 'orgId' when calling getOrganizationRelationships");
@@ -292,7 +306,7 @@ export default class OrganizationRelationshipsApi {
     /**
      * Get all relationships for organization
      * Gets all of the relationships for a supplied organization ID.
-     * @param {Number} orgId ID of the organization to get relationships for
+     * @param {Number} orgId The ID of the organization to get relationships for
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AllOrganizationRelationshipsGetResponse}
      */
     getOrganizationRelationships(orgId) {
@@ -306,7 +320,7 @@ export default class OrganizationRelationshipsApi {
     /**
      * Update an organization relationship
      * Updates and returns an organization relationship.
-     * @param {Number} id ID of the organization relationship
+     * @param {Number} id The ID of the organization relationship
      * @param {Object} opts Optional parameters
      * @param {module:model/OrganizationRelationship} opts.organizationRelationship 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationRelationshipUpdateResponse} and HTTP response
@@ -314,10 +328,12 @@ export default class OrganizationRelationshipsApi {
     updateOrganizationRelationshipWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['organizationRelationship'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateOrganizationRelationship");
       }
+
 
       let pathParams = {
         'id': id,
@@ -359,7 +375,7 @@ export default class OrganizationRelationshipsApi {
     /**
      * Update an organization relationship
      * Updates and returns an organization relationship.
-     * @param {Number} id ID of the organization relationship
+     * @param {Number} id The ID of the organization relationship
      * @param {Object} opts Optional parameters
      * @param {module:model/OrganizationRelationship} opts.organizationRelationship 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationRelationshipUpdateResponse}

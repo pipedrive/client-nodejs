@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | Deleted Stage ID | [optional] 
+**id** | **Number** | Deleted stage ID | [optional] 
 
 

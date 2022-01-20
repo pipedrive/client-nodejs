@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **followers** | [**RelatedFollowerData**](RelatedFollowerData.md) |  | [optional] 
-**dropboxEmail** | **String** | Dropbox email for the Organization | [optional] 
+**dropbox_email** | **String** | Dropbox email for the organization | [optional] 
 
 

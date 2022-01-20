@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[ListPersonProductsResponseAllOfData]**](ListPersonProductsResponseAllOfData.md) | The array of Deal Products | [optional] 
-**additionalData** | [**ItemSearchAdditionalData**](ItemSearchAdditionalData.md) |  | [optional] 
+**data** | [**[ListPersonProductsResponseAllOfData]**](ListPersonProductsResponseAllOfData.md) | The array of deal products | [optional] 
+**additional_data** | [**ItemSearchAdditionalData**](ItemSearchAdditionalData.md) |  | [optional] 
 
 

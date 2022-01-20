@@ -37,7 +37,7 @@ export default class NoteFieldsApi {
 
     /**
      * Get all note fields
-     * Returns data about all note fields
+     * Returns data about all note fields.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/NoteFieldsResponse} and HTTP response
      */
     getNoteFieldsWithHttpInfo() {
@@ -82,7 +82,7 @@ export default class NoteFieldsApi {
 
     /**
      * Get all note fields
-     * Returns data about all note fields
+     * Returns data about all note fields.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/NoteFieldsResponse}
      */
     getNoteFields() {

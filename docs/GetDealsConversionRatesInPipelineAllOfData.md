@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**stageConversions** | [**[StageConversions]**](StageConversions.md) | The Stage conversions | [optional] 
-**wonConversion** | **Number** | Won conversion | [optional] 
-**lostConversion** | **Number** | Lost conversion | [optional] 
+**stage_conversions** | [**[StageConversions]**](StageConversions.md) | The stage conversions | [optional] 
+**won_conversion** | **Number** | The won conversion | [optional] 
+**lost_conversion** | **Number** | The lost conversion | [optional] 
 
 

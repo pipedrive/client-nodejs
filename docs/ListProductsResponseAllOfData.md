@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [**[ProductListItem]**](ProductListItem.md) | The array of Products | [optional] 
+**items** | [**[ProductListItem]**](ProductListItem.md) | The array of products | [optional] 
 
 

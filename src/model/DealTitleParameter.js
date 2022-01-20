@@ -65,7 +65,7 @@ class DealTitleParameter {
 }
 
 /**
- * Deal title
+ * The title of the deal
  * @member {String} title
  */
 DealTitleParameter.prototype['title'] = undefined;

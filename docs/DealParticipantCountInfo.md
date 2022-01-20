@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**participantOpenDealsCount** | **Number** | The count of open participant Deals related with the item | [optional] 
-**participantClosedDealsCount** | **Number** | The count of closed participant Deals related with the item | [optional] 
+**participant_open_deals_count** | **Number** | The count of open participant deals related with the item | [optional] 
+**participant_closed_deals_count** | **Number** | The count of closed participant deals related with the item | [optional] 
 
 

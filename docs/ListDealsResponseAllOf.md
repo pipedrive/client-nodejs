@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[DealNonStrict]**](DealNonStrict.md) | The array of Deals | [optional] 
-**additionalData** | [**AdditionalData**](AdditionalData.md) |  | [optional] 
-**relatedObjects** | [**ListDealsResponseAllOfRelatedObjects**](ListDealsResponseAllOfRelatedObjects.md) |  | [optional] 
+**data** | [**[DealNonStrict]**](DealNonStrict.md) | The array of deals | [optional] 
+**additional_data** | [**AdditionalData**](AdditionalData.md) |  | [optional] 
+**related_objects** | [**ListDealsResponseAllOfRelatedObjects**](ListDealsResponseAllOfRelatedObjects.md) |  | [optional] 
 
 

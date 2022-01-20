@@ -44,23 +44,29 @@ export default class FilesApi {
 
     /**
      * Add file
-     * Lets you upload a file and associate it with Deal, Person, Organization, Activity or Product. For more information on how to add a file, see <a href=\"https://pipedrive.readme.io/docs/adding-a-file\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
-     * @param {File} file A single file, supplied in the multipart/form-data encoding and contained within the given boundaries.
+     * Lets you upload a file and associate it with deal, person, organization, activity or product. For more information on how to add a file, see <a href=\"https://pipedrive.readme.io/docs/adding-a-file\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * @param {File} file A single file, supplied in the multipart/form-data encoding and contained within the given boundaries
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.dealId ID of the deal to associate file(s) with
-     * @param {Number} opts.personId ID of the person to associate file(s) with
-     * @param {Number} opts.orgId ID of the organization to associate file(s) with
-     * @param {Number} opts.productId ID of the product to associate file(s) with
-     * @param {Number} opts.activityId ID of the activity to associate file(s) with
+     * @param {Number} opts.dealId The ID of the deal to associate file(s) with
+     * @param {Number} opts.personId The ID of the person to associate file(s) with
+     * @param {Number} opts.orgId The ID of the organization to associate file(s) with
+     * @param {Number} opts.productId The ID of the product to associate file(s) with
+     * @param {Number} opts.activityId The ID of the activity to associate file(s) with
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddFile} and HTTP response
      */
     addFileWithHttpInfo(file, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'file' is set
       if (file === undefined || file === null) {
         throw new Error("Missing the required parameter 'file' when calling addFile");
       }
+
+
+
+
+
 
       let pathParams = {
       };
@@ -112,14 +118,14 @@ export default class FilesApi {
 
     /**
      * Add file
-     * Lets you upload a file and associate it with Deal, Person, Organization, Activity or Product. For more information on how to add a file, see <a href=\"https://pipedrive.readme.io/docs/adding-a-file\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
-     * @param {File} file A single file, supplied in the multipart/form-data encoding and contained within the given boundaries.
+     * Lets you upload a file and associate it with deal, person, organization, activity or product. For more information on how to add a file, see <a href=\"https://pipedrive.readme.io/docs/adding-a-file\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * @param {File} file A single file, supplied in the multipart/form-data encoding and contained within the given boundaries
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.dealId ID of the deal to associate file(s) with
-     * @param {Number} opts.personId ID of the person to associate file(s) with
-     * @param {Number} opts.orgId ID of the organization to associate file(s) with
-     * @param {Number} opts.productId ID of the product to associate file(s) with
-     * @param {Number} opts.activityId ID of the activity to associate file(s) with
+     * @param {Number} opts.dealId The ID of the deal to associate file(s) with
+     * @param {Number} opts.personId The ID of the person to associate file(s) with
+     * @param {Number} opts.orgId The ID of the organization to associate file(s) with
+     * @param {Number} opts.productId The ID of the product to associate file(s) with
+     * @param {Number} opts.activityId The ID of the activity to associate file(s) with
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddFile}
      */
     addFile(file, opts) {
@@ -136,29 +142,34 @@ export default class FilesApi {
      * @param {module:model/String} fileType The file type
      * @param {String} title The title of the file
      * @param {module:model/String} itemType The item type
-     * @param {Number} itemId ID of the item to associate the file with
+     * @param {Number} itemId The ID of the item to associate the file with
      * @param {module:model/String} remoteLocation The location type to send the file to. Only `googledrive` is supported at the moment.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CreateRemoteFileAndLinkItToItem} and HTTP response
      */
     addFileAndLinkItWithHttpInfo(fileType, title, itemType, itemId, remoteLocation) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'fileType' is set
       if (fileType === undefined || fileType === null) {
         throw new Error("Missing the required parameter 'fileType' when calling addFileAndLinkIt");
       }
+
       // verify the required parameter 'title' is set
       if (title === undefined || title === null) {
         throw new Error("Missing the required parameter 'title' when calling addFileAndLinkIt");
       }
+
       // verify the required parameter 'itemType' is set
       if (itemType === undefined || itemType === null) {
         throw new Error("Missing the required parameter 'itemType' when calling addFileAndLinkIt");
       }
+
       // verify the required parameter 'itemId' is set
       if (itemId === undefined || itemId === null) {
         throw new Error("Missing the required parameter 'itemId' when calling addFileAndLinkIt");
       }
+
       // verify the required parameter 'remoteLocation' is set
       if (remoteLocation === undefined || remoteLocation === null) {
         throw new Error("Missing the required parameter 'remoteLocation' when calling addFileAndLinkIt");
@@ -216,7 +227,7 @@ export default class FilesApi {
      * @param {module:model/String} fileType The file type
      * @param {String} title The title of the file
      * @param {module:model/String} itemType The item type
-     * @param {Number} itemId ID of the item to associate the file with
+     * @param {Number} itemId The ID of the item to associate the file with
      * @param {module:model/String} remoteLocation The location type to send the file to. Only `googledrive` is supported at the moment.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CreateRemoteFileAndLinkItToItem}
      */
@@ -231,12 +242,13 @@ export default class FilesApi {
     /**
      * Delete a file
      * Marks a file as deleted.
-     * @param {Number} id ID of the file
+     * @param {Number} id The ID of the file
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteFile} and HTTP response
      */
     deleteFileWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteFile");
@@ -282,7 +294,7 @@ export default class FilesApi {
     /**
      * Delete a file
      * Marks a file as deleted.
-     * @param {Number} id ID of the file
+     * @param {Number} id The ID of the file
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteFile}
      */
     deleteFile(id) {
@@ -296,12 +308,13 @@ export default class FilesApi {
     /**
      * Download one file
      * Initializes a file download.
-     * @param {Number} id ID of the file
+     * @param {Number} id The ID of the file
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Blob} and HTTP response
      */
     downloadFileWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling downloadFile");
@@ -347,7 +360,7 @@ export default class FilesApi {
     /**
      * Download one file
      * Initializes a file download.
-     * @param {Number} id ID of the file
+     * @param {Number} id The ID of the file
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Blob}
      */
     downloadFile(id) {
@@ -361,12 +374,13 @@ export default class FilesApi {
     /**
      * Get one file
      * Returns data about a specific file.
-     * @param {Number} id ID of the file
+     * @param {Number} id The ID of the file
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetOneFile} and HTTP response
      */
     getFileWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getFile");
@@ -412,7 +426,7 @@ export default class FilesApi {
     /**
      * Get one file
      * Returns data about a specific file.
-     * @param {Number} id ID of the file
+     * @param {Number} id The ID of the file
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetOneFile}
      */
     getFile(id) {
@@ -430,12 +444,16 @@ export default class FilesApi {
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {module:model/NumberBoolean} opts.includeDeletedFiles When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
+     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetAllFiles} and HTTP response
      */
     getFilesWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
+
+
+
+
 
       let pathParams = {
       };
@@ -484,7 +502,7 @@ export default class FilesApi {
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {module:model/NumberBoolean} opts.includeDeletedFiles When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
+     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetAllFiles}
      */
     getFiles(opts) {
@@ -499,26 +517,30 @@ export default class FilesApi {
      * Link a remote file to an item
      * Links an existing remote file (`googledrive`) to the item you supply. For more information on how to link a remote file, see <a href=\"https://pipedrive.readme.io/docs/adding-a-remote-file\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {module:model/String} itemType The item type
-     * @param {Number} itemId ID of the item to associate the file with
-     * @param {String} remoteId The remote item id
+     * @param {Number} itemId The ID of the item to associate the file with
+     * @param {String} remoteId The remote item ID
      * @param {module:model/String} remoteLocation The location type to send the file to. Only `googledrive` is supported at the moment.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/LinkRemoteFileToItem} and HTTP response
      */
     linkFileToItemWithHttpInfo(itemType, itemId, remoteId, remoteLocation) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'itemType' is set
       if (itemType === undefined || itemType === null) {
         throw new Error("Missing the required parameter 'itemType' when calling linkFileToItem");
       }
+
       // verify the required parameter 'itemId' is set
       if (itemId === undefined || itemId === null) {
         throw new Error("Missing the required parameter 'itemId' when calling linkFileToItem");
       }
+
       // verify the required parameter 'remoteId' is set
       if (remoteId === undefined || remoteId === null) {
         throw new Error("Missing the required parameter 'remoteId' when calling linkFileToItem");
       }
+
       // verify the required parameter 'remoteLocation' is set
       if (remoteLocation === undefined || remoteLocation === null) {
         throw new Error("Missing the required parameter 'remoteLocation' when calling linkFileToItem");
@@ -572,8 +594,8 @@ export default class FilesApi {
      * Link a remote file to an item
      * Links an existing remote file (`googledrive`) to the item you supply. For more information on how to link a remote file, see <a href=\"https://pipedrive.readme.io/docs/adding-a-remote-file\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {module:model/String} itemType The item type
-     * @param {Number} itemId ID of the item to associate the file with
-     * @param {String} remoteId The remote item id
+     * @param {Number} itemId The ID of the item to associate the file with
+     * @param {String} remoteId The remote item ID
      * @param {module:model/String} remoteLocation The location type to send the file to. Only `googledrive` is supported at the moment.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/LinkRemoteFileToItem}
      */
@@ -588,19 +610,22 @@ export default class FilesApi {
     /**
      * Update file details
      * Updates the properties of a file.
-     * @param {Number} id ID of the file
+     * @param {Number} id The ID of the file
      * @param {Object} opts Optional parameters
-     * @param {String} opts.name Visible name of the file
-     * @param {String} opts.description Description of the file
+     * @param {String} opts.name The visible name of the file
+     * @param {String} opts.description The description of the file
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UpdateFile} and HTTP response
      */
     updateFileWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateFile");
       }
+
+
 
       let pathParams = {
         'id': id,
@@ -646,10 +671,10 @@ export default class FilesApi {
     /**
      * Update file details
      * Updates the properties of a file.
-     * @param {Number} id ID of the file
+     * @param {Number} id The ID of the file
      * @param {Object} opts Optional parameters
-     * @param {String} opts.name Visible name of the file
-     * @param {String} opts.description Description of the file
+     * @param {String} opts.name The visible name of the file
+     * @param {String} opts.description The description of the file
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UpdateFile}
      */
     updateFile(id, opts) {

@@ -22,7 +22,7 @@ import ActivityDistributionDataActivityDistributionASSIGNEDTOUSERID from './Acti
 class ActivityDistributionDataActivityDistribution {
     /**
      * Constructs a new <code>ActivityDistributionDataActivityDistribution</code>.
-     * The distribution of Activities related to the Organization grouped by the User ID
+     * The distribution of activities related to the organization grouped by the user ID
      * @alias module:model/ActivityDistributionDataActivityDistribution
      */
     constructor() { 

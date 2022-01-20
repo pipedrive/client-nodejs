@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class Duration {
     /**
      * Constructs a new <code>Duration</code>.
-     * Duration of the goal
+     * The duration of the goal
      * @alias module:model/Duration
      */
     constructor() { 
@@ -71,13 +71,13 @@ class Duration {
 }
 
 /**
- * Start date of the goal
+ * The start date of the goal
  * @member {String} start
  */
 Duration.prototype['start'] = undefined;
 
 /**
- * End date of the goal
+ * The end date of the goal
  * @member {String} end
  */
 Duration.prototype['end'] = undefined;

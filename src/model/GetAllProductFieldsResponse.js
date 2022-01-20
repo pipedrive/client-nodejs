@@ -82,13 +82,13 @@ class GetAllProductFieldsResponse {
 GetAllProductFieldsResponse.prototype['success'] = undefined;
 
 /**
- * Array containing data for all Product Fields
+ * Array containing data for all product fields
  * @member {Array.<module:model/ProductField>} data
  */
 GetAllProductFieldsResponse.prototype['data'] = undefined;
 
 /**
- * Additional data for the Product Field, such as pagination
+ * Additional data for the product field, such as pagination
  * @member {Object} additional_data
  */
 GetAllProductFieldsResponse.prototype['additional_data'] = undefined;

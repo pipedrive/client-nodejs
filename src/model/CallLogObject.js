@@ -145,13 +145,13 @@ CallLogObject.prototype['user_id'] = undefined;
 CallLogObject.prototype['activity_id'] = undefined;
 
 /**
- * Name of the activity this call is attached to
+ * The name of the activity this call is attached to
  * @member {String} subject
  */
 CallLogObject.prototype['subject'] = undefined;
 
 /**
- * Call duration in seconds
+ * The duration of the call in seconds
  * @member {String} duration
  */
 CallLogObject.prototype['duration'] = undefined;
@@ -187,25 +187,25 @@ CallLogObject.prototype['start_time'] = undefined;
 CallLogObject.prototype['end_time'] = undefined;
 
 /**
- * The ID of the Person this call is associated with
+ * The ID of the person this call is associated with
  * @member {Number} person_id
  */
 CallLogObject.prototype['person_id'] = undefined;
 
 /**
- * The ID of the Organization this call is associated with
+ * The ID of the organization this call is associated with
  * @member {Number} org_id
  */
 CallLogObject.prototype['org_id'] = undefined;
 
 /**
- * The ID of the Deal this call is associated with
+ * The ID of the deal this call is associated with
  * @member {Number} deal_id
  */
 CallLogObject.prototype['deal_id'] = undefined;
 
 /**
- * Note for the call log in HTML format
+ * The note for the call log in HTML format
  * @member {String} note
  */
 CallLogObject.prototype['note'] = undefined;

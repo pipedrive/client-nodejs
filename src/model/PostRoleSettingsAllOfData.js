@@ -71,7 +71,7 @@ class PostRoleSettingsAllOfData {
 }
 
 /**
- * The ID of the Role
+ * The ID of the role
  * @member {Number} id
  */
 PostRoleSettingsAllOfData.prototype['id'] = undefined;

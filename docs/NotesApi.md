@@ -95,7 +95,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.NotesApi();
-let id = 56; // Number | ID of the note
+let id = 56; // Number | The ID of the note
 let opts = Pipedrive.CommentPostPutObject.constructFromObject({
   // Properties that you want to update
 });
@@ -112,7 +112,7 @@ apiInstance.addNoteComment(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the note | 
+ **id** | **Number**| The ID of the note | 
  **commentPostPutObject** | [**CommentPostPutObject**](CommentPostPutObject.md)|  | [optional] 
 
 ### Return type
@@ -152,8 +152,8 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.NotesApi();
-let id = 56; // Number | ID of the note
-let commentId = null; // String | ID of the comment
+let id = 56; // Number | The ID of the note
+let commentId = "commentId_example"; // String | The ID of the comment
 apiInstance.deleteComment(id, commentId).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -167,8 +167,8 @@ apiInstance.deleteComment(id, commentId).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the note | 
- **commentId** | [**String**](.md)| ID of the comment | 
+ **id** | **Number**| The ID of the note | 
+ **commentId** | **String**| The ID of the comment | 
 
 ### Return type
 
@@ -207,7 +207,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.NotesApi();
-let id = 56; // Number | ID of the note
+let id = 56; // Number | The ID of the note
 apiInstance.deleteNote(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -221,7 +221,7 @@ apiInstance.deleteNote(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the note | 
+ **id** | **Number**| The ID of the note | 
 
 ### Return type
 
@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 
 Get one comment
 
-Returns details about a comment
+Returns the details of a comment.
 
 ### Example
 
@@ -260,8 +260,8 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.NotesApi();
-let id = 56; // Number | ID of the note
-let commentId = null; // String | ID of the comment
+let id = 56; // Number | The ID of the note
+let commentId = "commentId_example"; // String | The ID of the comment
 apiInstance.getComment(id, commentId).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -275,8 +275,8 @@ apiInstance.getComment(id, commentId).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the note | 
- **commentId** | [**String**](.md)| ID of the comment | 
+ **id** | **Number**| The ID of the note | 
+ **commentId** | **String**| The ID of the comment | 
 
 ### Return type
 
@@ -315,7 +315,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.NotesApi();
-let id = 56; // Number | ID of the note
+let id = 56; // Number | The ID of the note
 apiInstance.getNote(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -329,7 +329,7 @@ apiInstance.getNote(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the note | 
+ **id** | **Number**| The ID of the note | 
 
 ### Return type
 
@@ -351,7 +351,7 @@ Name | Type | Description  | Notes
 
 Get all comments for a note
 
-Returns all comments associated with a Note.
+Returns all comments associated with a note.
 
 ### Example
 
@@ -368,7 +368,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.NotesApi();
-let id = 56; // Number | ID of the note
+let id = 56; // Number | The ID of the note
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
@@ -386,7 +386,7 @@ apiInstance.getNoteComments(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the note | 
+ **id** | **Number**| The ID of the note | 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
 
@@ -429,19 +429,19 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new Pipedrive.NotesApi();
 let opts = {
   'userId': 56, // Number | The ID of the user whose notes to fetch. If omitted, notes by all users will be returned.
-  'leadId': null, // String | The ID of the lead which notes to fetch. If omitted, notes about all leads will be returned.
+  'leadId': "leadId_example", // String | The ID of the lead which notes to fetch. If omitted, notes about all leads will be returned.
   'dealId': 56, // Number | The ID of the deal which notes to fetch. If omitted, notes about all deals will be returned.
   'personId': 56, // Number | The ID of the person whose notes to fetch. If omitted, notes about all persons will be returned.
-  'orgId': 56, // Number | The ID of the organization which notes to fetch. If omitted, notes about all organizations will be returned
+  'orgId': 56, // Number | The ID of the organization which notes to fetch. If omitted, notes about all organizations will be returned.
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
-  'sort': "sort_example", // String | Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `content`, `add_time`, `update_time`.
-  'startDate': new Date("2013-10-20"), // Date | Date in format of YYYY-MM-DD from which notes to fetch.
-  'endDate': new Date("2013-10-20"), // Date | Date in format of YYYY-MM-DD until which notes to fetch to.
-  'pinnedToLeadFlag': new Pipedrive.NumberBoolean(), // NumberBoolean | If set, then results are filtered by note to lead pinning state
-  'pinnedToDealFlag': new Pipedrive.NumberBoolean(), // NumberBoolean | If set, then results are filtered by note to deal pinning state
-  'pinnedToOrganizationFlag': new Pipedrive.NumberBoolean(), // NumberBoolean | If set, then results are filtered by note to organization pinning state
-  'pinnedToPersonFlag': new Pipedrive.NumberBoolean() // NumberBoolean | If set, then results are filtered by note to person pinning state
+  'sort': "sort_example", // String | The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `content`, `add_time`, `update_time`.
+  'startDate': new Date("2013-10-20"), // Date | The date in format of YYYY-MM-DD from which notes to fetch
+  'endDate': new Date("2013-10-20"), // Date | The date in format of YYYY-MM-DD until which notes to fetch to
+  'pinnedToLeadFlag': new Pipedrive.NumberBoolean(), // NumberBoolean | If set, the results are filtered by note to lead pinning state
+  'pinnedToDealFlag': new Pipedrive.NumberBoolean(), // NumberBoolean | If set, the results are filtered by note to deal pinning state
+  'pinnedToOrganizationFlag': new Pipedrive.NumberBoolean(), // NumberBoolean | If set, the results are filtered by note to organization pinning state
+  'pinnedToPersonFlag': new Pipedrive.NumberBoolean() // NumberBoolean | If set, the results are filtered by note to person pinning state
 };
 apiInstance.getNotes(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -457,19 +457,19 @@ apiInstance.getNotes(opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| The ID of the user whose notes to fetch. If omitted, notes by all users will be returned. | [optional] 
- **leadId** | [**String**](.md)| The ID of the lead which notes to fetch. If omitted, notes about all leads will be returned. | [optional] 
+ **leadId** | **String**| The ID of the lead which notes to fetch. If omitted, notes about all leads will be returned. | [optional] 
  **dealId** | **Number**| The ID of the deal which notes to fetch. If omitted, notes about all deals will be returned. | [optional] 
  **personId** | **Number**| The ID of the person whose notes to fetch. If omitted, notes about all persons will be returned. | [optional] 
- **orgId** | **Number**| The ID of the organization which notes to fetch. If omitted, notes about all organizations will be returned | [optional] 
+ **orgId** | **Number**| The ID of the organization which notes to fetch. If omitted, notes about all organizations will be returned. | [optional] 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
- **sort** | **String**| Field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: &#x60;id&#x60;, &#x60;user_id&#x60;, &#x60;deal_id&#x60;, &#x60;person_id&#x60;, &#x60;org_id&#x60;, &#x60;content&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;. | [optional] 
- **startDate** | **Date**| Date in format of YYYY-MM-DD from which notes to fetch. | [optional] 
- **endDate** | **Date**| Date in format of YYYY-MM-DD until which notes to fetch to. | [optional] 
- **pinnedToLeadFlag** | [**NumberBoolean**](.md)| If set, then results are filtered by note to lead pinning state | [optional] 
- **pinnedToDealFlag** | [**NumberBoolean**](.md)| If set, then results are filtered by note to deal pinning state | [optional] 
- **pinnedToOrganizationFlag** | [**NumberBoolean**](.md)| If set, then results are filtered by note to organization pinning state | [optional] 
- **pinnedToPersonFlag** | [**NumberBoolean**](.md)| If set, then results are filtered by note to person pinning state | [optional] 
+ **sort** | **String**| The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: &#x60;id&#x60;, &#x60;user_id&#x60;, &#x60;deal_id&#x60;, &#x60;person_id&#x60;, &#x60;org_id&#x60;, &#x60;content&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;. | [optional] 
+ **startDate** | **Date**| The date in format of YYYY-MM-DD from which notes to fetch | [optional] 
+ **endDate** | **Date**| The date in format of YYYY-MM-DD until which notes to fetch to | [optional] 
+ **pinnedToLeadFlag** | [**NumberBoolean**](.md)| If set, the results are filtered by note to lead pinning state | [optional] 
+ **pinnedToDealFlag** | [**NumberBoolean**](.md)| If set, the results are filtered by note to deal pinning state | [optional] 
+ **pinnedToOrganizationFlag** | [**NumberBoolean**](.md)| If set, the results are filtered by note to organization pinning state | [optional] 
+ **pinnedToPersonFlag** | [**NumberBoolean**](.md)| If set, the results are filtered by note to person pinning state | [optional] 
 
 ### Return type
 
@@ -508,8 +508,8 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.NotesApi();
-let id = 56; // Number | ID of the note
-let commentId = null; // String | ID of the comment
+let id = 56; // Number | The ID of the note
+let commentId = "commentId_example"; // String | The ID of the comment
 let opts = Pipedrive.CommentPostPutObject.constructFromObject({
   // Properties that you want to update
 });
@@ -526,8 +526,8 @@ apiInstance.updateCommentForNote(id, commentId, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the note | 
- **commentId** | [**String**](.md)| ID of the comment | 
+ **id** | **Number**| The ID of the note | 
+ **commentId** | **String**| The ID of the comment | 
  **commentPostPutObject** | [**CommentPostPutObject**](CommentPostPutObject.md)|  | [optional] 
 
 ### Return type
@@ -567,7 +567,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.NotesApi();
-let id = 56; // Number | ID of the note
+let id = 56; // Number | The ID of the note
 let opts = Pipedrive.Note.constructFromObject({
   // Properties that you want to update
 });
@@ -584,7 +584,7 @@ apiInstance.updateNote(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the note | 
+ **id** | **Number**| The ID of the note | 
  **note** | [**Note**](Note.md)|  | [optional] 
 
 ### Return type

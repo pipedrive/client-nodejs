@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**addPersonFollower**](PersonsApi.md#addPersonFollower) | **POST** /persons/{id}/followers | Add a follower to a person
 [**addPersonPicture**](PersonsApi.md#addPersonPicture) | **POST** /persons/{id}/picture | Add person picture
 [**deletePerson**](PersonsApi.md#deletePerson) | **DELETE** /persons/{id} | Delete a person
-[**deletePersonFollower**](PersonsApi.md#deletePersonFollower) | **DELETE** /persons/{id}/followers/{follower_id} | Deletes a follower from a person.
+[**deletePersonFollower**](PersonsApi.md#deletePersonFollower) | **DELETE** /persons/{id}/followers/{follower_id} | Delete a follower from a person
 [**deletePersonPicture**](PersonsApi.md#deletePersonPicture) | **DELETE** /persons/{id}/picture | Delete person picture
 [**deletePersons**](PersonsApi.md#deletePersons) | **DELETE** /persons | Delete multiple persons in bulk
 [**getPerson**](PersonsApi.md#getPerson) | **GET** /persons/{id} | Get details of a person
@@ -105,7 +105,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi();
-let id = 56; // Number | ID of a person
+let id = 56; // Number | The ID of the person
 let opts = Pipedrive.AddPersonFollowerRequest.constructFromObject({
   // Properties that you want to update
 });
@@ -122,7 +122,7 @@ apiInstance.addPersonFollower(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of a person | 
+ **id** | **Number**| The ID of the person | 
  **addPersonFollowerRequest** | [**AddPersonFollowerRequest**](AddPersonFollowerRequest.md)|  | [optional] 
 
 ### Return type
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 Add person picture
 
-Add a picture to a person. If a picture is already set, the old picture will be replaced. Added image (or the cropping parameters supplied with the request) should have an equal width and height and should be at least 128 pixels. GIF, JPG and PNG are accepted. All added images will be resized to 128 and 512 pixel wide squares.
+Adds a picture to a person. If a picture is already set, the old picture will be replaced. Added image (or the cropping parameters supplied with the request) should have an equal width and height and should be at least 128 pixels. GIF, JPG and PNG are accepted. All added images will be resized to 128 and 512 pixel wide squares.
 
 ### Example
 
@@ -162,13 +162,13 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi();
-let id = 56; // Number | ID of a person
-let file = "/path/to/file"; // File | One image supplied in the multipart/form-data encoding.
+let id = 56; // Number | The ID of the person
+let file = "/path/to/file"; // File | One image supplied in the multipart/form-data encoding
 let opts = {
   'cropX': 56, // Number | X coordinate to where start cropping form (in pixels)
   'cropY': 56, // Number | Y coordinate to where start cropping form (in pixels)
-  'cropWidth': 56, // Number | Width of cropping area (in pixels)
-  'cropHeight': 56 // Number | Height of cropping area (in pixels)
+  'cropWidth': 56, // Number | The width of the cropping area (in pixels)
+  'cropHeight': 56 // Number | The height of the cropping area (in pixels)
 };
 apiInstance.addPersonPicture(id, file, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -183,12 +183,12 @@ apiInstance.addPersonPicture(id, file, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of a person | 
- **file** | **File**| One image supplied in the multipart/form-data encoding. | 
+ **id** | **Number**| The ID of the person | 
+ **file** | **File**| One image supplied in the multipart/form-data encoding | 
  **cropX** | **Number**| X coordinate to where start cropping form (in pixels) | [optional] 
  **cropY** | **Number**| Y coordinate to where start cropping form (in pixels) | [optional] 
- **cropWidth** | **Number**| Width of cropping area (in pixels) | [optional] 
- **cropHeight** | **Number**| Height of cropping area (in pixels) | [optional] 
+ **cropWidth** | **Number**| The width of the cropping area (in pixels) | [optional] 
+ **cropHeight** | **Number**| The height of the cropping area (in pixels) | [optional] 
 
 ### Return type
 
@@ -227,7 +227,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi();
-let id = 56; // Number | ID of a person
+let id = 56; // Number | The ID of the person
 apiInstance.deletePerson(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -241,7 +241,7 @@ apiInstance.deletePerson(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of a person | 
+ **id** | **Number**| The ID of the person | 
 
 ### Return type
 
@@ -261,9 +261,9 @@ Name | Type | Description  | Notes
 
 > DeletePersonResponse deletePersonFollower(id, followerId)
 
-Deletes a follower from a person.
-
 Delete a follower from a person
+
+Deletes a follower from a person.
 
 ### Example
 
@@ -277,8 +277,8 @@ api_key.apiKey = 'YOUR API KEY';
 //api_key.apiKeyPrefix = 'Token';
 
 let apiInstance = new Pipedrive.PersonsApi();
-let id = 56; // Number | ID of a person
-let followerId = 56; // Number | ID of the follower
+let id = 56; // Number | The ID of the person
+let followerId = 56; // Number | The ID of the follower
 apiInstance.deletePersonFollower(id, followerId).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -292,8 +292,8 @@ apiInstance.deletePersonFollower(id, followerId).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of a person | 
- **followerId** | **Number**| ID of the follower | 
+ **id** | **Number**| The ID of the person | 
+ **followerId** | **Number**| The ID of the follower | 
 
 ### Return type
 
@@ -315,7 +315,7 @@ Name | Type | Description  | Notes
 
 Delete person picture
 
-Delete person picture
+Deletes a person’s picture.
 
 ### Example
 
@@ -332,7 +332,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi();
-let id = 56; // Number | ID of a person
+let id = 56; // Number | The ID of the person
 apiInstance.deletePersonPicture(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -346,7 +346,7 @@ apiInstance.deletePersonPicture(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of a person | 
+ **id** | **Number**| The ID of the person | 
 
 ### Return type
 
@@ -386,7 +386,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi();
 let opts = {
-  'ids': "ids_example" // String | Comma-separated IDs that will be deleted
+  'ids': "ids_example" // String | The comma-separated IDs that will be deleted
 };
 apiInstance.deletePersons(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -401,7 +401,7 @@ apiInstance.deletePersons(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **String**| Comma-separated IDs that will be deleted | [optional] 
+ **ids** | **String**| The comma-separated IDs that will be deleted | [optional] 
 
 ### Return type
 
@@ -423,7 +423,7 @@ Name | Type | Description  | Notes
 
 Get details of a person
 
-Returns details of a person. Note that this also returns some additional fields which are not present when asking for all persons. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the &#x60;key&#x60; value of personFields.
+Returns the details of a person. Note that this also returns some additional fields which are not present when asking for all persons. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the &#x60;key&#x60; value of personFields.
 
 ### Example
 
@@ -440,7 +440,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi();
-let id = 56; // Number | ID of a person
+let id = 56; // Number | The ID of the person
 apiInstance.getPerson(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -454,7 +454,7 @@ apiInstance.getPerson(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of a person | 
+ **id** | **Number**| The ID of the person | 
 
 ### Return type
 
@@ -493,11 +493,11 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi();
-let id = 56; // Number | ID of a person
+let id = 56; // Number | The ID of the person
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
-  'done': new Pipedrive.NumberBoolean(), // NumberBoolean | Whether the activity is done or not. 0 = Not done, 1 = Done. If omitted returns both Done and Not done activities.
+  'done': new Pipedrive.NumberBoolean(), // NumberBoolean | Whether the activity is done or not. 0 = Not done, 1 = Done. If omitted, returns both Done and Not done activities.
   'exclude': "exclude_example" // String | A comma-separated string of activity IDs to exclude from result
 };
 apiInstance.getPersonActivities(id, opts).then((data) => {
@@ -513,10 +513,10 @@ apiInstance.getPersonActivities(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of a person | 
+ **id** | **Number**| The ID of the person | 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
- **done** | [**NumberBoolean**](.md)| Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted returns both Done and Not done activities. | [optional] 
+ **done** | [**NumberBoolean**](.md)| Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted, returns both Done and Not done activities. | [optional] 
  **exclude** | **String**| A comma-separated string of activity IDs to exclude from result | [optional] 
 
 ### Return type
@@ -556,12 +556,12 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi();
-let id = 56; // Number | ID of a person
+let id = 56; // Number | The ID of the person
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
-  'status': "'all_not_deleted'", // String | Only fetch deals with specific status. If omitted, all not deleted deals are fetched.
-  'sort': "sort_example" // String | Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
+  'status': "'all_not_deleted'", // String | Only fetch deals with a specific status. If omitted, all not deleted deals are fetched.
+  'sort': "sort_example" // String | The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
 };
 apiInstance.getPersonDeals(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -576,11 +576,11 @@ apiInstance.getPersonDeals(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of a person | 
+ **id** | **Number**| The ID of the person | 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
- **status** | **String**| Only fetch deals with specific status. If omitted, all not deleted deals are fetched. | [optional] [default to &#39;all_not_deleted&#39;]
- **sort** | **String**| Field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). | [optional] 
+ **status** | **String**| Only fetch deals with a specific status. If omitted, all not deleted deals are fetched. | [optional] [default to &#39;all_not_deleted&#39;]
+ **sort** | **String**| The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). | [optional] 
 
 ### Return type
 
@@ -619,12 +619,12 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi();
-let id = 56; // Number | ID of a person
+let id = 56; // Number | The ID of the person
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
   'includeDeletedFiles': new Pipedrive.NumberBoolean(), // NumberBoolean | When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
-  'sort': "sort_example" // String | Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
+  'sort': "sort_example" // String | The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
 };
 apiInstance.getPersonFiles(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -639,11 +639,11 @@ apiInstance.getPersonFiles(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of a person | 
+ **id** | **Number**| The ID of the person | 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
  **includeDeletedFiles** | [**NumberBoolean**](.md)| When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work. | [optional] 
- **sort** | **String**| Field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment. | [optional] 
+ **sort** | **String**| The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment. | [optional] 
 
 ### Return type
 
@@ -682,7 +682,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi();
-let id = 56; // Number | ID of a person
+let id = 56; // Number | The ID of the person
 apiInstance.getPersonFollowers(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -696,7 +696,7 @@ apiInstance.getPersonFollowers(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of a person | 
+ **id** | **Number**| The ID of the person | 
 
 ### Return type
 
@@ -735,7 +735,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi();
-let id = 56; // Number | ID of a person
+let id = 56; // Number | The ID of the person
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
@@ -753,7 +753,7 @@ apiInstance.getPersonMailMessages(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of a person | 
+ **id** | **Number**| The ID of the person | 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
 
@@ -791,7 +791,7 @@ api_key.apiKey = 'YOUR API KEY';
 //api_key.apiKeyPrefix = 'Token';
 
 let apiInstance = new Pipedrive.PersonsApi();
-let id = 56; // Number | ID of a person
+let id = 56; // Number | The ID of the person
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
@@ -809,7 +809,7 @@ apiInstance.getPersonProducts(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of a person | 
+ **id** | **Number**| The ID of the person | 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
 
@@ -850,7 +850,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi();
-let id = 56; // Number | ID of a person
+let id = 56; // Number | The ID of the person
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
@@ -870,7 +870,7 @@ apiInstance.getPersonUpdates(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of a person | 
+ **id** | **Number**| The ID of the person | 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
  **allChanges** | **String**| Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates. | [optional] 
@@ -896,7 +896,7 @@ Name | Type | Description  | Notes
 
 List permitted users
 
-List users permitted to access a person
+List users permitted to access a person.
 
 ### Example
 
@@ -910,7 +910,7 @@ api_key.apiKey = 'YOUR API KEY';
 //api_key.apiKeyPrefix = 'Token';
 
 let apiInstance = new Pipedrive.PersonsApi();
-let id = 56; // Number | ID of a person
+let id = 56; // Number | The ID of the person
 apiInstance.getPersonUsers(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -924,7 +924,7 @@ apiInstance.getPersonUsers(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of a person | 
+ **id** | **Number**| The ID of the person | 
 
 ### Return type
 
@@ -946,7 +946,7 @@ Name | Type | Description  | Notes
 
 Get all persons
 
-Returns all persons
+Returns all persons.
 
 ### Example
 
@@ -965,11 +965,11 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new Pipedrive.PersonsApi();
 let opts = {
   'userId': 56, // Number | If supplied, only persons owned by the given user will be returned. However, `filter_id` takes precedence over `user_id` when both are supplied.
-  'filterId': 56, // Number | ID of the filter to use.
-  'firstChar': "firstChar_example", // String | If supplied, only persons whose name starts with the specified letter will be returned (case insensitive).
+  'filterId': 56, // Number | The ID of the filter to use
+  'firstChar': "firstChar_example", // String | If supplied, only persons whose name starts with the specified letter will be returned (case insensitive)
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
-  'sort': "sort_example" // String | Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
+  'sort': "sort_example" // String | The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
 };
 apiInstance.getPersons(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -985,11 +985,11 @@ apiInstance.getPersons(opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| If supplied, only persons owned by the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;user_id&#x60; when both are supplied. | [optional] 
- **filterId** | **Number**| ID of the filter to use. | [optional] 
- **firstChar** | **String**| If supplied, only persons whose name starts with the specified letter will be returned (case insensitive). | [optional] 
+ **filterId** | **Number**| The ID of the filter to use | [optional] 
+ **firstChar** | **String**| If supplied, only persons whose name starts with the specified letter will be returned (case insensitive) | [optional] 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
- **sort** | **String**| Field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). | [optional] 
+ **sort** | **String**| The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). | [optional] 
 
 ### Return type
 
@@ -1028,7 +1028,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi();
-let id = 56; // Number | ID of a person
+let id = 56; // Number | The ID of the person
 let opts = Pipedrive.MergePersonsRequest.constructFromObject({
   // Properties that you want to update
 });
@@ -1045,7 +1045,7 @@ apiInstance.mergePersons(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of a person | 
+ **id** | **Number**| The ID of the person | 
  **mergePersonsRequest** | [**MergePersonsRequest**](MergePersonsRequest.md)|  | [optional] 
 
 ### Return type
@@ -1068,7 +1068,7 @@ Name | Type | Description  | Notes
 
 Search persons
 
-Searches all Persons by name, email, phone, notes and/or custom fields. This endpoint is a wrapper of &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\&quot;&gt;/v1/itemSearch&lt;/a&gt; with a narrower OAuth scope. Found Persons can be filtered by Organization ID.
+Searches all persons by name, email, phone, notes and/or custom fields. This endpoint is a wrapper of &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\&quot;&gt;/v1/itemSearch&lt;/a&gt; with a narrower OAuth scope. Found persons can be filtered by organization ID.
 
 ### Example
 
@@ -1089,8 +1089,8 @@ let term = "term_example"; // String | The search term to look for. Minimum 2 ch
 let opts = {
   'fields': "fields_example", // String | A comma-separated string array. The fields to perform the search from. Defaults to all of them.
   'exactMatch': true, // Boolean | When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
-  'organizationId': 56, // Number | Will filter Deals by the provided Organization ID. The upper limit of found Deals associated with the Organization is 2000.
-  'includeFields': "includeFields_example", // String | Supports including optional fields in the results which are not provided by default.
+  'organizationId': 56, // Number | Will filter persons by the provided organization ID. The upper limit of found persons associated with the organization is 2000.
+  'includeFields': "includeFields_example", // String | Supports including optional fields in the results which are not provided by default
   'start': 0, // Number | Pagination start. Note that the pagination is based on main results and does not include related items when using `search_for_related_items` parameter.
   'limit': 56 // Number | Items shown per page
 };
@@ -1110,8 +1110,8 @@ Name | Type | Description  | Notes
  **term** | **String**| The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). | 
  **fields** | **String**| A comma-separated string array. The fields to perform the search from. Defaults to all of them. | [optional] 
  **exactMatch** | **Boolean**| When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. | [optional] 
- **organizationId** | **Number**| Will filter Deals by the provided Organization ID. The upper limit of found Deals associated with the Organization is 2000. | [optional] 
- **includeFields** | **String**| Supports including optional fields in the results which are not provided by default. | [optional] 
+ **organizationId** | **Number**| Will filter persons by the provided organization ID. The upper limit of found persons associated with the organization is 2000. | [optional] 
+ **includeFields** | **String**| Supports including optional fields in the results which are not provided by default | [optional] 
  **start** | **Number**| Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter. | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
 
@@ -1152,7 +1152,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi();
-let id = 56; // Number | ID of a person
+let id = 56; // Number | The ID of the person
 let opts = Pipedrive.BasicPerson.constructFromObject({
   // Properties that you want to update
 });
@@ -1169,7 +1169,7 @@ apiInstance.updatePerson(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of a person | 
+ **id** | **Number**| The ID of the person | 
  **basicPerson** | [**BasicPerson**](BasicPerson.md)|  | [optional] 
 
 ### Return type
