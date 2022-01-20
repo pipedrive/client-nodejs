@@ -8,7 +8,7 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
-## 13.0.11
+## 13.0.12
 ### Added
 - Added leadField to field_type options for `GET /v1/itemSearch/field`
 
