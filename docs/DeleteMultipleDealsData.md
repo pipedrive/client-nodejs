@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **[Number]** | The list of deleted Deals IDs | [optional] 
+**id** | **[Number]** | The list of deleted deals IDs | [optional] 
 
 

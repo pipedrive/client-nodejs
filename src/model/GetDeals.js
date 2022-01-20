@@ -89,7 +89,7 @@ class GetDeals {
 GetDeals.prototype['success'] = undefined;
 
 /**
- * The array of Deals
+ * The array of deals
  * @member {Array.<module:model/DealNonStrict>} data
  */
 GetDeals.prototype['data'] = undefined;

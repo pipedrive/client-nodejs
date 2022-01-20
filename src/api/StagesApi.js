@@ -108,7 +108,7 @@ export default class StagesApi {
     /**
      * Delete a stage
      * Marks a stage as deleted.
-     * @param {Number} id ID of the stage
+     * @param {Number} id The ID of the stage
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteStageResponse200} and HTTP response
      */
     deleteStageWithHttpInfo(id) {
@@ -159,7 +159,7 @@ export default class StagesApi {
     /**
      * Delete a stage
      * Marks a stage as deleted.
-     * @param {Number} id ID of the stage
+     * @param {Number} id The ID of the stage
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteStageResponse200}
      */
     deleteStage(id) {
@@ -173,7 +173,7 @@ export default class StagesApi {
     /**
      * Delete multiple stages in bulk
      * Marks multiple stages as deleted.
-     * @param {String} ids Comma-separated stage IDs to delete
+     * @param {String} ids The comma-separated stage IDs to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteStagesResponse200} and HTTP response
      */
     deleteStagesWithHttpInfo(ids) {
@@ -224,7 +224,7 @@ export default class StagesApi {
     /**
      * Delete multiple stages in bulk
      * Marks multiple stages as deleted.
-     * @param {String} ids Comma-separated stage IDs to delete
+     * @param {String} ids The comma-separated stage IDs to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteStagesResponse200}
      */
     deleteStages(ids) {
@@ -238,7 +238,7 @@ export default class StagesApi {
     /**
      * Get one stage
      * Returns data about a specific stage.
-     * @param {Number} id ID of the stage
+     * @param {Number} id The ID of the stage
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetOneStage} and HTTP response
      */
     getStageWithHttpInfo(id) {
@@ -289,7 +289,7 @@ export default class StagesApi {
     /**
      * Get one stage
      * Returns data about a specific stage.
-     * @param {Number} id ID of the stage
+     * @param {Number} id The ID of the stage
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetOneStage}
      */
     getStage(id) {
@@ -303,11 +303,11 @@ export default class StagesApi {
     /**
      * Get deals in a stage
      * Lists deals in a specific stage.
-     * @param {Number} id ID of the stage
+     * @param {Number} id The ID of the stage
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.filterId If supplied, only deals matching the given filter will be returned.
+     * @param {Number} opts.filterId If supplied, only deals matching the given filter will be returned
      * @param {Number} opts.userId If supplied, `filter_id` will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned.
-     * @param {module:model/NumberBoolean} opts.everyone If supplied, `filter_id` and `user_id` will not be considered – instead, deals owned by everyone will be returned.
+     * @param {module:model/NumberBoolean} opts.everyone If supplied, `filter_id` and `user_id` will not be considered – instead, deals owned by everyone will be returned
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetStageDeals} and HTTP response
@@ -365,11 +365,11 @@ export default class StagesApi {
     /**
      * Get deals in a stage
      * Lists deals in a specific stage.
-     * @param {Number} id ID of the stage
+     * @param {Number} id The ID of the stage
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.filterId If supplied, only deals matching the given filter will be returned.
+     * @param {Number} opts.filterId If supplied, only deals matching the given filter will be returned
      * @param {Number} opts.userId If supplied, `filter_id` will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned.
-     * @param {module:model/NumberBoolean} opts.everyone If supplied, `filter_id` and `user_id` will not be considered – instead, deals owned by everyone will be returned.
+     * @param {module:model/NumberBoolean} opts.everyone If supplied, `filter_id` and `user_id` will not be considered – instead, deals owned by everyone will be returned
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetStageDeals}
@@ -448,7 +448,7 @@ export default class StagesApi {
     /**
      * Update stage details
      * Updates the properties of a stage.
-     * @param {Number} id ID of the stage
+     * @param {Number} id The ID of the stage
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateStageRequest} opts.updateStageRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetAddUpdateStage} and HTTP response
@@ -501,7 +501,7 @@ export default class StagesApi {
     /**
      * Update stage details
      * Updates the properties of a stage.
-     * @param {Number} id ID of the stage
+     * @param {Number} id The ID of the stage
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateStageRequest} opts.updateStageRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetAddUpdateStage}

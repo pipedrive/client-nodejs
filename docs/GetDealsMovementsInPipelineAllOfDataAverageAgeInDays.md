@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**acrossAllStages** | **Number** | Moved Deals average age across all Stages | [optional] 
-**byStages** | [**[GetDealsMovementsInPipelineAllOfDataAverageAgeInDaysByStages]**](GetDealsMovementsInPipelineAllOfDataAverageAgeInDaysByStages.md) | Moved Deals average age by Stages | [optional] 
+**acrossAllStages** | **Number** | The moved deals average age across all stages | [optional] 
+**byStages** | [**[GetDealsMovementsInPipelineAllOfDataAverageAgeInDaysByStages]**](GetDealsMovementsInPipelineAllOfDataAverageAgeInDaysByStages.md) | The moved deals average age by stages | [optional] 
 
 

@@ -119,7 +119,7 @@ BaseProduct.prototype['id'] = undefined;
 BaseProduct.prototype['name'] = undefined;
 
 /**
- * Product code
+ * The product code
  * @member {String} code
  */
 BaseProduct.prototype['code'] = undefined;
@@ -131,7 +131,7 @@ BaseProduct.prototype['code'] = undefined;
 BaseProduct.prototype['unit'] = undefined;
 
 /**
- * Tax percentage
+ * The ax percentage
  * @member {Number} tax
  * @default 0
  */
@@ -154,7 +154,7 @@ BaseProduct.prototype['selectable'] = undefined;
 BaseProduct.prototype['visible_to'] = undefined;
 
 /**
- * Information about the Pipedrive User who owns the product
+ * Information about the Pipedrive user who owns the product
  * @member {Object} owner_id
  */
 BaseProduct.prototype['owner_id'] = undefined;

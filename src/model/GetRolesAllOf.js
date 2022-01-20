@@ -72,7 +72,7 @@ class GetRolesAllOf {
 }
 
 /**
- * The array of Roles
+ * The array of roles
  * @member {Array.<module:model/FullRole>} data
  */
 GetRolesAllOf.prototype['data'] = undefined;

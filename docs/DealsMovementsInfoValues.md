@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CURRENCY_ID** | **Number** | Deals value | [optional] 
+**CURRENCY_ID** | **Number** | The value of the deals | [optional] 
 
 

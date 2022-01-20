@@ -109,7 +109,7 @@ export default class NotesApi {
     /**
      * Add a comment to a note
      * Adds a new comment to a note.
-     * @param {Number} id ID of the note
+     * @param {Number} id The ID of the note
      * @param {Object} opts Optional parameters
      * @param {module:model/CommentPostPutObject} opts.commentPostPutObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostComment} and HTTP response
@@ -162,7 +162,7 @@ export default class NotesApi {
     /**
      * Add a comment to a note
      * Adds a new comment to a note.
-     * @param {Number} id ID of the note
+     * @param {Number} id The ID of the note
      * @param {Object} opts Optional parameters
      * @param {module:model/CommentPostPutObject} opts.commentPostPutObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostComment}
@@ -178,8 +178,8 @@ export default class NotesApi {
     /**
      * Delete a comment related to a note
      * Deletes a comment.
-     * @param {Number} id ID of the note
-     * @param {String} commentId ID of the comment
+     * @param {Number} id The ID of the note
+     * @param {String} commentId The ID of the comment
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteComment} and HTTP response
      */
     deleteCommentWithHttpInfo(id, commentId) {
@@ -235,8 +235,8 @@ export default class NotesApi {
     /**
      * Delete a comment related to a note
      * Deletes a comment.
-     * @param {Number} id ID of the note
-     * @param {String} commentId ID of the comment
+     * @param {Number} id The ID of the note
+     * @param {String} commentId The ID of the comment
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteComment}
      */
     deleteComment(id, commentId) {
@@ -250,7 +250,7 @@ export default class NotesApi {
     /**
      * Delete a note
      * Deletes a specific note.
-     * @param {Number} id ID of the note
+     * @param {Number} id The ID of the note
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteNote} and HTTP response
      */
     deleteNoteWithHttpInfo(id) {
@@ -301,7 +301,7 @@ export default class NotesApi {
     /**
      * Delete a note
      * Deletes a specific note.
-     * @param {Number} id ID of the note
+     * @param {Number} id The ID of the note
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteNote}
      */
     deleteNote(id) {
@@ -314,9 +314,9 @@ export default class NotesApi {
 
     /**
      * Get one comment
-     * Returns details about a comment
-     * @param {Number} id ID of the note
-     * @param {String} commentId ID of the comment
+     * Returns the details of a comment.
+     * @param {Number} id The ID of the note
+     * @param {String} commentId The ID of the comment
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostComment} and HTTP response
      */
     getCommentWithHttpInfo(id, commentId) {
@@ -371,9 +371,9 @@ export default class NotesApi {
 
     /**
      * Get one comment
-     * Returns details about a comment
-     * @param {Number} id ID of the note
-     * @param {String} commentId ID of the comment
+     * Returns the details of a comment.
+     * @param {Number} id The ID of the note
+     * @param {String} commentId The ID of the comment
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostComment}
      */
     getComment(id, commentId) {
@@ -387,7 +387,7 @@ export default class NotesApi {
     /**
      * Get one note
      * Returns details about a specific note.
-     * @param {Number} id ID of the note
+     * @param {Number} id The ID of the note
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostNote} and HTTP response
      */
     getNoteWithHttpInfo(id) {
@@ -438,7 +438,7 @@ export default class NotesApi {
     /**
      * Get one note
      * Returns details about a specific note.
-     * @param {Number} id ID of the note
+     * @param {Number} id The ID of the note
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostNote}
      */
     getNote(id) {
@@ -451,8 +451,8 @@ export default class NotesApi {
 
     /**
      * Get all comments for a note
-     * Returns all comments associated with a Note.
-     * @param {Number} id ID of the note
+     * Returns all comments associated with a note.
+     * @param {Number} id The ID of the note
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -507,8 +507,8 @@ export default class NotesApi {
 
     /**
      * Get all comments for a note
-     * Returns all comments associated with a Note.
-     * @param {Number} id ID of the note
+     * Returns all comments associated with a note.
+     * @param {Number} id The ID of the note
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -530,16 +530,16 @@ export default class NotesApi {
      * @param {String} opts.leadId The ID of the lead which notes to fetch. If omitted, notes about all leads will be returned.
      * @param {Number} opts.dealId The ID of the deal which notes to fetch. If omitted, notes about all deals will be returned.
      * @param {Number} opts.personId The ID of the person whose notes to fetch. If omitted, notes about all persons will be returned.
-     * @param {Number} opts.orgId The ID of the organization which notes to fetch. If omitted, notes about all organizations will be returned
+     * @param {Number} opts.orgId The ID of the organization which notes to fetch. If omitted, notes about all organizations will be returned.
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `content`, `add_time`, `update_time`.
-     * @param {Date} opts.startDate Date in format of YYYY-MM-DD from which notes to fetch.
-     * @param {Date} opts.endDate Date in format of YYYY-MM-DD until which notes to fetch to.
-     * @param {module:model/NumberBoolean} opts.pinnedToLeadFlag If set, then results are filtered by note to lead pinning state
-     * @param {module:model/NumberBoolean} opts.pinnedToDealFlag If set, then results are filtered by note to deal pinning state
-     * @param {module:model/NumberBoolean} opts.pinnedToOrganizationFlag If set, then results are filtered by note to organization pinning state
-     * @param {module:model/NumberBoolean} opts.pinnedToPersonFlag If set, then results are filtered by note to person pinning state
+     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `content`, `add_time`, `update_time`.
+     * @param {Date} opts.startDate The date in format of YYYY-MM-DD from which notes to fetch
+     * @param {Date} opts.endDate The date in format of YYYY-MM-DD until which notes to fetch to
+     * @param {module:model/NumberBoolean} opts.pinnedToLeadFlag If set, the results are filtered by note to lead pinning state
+     * @param {module:model/NumberBoolean} opts.pinnedToDealFlag If set, the results are filtered by note to deal pinning state
+     * @param {module:model/NumberBoolean} opts.pinnedToOrganizationFlag If set, the results are filtered by note to organization pinning state
+     * @param {module:model/NumberBoolean} opts.pinnedToPersonFlag If set, the results are filtered by note to person pinning state
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetNotes} and HTTP response
      */
     getNotesWithHttpInfo(opts) {
@@ -604,16 +604,16 @@ export default class NotesApi {
      * @param {String} opts.leadId The ID of the lead which notes to fetch. If omitted, notes about all leads will be returned.
      * @param {Number} opts.dealId The ID of the deal which notes to fetch. If omitted, notes about all deals will be returned.
      * @param {Number} opts.personId The ID of the person whose notes to fetch. If omitted, notes about all persons will be returned.
-     * @param {Number} opts.orgId The ID of the organization which notes to fetch. If omitted, notes about all organizations will be returned
+     * @param {Number} opts.orgId The ID of the organization which notes to fetch. If omitted, notes about all organizations will be returned.
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `content`, `add_time`, `update_time`.
-     * @param {Date} opts.startDate Date in format of YYYY-MM-DD from which notes to fetch.
-     * @param {Date} opts.endDate Date in format of YYYY-MM-DD until which notes to fetch to.
-     * @param {module:model/NumberBoolean} opts.pinnedToLeadFlag If set, then results are filtered by note to lead pinning state
-     * @param {module:model/NumberBoolean} opts.pinnedToDealFlag If set, then results are filtered by note to deal pinning state
-     * @param {module:model/NumberBoolean} opts.pinnedToOrganizationFlag If set, then results are filtered by note to organization pinning state
-     * @param {module:model/NumberBoolean} opts.pinnedToPersonFlag If set, then results are filtered by note to person pinning state
+     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `content`, `add_time`, `update_time`.
+     * @param {Date} opts.startDate The date in format of YYYY-MM-DD from which notes to fetch
+     * @param {Date} opts.endDate The date in format of YYYY-MM-DD until which notes to fetch to
+     * @param {module:model/NumberBoolean} opts.pinnedToLeadFlag If set, the results are filtered by note to lead pinning state
+     * @param {module:model/NumberBoolean} opts.pinnedToDealFlag If set, the results are filtered by note to deal pinning state
+     * @param {module:model/NumberBoolean} opts.pinnedToOrganizationFlag If set, the results are filtered by note to organization pinning state
+     * @param {module:model/NumberBoolean} opts.pinnedToPersonFlag If set, the results are filtered by note to person pinning state
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetNotes}
      */
     getNotes(opts) {
@@ -627,8 +627,8 @@ export default class NotesApi {
     /**
      * Update a comment related to a note
      * Updates a comment related to a note.
-     * @param {Number} id ID of the note
-     * @param {String} commentId ID of the comment
+     * @param {Number} id The ID of the note
+     * @param {String} commentId The ID of the comment
      * @param {Object} opts Optional parameters
      * @param {module:model/CommentPostPutObject} opts.commentPostPutObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostComment} and HTTP response
@@ -686,8 +686,8 @@ export default class NotesApi {
     /**
      * Update a comment related to a note
      * Updates a comment related to a note.
-     * @param {Number} id ID of the note
-     * @param {String} commentId ID of the comment
+     * @param {Number} id The ID of the note
+     * @param {String} commentId The ID of the comment
      * @param {Object} opts Optional parameters
      * @param {module:model/CommentPostPutObject} opts.commentPostPutObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostComment}
@@ -703,7 +703,7 @@ export default class NotesApi {
     /**
      * Update a note
      * Updates a note.
-     * @param {Number} id ID of the note
+     * @param {Number} id The ID of the note
      * @param {Object} opts Optional parameters
      * @param {module:model/Note} opts.note 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostNote} and HTTP response
@@ -756,7 +756,7 @@ export default class NotesApi {
     /**
      * Update a note
      * Updates a note.
-     * @param {Number} id ID of the note
+     * @param {Number} id The ID of the note
      * @param {Object} opts Optional parameters
      * @param {module:model/Note} opts.note 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostNote}

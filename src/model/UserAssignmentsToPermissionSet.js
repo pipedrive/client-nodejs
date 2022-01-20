@@ -83,7 +83,7 @@ class UserAssignmentsToPermissionSet {
 UserAssignmentsToPermissionSet.prototype['success'] = undefined;
 
 /**
- * An array of the assignments of the User
+ * An array of the assignments of the user
  * @member {Array.<module:model/UserAssignmentToPermissionSet>} data
  */
 UserAssignmentsToPermissionSet.prototype['data'] = undefined;
@@ -97,7 +97,7 @@ UserAssignmentsToPermissionSet.prototype['data'] = undefined;
 BaseResponse.prototype['success'] = undefined;
 // Implement UserAssignmentsToPermissionSetAllOf interface:
 /**
- * An array of the assignments of the User
+ * An array of the assignments of the user
  * @member {Array.<module:model/UserAssignmentToPermissionSet>} data
  */
 UserAssignmentsToPermissionSetAllOf.prototype['data'] = undefined;

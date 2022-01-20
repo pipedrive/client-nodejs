@@ -97,7 +97,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductsApi();
-let id = 56; // Number | ID of the product
+let id = 56; // Number | The ID of the product
 let opts = Pipedrive.AddProductFollowerRequest.constructFromObject({
   // Properties that you want to update
 });
@@ -114,7 +114,7 @@ apiInstance.addProductFollower(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the product | 
+ **id** | **Number**| The ID of the product | 
  **addProductFollowerRequest** | [**AddProductFollowerRequest**](AddProductFollowerRequest.md)|  | [optional] 
 
 ### Return type
@@ -154,7 +154,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductsApi();
-let id = 56; // Number | ID of the product
+let id = 56; // Number | The ID of the product
 apiInstance.deleteProduct(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -168,7 +168,7 @@ apiInstance.deleteProduct(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the product | 
+ **id** | **Number**| The ID of the product | 
 
 ### Return type
 
@@ -207,8 +207,8 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductsApi();
-let id = 56; // Number | ID of the product
-let followerId = 56; // Number | ID of the relationship between the follower and the product
+let id = 56; // Number | The ID of the product
+let followerId = 56; // Number | The ID of the relationship between the follower and the product
 apiInstance.deleteProductFollower(id, followerId).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -222,8 +222,8 @@ apiInstance.deleteProductFollower(id, followerId).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the product | 
- **followerId** | **Number**| ID of the relationship between the follower and the product | 
+ **id** | **Number**| The ID of the product | 
+ **followerId** | **Number**| The ID of the relationship between the follower and the product | 
 
 ### Return type
 
@@ -262,7 +262,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductsApi();
-let id = 56; // Number | ID of the product
+let id = 56; // Number | The ID of the product
 apiInstance.getProduct(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -276,7 +276,7 @@ apiInstance.getProduct(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the product | 
+ **id** | **Number**| The ID of the product | 
 
 ### Return type
 
@@ -298,7 +298,7 @@ Name | Type | Description  | Notes
 
 Get deals where a product is attached to
 
-Returns data about deals that have a product attached to.
+Returns data about deals that have a product attached to it.
 
 ### Example
 
@@ -315,11 +315,11 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductsApi();
-let id = 56; // Number | ID of the product
+let id = 56; // Number | The ID of the product
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
-  'status': "'all_not_deleted'" // String | Only fetch deals with specific status. If omitted, all not deleted deals are fetched.
+  'status': "'all_not_deleted'" // String | Only fetch deals with a specific status. If omitted, all not deleted deals are fetched.
 };
 apiInstance.getProductDeals(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -334,10 +334,10 @@ apiInstance.getProductDeals(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the product | 
+ **id** | **Number**| The ID of the product | 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
- **status** | **String**| Only fetch deals with specific status. If omitted, all not deleted deals are fetched. | [optional] [default to &#39;all_not_deleted&#39;]
+ **status** | **String**| Only fetch deals with a specific status. If omitted, all not deleted deals are fetched. | [optional] [default to &#39;all_not_deleted&#39;]
 
 ### Return type
 
@@ -376,12 +376,12 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductsApi();
-let id = 56; // Number | ID of the product
+let id = 56; // Number | The ID of the product
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
   'includeDeletedFiles': new Pipedrive.NumberBoolean(), // NumberBoolean | When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
-  'sort': "sort_example" // String | Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
+  'sort': "sort_example" // String | The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
 };
 apiInstance.getProductFiles(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -396,11 +396,11 @@ apiInstance.getProductFiles(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the product | 
+ **id** | **Number**| The ID of the product | 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
  **includeDeletedFiles** | [**NumberBoolean**](.md)| When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work. | [optional] 
- **sort** | **String**| Field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment. | [optional] 
+ **sort** | **String**| The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment. | [optional] 
 
 ### Return type
 
@@ -422,7 +422,7 @@ Name | Type | Description  | Notes
 
 List followers of a product
 
-Lists the followers of a Product
+Lists the followers of a product.
 
 ### Example
 
@@ -439,7 +439,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductsApi();
-let id = 56; // Number | ID of the product
+let id = 56; // Number | The ID of the product
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
@@ -457,7 +457,7 @@ apiInstance.getProductFollowers(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the product | 
+ **id** | **Number**| The ID of the product | 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
 
@@ -495,7 +495,7 @@ api_key.apiKey = 'YOUR API KEY';
 //api_key.apiKeyPrefix = 'Token';
 
 let apiInstance = new Pipedrive.ProductsApi();
-let id = 56; // Number | ID of the product
+let id = 56; // Number | The ID of the product
 apiInstance.getProductUsers(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -509,7 +509,7 @@ apiInstance.getProductUsers(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the product | 
+ **id** | **Number**| The ID of the product | 
 
 ### Return type
 
@@ -531,7 +531,7 @@ Name | Type | Description  | Notes
 
 Get all products
 
-Returns data about all Products
+Returns data about all products.
 
 ### Example
 
@@ -549,11 +549,11 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductsApi();
 let opts = {
-  'userId': 56, // Number | If supplied, only Products owned by the given user will be returned
-  'filterId': 56, // Number | ID of the filter to use
-  'ids': [null], // [Number] | An array of integers with the IDs of the Products that should be returned in the response
-  'firstChar': "firstChar_example", // String | If supplied, only Products whose name starts with the specified letter will be returned (case insensitive)
-  'getSummary': true, // Boolean | If supplied, response will return the total numbers of Products in the `additional_data.summary.total_count` property
+  'userId': 56, // Number | If supplied, only products owned by the given user will be returned
+  'filterId': 56, // Number | The ID of the filter to use
+  'ids': [null], // [Number] | An array of integers with the IDs of the products that should be returned in the response
+  'firstChar': "firstChar_example", // String | If supplied, only products whose name starts with the specified letter will be returned (case insensitive)
+  'getSummary': true, // Boolean | If supplied, the response will return the total numbers of products in the `additional_data.summary.total_count` property
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
 };
@@ -570,11 +570,11 @@ apiInstance.getProducts(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| If supplied, only Products owned by the given user will be returned | [optional] 
- **filterId** | **Number**| ID of the filter to use | [optional] 
- **ids** | [**[Number]**](Number.md)| An array of integers with the IDs of the Products that should be returned in the response | [optional] 
- **firstChar** | **String**| If supplied, only Products whose name starts with the specified letter will be returned (case insensitive) | [optional] 
- **getSummary** | **Boolean**| If supplied, response will return the total numbers of Products in the &#x60;additional_data.summary.total_count&#x60; property | [optional] 
+ **userId** | **Number**| If supplied, only products owned by the given user will be returned | [optional] 
+ **filterId** | **Number**| The ID of the filter to use | [optional] 
+ **ids** | [**[Number]**](Number.md)| An array of integers with the IDs of the products that should be returned in the response | [optional] 
+ **firstChar** | **String**| If supplied, only products whose name starts with the specified letter will be returned (case insensitive) | [optional] 
+ **getSummary** | **Boolean**| If supplied, the response will return the total numbers of products in the &#x60;additional_data.summary.total_count&#x60; property | [optional] 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
 
@@ -598,7 +598,7 @@ Name | Type | Description  | Notes
 
 Search products
 
-Searches all Products by name, code and/or custom fields. This endpoint is a wrapper of &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\&quot;&gt;/v1/itemSearch&lt;/a&gt; with a narrower OAuth scope.
+Searches all products by name, code and/or custom fields. This endpoint is a wrapper of &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\&quot;&gt;/v1/itemSearch&lt;/a&gt; with a narrower OAuth scope.
 
 ### Example
 
@@ -619,7 +619,7 @@ let term = "term_example"; // String | The search term to look for. Minimum 2 ch
 let opts = {
   'fields': "fields_example", // String | A comma-separated string array. The fields to perform the search from. Defaults to all of them.
   'exactMatch': true, // Boolean | When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
-  'includeFields': "includeFields_example", // String | Supports including optional fields in the results which are not provided by default.
+  'includeFields': "includeFields_example", // String | Supports including optional fields in the results which are not provided by default
   'start': 0, // Number | Pagination start. Note that the pagination is based on main results and does not include related items when using `search_for_related_items` parameter.
   'limit': 56 // Number | Items shown per page
 };
@@ -639,7 +639,7 @@ Name | Type | Description  | Notes
  **term** | **String**| The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). | 
  **fields** | **String**| A comma-separated string array. The fields to perform the search from. Defaults to all of them. | [optional] 
  **exactMatch** | **Boolean**| When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. | [optional] 
- **includeFields** | **String**| Supports including optional fields in the results which are not provided by default. | [optional] 
+ **includeFields** | **String**| Supports including optional fields in the results which are not provided by default | [optional] 
  **start** | **Number**| Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter. | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
 
@@ -680,7 +680,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductsApi();
-let id = 56; // Number | ID of the product
+let id = 56; // Number | The ID of the product
 let opts = Pipedrive.ProductRequest.constructFromObject({
   // Properties that you want to update
 });
@@ -697,7 +697,7 @@ apiInstance.updateProduct(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the product | 
+ **id** | **Number**| The ID of the product | 
  **productRequest** | [**ProductRequest**](ProductRequest.md)|  | [optional] 
 
 ### Return type

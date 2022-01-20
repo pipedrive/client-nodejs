@@ -65,7 +65,7 @@ class DeleteDealData {
 }
 
 /**
- * The ID of the Deal that was deleted
+ * The ID of the deal that was deleted
  * @member {Number} id
  */
 DeleteDealData.prototype['id'] = undefined;

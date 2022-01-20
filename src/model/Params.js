@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class Params {
     /**
      * Constructs a new <code>Params</code>.
-     * Parameters that accompany the goal type
+     * The parameters that accompany the goal type
      * @alias module:model/Params
      */
     constructor() { 
@@ -66,7 +66,7 @@ class Params {
 }
 
 /**
- * Pipeline ID of the goal
+ * The pipeline ID of the goal
  * @member {String} pipeline_id
  */
 Params.prototype['pipeline_id'] = undefined;

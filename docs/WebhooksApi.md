@@ -4,9 +4,9 @@ All URIs are relative to *https://api.pipedrive.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addWebhook**](WebhooksApi.md#addWebhook) | **POST** /webhooks | Create a new webhook
-[**deleteWebhook**](WebhooksApi.md#deleteWebhook) | **DELETE** /webhooks/{id} | Delete existing webhook
-[**getWebhooks**](WebhooksApi.md#getWebhooks) | **GET** /webhooks | Get all webhooks
+[**addWebhook**](WebhooksApi.md#addWebhook) | **POST** /webhooks | Create a new Webhook
+[**deleteWebhook**](WebhooksApi.md#deleteWebhook) | **DELETE** /webhooks/{id} | Delete existing Webhook
+[**getWebhooks**](WebhooksApi.md#getWebhooks) | **GET** /webhooks | Get all Webhooks
 
 
 
@@ -14,9 +14,9 @@ Method | HTTP request | Description
 
 > Webhook addWebhook(opts)
 
-Create a new webhook
+Create a new Webhook
 
-Creates a new webhook and returns its details. Note that specifying an event which triggers the webhook combines 2 parameters - &#x60;event_action&#x60; and &#x60;event_object&#x60;. E.g., use &#x60;*.*&#x60; for getting notifications about all events, &#x60;added.deal&#x60; for any newly added deals, &#x60;deleted.persons&#x60; for any deleted persons, etc. See &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/guide-for-webhooks?ref&#x3D;api_reference\&quot;&gt;https://pipedrive.readme.io/docs/guide-for-webhooks&lt;/a&gt; for more details.
+Creates a new Webhook and returns its details. Note that specifying an event which triggers the Webhook combines 2 parameters - &#x60;event_action&#x60; and &#x60;event_object&#x60;. E.g., use &#x60;*.*&#x60; for getting notifications about all events, &#x60;added.deal&#x60; for any newly added deals, &#x60;deleted.persons&#x60; for any deleted persons, etc. See &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/guide-for-webhooks?ref&#x3D;api_reference\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this guide&lt;/a&gt; for more details.
 
 ### Example
 
@@ -69,9 +69,9 @@ Name | Type | Description  | Notes
 
 > BaseResponseWithStatus deleteWebhook(id)
 
-Delete existing webhook
+Delete existing Webhook
 
-Deletes the specified webhook.
+Deletes the specified Webhook.
 
 ### Example
 
@@ -88,7 +88,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.WebhooksApi();
-let id = 56; // Number | The ID of the webhook to delete
+let id = 56; // Number | The ID of the Webhook to delete
 apiInstance.deleteWebhook(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -102,7 +102,7 @@ apiInstance.deleteWebhook(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The ID of the webhook to delete | 
+ **id** | **Number**| The ID of the Webhook to delete | 
 
 ### Return type
 
@@ -122,9 +122,9 @@ Name | Type | Description  | Notes
 
 > Webhooks getWebhooks()
 
-Get all webhooks
+Get all Webhooks
 
-Returns data about all webhooks of a company.
+Returns data about all the Webhooks of a company.
 
 ### Example
 

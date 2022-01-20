@@ -65,7 +65,7 @@ class OrganizationFollowerDeleteResponseData {
 }
 
 /**
- * The ID of the follower that was deleted from the Organization
+ * The ID of the follower that was deleted from the organization
  * @member {Number} id
  */
 OrganizationFollowerDeleteResponseData.prototype['id'] = undefined;

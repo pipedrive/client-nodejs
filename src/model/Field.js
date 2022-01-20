@@ -176,25 +176,25 @@ class Field {
 }
 
 /**
- * The ID of the Field. Value is `null` in case of subfields.
+ * The ID of the field. Value is `null` in case of subfields.
  * @member {Number} id
  */
 Field.prototype['id'] = undefined;
 
 /**
- * The key of the Field. For custom fields this is generated upon creation.
+ * The key of the field. For custom fields this is generated upon creation.
  * @member {String} key
  */
 Field.prototype['key'] = undefined;
 
 /**
- * The name of the Field
+ * The name of the field
  * @member {String} name
  */
 Field.prototype['name'] = undefined;
 
 /**
- * The order number of the Field
+ * The order number of the field
  * @member {Number} order_nr
  */
 Field.prototype['order_nr'] = undefined;
@@ -205,31 +205,31 @@ Field.prototype['order_nr'] = undefined;
 Field.prototype['field_type'] = undefined;
 
 /**
- * The creation time of the Field
+ * The creation time of the field
  * @member {String} add_time
  */
 Field.prototype['add_time'] = undefined;
 
 /**
- * The update time of the Field
+ * The update time of the field
  * @member {String} update_time
  */
 Field.prototype['update_time'] = undefined;
 
 /**
- * The ID of the user who created or most recently updated the Field, only applicable for custom fields
+ * The ID of the user who created or most recently updated the field, only applicable for custom fields
  * @member {Number} last_updated_by_user_id
  */
 Field.prototype['last_updated_by_user_id'] = undefined;
 
 /**
- * The active flag of the Field
+ * The active flag of the field
  * @member {Boolean} active_flag
  */
 Field.prototype['active_flag'] = undefined;
 
 /**
- * The edit flag of the Field
+ * The edit flag of the field
  * @member {Boolean} edit_flag
  */
 Field.prototype['edit_flag'] = undefined;
@@ -259,55 +259,55 @@ Field.prototype['add_visible_flag'] = undefined;
 Field.prototype['important_flag'] = undefined;
 
 /**
- * Whether or not the Field of an Item can be edited in bulk
+ * Whether or not the field of an item can be edited in bulk
  * @member {Boolean} bulk_edit_allowed
  */
 Field.prototype['bulk_edit_allowed'] = undefined;
 
 /**
- * Whether ot not Items can be searched by this Field
+ * Whether or not items can be searched by this field
  * @member {Boolean} searchable_flag
  */
 Field.prototype['searchable_flag'] = undefined;
 
 /**
- * Whether or not Items can be filtered by this Field
+ * Whether or not items can be filtered by this field
  * @member {Boolean} filtering_allowed
  */
 Field.prototype['filtering_allowed'] = undefined;
 
 /**
- * Whether or not Items can be sorted by this Field
+ * Whether or not items can be sorted by this field
  * @member {Boolean} sortable_flag
  */
 Field.prototype['sortable_flag'] = undefined;
 
 /**
- * Whether or not the Field is mandatory
+ * Whether or not the field is mandatory
  * @member {Boolean} mandatory_flag
  */
 Field.prototype['mandatory_flag'] = undefined;
 
 /**
- * The options of the Field. When there are no options, `null` is returned.
+ * The options of the field. When there are no options, `null` is returned.
  * @member {Array.<Object>} options
  */
 Field.prototype['options'] = undefined;
 
 /**
- * The deleted options of the Field. Only present when there is at least 1 deleted option.
+ * The deleted options of the field. Only present when there is at least 1 deleted option.
  * @member {Array.<Object>} options_deleted
  */
 Field.prototype['options_deleted'] = undefined;
 
 /**
- * Whether or not the Field is a subfield of another Field. Only present if Field is subfield.
+ * Whether or not the field is a subfield of another field. Only present if field is subfield.
  * @member {Boolean} is_subfield
  */
 Field.prototype['is_subfield'] = undefined;
 
 /**
- * Subfields of the Field. Only present when Field has subfields.
+ * The subfields of the field. Only present when the field has subfields.
  * @member {Array.<Object>} subfields
  */
 Field.prototype['subfields'] = undefined;

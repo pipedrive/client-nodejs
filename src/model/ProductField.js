@@ -26,8 +26,8 @@ class ProductField {
      * @alias module:model/ProductField
      * @implements module:model/NewProductField
      * @implements module:model/ProductFieldAllOf
-     * @param name {String} Name of the field
-     * @param fieldType {module:model/ProductField.FieldTypeEnum} Type of the field<table><tr><th>Value</th><th>Description</th></tr><tr><td>`varchar`</td><td>Text (up to 255 characters)</td><tr><td>`varchar_auto`</td><td>Autocomplete text (up to 255 characters)</td><tr><td>`text`</td><td>Long text (up to 65k characters)</td><tr><td>`double`</td><td>Numeric value</td><tr><td>`monetary`</td><td>Monetary field (has a numeric value and a currency value)</td><tr><td>`date`</td><td>Date (format YYYY-MM-DD)</td><tr><td>`set`</td><td>Options field with a possibility of having multiple chosen options</td><tr><td>`enum`</td><td>Options field with a single possible chosen option</td><tr><td>`user`</td><td>User field (contains a user ID of another Pipedrive user)</td><tr><td>`org`</td><td>Organization field (contains an organization ID which is stored on the same account)</td><tr><td>`people`</td><td>Person field (contains a product ID which is stored on the same account)</td><tr><td>`phone`</td><td>Phone field (up to 255 numbers and/or characters)</td><tr><td>`time`</td><td>Time field (format HH:MM:SS)</td><tr><td>`timerange`</td><td>Time-range field (has a start time and end time value, both HH:MM:SS)</td><tr><td>`daterange`</td><td>Date-range field (has a start date and end date value, both YYYY-MM-DD)</td><tr><td>`address`</td><td>Address field (autocompleted by Google Maps)</dd></table>
+     * @param name {String} The name of the field
+     * @param fieldType {module:model/ProductField.FieldTypeEnum} The type of the field<table><tr><th>Value</th><th>Description</th></tr><tr><td>`varchar`</td><td>Text (up to 255 characters)</td><tr><td>`varchar_auto`</td><td>Autocomplete text (up to 255 characters)</td><tr><td>`text`</td><td>Long text (up to 65k characters)</td><tr><td>`double`</td><td>Numeric value</td><tr><td>`monetary`</td><td>Monetary field (has a numeric value and a currency value)</td><tr><td>`date`</td><td>Date (format YYYY-MM-DD)</td><tr><td>`set`</td><td>Options field with a possibility of having multiple chosen options</td><tr><td>`enum`</td><td>Options field with a single possible chosen option</td><tr><td>`user`</td><td>User field (contains a user ID of another Pipedrive user)</td><tr><td>`org`</td><td>Organization field (contains an organization ID which is stored on the same account)</td><tr><td>`people`</td><td>Person field (contains a product ID which is stored on the same account)</td><tr><td>`phone`</td><td>Phone field (up to 255 numbers and/or characters)</td><tr><td>`time`</td><td>Time field (format HH:MM:SS)</td><tr><td>`timerange`</td><td>Time-range field (has a start time and end time value, both HH:MM:SS)</td><tr><td>`daterange`</td><td>Date-range field (has a start date and end date value, both YYYY-MM-DD)</td><tr><td>`address`</td><td>Address field (autocompleted by Google Maps)</dd></table>
      */
     constructor(name, fieldType) { 
         NewProductField.initialize(this, name, fieldType);ProductFieldAllOf.initialize(this);
@@ -160,7 +160,7 @@ class ProductField {
 }
 
 /**
- * Name of the field
+ * The name of the field
  * @member {String} name
  */
 ProductField.prototype['name'] = undefined;
@@ -172,97 +172,97 @@ ProductField.prototype['name'] = undefined;
 ProductField.prototype['options'] = undefined;
 
 /**
- * Type of the field<table><tr><th>Value</th><th>Description</th></tr><tr><td>`varchar`</td><td>Text (up to 255 characters)</td><tr><td>`varchar_auto`</td><td>Autocomplete text (up to 255 characters)</td><tr><td>`text`</td><td>Long text (up to 65k characters)</td><tr><td>`double`</td><td>Numeric value</td><tr><td>`monetary`</td><td>Monetary field (has a numeric value and a currency value)</td><tr><td>`date`</td><td>Date (format YYYY-MM-DD)</td><tr><td>`set`</td><td>Options field with a possibility of having multiple chosen options</td><tr><td>`enum`</td><td>Options field with a single possible chosen option</td><tr><td>`user`</td><td>User field (contains a user ID of another Pipedrive user)</td><tr><td>`org`</td><td>Organization field (contains an organization ID which is stored on the same account)</td><tr><td>`people`</td><td>Person field (contains a product ID which is stored on the same account)</td><tr><td>`phone`</td><td>Phone field (up to 255 numbers and/or characters)</td><tr><td>`time`</td><td>Time field (format HH:MM:SS)</td><tr><td>`timerange`</td><td>Time-range field (has a start time and end time value, both HH:MM:SS)</td><tr><td>`daterange`</td><td>Date-range field (has a start date and end date value, both YYYY-MM-DD)</td><tr><td>`address`</td><td>Address field (autocompleted by Google Maps)</dd></table>
+ * The type of the field<table><tr><th>Value</th><th>Description</th></tr><tr><td>`varchar`</td><td>Text (up to 255 characters)</td><tr><td>`varchar_auto`</td><td>Autocomplete text (up to 255 characters)</td><tr><td>`text`</td><td>Long text (up to 65k characters)</td><tr><td>`double`</td><td>Numeric value</td><tr><td>`monetary`</td><td>Monetary field (has a numeric value and a currency value)</td><tr><td>`date`</td><td>Date (format YYYY-MM-DD)</td><tr><td>`set`</td><td>Options field with a possibility of having multiple chosen options</td><tr><td>`enum`</td><td>Options field with a single possible chosen option</td><tr><td>`user`</td><td>User field (contains a user ID of another Pipedrive user)</td><tr><td>`org`</td><td>Organization field (contains an organization ID which is stored on the same account)</td><tr><td>`people`</td><td>Person field (contains a product ID which is stored on the same account)</td><tr><td>`phone`</td><td>Phone field (up to 255 numbers and/or characters)</td><tr><td>`time`</td><td>Time field (format HH:MM:SS)</td><tr><td>`timerange`</td><td>Time-range field (has a start time and end time value, both HH:MM:SS)</td><tr><td>`daterange`</td><td>Date-range field (has a start date and end date value, both YYYY-MM-DD)</td><tr><td>`address`</td><td>Address field (autocompleted by Google Maps)</dd></table>
  * @member {module:model/ProductField.FieldTypeEnum} field_type
  */
 ProductField.prototype['field_type'] = undefined;
 
 /**
- * The ID of the Product Field
+ * The ID of the product field
  * @member {Number} id
  */
 ProductField.prototype['id'] = undefined;
 
 /**
- * The key of the Product Field
+ * The key of the product field
  * @member {String} key
  */
 ProductField.prototype['key'] = undefined;
 
 /**
- * Position (index) of the Product Field in the detail view
+ * The position (index) of the product field in the detail view
  * @member {Number} order_nr
  */
 ProductField.prototype['order_nr'] = undefined;
 
 /**
- * The Product Field creation time. Format: YYYY-MM-DD HH:MM:SS
+ * The product field creation time. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} add_time
  */
 ProductField.prototype['add_time'] = undefined;
 
 /**
- * The Product Field last update time. Format: YYYY-MM-DD HH:MM:SS
+ * The product field last update time. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} update_time
  */
 ProductField.prototype['update_time'] = undefined;
 
 /**
- * The ID of the last user to update the Product Field
+ * The ID of the last user to update the product field
  * @member {Number} last_updated_by_user_id
  */
 ProductField.prototype['last_updated_by_user_id'] = undefined;
 
 /**
- * Whether or not the Product Field is currently active
+ * Whether or not the product field is currently active
  * @member {Boolean} active_flag
  */
 ProductField.prototype['active_flag'] = undefined;
 
 /**
- * Whether or not the Product Field Name and metadata is editable
+ * Whether or not the product field name and metadata is editable
  * @member {Boolean} edit_flag
  */
 ProductField.prototype['edit_flag'] = undefined;
 
 /**
- * Whether or not the Product Field is visible in the Add Product Modal
+ * Whether or not the product field is visible in the Add Product Modal
  * @member {Boolean} add_visible_flag
  */
 ProductField.prototype['add_visible_flag'] = undefined;
 
 /**
- * Whether or not the Product Field is marked as important
+ * Whether or not the product field is marked as important
  * @member {Boolean} important_flag
  */
 ProductField.prototype['important_flag'] = undefined;
 
 /**
- * Whether or not the Product Field data can be edited
+ * Whether or not the product field data can be edited
  * @member {Boolean} bulk_edit_allowed
  */
 ProductField.prototype['bulk_edit_allowed'] = undefined;
 
 /**
- * Whether or not the Product Field is searchable
+ * Whether or not the product field is searchable
  * @member {Boolean} searchable_flag
  */
 ProductField.prototype['searchable_flag'] = undefined;
 
 /**
- * Whether or not the Product Field value can be used when filtering searches
+ * Whether or not the product field value can be used when filtering searches
  * @member {Boolean} filtering_allowed
  */
 ProductField.prototype['filtering_allowed'] = undefined;
 
 /**
- * Whether or not the Product Field is sortable
+ * Whether or not the product field is sortable
  * @member {Boolean} sortable_flag
  */
 ProductField.prototype['sortable_flag'] = undefined;
 
 /**
- * Whether or not the Product Field is mandatory when creating products
+ * Whether or not the product field is mandatory when creating products
  * @member {Boolean} mandatory_flag
  */
 ProductField.prototype['mandatory_flag'] = undefined;
@@ -270,7 +270,7 @@ ProductField.prototype['mandatory_flag'] = undefined;
 
 // Implement NewProductField interface:
 /**
- * Name of the field
+ * The name of the field
  * @member {String} name
  */
 NewProductField.prototype['name'] = undefined;
@@ -280,83 +280,83 @@ NewProductField.prototype['name'] = undefined;
  */
 NewProductField.prototype['options'] = undefined;
 /**
- * Type of the field<table><tr><th>Value</th><th>Description</th></tr><tr><td>`varchar`</td><td>Text (up to 255 characters)</td><tr><td>`varchar_auto`</td><td>Autocomplete text (up to 255 characters)</td><tr><td>`text`</td><td>Long text (up to 65k characters)</td><tr><td>`double`</td><td>Numeric value</td><tr><td>`monetary`</td><td>Monetary field (has a numeric value and a currency value)</td><tr><td>`date`</td><td>Date (format YYYY-MM-DD)</td><tr><td>`set`</td><td>Options field with a possibility of having multiple chosen options</td><tr><td>`enum`</td><td>Options field with a single possible chosen option</td><tr><td>`user`</td><td>User field (contains a user ID of another Pipedrive user)</td><tr><td>`org`</td><td>Organization field (contains an organization ID which is stored on the same account)</td><tr><td>`people`</td><td>Person field (contains a product ID which is stored on the same account)</td><tr><td>`phone`</td><td>Phone field (up to 255 numbers and/or characters)</td><tr><td>`time`</td><td>Time field (format HH:MM:SS)</td><tr><td>`timerange`</td><td>Time-range field (has a start time and end time value, both HH:MM:SS)</td><tr><td>`daterange`</td><td>Date-range field (has a start date and end date value, both YYYY-MM-DD)</td><tr><td>`address`</td><td>Address field (autocompleted by Google Maps)</dd></table>
+ * The type of the field<table><tr><th>Value</th><th>Description</th></tr><tr><td>`varchar`</td><td>Text (up to 255 characters)</td><tr><td>`varchar_auto`</td><td>Autocomplete text (up to 255 characters)</td><tr><td>`text`</td><td>Long text (up to 65k characters)</td><tr><td>`double`</td><td>Numeric value</td><tr><td>`monetary`</td><td>Monetary field (has a numeric value and a currency value)</td><tr><td>`date`</td><td>Date (format YYYY-MM-DD)</td><tr><td>`set`</td><td>Options field with a possibility of having multiple chosen options</td><tr><td>`enum`</td><td>Options field with a single possible chosen option</td><tr><td>`user`</td><td>User field (contains a user ID of another Pipedrive user)</td><tr><td>`org`</td><td>Organization field (contains an organization ID which is stored on the same account)</td><tr><td>`people`</td><td>Person field (contains a product ID which is stored on the same account)</td><tr><td>`phone`</td><td>Phone field (up to 255 numbers and/or characters)</td><tr><td>`time`</td><td>Time field (format HH:MM:SS)</td><tr><td>`timerange`</td><td>Time-range field (has a start time and end time value, both HH:MM:SS)</td><tr><td>`daterange`</td><td>Date-range field (has a start date and end date value, both YYYY-MM-DD)</td><tr><td>`address`</td><td>Address field (autocompleted by Google Maps)</dd></table>
  * @member {module:model/NewProductField.FieldTypeEnum} field_type
  */
 NewProductField.prototype['field_type'] = undefined;
 // Implement ProductFieldAllOf interface:
 /**
- * The ID of the Product Field
+ * The ID of the product field
  * @member {Number} id
  */
 ProductFieldAllOf.prototype['id'] = undefined;
 /**
- * The key of the Product Field
+ * The key of the product field
  * @member {String} key
  */
 ProductFieldAllOf.prototype['key'] = undefined;
 /**
- * Position (index) of the Product Field in the detail view
+ * The position (index) of the product field in the detail view
  * @member {Number} order_nr
  */
 ProductFieldAllOf.prototype['order_nr'] = undefined;
 /**
- * The Product Field creation time. Format: YYYY-MM-DD HH:MM:SS
+ * The product field creation time. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} add_time
  */
 ProductFieldAllOf.prototype['add_time'] = undefined;
 /**
- * The Product Field last update time. Format: YYYY-MM-DD HH:MM:SS
+ * The product field last update time. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} update_time
  */
 ProductFieldAllOf.prototype['update_time'] = undefined;
 /**
- * The ID of the last user to update the Product Field
+ * The ID of the last user to update the product field
  * @member {Number} last_updated_by_user_id
  */
 ProductFieldAllOf.prototype['last_updated_by_user_id'] = undefined;
 /**
- * Whether or not the Product Field is currently active
+ * Whether or not the product field is currently active
  * @member {Boolean} active_flag
  */
 ProductFieldAllOf.prototype['active_flag'] = undefined;
 /**
- * Whether or not the Product Field Name and metadata is editable
+ * Whether or not the product field name and metadata is editable
  * @member {Boolean} edit_flag
  */
 ProductFieldAllOf.prototype['edit_flag'] = undefined;
 /**
- * Whether or not the Product Field is visible in the Add Product Modal
+ * Whether or not the product field is visible in the Add Product Modal
  * @member {Boolean} add_visible_flag
  */
 ProductFieldAllOf.prototype['add_visible_flag'] = undefined;
 /**
- * Whether or not the Product Field is marked as important
+ * Whether or not the product field is marked as important
  * @member {Boolean} important_flag
  */
 ProductFieldAllOf.prototype['important_flag'] = undefined;
 /**
- * Whether or not the Product Field data can be edited
+ * Whether or not the product field data can be edited
  * @member {Boolean} bulk_edit_allowed
  */
 ProductFieldAllOf.prototype['bulk_edit_allowed'] = undefined;
 /**
- * Whether or not the Product Field is searchable
+ * Whether or not the product field is searchable
  * @member {Boolean} searchable_flag
  */
 ProductFieldAllOf.prototype['searchable_flag'] = undefined;
 /**
- * Whether or not the Product Field value can be used when filtering searches
+ * Whether or not the product field value can be used when filtering searches
  * @member {Boolean} filtering_allowed
  */
 ProductFieldAllOf.prototype['filtering_allowed'] = undefined;
 /**
- * Whether or not the Product Field is sortable
+ * Whether or not the product field is sortable
  * @member {Boolean} sortable_flag
  */
 ProductFieldAllOf.prototype['sortable_flag'] = undefined;
 /**
- * Whether or not the Product Field is mandatory when creating products
+ * Whether or not the product field is mandatory when creating products
  * @member {Boolean} mandatory_flag
  */
 ProductFieldAllOf.prototype['mandatory_flag'] = undefined;

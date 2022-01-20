@@ -82,7 +82,7 @@ class ListPermittedUsersResponse1 {
 ListPermittedUsersResponse1.prototype['success'] = undefined;
 
 /**
- * The list of permitted Users IDs
+ * The list of permitted user IDs
  * @member {Array.<Number>} data
  */
 ListPermittedUsersResponse1.prototype['data'] = undefined;
@@ -96,7 +96,7 @@ ListPermittedUsersResponse1.prototype['data'] = undefined;
 BaseResponse.prototype['success'] = undefined;
 // Implement ListPermittedUsersResponse1AllOf interface:
 /**
- * The list of permitted Users IDs
+ * The list of permitted user IDs
  * @member {Array.<Number>} data
  */
 ListPermittedUsersResponse1AllOf.prototype['data'] = undefined;

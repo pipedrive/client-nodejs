@@ -80,25 +80,25 @@ class ListProductFollowersResponseAllOfData {
 }
 
 /**
- * The ID of the User
+ * The ID of the user
  * @member {Number} user_id
  */
 ListProductFollowersResponseAllOfData.prototype['user_id'] = undefined;
 
 /**
- * The ID of the User follower
+ * The ID of the user follower
  * @member {Number} id
  */
 ListProductFollowersResponseAllOfData.prototype['id'] = undefined;
 
 /**
- * The ID of the Product
+ * The ID of the product
  * @member {Number} product_id
  */
 ListProductFollowersResponseAllOfData.prototype['product_id'] = undefined;
 
 /**
- * The date and time when the Follower was added to the Person
+ * The date and time when the follower was added to the person
  * @member {String} add_time
  */
 ListProductFollowersResponseAllOfData.prototype['add_time'] = undefined;

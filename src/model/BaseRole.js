@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class BaseRole {
     /**
      * Constructs a new <code>BaseRole</code>.
-     * Details of the role
+     * The details of the role
      * @alias module:model/BaseRole
      */
     constructor() { 
@@ -71,13 +71,13 @@ class BaseRole {
 }
 
 /**
- * The ID of the parent Role
+ * The ID of the parent role
  * @member {Number} parent_role_id
  */
 BaseRole.prototype['parent_role_id'] = undefined;
 
 /**
- * The name of the Role
+ * The name of the role
  * @member {String} name
  */
 BaseRole.prototype['name'] = undefined;

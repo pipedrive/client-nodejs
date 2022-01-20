@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | ID of the Currency | [optional] 
-**code** | **String** | Code of the Currency | [optional] 
-**name** | **String** | Name of the Currency | [optional] 
-**decimalPoints** | **Number** | The amount of decimal points of the Currency | [optional] 
-**symbol** | **String** | Symbol of the Currency | [optional] 
-**activeFlag** | **Boolean** | Whether the Currency is active or not | [optional] 
-**isCustomFlag** | **Boolean** | Whether the Currency is a custom one or not | [optional] 
+**id** | **Number** | The ID of the currency | [optional] 
+**code** | **String** | The code of the currency | [optional] 
+**name** | **String** | The name of the currency | [optional] 
+**decimalPoints** | **Number** | The amount of decimal points of the currency | [optional] 
+**symbol** | **String** | The symbol of the currency | [optional] 
+**activeFlag** | **Boolean** | Whether the currency is active or not | [optional] 
+**isCustomFlag** | **Boolean** | Whether the currency is a custom one or not | [optional] 
 
 

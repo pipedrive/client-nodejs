@@ -95,7 +95,7 @@ class ListPersonsResponse {
 ListPersonsResponse.prototype['success'] = undefined;
 
 /**
- * The array of Persons
+ * The array of persons
  * @member {Array.<module:model/PersonItem>} data
  */
 ListPersonsResponse.prototype['data'] = undefined;
@@ -119,7 +119,7 @@ ListPersonsResponse.prototype['related_objects'] = undefined;
 BaseResponse.prototype['success'] = undefined;
 // Implement ListPersonsResponseAllOf interface:
 /**
- * The array of Persons
+ * The array of persons
  * @member {Array.<module:model/PersonItem>} data
  */
 ListPersonsResponseAllOf.prototype['data'] = undefined;

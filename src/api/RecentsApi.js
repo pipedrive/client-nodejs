@@ -37,10 +37,10 @@ export default class RecentsApi {
 
     /**
      * Get recents
-     * Returns data about all recent changes occured after given timestamp.
-     * @param {String} sinceTimestamp Timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS
+     * Returns data about all recent changes occurred after the given timestamp.
+     * @param {String} sinceTimestamp The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.items Multiple selection of item types to include in query (optional)
+     * @param {module:model/String} opts.items Multiple selection of item types to include in the query (optional)
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetRecents} and HTTP response
@@ -95,10 +95,10 @@ export default class RecentsApi {
 
     /**
      * Get recents
-     * Returns data about all recent changes occured after given timestamp.
-     * @param {String} sinceTimestamp Timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS
+     * Returns data about all recent changes occurred after the given timestamp.
+     * @param {String} sinceTimestamp The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.items Multiple selection of item types to include in query (optional)
+     * @param {module:model/String} opts.items Multiple selection of item types to include in the query (optional)
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetRecents}

@@ -147,97 +147,97 @@ class ActivityPutObject {
 }
 
 /**
- * Due date of the Activity. Format: YYYY-MM-DD
+ * The due date of the activity. Format: YYYY-MM-DD
  * @member {Date} due_date
  */
 ActivityPutObject.prototype['due_date'] = undefined;
 
 /**
- * Due time of the Activity in UTC. Format: HH:MM
+ * The due time of the activity in UTC. Format: HH:MM
  * @member {String} due_time
  */
 ActivityPutObject.prototype['due_time'] = undefined;
 
 /**
- * Duration of the Activity. Format: HH:MM
+ * The duration of the activity. Format: HH:MM
  * @member {String} duration
  */
 ActivityPutObject.prototype['duration'] = undefined;
 
 /**
- * The ID of the Deal this Activity is associated with
+ * The ID of the deal this activity is associated with
  * @member {Number} deal_id
  */
 ActivityPutObject.prototype['deal_id'] = undefined;
 
 /**
- * The ID of the Person this Activity is associated with
+ * The ID of the person this activity is associated with
  * @member {Number} person_id
  */
 ActivityPutObject.prototype['person_id'] = undefined;
 
 /**
- * The ID of the Organization this Activity is associated with
+ * The ID of the organization this activity is associated with
  * @member {Number} org_id
  */
 ActivityPutObject.prototype['org_id'] = undefined;
 
 /**
- * Note of the Activity (HTML format)
+ * The note of the activity (HTML format)
  * @member {String} note
  */
 ActivityPutObject.prototype['note'] = undefined;
 
 /**
- * The address of the Activity. Pipedrive will automatically check if the location matches a geo-location on Google maps.
+ * The address of the activity. Pipedrive will automatically check if the location matches a geo-location on Google maps.
  * @member {String} location
  */
 ActivityPutObject.prototype['location'] = undefined;
 
 /**
- * Additional details about the Activity that is synced to your external calendar. Unlike the note added to the Activity, the description is publicly visible to any guests added to the Activity.
+ * Additional details about the activity that is synced to your external calendar. Unlike the note added to the activity, the description is publicly visible to any guests added to the activity.
  * @member {String} public_description
  */
 ActivityPutObject.prototype['public_description'] = undefined;
 
 /**
- * Subject of the Activity
+ * The subject of the activity
  * @member {String} subject
  */
 ActivityPutObject.prototype['subject'] = undefined;
 
 /**
- * Type of the Activity. This is in correlation with the `key_string` parameter of ActivityTypes.
+ * The type of the activity. This is in correlation with the `key_string` parameter of ActivityTypes.
  * @member {String} type
  */
 ActivityPutObject.prototype['type'] = undefined;
 
 /**
- * The ID of the User whom the Activity is assigned to
+ * The ID of the user whom the activity is assigned to
  * @member {Number} user_id
  */
 ActivityPutObject.prototype['user_id'] = undefined;
 
 /**
- * List of multiple Persons (participants) this Activity is associated with. It requires a structure as follows: `[{\"person_id\":1,\"primary_flag\":true}]`
+ * List of multiple persons (participants) this activity is associated with. It requires a structure as follows: `[{\"person_id\":1,\"primary_flag\":true}]`
  * @member {Array.<Object>} participants
  */
 ActivityPutObject.prototype['participants'] = undefined;
 
 /**
- * Set the Activity as 'Busy' or 'Free'. If the flag is set to `true`, your customers will not be able to book that time slot through any Scheduler links. The flag can also be unset by never setting it or overriding it with `null`. When the value of the flag is unset (`null`), the flag defaults to 'Busy' if it has a time set, and 'Free' if it is an all-day event without specified time.
+ * Set the activity as 'Busy' or 'Free'. If the flag is set to `true`, your customers will not be able to book that time slot through any Scheduler links. The flag can also be unset by never setting it or overriding it with `null`. When the value of the flag is unset (`null`), the flag defaults to 'Busy' if it has a time set, and 'Free' if it is an all-day event without specified time.
  * @member {module:model/ActivityPutObject.BusyFlagEnum} busy_flag
  */
 ActivityPutObject.prototype['busy_flag'] = undefined;
 
 /**
- * Attendees of the Activity. This can be either your existing Pipedrive contacts or an external email address. It requires a structure as follows: `[{\"email_address\":\"mail@example.org\"}]` or `[{\"person_id\":1, \"email_address\":\"mail@example.org\"}]`
+ * The attendees of the activity. This can be either your existing Pipedrive contacts or an external email address. It requires a structure as follows: `[{\"email_address\":\"mail@example.org\"}]` or `[{\"person_id\":1, \"email_address\":\"mail@example.org\"}]`
  * @member {Array.<Object>} attendees
  */
 ActivityPutObject.prototype['attendees'] = undefined;
 
 /**
- * Whether the Activity is done or not. 0 = Not done, 1 = Done
+ * Whether the activity is done or not. 0 = Not done, 1 = Done
  * @member {module:model/NumberBoolean} done
  */
 ActivityPutObject.prototype['done'] = undefined;
@@ -245,83 +245,83 @@ ActivityPutObject.prototype['done'] = undefined;
 
 // Implement ActivityObjectFragment interface:
 /**
- * Due date of the Activity. Format: YYYY-MM-DD
+ * The due date of the activity. Format: YYYY-MM-DD
  * @member {Date} due_date
  */
 ActivityObjectFragment.prototype['due_date'] = undefined;
 /**
- * Due time of the Activity in UTC. Format: HH:MM
+ * The due time of the activity in UTC. Format: HH:MM
  * @member {String} due_time
  */
 ActivityObjectFragment.prototype['due_time'] = undefined;
 /**
- * Duration of the Activity. Format: HH:MM
+ * The duration of the activity. Format: HH:MM
  * @member {String} duration
  */
 ActivityObjectFragment.prototype['duration'] = undefined;
 /**
- * The ID of the Deal this Activity is associated with
+ * The ID of the deal this activity is associated with
  * @member {Number} deal_id
  */
 ActivityObjectFragment.prototype['deal_id'] = undefined;
 /**
- * The ID of the Person this Activity is associated with
+ * The ID of the person this activity is associated with
  * @member {Number} person_id
  */
 ActivityObjectFragment.prototype['person_id'] = undefined;
 /**
- * The ID of the Organization this Activity is associated with
+ * The ID of the organization this activity is associated with
  * @member {Number} org_id
  */
 ActivityObjectFragment.prototype['org_id'] = undefined;
 /**
- * Note of the Activity (HTML format)
+ * The note of the activity (HTML format)
  * @member {String} note
  */
 ActivityObjectFragment.prototype['note'] = undefined;
 /**
- * The address of the Activity. Pipedrive will automatically check if the location matches a geo-location on Google maps.
+ * The address of the activity. Pipedrive will automatically check if the location matches a geo-location on Google maps.
  * @member {String} location
  */
 ActivityObjectFragment.prototype['location'] = undefined;
 /**
- * Additional details about the Activity that is synced to your external calendar. Unlike the note added to the Activity, the description is publicly visible to any guests added to the Activity.
+ * Additional details about the activity that is synced to your external calendar. Unlike the note added to the activity, the description is publicly visible to any guests added to the activity.
  * @member {String} public_description
  */
 ActivityObjectFragment.prototype['public_description'] = undefined;
 // Implement ActivityPutObjectAllOf interface:
 /**
- * Subject of the Activity
+ * The subject of the activity
  * @member {String} subject
  */
 ActivityPutObjectAllOf.prototype['subject'] = undefined;
 /**
- * Type of the Activity. This is in correlation with the `key_string` parameter of ActivityTypes.
+ * The type of the activity. This is in correlation with the `key_string` parameter of ActivityTypes.
  * @member {String} type
  */
 ActivityPutObjectAllOf.prototype['type'] = undefined;
 /**
- * The ID of the User whom the Activity is assigned to
+ * The ID of the user whom the activity is assigned to
  * @member {Number} user_id
  */
 ActivityPutObjectAllOf.prototype['user_id'] = undefined;
 /**
- * List of multiple Persons (participants) this Activity is associated with. It requires a structure as follows: `[{\"person_id\":1,\"primary_flag\":true}]`
+ * List of multiple persons (participants) this activity is associated with. It requires a structure as follows: `[{\"person_id\":1,\"primary_flag\":true}]`
  * @member {Array.<Object>} participants
  */
 ActivityPutObjectAllOf.prototype['participants'] = undefined;
 /**
- * Set the Activity as 'Busy' or 'Free'. If the flag is set to `true`, your customers will not be able to book that time slot through any Scheduler links. The flag can also be unset by never setting it or overriding it with `null`. When the value of the flag is unset (`null`), the flag defaults to 'Busy' if it has a time set, and 'Free' if it is an all-day event without specified time.
+ * Set the activity as 'Busy' or 'Free'. If the flag is set to `true`, your customers will not be able to book that time slot through any Scheduler links. The flag can also be unset by never setting it or overriding it with `null`. When the value of the flag is unset (`null`), the flag defaults to 'Busy' if it has a time set, and 'Free' if it is an all-day event without specified time.
  * @member {module:model/ActivityPutObjectAllOf.BusyFlagEnum} busy_flag
  */
 ActivityPutObjectAllOf.prototype['busy_flag'] = undefined;
 /**
- * Attendees of the Activity. This can be either your existing Pipedrive contacts or an external email address. It requires a structure as follows: `[{\"email_address\":\"mail@example.org\"}]` or `[{\"person_id\":1, \"email_address\":\"mail@example.org\"}]`
+ * The attendees of the activity. This can be either your existing Pipedrive contacts or an external email address. It requires a structure as follows: `[{\"email_address\":\"mail@example.org\"}]` or `[{\"person_id\":1, \"email_address\":\"mail@example.org\"}]`
  * @member {Array.<Object>} attendees
  */
 ActivityPutObjectAllOf.prototype['attendees'] = undefined;
 /**
- * Whether the Activity is done or not. 0 = Not done, 1 = Done
+ * Whether the activity is done or not. 0 = Not done, 1 = Done
  * @member {module:model/NumberBoolean} done
  */
 ActivityPutObjectAllOf.prototype['done'] = undefined;

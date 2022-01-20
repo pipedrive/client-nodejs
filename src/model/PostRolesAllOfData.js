@@ -66,7 +66,7 @@ class PostRolesAllOfData {
 }
 
 /**
- * The ID of the created Role
+ * The ID of the created role
  * @member {Number} id
  */
 PostRolesAllOfData.prototype['id'] = undefined;

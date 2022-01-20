@@ -96,7 +96,7 @@ class ProductSearchItemItem {
 }
 
 /**
- * The ID of the Product
+ * The ID of the product
  * @member {Number} id
  */
 ProductSearchItemItem.prototype['id'] = undefined;
@@ -108,19 +108,19 @@ ProductSearchItemItem.prototype['id'] = undefined;
 ProductSearchItemItem.prototype['type'] = undefined;
 
 /**
- * The name of the Product
+ * The name of the product
  * @member {String} name
  */
 ProductSearchItemItem.prototype['name'] = undefined;
 
 /**
- * The code of the Product
+ * The code of the product
  * @member {Number} code
  */
 ProductSearchItemItem.prototype['code'] = undefined;
 
 /**
- * The visibility of the Product
+ * The visibility of the product
  * @member {Number} visible_to
  */
 ProductSearchItemItem.prototype['visible_to'] = undefined;
@@ -131,7 +131,7 @@ ProductSearchItemItem.prototype['visible_to'] = undefined;
 ProductSearchItemItem.prototype['owner'] = undefined;
 
 /**
- * Custom fields
+ * The custom fields
  * @member {Number} custom_fields
  */
 ProductSearchItemItem.prototype['custom_fields'] = undefined;

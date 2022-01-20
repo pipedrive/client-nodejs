@@ -76,13 +76,13 @@ class GetRecentsAdditionalData {
 }
 
 /**
- * Timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS
+ * The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} since_timestamp
  */
 GetRecentsAdditionalData.prototype['since_timestamp'] = undefined;
 
 /**
- * Timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS
+ * The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} last_timestamp_on_page
  */
 GetRecentsAdditionalData.prototype['last_timestamp_on_page'] = undefined;

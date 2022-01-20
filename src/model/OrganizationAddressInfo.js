@@ -115,67 +115,67 @@ class OrganizationAddressInfo {
 }
 
 /**
- * The full address of the Organization
+ * The full address of the organization
  * @member {String} address
  */
 OrganizationAddressInfo.prototype['address'] = undefined;
 
 /**
- * The sub-premise of the Organization location
+ * The sub-premise of the organization location
  * @member {String} address_subpremise
  */
 OrganizationAddressInfo.prototype['address_subpremise'] = undefined;
 
 /**
- * The street number of the Organization location
+ * The street number of the organization location
  * @member {String} address_street_number
  */
 OrganizationAddressInfo.prototype['address_street_number'] = undefined;
 
 /**
- * The route of the Organization location
+ * The route of the organization location
  * @member {String} address_route
  */
 OrganizationAddressInfo.prototype['address_route'] = undefined;
 
 /**
- * The sub-locality of the Organization location
+ * The sub-locality of the organization location
  * @member {String} address_sublocality
  */
 OrganizationAddressInfo.prototype['address_sublocality'] = undefined;
 
 /**
- * The locality of the Organization location
+ * The locality of the organization location
  * @member {String} address_locality
  */
 OrganizationAddressInfo.prototype['address_locality'] = undefined;
 
 /**
- * The level 1 admin area of the Organization location
+ * The level 1 admin area of the organization location
  * @member {String} address_admin_area_level_1
  */
 OrganizationAddressInfo.prototype['address_admin_area_level_1'] = undefined;
 
 /**
- * The level 2 admin area of the Organization location
+ * The level 2 admin area of the organization location
  * @member {String} address_admin_area_level_2
  */
 OrganizationAddressInfo.prototype['address_admin_area_level_2'] = undefined;
 
 /**
- * The country of the Organization location
+ * The country of the organization location
  * @member {String} address_country
  */
 OrganizationAddressInfo.prototype['address_country'] = undefined;
 
 /**
- * The postal code of the Organization location
+ * The postal code of the organization location
  * @member {String} address_postal_code
  */
 OrganizationAddressInfo.prototype['address_postal_code'] = undefined;
 
 /**
- * The formatted Organization location
+ * The formatted organization location
  * @member {String} address_formatted_address
  */
 OrganizationAddressInfo.prototype['address_formatted_address'] = undefined;

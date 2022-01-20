@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | The ID of the Activity that was deleted | [optional] 
+**id** | **Number** | The ID of the activity that was deleted | [optional] 
 
 

@@ -66,7 +66,7 @@ class PermissionSetsAllOf {
 }
 
 /**
- * The array of Permission Set
+ * The array of permission set
  * @member {Array.<module:model/PermissionSetsItem>} data
  */
 PermissionSetsAllOf.prototype['data'] = undefined;

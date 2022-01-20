@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class GetDealsSummaryDataWeightedValuesTotal {
     /**
      * Constructs a new <code>GetDealsSummaryDataWeightedValuesTotal</code>.
-     * The total weighted values of the Deals grouped by Deal currency. The weighted value is calculated as probability times Deal value.
+     * The total weighted values of the deals grouped by deal currency. The weighted value is calculated as probability times deal value.
      * @alias module:model/GetDealsSummaryDataWeightedValuesTotal
      */
     constructor() { 
@@ -76,19 +76,19 @@ class GetDealsSummaryDataWeightedValuesTotal {
 }
 
 /**
- * The total weighted value of the Deals in the Deal currency group
+ * The total weighted value of the deals in the deal currency group
  * @member {Number} value
  */
 GetDealsSummaryDataWeightedValuesTotal.prototype['value'] = undefined;
 
 /**
- * The number of Deals in the Deal currency group
+ * The number of deals in the deal currency group
  * @member {Number} count
  */
 GetDealsSummaryDataWeightedValuesTotal.prototype['count'] = undefined;
 
 /**
- * The total weighted value of the Deals formatted with Deal currency. E.g. €50
+ * The total weighted value of the deals formatted with deal currency. E.g. €50
  * @member {String} value_formatted
  */
 GetDealsSummaryDataWeightedValuesTotal.prototype['value_formatted'] = undefined;

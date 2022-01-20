@@ -92,7 +92,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.StagesApi();
-let id = 56; // Number | ID of the stage
+let id = 56; // Number | The ID of the stage
 apiInstance.deleteStage(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -106,7 +106,7 @@ apiInstance.deleteStage(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the stage | 
+ **id** | **Number**| The ID of the stage | 
 
 ### Return type
 
@@ -145,7 +145,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.StagesApi();
-let ids = "ids_example"; // String | Comma-separated stage IDs to delete
+let ids = "ids_example"; // String | The comma-separated stage IDs to delete
 apiInstance.deleteStages(ids).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -159,7 +159,7 @@ apiInstance.deleteStages(ids).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **String**| Comma-separated stage IDs to delete | 
+ **ids** | **String**| The comma-separated stage IDs to delete | 
 
 ### Return type
 
@@ -198,7 +198,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.StagesApi();
-let id = 56; // Number | ID of the stage
+let id = 56; // Number | The ID of the stage
 apiInstance.getStage(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -212,7 +212,7 @@ apiInstance.getStage(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the stage | 
+ **id** | **Number**| The ID of the stage | 
 
 ### Return type
 
@@ -251,11 +251,11 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.StagesApi();
-let id = 56; // Number | ID of the stage
+let id = 56; // Number | The ID of the stage
 let opts = {
-  'filterId': 56, // Number | If supplied, only deals matching the given filter will be returned.
+  'filterId': 56, // Number | If supplied, only deals matching the given filter will be returned
   'userId': 56, // Number | If supplied, `filter_id` will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned.
-  'everyone': new Pipedrive.NumberBoolean(), // NumberBoolean | If supplied, `filter_id` and `user_id` will not be considered – instead, deals owned by everyone will be returned.
+  'everyone': new Pipedrive.NumberBoolean(), // NumberBoolean | If supplied, `filter_id` and `user_id` will not be considered – instead, deals owned by everyone will be returned
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
 };
@@ -272,10 +272,10 @@ apiInstance.getStageDeals(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the stage | 
- **filterId** | **Number**| If supplied, only deals matching the given filter will be returned. | [optional] 
+ **id** | **Number**| The ID of the stage | 
+ **filterId** | **Number**| If supplied, only deals matching the given filter will be returned | [optional] 
  **userId** | **Number**| If supplied, &#x60;filter_id&#x60; will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned. | [optional] 
- **everyone** | [**NumberBoolean**](.md)| If supplied, &#x60;filter_id&#x60; and &#x60;user_id&#x60; will not be considered – instead, deals owned by everyone will be returned. | [optional] 
+ **everyone** | [**NumberBoolean**](.md)| If supplied, &#x60;filter_id&#x60; and &#x60;user_id&#x60; will not be considered – instead, deals owned by everyone will be returned | [optional] 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
 
@@ -371,7 +371,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.StagesApi();
-let id = 56; // Number | ID of the stage
+let id = 56; // Number | The ID of the stage
 let opts = Pipedrive.UpdateStageRequest.constructFromObject({
   // Properties that you want to update
 });
@@ -388,7 +388,7 @@ apiInstance.updateStage(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the stage | 
+ **id** | **Number**| The ID of the stage | 
  **updateStageRequest** | [**UpdateStageRequest**](UpdateStageRequest.md)|  | [optional] 
 
 ### Return type

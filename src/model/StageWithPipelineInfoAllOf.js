@@ -70,13 +70,13 @@ class StageWithPipelineInfoAllOf {
 }
 
 /**
- * The name of the Pipeline
+ * The name of the pipeline
  * @member {String} pipeline_name
  */
 StageWithPipelineInfoAllOf.prototype['pipeline_name'] = undefined;
 
 /**
- * Pipeline Deal probability. When `true`, overrides the Stage probability.
+ * The pipeline deal probability. When `true`, overrides the stage probability.
  * @member {Boolean} pipeline_deal_probability
  */
 StageWithPipelineInfoAllOf.prototype['pipeline_deal_probability'] = undefined;

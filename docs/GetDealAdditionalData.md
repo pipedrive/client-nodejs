@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**dropboxEmail** | **String** | The Cc email of the Deal | [optional] 
+**dropboxEmail** | **String** | The BCC email of the deal | [optional] 
 
 

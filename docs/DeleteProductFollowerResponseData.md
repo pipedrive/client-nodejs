@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | The ID of removed Follower | [optional] 
+**id** | **Number** | The ID of the removed follower | [optional] 
 
 

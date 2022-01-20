@@ -23,8 +23,8 @@ class AddWebhookRequest {
      * Constructs a new <code>AddWebhookRequest</code>.
      * @alias module:model/AddWebhookRequest
      * @param subscriptionUrl {String} A full, valid, publicly accessible URL which determines where to send the notifications. Please note that you cannot use Pipedrive API endpoints as the `subscription_url` and the chosen URL must not redirect to another link.
-     * @param eventAction {module:model/AddWebhookRequest.EventActionEnum} Type of action to receive notifications about. Wildcard will match all supported actions.
-     * @param eventObject {module:model/AddWebhookRequest.EventObjectEnum} Type of object to receive notifications about. Wildcard will match all supported objects.
+     * @param eventAction {module:model/AddWebhookRequest.EventActionEnum} The type of action to receive notifications about. Wildcard will match all supported actions.
+     * @param eventObject {module:model/AddWebhookRequest.EventObjectEnum} The type of object to receive notifications about. Wildcard will match all supported objects.
      */
     constructor(subscriptionUrl, eventAction, eventObject) { 
         
@@ -102,31 +102,31 @@ class AddWebhookRequest {
 AddWebhookRequest.prototype['subscription_url'] = undefined;
 
 /**
- * Type of action to receive notifications about. Wildcard will match all supported actions.
+ * The type of action to receive notifications about. Wildcard will match all supported actions.
  * @member {module:model/AddWebhookRequest.EventActionEnum} event_action
  */
 AddWebhookRequest.prototype['event_action'] = undefined;
 
 /**
- * Type of object to receive notifications about. Wildcard will match all supported objects.
+ * The type of object to receive notifications about. Wildcard will match all supported objects.
  * @member {module:model/AddWebhookRequest.EventObjectEnum} event_object
  */
 AddWebhookRequest.prototype['event_object'] = undefined;
 
 /**
- * The ID of the user this webhook will be authorized with. If not set, current authorized user will be used. Note that this does not filter only certain user's events — rather, this specifies the user's permissions under which each event is checked. Events about objects the selected user is not entitled to access are not sent. If you want to receive notifications for all events, a top-level admin user should be used.
+ * The ID of the user this Webhook will be authorized with. If not set, current authorized user will be used. Note that this does not filter only certain user's events — rather, this specifies the user's permissions under which each event is checked. Events about objects the selected user is not entitled to access are not sent. If you want to receive notifications for all events, a top-level admin user should be used.
  * @member {Number} user_id
  */
 AddWebhookRequest.prototype['user_id'] = undefined;
 
 /**
- * HTTP basic auth username of the subscription URL endpoint (if required).
+ * The HTTP basic auth username of the subscription URL endpoint (if required)
  * @member {String} http_auth_user
  */
 AddWebhookRequest.prototype['http_auth_user'] = undefined;
 
 /**
- * HTTP basic auth password of the subscription URL endpoint (if required).
+ * The HTTP basic auth password of the subscription URL endpoint (if required)
  * @member {String} http_auth_password
  */
 AddWebhookRequest.prototype['http_auth_password'] = undefined;

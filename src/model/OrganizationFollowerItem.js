@@ -86,7 +86,7 @@ class OrganizationFollowerItem {
 }
 
 /**
- * The ID of the Organization
+ * The ID of the organization
  * @member {Number} org_id
  */
 OrganizationFollowerItem.prototype['org_id'] = undefined;
@@ -112,7 +112,7 @@ OrganizationFollowerItem.prototype['add_time'] = undefined;
 
 // Implement OrganizationFollowerItemAllOf interface:
 /**
- * The ID of the Organization
+ * The ID of the organization
  * @member {Number} org_id
  */
 OrganizationFollowerItemAllOf.prototype['org_id'] = undefined;

@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**users** | **[Number]** | List of User IDs | 
+**users** | **[Number]** | The list of user IDs | 
 
 

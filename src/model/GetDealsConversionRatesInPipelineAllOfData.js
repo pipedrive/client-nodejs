@@ -22,7 +22,7 @@ import StageConversions from './StageConversions';
 class GetDealsConversionRatesInPipelineAllOfData {
     /**
      * Constructs a new <code>GetDealsConversionRatesInPipelineAllOfData</code>.
-     * The Pipeline object
+     * The pipeline object
      * @alias module:model/GetDealsConversionRatesInPipelineAllOfData
      */
     constructor() { 
@@ -77,19 +77,19 @@ class GetDealsConversionRatesInPipelineAllOfData {
 }
 
 /**
- * The Stage conversions
+ * The stage conversions
  * @member {Array.<module:model/StageConversions>} stage_conversions
  */
 GetDealsConversionRatesInPipelineAllOfData.prototype['stage_conversions'] = undefined;
 
 /**
- * Won conversion
+ * The won conversion
  * @member {Number} won_conversion
  */
 GetDealsConversionRatesInPipelineAllOfData.prototype['won_conversion'] = undefined;
 
 /**
- * Lost conversion
+ * The lost conversion
  * @member {Number} lost_conversion
  */
 GetDealsConversionRatesInPipelineAllOfData.prototype['lost_conversion'] = undefined;

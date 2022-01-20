@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | The ID of the Field that was deleted | [optional] 
+**id** | **Number** | The ID of the field that was deleted | [optional] 
 
 

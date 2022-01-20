@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class RoleSettings {
     /**
      * Constructs a new <code>RoleSettings</code>.
-     * The settings for the Role
+     * The settings for the role
      * @alias module:model/RoleSettings
      */
     constructor() { 
@@ -106,55 +106,55 @@ class RoleSettings {
 }
 
 /**
- * The default visibility level of the Deals for the Role
+ * The default visibility level of the deals for the role
  * @member {Number} deal_default_visibility
  */
 RoleSettings.prototype['deal_default_visibility'] = undefined;
 
 /**
- * The default visibility level of the Leads for the Role
+ * The default visibility level of the leads for the role
  * @member {Number} lead_default_visibility
  */
 RoleSettings.prototype['lead_default_visibility'] = undefined;
 
 /**
- * The default visibility level of the Organizations for the Role
+ * The default visibility level of the organizations for the role
  * @member {Number} org_default_visibility
  */
 RoleSettings.prototype['org_default_visibility'] = undefined;
 
 /**
- * The default visibility level of the People for the Role
+ * The default visibility level of the people for the role
  * @member {Number} person_default_visibility
  */
 RoleSettings.prototype['person_default_visibility'] = undefined;
 
 /**
- * The default visibility level of the Products for the Role
+ * The default visibility level of the products for the role
  * @member {Number} product_default_visibility
  */
 RoleSettings.prototype['product_default_visibility'] = undefined;
 
 /**
- * The access level of the Deals for the Role (only for default Role)
+ * The access level of the deals for the role (only for default role)
  * @member {Number} deal_access_level
  */
 RoleSettings.prototype['deal_access_level'] = undefined;
 
 /**
- * The access level of the Organizations for the Role (only for default Role)
+ * The access level of the organizations for the role (only for default role)
  * @member {Number} org_access_level
  */
 RoleSettings.prototype['org_access_level'] = undefined;
 
 /**
- * The access level of the People for the Role (only for default Role)
+ * The access level of the people for the role (only for default role)
  * @member {Number} person_access_level
  */
 RoleSettings.prototype['person_access_level'] = undefined;
 
 /**
- * The access level of the Products for the Role (only for default Role)
+ * The access level of the products for the role (only for default role)
  * @member {Number} product_access_level
  */
 RoleSettings.prototype['product_access_level'] = undefined;

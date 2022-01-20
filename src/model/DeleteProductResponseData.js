@@ -65,7 +65,7 @@ class DeleteProductResponseData {
 }
 
 /**
- * The ID of removed Product
+ * The ID of the removed product
  * @member {Number} id
  */
 DeleteProductResponseData.prototype['id'] = undefined;

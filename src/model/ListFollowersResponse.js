@@ -89,7 +89,7 @@ class ListFollowersResponse {
 ListFollowersResponse.prototype['success'] = undefined;
 
 /**
- * The list of Followers
+ * The list of followers
  * @member {Array.<module:model/ListFollowersResponseAllOfData>} data
  */
 ListFollowersResponse.prototype['data'] = undefined;
@@ -108,7 +108,7 @@ ListFollowersResponse.prototype['additional_data'] = undefined;
 BaseResponse.prototype['success'] = undefined;
 // Implement ListFollowersResponseAllOf interface:
 /**
- * The list of Followers
+ * The list of followers
  * @member {Array.<module:model/ListFollowersResponseAllOfData>} data
  */
 ListFollowersResponseAllOf.prototype['data'] = undefined;

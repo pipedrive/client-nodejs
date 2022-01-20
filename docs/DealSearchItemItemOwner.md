@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | The ID of the owner of the Deal | [optional] 
+**id** | **Number** | The ID of the owner of the deal | [optional] 
 
 

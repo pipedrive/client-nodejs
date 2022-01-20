@@ -77,7 +77,7 @@ class GetProductFieldResponse {
 GetProductFieldResponse.prototype['success'] = undefined;
 
 /**
- * All data for the Product Field
+ * All data for the product field
  * @member {module:model/ProductField} data
  */
 GetProductFieldResponse.prototype['data'] = undefined;

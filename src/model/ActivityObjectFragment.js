@@ -105,55 +105,55 @@ class ActivityObjectFragment {
 }
 
 /**
- * Due date of the Activity. Format: YYYY-MM-DD
+ * The due date of the activity. Format: YYYY-MM-DD
  * @member {Date} due_date
  */
 ActivityObjectFragment.prototype['due_date'] = undefined;
 
 /**
- * Due time of the Activity in UTC. Format: HH:MM
+ * The due time of the activity in UTC. Format: HH:MM
  * @member {String} due_time
  */
 ActivityObjectFragment.prototype['due_time'] = undefined;
 
 /**
- * Duration of the Activity. Format: HH:MM
+ * The duration of the activity. Format: HH:MM
  * @member {String} duration
  */
 ActivityObjectFragment.prototype['duration'] = undefined;
 
 /**
- * The ID of the Deal this Activity is associated with
+ * The ID of the deal this activity is associated with
  * @member {Number} deal_id
  */
 ActivityObjectFragment.prototype['deal_id'] = undefined;
 
 /**
- * The ID of the Person this Activity is associated with
+ * The ID of the person this activity is associated with
  * @member {Number} person_id
  */
 ActivityObjectFragment.prototype['person_id'] = undefined;
 
 /**
- * The ID of the Organization this Activity is associated with
+ * The ID of the organization this activity is associated with
  * @member {Number} org_id
  */
 ActivityObjectFragment.prototype['org_id'] = undefined;
 
 /**
- * Note of the Activity (HTML format)
+ * The note of the activity (HTML format)
  * @member {String} note
  */
 ActivityObjectFragment.prototype['note'] = undefined;
 
 /**
- * The address of the Activity. Pipedrive will automatically check if the location matches a geo-location on Google maps.
+ * The address of the activity. Pipedrive will automatically check if the location matches a geo-location on Google maps.
  * @member {String} location
  */
 ActivityObjectFragment.prototype['location'] = undefined;
 
 /**
- * Additional details about the Activity that is synced to your external calendar. Unlike the note added to the Activity, the description is publicly visible to any guests added to the Activity.
+ * Additional details about the activity that is synced to your external calendar. Unlike the note added to the activity, the description is publicly visible to any guests added to the activity.
  * @member {String} public_description
  */
 ActivityObjectFragment.prototype['public_description'] = undefined;

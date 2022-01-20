@@ -4,9 +4,9 @@ All URIs are relative to *https://api.pipedrive.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getPermissionSet**](PermissionSetsApi.md#getPermissionSet) | **GET** /permissionSets/{id} | Get one Permission Set
-[**getPermissionSetAssignments**](PermissionSetsApi.md#getPermissionSetAssignments) | **GET** /permissionSets/{id}/assignments | List Permission Set assignments
-[**getPermissionSets**](PermissionSetsApi.md#getPermissionSets) | **GET** /permissionSets | Get all Permission Sets
+[**getPermissionSet**](PermissionSetsApi.md#getPermissionSet) | **GET** /permissionSets/{id} | Get one permission set
+[**getPermissionSetAssignments**](PermissionSetsApi.md#getPermissionSetAssignments) | **GET** /permissionSets/{id}/assignments | List permission set assignments
+[**getPermissionSets**](PermissionSetsApi.md#getPermissionSets) | **GET** /permissionSets | Get all permission sets
 
 
 
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 > SinglePermissionSetsItem getPermissionSet(id)
 
-Get one Permission Set
+Get one permission set
 
 ### Example
 
@@ -28,7 +28,7 @@ api_key.apiKey = 'YOUR API KEY';
 //api_key.apiKeyPrefix = 'Token';
 
 let apiInstance = new Pipedrive.PermissionSetsApi();
-let id = 56; // Number | ID of the permission set
+let id = 56; // Number | The ID of the permission set
 apiInstance.getPermissionSet(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -42,7 +42,7 @@ apiInstance.getPermissionSet(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the permission set | 
+ **id** | **Number**| The ID of the permission set | 
 
 ### Return type
 
@@ -62,9 +62,9 @@ Name | Type | Description  | Notes
 
 > UserAssignmentsToPermissionSet getPermissionSetAssignments(id, opts)
 
-List Permission Set assignments
+List permission set assignments
 
-The list of assignments for a Permission Set
+The list of assignments for a permission set.
 
 ### Example
 
@@ -78,7 +78,7 @@ api_key.apiKey = 'YOUR API KEY';
 //api_key.apiKeyPrefix = 'Token';
 
 let apiInstance = new Pipedrive.PermissionSetsApi();
-let id = 56; // Number | ID of the permission set
+let id = 56; // Number | The ID of the permission set
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
@@ -96,7 +96,7 @@ apiInstance.getPermissionSetAssignments(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the permission set | 
+ **id** | **Number**| The ID of the permission set | 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
 
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 
 > PermissionSets getPermissionSets()
 
-Get all Permission Sets
+Get all permission sets
 
 ### Example
 

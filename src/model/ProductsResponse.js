@@ -89,7 +89,7 @@ class ProductsResponse {
 ProductsResponse.prototype['success'] = undefined;
 
 /**
- * Array containing data for all Products
+ * Array containing data for all products
  * @member {Array.<module:model/ProductResponse>} data
  */
 ProductsResponse.prototype['data'] = undefined;

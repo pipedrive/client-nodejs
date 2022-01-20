@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | The ID of the Deal Follower that was deleted | [optional] 
+**id** | **Number** | The ID of the deal follower that was deleted | [optional] 
 
 

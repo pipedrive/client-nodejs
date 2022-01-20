@@ -12,8 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import BasePersonItemEmail from './BasePersonItemEmail';
 import BasePersonItemPhone from './BasePersonItemPhone';
+import BasicPersonEmail from './BasicPersonEmail';
 import VisibleTo from './VisibleTo';
 
 /**
@@ -66,7 +66,7 @@ class BasicPerson {
                 delete data['org_id'];
             }
             if (data.hasOwnProperty('email')) {
-                obj['email'] = ApiClient.convertToType(data['email'], [BasePersonItemEmail]);
+                obj['email'] = ApiClient.convertToType(data['email'], [BasicPersonEmail]);
 
                 delete data['email'];
             }
@@ -93,37 +93,37 @@ class BasicPerson {
 }
 
 /**
- * Person name
+ * The name of the person
  * @member {String} name
  */
 BasicPerson.prototype['name'] = undefined;
 
 /**
- * ID of the user who will be marked as the owner of this person. When omitted, the authorized user ID will be used.
+ * The ID of the user who will be marked as the owner of this person. When omitted, the authorized user ID will be used.
  * @member {Number} owner_id
  */
 BasicPerson.prototype['owner_id'] = undefined;
 
 /**
- * ID of the organization this person will belong to.
+ * The ID of the organization this person will belong to
  * @member {Number} org_id
  */
 BasicPerson.prototype['org_id'] = undefined;
 
 /**
- * List of email data related to the Person
- * @member {Array.<module:model/BasePersonItemEmail>} email
+ * List of email data related to the person
+ * @member {Array.<module:model/BasicPersonEmail>} email
  */
 BasicPerson.prototype['email'] = undefined;
 
 /**
- * List of phone data related to the Person
+ * List of phone data related to the person
  * @member {Array.<module:model/BasePersonItemPhone>} phone
  */
 BasicPerson.prototype['phone'] = undefined;
 
 /**
- * Visibility of the person. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
+ * The visibility of the person. If omitted, the visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
  * @member {module:model/VisibleTo} visible_to
  */
 BasicPerson.prototype['visible_to'] = undefined;

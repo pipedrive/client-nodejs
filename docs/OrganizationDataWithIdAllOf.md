@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | The ID of the Organization associated with the item | [optional] 
+**id** | **Number** | The ID of the organization associated with the item | [optional] 
 
 

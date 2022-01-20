@@ -87,13 +87,13 @@ class SubscriptionRecurringUpdateRequest {
 }
 
 /**
- * Description of the Recurring Subscription
+ * The description of the recurring subscription
  * @member {String} description
  */
 SubscriptionRecurringUpdateRequest.prototype['description'] = undefined;
 
 /**
- * Amount of each payment
+ * The amount of each payment
  * @member {Number} cycle_amount
  */
 SubscriptionRecurringUpdateRequest.prototype['cycle_amount'] = undefined;
@@ -105,7 +105,7 @@ SubscriptionRecurringUpdateRequest.prototype['cycle_amount'] = undefined;
 SubscriptionRecurringUpdateRequest.prototype['payments'] = undefined;
 
 /**
- * Indicates that the Deal value must be set to Recurring Subscription's MRR value
+ * Indicates that the deal value must be set to recurring subscription's MRR value
  * @member {Boolean} update_deal_value
  */
 SubscriptionRecurringUpdateRequest.prototype['update_deal_value'] = undefined;

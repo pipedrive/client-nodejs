@@ -65,7 +65,7 @@ class GetLeadSourcesResponse200Data {
 }
 
 /**
- * The unique name of a Lead Source
+ * The unique name of a lead source
  * @member {String} name
  */
 GetLeadSourcesResponse200Data.prototype['name'] = undefined;

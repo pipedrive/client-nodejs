@@ -22,7 +22,7 @@ class NewDealProductAllOf {
     /**
      * Constructs a new <code>NewDealProductAllOf</code>.
      * @alias module:model/NewDealProductAllOf
-     * @param productId {Number} ID of the product that will be attached
+     * @param productId {Number} The ID of the product that will be attached
      */
     constructor(productId) { 
         
@@ -67,7 +67,7 @@ class NewDealProductAllOf {
 }
 
 /**
- * ID of the product that will be attached
+ * The ID of the product that will be attached
  * @member {Number} product_id
  */
 NewDealProductAllOf.prototype['product_id'] = undefined;

@@ -65,7 +65,7 @@ class DeleteDealFollowerData {
 }
 
 /**
- * The ID of the Deal Follower that was deleted
+ * The ID of the deal follower that was deleted
  * @member {Number} id
  */
 DeleteDealFollowerData.prototype['id'] = undefined;

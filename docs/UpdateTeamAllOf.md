@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**activeFlag** | [**NumberBoolean**](NumberBoolean.md) | Flag that indicates if the Team is activated | [optional] 
-**deletedFlag** | [**NumberBoolean**](NumberBoolean.md) | Flag that indicates if the Team is deleted | [optional] 
+**activeFlag** | [**NumberBoolean**](NumberBoolean.md) | Flag that indicates whether the team is active | [optional] 
+**deletedFlag** | [**NumberBoolean**](NumberBoolean.md) | Flag that indicates whether the team is deleted | [optional] 
 
 

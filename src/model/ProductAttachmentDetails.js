@@ -167,7 +167,7 @@ class ProductAttachmentDetails {
 }
 
 /**
- * Price at which this product will be added to the deal
+ * The price at which this product will be added to the deal
  * @member {Number} item_price
  */
 ProductAttachmentDetails.prototype['item_price'] = undefined;
@@ -179,21 +179,21 @@ ProductAttachmentDetails.prototype['item_price'] = undefined;
 ProductAttachmentDetails.prototype['quantity'] = undefined;
 
 /**
- * Discount %. If omitted, will be set to 0
+ * The discount %. If omitted, will be set to 0.
  * @member {Number} discount_percentage
  * @default 0
  */
 ProductAttachmentDetails.prototype['discount_percentage'] = 0;
 
 /**
- * Duration of the product (when product durations are not enabled for the company or if omitted, defaults to 1)
+ * The duration of the product (when product durations are not enabled for the company or if omitted, defaults to 1)
  * @member {Number} duration
  * @default 1
  */
 ProductAttachmentDetails.prototype['duration'] = 1;
 
 /**
- * ID of the product variation to use. When omitted, no variation will be used.
+ * The ID of the product variation to use. When omitted, no variation will be used.
  * @member {Number} product_variation_id
  */
 ProductAttachmentDetails.prototype['product_variation_id'] = undefined;
@@ -205,37 +205,37 @@ ProductAttachmentDetails.prototype['product_variation_id'] = undefined;
 ProductAttachmentDetails.prototype['comments'] = undefined;
 
 /**
- * The Product tax
+ * The product tax
  * @member {Number} tax
  */
 ProductAttachmentDetails.prototype['tax'] = undefined;
 
 /**
- * Whether the product is enabled on the deal or not. This makes it possible to add products to a deal with specific price and discount criteria - but keep them disabled, which refrains them from being included in deal price calculation. When omitted, the product will be marked as enabled by default.
+ * Whether the product is enabled on the deal or not. This makes it possible to add products to a deal with a specific price and discount criteria - but keep them disabled, which refrains them from being included in the deal price calculation. When omitted, the product will be marked as enabled by default.
  * @member {module:model/NumberBoolean} enabled_flag
  */
 ProductAttachmentDetails.prototype['enabled_flag'] = undefined;
 
 /**
- * The ID of the deal-product (the ID of the Product attached to the Deal)
+ * The ID of the deal-product (the ID of the product attached to the deal)
  * @member {Number} id
  */
 ProductAttachmentDetails.prototype['id'] = undefined;
 
 /**
- * The ID of the Company
+ * The ID of the company
  * @member {Number} company_id
  */
 ProductAttachmentDetails.prototype['company_id'] = undefined;
 
 /**
- * The ID of the Deal
+ * The ID of the deal
  * @member {Number} deal_id
  */
 ProductAttachmentDetails.prototype['deal_id'] = undefined;
 
 /**
- * The ID of the Product
+ * The ID of the product
  * @member {Number} product_id
  */
 ProductAttachmentDetails.prototype['product_id'] = undefined;
@@ -247,43 +247,43 @@ ProductAttachmentDetails.prototype['product_id'] = undefined;
 ProductAttachmentDetails.prototype['duration_unit'] = undefined;
 
 /**
- * The Product sum without the discount
+ * The product sum without the discount
  * @member {Number} sum_no_discount
  */
 ProductAttachmentDetails.prototype['sum_no_discount'] = undefined;
 
 /**
- * The sum of all the Products attached to the Deal
+ * The sum of all the products attached to the deal
  * @member {Number} sum
  */
 ProductAttachmentDetails.prototype['sum'] = undefined;
 
 /**
- * The currency associated with the Deal Product
+ * The currency associated with the deal product
  * @member {String} currency
  */
 ProductAttachmentDetails.prototype['currency'] = undefined;
 
 /**
- * The date and time when the Product was added to the Deal
+ * The date and time when the product was added to the deal
  * @member {String} add_time
  */
 ProductAttachmentDetails.prototype['add_time'] = undefined;
 
 /**
- * The date and time when the Deal Product was last edited
+ * The date and time when the deal product was last edited
  * @member {String} last_edit
  */
 ProductAttachmentDetails.prototype['last_edit'] = undefined;
 
 /**
- * Boolean indicates if the Product is activated or not
+ * Whether the product is active or not
  * @member {Boolean} active_flag
  */
 ProductAttachmentDetails.prototype['active_flag'] = undefined;
 
 /**
- * The Product name
+ * The product name
  * @member {String} name
  */
 ProductAttachmentDetails.prototype['name'] = undefined;
@@ -291,7 +291,7 @@ ProductAttachmentDetails.prototype['name'] = undefined;
 
 // Implement BasicDealProduct interface:
 /**
- * Price at which this product will be added to the deal
+ * The price at which this product will be added to the deal
  * @member {Number} item_price
  */
 BasicDealProduct.prototype['item_price'] = undefined;
@@ -301,19 +301,19 @@ BasicDealProduct.prototype['item_price'] = undefined;
  */
 BasicDealProduct.prototype['quantity'] = undefined;
 /**
- * Discount %. If omitted, will be set to 0
+ * The discount %. If omitted, will be set to 0.
  * @member {Number} discount_percentage
  * @default 0
  */
 BasicDealProduct.prototype['discount_percentage'] = 0;
 /**
- * Duration of the product (when product durations are not enabled for the company or if omitted, defaults to 1)
+ * The duration of the product (when product durations are not enabled for the company or if omitted, defaults to 1)
  * @member {Number} duration
  * @default 1
  */
 BasicDealProduct.prototype['duration'] = 1;
 /**
- * ID of the product variation to use. When omitted, no variation will be used.
+ * The ID of the product variation to use. When omitted, no variation will be used.
  * @member {Number} product_variation_id
  */
 BasicDealProduct.prototype['product_variation_id'] = undefined;
@@ -323,34 +323,34 @@ BasicDealProduct.prototype['product_variation_id'] = undefined;
  */
 BasicDealProduct.prototype['comments'] = undefined;
 /**
- * Tax percentage
+ * The tax percentage
  * @member {Number} tax
  * @default 0
  */
 BasicDealProduct.prototype['tax'] = 0;
 /**
- * Whether the product is enabled on the deal or not. This makes it possible to add products to a deal with specific price and discount criteria - but keep them disabled, which refrains them from being included in deal price calculation. When omitted, the product will be marked as enabled by default.
+ * Whether the product is enabled on the deal or not. This makes it possible to add products to a deal with a specific price and discount criteria - but keep them disabled, which refrains them from being included in the deal price calculation. When omitted, the product will be marked as enabled by default.
  * @member {module:model/NumberBoolean} enabled_flag
  */
 BasicDealProduct.prototype['enabled_flag'] = undefined;
 // Implement ProductAttachementFields interface:
 /**
- * The ID of the deal-product (the ID of the Product attached to the Deal)
+ * The ID of the deal-product (the ID of the product attached to the deal)
  * @member {Number} id
  */
 ProductAttachementFields.prototype['id'] = undefined;
 /**
- * The ID of the Company
+ * The ID of the company
  * @member {Number} company_id
  */
 ProductAttachementFields.prototype['company_id'] = undefined;
 /**
- * The ID of the Deal
+ * The ID of the deal
  * @member {Number} deal_id
  */
 ProductAttachementFields.prototype['deal_id'] = undefined;
 /**
- * The ID of the Product
+ * The ID of the product
  * @member {Number} product_id
  */
 ProductAttachementFields.prototype['product_id'] = undefined;
@@ -360,42 +360,42 @@ ProductAttachementFields.prototype['product_id'] = undefined;
  */
 ProductAttachementFields.prototype['duration_unit'] = undefined;
 /**
- * The Product sum without the discount
+ * The product sum without the discount
  * @member {Number} sum_no_discount
  */
 ProductAttachementFields.prototype['sum_no_discount'] = undefined;
 /**
- * The sum of all the Products attached to the Deal
+ * The sum of all the products attached to the deal
  * @member {Number} sum
  */
 ProductAttachementFields.prototype['sum'] = undefined;
 /**
- * The currency associated with the Deal Product
+ * The currency associated with the deal product
  * @member {String} currency
  */
 ProductAttachementFields.prototype['currency'] = undefined;
 /**
- * The date and time when the Product was added to the Deal
+ * The date and time when the product was added to the deal
  * @member {String} add_time
  */
 ProductAttachementFields.prototype['add_time'] = undefined;
 /**
- * The date and time when the Deal Product was last edited
+ * The date and time when the deal product was last edited
  * @member {String} last_edit
  */
 ProductAttachementFields.prototype['last_edit'] = undefined;
 /**
- * Boolean indicates if the Product is activated or not
+ * Whether the product is active or not
  * @member {Boolean} active_flag
  */
 ProductAttachementFields.prototype['active_flag'] = undefined;
 /**
- * The Product tax
+ * The product tax
  * @member {Number} tax
  */
 ProductAttachementFields.prototype['tax'] = undefined;
 /**
- * The Product name
+ * The product name
  * @member {String} name
  */
 ProductAttachementFields.prototype['name'] = undefined;

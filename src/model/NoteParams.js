@@ -96,43 +96,43 @@ class NoteParams {
 }
 
 /**
- * Content of the note in HTML format. Subject to sanitization on the back-end.
+ * The content of the note in HTML format. Subject to sanitization on the back-end.
  * @member {String} content
  */
 NoteParams.prototype['content'] = undefined;
 
 /**
- * ID of the user who will be marked as the author of this note. Only an admin can change the author.
+ * The ID of the user who will be marked as the author of the note. Only an admin can change the author.
  * @member {Number} user_id
  */
 NoteParams.prototype['user_id'] = undefined;
 
 /**
- * Optional creation date & time of the Note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
+ * The optional creation date & time of the note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} add_time
  */
 NoteParams.prototype['add_time'] = undefined;
 
 /**
- * If set, then results are filtered by note to lead pinning state (`lead_id` is also required)
+ * If set, the results are filtered by note to lead pinning state (`lead_id` is also required)
  * @member {module:model/NumberBoolean} pinned_to_lead_flag
  */
 NoteParams.prototype['pinned_to_lead_flag'] = undefined;
 
 /**
- * If set, then results are filtered by note to deal pinning state (`deal_id` is also required).
+ * If set, the results are filtered by note to deal pinning state (`deal_id` is also required)
  * @member {module:model/NumberBoolean} pinned_to_deal_flag
  */
 NoteParams.prototype['pinned_to_deal_flag'] = undefined;
 
 /**
- * If set, then results are filtered by note to organization pinning state (`org_id` is also required).
+ * If set, the results are filtered by note to organization pinning state (`org_id` is also required)
  * @member {module:model/NumberBoolean} pinned_to_organization_flag
  */
 NoteParams.prototype['pinned_to_organization_flag'] = undefined;
 
 /**
- * If set, then results are filtered by note to person pinning state (`person_id` is also required).
+ * If set, the results are filtered by note to person pinning state (`person_id` is also required)
  * @member {module:model/NumberBoolean} pinned_to_person_flag
  */
 NoteParams.prototype['pinned_to_person_flag'] = undefined;

@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Get recents
 
-Returns data about all recent changes occured after given timestamp.
+Returns data about all recent changes occurred after the given timestamp.
 
 ### Example
 
@@ -31,9 +31,9 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.RecentsApi();
-let sinceTimestamp = "sinceTimestamp_example"; // String | Timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS
+let sinceTimestamp = "sinceTimestamp_example"; // String | The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS
 let opts = {
-  'items': "items_example", // String | Multiple selection of item types to include in query (optional)
+  'items': "items_example", // String | Multiple selection of item types to include in the query (optional)
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
 };
@@ -50,8 +50,8 @@ apiInstance.getRecents(sinceTimestamp, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sinceTimestamp** | **String**| Timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS | 
- **items** | **String**| Multiple selection of item types to include in query (optional) | [optional] 
+ **sinceTimestamp** | **String**| The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS | 
+ **items** | **String**| Multiple selection of item types to include in the query (optional) | [optional] 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
 

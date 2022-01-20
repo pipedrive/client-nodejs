@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | The ID of the Deal that was deleted | [optional] 
+**id** | **Number** | The ID of the deal that was deleted | [optional] 
 
 

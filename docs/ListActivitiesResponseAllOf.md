@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[ActivityResponseObject]**](ActivityResponseObject.md) | The array of Activities | [optional] 
+**data** | [**[ActivityResponseObject]**](ActivityResponseObject.md) | The array of activities | [optional] 
 **additionalData** | [**ActivityDistributionDataWithAdditionalData**](ActivityDistributionDataWithAdditionalData.md) |  | [optional] 
 
 

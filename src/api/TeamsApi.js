@@ -45,7 +45,7 @@ export default class TeamsApi {
 
     /**
      * Add a new team
-     * Adds a new team to the company and returns the created object
+     * Adds a new team to the company and returns the created object.
      * @param {Object} opts Optional parameters
      * @param {module:model/CreateTeam} opts.createTeam 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Team} and HTTP response
@@ -92,7 +92,7 @@ export default class TeamsApi {
 
     /**
      * Add a new team
-     * Adds a new team to the company and returns the created object
+     * Adds a new team to the company and returns the created object.
      * @param {Object} opts Optional parameters
      * @param {module:model/CreateTeam} opts.createTeam 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Team}
@@ -107,8 +107,8 @@ export default class TeamsApi {
 
     /**
      * Add users to a team
-     * Adds users to an existing team
-     * @param {Number} id ID of the team
+     * Adds users to an existing team.
+     * @param {Number} id The ID of the team
      * @param {Object} opts Optional parameters
      * @param {module:model/AddTeamUserRequest} opts.addTeamUserRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UserIDs} and HTTP response
@@ -160,8 +160,8 @@ export default class TeamsApi {
 
     /**
      * Add users to a team
-     * Adds users to an existing team
-     * @param {Number} id ID of the team
+     * Adds users to an existing team.
+     * @param {Number} id The ID of the team
      * @param {Object} opts Optional parameters
      * @param {module:model/AddTeamUserRequest} opts.addTeamUserRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UserIDs}
@@ -176,8 +176,8 @@ export default class TeamsApi {
 
     /**
      * Delete users from a team
-     * Deletes users from an existing team
-     * @param {Number} id ID of the team
+     * Deletes users from an existing team.
+     * @param {Number} id The ID of the team
      * @param {Object} opts Optional parameters
      * @param {module:model/DeleteTeamUserRequest} opts.deleteTeamUserRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UserIDs} and HTTP response
@@ -229,8 +229,8 @@ export default class TeamsApi {
 
     /**
      * Delete users from a team
-     * Deletes users from an existing team
-     * @param {Number} id ID of the team
+     * Deletes users from an existing team.
+     * @param {Number} id The ID of the team
      * @param {Object} opts Optional parameters
      * @param {module:model/DeleteTeamUserRequest} opts.deleteTeamUserRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UserIDs}
@@ -245,8 +245,8 @@ export default class TeamsApi {
 
     /**
      * Get a single team
-     * Returns data about a specific team
-     * @param {Number} id ID of the team
+     * Returns data about a specific team.
+     * @param {Number} id The ID of the team
      * @param {Object} opts Optional parameters
      * @param {module:model/NumberBooleanDefault0} opts.skipUsers When enabled, the teams will not include IDs of member users
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Team} and HTTP response
@@ -299,8 +299,8 @@ export default class TeamsApi {
 
     /**
      * Get a single team
-     * Returns data about a specific team
-     * @param {Number} id ID of the team
+     * Returns data about a specific team.
+     * @param {Number} id The ID of the team
      * @param {Object} opts Optional parameters
      * @param {module:model/NumberBooleanDefault0} opts.skipUsers When enabled, the teams will not include IDs of member users
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Team}
@@ -315,8 +315,8 @@ export default class TeamsApi {
 
     /**
      * Get all users in a team
-     * Returns list of all user IDs within a team
-     * @param {Number} id ID of the team
+     * Returns a list of all user IDs within a team.
+     * @param {Number} id The ID of the team
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UserIDs} and HTTP response
      */
     getTeamUsersWithHttpInfo(id) {
@@ -366,8 +366,8 @@ export default class TeamsApi {
 
     /**
      * Get all users in a team
-     * Returns list of all user IDs within a team
-     * @param {Number} id ID of the team
+     * Returns a list of all user IDs within a team.
+     * @param {Number} id The ID of the team
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UserIDs}
      */
     getTeamUsers(id) {
@@ -380,9 +380,9 @@ export default class TeamsApi {
 
     /**
      * Get all teams
-     * Returns data about teams within the company
+     * Returns data about teams within the company.
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.orderBy Field name to sort returned teams by (default to 'id')
+     * @param {module:model/String} opts.orderBy The field name to sort returned teams by (default to 'id')
      * @param {module:model/NumberBooleanDefault0} opts.skipUsers When enabled, the teams will not include IDs of member users
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Teams} and HTTP response
      */
@@ -430,9 +430,9 @@ export default class TeamsApi {
 
     /**
      * Get all teams
-     * Returns data about teams within the company
+     * Returns data about teams within the company.
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.orderBy Field name to sort returned teams by (default to 'id')
+     * @param {module:model/String} opts.orderBy The field name to sort returned teams by (default to 'id')
      * @param {module:model/NumberBooleanDefault0} opts.skipUsers When enabled, the teams will not include IDs of member users
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Teams}
      */
@@ -446,10 +446,10 @@ export default class TeamsApi {
 
     /**
      * Get all teams of a user
-     * Returns data about all teams which have specified user as a member
-     * @param {Number} id ID of the user
+     * Returns data about all teams which have the specified user as a member.
+     * @param {Number} id The ID of the user
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.orderBy Field name to sort returned teams by (default to 'id')
+     * @param {module:model/String} opts.orderBy The field name to sort returned teams by (default to 'id')
      * @param {module:model/NumberBooleanDefault0} opts.skipUsers When enabled, the teams will not include IDs of member users
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Teams} and HTTP response
      */
@@ -502,10 +502,10 @@ export default class TeamsApi {
 
     /**
      * Get all teams of a user
-     * Returns data about all teams which have specified user as a member
-     * @param {Number} id ID of the user
+     * Returns data about all teams which have the specified user as a member.
+     * @param {Number} id The ID of the user
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.orderBy Field name to sort returned teams by (default to 'id')
+     * @param {module:model/String} opts.orderBy The field name to sort returned teams by (default to 'id')
      * @param {module:model/NumberBooleanDefault0} opts.skipUsers When enabled, the teams will not include IDs of member users
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Teams}
      */
@@ -519,8 +519,8 @@ export default class TeamsApi {
 
     /**
      * Update a team
-     * Updates an existing team and returns the updated object
-     * @param {Number} id ID of the team
+     * Updates an existing team and returns the updated object.
+     * @param {Number} id The ID of the team
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateTeam} opts.updateTeam 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Team} and HTTP response
@@ -572,8 +572,8 @@ export default class TeamsApi {
 
     /**
      * Update a team
-     * Updates an existing team and returns the updated object
-     * @param {Number} id ID of the team
+     * Updates an existing team and returns the updated object.
+     * @param {Number} id The ID of the team
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateTeam} opts.updateTeam 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Team}

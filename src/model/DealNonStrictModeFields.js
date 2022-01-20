@@ -89,7 +89,7 @@ class DealNonStrictModeFields {
 }
 
 /**
- * The ID of the Deal
+ * The ID of the deal
  * @member {Number} id
  */
 DealNonStrictModeFields.prototype['id'] = undefined;

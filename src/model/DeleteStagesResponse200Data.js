@@ -65,7 +65,7 @@ class DeleteStagesResponse200Data {
 }
 
 /**
- * The list of deleted Stage IDs
+ * The list of deleted stage IDs
  * @member {Array.<Number>} id
  */
 DeleteStagesResponse200Data.prototype['id'] = undefined;

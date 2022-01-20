@@ -78,7 +78,7 @@ class ListPersonsResponseAllOf {
 }
 
 /**
- * The array of Persons
+ * The array of persons
  * @member {Array.<module:model/PersonItem>} data
  */
 ListPersonsResponseAllOf.prototype['data'] = undefined;

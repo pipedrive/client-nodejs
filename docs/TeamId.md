@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | The Team ID | [optional] 
+**id** | **Number** | The team ID | [optional] 
 
 

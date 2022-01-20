@@ -71,13 +71,13 @@ class PostRoleAssignmentAllOfData {
 }
 
 /**
- * The ID of the User that was added to the Role
+ * The ID of the user that was added to the role
  * @member {Number} user_id
  */
 PostRoleAssignmentAllOfData.prototype['user_id'] = undefined;
 
 /**
- * The ID of the Role the User was added to
+ * The ID of the role the user was added to
  * @member {Number} role_id
  */
 PostRoleAssignmentAllOfData.prototype['role_id'] = undefined;

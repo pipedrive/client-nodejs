@@ -66,7 +66,7 @@ class DealSearchResponseAllOfData {
 }
 
 /**
- * The array of Deals
+ * The array of deals
  * @member {Array.<module:model/DealSearchItem>} items
  */
 DealSearchResponseAllOfData.prototype['items'] = undefined;

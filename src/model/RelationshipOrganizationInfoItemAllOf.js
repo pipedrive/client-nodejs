@@ -65,7 +65,7 @@ class RelationshipOrganizationInfoItemAllOf {
 }
 
 /**
- * The ID of the Organization
+ * The ID of the organization
  * @member {Number} value
  */
 RelationshipOrganizationInfoItemAllOf.prototype['value'] = undefined;

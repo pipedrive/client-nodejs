@@ -44,8 +44,8 @@ export default class ActivitiesApi {
 
 
     /**
-     * Add an Activity
-     * Adds a new Activity. Includes `more_activities_scheduled_in_context` property in response's `additional_data` which indicates whether there are more undone Activities scheduled with the same Deal, Person or Organization (depending on the supplied data). For more information on how to add an Activity, see <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Add an activity
+     * Adds a new activity. Includes `more_activities_scheduled_in_context` property in response's `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information on how to add an activity, see <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Object} opts Optional parameters
      * @param {module:model/ActivityPostObject} opts.activityPostObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddActivityResponse200} and HTTP response
@@ -91,8 +91,8 @@ export default class ActivitiesApi {
     }
 
     /**
-     * Add an Activity
-     * Adds a new Activity. Includes `more_activities_scheduled_in_context` property in response's `additional_data` which indicates whether there are more undone Activities scheduled with the same Deal, Person or Organization (depending on the supplied data). For more information on how to add an Activity, see <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Add an activity
+     * Adds a new activity. Includes `more_activities_scheduled_in_context` property in response's `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information on how to add an activity, see <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Object} opts Optional parameters
      * @param {module:model/ActivityPostObject} opts.activityPostObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddActivityResponse200}
@@ -106,9 +106,9 @@ export default class ActivitiesApi {
 
 
     /**
-     * Delete multiple Activities in bulk
-     * Marks multiple Activities as deleted
-     * @param {String} ids Comma-separated IDs of Activities that will be deleted
+     * Delete multiple activities in bulk
+     * Marks multiple activities as deleted.
+     * @param {String} ids The comma-separated IDs of activities that will be deleted
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteActivitiesResponse200} and HTTP response
      */
     deleteActivitiesWithHttpInfo(ids) {
@@ -157,9 +157,9 @@ export default class ActivitiesApi {
     }
 
     /**
-     * Delete multiple Activities in bulk
-     * Marks multiple Activities as deleted
-     * @param {String} ids Comma-separated IDs of Activities that will be deleted
+     * Delete multiple activities in bulk
+     * Marks multiple activities as deleted.
+     * @param {String} ids The comma-separated IDs of activities that will be deleted
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteActivitiesResponse200}
      */
     deleteActivities(ids) {
@@ -171,9 +171,9 @@ export default class ActivitiesApi {
 
 
     /**
-     * Delete an Activity
-     * Deletes an Activity
-     * @param {Number} id The ID of the Activity
+     * Delete an activity
+     * Marks an activity as deleted.
+     * @param {Number} id The ID of the activity
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteActivityResponse200} and HTTP response
      */
     deleteActivityWithHttpInfo(id) {
@@ -222,9 +222,9 @@ export default class ActivitiesApi {
     }
 
     /**
-     * Delete an Activity
-     * Deletes an Activity
-     * @param {Number} id The ID of the Activity
+     * Delete an activity
+     * Marks an activity as deleted.
+     * @param {Number} id The ID of the activity
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteActivityResponse200}
      */
     deleteActivity(id) {
@@ -236,17 +236,17 @@ export default class ActivitiesApi {
 
 
     /**
-     * Get all Activities assigned to a particular User
-     * Returns all Activities assigned to a particular User.
+     * Get all activities assigned to a particular user
+     * Returns all activities assigned to a particular user.
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.userId The ID of the User whose Activities will be fetched. If omitted, the User associated with the API token will be used. If 0, Activities for all company Users will be fetched based on the permission sets.
-     * @param {Number} opts.filterId The ID of the Filter to use (will narrow down results if used together with `user_id` parameter)
-     * @param {String} opts.type Type of the Activity, can be one type or multiple types separated by a comma. This is in correlation with the `key_string` parameter of ActivityTypes.
+     * @param {Number} opts.userId The ID of the user whose activities will be fetched. If omitted, the user associated with the API token will be used. If 0, activities for all company users will be fetched based on the permission sets.
+     * @param {Number} opts.filterId The ID of the filter to use (will narrow down results if used together with `user_id` parameter)
+     * @param {String} opts.type The type of the activity, can be one type or multiple types separated by a comma. This is in correlation with the `key_string` parameter of ActivityTypes.
      * @param {Number} opts.limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned.
      * @param {Number} opts.start For pagination, the position that represents the first result for the page
-     * @param {Date} opts.startDate Use the Activity due date where you wish to begin fetching Activities from. Insert due date in YYYY-MM-DD format.
-     * @param {Date} opts.endDate Use the Activity due date where you wish to stop fetching Activities from. Insert due date in YYYY-MM-DD format.
-     * @param {module:model/NumberBoolean} opts.done Whether the Activity is done or not. 0 = Not done, 1 = Done. If omitted returns both Done and Not done activities.
+     * @param {Date} opts.startDate Use the activity due date where you wish to begin fetching activities from. Insert due date in YYYY-MM-DD format.
+     * @param {Date} opts.endDate Use the activity due date where you wish to stop fetching activities from. Insert due date in YYYY-MM-DD format.
+     * @param {module:model/NumberBoolean} opts.done Whether the activity is done or not. 0 = Not done, 1 = Done. If omitted returns both done and not done activities.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetActivitiesResponse200} and HTTP response
      */
     getActivitiesWithHttpInfo(opts) {
@@ -298,17 +298,17 @@ export default class ActivitiesApi {
     }
 
     /**
-     * Get all Activities assigned to a particular User
-     * Returns all Activities assigned to a particular User.
+     * Get all activities assigned to a particular user
+     * Returns all activities assigned to a particular user.
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.userId The ID of the User whose Activities will be fetched. If omitted, the User associated with the API token will be used. If 0, Activities for all company Users will be fetched based on the permission sets.
-     * @param {Number} opts.filterId The ID of the Filter to use (will narrow down results if used together with `user_id` parameter)
-     * @param {String} opts.type Type of the Activity, can be one type or multiple types separated by a comma. This is in correlation with the `key_string` parameter of ActivityTypes.
+     * @param {Number} opts.userId The ID of the user whose activities will be fetched. If omitted, the user associated with the API token will be used. If 0, activities for all company users will be fetched based on the permission sets.
+     * @param {Number} opts.filterId The ID of the filter to use (will narrow down results if used together with `user_id` parameter)
+     * @param {String} opts.type The type of the activity, can be one type or multiple types separated by a comma. This is in correlation with the `key_string` parameter of ActivityTypes.
      * @param {Number} opts.limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned.
      * @param {Number} opts.start For pagination, the position that represents the first result for the page
-     * @param {Date} opts.startDate Use the Activity due date where you wish to begin fetching Activities from. Insert due date in YYYY-MM-DD format.
-     * @param {Date} opts.endDate Use the Activity due date where you wish to stop fetching Activities from. Insert due date in YYYY-MM-DD format.
-     * @param {module:model/NumberBoolean} opts.done Whether the Activity is done or not. 0 = Not done, 1 = Done. If omitted returns both Done and Not done activities.
+     * @param {Date} opts.startDate Use the activity due date where you wish to begin fetching activities from. Insert due date in YYYY-MM-DD format.
+     * @param {Date} opts.endDate Use the activity due date where you wish to stop fetching activities from. Insert due date in YYYY-MM-DD format.
+     * @param {module:model/NumberBoolean} opts.done Whether the activity is done or not. 0 = Not done, 1 = Done. If omitted returns both done and not done activities.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetActivitiesResponse200}
      */
     getActivities(opts) {
@@ -320,9 +320,9 @@ export default class ActivitiesApi {
 
 
     /**
-     * Get details of an Activity
-     * Returns details of a specific Activity
-     * @param {Number} id The ID of the Activity
+     * Get details of an activity
+     * Returns the details of a specific activity.
+     * @param {Number} id The ID of the activity
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetActivityResponse200} and HTTP response
      */
     getActivityWithHttpInfo(id) {
@@ -371,9 +371,9 @@ export default class ActivitiesApi {
     }
 
     /**
-     * Get details of an Activity
-     * Returns details of a specific Activity
-     * @param {Number} id The ID of the Activity
+     * Get details of an activity
+     * Returns the details of a specific activity.
+     * @param {Number} id The ID of the activity
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetActivityResponse200}
      */
     getActivity(id) {
@@ -385,9 +385,9 @@ export default class ActivitiesApi {
 
 
     /**
-     * Edit an Activity
-     * Modifies an Activity. Includes `more_activities_scheduled_in_context` property in response's `additional_data` which indicates whether there are more undone activities scheduled with the same Deal, Person or Organization (depending on the supplied data).
-     * @param {Number} id The ID of the Activity
+     * Update an activity
+     * Updates an activity. Includes `more_activities_scheduled_in_context` property in response's `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data).
+     * @param {Number} id The ID of the activity
      * @param {Object} opts Optional parameters
      * @param {module:model/ActivityPutObject} opts.activityPutObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UpdateActivityResponse200} and HTTP response
@@ -438,9 +438,9 @@ export default class ActivitiesApi {
     }
 
     /**
-     * Edit an Activity
-     * Modifies an Activity. Includes `more_activities_scheduled_in_context` property in response's `additional_data` which indicates whether there are more undone activities scheduled with the same Deal, Person or Organization (depending on the supplied data).
-     * @param {Number} id The ID of the Activity
+     * Update an activity
+     * Updates an activity. Includes `more_activities_scheduled_in_context` property in response's `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data).
+     * @param {Number} id The ID of the activity
      * @param {Object} opts Optional parameters
      * @param {module:model/ActivityPutObject} opts.activityPutObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UpdateActivityResponse200}

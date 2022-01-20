@@ -132,13 +132,13 @@ class BaseOrganizationItemFields {
 }
 
 /**
- * The ID of the Organization
+ * The ID of the organization
  * @member {Number} id
  */
 BaseOrganizationItemFields.prototype['id'] = undefined;
 
 /**
- * The ID of the Company related to the Organization
+ * The ID of the company related to the organization
  * @member {Number} company_id
  */
 BaseOrganizationItemFields.prototype['company_id'] = undefined;
@@ -149,13 +149,13 @@ BaseOrganizationItemFields.prototype['company_id'] = undefined;
 BaseOrganizationItemFields.prototype['owner_id'] = undefined;
 
 /**
- * The name of the Organization
+ * The name of the organization
  * @member {String} name
  */
 BaseOrganizationItemFields.prototype['name'] = undefined;
 
 /**
- * If the Organization is activated or not
+ * Whether the organization is active or not
  * @member {Boolean} active_flag
  */
 BaseOrganizationItemFields.prototype['active_flag'] = undefined;
@@ -166,31 +166,31 @@ BaseOrganizationItemFields.prototype['active_flag'] = undefined;
 BaseOrganizationItemFields.prototype['picture_id'] = undefined;
 
 /**
- * The country code of the Organization
+ * The country code of the organization
  * @member {String} country_code
  */
 BaseOrganizationItemFields.prototype['country_code'] = undefined;
 
 /**
- * The first character of the Organization name
+ * The first character of the organization name
  * @member {String} first_char
  */
 BaseOrganizationItemFields.prototype['first_char'] = undefined;
 
 /**
- * The creation date and time of the Organization
+ * The creation date and time of the organization
  * @member {String} add_time
  */
 BaseOrganizationItemFields.prototype['add_time'] = undefined;
 
 /**
- * The last updated date and time of the Organization
+ * The last updated date and time of the organization
  * @member {String} update_time
  */
 BaseOrganizationItemFields.prototype['update_time'] = undefined;
 
 /**
- * The visibility group ID of who can see the Organization
+ * The visibility group ID of who can see the organization
  * @member {String} visible_to
  */
 BaseOrganizationItemFields.prototype['visible_to'] = undefined;
@@ -202,13 +202,13 @@ BaseOrganizationItemFields.prototype['visible_to'] = undefined;
 BaseOrganizationItemFields.prototype['label'] = undefined;
 
 /**
- * The name of the Organization owner
+ * The name of the organization owner
  * @member {String} owner_name
  */
 BaseOrganizationItemFields.prototype['owner_name'] = undefined;
 
 /**
- * The CC email of the Organization
+ * The BCC email of the organization
  * @member {String} cc_email
  */
 BaseOrganizationItemFields.prototype['cc_email'] = undefined;

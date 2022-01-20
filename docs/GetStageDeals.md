@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **success** | **Boolean** | If the request was successful or not | [optional] 
-**data** | [**[DealStrict]**](DealStrict.md) | The array of Deals | [optional] 
+**data** | [**[DealStrict]**](DealStrict.md) | The array of deals | [optional] 
 **additionalData** | [**AdditionalData**](AdditionalData.md) |  | [optional] 
 
 

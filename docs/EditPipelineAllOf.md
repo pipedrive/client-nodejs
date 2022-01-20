@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**BasePipelineWithSelectedFlag**](BasePipelineWithSelectedFlag.md) | The Pipeline object | [optional] 
+**data** | [**BasePipelineWithSelectedFlag**](BasePipelineWithSelectedFlag.md) | The pipeline object | [optional] 
 
 

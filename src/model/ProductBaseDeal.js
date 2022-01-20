@@ -275,7 +275,7 @@ class ProductBaseDeal {
 }
 
 /**
- * The ID of the Deal
+ * The ID of the deal
  * @member {Number} id
  */
 ProductBaseDeal.prototype['id'] = undefined;
@@ -287,247 +287,247 @@ ProductBaseDeal.prototype['id'] = undefined;
 ProductBaseDeal.prototype['company_id'] = undefined;
 
 /**
- * The ID of the Deal creator
+ * The ID of the deal creator
  * @member {Number} creator_user_id
  */
 ProductBaseDeal.prototype['creator_user_id'] = undefined;
 
 /**
- * The ID of the User
+ * The ID of the user
  * @member {Number} user_id
  */
 ProductBaseDeal.prototype['user_id'] = undefined;
 
 /**
- * The ID of the Person associated with the Deal
+ * The ID of the person associated with the deal
  * @member {Number} person_id
  */
 ProductBaseDeal.prototype['person_id'] = undefined;
 
 /**
- * The ID of the Organization associated with the Deal
+ * The ID of the organization associated with the deal
  * @member {Number} org_id
  */
 ProductBaseDeal.prototype['org_id'] = undefined;
 
 /**
- * The ID of the Deal stage
+ * The ID of the deal stage
  * @member {Number} stage_id
  */
 ProductBaseDeal.prototype['stage_id'] = undefined;
 
 /**
- * The title of the Deal
+ * The title of the deal
  * @member {String} title
  */
 ProductBaseDeal.prototype['title'] = undefined;
 
 /**
- * The value of the Deal
+ * The value of the deal
  * @member {Number} value
  */
 ProductBaseDeal.prototype['value'] = undefined;
 
 /**
- * The currency associated with the Deal
+ * The currency associated with the deal
  * @member {String} currency
  */
 ProductBaseDeal.prototype['currency'] = undefined;
 
 /**
- * The creation date and time of the Deal
+ * The creation date and time of the deal
  * @member {String} add_time
  */
 ProductBaseDeal.prototype['add_time'] = undefined;
 
 /**
- * First creation date and time of the Deal
+ * The first creation date and time of the deal
  * @member {String} first_add_time
  */
 ProductBaseDeal.prototype['first_add_time'] = undefined;
 
 /**
- * The last updated date and time of the Deal
+ * The last updated date and time of the deal
  * @member {String} update_time
  */
 ProductBaseDeal.prototype['update_time'] = undefined;
 
 /**
- * The last updated date and time of the Deal stage
+ * The last updated date and time of the deal stage
  * @member {String} stage_change_time
  */
 ProductBaseDeal.prototype['stage_change_time'] = undefined;
 
 /**
- * If the Deal is activated or not
+ * Whether the deal is active or not
  * @member {Boolean} active
  */
 ProductBaseDeal.prototype['active'] = undefined;
 
 /**
- * If the Deal is deleted or not
+ * Whether the deal is deleted or not
  * @member {Boolean} deleted
  */
 ProductBaseDeal.prototype['deleted'] = undefined;
 
 /**
- * The status of the Deal
+ * The status of the deal
  * @member {String} status
  */
 ProductBaseDeal.prototype['status'] = undefined;
 
 /**
- * The success probability percentage of the Deal
+ * The success probability percentage of the deal
  * @member {Number} probability
  */
 ProductBaseDeal.prototype['probability'] = undefined;
 
 /**
- * The date of the next activity associated with the Deal
+ * The date of the next activity associated with the deal
  * @member {String} next_activity_date
  */
 ProductBaseDeal.prototype['next_activity_date'] = undefined;
 
 /**
- * The time of the next activity associated with the Deal
+ * The time of the next activity associated with the deal
  * @member {String} next_activity_time
  */
 ProductBaseDeal.prototype['next_activity_time'] = undefined;
 
 /**
- * The ID of the next activity associated with the Deal
+ * The ID of the next activity associated with the deal
  * @member {Number} next_activity_id
  */
 ProductBaseDeal.prototype['next_activity_id'] = undefined;
 
 /**
- * The ID of the last activity associated with the Deal
+ * The ID of the last activity associated with the deal
  * @member {Number} last_activity_id
  */
 ProductBaseDeal.prototype['last_activity_id'] = undefined;
 
 /**
- * The date of the last activity associated with the Deal
+ * The date of the last activity associated with the deal
  * @member {String} last_activity_date
  */
 ProductBaseDeal.prototype['last_activity_date'] = undefined;
 
 /**
- * The reason for losing the Deal
+ * The reason for losing the deal
  * @member {String} lost_reason
  */
 ProductBaseDeal.prototype['lost_reason'] = undefined;
 
 /**
- * The visibility of the Deal
+ * The visibility of the deal
  * @member {String} visible_to
  */
 ProductBaseDeal.prototype['visible_to'] = undefined;
 
 /**
- * The date and time of closing the Deal
+ * The date and time of closing the deal
  * @member {String} close_time
  */
 ProductBaseDeal.prototype['close_time'] = undefined;
 
 /**
- * The ID of pipeline associated with the Deal
+ * The ID of pipeline associated with the deal
  * @member {Number} pipeline_id
  */
 ProductBaseDeal.prototype['pipeline_id'] = undefined;
 
 /**
- * The date and time of changing the Deal status as won
+ * The date and time of changing the deal status as won
  * @member {String} won_time
  */
 ProductBaseDeal.prototype['won_time'] = undefined;
 
 /**
- * The date and time of the first time changing the Deal status as won
+ * The date and time of the first time changing the deal status as won
  * @member {String} first_won_time
  */
 ProductBaseDeal.prototype['first_won_time'] = undefined;
 
 /**
- * The date and time of changing the Deal status as lost
+ * The date and time of changing the deal status as lost
  * @member {String} lost_time
  */
 ProductBaseDeal.prototype['lost_time'] = undefined;
 
 /**
- * The number of Products associated with the Deal
+ * The number of products associated with the deal
  * @member {Number} products_count
  */
 ProductBaseDeal.prototype['products_count'] = undefined;
 
 /**
- * The number of Files associated with the Deal
+ * The number of files associated with the deal
  * @member {Number} files_count
  */
 ProductBaseDeal.prototype['files_count'] = undefined;
 
 /**
- * The number of Notes associated with the Deal
+ * The number of notes associated with the deal
  * @member {Number} notes_count
  */
 ProductBaseDeal.prototype['notes_count'] = undefined;
 
 /**
- * The number of Followers associated with the Deal
+ * The number of followers associated with the deal
  * @member {Number} followers_count
  */
 ProductBaseDeal.prototype['followers_count'] = undefined;
 
 /**
- * The number of emails associated with the Deal
+ * The number of emails associated with the deal
  * @member {Number} email_messages_count
  */
 ProductBaseDeal.prototype['email_messages_count'] = undefined;
 
 /**
- * The number of Activities associated with the Deal
+ * The number of activities associated with the deal
  * @member {Number} activities_count
  */
 ProductBaseDeal.prototype['activities_count'] = undefined;
 
 /**
- * The number of completed Activities associated with the Deal
+ * The number of completed activities associated with the deal
  * @member {Number} done_activities_count
  */
 ProductBaseDeal.prototype['done_activities_count'] = undefined;
 
 /**
- * The number of incomplete Activities associated with the Deal
+ * The number of incomplete activities associated with the deal
  * @member {Number} undone_activities_count
  */
 ProductBaseDeal.prototype['undone_activities_count'] = undefined;
 
 /**
- * The number of Participants associated with the Deal
+ * The number of participants associated with the deal
  * @member {Number} participants_count
  */
 ProductBaseDeal.prototype['participants_count'] = undefined;
 
 /**
- * The expected close date of the Deal
+ * The expected close date of the deal
  * @member {Date} expected_close_date
  */
 ProductBaseDeal.prototype['expected_close_date'] = undefined;
 
 /**
- * The date and time of the last incoming email associated with the Deal
+ * The date and time of the last incoming email associated with the deal
  * @member {String} last_incoming_mail_time
  */
 ProductBaseDeal.prototype['last_incoming_mail_time'] = undefined;
 
 /**
- * The date and time of the last outgoing email associated with the Deal
+ * The date and time of the last outgoing email associated with the deal
  * @member {String} last_outgoing_mail_time
  */
 ProductBaseDeal.prototype['last_outgoing_mail_time'] = undefined;
 
 /**
- * The label assigned to the Deal
+ * The label assigned to the deal
  * @member {String} label
  */
 ProductBaseDeal.prototype['label'] = undefined;

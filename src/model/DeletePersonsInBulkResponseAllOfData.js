@@ -65,7 +65,7 @@ class DeletePersonsInBulkResponseAllOfData {
 }
 
 /**
- * The list of deleted Persons IDs
+ * The list of deleted persons IDs
  * @member {Array.<Number>} id
  */
 DeletePersonsInBulkResponseAllOfData.prototype['id'] = undefined;

@@ -65,7 +65,7 @@ class BaseOrganizationItemWithEditNameFlagAllOf {
 }
 
 /**
- * If the company ID of the Organization and company ID of the request is same or not
+ * If the company ID of the organization and company ID of the request is same or not
  * @member {Boolean} edit_name
  */
 BaseOrganizationItemWithEditNameFlagAllOf.prototype['edit_name'] = undefined;

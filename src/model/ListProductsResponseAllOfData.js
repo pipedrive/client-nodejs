@@ -66,7 +66,7 @@ class ListProductsResponseAllOfData {
 }
 
 /**
- * The array of Products
+ * The array of products
  * @member {Array.<module:model/ProductListItem>} items
  */
 ListProductsResponseAllOfData.prototype['items'] = undefined;

@@ -141,91 +141,91 @@ class MergePersonDealRelatedInfo {
 }
 
 /**
- * The count of open Deals related with the item
+ * The count of open deals related with the item
  * @member {Number} open_deals_count
  */
 MergePersonDealRelatedInfo.prototype['open_deals_count'] = undefined;
 
 /**
- * The count of related open Deals related with the item
+ * The count of related open deals related with the item
  * @member {Number} related_open_deals_count
  */
 MergePersonDealRelatedInfo.prototype['related_open_deals_count'] = undefined;
 
 /**
- * The count of closed Deals related with the item
+ * The count of closed deals related with the item
  * @member {Number} closed_deals_count
  */
 MergePersonDealRelatedInfo.prototype['closed_deals_count'] = undefined;
 
 /**
- * The count of related closed Deals related with the item
+ * The count of related closed deals related with the item
  * @member {Number} related_closed_deals_count
  */
 MergePersonDealRelatedInfo.prototype['related_closed_deals_count'] = undefined;
 
 /**
- * The count of won Deals related with the item
+ * The count of won deals related with the item
  * @member {Number} won_deals_count
  */
 MergePersonDealRelatedInfo.prototype['won_deals_count'] = undefined;
 
 /**
- * The count of related won Deals related with the item
+ * The count of related won deals related with the item
  * @member {Number} related_won_deals_count
  */
 MergePersonDealRelatedInfo.prototype['related_won_deals_count'] = undefined;
 
 /**
- * The count of lost Deals related with the item
+ * The count of lost deals related with the item
  * @member {Number} lost_deals_count
  */
 MergePersonDealRelatedInfo.prototype['lost_deals_count'] = undefined;
 
 /**
- * The count of related lost Deals related with the item
+ * The count of related lost deals related with the item
  * @member {Number} related_lost_deals_count
  */
 MergePersonDealRelatedInfo.prototype['related_lost_deals_count'] = undefined;
 
 /**
- * The date of the next activity associated with the Deal
+ * The date of the next activity associated with the deal
  * @member {String} next_activity_date
  */
 MergePersonDealRelatedInfo.prototype['next_activity_date'] = undefined;
 
 /**
- * The time of the next activity associated with the Deal
+ * The time of the next activity associated with the deal
  * @member {String} next_activity_time
  */
 MergePersonDealRelatedInfo.prototype['next_activity_time'] = undefined;
 
 /**
- * The ID of the next activity associated with the Deal
+ * The ID of the next activity associated with the deal
  * @member {Number} next_activity_id
  */
 MergePersonDealRelatedInfo.prototype['next_activity_id'] = undefined;
 
 /**
- * The ID of the last activity associated with the Deal
+ * The ID of the last activity associated with the deal
  * @member {Number} last_activity_id
  */
 MergePersonDealRelatedInfo.prototype['last_activity_id'] = undefined;
 
 /**
- * The date of the last activity associated with the Deal
+ * The date of the last activity associated with the deal
  * @member {String} last_activity_date
  */
 MergePersonDealRelatedInfo.prototype['last_activity_date'] = undefined;
 
 /**
- * The count of open participant Deals related with the item
+ * The count of open participant deals related with the item
  * @member {Number} participant_open_deals_count
  */
 MergePersonDealRelatedInfo.prototype['participant_open_deals_count'] = undefined;
 
 /**
- * The count of closed participant Deals related with the item
+ * The count of closed participant deals related with the item
  * @member {Number} participant_closed_deals_count
  */
 MergePersonDealRelatedInfo.prototype['participant_closed_deals_count'] = undefined;
@@ -233,78 +233,78 @@ MergePersonDealRelatedInfo.prototype['participant_closed_deals_count'] = undefin
 
 // Implement DealCountAndActivityInfo interface:
 /**
- * The count of open Deals related with the item
+ * The count of open deals related with the item
  * @member {Number} open_deals_count
  */
 DealCountAndActivityInfo.prototype['open_deals_count'] = undefined;
 /**
- * The count of related open Deals related with the item
+ * The count of related open deals related with the item
  * @member {Number} related_open_deals_count
  */
 DealCountAndActivityInfo.prototype['related_open_deals_count'] = undefined;
 /**
- * The count of closed Deals related with the item
+ * The count of closed deals related with the item
  * @member {Number} closed_deals_count
  */
 DealCountAndActivityInfo.prototype['closed_deals_count'] = undefined;
 /**
- * The count of related closed Deals related with the item
+ * The count of related closed deals related with the item
  * @member {Number} related_closed_deals_count
  */
 DealCountAndActivityInfo.prototype['related_closed_deals_count'] = undefined;
 /**
- * The count of won Deals related with the item
+ * The count of won deals related with the item
  * @member {Number} won_deals_count
  */
 DealCountAndActivityInfo.prototype['won_deals_count'] = undefined;
 /**
- * The count of related won Deals related with the item
+ * The count of related won deals related with the item
  * @member {Number} related_won_deals_count
  */
 DealCountAndActivityInfo.prototype['related_won_deals_count'] = undefined;
 /**
- * The count of lost Deals related with the item
+ * The count of lost deals related with the item
  * @member {Number} lost_deals_count
  */
 DealCountAndActivityInfo.prototype['lost_deals_count'] = undefined;
 /**
- * The count of related lost Deals related with the item
+ * The count of related lost deals related with the item
  * @member {Number} related_lost_deals_count
  */
 DealCountAndActivityInfo.prototype['related_lost_deals_count'] = undefined;
 /**
- * The date of the next activity associated with the Deal
+ * The date of the next activity associated with the deal
  * @member {String} next_activity_date
  */
 DealCountAndActivityInfo.prototype['next_activity_date'] = undefined;
 /**
- * The time of the next activity associated with the Deal
+ * The time of the next activity associated with the deal
  * @member {String} next_activity_time
  */
 DealCountAndActivityInfo.prototype['next_activity_time'] = undefined;
 /**
- * The ID of the next activity associated with the Deal
+ * The ID of the next activity associated with the deal
  * @member {Number} next_activity_id
  */
 DealCountAndActivityInfo.prototype['next_activity_id'] = undefined;
 /**
- * The ID of the last activity associated with the Deal
+ * The ID of the last activity associated with the deal
  * @member {Number} last_activity_id
  */
 DealCountAndActivityInfo.prototype['last_activity_id'] = undefined;
 /**
- * The date of the last activity associated with the Deal
+ * The date of the last activity associated with the deal
  * @member {String} last_activity_date
  */
 DealCountAndActivityInfo.prototype['last_activity_date'] = undefined;
 // Implement DealParticipantCountInfo interface:
 /**
- * The count of open participant Deals related with the item
+ * The count of open participant deals related with the item
  * @member {Number} participant_open_deals_count
  */
 DealParticipantCountInfo.prototype['participant_open_deals_count'] = undefined;
 /**
- * The count of closed participant Deals related with the item
+ * The count of closed participant deals related with the item
  * @member {Number} participant_closed_deals_count
  */
 DealParticipantCountInfo.prototype['participant_closed_deals_count'] = undefined;

@@ -122,7 +122,7 @@ export default class PersonsApi {
     /**
      * Add a follower to a person
      * Adds a follower to a person.
-     * @param {Number} id ID of a person
+     * @param {Number} id The ID of the person
      * @param {Object} opts Optional parameters
      * @param {module:model/AddPersonFollowerRequest} opts.addPersonFollowerRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddFollowerToPersonResponse} and HTTP response
@@ -175,7 +175,7 @@ export default class PersonsApi {
     /**
      * Add a follower to a person
      * Adds a follower to a person.
-     * @param {Number} id ID of a person
+     * @param {Number} id The ID of the person
      * @param {Object} opts Optional parameters
      * @param {module:model/AddPersonFollowerRequest} opts.addPersonFollowerRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddFollowerToPersonResponse}
@@ -190,14 +190,14 @@ export default class PersonsApi {
 
     /**
      * Add person picture
-     * Add a picture to a person. If a picture is already set, the old picture will be replaced. Added image (or the cropping parameters supplied with the request) should have an equal width and height and should be at least 128 pixels. GIF, JPG and PNG are accepted. All added images will be resized to 128 and 512 pixel wide squares.
-     * @param {Number} id ID of a person
-     * @param {File} file One image supplied in the multipart/form-data encoding.
+     * Adds a picture to a person. If a picture is already set, the old picture will be replaced. Added image (or the cropping parameters supplied with the request) should have an equal width and height and should be at least 128 pixels. GIF, JPG and PNG are accepted. All added images will be resized to 128 and 512 pixel wide squares.
+     * @param {Number} id The ID of the person
+     * @param {File} file One image supplied in the multipart/form-data encoding
      * @param {Object} opts Optional parameters
      * @param {Number} opts.cropX X coordinate to where start cropping form (in pixels)
      * @param {Number} opts.cropY Y coordinate to where start cropping form (in pixels)
-     * @param {Number} opts.cropWidth Width of cropping area (in pixels)
-     * @param {Number} opts.cropHeight Height of cropping area (in pixels)
+     * @param {Number} opts.cropWidth The width of the cropping area (in pixels)
+     * @param {Number} opts.cropHeight The height of the cropping area (in pixels)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddPersonPictureResponse} and HTTP response
      */
     addPersonPictureWithHttpInfo(id, file, opts) {
@@ -261,14 +261,14 @@ export default class PersonsApi {
 
     /**
      * Add person picture
-     * Add a picture to a person. If a picture is already set, the old picture will be replaced. Added image (or the cropping parameters supplied with the request) should have an equal width and height and should be at least 128 pixels. GIF, JPG and PNG are accepted. All added images will be resized to 128 and 512 pixel wide squares.
-     * @param {Number} id ID of a person
-     * @param {File} file One image supplied in the multipart/form-data encoding.
+     * Adds a picture to a person. If a picture is already set, the old picture will be replaced. Added image (or the cropping parameters supplied with the request) should have an equal width and height and should be at least 128 pixels. GIF, JPG and PNG are accepted. All added images will be resized to 128 and 512 pixel wide squares.
+     * @param {Number} id The ID of the person
+     * @param {File} file One image supplied in the multipart/form-data encoding
      * @param {Object} opts Optional parameters
      * @param {Number} opts.cropX X coordinate to where start cropping form (in pixels)
      * @param {Number} opts.cropY Y coordinate to where start cropping form (in pixels)
-     * @param {Number} opts.cropWidth Width of cropping area (in pixels)
-     * @param {Number} opts.cropHeight Height of cropping area (in pixels)
+     * @param {Number} opts.cropWidth The width of the cropping area (in pixels)
+     * @param {Number} opts.cropHeight The height of the cropping area (in pixels)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddPersonPictureResponse}
      */
     addPersonPicture(id, file, opts) {
@@ -282,7 +282,7 @@ export default class PersonsApi {
     /**
      * Delete a person
      * Marks a person as deleted.
-     * @param {Number} id ID of a person
+     * @param {Number} id The ID of the person
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeletePersonResponse} and HTTP response
      */
     deletePersonWithHttpInfo(id) {
@@ -333,7 +333,7 @@ export default class PersonsApi {
     /**
      * Delete a person
      * Marks a person as deleted.
-     * @param {Number} id ID of a person
+     * @param {Number} id The ID of the person
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeletePersonResponse}
      */
     deletePerson(id) {
@@ -345,10 +345,10 @@ export default class PersonsApi {
 
 
     /**
-     * Deletes a follower from a person.
      * Delete a follower from a person
-     * @param {Number} id ID of a person
-     * @param {Number} followerId ID of the follower
+     * Deletes a follower from a person.
+     * @param {Number} id The ID of the person
+     * @param {Number} followerId The ID of the follower
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeletePersonResponse} and HTTP response
      */
     deletePersonFollowerWithHttpInfo(id, followerId) {
@@ -402,10 +402,10 @@ export default class PersonsApi {
     }
 
     /**
-     * Deletes a follower from a person.
      * Delete a follower from a person
-     * @param {Number} id ID of a person
-     * @param {Number} followerId ID of the follower
+     * Deletes a follower from a person.
+     * @param {Number} id The ID of the person
+     * @param {Number} followerId The ID of the follower
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeletePersonResponse}
      */
     deletePersonFollower(id, followerId) {
@@ -418,8 +418,8 @@ export default class PersonsApi {
 
     /**
      * Delete person picture
-     * Delete person picture
-     * @param {Number} id ID of a person
+     * Deletes a person’s picture.
+     * @param {Number} id The ID of the person
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeletePersonResponse} and HTTP response
      */
     deletePersonPictureWithHttpInfo(id) {
@@ -469,8 +469,8 @@ export default class PersonsApi {
 
     /**
      * Delete person picture
-     * Delete person picture
-     * @param {Number} id ID of a person
+     * Deletes a person’s picture.
+     * @param {Number} id The ID of the person
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeletePersonResponse}
      */
     deletePersonPicture(id) {
@@ -485,7 +485,7 @@ export default class PersonsApi {
      * Delete multiple persons in bulk
      * Marks multiple persons as deleted.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.ids Comma-separated IDs that will be deleted
+     * @param {String} opts.ids The comma-separated IDs that will be deleted
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeletePersonsInBulkResponse} and HTTP response
      */
     deletePersonsWithHttpInfo(opts) {
@@ -533,7 +533,7 @@ export default class PersonsApi {
      * Delete multiple persons in bulk
      * Marks multiple persons as deleted.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.ids Comma-separated IDs that will be deleted
+     * @param {String} opts.ids The comma-separated IDs that will be deleted
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeletePersonsInBulkResponse}
      */
     deletePersons(opts) {
@@ -546,8 +546,8 @@ export default class PersonsApi {
 
     /**
      * Get details of a person
-     * Returns details of a person. Note that this also returns some additional fields which are not present when asking for all persons. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of personFields.
-     * @param {Number} id ID of a person
+     * Returns the details of a person. Note that this also returns some additional fields which are not present when asking for all persons. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of personFields.
+     * @param {Number} id The ID of the person
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetPersonDetailsResponse} and HTTP response
      */
     getPersonWithHttpInfo(id) {
@@ -597,8 +597,8 @@ export default class PersonsApi {
 
     /**
      * Get details of a person
-     * Returns details of a person. Note that this also returns some additional fields which are not present when asking for all persons. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of personFields.
-     * @param {Number} id ID of a person
+     * Returns the details of a person. Note that this also returns some additional fields which are not present when asking for all persons. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of personFields.
+     * @param {Number} id The ID of the person
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetPersonDetailsResponse}
      */
     getPerson(id) {
@@ -612,11 +612,11 @@ export default class PersonsApi {
     /**
      * List activities associated with a person
      * Lists activities associated with a person.
-     * @param {Number} id ID of a person
+     * @param {Number} id The ID of the person
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {module:model/NumberBoolean} opts.done Whether the activity is done or not. 0 = Not done, 1 = Done. If omitted returns both Done and Not done activities.
+     * @param {module:model/NumberBoolean} opts.done Whether the activity is done or not. 0 = Not done, 1 = Done. If omitted, returns both Done and Not done activities.
      * @param {String} opts.exclude A comma-separated string of activity IDs to exclude from result
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListActivitiesResponse} and HTTP response
      */
@@ -672,11 +672,11 @@ export default class PersonsApi {
     /**
      * List activities associated with a person
      * Lists activities associated with a person.
-     * @param {Number} id ID of a person
+     * @param {Number} id The ID of the person
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {module:model/NumberBoolean} opts.done Whether the activity is done or not. 0 = Not done, 1 = Done. If omitted returns both Done and Not done activities.
+     * @param {module:model/NumberBoolean} opts.done Whether the activity is done or not. 0 = Not done, 1 = Done. If omitted, returns both Done and Not done activities.
      * @param {String} opts.exclude A comma-separated string of activity IDs to exclude from result
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListActivitiesResponse}
      */
@@ -691,12 +691,12 @@ export default class PersonsApi {
     /**
      * List deals associated with a person
      * Lists deals associated with a person.
-     * @param {Number} id ID of a person
+     * @param {Number} id The ID of the person
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {module:model/String} opts.status Only fetch deals with specific status. If omitted, all not deleted deals are fetched. (default to 'all_not_deleted')
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
+     * @param {module:model/String} opts.status Only fetch deals with a specific status. If omitted, all not deleted deals are fetched. (default to 'all_not_deleted')
+     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListDealsResponse} and HTTP response
      */
     getPersonDealsWithHttpInfo(id, opts) {
@@ -751,12 +751,12 @@ export default class PersonsApi {
     /**
      * List deals associated with a person
      * Lists deals associated with a person.
-     * @param {Number} id ID of a person
+     * @param {Number} id The ID of the person
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {module:model/String} opts.status Only fetch deals with specific status. If omitted, all not deleted deals are fetched. (default to 'all_not_deleted')
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
+     * @param {module:model/String} opts.status Only fetch deals with a specific status. If omitted, all not deleted deals are fetched. (default to 'all_not_deleted')
+     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListDealsResponse}
      */
     getPersonDeals(id, opts) {
@@ -770,12 +770,12 @@ export default class PersonsApi {
     /**
      * List files attached to a person
      * Lists files associated with a person.
-     * @param {Number} id ID of a person
+     * @param {Number} id The ID of the person
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {module:model/NumberBoolean} opts.includeDeletedFiles When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
+     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListFilesResponse} and HTTP response
      */
     getPersonFilesWithHttpInfo(id, opts) {
@@ -830,12 +830,12 @@ export default class PersonsApi {
     /**
      * List files attached to a person
      * Lists files associated with a person.
-     * @param {Number} id ID of a person
+     * @param {Number} id The ID of the person
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {module:model/NumberBoolean} opts.includeDeletedFiles When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
+     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListFilesResponse}
      */
     getPersonFiles(id, opts) {
@@ -849,7 +849,7 @@ export default class PersonsApi {
     /**
      * List followers of a person
      * Lists the followers of a person.
-     * @param {Number} id ID of a person
+     * @param {Number} id The ID of the person
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListFollowersResponse} and HTTP response
      */
     getPersonFollowersWithHttpInfo(id) {
@@ -900,7 +900,7 @@ export default class PersonsApi {
     /**
      * List followers of a person
      * Lists the followers of a person.
-     * @param {Number} id ID of a person
+     * @param {Number} id The ID of the person
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListFollowersResponse}
      */
     getPersonFollowers(id) {
@@ -914,7 +914,7 @@ export default class PersonsApi {
     /**
      * List mail messages associated with a person
      * Lists mail messages associated with a person.
-     * @param {Number} id ID of a person
+     * @param {Number} id The ID of the person
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -970,7 +970,7 @@ export default class PersonsApi {
     /**
      * List mail messages associated with a person
      * Lists mail messages associated with a person.
-     * @param {Number} id ID of a person
+     * @param {Number} id The ID of the person
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -987,7 +987,7 @@ export default class PersonsApi {
     /**
      * List products associated with a person
      * Lists products associated with a person.
-     * @param {Number} id ID of a person
+     * @param {Number} id The ID of the person
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -1043,7 +1043,7 @@ export default class PersonsApi {
     /**
      * List products associated with a person
      * Lists products associated with a person.
-     * @param {Number} id ID of a person
+     * @param {Number} id The ID of the person
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -1060,7 +1060,7 @@ export default class PersonsApi {
     /**
      * List updates about a person
      * Lists updates about a person.
-     * @param {Number} id ID of a person
+     * @param {Number} id The ID of the person
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -1120,7 +1120,7 @@ export default class PersonsApi {
     /**
      * List updates about a person
      * Lists updates about a person.
-     * @param {Number} id ID of a person
+     * @param {Number} id The ID of the person
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -1138,8 +1138,8 @@ export default class PersonsApi {
 
     /**
      * List permitted users
-     * List users permitted to access a person
-     * @param {Number} id ID of a person
+     * List users permitted to access a person.
+     * @param {Number} id The ID of the person
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListPermittedUsersResponse1} and HTTP response
      */
     getPersonUsersWithHttpInfo(id) {
@@ -1189,8 +1189,8 @@ export default class PersonsApi {
 
     /**
      * List permitted users
-     * List users permitted to access a person
-     * @param {Number} id ID of a person
+     * List users permitted to access a person.
+     * @param {Number} id The ID of the person
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListPermittedUsersResponse1}
      */
     getPersonUsers(id) {
@@ -1203,14 +1203,14 @@ export default class PersonsApi {
 
     /**
      * Get all persons
-     * Returns all persons
+     * Returns all persons.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId If supplied, only persons owned by the given user will be returned. However, `filter_id` takes precedence over `user_id` when both are supplied.
-     * @param {Number} opts.filterId ID of the filter to use.
-     * @param {String} opts.firstChar If supplied, only persons whose name starts with the specified letter will be returned (case insensitive).
+     * @param {Number} opts.filterId The ID of the filter to use
+     * @param {String} opts.firstChar If supplied, only persons whose name starts with the specified letter will be returned (case insensitive)
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
+     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetAllPersonsResponse} and HTTP response
      */
     getPersonsWithHttpInfo(opts) {
@@ -1261,14 +1261,14 @@ export default class PersonsApi {
 
     /**
      * Get all persons
-     * Returns all persons
+     * Returns all persons.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId If supplied, only persons owned by the given user will be returned. However, `filter_id` takes precedence over `user_id` when both are supplied.
-     * @param {Number} opts.filterId ID of the filter to use.
-     * @param {String} opts.firstChar If supplied, only persons whose name starts with the specified letter will be returned (case insensitive).
+     * @param {Number} opts.filterId The ID of the filter to use
+     * @param {String} opts.firstChar If supplied, only persons whose name starts with the specified letter will be returned (case insensitive)
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
+     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetAllPersonsResponse}
      */
     getPersons(opts) {
@@ -1282,7 +1282,7 @@ export default class PersonsApi {
     /**
      * Merge two persons
      * Merges a person with another person. For more information on how to merge two persons, see <a href=\"https://pipedrive.readme.io/docs/merging-two-persons\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
-     * @param {Number} id ID of a person
+     * @param {Number} id The ID of the person
      * @param {Object} opts Optional parameters
      * @param {module:model/MergePersonsRequest} opts.mergePersonsRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MergePersonsResponse} and HTTP response
@@ -1335,7 +1335,7 @@ export default class PersonsApi {
     /**
      * Merge two persons
      * Merges a person with another person. For more information on how to merge two persons, see <a href=\"https://pipedrive.readme.io/docs/merging-two-persons\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
-     * @param {Number} id ID of a person
+     * @param {Number} id The ID of the person
      * @param {Object} opts Optional parameters
      * @param {module:model/MergePersonsRequest} opts.mergePersonsRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MergePersonsResponse}
@@ -1350,13 +1350,13 @@ export default class PersonsApi {
 
     /**
      * Search persons
-     * Searches all Persons by name, email, phone, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found Persons can be filtered by Organization ID.
+     * Searches all persons by name, email, phone, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found persons can be filtered by organization ID.
      * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`).
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.fields A comma-separated string array. The fields to perform the search from. Defaults to all of them.
      * @param {module:model/Boolean} opts.exactMatch When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
-     * @param {Number} opts.organizationId Will filter Deals by the provided Organization ID. The upper limit of found Deals associated with the Organization is 2000.
-     * @param {module:model/String} opts.includeFields Supports including optional fields in the results which are not provided by default.
+     * @param {Number} opts.organizationId Will filter persons by the provided organization ID. The upper limit of found persons associated with the organization is 2000.
+     * @param {module:model/String} opts.includeFields Supports including optional fields in the results which are not provided by default
      * @param {Number} opts.start Pagination start. Note that the pagination is based on main results and does not include related items when using `search_for_related_items` parameter. (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PersonSearchResponse} and HTTP response
@@ -1414,13 +1414,13 @@ export default class PersonsApi {
 
     /**
      * Search persons
-     * Searches all Persons by name, email, phone, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found Persons can be filtered by Organization ID.
+     * Searches all persons by name, email, phone, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found persons can be filtered by organization ID.
      * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`).
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.fields A comma-separated string array. The fields to perform the search from. Defaults to all of them.
      * @param {module:model/Boolean} opts.exactMatch When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
-     * @param {Number} opts.organizationId Will filter Deals by the provided Organization ID. The upper limit of found Deals associated with the Organization is 2000.
-     * @param {module:model/String} opts.includeFields Supports including optional fields in the results which are not provided by default.
+     * @param {Number} opts.organizationId Will filter persons by the provided organization ID. The upper limit of found persons associated with the organization is 2000.
+     * @param {module:model/String} opts.includeFields Supports including optional fields in the results which are not provided by default
      * @param {Number} opts.start Pagination start. Note that the pagination is based on main results and does not include related items when using `search_for_related_items` parameter. (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PersonSearchResponse}
@@ -1436,7 +1436,7 @@ export default class PersonsApi {
     /**
      * Update a person
      * Updates the properties of a person. For more information on how to update a person, see <a href=\"https://pipedrive.readme.io/docs/updating-a-person\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
-     * @param {Number} id ID of a person
+     * @param {Number} id The ID of the person
      * @param {Object} opts Optional parameters
      * @param {module:model/BasicPerson} opts.basicPerson 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UpdatePersonResponse} and HTTP response
@@ -1489,7 +1489,7 @@ export default class PersonsApi {
     /**
      * Update a person
      * Updates the properties of a person. For more information on how to update a person, see <a href=\"https://pipedrive.readme.io/docs/updating-a-person\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
-     * @param {Number} id ID of a person
+     * @param {Number} id The ID of the person
      * @param {Object} opts Optional parameters
      * @param {module:model/BasicPerson} opts.basicPerson 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UpdatePersonResponse}

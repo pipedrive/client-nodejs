@@ -101,7 +101,7 @@ class OrganizationSearchItemItem {
 }
 
 /**
- * The ID of the Organization
+ * The ID of the organization
  * @member {Number} id
  */
 OrganizationSearchItemItem.prototype['id'] = undefined;
@@ -113,19 +113,19 @@ OrganizationSearchItemItem.prototype['id'] = undefined;
 OrganizationSearchItemItem.prototype['type'] = undefined;
 
 /**
- * The name of the Organization
+ * The name of the organization
  * @member {String} name
  */
 OrganizationSearchItemItem.prototype['name'] = undefined;
 
 /**
- * The address of the Organization
+ * The address of the organization
  * @member {String} address
  */
 OrganizationSearchItemItem.prototype['address'] = undefined;
 
 /**
- * The visibility of the Organization
+ * The visibility of the organization
  * @member {Number} visible_to
  */
 OrganizationSearchItemItem.prototype['visible_to'] = undefined;
@@ -142,7 +142,7 @@ OrganizationSearchItemItem.prototype['owner'] = undefined;
 OrganizationSearchItemItem.prototype['custom_fields'] = undefined;
 
 /**
- * An array of Notes
+ * An array of notes
  * @member {Array.<String>} notes
  */
 OrganizationSearchItemItem.prototype['notes'] = undefined;

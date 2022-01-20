@@ -75,7 +75,7 @@ class DealFlowResponseAllOfData {
 }
 
 /**
- * The type of the Deal update. (Possible object types - dealChange, note, activity, mailMessage, invoice, document, file)
+ * The type of the deal update. (Possible object types - dealChange, note, activity, mailMessage, invoice, document, file)
  * @member {String} object
  */
 DealFlowResponseAllOfData.prototype['object'] = undefined;

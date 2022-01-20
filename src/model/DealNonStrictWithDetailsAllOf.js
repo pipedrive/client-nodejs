@@ -98,7 +98,7 @@ class DealNonStrictWithDetailsAllOf {
 DealNonStrictWithDetailsAllOf.prototype['average_time_to_won'] = undefined;
 
 /**
- * The average of the Deal stage progression
+ * The average of the deal stage progression
  * @member {Number} average_stage_progress
  */
 DealNonStrictWithDetailsAllOf.prototype['average_stage_progress'] = undefined;
@@ -114,13 +114,13 @@ DealNonStrictWithDetailsAllOf.prototype['age'] = undefined;
 DealNonStrictWithDetailsAllOf.prototype['stay_in_pipeline_stages'] = undefined;
 
 /**
- * The details of the last activity associated with the Deal
+ * The details of the last activity associated with the deal
  * @member {Object} last_activity
  */
 DealNonStrictWithDetailsAllOf.prototype['last_activity'] = undefined;
 
 /**
- * The details of the next activity associated with the Deal
+ * The details of the next activity associated with the deal
  * @member {Object} next_activity
  */
 DealNonStrictWithDetailsAllOf.prototype['next_activity'] = undefined;

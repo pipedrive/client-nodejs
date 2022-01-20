@@ -83,13 +83,13 @@ class DealsMovementsInfo {
 }
 
 /**
- * Deals count
+ * The count of the deals
  * @member {Number} count
  */
 DealsMovementsInfo.prototype['count'] = undefined;
 
 /**
- * IDs of the Deals that have been moved
+ * The IDs of the deals that have been moved
  * @member {Array.<Number>} deals_ids
  */
 DealsMovementsInfo.prototype['deals_ids'] = undefined;

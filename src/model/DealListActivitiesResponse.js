@@ -95,7 +95,7 @@ class DealListActivitiesResponse {
 DealListActivitiesResponse.prototype['success'] = undefined;
 
 /**
- * The array of Activities
+ * The array of activities
  * @member {Array.<module:model/ActivityResponseObject>} data
  */
 DealListActivitiesResponse.prototype['data'] = undefined;
@@ -119,7 +119,7 @@ DealListActivitiesResponse.prototype['related_objects'] = undefined;
 BaseResponse.prototype['success'] = undefined;
 // Implement DealListActivitiesResponseAllOf interface:
 /**
- * The array of Activities
+ * The array of activities
  * @member {Array.<module:model/ActivityResponseObject>} data
  */
 DealListActivitiesResponseAllOf.prototype['data'] = undefined;

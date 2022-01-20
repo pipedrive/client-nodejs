@@ -23,7 +23,7 @@ import RoleAssignmentAllOf from './RoleAssignmentAllOf';
 class RoleAssignment {
     /**
      * Constructs a new <code>RoleAssignment</code>.
-     * The assignment data of the Role
+     * The assignment data of the role
      * @alias module:model/RoleAssignment
      * @implements module:model/BaseRole
      * @implements module:model/RoleAssignmentAllOf
@@ -97,31 +97,31 @@ class RoleAssignment {
 }
 
 /**
- * The ID of the parent Role
+ * The ID of the parent role
  * @member {Number} parent_role_id
  */
 RoleAssignment.prototype['parent_role_id'] = undefined;
 
 /**
- * The name of the Role
+ * The name of the role
  * @member {String} name
  */
 RoleAssignment.prototype['name'] = undefined;
 
 /**
- * The User ID
+ * The user ID
  * @member {Number} user_id
  */
 RoleAssignment.prototype['user_id'] = undefined;
 
 /**
- * The Role ID
+ * The role ID
  * @member {Number} role_id
  */
 RoleAssignment.prototype['role_id'] = undefined;
 
 /**
- * Whether the Role is active or not
+ * Whether the role is active or not
  * @member {Boolean} active_flag
  */
 RoleAssignment.prototype['active_flag'] = undefined;
@@ -135,28 +135,28 @@ RoleAssignment.prototype['type'] = undefined;
 
 // Implement BaseRole interface:
 /**
- * The ID of the parent Role
+ * The ID of the parent role
  * @member {Number} parent_role_id
  */
 BaseRole.prototype['parent_role_id'] = undefined;
 /**
- * The name of the Role
+ * The name of the role
  * @member {String} name
  */
 BaseRole.prototype['name'] = undefined;
 // Implement RoleAssignmentAllOf interface:
 /**
- * The User ID
+ * The user ID
  * @member {Number} user_id
  */
 RoleAssignmentAllOf.prototype['user_id'] = undefined;
 /**
- * The Role ID
+ * The role ID
  * @member {Number} role_id
  */
 RoleAssignmentAllOf.prototype['role_id'] = undefined;
 /**
- * Whether the Role is active or not
+ * Whether the role is active or not
  * @member {Boolean} active_flag
  */
 RoleAssignmentAllOf.prototype['active_flag'] = undefined;

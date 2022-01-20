@@ -95,7 +95,7 @@ class GetAllPersonsResponse {
 GetAllPersonsResponse.prototype['success'] = undefined;
 
 /**
- * The array of Persons
+ * The array of persons
  * @member {Array.<module:model/PersonItem>} data
  */
 GetAllPersonsResponse.prototype['data'] = undefined;
@@ -119,7 +119,7 @@ GetAllPersonsResponse.prototype['related_objects'] = undefined;
 BaseResponse.prototype['success'] = undefined;
 // Implement GetAllPersonsResponseAllOf interface:
 /**
- * The array of Persons
+ * The array of persons
  * @member {Array.<module:model/PersonItem>} data
  */
 GetAllPersonsResponseAllOf.prototype['data'] = undefined;

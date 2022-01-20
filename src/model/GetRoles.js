@@ -89,7 +89,7 @@ class GetRoles {
 GetRoles.prototype['success'] = undefined;
 
 /**
- * The array of Roles
+ * The array of roles
  * @member {Array.<module:model/FullRole>} data
  */
 GetRoles.prototype['data'] = undefined;
@@ -108,7 +108,7 @@ GetRoles.prototype['additional_data'] = undefined;
 BaseResponse.prototype['success'] = undefined;
 // Implement GetRolesAllOf interface:
 /**
- * The array of Roles
+ * The array of roles
  * @member {Array.<module:model/FullRole>} data
  */
 GetRolesAllOf.prototype['data'] = undefined;

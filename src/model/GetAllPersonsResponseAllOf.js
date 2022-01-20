@@ -78,7 +78,7 @@ class GetAllPersonsResponseAllOf {
 }
 
 /**
- * The array of Persons
+ * The array of persons
  * @member {Array.<module:model/PersonItem>} data
  */
 GetAllPersonsResponseAllOf.prototype['data'] = undefined;

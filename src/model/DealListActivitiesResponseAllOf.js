@@ -78,7 +78,7 @@ class DealListActivitiesResponseAllOf {
 }
 
 /**
- * The array of Activities
+ * The array of activities
  * @member {Array.<module:model/ActivityResponseObject>} data
  */
 DealListActivitiesResponseAllOf.prototype['data'] = undefined;

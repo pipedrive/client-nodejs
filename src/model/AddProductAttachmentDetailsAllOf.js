@@ -65,7 +65,7 @@ class AddProductAttachmentDetailsAllOf {
 }
 
 /**
- * The ID of the deal-product (the ID of the Product attached to the Deal)
+ * The ID of the deal-product (the ID of the product attached to the deal)
  * @member {Number} product_attachment_id
  */
 AddProductAttachmentDetailsAllOf.prototype['product_attachment_id'] = undefined;

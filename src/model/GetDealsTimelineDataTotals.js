@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class GetDealsTimelineDataTotals {
     /**
      * Constructs a new <code>GetDealsTimelineDataTotals</code>.
-     * The total values of Deals for the given period
+     * The total values of deals for the given period
      * @alias module:model/GetDealsTimelineDataTotals
      */
     constructor() { 
@@ -101,49 +101,49 @@ class GetDealsTimelineDataTotals {
 }
 
 /**
- * The number of Deals for the given period
+ * The number of deals for the given period
  * @member {Number} count
  */
 GetDealsTimelineDataTotals.prototype['count'] = undefined;
 
 /**
- * The total values of Deals grouped by Deal currency
+ * The total values of deals grouped by deal currency
  * @member {Object} values
  */
 GetDealsTimelineDataTotals.prototype['values'] = undefined;
 
 /**
- * The total weighted values of Deals for the given period grouped by Deal currency. The weighted value of a Deal is calculated as probability times Deal value.
+ * The total weighted values of deals for the given period grouped by deal currency. The weighted value of a deal is calculated as probability times deal value.
  * @member {Object} weighted_values
  */
 GetDealsTimelineDataTotals.prototype['weighted_values'] = undefined;
 
 /**
- * The number of open Deals for the given period
+ * The number of open deals for the given period
  * @member {Number} open_count
  */
 GetDealsTimelineDataTotals.prototype['open_count'] = undefined;
 
 /**
- * The total values of open Deals for the given period grouped by Deal currency
+ * The total values of open deals for the given period grouped by deal currency
  * @member {Object} open_values
  */
 GetDealsTimelineDataTotals.prototype['open_values'] = undefined;
 
 /**
- * The total weighted values of open Deals for the given period grouped by Deal currency. The weighted value of a Deal is calculated as probability times Deal value.
+ * The total weighted values of open deals for the given period grouped by deal currency. The weighted value of a deal is calculated as probability times deal value.
  * @member {Object} weighted_open_values
  */
 GetDealsTimelineDataTotals.prototype['weighted_open_values'] = undefined;
 
 /**
- * The number of won Deals for the given period
+ * The number of won deals for the given period
  * @member {Number} won_count
  */
 GetDealsTimelineDataTotals.prototype['won_count'] = undefined;
 
 /**
- * The total values of won Deals for the given period grouped by Deal currency
+ * The total values of won deals for the given period grouped by deal currency
  * @member {Object} won_values
  */
 GetDealsTimelineDataTotals.prototype['won_values'] = undefined;

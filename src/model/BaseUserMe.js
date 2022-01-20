@@ -198,67 +198,67 @@ class BaseUserMe {
 }
 
 /**
- * The User ID
+ * The user ID
  * @member {Number} id
  */
 BaseUserMe.prototype['id'] = undefined;
 
 /**
- * The User name
+ * The user name
  * @member {String} name
  */
 BaseUserMe.prototype['name'] = undefined;
 
 /**
- * The User default currency
+ * The user default currency
  * @member {String} default_currency
  */
 BaseUserMe.prototype['default_currency'] = undefined;
 
 /**
- * The User locale
+ * The user locale
  * @member {String} locale
  */
 BaseUserMe.prototype['locale'] = undefined;
 
 /**
- * The User language ID
+ * The user language ID
  * @member {Number} lang
  */
 BaseUserMe.prototype['lang'] = undefined;
 
 /**
- * The User email
+ * The user email
  * @member {String} email
  */
 BaseUserMe.prototype['email'] = undefined;
 
 /**
- * The User phone
+ * The user phone
  * @member {String} phone
  */
 BaseUserMe.prototype['phone'] = undefined;
 
 /**
- * Boolean that indicates if the User is activated
+ * Boolean that indicates whether the user is activated
  * @member {Boolean} activated
  */
 BaseUserMe.prototype['activated'] = undefined;
 
 /**
- * The User last login date and time. Format: YYYY-MM-DD HH:MM:SS
+ * The last login date and time of the user. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} last_login
  */
 BaseUserMe.prototype['last_login'] = undefined;
 
 /**
- * The User creation date and time. Format: YYYY-MM-DD HH:MM:SS
+ * The creation date and time of the user. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} created
  */
 BaseUserMe.prototype['created'] = undefined;
 
 /**
- * The User last modification date and time. Format: YYYY-MM-DD HH:MM:SS
+ * The last modification date and time of the user. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} modified
  */
 BaseUserMe.prototype['modified'] = undefined;
@@ -270,79 +270,79 @@ BaseUserMe.prototype['modified'] = undefined;
 BaseUserMe.prototype['signup_flow_variation'] = undefined;
 
 /**
- * Boolean that indicates if the User has created a Company
+ * Boolean that indicates whether the user has created a company
  * @member {Boolean} has_created_company
  */
 BaseUserMe.prototype['has_created_company'] = undefined;
 
 /**
- * Indication if the User is admin (1 = true, 0 = false)
+ * Indication if the user is admin (1 = true, 0 = false)
  * @member {module:model/NumberBoolean} is_admin
  */
 BaseUserMe.prototype['is_admin'] = undefined;
 
 /**
- * Boolean that indicates if the User is activated
+ * Boolean that indicates whether the user is activated
  * @member {Boolean} active_flag
  */
 BaseUserMe.prototype['active_flag'] = undefined;
 
 /**
- * The User timezone name
+ * The user timezone name
  * @member {String} timezone_name
  */
 BaseUserMe.prototype['timezone_name'] = undefined;
 
 /**
- * The User timezone offset
+ * The user timezone offset
  * @member {String} timezone_offset
  */
 BaseUserMe.prototype['timezone_offset'] = undefined;
 
 /**
- * The ID of the User role
+ * The ID of the user role
  * @member {Number} role_id
  */
 BaseUserMe.prototype['role_id'] = undefined;
 
 /**
- * The User icon URL
+ * The user icon URL
  * @member {String} icon_url
  */
 BaseUserMe.prototype['icon_url'] = undefined;
 
 /**
- * Boolean that indicates if the requested User is the same which is logged in (in this case, always true)
+ * Boolean that indicates if the requested user is the same which is logged in (in this case, always true)
  * @member {Boolean} is_you
  */
 BaseUserMe.prototype['is_you'] = undefined;
 
 /**
- * The User company ID
+ * The user company ID
  * @member {Number} company_id
  */
 BaseUserMe.prototype['company_id'] = undefined;
 
 /**
- * The User company name
+ * The user company name
  * @member {String} company_name
  */
 BaseUserMe.prototype['company_name'] = undefined;
 
 /**
- * The User company domain
+ * The user company domain
  * @member {String} company_domain
  */
 BaseUserMe.prototype['company_domain'] = undefined;
 
 /**
- * The User company country
+ * The user company country
  * @member {String} company_country
  */
 BaseUserMe.prototype['company_country'] = undefined;
 
 /**
- * The User company industry
+ * The user company industry
  * @member {String} company_industry
  */
 BaseUserMe.prototype['company_industry'] = undefined;
@@ -355,57 +355,57 @@ BaseUserMe.prototype['language'] = undefined;
 
 // Implement BaseUser interface:
 /**
- * The User ID
+ * The user ID
  * @member {Number} id
  */
 BaseUser.prototype['id'] = undefined;
 /**
- * The User name
+ * The user name
  * @member {String} name
  */
 BaseUser.prototype['name'] = undefined;
 /**
- * The User default currency
+ * The user default currency
  * @member {String} default_currency
  */
 BaseUser.prototype['default_currency'] = undefined;
 /**
- * The User locale
+ * The user locale
  * @member {String} locale
  */
 BaseUser.prototype['locale'] = undefined;
 /**
- * The User language ID
+ * The user language ID
  * @member {Number} lang
  */
 BaseUser.prototype['lang'] = undefined;
 /**
- * The User email
+ * The user email
  * @member {String} email
  */
 BaseUser.prototype['email'] = undefined;
 /**
- * The User phone
+ * The user phone
  * @member {String} phone
  */
 BaseUser.prototype['phone'] = undefined;
 /**
- * Boolean that indicates if the User is activated
+ * Boolean that indicates whether the user is activated
  * @member {Boolean} activated
  */
 BaseUser.prototype['activated'] = undefined;
 /**
- * The User last login date and time. Format: YYYY-MM-DD HH:MM:SS
+ * The last login date and time of the user. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} last_login
  */
 BaseUser.prototype['last_login'] = undefined;
 /**
- * The User creation date and time. Format: YYYY-MM-DD HH:MM:SS
+ * The creation date and time of the user. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} created
  */
 BaseUser.prototype['created'] = undefined;
 /**
- * The User last modification date and time. Format: YYYY-MM-DD HH:MM:SS
+ * The last modification date and time of the user. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} modified
  */
 BaseUser.prototype['modified'] = undefined;
@@ -415,68 +415,68 @@ BaseUser.prototype['modified'] = undefined;
  */
 BaseUser.prototype['signup_flow_variation'] = undefined;
 /**
- * Boolean that indicates if the User has created a Company
+ * Boolean that indicates whether the user has created a company
  * @member {Boolean} has_created_company
  */
 BaseUser.prototype['has_created_company'] = undefined;
 /**
- * Indication if the User is admin (1 = true, 0 = false)
+ * Indication if the user is admin (1 = true, 0 = false)
  * @member {module:model/NumberBoolean} is_admin
  */
 BaseUser.prototype['is_admin'] = undefined;
 /**
- * Boolean that indicates if the User is activated
+ * Boolean that indicates whether the user is activated
  * @member {Boolean} active_flag
  */
 BaseUser.prototype['active_flag'] = undefined;
 /**
- * The User timezone name
+ * The user timezone name
  * @member {String} timezone_name
  */
 BaseUser.prototype['timezone_name'] = undefined;
 /**
- * The User timezone offset
+ * The user timezone offset
  * @member {String} timezone_offset
  */
 BaseUser.prototype['timezone_offset'] = undefined;
 /**
- * The ID of the User role
+ * The ID of the user role
  * @member {Number} role_id
  */
 BaseUser.prototype['role_id'] = undefined;
 /**
- * The User icon URL
+ * The user icon URL
  * @member {String} icon_url
  */
 BaseUser.prototype['icon_url'] = undefined;
 /**
- * Boolean that indicates if the requested User is the same which is logged in (in this case, always true)
+ * Boolean that indicates if the requested user is the same which is logged in (in this case, always true)
  * @member {Boolean} is_you
  */
 BaseUser.prototype['is_you'] = undefined;
 // Implement BaseUserMeAllOf interface:
 /**
- * The User company ID
+ * The user company ID
  * @member {Number} company_id
  */
 BaseUserMeAllOf.prototype['company_id'] = undefined;
 /**
- * The User company name
+ * The user company name
  * @member {String} company_name
  */
 BaseUserMeAllOf.prototype['company_name'] = undefined;
 /**
- * The User company domain
+ * The user company domain
  * @member {String} company_domain
  */
 BaseUserMeAllOf.prototype['company_domain'] = undefined;
 /**
- * The User company country
+ * The user company country
  * @member {String} company_country
  */
 BaseUserMeAllOf.prototype['company_country'] = undefined;
 /**
- * The User company industry
+ * The user company industry
  * @member {String} company_industry
  */
 BaseUserMeAllOf.prototype['company_industry'] = undefined;

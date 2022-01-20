@@ -147,61 +147,61 @@ class LeadResponse {
 }
 
 /**
- * The unique ID of the Lead in the UUID format
+ * The unique ID of the lead in the UUID format
  * @member {String} id
  */
 LeadResponse.prototype['id'] = undefined;
 
 /**
- * The title of the Lead
+ * The title of the lead
  * @member {String} title
  */
 LeadResponse.prototype['title'] = undefined;
 
 /**
- * The ID of the User who owns the Lead
+ * The ID of the user who owns the lead
  * @member {Number} owner_id
  */
 LeadResponse.prototype['owner_id'] = undefined;
 
 /**
- * The ID of the User who created the Lead
+ * The ID of the user who created the lead
  * @member {Number} creator_id
  */
 LeadResponse.prototype['creator_id'] = undefined;
 
 /**
- * The IDs of the Lead Labels which are associated with the Lead
+ * The IDs of the lead labels which are associated with the lead
  * @member {Array.<String>} label_ids
  */
 LeadResponse.prototype['label_ids'] = undefined;
 
 /**
- * The ID of a Person which this Lead is linked to
+ * The ID of a person which this lead is linked to
  * @member {Number} person_id
  */
 LeadResponse.prototype['person_id'] = undefined;
 
 /**
- * The ID of an Organization which this Lead is linked to
+ * The ID of an organization which this lead is linked to
  * @member {Number} organization_id
  */
 LeadResponse.prototype['organization_id'] = undefined;
 
 /**
- * Defines where the Lead comes from. Will be `API` if the Lead was created through the Public API and will be `Manually created` if the Lead was created manually through the UI. 
+ * Defines where the lead comes from. Will be `API` if the lead was created through the Public API and will be `Manually created` if the lead was created manually through the UI. 
  * @member {String} source_name
  */
 LeadResponse.prototype['source_name'] = undefined;
 
 /**
- * A flag indicating whether the Lead is archived or not
+ * A flag indicating whether the lead is archived or not
  * @member {Boolean} is_archived
  */
 LeadResponse.prototype['is_archived'] = undefined;
 
 /**
- * A flag indicating whether the Lead was seen by someone in the Pipedrive UI
+ * A flag indicating whether the lead was seen by someone in the Pipedrive UI
  * @member {Boolean} was_seen
  */
 LeadResponse.prototype['was_seen'] = undefined;
@@ -212,37 +212,37 @@ LeadResponse.prototype['was_seen'] = undefined;
 LeadResponse.prototype['value'] = undefined;
 
 /**
- * The date of when the Deal which will be created from the Lead is expected to be closed. In ISO 8601 format: YYYY-MM-DD.
+ * The date of when the deal which will be created from the lead is expected to be closed. In ISO 8601 format: YYYY-MM-DD.
  * @member {Date} expected_close_date
  */
 LeadResponse.prototype['expected_close_date'] = undefined;
 
 /**
- * The ID of the next activity associated with the Lead
+ * The ID of the next activity associated with the lead
  * @member {Number} next_activity_id
  */
 LeadResponse.prototype['next_activity_id'] = undefined;
 
 /**
- * The date and time of when the Lead was created. In ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+ * The date and time of when the lead was created. In ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
  * @member {Date} add_time
  */
 LeadResponse.prototype['add_time'] = undefined;
 
 /**
- * The date and time of when the Lead was last updated. In ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+ * The date and time of when the lead was last updated. In ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
  * @member {Date} update_time
  */
 LeadResponse.prototype['update_time'] = undefined;
 
 /**
- * Visibility of the Lead. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
+ * The visibility of the lead. If omitted, the visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
  * @member {module:model/VisibleTo} visible_to
  */
 LeadResponse.prototype['visible_to'] = undefined;
 
 /**
- * The CC email of the lead
+ * The BCC email of the lead
  * @member {String} cc_email
  */
 LeadResponse.prototype['cc_email'] = undefined;

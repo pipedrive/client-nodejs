@@ -77,7 +77,7 @@ class GetDuplicatedDeal {
 GetDuplicatedDeal.prototype['success'] = undefined;
 
 /**
- * The Deal object
+ * The deal object
  * @member {module:model/DealStrict} data
  */
 GetDuplicatedDeal.prototype['data'] = undefined;

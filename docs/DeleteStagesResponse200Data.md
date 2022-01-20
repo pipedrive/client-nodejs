@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **[Number]** | The list of deleted Stage IDs | [optional] 
+**id** | **[Number]** | The list of deleted stage IDs | [optional] 
 
 

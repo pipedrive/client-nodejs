@@ -91,31 +91,31 @@ class BaseUserMeAllOf {
 }
 
 /**
- * The User company ID
+ * The user company ID
  * @member {Number} company_id
  */
 BaseUserMeAllOf.prototype['company_id'] = undefined;
 
 /**
- * The User company name
+ * The user company name
  * @member {String} company_name
  */
 BaseUserMeAllOf.prototype['company_name'] = undefined;
 
 /**
- * The User company domain
+ * The user company domain
  * @member {String} company_domain
  */
 BaseUserMeAllOf.prototype['company_domain'] = undefined;
 
 /**
- * The User company country
+ * The user company country
  * @member {String} company_country
  */
 BaseUserMeAllOf.prototype['company_country'] = undefined;
 
 /**
- * The User company industry
+ * The user company industry
  * @member {String} company_industry
  */
 BaseUserMeAllOf.prototype['company_industry'] = undefined;

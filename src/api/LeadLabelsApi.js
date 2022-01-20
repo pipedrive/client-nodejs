@@ -42,7 +42,7 @@ export default class LeadLabelsApi {
 
     /**
      * Add a lead label
-     * Creates a Lead Label
+     * Creates a lead label.
      * @param {Object} opts Optional parameters
      * @param {module:model/AddLeadLabelRequest} opts.addLeadLabelRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddOrUpdateLeadLabelResponse200} and HTTP response
@@ -89,7 +89,7 @@ export default class LeadLabelsApi {
 
     /**
      * Add a lead label
-     * Creates a Lead Label
+     * Creates a lead label.
      * @param {Object} opts Optional parameters
      * @param {module:model/AddLeadLabelRequest} opts.addLeadLabelRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddOrUpdateLeadLabelResponse200}
@@ -104,8 +104,8 @@ export default class LeadLabelsApi {
 
     /**
      * Delete a lead label
-     * Deletes a specific Lead Label
-     * @param {String} id The ID of the Lead Label
+     * Deletes a specific lead label.
+     * @param {String} id The ID of the lead label
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/LeadIdResponse200} and HTTP response
      */
     deleteLeadLabelWithHttpInfo(id) {
@@ -155,8 +155,8 @@ export default class LeadLabelsApi {
 
     /**
      * Delete a lead label
-     * Deletes a specific Lead Label
-     * @param {String} id The ID of the Lead Label
+     * Deletes a specific lead label.
+     * @param {String} id The ID of the lead label
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/LeadIdResponse200}
      */
     deleteLeadLabel(id) {
@@ -169,7 +169,7 @@ export default class LeadLabelsApi {
 
     /**
      * Get all lead labels
-     * Returns details of all Lead Labels. This endpoint does not support pagination and all Labels are always returned.
+     * Returns details of all lead labels. This endpoint does not support pagination and all labels are always returned.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetLeadLabelsResponse200} and HTTP response
      */
     getLeadLabelsWithHttpInfo() {
@@ -214,7 +214,7 @@ export default class LeadLabelsApi {
 
     /**
      * Get all lead labels
-     * Returns details of all Lead Labels. This endpoint does not support pagination and all Labels are always returned.
+     * Returns details of all lead labels. This endpoint does not support pagination and all labels are always returned.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetLeadLabelsResponse200}
      */
     getLeadLabels() {
@@ -227,8 +227,8 @@ export default class LeadLabelsApi {
 
     /**
      * Update a lead label
-     * Updates one or more properties of a Lead Label. Only properties included in the request will be updated. 
-     * @param {String} id The ID of the Lead Label
+     * Updates one or more properties of a lead label. Only properties included in the request will be updated. 
+     * @param {String} id The ID of the lead label
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateLeadLabelRequest} opts.updateLeadLabelRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddOrUpdateLeadLabelResponse200} and HTTP response
@@ -280,8 +280,8 @@ export default class LeadLabelsApi {
 
     /**
      * Update a lead label
-     * Updates one or more properties of a Lead Label. Only properties included in the request will be updated. 
-     * @param {String} id The ID of the Lead Label
+     * Updates one or more properties of a lead label. Only properties included in the request will be updated. 
+     * @param {String} id The ID of the lead label
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateLeadLabelRequest} opts.updateLeadLabelRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddOrUpdateLeadLabelResponse200}

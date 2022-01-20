@@ -93,7 +93,7 @@ class GlobalMessageGet {
 GlobalMessageGet.prototype['success'] = undefined;
 
 /**
- * The array of Global Messages
+ * The array of global messages
  * @member {Array.<module:model/GlobalMessageData>} data
  */
 GlobalMessageGet.prototype['data'] = undefined;
@@ -119,7 +119,7 @@ GlobalMessageGet.prototype['_req_time_ctx_ms'] = undefined;
 GlobalMessageBaseResponse.prototype['success'] = undefined;
 // Implement GlobalMessageGetAllOf interface:
 /**
- * The array of Global Messages
+ * The array of global messages
  * @member {Array.<module:model/GlobalMessageData>} data
  */
 GlobalMessageGetAllOf.prototype['data'] = undefined;

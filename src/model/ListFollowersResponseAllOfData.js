@@ -80,25 +80,25 @@ class ListFollowersResponseAllOfData {
 }
 
 /**
- * The ID of the User
+ * The ID of the user
  * @member {Number} user_id
  */
 ListFollowersResponseAllOfData.prototype['user_id'] = undefined;
 
 /**
- * The ID of the User follower
+ * The ID of the user follower
  * @member {Number} id
  */
 ListFollowersResponseAllOfData.prototype['id'] = undefined;
 
 /**
- * The ID of the Person
+ * The ID of the person
  * @member {Number} person_id
  */
 ListFollowersResponseAllOfData.prototype['person_id'] = undefined;
 
 /**
- * The date and time when the Follower was added to the Person
+ * The date and time when the follower was added to the person
  * @member {String} add_time
  */
 ListFollowersResponseAllOfData.prototype['add_time'] = undefined;

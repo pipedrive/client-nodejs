@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class ExpectedOutcome {
     /**
      * Constructs a new <code>ExpectedOutcome</code>.
-     * Expected outcome of the goal
+     * The expected outcome of the goal
      * @alias module:model/ExpectedOutcome
      */
     constructor() { 
@@ -71,13 +71,13 @@ class ExpectedOutcome {
 }
 
 /**
- * Numeric target of the goal
+ * The numeric target of the goal
  * @member {Number} target
  */
 ExpectedOutcome.prototype['target'] = undefined;
 
 /**
- * Tracking metric of the goal
+ * The tracking metric of the goal
  * @member {String} tracking_metric
  */
 ExpectedOutcome.prototype['tracking_metric'] = undefined;

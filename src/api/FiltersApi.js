@@ -172,7 +172,7 @@ export default class FiltersApi {
     /**
      * Delete multiple filters in bulk
      * Marks multiple filters as deleted.
-     * @param {String} ids Comma-separated filter IDs to delete
+     * @param {String} ids The comma-separated filter IDs to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/FiltersBulkDeleteResponse} and HTTP response
      */
     deleteFiltersWithHttpInfo(ids) {
@@ -223,7 +223,7 @@ export default class FiltersApi {
     /**
      * Delete multiple filters in bulk
      * Marks multiple filters as deleted.
-     * @param {String} ids Comma-separated filter IDs to delete
+     * @param {String} ids The comma-separated filter IDs to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FiltersBulkDeleteResponse}
      */
     deleteFilters(ids) {

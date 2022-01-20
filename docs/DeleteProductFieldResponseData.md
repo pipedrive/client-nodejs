@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | The ID of the deleted Product Field | [optional] 
+**id** | **Number** | The ID of the deleted product field | [optional] 
 
 

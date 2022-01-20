@@ -72,7 +72,7 @@ class ListFilesResponseAllOf {
 }
 
 /**
- * The array of Files
+ * The array of files
  * @member {Array.<module:model/FileItem>} data
  */
 ListFilesResponseAllOf.prototype['data'] = undefined;

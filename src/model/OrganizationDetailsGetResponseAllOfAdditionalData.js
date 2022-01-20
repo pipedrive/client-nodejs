@@ -76,7 +76,7 @@ class OrganizationDetailsGetResponseAllOfAdditionalData {
 OrganizationDetailsGetResponseAllOfAdditionalData.prototype['followers'] = undefined;
 
 /**
- * Dropbox email for the Organization
+ * Dropbox email for the organization
  * @member {String} dropbox_email
  */
 OrganizationDetailsGetResponseAllOfAdditionalData.prototype['dropbox_email'] = undefined;

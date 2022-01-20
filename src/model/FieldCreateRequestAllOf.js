@@ -22,7 +22,7 @@ class FieldCreateRequestAllOf {
     /**
      * Constructs a new <code>FieldCreateRequestAllOf</code>.
      * @alias module:model/FieldCreateRequestAllOf
-     * @param name {String} Name of the field
+     * @param name {String} The name of the field
      */
     constructor(name) { 
         
@@ -77,7 +77,7 @@ class FieldCreateRequestAllOf {
 }
 
 /**
- * Name of the field
+ * The name of the field
  * @member {String} name
  */
 FieldCreateRequestAllOf.prototype['name'] = undefined;
@@ -89,7 +89,7 @@ FieldCreateRequestAllOf.prototype['name'] = undefined;
 FieldCreateRequestAllOf.prototype['options'] = undefined;
 
 /**
- * Whether the field is available in 'add new' modal or not (both in web and mobile app)
+ * Whether the field is available in the 'add new' modal or not (both in the web and mobile app)
  * @member {module:model/FieldCreateRequestAllOf.AddVisibleFlagEnum} add_visible_flag
  * @default true
  */

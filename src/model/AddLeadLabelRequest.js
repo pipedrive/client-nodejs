@@ -23,7 +23,7 @@ class AddLeadLabelRequest {
     /**
      * Constructs a new <code>AddLeadLabelRequest</code>.
      * @alias module:model/AddLeadLabelRequest
-     * @param name {String} The name of the Lead Label
+     * @param name {String} The name of the lead label
      * @param color {module:model/LeadLabelColor} 
      */
     constructor(name, color) { 
@@ -75,7 +75,7 @@ class AddLeadLabelRequest {
 }
 
 /**
- * The name of the Lead Label
+ * The name of the lead label
  * @member {String} name
  */
 AddLeadLabelRequest.prototype['name'] = undefined;

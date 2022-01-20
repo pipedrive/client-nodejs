@@ -23,8 +23,8 @@ class AddOrganizationRelationshipRequest {
      * Constructs a new <code>AddOrganizationRelationshipRequest</code>.
      * @alias module:model/AddOrganizationRelationshipRequest
      * @param type {module:model/AddOrganizationRelationshipRequest.TypeEnum} The type of organization relationship
-     * @param relOwnerOrgId {Number} The owner of this relationship. If type is `parent`, then the owner is the parent and the linked organization is the daughter.
-     * @param relLinkedOrgId {Number} The linked organization in this relationship. If type is `parent`, then the linked organization is the daughter.
+     * @param relOwnerOrgId {Number} The owner of the relationship. If type is `parent`, then the owner is the parent and the linked organization is the daughter.
+     * @param relLinkedOrgId {Number} The linked organization in the relationship. If type is `parent`, then the linked organization is the daughter.
      */
     constructor(type, relOwnerOrgId, relLinkedOrgId) { 
         
@@ -86,7 +86,7 @@ class AddOrganizationRelationshipRequest {
 }
 
 /**
- * ID of the base organization for the returned calculated values
+ * The ID of the base organization for the returned calculated values
  * @member {Number} org_id
  */
 AddOrganizationRelationshipRequest.prototype['org_id'] = undefined;
@@ -98,13 +98,13 @@ AddOrganizationRelationshipRequest.prototype['org_id'] = undefined;
 AddOrganizationRelationshipRequest.prototype['type'] = undefined;
 
 /**
- * The owner of this relationship. If type is `parent`, then the owner is the parent and the linked organization is the daughter.
+ * The owner of the relationship. If type is `parent`, then the owner is the parent and the linked organization is the daughter.
  * @member {Number} rel_owner_org_id
  */
 AddOrganizationRelationshipRequest.prototype['rel_owner_org_id'] = undefined;
 
 /**
- * The linked organization in this relationship. If type is `parent`, then the linked organization is the daughter.
+ * The linked organization in the relationship. If type is `parent`, then the linked organization is the daughter.
  * @member {Number} rel_linked_org_id
  */
 AddOrganizationRelationshipRequest.prototype['rel_linked_org_id'] = undefined;

@@ -65,7 +65,7 @@ class GetAddedDealAdditionalData {
 }
 
 /**
- * The array of filter ID's with what this added Deal matches
+ * The array of filter ID's with what this added deal matches
  * @member {Array.<Number>} matches_filters
  */
 GetAddedDealAdditionalData.prototype['matches_filters'] = undefined;

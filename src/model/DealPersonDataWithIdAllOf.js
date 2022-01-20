@@ -65,7 +65,7 @@ class DealPersonDataWithIdAllOf {
 }
 
 /**
- * The ID of the Person associated with the Deal
+ * The ID of the person associated with the deal
  * @member {Number} value
  */
 DealPersonDataWithIdAllOf.prototype['value'] = undefined;

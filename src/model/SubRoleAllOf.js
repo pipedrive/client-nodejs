@@ -80,19 +80,19 @@ class SubRoleAllOf {
 }
 
 /**
- * The ID of the Role
+ * The ID of the role
  * @member {Number} id
  */
 SubRoleAllOf.prototype['id'] = undefined;
 
 /**
- * If the Role is active or not
+ * Whether the role is active or not
  * @member {Boolean} active_flag
  */
 SubRoleAllOf.prototype['active_flag'] = undefined;
 
 /**
- * The number of Users assigned to this Role
+ * The number of users assigned to this role
  * @member {String} assignment_count
  */
 SubRoleAllOf.prototype['assignment_count'] = undefined;

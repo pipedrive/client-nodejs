@@ -101,7 +101,7 @@ class BasicDealProduct {
 }
 
 /**
- * Price at which this product will be added to the deal
+ * The price at which this product will be added to the deal
  * @member {Number} item_price
  */
 BasicDealProduct.prototype['item_price'] = undefined;
@@ -113,21 +113,21 @@ BasicDealProduct.prototype['item_price'] = undefined;
 BasicDealProduct.prototype['quantity'] = undefined;
 
 /**
- * Discount %. If omitted, will be set to 0
+ * The discount %. If omitted, will be set to 0.
  * @member {Number} discount_percentage
  * @default 0
  */
 BasicDealProduct.prototype['discount_percentage'] = 0;
 
 /**
- * Duration of the product (when product durations are not enabled for the company or if omitted, defaults to 1)
+ * The duration of the product (when product durations are not enabled for the company or if omitted, defaults to 1)
  * @member {Number} duration
  * @default 1
  */
 BasicDealProduct.prototype['duration'] = 1;
 
 /**
- * ID of the product variation to use. When omitted, no variation will be used.
+ * The ID of the product variation to use. When omitted, no variation will be used.
  * @member {Number} product_variation_id
  */
 BasicDealProduct.prototype['product_variation_id'] = undefined;
@@ -139,14 +139,14 @@ BasicDealProduct.prototype['product_variation_id'] = undefined;
 BasicDealProduct.prototype['comments'] = undefined;
 
 /**
- * Tax percentage
+ * The tax percentage
  * @member {Number} tax
  * @default 0
  */
 BasicDealProduct.prototype['tax'] = 0;
 
 /**
- * Whether the product is enabled on the deal or not. This makes it possible to add products to a deal with specific price and discount criteria - but keep them disabled, which refrains them from being included in deal price calculation. When omitted, the product will be marked as enabled by default.
+ * Whether the product is enabled on the deal or not. This makes it possible to add products to a deal with a specific price and discount criteria - but keep them disabled, which refrains them from being included in the deal price calculation. When omitted, the product will be marked as enabled by default.
  * @member {module:model/NumberBoolean} enabled_flag
  */
 BasicDealProduct.prototype['enabled_flag'] = undefined;

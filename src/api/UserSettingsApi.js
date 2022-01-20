@@ -38,7 +38,7 @@ export default class UserSettingsApi {
 
     /**
      * List settings of an authorized user
-     * List settings of an authorized user. Example response contains a shortened list of settings.
+     * Lists the settings of an authorized user. Example response contains a shortened list of settings.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UserSettings} and HTTP response
      */
     getUserSettingsWithHttpInfo() {
@@ -83,7 +83,7 @@ export default class UserSettingsApi {
 
     /**
      * List settings of an authorized user
-     * List settings of an authorized user. Example response contains a shortened list of settings.
+     * Lists the settings of an authorized user. Example response contains a shortened list of settings.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UserSettings}
      */
     getUserSettings() {

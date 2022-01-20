@@ -72,7 +72,7 @@ class ListFollowersResponseAllOf {
 }
 
 /**
- * The list of Followers
+ * The list of followers
  * @member {Array.<module:model/ListFollowersResponseAllOfData>} data
  */
 ListFollowersResponseAllOf.prototype['data'] = undefined;

@@ -100,49 +100,49 @@ class BasePipeline {
 }
 
 /**
- * The ID of the Pipeline
+ * The ID of the pipeline
  * @member {Number} id
  */
 BasePipeline.prototype['id'] = undefined;
 
 /**
- * The name of the Pipeline
+ * The name of the pipeline
  * @member {String} name
  */
 BasePipeline.prototype['name'] = undefined;
 
 /**
- * The Pipeline title displayed in the URL
+ * The pipeline title displayed in the URL
  * @member {String} url_title
  */
 BasePipeline.prototype['url_title'] = undefined;
 
 /**
- * Defines the order of Pipelines. First order (`order_nr=0`) is the default Pipeline.
+ * Defines the order of pipelines. First order (`order_nr=0`) is the default pipeline.
  * @member {Number} order_nr
  */
 BasePipeline.prototype['order_nr'] = undefined;
 
 /**
- * Whether this Pipeline will be made inactive (hidden) or active
+ * Whether this pipeline will be made inactive (hidden) or active
  * @member {Boolean} active
  */
 BasePipeline.prototype['active'] = undefined;
 
 /**
- * Whether Deal probability is disabled or enabled for this Pipeline
+ * Whether deal probability is disabled or enabled for this pipeline
  * @member {Boolean} deal_probability
  */
 BasePipeline.prototype['deal_probability'] = undefined;
 
 /**
- * The Pipeline creation time. Format: YYYY-MM-DD HH:MM:SS.
+ * The pipeline creation time. Format: YYYY-MM-DD HH:MM:SS.
  * @member {String} add_time
  */
 BasePipeline.prototype['add_time'] = undefined;
 
 /**
- * The Pipeline update time. Format: YYYY-MM-DD HH:MM:SS.
+ * The pipeline update time. Format: YYYY-MM-DD HH:MM:SS.
  * @member {String} update_time
  */
 BasePipeline.prototype['update_time'] = undefined;

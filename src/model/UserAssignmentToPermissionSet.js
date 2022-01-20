@@ -80,25 +80,25 @@ class UserAssignmentToPermissionSet {
 }
 
 /**
- * The ID of the assignment of the Permission Set
+ * The ID of the assignment of the permission set
  * @member {Number} id
  */
 UserAssignmentToPermissionSet.prototype['id'] = undefined;
 
 /**
- * The ID of the User in the Permission Set
+ * The ID of the user in the permission set
  * @member {Number} user_id
  */
 UserAssignmentToPermissionSet.prototype['user_id'] = undefined;
 
 /**
- * The ID of the Permission Set
+ * The ID of the permission set
  * @member {Number} permission_set_id
  */
 UserAssignmentToPermissionSet.prototype['permission_set_id'] = undefined;
 
 /**
- * The name of the Permission Set
+ * The name of the permission set
  * @member {String} name
  */
 UserAssignmentToPermissionSet.prototype['name'] = undefined;

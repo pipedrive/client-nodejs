@@ -110,31 +110,31 @@ class BaseComment {
 }
 
 /**
- * The ID of the Note
+ * The ID of the note
  * @member {String} uuid
  */
 BaseComment.prototype['uuid'] = undefined;
 
 /**
- * If Note is active or deleted
+ * Whether the note is active or deleted
  * @member {Boolean} active_flag
  */
 BaseComment.prototype['active_flag'] = undefined;
 
 /**
- * The creation date and time of the Note
+ * The creation date and time of the note
  * @member {String} add_time
  */
 BaseComment.prototype['add_time'] = undefined;
 
 /**
- * The creation date and time of the Note
+ * The creation date and time of the note
  * @member {String} update_time
  */
 BaseComment.prototype['update_time'] = undefined;
 
 /**
- * Content of the Note in HTML format. Subject to sanitization on the back-end.
+ * The content of the note in HTML format. Subject to sanitization on the back-end.
  * @member {String} content
  */
 BaseComment.prototype['content'] = undefined;
@@ -152,13 +152,13 @@ BaseComment.prototype['object_id'] = undefined;
 BaseComment.prototype['object_type'] = undefined;
 
 /**
- * The ID of the User who created the comment
+ * The ID of the user who created the comment
  * @member {Number} user_id
  */
 BaseComment.prototype['user_id'] = undefined;
 
 /**
- * The ID of the User who last updated the comment
+ * The ID of the user who last updated the comment
  * @member {Number} updater_id
  */
 BaseComment.prototype['updater_id'] = undefined;

@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class GetDealsSummaryDataValuesTotal {
     /**
      * Constructs a new <code>GetDealsSummaryDataValuesTotal</code>.
-     * The total values of the Deals grouped by Deal currency
+     * The total values of the deals grouped by deal currency
      * @alias module:model/GetDealsSummaryDataValuesTotal
      */
     constructor() { 
@@ -86,31 +86,31 @@ class GetDealsSummaryDataValuesTotal {
 }
 
 /**
- * The total value of Deals in the Deal currency group
+ * The total value of deals in the deal currency group
  * @member {Number} value
  */
 GetDealsSummaryDataValuesTotal.prototype['value'] = undefined;
 
 /**
- * The number of Deals in the Deal currency group
+ * The number of deals in the deal currency group
  * @member {Number} count
  */
 GetDealsSummaryDataValuesTotal.prototype['count'] = undefined;
 
 /**
- * The total value of Deals converted into the company default currency
+ * The total value of deals converted into the company default currency
  * @member {Number} value_converted
  */
 GetDealsSummaryDataValuesTotal.prototype['value_converted'] = undefined;
 
 /**
- * The total value of Deals formatted with Deal currency. E.g. €50
+ * The total value of deals formatted with deal currency. E.g. €50
  * @member {String} value_formatted
  */
 GetDealsSummaryDataValuesTotal.prototype['value_formatted'] = undefined;
 
 /**
- * The value_converted formatted with Deal currency. E.g. US$50.10
+ * The value_converted formatted with deal currency. E.g. US$50.10
  * @member {String} value_converted_formatted
  */
 GetDealsSummaryDataValuesTotal.prototype['value_converted_formatted'] = undefined;

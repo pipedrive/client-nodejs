@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class ActivityDistributionDataActivityDistributionASSIGNEDTOUSERIDActivities {
     /**
      * Constructs a new <code>ActivityDistributionDataActivityDistributionASSIGNEDTOUSERIDActivities</code>.
-     * The count of Activities related to the User grouped by Activity type
+     * The count of activities related to the user grouped by activity type
      * @alias module:model/ActivityDistributionDataActivityDistributionASSIGNEDTOUSERIDActivities
      */
     constructor() { 
@@ -66,7 +66,7 @@ class ActivityDistributionDataActivityDistributionASSIGNEDTOUSERIDActivities {
 }
 
 /**
- * The count of Activities related to a specific type
+ * The count of activities related to a specific type
  * @member {Number} ACTIVITY_TYPE_NAME
  */
 ActivityDistributionDataActivityDistributionASSIGNEDTOUSERIDActivities.prototype['ACTIVITY_TYPE_NAME'] = undefined;

@@ -96,31 +96,31 @@ class UpdateStageRequest {
 }
 
 /**
- * Name of the Stage
+ * The name of the stage
  * @member {String} name
  */
 UpdateStageRequest.prototype['name'] = undefined;
 
 /**
- * The ID of the Pipeline to add Stage to.
+ * The ID of the pipeline to add stage to
  * @member {Number} pipeline_id
  */
 UpdateStageRequest.prototype['pipeline_id'] = undefined;
 
 /**
- * Deal success probability percentage. Used/shown when Deal weighted values are used
+ * The success probability percentage of the deal. Used/shown when deal weighted values are used.
  * @member {Number} deal_probability
  */
 UpdateStageRequest.prototype['deal_probability'] = undefined;
 
 /**
- * Whether Deals in this stage can become rotten
+ * Whether deals in this stage can become rotten
  * @member {module:model/UpdateStageRequest.RottenFlagEnum} rotten_flag
  */
 UpdateStageRequest.prototype['rotten_flag'] = undefined;
 
 /**
- * The number of days the Deals not updated in this Stage would become rotten. Applies only if the `rotten_flag` is set.
+ * The number of days the deals not updated in this stage would become rotten. Applies only if the `rotten_flag` is set.
  * @member {Number} rotten_days
  */
 UpdateStageRequest.prototype['rotten_days'] = undefined;
@@ -134,27 +134,27 @@ UpdateStageRequest.prototype['order_nr'] = undefined;
 
 // Implement Stage interface:
 /**
- * Name of the Stage
+ * The name of the stage
  * @member {String} name
  */
 Stage.prototype['name'] = undefined;
 /**
- * The ID of the Pipeline to add Stage to.
+ * The ID of the pipeline to add stage to
  * @member {Number} pipeline_id
  */
 Stage.prototype['pipeline_id'] = undefined;
 /**
- * Deal success probability percentage. Used/shown when Deal weighted values are used
+ * The success probability percentage of the deal. Used/shown when deal weighted values are used.
  * @member {Number} deal_probability
  */
 Stage.prototype['deal_probability'] = undefined;
 /**
- * Whether Deals in this stage can become rotten
+ * Whether deals in this stage can become rotten
  * @member {module:model/Stage.RottenFlagEnum} rotten_flag
  */
 Stage.prototype['rotten_flag'] = undefined;
 /**
- * The number of days the Deals not updated in this Stage would become rotten. Applies only if the `rotten_flag` is set.
+ * The number of days the deals not updated in this stage would become rotten. Applies only if the `rotten_flag` is set.
  * @member {Number} rotten_days
  */
 Stage.prototype['rotten_days'] = undefined;

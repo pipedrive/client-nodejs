@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**stageId** | **Number** | The Stage ID | [optional] 
-**value** | **Number** | Average Deals age in specific Stage | [optional] 
+**stageId** | **Number** | The stage ID | [optional] 
+**value** | **Number** | The average deals age in specific stage | [optional] 
 
 

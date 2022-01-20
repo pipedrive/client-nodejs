@@ -157,19 +157,19 @@ class BaseWebhook {
 BaseWebhook.prototype['id'] = undefined;
 
 /**
- * The ID of the Company related to the Webhook
+ * The ID of the company related to the Webhook
  * @member {Number} company_id
  */
 BaseWebhook.prototype['company_id'] = undefined;
 
 /**
- * The ID of the User who owns the Webhook
+ * The ID of the user who owns the Webhook
  * @member {Number} owner_id
  */
 BaseWebhook.prototype['owner_id'] = undefined;
 
 /**
- * The ID of the User related to the Webhook
+ * The ID of the user related to the Webhook
  * @member {Number} user_id
  */
 BaseWebhook.prototype['user_id'] = undefined;

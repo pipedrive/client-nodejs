@@ -65,7 +65,7 @@ class DeleteProductFieldResponseData {
 }
 
 /**
- * The ID of the deleted Product Field
+ * The ID of the deleted product field
  * @member {Number} id
  */
 DeleteProductFieldResponseData.prototype['id'] = undefined;

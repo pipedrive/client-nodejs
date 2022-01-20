@@ -101,43 +101,43 @@ class RelationshipOrganizationInfoItemWithActiveFlag {
 }
 
 /**
- * The name of the Organization associated with the item
+ * The name of the organization associated with the item
  * @member {String} name
  */
 RelationshipOrganizationInfoItemWithActiveFlag.prototype['name'] = undefined;
 
 /**
- * The number of people connected with the Organization that is associated with the item
+ * The number of people connected with the organization that is associated with the item
  * @member {Number} people_count
  */
 RelationshipOrganizationInfoItemWithActiveFlag.prototype['people_count'] = undefined;
 
 /**
- * The ID of the owner of the Organization that is associated with the item
+ * The ID of the owner of the organization that is associated with the item
  * @member {Number} owner_id
  */
 RelationshipOrganizationInfoItemWithActiveFlag.prototype['owner_id'] = undefined;
 
 /**
- * The address of the Organization
+ * The address of the organization
  * @member {String} address
  */
 RelationshipOrganizationInfoItemWithActiveFlag.prototype['address'] = undefined;
 
 /**
- * The CC email of the Organization associated with the item
+ * The BCC email of the organization associated with the item
  * @member {String} cc_email
  */
 RelationshipOrganizationInfoItemWithActiveFlag.prototype['cc_email'] = undefined;
 
 /**
- * The ID of the Organization
+ * The ID of the organization
  * @member {Number} value
  */
 RelationshipOrganizationInfoItemWithActiveFlag.prototype['value'] = undefined;
 
 /**
- * If the associated Organization is active or not
+ * Whether the associated organization is active or not
  * @member {Boolean} active_flag
  */
 RelationshipOrganizationInfoItemWithActiveFlag.prototype['active_flag'] = undefined;
@@ -145,38 +145,38 @@ RelationshipOrganizationInfoItemWithActiveFlag.prototype['active_flag'] = undefi
 
 // Implement RelationshipOrganizationInfoItem interface:
 /**
- * The name of the Organization associated with the item
+ * The name of the organization associated with the item
  * @member {String} name
  */
 RelationshipOrganizationInfoItem.prototype['name'] = undefined;
 /**
- * The number of people connected with the Organization that is associated with the item
+ * The number of people connected with the organization that is associated with the item
  * @member {Number} people_count
  */
 RelationshipOrganizationInfoItem.prototype['people_count'] = undefined;
 /**
- * The ID of the owner of the Organization that is associated with the item
+ * The ID of the owner of the organization that is associated with the item
  * @member {Number} owner_id
  */
 RelationshipOrganizationInfoItem.prototype['owner_id'] = undefined;
 /**
- * The address of the Organization
+ * The address of the organization
  * @member {String} address
  */
 RelationshipOrganizationInfoItem.prototype['address'] = undefined;
 /**
- * The CC email of the Organization associated with the item
+ * The BCC email of the organization associated with the item
  * @member {String} cc_email
  */
 RelationshipOrganizationInfoItem.prototype['cc_email'] = undefined;
 /**
- * The ID of the Organization
+ * The ID of the organization
  * @member {Number} value
  */
 RelationshipOrganizationInfoItem.prototype['value'] = undefined;
 // Implement OrganizationDataWithIdAndActiveFlagAllOf interface:
 /**
- * If the associated Organization is active or not
+ * Whether the associated organization is active or not
  * @member {Boolean} active_flag
  */
 OrganizationDataWithIdAndActiveFlagAllOf.prototype['active_flag'] = undefined;

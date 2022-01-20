@@ -22,8 +22,8 @@ class CreateTeam {
     /**
      * Constructs a new <code>CreateTeam</code>.
      * @alias module:model/CreateTeam
-     * @param name {String} The Team name
-     * @param managerId {Number} The Team manager ID
+     * @param name {String} The team name
+     * @param managerId {Number} The team manager ID
      */
     constructor(name, managerId) { 
         
@@ -84,25 +84,25 @@ class CreateTeam {
 }
 
 /**
- * The Team name
+ * The team name
  * @member {String} name
  */
 CreateTeam.prototype['name'] = undefined;
 
 /**
- * The Team description
+ * The team description
  * @member {String} description
  */
 CreateTeam.prototype['description'] = undefined;
 
 /**
- * The Team manager ID
+ * The team manager ID
  * @member {Number} manager_id
  */
 CreateTeam.prototype['manager_id'] = undefined;
 
 /**
- * List of User IDs
+ * The list of user IDs
  * @member {Array.<Number>} users
  */
 CreateTeam.prototype['users'] = undefined;

@@ -125,25 +125,25 @@ class ProductAttachementFields {
 }
 
 /**
- * The ID of the deal-product (the ID of the Product attached to the Deal)
+ * The ID of the deal-product (the ID of the product attached to the deal)
  * @member {Number} id
  */
 ProductAttachementFields.prototype['id'] = undefined;
 
 /**
- * The ID of the Company
+ * The ID of the company
  * @member {Number} company_id
  */
 ProductAttachementFields.prototype['company_id'] = undefined;
 
 /**
- * The ID of the Deal
+ * The ID of the deal
  * @member {Number} deal_id
  */
 ProductAttachementFields.prototype['deal_id'] = undefined;
 
 /**
- * The ID of the Product
+ * The ID of the product
  * @member {Number} product_id
  */
 ProductAttachementFields.prototype['product_id'] = undefined;
@@ -155,49 +155,49 @@ ProductAttachementFields.prototype['product_id'] = undefined;
 ProductAttachementFields.prototype['duration_unit'] = undefined;
 
 /**
- * The Product sum without the discount
+ * The product sum without the discount
  * @member {Number} sum_no_discount
  */
 ProductAttachementFields.prototype['sum_no_discount'] = undefined;
 
 /**
- * The sum of all the Products attached to the Deal
+ * The sum of all the products attached to the deal
  * @member {Number} sum
  */
 ProductAttachementFields.prototype['sum'] = undefined;
 
 /**
- * The currency associated with the Deal Product
+ * The currency associated with the deal product
  * @member {String} currency
  */
 ProductAttachementFields.prototype['currency'] = undefined;
 
 /**
- * The date and time when the Product was added to the Deal
+ * The date and time when the product was added to the deal
  * @member {String} add_time
  */
 ProductAttachementFields.prototype['add_time'] = undefined;
 
 /**
- * The date and time when the Deal Product was last edited
+ * The date and time when the deal product was last edited
  * @member {String} last_edit
  */
 ProductAttachementFields.prototype['last_edit'] = undefined;
 
 /**
- * Boolean indicates if the Product is activated or not
+ * Whether the product is active or not
  * @member {Boolean} active_flag
  */
 ProductAttachementFields.prototype['active_flag'] = undefined;
 
 /**
- * The Product tax
+ * The product tax
  * @member {Number} tax
  */
 ProductAttachementFields.prototype['tax'] = undefined;
 
 /**
- * The Product name
+ * The product name
  * @member {String} name
  */
 ProductAttachementFields.prototype['name'] = undefined;

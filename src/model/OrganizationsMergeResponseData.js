@@ -65,7 +65,7 @@ class OrganizationsMergeResponseData {
 }
 
 /**
- * The ID of the merged Organization
+ * The ID of the merged organization
  * @member {Number} id
  */
 OrganizationsMergeResponseData.prototype['id'] = undefined;

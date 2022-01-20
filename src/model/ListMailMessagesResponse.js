@@ -89,7 +89,7 @@ class ListMailMessagesResponse {
 ListMailMessagesResponse.prototype['success'] = undefined;
 
 /**
- * The array of Mail Messages
+ * The array of mail messages
  * @member {Array.<module:model/ListMailMessagesResponseAllOfData>} data
  */
 ListMailMessagesResponse.prototype['data'] = undefined;
@@ -108,7 +108,7 @@ ListMailMessagesResponse.prototype['additional_data'] = undefined;
 BaseResponse.prototype['success'] = undefined;
 // Implement ListMailMessagesResponseAllOf interface:
 /**
- * The array of Mail Messages
+ * The array of mail messages
  * @member {Array.<module:model/ListMailMessagesResponseAllOfData>} data
  */
 ListMailMessagesResponseAllOf.prototype['data'] = undefined;

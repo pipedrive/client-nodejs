@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class RelatedDealDataDEALID {
     /**
      * Constructs a new <code>RelatedDealDataDEALID</code>.
-     * The ID of the Deal which is associated with the item
+     * The ID of the deal which is associated with the item
      * @alias module:model/RelatedDealDataDEALID
      */
     constructor() { 
@@ -96,43 +96,43 @@ class RelatedDealDataDEALID {
 }
 
 /**
- * The ID of the Deal associated with the item
+ * The ID of the deal associated with the item
  * @member {Number} id
  */
 RelatedDealDataDEALID.prototype['id'] = undefined;
 
 /**
- * The title of the Deal associated with the item
+ * The title of the deal associated with the item
  * @member {String} title
  */
 RelatedDealDataDEALID.prototype['title'] = undefined;
 
 /**
- * The status of the Deal associated with the item
+ * The status of the deal associated with the item
  * @member {String} status
  */
 RelatedDealDataDEALID.prototype['status'] = undefined;
 
 /**
- * The value of the Deal that is associated with the item
+ * The value of the deal that is associated with the item
  * @member {Number} value
  */
 RelatedDealDataDEALID.prototype['value'] = undefined;
 
 /**
- * The currency of the Deal value
+ * The currency of the deal value
  * @member {String} currency
  */
 RelatedDealDataDEALID.prototype['currency'] = undefined;
 
 /**
- * The ID of the stage the Deal is currently at
+ * The ID of the stage the deal is currently at
  * @member {Number} stage_id
  */
 RelatedDealDataDEALID.prototype['stage_id'] = undefined;
 
 /**
- * The ID of the pipeline the Deal is in
+ * The ID of the pipeline the deal is in
  * @member {Number} pipeline_id
  */
 RelatedDealDataDEALID.prototype['pipeline_id'] = undefined;

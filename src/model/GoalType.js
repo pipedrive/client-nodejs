@@ -22,7 +22,7 @@ import Params from './Params';
 class GoalType {
     /**
      * Constructs a new <code>GoalType</code>.
-     * Type of the goal
+     * The type of the goal
      * @alias module:model/GoalType
      */
     constructor() { 
@@ -72,7 +72,7 @@ class GoalType {
 }
 
 /**
- * Name of the goal type
+ * The name of the goal type
  * @member {String} name
  */
 GoalType.prototype['name'] = undefined;

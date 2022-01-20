@@ -77,7 +77,7 @@ class Currencies {
 Currencies.prototype['success'] = undefined;
 
 /**
- * The array of Currencies
+ * The array of currencies
  * @member {Array.<module:model/BaseCurrency>} data
  */
 Currencies.prototype['data'] = undefined;

@@ -65,7 +65,7 @@ class GetDealAdditionalData {
 }
 
 /**
- * The Cc email of the Deal
+ * The BCC email of the deal
  * @member {String} dropbox_email
  */
 GetDealAdditionalData.prototype['dropbox_email'] = undefined;

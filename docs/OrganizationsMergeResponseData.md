@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | The ID of the merged Organization | [optional] 
+**id** | **Number** | The ID of the merged organization | [optional] 
 
 

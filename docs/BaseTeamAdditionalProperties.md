@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**addTime** | **String** | The Team creation time. Format: YYYY-MM-DD HH:MM:SS | [optional] 
-**createdByUserId** | **Number** | ID of the User who created the Team | [optional] 
+**addTime** | **String** | The team creation time. Format: YYYY-MM-DD HH:MM:SS | [optional] 
+**createdByUserId** | **Number** | The ID of the user who created the team | [optional] 
 
 

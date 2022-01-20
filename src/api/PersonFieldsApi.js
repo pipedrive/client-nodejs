@@ -105,7 +105,7 @@ export default class PersonFieldsApi {
     /**
      * Delete a person field
      * Marks a field as deleted. For more information on how to delete a custom field, see <a href=\"https://pipedrive.readme.io/docs/deleting-a-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
-     * @param {Number} id ID of the field
+     * @param {Number} id The ID of the field
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteResponse} and HTTP response
      */
     deletePersonFieldWithHttpInfo(id) {
@@ -156,7 +156,7 @@ export default class PersonFieldsApi {
     /**
      * Delete a person field
      * Marks a field as deleted. For more information on how to delete a custom field, see <a href=\"https://pipedrive.readme.io/docs/deleting-a-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
-     * @param {Number} id ID of the field
+     * @param {Number} id The ID of the field
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteResponse}
      */
     deletePersonField(id) {
@@ -170,7 +170,7 @@ export default class PersonFieldsApi {
     /**
      * Delete multiple person fields in bulk
      * Marks multiple fields as deleted.
-     * @param {String} ids Comma-separated field IDs to delete
+     * @param {String} ids The comma-separated field IDs to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BulkDeleteResponse} and HTTP response
      */
     deletePersonFieldsWithHttpInfo(ids) {
@@ -221,7 +221,7 @@ export default class PersonFieldsApi {
     /**
      * Delete multiple person fields in bulk
      * Marks multiple fields as deleted.
-     * @param {String} ids Comma-separated field IDs to delete
+     * @param {String} ids The comma-separated field IDs to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BulkDeleteResponse}
      */
     deletePersonFields(ids) {
@@ -235,7 +235,7 @@ export default class PersonFieldsApi {
     /**
      * Get one person field
      * Returns data about a specific person field.
-     * @param {Number} id ID of the field
+     * @param {Number} id The ID of the field
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/FieldResponse} and HTTP response
      */
     getPersonFieldWithHttpInfo(id) {
@@ -286,7 +286,7 @@ export default class PersonFieldsApi {
     /**
      * Get one person field
      * Returns data about a specific person field.
-     * @param {Number} id ID of the field
+     * @param {Number} id The ID of the field
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FieldResponse}
      */
     getPersonField(id) {
@@ -299,7 +299,7 @@ export default class PersonFieldsApi {
 
     /**
      * Get all person fields
-     * Returns data about all person fields
+     * Returns data about all person fields.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -349,7 +349,7 @@ export default class PersonFieldsApi {
 
     /**
      * Get all person fields
-     * Returns data about all person fields
+     * Returns data about all person fields.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -366,7 +366,7 @@ export default class PersonFieldsApi {
     /**
      * Update a person field
      * Updates a person field. See an example of updating custom fields’ values in <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
-     * @param {Number} id ID of the field
+     * @param {Number} id The ID of the field
      * @param {Object} opts Optional parameters
      * @param {module:model/FieldUpdateRequest} opts.fieldUpdateRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/FieldResponse} and HTTP response
@@ -419,7 +419,7 @@ export default class PersonFieldsApi {
     /**
      * Update a person field
      * Updates a person field. See an example of updating custom fields’ values in <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
-     * @param {Number} id ID of the field
+     * @param {Number} id The ID of the field
      * @param {Object} opts Optional parameters
      * @param {module:model/FieldUpdateRequest} opts.fieldUpdateRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FieldResponse}

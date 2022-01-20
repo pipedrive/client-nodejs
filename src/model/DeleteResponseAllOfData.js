@@ -65,7 +65,7 @@ class DeleteResponseAllOfData {
 }
 
 /**
- * The ID of the Field that was deleted
+ * The ID of the field that was deleted
  * @member {Number} id
  */
 DeleteResponseAllOfData.prototype['id'] = undefined;

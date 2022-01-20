@@ -38,7 +38,7 @@ export default class UserConnectionsApi {
 
     /**
      * Get all user connections
-     * Returns data about all connections for authorized user.
+     * Returns data about all connections for the authorized user.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UserConnections} and HTTP response
      */
     getUserConnectionsWithHttpInfo() {
@@ -83,7 +83,7 @@ export default class UserConnectionsApi {
 
     /**
      * Get all user connections
-     * Returns data about all connections for authorized user.
+     * Returns data about all connections for the authorized user.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UserConnections}
      */
     getUserConnections() {

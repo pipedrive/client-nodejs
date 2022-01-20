@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class BaseNoteDealTitle {
     /**
      * Constructs a new <code>BaseNoteDealTitle</code>.
-     * The Deal this Note is attached to
+     * The deal this note is attached to
      * @alias module:model/BaseNoteDealTitle
      */
     constructor() { 
@@ -66,7 +66,7 @@ class BaseNoteDealTitle {
 }
 
 /**
- * The title of the Deal this Note is attached to
+ * The title of the deal this note is attached to
  * @member {String} title
  */
 BaseNoteDealTitle.prototype['title'] = undefined;

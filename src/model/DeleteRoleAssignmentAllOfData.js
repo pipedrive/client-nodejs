@@ -66,7 +66,7 @@ class DeleteRoleAssignmentAllOfData {
 }
 
 /**
- * The ID of the Role the User was removed from
+ * The ID of the role the user was removed from
  * @member {Number} id
  */
 DeleteRoleAssignmentAllOfData.prototype['id'] = undefined;

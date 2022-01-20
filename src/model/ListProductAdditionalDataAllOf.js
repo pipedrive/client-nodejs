@@ -85,31 +85,31 @@ class ListProductAdditionalDataAllOf {
 }
 
 /**
- * Total quantity of the Products
+ * The total quantity of the products
  * @member {Number} products_quantity_total
  */
 ListProductAdditionalDataAllOf.prototype['products_quantity_total'] = undefined;
 
 /**
- * Total sum of the Products
+ * The total sum of the products
  * @member {Number} products_sum_total
  */
 ListProductAdditionalDataAllOf.prototype['products_sum_total'] = undefined;
 
 /**
- * Is variations enabled or not
+ * Whether variations is enabled or not
  * @member {Boolean} variations_enabled
  */
 ListProductAdditionalDataAllOf.prototype['variations_enabled'] = undefined;
 
 /**
- * Total formatted quantity of the Products
+ * The total formatted quantity of the products
  * @member {String} products_quantity_total_formatted
  */
 ListProductAdditionalDataAllOf.prototype['products_quantity_total_formatted'] = undefined;
 
 /**
- * Total formatted sum of the Products
+ * The total formatted sum of the products
  * @member {String} products_sum_total_formatted
  */
 ListProductAdditionalDataAllOf.prototype['products_sum_total_formatted'] = undefined;

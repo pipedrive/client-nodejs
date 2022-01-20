@@ -325,61 +325,61 @@ class ActivityResponseObjectAllOf {
 }
 
 /**
- * The Activity ID, generated when the Activity was created
+ * The activity ID, generated when the activity was created
  * @member {String} id
  */
 ActivityResponseObjectAllOf.prototype['id'] = undefined;
 
 /**
- * Whether the Activity is done or not
+ * Whether the activity is done or not
  * @member {Boolean} done
  */
 ActivityResponseObjectAllOf.prototype['done'] = undefined;
 
 /**
- * Subject of the Activity
+ * The subject of the activity
  * @member {String} subject
  */
 ActivityResponseObjectAllOf.prototype['subject'] = undefined;
 
 /**
- * Type of the Activity. This is in correlation with the `key_string` parameter of ActivityTypes.
+ * The type of the activity. This is in correlation with the `key_string` parameter of ActivityTypes.
  * @member {String} type
  */
 ActivityResponseObjectAllOf.prototype['type'] = undefined;
 
 /**
- * The ID of the User whom the Activity is assigned to
+ * The ID of the user whom the activity is assigned to
  * @member {Number} user_id
  */
 ActivityResponseObjectAllOf.prototype['user_id'] = undefined;
 
 /**
- * List of multiple Persons (participants) this Activity is associated with
+ * List of multiple persons (participants) this activity is associated with
  * @member {Array.<Object>} participants
  */
 ActivityResponseObjectAllOf.prototype['participants'] = undefined;
 
 /**
- * Marks if the Activity is set as 'Busy' or 'Free'. If the flag is set to `true`, your customers will not be able to book that time slot through any Scheduler links. The flag can also be unset. When the value of the flag is unset (`null`), the flag defaults to 'Busy' if it has a time set, and 'Free' if it is an all-day event without specified time.
+ * Marks if the activity is set as 'Busy' or 'Free'. If the flag is set to `true`, your customers will not be able to book that time slot through any Scheduler links. The flag can also be unset. When the value of the flag is unset (`null`), the flag defaults to 'Busy' if it has a time set, and 'Free' if it is an all-day event without specified time.
  * @member {module:model/ActivityResponseObjectAllOf.BusyFlagEnum} busy_flag
  */
 ActivityResponseObjectAllOf.prototype['busy_flag'] = undefined;
 
 /**
- * Attendees of the Activity. This can be either your existing Pipedrive contacts or an external email address.
+ * The attendees of the activity. This can be either your existing Pipedrive contacts or an external email address.
  * @member {Array.<Object>} attendees
  */
 ActivityResponseObjectAllOf.prototype['attendees'] = undefined;
 
 /**
- * The User's company ID
+ * The user's company ID
  * @member {Number} company_id
  */
 ActivityResponseObjectAllOf.prototype['company_id'] = undefined;
 
 /**
- * If the Activity references some other object, it is indicated here. For example, value `Salesphone` refers to Activities created with Caller.
+ * If the activity references some other object, it is indicated here. For example, value `Salesphone` refers to activities created with Caller.
  * @member {String} reference_type
  */
 ActivityResponseObjectAllOf.prototype['reference_type'] = undefined;
@@ -391,43 +391,43 @@ ActivityResponseObjectAllOf.prototype['reference_type'] = undefined;
 ActivityResponseObjectAllOf.prototype['reference_id'] = undefined;
 
 /**
- * The ID of Marketplace app, which is connected to this Activity
+ * The ID of Marketplace app, which is connected to this activity
  * @member {String} conference_meeting_client
  */
 ActivityResponseObjectAllOf.prototype['conference_meeting_client'] = undefined;
 
 /**
- * The link to join the meeting which is associated with this Activity
+ * The link to join the meeting which is associated with this activity
  * @member {String} conference_meeting_url
  */
 ActivityResponseObjectAllOf.prototype['conference_meeting_url'] = undefined;
 
 /**
- * The meeting ID of the meeting provider (Zoom, MS Teams etc.) that is associated with this Activity
+ * The meeting ID of the meeting provider (Zoom, MS Teams etc.) that is associated with this activity
  * @member {String} conference_meeting_id
  */
 ActivityResponseObjectAllOf.prototype['conference_meeting_id'] = undefined;
 
 /**
- * The creation date and time of the Activity in UTC. Format: YYYY-MM-DD HH:MM:SS.
+ * The creation date and time of the activity in UTC. Format: YYYY-MM-DD HH:MM:SS.
  * @member {String} add_time
  */
 ActivityResponseObjectAllOf.prototype['add_time'] = undefined;
 
 /**
- * The date and time this Activity was marked as done. Format: YYYY-MM-DD HH:MM:SS.
+ * The date and time this activity was marked as done. Format: YYYY-MM-DD HH:MM:SS.
  * @member {String} marked_as_done_time
  */
 ActivityResponseObjectAllOf.prototype['marked_as_done_time'] = undefined;
 
 /**
- * The date and time of latest notifications sent about this Activity to the participants or the attendees of this Activity
+ * The date and time of latest notifications sent about this activity to the participants or the attendees of this activity
  * @member {String} last_notification_time
  */
 ActivityResponseObjectAllOf.prototype['last_notification_time'] = undefined;
 
 /**
- * The ID of the User who triggered the sending of the latest notifications about this Activity to the participants or the attendees of this Activity
+ * The ID of the user who triggered the sending of the latest notifications about this activity to the participants or the attendees of this activity
  * @member {Number} last_notification_user_id
  */
 ActivityResponseObjectAllOf.prototype['last_notification_user_id'] = undefined;
@@ -439,85 +439,85 @@ ActivityResponseObjectAllOf.prototype['last_notification_user_id'] = undefined;
 ActivityResponseObjectAllOf.prototype['notification_language_id'] = undefined;
 
 /**
- * The ID of the Lead in the UUID format this Activity is associated with
+ * The ID of the lead in the UUID format this activity is associated with
  * @member {String} lead_id
  */
 ActivityResponseObjectAllOf.prototype['lead_id'] = undefined;
 
 /**
- * Whether the Activity is active or not
+ * Whether the activity is active or not
  * @member {Boolean} active_flag
  */
 ActivityResponseObjectAllOf.prototype['active_flag'] = undefined;
 
 /**
- * The last update date and time of the Activity. Format: YYYY-MM-DD HH:MM:SS.
+ * The last update date and time of the activity. Format: YYYY-MM-DD HH:MM:SS.
  * @member {String} update_time
  */
 ActivityResponseObjectAllOf.prototype['update_time'] = undefined;
 
 /**
- * The ID of the User who was the last to update this Activity
+ * The ID of the user who was the last to update this activity
  * @member {Number} update_user_id
  */
 ActivityResponseObjectAllOf.prototype['update_user_id'] = undefined;
 
 /**
- * For the Activity which syncs to Google calendar, this is the Google event ID. NB! This field is related to old Google calendar sync and will be deprecated soon.
+ * For the activity which syncs to Google calendar, this is the Google event ID. NB! This field is related to old Google calendar sync and will be deprecated soon.
  * @member {String} gcal_event_id
  */
 ActivityResponseObjectAllOf.prototype['gcal_event_id'] = undefined;
 
 /**
- * The Google calendar ID that this Activity syncs to. NB! This field is related to old Google calendar sync and will be deprecated soon.
+ * The Google calendar ID that this activity syncs to. NB! This field is related to old Google calendar sync and will be deprecated soon.
  * @member {String} google_calendar_id
  */
 ActivityResponseObjectAllOf.prototype['google_calendar_id'] = undefined;
 
 /**
- * The Google calendar API etag (version) that is used for syncing this Activity. NB! This field is related to old Google calendar sync and will be deprecated soon.
+ * The Google calendar API etag (version) that is used for syncing this activity. NB! This field is related to old Google calendar sync and will be deprecated soon.
  * @member {String} google_calendar_etag
  */
 ActivityResponseObjectAllOf.prototype['google_calendar_etag'] = undefined;
 
 /**
- * For Activities that sync to an external calendar, this setting indicates if the Activity syncs with context (what are the Deals, Persons, Organizations this Activity is related to)
+ * For activities that sync to an external calendar, this setting indicates if the activity syncs with context (what are the deals, persons, organizations this activity is related to)
  * @member {String} calendar_sync_include_context
  */
 ActivityResponseObjectAllOf.prototype['calendar_sync_include_context'] = undefined;
 
 /**
- * The timezone the Activity was created in an external calendar
+ * The timezone the activity was created in an external calendar
  * @member {String} source_timezone
  */
 ActivityResponseObjectAllOf.prototype['source_timezone'] = undefined;
 
 /**
- * The rule for the recurrence of the Activity. Is important for activities synced into Pipedrive from an external calendar. Example: \"RRULE:FREQ=WEEKLY;BYDAY=WE\"
+ * The rule for the recurrence of the activity. Is important for activities synced into Pipedrive from an external calendar. Example: \"RRULE:FREQ=WEEKLY;BYDAY=WE\"
  * @member {String} rec_rule
  */
 ActivityResponseObjectAllOf.prototype['rec_rule'] = undefined;
 
 /**
- * Additional rules for the recurrence of the Activity, extend the `rec_rule`. Is important for activities synced into Pipedrive from an external calendar.
+ * Additional rules for the recurrence of the activity, extend the `rec_rule`. Is important for activities synced into Pipedrive from an external calendar.
  * @member {String} rec_rule_extension
  */
 ActivityResponseObjectAllOf.prototype['rec_rule_extension'] = undefined;
 
 /**
- * The ID of parent Activity for a recurrent Activity if the current Activity is an exception to recurrence rules
+ * The ID of parent activity for a recurrent activity if the current activity is an exception to recurrence rules
  * @member {Number} rec_master_activity_id
  */
 ActivityResponseObjectAllOf.prototype['rec_master_activity_id'] = undefined;
 
 /**
- * The list of recurring Activity instances. It is in a structure as follows: `[{due_date: \"2020-06-24\", due_time: \"10:00:00\"}]`
+ * The list of recurring activity instances. It is in a structure as follows: `[{due_date: \"2020-06-24\", due_time: \"10:00:00\"}]`
  * @member {Array.<Object>} series
  */
 ActivityResponseObjectAllOf.prototype['series'] = undefined;
 
 /**
- * The ID of the User who created the Activity
+ * The ID of the user who created the activity
  * @member {Number} created_by_user_id
  */
 ActivityResponseObjectAllOf.prototype['created_by_user_id'] = undefined;
@@ -595,49 +595,49 @@ ActivityResponseObjectAllOf.prototype['location_lat'] = undefined;
 ActivityResponseObjectAllOf.prototype['location_long'] = undefined;
 
 /**
- * Name of the Organization this Activity is associated with
+ * The name of the organization this activity is associated with
  * @member {String} org_name
  */
 ActivityResponseObjectAllOf.prototype['org_name'] = undefined;
 
 /**
- * Name of the Person this Activity is associated with
+ * The name of the person this activity is associated with
  * @member {String} person_name
  */
 ActivityResponseObjectAllOf.prototype['person_name'] = undefined;
 
 /**
- * Name of the Deal this Activity is associated with
+ * The name of the deal this activity is associated with
  * @member {String} deal_title
  */
 ActivityResponseObjectAllOf.prototype['deal_title'] = undefined;
 
 /**
- * Name of the User this Activity is owned by
+ * The name of the user this activity is owned by
  * @member {String} owner_name
  */
 ActivityResponseObjectAllOf.prototype['owner_name'] = undefined;
 
 /**
- * The bcc email address of the Person
+ * The BCC email address of the person
  * @member {String} person_dropbox_bcc
  */
 ActivityResponseObjectAllOf.prototype['person_dropbox_bcc'] = undefined;
 
 /**
- * The bcc email address of the Deal
+ * The BCC email address of the deal
  * @member {String} deal_dropbox_bcc
  */
 ActivityResponseObjectAllOf.prototype['deal_dropbox_bcc'] = undefined;
 
 /**
- * The ID of the User to whom the Activity is assigned to. Equal to `user_id`.
+ * The ID of the user to whom the activity is assigned to. Equal to `user_id`.
  * @member {Number} assigned_to_user_id
  */
 ActivityResponseObjectAllOf.prototype['assigned_to_user_id'] = undefined;
 
 /**
- * The file that is attached to this Activity. For example, this can be a reference to an audio note file generated with Pipedrive mobile app.
+ * The file that is attached to this activity. For example, this can be a reference to an audio note file generated with Pipedrive mobile app.
  * @member {Object} file
  */
 ActivityResponseObjectAllOf.prototype['file'] = undefined;

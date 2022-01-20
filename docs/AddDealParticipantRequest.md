@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**personId** | **Number** | ID of the person | 
+**personId** | **Number** | The ID of the person | 
 
 

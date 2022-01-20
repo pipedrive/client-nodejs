@@ -65,7 +65,7 @@ class DeleteActivitiesResponse200Data {
 }
 
 /**
- * An array of IDs of Activities that were deleted
+ * An array of the IDs of activities that were deleted
  * @member {Array.<Number>} id
  */
 DeleteActivitiesResponse200Data.prototype['id'] = undefined;

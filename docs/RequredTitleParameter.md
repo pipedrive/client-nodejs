@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**title** | **String** | Deal title | 
+**title** | **String** | The title of the deal | 
 
 
