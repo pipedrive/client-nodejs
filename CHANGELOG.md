@@ -10,6 +10,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 ### Fixed
 - Fixed capitalization, punctuation, grammar, articles in all endpoint descriptions
 
+## 13.0.12
+### Added
+- Added leadField to field_type options for `GET /v1/itemSearch/field`
+
 ## 13.0.10
 ### Fixed
 - Fix `POST /organizationRelationships` 'required' labels not showing
