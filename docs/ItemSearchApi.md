@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 Perform a search using a specific field from an item type
 
-Performs a search from the values of a specific field. Results can either be the distinct values of the field (useful for searching autocomplete field values), or the IDs of actual items (Deals, Persons, Organizations or Products).
+Performs a search from the values of a specific field. Results can either be the distinct values of the field (useful for searching autocomplete field values), or the IDs of actual items (Deals, Leads, Persons, Organizations or Products).
 
 ### Example
 
