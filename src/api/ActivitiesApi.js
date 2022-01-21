@@ -54,6 +54,7 @@ export default class ActivitiesApi {
       opts = opts || {};
       let postBody = opts['activityPostObject'];
 
+
       let pathParams = {
       };
       let queryParams = {
@@ -114,6 +115,7 @@ export default class ActivitiesApi {
     deleteActivitiesWithHttpInfo(ids) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'ids' is set
       if (ids === undefined || ids === null) {
         throw new Error("Missing the required parameter 'ids' when calling deleteActivities");
@@ -179,6 +181,7 @@ export default class ActivitiesApi {
     deleteActivityWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteActivity");
@@ -252,6 +255,14 @@ export default class ActivitiesApi {
     getActivitiesWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
+
+
+
+
+
+
+
+
 
       let pathParams = {
       };
@@ -328,6 +339,7 @@ export default class ActivitiesApi {
     getActivityWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getActivity");
@@ -395,10 +407,12 @@ export default class ActivitiesApi {
     updateActivityWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['activityPutObject'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateActivity");
       }
+
 
       let pathParams = {
         'id': id,

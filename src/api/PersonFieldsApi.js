@@ -51,6 +51,7 @@ export default class PersonFieldsApi {
       opts = opts || {};
       let postBody = opts['fieldCreateRequest'];
 
+
       let pathParams = {
       };
       let queryParams = {
@@ -111,6 +112,7 @@ export default class PersonFieldsApi {
     deletePersonFieldWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deletePersonField");
@@ -176,6 +178,7 @@ export default class PersonFieldsApi {
     deletePersonFieldsWithHttpInfo(ids) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'ids' is set
       if (ids === undefined || ids === null) {
         throw new Error("Missing the required parameter 'ids' when calling deletePersonFields");
@@ -241,6 +244,7 @@ export default class PersonFieldsApi {
     getPersonFieldWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getPersonField");
@@ -309,6 +313,8 @@ export default class PersonFieldsApi {
       opts = opts || {};
       let postBody = null;
 
+
+
       let pathParams = {
       };
       let queryParams = {
@@ -374,10 +380,12 @@ export default class PersonFieldsApi {
     updatePersonFieldWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['fieldUpdateRequest'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updatePersonField");
       }
+
 
       let pathParams = {
         'id': id,

@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | [**OrganizationSearchResponseAllOfData**](OrganizationSearchResponseAllOfData.md) |  | [optional] 
-**additionalData** | [**ItemSearchAdditionalData**](ItemSearchAdditionalData.md) |  | [optional] 
+**additional_data** | [**ItemSearchAdditionalData**](ItemSearchAdditionalData.md) |  | [optional] 
 
 

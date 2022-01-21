@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | [**BaseOrganizationItemWithEditNameFlag**](BaseOrganizationItemWithEditNameFlag.md) |  | [optional] 
-**relatedObjects** | [**AllOrganizationsGetResponseAllOfRelatedObjects**](AllOrganizationsGetResponseAllOfRelatedObjects.md) |  | [optional] 
+**related_objects** | [**AllOrganizationsGetResponseAllOfRelatedObjects**](AllOrganizationsGetResponseAllOfRelatedObjects.md) |  | [optional] 
 
 

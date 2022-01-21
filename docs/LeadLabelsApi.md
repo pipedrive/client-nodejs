@@ -89,7 +89,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.LeadLabelsApi();
-let id = null; // String | The ID of the lead label
+let id = "id_example"; // String | The ID of the lead label
 apiInstance.deleteLeadLabel(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -103,7 +103,7 @@ apiInstance.deleteLeadLabel(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**String**](.md)| The ID of the lead label | 
+ **id** | **String**| The ID of the lead label | 
 
 ### Return type
 
@@ -191,7 +191,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.LeadLabelsApi();
-let id = null; // String | The ID of the lead label
+let id = "id_example"; // String | The ID of the lead label
 let opts = Pipedrive.UpdateLeadLabelRequest.constructFromObject({
   // Properties that you want to update
 });
@@ -208,7 +208,7 @@ apiInstance.updateLeadLabel(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**String**](.md)| The ID of the lead label | 
+ **id** | **String**| The ID of the lead label | 
  **updateLeadLabelRequest** | [**UpdateLeadLabelRequest**](UpdateLeadLabelRequest.md)|  | [optional] 
 
 ### Return type

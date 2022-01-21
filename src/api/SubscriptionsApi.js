@@ -52,6 +52,22 @@ export default class SubscriptionsApi {
       opts = opts || {};
       let postBody = opts['subscriptionRecurringCreateRequest'];
 
+      if (opts['deal_id'] === undefined || opts['deal_id'] === null) {
+        throw new Error("Missing the required parameter 'deal_id' when calling addRecurringSubscription");
+      }
+      if (opts['currency'] === undefined || opts['currency'] === null) {
+        throw new Error("Missing the required parameter 'currency' when calling addRecurringSubscription");
+      }
+      if (opts['cadence_type'] === undefined || opts['cadence_type'] === null) {
+        throw new Error("Missing the required parameter 'cadence_type' when calling addRecurringSubscription");
+      }
+      if (opts['cycle_amount'] === undefined || opts['cycle_amount'] === null) {
+        throw new Error("Missing the required parameter 'cycle_amount' when calling addRecurringSubscription");
+      }
+      if (opts['start_date'] === undefined || opts['start_date'] === null) {
+        throw new Error("Missing the required parameter 'start_date' when calling addRecurringSubscription");
+      }
+
       let pathParams = {
       };
       let queryParams = {
@@ -113,6 +129,16 @@ export default class SubscriptionsApi {
     addSubscriptionInstallmentWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = opts['subscriptionInstallmentCreateRequest'];
+
+      if (opts['deal_id'] === undefined || opts['deal_id'] === null) {
+        throw new Error("Missing the required parameter 'deal_id' when calling addSubscriptionInstallment");
+      }
+      if (opts['currency'] === undefined || opts['currency'] === null) {
+        throw new Error("Missing the required parameter 'currency' when calling addSubscriptionInstallment");
+      }
+      if (opts['payments'] === undefined || opts['payments'] === null) {
+        throw new Error("Missing the required parameter 'payments' when calling addSubscriptionInstallment");
+      }
 
       let pathParams = {
       };
@@ -176,10 +202,12 @@ export default class SubscriptionsApi {
     cancelRecurringSubscriptionWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['subscriptionRecurringCancelRequest'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling cancelRecurringSubscription");
       }
+
 
       let pathParams = {
         'id': id,
@@ -243,6 +271,7 @@ export default class SubscriptionsApi {
     deleteSubscriptionWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteSubscription");
@@ -308,6 +337,7 @@ export default class SubscriptionsApi {
     findSubscriptionByDealWithHttpInfo(dealId) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'dealId' is set
       if (dealId === undefined || dealId === null) {
         throw new Error("Missing the required parameter 'dealId' when calling findSubscriptionByDeal");
@@ -373,6 +403,7 @@ export default class SubscriptionsApi {
     getSubscriptionWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getSubscription");
@@ -438,6 +469,7 @@ export default class SubscriptionsApi {
     getSubscriptionPaymentsWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getSubscriptionPayments");
@@ -505,9 +537,14 @@ export default class SubscriptionsApi {
     updateRecurringSubscriptionWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['subscriptionRecurringUpdateRequest'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateRecurringSubscription");
+      }
+
+      if (opts['effective_date'] === undefined || opts['effective_date'] === null) {
+        throw new Error("Missing the required parameter 'effective_date' when calling updateRecurringSubscription");
       }
 
       let pathParams = {
@@ -574,9 +611,14 @@ export default class SubscriptionsApi {
     updateSubscriptionInstallmentWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['subscriptionInstallmentUpdateRequest'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateSubscriptionInstallment");
+      }
+
+      if (opts['payments'] === undefined || opts['payments'] === null) {
+        throw new Error("Missing the required parameter 'payments' when calling updateSubscriptionInstallment");
       }
 
       let pathParams = {

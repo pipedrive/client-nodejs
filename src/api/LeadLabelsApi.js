@@ -51,6 +51,13 @@ export default class LeadLabelsApi {
       opts = opts || {};
       let postBody = opts['addLeadLabelRequest'];
 
+      if (opts['name'] === undefined || opts['name'] === null) {
+        throw new Error("Missing the required parameter 'name' when calling addLeadLabel");
+      }
+      if (opts['color'] === undefined || opts['color'] === null) {
+        throw new Error("Missing the required parameter 'color' when calling addLeadLabel");
+      }
+
       let pathParams = {
       };
       let queryParams = {
@@ -111,6 +118,7 @@ export default class LeadLabelsApi {
     deleteLeadLabelWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteLeadLabel");
@@ -236,10 +244,12 @@ export default class LeadLabelsApi {
     updateLeadLabelWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['updateLeadLabelRequest'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateLeadLabel");
       }
+
 
       let pathParams = {
         'id': id,

@@ -51,6 +51,10 @@ export default class LeadsApi {
       opts = opts || {};
       let postBody = opts['addLeadRequest'];
 
+      if (opts['title'] === undefined || opts['title'] === null) {
+        throw new Error("Missing the required parameter 'title' when calling addLead");
+      }
+
       let pathParams = {
       };
       let queryParams = {
@@ -111,6 +115,7 @@ export default class LeadsApi {
     deleteLeadWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteLead");
@@ -176,6 +181,7 @@ export default class LeadsApi {
     getLeadWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getLead");
@@ -245,6 +251,9 @@ export default class LeadsApi {
       opts = opts || {};
       let postBody = null;
 
+
+
+
       let pathParams = {
       };
       let queryParams = {
@@ -312,10 +321,12 @@ export default class LeadsApi {
     updateLeadWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['updateLeadRequest'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateLead");
       }
+
 
       let pathParams = {
         'id': id,

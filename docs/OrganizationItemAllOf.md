@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**lastActivity** | **Object** | Please refer to response schema of &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/Activities#getActivity\&quot;&gt;Activity&lt;/a&gt; | [optional] 
-**nextActivity** | **Object** | Please refer to response schema of &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/Activities#getActivity\&quot;&gt;Activity&lt;/a&gt; | [optional] 
+**last_activity** | **Object** | Please refer to response schema of &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/Activities#getActivity\&quot;&gt;Activity&lt;/a&gt; | [optional] 
+**next_activity** | **Object** | Please refer to response schema of &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/Activities#getActivity\&quot;&gt;Activity&lt;/a&gt; | [optional] 
 
 

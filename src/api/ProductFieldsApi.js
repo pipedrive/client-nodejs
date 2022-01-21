@@ -52,6 +52,13 @@ export default class ProductFieldsApi {
       opts = opts || {};
       let postBody = opts['newProductField'];
 
+      if (opts['name'] === undefined || opts['name'] === null) {
+        throw new Error("Missing the required parameter 'name' when calling addProductField");
+      }
+      if (opts['field_type'] === undefined || opts['field_type'] === null) {
+        throw new Error("Missing the required parameter 'field_type' when calling addProductField");
+      }
+
       let pathParams = {
       };
       let queryParams = {
@@ -112,6 +119,7 @@ export default class ProductFieldsApi {
     deleteProductFieldWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteProductField");
@@ -177,6 +185,7 @@ export default class ProductFieldsApi {
     deleteProductFieldsWithHttpInfo(ids) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'ids' is set
       if (ids === undefined || ids === null) {
         throw new Error("Missing the required parameter 'ids' when calling deleteProductFields");
@@ -242,6 +251,7 @@ export default class ProductFieldsApi {
     getProductFieldWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getProductField");
@@ -310,6 +320,8 @@ export default class ProductFieldsApi {
       opts = opts || {};
       let postBody = null;
 
+
+
       let pathParams = {
       };
       let queryParams = {
@@ -375,9 +387,14 @@ export default class ProductFieldsApi {
     updateProductFieldWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['basicProductField'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateProductField");
+      }
+
+      if (opts['name'] === undefined || opts['name'] === null) {
+        throw new Error("Missing the required parameter 'name' when calling updateProductField");
       }
 
       let pathParams = {
