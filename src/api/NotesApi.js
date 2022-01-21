@@ -55,6 +55,7 @@ export default class NotesApi {
       opts = opts || {};
       let postBody = opts['addNoteRequest'];
 
+
       let pathParams = {
       };
       let queryParams = {
@@ -117,9 +118,14 @@ export default class NotesApi {
     addNoteCommentWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['commentPostPutObject'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling addNoteComment");
+      }
+
+      if (opts['content'] === undefined || opts['content'] === null) {
+        throw new Error("Missing the required parameter 'content' when calling addNoteComment");
       }
 
       let pathParams = {
@@ -185,10 +191,12 @@ export default class NotesApi {
     deleteCommentWithHttpInfo(id, commentId) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteComment");
       }
+
       // verify the required parameter 'commentId' is set
       if (commentId === undefined || commentId === null) {
         throw new Error("Missing the required parameter 'commentId' when calling deleteComment");
@@ -256,6 +264,7 @@ export default class NotesApi {
     deleteNoteWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteNote");
@@ -322,10 +331,12 @@ export default class NotesApi {
     getCommentWithHttpInfo(id, commentId) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getComment");
       }
+
       // verify the required parameter 'commentId' is set
       if (commentId === undefined || commentId === null) {
         throw new Error("Missing the required parameter 'commentId' when calling getComment");
@@ -393,6 +404,7 @@ export default class NotesApi {
     getNoteWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getNote");
@@ -461,10 +473,13 @@ export default class NotesApi {
     getNoteCommentsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getNoteComments");
       }
+
+
 
       let pathParams = {
         'id': id,
@@ -545,6 +560,20 @@ export default class NotesApi {
     getNotesWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       let pathParams = {
       };
@@ -636,13 +665,19 @@ export default class NotesApi {
     updateCommentForNoteWithHttpInfo(id, commentId, opts) {
       opts = opts || {};
       let postBody = opts['commentPostPutObject'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateCommentForNote");
       }
+
       // verify the required parameter 'commentId' is set
       if (commentId === undefined || commentId === null) {
         throw new Error("Missing the required parameter 'commentId' when calling updateCommentForNote");
+      }
+
+      if (opts['content'] === undefined || opts['content'] === null) {
+        throw new Error("Missing the required parameter 'content' when calling updateCommentForNote");
       }
 
       let pathParams = {
@@ -711,10 +746,12 @@ export default class NotesApi {
     updateNoteWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['note'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateNote");
       }
+
 
       let pathParams = {
         'id': id,

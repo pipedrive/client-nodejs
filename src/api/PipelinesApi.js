@@ -55,6 +55,7 @@ export default class PipelinesApi {
       opts = opts || {};
       let postBody = opts['pipeline'];
 
+
       let pathParams = {
       };
       let queryParams = {
@@ -115,6 +116,7 @@ export default class PipelinesApi {
     deletePipelineWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deletePipeline");
@@ -182,10 +184,12 @@ export default class PipelinesApi {
     getPipelineWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getPipeline");
       }
+
 
       let pathParams = {
         'id': id,
@@ -254,18 +258,22 @@ export default class PipelinesApi {
     getPipelineConversionStatisticsWithHttpInfo(id, startDate, endDate, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getPipelineConversionStatistics");
       }
+
       // verify the required parameter 'startDate' is set
       if (startDate === undefined || startDate === null) {
         throw new Error("Missing the required parameter 'startDate' when calling getPipelineConversionStatistics");
       }
+
       // verify the required parameter 'endDate' is set
       if (endDate === undefined || endDate === null) {
         throw new Error("Missing the required parameter 'endDate' when calling getPipelineConversionStatistics");
       }
+
 
       let pathParams = {
         'id': id,
@@ -343,10 +351,19 @@ export default class PipelinesApi {
     getPipelineDealsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getPipelineDeals");
       }
+
+
+
+
+
+
+
+
 
       let pathParams = {
         'id': id,
@@ -429,18 +446,22 @@ export default class PipelinesApi {
     getPipelineMovementStatisticsWithHttpInfo(id, startDate, endDate, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getPipelineMovementStatistics");
       }
+
       // verify the required parameter 'startDate' is set
       if (startDate === undefined || startDate === null) {
         throw new Error("Missing the required parameter 'startDate' when calling getPipelineMovementStatistics");
       }
+
       // verify the required parameter 'endDate' is set
       if (endDate === undefined || endDate === null) {
         throw new Error("Missing the required parameter 'endDate' when calling getPipelineMovementStatistics");
       }
+
 
       let pathParams = {
         'id': id,
@@ -569,10 +590,12 @@ export default class PipelinesApi {
     updatePipelineWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['pipeline'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updatePipeline");
       }
+
 
       let pathParams = {
         'id': id,

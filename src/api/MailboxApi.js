@@ -51,6 +51,7 @@ export default class MailboxApi {
     deleteMailThreadWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteMailThread");
@@ -118,10 +119,12 @@ export default class MailboxApi {
     getMailMessageWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getMailMessage");
       }
+
 
       let pathParams = {
         'id': id,
@@ -186,6 +189,7 @@ export default class MailboxApi {
     getMailThreadWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getMailThread");
@@ -251,6 +255,7 @@ export default class MailboxApi {
     getMailThreadMessagesWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getMailThreadMessages");
@@ -319,10 +324,13 @@ export default class MailboxApi {
     getMailThreadsWithHttpInfo(folder, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'folder' is set
       if (folder === undefined || folder === null) {
         throw new Error("Missing the required parameter 'folder' when calling getMailThreads");
       }
+
+
 
       let pathParams = {
       };
@@ -395,10 +403,16 @@ export default class MailboxApi {
     updateMailThreadDetailsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateMailThreadDetails");
       }
+
+
+
+
+
 
       let pathParams = {
         'id': id,

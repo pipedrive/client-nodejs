@@ -53,6 +53,16 @@ export default class FiltersApi {
       opts = opts || {};
       let postBody = opts['addFilterRequest'];
 
+      if (opts['name'] === undefined || opts['name'] === null) {
+        throw new Error("Missing the required parameter 'name' when calling addFilter");
+      }
+      if (opts['conditions'] === undefined || opts['conditions'] === null) {
+        throw new Error("Missing the required parameter 'conditions' when calling addFilter");
+      }
+      if (opts['type'] === undefined || opts['type'] === null) {
+        throw new Error("Missing the required parameter 'type' when calling addFilter");
+      }
+
       let pathParams = {
       };
       let queryParams = {
@@ -113,6 +123,7 @@ export default class FiltersApi {
     deleteFilterWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteFilter");
@@ -178,6 +189,7 @@ export default class FiltersApi {
     deleteFiltersWithHttpInfo(ids) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'ids' is set
       if (ids === undefined || ids === null) {
         throw new Error("Missing the required parameter 'ids' when calling deleteFilters");
@@ -243,6 +255,7 @@ export default class FiltersApi {
     getFilterWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getFilter");
@@ -368,6 +381,7 @@ export default class FiltersApi {
       opts = opts || {};
       let postBody = null;
 
+
       let pathParams = {
       };
       let queryParams = {
@@ -431,9 +445,14 @@ export default class FiltersApi {
     updateFilterWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['updateFilterRequest'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateFilter");
+      }
+
+      if (opts['conditions'] === undefined || opts['conditions'] === null) {
+        throw new Error("Missing the required parameter 'conditions' when calling updateFilter");
       }
 
       let pathParams = {

@@ -79,6 +79,7 @@ export default class DealsApi {
       opts = opts || {};
       let postBody = opts['newDeal'];
 
+
       let pathParams = {
       };
       let queryParams = {
@@ -141,9 +142,14 @@ export default class DealsApi {
     addDealFollowerWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['addDealFollowerRequest'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling addDealFollower");
+      }
+
+      if (opts['user_id'] === undefined || opts['user_id'] === null) {
+        throw new Error("Missing the required parameter 'user_id' when calling addDealFollower");
       }
 
       let pathParams = {
@@ -210,9 +216,14 @@ export default class DealsApi {
     addDealParticipantWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['addDealParticipantRequest'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling addDealParticipant");
+      }
+
+      if (opts['person_id'] === undefined || opts['person_id'] === null) {
+        throw new Error("Missing the required parameter 'person_id' when calling addDealParticipant");
       }
 
       let pathParams = {
@@ -279,10 +290,12 @@ export default class DealsApi {
     addDealProductWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['newDealProduct'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling addDealProduct");
       }
+
 
       let pathParams = {
         'id': id,
@@ -346,6 +359,7 @@ export default class DealsApi {
     deleteDealWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteDeal");
@@ -412,10 +426,12 @@ export default class DealsApi {
     deleteDealFollowerWithHttpInfo(id, followerId) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteDealFollower");
       }
+
       // verify the required parameter 'followerId' is set
       if (followerId === undefined || followerId === null) {
         throw new Error("Missing the required parameter 'followerId' when calling deleteDealFollower");
@@ -484,10 +500,12 @@ export default class DealsApi {
     deleteDealParticipantWithHttpInfo(id, dealParticipantId) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteDealParticipant");
       }
+
       // verify the required parameter 'dealParticipantId' is set
       if (dealParticipantId === undefined || dealParticipantId === null) {
         throw new Error("Missing the required parameter 'dealParticipantId' when calling deleteDealParticipant");
@@ -556,10 +574,12 @@ export default class DealsApi {
     deleteDealProductWithHttpInfo(id, productAttachmentId) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteDealProduct");
       }
+
       // verify the required parameter 'productAttachmentId' is set
       if (productAttachmentId === undefined || productAttachmentId === null) {
         throw new Error("Missing the required parameter 'productAttachmentId' when calling deleteDealProduct");
@@ -627,6 +647,7 @@ export default class DealsApi {
     deleteDealsWithHttpInfo(ids) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'ids' is set
       if (ids === undefined || ids === null) {
         throw new Error("Missing the required parameter 'ids' when calling deleteDeals");
@@ -692,6 +713,7 @@ export default class DealsApi {
     duplicateDealWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling duplicateDeal");
@@ -757,6 +779,7 @@ export default class DealsApi {
     getDealWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getDeal");
@@ -827,10 +850,15 @@ export default class DealsApi {
     getDealActivitiesWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getDealActivities");
       }
+
+
+
+
 
       let pathParams = {
         'id': id,
@@ -906,10 +934,15 @@ export default class DealsApi {
     getDealFilesWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getDealFiles");
       }
+
+
+
+
 
       let pathParams = {
         'id': id,
@@ -980,6 +1013,7 @@ export default class DealsApi {
     getDealFollowersWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getDealFollowers");
@@ -1048,10 +1082,13 @@ export default class DealsApi {
     getDealMailMessagesWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getDealMailMessages");
       }
+
+
 
       let pathParams = {
         'id': id,
@@ -1121,10 +1158,13 @@ export default class DealsApi {
     getDealParticipantsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getDealParticipants");
       }
+
+
 
       let pathParams = {
         'id': id,
@@ -1194,10 +1234,13 @@ export default class DealsApi {
     getDealPersonsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getDealPersons");
       }
+
+
 
       let pathParams = {
         'id': id,
@@ -1268,10 +1311,14 @@ export default class DealsApi {
     getDealProductsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getDealProducts");
       }
+
+
+
 
       let pathParams = {
         'id': id,
@@ -1345,10 +1392,15 @@ export default class DealsApi {
     getDealUpdatesWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getDealUpdates");
       }
+
+
+
+
 
       let pathParams = {
         'id': id,
@@ -1419,6 +1471,7 @@ export default class DealsApi {
     getDealUsersWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getDealUsers");
@@ -1492,6 +1545,14 @@ export default class DealsApi {
     getDealsWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
+
+
+
+
+
+
+
+
 
       let pathParams = {
       };
@@ -1573,6 +1634,10 @@ export default class DealsApi {
       opts = opts || {};
       let postBody = null;
 
+
+
+
+
       let pathParams = {
       };
       let queryParams = {
@@ -1649,22 +1714,31 @@ export default class DealsApi {
     getDealsTimelineWithHttpInfo(startDate, interval, amount, fieldKey, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'startDate' is set
       if (startDate === undefined || startDate === null) {
         throw new Error("Missing the required parameter 'startDate' when calling getDealsTimeline");
       }
+
       // verify the required parameter 'interval' is set
       if (interval === undefined || interval === null) {
         throw new Error("Missing the required parameter 'interval' when calling getDealsTimeline");
       }
+
       // verify the required parameter 'amount' is set
       if (amount === undefined || amount === null) {
         throw new Error("Missing the required parameter 'amount' when calling getDealsTimeline");
       }
+
       // verify the required parameter 'fieldKey' is set
       if (fieldKey === undefined || fieldKey === null) {
         throw new Error("Missing the required parameter 'fieldKey' when calling getDealsTimeline");
       }
+
+
+
+
+
 
       let pathParams = {
       };
@@ -1745,9 +1819,14 @@ export default class DealsApi {
     mergeDealsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['mergeDealsRequest'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling mergeDeals");
+      }
+
+      if (opts['merge_with_id'] === undefined || opts['merge_with_id'] === null) {
+        throw new Error("Missing the required parameter 'merge_with_id' when calling mergeDeals");
       }
 
       let pathParams = {
@@ -1821,10 +1900,19 @@ export default class DealsApi {
     searchDealsWithHttpInfo(term, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'term' is set
       if (term === undefined || term === null) {
         throw new Error("Missing the required parameter 'term' when calling searchDeals");
       }
+
+
+
+
+
+
+
+
 
       let pathParams = {
       };
@@ -1905,10 +1993,12 @@ export default class DealsApi {
     updateDealWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['updateDealRequest'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateDeal");
       }
+
 
       let pathParams = {
         'id': id,
@@ -1975,14 +2065,17 @@ export default class DealsApi {
     updateDealProductWithHttpInfo(id, productAttachmentId, opts) {
       opts = opts || {};
       let postBody = opts['basicDealProduct'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateDealProduct");
       }
+
       // verify the required parameter 'productAttachmentId' is set
       if (productAttachmentId === undefined || productAttachmentId === null) {
         throw new Error("Missing the required parameter 'productAttachmentId' when calling updateDealProduct");
       }
+
 
       let pathParams = {
         'id': id,

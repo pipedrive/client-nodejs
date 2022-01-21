@@ -57,14 +57,17 @@ export default class UsersApi {
     addUserWithHttpInfo(name, email, activeFlag) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'name' is set
       if (name === undefined || name === null) {
         throw new Error("Missing the required parameter 'name' when calling addUser");
       }
+
       // verify the required parameter 'email' is set
       if (email === undefined || email === null) {
         throw new Error("Missing the required parameter 'email' when calling addUser");
       }
+
       // verify the required parameter 'activeFlag' is set
       if (activeFlag === undefined || activeFlag === null) {
         throw new Error("Missing the required parameter 'activeFlag' when calling addUser");
@@ -138,10 +141,12 @@ export default class UsersApi {
     addUserRoleAssignmentWithHttpInfo(id, roleId) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling addUserRoleAssignment");
       }
+
       // verify the required parameter 'roleId' is set
       if (roleId === undefined || roleId === null) {
         throw new Error("Missing the required parameter 'roleId' when calling addUserRoleAssignment");
@@ -211,10 +216,12 @@ export default class UsersApi {
     deleteUserRoleAssignmentWithHttpInfo(id, roleId) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteUserRoleAssignment");
       }
+
       // verify the required parameter 'roleId' is set
       if (roleId === undefined || roleId === null) {
         throw new Error("Missing the required parameter 'roleId' when calling deleteUserRoleAssignment");
@@ -285,10 +292,12 @@ export default class UsersApi {
     findUsersByNameWithHttpInfo(term, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'term' is set
       if (term === undefined || term === null) {
         throw new Error("Missing the required parameter 'term' when calling findUsersByName");
       }
+
 
       let pathParams = {
       };
@@ -411,6 +420,7 @@ export default class UsersApi {
     getUserWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getUser");
@@ -476,6 +486,7 @@ export default class UsersApi {
     getUserFollowersWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getUserFollowers");
@@ -541,6 +552,7 @@ export default class UsersApi {
     getUserPermissionsWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getUserPermissions");
@@ -609,10 +621,13 @@ export default class UsersApi {
     getUserRoleAssignmentsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getUserRoleAssignments");
       }
+
+
 
       let pathParams = {
         'id': id,
@@ -679,6 +694,7 @@ export default class UsersApi {
     getUserRoleSettingsWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getUserRoleSettings");
@@ -803,10 +819,12 @@ export default class UsersApi {
     updateUserWithHttpInfo(id, activeFlag) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateUser");
       }
+
       // verify the required parameter 'activeFlag' is set
       if (activeFlag === undefined || activeFlag === null) {
         throw new Error("Missing the required parameter 'activeFlag' when calling updateUser");

@@ -48,10 +48,14 @@ export default class RecentsApi {
     getRecentsWithHttpInfo(sinceTimestamp, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'sinceTimestamp' is set
       if (sinceTimestamp === undefined || sinceTimestamp === null) {
         throw new Error("Missing the required parameter 'sinceTimestamp' when calling getRecents");
       }
+
+
+
 
       let pathParams = {
       };
