@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | [**PersonItem**](PersonItem.md) |  | [optional] 
-**relatedObjects** | [**ListProductsResponseAllOfRelatedObjects**](ListProductsResponseAllOfRelatedObjects.md) |  | [optional] 
+**related_objects** | [**ListProductsResponseAllOfRelatedObjects**](ListProductsResponseAllOfRelatedObjects.md) |  | [optional] 
 
 

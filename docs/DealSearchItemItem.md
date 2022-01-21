@@ -10,12 +10,12 @@ Name | Type | Description | Notes
 **value** | **Number** | The value of the deal | [optional] 
 **currency** | **Number** | The currency of the deal | [optional] 
 **status** | **String** | The status of the deal | [optional] 
-**visibleTo** | **Number** | The visibility of the deal | [optional] 
+**visible_to** | **Number** | The visibility of the deal | [optional] 
 **owner** | [**DealSearchItemItemOwner**](DealSearchItemItemOwner.md) |  | [optional] 
 **stage** | [**DealSearchItemItemStage**](DealSearchItemItemStage.md) |  | [optional] 
 **person** | [**DealSearchItemItemPerson**](DealSearchItemItemPerson.md) |  | [optional] 
 **organization** | [**DealSearchItemItemOrganization**](DealSearchItemItemOrganization.md) |  | [optional] 
-**customFields** | **Number** | Custom fields | [optional] 
+**custom_fields** | **Number** | Custom fields | [optional] 
 **notes** | **[String]** | An array of notes | [optional] 
 
 

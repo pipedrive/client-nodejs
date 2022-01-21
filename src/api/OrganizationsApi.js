@@ -68,6 +68,7 @@ export default class OrganizationsApi {
       opts = opts || {};
       let postBody = opts['newOrganization'];
 
+
       let pathParams = {
       };
       let queryParams = {
@@ -130,9 +131,14 @@ export default class OrganizationsApi {
     addOrganizationFollowerWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['addOrganizationFollowerRequest'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling addOrganizationFollower");
+      }
+
+      if (opts['user_id'] === undefined || opts['user_id'] === null) {
+        throw new Error("Missing the required parameter 'user_id' when calling addOrganizationFollower");
       }
 
       let pathParams = {
@@ -197,6 +203,7 @@ export default class OrganizationsApi {
     deleteOrganizationWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteOrganization");
@@ -263,10 +270,12 @@ export default class OrganizationsApi {
     deleteOrganizationFollowerWithHttpInfo(id, followerId) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteOrganizationFollower");
       }
+
       // verify the required parameter 'followerId' is set
       if (followerId === undefined || followerId === null) {
         throw new Error("Missing the required parameter 'followerId' when calling deleteOrganizationFollower");
@@ -334,6 +343,7 @@ export default class OrganizationsApi {
     deleteOrganizationsWithHttpInfo(ids) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'ids' is set
       if (ids === undefined || ids === null) {
         throw new Error("Missing the required parameter 'ids' when calling deleteOrganizations");
@@ -399,6 +409,7 @@ export default class OrganizationsApi {
     getOrganizationWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getOrganization");
@@ -469,10 +480,15 @@ export default class OrganizationsApi {
     getOrganizationActivitiesWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getOrganizationActivities");
       }
+
+
+
+
 
       let pathParams = {
         'id': id,
@@ -549,10 +565,16 @@ export default class OrganizationsApi {
     getOrganizationDealsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getOrganizationDeals");
       }
+
+
+
+
+
 
       let pathParams = {
         'id': id,
@@ -630,10 +652,15 @@ export default class OrganizationsApi {
     getOrganizationFilesWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getOrganizationFiles");
       }
+
+
+
+
 
       let pathParams = {
         'id': id,
@@ -704,6 +731,7 @@ export default class OrganizationsApi {
     getOrganizationFollowersWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getOrganizationFollowers");
@@ -772,10 +800,13 @@ export default class OrganizationsApi {
     getOrganizationMailMessagesWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getOrganizationMailMessages");
       }
+
+
 
       let pathParams = {
         'id': id,
@@ -845,10 +876,13 @@ export default class OrganizationsApi {
     getOrganizationPersonsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getOrganizationPersons");
       }
+
+
 
       let pathParams = {
         'id': id,
@@ -920,10 +954,15 @@ export default class OrganizationsApi {
     getOrganizationUpdatesWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getOrganizationUpdates");
       }
+
+
+
+
 
       let pathParams = {
         'id': id,
@@ -994,6 +1033,7 @@ export default class OrganizationsApi {
     getOrganizationUsersWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getOrganizationUsers");
@@ -1065,6 +1105,12 @@ export default class OrganizationsApi {
     getOrganizationsWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
+
+
+
+
+
+
 
       let pathParams = {
       };
@@ -1139,9 +1185,14 @@ export default class OrganizationsApi {
     mergeOrganizationsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['mergeOrganizationsRequest'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling mergeOrganizations");
+      }
+
+      if (opts['merge_with_id'] === undefined || opts['merge_with_id'] === null) {
+        throw new Error("Missing the required parameter 'merge_with_id' when calling mergeOrganizations");
       }
 
       let pathParams = {
@@ -1211,10 +1262,15 @@ export default class OrganizationsApi {
     searchOrganizationWithHttpInfo(term, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'term' is set
       if (term === undefined || term === null) {
         throw new Error("Missing the required parameter 'term' when calling searchOrganization");
       }
+
+
+
+
 
       let pathParams = {
       };
@@ -1287,10 +1343,12 @@ export default class OrganizationsApi {
     updateOrganizationWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['basicOrganization'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateOrganization");
       }
+
 
       let pathParams = {
         'id': id,

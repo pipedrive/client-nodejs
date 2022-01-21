@@ -50,6 +50,7 @@ export default class GoalsApi {
       opts = opts || {};
       let postBody = opts['newGoal'];
 
+
       let pathParams = {
       };
       let queryParams = {
@@ -110,6 +111,7 @@ export default class GoalsApi {
     deleteGoalWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteGoal");
@@ -177,14 +179,17 @@ export default class GoalsApi {
     getGoalResultWithHttpInfo(id, periodStart, periodEnd) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getGoalResult");
       }
+
       // verify the required parameter 'periodStart' is set
       if (periodStart === undefined || periodStart === null) {
         throw new Error("Missing the required parameter 'periodStart' when calling getGoalResult");
       }
+
       // verify the required parameter 'periodEnd' is set
       if (periodEnd === undefined || periodEnd === null) {
         throw new Error("Missing the required parameter 'periodEnd' when calling getGoalResult");
@@ -268,6 +273,19 @@ export default class GoalsApi {
       opts = opts || {};
       let postBody = null;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
       let pathParams = {
       };
       let queryParams = {
@@ -350,20 +368,27 @@ export default class GoalsApi {
      * @param {String} id The ID of the goal to be updated
      * @param {Object} opts Optional parameters
      * @param {String} opts.title The title of the goal
-     * @param {Object} opts.assignee Who this goal is assigned to. It requires the following JSON structure: { \\\"id\\\": \\\"1\\\", \\\"type\\\": \\\"person\\\" }. `type` can be either `person`, `company` or `team`. ID of the assignee person, company or team.
-     * @param {Object} opts.type The type of the goal. It requires the following JSON structure: { \\\"name\\\": \\\"deals_started\\\", \\\"params\\\": { \\\"pipeline_id\\\": 1 } }. Type can be one of: `deals_won`, `deals_progressed`, `activities_completed`, `activities_added`, `deals_started` or `revenue_forecast`. `params` can include `pipeline_id`, `stage_id` or `activity_type_id`. `stage_id` is related to only `deals_progressed` type of goals and `activity_type_id` to `activities_completed` or `activities_added` types of goals. To track goal in all pipelines set `pipeline_id` as `null`.
-     * @param {Object} opts.expectedOutcome The expected outcome of the goal. Expected outcome can be tracked either by `quantity` or by `sum`. It requires the following JSON structure: { \\\"target\\\": \\\"50\\\", \\\"tracking_metric\\\": \\\"quantity\\\" } or { \\\"target\\\": \\\"50\\\", \\\"tracking_metric\\\": \\\"sum\\\", \\\"currency_id\\\": 1 }. `currency_id` should only be added to `sum` type of goals.
-     * @param {Object} opts.duration The date when the goal starts and ends. It requires the following JSON structure: { \\\"start\\\": \\\"2019-01-01\\\", \\\"end\\\": \\\"2022-12-31\\\" }. Date in format of YYYY-MM-DD. \\\"end\\\" can be set to `null` for an infinite, open-ended goal.
+     * @param {Object.<String, Object>} opts.assignee Who this goal is assigned to. It requires the following JSON structure: { \\\"id\\\": \\\"1\\\", \\\"type\\\": \\\"person\\\" }. `type` can be either `person`, `company` or `team`. ID of the assignee person, company or team.
+     * @param {Object.<String, Object>} opts.type The type of the goal. It requires the following JSON structure: { \\\"name\\\": \\\"deals_started\\\", \\\"params\\\": { \\\"pipeline_id\\\": 1 } }. Type can be one of: `deals_won`, `deals_progressed`, `activities_completed`, `activities_added`, `deals_started` or `revenue_forecast`. `params` can include `pipeline_id`, `stage_id` or `activity_type_id`. `stage_id` is related to only `deals_progressed` type of goals and `activity_type_id` to `activities_completed` or `activities_added` types of goals. To track goal in all pipelines set `pipeline_id` as `null`.
+     * @param {Object.<String, Object>} opts.expectedOutcome The expected outcome of the goal. Expected outcome can be tracked either by `quantity` or by `sum`. It requires the following JSON structure: { \\\"target\\\": \\\"50\\\", \\\"tracking_metric\\\": \\\"quantity\\\" } or { \\\"target\\\": \\\"50\\\", \\\"tracking_metric\\\": \\\"sum\\\", \\\"currency_id\\\": 1 }. `currency_id` should only be added to `sum` type of goals.
+     * @param {Object.<String, Object>} opts.duration The date when the goal starts and ends. It requires the following JSON structure: { \\\"start\\\": \\\"2019-01-01\\\", \\\"end\\\": \\\"2022-12-31\\\" }. Date in format of YYYY-MM-DD. \\\"end\\\" can be set to `null` for an infinite, open-ended goal.
      * @param {module:model/String} opts.interval The interval of the goal
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddOrUpdateGoalResponse200} and HTTP response
      */
     updateGoalWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateGoal");
       }
+
+
+
+
+
+
 
       let pathParams = {
         'id': id,
@@ -420,10 +445,10 @@ export default class GoalsApi {
      * @param {String} id The ID of the goal to be updated
      * @param {Object} opts Optional parameters
      * @param {String} opts.title The title of the goal
-     * @param {Object} opts.assignee Who this goal is assigned to. It requires the following JSON structure: { \\\"id\\\": \\\"1\\\", \\\"type\\\": \\\"person\\\" }. `type` can be either `person`, `company` or `team`. ID of the assignee person, company or team.
-     * @param {Object} opts.type The type of the goal. It requires the following JSON structure: { \\\"name\\\": \\\"deals_started\\\", \\\"params\\\": { \\\"pipeline_id\\\": 1 } }. Type can be one of: `deals_won`, `deals_progressed`, `activities_completed`, `activities_added`, `deals_started` or `revenue_forecast`. `params` can include `pipeline_id`, `stage_id` or `activity_type_id`. `stage_id` is related to only `deals_progressed` type of goals and `activity_type_id` to `activities_completed` or `activities_added` types of goals. To track goal in all pipelines set `pipeline_id` as `null`.
-     * @param {Object} opts.expectedOutcome The expected outcome of the goal. Expected outcome can be tracked either by `quantity` or by `sum`. It requires the following JSON structure: { \\\"target\\\": \\\"50\\\", \\\"tracking_metric\\\": \\\"quantity\\\" } or { \\\"target\\\": \\\"50\\\", \\\"tracking_metric\\\": \\\"sum\\\", \\\"currency_id\\\": 1 }. `currency_id` should only be added to `sum` type of goals.
-     * @param {Object} opts.duration The date when the goal starts and ends. It requires the following JSON structure: { \\\"start\\\": \\\"2019-01-01\\\", \\\"end\\\": \\\"2022-12-31\\\" }. Date in format of YYYY-MM-DD. \\\"end\\\" can be set to `null` for an infinite, open-ended goal.
+     * @param {Object.<String, Object>} opts.assignee Who this goal is assigned to. It requires the following JSON structure: { \\\"id\\\": \\\"1\\\", \\\"type\\\": \\\"person\\\" }. `type` can be either `person`, `company` or `team`. ID of the assignee person, company or team.
+     * @param {Object.<String, Object>} opts.type The type of the goal. It requires the following JSON structure: { \\\"name\\\": \\\"deals_started\\\", \\\"params\\\": { \\\"pipeline_id\\\": 1 } }. Type can be one of: `deals_won`, `deals_progressed`, `activities_completed`, `activities_added`, `deals_started` or `revenue_forecast`. `params` can include `pipeline_id`, `stage_id` or `activity_type_id`. `stage_id` is related to only `deals_progressed` type of goals and `activity_type_id` to `activities_completed` or `activities_added` types of goals. To track goal in all pipelines set `pipeline_id` as `null`.
+     * @param {Object.<String, Object>} opts.expectedOutcome The expected outcome of the goal. Expected outcome can be tracked either by `quantity` or by `sum`. It requires the following JSON structure: { \\\"target\\\": \\\"50\\\", \\\"tracking_metric\\\": \\\"quantity\\\" } or { \\\"target\\\": \\\"50\\\", \\\"tracking_metric\\\": \\\"sum\\\", \\\"currency_id\\\": 1 }. `currency_id` should only be added to `sum` type of goals.
+     * @param {Object.<String, Object>} opts.duration The date when the goal starts and ends. It requires the following JSON structure: { \\\"start\\\": \\\"2019-01-01\\\", \\\"end\\\": \\\"2022-12-31\\\" }. Date in format of YYYY-MM-DD. \\\"end\\\" can be set to `null` for an infinite, open-ended goal.
      * @param {module:model/String} opts.interval The interval of the goal
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddOrUpdateGoalResponse200}
      */

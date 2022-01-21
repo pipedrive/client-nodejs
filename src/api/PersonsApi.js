@@ -68,6 +68,7 @@ export default class PersonsApi {
       opts = opts || {};
       let postBody = opts['newPerson'];
 
+
       let pathParams = {
       };
       let queryParams = {
@@ -130,9 +131,14 @@ export default class PersonsApi {
     addPersonFollowerWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['addPersonFollowerRequest'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling addPersonFollower");
+      }
+
+      if (opts['user_id'] === undefined || opts['user_id'] === null) {
+        throw new Error("Missing the required parameter 'user_id' when calling addPersonFollower");
       }
 
       let pathParams = {
@@ -203,14 +209,20 @@ export default class PersonsApi {
     addPersonPictureWithHttpInfo(id, file, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling addPersonPicture");
       }
+
       // verify the required parameter 'file' is set
       if (file === undefined || file === null) {
         throw new Error("Missing the required parameter 'file' when calling addPersonPicture");
       }
+
+
+
+
 
       let pathParams = {
         'id': id,
@@ -288,6 +300,7 @@ export default class PersonsApi {
     deletePersonWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deletePerson");
@@ -354,10 +367,12 @@ export default class PersonsApi {
     deletePersonFollowerWithHttpInfo(id, followerId) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deletePersonFollower");
       }
+
       // verify the required parameter 'followerId' is set
       if (followerId === undefined || followerId === null) {
         throw new Error("Missing the required parameter 'followerId' when calling deletePersonFollower");
@@ -425,6 +440,7 @@ export default class PersonsApi {
     deletePersonPictureWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deletePersonPicture");
@@ -492,6 +508,7 @@ export default class PersonsApi {
       opts = opts || {};
       let postBody = null;
 
+
       let pathParams = {
       };
       let queryParams = {
@@ -553,6 +570,7 @@ export default class PersonsApi {
     getPersonWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getPerson");
@@ -623,10 +641,15 @@ export default class PersonsApi {
     getPersonActivitiesWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getPersonActivities");
       }
+
+
+
+
 
       let pathParams = {
         'id': id,
@@ -702,10 +725,15 @@ export default class PersonsApi {
     getPersonDealsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getPersonDeals");
       }
+
+
+
+
 
       let pathParams = {
         'id': id,
@@ -781,10 +809,15 @@ export default class PersonsApi {
     getPersonFilesWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getPersonFiles");
       }
+
+
+
+
 
       let pathParams = {
         'id': id,
@@ -855,6 +888,7 @@ export default class PersonsApi {
     getPersonFollowersWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getPersonFollowers");
@@ -923,10 +957,13 @@ export default class PersonsApi {
     getPersonMailMessagesWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getPersonMailMessages");
       }
+
+
 
       let pathParams = {
         'id': id,
@@ -996,10 +1033,13 @@ export default class PersonsApi {
     getPersonProductsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getPersonProducts");
       }
+
+
 
       let pathParams = {
         'id': id,
@@ -1071,10 +1111,15 @@ export default class PersonsApi {
     getPersonUpdatesWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getPersonUpdates");
       }
+
+
+
+
 
       let pathParams = {
         'id': id,
@@ -1145,6 +1190,7 @@ export default class PersonsApi {
     getPersonUsersWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getPersonUsers");
@@ -1216,6 +1262,12 @@ export default class PersonsApi {
     getPersonsWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
+
+
+
+
+
+
 
       let pathParams = {
       };
@@ -1290,9 +1342,14 @@ export default class PersonsApi {
     mergePersonsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['mergePersonsRequest'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling mergePersons");
+      }
+
+      if (opts['merge_with_id'] === undefined || opts['merge_with_id'] === null) {
+        throw new Error("Missing the required parameter 'merge_with_id' when calling mergePersons");
       }
 
       let pathParams = {
@@ -1364,10 +1421,17 @@ export default class PersonsApi {
     searchPersonsWithHttpInfo(term, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'term' is set
       if (term === undefined || term === null) {
         throw new Error("Missing the required parameter 'term' when calling searchPersons");
       }
+
+
+
+
+
+
 
       let pathParams = {
       };
@@ -1444,10 +1508,12 @@ export default class PersonsApi {
     updatePersonWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['basicPerson'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updatePerson");
       }
+
 
       let pathParams = {
         'id': id,

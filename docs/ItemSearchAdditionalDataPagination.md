@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **start** | **Number** | Pagination start | [optional] 
 **limit** | **Number** | Items shown per page | [optional] 
-**moreItemsInCollection** | **Boolean** | Whether there are more list items in the collection than displayed | [optional] 
-**nextStart** | **Number** | Next pagination start | [optional] 
+**more_items_in_collection** | **Boolean** | Whether there are more list items in the collection than displayed | [optional] 
+**next_start** | **Number** | Next pagination start | [optional] 
 
 

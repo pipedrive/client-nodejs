@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | [**OrganizationRelationshipWithCalculatedFields**](OrganizationRelationshipWithCalculatedFields.md) |  | [optional] 
-**relatedObjects** | [**AllOrganizationRelationshipsGetResponseAllOfRelatedObjects**](AllOrganizationRelationshipsGetResponseAllOfRelatedObjects.md) |  | [optional] 
+**related_objects** | [**AllOrganizationRelationshipsGetResponseAllOfRelatedObjects**](AllOrganizationRelationshipsGetResponseAllOfRelatedObjects.md) |  | [optional] 
 
 

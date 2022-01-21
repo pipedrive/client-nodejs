@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Number** | The ID of the role | [optional] 
-**dealDefaultVisibility** | **Number** | The setting | [optional] 
+**deal_default_visibility** | **Number** | The setting | [optional] 
 
 
 
