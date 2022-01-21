@@ -7,8 +7,12 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+
+## 13.1.0
 ### Fixed
 - Fixed runtime error for `FilesApi.addFile`
+- SDK methods reflecting request parameters as in https://developers.pipedrive.com/docs/api/v1
+
 
 ## 13.0.12
 ### Fixed
