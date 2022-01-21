@@ -54,6 +54,7 @@ export default class StagesApi {
       opts = opts || {};
       let postBody = opts['stage'];
 
+
       let pathParams = {
       };
       let queryParams = {
@@ -114,6 +115,7 @@ export default class StagesApi {
     deleteStageWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteStage");
@@ -179,6 +181,7 @@ export default class StagesApi {
     deleteStagesWithHttpInfo(ids) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'ids' is set
       if (ids === undefined || ids === null) {
         throw new Error("Missing the required parameter 'ids' when calling deleteStages");
@@ -244,6 +247,7 @@ export default class StagesApi {
     getStageWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getStage");
@@ -315,10 +319,16 @@ export default class StagesApi {
     getStageDealsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getStageDeals");
       }
+
+
+
+
+
 
       let pathParams = {
         'id': id,
@@ -393,6 +403,7 @@ export default class StagesApi {
       opts = opts || {};
       let postBody = null;
 
+
       let pathParams = {
       };
       let queryParams = {
@@ -456,10 +467,12 @@ export default class StagesApi {
     updateStageWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['updateStageRequest'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateStage");
       }
+
 
       let pathParams = {
         'id': id,

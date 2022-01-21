@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**userId** | **Number** | The ID of the user | 
+**user_id** | **Number** | The ID of the user | 
 
 

@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**dealsSummary** | [**DealSummary**](DealSummary.md) |  | [optional] 
+**deals_summary** | [**DealSummary**](DealSummary.md) |  | [optional] 
 
 

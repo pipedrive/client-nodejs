@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | [**[Field]**](Field.md) |  | [optional] 
-**additionalData** | [**AdditionalData**](AdditionalData.md) |  | [optional] 
+**additional_data** | [**AdditionalData**](AdditionalData.md) |  | [optional] 
 
 

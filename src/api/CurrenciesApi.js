@@ -46,6 +46,7 @@ export default class CurrenciesApi {
       opts = opts || {};
       let postBody = null;
 
+
       let pathParams = {
       };
       let queryParams = {

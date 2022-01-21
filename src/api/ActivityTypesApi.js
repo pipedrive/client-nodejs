@@ -50,14 +50,17 @@ export default class ActivityTypesApi {
     addActivityTypeWithHttpInfo(name, iconKey, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'name' is set
       if (name === undefined || name === null) {
         throw new Error("Missing the required parameter 'name' when calling addActivityType");
       }
+
       // verify the required parameter 'iconKey' is set
       if (iconKey === undefined || iconKey === null) {
         throw new Error("Missing the required parameter 'iconKey' when calling addActivityType");
       }
+
 
       let pathParams = {
       };
@@ -127,6 +130,7 @@ export default class ActivityTypesApi {
     deleteActivityTypeWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteActivityType");
@@ -192,6 +196,7 @@ export default class ActivityTypesApi {
     deleteActivityTypesWithHttpInfo(ids) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'ids' is set
       if (ids === undefined || ids === null) {
         throw new Error("Missing the required parameter 'ids' when calling deleteActivityTypes");
@@ -320,10 +325,15 @@ export default class ActivityTypesApi {
     updateActivityTypeWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateActivityType");
       }
+
+
+
+
 
       let pathParams = {
         'id': id,

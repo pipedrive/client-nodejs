@@ -45,6 +45,7 @@ export default class PermissionSetsApi {
     getPermissionSetWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getPermissionSet");
@@ -112,10 +113,13 @@ export default class PermissionSetsApi {
     getPermissionSetAssignmentsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getPermissionSetAssignments");
       }
+
+
 
       let pathParams = {
         'id': id,

@@ -45,6 +45,7 @@ export default class GlobalMessagesApi {
     deleteGlobalMessageWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteGlobalMessage");
@@ -111,6 +112,7 @@ export default class GlobalMessagesApi {
     getGlobalMessagesWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
+
 
       let pathParams = {
       };
