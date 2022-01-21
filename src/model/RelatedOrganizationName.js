@@ -65,7 +65,7 @@ class RelatedOrganizationName {
 }
 
 /**
- * The name of the linked Organization
+ * The name of the linked organization
  * @member {String} related_organization_name
  */
 RelatedOrganizationName.prototype['related_organization_name'] = undefined;

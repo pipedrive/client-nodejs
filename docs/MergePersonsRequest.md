@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**mergeWithId** | **Number** | The ID of the Person that will not be overwritten. This Person’s data will be prioritized in case of conflict with the other Person. | 
+**mergeWithId** | **Number** | The ID of the person that will not be overwritten. This person’s data will be prioritized in case of conflict with the other person. | 
 
 

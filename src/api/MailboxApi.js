@@ -44,8 +44,8 @@ export default class MailboxApi {
 
     /**
      * Delete mail thread
-     * Marks mail thread as deleted.
-     * @param {Number} id ID of the mail thread
+     * Marks a mail thread as deleted.
+     * @param {Number} id The ID of the mail thread
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MailThreadDelete} and HTTP response
      */
     deleteMailThreadWithHttpInfo(id) {
@@ -95,8 +95,8 @@ export default class MailboxApi {
 
     /**
      * Delete mail thread
-     * Marks mail thread as deleted.
-     * @param {Number} id ID of the mail thread
+     * Marks a mail thread as deleted.
+     * @param {Number} id The ID of the mail thread
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MailThreadDelete}
      */
     deleteMailThread(id) {
@@ -109,10 +109,10 @@ export default class MailboxApi {
 
     /**
      * Get one mail message
-     * Returns data about specific mail message.
-     * @param {Number} id ID of the mail message to fetch.
+     * Returns data about a specific mail message.
+     * @param {Number} id The ID of the mail message to fetch
      * @param {Object} opts Optional parameters
-     * @param {module:model/NumberBooleanDefault0} opts.includeBody Whether to include full message body or not. `0` = Don't include, `1` = Include
+     * @param {module:model/NumberBooleanDefault0} opts.includeBody Whether to include the full message body or not. `0` = Don't include, `1` = Include
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MailMessage} and HTTP response
      */
     getMailMessageWithHttpInfo(id, opts) {
@@ -163,10 +163,10 @@ export default class MailboxApi {
 
     /**
      * Get one mail message
-     * Returns data about specific mail message.
-     * @param {Number} id ID of the mail message to fetch.
+     * Returns data about a specific mail message.
+     * @param {Number} id The ID of the mail message to fetch
      * @param {Object} opts Optional parameters
-     * @param {module:model/NumberBooleanDefault0} opts.includeBody Whether to include full message body or not. `0` = Don't include, `1` = Include
+     * @param {module:model/NumberBooleanDefault0} opts.includeBody Whether to include the full message body or not. `0` = Don't include, `1` = Include
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MailMessage}
      */
     getMailMessage(id, opts) {
@@ -179,8 +179,8 @@ export default class MailboxApi {
 
     /**
      * Get one mail thread
-     * Returns specific mail thread.
-     * @param {Number} id ID of the mail thread
+     * Returns a specific mail thread.
+     * @param {Number} id The ID of the mail thread
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MailThreadOne} and HTTP response
      */
     getMailThreadWithHttpInfo(id) {
@@ -230,8 +230,8 @@ export default class MailboxApi {
 
     /**
      * Get one mail thread
-     * Returns specific mail thread.
-     * @param {Number} id ID of the mail thread
+     * Returns a specific mail thread.
+     * @param {Number} id The ID of the mail thread
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MailThreadOne}
      */
     getMailThread(id) {
@@ -244,8 +244,8 @@ export default class MailboxApi {
 
     /**
      * Get all mail messages of mail thread
-     * Get mail messages inside specified mail thread.
-     * @param {Number} id ID of the mail thread
+     * Get all the mail messages inside a specified mail thread.
+     * @param {Number} id The ID of the mail thread
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MailThreadMessages} and HTTP response
      */
     getMailThreadMessagesWithHttpInfo(id) {
@@ -295,8 +295,8 @@ export default class MailboxApi {
 
     /**
      * Get all mail messages of mail thread
-     * Get mail messages inside specified mail thread.
-     * @param {Number} id ID of the mail thread
+     * Get all the mail messages inside a specified mail thread.
+     * @param {Number} id The ID of the mail thread
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MailThreadMessages}
      */
     getMailThreadMessages(id) {
@@ -309,8 +309,8 @@ export default class MailboxApi {
 
     /**
      * Get mail threads
-     * Returns mail threads in specified folder ordered by most recent message within.
-     * @param {module:model/String} folder Type of folder to fetch.
+     * Returns mail threads in a specified folder ordered by the most recent message within.
+     * @param {module:model/String} folder The type of folder to fetch
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -365,8 +365,8 @@ export default class MailboxApi {
 
     /**
      * Get mail threads
-     * Returns mail threads in specified folder ordered by most recent message within.
-     * @param {module:model/String} folder Type of folder to fetch.
+     * Returns mail threads in a specified folder ordered by the most recent message within.
+     * @param {module:model/String} folder The type of folder to fetch
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -383,12 +383,12 @@ export default class MailboxApi {
     /**
      * Update mail thread details
      * Updates the properties of a mail thread.
-     * @param {Number} id ID of the mail thread
+     * @param {Number} id The ID of the mail thread
      * @param {Object} opts Optional parameters
      * @param {Number} opts.dealId The ID of the deal this thread is associated with
      * @param {String} opts.leadId The ID of the lead this thread is associated with
      * @param {module:model/NumberBoolean} opts.sharedFlag Whether this thread is shared with other users in your company
-     * @param {module:model/NumberBoolean} opts.readFlag Whether this thread read or unread
+     * @param {module:model/NumberBoolean} opts.readFlag Whether this thread is read or unread
      * @param {module:model/NumberBoolean} opts.archivedFlag Whether this thread is archived or not. You can only archive threads that belong to Inbox folder. Archived threads will disappear from Inbox.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MailThreadPut} and HTTP response
      */
@@ -450,12 +450,12 @@ export default class MailboxApi {
     /**
      * Update mail thread details
      * Updates the properties of a mail thread.
-     * @param {Number} id ID of the mail thread
+     * @param {Number} id The ID of the mail thread
      * @param {Object} opts Optional parameters
      * @param {Number} opts.dealId The ID of the deal this thread is associated with
      * @param {String} opts.leadId The ID of the lead this thread is associated with
      * @param {module:model/NumberBoolean} opts.sharedFlag Whether this thread is shared with other users in your company
-     * @param {module:model/NumberBoolean} opts.readFlag Whether this thread read or unread
+     * @param {module:model/NumberBoolean} opts.readFlag Whether this thread is read or unread
      * @param {module:model/NumberBoolean} opts.archivedFlag Whether this thread is archived or not. You can only archive threads that belong to Inbox folder. Archived threads will disappear from Inbox.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MailThreadPut}
      */

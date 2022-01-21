@@ -42,8 +42,8 @@ export default class WebhooksApi {
 
 
     /**
-     * Create a new webhook
-     * Creates a new webhook and returns its details. Note that specifying an event which triggers the webhook combines 2 parameters - `event_action` and `event_object`. E.g., use `*.*` for getting notifications about all events, `added.deal` for any newly added deals, `deleted.persons` for any deleted persons, etc. See <a href=\"https://pipedrive.readme.io/docs/guide-for-webhooks?ref=api_reference\">https://pipedrive.readme.io/docs/guide-for-webhooks</a> for more details.
+     * Create a new Webhook
+     * Creates a new Webhook and returns its details. Note that specifying an event which triggers the Webhook combines 2 parameters - `event_action` and `event_object`. E.g., use `*.*` for getting notifications about all events, `added.deal` for any newly added deals, `deleted.persons` for any deleted persons, etc. See <a href=\"https://pipedrive.readme.io/docs/guide-for-webhooks?ref=api_reference\" target=\"_blank\" rel=\"noopener noreferrer\">this guide</a> for more details.
      * @param {Object} opts Optional parameters
      * @param {module:model/AddWebhookRequest} opts.addWebhookRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Webhook} and HTTP response
@@ -89,8 +89,8 @@ export default class WebhooksApi {
     }
 
     /**
-     * Create a new webhook
-     * Creates a new webhook and returns its details. Note that specifying an event which triggers the webhook combines 2 parameters - `event_action` and `event_object`. E.g., use `*.*` for getting notifications about all events, `added.deal` for any newly added deals, `deleted.persons` for any deleted persons, etc. See <a href=\"https://pipedrive.readme.io/docs/guide-for-webhooks?ref=api_reference\">https://pipedrive.readme.io/docs/guide-for-webhooks</a> for more details.
+     * Create a new Webhook
+     * Creates a new Webhook and returns its details. Note that specifying an event which triggers the Webhook combines 2 parameters - `event_action` and `event_object`. E.g., use `*.*` for getting notifications about all events, `added.deal` for any newly added deals, `deleted.persons` for any deleted persons, etc. See <a href=\"https://pipedrive.readme.io/docs/guide-for-webhooks?ref=api_reference\" target=\"_blank\" rel=\"noopener noreferrer\">this guide</a> for more details.
      * @param {Object} opts Optional parameters
      * @param {module:model/AddWebhookRequest} opts.addWebhookRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Webhook}
@@ -104,9 +104,9 @@ export default class WebhooksApi {
 
 
     /**
-     * Delete existing webhook
-     * Deletes the specified webhook.
-     * @param {Number} id The ID of the webhook to delete
+     * Delete existing Webhook
+     * Deletes the specified Webhook.
+     * @param {Number} id The ID of the Webhook to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BaseResponseWithStatus} and HTTP response
      */
     deleteWebhookWithHttpInfo(id) {
@@ -155,9 +155,9 @@ export default class WebhooksApi {
     }
 
     /**
-     * Delete existing webhook
-     * Deletes the specified webhook.
-     * @param {Number} id The ID of the webhook to delete
+     * Delete existing Webhook
+     * Deletes the specified Webhook.
+     * @param {Number} id The ID of the Webhook to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BaseResponseWithStatus}
      */
     deleteWebhook(id) {
@@ -169,8 +169,8 @@ export default class WebhooksApi {
 
 
     /**
-     * Get all webhooks
-     * Returns data about all webhooks of a company.
+     * Get all Webhooks
+     * Returns data about all the Webhooks of a company.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Webhooks} and HTTP response
      */
     getWebhooksWithHttpInfo() {
@@ -214,8 +214,8 @@ export default class WebhooksApi {
     }
 
     /**
-     * Get all webhooks
-     * Returns data about all webhooks of a company.
+     * Get all Webhooks
+     * Returns data about all the Webhooks of a company.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Webhooks}
      */
     getWebhooks() {

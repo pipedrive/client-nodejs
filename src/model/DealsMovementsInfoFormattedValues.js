@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class DealsMovementsInfoFormattedValues {
     /**
      * Constructs a new <code>DealsMovementsInfoFormattedValues</code>.
-     * Deals values formatted
+     * The formatted values of the deals
      * @alias module:model/DealsMovementsInfoFormattedValues
      */
     constructor() { 
@@ -66,7 +66,7 @@ class DealsMovementsInfoFormattedValues {
 }
 
 /**
- * Deals value formatted
+ * The formatted values of the deals
  * @member {String} CURRENCY_ID
  */
 DealsMovementsInfoFormattedValues.prototype['CURRENCY_ID'] = undefined;

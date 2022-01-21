@@ -89,7 +89,7 @@ class GetRoleAssignments {
 GetRoleAssignments.prototype['success'] = undefined;
 
 /**
- * The Role assignments
+ * The role assignments
  * @member {Array.<module:model/RoleAssignment>} data
  */
 GetRoleAssignments.prototype['data'] = undefined;
@@ -108,7 +108,7 @@ GetRoleAssignments.prototype['additional_data'] = undefined;
 BaseResponse.prototype['success'] = undefined;
 // Implement GetRoleAssignmentsAllOf interface:
 /**
- * The Role assignments
+ * The role assignments
  * @member {Array.<module:model/RoleAssignment>} data
  */
 GetRoleAssignmentsAllOf.prototype['data'] = undefined;

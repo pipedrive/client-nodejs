@@ -42,7 +42,7 @@ export default class LeadsApi {
 
     /**
      * Add a lead
-     * Creates a Lead. A Lead always has to be linked to a Person or an Organization or both. All Leads created through the Pipedrive API will have a Lead Source `API` assigned. Here's the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-lead\" target=\"_blank\" rel=\"noopener noreferrer\">adding a Lead</a>. If a Lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the Lead, it won't appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields' structure from Deals. See an example given in the <a href=\"https://pipedrive.readme.io/docs/updating-custom-field-value\" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields' values tutorial</a>.
+     * Creates a lead. A lead always has to be linked to a person or an organization or both. All leads created through the Pipedrive API will have a lead source `API` assigned. Here's the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-lead\" target=\"_blank\" rel=\"noopener noreferrer\">adding a lead</a>. If a lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the lead, it won't appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields' structure from deals. See an example given in the <a href=\"https://pipedrive.readme.io/docs/updating-custom-field-value\" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields' values tutorial</a>.
      * @param {Object} opts Optional parameters
      * @param {module:model/AddLeadRequest} opts.addLeadRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OneLeadResponse200} and HTTP response
@@ -89,7 +89,7 @@ export default class LeadsApi {
 
     /**
      * Add a lead
-     * Creates a Lead. A Lead always has to be linked to a Person or an Organization or both. All Leads created through the Pipedrive API will have a Lead Source `API` assigned. Here's the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-lead\" target=\"_blank\" rel=\"noopener noreferrer\">adding a Lead</a>. If a Lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the Lead, it won't appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields' structure from Deals. See an example given in the <a href=\"https://pipedrive.readme.io/docs/updating-custom-field-value\" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields' values tutorial</a>.
+     * Creates a lead. A lead always has to be linked to a person or an organization or both. All leads created through the Pipedrive API will have a lead source `API` assigned. Here's the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-lead\" target=\"_blank\" rel=\"noopener noreferrer\">adding a lead</a>. If a lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the lead, it won't appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields' structure from deals. See an example given in the <a href=\"https://pipedrive.readme.io/docs/updating-custom-field-value\" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields' values tutorial</a>.
      * @param {Object} opts Optional parameters
      * @param {module:model/AddLeadRequest} opts.addLeadRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OneLeadResponse200}
@@ -104,8 +104,8 @@ export default class LeadsApi {
 
     /**
      * Delete a lead
-     * Deletes a specific Lead
-     * @param {String} id The ID of the Lead
+     * Deletes a specific lead.
+     * @param {String} id The ID of the lead
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/LeadIdResponse200} and HTTP response
      */
     deleteLeadWithHttpInfo(id) {
@@ -155,8 +155,8 @@ export default class LeadsApi {
 
     /**
      * Delete a lead
-     * Deletes a specific Lead
-     * @param {String} id The ID of the Lead
+     * Deletes a specific lead.
+     * @param {String} id The ID of the lead
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/LeadIdResponse200}
      */
     deleteLead(id) {
@@ -169,8 +169,8 @@ export default class LeadsApi {
 
     /**
      * Get one lead
-     * Returns details of a specific Lead. If a Lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the Lead, it won't appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from Deals.
-     * @param {String} id The ID of the Lead
+     * Returns details of a specific lead. If a lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the lead, it won't appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from deals.
+     * @param {String} id The ID of the lead
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OneLeadResponse200} and HTTP response
      */
     getLeadWithHttpInfo(id) {
@@ -220,8 +220,8 @@ export default class LeadsApi {
 
     /**
      * Get one lead
-     * Returns details of a specific Lead. If a Lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the Lead, it won't appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from Deals.
-     * @param {String} id The ID of the Lead
+     * Returns details of a specific lead. If a lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the lead, it won't appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from deals.
+     * @param {String} id The ID of the lead
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OneLeadResponse200}
      */
     getLead(id) {
@@ -234,11 +234,11 @@ export default class LeadsApi {
 
     /**
      * Get all leads
-     * Returns multiple Leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a Lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the Lead, it won't appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields' structure from Deals. 
+     * Returns multiple leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the lead, it won't appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields' structure from deals. 
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned.
      * @param {Number} opts.start For pagination, the position that represents the first result for the page
-     * @param {module:model/String} opts.archivedStatus Filtering based on archived status of a Lead. If not provided, `All` is used.
+     * @param {module:model/String} opts.archivedStatus Filtering based on the archived status of a lead. If not provided, `All` is used.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetLeadsResponse200} and HTTP response
      */
     getLeadsWithHttpInfo(opts) {
@@ -286,11 +286,11 @@ export default class LeadsApi {
 
     /**
      * Get all leads
-     * Returns multiple Leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a Lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the Lead, it won't appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields' structure from Deals. 
+     * Returns multiple leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the lead, it won't appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields' structure from deals. 
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned.
      * @param {Number} opts.start For pagination, the position that represents the first result for the page
-     * @param {module:model/String} opts.archivedStatus Filtering based on archived status of a Lead. If not provided, `All` is used.
+     * @param {module:model/String} opts.archivedStatus Filtering based on the archived status of a lead. If not provided, `All` is used.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetLeadsResponse200}
      */
     getLeads(opts) {
@@ -303,8 +303,8 @@ export default class LeadsApi {
 
     /**
      * Update a lead
-     * Updates one or more properties of a Lead. Only properties included in the request will be updated. Send `null` to unset a property (applicable for example for `value`, `person_id` or `organization_id`). If a Lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the Lead, it won't appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from Deals. See an example of updating custom fields’ values in <a href=\"https://pipedrive.readme.io/docs/updating-custom-field-value\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
-     * @param {String} id The ID of the Lead
+     * Updates one or more properties of a lead. Only properties included in the request will be updated. Send `null` to unset a property (applicable for example for `value`, `person_id` or `organization_id`). If a lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the lead, it won't appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from deals. See an example of updating custom fields’ values in <a href=\"https://pipedrive.readme.io/docs/updating-custom-field-value\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * @param {String} id The ID of the lead
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateLeadRequest} opts.updateLeadRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OneLeadResponse200} and HTTP response
@@ -356,8 +356,8 @@ export default class LeadsApi {
 
     /**
      * Update a lead
-     * Updates one or more properties of a Lead. Only properties included in the request will be updated. Send `null` to unset a property (applicable for example for `value`, `person_id` or `organization_id`). If a Lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the Lead, it won't appear in the response. Please note that Leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from Deals. See an example of updating custom fields’ values in <a href=\"https://pipedrive.readme.io/docs/updating-custom-field-value\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
-     * @param {String} id The ID of the Lead
+     * Updates one or more properties of a lead. Only properties included in the request will be updated. Send `null` to unset a property (applicable for example for `value`, `person_id` or `organization_id`). If a lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the lead, it won't appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from deals. See an example of updating custom fields’ values in <a href=\"https://pipedrive.readme.io/docs/updating-custom-field-value\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * @param {String} id The ID of the lead
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateLeadRequest} opts.updateLeadRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OneLeadResponse200}

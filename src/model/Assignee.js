@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class Assignee {
     /**
      * Constructs a new <code>Assignee</code>.
-     * Who is the goal assigned to
+     * Who the goal is assigned to
      * @alias module:model/Assignee
      */
     constructor() { 
@@ -71,13 +71,13 @@ class Assignee {
 }
 
 /**
- * ID of the goal assignee
+ * The ID of the goal assignee
  * @member {Object} id
  */
 Assignee.prototype['id'] = undefined;
 
 /**
- * Type of the assignee
+ * The type of the assignee
  * @member {String} type
  */
 Assignee.prototype['type'] = undefined;

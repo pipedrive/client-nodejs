@@ -106,19 +106,19 @@ class NoteField {
 }
 
 /**
- * The ID of the Field
+ * The ID of the field
  * @member {Number} id
  */
 NoteField.prototype['id'] = undefined;
 
 /**
- * The key of the Field
+ * The key of the field
  * @member {String} key
  */
 NoteField.prototype['key'] = undefined;
 
 /**
- * The name of the Field
+ * The name of the field
  * @member {String} name
  */
 NoteField.prototype['name'] = undefined;
@@ -129,13 +129,13 @@ NoteField.prototype['name'] = undefined;
 NoteField.prototype['field_type'] = undefined;
 
 /**
- * The active flag of the Field
+ * The active flag of the field
  * @member {Boolean} active_flag
  */
 NoteField.prototype['active_flag'] = undefined;
 
 /**
- * The edit flag of the Field
+ * The edit flag of the field
  * @member {Boolean} edit_flag
  */
 NoteField.prototype['edit_flag'] = undefined;
@@ -147,13 +147,13 @@ NoteField.prototype['edit_flag'] = undefined;
 NoteField.prototype['bulk_edit_allowed'] = undefined;
 
 /**
- * Whether or not the Field is mandatory
+ * Whether or not the field is mandatory
  * @member {Boolean} mandatory_flag
  */
 NoteField.prototype['mandatory_flag'] = undefined;
 
 /**
- * The options of the Field. When there are no options, `null` is returned.
+ * The options of the field. When there are no options, `null` is returned.
  * @member {Array.<Object>} options
  */
 NoteField.prototype['options'] = undefined;

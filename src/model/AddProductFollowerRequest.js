@@ -22,7 +22,7 @@ class AddProductFollowerRequest {
     /**
      * Constructs a new <code>AddProductFollowerRequest</code>.
      * @alias module:model/AddProductFollowerRequest
-     * @param userId {Number} ID of the user
+     * @param userId {Number} The ID of the user
      */
     constructor(userId) { 
         
@@ -67,7 +67,7 @@ class AddProductFollowerRequest {
 }
 
 /**
- * ID of the user
+ * The ID of the user
  * @member {Number} user_id
  */
 AddProductFollowerRequest.prototype['user_id'] = undefined;

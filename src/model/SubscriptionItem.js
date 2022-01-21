@@ -140,73 +140,73 @@ class SubscriptionItem {
 }
 
 /**
- * The ID of the Subscription
+ * The ID of the subscription
  * @member {Number} id
  */
 SubscriptionItem.prototype['id'] = undefined;
 
 /**
- * The ID of the User who created Subscription
+ * The ID of the user who created the subscription
  * @member {Number} user_id
  */
 SubscriptionItem.prototype['user_id'] = undefined;
 
 /**
- * The ID of the Deal this Subscription associated with
+ * The ID of the deal this subscription is associated with
  * @member {Number} deal_id
  */
 SubscriptionItem.prototype['deal_id'] = undefined;
 
 /**
- * Description of the recurring Subscription
+ * The description of the recurring subscription
  * @member {String} description
  */
 SubscriptionItem.prototype['description'] = undefined;
 
 /**
- * The Subscription status
+ * The subscription status
  * @member {Boolean} is_active
  */
 SubscriptionItem.prototype['is_active'] = undefined;
 
 /**
- * Shows how many payments a Recurring Subscription has
+ * Shows how many payments a recurring subscription has
  * @member {Number} cycles_count
  */
 SubscriptionItem.prototype['cycles_count'] = undefined;
 
 /**
- * Amount of each payment
+ * The amount of each payment
  * @member {Number} cycle_amount
  */
 SubscriptionItem.prototype['cycle_amount'] = undefined;
 
 /**
- * Indicates that the Recurring Subscription will last until it's manually canceled or deleted
+ * Indicates that the recurring subscription will last until it is manually canceled or deleted
  * @member {Boolean} infinite
  */
 SubscriptionItem.prototype['infinite'] = undefined;
 
 /**
- * The currency of the Subscription
+ * The currency of the subscription
  * @member {String} currency
  */
 SubscriptionItem.prototype['currency'] = undefined;
 
 /**
- * Interval between payments
+ * The interval between payments
  * @member {String} cadence_type
  */
 SubscriptionItem.prototype['cadence_type'] = undefined;
 
 /**
- * The start date of the Recurring Subscription
+ * The start date of the recurring subscription
  * @member {Date} start_date
  */
 SubscriptionItem.prototype['start_date'] = undefined;
 
 /**
- * The end date of the Subscription
+ * The end date of the subscription
  * @member {Date} end_date
  */
 SubscriptionItem.prototype['end_date'] = undefined;
@@ -218,19 +218,19 @@ SubscriptionItem.prototype['end_date'] = undefined;
 SubscriptionItem.prototype['lifetime_value'] = undefined;
 
 /**
- * The final status of the Subscription
+ * The final status of the subscription
  * @member {String} final_status
  */
 SubscriptionItem.prototype['final_status'] = undefined;
 
 /**
- * The creation time of the Subscription
+ * The creation time of the subscription
  * @member {String} add_time
  */
 SubscriptionItem.prototype['add_time'] = undefined;
 
 /**
- * The update time of the Subscription
+ * The update time of the subscription
  * @member {String} update_time
  */
 SubscriptionItem.prototype['update_time'] = undefined;

@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**email** | **String** | The Email of the Note creator | [optional] 
-**iconUrl** | **String** | The URL of the Note creator avatar picture | [optional] 
-**isYou** | **Boolean** | If the Note is created by you or not | [optional] 
-**name** | **String** | The name of the Note creator | [optional] 
+**email** | **String** | The email of the note creator | [optional] 
+**iconUrl** | **String** | The URL of the note creator avatar picture | [optional] 
+**isYou** | **Boolean** | Whether the note is created by you or not | [optional] 
+**name** | **String** | The name of the note creator | [optional] 
 
 

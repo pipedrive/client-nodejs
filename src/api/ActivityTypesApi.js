@@ -186,7 +186,7 @@ export default class ActivityTypesApi {
     /**
      * Delete multiple ActivityTypes in bulk
      * Marks multiple ActivityTypes as deleted.
-     * @param {String} ids Comma-separated ActivityType IDs
+     * @param {String} ids The comma-separated ActivityType IDs
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ActivityTypeBulkDeleteResponse} and HTTP response
      */
     deleteActivityTypesWithHttpInfo(ids) {
@@ -237,7 +237,7 @@ export default class ActivityTypesApi {
     /**
      * Delete multiple ActivityTypes in bulk
      * Marks multiple ActivityTypes as deleted.
-     * @param {String} ids Comma-separated ActivityType IDs
+     * @param {String} ids The comma-separated ActivityType IDs
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ActivityTypeBulkDeleteResponse}
      */
     deleteActivityTypes(ids) {
@@ -307,7 +307,7 @@ export default class ActivityTypesApi {
 
 
     /**
-     * Edit an ActivityType
+     * Update an ActivityType
      * Updates an ActivityType.
      * @param {Number} id The ID of the ActivityType
      * @param {Object} opts Optional parameters
@@ -371,7 +371,7 @@ export default class ActivityTypesApi {
     }
 
     /**
-     * Edit an ActivityType
+     * Update an ActivityType
      * Updates an ActivityType.
      * @param {Number} id The ID of the ActivityType
      * @param {Object} opts Optional parameters

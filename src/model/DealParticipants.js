@@ -89,7 +89,7 @@ class DealParticipants {
 DealParticipants.prototype['success'] = undefined;
 
 /**
- * The array of Participants
+ * The array of participants
  * @member {Array.<module:model/PersonItem>} data
  */
 DealParticipants.prototype['data'] = undefined;

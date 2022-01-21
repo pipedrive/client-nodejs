@@ -22,7 +22,7 @@ class BasicProductField {
     /**
      * Constructs a new <code>BasicProductField</code>.
      * @alias module:model/BasicProductField
-     * @param name {String} Name of the field
+     * @param name {String} The name of the field
      */
     constructor(name) { 
         
@@ -72,13 +72,13 @@ class BasicProductField {
 }
 
 /**
- * Name of the field
+ * The name of the field
  * @member {String} name
  */
 BasicProductField.prototype['name'] = undefined;
 
 /**
- * When field_type is either set or enum, possible options on update must be supplied as an array of objects each containing id and label, for example: [{\"id\":1, \"label\":\"red\"},{\"id\":2, \"label\":\"blue\"},{\"id\":3, \"label\":\"lilac\"}]
+ * When `field_type` is either set or enum, possible options on update must be supplied as an array of objects each containing id and label, for example: [{\"id\":1, \"label\":\"red\"},{\"id\":2, \"label\":\"blue\"},{\"id\":3, \"label\":\"lilac\"}]
  * @member {Array.<Object>} options
  */
 BasicProductField.prototype['options'] = undefined;

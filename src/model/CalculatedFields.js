@@ -70,13 +70,13 @@ class CalculatedFields {
 }
 
 /**
- * The calculated type of the Relationship with the linked Organization
+ * The calculated type of the relationship with the linked organization
  * @member {String} calculated_type
  */
 CalculatedFields.prototype['calculated_type'] = undefined;
 
 /**
- * The ID of the linked Organization
+ * The ID of the linked organization
  * @member {Number} calculated_related_org_id
  */
 CalculatedFields.prototype['calculated_related_org_id'] = undefined;

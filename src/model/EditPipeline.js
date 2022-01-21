@@ -83,7 +83,7 @@ class EditPipeline {
 EditPipeline.prototype['success'] = undefined;
 
 /**
- * The Pipeline object
+ * The pipeline object
  * @member {module:model/BasePipelineWithSelectedFlag} data
  */
 EditPipeline.prototype['data'] = undefined;
@@ -97,7 +97,7 @@ EditPipeline.prototype['data'] = undefined;
 BaseResponse.prototype['success'] = undefined;
 // Implement EditPipelineAllOf interface:
 /**
- * The Pipeline object
+ * The pipeline object
  * @member {module:model/BasePipelineWithSelectedFlag} data
  */
 EditPipelineAllOf.prototype['data'] = undefined;

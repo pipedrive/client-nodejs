@@ -126,73 +126,73 @@ class PersonNameCountAndEmailInfo {
 }
 
 /**
- * The name of the Person
+ * The name of the person
  * @member {String} name
  */
 PersonNameCountAndEmailInfo.prototype['name'] = undefined;
 
 /**
- * The first name of the Person
+ * The first name of the person
  * @member {String} first_name
  */
 PersonNameCountAndEmailInfo.prototype['first_name'] = undefined;
 
 /**
- * The last name of the Person
+ * The last name of the person
  * @member {String} last_name
  */
 PersonNameCountAndEmailInfo.prototype['last_name'] = undefined;
 
 /**
- * The count of email messages related to the Person
+ * The count of email messages related to the person
  * @member {Number} email_messages_count
  */
 PersonNameCountAndEmailInfo.prototype['email_messages_count'] = undefined;
 
 /**
- * The count of activities related to the Person
+ * The count of activities related to the person
  * @member {Number} activities_count
  */
 PersonNameCountAndEmailInfo.prototype['activities_count'] = undefined;
 
 /**
- * The count of done activities related to the Person
+ * The count of done activities related to the person
  * @member {Number} done_activities_count
  */
 PersonNameCountAndEmailInfo.prototype['done_activities_count'] = undefined;
 
 /**
- * The count of undone activities related to the Person
+ * The count of undone activities related to the person
  * @member {Number} undone_activities_count
  */
 PersonNameCountAndEmailInfo.prototype['undone_activities_count'] = undefined;
 
 /**
- * The count of files related to the Person
+ * The count of files related to the person
  * @member {Number} files_count
  */
 PersonNameCountAndEmailInfo.prototype['files_count'] = undefined;
 
 /**
- * The count of notes related to the Person
+ * The count of notes related to the person
  * @member {Number} notes_count
  */
 PersonNameCountAndEmailInfo.prototype['notes_count'] = undefined;
 
 /**
- * The count of followers related to the Person
+ * The count of followers related to the person
  * @member {Number} followers_count
  */
 PersonNameCountAndEmailInfo.prototype['followers_count'] = undefined;
 
 /**
- * The date and time of the last incoming email associated with the Person
+ * The date and time of the last incoming email associated with the person
  * @member {String} last_incoming_mail_time
  */
 PersonNameCountAndEmailInfo.prototype['last_incoming_mail_time'] = undefined;
 
 /**
- * The date and time of the last outgoing email associated with the Person
+ * The date and time of the last outgoing email associated with the person
  * @member {String} last_outgoing_mail_time
  */
 PersonNameCountAndEmailInfo.prototype['last_outgoing_mail_time'] = undefined;
@@ -200,63 +200,63 @@ PersonNameCountAndEmailInfo.prototype['last_outgoing_mail_time'] = undefined;
 
 // Implement PersonNameInfo interface:
 /**
- * The name of the Person
+ * The name of the person
  * @member {String} name
  */
 PersonNameInfo.prototype['name'] = undefined;
 /**
- * The first name of the Person
+ * The first name of the person
  * @member {String} first_name
  */
 PersonNameInfo.prototype['first_name'] = undefined;
 /**
- * The last name of the Person
+ * The last name of the person
  * @member {String} last_name
  */
 PersonNameInfo.prototype['last_name'] = undefined;
 // Implement PersonCountAndEmailInfo interface:
 /**
- * The count of email messages related to the Person
+ * The count of email messages related to the person
  * @member {Number} email_messages_count
  */
 PersonCountAndEmailInfo.prototype['email_messages_count'] = undefined;
 /**
- * The count of activities related to the Person
+ * The count of activities related to the person
  * @member {Number} activities_count
  */
 PersonCountAndEmailInfo.prototype['activities_count'] = undefined;
 /**
- * The count of done activities related to the Person
+ * The count of done activities related to the person
  * @member {Number} done_activities_count
  */
 PersonCountAndEmailInfo.prototype['done_activities_count'] = undefined;
 /**
- * The count of undone activities related to the Person
+ * The count of undone activities related to the person
  * @member {Number} undone_activities_count
  */
 PersonCountAndEmailInfo.prototype['undone_activities_count'] = undefined;
 /**
- * The count of files related to the Person
+ * The count of files related to the person
  * @member {Number} files_count
  */
 PersonCountAndEmailInfo.prototype['files_count'] = undefined;
 /**
- * The count of notes related to the Person
+ * The count of notes related to the person
  * @member {Number} notes_count
  */
 PersonCountAndEmailInfo.prototype['notes_count'] = undefined;
 /**
- * The count of followers related to the Person
+ * The count of followers related to the person
  * @member {Number} followers_count
  */
 PersonCountAndEmailInfo.prototype['followers_count'] = undefined;
 /**
- * The date and time of the last incoming email associated with the Person
+ * The date and time of the last incoming email associated with the person
  * @member {String} last_incoming_mail_time
  */
 PersonCountAndEmailInfo.prototype['last_incoming_mail_time'] = undefined;
 /**
- * The date and time of the last outgoing email associated with the Person
+ * The date and time of the last outgoing email associated with the person
  * @member {String} last_outgoing_mail_time
  */
 PersonCountAndEmailInfo.prototype['last_outgoing_mail_time'] = undefined;

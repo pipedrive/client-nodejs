@@ -27,8 +27,8 @@ class UpdateTeamWithAdditionalProperties {
      * @alias module:model/UpdateTeamWithAdditionalProperties
      * @implements module:model/UpdateTeam
      * @implements module:model/BaseTeamAdditionalProperties
-     * @param name {String} The Team name
-     * @param managerId {Number} The Team manager ID
+     * @param name {String} The team name
+     * @param managerId {Number} The team manager ID
      */
     constructor(name, managerId) { 
         UpdateTeam.initialize(this, name, managerId);BaseTeamAdditionalProperties.initialize(this);
@@ -111,49 +111,49 @@ class UpdateTeamWithAdditionalProperties {
 }
 
 /**
- * The Team name
+ * The team name
  * @member {String} name
  */
 UpdateTeamWithAdditionalProperties.prototype['name'] = undefined;
 
 /**
- * The Team description
+ * The team description
  * @member {String} description
  */
 UpdateTeamWithAdditionalProperties.prototype['description'] = undefined;
 
 /**
- * The Team manager ID
+ * The team manager ID
  * @member {Number} manager_id
  */
 UpdateTeamWithAdditionalProperties.prototype['manager_id'] = undefined;
 
 /**
- * List of User IDs
+ * The list of user IDs
  * @member {Array.<Number>} users
  */
 UpdateTeamWithAdditionalProperties.prototype['users'] = undefined;
 
 /**
- * Flag that indicates if the Team is activated
+ * Flag that indicates whether the team is active
  * @member {module:model/NumberBoolean} active_flag
  */
 UpdateTeamWithAdditionalProperties.prototype['active_flag'] = undefined;
 
 /**
- * Flag that indicates if the Team is deleted
+ * Flag that indicates whether the team is deleted
  * @member {module:model/NumberBoolean} deleted_flag
  */
 UpdateTeamWithAdditionalProperties.prototype['deleted_flag'] = undefined;
 
 /**
- * The Team creation time. Format: YYYY-MM-DD HH:MM:SS
+ * The team creation time. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} add_time
  */
 UpdateTeamWithAdditionalProperties.prototype['add_time'] = undefined;
 
 /**
- * ID of the User who created the Team
+ * The ID of the user who created the team
  * @member {Number} created_by_user_id
  */
 UpdateTeamWithAdditionalProperties.prototype['created_by_user_id'] = undefined;
@@ -161,43 +161,43 @@ UpdateTeamWithAdditionalProperties.prototype['created_by_user_id'] = undefined;
 
 // Implement UpdateTeam interface:
 /**
- * The Team name
+ * The team name
  * @member {String} name
  */
 UpdateTeam.prototype['name'] = undefined;
 /**
- * The Team description
+ * The team description
  * @member {String} description
  */
 UpdateTeam.prototype['description'] = undefined;
 /**
- * The Team manager ID
+ * The team manager ID
  * @member {Number} manager_id
  */
 UpdateTeam.prototype['manager_id'] = undefined;
 /**
- * List of User IDs
+ * The list of user IDs
  * @member {Array.<Number>} users
  */
 UpdateTeam.prototype['users'] = undefined;
 /**
- * Flag that indicates if the Team is activated
+ * Flag that indicates whether the team is active
  * @member {module:model/NumberBoolean} active_flag
  */
 UpdateTeam.prototype['active_flag'] = undefined;
 /**
- * Flag that indicates if the Team is deleted
+ * Flag that indicates whether the team is deleted
  * @member {module:model/NumberBoolean} deleted_flag
  */
 UpdateTeam.prototype['deleted_flag'] = undefined;
 // Implement BaseTeamAdditionalProperties interface:
 /**
- * The Team creation time. Format: YYYY-MM-DD HH:MM:SS
+ * The team creation time. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} add_time
  */
 BaseTeamAdditionalProperties.prototype['add_time'] = undefined;
 /**
- * ID of the User who created the Team
+ * The ID of the user who created the team
  * @member {Number} created_by_user_id
  */
 BaseTeamAdditionalProperties.prototype['created_by_user_id'] = undefined;

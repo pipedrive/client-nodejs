@@ -76,19 +76,19 @@ class BasicOrganization {
 }
 
 /**
- * Organization name
+ * The name of the organization
  * @member {String} name
  */
 BasicOrganization.prototype['name'] = undefined;
 
 /**
- * The ID of the user who will be marked as the owner of this Organization. When omitted, the authorized User ID will be used.
+ * The ID of the user who will be marked as the owner of this organization. When omitted, the authorized user ID will be used.
  * @member {Number} owner_id
  */
 BasicOrganization.prototype['owner_id'] = undefined;
 
 /**
- * Visibility of the organization. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
+ * The visibility of the organization. If omitted, the visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
  * @member {module:model/VisibleTo} visible_to
  */
 BasicOrganization.prototype['visible_to'] = undefined;

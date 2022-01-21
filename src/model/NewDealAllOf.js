@@ -65,7 +65,7 @@ class NewDealAllOf {
 }
 
 /**
- * Optional creation date & time of the deal in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
+ * The optional creation date & time of the deal in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} add_time
  */
 NewDealAllOf.prototype['add_time'] = undefined;

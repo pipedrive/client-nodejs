@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class DealsMovementsInfoValues {
     /**
      * Constructs a new <code>DealsMovementsInfoValues</code>.
-     * Deals values
+     * The values of the deals
      * @alias module:model/DealsMovementsInfoValues
      */
     constructor() { 
@@ -66,7 +66,7 @@ class DealsMovementsInfoValues {
 }
 
 /**
- * Deals value
+ * The value of the deals
  * @member {Number} CURRENCY_ID
  */
 DealsMovementsInfoValues.prototype['CURRENCY_ID'] = undefined;

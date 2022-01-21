@@ -65,7 +65,7 @@ class OrganizationDataWithIdAllOf {
 }
 
 /**
- * The ID of the Organization associated with the item
+ * The ID of the organization associated with the item
  * @member {Number} id
  */
 OrganizationDataWithIdAllOf.prototype['id'] = undefined;

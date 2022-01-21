@@ -123,6 +123,7 @@ import BasicDealProduct from './model/BasicDealProduct';
 import BasicGoal from './model/BasicGoal';
 import BasicOrganization from './model/BasicOrganization';
 import BasicPerson from './model/BasicPerson';
+import BasicPersonEmail from './model/BasicPersonEmail';
 import BasicProductField from './model/BasicProductField';
 import BulkDeleteResponse from './model/BulkDeleteResponse';
 import BulkDeleteResponseAllOf from './model/BulkDeleteResponseAllOf';
@@ -162,6 +163,7 @@ import DealOrganizationDataWithIdAllOf from './model/DealOrganizationDataWithIdA
 import DealParticipantCountInfo from './model/DealParticipantCountInfo';
 import DealParticipants from './model/DealParticipants';
 import DealPersonData from './model/DealPersonData';
+import DealPersonDataEmail from './model/DealPersonDataEmail';
 import DealPersonDataPhone from './model/DealPersonDataPhone';
 import DealPersonDataWithId from './model/DealPersonDataWithId';
 import DealPersonDataWithIdAllOf from './model/DealPersonDataWithIdAllOf';
@@ -1427,6 +1429,12 @@ export {
     BasicPerson,
 
     /**
+     * The BasicPersonEmail model constructor.
+     * @property {module:model/BasicPersonEmail}
+     */
+    BasicPersonEmail,
+
+    /**
      * The BasicProductField model constructor.
      * @property {module:model/BasicProductField}
      */
@@ -1659,6 +1667,12 @@ export {
      * @property {module:model/DealPersonData}
      */
     DealPersonData,
+
+    /**
+     * The DealPersonDataEmail model constructor.
+     * @property {module:model/DealPersonDataEmail}
+     */
+    DealPersonDataEmail,
 
     /**
      * The DealPersonDataPhone model constructor.

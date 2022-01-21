@@ -70,13 +70,13 @@ class DeleteDealProductData {
 }
 
 /**
- * The ID of an attached Product that was deleted from the Deal
+ * The ID of an attached product that was deleted from the deal
  * @member {Number} id
  */
 DeleteDealProductData.prototype['id'] = undefined;
 
 /**
- * The ID of an attached Product that was deleted from the Deal
+ * The ID of an attached product that was deleted from the deal
  * @member {Number} product_attachment_id
  */
 DeleteDealProductData.prototype['product_attachment_id'] = undefined;

@@ -66,7 +66,7 @@ class EditPipelineAllOf {
 }
 
 /**
- * The Pipeline object
+ * The pipeline object
  * @member {module:model/BasePipelineWithSelectedFlag} data
  */
 EditPipelineAllOf.prototype['data'] = undefined;

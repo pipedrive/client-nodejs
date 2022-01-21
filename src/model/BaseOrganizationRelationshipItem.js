@@ -96,13 +96,13 @@ class BaseOrganizationRelationshipItem {
 }
 
 /**
- * The ID of the Organization Relationship
+ * The ID of the organization relationship
  * @member {Number} id
  */
 BaseOrganizationRelationshipItem.prototype['id'] = undefined;
 
 /**
- * The type of the Relationship
+ * The type of the relationship
  * @member {String} type
  */
 BaseOrganizationRelationshipItem.prototype['type'] = undefined;
@@ -118,19 +118,19 @@ BaseOrganizationRelationshipItem.prototype['rel_owner_org_id'] = undefined;
 BaseOrganizationRelationshipItem.prototype['rel_linked_org_id'] = undefined;
 
 /**
- * The creation date and time of the Relationship
+ * The creation date and time of the relationship
  * @member {String} add_time
  */
 BaseOrganizationRelationshipItem.prototype['add_time'] = undefined;
 
 /**
- * The last updated date and time of the Relationship
+ * The last updated date and time of the relationship
  * @member {String} update_time
  */
 BaseOrganizationRelationshipItem.prototype['update_time'] = undefined;
 
 /**
- * If the Relationship is active or not
+ * Whether the relationship is active or not
  * @member {String} active_flag
  */
 BaseOrganizationRelationshipItem.prototype['active_flag'] = undefined;

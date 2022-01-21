@@ -42,8 +42,8 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.UsersApi();
-let name = "name_example"; // String | Name of the user
-let email = "email_example"; // String | Email of the user
+let name = "name_example"; // String | The name of the user
+let email = "email_example"; // String | The email of the user
 let activeFlag = true; // Boolean | Whether the user is active or not. `false` = Not activated, `true` = Activated
 apiInstance.addUser(name, email, activeFlag).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -58,8 +58,8 @@ apiInstance.addUser(name, email, activeFlag).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Name of the user | 
- **email** | **String**| Email of the user | 
+ **name** | **String**| The name of the user | 
+ **email** | **String**| The email of the user | 
  **activeFlag** | **Boolean**| Whether the user is active or not. &#x60;false&#x60; &#x3D; Not activated, &#x60;true&#x60; &#x3D; Activated | [default to true]
 
 ### Return type
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 Add role assignment
 
-Add role assignment for a user
+Adds a role assignment for a user.
 
 ### Example
 
@@ -96,8 +96,8 @@ api_key.apiKey = 'YOUR API KEY';
 //api_key.apiKeyPrefix = 'Token';
 
 let apiInstance = new Pipedrive.UsersApi();
-let id = 56; // Number | ID of the user
-let roleId = 56; // Number | ID of the role
+let id = 56; // Number | The ID of the user
+let roleId = 56; // Number | The ID of the role
 apiInstance.addUserRoleAssignment(id, roleId).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -111,8 +111,8 @@ apiInstance.addUserRoleAssignment(id, roleId).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the user | 
- **roleId** | **Number**| ID of the role | 
+ **id** | **Number**| The ID of the user | 
+ **roleId** | **Number**| The ID of the role | 
 
 ### Return type
 
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 Delete a role assignment
 
-Delete a role assignment for a user
+Deletes a role assignment for a user.
 
 ### Example
 
@@ -148,8 +148,8 @@ api_key.apiKey = 'YOUR API KEY';
 //api_key.apiKeyPrefix = 'Token';
 
 let apiInstance = new Pipedrive.UsersApi();
-let id = 56; // Number | ID of the user
-let roleId = 56; // Number | ID of the role
+let id = 56; // Number | The ID of the user
+let roleId = 56; // Number | The ID of the role
 apiInstance.deleteUserRoleAssignment(id, roleId).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -163,8 +163,8 @@ apiInstance.deleteUserRoleAssignment(id, roleId).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the user | 
- **roleId** | **Number**| ID of the role | 
+ **id** | **Number**| The ID of the user | 
+ **roleId** | **Number**| The ID of the role | 
 
 ### Return type
 
@@ -203,9 +203,9 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.UsersApi();
-let term = "term_example"; // String | Search term to look for
+let term = "term_example"; // String | The search term to look for
 let opts = {
-  'searchByEmail': new Pipedrive.NumberBooleanDefault0() // NumberBooleanDefault0 | When enabled, term will only be matched against email addresses of users. Default: `false`
+  'searchByEmail': new Pipedrive.NumberBooleanDefault0() // NumberBooleanDefault0 | When enabled, the term will only be matched against email addresses of users. Default: `false`
 };
 apiInstance.findUsersByName(term, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -220,8 +220,8 @@ apiInstance.findUsersByName(term, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **term** | **String**| Search term to look for | 
- **searchByEmail** | [**NumberBooleanDefault0**](.md)| When enabled, term will only be matched against email addresses of users. Default: &#x60;false&#x60; | [optional] 
+ **term** | **String**| The search term to look for | 
+ **searchByEmail** | [**NumberBooleanDefault0**](.md)| When enabled, the term will only be matched against email addresses of users. Default: &#x60;false&#x60; | [optional] 
 
 ### Return type
 
@@ -292,7 +292,7 @@ This endpoint does not need any parameter.
 
 Get one user
 
-Returns data about a specific user within the company
+Returns data about a specific user within the company.
 
 ### Example
 
@@ -309,7 +309,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.UsersApi();
-let id = 56; // Number | ID of the user
+let id = 56; // Number | The ID of the user
 apiInstance.getUser(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -323,7 +323,7 @@ apiInstance.getUser(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the user | 
+ **id** | **Number**| The ID of the user | 
 
 ### Return type
 
@@ -345,7 +345,7 @@ Name | Type | Description  | Notes
 
 List followers of a user
 
-Lists followers of a specific user.
+Lists the followers of a specific user.
 
 ### Example
 
@@ -362,7 +362,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.UsersApi();
-let id = 56; // Number | ID of the user
+let id = 56; // Number | The ID of the user
 apiInstance.getUserFollowers(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -376,7 +376,7 @@ apiInstance.getUserFollowers(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the user | 
+ **id** | **Number**| The ID of the user | 
 
 ### Return type
 
@@ -398,7 +398,7 @@ Name | Type | Description  | Notes
 
 List user permissions
 
-List aggregated permissions over all assigned permission sets for a user
+Lists aggregated permissions over all assigned permission sets for a user.
 
 ### Example
 
@@ -415,7 +415,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.UsersApi();
-let id = 56; // Number | ID of the user
+let id = 56; // Number | The ID of the user
 apiInstance.getUserPermissions(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -429,7 +429,7 @@ apiInstance.getUserPermissions(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the user | 
+ **id** | **Number**| The ID of the user | 
 
 ### Return type
 
@@ -451,7 +451,7 @@ Name | Type | Description  | Notes
 
 List role assignments
 
-List role assignments for a user
+Lists role assignments for a user.
 
 ### Example
 
@@ -468,7 +468,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.UsersApi();
-let id = 56; // Number | ID of the user
+let id = 56; // Number | The ID of the user
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
@@ -486,7 +486,7 @@ apiInstance.getUserRoleAssignments(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the user | 
+ **id** | **Number**| The ID of the user | 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
 
@@ -510,7 +510,7 @@ Name | Type | Description  | Notes
 
 List user role settings
 
-List settings of user&#39;s assigned role
+Lists the settings of user&#39;s assigned role.
 
 ### Example
 
@@ -527,7 +527,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.UsersApi();
-let id = 56; // Number | ID of the user
+let id = 56; // Number | The ID of the user
 apiInstance.getUserRoleSettings(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -541,7 +541,7 @@ apiInstance.getUserRoleSettings(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the user | 
+ **id** | **Number**| The ID of the user | 
 
 ### Return type
 
@@ -563,7 +563,7 @@ Name | Type | Description  | Notes
 
 Get all users
 
-Returns data about all users within the company
+Returns data about all users within the company.
 
 ### Example
 
@@ -629,7 +629,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.UsersApi();
-let id = 56; // Number | ID of the user
+let id = 56; // Number | The ID of the user
 let activeFlag = true; // Boolean | Whether the user is active or not. `false` = Not activated, `true` = Activated
 apiInstance.updateUser(id, activeFlag).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -644,7 +644,7 @@ apiInstance.updateUser(id, activeFlag).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the user | 
+ **id** | **Number**| The ID of the user | 
  **activeFlag** | **Boolean**| Whether the user is active or not. &#x60;false&#x60; &#x3D; Not activated, &#x60;true&#x60; &#x3D; Activated | [default to true]
 
 ### Return type

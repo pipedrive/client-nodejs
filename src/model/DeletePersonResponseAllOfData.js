@@ -65,7 +65,7 @@ class DeletePersonResponseAllOfData {
 }
 
 /**
- * The ID of the deleted Person
+ * The ID of the deleted person
  * @member {Number} id
  */
 DeletePersonResponseAllOfData.prototype['id'] = undefined;

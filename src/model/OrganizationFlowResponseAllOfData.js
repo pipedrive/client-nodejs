@@ -75,7 +75,7 @@ class OrganizationFlowResponseAllOfData {
 }
 
 /**
- * The type of the Person update. (Possible object types - organizationChange, dealChange, file, activity)
+ * The type of the person update. (Possible object types - organizationChange, dealChange, file, activity)
  * @member {String} object
  */
 OrganizationFlowResponseAllOfData.prototype['object'] = undefined;

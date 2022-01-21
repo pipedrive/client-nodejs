@@ -101,43 +101,43 @@ class DealOrganizationDataWithId {
 }
 
 /**
- * The name of the Organization associated with the Deal
+ * The name of the organization associated with the deal
  * @member {String} name
  */
 DealOrganizationDataWithId.prototype['name'] = undefined;
 
 /**
- * The number of people connected with the Organization that is associated with the Deal
+ * The number of people connected with the organization that is associated with the deal
  * @member {Number} people_count
  */
 DealOrganizationDataWithId.prototype['people_count'] = undefined;
 
 /**
- * The ID of the owner of the Organization that is associated with the Deal
+ * The ID of the owner of the organization that is associated with the deal
  * @member {Number} owner_id
  */
 DealOrganizationDataWithId.prototype['owner_id'] = undefined;
 
 /**
- * The address of the Organization that is associated with the Deal
+ * The address of the organization that is associated with the deal
  * @member {String} address
  */
 DealOrganizationDataWithId.prototype['address'] = undefined;
 
 /**
- * If the associated Organization is activated or not
+ * Whether the associated organization is active or not
  * @member {Boolean} active_flag
  */
 DealOrganizationDataWithId.prototype['active_flag'] = undefined;
 
 /**
- * The CC email of the Organization associated with the Deal
+ * The BCC email of the organization associated with the deal
  * @member {String} cc_email
  */
 DealOrganizationDataWithId.prototype['cc_email'] = undefined;
 
 /**
- * The ID of the Organization associated with the Deal
+ * The ID of the organization associated with the deal
  * @member {Number} value
  */
 DealOrganizationDataWithId.prototype['value'] = undefined;
@@ -145,38 +145,38 @@ DealOrganizationDataWithId.prototype['value'] = undefined;
 
 // Implement DealOrganizationData interface:
 /**
- * The name of the Organization associated with the Deal
+ * The name of the organization associated with the deal
  * @member {String} name
  */
 DealOrganizationData.prototype['name'] = undefined;
 /**
- * The number of people connected with the Organization that is associated with the Deal
+ * The number of people connected with the organization that is associated with the deal
  * @member {Number} people_count
  */
 DealOrganizationData.prototype['people_count'] = undefined;
 /**
- * The ID of the owner of the Organization that is associated with the Deal
+ * The ID of the owner of the organization that is associated with the deal
  * @member {Number} owner_id
  */
 DealOrganizationData.prototype['owner_id'] = undefined;
 /**
- * The address of the Organization that is associated with the Deal
+ * The address of the organization that is associated with the deal
  * @member {String} address
  */
 DealOrganizationData.prototype['address'] = undefined;
 /**
- * If the associated Organization is activated or not
+ * Whether the associated organization is active or not
  * @member {Boolean} active_flag
  */
 DealOrganizationData.prototype['active_flag'] = undefined;
 /**
- * The CC email of the Organization associated with the Deal
+ * The BCC email of the organization associated with the deal
  * @member {String} cc_email
  */
 DealOrganizationData.prototype['cc_email'] = undefined;
 // Implement DealOrganizationDataWithIdAllOf interface:
 /**
- * The ID of the Organization associated with the Deal
+ * The ID of the organization associated with the deal
  * @member {Number} value
  */
 DealOrganizationDataWithIdAllOf.prototype['value'] = undefined;

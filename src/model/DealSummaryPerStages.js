@@ -22,7 +22,7 @@ import DealSummaryPerStagesSTAGEID from './DealSummaryPerStagesSTAGEID';
 class DealSummaryPerStages {
     /**
      * Constructs a new <code>DealSummaryPerStages</code>.
-     * The Stage objects containing Deals currency information
+     * The stage objects containing deals currency information
      * @alias module:model/DealSummaryPerStages
      */
     constructor() { 

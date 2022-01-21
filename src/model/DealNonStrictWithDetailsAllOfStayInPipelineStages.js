@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class DealNonStrictWithDetailsAllOfStayInPipelineStages {
     /**
      * Constructs a new <code>DealNonStrictWithDetailsAllOfStayInPipelineStages</code>.
-     * The details of the duration of the Deal being in each stage of the pipeline
+     * The details of the duration of the deal being in each stage of the pipeline
      * @alias module:model/DealNonStrictWithDetailsAllOfStayInPipelineStages
      */
     constructor() { 
@@ -71,13 +71,13 @@ class DealNonStrictWithDetailsAllOfStayInPipelineStages {
 }
 
 /**
- * The number of seconds a Deal has been in each stage of the pipeline
+ * The number of seconds a deal has been in each stage of the pipeline
  * @member {Object} times_in_stages
  */
 DealNonStrictWithDetailsAllOfStayInPipelineStages.prototype['times_in_stages'] = undefined;
 
 /**
- * The order of the Deal progression through the pipeline stages
+ * The order of the deal progression through the pipeline stages
  * @member {Array.<Number>} order_of_stages
  */
 DealNonStrictWithDetailsAllOfStayInPipelineStages.prototype['order_of_stages'] = undefined;

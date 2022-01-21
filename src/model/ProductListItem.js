@@ -176,49 +176,49 @@ class ProductListItem {
 }
 
 /**
- * The ID of the deal-product (the ID of the Product attached to the Deal)
+ * The ID of the deal-product (the ID of the product attached to the deal)
  * @member {Number} id
  */
 ProductListItem.prototype['id'] = undefined;
 
 /**
- * The ID of the Deal
+ * The ID of the deal
  * @member {Number} deal_id
  */
 ProductListItem.prototype['deal_id'] = undefined;
 
 /**
- * Order number of the Product
+ * The order number of the product
  * @member {Number} order_nr
  */
 ProductListItem.prototype['order_nr'] = undefined;
 
 /**
- * The ID of the Product
+ * The ID of the product
  * @member {Number} product_id
  */
 ProductListItem.prototype['product_id'] = undefined;
 
 /**
- * The ID of the Product variation
+ * The ID of the product variation
  * @member {Number} product_variation_id
  */
 ProductListItem.prototype['product_variation_id'] = undefined;
 
 /**
- * Price value of the Product
+ * The price value of the product
  * @member {Number} item_price
  */
 ProductListItem.prototype['item_price'] = undefined;
 
 /**
- * Discount percentage of the Product
+ * The discount percentage of the product
  * @member {Number} discount_percentage
  */
 ProductListItem.prototype['discount_percentage'] = undefined;
 
 /**
- * Duration of the Product
+ * The duration of the product
  * @member {Number} duration
  */
 ProductListItem.prototype['duration'] = undefined;
@@ -230,79 +230,79 @@ ProductListItem.prototype['duration'] = undefined;
 ProductListItem.prototype['duration_unit'] = undefined;
 
 /**
- * The Product sum without the discount
+ * The product sum without the discount
  * @member {Number} sum_no_discount
  */
 ProductListItem.prototype['sum_no_discount'] = undefined;
 
 /**
- * The sum of all the Products attached to the Deal
+ * The sum of all the products attached to the deal
  * @member {Number} sum
  */
 ProductListItem.prototype['sum'] = undefined;
 
 /**
- * The currency associated with the Deal Product
+ * The currency associated with the deal product
  * @member {String} currency
  */
 ProductListItem.prototype['currency'] = undefined;
 
 /**
- * If Product is enabled or not
+ * Whether the product is enabled or not
  * @member {Boolean} enabled_flag
  */
 ProductListItem.prototype['enabled_flag'] = undefined;
 
 /**
- * The date and time when the Product was added to the Deal
+ * The date and time when the product was added to the deal
  * @member {String} add_time
  */
 ProductListItem.prototype['add_time'] = undefined;
 
 /**
- * The date and time when the Deal Product was last edited
+ * The date and time when the deal product was last edited
  * @member {String} last_edit
  */
 ProductListItem.prototype['last_edit'] = undefined;
 
 /**
- * Comments of the Product
+ * The comments of the product
  * @member {String} comments
  */
 ProductListItem.prototype['comments'] = undefined;
 
 /**
- * Boolean indicates if the Product is activated or not
+ * Whether the product is active or not
  * @member {Boolean} active_flag
  */
 ProductListItem.prototype['active_flag'] = undefined;
 
 /**
- * The Product tax
+ * The product tax
  * @member {Number} tax
  */
 ProductListItem.prototype['tax'] = undefined;
 
 /**
- * The Product name
+ * The product name
  * @member {String} name
  */
 ProductListItem.prototype['name'] = undefined;
 
 /**
- * Formatted sum of the Product
+ * The formatted sum of the product
  * @member {String} sum_formatted
  */
 ProductListItem.prototype['sum_formatted'] = undefined;
 
 /**
- * Formatted quantity of the Product
+ * The formatted quantity of the product
  * @member {String} quantity_formatted
  */
 ProductListItem.prototype['quantity_formatted'] = undefined;
 
 /**
- * Quantity of the Product
+ * The quantity of the product
  * @member {Number} quantity
  */
 ProductListItem.prototype['quantity'] = undefined;

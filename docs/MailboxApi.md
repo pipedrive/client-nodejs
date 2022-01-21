@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 Delete mail thread
 
-Marks mail thread as deleted.
+Marks a mail thread as deleted.
 
 ### Example
 
@@ -36,7 +36,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.MailboxApi();
-let id = 56; // Number | ID of the mail thread
+let id = 56; // Number | The ID of the mail thread
 apiInstance.deleteMailThread(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -50,7 +50,7 @@ apiInstance.deleteMailThread(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the mail thread | 
+ **id** | **Number**| The ID of the mail thread | 
 
 ### Return type
 
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 Get one mail message
 
-Returns data about specific mail message.
+Returns data about a specific mail message.
 
 ### Example
 
@@ -89,9 +89,9 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.MailboxApi();
-let id = 56; // Number | ID of the mail message to fetch.
+let id = 56; // Number | The ID of the mail message to fetch
 let opts = {
-  'includeBody': new Pipedrive.NumberBooleanDefault0() // NumberBooleanDefault0 | Whether to include full message body or not. `0` = Don't include, `1` = Include
+  'includeBody': new Pipedrive.NumberBooleanDefault0() // NumberBooleanDefault0 | Whether to include the full message body or not. `0` = Don't include, `1` = Include
 };
 apiInstance.getMailMessage(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -106,8 +106,8 @@ apiInstance.getMailMessage(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the mail message to fetch. | 
- **includeBody** | [**NumberBooleanDefault0**](.md)| Whether to include full message body or not. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include | [optional] 
+ **id** | **Number**| The ID of the mail message to fetch | 
+ **includeBody** | [**NumberBooleanDefault0**](.md)| Whether to include the full message body or not. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include | [optional] 
 
 ### Return type
 
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 
 Get one mail thread
 
-Returns specific mail thread.
+Returns a specific mail thread.
 
 ### Example
 
@@ -146,7 +146,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.MailboxApi();
-let id = 56; // Number | ID of the mail thread
+let id = 56; // Number | The ID of the mail thread
 apiInstance.getMailThread(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -160,7 +160,7 @@ apiInstance.getMailThread(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the mail thread | 
+ **id** | **Number**| The ID of the mail thread | 
 
 ### Return type
 
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 
 Get all mail messages of mail thread
 
-Get mail messages inside specified mail thread.
+Get all the mail messages inside a specified mail thread.
 
 ### Example
 
@@ -199,7 +199,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.MailboxApi();
-let id = 56; // Number | ID of the mail thread
+let id = 56; // Number | The ID of the mail thread
 apiInstance.getMailThreadMessages(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -213,7 +213,7 @@ apiInstance.getMailThreadMessages(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the mail thread | 
+ **id** | **Number**| The ID of the mail thread | 
 
 ### Return type
 
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 
 Get mail threads
 
-Returns mail threads in specified folder ordered by most recent message within.
+Returns mail threads in a specified folder ordered by the most recent message within.
 
 ### Example
 
@@ -252,7 +252,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.MailboxApi();
-let folder = "'inbox'"; // String | Type of folder to fetch.
+let folder = "'inbox'"; // String | The type of folder to fetch
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
@@ -270,7 +270,7 @@ apiInstance.getMailThreads(folder, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **folder** | **String**| Type of folder to fetch. | [default to &#39;inbox&#39;]
+ **folder** | **String**| The type of folder to fetch | [default to &#39;inbox&#39;]
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
 
@@ -311,12 +311,12 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.MailboxApi();
-let id = 56; // Number | ID of the mail thread
+let id = 56; // Number | The ID of the mail thread
 let opts = {
   'dealId': 56, // Number | The ID of the deal this thread is associated with
   'leadId': null, // String | The ID of the lead this thread is associated with
   'sharedFlag': new Pipedrive.NumberBoolean(), // NumberBoolean | Whether this thread is shared with other users in your company
-  'readFlag': new Pipedrive.NumberBoolean(), // NumberBoolean | Whether this thread read or unread
+  'readFlag': new Pipedrive.NumberBoolean(), // NumberBoolean | Whether this thread is read or unread
   'archivedFlag': new Pipedrive.NumberBoolean() // NumberBoolean | Whether this thread is archived or not. You can only archive threads that belong to Inbox folder. Archived threads will disappear from Inbox.
 };
 apiInstance.updateMailThreadDetails(id, opts).then((data) => {
@@ -332,11 +332,11 @@ apiInstance.updateMailThreadDetails(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the mail thread | 
+ **id** | **Number**| The ID of the mail thread | 
  **dealId** | **Number**| The ID of the deal this thread is associated with | [optional] 
  **leadId** | [**String**](String.md)| The ID of the lead this thread is associated with | [optional] 
  **sharedFlag** | [**NumberBoolean**](NumberBoolean.md)| Whether this thread is shared with other users in your company | [optional] 
- **readFlag** | [**NumberBoolean**](NumberBoolean.md)| Whether this thread read or unread | [optional] 
+ **readFlag** | [**NumberBoolean**](NumberBoolean.md)| Whether this thread is read or unread | [optional] 
  **archivedFlag** | [**NumberBoolean**](NumberBoolean.md)| Whether this thread is archived or not. You can only archive threads that belong to Inbox folder. Archived threads will disappear from Inbox. | [optional] 
 
 ### Return type

@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class BaseUserMeAllOfLanguage {
     /**
      * Constructs a new <code>BaseUserMeAllOfLanguage</code>.
-     * The User language details
+     * The user language details
      * @alias module:model/BaseUserMeAllOfLanguage
      */
     constructor() { 

@@ -78,7 +78,7 @@ class SubscriptionInstallmentUpdateRequest {
 SubscriptionInstallmentUpdateRequest.prototype['payments'] = undefined;
 
 /**
- * Indicates that the Deal value must be set to Installment Subscription's total value
+ * Indicates that the deal value must be set to installment subscription's total value
  * @member {Boolean} update_deal_value
  */
 SubscriptionInstallmentUpdateRequest.prototype['update_deal_value'] = undefined;

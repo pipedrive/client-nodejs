@@ -66,7 +66,7 @@ class RelatedPersonData {
 }
 
 /**
- * The ID of the Person associated with the item
+ * The ID of the person associated with the item
  * @member {module:model/PersonData} PERSON_ID
  */
 RelatedPersonData.prototype['PERSON_ID'] = undefined;

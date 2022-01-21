@@ -215,187 +215,187 @@ class UserPermissionsItem {
 }
 
 /**
- * If the User can add custom fields
+ * If the user can add custom fields
  * @member {Boolean} can_add_custom_fields
  */
 UserPermissionsItem.prototype['can_add_custom_fields'] = undefined;
 
 /**
- * If the User can add Products
+ * If the user can add products
  * @member {Boolean} can_add_products
  */
 UserPermissionsItem.prototype['can_add_products'] = undefined;
 
 /**
- * If the User can add prospects as Leads
+ * If the user can add prospects as leads
  * @member {Boolean} can_add_prospects_as_leads
  */
 UserPermissionsItem.prototype['can_add_prospects_as_leads'] = undefined;
 
 /**
- * If the User can bulk edit items
+ * If the user can bulk edit items
  * @member {Boolean} can_bulk_edit_items
  */
 UserPermissionsItem.prototype['can_bulk_edit_items'] = undefined;
 
 /**
- * If the User can change visibility of items
+ * If the user can change visibility of items
  * @member {Boolean} can_change_visibility_of_items
  */
 UserPermissionsItem.prototype['can_change_visibility_of_items'] = undefined;
 
 /**
- * If the User can convert Deals to Leads
+ * If the user can convert deals to leads
  * @member {Boolean} can_convert_deals_to_leads
  */
 UserPermissionsItem.prototype['can_convert_deals_to_leads'] = undefined;
 
 /**
- * If the User can create workflows
+ * If the user can create workflows
  * @member {Boolean} can_create_own_workflow
  */
 UserPermissionsItem.prototype['can_create_own_workflow'] = undefined;
 
 /**
- * If the User can delete Activities
+ * If the user can delete activities
  * @member {Boolean} can_delete_activities
  */
 UserPermissionsItem.prototype['can_delete_activities'] = undefined;
 
 /**
- * If the User can delete custom fields
+ * If the user can delete custom fields
  * @member {Boolean} can_delete_custom_fields
  */
 UserPermissionsItem.prototype['can_delete_custom_fields'] = undefined;
 
 /**
- * If the User can delete Deals
+ * If the user can delete deals
  * @member {Boolean} can_delete_deals
  */
 UserPermissionsItem.prototype['can_delete_deals'] = undefined;
 
 /**
- * If the User can edit custom fields
+ * If the user can edit custom fields
  * @member {Boolean} can_edit_custom_fields
  */
 UserPermissionsItem.prototype['can_edit_custom_fields'] = undefined;
 
 /**
- * If the User can edit Deals' closed date
+ * If the user can edit deals' closed date
  * @member {Boolean} can_edit_deals_closed_date
  */
 UserPermissionsItem.prototype['can_edit_deals_closed_date'] = undefined;
 
 /**
- * If the User can edit Products
+ * If the user can edit products
  * @member {Boolean} can_edit_products
  */
 UserPermissionsItem.prototype['can_edit_products'] = undefined;
 
 /**
- * If the User can edit shared filters
+ * If the user can edit shared filters
  * @member {Boolean} can_edit_shared_filters
  */
 UserPermissionsItem.prototype['can_edit_shared_filters'] = undefined;
 
 /**
- * If the User can export data from item lists
+ * If the user can export data from item lists
  * @member {Boolean} can_export_data_from_lists
  */
 UserPermissionsItem.prototype['can_export_data_from_lists'] = undefined;
 
 /**
- * If the User can follow other Users
+ * If the user can follow other users
  * @member {Boolean} can_follow_other_users
  */
 UserPermissionsItem.prototype['can_follow_other_users'] = undefined;
 
 /**
- * If the User can merge Deals
+ * If the user can merge deals
  * @member {Boolean} can_merge_deals
  */
 UserPermissionsItem.prototype['can_merge_deals'] = undefined;
 
 /**
- * If the User can merge Organizations
+ * If the user can merge organizations
  * @member {Boolean} can_merge_organizations
  */
 UserPermissionsItem.prototype['can_merge_organizations'] = undefined;
 
 /**
- * If the User can merge people
+ * If the user can merge people
  * @member {Boolean} can_merge_people
  */
 UserPermissionsItem.prototype['can_merge_people'] = undefined;
 
 /**
- * If the User can modify labels
+ * If the user can modify labels
  * @member {Boolean} can_modify_labels
  */
 UserPermissionsItem.prototype['can_modify_labels'] = undefined;
 
 /**
- * If the User can see company-wide statistics
+ * If the user can see company-wide statistics
  * @member {Boolean} can_see_company_wide_statistics
  */
 UserPermissionsItem.prototype['can_see_company_wide_statistics'] = undefined;
 
 /**
- * If the User can see the summary on the Deals page
+ * If the user can see the summary on the deals page
  * @member {Boolean} can_see_deals_list_summary
  */
 UserPermissionsItem.prototype['can_see_deals_list_summary'] = undefined;
 
 /**
- * If the User can see the names of hidden items
+ * If the user can see the names of hidden items
  * @member {Boolean} can_see_hidden_items_names
  */
 UserPermissionsItem.prototype['can_see_hidden_items_names'] = undefined;
 
 /**
- * If the User can see other Users
+ * If the user can see other users
  * @member {Boolean} can_see_other_users
  */
 UserPermissionsItem.prototype['can_see_other_users'] = undefined;
 
 /**
- * If the User can see other Users' statistics
+ * If the user can see other users' statistics
  * @member {Boolean} can_see_other_users_statistics
  */
 UserPermissionsItem.prototype['can_see_other_users_statistics'] = undefined;
 
 /**
- * If the User can see security dashboard
+ * If the user can see security dashboard
  * @member {Boolean} can_see_security_dashboard
  */
 UserPermissionsItem.prototype['can_see_security_dashboard'] = undefined;
 
 /**
- * If the User can share filters
+ * If the user can share filters
  * @member {Boolean} can_share_filters
  */
 UserPermissionsItem.prototype['can_share_filters'] = undefined;
 
 /**
- * If the User can share insights
+ * If the user can share insights
  * @member {Boolean} can_share_insights
  */
 UserPermissionsItem.prototype['can_share_insights'] = undefined;
 
 /**
- * If the User can use API
+ * If the user can use API
  * @member {Boolean} can_use_api
  */
 UserPermissionsItem.prototype['can_use_api'] = undefined;
 
 /**
- * If the User can use email tracking
+ * If the user can use email tracking
  * @member {Boolean} can_use_email_tracking
  */
 UserPermissionsItem.prototype['can_use_email_tracking'] = undefined;
 
 /**
- * If the User can use import
+ * If the user can use import
  * @member {Boolean} can_use_import
  */
 UserPermissionsItem.prototype['can_use_import'] = undefined;

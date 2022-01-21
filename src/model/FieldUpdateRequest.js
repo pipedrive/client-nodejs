@@ -75,7 +75,7 @@ class FieldUpdateRequest {
 }
 
 /**
- * Name of the field
+ * The name of the field
  * @member {String} name
  */
 FieldUpdateRequest.prototype['name'] = undefined;

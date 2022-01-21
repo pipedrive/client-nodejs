@@ -80,25 +80,25 @@ class NewFollowerResponseData {
 }
 
 /**
- * The ID of the user that was added as Follower
+ * The ID of the user that was added as follower
  * @member {Number} user_id
  */
 NewFollowerResponseData.prototype['user_id'] = undefined;
 
 /**
- * The ID of the Follower
+ * The ID of the follower
  * @member {Number} id
  */
 NewFollowerResponseData.prototype['id'] = undefined;
 
 /**
- * The ID of the Product
+ * The ID of the product
  * @member {Number} product_id
  */
 NewFollowerResponseData.prototype['product_id'] = undefined;
 
 /**
- * The Follower creation time. Format: YYYY-MM-DD HH:MM:SS
+ * The follower creation time. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} add_time
  */
 NewFollowerResponseData.prototype['add_time'] = undefined;

@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Number** | The ID of the Webhook | [optional] 
-**companyId** | **Number** | The ID of the Company related to the Webhook | [optional] 
-**ownerId** | **Number** | The ID of the User who owns the Webhook | [optional] 
-**userId** | **Number** | The ID of the User related to the Webhook | [optional] 
+**companyId** | **Number** | The ID of the company related to the Webhook | [optional] 
+**ownerId** | **Number** | The ID of the user who owns the Webhook | [optional] 
+**userId** | **Number** | The ID of the user related to the Webhook | [optional] 
 **eventAction** | **String** | The Webhook action | [optional] 
 **eventObject** | **String** | The Webhook object | [optional] 
 **subscriptionUrl** | **String** | The subscription URL of the Webhook | [optional] 

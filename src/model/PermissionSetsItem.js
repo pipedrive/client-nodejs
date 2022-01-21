@@ -75,19 +75,19 @@ class PermissionSetsItem {
 }
 
 /**
- * The ID of User Permission Set
+ * The ID of user permission set
  * @member {Number} id
  */
 PermissionSetsItem.prototype['id'] = undefined;
 
 /**
- * The name of Permission Set
+ * The name of the permission set
  * @member {String} name
  */
 PermissionSetsItem.prototype['name'] = undefined;
 
 /**
- * The number of Users assigned to this Permission Set
+ * The number of users assigned to this permission set
  * @member {Number} assignment_count
  */
 PermissionSetsItem.prototype['assignment_count'] = undefined;

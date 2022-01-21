@@ -22,7 +22,7 @@ class RequredTitleParameter {
     /**
      * Constructs a new <code>RequredTitleParameter</code>.
      * @alias module:model/RequredTitleParameter
-     * @param title {String} Deal title
+     * @param title {String} The title of the deal
      */
     constructor(title) { 
         
@@ -67,7 +67,7 @@ class RequredTitleParameter {
 }
 
 /**
- * Deal title
+ * The title of the deal
  * @member {String} title
  */
 RequredTitleParameter.prototype['title'] = undefined;

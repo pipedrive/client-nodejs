@@ -133,55 +133,55 @@ class BasePersonItem {
 }
 
 /**
- * The ID of the Person
+ * The ID of the person
  * @member {Number} id
  */
 BasePersonItem.prototype['id'] = undefined;
 
 /**
- * The ID of the Company related to the Person
+ * The ID of the company related to the person
  * @member {Number} company_id
  */
 BasePersonItem.prototype['company_id'] = undefined;
 
 /**
- * If the Person is activated or not
+ * Whether the person is active or not
  * @member {Boolean} active_flag
  */
 BasePersonItem.prototype['active_flag'] = undefined;
 
 /**
- * List of phone data related to the Person
+ * List of phone data related to the person
  * @member {Array.<module:model/BasePersonItemPhone>} phone
  */
 BasePersonItem.prototype['phone'] = undefined;
 
 /**
- * List of email data related to the Person
+ * List of email data related to the person
  * @member {Array.<module:model/BasePersonItemEmail>} email
  */
 BasePersonItem.prototype['email'] = undefined;
 
 /**
- * The first letter of the name of the Person
+ * The first letter of the name of the person
  * @member {String} first_char
  */
 BasePersonItem.prototype['first_char'] = undefined;
 
 /**
- * The date and time when the Person was added/created. Format: YYYY-MM-DD HH:MM:SS
+ * The date and time when the person was added/created. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} add_time
  */
 BasePersonItem.prototype['add_time'] = undefined;
 
 /**
- * The last updated date and time of the Person. Format: YYYY-MM-DD HH:MM:SS
+ * The last updated date and time of the person. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} update_time
  */
 BasePersonItem.prototype['update_time'] = undefined;
 
 /**
- * The visibility group ID of who can see the Person
+ * The visibility group ID of who can see the person
  * @member {String} visible_to
  */
 BasePersonItem.prototype['visible_to'] = undefined;
@@ -192,25 +192,25 @@ BasePersonItem.prototype['visible_to'] = undefined;
 BasePersonItem.prototype['picture_id'] = undefined;
 
 /**
- * The label assigned to the Person
+ * The label assigned to the person
  * @member {Number} label
  */
 BasePersonItem.prototype['label'] = undefined;
 
 /**
- * The name of the Organization associated with the Person
+ * The name of the organization associated with the person
  * @member {String} org_name
  */
 BasePersonItem.prototype['org_name'] = undefined;
 
 /**
- * The name of the owner associated with the Person
+ * The name of the owner associated with the person
  * @member {String} owner_name
  */
 BasePersonItem.prototype['owner_name'] = undefined;
 
 /**
- * The CC email associated with the Person
+ * The BCC email associated with the person
  * @member {String} cc_email
  */
 BasePersonItem.prototype['cc_email'] = undefined;

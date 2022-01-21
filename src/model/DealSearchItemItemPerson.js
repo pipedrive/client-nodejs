@@ -70,13 +70,13 @@ class DealSearchItemItemPerson {
 }
 
 /**
- * The ID of the Person the Deal is associated with
+ * The ID of the person the deal is associated with
  * @member {Number} id
  */
 DealSearchItemItemPerson.prototype['id'] = undefined;
 
 /**
- * The name of the Person the Deal is associated with
+ * The name of the person the deal is associated with
  * @member {String} name
  */
 DealSearchItemItemPerson.prototype['name'] = undefined;

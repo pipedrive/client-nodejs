@@ -22,8 +22,8 @@ class SubscriptionInstallmentCreateRequest {
     /**
      * Constructs a new <code>SubscriptionInstallmentCreateRequest</code>.
      * @alias module:model/SubscriptionInstallmentCreateRequest
-     * @param dealId {Number} ID of the Deal this Installment Subscription is associated with
-     * @param currency {String} The currency of the Installment Subscription. Accepts a 3-character currency code.
+     * @param dealId {Number} The ID of the deal this installment subscription is associated with
+     * @param currency {String} The currency of the installment subscription. Accepts a 3-character currency code.
      * @param payments {Array.<Object>} Array of payments. It requires a minimum structure as follows: [{ amount:SUM, description:DESCRIPTION, due_at:PAYMENT_DATE }]. Replace SUM with a payment amount, DESCRIPTION with an explanation string, PAYMENT_DATE with a date (format YYYY-MM-DD).
      */
     constructor(dealId, currency, payments) { 
@@ -86,13 +86,13 @@ class SubscriptionInstallmentCreateRequest {
 }
 
 /**
- * ID of the Deal this Installment Subscription is associated with
+ * The ID of the deal this installment subscription is associated with
  * @member {Number} deal_id
  */
 SubscriptionInstallmentCreateRequest.prototype['deal_id'] = undefined;
 
 /**
- * The currency of the Installment Subscription. Accepts a 3-character currency code.
+ * The currency of the installment subscription. Accepts a 3-character currency code.
  * @member {String} currency
  */
 SubscriptionInstallmentCreateRequest.prototype['currency'] = undefined;
@@ -104,7 +104,7 @@ SubscriptionInstallmentCreateRequest.prototype['currency'] = undefined;
 SubscriptionInstallmentCreateRequest.prototype['payments'] = undefined;
 
 /**
- * Indicates that the Deal value must be set to the Installment Subscription's total value
+ * Indicates that the deal value must be set to the installment subscription's total value
  * @member {Boolean} update_deal_value
  */
 SubscriptionInstallmentCreateRequest.prototype['update_deal_value'] = undefined;

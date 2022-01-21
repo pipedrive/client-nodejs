@@ -71,7 +71,7 @@ class GoalResults {
 }
 
 /**
- * Numeric progress of the goal
+ * The numeric progress of the goal
  * @member {Number} progress
  */
 GoalResults.prototype['progress'] = undefined;

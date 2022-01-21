@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**level** | **Number** | The level of Role in the role hierarchy | [optional] 
+**level** | **Number** | The level of role in the role hierarchy | [optional] 
 
 

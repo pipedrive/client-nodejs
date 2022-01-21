@@ -101,43 +101,43 @@ class DealUserDataWithId {
 }
 
 /**
- * The ID of the User
+ * The ID of the user
  * @member {Number} id
  */
 DealUserDataWithId.prototype['id'] = undefined;
 
 /**
- * The Name of the User
+ * The name of the user
  * @member {String} name
  */
 DealUserDataWithId.prototype['name'] = undefined;
 
 /**
- * The email of the User
+ * The email of the user
  * @member {String} email
  */
 DealUserDataWithId.prototype['email'] = undefined;
 
 /**
- * If the User has a picture or not
+ * If the user has a picture or not
  * @member {Boolean} has_pic
  */
 DealUserDataWithId.prototype['has_pic'] = undefined;
 
 /**
- * The User picture hash
+ * The user picture hash
  * @member {String} pic_hash
  */
 DealUserDataWithId.prototype['pic_hash'] = undefined;
 
 /**
- * If the User is activated or not
+ * Whether the user is active or not
  * @member {Boolean} active_flag
  */
 DealUserDataWithId.prototype['active_flag'] = undefined;
 
 /**
- * The ID of the User
+ * The ID of the user
  * @member {Number} value
  */
 DealUserDataWithId.prototype['value'] = undefined;
@@ -145,38 +145,38 @@ DealUserDataWithId.prototype['value'] = undefined;
 
 // Implement DealUserData interface:
 /**
- * The ID of the User
+ * The ID of the user
  * @member {Number} id
  */
 DealUserData.prototype['id'] = undefined;
 /**
- * The Name of the User
+ * The name of the user
  * @member {String} name
  */
 DealUserData.prototype['name'] = undefined;
 /**
- * The email of the User
+ * The email of the user
  * @member {String} email
  */
 DealUserData.prototype['email'] = undefined;
 /**
- * If the User has a picture or not
+ * If the user has a picture or not
  * @member {Boolean} has_pic
  */
 DealUserData.prototype['has_pic'] = undefined;
 /**
- * The User picture hash
+ * The user picture hash
  * @member {String} pic_hash
  */
 DealUserData.prototype['pic_hash'] = undefined;
 /**
- * If the User is activated or not
+ * Whether the user is active or not
  * @member {Boolean} active_flag
  */
 DealUserData.prototype['active_flag'] = undefined;
 // Implement DealUserDataWithIdAllOf interface:
 /**
- * The ID of the User
+ * The ID of the user
  * @member {Number} value
  */
 DealUserDataWithIdAllOf.prototype['value'] = undefined;

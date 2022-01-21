@@ -81,13 +81,13 @@ class PersonDataEmail {
 PersonDataEmail.prototype['label'] = undefined;
 
 /**
- * The email of the associated Person
+ * The email of the associated person
  * @member {String} value
  */
 PersonDataEmail.prototype['value'] = undefined;
 
 /**
- * If this is the primary email or not
+ * Whether this is the primary email or not
  * @member {Boolean} primary
  */
 PersonDataEmail.prototype['primary'] = undefined;

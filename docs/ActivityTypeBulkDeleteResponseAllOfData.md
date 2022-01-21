@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **[Number]** | The IDs of deleted ActivityTypes | [optional] 
+**id** | **[Number]** | The IDs of the deleted ActivityTypes | [optional] 
 
 

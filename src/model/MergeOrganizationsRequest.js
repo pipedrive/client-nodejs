@@ -22,7 +22,7 @@ class MergeOrganizationsRequest {
     /**
      * Constructs a new <code>MergeOrganizationsRequest</code>.
      * @alias module:model/MergeOrganizationsRequest
-     * @param mergeWithId {Number} The ID of the Organization that the Organization will be merged with
+     * @param mergeWithId {Number} The ID of the organization that the organization will be merged with
      */
     constructor(mergeWithId) { 
         
@@ -67,7 +67,7 @@ class MergeOrganizationsRequest {
 }
 
 /**
- * The ID of the Organization that the Organization will be merged with
+ * The ID of the organization that the organization will be merged with
  * @member {Number} merge_with_id
  */
 MergeOrganizationsRequest.prototype['merge_with_id'] = undefined;

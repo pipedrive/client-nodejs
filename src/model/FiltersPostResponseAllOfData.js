@@ -145,7 +145,7 @@ FiltersPostResponseAllOfData.prototype['type'] = undefined;
 FiltersPostResponseAllOfData.prototype['temporary_flag'] = undefined;
 
 /**
- * The User ID of the created filter
+ * The user ID of the created filter
  * @member {Number} user_id
  */
 FiltersPostResponseAllOfData.prototype['user_id'] = undefined;

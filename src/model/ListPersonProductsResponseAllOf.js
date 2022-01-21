@@ -72,7 +72,7 @@ class ListPersonProductsResponseAllOf {
 }
 
 /**
- * The array of Deal Products
+ * The array of deal products
  * @member {Array.<module:model/ListPersonProductsResponseAllOfData>} data
  */
 ListPersonProductsResponseAllOf.prototype['data'] = undefined;

@@ -125,79 +125,79 @@ class PaymentItem {
 }
 
 /**
- * The ID of the Payment
+ * The ID of the payment
  * @member {Number} id
  */
 PaymentItem.prototype['id'] = undefined;
 
 /**
- * The ID of the Subscription this Payment is associated with
+ * The ID of the subscription this payment is associated with
  * @member {Number} subscription_id
  */
 PaymentItem.prototype['subscription_id'] = undefined;
 
 /**
- * The ID of the Deal this Payment is associated with
+ * The ID of the deal this payment is associated with
  * @member {Number} deal_id
  */
 PaymentItem.prototype['deal_id'] = undefined;
 
 /**
- * The Payment status
+ * The payment status
  * @member {Boolean} is_active
  */
 PaymentItem.prototype['is_active'] = undefined;
 
 /**
- * The Payment amount
+ * The payment amount
  * @member {Number} amount
  */
 PaymentItem.prototype['amount'] = undefined;
 
 /**
- * The currency of the Payment
+ * The currency of the payment
  * @member {String} currency
  */
 PaymentItem.prototype['currency'] = undefined;
 
 /**
- * Difference between the amount of the current Payment and the previous Payment. The value can be either positive or negative.
+ * The difference between the amount of the current payment and the previous payment. The value can be either positive or negative.
  * @member {Number} change_amount
  */
 PaymentItem.prototype['change_amount'] = undefined;
 
 /**
- * Date when Payment occurs
+ * The date when payment occurs
  * @member {Date} due_at
  */
 PaymentItem.prototype['due_at'] = undefined;
 
 /**
- * Represents the movement of revenue in comparison with the previous Payment. Possible values are: `New` - first Payment of the subscription. `Recurring` - no movement. `Expansion` - current Payment amount > previous Payment amount. `Contraction` - current Payment amount < previous Payment amount. `Churn` - last Payment of the subscription.
+ * Represents the movement of revenue in comparison with the previous payment. Possible values are: `New` - first payment of the subscription. `Recurring` - no movement. `Expansion` - current payment amount > previous payment amount. `Contraction` - current payment amount < previous payment amount. `Churn` - last payment of the subscription.
  * @member {module:model/PaymentItem.RevenueMovementTypeEnum} revenue_movement_type
  */
 PaymentItem.prototype['revenue_movement_type'] = undefined;
 
 /**
- * The type of the Payment. Possible values are: `Recurring` - payments occur over fixed intervals of time, `Additional` - extra payment not the recurring payment of the recurring subscription, `Installment` - payment of the installment subscription.
+ * The type of the payment. Possible values are: `Recurring` - payments occur over fixed intervals of time, `Additional` - extra payment not the recurring payment of the recurring subscription, `Installment` - payment of the installment subscription.
  * @member {module:model/PaymentItem.PaymentTypeEnum} payment_type
  */
 PaymentItem.prototype['payment_type'] = undefined;
 
 /**
- * The description of the Payment
+ * The description of the payment
  * @member {String} description
  */
 PaymentItem.prototype['description'] = undefined;
 
 /**
- * The creation time of the Payment
+ * The creation time of the payment
  * @member {String} add_time
  */
 PaymentItem.prototype['add_time'] = undefined;
 
 /**
- * The update time of the Payment
+ * The update time of the payment
  * @member {String} update_time
  */
 PaymentItem.prototype['update_time'] = undefined;

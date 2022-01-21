@@ -70,13 +70,13 @@ class DealSearchItemItemOrganization {
 }
 
 /**
- * The ID of the Organization the Deal is associated with
+ * The ID of the organization the deal is associated with
  * @member {Number} id
  */
 DealSearchItemItemOrganization.prototype['id'] = undefined;
 
 /**
- * The name of the Organization the Deal is associated with
+ * The name of the organization the deal is associated with
  * @member {String} name
  */
 DealSearchItemItemOrganization.prototype['name'] = undefined;

@@ -127,43 +127,43 @@ class UpdateDealRequest {
 }
 
 /**
- * Deal title
+ * The title of the deal
  * @member {String} title
  */
 UpdateDealRequest.prototype['title'] = undefined;
 
 /**
- * Value of the deal. If omitted, value will be set to 0.
+ * The value of the deal. If omitted, value will be set to 0.
  * @member {String} value
  */
 UpdateDealRequest.prototype['value'] = undefined;
 
 /**
- * Currency of the deal. Accepts a 3-character currency code. If omitted, currency will be set to the default currency of the authorized user.
+ * The currency of the deal. Accepts a 3-character currency code. If omitted, currency will be set to the default currency of the authorized user.
  * @member {String} currency
  */
 UpdateDealRequest.prototype['currency'] = undefined;
 
 /**
- * The ID of the User which will be the owner of the created Deal. If not provided, the user making the request will be used.
+ * The ID of the user which will be the owner of the created deal. If not provided, the user making the request will be used.
  * @member {Number} user_id
  */
 UpdateDealRequest.prototype['user_id'] = undefined;
 
 /**
- * The ID of a Person which this Deal will be linked to. If the Person does not exist yet, it needs to be created first. This property is required unless `org_id` is specified.
+ * The ID of a person which this deal will be linked to. If the person does not exist yet, it needs to be created first. This property is required unless `org_id` is specified.
  * @member {Number} person_id
  */
 UpdateDealRequest.prototype['person_id'] = undefined;
 
 /**
- * The ID of an Organization which this Deal will be linked to. If the Organization does not exist yet, it needs to be created first. This property is required unless `person_id` is specified.
+ * The ID of an organization which this deal will be linked to. If the organization does not exist yet, it needs to be created first. This property is required unless `person_id` is specified.
  * @member {Number} org_id
  */
 UpdateDealRequest.prototype['org_id'] = undefined;
 
 /**
- * The ID of a stage this Deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on `stage_id`). If omitted, the deal will be placed in the first stage of the default pipeline.
+ * The ID of a stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on `stage_id`). If omitted, the deal will be placed in the first stage of the default pipeline.
  * @member {Number} stage_id
  */
 UpdateDealRequest.prototype['stage_id'] = undefined;
@@ -175,25 +175,25 @@ UpdateDealRequest.prototype['stage_id'] = undefined;
 UpdateDealRequest.prototype['status'] = undefined;
 
 /**
- * The expected close date of the Deal. In ISO 8601 format: YYYY-MM-DD.
+ * The expected close date of the deal. In ISO 8601 format: YYYY-MM-DD.
  * @member {Date} expected_close_date
  */
 UpdateDealRequest.prototype['expected_close_date'] = undefined;
 
 /**
- * Deal success probability percentage. Used/shown only when `deal_probability` for the pipeline of the deal is enabled.
+ * The success probability percentage of the deal. Used/shown only when `deal_probability` for the pipeline of the deal is enabled.
  * @member {Number} probability
  */
 UpdateDealRequest.prototype['probability'] = undefined;
 
 /**
- * Optional message about why the deal was lost (to be used when status=lost)
+ * The optional message about why the deal was lost (to be used when status = lost)
  * @member {String} lost_reason
  */
 UpdateDealRequest.prototype['lost_reason'] = undefined;
 
 /**
- * Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
+ * The visibility of the deal. If omitted, the visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
  * @member {module:model/VisibleTo} visible_to
  */
 UpdateDealRequest.prototype['visible_to'] = undefined;
@@ -201,38 +201,38 @@ UpdateDealRequest.prototype['visible_to'] = undefined;
 
 // Implement DealTitleParameter interface:
 /**
- * Deal title
+ * The title of the deal
  * @member {String} title
  */
 DealTitleParameter.prototype['title'] = undefined;
 // Implement BasicDeal interface:
 /**
- * Value of the deal. If omitted, value will be set to 0.
+ * The value of the deal. If omitted, value will be set to 0.
  * @member {String} value
  */
 BasicDeal.prototype['value'] = undefined;
 /**
- * Currency of the deal. Accepts a 3-character currency code. If omitted, currency will be set to the default currency of the authorized user.
+ * The currency of the deal. Accepts a 3-character currency code. If omitted, currency will be set to the default currency of the authorized user.
  * @member {String} currency
  */
 BasicDeal.prototype['currency'] = undefined;
 /**
- * The ID of the User which will be the owner of the created Deal. If not provided, the user making the request will be used.
+ * The ID of the user which will be the owner of the created deal. If not provided, the user making the request will be used.
  * @member {Number} user_id
  */
 BasicDeal.prototype['user_id'] = undefined;
 /**
- * The ID of a Person which this Deal will be linked to. If the Person does not exist yet, it needs to be created first. This property is required unless `org_id` is specified.
+ * The ID of a person which this deal will be linked to. If the person does not exist yet, it needs to be created first. This property is required unless `org_id` is specified.
  * @member {Number} person_id
  */
 BasicDeal.prototype['person_id'] = undefined;
 /**
- * The ID of an Organization which this Deal will be linked to. If the Organization does not exist yet, it needs to be created first. This property is required unless `person_id` is specified.
+ * The ID of an organization which this deal will be linked to. If the organization does not exist yet, it needs to be created first. This property is required unless `person_id` is specified.
  * @member {Number} org_id
  */
 BasicDeal.prototype['org_id'] = undefined;
 /**
- * The ID of a stage this Deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on `stage_id`). If omitted, the deal will be placed in the first stage of the default pipeline.
+ * The ID of a stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on `stage_id`). If omitted, the deal will be placed in the first stage of the default pipeline.
  * @member {Number} stage_id
  */
 BasicDeal.prototype['stage_id'] = undefined;
@@ -242,22 +242,22 @@ BasicDeal.prototype['stage_id'] = undefined;
  */
 BasicDeal.prototype['status'] = undefined;
 /**
- * The expected close date of the Deal. In ISO 8601 format: YYYY-MM-DD.
+ * The expected close date of the deal. In ISO 8601 format: YYYY-MM-DD.
  * @member {Date} expected_close_date
  */
 BasicDeal.prototype['expected_close_date'] = undefined;
 /**
- * Deal success probability percentage. Used/shown only when `deal_probability` for the pipeline of the deal is enabled.
+ * The success probability percentage of the deal. Used/shown only when `deal_probability` for the pipeline of the deal is enabled.
  * @member {Number} probability
  */
 BasicDeal.prototype['probability'] = undefined;
 /**
- * Optional message about why the deal was lost (to be used when status=lost)
+ * The optional message about why the deal was lost (to be used when status = lost)
  * @member {String} lost_reason
  */
 BasicDeal.prototype['lost_reason'] = undefined;
 /**
- * Visibility of the deal. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
+ * The visibility of the deal. If omitted, the visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
  * @member {module:model/VisibleTo} visible_to
  */
 BasicDeal.prototype['visible_to'] = undefined;

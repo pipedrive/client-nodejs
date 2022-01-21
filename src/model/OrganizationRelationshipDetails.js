@@ -117,13 +117,13 @@ class OrganizationRelationshipDetails {
 }
 
 /**
- * The ID of the Organization Relationship
+ * The ID of the organization relationship
  * @member {Number} id
  */
 OrganizationRelationshipDetails.prototype['id'] = undefined;
 
 /**
- * The type of the Relationship
+ * The type of the relationship
  * @member {String} type
  */
 OrganizationRelationshipDetails.prototype['type'] = undefined;
@@ -139,37 +139,37 @@ OrganizationRelationshipDetails.prototype['rel_owner_org_id'] = undefined;
 OrganizationRelationshipDetails.prototype['rel_linked_org_id'] = undefined;
 
 /**
- * The creation date and time of the Relationship
+ * The creation date and time of the relationship
  * @member {String} add_time
  */
 OrganizationRelationshipDetails.prototype['add_time'] = undefined;
 
 /**
- * The last updated date and time of the Relationship
+ * The last updated date and time of the relationship
  * @member {String} update_time
  */
 OrganizationRelationshipDetails.prototype['update_time'] = undefined;
 
 /**
- * If the Relationship is active or not
+ * Whether the relationship is active or not
  * @member {String} active_flag
  */
 OrganizationRelationshipDetails.prototype['active_flag'] = undefined;
 
 /**
- * The calculated type of the Relationship with the linked Organization
+ * The calculated type of the relationship with the linked organization
  * @member {String} calculated_type
  */
 OrganizationRelationshipDetails.prototype['calculated_type'] = undefined;
 
 /**
- * The ID of the linked Organization
+ * The ID of the linked organization
  * @member {Number} calculated_related_org_id
  */
 OrganizationRelationshipDetails.prototype['calculated_related_org_id'] = undefined;
 
 /**
- * The name of the linked Organization
+ * The name of the linked organization
  * @member {String} related_organization_name
  */
 OrganizationRelationshipDetails.prototype['related_organization_name'] = undefined;
@@ -177,12 +177,12 @@ OrganizationRelationshipDetails.prototype['related_organization_name'] = undefin
 
 // Implement OrganizationRelationshipWithCalculatedFields interface:
 /**
- * The ID of the Organization Relationship
+ * The ID of the organization relationship
  * @member {Number} id
  */
 OrganizationRelationshipWithCalculatedFields.prototype['id'] = undefined;
 /**
- * The type of the Relationship
+ * The type of the relationship
  * @member {String} type
  */
 OrganizationRelationshipWithCalculatedFields.prototype['type'] = undefined;
@@ -195,33 +195,33 @@ OrganizationRelationshipWithCalculatedFields.prototype['rel_owner_org_id'] = und
  */
 OrganizationRelationshipWithCalculatedFields.prototype['rel_linked_org_id'] = undefined;
 /**
- * The creation date and time of the Relationship
+ * The creation date and time of the relationship
  * @member {String} add_time
  */
 OrganizationRelationshipWithCalculatedFields.prototype['add_time'] = undefined;
 /**
- * The last updated date and time of the Relationship
+ * The last updated date and time of the relationship
  * @member {String} update_time
  */
 OrganizationRelationshipWithCalculatedFields.prototype['update_time'] = undefined;
 /**
- * If the Relationship is active or not
+ * Whether the relationship is active or not
  * @member {String} active_flag
  */
 OrganizationRelationshipWithCalculatedFields.prototype['active_flag'] = undefined;
 /**
- * The calculated type of the Relationship with the linked Organization
+ * The calculated type of the relationship with the linked organization
  * @member {String} calculated_type
  */
 OrganizationRelationshipWithCalculatedFields.prototype['calculated_type'] = undefined;
 /**
- * The ID of the linked Organization
+ * The ID of the linked organization
  * @member {Number} calculated_related_org_id
  */
 OrganizationRelationshipWithCalculatedFields.prototype['calculated_related_org_id'] = undefined;
 // Implement RelatedOrganizationName interface:
 /**
- * The name of the linked Organization
+ * The name of the linked organization
  * @member {String} related_organization_name
  */
 RelatedOrganizationName.prototype['related_organization_name'] = undefined;

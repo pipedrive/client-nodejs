@@ -152,7 +152,7 @@ class PersonListProduct {
 }
 
 /**
- * The ID of the Product
+ * The ID of the product
  * @member {Number} id
  */
 PersonListProduct.prototype['id'] = undefined;
@@ -170,32 +170,32 @@ PersonListProduct.prototype['company_id'] = undefined;
 PersonListProduct.prototype['name'] = undefined;
 
 /**
- * Product code
+ * The product code
  * @member {String} code
  */
 PersonListProduct.prototype['code'] = undefined;
 
 /**
- * The Description of the Product
+ * The description of the product
  * @member {String} description
  */
 PersonListProduct.prototype['description'] = undefined;
 
 /**
- * Unit in which this product is sold
+ * The unit in which this product is sold
  * @member {String} unit
  */
 PersonListProduct.prototype['unit'] = undefined;
 
 /**
- * Tax percentage
+ * The tax percentage
  * @member {Number} tax
  * @default 0
  */
 PersonListProduct.prototype['tax'] = 0;
 
 /**
- * Category of the Product
+ * The category of the product
  * @member {String} category
  */
 PersonListProduct.prototype['category'] = undefined;
@@ -211,49 +211,49 @@ PersonListProduct.prototype['active_flag'] = undefined;
 PersonListProduct.prototype['selectable'] = undefined;
 
 /**
- * The First letter of the Product name
+ * The first letter of the product name
  * @member {String} first_char
  */
 PersonListProduct.prototype['first_char'] = undefined;
 
 /**
- * Visibility of the product. If omitted, visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
+ * The visibility of the product. If omitted, the visibility will be set to the default visibility setting of this item type for the authorized user.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers (private)</td></tr><tr><td>`3`</td><td>Entire company (shared)</td></tr></table>
  * @member {module:model/VisibleTo} visible_to
  */
 PersonListProduct.prototype['visible_to'] = undefined;
 
 /**
- * The ID of the user who will be marked as the owner of this product. When omitted, authorized user ID will be used.
+ * The ID of the user who will be marked as the owner of this product. When omitted, the authorized user ID will be used.
  * @member {Number} owner_id
  */
 PersonListProduct.prototype['owner_id'] = undefined;
 
 /**
- * Files count
+ * The count of files
  * @member {Number} files_count
  */
 PersonListProduct.prototype['files_count'] = undefined;
 
 /**
- * Followers count
+ * The count of followers
  * @member {Number} followers_count
  */
 PersonListProduct.prototype['followers_count'] = undefined;
 
 /**
- * The date and time when the Product was added to the Deal
+ * The date and time when the product was added to the deal
  * @member {String} add_time
  */
 PersonListProduct.prototype['add_time'] = undefined;
 
 /**
- * The date and time when the Product was updated to the Deal
+ * The date and time when the product was updated to the deal
  * @member {String} update_time
  */
 PersonListProduct.prototype['update_time'] = undefined;
 
 /**
- * The ID of the Deal
+ * The ID of the deal
  * @member {Number} deal_id
  */
 PersonListProduct.prototype['deal_id'] = undefined;

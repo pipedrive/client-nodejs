@@ -65,7 +65,7 @@ class BulkDeleteResponseAllOfData {
 }
 
 /**
- * The list of deleted Field IDs
+ * The list of deleted field IDs
  * @member {Array.<Number>} id
  */
 BulkDeleteResponseAllOfData.prototype['id'] = undefined;

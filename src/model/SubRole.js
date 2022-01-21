@@ -97,31 +97,31 @@ class SubRole {
 }
 
 /**
- * The ID of the parent Role
+ * The ID of the parent role
  * @member {Number} parent_role_id
  */
 SubRole.prototype['parent_role_id'] = undefined;
 
 /**
- * The name of the Role
+ * The name of the role
  * @member {String} name
  */
 SubRole.prototype['name'] = undefined;
 
 /**
- * The ID of the Role
+ * The ID of the role
  * @member {Number} id
  */
 SubRole.prototype['id'] = undefined;
 
 /**
- * If the Role is active or not
+ * Whether the role is active or not
  * @member {Boolean} active_flag
  */
 SubRole.prototype['active_flag'] = undefined;
 
 /**
- * The number of Users assigned to this Role
+ * The number of users assigned to this role
  * @member {String} assignment_count
  */
 SubRole.prototype['assignment_count'] = undefined;
@@ -135,28 +135,28 @@ SubRole.prototype['sub_role_count'] = undefined;
 
 // Implement BaseRole interface:
 /**
- * The ID of the parent Role
+ * The ID of the parent role
  * @member {Number} parent_role_id
  */
 BaseRole.prototype['parent_role_id'] = undefined;
 /**
- * The name of the Role
+ * The name of the role
  * @member {String} name
  */
 BaseRole.prototype['name'] = undefined;
 // Implement SubRoleAllOf interface:
 /**
- * The ID of the Role
+ * The ID of the role
  * @member {Number} id
  */
 SubRoleAllOf.prototype['id'] = undefined;
 /**
- * If the Role is active or not
+ * Whether the role is active or not
  * @member {Boolean} active_flag
  */
 SubRoleAllOf.prototype['active_flag'] = undefined;
 /**
- * The number of Users assigned to this Role
+ * The number of users assigned to this role
  * @member {String} assignment_count
  */
 SubRoleAllOf.prototype['assignment_count'] = undefined;

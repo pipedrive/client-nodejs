@@ -145,7 +145,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.FiltersApi();
-let ids = "ids_example"; // String | Comma-separated filter IDs to delete
+let ids = "ids_example"; // String | The comma-separated filter IDs to delete
 apiInstance.deleteFilters(ids).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -159,7 +159,7 @@ apiInstance.deleteFilters(ids).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **String**| Comma-separated filter IDs to delete | 
+ **ids** | **String**| The comma-separated filter IDs to delete | 
 
 ### Return type
 

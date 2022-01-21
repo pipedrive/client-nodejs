@@ -70,13 +70,13 @@ class PersonSearchItemItemOrganization {
 }
 
 /**
- * The ID of the Organization the Person is associated with
+ * The ID of the organization the person is associated with
  * @member {Number} id
  */
 PersonSearchItemItemOrganization.prototype['id'] = undefined;
 
 /**
- * The name of the Organization the Person is associated with
+ * The name of the organization the person is associated with
  * @member {String} name
  */
 PersonSearchItemItemOrganization.prototype['name'] = undefined;

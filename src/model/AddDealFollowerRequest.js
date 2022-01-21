@@ -22,7 +22,7 @@ class AddDealFollowerRequest {
     /**
      * Constructs a new <code>AddDealFollowerRequest</code>.
      * @alias module:model/AddDealFollowerRequest
-     * @param userId {Number} ID of the user
+     * @param userId {Number} The ID of the user
      */
     constructor(userId) { 
         
@@ -67,7 +67,7 @@ class AddDealFollowerRequest {
 }
 
 /**
- * ID of the user
+ * The ID of the user
  * @member {Number} user_id
  */
 AddDealFollowerRequest.prototype['user_id'] = undefined;

@@ -95,7 +95,7 @@ class ListDealsResponse {
 ListDealsResponse.prototype['success'] = undefined;
 
 /**
- * The array of Deals
+ * The array of deals
  * @member {Array.<module:model/DealNonStrict>} data
  */
 ListDealsResponse.prototype['data'] = undefined;
@@ -119,7 +119,7 @@ ListDealsResponse.prototype['related_objects'] = undefined;
 BaseResponse.prototype['success'] = undefined;
 // Implement ListDealsResponseAllOf interface:
 /**
- * The array of Deals
+ * The array of deals
  * @member {Array.<module:model/DealNonStrict>} data
  */
 ListDealsResponseAllOf.prototype['data'] = undefined;

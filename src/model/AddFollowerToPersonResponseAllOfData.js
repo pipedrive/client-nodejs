@@ -80,25 +80,25 @@ class AddFollowerToPersonResponseAllOfData {
 }
 
 /**
- * The ID of the User who was added as a follower to a Person
+ * The ID of the user who was added as a follower to a person
  * @member {Number} user_id
  */
 AddFollowerToPersonResponseAllOfData.prototype['user_id'] = undefined;
 
 /**
- * The ID of the Follower
+ * The ID of the follower
  * @member {Number} id
  */
 AddFollowerToPersonResponseAllOfData.prototype['id'] = undefined;
 
 /**
- * The ID of the Person to whom the follower was added
+ * The ID of the person to whom the follower was added
  * @member {Number} person_id
  */
 AddFollowerToPersonResponseAllOfData.prototype['person_id'] = undefined;
 
 /**
- * The date and time when the Follower was added to a Person. Format: YYYY-MM-DD HH:MM:SS
+ * The date and time when the follower was added to a person. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} add_time
  */
 AddFollowerToPersonResponseAllOfData.prototype['add_time'] = undefined;

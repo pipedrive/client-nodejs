@@ -103,7 +103,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.OrganizationsApi();
-let id = 56; // Number | The ID of the Organization
+let id = 56; // Number | The ID of the organization
 let opts = Pipedrive.AddOrganizationFollowerRequest.constructFromObject({
   // Properties that you want to update
 });
@@ -120,7 +120,7 @@ apiInstance.addOrganizationFollower(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The ID of the Organization | 
+ **id** | **Number**| The ID of the organization | 
  **addOrganizationFollowerRequest** | [**AddOrganizationFollowerRequest**](AddOrganizationFollowerRequest.md)|  | [optional] 
 
 ### Return type
@@ -160,7 +160,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.OrganizationsApi();
-let id = 56; // Number | The ID of the Organization
+let id = 56; // Number | The ID of the organization
 apiInstance.deleteOrganization(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -174,7 +174,7 @@ apiInstance.deleteOrganization(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The ID of the Organization | 
+ **id** | **Number**| The ID of the organization | 
 
 ### Return type
 
@@ -210,7 +210,7 @@ api_key.apiKey = 'YOUR API KEY';
 //api_key.apiKeyPrefix = 'Token';
 
 let apiInstance = new Pipedrive.OrganizationsApi();
-let id = 56; // Number | The ID of the Organization
+let id = 56; // Number | The ID of the organization
 let followerId = 56; // Number | The ID of the follower
 apiInstance.deleteOrganizationFollower(id, followerId).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -225,7 +225,7 @@ apiInstance.deleteOrganizationFollower(id, followerId).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The ID of the Organization | 
+ **id** | **Number**| The ID of the organization | 
  **followerId** | **Number**| The ID of the follower | 
 
 ### Return type
@@ -265,7 +265,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.OrganizationsApi();
-let ids = "ids_example"; // String | Comma-separated IDs that will be deleted
+let ids = "ids_example"; // String | The comma-separated IDs that will be deleted
 apiInstance.deleteOrganizations(ids).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -279,7 +279,7 @@ apiInstance.deleteOrganizations(ids).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **String**| Comma-separated IDs that will be deleted | 
+ **ids** | **String**| The comma-separated IDs that will be deleted | 
 
 ### Return type
 
@@ -318,7 +318,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.OrganizationsApi();
-let id = 56; // Number | The ID of the Organization
+let id = 56; // Number | The ID of the organization
 apiInstance.getOrganization(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -332,7 +332,7 @@ apiInstance.getOrganization(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The ID of the Organization | 
+ **id** | **Number**| The ID of the organization | 
 
 ### Return type
 
@@ -371,7 +371,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.OrganizationsApi();
-let id = 56; // Number | The ID of the Organization
+let id = 56; // Number | The ID of the organization
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
@@ -391,7 +391,7 @@ apiInstance.getOrganizationActivities(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The ID of the Organization | 
+ **id** | **Number**| The ID of the organization | 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
  **done** | [**NumberBoolean**](.md)| Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted returns both Done and Not done activities. | [optional] 
@@ -434,12 +434,12 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.OrganizationsApi();
-let id = 56; // Number | The ID of the Organization
+let id = 56; // Number | The ID of the organization
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
-  'status': "'all_not_deleted'", // String | Only fetch deals with specific status. If omitted, all not deleted deals are fetched.
-  'sort': "sort_example", // String | Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
+  'status': "'all_not_deleted'", // String | Only fetch deals with a specific status. If omitted, all not deleted deals are fetched.
+  'sort': "sort_example", // String | The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
   'onlyPrimaryAssociation': new Pipedrive.NumberBoolean() // NumberBoolean | If set, only deals that are directly associated to the organization are fetched. If not set (default), all deals are fetched that are either directly or indirectly related to the organization. Indirect relations include relations through custom, organization-type fields and through persons of the given organization.
 };
 apiInstance.getOrganizationDeals(id, opts).then((data) => {
@@ -455,11 +455,11 @@ apiInstance.getOrganizationDeals(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The ID of the Organization | 
+ **id** | **Number**| The ID of the organization | 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
- **status** | **String**| Only fetch deals with specific status. If omitted, all not deleted deals are fetched. | [optional] [default to &#39;all_not_deleted&#39;]
- **sort** | **String**| Field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). | [optional] 
+ **status** | **String**| Only fetch deals with a specific status. If omitted, all not deleted deals are fetched. | [optional] [default to &#39;all_not_deleted&#39;]
+ **sort** | **String**| The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). | [optional] 
  **onlyPrimaryAssociation** | [**NumberBoolean**](.md)| If set, only deals that are directly associated to the organization are fetched. If not set (default), all deals are fetched that are either directly or indirectly related to the organization. Indirect relations include relations through custom, organization-type fields and through persons of the given organization. | [optional] 
 
 ### Return type
@@ -499,12 +499,12 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.OrganizationsApi();
-let id = 56; // Number | The ID of the Organization
+let id = 56; // Number | The ID of the organization
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
   'includeDeletedFiles': new Pipedrive.NumberBoolean(), // NumberBoolean | When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
-  'sort': "sort_example" // String | Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
+  'sort': "sort_example" // String | The field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
 };
 apiInstance.getOrganizationFiles(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -519,11 +519,11 @@ apiInstance.getOrganizationFiles(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The ID of the Organization | 
+ **id** | **Number**| The ID of the organization | 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
  **includeDeletedFiles** | [**NumberBoolean**](.md)| When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work. | [optional] 
- **sort** | **String**| Field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment. | [optional] 
+ **sort** | **String**| The field names and sorting mode separated by a comma (field_name_1 ASC, field_name_2 DESC). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment. | [optional] 
 
 ### Return type
 
@@ -562,7 +562,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.OrganizationsApi();
-let id = 56; // Number | The ID of the Organization
+let id = 56; // Number | The ID of the organization
 apiInstance.getOrganizationFollowers(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -576,7 +576,7 @@ apiInstance.getOrganizationFollowers(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The ID of the Organization | 
+ **id** | **Number**| The ID of the organization | 
 
 ### Return type
 
@@ -615,7 +615,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.OrganizationsApi();
-let id = 56; // Number | The ID of the Organization
+let id = 56; // Number | The ID of the organization
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
@@ -633,7 +633,7 @@ apiInstance.getOrganizationMailMessages(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The ID of the Organization | 
+ **id** | **Number**| The ID of the organization | 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
 
@@ -674,7 +674,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.OrganizationsApi();
-let id = 56; // Number | The ID of the Organization
+let id = 56; // Number | The ID of the organization
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
@@ -692,7 +692,7 @@ apiInstance.getOrganizationPersons(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The ID of the Organization | 
+ **id** | **Number**| The ID of the organization | 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
 
@@ -733,11 +733,11 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.OrganizationsApi();
-let id = 56; // Number | The ID of the Organization
+let id = 56; // Number | The ID of the organization
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
-  'allChanges': "allChanges_example", // String | Whether to show custom field updates or not. 1 = Include custom field changes. If omitted returns changes without custom field updates.
+  'allChanges': "allChanges_example", // String | Whether to show custom field updates or not. 1 = Include custom field changes. If omitted, returns changes without custom field updates.
   'items': "items_example" // String | A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document)
 };
 apiInstance.getOrganizationUpdates(id, opts).then((data) => {
@@ -753,10 +753,10 @@ apiInstance.getOrganizationUpdates(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The ID of the Organization | 
+ **id** | **Number**| The ID of the organization | 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
- **allChanges** | **String**| Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates. | [optional] 
+ **allChanges** | **String**| Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted, returns changes without custom field updates. | [optional] 
  **items** | **String**| A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document) | [optional] 
 
 ### Return type
@@ -779,7 +779,7 @@ Name | Type | Description  | Notes
 
 List permitted users
 
-List users permitted to access an organization
+List users permitted to access an organization.
 
 ### Example
 
@@ -793,7 +793,7 @@ api_key.apiKey = 'YOUR API KEY';
 //api_key.apiKeyPrefix = 'Token';
 
 let apiInstance = new Pipedrive.OrganizationsApi();
-let id = 56; // Number | The ID of the Organization
+let id = 56; // Number | The ID of the organization
 apiInstance.getOrganizationUsers(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -807,7 +807,7 @@ apiInstance.getOrganizationUsers(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The ID of the Organization | 
+ **id** | **Number**| The ID of the organization | 
 
 ### Return type
 
@@ -829,7 +829,7 @@ Name | Type | Description  | Notes
 
 Get all organizations
 
-Returns all organizations
+Returns all organizations.
 
 ### Example
 
@@ -848,11 +848,11 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new Pipedrive.OrganizationsApi();
 let opts = {
   'userId': 56, // Number | If supplied, only organizations owned by the given user will be returned. However, `filter_id` takes precedence over `user_id` when both are supplied.
-  'filterId': 56, // Number | ID of the filter to use
-  'firstChar': "firstChar_example", // String | If supplied, only organizations whose name starts with the specified letter will be returned (case insensitive).
+  'filterId': 56, // Number | The ID of the filter to use
+  'firstChar': "firstChar_example", // String | If supplied, only organizations whose name starts with the specified letter will be returned (case insensitive)
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
-  'sort': "sort_example" // String | Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
+  'sort': "sort_example" // String | The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
 };
 apiInstance.getOrganizations(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -868,11 +868,11 @@ apiInstance.getOrganizations(opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| If supplied, only organizations owned by the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;user_id&#x60; when both are supplied. | [optional] 
- **filterId** | **Number**| ID of the filter to use | [optional] 
- **firstChar** | **String**| If supplied, only organizations whose name starts with the specified letter will be returned (case insensitive). | [optional] 
+ **filterId** | **Number**| The ID of the filter to use | [optional] 
+ **firstChar** | **String**| If supplied, only organizations whose name starts with the specified letter will be returned (case insensitive) | [optional] 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
- **sort** | **String**| Field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). | [optional] 
+ **sort** | **String**| The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). | [optional] 
 
 ### Return type
 
@@ -911,7 +911,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.OrganizationsApi();
-let id = 56; // Number | The ID of the Organization
+let id = 56; // Number | The ID of the organization
 let opts = Pipedrive.MergeOrganizationsRequest.constructFromObject({
   // Properties that you want to update
 });
@@ -928,7 +928,7 @@ apiInstance.mergeOrganizations(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The ID of the Organization | 
+ **id** | **Number**| The ID of the organization | 
  **mergeOrganizationsRequest** | [**MergeOrganizationsRequest**](MergeOrganizationsRequest.md)|  | [optional] 
 
 ### Return type
@@ -951,7 +951,7 @@ Name | Type | Description  | Notes
 
 Search organizations
 
-Searches all Organizations by name, address, notes and/or custom fields. This endpoint is a wrapper of &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\&quot;&gt;/v1/itemSearch&lt;/a&gt; with a narrower OAuth scope.
+Searches all organizations by name, address, notes and/or custom fields. This endpoint is a wrapper of &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\&quot;&gt;/v1/itemSearch&lt;/a&gt; with a narrower OAuth scope.
 
 ### Example
 
@@ -1031,7 +1031,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.OrganizationsApi();
-let id = 56; // Number | The ID of the Organization
+let id = 56; // Number | The ID of the organization
 let opts = Pipedrive.BasicOrganization.constructFromObject({
   // Properties that you want to update
 });
@@ -1048,7 +1048,7 @@ apiInstance.updateOrganization(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The ID of the Organization | 
+ **id** | **Number**| The ID of the organization | 
  **basicOrganization** | [**BasicOrganization**](BasicOrganization.md)|  | [optional] 
 
 ### Return type

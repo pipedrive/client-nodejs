@@ -95,43 +95,43 @@ class BaseCurrency {
 }
 
 /**
- * ID of the Currency
+ * The ID of the currency
  * @member {Number} id
  */
 BaseCurrency.prototype['id'] = undefined;
 
 /**
- * Code of the Currency
+ * The code of the currency
  * @member {String} code
  */
 BaseCurrency.prototype['code'] = undefined;
 
 /**
- * Name of the Currency
+ * The name of the currency
  * @member {String} name
  */
 BaseCurrency.prototype['name'] = undefined;
 
 /**
- * The amount of decimal points of the Currency
+ * The amount of decimal points of the currency
  * @member {Number} decimal_points
  */
 BaseCurrency.prototype['decimal_points'] = undefined;
 
 /**
- * Symbol of the Currency
+ * The symbol of the currency
  * @member {String} symbol
  */
 BaseCurrency.prototype['symbol'] = undefined;
 
 /**
- * Whether the Currency is active or not
+ * Whether the currency is active or not
  * @member {Boolean} active_flag
  */
 BaseCurrency.prototype['active_flag'] = undefined;
 
 /**
- * Whether the Currency is a custom one or not
+ * Whether the currency is a custom one or not
  * @member {Boolean} is_custom_flag
  */
 BaseCurrency.prototype['is_custom_flag'] = undefined;

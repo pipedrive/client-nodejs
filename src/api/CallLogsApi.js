@@ -44,7 +44,7 @@ export default class CallLogsApi {
 
     /**
      * Add a call log
-     * Adds a new call log
+     * Adds a new call log.
      * @param {Object} opts Optional parameters
      * @param {module:model/CallLogObject} opts.callLogObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BaseResponse} and HTTP response
@@ -91,7 +91,7 @@ export default class CallLogsApi {
 
     /**
      * Add a call log
-     * Adds a new call log
+     * Adds a new call log.
      * @param {Object} opts Optional parameters
      * @param {module:model/CallLogObject} opts.callLogObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BaseResponse}
@@ -244,7 +244,7 @@ export default class CallLogsApi {
 
     /**
      * Get details of a call log
-     * Returns details of a specific call log
+     * Returns details of a specific call log.
      * @param {String} id The ID received when you create the call log
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BaseResponse} and HTTP response
      */
@@ -295,7 +295,7 @@ export default class CallLogsApi {
 
     /**
      * Get details of a call log
-     * Returns details of a specific call log
+     * Returns details of a specific call log.
      * @param {String} id The ID received when you create the call log
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BaseResponse}
      */
@@ -309,7 +309,7 @@ export default class CallLogsApi {
 
     /**
      * Get all call logs assigned to a particular user
-     * Returns all call logs assigned to a particular user
+     * Returns all call logs assigned to a particular user.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -359,7 +359,7 @@ export default class CallLogsApi {
 
     /**
      * Get all call logs assigned to a particular user
-     * Returns all call logs assigned to a particular user
+     * Returns all call logs assigned to a particular user.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page

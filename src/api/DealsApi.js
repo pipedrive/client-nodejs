@@ -133,7 +133,7 @@ export default class DealsApi {
     /**
      * Add a follower to a deal
      * Adds a follower to a deal.
-     * @param {Number} id ID of the deal
+     * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {module:model/AddDealFollowerRequest} opts.addDealFollowerRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddedDealFollower} and HTTP response
@@ -186,7 +186,7 @@ export default class DealsApi {
     /**
      * Add a follower to a deal
      * Adds a follower to a deal.
-     * @param {Number} id ID of the deal
+     * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {module:model/AddDealFollowerRequest} opts.addDealFollowerRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddedDealFollower}
@@ -202,7 +202,7 @@ export default class DealsApi {
     /**
      * Add a participant to a deal
      * Adds a participant to a deal.
-     * @param {Number} id ID of the deal
+     * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {module:model/AddDealParticipantRequest} opts.addDealParticipantRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostDealParticipants} and HTTP response
@@ -255,7 +255,7 @@ export default class DealsApi {
     /**
      * Add a participant to a deal
      * Adds a participant to a deal.
-     * @param {Number} id ID of the deal
+     * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {module:model/AddDealParticipantRequest} opts.addDealParticipantRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostDealParticipants}
@@ -271,7 +271,7 @@ export default class DealsApi {
     /**
      * Add a product to the deal, eventually creating a new item called a deal-product
      * Adds a product to the deal.
-     * @param {Number} id ID of the deal
+     * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {module:model/NewDealProduct} opts.newDealProduct 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetAddProductAttachementDetails} and HTTP response
@@ -324,7 +324,7 @@ export default class DealsApi {
     /**
      * Add a product to the deal, eventually creating a new item called a deal-product
      * Adds a product to the deal.
-     * @param {Number} id ID of the deal
+     * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {module:model/NewDealProduct} opts.newDealProduct 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetAddProductAttachementDetails}
@@ -340,7 +340,7 @@ export default class DealsApi {
     /**
      * Delete a deal
      * Marks a deal as deleted.
-     * @param {Number} id ID of the deal
+     * @param {Number} id The ID of the deal
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteDeal} and HTTP response
      */
     deleteDealWithHttpInfo(id) {
@@ -391,7 +391,7 @@ export default class DealsApi {
     /**
      * Delete a deal
      * Marks a deal as deleted.
-     * @param {Number} id ID of the deal
+     * @param {Number} id The ID of the deal
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteDeal}
      */
     deleteDeal(id) {
@@ -405,8 +405,8 @@ export default class DealsApi {
     /**
      * Delete a follower from a deal
      * Deletes a follower from a deal.
-     * @param {Number} id ID of the deal
-     * @param {Number} followerId ID of the follower
+     * @param {Number} id The ID of the deal
+     * @param {Number} followerId The ID of the follower
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteDealFollower} and HTTP response
      */
     deleteDealFollowerWithHttpInfo(id, followerId) {
@@ -462,8 +462,8 @@ export default class DealsApi {
     /**
      * Delete a follower from a deal
      * Deletes a follower from a deal.
-     * @param {Number} id ID of the deal
-     * @param {Number} followerId ID of the follower
+     * @param {Number} id The ID of the deal
+     * @param {Number} followerId The ID of the follower
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteDealFollower}
      */
     deleteDealFollower(id, followerId) {
@@ -477,8 +477,8 @@ export default class DealsApi {
     /**
      * Delete a participant from a deal
      * Deletes a participant from a deal.
-     * @param {Number} id ID of the deal
-     * @param {Number} dealParticipantId ID of the deal participant
+     * @param {Number} id The ID of the deal
+     * @param {Number} dealParticipantId The ID of the participant of the deal
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteDealParticipant} and HTTP response
      */
     deleteDealParticipantWithHttpInfo(id, dealParticipantId) {
@@ -534,8 +534,8 @@ export default class DealsApi {
     /**
      * Delete a participant from a deal
      * Deletes a participant from a deal.
-     * @param {Number} id ID of the deal
-     * @param {Number} dealParticipantId ID of the deal participant
+     * @param {Number} id The ID of the deal
+     * @param {Number} dealParticipantId The ID of the participant of the deal
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteDealParticipant}
      */
     deleteDealParticipant(id, dealParticipantId) {
@@ -549,8 +549,8 @@ export default class DealsApi {
     /**
      * Delete an attached product from a deal
      * Deletes a product attachment from a deal, using the `product_attachment_id`.
-     * @param {Number} id ID of the deal
-     * @param {Number} productAttachmentId Product attachment ID. This is returned as `product_attachment_id` after attaching a product to a deal or as id when listing the products attached to a deal.
+     * @param {Number} id The ID of the deal
+     * @param {Number} productAttachmentId The product attachment ID. This is returned as `product_attachment_id` after attaching a product to a deal or as id when listing the products attached to a deal.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteDealProduct} and HTTP response
      */
     deleteDealProductWithHttpInfo(id, productAttachmentId) {
@@ -606,8 +606,8 @@ export default class DealsApi {
     /**
      * Delete an attached product from a deal
      * Deletes a product attachment from a deal, using the `product_attachment_id`.
-     * @param {Number} id ID of the deal
-     * @param {Number} productAttachmentId Product attachment ID. This is returned as `product_attachment_id` after attaching a product to a deal or as id when listing the products attached to a deal.
+     * @param {Number} id The ID of the deal
+     * @param {Number} productAttachmentId The product attachment ID. This is returned as `product_attachment_id` after attaching a product to a deal or as id when listing the products attached to a deal.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteDealProduct}
      */
     deleteDealProduct(id, productAttachmentId) {
@@ -621,7 +621,7 @@ export default class DealsApi {
     /**
      * Delete multiple deals in bulk
      * Marks multiple deals as deleted.
-     * @param {String} ids Comma-separated IDs that will be deleted
+     * @param {String} ids The comma-separated IDs that will be deleted
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteMultipleDeals} and HTTP response
      */
     deleteDealsWithHttpInfo(ids) {
@@ -672,7 +672,7 @@ export default class DealsApi {
     /**
      * Delete multiple deals in bulk
      * Marks multiple deals as deleted.
-     * @param {String} ids Comma-separated IDs that will be deleted
+     * @param {String} ids The comma-separated IDs that will be deleted
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteMultipleDeals}
      */
     deleteDeals(ids) {
@@ -685,8 +685,8 @@ export default class DealsApi {
 
     /**
      * Duplicate deal
-     * Duplicate a deal
-     * @param {Number} id ID of the deal
+     * Duplicates a deal.
+     * @param {Number} id The ID of the deal
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetDuplicatedDeal} and HTTP response
      */
     duplicateDealWithHttpInfo(id) {
@@ -736,8 +736,8 @@ export default class DealsApi {
 
     /**
      * Duplicate deal
-     * Duplicate a deal
-     * @param {Number} id ID of the deal
+     * Duplicates a deal.
+     * @param {Number} id The ID of the deal
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetDuplicatedDeal}
      */
     duplicateDeal(id) {
@@ -750,8 +750,8 @@ export default class DealsApi {
 
     /**
      * Get details of a deal
-     * Returns details of a specific deal. Note that this also returns some additional fields which are not present when asking for all deals – such as deal age and stay in pipeline stages. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of dealFields. For more information on how to get all details of a deal, see <a href=\"https://pipedrive.readme.io/docs/getting-details-of-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
-     * @param {Number} id ID of the deal
+     * Returns the details of a specific deal. Note that this also returns some additional fields which are not present when asking for all deals – such as deal age and stay in pipeline stages. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of dealFields. For more information on how to get all details of a deal, see <a href=\"https://pipedrive.readme.io/docs/getting-details-of-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * @param {Number} id The ID of the deal
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetDeal} and HTTP response
      */
     getDealWithHttpInfo(id) {
@@ -801,8 +801,8 @@ export default class DealsApi {
 
     /**
      * Get details of a deal
-     * Returns details of a specific deal. Note that this also returns some additional fields which are not present when asking for all deals – such as deal age and stay in pipeline stages. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of dealFields. For more information on how to get all details of a deal, see <a href=\"https://pipedrive.readme.io/docs/getting-details-of-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
-     * @param {Number} id ID of the deal
+     * Returns the details of a specific deal. Note that this also returns some additional fields which are not present when asking for all deals – such as deal age and stay in pipeline stages. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of dealFields. For more information on how to get all details of a deal, see <a href=\"https://pipedrive.readme.io/docs/getting-details-of-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * @param {Number} id The ID of the deal
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetDeal}
      */
     getDeal(id) {
@@ -816,11 +816,11 @@ export default class DealsApi {
     /**
      * List activities associated with a deal
      * Lists activities associated with a deal.
-     * @param {Number} id ID of the deal
+     * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {module:model/NumberBoolean} opts.done Whether the activity is done or not. 0 = Not done, 1 = Done. If omitted returns both Done and Not done activities.
+     * @param {module:model/NumberBoolean} opts.done Whether the activity is done or not. 0 = Not done, 1 = Done. If omitted, returns both Done and Not done activities.
      * @param {String} opts.exclude A comma-separated string of activity IDs to exclude from result
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DealListActivitiesResponse} and HTTP response
      */
@@ -876,11 +876,11 @@ export default class DealsApi {
     /**
      * List activities associated with a deal
      * Lists activities associated with a deal.
-     * @param {Number} id ID of the deal
+     * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {module:model/NumberBoolean} opts.done Whether the activity is done or not. 0 = Not done, 1 = Done. If omitted returns both Done and Not done activities.
+     * @param {module:model/NumberBoolean} opts.done Whether the activity is done or not. 0 = Not done, 1 = Done. If omitted, returns both Done and Not done activities.
      * @param {String} opts.exclude A comma-separated string of activity IDs to exclude from result
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DealListActivitiesResponse}
      */
@@ -895,12 +895,12 @@ export default class DealsApi {
     /**
      * List files attached to a deal
      * Lists files associated with a deal.
-     * @param {Number} id ID of the deal
+     * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {module:model/NumberBoolean} opts.includeDeletedFiles When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
+     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListFilesResponse} and HTTP response
      */
     getDealFilesWithHttpInfo(id, opts) {
@@ -955,12 +955,12 @@ export default class DealsApi {
     /**
      * List files attached to a deal
      * Lists files associated with a deal.
-     * @param {Number} id ID of the deal
+     * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {module:model/NumberBoolean} opts.includeDeletedFiles When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
+     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListFilesResponse}
      */
     getDealFiles(id, opts) {
@@ -974,7 +974,7 @@ export default class DealsApi {
     /**
      * List followers of a deal
      * Lists the followers of a deal.
-     * @param {Number} id ID of the deal
+     * @param {Number} id The ID of the deal
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListFollowersResponse} and HTTP response
      */
     getDealFollowersWithHttpInfo(id) {
@@ -1025,7 +1025,7 @@ export default class DealsApi {
     /**
      * List followers of a deal
      * Lists the followers of a deal.
-     * @param {Number} id ID of the deal
+     * @param {Number} id The ID of the deal
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListFollowersResponse}
      */
     getDealFollowers(id) {
@@ -1039,7 +1039,7 @@ export default class DealsApi {
     /**
      * List mail messages associated with a deal
      * Lists mail messages associated with a deal.
-     * @param {Number} id ID of the deal
+     * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -1095,7 +1095,7 @@ export default class DealsApi {
     /**
      * List mail messages associated with a deal
      * Lists mail messages associated with a deal.
-     * @param {Number} id ID of the deal
+     * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -1111,8 +1111,8 @@ export default class DealsApi {
 
     /**
      * List participants of a deal
-     * Lists participants associated with a deal.
-     * @param {Number} id ID of the deal
+     * Lists the participants associated with a deal.
+     * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -1167,8 +1167,8 @@ export default class DealsApi {
 
     /**
      * List participants of a deal
-     * Lists participants associated with a deal.
-     * @param {Number} id ID of the deal
+     * Lists the participants associated with a deal.
+     * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -1185,7 +1185,7 @@ export default class DealsApi {
     /**
      * List all persons associated with a deal
      * Lists all persons associated with a deal, regardless of whether the person is the primary contact of the deal, or added as a participant.
-     * @param {Number} id ID of the deal
+     * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -1241,7 +1241,7 @@ export default class DealsApi {
     /**
      * List all persons associated with a deal
      * Lists all persons associated with a deal, regardless of whether the person is the primary contact of the deal, or added as a participant.
-     * @param {Number} id ID of the deal
+     * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -1258,11 +1258,11 @@ export default class DealsApi {
     /**
      * List products attached to a deal
      * Lists products attached to a deal.
-     * @param {Number} id ID of the deal
+     * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {module:model/NumberBoolean} opts.includeProductData Whether to fetch product data along with each attached product (1) or not (0, default).
+     * @param {module:model/NumberBoolean} opts.includeProductData Whether to fetch product data along with each attached product (1) or not (0, default)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListProductsResponse} and HTTP response
      */
     getDealProductsWithHttpInfo(id, opts) {
@@ -1316,11 +1316,11 @@ export default class DealsApi {
     /**
      * List products attached to a deal
      * Lists products attached to a deal.
-     * @param {Number} id ID of the deal
+     * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {module:model/NumberBoolean} opts.includeProductData Whether to fetch product data along with each attached product (1) or not (0, default).
+     * @param {module:model/NumberBoolean} opts.includeProductData Whether to fetch product data along with each attached product (1) or not (0, default)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListProductsResponse}
      */
     getDealProducts(id, opts) {
@@ -1334,7 +1334,7 @@ export default class DealsApi {
     /**
      * List updates about a deal
      * Lists updates about a deal.
-     * @param {Number} id ID of the deal
+     * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -1394,7 +1394,7 @@ export default class DealsApi {
     /**
      * List updates about a deal
      * Lists updates about a deal.
-     * @param {Number} id ID of the deal
+     * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -1412,8 +1412,8 @@ export default class DealsApi {
 
     /**
      * List permitted users
-     * List users permitted to access a deal
-     * @param {Number} id ID of the deal
+     * Lists the users permitted to access a deal.
+     * @param {Number} id The ID of the deal
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListPermittedUsersResponse} and HTTP response
      */
     getDealUsersWithHttpInfo(id) {
@@ -1463,8 +1463,8 @@ export default class DealsApi {
 
     /**
      * List permitted users
-     * List users permitted to access a deal
-     * @param {Number} id ID of the deal
+     * Lists the users permitted to access a deal.
+     * @param {Number} id The ID of the deal
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListPermittedUsersResponse}
      */
     getDealUsers(id) {
@@ -1480,12 +1480,12 @@ export default class DealsApi {
      * Returns all deals. For more information on how to get all deals, see <a href=\"https://pipedrive.readme.io/docs/getting-all-deals\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId If supplied, only deals matching the given user will be returned. However, `filter_id` and `owned_by_you` takes precedence over `user_id` when supplied.
-     * @param {Number} opts.filterId ID of the filter to use
-     * @param {Number} opts.stageId If supplied, only deals within the given stage will be returned.
-     * @param {module:model/String} opts.status Only fetch deals with specific status. If omitted, all not deleted deals are fetched. (default to 'all_not_deleted')
+     * @param {Number} opts.filterId The ID of the filter to use
+     * @param {Number} opts.stageId If supplied, only deals within the given stage will be returned
+     * @param {module:model/String} opts.status Only fetch deals with a specific status. If omitted, all not deleted deals are fetched. (default to 'all_not_deleted')
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
+     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
      * @param {module:model/NumberBoolean} opts.ownedByYou When supplied, only deals owned by you are returned. However, `filter_id` takes precedence over `owned_by_you` when both are supplied.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetDeals} and HTTP response
      */
@@ -1542,12 +1542,12 @@ export default class DealsApi {
      * Returns all deals. For more information on how to get all deals, see <a href=\"https://pipedrive.readme.io/docs/getting-all-deals\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId If supplied, only deals matching the given user will be returned. However, `filter_id` and `owned_by_you` takes precedence over `user_id` when supplied.
-     * @param {Number} opts.filterId ID of the filter to use
-     * @param {Number} opts.stageId If supplied, only deals within the given stage will be returned.
-     * @param {module:model/String} opts.status Only fetch deals with specific status. If omitted, all not deleted deals are fetched. (default to 'all_not_deleted')
+     * @param {Number} opts.filterId The ID of the filter to use
+     * @param {Number} opts.stageId If supplied, only deals within the given stage will be returned
+     * @param {module:model/String} opts.status Only fetch deals with a specific status. If omitted, all not deleted deals are fetched. (default to 'all_not_deleted')
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {String} opts.sort Field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
+     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
      * @param {module:model/NumberBoolean} opts.ownedByYou When supplied, only deals owned by you are returned. However, `filter_id` takes precedence over `owned_by_you` when both are supplied.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetDeals}
      */
@@ -1561,12 +1561,12 @@ export default class DealsApi {
 
     /**
      * Get deals summary
-     * Returns summary of all the deals.
+     * Returns a summary of all the deals.
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.status Only fetch deals with specific status. open = Open, won = Won, lost = Lost
+     * @param {module:model/String} opts.status Only fetch deals with a specific status. open = Open, won = Won, lost = Lost
      * @param {Number} opts.filterId <code>user_id</code> will not be considered. Only deals matching the given filter will be returned.
      * @param {Number} opts.userId Only deals matching the given user will be returned. `user_id` will not be considered if you use `filter_id`.
-     * @param {Number} opts.stageId Only deals within the given stage will be returned.
+     * @param {Number} opts.stageId Only deals within the given stage will be returned
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetDealsSummary} and HTTP response
      */
     getDealsSummaryWithHttpInfo(opts) {
@@ -1615,12 +1615,12 @@ export default class DealsApi {
 
     /**
      * Get deals summary
-     * Returns summary of all the deals.
+     * Returns a summary of all the deals.
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.status Only fetch deals with specific status. open = Open, won = Won, lost = Lost
+     * @param {module:model/String} opts.status Only fetch deals with a specific status. open = Open, won = Won, lost = Lost
      * @param {Number} opts.filterId <code>user_id</code> will not be considered. Only deals matching the given filter will be returned.
      * @param {Number} opts.userId Only deals matching the given user will be returned. `user_id` will not be considered if you use `filter_id`.
-     * @param {Number} opts.stageId Only deals within the given stage will be returned.
+     * @param {Number} opts.stageId Only deals within the given stage will be returned
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetDealsSummary}
      */
     getDealsSummary(opts) {
@@ -1633,17 +1633,17 @@ export default class DealsApi {
 
     /**
      * Get deals timeline
-     * Returns open and won deals, grouped by defined interval of time set in a date-type dealField (`field_key`) — e.g. when month is the chosen interval, and 3 months are asked starting from  January 1st, 2012, deals are returned grouped into 3 groups — January, February and March — based on the value of the given `field_key`.
-     * @param {Date} startDate Date where the first interval starts. Format: YYYY-MM-DD
-     * @param {module:model/String} interval The type of interval<table><tr><th>Value</th><th>Description</th></tr><tr><td>`day`</td><td>Day</td></tr><tr><td>`week`</td><td>A full week (7 days) starting from `start_date`</td></tr><tr><td>`month`</td><td>A full month (depending on the number of days in given month) starting from `start_date`</td></tr><tr><td>`quarter`</td><td>A full quarter (3 months) starting from `start_date`</td></tr></table>
+     * Returns open and won deals, grouped by a defined interval of time set in a date-type dealField (`field_key`) — e.g. when month is the chosen interval, and 3 months are asked starting from January 1st, 2012, deals are returned grouped into 3 groups — January, February and March — based on the value of the given `field_key`.
+     * @param {Date} startDate The date when the first interval starts. Format: YYYY-MM-DD
+     * @param {module:model/String} interval The type of the interval<table><tr><th>Value</th><th>Description</th></tr><tr><td>`day`</td><td>Day</td></tr><tr><td>`week`</td><td>A full week (7 days) starting from `start_date`</td></tr><tr><td>`month`</td><td>A full month (depending on the number of days in given month) starting from `start_date`</td></tr><tr><td>`quarter`</td><td>A full quarter (3 months) starting from `start_date`</td></tr></table>
      * @param {Number} amount The number of given intervals, starting from `start_date`, to fetch. E.g. 3 (months).
      * @param {String} fieldKey The date field key which deals will be retrieved from
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.userId If supplied, only deals matching the given user will be returned.
+     * @param {Number} opts.userId If supplied, only deals matching the given user will be returned
      * @param {Number} opts.pipelineId If supplied, only deals matching the given pipeline will be returned
      * @param {Number} opts.filterId If supplied, only deals matching the given filter will be returned
      * @param {module:model/NumberBoolean} opts.excludeDeals Whether to exclude deals list (1) or not (0). Note that when deals are excluded, the timeline summary (counts and values) is still returned.
-     * @param {String} opts.totalsConvertCurrency 3-letter currency code of any of the supported currencies. When supplied, `totals_converted` is returned per each interval which contains the currency-converted total amounts in the given currency. You may also set this parameter to `default_currency` in which case users default currency is used.
+     * @param {String} opts.totalsConvertCurrency The 3-letter currency code of any of the supported currencies. When supplied, `totals_converted` is returned per each interval which contains the currency-converted total amounts in the given currency. You may also set this parameter to `default_currency` in which case the user's default currency is used.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetDealsTimeline} and HTTP response
      */
     getDealsTimelineWithHttpInfo(startDate, interval, amount, fieldKey, opts) {
@@ -1713,17 +1713,17 @@ export default class DealsApi {
 
     /**
      * Get deals timeline
-     * Returns open and won deals, grouped by defined interval of time set in a date-type dealField (`field_key`) — e.g. when month is the chosen interval, and 3 months are asked starting from  January 1st, 2012, deals are returned grouped into 3 groups — January, February and March — based on the value of the given `field_key`.
-     * @param {Date} startDate Date where the first interval starts. Format: YYYY-MM-DD
-     * @param {module:model/String} interval The type of interval<table><tr><th>Value</th><th>Description</th></tr><tr><td>`day`</td><td>Day</td></tr><tr><td>`week`</td><td>A full week (7 days) starting from `start_date`</td></tr><tr><td>`month`</td><td>A full month (depending on the number of days in given month) starting from `start_date`</td></tr><tr><td>`quarter`</td><td>A full quarter (3 months) starting from `start_date`</td></tr></table>
+     * Returns open and won deals, grouped by a defined interval of time set in a date-type dealField (`field_key`) — e.g. when month is the chosen interval, and 3 months are asked starting from January 1st, 2012, deals are returned grouped into 3 groups — January, February and March — based on the value of the given `field_key`.
+     * @param {Date} startDate The date when the first interval starts. Format: YYYY-MM-DD
+     * @param {module:model/String} interval The type of the interval<table><tr><th>Value</th><th>Description</th></tr><tr><td>`day`</td><td>Day</td></tr><tr><td>`week`</td><td>A full week (7 days) starting from `start_date`</td></tr><tr><td>`month`</td><td>A full month (depending on the number of days in given month) starting from `start_date`</td></tr><tr><td>`quarter`</td><td>A full quarter (3 months) starting from `start_date`</td></tr></table>
      * @param {Number} amount The number of given intervals, starting from `start_date`, to fetch. E.g. 3 (months).
      * @param {String} fieldKey The date field key which deals will be retrieved from
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.userId If supplied, only deals matching the given user will be returned.
+     * @param {Number} opts.userId If supplied, only deals matching the given user will be returned
      * @param {Number} opts.pipelineId If supplied, only deals matching the given pipeline will be returned
      * @param {Number} opts.filterId If supplied, only deals matching the given filter will be returned
      * @param {module:model/NumberBoolean} opts.excludeDeals Whether to exclude deals list (1) or not (0). Note that when deals are excluded, the timeline summary (counts and values) is still returned.
-     * @param {String} opts.totalsConvertCurrency 3-letter currency code of any of the supported currencies. When supplied, `totals_converted` is returned per each interval which contains the currency-converted total amounts in the given currency. You may also set this parameter to `default_currency` in which case users default currency is used.
+     * @param {String} opts.totalsConvertCurrency The 3-letter currency code of any of the supported currencies. When supplied, `totals_converted` is returned per each interval which contains the currency-converted total amounts in the given currency. You may also set this parameter to `default_currency` in which case the user's default currency is used.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetDealsTimeline}
      */
     getDealsTimeline(startDate, interval, amount, fieldKey, opts) {
@@ -1737,7 +1737,7 @@ export default class DealsApi {
     /**
      * Merge two deals
      * Merges a deal with another deal. For more information on how to merge two deals, see <a href=\"https://pipedrive.readme.io/docs/merging-two-deals\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
-     * @param {Number} id ID of the deal
+     * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {module:model/MergeDealsRequest} opts.mergeDealsRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetMergedDeal} and HTTP response
@@ -1790,7 +1790,7 @@ export default class DealsApi {
     /**
      * Merge two deals
      * Merges a deal with another deal. For more information on how to merge two deals, see <a href=\"https://pipedrive.readme.io/docs/merging-two-deals\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
-     * @param {Number} id ID of the deal
+     * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {module:model/MergeDealsRequest} opts.mergeDealsRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetMergedDeal}
@@ -1805,15 +1805,15 @@ export default class DealsApi {
 
     /**
      * Search deals
-     * Searches all Deals by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found Deals can be filtered by Person ID and Organization ID.
+     * Searches all deals by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found deals can be filtered by the person ID and the organization ID.
      * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`).
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.fields A comma-separated string array. The fields to perform the search from. Defaults to all of them.
      * @param {module:model/Boolean} opts.exactMatch When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
-     * @param {Number} opts.personId Will filter Deals by the provided Person ID. The upper limit of found Deals associated with the Person is 2000.
-     * @param {Number} opts.organizationId Will filter Deals by the provided Organization ID. The upper limit of found Deals associated with the Organization is 2000.
-     * @param {module:model/String} opts.status Will filter Deals by the provided specific status. open = Open, won = Won, lost = Lost. The upper limit of found Deals associated with the status is 2000.
-     * @param {module:model/String} opts.includeFields Supports including optional fields in the results which are not provided by default.
+     * @param {Number} opts.personId Will filter deals by the provided person ID. The upper limit of found deals associated with the person is 2000.
+     * @param {Number} opts.organizationId Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000.
+     * @param {module:model/String} opts.status Will filter deals by the provided specific status. open = Open, won = Won, lost = Lost. The upper limit of found deals associated with the status is 2000.
+     * @param {module:model/String} opts.includeFields Supports including optional fields in the results which are not provided by default
      * @param {Number} opts.start Pagination start. Note that the pagination is based on main results and does not include related items when using `search_for_related_items` parameter. (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DealSearchResponse} and HTTP response
@@ -1873,15 +1873,15 @@ export default class DealsApi {
 
     /**
      * Search deals
-     * Searches all Deals by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found Deals can be filtered by Person ID and Organization ID.
+     * Searches all deals by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found deals can be filtered by the person ID and the organization ID.
      * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`).
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.fields A comma-separated string array. The fields to perform the search from. Defaults to all of them.
      * @param {module:model/Boolean} opts.exactMatch When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
-     * @param {Number} opts.personId Will filter Deals by the provided Person ID. The upper limit of found Deals associated with the Person is 2000.
-     * @param {Number} opts.organizationId Will filter Deals by the provided Organization ID. The upper limit of found Deals associated with the Organization is 2000.
-     * @param {module:model/String} opts.status Will filter Deals by the provided specific status. open = Open, won = Won, lost = Lost. The upper limit of found Deals associated with the status is 2000.
-     * @param {module:model/String} opts.includeFields Supports including optional fields in the results which are not provided by default.
+     * @param {Number} opts.personId Will filter deals by the provided person ID. The upper limit of found deals associated with the person is 2000.
+     * @param {Number} opts.organizationId Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000.
+     * @param {module:model/String} opts.status Will filter deals by the provided specific status. open = Open, won = Won, lost = Lost. The upper limit of found deals associated with the status is 2000.
+     * @param {module:model/String} opts.includeFields Supports including optional fields in the results which are not provided by default
      * @param {Number} opts.start Pagination start. Note that the pagination is based on main results and does not include related items when using `search_for_related_items` parameter. (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DealSearchResponse}
@@ -1897,7 +1897,7 @@ export default class DealsApi {
     /**
      * Update a deal
      * Updates the properties of a deal. For more information on how to update a deal, see <a href=\"https://pipedrive.readme.io/docs/updating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
-     * @param {Number} id ID of the deal
+     * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateDealRequest} opts.updateDealRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetAddedDeal} and HTTP response
@@ -1950,7 +1950,7 @@ export default class DealsApi {
     /**
      * Update a deal
      * Updates the properties of a deal. For more information on how to update a deal, see <a href=\"https://pipedrive.readme.io/docs/updating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
-     * @param {Number} id ID of the deal
+     * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateDealRequest} opts.updateDealRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetAddedDeal}
@@ -1966,8 +1966,8 @@ export default class DealsApi {
     /**
      * Update product attachment details of the deal-product (a product already attached to a deal)
      * Updates product attachment details.
-     * @param {Number} id ID of the deal
-     * @param {Number} productAttachmentId ID of the deal-product (the ID of the product attached to the deal)
+     * @param {Number} id The ID of the deal
+     * @param {Number} productAttachmentId The ID of the deal-product (the ID of the product attached to the deal)
      * @param {Object} opts Optional parameters
      * @param {module:model/BasicDealProduct} opts.basicDealProduct 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetProductAttachementDetails} and HTTP response
@@ -2025,8 +2025,8 @@ export default class DealsApi {
     /**
      * Update product attachment details of the deal-product (a product already attached to a deal)
      * Updates product attachment details.
-     * @param {Number} id ID of the deal
-     * @param {Number} productAttachmentId ID of the deal-product (the ID of the product attached to the deal)
+     * @param {Number} id The ID of the deal
+     * @param {Number} productAttachmentId The ID of the deal-product (the ID of the product attached to the deal)
      * @param {Object} opts Optional parameters
      * @param {module:model/BasicDealProduct} opts.basicDealProduct 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetProductAttachementDetails}

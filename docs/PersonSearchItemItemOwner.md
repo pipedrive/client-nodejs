@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | The ID of the owner of the Person | [optional] 
+**id** | **Number** | The ID of the owner of the person | [optional] 
 
 

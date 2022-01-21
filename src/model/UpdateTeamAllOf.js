@@ -71,13 +71,13 @@ class UpdateTeamAllOf {
 }
 
 /**
- * Flag that indicates if the Team is activated
+ * Flag that indicates whether the team is active
  * @member {module:model/NumberBoolean} active_flag
  */
 UpdateTeamAllOf.prototype['active_flag'] = undefined;
 
 /**
- * Flag that indicates if the Team is deleted
+ * Flag that indicates whether the team is deleted
  * @member {module:model/NumberBoolean} deleted_flag
  */
 UpdateTeamAllOf.prototype['deleted_flag'] = undefined;

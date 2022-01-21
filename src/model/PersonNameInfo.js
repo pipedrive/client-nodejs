@@ -75,19 +75,19 @@ class PersonNameInfo {
 }
 
 /**
- * The name of the Person
+ * The name of the person
  * @member {String} name
  */
 PersonNameInfo.prototype['name'] = undefined;
 
 /**
- * The first name of the Person
+ * The first name of the person
  * @member {String} first_name
  */
 PersonNameInfo.prototype['first_name'] = undefined;
 
 /**
- * The last name of the Person
+ * The last name of the person
  * @member {String} last_name
  */
 PersonNameInfo.prototype['last_name'] = undefined;

@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class DealNonStrictWithDetailsAllOfAverageTimeToWon {
     /**
      * Constructs a new <code>DealNonStrictWithDetailsAllOfAverageTimeToWon</code>.
-     * The average time to win the Deal
+     * The average time to win the deal
      * @alias module:model/DealNonStrictWithDetailsAllOfAverageTimeToWon
      */
     constructor() { 

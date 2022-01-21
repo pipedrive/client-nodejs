@@ -81,25 +81,25 @@ class Pipeline {
 }
 
 /**
- * The name of the Pipeline
+ * The name of the pipeline
  * @member {String} name
  */
 Pipeline.prototype['name'] = undefined;
 
 /**
- * Whether Deal probability is disabled or enabled for this Pipeline
+ * Whether deal probability is disabled or enabled for this pipeline
  * @member {module:model/NumberBoolean} deal_probability
  */
 Pipeline.prototype['deal_probability'] = undefined;
 
 /**
- * Defines the order of Pipelines. First order (`order_nr=0`) is the default Pipeline.
+ * Defines the order of pipelines. First order (`order_nr=0`) is the default pipeline.
  * @member {Number} order_nr
  */
 Pipeline.prototype['order_nr'] = undefined;
 
 /**
- * Whether this Pipeline will be made inactive (hidden) or active
+ * Whether this pipeline will be made inactive (hidden) or active
  * @member {module:model/NumberBoolean} active
  */
 Pipeline.prototype['active'] = undefined;

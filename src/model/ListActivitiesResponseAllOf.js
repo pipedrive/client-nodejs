@@ -72,7 +72,7 @@ class ListActivitiesResponseAllOf {
 }
 
 /**
- * The array of Activities
+ * The array of activities
  * @member {Array.<module:model/ActivityResponseObject>} data
  */
 ListActivitiesResponseAllOf.prototype['data'] = undefined;

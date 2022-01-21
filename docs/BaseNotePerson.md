@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | The name of the Person this Note is attached to | [optional] 
+**name** | **String** | The name of the person the note is attached to | [optional] 
 
 

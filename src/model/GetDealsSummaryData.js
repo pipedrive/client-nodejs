@@ -23,7 +23,7 @@ import GetDealsSummaryDataWeightedValuesTotal from './GetDealsSummaryDataWeighte
 class GetDealsSummaryData {
     /**
      * Constructs a new <code>GetDealsSummaryData</code>.
-     * The summary of Deals
+     * The summary of deals
      * @alias module:model/GetDealsSummaryData
      */
     constructor() { 
@@ -108,31 +108,31 @@ GetDealsSummaryData.prototype['values_total'] = undefined;
 GetDealsSummaryData.prototype['weighted_values_total'] = undefined;
 
 /**
- * The total number of Deals
+ * The total number of deals
  * @member {Number} total_count
  */
 GetDealsSummaryData.prototype['total_count'] = undefined;
 
 /**
- * The total value of Deals converted into the company default currency
+ * The total value of deals converted into the company default currency
  * @member {Number} total_currency_converted_value
  */
 GetDealsSummaryData.prototype['total_currency_converted_value'] = undefined;
 
 /**
- * The total weighted value of Deals converted into the company default currency
+ * The total weighted value of deals converted into the company default currency
  * @member {Number} total_weighted_currency_converted_value
  */
 GetDealsSummaryData.prototype['total_weighted_currency_converted_value'] = undefined;
 
 /**
- * The total converted value of Deals formatted with the company default currency. E.g. US$5,100.96
+ * The total converted value of deals formatted with the company default currency. E.g. US$5,100.96
  * @member {String} total_currency_converted_value_formatted
  */
 GetDealsSummaryData.prototype['total_currency_converted_value_formatted'] = undefined;
 
 /**
- * The total weighted value of Deals formatted with the company default currency. E.g. US$5,100.96
+ * The total weighted value of deals formatted with the company default currency. E.g. US$5,100.96
  * @member {String} total_weighted_currency_converted_value_formatted
  */
 GetDealsSummaryData.prototype['total_weighted_currency_converted_value_formatted'] = undefined;

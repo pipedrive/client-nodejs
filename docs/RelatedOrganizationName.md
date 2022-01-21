@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**relatedOrganizationName** | **String** | The name of the linked Organization | [optional] 
+**relatedOrganizationName** | **String** | The name of the linked organization | [optional] 
 
 

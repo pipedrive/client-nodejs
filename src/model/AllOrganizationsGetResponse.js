@@ -95,7 +95,7 @@ class AllOrganizationsGetResponse {
 AllOrganizationsGetResponse.prototype['success'] = undefined;
 
 /**
- * The array of Organizations
+ * The array of organizations
  * @member {Array.<module:model/BaseOrganizationItem>} data
  */
 AllOrganizationsGetResponse.prototype['data'] = undefined;
@@ -119,7 +119,7 @@ AllOrganizationsGetResponse.prototype['related_objects'] = undefined;
 BaseResponse.prototype['success'] = undefined;
 // Implement AllOrganizationsGetResponseAllOf interface:
 /**
- * The array of Organizations
+ * The array of organizations
  * @member {Array.<module:model/BaseOrganizationItem>} data
  */
 AllOrganizationsGetResponseAllOf.prototype['data'] = undefined;

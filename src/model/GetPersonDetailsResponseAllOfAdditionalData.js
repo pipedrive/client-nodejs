@@ -65,7 +65,7 @@ class GetPersonDetailsResponseAllOfAdditionalData {
 }
 
 /**
- * Dropbox email for the Person
+ * Dropbox email for the person
  * @member {String} dropbox_email
  */
 GetPersonDetailsResponseAllOfAdditionalData.prototype['dropbox_email'] = undefined;

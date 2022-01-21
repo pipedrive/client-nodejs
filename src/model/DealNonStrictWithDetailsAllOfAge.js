@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class DealNonStrictWithDetailsAllOfAge {
     /**
      * Constructs a new <code>DealNonStrictWithDetailsAllOfAge</code>.
-     * The lifetime of the Deal
+     * The lifetime of the deal
      * @alias module:model/DealNonStrictWithDetailsAllOfAge
      */
     constructor() { 

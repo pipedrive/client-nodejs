@@ -80,7 +80,7 @@ class OrganizationRelationship {
 }
 
 /**
- * ID of the base organization for the returned calculated values
+ * The ID of the base organization for the returned calculated values
  * @member {Number} org_id
  */
 OrganizationRelationship.prototype['org_id'] = undefined;

@@ -100,49 +100,49 @@ class OrganizationCountInfo {
 }
 
 /**
- * The count of email messages related to the Organization
+ * The count of email messages related to the organization
  * @member {Number} email_messages_count
  */
 OrganizationCountInfo.prototype['email_messages_count'] = undefined;
 
 /**
- * The count of Persons related to the Organization
+ * The count of persons related to the organization
  * @member {Number} people_count
  */
 OrganizationCountInfo.prototype['people_count'] = undefined;
 
 /**
- * The count of Activities related to the Organization
+ * The count of activities related to the organization
  * @member {Number} activities_count
  */
 OrganizationCountInfo.prototype['activities_count'] = undefined;
 
 /**
- * The count of done Activities related to the Organization
+ * The count of done activities related to the organization
  * @member {Number} done_activities_count
  */
 OrganizationCountInfo.prototype['done_activities_count'] = undefined;
 
 /**
- * The count of undone Activities related to the Organization
+ * The count of undone activities related to the organization
  * @member {Number} undone_activities_count
  */
 OrganizationCountInfo.prototype['undone_activities_count'] = undefined;
 
 /**
- * The count of files related to the Organization
+ * The count of files related to the organization
  * @member {Number} files_count
  */
 OrganizationCountInfo.prototype['files_count'] = undefined;
 
 /**
- * The count of notes related to the Organization
+ * The count of notes related to the organization
  * @member {Number} notes_count
  */
 OrganizationCountInfo.prototype['notes_count'] = undefined;
 
 /**
- * The count of followers related to the Organization
+ * The count of followers related to the organization
  * @member {Number} followers_count
  */
 OrganizationCountInfo.prototype['followers_count'] = undefined;

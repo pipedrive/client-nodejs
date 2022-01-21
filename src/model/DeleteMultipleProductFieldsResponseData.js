@@ -65,7 +65,7 @@ class DeleteMultipleProductFieldsResponseData {
 }
 
 /**
- * Array of all the IDs of the deleted Product Fields
+ * Array of all the IDs of the deleted product fields
  * @member {Array.<Number>} id
  */
 DeleteMultipleProductFieldsResponseData.prototype['id'] = undefined;

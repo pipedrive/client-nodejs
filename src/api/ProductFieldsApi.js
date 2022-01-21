@@ -106,7 +106,7 @@ export default class ProductFieldsApi {
     /**
      * Delete a product field
      * Marks a field as deleted. For more information on how to delete a custom field, see <a href=\"https://pipedrive.readme.io/docs/deleting-a-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
-     * @param {Number} id ID of the Product Field
+     * @param {Number} id The ID of the product field
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteProductFieldResponse} and HTTP response
      */
     deleteProductFieldWithHttpInfo(id) {
@@ -157,7 +157,7 @@ export default class ProductFieldsApi {
     /**
      * Delete a product field
      * Marks a field as deleted. For more information on how to delete a custom field, see <a href=\"https://pipedrive.readme.io/docs/deleting-a-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
-     * @param {Number} id ID of the Product Field
+     * @param {Number} id The ID of the product field
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteProductFieldResponse}
      */
     deleteProductField(id) {
@@ -171,7 +171,7 @@ export default class ProductFieldsApi {
     /**
      * Delete multiple product fields in bulk
      * Marks multiple fields as deleted.
-     * @param {String} ids Comma-separated field IDs to delete
+     * @param {String} ids The comma-separated field IDs to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteMultipleProductFieldsResponse} and HTTP response
      */
     deleteProductFieldsWithHttpInfo(ids) {
@@ -222,7 +222,7 @@ export default class ProductFieldsApi {
     /**
      * Delete multiple product fields in bulk
      * Marks multiple fields as deleted.
-     * @param {String} ids Comma-separated field IDs to delete
+     * @param {String} ids The comma-separated field IDs to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteMultipleProductFieldsResponse}
      */
     deleteProductFields(ids) {
@@ -236,7 +236,7 @@ export default class ProductFieldsApi {
     /**
      * Get one product field
      * Returns data about a specific product field.
-     * @param {Number} id ID of the Product Field
+     * @param {Number} id The ID of the product field
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetProductFieldResponse} and HTTP response
      */
     getProductFieldWithHttpInfo(id) {
@@ -287,7 +287,7 @@ export default class ProductFieldsApi {
     /**
      * Get one product field
      * Returns data about a specific product field.
-     * @param {Number} id ID of the Product Field
+     * @param {Number} id The ID of the product field
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetProductFieldResponse}
      */
     getProductField(id) {
@@ -300,7 +300,7 @@ export default class ProductFieldsApi {
 
     /**
      * Get all product fields
-     * Returns data about all product fields
+     * Returns data about all product fields.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -350,7 +350,7 @@ export default class ProductFieldsApi {
 
     /**
      * Get all product fields
-     * Returns data about all product fields
+     * Returns data about all product fields.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -367,7 +367,7 @@ export default class ProductFieldsApi {
     /**
      * Update a product field
      * Updates a product field. See an example of updating custom fields’ values in <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
-     * @param {Number} id ID of the Product Field
+     * @param {Number} id The ID of the product field
      * @param {Object} opts Optional parameters
      * @param {module:model/BasicProductField} opts.basicProductField 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetProductFieldResponse} and HTTP response
@@ -420,7 +420,7 @@ export default class ProductFieldsApi {
     /**
      * Update a product field
      * Updates a product field. See an example of updating custom fields’ values in <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
-     * @param {Number} id ID of the Product Field
+     * @param {Number} id The ID of the product field
      * @param {Object} opts Optional parameters
      * @param {module:model/BasicProductField} opts.basicProductField 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetProductFieldResponse}

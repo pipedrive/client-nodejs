@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**deleteSubscription**](SubscriptionsApi.md#deleteSubscription) | **DELETE** /subscriptions/{id} | Delete a subscription
 [**findSubscriptionByDeal**](SubscriptionsApi.md#findSubscriptionByDeal) | **GET** /subscriptions/find/{dealId} | Find subscription by deal
 [**getSubscription**](SubscriptionsApi.md#getSubscription) | **GET** /subscriptions/{id} | Get details of a subscription
-[**getSubscriptionPayments**](SubscriptionsApi.md#getSubscriptionPayments) | **GET** /subscriptions/{id}/payments | Get all payments of a Subscription
+[**getSubscriptionPayments**](SubscriptionsApi.md#getSubscriptionPayments) | **GET** /subscriptions/{id}/payments | Get all payments of a subscription
 [**updateRecurringSubscription**](SubscriptionsApi.md#updateRecurringSubscription) | **PUT** /subscriptions/recurring/{id} | Update a recurring subscription
 [**updateSubscriptionInstallment**](SubscriptionsApi.md#updateSubscriptionInstallment) | **PUT** /subscriptions/installment/{id} | Update an installment subscription
 
@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 Add a recurring subscription
 
-Adds a new recurring Subscription.
+Adds a new recurring subscription.
 
 ### Example
 
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 Add an installment subscription
 
-Adds a new installment Subscription.
+Adds a new installment subscription.
 
 ### Example
 
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 
 Cancel a recurring subscription
 
-Cancels a recurring Subscription.
+Cancels a recurring subscription.
 
 ### Example
 
@@ -149,7 +149,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.SubscriptionsApi();
-let id = 56; // Number | ID of the Subscription
+let id = 56; // Number | The ID of the subscription
 let opts = Pipedrive.SubscriptionRecurringCancelRequest.constructFromObject({
   // Properties that you want to update
 });
@@ -166,7 +166,7 @@ apiInstance.cancelRecurringSubscription(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the Subscription | 
+ **id** | **Number**| The ID of the subscription | 
  **subscriptionRecurringCancelRequest** | [**SubscriptionRecurringCancelRequest**](SubscriptionRecurringCancelRequest.md)|  | [optional] 
 
 ### Return type
@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
 
 Delete a subscription
 
-Marks an installment or a recurring Subscription as deleted.
+Marks an installment or a recurring subscription as deleted.
 
 ### Example
 
@@ -206,7 +206,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.SubscriptionsApi();
-let id = 56; // Number | ID of the Subscription
+let id = 56; // Number | The ID of the subscription
 apiInstance.deleteSubscription(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -220,7 +220,7 @@ apiInstance.deleteSubscription(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the Subscription | 
+ **id** | **Number**| The ID of the subscription | 
 
 ### Return type
 
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 
 Find subscription by deal
 
-Returns details of an installment or a recurring Subscription by Deal ID.
+Returns details of an installment or a recurring subscription by the deal ID.
 
 ### Example
 
@@ -259,7 +259,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.SubscriptionsApi();
-let dealId = 56; // Number | ID of the Deal
+let dealId = 56; // Number | The ID of the deal
 apiInstance.findSubscriptionByDeal(dealId).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -273,7 +273,7 @@ apiInstance.findSubscriptionByDeal(dealId).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dealId** | **Number**| ID of the Deal | 
+ **dealId** | **Number**| The ID of the deal | 
 
 ### Return type
 
@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 
 Get details of a subscription
 
-Returns details of an installment or a recurring Subscription.
+Returns details of an installment or a recurring subscription.
 
 ### Example
 
@@ -312,7 +312,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.SubscriptionsApi();
-let id = 56; // Number | ID of the Subscription
+let id = 56; // Number | The ID of the subscription
 apiInstance.getSubscription(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -326,7 +326,7 @@ apiInstance.getSubscription(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the Subscription | 
+ **id** | **Number**| The ID of the subscription | 
 
 ### Return type
 
@@ -346,9 +346,9 @@ Name | Type | Description  | Notes
 
 > PaymentsResponse getSubscriptionPayments(id)
 
-Get all payments of a Subscription
+Get all payments of a subscription
 
-Returns all payments of an installment or recurring Subscription.
+Returns all payments of an installment or recurring subscription.
 
 ### Example
 
@@ -365,7 +365,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.SubscriptionsApi();
-let id = 56; // Number | ID of the Subscription
+let id = 56; // Number | The ID of the subscription
 apiInstance.getSubscriptionPayments(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -379,7 +379,7 @@ apiInstance.getSubscriptionPayments(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the Subscription | 
+ **id** | **Number**| The ID of the subscription | 
 
 ### Return type
 
@@ -401,7 +401,7 @@ Name | Type | Description  | Notes
 
 Update a recurring subscription
 
-Updates a recurring Subscription.
+Updates a recurring subscription.
 
 ### Example
 
@@ -418,7 +418,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.SubscriptionsApi();
-let id = 56; // Number | ID of the Subscription
+let id = 56; // Number | The ID of the subscription
 let opts = Pipedrive.SubscriptionRecurringUpdateRequest.constructFromObject({
   // Properties that you want to update
 });
@@ -435,7 +435,7 @@ apiInstance.updateRecurringSubscription(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the Subscription | 
+ **id** | **Number**| The ID of the subscription | 
  **subscriptionRecurringUpdateRequest** | [**SubscriptionRecurringUpdateRequest**](SubscriptionRecurringUpdateRequest.md)|  | [optional] 
 
 ### Return type
@@ -458,7 +458,7 @@ Name | Type | Description  | Notes
 
 Update an installment subscription
 
-Updates an installment Subscription.
+Updates an installment subscription.
 
 ### Example
 
@@ -475,7 +475,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.SubscriptionsApi();
-let id = 56; // Number | ID of the Subscription
+let id = 56; // Number | The ID of the subscription
 let opts = Pipedrive.SubscriptionInstallmentUpdateRequest.constructFromObject({
   // Properties that you want to update
 });
@@ -492,7 +492,7 @@ apiInstance.updateSubscriptionInstallment(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the Subscription | 
+ **id** | **Number**| The ID of the subscription | 
  **subscriptionInstallmentUpdateRequest** | [**SubscriptionInstallmentUpdateRequest**](SubscriptionInstallmentUpdateRequest.md)|  | [optional] 
 
 ### Return type

@@ -65,7 +65,7 @@ class DeleteFileData {
 }
 
 /**
- * The ID of the File
+ * The ID of the file
  * @member {Number} id
  */
 DeleteFileData.prototype['id'] = undefined;

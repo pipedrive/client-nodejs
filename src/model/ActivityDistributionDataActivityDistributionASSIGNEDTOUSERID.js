@@ -22,7 +22,7 @@ import ActivityDistributionDataActivityDistributionASSIGNEDTOUSERIDActivities fr
 class ActivityDistributionDataActivityDistributionASSIGNEDTOUSERID {
     /**
      * Constructs a new <code>ActivityDistributionDataActivityDistributionASSIGNEDTOUSERID</code>.
-     * The ID of the User
+     * The ID of the user
      * @alias module:model/ActivityDistributionDataActivityDistributionASSIGNEDTOUSERID
      */
     constructor() { 
@@ -87,19 +87,19 @@ class ActivityDistributionDataActivityDistributionASSIGNEDTOUSERID {
 ActivityDistributionDataActivityDistributionASSIGNEDTOUSERID.prototype['activities'] = undefined;
 
 /**
- * The name of the User
+ * The name of the user
  * @member {String} name
  */
 ActivityDistributionDataActivityDistributionASSIGNEDTOUSERID.prototype['name'] = undefined;
 
 /**
- * The overall count of Activities for the User
+ * The overall count of activities for the user
  * @member {Number} activity_count
  */
 ActivityDistributionDataActivityDistributionASSIGNEDTOUSERID.prototype['activity_count'] = undefined;
 
 /**
- * The percentage of Activities belongs to the User
+ * The percentage of activities belongs to the user
  * @member {Number} share
  */
 ActivityDistributionDataActivityDistributionASSIGNEDTOUSERID.prototype['share'] = undefined;

@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class RolesAdditionalDataPagination {
     /**
      * Constructs a new <code>RolesAdditionalDataPagination</code>.
-     * The pagination details in the Role list
+     * The pagination details in the role list
      * @alias module:model/RolesAdditionalDataPagination
      */
     constructor() { 

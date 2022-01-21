@@ -65,7 +65,7 @@ class DeleteProductFollowerResponseData {
 }
 
 /**
- * The ID of removed Follower
+ * The ID of the removed follower
  * @member {Number} id
  */
 DeleteProductFollowerResponseData.prototype['id'] = undefined;

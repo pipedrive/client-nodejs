@@ -264,18 +264,18 @@ All URIs are relative to *https://api.pipedrive.com/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*Pipedrive.ActivitiesApi* | [**addActivity**](docs/ActivitiesApi.md#addActivity) | **POST** /activities | Add an Activity
-*Pipedrive.ActivitiesApi* | [**deleteActivities**](docs/ActivitiesApi.md#deleteActivities) | **DELETE** /activities | Delete multiple Activities in bulk
-*Pipedrive.ActivitiesApi* | [**deleteActivity**](docs/ActivitiesApi.md#deleteActivity) | **DELETE** /activities/{id} | Delete an Activity
-*Pipedrive.ActivitiesApi* | [**getActivities**](docs/ActivitiesApi.md#getActivities) | **GET** /activities | Get all Activities assigned to a particular User
-*Pipedrive.ActivitiesApi* | [**getActivity**](docs/ActivitiesApi.md#getActivity) | **GET** /activities/{id} | Get details of an Activity
-*Pipedrive.ActivitiesApi* | [**updateActivity**](docs/ActivitiesApi.md#updateActivity) | **PUT** /activities/{id} | Edit an Activity
+*Pipedrive.ActivitiesApi* | [**addActivity**](docs/ActivitiesApi.md#addActivity) | **POST** /activities | Add an activity
+*Pipedrive.ActivitiesApi* | [**deleteActivities**](docs/ActivitiesApi.md#deleteActivities) | **DELETE** /activities | Delete multiple activities in bulk
+*Pipedrive.ActivitiesApi* | [**deleteActivity**](docs/ActivitiesApi.md#deleteActivity) | **DELETE** /activities/{id} | Delete an activity
+*Pipedrive.ActivitiesApi* | [**getActivities**](docs/ActivitiesApi.md#getActivities) | **GET** /activities | Get all activities assigned to a particular user
+*Pipedrive.ActivitiesApi* | [**getActivity**](docs/ActivitiesApi.md#getActivity) | **GET** /activities/{id} | Get details of an activity
+*Pipedrive.ActivitiesApi* | [**updateActivity**](docs/ActivitiesApi.md#updateActivity) | **PUT** /activities/{id} | Update an activity
 *Pipedrive.ActivityFieldsApi* | [**getActivityFields**](docs/ActivityFieldsApi.md#getActivityFields) | **GET** /activityFields | Get all activity fields
 *Pipedrive.ActivityTypesApi* | [**addActivityType**](docs/ActivityTypesApi.md#addActivityType) | **POST** /activityTypes | Add new ActivityType
 *Pipedrive.ActivityTypesApi* | [**deleteActivityType**](docs/ActivityTypesApi.md#deleteActivityType) | **DELETE** /activityTypes/{id} | Delete an ActivityType
 *Pipedrive.ActivityTypesApi* | [**deleteActivityTypes**](docs/ActivityTypesApi.md#deleteActivityTypes) | **DELETE** /activityTypes | Delete multiple ActivityTypes in bulk
 *Pipedrive.ActivityTypesApi* | [**getActivityTypes**](docs/ActivityTypesApi.md#getActivityTypes) | **GET** /activityTypes | Get all ActivityTypes
-*Pipedrive.ActivityTypesApi* | [**updateActivityType**](docs/ActivityTypesApi.md#updateActivityType) | **PUT** /activityTypes/{id} | Edit an ActivityType
+*Pipedrive.ActivityTypesApi* | [**updateActivityType**](docs/ActivityTypesApi.md#updateActivityType) | **PUT** /activityTypes/{id} | Update an ActivityType
 *Pipedrive.CallLogsApi* | [**addCallLog**](docs/CallLogsApi.md#addCallLog) | **POST** /callLogs | Add a call log
 *Pipedrive.CallLogsApi* | [**addCallLogAudioFile**](docs/CallLogsApi.md#addCallLogAudioFile) | **POST** /callLogs/{id}/recordings | Attach an audio file to the call log
 *Pipedrive.CallLogsApi* | [**deleteCallLog**](docs/CallLogsApi.md#deleteCallLog) | **DELETE** /callLogs/{id} | Delete a call log
@@ -395,9 +395,9 @@ Class | Method | HTTP request | Description
 *Pipedrive.OrganizationsApi* | [**mergeOrganizations**](docs/OrganizationsApi.md#mergeOrganizations) | **PUT** /organizations/{id}/merge | Merge two organizations
 *Pipedrive.OrganizationsApi* | [**searchOrganization**](docs/OrganizationsApi.md#searchOrganization) | **GET** /organizations/search | Search organizations
 *Pipedrive.OrganizationsApi* | [**updateOrganization**](docs/OrganizationsApi.md#updateOrganization) | **PUT** /organizations/{id} | Update an organization
-*Pipedrive.PermissionSetsApi* | [**getPermissionSet**](docs/PermissionSetsApi.md#getPermissionSet) | **GET** /permissionSets/{id} | Get one Permission Set
-*Pipedrive.PermissionSetsApi* | [**getPermissionSetAssignments**](docs/PermissionSetsApi.md#getPermissionSetAssignments) | **GET** /permissionSets/{id}/assignments | List Permission Set assignments
-*Pipedrive.PermissionSetsApi* | [**getPermissionSets**](docs/PermissionSetsApi.md#getPermissionSets) | **GET** /permissionSets | Get all Permission Sets
+*Pipedrive.PermissionSetsApi* | [**getPermissionSet**](docs/PermissionSetsApi.md#getPermissionSet) | **GET** /permissionSets/{id} | Get one permission set
+*Pipedrive.PermissionSetsApi* | [**getPermissionSetAssignments**](docs/PermissionSetsApi.md#getPermissionSetAssignments) | **GET** /permissionSets/{id}/assignments | List permission set assignments
+*Pipedrive.PermissionSetsApi* | [**getPermissionSets**](docs/PermissionSetsApi.md#getPermissionSets) | **GET** /permissionSets | Get all permission sets
 *Pipedrive.PersonFieldsApi* | [**addPersonField**](docs/PersonFieldsApi.md#addPersonField) | **POST** /personFields | Add a new person field
 *Pipedrive.PersonFieldsApi* | [**deletePersonField**](docs/PersonFieldsApi.md#deletePersonField) | **DELETE** /personFields/{id} | Delete a person field
 *Pipedrive.PersonFieldsApi* | [**deletePersonFields**](docs/PersonFieldsApi.md#deletePersonFields) | **DELETE** /personFields | Delete multiple person fields in bulk
@@ -408,7 +408,7 @@ Class | Method | HTTP request | Description
 *Pipedrive.PersonsApi* | [**addPersonFollower**](docs/PersonsApi.md#addPersonFollower) | **POST** /persons/{id}/followers | Add a follower to a person
 *Pipedrive.PersonsApi* | [**addPersonPicture**](docs/PersonsApi.md#addPersonPicture) | **POST** /persons/{id}/picture | Add person picture
 *Pipedrive.PersonsApi* | [**deletePerson**](docs/PersonsApi.md#deletePerson) | **DELETE** /persons/{id} | Delete a person
-*Pipedrive.PersonsApi* | [**deletePersonFollower**](docs/PersonsApi.md#deletePersonFollower) | **DELETE** /persons/{id}/followers/{follower_id} | Deletes a follower from a person.
+*Pipedrive.PersonsApi* | [**deletePersonFollower**](docs/PersonsApi.md#deletePersonFollower) | **DELETE** /persons/{id}/followers/{follower_id} | Delete a follower from a person
 *Pipedrive.PersonsApi* | [**deletePersonPicture**](docs/PersonsApi.md#deletePersonPicture) | **DELETE** /persons/{id}/picture | Delete person picture
 *Pipedrive.PersonsApi* | [**deletePersons**](docs/PersonsApi.md#deletePersons) | **DELETE** /persons | Delete multiple persons in bulk
 *Pipedrive.PersonsApi* | [**getPerson**](docs/PersonsApi.md#getPerson) | **GET** /persons/{id} | Get details of a person
@@ -431,7 +431,7 @@ Class | Method | HTTP request | Description
 *Pipedrive.PipelinesApi* | [**getPipelineDeals**](docs/PipelinesApi.md#getPipelineDeals) | **GET** /pipelines/{id}/deals | Get deals in a pipeline
 *Pipedrive.PipelinesApi* | [**getPipelineMovementStatistics**](docs/PipelinesApi.md#getPipelineMovementStatistics) | **GET** /pipelines/{id}/movement_statistics | Get deals movements in pipeline
 *Pipedrive.PipelinesApi* | [**getPipelines**](docs/PipelinesApi.md#getPipelines) | **GET** /pipelines | Get all pipelines
-*Pipedrive.PipelinesApi* | [**updatePipeline**](docs/PipelinesApi.md#updatePipeline) | **PUT** /pipelines/{id} | Edit a pipeline
+*Pipedrive.PipelinesApi* | [**updatePipeline**](docs/PipelinesApi.md#updatePipeline) | **PUT** /pipelines/{id} | Update a pipeline
 *Pipedrive.ProductFieldsApi* | [**addProductField**](docs/ProductFieldsApi.md#addProductField) | **POST** /productFields | Add a new product field
 *Pipedrive.ProductFieldsApi* | [**deleteProductField**](docs/ProductFieldsApi.md#deleteProductField) | **DELETE** /productFields/{id} | Delete a product field
 *Pipedrive.ProductFieldsApi* | [**deleteProductFields**](docs/ProductFieldsApi.md#deleteProductFields) | **DELETE** /productFields | Delete multiple product fields in bulk
@@ -475,7 +475,7 @@ Class | Method | HTTP request | Description
 *Pipedrive.SubscriptionsApi* | [**deleteSubscription**](docs/SubscriptionsApi.md#deleteSubscription) | **DELETE** /subscriptions/{id} | Delete a subscription
 *Pipedrive.SubscriptionsApi* | [**findSubscriptionByDeal**](docs/SubscriptionsApi.md#findSubscriptionByDeal) | **GET** /subscriptions/find/{dealId} | Find subscription by deal
 *Pipedrive.SubscriptionsApi* | [**getSubscription**](docs/SubscriptionsApi.md#getSubscription) | **GET** /subscriptions/{id} | Get details of a subscription
-*Pipedrive.SubscriptionsApi* | [**getSubscriptionPayments**](docs/SubscriptionsApi.md#getSubscriptionPayments) | **GET** /subscriptions/{id}/payments | Get all payments of a Subscription
+*Pipedrive.SubscriptionsApi* | [**getSubscriptionPayments**](docs/SubscriptionsApi.md#getSubscriptionPayments) | **GET** /subscriptions/{id}/payments | Get all payments of a subscription
 *Pipedrive.SubscriptionsApi* | [**updateRecurringSubscription**](docs/SubscriptionsApi.md#updateRecurringSubscription) | **PUT** /subscriptions/recurring/{id} | Update a recurring subscription
 *Pipedrive.SubscriptionsApi* | [**updateSubscriptionInstallment**](docs/SubscriptionsApi.md#updateSubscriptionInstallment) | **PUT** /subscriptions/installment/{id} | Update an installment subscription
 *Pipedrive.TeamsApi* | [**addTeam**](docs/TeamsApi.md#addTeam) | **POST** /teams | Add a new team
@@ -500,9 +500,9 @@ Class | Method | HTTP request | Description
 *Pipedrive.UsersApi* | [**getUserRoleSettings**](docs/UsersApi.md#getUserRoleSettings) | **GET** /users/{id}/roleSettings | List user role settings
 *Pipedrive.UsersApi* | [**getUsers**](docs/UsersApi.md#getUsers) | **GET** /users | Get all users
 *Pipedrive.UsersApi* | [**updateUser**](docs/UsersApi.md#updateUser) | **PUT** /users/{id} | Update user details
-*Pipedrive.WebhooksApi* | [**addWebhook**](docs/WebhooksApi.md#addWebhook) | **POST** /webhooks | Create a new webhook
-*Pipedrive.WebhooksApi* | [**deleteWebhook**](docs/WebhooksApi.md#deleteWebhook) | **DELETE** /webhooks/{id} | Delete existing webhook
-*Pipedrive.WebhooksApi* | [**getWebhooks**](docs/WebhooksApi.md#getWebhooks) | **GET** /webhooks | Get all webhooks
+*Pipedrive.WebhooksApi* | [**addWebhook**](docs/WebhooksApi.md#addWebhook) | **POST** /webhooks | Create a new Webhook
+*Pipedrive.WebhooksApi* | [**deleteWebhook**](docs/WebhooksApi.md#deleteWebhook) | **DELETE** /webhooks/{id} | Delete existing Webhook
+*Pipedrive.WebhooksApi* | [**getWebhooks**](docs/WebhooksApi.md#getWebhooks) | **GET** /webhooks | Get all Webhooks
 
 
 ## Documentation for Models
@@ -617,6 +617,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.BasicGoal](docs/BasicGoal.md)
  - [Pipedrive.BasicOrganization](docs/BasicOrganization.md)
  - [Pipedrive.BasicPerson](docs/BasicPerson.md)
+ - [Pipedrive.BasicPersonEmail](docs/BasicPersonEmail.md)
  - [Pipedrive.BasicProductField](docs/BasicProductField.md)
  - [Pipedrive.BulkDeleteResponse](docs/BulkDeleteResponse.md)
  - [Pipedrive.BulkDeleteResponseAllOf](docs/BulkDeleteResponseAllOf.md)
@@ -656,6 +657,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.DealParticipantCountInfo](docs/DealParticipantCountInfo.md)
  - [Pipedrive.DealParticipants](docs/DealParticipants.md)
  - [Pipedrive.DealPersonData](docs/DealPersonData.md)
+ - [Pipedrive.DealPersonDataEmail](docs/DealPersonDataEmail.md)
  - [Pipedrive.DealPersonDataPhone](docs/DealPersonDataPhone.md)
  - [Pipedrive.DealPersonDataWithId](docs/DealPersonDataWithId.md)
  - [Pipedrive.DealPersonDataWithIdAllOf](docs/DealPersonDataWithIdAllOf.md)

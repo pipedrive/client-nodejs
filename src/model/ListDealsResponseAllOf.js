@@ -78,7 +78,7 @@ class ListDealsResponseAllOf {
 }
 
 /**
- * The array of Deals
+ * The array of deals
  * @member {Array.<module:model/DealNonStrict>} data
  */
 ListDealsResponseAllOf.prototype['data'] = undefined;

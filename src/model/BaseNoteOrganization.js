@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class BaseNoteOrganization {
     /**
      * Constructs a new <code>BaseNoteOrganization</code>.
-     * The Organization this Note is attached to
+     * The organization the note is attached to
      * @alias module:model/BaseNoteOrganization
      */
     constructor() { 
@@ -66,7 +66,7 @@ class BaseNoteOrganization {
 }
 
 /**
- * The name of the Organization this Note is attached to
+ * The name of the organization the note is attached to
  * @member {String} name
  */
 BaseNoteOrganization.prototype['name'] = undefined;

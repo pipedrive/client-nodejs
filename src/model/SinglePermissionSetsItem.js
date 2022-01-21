@@ -86,25 +86,25 @@ class SinglePermissionSetsItem {
 }
 
 /**
- * The ID of User Permission Set
+ * The ID of user permission set
  * @member {Number} id
  */
 SinglePermissionSetsItem.prototype['id'] = undefined;
 
 /**
- * The name of Permission Set
+ * The name of the permission set
  * @member {String} name
  */
 SinglePermissionSetsItem.prototype['name'] = undefined;
 
 /**
- * The number of Users assigned to this Permission Set
+ * The number of users assigned to this permission set
  * @member {Number} assignment_count
  */
 SinglePermissionSetsItem.prototype['assignment_count'] = undefined;
 
 /**
- * A permission assigned to this Permission Set
+ * A permission assigned to this permission set
  * @member {Array.<String>} contents
  */
 SinglePermissionSetsItem.prototype['contents'] = undefined;
@@ -112,23 +112,23 @@ SinglePermissionSetsItem.prototype['contents'] = undefined;
 
 // Implement PermissionSetsItem interface:
 /**
- * The ID of User Permission Set
+ * The ID of user permission set
  * @member {Number} id
  */
 PermissionSetsItem.prototype['id'] = undefined;
 /**
- * The name of Permission Set
+ * The name of the permission set
  * @member {String} name
  */
 PermissionSetsItem.prototype['name'] = undefined;
 /**
- * The number of Users assigned to this Permission Set
+ * The number of users assigned to this permission set
  * @member {Number} assignment_count
  */
 PermissionSetsItem.prototype['assignment_count'] = undefined;
 // Implement SinglePermissionSetsItemAllOf interface:
 /**
- * A permission assigned to this Permission Set
+ * A permission assigned to this permission set
  * @member {Array.<String>} contents
  */
 SinglePermissionSetsItemAllOf.prototype['contents'] = undefined;

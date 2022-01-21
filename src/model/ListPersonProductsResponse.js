@@ -89,7 +89,7 @@ class ListPersonProductsResponse {
 ListPersonProductsResponse.prototype['success'] = undefined;
 
 /**
- * The array of Deal Products
+ * The array of deal products
  * @member {Array.<module:model/ListPersonProductsResponseAllOfData>} data
  */
 ListPersonProductsResponse.prototype['data'] = undefined;
@@ -108,7 +108,7 @@ ListPersonProductsResponse.prototype['additional_data'] = undefined;
 BaseResponse.prototype['success'] = undefined;
 // Implement ListPersonProductsResponseAllOf interface:
 /**
- * The array of Deal Products
+ * The array of deal products
  * @member {Array.<module:model/ListPersonProductsResponseAllOfData>} data
  */
 ListPersonProductsResponseAllOf.prototype['data'] = undefined;

@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[PermissionSetsItem]**](PermissionSetsItem.md) | The array of Permission Set | [optional] 
+**data** | [**[PermissionSetsItem]**](PermissionSetsItem.md) | The array of permission set | [optional] 
 
 

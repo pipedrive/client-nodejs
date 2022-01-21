@@ -22,7 +22,7 @@ class MergeDealsRequest {
     /**
      * Constructs a new <code>MergeDealsRequest</code>.
      * @alias module:model/MergeDealsRequest
-     * @param mergeWithId {Number} ID of the deal that the deal will be merged with
+     * @param mergeWithId {Number} The ID of the deal that the deal will be merged with
      */
     constructor(mergeWithId) { 
         
@@ -67,7 +67,7 @@ class MergeDealsRequest {
 }
 
 /**
- * ID of the deal that the deal will be merged with
+ * The ID of the deal that the deal will be merged with
  * @member {Number} merge_with_id
  */
 MergeDealsRequest.prototype['merge_with_id'] = undefined;

@@ -83,7 +83,7 @@ class GetComments {
 GetComments.prototype['success'] = undefined;
 
 /**
- * The array of Comments
+ * The array of comments
  * @member {Array.<module:model/BaseComment>} data
  */
 GetComments.prototype['data'] = undefined;

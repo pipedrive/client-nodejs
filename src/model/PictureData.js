@@ -108,7 +108,7 @@ PictureData.prototype['item_type'] = undefined;
 PictureData.prototype['item_id'] = undefined;
 
 /**
- * If the associated picture is activated or not
+ * Whether the associated picture is active or not
  * @member {Boolean} active_flag
  */
 PictureData.prototype['active_flag'] = undefined;
@@ -126,7 +126,7 @@ PictureData.prototype['add_time'] = undefined;
 PictureData.prototype['update_time'] = undefined;
 
 /**
- * The ID of the User who added the picture
+ * The ID of the user who added the picture
  * @member {Number} added_by_user_id
  */
 PictureData.prototype['added_by_user_id'] = undefined;

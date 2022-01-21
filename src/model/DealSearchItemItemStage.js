@@ -70,13 +70,13 @@ class DealSearchItemItemStage {
 }
 
 /**
- * The ID of the stage of the Deal
+ * The ID of the stage of the deal
  * @member {Number} id
  */
 DealSearchItemItemStage.prototype['id'] = undefined;
 
 /**
- * The name of the stage of the Deal
+ * The name of the stage of the deal
  * @member {String} name
  */
 DealSearchItemItemStage.prototype['name'] = undefined;

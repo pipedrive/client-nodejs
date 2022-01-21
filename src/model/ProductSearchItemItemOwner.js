@@ -65,7 +65,7 @@ class ProductSearchItemItemOwner {
 }
 
 /**
- * The ID of the owner of the Product
+ * The ID of the owner of the product
  * @member {Number} id
  */
 ProductSearchItemItemOwner.prototype['id'] = undefined;

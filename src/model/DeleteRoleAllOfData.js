@@ -66,7 +66,7 @@ class DeleteRoleAllOfData {
 }
 
 /**
- * The ID of the deleted Role
+ * The ID of the deleted role
  * @member {Number} id
  */
 DeleteRoleAllOfData.prototype['id'] = undefined;

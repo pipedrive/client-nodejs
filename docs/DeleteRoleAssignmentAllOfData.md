@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | The ID of the Role the User was removed from | [optional] 
+**id** | **Number** | The ID of the role the user was removed from | [optional] 
 
 

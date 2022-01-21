@@ -351,301 +351,301 @@ class DealStrict {
 }
 
 /**
- * The ID of the Deal
+ * The ID of the deal
  * @member {Number} id
  */
 DealStrict.prototype['id'] = undefined;
 
 /**
- * The ID of the Deal creator
+ * The ID of the deal creator
  * @member {Number} creator_user_id
  */
 DealStrict.prototype['creator_user_id'] = undefined;
 
 /**
- * The ID of the User
+ * The ID of the user
  * @member {Number} user_id
  */
 DealStrict.prototype['user_id'] = undefined;
 
 /**
- * The ID of the Person associated with the Deal
+ * The ID of the person associated with the deal
  * @member {Number} person_id
  */
 DealStrict.prototype['person_id'] = undefined;
 
 /**
- * The ID of the Organization associated with the Deal
+ * The ID of the organization associated with the deal
  * @member {Number} org_id
  */
 DealStrict.prototype['org_id'] = undefined;
 
 /**
- * The ID of the Deal stage
+ * The ID of the deal stage
  * @member {Number} stage_id
  */
 DealStrict.prototype['stage_id'] = undefined;
 
 /**
- * The title of the Deal
+ * The title of the deal
  * @member {String} title
  */
 DealStrict.prototype['title'] = undefined;
 
 /**
- * The value of the Deal
+ * The value of the deal
  * @member {Number} value
  */
 DealStrict.prototype['value'] = undefined;
 
 /**
- * The currency associated with the Deal
+ * The currency associated with the deal
  * @member {String} currency
  */
 DealStrict.prototype['currency'] = undefined;
 
 /**
- * The creation date and time of the Deal
+ * The creation date and time of the deal
  * @member {String} add_time
  */
 DealStrict.prototype['add_time'] = undefined;
 
 /**
- * The last updated date and time of the Deal
+ * The last updated date and time of the deal
  * @member {String} update_time
  */
 DealStrict.prototype['update_time'] = undefined;
 
 /**
- * The last updated date and time of the Deal stage
+ * The last updated date and time of the deal stage
  * @member {String} stage_change_time
  */
 DealStrict.prototype['stage_change_time'] = undefined;
 
 /**
- * If the Deal is activated or not
+ * Whether the deal is active or not
  * @member {Boolean} active
  */
 DealStrict.prototype['active'] = undefined;
 
 /**
- * If the Deal is deleted or not
+ * Whether the deal is deleted or not
  * @member {Boolean} deleted
  */
 DealStrict.prototype['deleted'] = undefined;
 
 /**
- * The status of the Deal
+ * The status of the deal
  * @member {String} status
  */
 DealStrict.prototype['status'] = undefined;
 
 /**
- * The success probability percentage of the Deal
+ * The success probability percentage of the deal
  * @member {Number} probability
  */
 DealStrict.prototype['probability'] = undefined;
 
 /**
- * The date of the next activity associated with the Deal
+ * The date of the next activity associated with the deal
  * @member {String} next_activity_date
  */
 DealStrict.prototype['next_activity_date'] = undefined;
 
 /**
- * The time of the next activity associated with the Deal
+ * The time of the next activity associated with the deal
  * @member {String} next_activity_time
  */
 DealStrict.prototype['next_activity_time'] = undefined;
 
 /**
- * The ID of the next activity associated with the Deal
+ * The ID of the next activity associated with the deal
  * @member {Number} next_activity_id
  */
 DealStrict.prototype['next_activity_id'] = undefined;
 
 /**
- * The ID of the last activity associated with the Deal
+ * The ID of the last activity associated with the deal
  * @member {Number} last_activity_id
  */
 DealStrict.prototype['last_activity_id'] = undefined;
 
 /**
- * The date of the last activity associated with the Deal
+ * The date of the last activity associated with the deal
  * @member {String} last_activity_date
  */
 DealStrict.prototype['last_activity_date'] = undefined;
 
 /**
- * The reason for losing the Deal
+ * The reason for losing the deal
  * @member {String} lost_reason
  */
 DealStrict.prototype['lost_reason'] = undefined;
 
 /**
- * The visibility of the Deal
+ * The visibility of the deal
  * @member {String} visible_to
  */
 DealStrict.prototype['visible_to'] = undefined;
 
 /**
- * The date and time of closing the Deal
+ * The date and time of closing the deal
  * @member {String} close_time
  */
 DealStrict.prototype['close_time'] = undefined;
 
 /**
- * The ID of pipeline associated with the Deal
+ * The ID of pipeline associated with the deal
  * @member {Number} pipeline_id
  */
 DealStrict.prototype['pipeline_id'] = undefined;
 
 /**
- * The date and time of changing the Deal status as won
+ * The date and time of changing the deal status as won
  * @member {String} won_time
  */
 DealStrict.prototype['won_time'] = undefined;
 
 /**
- * The date and time of the first time changing the Deal status as won
+ * The date and time of the first time changing the deal status as won
  * @member {String} first_won_time
  */
 DealStrict.prototype['first_won_time'] = undefined;
 
 /**
- * The date and time of changing the Deal status as lost
+ * The date and time of changing the deal status as lost
  * @member {String} lost_time
  */
 DealStrict.prototype['lost_time'] = undefined;
 
 /**
- * The number of Products associated with the Deal
+ * The number of products associated with the deal
  * @member {Number} products_count
  */
 DealStrict.prototype['products_count'] = undefined;
 
 /**
- * The number of Files associated with the Deal
+ * The number of files associated with the deal
  * @member {Number} files_count
  */
 DealStrict.prototype['files_count'] = undefined;
 
 /**
- * The number of Notes associated with the Deal
+ * The number of notes associated with the deal
  * @member {Number} notes_count
  */
 DealStrict.prototype['notes_count'] = undefined;
 
 /**
- * The number of Followers associated with the Deal
+ * The number of followers associated with the deal
  * @member {Number} followers_count
  */
 DealStrict.prototype['followers_count'] = undefined;
 
 /**
- * The number of emails associated with the Deal
+ * The number of emails associated with the deal
  * @member {Number} email_messages_count
  */
 DealStrict.prototype['email_messages_count'] = undefined;
 
 /**
- * The number of Activities associated with the Deal
+ * The number of activities associated with the deal
  * @member {Number} activities_count
  */
 DealStrict.prototype['activities_count'] = undefined;
 
 /**
- * The number of completed Activities associated with the Deal
+ * The number of completed activities associated with the deal
  * @member {Number} done_activities_count
  */
 DealStrict.prototype['done_activities_count'] = undefined;
 
 /**
- * The number of incomplete Activities associated with the Deal
+ * The number of incomplete activities associated with the deal
  * @member {Number} undone_activities_count
  */
 DealStrict.prototype['undone_activities_count'] = undefined;
 
 /**
- * The number of Participants associated with the Deal
+ * The number of participants associated with the deal
  * @member {Number} participants_count
  */
 DealStrict.prototype['participants_count'] = undefined;
 
 /**
- * The expected close date of the Deal
+ * The expected close date of the deal
  * @member {Date} expected_close_date
  */
 DealStrict.prototype['expected_close_date'] = undefined;
 
 /**
- * The date and time of the last incoming email associated with the Deal
+ * The date and time of the last incoming email associated with the deal
  * @member {String} last_incoming_mail_time
  */
 DealStrict.prototype['last_incoming_mail_time'] = undefined;
 
 /**
- * The date and time of the last outgoing email associated with the Deal
+ * The date and time of the last outgoing email associated with the deal
  * @member {String} last_outgoing_mail_time
  */
 DealStrict.prototype['last_outgoing_mail_time'] = undefined;
 
 /**
- * The label assigned to the Deal
+ * The label assigned to the deal
  * @member {String} label
  */
 DealStrict.prototype['label'] = undefined;
 
 /**
- * The order number of the Deal stage associated with the Deal
+ * The order number of the deal stage associated with the deal
  * @member {Number} stage_order_nr
  */
 DealStrict.prototype['stage_order_nr'] = undefined;
 
 /**
- * The name of the Person associated with the Deal
+ * The name of the person associated with the deal
  * @member {String} person_name
  */
 DealStrict.prototype['person_name'] = undefined;
 
 /**
- * The name of the Organization associated with the Deal
+ * The name of the organization associated with the deal
  * @member {String} org_name
  */
 DealStrict.prototype['org_name'] = undefined;
 
 /**
- * The subject of the next activity associated with the Deal
+ * The subject of the next activity associated with the deal
  * @member {String} next_activity_subject
  */
 DealStrict.prototype['next_activity_subject'] = undefined;
 
 /**
- * The type of the next activity associated with the Deal
+ * The type of the next activity associated with the deal
  * @member {String} next_activity_type
  */
 DealStrict.prototype['next_activity_type'] = undefined;
 
 /**
- * The duration of the next activity associated with the Deal
+ * The duration of the next activity associated with the deal
  * @member {String} next_activity_duration
  */
 DealStrict.prototype['next_activity_duration'] = undefined;
 
 /**
- * The note of the next activity associated with the Deal
+ * The note of the next activity associated with the deal
  * @member {String} next_activity_note
  */
 DealStrict.prototype['next_activity_note'] = undefined;
 
 /**
- * The Deal value formatted with selected currency. E.g. US$500
+ * The deal value formatted with selected currency. E.g. US$500
  * @member {String} formatted_value
  */
 DealStrict.prototype['formatted_value'] = undefined;
 
 /**
- * Probability times Deal value. Probability can either be Deal probability or if not set, then stage probability.
+ * Probability times deal value. Probability can either be deal probability or if not set, then stage probability.
  * @member {Number} weighted_value
  */
 DealStrict.prototype['weighted_value'] = undefined;
@@ -657,37 +657,37 @@ DealStrict.prototype['weighted_value'] = undefined;
 DealStrict.prototype['formatted_weighted_value'] = undefined;
 
 /**
- * The currency associated with the Deal
+ * The currency associated with the deal
  * @member {String} weighted_value_currency
  */
 DealStrict.prototype['weighted_value_currency'] = undefined;
 
 /**
- * The date and time of changing the Deal status as rotten
+ * The date and time of changing the deal status as rotten
  * @member {String} rotten_time
  */
 DealStrict.prototype['rotten_time'] = undefined;
 
 /**
- * The name of the Deal owner
+ * The name of the deal owner
  * @member {String} owner_name
  */
 DealStrict.prototype['owner_name'] = undefined;
 
 /**
- * The Cc email of the Deal
+ * The BCC email of the deal
  * @member {String} cc_email
  */
 DealStrict.prototype['cc_email'] = undefined;
 
 /**
- * If the Organization that is associated with the Deal is hidden or not
+ * If the organization that is associated with the deal is hidden or not
  * @member {Boolean} org_hidden
  */
 DealStrict.prototype['org_hidden'] = undefined;
 
 /**
- * If the Person that is associated with the Deal is hidden or not
+ * If the person that is associated with the deal is hidden or not
  * @member {Boolean} person_hidden
  */
 DealStrict.prototype['person_hidden'] = undefined;
@@ -695,253 +695,253 @@ DealStrict.prototype['person_hidden'] = undefined;
 
 // Implement DealStrictModeFields interface:
 /**
- * The ID of the Deal
+ * The ID of the deal
  * @member {Number} id
  */
 DealStrictModeFields.prototype['id'] = undefined;
 /**
- * The ID of the Deal creator
+ * The ID of the deal creator
  * @member {Number} creator_user_id
  */
 DealStrictModeFields.prototype['creator_user_id'] = undefined;
 /**
- * The ID of the User
+ * The ID of the user
  * @member {Number} user_id
  */
 DealStrictModeFields.prototype['user_id'] = undefined;
 /**
- * The ID of the Person associated with the Deal
+ * The ID of the person associated with the deal
  * @member {Number} person_id
  */
 DealStrictModeFields.prototype['person_id'] = undefined;
 /**
- * The ID of the Organization associated with the Deal
+ * The ID of the organization associated with the deal
  * @member {Number} org_id
  */
 DealStrictModeFields.prototype['org_id'] = undefined;
 // Implement BaseDeal interface:
 /**
- * The ID of the Deal stage
+ * The ID of the deal stage
  * @member {Number} stage_id
  */
 BaseDeal.prototype['stage_id'] = undefined;
 /**
- * The title of the Deal
+ * The title of the deal
  * @member {String} title
  */
 BaseDeal.prototype['title'] = undefined;
 /**
- * The value of the Deal
+ * The value of the deal
  * @member {Number} value
  */
 BaseDeal.prototype['value'] = undefined;
 /**
- * The currency associated with the Deal
+ * The currency associated with the deal
  * @member {String} currency
  */
 BaseDeal.prototype['currency'] = undefined;
 /**
- * The creation date and time of the Deal
+ * The creation date and time of the deal
  * @member {String} add_time
  */
 BaseDeal.prototype['add_time'] = undefined;
 /**
- * The last updated date and time of the Deal
+ * The last updated date and time of the deal
  * @member {String} update_time
  */
 BaseDeal.prototype['update_time'] = undefined;
 /**
- * The last updated date and time of the Deal stage
+ * The last updated date and time of the deal stage
  * @member {String} stage_change_time
  */
 BaseDeal.prototype['stage_change_time'] = undefined;
 /**
- * If the Deal is activated or not
+ * Whether the deal is active or not
  * @member {Boolean} active
  */
 BaseDeal.prototype['active'] = undefined;
 /**
- * If the Deal is deleted or not
+ * Whether the deal is deleted or not
  * @member {Boolean} deleted
  */
 BaseDeal.prototype['deleted'] = undefined;
 /**
- * The status of the Deal
+ * The status of the deal
  * @member {String} status
  */
 BaseDeal.prototype['status'] = undefined;
 /**
- * The success probability percentage of the Deal
+ * The success probability percentage of the deal
  * @member {Number} probability
  */
 BaseDeal.prototype['probability'] = undefined;
 /**
- * The date of the next activity associated with the Deal
+ * The date of the next activity associated with the deal
  * @member {String} next_activity_date
  */
 BaseDeal.prototype['next_activity_date'] = undefined;
 /**
- * The time of the next activity associated with the Deal
+ * The time of the next activity associated with the deal
  * @member {String} next_activity_time
  */
 BaseDeal.prototype['next_activity_time'] = undefined;
 /**
- * The ID of the next activity associated with the Deal
+ * The ID of the next activity associated with the deal
  * @member {Number} next_activity_id
  */
 BaseDeal.prototype['next_activity_id'] = undefined;
 /**
- * The ID of the last activity associated with the Deal
+ * The ID of the last activity associated with the deal
  * @member {Number} last_activity_id
  */
 BaseDeal.prototype['last_activity_id'] = undefined;
 /**
- * The date of the last activity associated with the Deal
+ * The date of the last activity associated with the deal
  * @member {String} last_activity_date
  */
 BaseDeal.prototype['last_activity_date'] = undefined;
 /**
- * The reason for losing the Deal
+ * The reason for losing the deal
  * @member {String} lost_reason
  */
 BaseDeal.prototype['lost_reason'] = undefined;
 /**
- * The visibility of the Deal
+ * The visibility of the deal
  * @member {String} visible_to
  */
 BaseDeal.prototype['visible_to'] = undefined;
 /**
- * The date and time of closing the Deal
+ * The date and time of closing the deal
  * @member {String} close_time
  */
 BaseDeal.prototype['close_time'] = undefined;
 /**
- * The ID of pipeline associated with the Deal
+ * The ID of pipeline associated with the deal
  * @member {Number} pipeline_id
  */
 BaseDeal.prototype['pipeline_id'] = undefined;
 /**
- * The date and time of changing the Deal status as won
+ * The date and time of changing the deal status as won
  * @member {String} won_time
  */
 BaseDeal.prototype['won_time'] = undefined;
 /**
- * The date and time of the first time changing the Deal status as won
+ * The date and time of the first time changing the deal status as won
  * @member {String} first_won_time
  */
 BaseDeal.prototype['first_won_time'] = undefined;
 /**
- * The date and time of changing the Deal status as lost
+ * The date and time of changing the deal status as lost
  * @member {String} lost_time
  */
 BaseDeal.prototype['lost_time'] = undefined;
 /**
- * The number of Products associated with the Deal
+ * The number of products associated with the deal
  * @member {Number} products_count
  */
 BaseDeal.prototype['products_count'] = undefined;
 /**
- * The number of Files associated with the Deal
+ * The number of files associated with the deal
  * @member {Number} files_count
  */
 BaseDeal.prototype['files_count'] = undefined;
 /**
- * The number of Notes associated with the Deal
+ * The number of notes associated with the deal
  * @member {Number} notes_count
  */
 BaseDeal.prototype['notes_count'] = undefined;
 /**
- * The number of Followers associated with the Deal
+ * The number of followers associated with the deal
  * @member {Number} followers_count
  */
 BaseDeal.prototype['followers_count'] = undefined;
 /**
- * The number of emails associated with the Deal
+ * The number of emails associated with the deal
  * @member {Number} email_messages_count
  */
 BaseDeal.prototype['email_messages_count'] = undefined;
 /**
- * The number of Activities associated with the Deal
+ * The number of activities associated with the deal
  * @member {Number} activities_count
  */
 BaseDeal.prototype['activities_count'] = undefined;
 /**
- * The number of completed Activities associated with the Deal
+ * The number of completed activities associated with the deal
  * @member {Number} done_activities_count
  */
 BaseDeal.prototype['done_activities_count'] = undefined;
 /**
- * The number of incomplete Activities associated with the Deal
+ * The number of incomplete activities associated with the deal
  * @member {Number} undone_activities_count
  */
 BaseDeal.prototype['undone_activities_count'] = undefined;
 /**
- * The number of Participants associated with the Deal
+ * The number of participants associated with the deal
  * @member {Number} participants_count
  */
 BaseDeal.prototype['participants_count'] = undefined;
 /**
- * The expected close date of the Deal
+ * The expected close date of the deal
  * @member {Date} expected_close_date
  */
 BaseDeal.prototype['expected_close_date'] = undefined;
 /**
- * The date and time of the last incoming email associated with the Deal
+ * The date and time of the last incoming email associated with the deal
  * @member {String} last_incoming_mail_time
  */
 BaseDeal.prototype['last_incoming_mail_time'] = undefined;
 /**
- * The date and time of the last outgoing email associated with the Deal
+ * The date and time of the last outgoing email associated with the deal
  * @member {String} last_outgoing_mail_time
  */
 BaseDeal.prototype['last_outgoing_mail_time'] = undefined;
 /**
- * The label assigned to the Deal
+ * The label assigned to the deal
  * @member {String} label
  */
 BaseDeal.prototype['label'] = undefined;
 /**
- * The order number of the Deal stage associated with the Deal
+ * The order number of the deal stage associated with the deal
  * @member {Number} stage_order_nr
  */
 BaseDeal.prototype['stage_order_nr'] = undefined;
 /**
- * The name of the Person associated with the Deal
+ * The name of the person associated with the deal
  * @member {String} person_name
  */
 BaseDeal.prototype['person_name'] = undefined;
 /**
- * The name of the Organization associated with the Deal
+ * The name of the organization associated with the deal
  * @member {String} org_name
  */
 BaseDeal.prototype['org_name'] = undefined;
 /**
- * The subject of the next activity associated with the Deal
+ * The subject of the next activity associated with the deal
  * @member {String} next_activity_subject
  */
 BaseDeal.prototype['next_activity_subject'] = undefined;
 /**
- * The type of the next activity associated with the Deal
+ * The type of the next activity associated with the deal
  * @member {String} next_activity_type
  */
 BaseDeal.prototype['next_activity_type'] = undefined;
 /**
- * The duration of the next activity associated with the Deal
+ * The duration of the next activity associated with the deal
  * @member {String} next_activity_duration
  */
 BaseDeal.prototype['next_activity_duration'] = undefined;
 /**
- * The note of the next activity associated with the Deal
+ * The note of the next activity associated with the deal
  * @member {String} next_activity_note
  */
 BaseDeal.prototype['next_activity_note'] = undefined;
 /**
- * The Deal value formatted with selected currency. E.g. US$500
+ * The deal value formatted with selected currency. E.g. US$500
  * @member {String} formatted_value
  */
 BaseDeal.prototype['formatted_value'] = undefined;
 /**
- * Probability times Deal value. Probability can either be Deal probability or if not set, then stage probability.
+ * Probability times deal value. Probability can either be deal probability or if not set, then stage probability.
  * @member {Number} weighted_value
  */
 BaseDeal.prototype['weighted_value'] = undefined;
@@ -951,32 +951,32 @@ BaseDeal.prototype['weighted_value'] = undefined;
  */
 BaseDeal.prototype['formatted_weighted_value'] = undefined;
 /**
- * The currency associated with the Deal
+ * The currency associated with the deal
  * @member {String} weighted_value_currency
  */
 BaseDeal.prototype['weighted_value_currency'] = undefined;
 /**
- * The date and time of changing the Deal status as rotten
+ * The date and time of changing the deal status as rotten
  * @member {String} rotten_time
  */
 BaseDeal.prototype['rotten_time'] = undefined;
 /**
- * The name of the Deal owner
+ * The name of the deal owner
  * @member {String} owner_name
  */
 BaseDeal.prototype['owner_name'] = undefined;
 /**
- * The Cc email of the Deal
+ * The BCC email of the deal
  * @member {String} cc_email
  */
 BaseDeal.prototype['cc_email'] = undefined;
 /**
- * If the Organization that is associated with the Deal is hidden or not
+ * If the organization that is associated with the deal is hidden or not
  * @member {Boolean} org_hidden
  */
 BaseDeal.prototype['org_hidden'] = undefined;
 /**
- * If the Person that is associated with the Deal is hidden or not
+ * If the person that is associated with the deal is hidden or not
  * @member {Boolean} person_hidden
  */
 BaseDeal.prototype['person_hidden'] = undefined;

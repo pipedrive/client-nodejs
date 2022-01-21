@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 Delete an organization relationship
 
-Deletes an organization relationship and returns the deleted id.
+Deletes an organization relationship and returns the deleted ID.
 
 ### Example
 
@@ -90,7 +90,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.OrganizationRelationshipsApi();
-let id = 56; // Number | ID of the organization relationship
+let id = 56; // Number | The ID of the organization relationship
 apiInstance.deleteOrganizationRelationship(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -104,7 +104,7 @@ apiInstance.deleteOrganizationRelationship(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the organization relationship | 
+ **id** | **Number**| The ID of the organization relationship | 
 
 ### Return type
 
@@ -143,9 +143,9 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.OrganizationRelationshipsApi();
-let id = 56; // Number | ID of the organization relationship
+let id = 56; // Number | The ID of the organization relationship
 let opts = {
-  'orgId': 56 // Number | ID of the base organization for the returned calculated values
+  'orgId': 56 // Number | The ID of the base organization for the returned calculated values
 };
 apiInstance.getOrganizationRelationship(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -160,8 +160,8 @@ apiInstance.getOrganizationRelationship(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the organization relationship | 
- **orgId** | **Number**| ID of the base organization for the returned calculated values | [optional] 
+ **id** | **Number**| The ID of the organization relationship | 
+ **orgId** | **Number**| The ID of the base organization for the returned calculated values | [optional] 
 
 ### Return type
 
@@ -200,7 +200,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.OrganizationRelationshipsApi();
-let orgId = 56; // Number | ID of the organization to get relationships for
+let orgId = 56; // Number | The ID of the organization to get relationships for
 apiInstance.getOrganizationRelationships(orgId).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -214,7 +214,7 @@ apiInstance.getOrganizationRelationships(orgId).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orgId** | **Number**| ID of the organization to get relationships for | 
+ **orgId** | **Number**| The ID of the organization to get relationships for | 
 
 ### Return type
 
@@ -253,7 +253,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.OrganizationRelationshipsApi();
-let id = 56; // Number | ID of the organization relationship
+let id = 56; // Number | The ID of the organization relationship
 let opts = Pipedrive.OrganizationRelationship.constructFromObject({
   // Properties that you want to update
 });
@@ -270,7 +270,7 @@ apiInstance.updateOrganizationRelationship(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the organization relationship | 
+ **id** | **Number**| The ID of the organization relationship | 
  **organizationRelationship** | [**OrganizationRelationship**](OrganizationRelationship.md)|  | [optional] 
 
 ### Return type

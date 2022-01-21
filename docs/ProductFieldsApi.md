@@ -91,7 +91,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductFieldsApi();
-let id = 56; // Number | ID of the Product Field
+let id = 56; // Number | The ID of the product field
 apiInstance.deleteProductField(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -105,7 +105,7 @@ apiInstance.deleteProductField(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the Product Field | 
+ **id** | **Number**| The ID of the product field | 
 
 ### Return type
 
@@ -144,7 +144,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductFieldsApi();
-let ids = "ids_example"; // String | Comma-separated field IDs to delete
+let ids = "ids_example"; // String | The comma-separated field IDs to delete
 apiInstance.deleteProductFields(ids).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -158,7 +158,7 @@ apiInstance.deleteProductFields(ids).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **String**| Comma-separated field IDs to delete | 
+ **ids** | **String**| The comma-separated field IDs to delete | 
 
 ### Return type
 
@@ -197,7 +197,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductFieldsApi();
-let id = 56; // Number | ID of the Product Field
+let id = 56; // Number | The ID of the product field
 apiInstance.getProductField(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -211,7 +211,7 @@ apiInstance.getProductField(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the Product Field | 
+ **id** | **Number**| The ID of the product field | 
 
 ### Return type
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 Get all product fields
 
-Returns data about all product fields
+Returns data about all product fields.
 
 ### Example
 
@@ -307,7 +307,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductFieldsApi();
-let id = 56; // Number | ID of the Product Field
+let id = 56; // Number | The ID of the product field
 let opts = Pipedrive.BasicProductField.constructFromObject({
   // Properties that you want to update
 });
@@ -324,7 +324,7 @@ apiInstance.updateProductField(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| ID of the Product Field | 
+ **id** | **Number**| The ID of the product field | 
  **basicProductField** | [**BasicProductField**](BasicProductField.md)|  | [optional] 
 
 ### Return type

@@ -129,43 +129,43 @@ class DealSearchItemItem {
 }
 
 /**
- * The ID of the Deal
+ * The ID of the deal
  * @member {Number} id
  */
 DealSearchItemItem.prototype['id'] = undefined;
 
 /**
- * The type of the Item
+ * The type of the item
  * @member {String} type
  */
 DealSearchItemItem.prototype['type'] = undefined;
 
 /**
- * The title of the Deal
+ * The title of the deal
  * @member {String} title
  */
 DealSearchItemItem.prototype['title'] = undefined;
 
 /**
- * The value of the Deal
+ * The value of the deal
  * @member {Number} value
  */
 DealSearchItemItem.prototype['value'] = undefined;
 
 /**
- * The currency of the Deal
+ * The currency of the deal
  * @member {Number} currency
  */
 DealSearchItemItem.prototype['currency'] = undefined;
 
 /**
- * The status of the Deal
+ * The status of the deal
  * @member {String} status
  */
 DealSearchItemItem.prototype['status'] = undefined;
 
 /**
- * The visibility of the Deal
+ * The visibility of the deal
  * @member {Number} visible_to
  */
 DealSearchItemItem.prototype['visible_to'] = undefined;
@@ -197,7 +197,7 @@ DealSearchItemItem.prototype['organization'] = undefined;
 DealSearchItemItem.prototype['custom_fields'] = undefined;
 
 /**
- * An array of Notes
+ * An array of notes
  * @member {Array.<String>} notes
  */
 DealSearchItemItem.prototype['notes'] = undefined;

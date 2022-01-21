@@ -80,25 +80,25 @@ class AddedDealFollowerData {
 }
 
 /**
- * The User ID who added the Follower
+ * The user ID who added the follower
  * @member {Number} user_id
  */
 AddedDealFollowerData.prototype['user_id'] = undefined;
 
 /**
- * The Follower ID
+ * The follower ID
  * @member {Number} id
  */
 AddedDealFollowerData.prototype['id'] = undefined;
 
 /**
- * The ID of the Deal which the Follower was added to
+ * The ID of the deal which the follower was added to
  * @member {Number} deal_id
  */
 AddedDealFollowerData.prototype['deal_id'] = undefined;
 
 /**
- * The date and time when the Deal Follower was added
+ * The date and time when the deal follower was added
  * @member {String} add_time
  */
 AddedDealFollowerData.prototype['add_time'] = undefined;

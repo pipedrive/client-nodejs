@@ -76,7 +76,7 @@ class GlobalMessageGetAllOf {
 }
 
 /**
- * The array of Global Messages
+ * The array of global messages
  * @member {Array.<module:model/GlobalMessageData>} data
  */
 GlobalMessageGetAllOf.prototype['data'] = undefined;

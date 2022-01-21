@@ -83,7 +83,7 @@ class GetNotes {
 GetNotes.prototype['success'] = undefined;
 
 /**
- * The array of Notes
+ * The array of notes
  * @member {Array.<module:model/BaseNote>} data
  */
 GetNotes.prototype['data'] = undefined;

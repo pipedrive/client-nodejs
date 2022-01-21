@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **[Number]** | The list of permitted Users IDs | [optional] 
+**id** | **[Number]** | The list of permitted users IDs | [optional] 
 
 

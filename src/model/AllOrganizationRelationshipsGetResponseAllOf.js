@@ -78,7 +78,7 @@ class AllOrganizationRelationshipsGetResponseAllOf {
 }
 
 /**
- * The array of Organization Relationships
+ * The array of organization relationships
  * @member {Array.<module:model/OrganizationRelationshipDetails>} data
  */
 AllOrganizationRelationshipsGetResponseAllOf.prototype['data'] = undefined;

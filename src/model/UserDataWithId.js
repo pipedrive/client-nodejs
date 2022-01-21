@@ -93,37 +93,37 @@ class UserDataWithId {
 }
 
 /**
- * The ID of the User
+ * The ID of the user
  * @member {Number} id
  */
 UserDataWithId.prototype['id'] = undefined;
 
 /**
- * The name of the User
+ * The name of the user
  * @member {String} name
  */
 UserDataWithId.prototype['name'] = undefined;
 
 /**
- * The email of the User
+ * The email of the user
  * @member {String} email
  */
 UserDataWithId.prototype['email'] = undefined;
 
 /**
- * Whether the User has picture or not. 0 = No picture, 1 = Has picture.
+ * Whether the user has picture or not. 0 = No picture, 1 = Has picture.
  * @member {Number} has_pic
  */
 UserDataWithId.prototype['has_pic'] = undefined;
 
 /**
- * The User picture hash
+ * The user picture hash
  * @member {String} pic_hash
  */
 UserDataWithId.prototype['pic_hash'] = undefined;
 
 /**
- * If the User is activated or not
+ * Whether the user is active or not
  * @member {Boolean} active_flag
  */
 UserDataWithId.prototype['active_flag'] = undefined;
@@ -131,32 +131,32 @@ UserDataWithId.prototype['active_flag'] = undefined;
 
 // Implement UserData interface:
 /**
- * The ID of the User
+ * The ID of the user
  * @member {Number} id
  */
 UserData.prototype['id'] = undefined;
 /**
- * The name of the User
+ * The name of the user
  * @member {String} name
  */
 UserData.prototype['name'] = undefined;
 /**
- * The email of the User
+ * The email of the user
  * @member {String} email
  */
 UserData.prototype['email'] = undefined;
 /**
- * Whether the User has picture or not. 0 = No picture, 1 = Has picture.
+ * Whether the user has picture or not. 0 = No picture, 1 = Has picture.
  * @member {Number} has_pic
  */
 UserData.prototype['has_pic'] = undefined;
 /**
- * The User picture hash
+ * The user picture hash
  * @member {String} pic_hash
  */
 UserData.prototype['pic_hash'] = undefined;
 /**
- * If the User is activated or not
+ * Whether the user is active or not
  * @member {Boolean} active_flag
  */
 UserData.prototype['active_flag'] = undefined;

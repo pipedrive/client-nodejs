@@ -154,25 +154,25 @@ class BaseNote {
 }
 
 /**
- * The ID of the Note
+ * The ID of the note
  * @member {Number} id
  */
 BaseNote.prototype['id'] = undefined;
 
 /**
- * If Note is active or deleted
+ * Whether the note is active or deleted
  * @member {Boolean} active_flag
  */
 BaseNote.prototype['active_flag'] = undefined;
 
 /**
- * The creation date and time of the Note
+ * The creation date and time of the note
  * @member {String} add_time
  */
 BaseNote.prototype['add_time'] = undefined;
 
 /**
- * Content of the Note in HTML format. Subject to sanitization on the back-end.
+ * The content of the note in HTML format. Subject to sanitization on the back-end.
  * @member {String} content
  */
 BaseNote.prototype['content'] = undefined;
@@ -183,25 +183,25 @@ BaseNote.prototype['content'] = undefined;
 BaseNote.prototype['deal'] = undefined;
 
 /**
- * The ID of the Lead the Note is attached to
+ * The ID of the lead the note is attached to
  * @member {String} lead_id
  */
 BaseNote.prototype['lead_id'] = undefined;
 
 /**
- * The ID of the Deal the Note is attached to
+ * The ID of the deal the note is attached to
  * @member {Number} deal_id
  */
 BaseNote.prototype['deal_id'] = undefined;
 
 /**
- * The ID of the User who updated the Note last
+ * The ID of the user who last updated the note
  * @member {Number} last_update_user_id
  */
 BaseNote.prototype['last_update_user_id'] = undefined;
 
 /**
- * The ID of the Organization this Note is attached to
+ * The ID of the organization the note is attached to
  * @member {Number} org_id
  */
 BaseNote.prototype['org_id'] = undefined;
@@ -217,31 +217,31 @@ BaseNote.prototype['organization'] = undefined;
 BaseNote.prototype['person'] = undefined;
 
 /**
- * The ID of the Person this Note is attached to
+ * The ID of the person the note is attached to
  * @member {Number} person_id
  */
 BaseNote.prototype['person_id'] = undefined;
 
 /**
- * If true, then the results are filtered by Note to Deal pinning state.
+ * If true, the results are filtered by note to deal pinning state
  * @member {Boolean} pinned_to_deal_flag
  */
 BaseNote.prototype['pinned_to_deal_flag'] = undefined;
 
 /**
- * If true, then the results are filtered by Note to Organization pinning state.
+ * If true, the results are filtered by note to organization pinning state
  * @member {Boolean} pinned_to_organization_flag
  */
 BaseNote.prototype['pinned_to_organization_flag'] = undefined;
 
 /**
- * If true, then the results are filtered by Note to Person pinning state.
+ * If true, the results are filtered by note to person pinning state
  * @member {Boolean} pinned_to_person_flag
  */
 BaseNote.prototype['pinned_to_person_flag'] = undefined;
 
 /**
- * The last updated date and time of the Note
+ * The last updated date and time of the note
  * @member {String} update_time
  */
 BaseNote.prototype['update_time'] = undefined;
@@ -252,7 +252,7 @@ BaseNote.prototype['update_time'] = undefined;
 BaseNote.prototype['user'] = undefined;
 
 /**
- * The ID of the Note creator
+ * The ID of the note creator
  * @member {Number} user_id
  */
 BaseNote.prototype['user_id'] = undefined;

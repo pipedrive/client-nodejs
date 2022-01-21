@@ -75,7 +75,7 @@ class PersonFlowResponseAllOfData {
 }
 
 /**
- * The type of the Person update. (Possible object types - personChange, note, activity, file)
+ * The type of the person update. (Possible object types - personChange, note, activity, file)
  * @member {String} object
  */
 PersonFlowResponseAllOfData.prototype['object'] = undefined;
