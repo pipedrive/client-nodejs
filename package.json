@@ -8,7 +8,7 @@
     "build": "babel src -d dist",
     "prepack": "npm run build",
     "test": "npm run test:functional:start && npm run test:functional && npm run test:functional:stop",
-    "test:functional": "node ./test/functional/environment.js",
+    "test:functional": "cat package.json && node ./test/functional/environment.js",
     "test:functional:start": "node ./test/functional/environment.js --start-environment",
     "test:functional:stop": "node ./test/functional/environment.js --stop-environment",
     "sonar": "pipedrive-sonar-scanner",
