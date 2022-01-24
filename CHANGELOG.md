@@ -12,7 +12,7 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 ### Fixed
 - Fixed runtime error for `FilesApi.addFile`
 - Fixed missing required parameters check
-- Fixed camelCase support to application/json endpoints
+- Fixed camelCase support for application/json endpoints
 
 ## 13.0.12
 ### Fixed
