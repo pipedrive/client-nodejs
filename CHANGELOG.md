@@ -8,6 +8,12 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## 13.1.0
+### Fixed
+- Fixed runtime error for `FilesApi.addFile`
+- Fixed missing required parameters check
+- Fixed camelCase support for application/json endpoints
+
 ## 13.0.12
 ### Fixed
 - Fixed capitalization, punctuation, grammar, articles in all endpoint descriptions

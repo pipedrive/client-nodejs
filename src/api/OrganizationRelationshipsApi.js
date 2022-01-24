@@ -52,6 +52,16 @@ export default class OrganizationRelationshipsApi {
       opts = opts || {};
       let postBody = opts['addOrganizationRelationshipRequest'];
 
+      if (opts['type'] === undefined || opts['type'] === null) {
+        throw new Error("Missing the required parameter 'type' when calling addOrganizationRelationship");
+      }
+      if (opts['rel_owner_org_id'] === undefined || opts['rel_owner_org_id'] === null) {
+        throw new Error("Missing the required parameter 'rel_owner_org_id' when calling addOrganizationRelationship");
+      }
+      if (opts['rel_linked_org_id'] === undefined || opts['rel_linked_org_id'] === null) {
+        throw new Error("Missing the required parameter 'rel_linked_org_id' when calling addOrganizationRelationship");
+      }
+
       let pathParams = {
       };
       let queryParams = {
@@ -112,6 +122,7 @@ export default class OrganizationRelationshipsApi {
     deleteOrganizationRelationshipWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteOrganizationRelationship");
@@ -179,10 +190,12 @@ export default class OrganizationRelationshipsApi {
     getOrganizationRelationshipWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getOrganizationRelationship");
       }
+
 
       let pathParams = {
         'id': id,
@@ -247,6 +260,7 @@ export default class OrganizationRelationshipsApi {
     getOrganizationRelationshipsWithHttpInfo(orgId) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'orgId' is set
       if (orgId === undefined || orgId === null) {
         throw new Error("Missing the required parameter 'orgId' when calling getOrganizationRelationships");
@@ -314,10 +328,12 @@ export default class OrganizationRelationshipsApi {
     updateOrganizationRelationshipWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['organizationRelationship'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateOrganizationRelationship");
       }
+
 
       let pathParams = {
         'id': id,

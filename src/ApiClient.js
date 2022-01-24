@@ -14,6 +14,7 @@
 
 import superagent from "superagent";
 import querystring from "querystring";
+import { snakeCase } from "lodash";
 import UnauthorizedException from "./exceptions/UnauthorizedException";
 import OAuthProviderException from "./exceptions/OAuthProviderException";
 import NotFoundException from "./exceptions/NotFoundException";
@@ -462,7 +463,10 @@ class ApiClient {
             if (!request.header['Content-Type']) {
                 request.type('application/json');
             }
-            request.send(bodyParam);
+
+            const normalizeBodyParams = this.replaceCamelCaseObj(bodyParam)
+
+            request.send(normalizeBodyParams);
         }
 
         var accept = this.jsonPreferredMime(accepts);
@@ -533,12 +537,13 @@ class ApiClient {
                 throw exception;
             }
 
-            let exception = new FailResponseException();
+            let exception = new FailResponseException();            
+            let exceptionMessage = (error.response && error.response.res.statusMessage) || error.message;
 
-            exception.message = error.response.res.statusMessage;
+            exception.message = exceptionMessage;
             exception.errorCode = error.status;
 
-            if (error.response.body.error_info) {
+            if (error.response && error.response.body.error_info) {
                 exception.errorInfo = error.response.body.error_info;
             }
 
@@ -553,6 +558,22 @@ class ApiClient {
         }
 
         return data;
+    }
+    /**
+    * Converts CamelCase attributes of an object to snake_case and returns it
+    */
+    replaceCamelCaseObj(obj) {
+        const snakeCased = {};
+
+        for (const key in obj) {
+            let keyValue = obj[key];
+            const isArray = Array.isArray(keyValue);
+            const isObject = typeof keyValue === 'object' && !isArray;
+            if (isArray) keyValue = keyValue.map(kv => typeof kv === 'object' ? replaceCamelCaseObj(kv) : kv);
+            snakeCased[snakeCase(key)] = isObject ? replaceCamelCaseObj(keyValue) : keyValue;
+        }
+
+        return snakeCased
     }
 
     /**

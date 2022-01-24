@@ -56,14 +56,17 @@ export default class RolesApi {
     addOrUpdateRoleSettingWithHttpInfo(id, settingKey, value) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling addOrUpdateRoleSetting");
       }
+
       // verify the required parameter 'settingKey' is set
       if (settingKey === undefined || settingKey === null) {
         throw new Error("Missing the required parameter 'settingKey' when calling addOrUpdateRoleSetting");
       }
+
       // verify the required parameter 'value' is set
       if (value === undefined || value === null) {
         throw new Error("Missing the required parameter 'value' when calling addOrUpdateRoleSetting");
@@ -137,6 +140,8 @@ export default class RolesApi {
       opts = opts || {};
       let postBody = null;
 
+
+
       let pathParams = {
       };
       let queryParams = {
@@ -202,10 +207,12 @@ export default class RolesApi {
     addRoleAssignmentWithHttpInfo(id, userId) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling addRoleAssignment");
       }
+
       // verify the required parameter 'userId' is set
       if (userId === undefined || userId === null) {
         throw new Error("Missing the required parameter 'userId' when calling addRoleAssignment");
@@ -273,6 +280,7 @@ export default class RolesApi {
     deleteRoleWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteRole");
@@ -338,10 +346,12 @@ export default class RolesApi {
     deleteRoleAssignmentWithHttpInfo(id, userId) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteRoleAssignment");
       }
+
       // verify the required parameter 'userId' is set
       if (userId === undefined || userId === null) {
         throw new Error("Missing the required parameter 'userId' when calling deleteRoleAssignment");
@@ -409,6 +419,7 @@ export default class RolesApi {
     getRoleWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getRole");
@@ -476,10 +487,13 @@ export default class RolesApi {
     getRoleAssignmentsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getRoleAssignments");
       }
+
+
 
       let pathParams = {
         'id': id,
@@ -545,6 +559,7 @@ export default class RolesApi {
     getRoleSettingsWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getRoleSettings");
@@ -611,10 +626,13 @@ export default class RolesApi {
     getRoleSubRolesWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getRoleSubRoles");
       }
+
+
 
       let pathParams = {
         'id': id,
@@ -682,6 +700,8 @@ export default class RolesApi {
       opts = opts || {};
       let postBody = null;
 
+
+
       let pathParams = {
       };
       let queryParams = {
@@ -746,10 +766,13 @@ export default class RolesApi {
     updateRoleWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateRole");
       }
+
+
 
       let pathParams = {
         'id': id,

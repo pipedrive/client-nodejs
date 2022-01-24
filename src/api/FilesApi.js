@@ -57,10 +57,16 @@ export default class FilesApi {
     addFileWithHttpInfo(file, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'file' is set
       if (file === undefined || file === null) {
         throw new Error("Missing the required parameter 'file' when calling addFile");
       }
+
+
+
+
+
 
       let pathParams = {
       };
@@ -143,22 +149,27 @@ export default class FilesApi {
     addFileAndLinkItWithHttpInfo(fileType, title, itemType, itemId, remoteLocation) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'fileType' is set
       if (fileType === undefined || fileType === null) {
         throw new Error("Missing the required parameter 'fileType' when calling addFileAndLinkIt");
       }
+
       // verify the required parameter 'title' is set
       if (title === undefined || title === null) {
         throw new Error("Missing the required parameter 'title' when calling addFileAndLinkIt");
       }
+
       // verify the required parameter 'itemType' is set
       if (itemType === undefined || itemType === null) {
         throw new Error("Missing the required parameter 'itemType' when calling addFileAndLinkIt");
       }
+
       // verify the required parameter 'itemId' is set
       if (itemId === undefined || itemId === null) {
         throw new Error("Missing the required parameter 'itemId' when calling addFileAndLinkIt");
       }
+
       // verify the required parameter 'remoteLocation' is set
       if (remoteLocation === undefined || remoteLocation === null) {
         throw new Error("Missing the required parameter 'remoteLocation' when calling addFileAndLinkIt");
@@ -237,6 +248,7 @@ export default class FilesApi {
     deleteFileWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteFile");
@@ -302,6 +314,7 @@ export default class FilesApi {
     downloadFileWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling downloadFile");
@@ -367,6 +380,7 @@ export default class FilesApi {
     getFileWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getFile");
@@ -436,6 +450,10 @@ export default class FilesApi {
     getFilesWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
+
+
+
+
 
       let pathParams = {
       };
@@ -507,18 +525,22 @@ export default class FilesApi {
     linkFileToItemWithHttpInfo(itemType, itemId, remoteId, remoteLocation) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'itemType' is set
       if (itemType === undefined || itemType === null) {
         throw new Error("Missing the required parameter 'itemType' when calling linkFileToItem");
       }
+
       // verify the required parameter 'itemId' is set
       if (itemId === undefined || itemId === null) {
         throw new Error("Missing the required parameter 'itemId' when calling linkFileToItem");
       }
+
       // verify the required parameter 'remoteId' is set
       if (remoteId === undefined || remoteId === null) {
         throw new Error("Missing the required parameter 'remoteId' when calling linkFileToItem");
       }
+
       // verify the required parameter 'remoteLocation' is set
       if (remoteLocation === undefined || remoteLocation === null) {
         throw new Error("Missing the required parameter 'remoteLocation' when calling linkFileToItem");
@@ -597,10 +619,13 @@ export default class FilesApi {
     updateFileWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateFile");
       }
+
+
 
       let pathParams = {
         'id': id,

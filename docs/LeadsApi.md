@@ -90,7 +90,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.LeadsApi();
-let id = null; // String | The ID of the lead
+let id = "id_example"; // String | The ID of the lead
 apiInstance.deleteLead(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -104,7 +104,7 @@ apiInstance.deleteLead(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**String**](.md)| The ID of the lead | 
+ **id** | **String**| The ID of the lead | 
 
 ### Return type
 
@@ -143,7 +143,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.LeadsApi();
-let id = null; // String | The ID of the lead
+let id = "id_example"; // String | The ID of the lead
 apiInstance.getLead(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -157,7 +157,7 @@ apiInstance.getLead(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**String**](.md)| The ID of the lead | 
+ **id** | **String**| The ID of the lead | 
 
 ### Return type
 
@@ -255,7 +255,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.LeadsApi();
-let id = null; // String | The ID of the lead
+let id = "id_example"; // String | The ID of the lead
 let opts = Pipedrive.UpdateLeadRequest.constructFromObject({
   // Properties that you want to update
 });
@@ -272,7 +272,7 @@ apiInstance.updateLead(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**String**](.md)| The ID of the lead | 
+ **id** | **String**| The ID of the lead | 
  **updateLeadRequest** | [**UpdateLeadRequest**](UpdateLeadRequest.md)|  | [optional] 
 
 ### Return type
