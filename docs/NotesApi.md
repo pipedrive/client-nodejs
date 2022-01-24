@@ -153,7 +153,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.NotesApi();
 let id = 56; // Number | The ID of the note
-let commentId = null; // String | The ID of the comment
+let commentId = "commentId_example"; // String | The ID of the comment
 apiInstance.deleteComment(id, commentId).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -168,7 +168,7 @@ apiInstance.deleteComment(id, commentId).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the note | 
- **commentId** | [**String**](.md)| The ID of the comment | 
+ **commentId** | **String**| The ID of the comment | 
 
 ### Return type
 
@@ -261,7 +261,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.NotesApi();
 let id = 56; // Number | The ID of the note
-let commentId = null; // String | The ID of the comment
+let commentId = "commentId_example"; // String | The ID of the comment
 apiInstance.getComment(id, commentId).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -276,7 +276,7 @@ apiInstance.getComment(id, commentId).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the note | 
- **commentId** | [**String**](.md)| The ID of the comment | 
+ **commentId** | **String**| The ID of the comment | 
 
 ### Return type
 
@@ -429,7 +429,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new Pipedrive.NotesApi();
 let opts = {
   'userId': 56, // Number | The ID of the user whose notes to fetch. If omitted, notes by all users will be returned.
-  'leadId': null, // String | The ID of the lead which notes to fetch. If omitted, notes about all leads will be returned.
+  'leadId': "leadId_example", // String | The ID of the lead which notes to fetch. If omitted, notes about all leads will be returned.
   'dealId': 56, // Number | The ID of the deal which notes to fetch. If omitted, notes about all deals will be returned.
   'personId': 56, // Number | The ID of the person whose notes to fetch. If omitted, notes about all persons will be returned.
   'orgId': 56, // Number | The ID of the organization which notes to fetch. If omitted, notes about all organizations will be returned.
@@ -457,7 +457,7 @@ apiInstance.getNotes(opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| The ID of the user whose notes to fetch. If omitted, notes by all users will be returned. | [optional] 
- **leadId** | [**String**](.md)| The ID of the lead which notes to fetch. If omitted, notes about all leads will be returned. | [optional] 
+ **leadId** | **String**| The ID of the lead which notes to fetch. If omitted, notes about all leads will be returned. | [optional] 
  **dealId** | **Number**| The ID of the deal which notes to fetch. If omitted, notes about all deals will be returned. | [optional] 
  **personId** | **Number**| The ID of the person whose notes to fetch. If omitted, notes about all persons will be returned. | [optional] 
  **orgId** | **Number**| The ID of the organization which notes to fetch. If omitted, notes about all organizations will be returned. | [optional] 
@@ -509,7 +509,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.NotesApi();
 let id = 56; // Number | The ID of the note
-let commentId = null; // String | The ID of the comment
+let commentId = "commentId_example"; // String | The ID of the comment
 let opts = Pipedrive.CommentPostPutObject.constructFromObject({
   // Properties that you want to update
 });
@@ -527,7 +527,7 @@ apiInstance.updateCommentForNote(id, commentId, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the note | 
- **commentId** | [**String**](.md)| The ID of the comment | 
+ **commentId** | **String**| The ID of the comment | 
  **commentPostPutObject** | [**CommentPostPutObject**](CommentPostPutObject.md)|  | [optional] 
 
 ### Return type

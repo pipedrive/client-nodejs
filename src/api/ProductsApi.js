@@ -60,6 +60,7 @@ export default class ProductsApi {
       opts = opts || {};
       let postBody = opts['addProductRequestBody'];
 
+
       let pathParams = {
       };
       let queryParams = {
@@ -122,9 +123,14 @@ export default class ProductsApi {
     addProductFollowerWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['addProductFollowerRequest'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling addProductFollower");
+      }
+
+      if (opts['user_id'] === undefined || opts['user_id'] === null) {
+        throw new Error("Missing the required parameter 'user_id' when calling addProductFollower");
       }
 
       let pathParams = {
@@ -189,6 +195,7 @@ export default class ProductsApi {
     deleteProductWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteProduct");
@@ -255,10 +262,12 @@ export default class ProductsApi {
     deleteProductFollowerWithHttpInfo(id, followerId) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteProductFollower");
       }
+
       // verify the required parameter 'followerId' is set
       if (followerId === undefined || followerId === null) {
         throw new Error("Missing the required parameter 'followerId' when calling deleteProductFollower");
@@ -326,6 +335,7 @@ export default class ProductsApi {
     getProductWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getProduct");
@@ -395,10 +405,14 @@ export default class ProductsApi {
     getProductDealsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getProductDeals");
       }
+
+
+
 
       let pathParams = {
         'id': id,
@@ -472,10 +486,15 @@ export default class ProductsApi {
     getProductFilesWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getProductFiles");
       }
+
+
+
+
 
       let pathParams = {
         'id': id,
@@ -549,10 +568,13 @@ export default class ProductsApi {
     getProductFollowersWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getProductFollowers");
       }
+
+
 
       let pathParams = {
         'id': id,
@@ -619,6 +641,7 @@ export default class ProductsApi {
     getProductUsersWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getProductUsers");
@@ -691,6 +714,13 @@ export default class ProductsApi {
     getProductsWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
+
+
+
+
+
+
+
 
       let pathParams = {
       };
@@ -771,10 +801,16 @@ export default class ProductsApi {
     searchProductsWithHttpInfo(term, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'term' is set
       if (term === undefined || term === null) {
         throw new Error("Missing the required parameter 'term' when calling searchProducts");
       }
+
+
+
+
+
 
       let pathParams = {
       };
@@ -849,10 +885,12 @@ export default class ProductsApi {
     updateProductWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['productRequest'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateProduct");
       }
+
 
       let pathParams = {
         'id': id,

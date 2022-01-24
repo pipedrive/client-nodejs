@@ -52,6 +52,16 @@ export default class WebhooksApi {
       opts = opts || {};
       let postBody = opts['addWebhookRequest'];
 
+      if (opts['subscription_url'] === undefined || opts['subscription_url'] === null) {
+        throw new Error("Missing the required parameter 'subscription_url' when calling addWebhook");
+      }
+      if (opts['event_action'] === undefined || opts['event_action'] === null) {
+        throw new Error("Missing the required parameter 'event_action' when calling addWebhook");
+      }
+      if (opts['event_object'] === undefined || opts['event_object'] === null) {
+        throw new Error("Missing the required parameter 'event_object' when calling addWebhook");
+      }
+
       let pathParams = {
       };
       let queryParams = {
@@ -112,6 +122,7 @@ export default class WebhooksApi {
     deleteWebhookWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteWebhook");

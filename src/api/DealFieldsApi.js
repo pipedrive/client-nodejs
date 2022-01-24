@@ -51,6 +51,7 @@ export default class DealFieldsApi {
       opts = opts || {};
       let postBody = opts['fieldCreateRequest'];
 
+
       let pathParams = {
       };
       let queryParams = {
@@ -111,6 +112,7 @@ export default class DealFieldsApi {
     deleteDealFieldWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteDealField");
@@ -176,6 +178,7 @@ export default class DealFieldsApi {
     deleteDealFieldsWithHttpInfo(ids) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'ids' is set
       if (ids === undefined || ids === null) {
         throw new Error("Missing the required parameter 'ids' when calling deleteDealFields");
@@ -241,6 +244,7 @@ export default class DealFieldsApi {
     getDealFieldWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getDealField");
@@ -309,6 +313,8 @@ export default class DealFieldsApi {
       opts = opts || {};
       let postBody = null;
 
+
+
       let pathParams = {
       };
       let queryParams = {
@@ -374,10 +380,12 @@ export default class DealFieldsApi {
     updateDealFieldWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['fieldUpdateRequest'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateDealField");
       }
+
 
       let pathParams = {
         'id': id,

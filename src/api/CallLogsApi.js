@@ -53,6 +53,19 @@ export default class CallLogsApi {
       opts = opts || {};
       let postBody = opts['callLogObject'];
 
+      if (opts['outcome'] === undefined || opts['outcome'] === null) {
+        throw new Error("Missing the required parameter 'outcome' when calling addCallLog");
+      }
+      if (opts['to_phone_number'] === undefined || opts['to_phone_number'] === null) {
+        throw new Error("Missing the required parameter 'to_phone_number' when calling addCallLog");
+      }
+      if (opts['start_time'] === undefined || opts['start_time'] === null) {
+        throw new Error("Missing the required parameter 'start_time' when calling addCallLog");
+      }
+      if (opts['end_time'] === undefined || opts['end_time'] === null) {
+        throw new Error("Missing the required parameter 'end_time' when calling addCallLog");
+      }
+
       let pathParams = {
       };
       let queryParams = {
@@ -114,10 +127,12 @@ export default class CallLogsApi {
     addCallLogAudioFileWithHttpInfo(id, file) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling addCallLogAudioFile");
       }
+
       // verify the required parameter 'file' is set
       if (file === undefined || file === null) {
         throw new Error("Missing the required parameter 'file' when calling addCallLogAudioFile");
@@ -186,6 +201,7 @@ export default class CallLogsApi {
     deleteCallLogWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteCallLog");
@@ -251,6 +267,7 @@ export default class CallLogsApi {
     getCallLogWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getCallLog");
@@ -318,6 +335,8 @@ export default class CallLogsApi {
     getUserCallLogsWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
+
+
 
       let pathParams = {
       };

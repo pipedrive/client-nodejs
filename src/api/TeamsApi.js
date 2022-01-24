@@ -54,6 +54,13 @@ export default class TeamsApi {
       opts = opts || {};
       let postBody = opts['createTeam'];
 
+      if (opts['name'] === undefined || opts['name'] === null) {
+        throw new Error("Missing the required parameter 'name' when calling addTeam");
+      }
+      if (opts['manager_id'] === undefined || opts['manager_id'] === null) {
+        throw new Error("Missing the required parameter 'manager_id' when calling addTeam");
+      }
+
       let pathParams = {
       };
       let queryParams = {
@@ -116,9 +123,14 @@ export default class TeamsApi {
     addTeamUserWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['addTeamUserRequest'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling addTeamUser");
+      }
+
+      if (opts['users'] === undefined || opts['users'] === null) {
+        throw new Error("Missing the required parameter 'users' when calling addTeamUser");
       }
 
       let pathParams = {
@@ -185,9 +197,14 @@ export default class TeamsApi {
     deleteTeamUserWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['deleteTeamUserRequest'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteTeamUser");
+      }
+
+      if (opts['users'] === undefined || opts['users'] === null) {
+        throw new Error("Missing the required parameter 'users' when calling deleteTeamUser");
       }
 
       let pathParams = {
@@ -254,10 +271,12 @@ export default class TeamsApi {
     getTeamWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getTeam");
       }
+
 
       let pathParams = {
         'id': id,
@@ -322,6 +341,7 @@ export default class TeamsApi {
     getTeamUsersWithHttpInfo(id) {
       const opts = {}
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getTeamUsers");
@@ -390,6 +410,8 @@ export default class TeamsApi {
       opts = opts || {};
       let postBody = null;
 
+
+
       let pathParams = {
       };
       let queryParams = {
@@ -456,10 +478,13 @@ export default class TeamsApi {
     getUserTeamsWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = null;
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getUserTeams");
       }
+
+
 
       let pathParams = {
         'id': id,
@@ -528,10 +553,12 @@ export default class TeamsApi {
     updateTeamWithHttpInfo(id, opts) {
       opts = opts || {};
       let postBody = opts['updateTeam'];
+
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateTeam");
       }
+
 
       let pathParams = {
         'id': id,
