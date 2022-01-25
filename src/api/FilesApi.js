@@ -44,7 +44,7 @@ export default class FilesApi {
 
     /**
      * Add file
-     * Lets you upload a file and associate it with deal, person, organization, activity or product. For more information on how to add a file, see <a href=\"https://pipedrive.readme.io/docs/adding-a-file\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Lets you upload a file and associate it with a deal, person, organization, activity or product. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-file\" target=\"_blank\" rel=\"noopener noreferrer\">adding a file</a>.
      * @param {File} file A single file, supplied in the multipart/form-data encoding and contained within the given boundaries
      * @param {Object} opts Optional parameters
      * @param {Number} opts.dealId The ID of the deal to associate file(s) with
@@ -118,7 +118,7 @@ export default class FilesApi {
 
     /**
      * Add file
-     * Lets you upload a file and associate it with deal, person, organization, activity or product. For more information on how to add a file, see <a href=\"https://pipedrive.readme.io/docs/adding-a-file\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Lets you upload a file and associate it with a deal, person, organization, activity or product. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-file\" target=\"_blank\" rel=\"noopener noreferrer\">adding a file</a>.
      * @param {File} file A single file, supplied in the multipart/form-data encoding and contained within the given boundaries
      * @param {Object} opts Optional parameters
      * @param {Number} opts.dealId The ID of the deal to associate file(s) with
@@ -138,7 +138,7 @@ export default class FilesApi {
 
     /**
      * Create a remote file and link it to an item
-     * Creates a new empty file in the remote location (`googledrive`) that will be linked to the item you supply. For more information on how to add a remote file, see <a href=\"https://pipedrive.readme.io/docs/adding-a-remote-file\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Creates a new empty file in the remote location (`googledrive`) that will be linked to the item you supply. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-remote-file\" target=\"_blank\" rel=\"noopener noreferrer\">adding a remote file</a>.
      * @param {module:model/String} fileType The file type
      * @param {String} title The title of the file
      * @param {module:model/String} itemType The item type
@@ -223,7 +223,7 @@ export default class FilesApi {
 
     /**
      * Create a remote file and link it to an item
-     * Creates a new empty file in the remote location (`googledrive`) that will be linked to the item you supply. For more information on how to add a remote file, see <a href=\"https://pipedrive.readme.io/docs/adding-a-remote-file\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Creates a new empty file in the remote location (`googledrive`) that will be linked to the item you supply. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-remote-file\" target=\"_blank\" rel=\"noopener noreferrer\">adding a remote file</a>.
      * @param {module:model/String} fileType The file type
      * @param {String} title The title of the file
      * @param {module:model/String} itemType The item type
@@ -444,7 +444,7 @@ export default class FilesApi {
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {module:model/NumberBoolean} opts.includeDeletedFiles When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
-     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
+     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `product_id`, `add_time`, `update_time`, `file_name`, `file_type`, `file_size`, `comment`.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetAllFiles} and HTTP response
      */
     getFilesWithHttpInfo(opts) {
@@ -502,7 +502,7 @@ export default class FilesApi {
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {module:model/NumberBoolean} opts.includeDeletedFiles When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
-     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
+     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `product_id`, `add_time`, `update_time`, `file_name`, `file_type`, `file_size`, `comment`.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetAllFiles}
      */
     getFiles(opts) {
@@ -515,7 +515,7 @@ export default class FilesApi {
 
     /**
      * Link a remote file to an item
-     * Links an existing remote file (`googledrive`) to the item you supply. For more information on how to link a remote file, see <a href=\"https://pipedrive.readme.io/docs/adding-a-remote-file\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Links an existing remote file (`googledrive`) to the item you supply. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-remote-file\" target=\"_blank\" rel=\"noopener noreferrer\">adding a remote file</a>.
      * @param {module:model/String} itemType The item type
      * @param {Number} itemId The ID of the item to associate the file with
      * @param {String} remoteId The remote item ID
@@ -592,7 +592,7 @@ export default class FilesApi {
 
     /**
      * Link a remote file to an item
-     * Links an existing remote file (`googledrive`) to the item you supply. For more information on how to link a remote file, see <a href=\"https://pipedrive.readme.io/docs/adding-a-remote-file\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Links an existing remote file (`googledrive`) to the item you supply. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-remote-file\" target=\"_blank\" rel=\"noopener noreferrer\">adding a remote file</a>.
      * @param {module:model/String} itemType The item type
      * @param {Number} itemId The ID of the item to associate the file with
      * @param {String} remoteId The remote item ID

@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 Create a new Webhook
 
-Creates a new Webhook and returns its details. Note that specifying an event which triggers the Webhook combines 2 parameters - &#x60;event_action&#x60; and &#x60;event_object&#x60;. E.g., use &#x60;*.*&#x60; for getting notifications about all events, &#x60;added.deal&#x60; for any newly added deals, &#x60;deleted.persons&#x60; for any deleted persons, etc. See &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/guide-for-webhooks?ref&#x3D;api_reference\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this guide&lt;/a&gt; for more details.
+Creates a new Webhook and returns its details. Note that specifying an event which triggers the Webhook combines 2 parameters - &#x60;event_action&#x60; and &#x60;event_object&#x60;. E.g., use &#x60;*.*&#x60; for getting notifications about all events, &#x60;added.deal&#x60; for any newly added deals, &#x60;deleted.persons&#x60; for any deleted persons, etc. See &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/guide-for-webhooks?ref&#x3D;api_reference\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;the guide for Webhooks&lt;/a&gt; for more details.
 
 ### Example
 

@@ -42,7 +42,7 @@ export default class DealFieldsApi {
 
     /**
      * Add a new deal field
-     * Adds a new deal field. For more information on adding a new custom field, see <a href=\"https://pipedrive.readme.io/docs/adding-a-new-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Adds a new deal field. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-new-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">adding a new custom field</a>.
      * @param {Object} opts Optional parameters
      * @param {module:model/FieldCreateRequest} opts.fieldCreateRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/FieldResponse} and HTTP response
@@ -90,7 +90,7 @@ export default class DealFieldsApi {
 
     /**
      * Add a new deal field
-     * Adds a new deal field. For more information on adding a new custom field, see <a href=\"https://pipedrive.readme.io/docs/adding-a-new-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Adds a new deal field. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-new-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">adding a new custom field</a>.
      * @param {Object} opts Optional parameters
      * @param {module:model/FieldCreateRequest} opts.fieldCreateRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FieldResponse}
@@ -105,7 +105,7 @@ export default class DealFieldsApi {
 
     /**
      * Delete a deal field
-     * Marks a field as deleted. For more information on how to delete a custom field, see <a href=\"https://pipedrive.readme.io/docs/deleting-a-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Marks a field as deleted. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/deleting-a-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">deleting a custom field</a>.
      * @param {Number} id The ID of the field
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteResponse} and HTTP response
      */
@@ -157,7 +157,7 @@ export default class DealFieldsApi {
 
     /**
      * Delete a deal field
-     * Marks a field as deleted. For more information on how to delete a custom field, see <a href=\"https://pipedrive.readme.io/docs/deleting-a-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Marks a field as deleted. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/deleting-a-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">deleting a custom field</a>.
      * @param {Number} id The ID of the field
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteResponse}
      */
@@ -171,7 +171,7 @@ export default class DealFieldsApi {
 
     /**
      * Delete multiple deal fields in bulk
-     * Marks multiple fields as deleted.
+     * Marks multiple deal fields as deleted.
      * @param {String} ids The comma-separated field IDs to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BulkDeleteResponse} and HTTP response
      */
@@ -223,7 +223,7 @@ export default class DealFieldsApi {
 
     /**
      * Delete multiple deal fields in bulk
-     * Marks multiple fields as deleted.
+     * Marks multiple deal fields as deleted.
      * @param {String} ids The comma-separated field IDs to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BulkDeleteResponse}
      */
@@ -371,7 +371,7 @@ export default class DealFieldsApi {
 
     /**
      * Update a deal field
-     * Updates a deal field. See an example of updating custom fields’ values in <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Updates a deal field. For more information, see the tutorial for <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields' values</a>.
      * @param {Number} id The ID of the field
      * @param {Object} opts Optional parameters
      * @param {module:model/FieldUpdateRequest} opts.fieldUpdateRequest 
@@ -426,7 +426,7 @@ export default class DealFieldsApi {
 
     /**
      * Update a deal field
-     * Updates a deal field. See an example of updating custom fields’ values in <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Updates a deal field. For more information, see the tutorial for <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields' values</a>.
      * @param {Number} id The ID of the field
      * @param {Object} opts Optional parameters
      * @param {module:model/FieldUpdateRequest} opts.fieldUpdateRequest 

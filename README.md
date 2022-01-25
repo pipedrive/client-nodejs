@@ -271,11 +271,11 @@ Class | Method | HTTP request | Description
 *Pipedrive.ActivitiesApi* | [**getActivity**](docs/ActivitiesApi.md#getActivity) | **GET** /activities/{id} | Get details of an activity
 *Pipedrive.ActivitiesApi* | [**updateActivity**](docs/ActivitiesApi.md#updateActivity) | **PUT** /activities/{id} | Update an activity
 *Pipedrive.ActivityFieldsApi* | [**getActivityFields**](docs/ActivityFieldsApi.md#getActivityFields) | **GET** /activityFields | Get all activity fields
-*Pipedrive.ActivityTypesApi* | [**addActivityType**](docs/ActivityTypesApi.md#addActivityType) | **POST** /activityTypes | Add new ActivityType
-*Pipedrive.ActivityTypesApi* | [**deleteActivityType**](docs/ActivityTypesApi.md#deleteActivityType) | **DELETE** /activityTypes/{id} | Delete an ActivityType
-*Pipedrive.ActivityTypesApi* | [**deleteActivityTypes**](docs/ActivityTypesApi.md#deleteActivityTypes) | **DELETE** /activityTypes | Delete multiple ActivityTypes in bulk
-*Pipedrive.ActivityTypesApi* | [**getActivityTypes**](docs/ActivityTypesApi.md#getActivityTypes) | **GET** /activityTypes | Get all ActivityTypes
-*Pipedrive.ActivityTypesApi* | [**updateActivityType**](docs/ActivityTypesApi.md#updateActivityType) | **PUT** /activityTypes/{id} | Update an ActivityType
+*Pipedrive.ActivityTypesApi* | [**addActivityType**](docs/ActivityTypesApi.md#addActivityType) | **POST** /activityTypes | Add new activity type
+*Pipedrive.ActivityTypesApi* | [**deleteActivityType**](docs/ActivityTypesApi.md#deleteActivityType) | **DELETE** /activityTypes/{id} | Delete an activity type
+*Pipedrive.ActivityTypesApi* | [**deleteActivityTypes**](docs/ActivityTypesApi.md#deleteActivityTypes) | **DELETE** /activityTypes | Delete multiple activity types in bulk
+*Pipedrive.ActivityTypesApi* | [**getActivityTypes**](docs/ActivityTypesApi.md#getActivityTypes) | **GET** /activityTypes | Get all activity types
+*Pipedrive.ActivityTypesApi* | [**updateActivityType**](docs/ActivityTypesApi.md#updateActivityType) | **PUT** /activityTypes/{id} | Update an activity type
 *Pipedrive.CallLogsApi* | [**addCallLog**](docs/CallLogsApi.md#addCallLog) | **POST** /callLogs | Add a call log
 *Pipedrive.CallLogsApi* | [**addCallLogAudioFile**](docs/CallLogsApi.md#addCallLogAudioFile) | **POST** /callLogs/{id}/recordings | Attach an audio file to the call log
 *Pipedrive.CallLogsApi* | [**deleteCallLog**](docs/CallLogsApi.md#deleteCallLog) | **DELETE** /callLogs/{id} | Delete a call log

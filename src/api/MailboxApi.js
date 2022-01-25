@@ -248,7 +248,7 @@ export default class MailboxApi {
 
     /**
      * Get all mail messages of mail thread
-     * Get all the mail messages inside a specified mail thread.
+     * Returns all the mail messages inside a specified mail thread.
      * @param {Number} id The ID of the mail thread
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MailThreadMessages} and HTTP response
      */
@@ -300,7 +300,7 @@ export default class MailboxApi {
 
     /**
      * Get all mail messages of mail thread
-     * Get all the mail messages inside a specified mail thread.
+     * Returns all the mail messages inside a specified mail thread.
      * @param {Number} id The ID of the mail thread
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MailThreadMessages}
      */

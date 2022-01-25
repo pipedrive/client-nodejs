@@ -66,7 +66,7 @@ class ActivityTypeListResponseAllOf {
 }
 
 /**
- * The array of ActivityTypes
+ * The array of activity types
  * @member {Array.<module:model/ActivityTypeObjectResponse>} data
  */
 ActivityTypeListResponseAllOf.prototype['data'] = undefined;
