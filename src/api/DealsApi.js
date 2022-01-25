@@ -1148,7 +1148,7 @@ export default class DealsApi {
 
     /**
      * List participants of a deal
-     * Lists the participants associated with a deal.
+     * Lists the participants associated with a deal.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
      * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
@@ -1207,7 +1207,7 @@ export default class DealsApi {
 
     /**
      * List participants of a deal
-     * Lists the participants associated with a deal.
+     * Lists the participants associated with a deal.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
      * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
@@ -1386,7 +1386,7 @@ export default class DealsApi {
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {String} opts.allChanges Whether to show custom field updates or not. 1 = Include custom field changes. If omitted returns changes without custom field updates.
-     * @param {String} opts.items A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document)
+     * @param {String} opts.items A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DealFlowResponse} and HTTP response
      */
     getDealUpdatesWithHttpInfo(id, opts) {
@@ -1451,7 +1451,7 @@ export default class DealsApi {
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {String} opts.allChanges Whether to show custom field updates or not. 1 = Include custom field changes. If omitted returns changes without custom field updates.
-     * @param {String} opts.items A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document)
+     * @param {String} opts.items A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DealFlowResponse}
      */
     getDealUpdates(id, opts) {

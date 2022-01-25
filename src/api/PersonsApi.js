@@ -59,7 +59,7 @@ export default class PersonsApi {
 
     /**
      * Add a person
-     * Adds a new person. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the personFields and look for `key` values.
+     * Adds a new person. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the personFields and look for `key` values.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `data.marketing_status` field.
      * @param {Object} opts Optional parameters
      * @param {module:model/NewPerson} opts.newPerson 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddPersonResponse} and HTTP response
@@ -107,7 +107,7 @@ export default class PersonsApi {
 
     /**
      * Add a person
-     * Adds a new person. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the personFields and look for `key` values.
+     * Adds a new person. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the personFields and look for `key` values.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `data.marketing_status` field.
      * @param {Object} opts Optional parameters
      * @param {module:model/NewPerson} opts.newPerson 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddPersonResponse}
@@ -563,7 +563,7 @@ export default class PersonsApi {
 
     /**
      * Get details of a person
-     * Returns the details of a person. Note that this also returns some additional fields which are not present when asking for all persons. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of personFields.
+     * Returns the details of a person. Note that this also returns some additional fields which are not present when asking for all persons. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of personFields.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
      * @param {Number} id The ID of the person
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetPersonDetailsResponse} and HTTP response
      */
@@ -615,7 +615,7 @@ export default class PersonsApi {
 
     /**
      * Get details of a person
-     * Returns the details of a person. Note that this also returns some additional fields which are not present when asking for all persons. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of personFields.
+     * Returns the details of a person. Note that this also returns some additional fields which are not present when asking for all persons. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of personFields.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
      * @param {Number} id The ID of the person
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetPersonDetailsResponse}
      */
@@ -1099,13 +1099,13 @@ export default class PersonsApi {
 
     /**
      * List updates about a person
-     * Lists updates about a person.
+     * Lists updates about a person.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint's response will also include updates for the `marketing_status` field.
      * @param {Number} id The ID of the person
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {String} opts.allChanges Whether to show custom field updates or not. 1 = Include custom field changes. If omitted returns changes without custom field updates.
-     * @param {String} opts.items A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document)
+     * @param {String} opts.items A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PersonFlowResponse} and HTTP response
      */
     getPersonUpdatesWithHttpInfo(id, opts) {
@@ -1164,13 +1164,13 @@ export default class PersonsApi {
 
     /**
      * List updates about a person
-     * Lists updates about a person.
+     * Lists updates about a person.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint's response will also include updates for the `marketing_status` field.
      * @param {Number} id The ID of the person
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {String} opts.allChanges Whether to show custom field updates or not. 1 = Include custom field changes. If omitted returns changes without custom field updates.
-     * @param {String} opts.items A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document)
+     * @param {String} opts.items A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PersonFlowResponse}
      */
     getPersonUpdates(id, opts) {
@@ -1499,7 +1499,7 @@ export default class PersonsApi {
 
     /**
      * Update a person
-     * Updates the properties of a person. For more information on how to update a person, see <a href=\"https://pipedrive.readme.io/docs/updating-a-person\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Updates the properties of a person. For more information on how to update a person, see <a href=\"https://pipedrive.readme.io/docs/updating-a-person\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `data.marketing_status` field.
      * @param {Number} id The ID of the person
      * @param {Object} opts Optional parameters
      * @param {module:model/BasicPerson} opts.basicPerson 
@@ -1554,7 +1554,7 @@ export default class PersonsApi {
 
     /**
      * Update a person
-     * Updates the properties of a person. For more information on how to update a person, see <a href=\"https://pipedrive.readme.io/docs/updating-a-person\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Updates the properties of a person. For more information on how to update a person, see <a href=\"https://pipedrive.readme.io/docs/updating-a-person\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `data.marketing_status` field.
      * @param {Number} id The ID of the person
      * @param {Object} opts Optional parameters
      * @param {module:model/BasicPerson} opts.basicPerson 

@@ -15,6 +15,7 @@ import ApiClient from '../ApiClient';
 import BasePersonItemPhone from './BasePersonItemPhone';
 import BasicPerson from './BasicPerson';
 import BasicPersonEmail from './BasicPersonEmail';
+import MarketingStatus from './MarketingStatus';
 import NewPersonAllOf from './NewPersonAllOf';
 import VisibleTo from './VisibleTo';
 
@@ -88,6 +89,11 @@ class NewPerson {
 
                 delete data['visible_to'];
             }
+            if (data.hasOwnProperty('marketing_status')) {
+                obj['marketing_status'] = ApiClient.convertToType(data['marketing_status'], MarketingStatus);
+
+                delete data['marketing_status'];
+            }
             if (data.hasOwnProperty('add_time')) {
                 obj['add_time'] = ApiClient.convertToType(data['add_time'], 'String');
 
@@ -142,6 +148,12 @@ NewPerson.prototype['phone'] = undefined;
 NewPerson.prototype['visible_to'] = undefined;
 
 /**
+ * If the person does not have a valid email address, then the marketing status is **not set** and `no_consent` is returned for the `marketing_status` value when the new person is created. If the change is forbidden, the status will remain unchanged for every call that tries to modify the marketing status. Please be aware that it is only allowed **once** to change the marketing status from an old status to a new one.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`no_consent`</td><td>The customer has not given consent to receive any marketing communications</td></tr><tr><td>`unsubscribed`</td><td>The customers have unsubscribed from ALL marketing communications</td></tr><tr><td>`subscribed`</td><td>The customers are subscribed and are counted towards marketing caps</td></tr><tr><td>`archived`</td><td>The customers with `subscribed` status can be moved to `archived` to save consent, but they are not paid for</td></tr></table>
+ * @member {module:model/MarketingStatus} marketing_status
+ */
+NewPerson.prototype['marketing_status'] = undefined;
+
+/**
  * The optional creation date & time of the person in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} add_time
  */
@@ -179,6 +191,11 @@ BasicPerson.prototype['phone'] = undefined;
  * @member {module:model/VisibleTo} visible_to
  */
 BasicPerson.prototype['visible_to'] = undefined;
+/**
+ * If the person does not have a valid email address, then the marketing status is **not set** and `no_consent` is returned for the `marketing_status` value when the new person is created. If the change is forbidden, the status will remain unchanged for every call that tries to modify the marketing status. Please be aware that it is only allowed **once** to change the marketing status from an old status to a new one.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`no_consent`</td><td>The customer has not given consent to receive any marketing communications</td></tr><tr><td>`unsubscribed`</td><td>The customers have unsubscribed from ALL marketing communications</td></tr><tr><td>`subscribed`</td><td>The customers are subscribed and are counted towards marketing caps</td></tr><tr><td>`archived`</td><td>The customers with `subscribed` status can be moved to `archived` to save consent, but they are not paid for</td></tr></table>
+ * @member {module:model/MarketingStatus} marketing_status
+ */
+BasicPerson.prototype['marketing_status'] = undefined;
 // Implement NewPersonAllOf interface:
 /**
  * The optional creation date & time of the person in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS

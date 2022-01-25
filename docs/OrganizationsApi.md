@@ -657,7 +657,7 @@ Name | Type | Description  | Notes
 
 List persons of an organization
 
-Lists persons associated with an organization.
+Lists persons associated with an organization.&lt;br&gt;If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the &#x60;data.marketing_status&#x60; field.
 
 ### Example
 

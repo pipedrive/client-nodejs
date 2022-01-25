@@ -431,6 +431,7 @@ import MailThreadOneAllOf from './model/MailThreadOneAllOf';
 import MailThreadParticipant from './model/MailThreadParticipant';
 import MailThreadPut from './model/MailThreadPut';
 import MailThreadPutAllOf from './model/MailThreadPutAllOf';
+import MarketingStatus from './model/MarketingStatus';
 import MergeDealsRequest from './model/MergeDealsRequest';
 import MergeOrganizationsRequest from './model/MergeOrganizationsRequest';
 import MergePersonDealRelatedInfo from './model/MergePersonDealRelatedInfo';
@@ -3275,6 +3276,12 @@ export {
      * @property {module:model/MailThreadPutAllOf}
      */
     MailThreadPutAllOf,
+
+    /**
+     * The MarketingStatus model constructor.
+     * @property {module:model/MarketingStatus}
+     */
+    MarketingStatus,
 
     /**
      * The MergeDealsRequest model constructor.
