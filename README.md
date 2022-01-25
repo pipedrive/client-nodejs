@@ -925,6 +925,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.MailThreadParticipant](docs/MailThreadParticipant.md)
  - [Pipedrive.MailThreadPut](docs/MailThreadPut.md)
  - [Pipedrive.MailThreadPutAllOf](docs/MailThreadPutAllOf.md)
+ - [Pipedrive.MarketingStatus](docs/MarketingStatus.md)
  - [Pipedrive.MergeDealsRequest](docs/MergeDealsRequest.md)
  - [Pipedrive.MergeOrganizationsRequest](docs/MergeOrganizationsRequest.md)
  - [Pipedrive.MergePersonDealRelatedInfo](docs/MergePersonDealRelatedInfo.md)

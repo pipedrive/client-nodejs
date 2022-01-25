@@ -866,7 +866,7 @@ export default class OrganizationsApi {
 
     /**
      * List persons of an organization
-     * Lists persons associated with an organization.
+     * Lists persons associated with an organization.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
      * @param {Number} id The ID of the organization
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
@@ -925,7 +925,7 @@ export default class OrganizationsApi {
 
     /**
      * List persons of an organization
-     * Lists persons associated with an organization.
+     * Lists persons associated with an organization.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
      * @param {Number} id The ID of the organization
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)

@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## 13.1.1
+### Changed
+- Changed person-related endpoints to include `marketing_status` body parameter: `POST /v1/persons`, `PUT /v1/persons/{id}`
+
 ## 13.1.0
 ### Fixed
 - Fixed runtime error for `FilesApi.addFile`
