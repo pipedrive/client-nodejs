@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[ActivityTypeObjectResponse]**](ActivityTypeObjectResponse.md) | The array of ActivityTypes | [optional] 
+**data** | [**[ActivityTypeObjectResponse]**](ActivityTypeObjectResponse.md) | The array of activity types | [optional] 
 
 

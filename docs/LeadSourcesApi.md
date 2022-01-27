@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Get all lead sources
 
-Returns all lead sources. Please note that the list of lead sources is fixed, it cannot be modified. All leads created through the Public Pipedrive API will have a lead source &#x60;API&#x60; assigned. 
+Returns all lead sources. Please note that the list of lead sources is fixed, it cannot be modified. All leads created through the Pipedrive API will have a lead source &#x60;API&#x60; assigned. 
 
 ### Example
 

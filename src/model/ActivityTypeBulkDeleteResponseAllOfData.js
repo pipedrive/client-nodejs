@@ -65,7 +65,7 @@ class ActivityTypeBulkDeleteResponseAllOfData {
 }
 
 /**
- * The IDs of the deleted ActivityTypes
+ * The IDs of the deleted activity types
  * @member {Array.<Number>} id
  */
 ActivityTypeBulkDeleteResponseAllOfData.prototype['id'] = undefined;

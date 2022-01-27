@@ -43,7 +43,7 @@ export default class ProductFieldsApi {
 
     /**
      * Add a new product field
-     * Adds a new product field. For more information on adding a new custom field, see <a href=\"https://pipedrive.readme.io/docs/adding-a-new-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Adds a new product field. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-new-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">adding a new custom field</a>.
      * @param {Object} opts Optional parameters
      * @param {module:model/NewProductField} opts.newProductField 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetProductFieldResponse} and HTTP response
@@ -97,7 +97,7 @@ export default class ProductFieldsApi {
 
     /**
      * Add a new product field
-     * Adds a new product field. For more information on adding a new custom field, see <a href=\"https://pipedrive.readme.io/docs/adding-a-new-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Adds a new product field. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-new-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">adding a new custom field</a>.
      * @param {Object} opts Optional parameters
      * @param {module:model/NewProductField} opts.newProductField 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetProductFieldResponse}
@@ -112,7 +112,7 @@ export default class ProductFieldsApi {
 
     /**
      * Delete a product field
-     * Marks a field as deleted. For more information on how to delete a custom field, see <a href=\"https://pipedrive.readme.io/docs/deleting-a-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Marks a product field as deleted. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/deleting-a-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">deleting a custom field</a>.
      * @param {Number} id The ID of the product field
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteProductFieldResponse} and HTTP response
      */
@@ -164,7 +164,7 @@ export default class ProductFieldsApi {
 
     /**
      * Delete a product field
-     * Marks a field as deleted. For more information on how to delete a custom field, see <a href=\"https://pipedrive.readme.io/docs/deleting-a-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Marks a product field as deleted. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/deleting-a-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">deleting a custom field</a>.
      * @param {Number} id The ID of the product field
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteProductFieldResponse}
      */
@@ -378,7 +378,7 @@ export default class ProductFieldsApi {
 
     /**
      * Update a product field
-     * Updates a product field. See an example of updating custom fields’ values in <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Updates a product field. For more information, see the tutorial for <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields' values</a>.
      * @param {Number} id The ID of the product field
      * @param {Object} opts Optional parameters
      * @param {module:model/BasicProductField} opts.basicProductField 
@@ -436,7 +436,7 @@ export default class ProductFieldsApi {
 
     /**
      * Update a product field
-     * Updates a product field. See an example of updating custom fields’ values in <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Updates a product field. For more information, see the tutorial for <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields' values</a>.
      * @param {Number} id The ID of the product field
      * @param {Object} opts Optional parameters
      * @param {module:model/BasicProductField} opts.basicProductField 

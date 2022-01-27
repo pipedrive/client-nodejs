@@ -83,7 +83,7 @@ class ActivityTypeListResponse {
 ActivityTypeListResponse.prototype['success'] = undefined;
 
 /**
- * The array of ActivityTypes
+ * The array of activity types
  * @member {Array.<module:model/ActivityTypeObjectResponse>} data
  */
 ActivityTypeListResponse.prototype['data'] = undefined;
@@ -97,7 +97,7 @@ ActivityTypeListResponse.prototype['data'] = undefined;
 BaseResponse.prototype['success'] = undefined;
 // Implement ActivityTypeListResponseAllOf interface:
 /**
- * The array of ActivityTypes
+ * The array of activity types
  * @member {Array.<module:model/ActivityTypeObjectResponse>} data
  */
 ActivityTypeListResponseAllOf.prototype['data'] = undefined;

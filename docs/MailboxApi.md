@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 
 Get all mail messages of mail thread
 
-Get all the mail messages inside a specified mail thread.
+Returns all the mail messages inside a specified mail thread.
 
 ### Example
 

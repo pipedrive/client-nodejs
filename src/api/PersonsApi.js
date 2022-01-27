@@ -803,7 +803,7 @@ export default class PersonsApi {
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {module:model/NumberBoolean} opts.includeDeletedFiles When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
-     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
+     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `product_id`, `add_time`, `update_time`, `file_name`, `file_type`, `file_size`, `comment`.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListFilesResponse} and HTTP response
      */
     getPersonFilesWithHttpInfo(id, opts) {
@@ -868,7 +868,7 @@ export default class PersonsApi {
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {module:model/NumberBoolean} opts.includeDeletedFiles When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
-     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
+     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `product_id`, `add_time`, `update_time`, `file_name`, `file_type`, `file_size`, `comment`.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListFilesResponse}
      */
     getPersonFiles(id, opts) {
@@ -1333,7 +1333,7 @@ export default class PersonsApi {
 
     /**
      * Merge two persons
-     * Merges a person with another person. For more information on how to merge two persons, see <a href=\"https://pipedrive.readme.io/docs/merging-two-persons\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Merges a person with another person. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/merging-two-persons\" target=\"_blank\" rel=\"noopener noreferrer\">merging two persons</a>.
      * @param {Number} id The ID of the person
      * @param {Object} opts Optional parameters
      * @param {module:model/MergePersonsRequest} opts.mergePersonsRequest 
@@ -1391,7 +1391,7 @@ export default class PersonsApi {
 
     /**
      * Merge two persons
-     * Merges a person with another person. For more information on how to merge two persons, see <a href=\"https://pipedrive.readme.io/docs/merging-two-persons\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.
+     * Merges a person with another person. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/merging-two-persons\" target=\"_blank\" rel=\"noopener noreferrer\">merging two persons</a>.
      * @param {Number} id The ID of the person
      * @param {Object} opts Optional parameters
      * @param {module:model/MergePersonsRequest} opts.mergePersonsRequest 
@@ -1499,7 +1499,7 @@ export default class PersonsApi {
 
     /**
      * Update a person
-     * Updates the properties of a person. For more information on how to update a person, see <a href=\"https://pipedrive.readme.io/docs/updating-a-person\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `data.marketing_status` field.
+     * Updates the properties of a person. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/updating-a-person\" target=\"_blank\" rel=\"noopener noreferrer\">updating a person</a>.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `data.marketing_status` field.
      * @param {Number} id The ID of the person
      * @param {Object} opts Optional parameters
      * @param {module:model/BasicPerson} opts.basicPerson 
@@ -1554,7 +1554,7 @@ export default class PersonsApi {
 
     /**
      * Update a person
-     * Updates the properties of a person. For more information on how to update a person, see <a href=\"https://pipedrive.readme.io/docs/updating-a-person\" target=\"_blank\" rel=\"noopener noreferrer\">this tutorial</a>.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `data.marketing_status` field.
+     * Updates the properties of a person. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/updating-a-person\" target=\"_blank\" rel=\"noopener noreferrer\">updating a person</a>.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `data.marketing_status` field.
      * @param {Number} id The ID of the person
      * @param {Object} opts Optional parameters
      * @param {module:model/BasicPerson} opts.basicPerson 

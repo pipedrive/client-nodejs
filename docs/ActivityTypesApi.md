@@ -4,11 +4,11 @@ All URIs are relative to *https://api.pipedrive.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addActivityType**](ActivityTypesApi.md#addActivityType) | **POST** /activityTypes | Add new ActivityType
-[**deleteActivityType**](ActivityTypesApi.md#deleteActivityType) | **DELETE** /activityTypes/{id} | Delete an ActivityType
-[**deleteActivityTypes**](ActivityTypesApi.md#deleteActivityTypes) | **DELETE** /activityTypes | Delete multiple ActivityTypes in bulk
-[**getActivityTypes**](ActivityTypesApi.md#getActivityTypes) | **GET** /activityTypes | Get all ActivityTypes
-[**updateActivityType**](ActivityTypesApi.md#updateActivityType) | **PUT** /activityTypes/{id} | Update an ActivityType
+[**addActivityType**](ActivityTypesApi.md#addActivityType) | **POST** /activityTypes | Add new activity type
+[**deleteActivityType**](ActivityTypesApi.md#deleteActivityType) | **DELETE** /activityTypes/{id} | Delete an activity type
+[**deleteActivityTypes**](ActivityTypesApi.md#deleteActivityTypes) | **DELETE** /activityTypes | Delete multiple activity types in bulk
+[**getActivityTypes**](ActivityTypesApi.md#getActivityTypes) | **GET** /activityTypes | Get all activity types
+[**updateActivityType**](ActivityTypesApi.md#updateActivityType) | **PUT** /activityTypes/{id} | Update an activity type
 
 
 
@@ -16,9 +16,9 @@ Method | HTTP request | Description
 
 > ActivityTypeCreateUpdateDeleteResponse addActivityType(name, iconKey, opts)
 
-Add new ActivityType
+Add new activity type
 
-Adds a new ActivityType and returns it upon success.
+Adds a new activity type.
 
 ### Example
 
@@ -35,10 +35,10 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ActivityTypesApi();
-let name = "name_example"; // String | The name of the ActivityType
+let name = "name_example"; // String | The name of the activity type
 let iconKey = new Pipedrive.IconKey(); // IconKey | 
 let opts = {
-  'color': "color_example" // String | A designated color for the ActivityType in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
+  'color': "color_example" // String | A designated color for the activity type in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
 };
 apiInstance.addActivityType(name, iconKey, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -53,9 +53,9 @@ apiInstance.addActivityType(name, iconKey, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| The name of the ActivityType | 
+ **name** | **String**| The name of the activity type | 
  **iconKey** | [**IconKey**](IconKey.md)|  | 
- **color** | **String**| A designated color for the ActivityType in 6-character HEX format (e.g. &#x60;FFFFFF&#x60; for white, &#x60;000000&#x60; for black) | [optional] 
+ **color** | **String**| A designated color for the activity type in 6-character HEX format (e.g. &#x60;FFFFFF&#x60; for white, &#x60;000000&#x60; for black) | [optional] 
 
 ### Return type
 
@@ -75,9 +75,9 @@ Name | Type | Description  | Notes
 
 > ActivityTypeCreateUpdateDeleteResponse deleteActivityType(id)
 
-Delete an ActivityType
+Delete an activity type
 
-Marks an ActivityType as deleted.
+Marks an activity type as deleted.
 
 ### Example
 
@@ -94,7 +94,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ActivityTypesApi();
-let id = 56; // Number | The ID of the ActivityType
+let id = 56; // Number | The ID of the activity type
 apiInstance.deleteActivityType(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -108,7 +108,7 @@ apiInstance.deleteActivityType(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The ID of the ActivityType | 
+ **id** | **Number**| The ID of the activity type | 
 
 ### Return type
 
@@ -128,9 +128,9 @@ Name | Type | Description  | Notes
 
 > ActivityTypeBulkDeleteResponse deleteActivityTypes(ids)
 
-Delete multiple ActivityTypes in bulk
+Delete multiple activity types in bulk
 
-Marks multiple ActivityTypes as deleted.
+Marks multiple activity types as deleted.
 
 ### Example
 
@@ -147,7 +147,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ActivityTypesApi();
-let ids = "ids_example"; // String | The comma-separated ActivityType IDs
+let ids = "ids_example"; // String | The comma-separated activity type IDs
 apiInstance.deleteActivityTypes(ids).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -161,7 +161,7 @@ apiInstance.deleteActivityTypes(ids).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **String**| The comma-separated ActivityType IDs | 
+ **ids** | **String**| The comma-separated activity type IDs | 
 
 ### Return type
 
@@ -181,9 +181,9 @@ Name | Type | Description  | Notes
 
 > ActivityTypeListResponse getActivityTypes()
 
-Get all ActivityTypes
+Get all activity types
 
-Returns all ActivityTypes.
+Returns all activity types.
 
 ### Example
 
@@ -230,9 +230,9 @@ This endpoint does not need any parameter.
 
 > ActivityTypeCreateUpdateDeleteResponse updateActivityType(id, opts)
 
-Update an ActivityType
+Update an activity type
 
-Updates an ActivityType.
+Updates an activity type.
 
 ### Example
 
@@ -249,12 +249,12 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ActivityTypesApi();
-let id = 56; // Number | The ID of the ActivityType
+let id = 56; // Number | The ID of the activity type
 let opts = {
-  'name': "name_example", // String | The name of the ActivityType
+  'name': "name_example", // String | The name of the activity type
   'iconKey': new Pipedrive.IconKey(), // IconKey | 
-  'color': "color_example", // String | A designated color for the ActivityType in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
-  'orderNr': 56 // Number | An order number for this ActivityType. Order numbers should be used to order the types in the ActivityType selections.
+  'color': "color_example", // String | A designated color for the activity type in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
+  'orderNr': 56 // Number | An order number for this activity type. Order numbers should be used to order the types in the activity type selections.
 };
 apiInstance.updateActivityType(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -269,11 +269,11 @@ apiInstance.updateActivityType(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The ID of the ActivityType | 
- **name** | **String**| The name of the ActivityType | [optional] 
+ **id** | **Number**| The ID of the activity type | 
+ **name** | **String**| The name of the activity type | [optional] 
  **iconKey** | [**IconKey**](IconKey.md)|  | [optional] 
- **color** | **String**| A designated color for the ActivityType in 6-character HEX format (e.g. &#x60;FFFFFF&#x60; for white, &#x60;000000&#x60; for black) | [optional] 
- **orderNr** | **Number**| An order number for this ActivityType. Order numbers should be used to order the types in the ActivityType selections. | [optional] 
+ **color** | **String**| A designated color for the activity type in 6-character HEX format (e.g. &#x60;FFFFFF&#x60; for white, &#x60;000000&#x60; for black) | [optional] 
+ **orderNr** | **Number**| An order number for this activity type. Order numbers should be used to order the types in the activity type selections. | [optional] 
 
 ### Return type
 

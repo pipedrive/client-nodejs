@@ -39,12 +39,12 @@ export default class ActivityTypesApi {
 
 
     /**
-     * Add new ActivityType
-     * Adds a new ActivityType and returns it upon success.
-     * @param {String} name The name of the ActivityType
+     * Add new activity type
+     * Adds a new activity type.
+     * @param {String} name The name of the activity type
      * @param {module:model/IconKey} iconKey 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.color A designated color for the ActivityType in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
+     * @param {String} opts.color A designated color for the activity type in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ActivityTypeCreateUpdateDeleteResponse} and HTTP response
      */
     addActivityTypeWithHttpInfo(name, iconKey, opts) {
@@ -105,12 +105,12 @@ export default class ActivityTypesApi {
     }
 
     /**
-     * Add new ActivityType
-     * Adds a new ActivityType and returns it upon success.
-     * @param {String} name The name of the ActivityType
+     * Add new activity type
+     * Adds a new activity type.
+     * @param {String} name The name of the activity type
      * @param {module:model/IconKey} iconKey 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.color A designated color for the ActivityType in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
+     * @param {String} opts.color A designated color for the activity type in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ActivityTypeCreateUpdateDeleteResponse}
      */
     addActivityType(name, iconKey, opts) {
@@ -122,9 +122,9 @@ export default class ActivityTypesApi {
 
 
     /**
-     * Delete an ActivityType
-     * Marks an ActivityType as deleted.
-     * @param {Number} id The ID of the ActivityType
+     * Delete an activity type
+     * Marks an activity type as deleted.
+     * @param {Number} id The ID of the activity type
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ActivityTypeCreateUpdateDeleteResponse} and HTTP response
      */
     deleteActivityTypeWithHttpInfo(id) {
@@ -174,9 +174,9 @@ export default class ActivityTypesApi {
     }
 
     /**
-     * Delete an ActivityType
-     * Marks an ActivityType as deleted.
-     * @param {Number} id The ID of the ActivityType
+     * Delete an activity type
+     * Marks an activity type as deleted.
+     * @param {Number} id The ID of the activity type
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ActivityTypeCreateUpdateDeleteResponse}
      */
     deleteActivityType(id) {
@@ -188,9 +188,9 @@ export default class ActivityTypesApi {
 
 
     /**
-     * Delete multiple ActivityTypes in bulk
-     * Marks multiple ActivityTypes as deleted.
-     * @param {String} ids The comma-separated ActivityType IDs
+     * Delete multiple activity types in bulk
+     * Marks multiple activity types as deleted.
+     * @param {String} ids The comma-separated activity type IDs
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ActivityTypeBulkDeleteResponse} and HTTP response
      */
     deleteActivityTypesWithHttpInfo(ids) {
@@ -240,9 +240,9 @@ export default class ActivityTypesApi {
     }
 
     /**
-     * Delete multiple ActivityTypes in bulk
-     * Marks multiple ActivityTypes as deleted.
-     * @param {String} ids The comma-separated ActivityType IDs
+     * Delete multiple activity types in bulk
+     * Marks multiple activity types as deleted.
+     * @param {String} ids The comma-separated activity type IDs
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ActivityTypeBulkDeleteResponse}
      */
     deleteActivityTypes(ids) {
@@ -254,8 +254,8 @@ export default class ActivityTypesApi {
 
 
     /**
-     * Get all ActivityTypes
-     * Returns all ActivityTypes.
+     * Get all activity types
+     * Returns all activity types.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ActivityTypeListResponse} and HTTP response
      */
     getActivityTypesWithHttpInfo() {
@@ -299,8 +299,8 @@ export default class ActivityTypesApi {
     }
 
     /**
-     * Get all ActivityTypes
-     * Returns all ActivityTypes.
+     * Get all activity types
+     * Returns all activity types.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ActivityTypeListResponse}
      */
     getActivityTypes() {
@@ -312,14 +312,14 @@ export default class ActivityTypesApi {
 
 
     /**
-     * Update an ActivityType
-     * Updates an ActivityType.
-     * @param {Number} id The ID of the ActivityType
+     * Update an activity type
+     * Updates an activity type.
+     * @param {Number} id The ID of the activity type
      * @param {Object} opts Optional parameters
-     * @param {String} opts.name The name of the ActivityType
+     * @param {String} opts.name The name of the activity type
      * @param {module:model/IconKey} opts.iconKey 
-     * @param {String} opts.color A designated color for the ActivityType in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
-     * @param {Number} opts.orderNr An order number for this ActivityType. Order numbers should be used to order the types in the ActivityType selections.
+     * @param {String} opts.color A designated color for the activity type in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
+     * @param {Number} opts.orderNr An order number for this activity type. Order numbers should be used to order the types in the activity type selections.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ActivityTypeCreateUpdateDeleteResponse} and HTTP response
      */
     updateActivityTypeWithHttpInfo(id, opts) {
@@ -381,14 +381,14 @@ export default class ActivityTypesApi {
     }
 
     /**
-     * Update an ActivityType
-     * Updates an ActivityType.
-     * @param {Number} id The ID of the ActivityType
+     * Update an activity type
+     * Updates an activity type.
+     * @param {Number} id The ID of the activity type
      * @param {Object} opts Optional parameters
-     * @param {String} opts.name The name of the ActivityType
+     * @param {String} opts.name The name of the activity type
      * @param {module:model/IconKey} opts.iconKey 
-     * @param {String} opts.color A designated color for the ActivityType in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
-     * @param {Number} opts.orderNr An order number for this ActivityType. Order numbers should be used to order the types in the ActivityType selections.
+     * @param {String} opts.color A designated color for the activity type in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
+     * @param {Number} opts.orderNr An order number for this activity type. Order numbers should be used to order the types in the activity type selections.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ActivityTypeCreateUpdateDeleteResponse}
      */
     updateActivityType(id, opts) {

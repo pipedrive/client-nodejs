@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 Add file
 
-Lets you upload a file and associate it with deal, person, organization, activity or product. For more information on how to add a file, see &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-a-file\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this tutorial&lt;/a&gt;.
+Lets you upload a file and associate it with a deal, person, organization, activity or product. For more information, see the tutorial for &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-a-file\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;adding a file&lt;/a&gt;.
 
 ### Example
 
@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 
 Create a remote file and link it to an item
 
-Creates a new empty file in the remote location (&#x60;googledrive&#x60;) that will be linked to the item you supply. For more information on how to add a remote file, see &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-a-remote-file\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this tutorial&lt;/a&gt;.
+Creates a new empty file in the remote location (&#x60;googledrive&#x60;) that will be linked to the item you supply. For more information, see the tutorial for &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-a-remote-file\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;adding a remote file&lt;/a&gt;.
 
 ### Example
 
@@ -327,7 +327,7 @@ let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
   'includeDeletedFiles': new Pipedrive.NumberBoolean(), // NumberBoolean | When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
-  'sort': "sort_example" // String | The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment.
+  'sort': "sort_example" // String | The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `product_id`, `add_time`, `update_time`, `file_name`, `file_type`, `file_size`, `comment`.
 };
 apiInstance.getFiles(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -345,7 +345,7 @@ Name | Type | Description  | Notes
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
  **includeDeletedFiles** | [**NumberBoolean**](.md)| When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work. | [optional] 
- **sort** | **String**| The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: id, user_id, deal_id, person_id, org_id, product_id, add_time, update_time, file_name, file_type, file_size, comment. | [optional] 
+ **sort** | **String**| The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: &#x60;id&#x60;, &#x60;user_id&#x60;, &#x60;deal_id&#x60;, &#x60;person_id&#x60;, &#x60;org_id&#x60;, &#x60;product_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;file_name&#x60;, &#x60;file_type&#x60;, &#x60;file_size&#x60;, &#x60;comment&#x60;. | [optional] 
 
 ### Return type
 
@@ -367,7 +367,7 @@ Name | Type | Description  | Notes
 
 Link a remote file to an item
 
-Links an existing remote file (&#x60;googledrive&#x60;) to the item you supply. For more information on how to link a remote file, see &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-a-remote-file\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this tutorial&lt;/a&gt;.
+Links an existing remote file (&#x60;googledrive&#x60;) to the item you supply. For more information, see the tutorial for &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-a-remote-file\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;adding a remote file&lt;/a&gt;.
 
 ### Example
 
