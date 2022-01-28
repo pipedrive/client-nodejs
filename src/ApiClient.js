@@ -537,7 +537,7 @@ class ApiClient {
                 throw exception;
             }
 
-            let exception = new FailResponseException();            
+            let exception = new FailResponseException();
             let exceptionMessage = (error.response && error.response.res.statusMessage) || error.message;
 
             exception.message = exceptionMessage;
@@ -569,8 +569,8 @@ class ApiClient {
             let keyValue = obj[key];
             const isArray = Array.isArray(keyValue);
             const isObject = typeof keyValue === 'object' && !isArray;
-            if (isArray) keyValue = keyValue.map(kv => typeof kv === 'object' ? replaceCamelCaseObj(kv) : kv);
-            snakeCased[snakeCase(key)] = isObject ? replaceCamelCaseObj(keyValue) : keyValue;
+            if (isArray) keyValue = keyValue.map(kv => typeof kv === 'object' ? this.replaceCamelCaseObj(kv) : kv);
+            snakeCased[snakeCase(key)] = isObject ? this.replaceCamelCaseObj(keyValue) : keyValue;
         }
 
         return snakeCased
