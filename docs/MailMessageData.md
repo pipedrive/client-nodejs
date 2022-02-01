@@ -32,7 +32,6 @@ Name | Type | Description | Notes
 **hasAttachmentsFlag** | [**NumberBooleanDefault0**](NumberBooleanDefault0.md) | Whether the mail message has an attachment or not | [optional] 
 **hasInlineAttachmentsFlag** | [**NumberBooleanDefault0**](NumberBooleanDefault0.md) | Whether the mail message has an inline attachment or not | [optional] 
 **hasRealAttachmentsFlag** | [**NumberBooleanDefault0**](NumberBooleanDefault0.md) | Whether the mail message has an attachment (which is not inline) or not | [optional] 
-**writeFlag** | **Boolean** | We strongly advise you to avoid the use of this property. We will soon deprecate this property. | [optional] 
 
 
 

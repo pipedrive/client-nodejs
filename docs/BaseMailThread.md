@@ -18,7 +18,6 @@ Name | Type | Description | Notes
 **syncedFlag** | [**NumberBooleanDefault0**](NumberBooleanDefault0.md) | Whether the mail thread is synced | [optional] 
 **smartBccFlag** | [**NumberBooleanDefault0**](NumberBooleanDefault0.md) | Whether one of the parties of the mail thread is Bcc | [optional] 
 **mailLinkTrackingEnabledFlag** | [**NumberBooleanDefault0**](NumberBooleanDefault0.md) | Whether the link tracking of the mail thread is enabled | [optional] 
-**writeFlag** | **Boolean** | We strongly advise you to avoid the use of this property. We will soon deprecate this property | [optional] 
 **parties** | [**BaseMailThreadAllOfParties**](BaseMailThreadAllOfParties.md) |  | [optional] 
 **draftsParties** | **[Object]** | Parties of the drafted mail thread | [optional] 
 **folders** | **[String]** | Folders in which messages from thread are being stored | [optional] 
