@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## 13.2.1
+### Fixed
+- Fixed wrong field name normalization for custom fields keys
+
 ## 13.2.0
 ### Changed
 - Deprecate /v1/mailbox/mailMessages/{id} & /v1/mailbox/mailThreads/{id} response data property write_flag
