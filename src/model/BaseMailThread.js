@@ -125,11 +125,6 @@ class BaseMailThread {
 
                 delete data['mail_link_tracking_enabled_flag'];
             }
-            if (data.hasOwnProperty('write_flag')) {
-                obj['write_flag'] = ApiClient.convertToType(data['write_flag'], 'Boolean');
-
-                delete data['write_flag'];
-            }
             if (data.hasOwnProperty('parties')) {
                 obj['parties'] = BaseMailThreadAllOfParties.constructFromObject(data['parties']);
 
@@ -342,12 +337,6 @@ BaseMailThread.prototype['smart_bcc_flag'] = undefined;
 BaseMailThread.prototype['mail_link_tracking_enabled_flag'] = undefined;
 
 /**
- * We strongly advise you to avoid the use of this property. We will soon deprecate this property
- * @member {Boolean} write_flag
- */
-BaseMailThread.prototype['write_flag'] = undefined;
-
-/**
  * @member {module:model/BaseMailThreadAllOfParties} parties
  */
 BaseMailThread.prototype['parties'] = undefined;
@@ -556,11 +545,6 @@ CommonMailThread.prototype['smart_bcc_flag'] = undefined;
  * @member {module:model/NumberBooleanDefault0} mail_link_tracking_enabled_flag
  */
 CommonMailThread.prototype['mail_link_tracking_enabled_flag'] = undefined;
-/**
- * We strongly advise you to avoid the use of this property. We will soon deprecate this property
- * @member {Boolean} write_flag
- */
-CommonMailThread.prototype['write_flag'] = undefined;
 // Implement BaseMailThreadAllOf interface:
 /**
  * @member {module:model/BaseMailThreadAllOfParties} parties

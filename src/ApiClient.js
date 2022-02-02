@@ -569,8 +569,15 @@ class ApiClient {
             let keyValue = obj[key];
             const isArray = Array.isArray(keyValue);
             const isObject = typeof keyValue === 'object' && !isArray;
+            const isHash = /^[a-f0-9]{40}$/i.test(key);
+
             if (isArray) keyValue = keyValue.map(kv => typeof kv === 'object' ? this.replaceCamelCaseObj(kv) : kv);
-            snakeCased[snakeCase(key)] = isObject ? this.replaceCamelCaseObj(keyValue) : keyValue;
+
+            if (isHash) {
+                snakeCased[key] = isObject ? key : keyValue;
+            } else {
+                snakeCased[snakeCase(key)] = isObject ? this.replaceCamelCaseObj(keyValue) : keyValue;
+            }
         }
 
         return snakeCased

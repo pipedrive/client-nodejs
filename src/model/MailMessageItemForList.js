@@ -195,11 +195,6 @@ class MailMessageItemForList {
 
                 delete data['has_real_attachments_flag'];
             }
-            if (data.hasOwnProperty('write_flag')) {
-                obj['write_flag'] = ApiClient.convertToType(data['write_flag'], 'Boolean');
-
-                delete data['write_flag'];
-            }
             if (data.hasOwnProperty('nylas_id')) {
                 obj['nylas_id'] = ApiClient.convertToType(data['nylas_id'], 'String');
 
@@ -426,12 +421,6 @@ MailMessageItemForList.prototype['has_inline_attachments_flag'] = undefined;
 MailMessageItemForList.prototype['has_real_attachments_flag'] = undefined;
 
 /**
- * We strongly advise you to avoid the use of this property. We will soon deprecate this property.
- * @member {Boolean} write_flag
- */
-MailMessageItemForList.prototype['write_flag'] = undefined;
-
-/**
  * The Mail Message ID assigned by the sync provider
  * @member {String} nylas_id
  */
@@ -627,11 +616,6 @@ MailMessageData.prototype['has_inline_attachments_flag'] = undefined;
  * @member {module:model/NumberBooleanDefault0} has_real_attachments_flag
  */
 MailMessageData.prototype['has_real_attachments_flag'] = undefined;
-/**
- * We strongly advise you to avoid the use of this property. We will soon deprecate this property.
- * @member {Boolean} write_flag
- */
-MailMessageData.prototype['write_flag'] = undefined;
 // Implement MailMessageItemForListAllOf interface:
 /**
  * The Mail Message ID assigned by the sync provider
