@@ -189,11 +189,6 @@ class MailMessageData {
 
                 delete data['has_real_attachments_flag'];
             }
-            if (data.hasOwnProperty('write_flag')) {
-                obj['write_flag'] = ApiClient.convertToType(data['write_flag'], 'Boolean');
-
-                delete data['write_flag'];
-            }
 
             if (Object.keys(data).length > 0) {
                 Object.assign(obj, data);
@@ -373,12 +368,6 @@ MailMessageData.prototype['has_inline_attachments_flag'] = undefined;
  * @member {module:model/NumberBooleanDefault0} has_real_attachments_flag
  */
 MailMessageData.prototype['has_real_attachments_flag'] = undefined;
-
-/**
- * We strongly advise you to avoid the use of this property. We will soon deprecate this property.
- * @member {Boolean} write_flag
- */
-MailMessageData.prototype['write_flag'] = undefined;
 
 
 

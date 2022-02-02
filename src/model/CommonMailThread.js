@@ -118,11 +118,6 @@ class CommonMailThread {
 
                 delete data['mail_link_tracking_enabled_flag'];
             }
-            if (data.hasOwnProperty('write_flag')) {
-                obj['write_flag'] = ApiClient.convertToType(data['write_flag'], 'Boolean');
-
-                delete data['write_flag'];
-            }
 
             if (Object.keys(data).length > 0) {
                 Object.assign(obj, data);
@@ -218,12 +213,6 @@ CommonMailThread.prototype['smart_bcc_flag'] = undefined;
  * @member {module:model/NumberBooleanDefault0} mail_link_tracking_enabled_flag
  */
 CommonMailThread.prototype['mail_link_tracking_enabled_flag'] = undefined;
-
-/**
- * We strongly advise you to avoid the use of this property. We will soon deprecate this property
- * @member {Boolean} write_flag
- */
-CommonMailThread.prototype['write_flag'] = undefined;
 
 
 

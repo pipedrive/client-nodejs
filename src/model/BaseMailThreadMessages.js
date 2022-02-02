@@ -125,11 +125,6 @@ class BaseMailThreadMessages {
 
                 delete data['mail_link_tracking_enabled_flag'];
             }
-            if (data.hasOwnProperty('write_flag')) {
-                obj['write_flag'] = ApiClient.convertToType(data['write_flag'], 'Boolean');
-
-                delete data['write_flag'];
-            }
             if (data.hasOwnProperty('from')) {
                 obj['from'] = ApiClient.convertToType(data['from'], [MailThreadParticipant]);
 
@@ -292,12 +287,6 @@ BaseMailThreadMessages.prototype['smart_bcc_flag'] = undefined;
 BaseMailThreadMessages.prototype['mail_link_tracking_enabled_flag'] = undefined;
 
 /**
- * We strongly advise you to avoid the use of this property. We will soon deprecate this property
- * @member {Boolean} write_flag
- */
-BaseMailThreadMessages.prototype['write_flag'] = undefined;
-
-/**
  * Senders of the mail thread
  * @member {Array.<module:model/MailThreadParticipant>} from
  */
@@ -447,11 +436,6 @@ CommonMailThread.prototype['smart_bcc_flag'] = undefined;
  * @member {module:model/NumberBooleanDefault0} mail_link_tracking_enabled_flag
  */
 CommonMailThread.prototype['mail_link_tracking_enabled_flag'] = undefined;
-/**
- * We strongly advise you to avoid the use of this property. We will soon deprecate this property
- * @member {Boolean} write_flag
- */
-CommonMailThread.prototype['write_flag'] = undefined;
 // Implement BaseMailThreadMessagesAllOf interface:
 /**
  * Senders of the mail thread
