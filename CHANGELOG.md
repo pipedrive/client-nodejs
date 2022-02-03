@@ -7,6 +7,10 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Changed
+- Update `visible_to` parameter for `POST /deals` and `PUT /deals/{id}`. Differentiate options by plans
+- Update `visible_to` parameter for `POST /persons` and `PUT /persons/{id}`. Differentiate options by plans
+- Update `visible_to` parameter for `POST /organizations` and `PUT /organizations/{id}`. Differentiate options by plans
 
 ## 13.2.1
 ### Fixed
