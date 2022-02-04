@@ -8,6 +8,12 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## 13.2.3	
+### Changed
+- Update `visible_to` parameter for `POST /deals` and `PUT /deals/{id}`. Differentiate options by plans
+- Update `visible_to` parameter for `POST /persons` and `PUT /persons/{id}`. Differentiate options by plans
+- Update `visible_to` parameter for `POST /organizations` and `PUT /organizations/{id}`. Differentiate options by plans
+
 ## 13.2.1
 ### Fixed
 - Fixed wrong field name normalization for custom fields keys
