@@ -154,7 +154,7 @@ ProductRequest.prototype['visible_to'] = undefined;
 ProductRequest.prototype['owner_id'] = undefined;
 
 /**
- * Object containing price objects, where each key is the price currency code, and each value is the price object. Each price object contains: `currency` (string), `price` (number), `cost` (number, optional), `overhead_cost` (number, optional). Note that there can only be one price per product per currency. When `prices` is omitted altogether, no prices will be set up for the product.
+ * An array of objects, each containing: `currency` (string), `price` (number), `cost` (number, optional), `overhead_cost` (number, optional). Note that there can only be one price per product per currency. When `prices` is omitted altogether, no prices will be set up for the product.
  * @member {Array.<Object>} prices
  */
 ProductRequest.prototype['prices'] = undefined;
