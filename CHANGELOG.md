@@ -11,6 +11,11 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 - Added quotation marks to fix formatting for Organizations endpoint `visible_to` parameter
 - Updated `prices` parameter description in Products endpoint
 
+## 13.2.4
+### Fixed
+- Added quotation marks to fix formatting for Organizations endpoint `visible_to` parameter
+- Updated `prices` parameter description in Products endpoint
+
 ## 13.2.3	
 ### Changed
 - Update `visible_to` parameter for `POST /deals` and `PUT /deals/{id}`. Differentiate options by plans
