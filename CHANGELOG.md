@@ -7,6 +7,14 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+## Changed
+- Updated `POST /notes`: parameter `content` is required
+- Updated `POST /organizations`: parameter `name` is required
+- Updated `POST /persons`: parameter `name` is required
+- Updated `DELETE /persons`: parameter `ids` is required
+- Updated `visible_to` parameter for `POST /deals` and `PUT /deals/{id}` to include type `number`
+- Updated `visible_to` parameter for `POST /persons` and `PUT /persons/{id}` to include type `number`
+- Updated `visible_to` parameter for `POST /organizations` and `PUT /organizations/{id}` to include type `number`
 
 ## 13.2.4
 ### Fixed

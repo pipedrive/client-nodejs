@@ -1349,6 +1349,9 @@ export default class OrganizationsApi {
         throw new Error("Missing the required parameter 'id' when calling updateOrganization");
       }
 
+      if (opts['name'] === undefined || opts['name'] === null) {
+        throw new Error("Missing the required parameter 'name' when calling updateOrganization");
+      }
 
       let pathParams = {
         'id': id,

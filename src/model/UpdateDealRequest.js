@@ -290,12 +290,6 @@ UpdateDealRequest['StatusEnum'] = {
     "lost": "lost",
 
     /**
-     * value: "lost"
-     * @const
-     */
-    "lost": "lost",
-
-    /**
      * value: "deleted"
      * @const
      */
