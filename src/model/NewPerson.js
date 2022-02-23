@@ -33,7 +33,7 @@ class NewPerson {
      * @param name {String} The name of the person
      */
     constructor(name) { 
-        BasicPerson.initialize(this);NewPersonAllOf.initialize(this);
+        BasicPerson.initialize(this, name);NewPersonAllOf.initialize(this);
         NewPerson.initialize(this, name);
     }
 

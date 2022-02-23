@@ -27,8 +27,6 @@ Name | Type | Description | Notes
 
 * `lost` (value: `"lost"`)
 
-* `lost` (value: `"lost"`)
-
 * `deleted` (value: `"deleted"`)
 
 

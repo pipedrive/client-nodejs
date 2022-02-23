@@ -500,19 +500,22 @@ export default class PersonsApi {
     /**
      * Delete multiple persons in bulk
      * Marks multiple persons as deleted.
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.ids The comma-separated IDs that will be deleted
+     * @param {String} ids The comma-separated IDs that will be deleted
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeletePersonsInBulkResponse} and HTTP response
      */
-    deletePersonsWithHttpInfo(opts) {
-      opts = opts || {};
+    deletePersonsWithHttpInfo(ids) {
+      const opts = {}
       let postBody = null;
 
+      // verify the required parameter 'ids' is set
+      if (ids === undefined || ids === null) {
+        throw new Error("Missing the required parameter 'ids' when calling deletePersons");
+      }
 
       let pathParams = {
       };
       let queryParams = {
-        'ids': opts['ids'],
+        'ids': ids,
       };
       let headerParams = {
       };
@@ -549,12 +552,11 @@ export default class PersonsApi {
     /**
      * Delete multiple persons in bulk
      * Marks multiple persons as deleted.
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.ids The comma-separated IDs that will be deleted
+     * @param {String} ids The comma-separated IDs that will be deleted
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeletePersonsInBulkResponse}
      */
-    deletePersons(opts) {
-      return this.deletePersonsWithHttpInfo(opts)
+    deletePersons(ids) {
+      return this.deletePersonsWithHttpInfo(ids)
         .then(function(response_and_data) {
           return response_and_data;
         });
@@ -1514,6 +1516,9 @@ export default class PersonsApi {
         throw new Error("Missing the required parameter 'id' when calling updatePerson");
       }
 
+      if (opts['name'] === undefined || opts['name'] === null) {
+        throw new Error("Missing the required parameter 'name' when calling updatePerson");
+      }
 
       let pathParams = {
         'id': id,

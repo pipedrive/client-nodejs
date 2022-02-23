@@ -26,10 +26,11 @@ class BasicPerson {
     /**
      * Constructs a new <code>BasicPerson</code>.
      * @alias module:model/BasicPerson
+     * @param name {String} The name of the person
      */
-    constructor() { 
+    constructor(name) { 
         
-        BasicPerson.initialize(this);
+        BasicPerson.initialize(this, name);
     }
 
     /**
@@ -37,7 +38,8 @@ class BasicPerson {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, name) { 
+        obj['name'] = name;
     }
 
     /**

@@ -364,7 +364,7 @@ Name | Type | Description  | Notes
 
 ## deletePersons
 
-> DeletePersonsInBulkResponse deletePersons(opts)
+> DeletePersonsInBulkResponse deletePersons(ids)
 
 Delete multiple persons in bulk
 
@@ -385,10 +385,8 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi();
-let opts = {
-  'ids': "ids_example" // String | The comma-separated IDs that will be deleted
-};
-apiInstance.deletePersons(opts).then((data) => {
+let ids = "ids_example"; // String | The comma-separated IDs that will be deleted
+apiInstance.deletePersons(ids).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -401,7 +399,7 @@ apiInstance.deletePersons(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **String**| The comma-separated IDs that will be deleted | [optional] 
+ **ids** | **String**| The comma-separated IDs that will be deleted | 
 
 ### Return type
 
