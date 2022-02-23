@@ -27,10 +27,11 @@ class AddNoteRequest {
      * @alias module:model/AddNoteRequest
      * @implements module:model/AddNoteRequestAllOf
      * @implements module:model/NoteParams
+     * @param content {String} The content of the note in HTML format. Subject to sanitization on the back-end.
      */
-    constructor() { 
-        AddNoteRequestAllOf.initialize(this);NoteParams.initialize(this);
-        AddNoteRequest.initialize(this);
+    constructor(content) { 
+        AddNoteRequestAllOf.initialize(this);NoteParams.initialize(this, content);
+        AddNoteRequest.initialize(this, content);
     }
 
     /**
@@ -38,7 +39,8 @@ class AddNoteRequest {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, content) { 
+        obj['content'] = content;
     }
 
     /**

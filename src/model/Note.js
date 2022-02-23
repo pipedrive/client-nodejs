@@ -30,7 +30,7 @@ class Note {
      * @param content {String} The content of the note in HTML format. Subject to sanitization on the back-end.
      */
     constructor(content) { 
-        NoteConnectToParams.initialize(this);NoteParams.initialize(this);
+        NoteConnectToParams.initialize(this);NoteParams.initialize(this, content);
         Note.initialize(this, content);
     }
 

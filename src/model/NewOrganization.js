@@ -30,7 +30,7 @@ class NewOrganization {
      * @param name {String} The name of the organization
      */
     constructor(name) { 
-        BasicOrganization.initialize(this);NewOrganizationAllOf.initialize(this);
+        BasicOrganization.initialize(this, name);NewOrganizationAllOf.initialize(this);
         NewOrganization.initialize(this, name);
     }
 

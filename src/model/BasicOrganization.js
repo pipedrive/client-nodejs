@@ -23,10 +23,11 @@ class BasicOrganization {
     /**
      * Constructs a new <code>BasicOrganization</code>.
      * @alias module:model/BasicOrganization
+     * @param name {String} The name of the organization
      */
-    constructor() { 
+    constructor(name) { 
         
-        BasicOrganization.initialize(this);
+        BasicOrganization.initialize(this, name);
     }
 
     /**
@@ -34,7 +35,8 @@ class BasicOrganization {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, name) { 
+        obj['name'] = name;
     }
 
     /**

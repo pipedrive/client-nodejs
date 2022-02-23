@@ -23,10 +23,11 @@ class NoteParams {
     /**
      * Constructs a new <code>NoteParams</code>.
      * @alias module:model/NoteParams
+     * @param content {String} The content of the note in HTML format. Subject to sanitization on the back-end.
      */
-    constructor() { 
+    constructor(content) { 
         
-        NoteParams.initialize(this);
+        NoteParams.initialize(this, content);
     }
 
     /**
@@ -34,7 +35,8 @@ class NoteParams {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, content) { 
+        obj['content'] = content;
     }
 
     /**
