@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**itemPrice** | **Number** | The price at which this product will be added to the deal | [optional] 
-**quantity** | **Number** | Quantity – e.g. how many items of this product will be added to the deal | [optional] 
+**itemPrice** | **Number** | The price at which this product will be added to the deal | 
+**quantity** | **Number** | Quantity – e.g. how many items of this product will be added to the deal | 
 **discountPercentage** | **Number** | The discount %. If omitted, will be set to 0. | [optional] [default to 0]
 **duration** | **Number** | The duration of the product (when product durations are not enabled for the company or if omitted, defaults to 1) | [optional] [default to 1]
 **productVariationId** | **Number** | The ID of the product variation to use. When omitted, no variation will be used. | [optional] 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **id** | **Number** | The ID of the deal-product (the ID of the product attached to the deal) | [optional] 
 **companyId** | **Number** | The ID of the company | [optional] 
 **dealId** | **Number** | The ID of the deal | [optional] 
-**productId** | **Number** | The ID of the product | [optional] 
+**productId** | **Number** | The ID of the product | 
 **durationUnit** | **String** | The type of the duration. (For example hourly, daily, etc.) | [optional] 
 **sumNoDiscount** | **Number** | The product sum without the discount | [optional] 
 **sum** | **Number** | The sum of all the products attached to the deal | [optional] 

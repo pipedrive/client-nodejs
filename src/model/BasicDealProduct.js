@@ -23,10 +23,12 @@ class BasicDealProduct {
     /**
      * Constructs a new <code>BasicDealProduct</code>.
      * @alias module:model/BasicDealProduct
+     * @param itemPrice {Number} The price at which this product will be added to the deal
+     * @param quantity {Number} Quantity – e.g. how many items of this product will be added to the deal
      */
-    constructor() { 
+    constructor(itemPrice, quantity) { 
         
-        BasicDealProduct.initialize(this);
+        BasicDealProduct.initialize(this, itemPrice, quantity);
     }
 
     /**
@@ -34,7 +36,9 @@ class BasicDealProduct {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, itemPrice, quantity) { 
+        obj['item_price'] = itemPrice;
+        obj['quantity'] = quantity;
     }
 
     /**

@@ -2076,6 +2076,12 @@ export default class DealsApi {
         throw new Error("Missing the required parameter 'productAttachmentId' when calling updateDealProduct");
       }
 
+      if (opts['item_price'] === undefined || opts['item_price'] === null) {
+        throw new Error("Missing the required parameter 'item_price' when calling updateDealProduct");
+      }
+      if (opts['quantity'] === undefined || opts['quantity'] === null) {
+        throw new Error("Missing the required parameter 'quantity' when calling updateDealProduct");
+      }
 
       let pathParams = {
         'id': id,
