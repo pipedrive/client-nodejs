@@ -27,10 +27,13 @@ class ProductAttachmentDetails {
      * @alias module:model/ProductAttachmentDetails
      * @implements module:model/BasicDealProduct
      * @implements module:model/ProductAttachementFields
+     * @param itemPrice {Number} The price at which this product will be added to the deal
+     * @param quantity {Number} Quantity – e.g. how many items of this product will be added to the deal
+     * @param productId {Number} The ID of the product
      */
-    constructor() { 
-        BasicDealProduct.initialize(this);ProductAttachementFields.initialize(this);
-        ProductAttachmentDetails.initialize(this);
+    constructor(itemPrice, quantity, productId) { 
+        BasicDealProduct.initialize(this, itemPrice, quantity);ProductAttachementFields.initialize(this);
+        ProductAttachmentDetails.initialize(this, itemPrice, quantity, productId);
     }
 
     /**
@@ -38,7 +41,10 @@ class ProductAttachmentDetails {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, itemPrice, quantity, productId) { 
+        obj['item_price'] = itemPrice;
+        obj['quantity'] = quantity;
+        obj['product_id'] = productId;
     }
 
     /**

@@ -245,11 +245,17 @@ export default class LeadsApi {
      * @param {Number} opts.limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned.
      * @param {Number} opts.start For pagination, the position that represents the first result for the page
      * @param {module:model/String} opts.archivedStatus Filtering based on the archived status of a lead. If not provided, `All` is used.
+     * @param {Number} opts.ownerId If supplied, only leads matching the given user will be returned. However, `filter_id` takes precedence over `owner_id` when supplied.
+     * @param {Number} opts.filterId The ID of the filter to use
+     * @param {module:model/String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetLeadsResponse200} and HTTP response
      */
     getLeadsWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
+
+
+
 
 
 
@@ -260,6 +266,9 @@ export default class LeadsApi {
         'limit': opts['limit'],
         'start': opts['start'],
         'archived_status': opts['archivedStatus'],
+        'owner_id': opts['ownerId'],
+        'filter_id': opts['filterId'],
+        'sort': opts['sort'],
       };
       let headerParams = {
       };
@@ -300,6 +309,9 @@ export default class LeadsApi {
      * @param {Number} opts.limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned.
      * @param {Number} opts.start For pagination, the position that represents the first result for the page
      * @param {module:model/String} opts.archivedStatus Filtering based on the archived status of a lead. If not provided, `All` is used.
+     * @param {Number} opts.ownerId If supplied, only leads matching the given user will be returned. However, `filter_id` takes precedence over `owner_id` when supplied.
+     * @param {Number} opts.filterId The ID of the filter to use
+     * @param {module:model/String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetLeadsResponse200}
      */
     getLeads(opts) {

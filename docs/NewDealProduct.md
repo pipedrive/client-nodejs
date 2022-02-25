@@ -12,6 +12,5 @@ Name | Type | Description | Notes
 **comments** | **String** | Any textual comment associated with this product-deal attachment. Visible and editable in the application UI. | [optional] 
 **tax** | **Number** | The tax percentage | [optional] [default to 0]
 **enabledFlag** | [**NumberBoolean**](NumberBoolean.md) | Whether the product is enabled on the deal or not. This makes it possible to add products to a deal with a specific price and discount criteria - but keep them disabled, which refrains them from being included in the deal price calculation. When omitted, the product will be marked as enabled by default. | [optional] 
-**productId** | **Number** | The ID of the product that will be attached | 
 
 

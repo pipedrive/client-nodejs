@@ -21,11 +21,11 @@ import ListFilesResponse from '../model/ListFilesResponse';
 import ListProductFollowersResponse from '../model/ListProductFollowersResponse';
 import NewFollowerResponse from '../model/NewFollowerResponse';
 import NumberBoolean from '../model/NumberBoolean';
-import ProductRequest from '../model/ProductRequest';
 import ProductResponse from '../model/ProductResponse';
 import ProductSearchResponse from '../model/ProductSearchResponse';
 import ProductsResponse from '../model/ProductsResponse';
 import UpdateDealRequest from '../model/UpdateDealRequest';
+import UpdateProductRequestBody from '../model/UpdateProductRequestBody';
 import UpdateProductResponse from '../model/UpdateProductResponse';
 import UserIDs from '../model/UserIDs';
 
@@ -879,12 +879,12 @@ export default class ProductsApi {
      * Updates product data.
      * @param {Number} id The ID of the product
      * @param {Object} opts Optional parameters
-     * @param {module:model/ProductRequest} opts.productRequest 
+     * @param {module:model/UpdateProductRequestBody} opts.updateProductRequestBody 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UpdateProductResponse} and HTTP response
      */
     updateProductWithHttpInfo(id, opts) {
       opts = opts || {};
-      let postBody = opts['productRequest'];
+      let postBody = opts['updateProductRequestBody'];
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -934,7 +934,7 @@ export default class ProductsApi {
      * Updates product data.
      * @param {Number} id The ID of the product
      * @param {Object} opts Optional parameters
-     * @param {module:model/ProductRequest} opts.productRequest 
+     * @param {module:model/UpdateProductRequestBody} opts.updateProductRequestBody 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UpdateProductResponse}
      */
     updateProduct(id, opts) {

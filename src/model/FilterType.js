@@ -27,6 +27,13 @@ export default class FilterType {
 
     
         /**
+         * value: "leads"
+         * @const
+         */
+        "leads" = "leads";
+
+    
+        /**
          * value: "org"
          * @const
          */

@@ -13,21 +13,26 @@
 
 import ApiClient from '../ApiClient';
 import NumberBooleanDefault1 from './NumberBooleanDefault1';
+import OptionalNameObject from './OptionalNameObject';
+import ProductRequest from './ProductRequest';
 import VisibleTo from './VisibleTo';
 
 /**
- * The ProductRequest model module.
- * @module model/ProductRequest
+ * The UpdateProductRequestBody model module.
+ * @module model/UpdateProductRequestBody
  * @version 1.0.0
  */
-class ProductRequest {
+class UpdateProductRequestBody {
     /**
-     * Constructs a new <code>ProductRequest</code>.
-     * @alias module:model/ProductRequest
+     * Constructs a new <code>UpdateProductRequestBody</code>.
+     * @alias module:model/UpdateProductRequestBody
+     * @implements module:model/OptionalNameObject
+     * @implements module:model/ProductRequest
+     * @param name {String} The name of the product
      */
-    constructor() { 
-        
-        ProductRequest.initialize(this);
+    constructor(name) { 
+        OptionalNameObject.initialize(this);ProductRequest.initialize(this);
+        UpdateProductRequestBody.initialize(this, name);
     }
 
     /**
@@ -35,20 +40,28 @@ class ProductRequest {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, name) { 
+        obj['name'] = name;
     }
 
     /**
-     * Constructs a <code>ProductRequest</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>UpdateProductRequestBody</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/ProductRequest} obj Optional instance to populate.
-     * @return {module:model/ProductRequest} The populated <code>ProductRequest</code> instance.
+     * @param {module:model/UpdateProductRequestBody} obj Optional instance to populate.
+     * @return {module:model/UpdateProductRequestBody} The populated <code>UpdateProductRequestBody</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new ProductRequest();
+            obj = obj || new UpdateProductRequestBody();
+            OptionalNameObject.constructFromObject(data, obj);
+            ProductRequest.constructFromObject(data, obj);
 
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+
+                delete data['name'];
+            }
             if (data.hasOwnProperty('code')) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
 
@@ -102,46 +115,100 @@ class ProductRequest {
 }
 
 /**
+ * The name of the product
+ * @member {String} name
+ */
+UpdateProductRequestBody.prototype['name'] = undefined;
+
+/**
  * The product code
  * @member {String} code
  */
-ProductRequest.prototype['code'] = undefined;
+UpdateProductRequestBody.prototype['code'] = undefined;
 
 /**
  * The unit in which this product is sold
  * @member {String} unit
  */
-ProductRequest.prototype['unit'] = undefined;
+UpdateProductRequestBody.prototype['unit'] = undefined;
 
 /**
  * The tax percentage
  * @member {Number} tax
  * @default 0
  */
-ProductRequest.prototype['tax'] = 0;
+UpdateProductRequestBody.prototype['tax'] = 0;
 
 /**
  * @member {module:model/NumberBooleanDefault1} active_flag
  */
-ProductRequest.prototype['active_flag'] = undefined;
+UpdateProductRequestBody.prototype['active_flag'] = undefined;
 
 /**
  * @member {module:model/NumberBooleanDefault1} selectable
  */
-ProductRequest.prototype['selectable'] = undefined;
+UpdateProductRequestBody.prototype['selectable'] = undefined;
 
 /**
  * The visibility of the product. If omitted, the visibility will be set to the default visibility setting of this item type for the authorized user. Read more about visibility groups <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.<h4>Essential / Advanced plan</h4><table><tr><th style=\"width: 40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers</td><tr><td>`3`</td><td>Entire company</td></tr></table><h4>Professional / Enterprise plan</h4><table><tr><th style=\"width: 40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner only</td><tr><td>`3`</td><td>Owner's visibility group</td></tr><tr><td>`5`</td><td>Owner's visibility group and sub-groups</td></tr><tr><td>`7`</td><td>Entire company</td></tr></table>
  * @member {module:model/VisibleTo} visible_to
  */
-ProductRequest.prototype['visible_to'] = undefined;
+UpdateProductRequestBody.prototype['visible_to'] = undefined;
 
 /**
  * The ID of the user who will be marked as the owner of this product. When omitted, the authorized user ID will be used.
  * @member {Number} owner_id
  */
-ProductRequest.prototype['owner_id'] = undefined;
+UpdateProductRequestBody.prototype['owner_id'] = undefined;
 
+/**
+ * An array of objects, each containing: `currency` (string), `price` (number), `cost` (number, optional), `overhead_cost` (number, optional). Note that there can only be one price per product per currency. When `prices` is omitted altogether, no prices will be set up for the product.
+ * @member {Array.<Object>} prices
+ */
+UpdateProductRequestBody.prototype['prices'] = undefined;
+
+
+// Implement OptionalNameObject interface:
+/**
+ * The name of the product
+ * @member {String} name
+ */
+OptionalNameObject.prototype['name'] = undefined;
+// Implement ProductRequest interface:
+/**
+ * The product code
+ * @member {String} code
+ */
+ProductRequest.prototype['code'] = undefined;
+/**
+ * The unit in which this product is sold
+ * @member {String} unit
+ */
+ProductRequest.prototype['unit'] = undefined;
+/**
+ * The tax percentage
+ * @member {Number} tax
+ * @default 0
+ */
+ProductRequest.prototype['tax'] = 0;
+/**
+ * @member {module:model/NumberBooleanDefault1} active_flag
+ */
+ProductRequest.prototype['active_flag'] = undefined;
+/**
+ * @member {module:model/NumberBooleanDefault1} selectable
+ */
+ProductRequest.prototype['selectable'] = undefined;
+/**
+ * The visibility of the product. If omitted, the visibility will be set to the default visibility setting of this item type for the authorized user. Read more about visibility groups <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.<h4>Essential / Advanced plan</h4><table><tr><th style=\"width: 40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers</td><tr><td>`3`</td><td>Entire company</td></tr></table><h4>Professional / Enterprise plan</h4><table><tr><th style=\"width: 40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner only</td><tr><td>`3`</td><td>Owner's visibility group</td></tr><tr><td>`5`</td><td>Owner's visibility group and sub-groups</td></tr><tr><td>`7`</td><td>Entire company</td></tr></table>
+ * @member {module:model/VisibleTo} visible_to
+ */
+ProductRequest.prototype['visible_to'] = undefined;
+/**
+ * The ID of the user who will be marked as the owner of this product. When omitted, the authorized user ID will be used.
+ * @member {Number} owner_id
+ */
+ProductRequest.prototype['owner_id'] = undefined;
 /**
  * An array of objects, each containing: `currency` (string), `price` (number), `cost` (number, optional), `overhead_cost` (number, optional). Note that there can only be one price per product per currency. When `prices` is omitted altogether, no prices will be set up for the product.
  * @member {Array.<Object>} prices
@@ -151,7 +218,5 @@ ProductRequest.prototype['prices'] = undefined;
 
 
 
-
-
-export default ProductRequest;
+export default UpdateProductRequestBody;
 

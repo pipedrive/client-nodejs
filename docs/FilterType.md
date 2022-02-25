@@ -5,6 +5,8 @@
 
 * `deals` (value: `"deals"`)
 
+* `leads` (value: `"leads"`)
+
 * `org` (value: `"org"`)
 
 * `people` (value: `"people"`)

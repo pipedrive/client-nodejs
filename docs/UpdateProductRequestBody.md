@@ -1,9 +1,10 @@
-# Pipedrive.ProductRequest
+# Pipedrive.UpdateProductRequestBody
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**name** | **String** | The name of the product | 
 **code** | **String** | The product code | [optional] 
 **unit** | **String** | The unit in which this product is sold | [optional] 
 **tax** | **Number** | The tax percentage | [optional] [default to 0]
