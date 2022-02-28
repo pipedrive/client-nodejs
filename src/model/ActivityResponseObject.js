@@ -73,6 +73,11 @@ class ActivityResponseObject {
 
                 delete data['deal_id'];
             }
+            if (data.hasOwnProperty('lead_id')) {
+                obj['lead_id'] = ApiClient.convertToType(data['lead_id'], 'String');
+
+                delete data['lead_id'];
+            }
             if (data.hasOwnProperty('person_id')) {
                 obj['person_id'] = ApiClient.convertToType(data['person_id'], 'Number');
 
@@ -192,11 +197,6 @@ class ActivityResponseObject {
                 obj['notification_language_id'] = ApiClient.convertToType(data['notification_language_id'], 'Number');
 
                 delete data['notification_language_id'];
-            }
-            if (data.hasOwnProperty('lead_id')) {
-                obj['lead_id'] = ApiClient.convertToType(data['lead_id'], 'String');
-
-                delete data['lead_id'];
             }
             if (data.hasOwnProperty('active_flag')) {
                 obj['active_flag'] = ApiClient.convertToType(data['active_flag'], 'Boolean');
@@ -400,6 +400,12 @@ ActivityResponseObject.prototype['duration'] = undefined;
 ActivityResponseObject.prototype['deal_id'] = undefined;
 
 /**
+ * The ID of the lead in the UUID format this activity is associated with
+ * @member {String} lead_id
+ */
+ActivityResponseObject.prototype['lead_id'] = undefined;
+
+/**
  * The ID of the person this activity is associated with
  * @member {Number} person_id
  */
@@ -542,12 +548,6 @@ ActivityResponseObject.prototype['last_notification_user_id'] = undefined;
  * @member {Number} notification_language_id
  */
 ActivityResponseObject.prototype['notification_language_id'] = undefined;
-
-/**
- * The ID of the lead in the UUID format this activity is associated with
- * @member {String} lead_id
- */
-ActivityResponseObject.prototype['lead_id'] = undefined;
 
 /**
  * Whether the activity is active or not
@@ -769,6 +769,11 @@ ActivityObjectFragment.prototype['duration'] = undefined;
  * @member {Number} deal_id
  */
 ActivityObjectFragment.prototype['deal_id'] = undefined;
+/**
+ * The ID of the lead this activity is associated with
+ * @member {String} lead_id
+ */
+ActivityObjectFragment.prototype['lead_id'] = undefined;
 /**
  * The ID of the person this activity is associated with
  * @member {Number} person_id
