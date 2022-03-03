@@ -74,6 +74,11 @@ class ActivityPostObject {
 
                 delete data['deal_id'];
             }
+            if (data.hasOwnProperty('lead_id')) {
+                obj['lead_id'] = ApiClient.convertToType(data['lead_id'], 'String');
+
+                delete data['lead_id'];
+            }
             if (data.hasOwnProperty('person_id')) {
                 obj['person_id'] = ApiClient.convertToType(data['person_id'], 'Number');
 
@@ -171,6 +176,12 @@ ActivityPostObject.prototype['duration'] = undefined;
 ActivityPostObject.prototype['deal_id'] = undefined;
 
 /**
+ * The ID of the lead this activity is associated with
+ * @member {String} lead_id
+ */
+ActivityPostObject.prototype['lead_id'] = undefined;
+
+/**
  * The ID of the person this activity is associated with
  * @member {Number} person_id
  */
@@ -264,6 +275,11 @@ ActivityObjectFragment.prototype['duration'] = undefined;
  * @member {Number} deal_id
  */
 ActivityObjectFragment.prototype['deal_id'] = undefined;
+/**
+ * The ID of the lead this activity is associated with
+ * @member {String} lead_id
+ */
+ActivityObjectFragment.prototype['lead_id'] = undefined;
 /**
  * The ID of the person this activity is associated with
  * @member {Number} person_id

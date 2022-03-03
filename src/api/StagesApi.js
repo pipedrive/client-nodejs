@@ -242,10 +242,12 @@ export default class StagesApi {
      * Get one stage
      * Returns data about a specific stage.
      * @param {Number} id The ID of the stage
+     * @param {Object} opts Optional parameters
+     * @param {module:model/NumberBoolean} opts.everyone If `everyone=1` is provided, deals summary will return deals owned by every user
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetOneStage} and HTTP response
      */
-    getStageWithHttpInfo(id) {
-      const opts = {}
+    getStageWithHttpInfo(id, opts) {
+      opts = opts || {};
       let postBody = null;
 
       // verify the required parameter 'id' is set
@@ -253,10 +255,12 @@ export default class StagesApi {
         throw new Error("Missing the required parameter 'id' when calling getStage");
       }
 
+
       let pathParams = {
         'id': id,
       };
       let queryParams = {
+        'everyone': opts['everyone'],
       };
       let headerParams = {
       };
@@ -294,10 +298,12 @@ export default class StagesApi {
      * Get one stage
      * Returns data about a specific stage.
      * @param {Number} id The ID of the stage
+     * @param {Object} opts Optional parameters
+     * @param {module:model/NumberBoolean} opts.everyone If `everyone=1` is provided, deals summary will return deals owned by every user
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetOneStage}
      */
-    getStage(id) {
-      return this.getStageWithHttpInfo(id)
+    getStage(id, opts) {
+      return this.getStageWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data;
         });

@@ -377,6 +377,14 @@ import LeadLabelColor from './model/LeadLabelColor';
 import LeadLabelResponse from './model/LeadLabelResponse';
 import LeadResponse from './model/LeadResponse';
 import LeadResponse404 from './model/LeadResponse404';
+import LeadSearchItem from './model/LeadSearchItem';
+import LeadSearchItemItem from './model/LeadSearchItemItem';
+import LeadSearchItemItemOrganization from './model/LeadSearchItemItemOrganization';
+import LeadSearchItemItemOwner from './model/LeadSearchItemItemOwner';
+import LeadSearchItemItemPerson from './model/LeadSearchItemItemPerson';
+import LeadSearchResponse from './model/LeadSearchResponse';
+import LeadSearchResponseAllOf from './model/LeadSearchResponseAllOf';
+import LeadSearchResponseAllOfData from './model/LeadSearchResponseAllOfData';
 import LeadValue from './model/LeadValue';
 import LinkRemoteFileToItem from './model/LinkRemoteFileToItem';
 import ListActivitiesResponse from './model/ListActivitiesResponse';
@@ -442,7 +450,6 @@ import MergePersonsResponseAllOf from './model/MergePersonsResponseAllOf';
 import NewDeal from './model/NewDeal';
 import NewDealAllOf from './model/NewDealAllOf';
 import NewDealProduct from './model/NewDealProduct';
-import NewDealProductAllOf from './model/NewDealProductAllOf';
 import NewFollowerResponse from './model/NewFollowerResponse';
 import NewFollowerResponseData from './model/NewFollowerResponseData';
 import NewGoal from './model/NewGoal';
@@ -463,6 +470,7 @@ import NumberBooleanDefault0 from './model/NumberBooleanDefault0';
 import NumberBooleanDefault1 from './model/NumberBooleanDefault1';
 import ObjectPrices from './model/ObjectPrices';
 import OneLeadResponse200 from './model/OneLeadResponse200';
+import OptionalNameObject from './model/OptionalNameObject';
 import OrgAndOwnerId from './model/OrgAndOwnerId';
 import OrganizationAddressInfo from './model/OrganizationAddressInfo';
 import OrganizationCountAndAddressInfo from './model/OrganizationCountAndAddressInfo';
@@ -618,6 +626,7 @@ import RelatedUserData from './model/RelatedUserData';
 import RelationshipOrganizationInfoItem from './model/RelationshipOrganizationInfoItem';
 import RelationshipOrganizationInfoItemAllOf from './model/RelationshipOrganizationInfoItemAllOf';
 import RelationshipOrganizationInfoItemWithActiveFlag from './model/RelationshipOrganizationInfoItemWithActiveFlag';
+import RequiredNameObject from './model/RequiredNameObject';
 import RequredTitleParameter from './model/RequredTitleParameter';
 import ResponseCallLogObject from './model/ResponseCallLogObject';
 import ResponseCallLogObjectAllOf from './model/ResponseCallLogObjectAllOf';
@@ -656,6 +665,7 @@ import UpdateFilterRequest from './model/UpdateFilterRequest';
 import UpdateLeadLabelRequest from './model/UpdateLeadLabelRequest';
 import UpdateLeadRequest from './model/UpdateLeadRequest';
 import UpdatePersonResponse from './model/UpdatePersonResponse';
+import UpdateProductRequestBody from './model/UpdateProductRequestBody';
 import UpdateProductResponse from './model/UpdateProductResponse';
 import UpdateStageRequest from './model/UpdateStageRequest';
 import UpdateStageRequestAllOf from './model/UpdateStageRequestAllOf';
@@ -2954,6 +2964,54 @@ export {
     LeadResponse404,
 
     /**
+     * The LeadSearchItem model constructor.
+     * @property {module:model/LeadSearchItem}
+     */
+    LeadSearchItem,
+
+    /**
+     * The LeadSearchItemItem model constructor.
+     * @property {module:model/LeadSearchItemItem}
+     */
+    LeadSearchItemItem,
+
+    /**
+     * The LeadSearchItemItemOrganization model constructor.
+     * @property {module:model/LeadSearchItemItemOrganization}
+     */
+    LeadSearchItemItemOrganization,
+
+    /**
+     * The LeadSearchItemItemOwner model constructor.
+     * @property {module:model/LeadSearchItemItemOwner}
+     */
+    LeadSearchItemItemOwner,
+
+    /**
+     * The LeadSearchItemItemPerson model constructor.
+     * @property {module:model/LeadSearchItemItemPerson}
+     */
+    LeadSearchItemItemPerson,
+
+    /**
+     * The LeadSearchResponse model constructor.
+     * @property {module:model/LeadSearchResponse}
+     */
+    LeadSearchResponse,
+
+    /**
+     * The LeadSearchResponseAllOf model constructor.
+     * @property {module:model/LeadSearchResponseAllOf}
+     */
+    LeadSearchResponseAllOf,
+
+    /**
+     * The LeadSearchResponseAllOfData model constructor.
+     * @property {module:model/LeadSearchResponseAllOfData}
+     */
+    LeadSearchResponseAllOfData,
+
+    /**
      * The LeadValue model constructor.
      * @property {module:model/LeadValue}
      */
@@ -3344,12 +3402,6 @@ export {
     NewDealProduct,
 
     /**
-     * The NewDealProductAllOf model constructor.
-     * @property {module:model/NewDealProductAllOf}
-     */
-    NewDealProductAllOf,
-
-    /**
      * The NewFollowerResponse model constructor.
      * @property {module:model/NewFollowerResponse}
      */
@@ -3468,6 +3520,12 @@ export {
      * @property {module:model/OneLeadResponse200}
      */
     OneLeadResponse200,
+
+    /**
+     * The OptionalNameObject model constructor.
+     * @property {module:model/OptionalNameObject}
+     */
+    OptionalNameObject,
 
     /**
      * The OrgAndOwnerId model constructor.
@@ -4400,6 +4458,12 @@ export {
     RelationshipOrganizationInfoItemWithActiveFlag,
 
     /**
+     * The RequiredNameObject model constructor.
+     * @property {module:model/RequiredNameObject}
+     */
+    RequiredNameObject,
+
+    /**
      * The RequredTitleParameter model constructor.
      * @property {module:model/RequredTitleParameter}
      */
@@ -4626,6 +4690,12 @@ export {
      * @property {module:model/UpdatePersonResponse}
      */
     UpdatePersonResponse,
+
+    /**
+     * The UpdateProductRequestBody model constructor.
+     * @property {module:model/UpdateProductRequestBody}
+     */
+    UpdateProductRequestBody,
 
     /**
      * The UpdateProductResponse model constructor.

@@ -89,6 +89,11 @@ class NewDeal {
 
                 delete data['org_id'];
             }
+            if (data.hasOwnProperty('pipeline_id')) {
+                obj['pipeline_id'] = ApiClient.convertToType(data['pipeline_id'], 'Number');
+
+                delete data['pipeline_id'];
+            }
             if (data.hasOwnProperty('stage_id')) {
                 obj['stage_id'] = ApiClient.convertToType(data['stage_id'], 'Number');
 
@@ -173,7 +178,13 @@ NewDeal.prototype['person_id'] = undefined;
 NewDeal.prototype['org_id'] = undefined;
 
 /**
- * The ID of a stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on `stage_id`). If omitted, the deal will be placed in the first stage of the default pipeline.
+ * The ID of the pipeline this deal will be added to. By default, the deal will be added to the first stage of the specified pipeline. Please note that `pipeline_id` and `stage_id` should not be used together as `pipeline_id` will be ignored.
+ * @member {Number} pipeline_id
+ */
+NewDeal.prototype['pipeline_id'] = undefined;
+
+/**
+ * The ID of the stage this deal will be added to. Please note that a pipeline will be assigned automatically based on the `stage_id`. If omitted, the deal will be placed in the first stage of the default pipeline.
  * @member {Number} stage_id
  */
 NewDeal.prototype['stage_id'] = undefined;
@@ -248,7 +259,12 @@ BasicDeal.prototype['person_id'] = undefined;
  */
 BasicDeal.prototype['org_id'] = undefined;
 /**
- * The ID of a stage this deal will be placed in a pipeline (note that you can't supply the ID of the pipeline as this will be assigned automatically based on `stage_id`). If omitted, the deal will be placed in the first stage of the default pipeline.
+ * The ID of the pipeline this deal will be added to. By default, the deal will be added to the first stage of the specified pipeline. Please note that `pipeline_id` and `stage_id` should not be used together as `pipeline_id` will be ignored.
+ * @member {Number} pipeline_id
+ */
+BasicDeal.prototype['pipeline_id'] = undefined;
+/**
+ * The ID of the stage this deal will be added to. Please note that a pipeline will be assigned automatically based on the `stage_id`. If omitted, the deal will be placed in the first stage of the default pipeline.
  * @member {Number} stage_id
  */
 BasicDeal.prototype['stage_id'] = undefined;

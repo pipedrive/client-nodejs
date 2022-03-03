@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 ## getStage
 
-> GetOneStage getStage(id)
+> GetOneStage getStage(id, opts)
 
 Get one stage
 
@@ -199,7 +199,10 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.StagesApi();
 let id = 56; // Number | The ID of the stage
-apiInstance.getStage(id).then((data) => {
+let opts = {
+  'everyone': new Pipedrive.NumberBoolean() // NumberBoolean | If `everyone=1` is provided, deals summary will return deals owned by every user
+};
+apiInstance.getStage(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -213,6 +216,7 @@ apiInstance.getStage(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the stage | 
+ **everyone** | [**NumberBoolean**](.md)| If &#x60;everyone&#x3D;1&#x60; is provided, deals summary will return deals owned by every user | [optional] 
 
 ### Return type
 
