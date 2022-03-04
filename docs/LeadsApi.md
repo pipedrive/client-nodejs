@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**deleteLead**](LeadsApi.md#deleteLead) | **DELETE** /leads/{id} | Delete a lead
 [**getLead**](LeadsApi.md#getLead) | **GET** /leads/{id} | Get one lead
 [**getLeads**](LeadsApi.md#getLeads) | **GET** /leads | Get all leads
+[**searchLeads**](LeadsApi.md#searchLeads) | **GET** /leads/search | Search leads
 [**updateLead**](LeadsApi.md#updateLead) | **PATCH** /leads/{id} | Update a lead
 
 
@@ -227,6 +228,75 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetLeadsResponse200**](GetLeadsResponse200.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## searchLeads
+
+> LeadSearchResponse searchLeads(term, opts)
+
+Search leads
+
+Searches all leads by title, notes and/or custom fields. This endpoint is a wrapper of &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\&quot;&gt;/v1/itemSearch&lt;/a&gt; with a narrower OAuth scope. Found leads can be filtered by the person ID and the organization ID.
+
+### Example
+
+```javascript
+import Pipedrive from 'pipedrive';
+let defaultClient = Pipedrive.ApiClient.instance;
+// Configure API key authorization: api_key
+let api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = defaultClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new Pipedrive.LeadsApi();
+let term = "term_example"; // String | The search term to look for. Minimum 2 characters (or 1 if using `exact_match`).
+let opts = {
+  'fields': "fields_example", // String | A comma-separated string array. The fields to perform the search from. Defaults to all of them.
+  'exactMatch': true, // Boolean | When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
+  'personId': 56, // Number | Will filter leads by the provided person ID. The upper limit of found leads associated with the person is 2000.
+  'organizationId': 56, // Number | Will filter leads by the provided organization ID. The upper limit of found leads associated with the organization is 2000.
+  'includeFields': "includeFields_example", // String | Supports including optional fields in the results which are not provided by default
+  'start': 0, // Number | Pagination start. Note that the pagination is based on main results and does not include related items when using `search_for_related_items` parameter.
+  'limit': 56 // Number | Items shown per page
+};
+apiInstance.searchLeads(term, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **term** | **String**| The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). | 
+ **fields** | **String**| A comma-separated string array. The fields to perform the search from. Defaults to all of them. | [optional] 
+ **exactMatch** | **Boolean**| When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. | [optional] 
+ **personId** | **Number**| Will filter leads by the provided person ID. The upper limit of found leads associated with the person is 2000. | [optional] 
+ **organizationId** | **Number**| Will filter leads by the provided organization ID. The upper limit of found leads associated with the organization is 2000. | [optional] 
+ **includeFields** | **String**| Supports including optional fields in the results which are not provided by default | [optional] 
+ **start** | **Number**| Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter. | [optional] [default to 0]
+ **limit** | **Number**| Items shown per page | [optional] 
+
+### Return type
+
+[**LeadSearchResponse**](LeadSearchResponse.md)
 
 ### Authorization
 

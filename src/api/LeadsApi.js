@@ -17,6 +17,7 @@ import AddLeadRequest from '../model/AddLeadRequest';
 import GetLeadsResponse200 from '../model/GetLeadsResponse200';
 import LeadIdResponse200 from '../model/LeadIdResponse200';
 import LeadResponse404 from '../model/LeadResponse404';
+import LeadSearchResponse from '../model/LeadSearchResponse';
 import OneLeadResponse200 from '../model/OneLeadResponse200';
 import UpdateLeadRequest from '../model/UpdateLeadRequest';
 
@@ -316,6 +317,102 @@ export default class LeadsApi {
      */
     getLeads(opts) {
       return this.getLeadsWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data;
+        });
+    }
+
+
+    /**
+     * Search leads
+     * Searches all leads by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found leads can be filtered by the person ID and the organization ID.
+     * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`).
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} opts.fields A comma-separated string array. The fields to perform the search from. Defaults to all of them.
+     * @param {module:model/Boolean} opts.exactMatch When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
+     * @param {Number} opts.personId Will filter leads by the provided person ID. The upper limit of found leads associated with the person is 2000.
+     * @param {Number} opts.organizationId Will filter leads by the provided organization ID. The upper limit of found leads associated with the organization is 2000.
+     * @param {module:model/String} opts.includeFields Supports including optional fields in the results which are not provided by default
+     * @param {Number} opts.start Pagination start. Note that the pagination is based on main results and does not include related items when using `search_for_related_items` parameter. (default to 0)
+     * @param {Number} opts.limit Items shown per page
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/LeadSearchResponse} and HTTP response
+     */
+    searchLeadsWithHttpInfo(term, opts) {
+      opts = opts || {};
+      let postBody = null;
+
+      // verify the required parameter 'term' is set
+      if (term === undefined || term === null) {
+        throw new Error("Missing the required parameter 'term' when calling searchLeads");
+      }
+
+
+
+
+
+
+
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'term': term,
+        'fields': opts['fields'],
+        'exact_match': opts['exactMatch'],
+        'person_id': opts['personId'],
+        'organization_id': opts['organizationId'],
+        'include_fields': opts['includeFields'],
+        'start': opts['start'],
+        'limit': opts['limit'],
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let formParamArray = [
+      ];
+
+      let contentTypes = [];
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
+
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
+      let returnType = LeadSearchResponse;
+      return this.apiClient.callApi(
+        '/leads/search', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Search leads
+     * Searches all leads by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found leads can be filtered by the person ID and the organization ID.
+     * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`).
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} opts.fields A comma-separated string array. The fields to perform the search from. Defaults to all of them.
+     * @param {module:model/Boolean} opts.exactMatch When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
+     * @param {Number} opts.personId Will filter leads by the provided person ID. The upper limit of found leads associated with the person is 2000.
+     * @param {Number} opts.organizationId Will filter leads by the provided organization ID. The upper limit of found leads associated with the organization is 2000.
+     * @param {module:model/String} opts.includeFields Supports including optional fields in the results which are not provided by default
+     * @param {Number} opts.start Pagination start. Note that the pagination is based on main results and does not include related items when using `search_for_related_items` parameter. (default to 0)
+     * @param {Number} opts.limit Items shown per page
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/LeadSearchResponse}
+     */
+    searchLeads(term, opts) {
+      return this.searchLeadsWithHttpInfo(term, opts)
         .then(function(response_and_data) {
           return response_and_data;
         });

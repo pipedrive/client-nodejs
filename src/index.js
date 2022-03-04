@@ -377,6 +377,14 @@ import LeadLabelColor from './model/LeadLabelColor';
 import LeadLabelResponse from './model/LeadLabelResponse';
 import LeadResponse from './model/LeadResponse';
 import LeadResponse404 from './model/LeadResponse404';
+import LeadSearchItem from './model/LeadSearchItem';
+import LeadSearchItemItem from './model/LeadSearchItemItem';
+import LeadSearchItemItemOrganization from './model/LeadSearchItemItemOrganization';
+import LeadSearchItemItemOwner from './model/LeadSearchItemItemOwner';
+import LeadSearchItemItemPerson from './model/LeadSearchItemItemPerson';
+import LeadSearchResponse from './model/LeadSearchResponse';
+import LeadSearchResponseAllOf from './model/LeadSearchResponseAllOf';
+import LeadSearchResponseAllOfData from './model/LeadSearchResponseAllOfData';
 import LeadValue from './model/LeadValue';
 import LinkRemoteFileToItem from './model/LinkRemoteFileToItem';
 import ListActivitiesResponse from './model/ListActivitiesResponse';
@@ -2954,6 +2962,54 @@ export {
      * @property {module:model/LeadResponse404}
      */
     LeadResponse404,
+
+    /**
+     * The LeadSearchItem model constructor.
+     * @property {module:model/LeadSearchItem}
+     */
+    LeadSearchItem,
+
+    /**
+     * The LeadSearchItemItem model constructor.
+     * @property {module:model/LeadSearchItemItem}
+     */
+    LeadSearchItemItem,
+
+    /**
+     * The LeadSearchItemItemOrganization model constructor.
+     * @property {module:model/LeadSearchItemItemOrganization}
+     */
+    LeadSearchItemItemOrganization,
+
+    /**
+     * The LeadSearchItemItemOwner model constructor.
+     * @property {module:model/LeadSearchItemItemOwner}
+     */
+    LeadSearchItemItemOwner,
+
+    /**
+     * The LeadSearchItemItemPerson model constructor.
+     * @property {module:model/LeadSearchItemItemPerson}
+     */
+    LeadSearchItemItemPerson,
+
+    /**
+     * The LeadSearchResponse model constructor.
+     * @property {module:model/LeadSearchResponse}
+     */
+    LeadSearchResponse,
+
+    /**
+     * The LeadSearchResponseAllOf model constructor.
+     * @property {module:model/LeadSearchResponseAllOf}
+     */
+    LeadSearchResponseAllOf,
+
+    /**
+     * The LeadSearchResponseAllOfData model constructor.
+     * @property {module:model/LeadSearchResponseAllOfData}
+     */
+    LeadSearchResponseAllOfData,
 
     /**
      * The LeadValue model constructor.
