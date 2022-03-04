@@ -11,6 +11,13 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 - Added `everyone` parameter to `GET /v1/stages/{id}` endpoint
 - Updated `/v1/deals` endpoint `stage_id` and added `pipeline_id` descriptions
 
+## 13.2.6
+## Changed
+- Updated `POST /products`: parameter `name` is required
+- Updated `PUT /deals/:dealId/products`: parameter `quantity` and `item_price` are required
+- Updated `POST /deals/:dealId/products`: parameter `quantity` and `item_price` are required
+- 
+
 ## 13.2.5
 ## Changed
 - Updated `POST /notes`: parameter `content` is required
