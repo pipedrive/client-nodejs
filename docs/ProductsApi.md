@@ -681,7 +681,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductsApi();
 let id = 56; // Number | The ID of the product
-let opts = Pipedrive.ProductRequest.constructFromObject({
+let opts = Pipedrive.UpdateProductRequestBody.constructFromObject({
   // Properties that you want to update
 });
 apiInstance.updateProduct(id, opts).then((data) => {
@@ -698,7 +698,7 @@ apiInstance.updateProduct(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the product | 
- **productRequest** | [**ProductRequest**](ProductRequest.md)|  | [optional] 
+ **updateProductRequestBody** | [**UpdateProductRequestBody**](UpdateProductRequestBody.md)|  | [optional] 
 
 ### Return type
 

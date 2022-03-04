@@ -14,6 +14,7 @@
 import ApiClient from '../ApiClient';
 import NumberBooleanDefault1 from './NumberBooleanDefault1';
 import ProductRequest from './ProductRequest';
+import RequiredNameObject from './RequiredNameObject';
 import VisibleTo from './VisibleTo';
 
 /**
@@ -25,11 +26,13 @@ class AddProductRequestBody {
     /**
      * Constructs a new <code>AddProductRequestBody</code>.
      * @alias module:model/AddProductRequestBody
+     * @implements module:model/RequiredNameObject
      * @implements module:model/ProductRequest
+     * @param name {String} The name of the product
      */
-    constructor() { 
-        ProductRequest.initialize(this);
-        AddProductRequestBody.initialize(this);
+    constructor(name) { 
+        RequiredNameObject.initialize(this, name);ProductRequest.initialize(this);
+        AddProductRequestBody.initialize(this, name);
     }
 
     /**
@@ -37,7 +40,8 @@ class AddProductRequestBody {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, name) { 
+        obj['name'] = name;
     }
 
     /**
@@ -50,6 +54,7 @@ class AddProductRequestBody {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new AddProductRequestBody();
+            RequiredNameObject.constructFromObject(data, obj);
             ProductRequest.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('name')) {
@@ -163,12 +168,13 @@ AddProductRequestBody.prototype['owner_id'] = undefined;
 AddProductRequestBody.prototype['prices'] = undefined;
 
 
-// Implement ProductRequest interface:
+// Implement RequiredNameObject interface:
 /**
  * The name of the product
  * @member {String} name
  */
-ProductRequest.prototype['name'] = undefined;
+RequiredNameObject.prototype['name'] = undefined;
+// Implement ProductRequest interface:
 /**
  * The product code
  * @member {String} code

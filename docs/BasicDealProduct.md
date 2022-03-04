@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**itemPrice** | **Number** | The price at which this product will be added to the deal | [optional] 
-**quantity** | **Number** | Quantity – e.g. how many items of this product will be added to the deal | [optional] 
+**itemPrice** | **Number** | The price at which this product will be added to the deal | 
+**quantity** | **Number** | Quantity – e.g. how many items of this product will be added to the deal | 
 **discountPercentage** | **Number** | The discount %. If omitted, will be set to 0. | [optional] [default to 0]
 **duration** | **Number** | The duration of the product (when product durations are not enabled for the company or if omitted, defaults to 1) | [optional] [default to 1]
 **productVariationId** | **Number** | The ID of the product variation to use. When omitted, no variation will be used. | [optional] 

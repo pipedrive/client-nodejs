@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **dueTime** | **String** | The due time of the activity in UTC. Format: HH:MM | [optional] 
 **duration** | **String** | The duration of the activity. Format: HH:MM | [optional] 
 **dealId** | **Number** | The ID of the deal this activity is associated with | [optional] 
+**leadId** | **String** | The ID of the lead this activity is associated with | [optional] 
 **personId** | **Number** | The ID of the person this activity is associated with | [optional] 
 **orgId** | **Number** | The ID of the organization this activity is associated with | [optional] 
 **note** | **String** | The note of the activity (HTML format) | [optional] 

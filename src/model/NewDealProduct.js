@@ -13,7 +13,6 @@
 
 import ApiClient from '../ApiClient';
 import BasicDealProduct from './BasicDealProduct';
-import NewDealProductAllOf from './NewDealProductAllOf';
 import NumberBoolean from './NumberBoolean';
 
 /**
@@ -26,14 +25,12 @@ class NewDealProduct {
      * Constructs a new <code>NewDealProduct</code>.
      * @alias module:model/NewDealProduct
      * @implements module:model/BasicDealProduct
-     * @implements module:model/NewDealProductAllOf
      * @param itemPrice {Number} The price at which this product will be added to the deal
      * @param quantity {Number} Quantity – e.g. how many items of this product will be added to the deal
-     * @param productId {Number} The ID of the product that will be attached
      */
-    constructor(itemPrice, quantity, productId) { 
-        BasicDealProduct.initialize(this);NewDealProductAllOf.initialize(this, productId);
-        NewDealProduct.initialize(this, itemPrice, quantity, productId);
+    constructor(itemPrice, quantity) { 
+        BasicDealProduct.initialize(this, itemPrice, quantity);
+        NewDealProduct.initialize(this, itemPrice, quantity);
     }
 
     /**
@@ -41,10 +38,9 @@ class NewDealProduct {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, itemPrice, quantity, productId) { 
+    static initialize(obj, itemPrice, quantity) { 
         obj['item_price'] = itemPrice;
         obj['quantity'] = quantity;
-        obj['product_id'] = productId;
     }
 
     /**
@@ -58,7 +54,6 @@ class NewDealProduct {
         if (data) {
             obj = obj || new NewDealProduct();
             BasicDealProduct.constructFromObject(data, obj);
-            NewDealProductAllOf.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('item_price')) {
                 obj['item_price'] = ApiClient.convertToType(data['item_price'], 'Number');
@@ -99,11 +94,6 @@ class NewDealProduct {
                 obj['enabled_flag'] = ApiClient.convertToType(data['enabled_flag'], NumberBoolean);
 
                 delete data['enabled_flag'];
-            }
-            if (data.hasOwnProperty('product_id')) {
-                obj['product_id'] = ApiClient.convertToType(data['product_id'], 'Number');
-
-                delete data['product_id'];
             }
 
             if (Object.keys(data).length > 0) {
@@ -168,12 +158,6 @@ NewDealProduct.prototype['tax'] = 0;
  */
 NewDealProduct.prototype['enabled_flag'] = undefined;
 
-/**
- * The ID of the product that will be attached
- * @member {Number} product_id
- */
-NewDealProduct.prototype['product_id'] = undefined;
-
 
 // Implement BasicDealProduct interface:
 /**
@@ -219,12 +203,6 @@ BasicDealProduct.prototype['tax'] = 0;
  * @member {module:model/NumberBoolean} enabled_flag
  */
 BasicDealProduct.prototype['enabled_flag'] = undefined;
-// Implement NewDealProductAllOf interface:
-/**
- * The ID of the product that will be attached
- * @member {Number} product_id
- */
-NewDealProductAllOf.prototype['product_id'] = undefined;
 
 
 

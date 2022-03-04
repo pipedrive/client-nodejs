@@ -348,6 +348,7 @@ Class | Method | HTTP request | Description
 *Pipedrive.LeadsApi* | [**deleteLead**](docs/LeadsApi.md#deleteLead) | **DELETE** /leads/{id} | Delete a lead
 *Pipedrive.LeadsApi* | [**getLead**](docs/LeadsApi.md#getLead) | **GET** /leads/{id} | Get one lead
 *Pipedrive.LeadsApi* | [**getLeads**](docs/LeadsApi.md#getLeads) | **GET** /leads | Get all leads
+*Pipedrive.LeadsApi* | [**searchLeads**](docs/LeadsApi.md#searchLeads) | **GET** /leads/search | Search leads
 *Pipedrive.LeadsApi* | [**updateLead**](docs/LeadsApi.md#updateLead) | **PATCH** /leads/{id} | Update a lead
 *Pipedrive.MailboxApi* | [**deleteMailThread**](docs/MailboxApi.md#deleteMailThread) | **DELETE** /mailbox/mailThreads/{id} | Delete mail thread
 *Pipedrive.MailboxApi* | [**getMailMessage**](docs/MailboxApi.md#getMailMessage) | **GET** /mailbox/mailMessages/{id} | Get one mail message
@@ -871,6 +872,14 @@ Class | Method | HTTP request | Description
  - [Pipedrive.LeadLabelResponse](docs/LeadLabelResponse.md)
  - [Pipedrive.LeadResponse](docs/LeadResponse.md)
  - [Pipedrive.LeadResponse404](docs/LeadResponse404.md)
+ - [Pipedrive.LeadSearchItem](docs/LeadSearchItem.md)
+ - [Pipedrive.LeadSearchItemItem](docs/LeadSearchItemItem.md)
+ - [Pipedrive.LeadSearchItemItemOrganization](docs/LeadSearchItemItemOrganization.md)
+ - [Pipedrive.LeadSearchItemItemOwner](docs/LeadSearchItemItemOwner.md)
+ - [Pipedrive.LeadSearchItemItemPerson](docs/LeadSearchItemItemPerson.md)
+ - [Pipedrive.LeadSearchResponse](docs/LeadSearchResponse.md)
+ - [Pipedrive.LeadSearchResponseAllOf](docs/LeadSearchResponseAllOf.md)
+ - [Pipedrive.LeadSearchResponseAllOfData](docs/LeadSearchResponseAllOfData.md)
  - [Pipedrive.LeadValue](docs/LeadValue.md)
  - [Pipedrive.LinkRemoteFileToItem](docs/LinkRemoteFileToItem.md)
  - [Pipedrive.ListActivitiesResponse](docs/ListActivitiesResponse.md)
@@ -936,7 +945,6 @@ Class | Method | HTTP request | Description
  - [Pipedrive.NewDeal](docs/NewDeal.md)
  - [Pipedrive.NewDealAllOf](docs/NewDealAllOf.md)
  - [Pipedrive.NewDealProduct](docs/NewDealProduct.md)
- - [Pipedrive.NewDealProductAllOf](docs/NewDealProductAllOf.md)
  - [Pipedrive.NewFollowerResponse](docs/NewFollowerResponse.md)
  - [Pipedrive.NewFollowerResponseData](docs/NewFollowerResponseData.md)
  - [Pipedrive.NewGoal](docs/NewGoal.md)
@@ -957,6 +965,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.NumberBooleanDefault1](docs/NumberBooleanDefault1.md)
  - [Pipedrive.ObjectPrices](docs/ObjectPrices.md)
  - [Pipedrive.OneLeadResponse200](docs/OneLeadResponse200.md)
+ - [Pipedrive.OptionalNameObject](docs/OptionalNameObject.md)
  - [Pipedrive.OrgAndOwnerId](docs/OrgAndOwnerId.md)
  - [Pipedrive.OrganizationAddressInfo](docs/OrganizationAddressInfo.md)
  - [Pipedrive.OrganizationCountAndAddressInfo](docs/OrganizationCountAndAddressInfo.md)
@@ -1112,6 +1121,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.RelationshipOrganizationInfoItem](docs/RelationshipOrganizationInfoItem.md)
  - [Pipedrive.RelationshipOrganizationInfoItemAllOf](docs/RelationshipOrganizationInfoItemAllOf.md)
  - [Pipedrive.RelationshipOrganizationInfoItemWithActiveFlag](docs/RelationshipOrganizationInfoItemWithActiveFlag.md)
+ - [Pipedrive.RequiredNameObject](docs/RequiredNameObject.md)
  - [Pipedrive.RequredTitleParameter](docs/RequredTitleParameter.md)
  - [Pipedrive.ResponseCallLogObject](docs/ResponseCallLogObject.md)
  - [Pipedrive.ResponseCallLogObjectAllOf](docs/ResponseCallLogObjectAllOf.md)
@@ -1150,6 +1160,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.UpdateLeadLabelRequest](docs/UpdateLeadLabelRequest.md)
  - [Pipedrive.UpdateLeadRequest](docs/UpdateLeadRequest.md)
  - [Pipedrive.UpdatePersonResponse](docs/UpdatePersonResponse.md)
+ - [Pipedrive.UpdateProductRequestBody](docs/UpdateProductRequestBody.md)
  - [Pipedrive.UpdateProductResponse](docs/UpdateProductResponse.md)
  - [Pipedrive.UpdateStageRequest](docs/UpdateStageRequest.md)
  - [Pipedrive.UpdateStageRequestAllOf](docs/UpdateStageRequestAllOf.md)
