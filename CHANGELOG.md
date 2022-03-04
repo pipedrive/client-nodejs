@@ -8,6 +8,11 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## 13.2.7
+## Changed
+- Added `everyone` parameter to `GET /v1/stages/{id}` endpoint
+- Updated `/v1/deals` endpoint `stage_id` and added `pipeline_id` descriptions
+
 ## 13.2.6
 ## Changed
 - Updated `POST /products`: parameter `name` is required
