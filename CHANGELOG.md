@@ -7,6 +7,9 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+## 13.2.8
+### Fixed
+- Changed rotten_flag type to boolean in `StagesApi`
 
 ## 13.2.7
 ## Changed
@@ -18,7 +21,7 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 - Updated `POST /products`: parameter `name` is required
 - Updated `PUT /deals/:dealId/products`: parameter `quantity` and `item_price` are required
 - Updated `POST /deals/:dealId/products`: parameter `quantity` and `item_price` are required
-- 
+-
 
 ## 13.2.5
 ## Changed
@@ -35,7 +38,7 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 - Added quotation marks to fix formatting for Organizations endpoint `visible_to` parameter
 - Updated `prices` parameter description in Products endpoint
 
-## 13.2.3	
+## 13.2.3
 ### Changed
 - Update `visible_to` parameter for `POST /deals` and `PUT /deals/{id}`. Differentiate options by plans
 - Update `visible_to` parameter for `POST /persons` and `PUT /persons/{id}`. Differentiate options by plans
@@ -101,7 +104,7 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 ### Fixed
 - Fixed `POST /roles/{id}/settings` `value` parameter description
 ### Added
-- Added type to `POST /roles/{id}/settings` `value` parameter 
+- Added type to `POST /roles/{id}/settings` `value` parameter
 - Added description to `POST /roles/{id}/settings`
 
 ## 13.0.5
