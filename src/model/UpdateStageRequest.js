@@ -69,7 +69,7 @@ class UpdateStageRequest {
                 delete data['deal_probability'];
             }
             if (data.hasOwnProperty('rotten_flag')) {
-                obj['rotten_flag'] = ApiClient.convertToType(data['rotten_flag'], 'Number');
+                obj['rotten_flag'] = ApiClient.convertToType(data['rotten_flag'], 'Boolean');
 
                 delete data['rotten_flag'];
             }
@@ -169,22 +169,22 @@ UpdateStageRequestAllOf.prototype['order_nr'] = undefined;
 
 /**
  * Allowed values for the <code>rotten_flag</code> property.
- * @enum {Number}
+ * @enum {Boolean}
  * @readonly
  */
 UpdateStageRequest['RottenFlagEnum'] = {
 
     /**
-     * value: 0
+     * value: "true"
      * @const
      */
-    "0": 0,
+    "true": "true",
 
     /**
-     * value: 1
+     * value: "false"
      * @const
      */
-    "1": 1
+    "false": "false"
 };
 
 

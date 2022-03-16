@@ -86,7 +86,7 @@ class StageDetails {
                 delete data['pipeline_id'];
             }
             if (data.hasOwnProperty('rotten_flag')) {
-                obj['rotten_flag'] = ApiClient.convertToType(data['rotten_flag'], 'Number');
+                obj['rotten_flag'] = ApiClient.convertToType(data['rotten_flag'], 'Boolean');
 
                 delete data['rotten_flag'];
             }
@@ -249,22 +249,22 @@ PipelineDetailsAllOf.prototype['deals_summary'] = undefined;
 
 /**
  * Allowed values for the <code>rotten_flag</code> property.
- * @enum {Number}
+ * @enum {Boolean}
  * @readonly
  */
 StageDetails['RottenFlagEnum'] = {
 
     /**
-     * value: 0
+     * value: "true"
      * @const
      */
-    "0": 0,
+    "true": "true",
 
     /**
-     * value: 1
+     * value: "false"
      * @const
      */
-    "1": 1
+    "false": "false"
 };
 
 
