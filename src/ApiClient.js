@@ -634,9 +634,10 @@ class ApiClient {
 
     /**
     * Creates the url for authorizing the client.
+	* @param {String} [state] An optional state string to be passed along as a query parameter to the callback. 
     * @returns {String} The authorization url.
     */
-    buildAuthorizationUrl() {
+    buildAuthorizationUrl(state) {
         if (!this.isOauth2Supported()) {
             throw new Error('Could not create authorization url. OAuth 2 is not supported.');
         }
@@ -645,7 +646,7 @@ class ApiClient {
         const clientId = this.getOAuth2Property('clientId');
         const redirectUri = this.getOAuth2Property('redirectUri');
 
-        return `${host}/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}`;
+        return `${host}/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}${state ? `&state=${state}` : ''}`;
     }
 
     /**
