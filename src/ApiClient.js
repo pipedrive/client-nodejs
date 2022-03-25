@@ -646,7 +646,7 @@ class ApiClient {
         const clientId = this.getOAuth2Property('clientId');
         const redirectUri = this.getOAuth2Property('redirectUri');
 
-        return `${host}/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}${state ? `&state=${state}` : ''}`;
+        return `${host}/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}${state ? `&state=${encodeURIComponent(state)}` : ''}`;
     }
 
     /**
