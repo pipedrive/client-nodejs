@@ -1516,9 +1516,7 @@ export default class PersonsApi {
         throw new Error("Missing the required parameter 'id' when calling updatePerson");
       }
 
-      if (opts['name'] === undefined || opts['name'] === null) {
-        throw new Error("Missing the required parameter 'name' when calling updatePerson");
-      }
+
 
       let pathParams = {
         'id': id,
