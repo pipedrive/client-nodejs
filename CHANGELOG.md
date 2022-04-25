@@ -7,6 +7,13 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Fixed
+- Date formatting in responses in the following entities and their respective fields:
+    - **activities**: `due_date`
+    - **deals**: `expected_close_date`
+    - **leads**: `expected_close_date`
+    - **subscriptions**: `due_at`, `start_date`, `end_date`
+Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.000Z" in the request response.
 ## 13.2.8
 ### Fixed
 - Changed rotten_flag type to boolean in `StagesApi`

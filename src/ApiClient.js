@@ -804,7 +804,11 @@ class ApiClient {
             case 'String':
                 return String(data);
             case 'Date':
-                return ApiClient.parseDate(String(data));
+                if (typeof data === 'string') {
+                    return String(data);
+                } else {
+                    return ApiClient.parseDate(String(data));
+                }
             case 'Blob':
                 return data;
             default:
