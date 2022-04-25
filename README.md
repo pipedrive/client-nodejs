@@ -276,6 +276,7 @@ Class | Method | HTTP request | Description
 *Pipedrive.ActivityTypesApi* | [**deleteActivityTypes**](docs/ActivityTypesApi.md#deleteActivityTypes) | **DELETE** /activityTypes | Delete multiple activity types in bulk
 *Pipedrive.ActivityTypesApi* | [**getActivityTypes**](docs/ActivityTypesApi.md#getActivityTypes) | **GET** /activityTypes | Get all activity types
 *Pipedrive.ActivityTypesApi* | [**updateActivityType**](docs/ActivityTypesApi.md#updateActivityType) | **PUT** /activityTypes/{id} | Update an activity type
+*Pipedrive.BillingApi* | [**getCompanyAddons**](docs/BillingApi.md#getCompanyAddons) | **GET** /billing/subscriptions/addons | Get all add-ons for a single company
 *Pipedrive.CallLogsApi* | [**addCallLog**](docs/CallLogsApi.md#addCallLog) | **POST** /callLogs | Add a call log
 *Pipedrive.CallLogsApi* | [**addCallLogAudioFile**](docs/CallLogsApi.md#addCallLogAudioFile) | **POST** /callLogs/{id}/recordings | Attach an audio file to the call log
 *Pipedrive.CallLogsApi* | [**deleteCallLog**](docs/CallLogsApi.md#deleteCallLog) | **DELETE** /callLogs/{id} | Delete a call log
@@ -1139,6 +1140,8 @@ Class | Method | HTTP request | Description
  - [Pipedrive.StageWithPipelineInfoAllOf](docs/StageWithPipelineInfoAllOf.md)
  - [Pipedrive.SubRole](docs/SubRole.md)
  - [Pipedrive.SubRoleAllOf](docs/SubRoleAllOf.md)
+ - [Pipedrive.SubscriptionAddonsResponse](docs/SubscriptionAddonsResponse.md)
+ - [Pipedrive.SubscriptionAddonsResponseAllOf](docs/SubscriptionAddonsResponseAllOf.md)
  - [Pipedrive.SubscriptionInstallmentCreateRequest](docs/SubscriptionInstallmentCreateRequest.md)
  - [Pipedrive.SubscriptionInstallmentUpdateRequest](docs/SubscriptionInstallmentUpdateRequest.md)
  - [Pipedrive.SubscriptionItem](docs/SubscriptionItem.md)
