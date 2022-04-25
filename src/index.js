@@ -644,6 +644,8 @@ import StageWithPipelineInfo from './model/StageWithPipelineInfo';
 import StageWithPipelineInfoAllOf from './model/StageWithPipelineInfoAllOf';
 import SubRole from './model/SubRole';
 import SubRoleAllOf from './model/SubRoleAllOf';
+import SubscriptionAddonsResponse from './model/SubscriptionAddonsResponse';
+import SubscriptionAddonsResponseAllOf from './model/SubscriptionAddonsResponseAllOf';
 import SubscriptionInstallmentCreateRequest from './model/SubscriptionInstallmentCreateRequest';
 import SubscriptionInstallmentUpdateRequest from './model/SubscriptionInstallmentUpdateRequest';
 import SubscriptionItem from './model/SubscriptionItem';
@@ -706,6 +708,7 @@ import WebhooksDeleteForbiddenSchemaAllOf from './model/WebhooksDeleteForbiddenS
 import ActivitiesApi from './api/ActivitiesApi';
 import ActivityFieldsApi from './api/ActivityFieldsApi';
 import ActivityTypesApi from './api/ActivityTypesApi';
+import BillingApi from './api/BillingApi';
 import CallLogsApi from './api/CallLogsApi';
 import CurrenciesApi from './api/CurrenciesApi';
 import DealFieldsApi from './api/DealFieldsApi';
@@ -4566,6 +4569,18 @@ export {
     SubRoleAllOf,
 
     /**
+     * The SubscriptionAddonsResponse model constructor.
+     * @property {module:model/SubscriptionAddonsResponse}
+     */
+    SubscriptionAddonsResponse,
+
+    /**
+     * The SubscriptionAddonsResponseAllOf model constructor.
+     * @property {module:model/SubscriptionAddonsResponseAllOf}
+     */
+    SubscriptionAddonsResponseAllOf,
+
+    /**
      * The SubscriptionInstallmentCreateRequest model constructor.
      * @property {module:model/SubscriptionInstallmentCreateRequest}
      */
@@ -4936,6 +4951,12 @@ export {
     * @property {module:api/ActivityTypesApi}
     */
     ActivityTypesApi,
+
+    /**
+    * The BillingApi service constructor.
+    * @property {module:api/BillingApi}
+    */
+    BillingApi,
 
     /**
     * The CallLogsApi service constructor.
