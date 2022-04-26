@@ -7,8 +7,13 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+
+## 13.3.2
 ### Changed
-- Moved some dependencies to devDependencies
+- Moved the following dependencies to devDependencies:
+  - `@babel/cli`
+  - `@babel/runtime`
+  - `jest-environment-node`
 
 ## 13.3.1
 ### Fixed
