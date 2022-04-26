@@ -7,31 +7,42 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+
+## 13.3.1
 ### Fixed
 - Date formatting in responses in the following entities and their respective fields:
-    - **activities**: `due_date`
-    - **deals**: `expected_close_date`
-    - **leads**: `expected_close_date`
-    - **subscriptions**: `due_at`, `start_date`, `end_date`
-Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.000Z" in the request response.
+  - **activities**: `due_date`
+  - **deals**: `expected_close_date`
+  - **leads**: `expected_close_date`
+  - **subscriptions**: `due_at`, `start_date`, `end_date`
+    Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.000Z" in the request response.
+
+## 13.3.0
+### Added
+- Added `GET /billing/subscriptions/addons` endpoint
+
+## 13.2.9
+### Changed
+- Added missing oauth scopes to /products/{id}/permittedUsers endpoint
+
 ## 13.2.8
 ### Fixed
 - Changed rotten_flag type to boolean in `StagesApi`
 
 ## 13.2.7
-## Changed
+### Changed
 - Added `everyone` parameter to `GET /v1/stages/{id}` endpoint
 - Updated `/v1/deals` endpoint `stage_id` and added `pipeline_id` descriptions
 
 ## 13.2.6
-## Changed
+### Changed
 - Updated `POST /products`: parameter `name` is required
 - Updated `PUT /deals/:dealId/products`: parameter `quantity` and `item_price` are required
 - Updated `POST /deals/:dealId/products`: parameter `quantity` and `item_price` are required
 -
 
 ## 13.2.5
-## Changed
+### Changed
 - Updated `POST /notes`: parameter `content` is required
 - Updated `POST /organizations`: parameter `name` is required
 - Updated `POST /persons`: parameter `name` is required
