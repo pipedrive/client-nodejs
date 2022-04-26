@@ -1,7 +1,7 @@
 {
   "name": "client-nodejs",
   "description": "Pipedrive client for NodeJS based apps",
-  "owner": "GRAVITY",
+  "owner": "Gravity",
   "type": "library",
   "status": "released"
 }
