@@ -9,24 +9,33 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 ## [Unreleased]
 ### Changed
 - Added Tutorials submenu item
+
+## 13.3.0
+### Added
+- Added `GET /billing/subscriptions/addons` endpoint
+
+## 13.2.9
+### Changed
+- Added missing oauth scopes to /products/{id}/permittedUsers endpoint
+
 ## 13.2.8
 ### Fixed
 - Changed rotten_flag type to boolean in `StagesApi`
 
 ## 13.2.7
-## Changed
+### Changed
 - Added `everyone` parameter to `GET /v1/stages/{id}` endpoint
 - Updated `/v1/deals` endpoint `stage_id` and added `pipeline_id` descriptions
 
 ## 13.2.6
-## Changed
+### Changed
 - Updated `POST /products`: parameter `name` is required
 - Updated `PUT /deals/:dealId/products`: parameter `quantity` and `item_price` are required
 - Updated `POST /deals/:dealId/products`: parameter `quantity` and `item_price` are required
 -
 
 ## 13.2.5
-## Changed
+### Changed
 - Updated `POST /notes`: parameter `content` is required
 - Updated `POST /organizations`: parameter `name` is required
 - Updated `POST /persons`: parameter `name` is required
