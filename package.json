@@ -1,6 +1,6 @@
 {
   "name": "pipedrive",
-  "version": "13.3.1",
+  "version": "13.3.2",
   "description": "Pipedrive REST client for NodeJS",
   "license": "MIT",
   "main": "dist/index.js",
@@ -18,13 +18,11 @@
     "fs": false
   },
   "dependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/runtime": "^7.14.0",
-    "jest-environment-node": "^27.4.4",
     "superagent": "^5.3.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
     "@babel/plugin-proposal-decorators": "^7.0.0",
@@ -45,11 +43,13 @@
     "@babel/plugin-transform-runtime": "^7.12.1",
     "@babel/preset-env": "^7.0.0",
     "@babel/register": "^7.0.0",
+    "@babel/runtime": "^7.14.0",
     "@pipedrive/sonar-scanner": "^3.3.1",
     "axios": "^0.21.0",
     "expect.js": "^0.3.1",
     "get-port": "^5.1.1",
     "jest": "^26.6.3",
+    "jest-environment-node": "^27.4.4",
     "minimist": "^1.2.5",
     "mocha": "^8.0.1",
     "mockserver-client": "^5.11.2",

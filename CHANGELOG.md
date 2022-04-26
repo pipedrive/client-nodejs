@@ -8,6 +8,13 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## 13.3.2
+### Changed
+- Moved the following dependencies to devDependencies:
+  - `@babel/cli`
+  - `@babel/runtime`
+  - `jest-environment-node`
+
 ## 13.3.1
 ### Fixed
 - Date formatting in responses in the following entities and their respective fields:
