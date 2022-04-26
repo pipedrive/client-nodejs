@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## 13.3.0
+### Added
+- Added `GET /billing/subscriptions/addons` endpoint
+
 ## 13.2.9
 ### Changed
 - Added missing oauth scopes to /products/{id}/permittedUsers endpoint
