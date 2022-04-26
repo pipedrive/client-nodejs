@@ -8,6 +8,16 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## 13.3.1
+### Fixed
+- Date formatting in responses in the following entities and their respective fields:
+  - **activities**: `due_date`
+  - **deals**: `expected_close_date`
+  - **leads**: `expected_close_date`
+  - **subscriptions**: `due_at`, `start_date`, `end_date`
+
+Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.000Z" in the request response.
+
 ## 13.3.0
 ### Added
 - Added `GET /billing/subscriptions/addons` endpoint
