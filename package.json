@@ -18,8 +18,9 @@
     "fs": false
   },
   "dependencies": {
-    "superagent": "^5.3.0",
-    "lodash": "^4.17.21"
+    "@babel/runtime": "^7.17.0",
+    "lodash": "^4.17.21",
+    "superagent": "^5.3.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
