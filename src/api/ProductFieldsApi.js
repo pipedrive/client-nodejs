@@ -13,13 +13,13 @@
 
 
 import ApiClient from "../ApiClient";
-import BasicProductField from '../model/BasicProductField';
 import DeleteMultipleProductFieldsResponse from '../model/DeleteMultipleProductFieldsResponse';
 import DeleteProductFieldResponse from '../model/DeleteProductFieldResponse';
 import FailResponse from '../model/FailResponse';
 import GetAllProductFieldsResponse from '../model/GetAllProductFieldsResponse';
 import GetProductFieldResponse from '../model/GetProductFieldResponse';
 import NewProductField from '../model/NewProductField';
+import UpdateProductField from '../model/UpdateProductField';
 
 /**
 * ProductFields service.
@@ -381,21 +381,18 @@ export default class ProductFieldsApi {
      * Updates a product field. For more information, see the tutorial for <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields' values</a>.
      * @param {Number} id The ID of the product field
      * @param {Object} opts Optional parameters
-     * @param {module:model/BasicProductField} opts.basicProductField 
+     * @param {module:model/UpdateProductField} opts.updateProductField 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetProductFieldResponse} and HTTP response
      */
     updateProductFieldWithHttpInfo(id, opts) {
       opts = opts || {};
-      let postBody = opts['basicProductField'];
+      let postBody = opts['updateProductField'];
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateProductField");
       }
 
-      if (opts['name'] === undefined || opts['name'] === null) {
-        throw new Error("Missing the required parameter 'name' when calling updateProductField");
-      }
 
       let pathParams = {
         'id': id,
@@ -439,7 +436,7 @@ export default class ProductFieldsApi {
      * Updates a product field. For more information, see the tutorial for <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields' values</a>.
      * @param {Number} id The ID of the product field
      * @param {Object} opts Optional parameters
-     * @param {module:model/BasicProductField} opts.basicProductField 
+     * @param {module:model/UpdateProductField} opts.updateProductField 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetProductFieldResponse}
      */
     updateProductField(id, opts) {

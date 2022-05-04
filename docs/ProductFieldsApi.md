@@ -308,7 +308,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductFieldsApi();
 let id = 56; // Number | The ID of the product field
-let opts = Pipedrive.BasicProductField.constructFromObject({
+let opts = Pipedrive.UpdateProductField.constructFromObject({
   // Properties that you want to update
 });
 apiInstance.updateProductField(id, opts).then((data) => {
@@ -325,7 +325,7 @@ apiInstance.updateProductField(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the product field | 
- **basicProductField** | [**BasicProductField**](BasicProductField.md)|  | [optional] 
+ **updateProductField** | [**UpdateProductField**](UpdateProductField.md)|  | [optional] 
 
 ### Return type
 
