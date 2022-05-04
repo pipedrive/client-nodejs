@@ -282,6 +282,10 @@ Class | Method | HTTP request | Description
 *Pipedrive.CallLogsApi* | [**deleteCallLog**](docs/CallLogsApi.md#deleteCallLog) | **DELETE** /callLogs/{id} | Delete a call log
 *Pipedrive.CallLogsApi* | [**getCallLog**](docs/CallLogsApi.md#getCallLog) | **GET** /callLogs/{id} | Get details of a call log
 *Pipedrive.CallLogsApi* | [**getUserCallLogs**](docs/CallLogsApi.md#getUserCallLogs) | **GET** /callLogs | Get all call logs assigned to a particular user
+*Pipedrive.ChannelsApi* | [**addChannel**](docs/ChannelsApi.md#addChannel) | **POST** /channels | Add a channel
+*Pipedrive.ChannelsApi* | [**deleteChannel**](docs/ChannelsApi.md#deleteChannel) | **DELETE** /channels/{id} | Delete a channel
+*Pipedrive.ChannelsApi* | [**deleteConversation**](docs/ChannelsApi.md#deleteConversation) | **DELETE** /channels/{channel-id}/conversations/{conversation-id} | Delete a conversation
+*Pipedrive.ChannelsApi* | [**receiveMessage**](docs/ChannelsApi.md#receiveMessage) | **POST** /channels/messages/receive | Receives an incoming message
 *Pipedrive.CurrenciesApi* | [**getCurrencies**](docs/CurrenciesApi.md#getCurrencies) | **GET** /currencies | Get all supported currencies
 *Pipedrive.DealFieldsApi* | [**addDealField**](docs/DealFieldsApi.md#addDealField) | **POST** /dealFields | Add a new deal field
 *Pipedrive.DealFieldsApi* | [**deleteDealField**](docs/DealFieldsApi.md#deleteDealField) | **DELETE** /dealFields/{id} | Delete a deal field
@@ -631,6 +635,9 @@ Class | Method | HTTP request | Description
  - [Pipedrive.CallLogResponse409](docs/CallLogResponse409.md)
  - [Pipedrive.CallLogResponse410](docs/CallLogResponse410.md)
  - [Pipedrive.CallLogResponse500](docs/CallLogResponse500.md)
+ - [Pipedrive.ChannelObject](docs/ChannelObject.md)
+ - [Pipedrive.ChannelObjectResponse](docs/ChannelObjectResponse.md)
+ - [Pipedrive.ChannelObjectResponseData](docs/ChannelObjectResponseData.md)
  - [Pipedrive.CommentPostPutObject](docs/CommentPostPutObject.md)
  - [Pipedrive.CommonMailThread](docs/CommonMailThread.md)
  - [Pipedrive.CreateRemoteFileAndLinkItToItem](docs/CreateRemoteFileAndLinkItToItem.md)
@@ -695,7 +702,9 @@ Class | Method | HTTP request | Description
  - [Pipedrive.DeleteActivitiesResponse200Data](docs/DeleteActivitiesResponse200Data.md)
  - [Pipedrive.DeleteActivityResponse200](docs/DeleteActivityResponse200.md)
  - [Pipedrive.DeleteActivityResponse200Data](docs/DeleteActivityResponse200Data.md)
+ - [Pipedrive.DeleteChannelSuccess](docs/DeleteChannelSuccess.md)
  - [Pipedrive.DeleteComment](docs/DeleteComment.md)
+ - [Pipedrive.DeleteConversationSuccess](docs/DeleteConversationSuccess.md)
  - [Pipedrive.DeleteDeal](docs/DeleteDeal.md)
  - [Pipedrive.DeleteDealData](docs/DeleteDealData.md)
  - [Pipedrive.DeleteDealFollower](docs/DeleteDealFollower.md)
@@ -857,6 +866,16 @@ Class | Method | HTTP request | Description
  - [Pipedrive.GoalType](docs/GoalType.md)
  - [Pipedrive.GoalsResponseComponent](docs/GoalsResponseComponent.md)
  - [Pipedrive.IconKey](docs/IconKey.md)
+ - [Pipedrive.InlineResponse400](docs/InlineResponse400.md)
+ - [Pipedrive.InlineResponse4001](docs/InlineResponse4001.md)
+ - [Pipedrive.InlineResponse4001AdditionalData](docs/InlineResponse4001AdditionalData.md)
+ - [Pipedrive.InlineResponse400AdditionalData](docs/InlineResponse400AdditionalData.md)
+ - [Pipedrive.InlineResponse403](docs/InlineResponse403.md)
+ - [Pipedrive.InlineResponse4031](docs/InlineResponse4031.md)
+ - [Pipedrive.InlineResponse4031AdditionalData](docs/InlineResponse4031AdditionalData.md)
+ - [Pipedrive.InlineResponse403AdditionalData](docs/InlineResponse403AdditionalData.md)
+ - [Pipedrive.InlineResponse404](docs/InlineResponse404.md)
+ - [Pipedrive.InlineResponse404AdditionalData](docs/InlineResponse404AdditionalData.md)
  - [Pipedrive.ItemSearchAdditionalData](docs/ItemSearchAdditionalData.md)
  - [Pipedrive.ItemSearchAdditionalDataPagination](docs/ItemSearchAdditionalDataPagination.md)
  - [Pipedrive.ItemSearchFieldResponse](docs/ItemSearchFieldResponse.md)
@@ -942,6 +961,8 @@ Class | Method | HTTP request | Description
  - [Pipedrive.MergePersonsRequest](docs/MergePersonsRequest.md)
  - [Pipedrive.MergePersonsResponse](docs/MergePersonsResponse.md)
  - [Pipedrive.MergePersonsResponseAllOf](docs/MergePersonsResponseAllOf.md)
+ - [Pipedrive.MessageObject](docs/MessageObject.md)
+ - [Pipedrive.MessageObjectAttachments](docs/MessageObjectAttachments.md)
  - [Pipedrive.NewDeal](docs/NewDeal.md)
  - [Pipedrive.NewDealAllOf](docs/NewDealAllOf.md)
  - [Pipedrive.NewDealProduct](docs/NewDealProduct.md)
