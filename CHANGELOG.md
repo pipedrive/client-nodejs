@@ -8,6 +8,8 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 ### Changed
+- Updated `PUT /productFields/{id}`: parameter `name` is not 
+### Changed
 - Added babel/runtime to dependencies
 
 ## 13.3.2

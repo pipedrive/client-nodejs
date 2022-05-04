@@ -124,7 +124,6 @@ import BasicGoal from './model/BasicGoal';
 import BasicOrganization from './model/BasicOrganization';
 import BasicPerson from './model/BasicPerson';
 import BasicPersonEmail from './model/BasicPersonEmail';
-import BasicProductField from './model/BasicProductField';
 import BulkDeleteResponse from './model/BulkDeleteResponse';
 import BulkDeleteResponseAllOf from './model/BulkDeleteResponseAllOf';
 import BulkDeleteResponseAllOfData from './model/BulkDeleteResponseAllOfData';
@@ -667,6 +666,7 @@ import UpdateFilterRequest from './model/UpdateFilterRequest';
 import UpdateLeadLabelRequest from './model/UpdateLeadLabelRequest';
 import UpdateLeadRequest from './model/UpdateLeadRequest';
 import UpdatePersonResponse from './model/UpdatePersonResponse';
+import UpdateProductField from './model/UpdateProductField';
 import UpdateProductRequestBody from './model/UpdateProductRequestBody';
 import UpdateProductResponse from './model/UpdateProductResponse';
 import UpdateStageRequest from './model/UpdateStageRequest';
@@ -1447,12 +1447,6 @@ export {
      * @property {module:model/BasicPersonEmail}
      */
     BasicPersonEmail,
-
-    /**
-     * The BasicProductField model constructor.
-     * @property {module:model/BasicProductField}
-     */
-    BasicProductField,
 
     /**
      * The BulkDeleteResponse model constructor.
@@ -4705,6 +4699,12 @@ export {
      * @property {module:model/UpdatePersonResponse}
      */
     UpdatePersonResponse,
+
+    /**
+     * The UpdateProductField model constructor.
+     * @property {module:model/UpdateProductField}
+     */
+    UpdateProductField,
 
     /**
      * The UpdateProductRequestBody model constructor.
