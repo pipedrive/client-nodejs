@@ -739,6 +739,7 @@ import ItemSearchApi from './api/ItemSearchApi';
 import LeadLabelsApi from './api/LeadLabelsApi';
 import LeadSourcesApi from './api/LeadSourcesApi';
 import LeadsApi from './api/LeadsApi';
+import LegacyTeamsApi from './api/LegacyTeamsApi';
 import MailboxApi from './api/MailboxApi';
 import NoteFieldsApi from './api/NoteFieldsApi';
 import NotesApi from './api/NotesApi';
@@ -755,7 +756,6 @@ import RecentsApi from './api/RecentsApi';
 import RolesApi from './api/RolesApi';
 import StagesApi from './api/StagesApi';
 import SubscriptionsApi from './api/SubscriptionsApi';
-import TeamsApi from './api/TeamsApi';
 import UserConnectionsApi from './api/UserConnectionsApi';
 import UserSettingsApi from './api/UserSettingsApi';
 import UsersApi from './api/UsersApi';
@@ -5157,6 +5157,12 @@ export {
     LeadsApi,
 
     /**
+    * The LegacyTeamsApi service constructor.
+    * @property {module:api/LegacyTeamsApi}
+    */
+    LegacyTeamsApi,
+
+    /**
     * The MailboxApi service constructor.
     * @property {module:api/MailboxApi}
     */
@@ -5251,12 +5257,6 @@ export {
     * @property {module:api/SubscriptionsApi}
     */
     SubscriptionsApi,
-
-    /**
-    * The TeamsApi service constructor.
-    * @property {module:api/TeamsApi}
-    */
-    TeamsApi,
 
     /**
     * The UserConnectionsApi service constructor.

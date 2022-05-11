@@ -355,6 +355,14 @@ Class | Method | HTTP request | Description
 *Pipedrive.LeadsApi* | [**getLeads**](docs/LeadsApi.md#getLeads) | **GET** /leads | Get all leads
 *Pipedrive.LeadsApi* | [**searchLeads**](docs/LeadsApi.md#searchLeads) | **GET** /leads/search | Search leads
 *Pipedrive.LeadsApi* | [**updateLead**](docs/LeadsApi.md#updateLead) | **PATCH** /leads/{id} | Update a lead
+*Pipedrive.LegacyTeamsApi* | [**addTeam**](docs/LegacyTeamsApi.md#addTeam) | **POST** /legacyTeams | Add a new team
+*Pipedrive.LegacyTeamsApi* | [**addTeamUser**](docs/LegacyTeamsApi.md#addTeamUser) | **POST** /legacyTeams/{id}/users | Add users to a team
+*Pipedrive.LegacyTeamsApi* | [**deleteTeamUser**](docs/LegacyTeamsApi.md#deleteTeamUser) | **DELETE** /legacyTeams/{id}/users | Delete users from a team
+*Pipedrive.LegacyTeamsApi* | [**getTeam**](docs/LegacyTeamsApi.md#getTeam) | **GET** /legacyTeams/{id} | Get a single team
+*Pipedrive.LegacyTeamsApi* | [**getTeamUsers**](docs/LegacyTeamsApi.md#getTeamUsers) | **GET** /legacyTeams/{id}/users | Get all users in a team
+*Pipedrive.LegacyTeamsApi* | [**getTeams**](docs/LegacyTeamsApi.md#getTeams) | **GET** /legacyTeams | Get all teams
+*Pipedrive.LegacyTeamsApi* | [**getUserTeams**](docs/LegacyTeamsApi.md#getUserTeams) | **GET** /legacyTeams/user/{id} | Get all teams of a user
+*Pipedrive.LegacyTeamsApi* | [**updateTeam**](docs/LegacyTeamsApi.md#updateTeam) | **PUT** /legacyTeams/{id} | Update a team
 *Pipedrive.MailboxApi* | [**deleteMailThread**](docs/MailboxApi.md#deleteMailThread) | **DELETE** /mailbox/mailThreads/{id} | Delete mail thread
 *Pipedrive.MailboxApi* | [**getMailMessage**](docs/MailboxApi.md#getMailMessage) | **GET** /mailbox/mailMessages/{id} | Get one mail message
 *Pipedrive.MailboxApi* | [**getMailThread**](docs/MailboxApi.md#getMailThread) | **GET** /mailbox/mailThreads/{id} | Get one mail thread
@@ -484,14 +492,6 @@ Class | Method | HTTP request | Description
 *Pipedrive.SubscriptionsApi* | [**getSubscriptionPayments**](docs/SubscriptionsApi.md#getSubscriptionPayments) | **GET** /subscriptions/{id}/payments | Get all payments of a subscription
 *Pipedrive.SubscriptionsApi* | [**updateRecurringSubscription**](docs/SubscriptionsApi.md#updateRecurringSubscription) | **PUT** /subscriptions/recurring/{id} | Update a recurring subscription
 *Pipedrive.SubscriptionsApi* | [**updateSubscriptionInstallment**](docs/SubscriptionsApi.md#updateSubscriptionInstallment) | **PUT** /subscriptions/installment/{id} | Update an installment subscription
-*Pipedrive.TeamsApi* | [**addTeam**](docs/TeamsApi.md#addTeam) | **POST** /teams | Add a new team
-*Pipedrive.TeamsApi* | [**addTeamUser**](docs/TeamsApi.md#addTeamUser) | **POST** /teams/{id}/users | Add users to a team
-*Pipedrive.TeamsApi* | [**deleteTeamUser**](docs/TeamsApi.md#deleteTeamUser) | **DELETE** /teams/{id}/users | Delete users from a team
-*Pipedrive.TeamsApi* | [**getTeam**](docs/TeamsApi.md#getTeam) | **GET** /teams/{id} | Get a single team
-*Pipedrive.TeamsApi* | [**getTeamUsers**](docs/TeamsApi.md#getTeamUsers) | **GET** /teams/{id}/users | Get all users in a team
-*Pipedrive.TeamsApi* | [**getTeams**](docs/TeamsApi.md#getTeams) | **GET** /teams | Get all teams
-*Pipedrive.TeamsApi* | [**getUserTeams**](docs/TeamsApi.md#getUserTeams) | **GET** /teams/user/{id} | Get all teams of a user
-*Pipedrive.TeamsApi* | [**updateTeam**](docs/TeamsApi.md#updateTeam) | **PUT** /teams/{id} | Update a team
 *Pipedrive.UserConnectionsApi* | [**getUserConnections**](docs/UserConnectionsApi.md#getUserConnections) | **GET** /userConnections | Get all user connections
 *Pipedrive.UserSettingsApi* | [**getUserSettings**](docs/UserSettingsApi.md#getUserSettings) | **GET** /userSettings | List settings of an authorized user
 *Pipedrive.UsersApi* | [**addUser**](docs/UsersApi.md#addUser) | **POST** /users | Add a new user
@@ -1261,7 +1261,7 @@ Class | Method | HTTP request | Description
   - mail:full: Read, update and delete mail threads. Also grants read access to mail messages.
   - products:read: Read products, its fields, files, followers and products connected to a deal.
   - products:full: Create, read, update and delete products and its fields; add products to deals
-  - users:read: Read data about users (people with access to a Pipedrive account), their permissions, roles and followers, as well as about teams.
+  - users:read: Read data about users (people with access to a Pipedrive account), their permissions, roles and followers, as well as about legacy teams.
   - base: Read settings of the authorized user and currencies in an account.
   - phone-integration: Create, read and delete call logs and its audio recordings.
 
