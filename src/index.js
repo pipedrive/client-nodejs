@@ -135,6 +135,9 @@ import CallLogResponse404 from './model/CallLogResponse404';
 import CallLogResponse409 from './model/CallLogResponse409';
 import CallLogResponse410 from './model/CallLogResponse410';
 import CallLogResponse500 from './model/CallLogResponse500';
+import ChannelObject from './model/ChannelObject';
+import ChannelObjectResponse from './model/ChannelObjectResponse';
+import ChannelObjectResponseData from './model/ChannelObjectResponseData';
 import CommentPostPutObject from './model/CommentPostPutObject';
 import CommonMailThread from './model/CommonMailThread';
 import CreateRemoteFileAndLinkItToItem from './model/CreateRemoteFileAndLinkItToItem';
@@ -199,7 +202,9 @@ import DeleteActivitiesResponse200 from './model/DeleteActivitiesResponse200';
 import DeleteActivitiesResponse200Data from './model/DeleteActivitiesResponse200Data';
 import DeleteActivityResponse200 from './model/DeleteActivityResponse200';
 import DeleteActivityResponse200Data from './model/DeleteActivityResponse200Data';
+import DeleteChannelSuccess from './model/DeleteChannelSuccess';
 import DeleteComment from './model/DeleteComment';
+import DeleteConversationSuccess from './model/DeleteConversationSuccess';
 import DeleteDeal from './model/DeleteDeal';
 import DeleteDealData from './model/DeleteDealData';
 import DeleteDealFollower from './model/DeleteDealFollower';
@@ -361,6 +366,16 @@ import GoalResults from './model/GoalResults';
 import GoalType from './model/GoalType';
 import GoalsResponseComponent from './model/GoalsResponseComponent';
 import IconKey from './model/IconKey';
+import InlineResponse400 from './model/InlineResponse400';
+import InlineResponse4001 from './model/InlineResponse4001';
+import InlineResponse4001AdditionalData from './model/InlineResponse4001AdditionalData';
+import InlineResponse400AdditionalData from './model/InlineResponse400AdditionalData';
+import InlineResponse403 from './model/InlineResponse403';
+import InlineResponse4031 from './model/InlineResponse4031';
+import InlineResponse4031AdditionalData from './model/InlineResponse4031AdditionalData';
+import InlineResponse403AdditionalData from './model/InlineResponse403AdditionalData';
+import InlineResponse404 from './model/InlineResponse404';
+import InlineResponse404AdditionalData from './model/InlineResponse404AdditionalData';
 import ItemSearchAdditionalData from './model/ItemSearchAdditionalData';
 import ItemSearchAdditionalDataPagination from './model/ItemSearchAdditionalDataPagination';
 import ItemSearchFieldResponse from './model/ItemSearchFieldResponse';
@@ -446,6 +461,8 @@ import MergePersonItem from './model/MergePersonItem';
 import MergePersonsRequest from './model/MergePersonsRequest';
 import MergePersonsResponse from './model/MergePersonsResponse';
 import MergePersonsResponseAllOf from './model/MergePersonsResponseAllOf';
+import MessageObject from './model/MessageObject';
+import MessageObjectAttachments from './model/MessageObjectAttachments';
 import NewDeal from './model/NewDeal';
 import NewDealAllOf from './model/NewDealAllOf';
 import NewDealProduct from './model/NewDealProduct';
@@ -710,6 +727,7 @@ import ActivityFieldsApi from './api/ActivityFieldsApi';
 import ActivityTypesApi from './api/ActivityTypesApi';
 import BillingApi from './api/BillingApi';
 import CallLogsApi from './api/CallLogsApi';
+import ChannelsApi from './api/ChannelsApi';
 import CurrenciesApi from './api/CurrenciesApi';
 import DealFieldsApi from './api/DealFieldsApi';
 import DealsApi from './api/DealsApi';
@@ -721,6 +739,7 @@ import ItemSearchApi from './api/ItemSearchApi';
 import LeadLabelsApi from './api/LeadLabelsApi';
 import LeadSourcesApi from './api/LeadSourcesApi';
 import LeadsApi from './api/LeadsApi';
+import LegacyTeamsApi from './api/LegacyTeamsApi';
 import MailboxApi from './api/MailboxApi';
 import NoteFieldsApi from './api/NoteFieldsApi';
 import NotesApi from './api/NotesApi';
@@ -737,7 +756,6 @@ import RecentsApi from './api/RecentsApi';
 import RolesApi from './api/RolesApi';
 import StagesApi from './api/StagesApi';
 import SubscriptionsApi from './api/SubscriptionsApi';
-import TeamsApi from './api/TeamsApi';
 import UserConnectionsApi from './api/UserConnectionsApi';
 import UserSettingsApi from './api/UserSettingsApi';
 import UsersApi from './api/UsersApi';
@@ -1515,6 +1533,24 @@ export {
     CallLogResponse500,
 
     /**
+     * The ChannelObject model constructor.
+     * @property {module:model/ChannelObject}
+     */
+    ChannelObject,
+
+    /**
+     * The ChannelObjectResponse model constructor.
+     * @property {module:model/ChannelObjectResponse}
+     */
+    ChannelObjectResponse,
+
+    /**
+     * The ChannelObjectResponseData model constructor.
+     * @property {module:model/ChannelObjectResponseData}
+     */
+    ChannelObjectResponseData,
+
+    /**
      * The CommentPostPutObject model constructor.
      * @property {module:model/CommentPostPutObject}
      */
@@ -1899,10 +1935,22 @@ export {
     DeleteActivityResponse200Data,
 
     /**
+     * The DeleteChannelSuccess model constructor.
+     * @property {module:model/DeleteChannelSuccess}
+     */
+    DeleteChannelSuccess,
+
+    /**
      * The DeleteComment model constructor.
      * @property {module:model/DeleteComment}
      */
     DeleteComment,
+
+    /**
+     * The DeleteConversationSuccess model constructor.
+     * @property {module:model/DeleteConversationSuccess}
+     */
+    DeleteConversationSuccess,
 
     /**
      * The DeleteDeal model constructor.
@@ -2871,6 +2919,66 @@ export {
     IconKey,
 
     /**
+     * The InlineResponse400 model constructor.
+     * @property {module:model/InlineResponse400}
+     */
+    InlineResponse400,
+
+    /**
+     * The InlineResponse4001 model constructor.
+     * @property {module:model/InlineResponse4001}
+     */
+    InlineResponse4001,
+
+    /**
+     * The InlineResponse4001AdditionalData model constructor.
+     * @property {module:model/InlineResponse4001AdditionalData}
+     */
+    InlineResponse4001AdditionalData,
+
+    /**
+     * The InlineResponse400AdditionalData model constructor.
+     * @property {module:model/InlineResponse400AdditionalData}
+     */
+    InlineResponse400AdditionalData,
+
+    /**
+     * The InlineResponse403 model constructor.
+     * @property {module:model/InlineResponse403}
+     */
+    InlineResponse403,
+
+    /**
+     * The InlineResponse4031 model constructor.
+     * @property {module:model/InlineResponse4031}
+     */
+    InlineResponse4031,
+
+    /**
+     * The InlineResponse4031AdditionalData model constructor.
+     * @property {module:model/InlineResponse4031AdditionalData}
+     */
+    InlineResponse4031AdditionalData,
+
+    /**
+     * The InlineResponse403AdditionalData model constructor.
+     * @property {module:model/InlineResponse403AdditionalData}
+     */
+    InlineResponse403AdditionalData,
+
+    /**
+     * The InlineResponse404 model constructor.
+     * @property {module:model/InlineResponse404}
+     */
+    InlineResponse404,
+
+    /**
+     * The InlineResponse404AdditionalData model constructor.
+     * @property {module:model/InlineResponse404AdditionalData}
+     */
+    InlineResponse404AdditionalData,
+
+    /**
      * The ItemSearchAdditionalData model constructor.
      * @property {module:model/ItemSearchAdditionalData}
      */
@@ -3379,6 +3487,18 @@ export {
      * @property {module:model/MergePersonsResponseAllOf}
      */
     MergePersonsResponseAllOf,
+
+    /**
+     * The MessageObject model constructor.
+     * @property {module:model/MessageObject}
+     */
+    MessageObject,
+
+    /**
+     * The MessageObjectAttachments model constructor.
+     * @property {module:model/MessageObjectAttachments}
+     */
+    MessageObjectAttachments,
 
     /**
      * The NewDeal model constructor.
@@ -4965,6 +5085,12 @@ export {
     CallLogsApi,
 
     /**
+    * The ChannelsApi service constructor.
+    * @property {module:api/ChannelsApi}
+    */
+    ChannelsApi,
+
+    /**
     * The CurrenciesApi service constructor.
     * @property {module:api/CurrenciesApi}
     */
@@ -5029,6 +5155,12 @@ export {
     * @property {module:api/LeadsApi}
     */
     LeadsApi,
+
+    /**
+    * The LegacyTeamsApi service constructor.
+    * @property {module:api/LegacyTeamsApi}
+    */
+    LegacyTeamsApi,
 
     /**
     * The MailboxApi service constructor.
@@ -5125,12 +5257,6 @@ export {
     * @property {module:api/SubscriptionsApi}
     */
     SubscriptionsApi,
-
-    /**
-    * The TeamsApi service constructor.
-    * @property {module:api/TeamsApi}
-    */
-    TeamsApi,
 
     /**
     * The UserConnectionsApi service constructor.
