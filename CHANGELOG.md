@@ -6,7 +6,9 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
-## [Unreleased]
+## 14.0.1
+### Fixed
+- Updated `PUT /persons/{id}`: parameter `name` is not required
 
 ## 14.0.0
 ### Changed
@@ -15,7 +17,7 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## 13.3.4
 ### Changed
-- Updated `PUT /productFields/{id}`: parameter `name` is not 
+- Updated `PUT /productFields/{id}`: parameter `name` is not
 
 ## 13.3.3
 ### Changed

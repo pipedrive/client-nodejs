@@ -1151,7 +1151,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi();
 let id = 56; // Number | The ID of the person
-let opts = Pipedrive.BasicPerson.constructFromObject({
+let opts = Pipedrive.UpdatePerson.constructFromObject({
   // Properties that you want to update
 });
 apiInstance.updatePerson(id, opts).then((data) => {
@@ -1168,7 +1168,7 @@ apiInstance.updatePerson(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the person | 
- **basicPerson** | [**BasicPerson**](BasicPerson.md)|  | [optional] 
+ **updatePerson** | [**UpdatePerson**](UpdatePerson.md)|  | [optional] 
 
 ### Return type
 

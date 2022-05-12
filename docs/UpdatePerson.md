@@ -1,9 +1,10 @@
-# Pipedrive.BasicPerson
+# Pipedrive.UpdatePerson
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**name** | **String** | The name of the person | [optional] 
 **ownerId** | **Number** | The ID of the user who will be marked as the owner of this person. When omitted, the authorized user ID will be used. | [optional] 
 **orgId** | **Number** | The ID of the organization this person will belong to | [optional] 
 **email** | [**[BasicPersonEmail]**](BasicPersonEmail.md) | List of email data related to the person | [optional] 

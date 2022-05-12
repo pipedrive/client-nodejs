@@ -1182,6 +1182,8 @@ Class | Method | HTTP request | Description
  - [Pipedrive.UpdateFilterRequest](docs/UpdateFilterRequest.md)
  - [Pipedrive.UpdateLeadLabelRequest](docs/UpdateLeadLabelRequest.md)
  - [Pipedrive.UpdateLeadRequest](docs/UpdateLeadRequest.md)
+ - [Pipedrive.UpdatePerson](docs/UpdatePerson.md)
+ - [Pipedrive.UpdatePersonAllOf](docs/UpdatePersonAllOf.md)
  - [Pipedrive.UpdatePersonResponse](docs/UpdatePersonResponse.md)
  - [Pipedrive.UpdateProductField](docs/UpdateProductField.md)
  - [Pipedrive.UpdateProductRequestBody](docs/UpdateProductRequestBody.md)

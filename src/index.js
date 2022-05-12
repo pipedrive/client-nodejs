@@ -682,6 +682,8 @@ import UpdateFile from './model/UpdateFile';
 import UpdateFilterRequest from './model/UpdateFilterRequest';
 import UpdateLeadLabelRequest from './model/UpdateLeadLabelRequest';
 import UpdateLeadRequest from './model/UpdateLeadRequest';
+import UpdatePerson from './model/UpdatePerson';
+import UpdatePersonAllOf from './model/UpdatePersonAllOf';
 import UpdatePersonResponse from './model/UpdatePersonResponse';
 import UpdateProductField from './model/UpdateProductField';
 import UpdateProductRequestBody from './model/UpdateProductRequestBody';
@@ -4813,6 +4815,18 @@ export {
      * @property {module:model/UpdateLeadRequest}
      */
     UpdateLeadRequest,
+
+    /**
+     * The UpdatePerson model constructor.
+     * @property {module:model/UpdatePerson}
+     */
+    UpdatePerson,
+
+    /**
+     * The UpdatePersonAllOf model constructor.
+     * @property {module:model/UpdatePersonAllOf}
+     */
+    UpdatePersonAllOf,
 
     /**
      * The UpdatePersonResponse model constructor.

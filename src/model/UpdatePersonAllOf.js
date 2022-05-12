@@ -14,19 +14,18 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The NewPersonAllOf model module.
- * @module model/NewPersonAllOf
+ * The UpdatePersonAllOf model module.
+ * @module model/UpdatePersonAllOf
  * @version 1.0.0
  */
-class NewPersonAllOf {
+class UpdatePersonAllOf {
     /**
-     * Constructs a new <code>NewPersonAllOf</code>.
-     * @alias module:model/NewPersonAllOf
-     * @param name {String} The name of the person
+     * Constructs a new <code>UpdatePersonAllOf</code>.
+     * @alias module:model/UpdatePersonAllOf
      */
-    constructor(name) { 
+    constructor() { 
         
-        NewPersonAllOf.initialize(this, name);
+        UpdatePersonAllOf.initialize(this);
     }
 
     /**
@@ -34,20 +33,19 @@ class NewPersonAllOf {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, name) { 
-        obj['name'] = name;
+    static initialize(obj) { 
     }
 
     /**
-     * Constructs a <code>NewPersonAllOf</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>UpdatePersonAllOf</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/NewPersonAllOf} obj Optional instance to populate.
-     * @return {module:model/NewPersonAllOf} The populated <code>NewPersonAllOf</code> instance.
+     * @param {module:model/UpdatePersonAllOf} obj Optional instance to populate.
+     * @return {module:model/UpdatePersonAllOf} The populated <code>UpdatePersonAllOf</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new NewPersonAllOf();
+            obj = obj || new UpdatePersonAllOf();
 
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
@@ -70,12 +68,12 @@ class NewPersonAllOf {
  * The name of the person
  * @member {String} name
  */
-NewPersonAllOf.prototype['name'] = undefined;
+UpdatePersonAllOf.prototype['name'] = undefined;
 
 
 
 
 
 
-export default NewPersonAllOf;
+export default UpdatePersonAllOf;
 
