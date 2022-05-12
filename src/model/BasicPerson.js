@@ -26,11 +26,10 @@ class BasicPerson {
     /**
      * Constructs a new <code>BasicPerson</code>.
      * @alias module:model/BasicPerson
-     * @param name {String} The name of the person
      */
-    constructor(name) { 
+    constructor() { 
         
-        BasicPerson.initialize(this, name);
+        BasicPerson.initialize(this);
     }
 
     /**
@@ -38,8 +37,7 @@ class BasicPerson {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, name) { 
-        obj['name'] = name;
+    static initialize(obj) { 
     }
 
     /**
@@ -53,11 +51,6 @@ class BasicPerson {
         if (data) {
             obj = obj || new BasicPerson();
 
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
-
-                delete data['name'];
-            }
             if (data.hasOwnProperty('owner_id')) {
                 obj['owner_id'] = ApiClient.convertToType(data['owner_id'], 'Number');
 
@@ -88,6 +81,11 @@ class BasicPerson {
 
                 delete data['marketing_status'];
             }
+            if (data.hasOwnProperty('add_time')) {
+                obj['add_time'] = ApiClient.convertToType(data['add_time'], 'String');
+
+                delete data['add_time'];
+            }
 
             if (Object.keys(data).length > 0) {
                 Object.assign(obj, data);
@@ -99,12 +97,6 @@ class BasicPerson {
 
 
 }
-
-/**
- * The name of the person
- * @member {String} name
- */
-BasicPerson.prototype['name'] = undefined;
 
 /**
  * The ID of the user who will be marked as the owner of this person. When omitted, the authorized user ID will be used.
@@ -141,6 +133,12 @@ BasicPerson.prototype['visible_to'] = undefined;
  * @member {module:model/MarketingStatus} marketing_status
  */
 BasicPerson.prototype['marketing_status'] = undefined;
+
+/**
+ * The optional creation date & time of the person in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
+ * @member {String} add_time
+ */
+BasicPerson.prototype['add_time'] = undefined;
 
 
 

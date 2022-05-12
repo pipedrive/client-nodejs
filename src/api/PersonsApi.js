@@ -17,7 +17,6 @@ import AddFollowerToPersonResponse from '../model/AddFollowerToPersonResponse';
 import AddPersonFollowerRequest from '../model/AddPersonFollowerRequest';
 import AddPersonPictureResponse from '../model/AddPersonPictureResponse';
 import AddPersonResponse from '../model/AddPersonResponse';
-import BasicPerson from '../model/BasicPerson';
 import DeletePersonResponse from '../model/DeletePersonResponse';
 import DeletePersonsInBulkResponse from '../model/DeletePersonsInBulkResponse';
 import GetAllPersonsResponse from '../model/GetAllPersonsResponse';
@@ -35,6 +34,7 @@ import NewPerson from '../model/NewPerson';
 import NumberBoolean from '../model/NumberBoolean';
 import PersonFlowResponse from '../model/PersonFlowResponse';
 import PersonSearchResponse from '../model/PersonSearchResponse';
+import UpdatePerson from '../model/UpdatePerson';
 import UpdatePersonResponse from '../model/UpdatePersonResponse';
 
 /**
@@ -1504,21 +1504,18 @@ export default class PersonsApi {
      * Updates the properties of a person. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/updating-a-person\" target=\"_blank\" rel=\"noopener noreferrer\">updating a person</a>.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `data.marketing_status` field.
      * @param {Number} id The ID of the person
      * @param {Object} opts Optional parameters
-     * @param {module:model/BasicPerson} opts.basicPerson 
+     * @param {module:model/UpdatePerson} opts.updatePerson 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UpdatePersonResponse} and HTTP response
      */
     updatePersonWithHttpInfo(id, opts) {
       opts = opts || {};
-      let postBody = opts['basicPerson'];
+      let postBody = opts['updatePerson'];
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updatePerson");
       }
 
-      if (opts['name'] === undefined || opts['name'] === null) {
-        throw new Error("Missing the required parameter 'name' when calling updatePerson");
-      }
 
       let pathParams = {
         'id': id,
@@ -1562,7 +1559,7 @@ export default class PersonsApi {
      * Updates the properties of a person. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/updating-a-person\" target=\"_blank\" rel=\"noopener noreferrer\">updating a person</a>.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `data.marketing_status` field.
      * @param {Number} id The ID of the person
      * @param {Object} opts Optional parameters
-     * @param {module:model/BasicPerson} opts.basicPerson 
+     * @param {module:model/UpdatePerson} opts.updatePerson 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UpdatePersonResponse}
      */
     updatePerson(id, opts) {
