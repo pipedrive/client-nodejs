@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import AnyOfRecentsActivityRecentsActivityTypeRecentsDealRecentsFileRecentsFilterRecentsNoteRecentsPersonRecentsOrganizationRecentsPipelineRecentsProductRecentsStageRecentsUser from './AnyOfRecentsActivityRecentsActivityTypeRecentsDealRecentsFileRecentsFilterRecentsNoteRecentsPersonRecentsOrganizationRecentsPipelineRecentsProductRecentsStageRecentsUser';
+import AnyOfRecents from './AnyOfRecents';
 import GetRecentsAdditionalData from './GetRecentsAdditionalData';
 
 /**
@@ -55,7 +55,7 @@ class GetRecents {
                 delete data['success'];
             }
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [AnyOfRecentsActivityRecentsActivityTypeRecentsDealRecentsFileRecentsFilterRecentsNoteRecentsPersonRecentsOrganizationRecentsPipelineRecentsProductRecentsStageRecentsUser]);
+                obj['data'] = ApiClient.convertToType(data['data'], [AnyOfRecents]);
 
                 delete data['data'];
             }
@@ -83,7 +83,7 @@ class GetRecents {
 GetRecents.prototype['success'] = undefined;
 
 /**
- * @member {Array.<module:model/AnyOfRecentsActivityRecentsActivityTypeRecentsDealRecentsFileRecentsFilterRecentsNoteRecentsPersonRecentsOrganizationRecentsPipelineRecentsProductRecentsStageRecentsUser>} data
+ * @member {Array.<module:model/AnyOfRecents>} data
  */
 GetRecents.prototype['data'] = undefined;
 
