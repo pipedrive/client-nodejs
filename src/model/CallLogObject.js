@@ -133,7 +133,7 @@ class CallLogObject {
 }
 
 /**
- * The ID of the owner of the call log
+ * The ID of the owner of the call log. Please note that a user without account settings access cannot create call logs for other users.
  * @member {Number} user_id
  */
 CallLogObject.prototype['user_id'] = undefined;
