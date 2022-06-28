@@ -54,7 +54,7 @@ class SinglePermissionSetsItem {
             SinglePermissionSetsItemAllOf.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
 
                 delete data['id'];
             }
@@ -87,7 +87,7 @@ class SinglePermissionSetsItem {
 
 /**
  * The ID of user permission set
- * @member {Number} id
+ * @member {String} id
  */
 SinglePermissionSetsItem.prototype['id'] = undefined;
 
@@ -113,7 +113,7 @@ SinglePermissionSetsItem.prototype['contents'] = undefined;
 // Implement PermissionSetsItem interface:
 /**
  * The ID of user permission set
- * @member {Number} id
+ * @member {String} id
  */
 PermissionSetsItem.prototype['id'] = undefined;
 /**

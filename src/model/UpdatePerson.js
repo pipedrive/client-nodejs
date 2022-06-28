@@ -77,6 +77,11 @@ class UpdatePerson {
 
                 delete data['email'];
             }
+            if (data.hasOwnProperty('primary_email')) {
+                obj['primary_email'] = ApiClient.convertToType(data['primary_email'], 'String');
+
+                delete data['primary_email'];
+            }
             if (data.hasOwnProperty('phone')) {
                 obj['phone'] = ApiClient.convertToType(data['phone'], [BasePersonItemPhone]);
 
@@ -134,6 +139,12 @@ UpdatePerson.prototype['org_id'] = undefined;
 UpdatePerson.prototype['email'] = undefined;
 
 /**
+ * The primary email of the person
+ * @member {String} primary_email
+ */
+UpdatePerson.prototype['primary_email'] = undefined;
+
+/**
  * List of phone data related to the person
  * @member {Array.<module:model/BasePersonItemPhone>} phone
  */
@@ -180,6 +191,11 @@ BasicPerson.prototype['org_id'] = undefined;
  * @member {Array.<module:model/BasicPersonEmail>} email
  */
 BasicPerson.prototype['email'] = undefined;
+/**
+ * The primary email of the person
+ * @member {String} primary_email
+ */
+BasicPerson.prototype['primary_email'] = undefined;
 /**
  * List of phone data related to the person
  * @member {Array.<module:model/BasePersonItemPhone>} phone
