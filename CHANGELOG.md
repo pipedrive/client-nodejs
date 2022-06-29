@@ -7,12 +7,20 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Added
+- Added restriction of maximum 16 conditions per filter.
+### Changed
+- Removed support for `NOT LIKE '%$%': does not contain, LIKE '%$': ends with, NOT LIKE '%$': does not end with` varchar and title filter conditions.
 ## 15.0.1
 ### Changed
 - Update the following dependencies:
   - `superagent`
 
 ## [Unreleased]
+### Added
+- Added restriction of maximum 16 conditions per filter.
+### Changed
+- Removed support for `NOT LIKE '%$%': does not contain, LIKE '%$': ends with, NOT LIKE '%$': does not end with` varchar and title filter conditions.
 ## 15.0.0
 ### Fixed
 - Renamed file with long name and it's class.

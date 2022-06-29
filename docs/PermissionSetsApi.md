@@ -28,7 +28,7 @@ api_key.apiKey = 'YOUR API KEY';
 //api_key.apiKeyPrefix = 'Token';
 
 let apiInstance = new Pipedrive.PermissionSetsApi();
-let id = 56; // Number | The ID of the permission set
+let id = "id_example"; // String | The ID of the permission set
 apiInstance.getPermissionSet(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -42,7 +42,7 @@ apiInstance.getPermissionSet(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The ID of the permission set | 
+ **id** | **String**| The ID of the permission set | 
 
 ### Return type
 
@@ -78,7 +78,7 @@ api_key.apiKey = 'YOUR API KEY';
 //api_key.apiKeyPrefix = 'Token';
 
 let apiInstance = new Pipedrive.PermissionSetsApi();
-let id = 56; // Number | The ID of the permission set
+let id = "id_example"; // String | The ID of the permission set
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
@@ -96,7 +96,7 @@ apiInstance.getPermissionSetAssignments(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The ID of the permission set | 
+ **id** | **String**| The ID of the permission set | 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
 

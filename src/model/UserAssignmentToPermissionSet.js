@@ -47,18 +47,13 @@ class UserAssignmentToPermissionSet {
         if (data) {
             obj = obj || new UserAssignmentToPermissionSet();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
-
-                delete data['id'];
-            }
             if (data.hasOwnProperty('user_id')) {
                 obj['user_id'] = ApiClient.convertToType(data['user_id'], 'Number');
 
                 delete data['user_id'];
             }
             if (data.hasOwnProperty('permission_set_id')) {
-                obj['permission_set_id'] = ApiClient.convertToType(data['permission_set_id'], 'Number');
+                obj['permission_set_id'] = ApiClient.convertToType(data['permission_set_id'], 'String');
 
                 delete data['permission_set_id'];
             }
@@ -80,12 +75,6 @@ class UserAssignmentToPermissionSet {
 }
 
 /**
- * The ID of the assignment of the permission set
- * @member {Number} id
- */
-UserAssignmentToPermissionSet.prototype['id'] = undefined;
-
-/**
  * The ID of the user in the permission set
  * @member {Number} user_id
  */
@@ -93,7 +82,7 @@ UserAssignmentToPermissionSet.prototype['user_id'] = undefined;
 
 /**
  * The ID of the permission set
- * @member {Number} permission_set_id
+ * @member {String} permission_set_id
  */
 UserAssignmentToPermissionSet.prototype['permission_set_id'] = undefined;
 
