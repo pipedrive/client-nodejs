@@ -7,16 +7,36 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+## 16.0.2
 ### Fixed
 - Fixed issue with custom monetary field currency
+
+## 16.0.1
+### Added
+- Added restriction of maximum 16 conditions per filter.
+### Changed
+- Removed support for `NOT LIKE '%$%': does not contain, LIKE '%$': ends with, NOT LIKE '%$': does not end with` varchar and title filter conditions.
+
+## 16.0.0
+### Changed
+- Changed `id` parameter data type to `string` for GET `/permissionSets/{id}` and GET `/permissionSets/{id}/assignments` endpoints
+- Changed `id` field data type to `string` for response from GET `/permissionSets` and GET `/permissionSets/{id}` endpoints
+- Changed `permission_set_id` field data type to `string` for response GET `/permissionSets/{id}/assignments` endpoints
+- Removed `id` field from response for GET `/permissionSets/{id}/assignments` endpoints
+
+## 15.0.3
+### Changed
+- Added deprecated flags to `GET /globalMessages` and `DELETE /globalMessages/{id}`
+
+## 15.0.2
+### Added
+- Added `primary_email` field to response of `GET /v1/persons`, `GET /v1/persons/{id}` endpoints
+
 ## 15.0.1
 ### Changed
 - Update the following dependencies:
   - `superagent`
 
-## [Unreleased]
-### Fixed
-- Fixed issue with custom monetary field currency
 ## 15.0.0
 ### Fixed
 - Renamed file with long name and it's class.
