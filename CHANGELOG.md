@@ -5,7 +5,11 @@ The Changelog file gives an overview of all of the notable changes affecting the
 The file format of it is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/), and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
-[Unreleased]
+## [Unreleased]
+
+## 15.0.3
+### Changed
+- Added deprecated flags to `GET /globalMessages` and `DELETE /globalMessages/{id}`
 
 ## 15.0.2
 ### Added
@@ -16,8 +20,6 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 - Update the following dependencies:
   - `superagent`
 
-### Added
-- Added `primary_email` field to response of `GET /v1/persons`, `GET /v1/persons/{id}` endpoints
 ## 15.0.0
 ### Fixed
 - Renamed file with long name and it's class.
