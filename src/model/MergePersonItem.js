@@ -81,6 +81,11 @@ class MergePersonItem {
 
                 delete data['email'];
             }
+            if (data.hasOwnProperty('primary_email')) {
+                obj['primary_email'] = ApiClient.convertToType(data['primary_email'], 'String');
+
+                delete data['primary_email'];
+            }
             if (data.hasOwnProperty('first_char')) {
                 obj['first_char'] = ApiClient.convertToType(data['first_char'], 'String');
 
@@ -317,6 +322,12 @@ MergePersonItem.prototype['phone'] = undefined;
  * @member {Array.<module:model/BasePersonItemEmail>} email
  */
 MergePersonItem.prototype['email'] = undefined;
+
+/**
+ * The primary email of the person
+ * @member {String} primary_email
+ */
+MergePersonItem.prototype['primary_email'] = undefined;
 
 /**
  * The first letter of the name of the person
@@ -578,6 +589,11 @@ BasePersonItem.prototype['phone'] = undefined;
  * @member {Array.<module:model/BasePersonItemEmail>} email
  */
 BasePersonItem.prototype['email'] = undefined;
+/**
+ * The primary email of the person
+ * @member {String} primary_email
+ */
+BasePersonItem.prototype['primary_email'] = undefined;
 /**
  * The first letter of the name of the person
  * @member {String} first_char

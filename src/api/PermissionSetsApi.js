@@ -39,7 +39,7 @@ export default class PermissionSetsApi {
 
     /**
      * Get one permission set
-     * @param {Number} id The ID of the permission set
+     * @param {String} id The ID of the permission set
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SinglePermissionSetsItem} and HTTP response
      */
     getPermissionSetWithHttpInfo(id) {
@@ -90,7 +90,7 @@ export default class PermissionSetsApi {
 
     /**
      * Get one permission set
-     * @param {Number} id The ID of the permission set
+     * @param {String} id The ID of the permission set
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SinglePermissionSetsItem}
      */
     getPermissionSet(id) {
@@ -104,7 +104,7 @@ export default class PermissionSetsApi {
     /**
      * List permission set assignments
      * The list of assignments for a permission set.
-     * @param {Number} id The ID of the permission set
+     * @param {String} id The ID of the permission set
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -163,7 +163,7 @@ export default class PermissionSetsApi {
     /**
      * List permission set assignments
      * The list of assignments for a permission set.
-     * @param {Number} id The ID of the permission set
+     * @param {String} id The ID of the permission set
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page

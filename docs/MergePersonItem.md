@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **activeFlag** | **Boolean** | Whether the person is active or not | [optional] 
 **phone** | [**[BasePersonItemPhone]**](BasePersonItemPhone.md) | List of phone data related to the person | [optional] 
 **email** | [**[BasePersonItemEmail]**](BasePersonItemEmail.md) | List of email data related to the person | [optional] 
+**primaryEmail** | **String** | The primary email of the person | [optional] 
 **firstChar** | **String** | The first letter of the name of the person | [optional] 
 **addTime** | **String** | The date and time when the person was added/created. Format: YYYY-MM-DD HH:MM:SS | [optional] 
 **updateTime** | **String** | The last updated date and time of the person. Format: YYYY-MM-DD HH:MM:SS | [optional] 
