@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | The ID of user permission set | [optional] 
+**id** | **String** | The ID of user permission set | [optional] 
 **name** | **String** | The name of the permission set | [optional] 
 **assignmentCount** | **Number** | The number of users assigned to this permission set | [optional] 
 

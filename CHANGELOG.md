@@ -5,7 +5,14 @@ The Changelog file gives an overview of all of the notable changes affecting the
 The file format of it is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/), and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
+
 ## [Unreleased]
+## 16.0.0
+### Changed
+- Changed `id` parameter data type to `string` for GET `/permissionSets/{id}` and GET `/permissionSets/{id}/assignments` endpoints
+- Changed `id` field data type to `string` for response from GET `/permissionSets` and GET `/permissionSets/{id}` endpoints
+- Changed `permission_set_id` field data type to `string` for response GET `/permissionSets/{id}/assignments` endpoints
+- Removed `id` field from response for GET `/permissionSets/{id}/assignments` endpoints
 
 ## 15.0.3
 ### Changed

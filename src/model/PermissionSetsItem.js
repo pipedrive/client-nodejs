@@ -48,7 +48,7 @@ class PermissionSetsItem {
             obj = obj || new PermissionSetsItem();
 
             if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
 
                 delete data['id'];
             }
@@ -76,7 +76,7 @@ class PermissionSetsItem {
 
 /**
  * The ID of user permission set
- * @member {Number} id
+ * @member {String} id
  */
 PermissionSetsItem.prototype['id'] = undefined;
 
