@@ -46,7 +46,7 @@ export default class ChannelsApi {
 
     /**
      * Add a channel
-     * Adds a new messaging, only admins are able to register new channels. It will use the getConversations endpoint to fetch conversations, participants and messages afterward. Read more in [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
+     * Adds a new messaging channel, only admins are able to register new channels. It will use the getConversations endpoint to fetch conversations, participants and messages afterward. To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
      * @param {Object} opts Optional parameters
      * @param {module:model/ChannelObject} opts.channelObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ChannelObjectResponse} and HTTP response
@@ -100,7 +100,7 @@ export default class ChannelsApi {
 
     /**
      * Add a channel
-     * Adds a new messaging, only admins are able to register new channels. It will use the getConversations endpoint to fetch conversations, participants and messages afterward. Read more in [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
+     * Adds a new messaging channel, only admins are able to register new channels. It will use the getConversations endpoint to fetch conversations, participants and messages afterward. To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
      * @param {Object} opts Optional parameters
      * @param {module:model/ChannelObject} opts.channelObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ChannelObjectResponse}
@@ -115,7 +115,7 @@ export default class ChannelsApi {
 
     /**
      * Delete a channel
-     * Deletes an existing messengers channel and all related entities (conversations and messages).
+     * Deletes an existing messenger’s channel and all related entities (conversations and messages). To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
      * @param {String} id The ID of the channel provided by the integration
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteChannelSuccess} and HTTP response
      */
@@ -167,7 +167,7 @@ export default class ChannelsApi {
 
     /**
      * Delete a channel
-     * Deletes an existing messengers channel and all related entities (conversations and messages).
+     * Deletes an existing messenger’s channel and all related entities (conversations and messages). To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
      * @param {String} id The ID of the channel provided by the integration
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteChannelSuccess}
      */
@@ -181,7 +181,7 @@ export default class ChannelsApi {
 
     /**
      * Delete a conversation
-     * Deletes an existing conversation.
+     * Deletes an existing conversation. To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
      * @param {String} channelId The ID of the channel provided by the integration
      * @param {String} conversationId The ID of the conversation provided by the integration
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteConversationSuccess} and HTTP response
@@ -240,7 +240,7 @@ export default class ChannelsApi {
 
     /**
      * Delete a conversation
-     * Deletes an existing conversation.
+     * Deletes an existing conversation. To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
      * @param {String} channelId The ID of the channel provided by the integration
      * @param {String} conversationId The ID of the conversation provided by the integration
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteConversationSuccess}
@@ -255,7 +255,7 @@ export default class ChannelsApi {
 
     /**
      * Receives an incoming message
-     * Adds a message to a conversation.
+     * Adds a message to a conversation. To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
      * @param {Object} opts Optional parameters
      * @param {module:model/MessageObject} opts.messageObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MessageObject} and HTTP response
@@ -324,7 +324,7 @@ export default class ChannelsApi {
 
     /**
      * Receives an incoming message
-     * Adds a message to a conversation.
+     * Adds a message to a conversation. To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
      * @param {Object} opts Optional parameters
      * @param {module:model/MessageObject} opts.messageObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MessageObject}

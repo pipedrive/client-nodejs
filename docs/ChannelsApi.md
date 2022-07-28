@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Add a channel
 
-Adds a new messaging, only admins are able to register new channels. It will use the getConversations endpoint to fetch conversations, participants and messages afterward. Read more in [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
+Adds a new messaging channel, only admins are able to register new channels. It will use the getConversations endpoint to fetch conversations, participants and messages afterward. To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
 
 ### Example
 
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 Delete a channel
 
-Deletes an existing messengers channel and all related entities (conversations and messages).
+Deletes an existing messenger’s channel and all related entities (conversations and messages). To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
 
 ### Example
 
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 
 Delete a conversation
 
-Deletes an existing conversation.
+Deletes an existing conversation. To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
 
 ### Example
 
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 
 Receives an incoming message
 
-Adds a message to a conversation.
+Adds a message to a conversation. To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
 
 ### Example
 
