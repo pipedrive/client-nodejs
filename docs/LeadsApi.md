@@ -202,6 +202,8 @@ let opts = {
   'start': 0, // Number | For pagination, the position that represents the first result for the page
   'archivedStatus': "archivedStatus_example", // String | Filtering based on the archived status of a lead. If not provided, `All` is used.
   'ownerId': 1, // Number | If supplied, only leads matching the given user will be returned. However, `filter_id` takes precedence over `owner_id` when supplied.
+  'personId': 1, // Number | If supplied, only leads matching the given person will be returned. However, `filter_id` takes precedence over `person_id` when supplied.
+  'organizationId': 1, // Number | If supplied, only leads matching the given organization will be returned. However, `filter_id` takes precedence over `organization_id` when supplied.
   'filterId': 1, // Number | The ID of the filter to use
   'sort': "sort_example" // String | The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
 };
@@ -222,6 +224,8 @@ Name | Type | Description  | Notes
  **start** | **Number**| For pagination, the position that represents the first result for the page | [optional] 
  **archivedStatus** | **String**| Filtering based on the archived status of a lead. If not provided, &#x60;All&#x60; is used. | [optional] 
  **ownerId** | **Number**| If supplied, only leads matching the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owner_id&#x60; when supplied. | [optional] 
+ **personId** | **Number**| If supplied, only leads matching the given person will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;person_id&#x60; when supplied. | [optional] 
+ **organizationId** | **Number**| If supplied, only leads matching the given organization will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;organization_id&#x60; when supplied. | [optional] 
  **filterId** | **Number**| The ID of the filter to use | [optional] 
  **sort** | **String**| The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). | [optional] 
 
