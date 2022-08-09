@@ -16,6 +16,8 @@ Method | HTTP request | Description
 
 Get one permission set
 
+Returns data about a specific permission set.
+
 ### Example
 
 ```javascript
@@ -64,7 +66,7 @@ Name | Type | Description  | Notes
 
 List permission set assignments
 
-The list of assignments for a permission set.
+Returns the list of assignments for a permission set.
 
 ### Example
 
@@ -116,9 +118,11 @@ Name | Type | Description  | Notes
 
 ## getPermissionSets
 
-> PermissionSets getPermissionSets()
+> PermissionSets getPermissionSets(opts)
 
 Get all permission sets
+
+Returns data about all permission sets.
 
 ### Example
 
@@ -132,7 +136,10 @@ api_key.apiKey = 'YOUR API KEY';
 //api_key.apiKeyPrefix = 'Token';
 
 let apiInstance = new Pipedrive.PermissionSetsApi();
-apiInstance.getPermissionSets().then((data) => {
+let opts = {
+  'app': "app_example" // String | The app to filter the permission sets by
+};
+apiInstance.getPermissionSets(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -142,7 +149,10 @@ apiInstance.getPermissionSets().then((data) => {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **app** | **String**| The app to filter the permission sets by | [optional] 
 
 ### Return type
 
