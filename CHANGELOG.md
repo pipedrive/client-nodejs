@@ -8,6 +8,7 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## 16.1.0
 ### Added
 - Added `person_id` and `organization_id` query parameters to GET `/v1/leads`
 
