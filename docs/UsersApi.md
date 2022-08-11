@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 ## addUser
 
-> User addUser(name, email, activeFlag)
+> User addUser(email, opts)
 
 Add a new user
 
@@ -42,10 +42,13 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.UsersApi();
-let name = "name_example"; // String | The name of the user
 let email = "email_example"; // String | The email of the user
-let activeFlag = true; // Boolean | Whether the user is active or not. `false` = Not activated, `true` = Activated
-apiInstance.addUser(name, email, activeFlag).then((data) => {
+let opts = {
+  'name': "name_example", // String | The name of the user
+  'access': [new Pipedrive.UsersAccess()], // [UsersAccess] | The access given to the user. Each item in the array represents access to a specific app. Optionally may include either admin flag or permission set ID to specify which access to give within the app. If both are omitted, the default access for the corresponding app will be used. It requires structure as follows: `[{ app: 'sales', permission_set_id: '62cc4d7f-4038-4352-abf3-a8c1c822b631' }, { app: 'global', admin: true }, { app: 'account_settings' }]` 
+  'activeFlag': true // Boolean | Whether the user is active or not. `false` = Not activated, `true` = Activated
+};
+apiInstance.addUser(email, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -58,9 +61,10 @@ apiInstance.addUser(name, email, activeFlag).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| The name of the user | 
  **email** | **String**| The email of the user | 
- **activeFlag** | **Boolean**| Whether the user is active or not. &#x60;false&#x60; &#x3D; Not activated, &#x60;true&#x60; &#x3D; Activated | [default to true]
+ **name** | **String**| The name of the user | [optional] 
+ **access** | [**[UsersAccess]**](UsersAccess.md)| The access given to the user. Each item in the array represents access to a specific app. Optionally may include either admin flag or permission set ID to specify which access to give within the app. If both are omitted, the default access for the corresponding app will be used. It requires structure as follows: &#x60;[{ app: &#39;sales&#39;, permission_set_id: &#39;62cc4d7f-4038-4352-abf3-a8c1c822b631&#39; }, { app: &#39;global&#39;, admin: true }, { app: &#39;account_settings&#39; }]&#x60;  | [optional] 
+ **activeFlag** | **Boolean**| Whether the user is active or not. &#x60;false&#x60; &#x3D; Not activated, &#x60;true&#x60; &#x3D; Activated | [optional] [default to true]
 
 ### Return type
 

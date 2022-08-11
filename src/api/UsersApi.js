@@ -25,6 +25,7 @@ import UserIDs from '../model/UserIDs';
 import UserMe from '../model/UserMe';
 import UserPermissions from '../model/UserPermissions';
 import Users from '../model/Users';
+import UsersAccess from '../model/UsersAccess';
 
 /**
 * Users service.
@@ -49,29 +50,24 @@ export default class UsersApi {
     /**
      * Add a new user
      * Adds a new user to the company, returns the ID upon success.
-     * @param {String} name The name of the user
      * @param {String} email The email of the user
-     * @param {Boolean} activeFlag Whether the user is active or not. `false` = Not activated, `true` = Activated
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.name The name of the user
+     * @param {Array.<module:model/UsersAccess>} opts.access The access given to the user. Each item in the array represents access to a specific app. Optionally may include either admin flag or permission set ID to specify which access to give within the app. If both are omitted, the default access for the corresponding app will be used. It requires structure as follows: `[{ app: 'sales', permission_set_id: '62cc4d7f-4038-4352-abf3-a8c1c822b631' }, { app: 'global', admin: true }, { app: 'account_settings' }]` 
+     * @param {Boolean} opts.activeFlag Whether the user is active or not. `false` = Not activated, `true` = Activated (default to true)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/User} and HTTP response
      */
-    addUserWithHttpInfo(name, email, activeFlag) {
-      const opts = {}
+    addUserWithHttpInfo(email, opts) {
+      opts = opts || {};
       let postBody = null;
-
-      // verify the required parameter 'name' is set
-      if (name === undefined || name === null) {
-        throw new Error("Missing the required parameter 'name' when calling addUser");
-      }
 
       // verify the required parameter 'email' is set
       if (email === undefined || email === null) {
         throw new Error("Missing the required parameter 'email' when calling addUser");
       }
 
-      // verify the required parameter 'activeFlag' is set
-      if (activeFlag === undefined || activeFlag === null) {
-        throw new Error("Missing the required parameter 'activeFlag' when calling addUser");
-      }
+
+
 
       let pathParams = {
       };
@@ -80,14 +76,16 @@ export default class UsersApi {
       let headerParams = {
       };
       let formParams = {
-        'name': name,
         'email': email,
-        'active_flag': activeFlag,
+        'name': opts['name'],
+        'access': this.apiClient.buildCollectionParam(opts['access'], 'csv'),
+        'active_flag': opts['activeFlag'],
       };
 
       let formParamArray = [
-        'name',
         'email',
+        'name',
+        'access',
         'activeFlag',
       ];
 
@@ -118,13 +116,15 @@ export default class UsersApi {
     /**
      * Add a new user
      * Adds a new user to the company, returns the ID upon success.
-     * @param {String} name The name of the user
      * @param {String} email The email of the user
-     * @param {Boolean} activeFlag Whether the user is active or not. `false` = Not activated, `true` = Activated
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.name The name of the user
+     * @param {Array.<module:model/UsersAccess>} opts.access The access given to the user. Each item in the array represents access to a specific app. Optionally may include either admin flag or permission set ID to specify which access to give within the app. If both are omitted, the default access for the corresponding app will be used. It requires structure as follows: `[{ app: 'sales', permission_set_id: '62cc4d7f-4038-4352-abf3-a8c1c822b631' }, { app: 'global', admin: true }, { app: 'account_settings' }]` 
+     * @param {Boolean} opts.activeFlag Whether the user is active or not. `false` = Not activated, `true` = Activated (default to true)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/User}
      */
-    addUser(name, email, activeFlag) {
-      return this.addUserWithHttpInfo(name, email, activeFlag)
+    addUser(email, opts) {
+      return this.addUserWithHttpInfo(email, opts)
         .then(function(response_and_data) {
           return response_and_data;
         });

@@ -57,6 +57,21 @@ class PermissionSetsItem {
 
                 delete data['name'];
             }
+            if (data.hasOwnProperty('description')) {
+                obj['description'] = ApiClient.convertToType(data['description'], 'String');
+
+                delete data['description'];
+            }
+            if (data.hasOwnProperty('app')) {
+                obj['app'] = ApiClient.convertToType(data['app'], 'String');
+
+                delete data['app'];
+            }
+            if (data.hasOwnProperty('type')) {
+                obj['type'] = ApiClient.convertToType(data['type'], 'String');
+
+                delete data['type'];
+            }
             if (data.hasOwnProperty('assignment_count')) {
                 obj['assignment_count'] = ApiClient.convertToType(data['assignment_count'], 'Number');
 
@@ -87,6 +102,24 @@ PermissionSetsItem.prototype['id'] = undefined;
 PermissionSetsItem.prototype['name'] = undefined;
 
 /**
+ * The description of the permission set
+ * @member {String} description
+ */
+PermissionSetsItem.prototype['description'] = undefined;
+
+/**
+ * The app that permission set belongs to
+ * @member {module:model/PermissionSetsItem.AppEnum} app
+ */
+PermissionSetsItem.prototype['app'] = undefined;
+
+/**
+ * The type of permission set
+ * @member {module:model/PermissionSetsItem.TypeEnum} type
+ */
+PermissionSetsItem.prototype['type'] = undefined;
+
+/**
  * The number of users assigned to this permission set
  * @member {Number} assignment_count
  */
@@ -94,6 +127,78 @@ PermissionSetsItem.prototype['assignment_count'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>app</code> property.
+ * @enum {String}
+ * @readonly
+ */
+PermissionSetsItem['AppEnum'] = {
+
+    /**
+     * value: "sales"
+     * @const
+     */
+    "sales": "sales",
+
+    /**
+     * value: "projects"
+     * @const
+     */
+    "projects": "projects",
+
+    /**
+     * value: "campaigns"
+     * @const
+     */
+    "campaigns": "campaigns",
+
+    /**
+     * value: "global"
+     * @const
+     */
+    "global": "global",
+
+    /**
+     * value: "account_settings"
+     * @const
+     */
+    "account_settings": "account_settings"
+};
+
+
+/**
+ * Allowed values for the <code>type</code> property.
+ * @enum {String}
+ * @readonly
+ */
+PermissionSetsItem['TypeEnum'] = {
+
+    /**
+     * value: "admin"
+     * @const
+     */
+    "admin": "admin",
+
+    /**
+     * value: "manager"
+     * @const
+     */
+    "manager": "manager",
+
+    /**
+     * value: "regular"
+     * @const
+     */
+    "regular": "regular",
+
+    /**
+     * value: "custom"
+     * @const
+     */
+    "custom": "custom"
+};
 
 
 

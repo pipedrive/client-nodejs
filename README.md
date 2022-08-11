@@ -614,6 +614,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.BaseTeam](docs/BaseTeam.md)
  - [Pipedrive.BaseTeamAdditionalProperties](docs/BaseTeamAdditionalProperties.md)
  - [Pipedrive.BaseUser](docs/BaseUser.md)
+ - [Pipedrive.BaseUserAccess](docs/BaseUserAccess.md)
  - [Pipedrive.BaseUserMe](docs/BaseUserMe.md)
  - [Pipedrive.BaseUserMeAllOf](docs/BaseUserMeAllOf.md)
  - [Pipedrive.BaseUserMeAllOfLanguage](docs/BaseUserMeAllOfLanguage.md)

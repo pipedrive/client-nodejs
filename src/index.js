@@ -114,6 +114,7 @@ import BaseStage from './model/BaseStage';
 import BaseTeam from './model/BaseTeam';
 import BaseTeamAdditionalProperties from './model/BaseTeamAdditionalProperties';
 import BaseUser from './model/BaseUser';
+import BaseUserAccess from './model/BaseUserAccess';
 import BaseUserMe from './model/BaseUserMe';
 import BaseUserMeAllOf from './model/BaseUserMeAllOf';
 import BaseUserMeAllOfLanguage from './model/BaseUserMeAllOfLanguage';
@@ -1407,6 +1408,12 @@ export {
      * @property {module:model/BaseUser}
      */
     BaseUser,
+
+    /**
+     * The BaseUserAccess model constructor.
+     * @property {module:model/BaseUserAccess}
+     */
+    BaseUserAccess,
 
     /**
      * The BaseUserMe model constructor.
