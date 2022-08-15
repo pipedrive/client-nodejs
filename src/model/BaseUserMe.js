@@ -13,9 +13,9 @@
 
 import ApiClient from '../ApiClient';
 import BaseUser from './BaseUser';
+import BaseUserAccess from './BaseUserAccess';
 import BaseUserMeAllOf from './BaseUserMeAllOf';
 import BaseUserMeAllOfLanguage from './BaseUserMeAllOfLanguage';
-import NumberBoolean from './NumberBoolean';
 
 /**
  * The BaseUserMe model module.
@@ -110,20 +110,15 @@ class BaseUserMe {
 
                 delete data['modified'];
             }
-            if (data.hasOwnProperty('signup_flow_variation')) {
-                obj['signup_flow_variation'] = ApiClient.convertToType(data['signup_flow_variation'], 'String');
-
-                delete data['signup_flow_variation'];
-            }
             if (data.hasOwnProperty('has_created_company')) {
                 obj['has_created_company'] = ApiClient.convertToType(data['has_created_company'], 'Boolean');
 
                 delete data['has_created_company'];
             }
-            if (data.hasOwnProperty('is_admin')) {
-                obj['is_admin'] = ApiClient.convertToType(data['is_admin'], NumberBoolean);
+            if (data.hasOwnProperty('access')) {
+                obj['access'] = ApiClient.convertToType(data['access'], [BaseUserAccess]);
 
-                delete data['is_admin'];
+                delete data['access'];
             }
             if (data.hasOwnProperty('active_flag')) {
                 obj['active_flag'] = ApiClient.convertToType(data['active_flag'], 'Boolean');
@@ -264,22 +259,15 @@ BaseUserMe.prototype['created'] = undefined;
 BaseUserMe.prototype['modified'] = undefined;
 
 /**
- * The variation of signup flow (if exists). E.g. google
- * @member {String} signup_flow_variation
- */
-BaseUserMe.prototype['signup_flow_variation'] = undefined;
-
-/**
  * Boolean that indicates whether the user has created a company
  * @member {Boolean} has_created_company
  */
 BaseUserMe.prototype['has_created_company'] = undefined;
 
 /**
- * Indication if the user is admin (1 = true, 0 = false)
- * @member {module:model/NumberBoolean} is_admin
+ * @member {Array.<module:model/BaseUserAccess>} access
  */
-BaseUserMe.prototype['is_admin'] = undefined;
+BaseUserMe.prototype['access'] = undefined;
 
 /**
  * Boolean that indicates whether the user is activated
@@ -410,20 +398,14 @@ BaseUser.prototype['created'] = undefined;
  */
 BaseUser.prototype['modified'] = undefined;
 /**
- * The variation of signup flow (if exists). E.g. google
- * @member {String} signup_flow_variation
- */
-BaseUser.prototype['signup_flow_variation'] = undefined;
-/**
  * Boolean that indicates whether the user has created a company
  * @member {Boolean} has_created_company
  */
 BaseUser.prototype['has_created_company'] = undefined;
 /**
- * Indication if the user is admin (1 = true, 0 = false)
- * @member {module:model/NumberBoolean} is_admin
+ * @member {Array.<module:model/BaseUserAccess>} access
  */
-BaseUser.prototype['is_admin'] = undefined;
+BaseUser.prototype['access'] = undefined;
 /**
  * Boolean that indicates whether the user is activated
  * @member {Boolean} active_flag

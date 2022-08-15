@@ -114,6 +114,7 @@ import BaseStage from './model/BaseStage';
 import BaseTeam from './model/BaseTeam';
 import BaseTeamAdditionalProperties from './model/BaseTeamAdditionalProperties';
 import BaseUser from './model/BaseUser';
+import BaseUserAccess from './model/BaseUserAccess';
 import BaseUserMe from './model/BaseUserMe';
 import BaseUserMeAllOf from './model/BaseUserMeAllOf';
 import BaseUserMeAllOfLanguage from './model/BaseUserMeAllOfLanguage';
@@ -294,7 +295,6 @@ import GetActivityResponse200 from './model/GetActivityResponse200';
 import GetAddProductAttachementDetails from './model/GetAddProductAttachementDetails';
 import GetAddUpdateStage from './model/GetAddUpdateStage';
 import GetAddedDeal from './model/GetAddedDeal';
-import GetAddedDealAdditionalData from './model/GetAddedDealAdditionalData';
 import GetAllFiles from './model/GetAllFiles';
 import GetAllPersonsResponse from './model/GetAllPersonsResponse';
 import GetAllPersonsResponseAllOf from './model/GetAllPersonsResponseAllOf';
@@ -1409,6 +1409,12 @@ export {
     BaseUser,
 
     /**
+     * The BaseUserAccess model constructor.
+     * @property {module:model/BaseUserAccess}
+     */
+    BaseUserAccess,
+
+    /**
      * The BaseUserMe model constructor.
      * @property {module:model/BaseUserMe}
      */
@@ -2487,12 +2493,6 @@ export {
      * @property {module:model/GetAddedDeal}
      */
     GetAddedDeal,
-
-    /**
-     * The GetAddedDealAdditionalData model constructor.
-     * @property {module:model/GetAddedDealAdditionalData}
-     */
-    GetAddedDealAdditionalData,
 
     /**
      * The GetAllFiles model constructor.
