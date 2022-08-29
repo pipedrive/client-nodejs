@@ -39,6 +39,7 @@ export default class PermissionSetsApi {
 
     /**
      * Get one permission set
+     * Returns data about a specific permission set.
      * @param {String} id The ID of the permission set
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SinglePermissionSetsItem} and HTTP response
      */
@@ -90,6 +91,7 @@ export default class PermissionSetsApi {
 
     /**
      * Get one permission set
+     * Returns data about a specific permission set.
      * @param {String} id The ID of the permission set
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SinglePermissionSetsItem}
      */
@@ -103,7 +105,7 @@ export default class PermissionSetsApi {
 
     /**
      * List permission set assignments
-     * The list of assignments for a permission set.
+     * Returns the list of assignments for a permission set.
      * @param {String} id The ID of the permission set
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
@@ -162,7 +164,7 @@ export default class PermissionSetsApi {
 
     /**
      * List permission set assignments
-     * The list of assignments for a permission set.
+     * Returns the list of assignments for a permission set.
      * @param {String} id The ID of the permission set
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
@@ -179,15 +181,20 @@ export default class PermissionSetsApi {
 
     /**
      * Get all permission sets
+     * Returns data about all permission sets.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} opts.app The app to filter the permission sets by
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PermissionSets} and HTTP response
      */
-    getPermissionSetsWithHttpInfo() {
-      const opts = {}
+    getPermissionSetsWithHttpInfo(opts) {
+      opts = opts || {};
       let postBody = null;
+
 
       let pathParams = {
       };
       let queryParams = {
+        'app': opts['app'],
       };
       let headerParams = {
       };
@@ -223,10 +230,13 @@ export default class PermissionSetsApi {
 
     /**
      * Get all permission sets
+     * Returns data about all permission sets.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} opts.app The app to filter the permission sets by
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PermissionSets}
      */
-    getPermissionSets() {
-      return this.getPermissionSetsWithHttpInfo()
+    getPermissionSets(opts) {
+      return this.getPermissionSetsWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data;
         });
