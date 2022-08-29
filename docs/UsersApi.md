@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 ## addUser
 
-> User addUser(name, email, activeFlag)
+> User addUser(opts)
 
 Add a new user
 
@@ -42,10 +42,10 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.UsersApi();
-let name = "name_example"; // String | The name of the user
-let email = "email_example"; // String | The email of the user
-let activeFlag = true; // Boolean | Whether the user is active or not. `false` = Not activated, `true` = Activated
-apiInstance.addUser(name, email, activeFlag).then((data) => {
+let opts = Pipedrive.AddUserRequest.constructFromObject({
+  // Properties that you want to update
+});
+apiInstance.addUser(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -58,9 +58,7 @@ apiInstance.addUser(name, email, activeFlag).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| The name of the user | 
- **email** | **String**| The email of the user | 
- **activeFlag** | **Boolean**| Whether the user is active or not. &#x60;false&#x60; &#x3D; Not activated, &#x60;true&#x60; &#x3D; Activated | [default to true]
+ **addUserRequest** | [**AddUserRequest**](AddUserRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -72,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

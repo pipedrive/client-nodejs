@@ -64,6 +64,7 @@ import AddProductAttachmentDetailsAllOf from './model/AddProductAttachmentDetail
 import AddProductFollowerRequest from './model/AddProductFollowerRequest';
 import AddProductRequestBody from './model/AddProductRequestBody';
 import AddTeamUserRequest from './model/AddTeamUserRequest';
+import AddUserRequest from './model/AddUserRequest';
 import AddWebhookRequest from './model/AddWebhookRequest';
 import AddedDealFollower from './model/AddedDealFollower';
 import AddedDealFollowerData from './model/AddedDealFollowerData';
@@ -294,7 +295,6 @@ import GetActivityResponse200 from './model/GetActivityResponse200';
 import GetAddProductAttachementDetails from './model/GetAddProductAttachementDetails';
 import GetAddUpdateStage from './model/GetAddUpdateStage';
 import GetAddedDeal from './model/GetAddedDeal';
-import GetAddedDealAdditionalData from './model/GetAddedDealAdditionalData';
 import GetAllFiles from './model/GetAllFiles';
 import GetAllPersonsResponse from './model/GetAllPersonsResponse';
 import GetAllPersonsResponseAllOf from './model/GetAllPersonsResponseAllOf';
@@ -694,6 +694,7 @@ import UpdateTeam from './model/UpdateTeam';
 import UpdateTeamAllOf from './model/UpdateTeamAllOf';
 import UpdateTeamWithAdditionalProperties from './model/UpdateTeamWithAdditionalProperties';
 import User from './model/User';
+import UserAccess from './model/UserAccess';
 import UserAllOf from './model/UserAllOf';
 import UserAssignmentToPermissionSet from './model/UserAssignmentToPermissionSet';
 import UserAssignmentsToPermissionSet from './model/UserAssignmentsToPermissionSet';
@@ -1107,6 +1108,12 @@ export {
      * @property {module:model/AddTeamUserRequest}
      */
     AddTeamUserRequest,
+
+    /**
+     * The AddUserRequest model constructor.
+     * @property {module:model/AddUserRequest}
+     */
+    AddUserRequest,
 
     /**
      * The AddWebhookRequest model constructor.
@@ -2487,12 +2494,6 @@ export {
      * @property {module:model/GetAddedDeal}
      */
     GetAddedDeal,
-
-    /**
-     * The GetAddedDealAdditionalData model constructor.
-     * @property {module:model/GetAddedDealAdditionalData}
-     */
-    GetAddedDealAdditionalData,
 
     /**
      * The GetAllFiles model constructor.
@@ -4887,6 +4888,12 @@ export {
      * @property {module:model/User}
      */
     User,
+
+    /**
+     * The UserAccess model constructor.
+     * @property {module:model/UserAccess}
+     */
+    UserAccess,
 
     /**
      * The UserAllOf model constructor.

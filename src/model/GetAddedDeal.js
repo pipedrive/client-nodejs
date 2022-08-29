@@ -13,7 +13,6 @@
 
 import ApiClient from '../ApiClient';
 import DealNonStrict from './DealNonStrict';
-import GetAddedDealAdditionalData from './GetAddedDealAdditionalData';
 import GetDealsRelatedObjects from './GetDealsRelatedObjects';
 
 /**
@@ -60,11 +59,6 @@ class GetAddedDeal {
 
                 delete data['data'];
             }
-            if (data.hasOwnProperty('additional_data')) {
-                obj['additional_data'] = GetAddedDealAdditionalData.constructFromObject(data['additional_data']);
-
-                delete data['additional_data'];
-            }
             if (data.hasOwnProperty('related_objects')) {
                 obj['related_objects'] = GetDealsRelatedObjects.constructFromObject(data['related_objects']);
 
@@ -93,11 +87,6 @@ GetAddedDeal.prototype['success'] = undefined;
  * @member {module:model/DealNonStrict} data
  */
 GetAddedDeal.prototype['data'] = undefined;
-
-/**
- * @member {module:model/GetAddedDealAdditionalData} additional_data
- */
-GetAddedDeal.prototype['additional_data'] = undefined;
 
 /**
  * @member {module:model/GetDealsRelatedObjects} related_objects

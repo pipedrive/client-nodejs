@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import UserAccess from './UserAccess';
 
 /**
  * The AddUserRequest model module.
@@ -22,13 +23,11 @@ class AddUserRequest {
     /**
      * Constructs a new <code>AddUserRequest</code>.
      * @alias module:model/AddUserRequest
-     * @param name {String} Name of the user
-     * @param email {String} Email of the user
-     * @param activeFlag {Boolean} Whether the user is active or not. `false` = Not activated, `true` = Activated
+     * @param email {String} The email of the user
      */
-    constructor(name, email, activeFlag) { 
+    constructor(email) { 
         
-        AddUserRequest.initialize(this, name, email, activeFlag);
+        AddUserRequest.initialize(this, email);
     }
 
     /**
@@ -36,10 +35,8 @@ class AddUserRequest {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, name, email, activeFlag) { 
-        obj['name'] = name;
+    static initialize(obj, email) { 
         obj['email'] = email;
-        obj['active_flag'] = activeFlag || true;
     }
 
     /**
@@ -53,15 +50,20 @@ class AddUserRequest {
         if (data) {
             obj = obj || new AddUserRequest();
 
+            if (data.hasOwnProperty('email')) {
+                obj['email'] = ApiClient.convertToType(data['email'], 'String');
+
+                delete data['email'];
+            }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
 
                 delete data['name'];
             }
-            if (data.hasOwnProperty('email')) {
-                obj['email'] = ApiClient.convertToType(data['email'], 'String');
+            if (data.hasOwnProperty('access')) {
+                obj['access'] = ApiClient.convertToType(data['access'], [UserAccess]);
 
-                delete data['email'];
+                delete data['access'];
             }
             if (data.hasOwnProperty('active_flag')) {
                 obj['active_flag'] = ApiClient.convertToType(data['active_flag'], 'Boolean');
@@ -70,7 +72,7 @@ class AddUserRequest {
             }
 
             if (Object.keys(data).length > 0) {
-                obj['extra'] = data;
+                Object.assign(obj, data);
             }
 
         }
@@ -81,16 +83,22 @@ class AddUserRequest {
 }
 
 /**
- * Name of the user
+ * The email of the user
+ * @member {String} email
+ */
+AddUserRequest.prototype['email'] = undefined;
+
+/**
+ * The name of the user
  * @member {String} name
  */
 AddUserRequest.prototype['name'] = undefined;
 
 /**
- * Email of the user
- * @member {String} email
+ * The access given to the user. Each item in the array represents access to a specific app. Optionally may include either admin flag or permission set ID to specify which access to give within the app. If both are omitted, the default access for the corresponding app will be used. It requires structure as follows: `[{ app: 'sales', permission_set_id: '62cc4d7f-4038-4352-abf3-a8c1c822b631' }, { app: 'global', admin: true }, { app: 'account_settings' }]` 
+ * @member {Array.<module:model/UserAccess>} access
  */
-AddUserRequest.prototype['email'] = undefined;
+AddUserRequest.prototype['access'] = undefined;
 
 /**
  * Whether the user is active or not. `false` = Not activated, `true` = Activated

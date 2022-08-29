@@ -13,6 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
+import AddUserRequest from '../model/AddUserRequest';
 import DeleteRoleAssignment from '../model/DeleteRoleAssignment';
 import FailResponse from '../model/FailResponse';
 import GetRoleAssignments from '../model/GetRoleAssignments';
@@ -49,28 +50,16 @@ export default class UsersApi {
     /**
      * Add a new user
      * Adds a new user to the company, returns the ID upon success.
-     * @param {String} name The name of the user
-     * @param {String} email The email of the user
-     * @param {Boolean} activeFlag Whether the user is active or not. `false` = Not activated, `true` = Activated
+     * @param {Object} opts Optional parameters
+     * @param {module:model/AddUserRequest} opts.addUserRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/User} and HTTP response
      */
-    addUserWithHttpInfo(name, email, activeFlag) {
-      const opts = {}
-      let postBody = null;
+    addUserWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['addUserRequest'];
 
-      // verify the required parameter 'name' is set
-      if (name === undefined || name === null) {
-        throw new Error("Missing the required parameter 'name' when calling addUser");
-      }
-
-      // verify the required parameter 'email' is set
-      if (email === undefined || email === null) {
+      if (opts['email'] === undefined || opts['email'] === null) {
         throw new Error("Missing the required parameter 'email' when calling addUser");
-      }
-
-      // verify the required parameter 'activeFlag' is set
-      if (activeFlag === undefined || activeFlag === null) {
-        throw new Error("Missing the required parameter 'activeFlag' when calling addUser");
       }
 
       let pathParams = {
@@ -80,18 +69,12 @@ export default class UsersApi {
       let headerParams = {
       };
       let formParams = {
-        'name': name,
-        'email': email,
-        'active_flag': activeFlag,
       };
 
       let formParamArray = [
-        'name',
-        'email',
-        'activeFlag',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded', ];
+      let contentTypes = ['application/json', ];
       const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
       const isJSON = contentTypes.includes('application/json');
 
@@ -118,13 +101,12 @@ export default class UsersApi {
     /**
      * Add a new user
      * Adds a new user to the company, returns the ID upon success.
-     * @param {String} name The name of the user
-     * @param {String} email The email of the user
-     * @param {Boolean} activeFlag Whether the user is active or not. `false` = Not activated, `true` = Activated
+     * @param {Object} opts Optional parameters
+     * @param {module:model/AddUserRequest} opts.addUserRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/User}
      */
-    addUser(name, email, activeFlag) {
-      return this.addUserWithHttpInfo(name, email, activeFlag)
+    addUser(opts) {
+      return this.addUserWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data;
         });
