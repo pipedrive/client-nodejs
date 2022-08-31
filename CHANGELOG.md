@@ -8,10 +8,11 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
-## 16.2.1
+## 17.0.0
 ### Changed
 - Updated `PUT /organizations/{id}`: parameter `name` is not required
 - Updated `PUT /notes/{id}`: parameter `content` is not required
+- Changed models related to the endpoints to reflect the changes
 
 ## 16.2.0
 ### Changed
