@@ -13,25 +13,24 @@
 
 import ApiClient from '../ApiClient';
 import BasicOrganization from './BasicOrganization';
-import NewOrganizationAllOf from './NewOrganizationAllOf';
+import UpdateOrganizationAllOf from './UpdateOrganizationAllOf';
 import VisibleTo from './VisibleTo';
 
 /**
- * The NewOrganization model module.
- * @module model/NewOrganization
+ * The UpdateOrganization model module.
+ * @module model/UpdateOrganization
  * @version 1.0.0
  */
-class NewOrganization {
+class UpdateOrganization {
     /**
-     * Constructs a new <code>NewOrganization</code>.
-     * @alias module:model/NewOrganization
-     * @implements module:model/NewOrganizationAllOf
+     * Constructs a new <code>UpdateOrganization</code>.
+     * @alias module:model/UpdateOrganization
+     * @implements module:model/UpdateOrganizationAllOf
      * @implements module:model/BasicOrganization
-     * @param name {String} The name of the organization
      */
-    constructor(name) { 
-        NewOrganizationAllOf.initialize(this, name);BasicOrganization.initialize(this);
-        NewOrganization.initialize(this, name);
+    constructor() { 
+        UpdateOrganizationAllOf.initialize(this);BasicOrganization.initialize(this);
+        UpdateOrganization.initialize(this);
     }
 
     /**
@@ -39,32 +38,26 @@ class NewOrganization {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, name) { 
-        obj['name'] = name;
+    static initialize(obj) { 
     }
 
     /**
-     * Constructs a <code>NewOrganization</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>UpdateOrganization</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/NewOrganization} obj Optional instance to populate.
-     * @return {module:model/NewOrganization} The populated <code>NewOrganization</code> instance.
+     * @param {module:model/UpdateOrganization} obj Optional instance to populate.
+     * @return {module:model/UpdateOrganization} The populated <code>UpdateOrganization</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new NewOrganization();
-            NewOrganizationAllOf.constructFromObject(data, obj);
+            obj = obj || new UpdateOrganization();
+            UpdateOrganizationAllOf.constructFromObject(data, obj);
             BasicOrganization.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
 
                 delete data['name'];
-            }
-            if (data.hasOwnProperty('add_time')) {
-                obj['add_time'] = ApiClient.convertToType(data['add_time'], 'String');
-
-                delete data['add_time'];
             }
             if (data.hasOwnProperty('owner_id')) {
                 obj['owner_id'] = ApiClient.convertToType(data['owner_id'], 'Number');
@@ -92,38 +85,27 @@ class NewOrganization {
  * The name of the organization
  * @member {String} name
  */
-NewOrganization.prototype['name'] = undefined;
-
-/**
- * The optional creation date & time of the organization in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
- * @member {String} add_time
- */
-NewOrganization.prototype['add_time'] = undefined;
+UpdateOrganization.prototype['name'] = undefined;
 
 /**
  * The ID of the user who will be marked as the owner of this organization. When omitted, the authorized user ID will be used.
  * @member {Number} owner_id
  */
-NewOrganization.prototype['owner_id'] = undefined;
+UpdateOrganization.prototype['owner_id'] = undefined;
 
 /**
  * The visibility of the organization. If omitted, the visibility will be set to the default visibility setting of this item type for the authorized user. Read more about visibility groups <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.<h4>Essential / Advanced plan</h4><table><tr><th style=\"width:40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers</td><tr><td>`3`</td><td>Entire company</td></tr></table><h4>Professional / Enterprise plan</h4><table><tr><th style=\"width:40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner only</td><tr><td>`3`</td><td>Owner's visibility group</td></tr><tr><td>`5`</td><td>Owner's visibility group and sub-groups</td></tr><tr><td>`7`</td><td>Entire company</td></tr></table>
  * @member {module:model/VisibleTo} visible_to
  */
-NewOrganization.prototype['visible_to'] = undefined;
+UpdateOrganization.prototype['visible_to'] = undefined;
 
 
-// Implement NewOrganizationAllOf interface:
+// Implement UpdateOrganizationAllOf interface:
 /**
  * The name of the organization
  * @member {String} name
  */
-NewOrganizationAllOf.prototype['name'] = undefined;
-/**
- * The optional creation date & time of the organization in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
- * @member {String} add_time
- */
-NewOrganizationAllOf.prototype['add_time'] = undefined;
+UpdateOrganizationAllOf.prototype['name'] = undefined;
 // Implement BasicOrganization interface:
 /**
  * The ID of the user who will be marked as the owner of this organization. When omitted, the authorized user ID will be used.
@@ -139,5 +121,5 @@ BasicOrganization.prototype['visible_to'] = undefined;
 
 
 
-export default NewOrganization;
+export default UpdateOrganization;
 

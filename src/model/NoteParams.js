@@ -23,11 +23,10 @@ class NoteParams {
     /**
      * Constructs a new <code>NoteParams</code>.
      * @alias module:model/NoteParams
-     * @param content {String} The content of the note in HTML format. Subject to sanitization on the back-end.
      */
-    constructor(content) { 
+    constructor() { 
         
-        NoteParams.initialize(this, content);
+        NoteParams.initialize(this);
     }
 
     /**
@@ -35,8 +34,7 @@ class NoteParams {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, content) { 
-        obj['content'] = content;
+    static initialize(obj) { 
     }
 
     /**
@@ -50,11 +48,6 @@ class NoteParams {
         if (data) {
             obj = obj || new NoteParams();
 
-            if (data.hasOwnProperty('content')) {
-                obj['content'] = ApiClient.convertToType(data['content'], 'String');
-
-                delete data['content'];
-            }
             if (data.hasOwnProperty('user_id')) {
                 obj['user_id'] = ApiClient.convertToType(data['user_id'], 'Number');
 
@@ -96,12 +89,6 @@ class NoteParams {
 
 
 }
-
-/**
- * The content of the note in HTML format. Subject to sanitization on the back-end.
- * @member {String} content
- */
-NoteParams.prototype['content'] = undefined;
 
 /**
  * The ID of the user who will be marked as the author of the note. Only an admin can change the author.

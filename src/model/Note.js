@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import NoteAllOf from './NoteAllOf';
 import NoteConnectToParams from './NoteConnectToParams';
 import NoteParams from './NoteParams';
 import NumberBoolean from './NumberBoolean';
@@ -25,13 +26,13 @@ class Note {
     /**
      * Constructs a new <code>Note</code>.
      * @alias module:model/Note
+     * @implements module:model/NoteAllOf
      * @implements module:model/NoteConnectToParams
      * @implements module:model/NoteParams
-     * @param content {String} The content of the note in HTML format. Subject to sanitization on the back-end.
      */
-    constructor(content) { 
-        NoteConnectToParams.initialize(this);NoteParams.initialize(this, content);
-        Note.initialize(this, content);
+    constructor() { 
+        NoteAllOf.initialize(this);NoteConnectToParams.initialize(this);NoteParams.initialize(this);
+        Note.initialize(this);
     }
 
     /**
@@ -39,8 +40,7 @@ class Note {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, content) { 
-        obj['content'] = content;
+    static initialize(obj) { 
     }
 
     /**
@@ -53,9 +53,15 @@ class Note {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new Note();
+            NoteAllOf.constructFromObject(data, obj);
             NoteConnectToParams.constructFromObject(data, obj);
             NoteParams.constructFromObject(data, obj);
 
+            if (data.hasOwnProperty('content')) {
+                obj['content'] = ApiClient.convertToType(data['content'], 'String');
+
+                delete data['content'];
+            }
             if (data.hasOwnProperty('lead_id')) {
                 obj['lead_id'] = ApiClient.convertToType(data['lead_id'], 'String');
 
@@ -75,11 +81,6 @@ class Note {
                 obj['org_id'] = ApiClient.convertToType(data['org_id'], 'Number');
 
                 delete data['org_id'];
-            }
-            if (data.hasOwnProperty('content')) {
-                obj['content'] = ApiClient.convertToType(data['content'], 'String');
-
-                delete data['content'];
             }
             if (data.hasOwnProperty('user_id')) {
                 obj['user_id'] = ApiClient.convertToType(data['user_id'], 'Number');
@@ -124,6 +125,12 @@ class Note {
 }
 
 /**
+ * The content of the note in HTML format. Subject to sanitization on the back-end.
+ * @member {String} content
+ */
+Note.prototype['content'] = undefined;
+
+/**
  * The ID of the lead the note will be attached to
  * @member {String} lead_id
  */
@@ -146,12 +153,6 @@ Note.prototype['person_id'] = undefined;
  * @member {Number} org_id
  */
 Note.prototype['org_id'] = undefined;
-
-/**
- * The content of the note in HTML format. Subject to sanitization on the back-end.
- * @member {String} content
- */
-Note.prototype['content'] = undefined;
 
 /**
  * The ID of the user who will be marked as the author of the note. Only an admin can change the author.
@@ -190,6 +191,12 @@ Note.prototype['pinned_to_organization_flag'] = undefined;
 Note.prototype['pinned_to_person_flag'] = undefined;
 
 
+// Implement NoteAllOf interface:
+/**
+ * The content of the note in HTML format. Subject to sanitization on the back-end.
+ * @member {String} content
+ */
+NoteAllOf.prototype['content'] = undefined;
 // Implement NoteConnectToParams interface:
 /**
  * The ID of the lead the note will be attached to
@@ -212,11 +219,6 @@ NoteConnectToParams.prototype['person_id'] = undefined;
  */
 NoteConnectToParams.prototype['org_id'] = undefined;
 // Implement NoteParams interface:
-/**
- * The content of the note in HTML format. Subject to sanitization on the back-end.
- * @member {String} content
- */
-NoteParams.prototype['content'] = undefined;
 /**
  * The ID of the user who will be marked as the author of the note. Only an admin can change the author.
  * @member {Number} user_id

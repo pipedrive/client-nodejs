@@ -22,10 +22,11 @@ class AddNoteRequestAllOf {
     /**
      * Constructs a new <code>AddNoteRequestAllOf</code>.
      * @alias module:model/AddNoteRequestAllOf
+     * @param content {String} The content of the note in HTML format. Subject to sanitization on the back-end.
      */
-    constructor() { 
+    constructor(content) { 
         
-        AddNoteRequestAllOf.initialize(this);
+        AddNoteRequestAllOf.initialize(this, content);
     }
 
     /**
@@ -33,7 +34,8 @@ class AddNoteRequestAllOf {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, content) { 
+        obj['content'] = content;
     }
 
     /**
@@ -47,6 +49,11 @@ class AddNoteRequestAllOf {
         if (data) {
             obj = obj || new AddNoteRequestAllOf();
 
+            if (data.hasOwnProperty('content')) {
+                obj['content'] = ApiClient.convertToType(data['content'], 'String');
+
+                delete data['content'];
+            }
             if (data.hasOwnProperty('lead_id')) {
                 obj['lead_id'] = ApiClient.convertToType(data['lead_id'], 'String');
 
@@ -78,6 +85,12 @@ class AddNoteRequestAllOf {
 
 
 }
+
+/**
+ * The content of the note in HTML format. Subject to sanitization on the back-end.
+ * @member {String} content
+ */
+AddNoteRequestAllOf.prototype['content'] = undefined;
 
 /**
  * The ID of the lead the note will be attached to. This property is required unless one of (`deal_id/person_id/org_id`) is specified.

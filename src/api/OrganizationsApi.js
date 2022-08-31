@@ -15,7 +15,6 @@
 import ApiClient from "../ApiClient";
 import AddOrganizationFollowerRequest from '../model/AddOrganizationFollowerRequest';
 import AllOrganizationsGetResponse from '../model/AllOrganizationsGetResponse';
-import BasicOrganization from '../model/BasicOrganization';
 import ListActivitiesResponse from '../model/ListActivitiesResponse';
 import ListDealsResponse from '../model/ListDealsResponse';
 import ListFilesResponse from '../model/ListFilesResponse';
@@ -36,6 +35,7 @@ import OrganizationSearchResponse from '../model/OrganizationSearchResponse';
 import OrganizationUpdateResponse from '../model/OrganizationUpdateResponse';
 import OrganizationsDeleteResponse from '../model/OrganizationsDeleteResponse';
 import OrganizationsMergeResponse from '../model/OrganizationsMergeResponse';
+import UpdateOrganization from '../model/UpdateOrganization';
 
 /**
 * Organizations service.
@@ -1337,21 +1337,18 @@ export default class OrganizationsApi {
      * Updates the properties of an organization.
      * @param {Number} id The ID of the organization
      * @param {Object} opts Optional parameters
-     * @param {module:model/BasicOrganization} opts.basicOrganization 
+     * @param {module:model/UpdateOrganization} opts.updateOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationUpdateResponse} and HTTP response
      */
     updateOrganizationWithHttpInfo(id, opts) {
       opts = opts || {};
-      let postBody = opts['basicOrganization'];
+      let postBody = opts['updateOrganization'];
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateOrganization");
       }
 
-      if (opts['name'] === undefined || opts['name'] === null) {
-        throw new Error("Missing the required parameter 'name' when calling updateOrganization");
-      }
 
       let pathParams = {
         'id': id,
@@ -1395,7 +1392,7 @@ export default class OrganizationsApi {
      * Updates the properties of an organization.
      * @param {Number} id The ID of the organization
      * @param {Object} opts Optional parameters
-     * @param {module:model/BasicOrganization} opts.basicOrganization 
+     * @param {module:model/UpdateOrganization} opts.updateOrganization 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationUpdateResponse}
      */
     updateOrganization(id, opts) {
