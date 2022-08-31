@@ -23,11 +23,10 @@ class BasicOrganization {
     /**
      * Constructs a new <code>BasicOrganization</code>.
      * @alias module:model/BasicOrganization
-     * @param name {String} The name of the organization
      */
-    constructor(name) { 
+    constructor() { 
         
-        BasicOrganization.initialize(this, name);
+        BasicOrganization.initialize(this);
     }
 
     /**
@@ -35,8 +34,7 @@ class BasicOrganization {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, name) { 
-        obj['name'] = name;
+    static initialize(obj) { 
     }
 
     /**
@@ -50,11 +48,6 @@ class BasicOrganization {
         if (data) {
             obj = obj || new BasicOrganization();
 
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
-
-                delete data['name'];
-            }
             if (data.hasOwnProperty('owner_id')) {
                 obj['owner_id'] = ApiClient.convertToType(data['owner_id'], 'Number');
 
@@ -76,12 +69,6 @@ class BasicOrganization {
 
 
 }
-
-/**
- * The name of the organization
- * @member {String} name
- */
-BasicOrganization.prototype['name'] = undefined;
 
 /**
  * The ID of the user who will be marked as the owner of this organization. When omitted, the authorized user ID will be used.

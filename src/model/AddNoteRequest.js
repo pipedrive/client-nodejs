@@ -30,7 +30,7 @@ class AddNoteRequest {
      * @param content {String} The content of the note in HTML format. Subject to sanitization on the back-end.
      */
     constructor(content) { 
-        AddNoteRequestAllOf.initialize(this);NoteParams.initialize(this, content);
+        AddNoteRequestAllOf.initialize(this, content);NoteParams.initialize(this);
         AddNoteRequest.initialize(this, content);
     }
 
@@ -56,6 +56,11 @@ class AddNoteRequest {
             AddNoteRequestAllOf.constructFromObject(data, obj);
             NoteParams.constructFromObject(data, obj);
 
+            if (data.hasOwnProperty('content')) {
+                obj['content'] = ApiClient.convertToType(data['content'], 'String');
+
+                delete data['content'];
+            }
             if (data.hasOwnProperty('lead_id')) {
                 obj['lead_id'] = ApiClient.convertToType(data['lead_id'], 'String');
 
@@ -75,11 +80,6 @@ class AddNoteRequest {
                 obj['org_id'] = ApiClient.convertToType(data['org_id'], 'Number');
 
                 delete data['org_id'];
-            }
-            if (data.hasOwnProperty('content')) {
-                obj['content'] = ApiClient.convertToType(data['content'], 'String');
-
-                delete data['content'];
             }
             if (data.hasOwnProperty('user_id')) {
                 obj['user_id'] = ApiClient.convertToType(data['user_id'], 'Number');
@@ -124,6 +124,12 @@ class AddNoteRequest {
 }
 
 /**
+ * The content of the note in HTML format. Subject to sanitization on the back-end.
+ * @member {String} content
+ */
+AddNoteRequest.prototype['content'] = undefined;
+
+/**
  * The ID of the lead the note will be attached to. This property is required unless one of (`deal_id/person_id/org_id`) is specified.
  * @member {String} lead_id
  */
@@ -146,12 +152,6 @@ AddNoteRequest.prototype['person_id'] = undefined;
  * @member {Number} org_id
  */
 AddNoteRequest.prototype['org_id'] = undefined;
-
-/**
- * The content of the note in HTML format. Subject to sanitization on the back-end.
- * @member {String} content
- */
-AddNoteRequest.prototype['content'] = undefined;
 
 /**
  * The ID of the user who will be marked as the author of the note. Only an admin can change the author.
@@ -192,6 +192,11 @@ AddNoteRequest.prototype['pinned_to_person_flag'] = undefined;
 
 // Implement AddNoteRequestAllOf interface:
 /**
+ * The content of the note in HTML format. Subject to sanitization on the back-end.
+ * @member {String} content
+ */
+AddNoteRequestAllOf.prototype['content'] = undefined;
+/**
  * The ID of the lead the note will be attached to. This property is required unless one of (`deal_id/person_id/org_id`) is specified.
  * @member {String} lead_id
  */
@@ -212,11 +217,6 @@ AddNoteRequestAllOf.prototype['person_id'] = undefined;
  */
 AddNoteRequestAllOf.prototype['org_id'] = undefined;
 // Implement NoteParams interface:
-/**
- * The content of the note in HTML format. Subject to sanitization on the back-end.
- * @member {String} content
- */
-NoteParams.prototype['content'] = undefined;
 /**
  * The ID of the user who will be marked as the author of the note. Only an admin can change the author.
  * @member {Number} user_id

@@ -1032,7 +1032,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.OrganizationsApi();
 let id = 56; // Number | The ID of the organization
-let opts = Pipedrive.BasicOrganization.constructFromObject({
+let opts = Pipedrive.UpdateOrganization.constructFromObject({
   // Properties that you want to update
 });
 apiInstance.updateOrganization(id, opts).then((data) => {
@@ -1049,7 +1049,7 @@ apiInstance.updateOrganization(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the organization | 
- **basicOrganization** | [**BasicOrganization**](BasicOrganization.md)|  | [optional] 
+ **updateOrganization** | [**UpdateOrganization**](UpdateOrganization.md)|  | [optional] 
 
 ### Return type
 

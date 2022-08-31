@@ -475,6 +475,7 @@ import NewPerson from './model/NewPerson';
 import NewPersonAllOf from './model/NewPersonAllOf';
 import NewProductField from './model/NewProductField';
 import Note from './model/Note';
+import NoteAllOf from './model/NoteAllOf';
 import NoteConnectToParams from './model/NoteConnectToParams';
 import NoteCreatorUser from './model/NoteCreatorUser';
 import NoteField from './model/NoteField';
@@ -682,6 +683,8 @@ import UpdateFile from './model/UpdateFile';
 import UpdateFilterRequest from './model/UpdateFilterRequest';
 import UpdateLeadLabelRequest from './model/UpdateLeadLabelRequest';
 import UpdateLeadRequest from './model/UpdateLeadRequest';
+import UpdateOrganization from './model/UpdateOrganization';
+import UpdateOrganizationAllOf from './model/UpdateOrganizationAllOf';
 import UpdatePerson from './model/UpdatePerson';
 import UpdatePersonAllOf from './model/UpdatePersonAllOf';
 import UpdatePersonResponse from './model/UpdatePersonResponse';
@@ -3576,6 +3579,12 @@ export {
     Note,
 
     /**
+     * The NoteAllOf model constructor.
+     * @property {module:model/NoteAllOf}
+     */
+    NoteAllOf,
+
+    /**
      * The NoteConnectToParams model constructor.
      * @property {module:model/NoteConnectToParams}
      */
@@ -4816,6 +4825,18 @@ export {
      * @property {module:model/UpdateLeadRequest}
      */
     UpdateLeadRequest,
+
+    /**
+     * The UpdateOrganization model constructor.
+     * @property {module:model/UpdateOrganization}
+     */
+    UpdateOrganization,
+
+    /**
+     * The UpdateOrganizationAllOf model constructor.
+     * @property {module:model/UpdateOrganizationAllOf}
+     */
+    UpdateOrganizationAllOf,
 
     /**
      * The UpdatePerson model constructor.

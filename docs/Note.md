@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**content** | **String** | The content of the note in HTML format. Subject to sanitization on the back-end. | [optional] 
 **leadId** | **String** | The ID of the lead the note will be attached to | [optional] 
 **dealId** | **Number** | The ID of the deal the note will be attached to | [optional] 
 **personId** | **Number** | The ID of the person the note will be attached to | [optional] 
 **orgId** | **Number** | The ID of the organization the note will be attached to | [optional] 
-**content** | **String** | The content of the note in HTML format. Subject to sanitization on the back-end. | 
 **userId** | **Number** | The ID of the user who will be marked as the author of the note. Only an admin can change the author. | [optional] 
 **addTime** | **String** | The optional creation date &amp; time of the note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS | [optional] 
 **pinnedToLeadFlag** | [**NumberBoolean**](NumberBoolean.md) | If set, the results are filtered by note to lead pinning state (&#x60;lead_id&#x60; is also required) | [optional] 
