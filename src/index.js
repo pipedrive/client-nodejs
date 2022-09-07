@@ -355,13 +355,6 @@ import GetRoles from './model/GetRoles';
 import GetRolesAllOf from './model/GetRolesAllOf';
 import GetStageDeals from './model/GetStageDeals';
 import GetStages from './model/GetStages';
-import GlobalMessageBaseResponse from './model/GlobalMessageBaseResponse';
-import GlobalMessageData from './model/GlobalMessageData';
-import GlobalMessageDelete from './model/GlobalMessageDelete';
-import GlobalMessageDeleteAllOf from './model/GlobalMessageDeleteAllOf';
-import GlobalMessageGet from './model/GlobalMessageGet';
-import GlobalMessageGetAllOf from './model/GlobalMessageGetAllOf';
-import GlobalMessageUserData from './model/GlobalMessageUserData';
 import GoalResults from './model/GoalResults';
 import GoalType from './model/GoalType';
 import GoalsResponseComponent from './model/GoalsResponseComponent';
@@ -739,7 +732,6 @@ import DealFieldsApi from './api/DealFieldsApi';
 import DealsApi from './api/DealsApi';
 import FilesApi from './api/FilesApi';
 import FiltersApi from './api/FiltersApi';
-import GlobalMessagesApi from './api/GlobalMessagesApi';
 import GoalsApi from './api/GoalsApi';
 import ItemSearchApi from './api/ItemSearchApi';
 import LeadLabelsApi from './api/LeadLabelsApi';
@@ -2857,48 +2849,6 @@ export {
      * @property {module:model/GetStages}
      */
     GetStages,
-
-    /**
-     * The GlobalMessageBaseResponse model constructor.
-     * @property {module:model/GlobalMessageBaseResponse}
-     */
-    GlobalMessageBaseResponse,
-
-    /**
-     * The GlobalMessageData model constructor.
-     * @property {module:model/GlobalMessageData}
-     */
-    GlobalMessageData,
-
-    /**
-     * The GlobalMessageDelete model constructor.
-     * @property {module:model/GlobalMessageDelete}
-     */
-    GlobalMessageDelete,
-
-    /**
-     * The GlobalMessageDeleteAllOf model constructor.
-     * @property {module:model/GlobalMessageDeleteAllOf}
-     */
-    GlobalMessageDeleteAllOf,
-
-    /**
-     * The GlobalMessageGet model constructor.
-     * @property {module:model/GlobalMessageGet}
-     */
-    GlobalMessageGet,
-
-    /**
-     * The GlobalMessageGetAllOf model constructor.
-     * @property {module:model/GlobalMessageGetAllOf}
-     */
-    GlobalMessageGetAllOf,
-
-    /**
-     * The GlobalMessageUserData model constructor.
-     * @property {module:model/GlobalMessageUserData}
-     */
-    GlobalMessageUserData,
 
     /**
      * The GoalResults model constructor.
@@ -5161,12 +5111,6 @@ export {
     * @property {module:api/FiltersApi}
     */
     FiltersApi,
-
-    /**
-    * The GlobalMessagesApi service constructor.
-    * @property {module:api/GlobalMessagesApi}
-    */
-    GlobalMessagesApi,
 
     /**
     * The GoalsApi service constructor.

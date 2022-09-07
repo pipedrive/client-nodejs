@@ -335,8 +335,6 @@ Class | Method | HTTP request | Description
 *Pipedrive.FiltersApi* | [**getFilterHelpers**](docs/FiltersApi.md#getFilterHelpers) | **GET** /filters/helpers | Get all filter helpers
 *Pipedrive.FiltersApi* | [**getFilters**](docs/FiltersApi.md#getFilters) | **GET** /filters | Get all filters
 *Pipedrive.FiltersApi* | [**updateFilter**](docs/FiltersApi.md#updateFilter) | **PUT** /filters/{id} | Update filter
-*Pipedrive.GlobalMessagesApi* | [**deleteGlobalMessage**](docs/GlobalMessagesApi.md#deleteGlobalMessage) | **DELETE** /globalMessages/{id} | Dismiss a global message
-*Pipedrive.GlobalMessagesApi* | [**getGlobalMessages**](docs/GlobalMessagesApi.md#getGlobalMessages) | **GET** /globalMessages | Get global messages
 *Pipedrive.GoalsApi* | [**addGoal**](docs/GoalsApi.md#addGoal) | **POST** /goals | Add a new goal
 *Pipedrive.GoalsApi* | [**deleteGoal**](docs/GoalsApi.md#deleteGoal) | **DELETE** /goals/{id} | Delete existing goal
 *Pipedrive.GoalsApi* | [**getGoalResult**](docs/GoalsApi.md#getGoalResult) | **GET** /goals/{id}/results | Get result of a goal
@@ -855,13 +853,6 @@ Class | Method | HTTP request | Description
  - [Pipedrive.GetRolesAllOf](docs/GetRolesAllOf.md)
  - [Pipedrive.GetStageDeals](docs/GetStageDeals.md)
  - [Pipedrive.GetStages](docs/GetStages.md)
- - [Pipedrive.GlobalMessageBaseResponse](docs/GlobalMessageBaseResponse.md)
- - [Pipedrive.GlobalMessageData](docs/GlobalMessageData.md)
- - [Pipedrive.GlobalMessageDelete](docs/GlobalMessageDelete.md)
- - [Pipedrive.GlobalMessageDeleteAllOf](docs/GlobalMessageDeleteAllOf.md)
- - [Pipedrive.GlobalMessageGet](docs/GlobalMessageGet.md)
- - [Pipedrive.GlobalMessageGetAllOf](docs/GlobalMessageGetAllOf.md)
- - [Pipedrive.GlobalMessageUserData](docs/GlobalMessageUserData.md)
  - [Pipedrive.GoalResults](docs/GoalResults.md)
  - [Pipedrive.GoalType](docs/GoalType.md)
  - [Pipedrive.GoalsResponseComponent](docs/GoalsResponseComponent.md)

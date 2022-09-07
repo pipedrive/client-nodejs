@@ -8,6 +8,12 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## 17.1.0
+### Removed
+- Removed deprecated endpoints that were deleted:
+  - `GET /globalMessages`
+  - `DELETE /globalMessages/{id}`
+
 ## 17.0.0
 ### Changed
 - Updated `PUT /organizations/{id}`: parameter `name` is not required
