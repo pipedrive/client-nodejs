@@ -10,7 +10,7 @@ function startEnvironment(serverPort) {
 	return mockServer.start_mockserver({
 		serverPort,
 		trace: true,
-		verbose: true,
+		verbose: false,
 	});
 }
 
@@ -88,7 +88,6 @@ class JestEnvironment extends JestNodeEnvironment {
 		this.global.MOCK_SERVER = `http://localhost:${port}`;
 	}
 }
-
 
 if (require.main === module) {
 	main();

@@ -1,5 +1,6 @@
 const mockServer = require('mockserver-client');
-const {BaseUser} = require("../../src");
+
+const { getSrc } = require('./utils');
 
 const mockServerClient = mockServer.mockServerClient;
 
@@ -90,7 +91,7 @@ describe('automatic token refresh in api calls', () => {
 	beforeEach(async () => {
 		jest.resetModules();
 
-		lib = require('../../src');
+		lib = getSrc();
 
 		await mockServerClient('localhost', global.MOCK_PORT, null, false).clear('/oauth/token', 'ALL');
 		await mockServerClient('localhost', global.MOCK_PORT, null, false).clear('/v1/users', 'ALL');
@@ -117,7 +118,7 @@ describe('automatic token refresh in api calls', () => {
 					},
 				],
 			});
-		}catch(err) {
+		} catch(err) {
 			console.log('Logging error!');
 			console.log(err.message);
 			console.log(JSON.stringify(err));
@@ -132,7 +133,7 @@ describe('automatic token refresh in api calls', () => {
 
 		const users = await new lib.UsersApi().getUsers();
 
-		const expectedUser = BaseUser.constructFromObject({ id: 1 ,name: 'John Doe' });
+		const expectedUser = lib.BaseUser.constructFromObject({ id: 1 ,name: 'John Doe' });
 
 		expect(users).toEqual({
 			success: true,
