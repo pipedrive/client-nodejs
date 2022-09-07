@@ -1,4 +1,5 @@
 const mockServer = require('mockserver-client');
+const { getSrc } = require('./utils');
 const mockServerClient = mockServer.mockServerClient;
 
 let lib;
@@ -12,7 +13,7 @@ describe('oauth2 accessToken', () => {
 	beforeEach(async () => {
 		jest.resetModules();
 
-		lib = require('../../src');
+		lib = getSrc();
 
 		await mockServerClient('localhost', global.MOCK_PORT, null, false).clear('/oauth/token', 'ALL');
 
@@ -29,7 +30,7 @@ describe('oauth2 accessToken', () => {
 	it('should refresh accessToken with valid refreshToken', async () => {
 		oauth2.refreshToken = 'fakeRefreshToken';
 
-		await mockServerClient("localhost", global.MOCK_PORT, null, false).mockAnyResponse({
+		await mockServerClient('localhost', global.MOCK_PORT, null, false).mockAnyResponse({
 			httpRequest: {
 				method: 'POST',
 				path: '/oauth/token',
@@ -41,7 +42,7 @@ describe('oauth2 accessToken', () => {
 			httpResponse: {
 				statusCode: 200,
 				headers: {
-					"content-type": ['application/json; charset=utf-8'],
+					'content-type': ['application/json; charset=utf-8'],
 				},
 				body: JSON.stringify({
 					access_token: 'freshAccessToken',
@@ -83,7 +84,7 @@ describe('oauth2 accessToken', () => {
 	it('should throw wrong refresh token', async () => {
 		oauth2.refreshToken = 'wrongRefreshToken';
 
-		await mockServerClient("localhost", global.MOCK_PORT, null, false).mockAnyResponse({
+		await mockServerClient('localhost', global.MOCK_PORT, null, false).mockAnyResponse({
 			httpRequest: {
 				method: 'POST',
 				path: '/oauth/token',
@@ -95,7 +96,7 @@ describe('oauth2 accessToken', () => {
 			httpResponse: {
 				statusCode: 400,
 				headers: {
-					"content-type": ['application/json; charset=utf-8'],
+					'content-type': ['application/json; charset=utf-8'],
 				},
 				body: JSON.stringify({
 					success: 'false',

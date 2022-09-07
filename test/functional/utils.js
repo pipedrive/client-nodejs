@@ -1,0 +1,1 @@
+export const getSrc = () => process.env.AUTOMATION ? require('../../dist') : require('../../src');
