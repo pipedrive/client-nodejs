@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## 17.1.1
+### Changed
+- Description for product requests
+
 ## 17.1.0
 ### Removed
 - Removed deprecated endpoints that were deleted:
