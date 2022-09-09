@@ -20,6 +20,6 @@ Name | Type | Description | Notes
 **followersCount** | **Number** | The count of followers | [optional] 
 **addTime** | **String** | The date and time when the product was added to the deal | [optional] 
 **updateTime** | **String** | The date and time when the product was updated to the deal | [optional] 
-**prices** | **[Object]** | Array of objects, each containing: &#x60;currency&#x60; (string), &#x60;price&#x60; (number), &#x60;cost&#x60; (number, optional), &#x60;overhead_cost&#x60; (number, optional). Note that there can only be one price per product per currency. When &#x60;prices&#x60; is omitted altogether, no prices will be set up for the product. | [optional] 
+**prices** | **[Object]** | Array of objects, each containing: &#x60;currency&#x60; (string), &#x60;price&#x60; (number), &#x60;cost&#x60; (number, optional), &#x60;overhead_cost&#x60; (number, optional). Note that there can only be one price per product per currency. When &#x60;prices&#x60; is omitted altogether, a default price of 0 and a default currency based on the company&#39;s currency will be assigned. | [optional] 
 
 

@@ -162,7 +162,7 @@ UpdateProductRequestBody.prototype['visible_to'] = undefined;
 UpdateProductRequestBody.prototype['owner_id'] = undefined;
 
 /**
- * An array of objects, each containing: `currency` (string), `price` (number), `cost` (number, optional), `overhead_cost` (number, optional). Note that there can only be one price per product per currency. When `prices` is omitted altogether, no prices will be set up for the product.
+ * An array of objects, each containing: `currency` (string), `price` (number), `cost` (number, optional), `overhead_cost` (number, optional). Note that there can only be one price per product per currency. When `prices` is omitted altogether, a default price of 0 and a default currency based on the company's currency will be assigned.
  * @member {Array.<Object>} prices
  */
 UpdateProductRequestBody.prototype['prices'] = undefined;
@@ -210,7 +210,7 @@ ProductRequest.prototype['visible_to'] = undefined;
  */
 ProductRequest.prototype['owner_id'] = undefined;
 /**
- * An array of objects, each containing: `currency` (string), `price` (number), `cost` (number, optional), `overhead_cost` (number, optional). Note that there can only be one price per product per currency. When `prices` is omitted altogether, no prices will be set up for the product.
+ * An array of objects, each containing: `currency` (string), `price` (number), `cost` (number, optional), `overhead_cost` (number, optional). Note that there can only be one price per product per currency. When `prices` is omitted altogether, a default price of 0 and a default currency based on the company's currency will be assigned.
  * @member {Array.<Object>} prices
  */
 ProductRequest.prototype['prices'] = undefined;
