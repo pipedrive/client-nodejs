@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## 17.1.2
+### Changed
+- Changed `PUT /goals/{id}` content type to `application/json`
+
 ## 17.1.1
 ### Changed
 - Description for product requests
