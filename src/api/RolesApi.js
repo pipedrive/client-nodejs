@@ -129,6 +129,7 @@ export default class RolesApi {
 
     /**
      * Add a role
+     * Adds a new role.
      * @param {Object} opts Optional parameters
      * @param {module:model/AddRole} opts.addRole 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostRoles} and HTTP response
@@ -179,6 +180,7 @@ export default class RolesApi {
 
     /**
      * Add a role
+     * Adds a new role.
      * @param {Object} opts Optional parameters
      * @param {module:model/AddRole} opts.addRole 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostRoles}
@@ -193,7 +195,7 @@ export default class RolesApi {
 
     /**
      * Add role assignment
-     * Adds assignment for a role.
+     * Assigns a user to a role.
      * @param {Number} id The ID of the role
      * @param {Object} opts Optional parameters
      * @param {module:model/AddRoleAssignmentRequest} opts.addRoleAssignmentRequest 
@@ -251,7 +253,7 @@ export default class RolesApi {
 
     /**
      * Add role assignment
-     * Adds assignment for a role.
+     * Assigns a user to a role.
      * @param {Number} id The ID of the role
      * @param {Object} opts Optional parameters
      * @param {module:model/AddRoleAssignmentRequest} opts.addRoleAssignmentRequest 
@@ -267,6 +269,7 @@ export default class RolesApi {
 
     /**
      * Delete a role
+     * Marks a role as deleted.
      * @param {Number} id The ID of the role
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteRole} and HTTP response
      */
@@ -318,6 +321,7 @@ export default class RolesApi {
 
     /**
      * Delete a role
+     * Marks a role as deleted.
      * @param {Number} id The ID of the role
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteRole}
      */
@@ -331,7 +335,7 @@ export default class RolesApi {
 
     /**
      * Delete a role assignment
-     * Deletes assignment from a role.
+     * Removes the assigned user from a role and adds to the default role.
      * @param {Number} id The ID of the role
      * @param {Object} opts Optional parameters
      * @param {module:model/DeleteRoleAssignmentRequest} opts.deleteRoleAssignmentRequest 
@@ -389,7 +393,7 @@ export default class RolesApi {
 
     /**
      * Delete a role assignment
-     * Deletes assignment from a role.
+     * Removes the assigned user from a role and adds to the default role.
      * @param {Number} id The ID of the role
      * @param {Object} opts Optional parameters
      * @param {module:model/DeleteRoleAssignmentRequest} opts.deleteRoleAssignmentRequest 
@@ -405,6 +409,7 @@ export default class RolesApi {
 
     /**
      * Get one role
+     * Returns the details of a specific role.
      * @param {Number} id The ID of the role
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetRole} and HTTP response
      */
@@ -456,6 +461,7 @@ export default class RolesApi {
 
     /**
      * Get one role
+     * Returns the details of a specific role.
      * @param {Number} id The ID of the role
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetRole}
      */
@@ -469,7 +475,7 @@ export default class RolesApi {
 
     /**
      * List role assignments
-     * Lists assignments for a role.
+     * Returns all users assigned to a role.
      * @param {Number} id The ID of the role
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
@@ -528,7 +534,7 @@ export default class RolesApi {
 
     /**
      * List role assignments
-     * Lists assignments for a role.
+     * Returns all users assigned to a role.
      * @param {Number} id The ID of the role
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
@@ -545,6 +551,7 @@ export default class RolesApi {
 
     /**
      * List role settings
+     * Returns the visibility settings of a specific role.
      * @param {Number} id The ID of the role
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetRoleSettings} and HTTP response
      */
@@ -596,6 +603,7 @@ export default class RolesApi {
 
     /**
      * List role settings
+     * Returns the visibility settings of a specific role.
      * @param {Number} id The ID of the role
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetRoleSettings}
      */
@@ -609,6 +617,7 @@ export default class RolesApi {
 
     /**
      * List role sub-roles
+     * Returns the direct children of a specific role.
      * @param {Number} id The ID of the role
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
@@ -667,6 +676,7 @@ export default class RolesApi {
 
     /**
      * List role sub-roles
+     * Returns the direct children of a specific role.
      * @param {Number} id The ID of the role
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
@@ -683,6 +693,7 @@ export default class RolesApi {
 
     /**
      * Get all roles
+     * Returns all the roles within the company.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -734,6 +745,7 @@ export default class RolesApi {
 
     /**
      * Get all roles
+     * Returns all the roles within the company.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -749,6 +761,7 @@ export default class RolesApi {
 
     /**
      * Update role details
+     * Updates the parent role and/or the name of a specific role.
      * @param {Number} id The ID of the role
      * @param {Object} opts Optional parameters
      * @param {module:model/BaseRole} opts.baseRole 
@@ -803,6 +816,7 @@ export default class RolesApi {
 
     /**
      * Update role details
+     * Updates the parent role and/or the name of a specific role.
      * @param {Number} id The ID of the role
      * @param {Object} opts Optional parameters
      * @param {module:model/BaseRole} opts.baseRole 

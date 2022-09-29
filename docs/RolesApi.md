@@ -78,6 +78,8 @@ Name | Type | Description  | Notes
 
 Add a role
 
+Adds a new role.
+
 ### Example
 
 ```javascript
@@ -128,7 +130,7 @@ Name | Type | Description  | Notes
 
 Add role assignment
 
-Adds assignment for a role.
+Assigns a user to a role.
 
 ### Example
 
@@ -182,6 +184,8 @@ Name | Type | Description  | Notes
 
 Delete a role
 
+Marks a role as deleted.
+
 ### Example
 
 ```javascript
@@ -230,7 +234,7 @@ Name | Type | Description  | Notes
 
 Delete a role assignment
 
-Deletes assignment from a role.
+Removes the assigned user from a role and adds to the default role.
 
 ### Example
 
@@ -284,6 +288,8 @@ Name | Type | Description  | Notes
 
 Get one role
 
+Returns the details of a specific role.
+
 ### Example
 
 ```javascript
@@ -332,7 +338,7 @@ Name | Type | Description  | Notes
 
 List role assignments
 
-Lists assignments for a role.
+Returns all users assigned to a role.
 
 ### Example
 
@@ -388,6 +394,8 @@ Name | Type | Description  | Notes
 
 List role settings
 
+Returns the visibility settings of a specific role.
+
 ### Example
 
 ```javascript
@@ -435,6 +443,8 @@ Name | Type | Description  | Notes
 > GetRoleSubroles getRoleSubRoles(id, opts)
 
 List role sub-roles
+
+Returns the direct children of a specific role.
 
 ### Example
 
@@ -490,6 +500,8 @@ Name | Type | Description  | Notes
 
 Get all roles
 
+Returns all the roles within the company.
+
 ### Example
 
 ```javascript
@@ -541,6 +553,8 @@ Name | Type | Description  | Notes
 > PutRole updateRole(id, opts)
 
 Update role details
+
+Updates the parent role and/or the name of a specific role.
 
 ### Example
 
