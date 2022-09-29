@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import NumberBooleanDefault0 from './NumberBooleanDefault0';
 
 /**
  * The AddOrUpdateRoleSettingRequest model module.
@@ -24,7 +23,7 @@ class AddOrUpdateRoleSettingRequest {
      * Constructs a new <code>AddOrUpdateRoleSettingRequest</code>.
      * @alias module:model/AddOrUpdateRoleSettingRequest
      * @param settingKey {module:model/AddOrUpdateRoleSettingRequest.SettingKeyEnum} 
-     * @param value {module:model/NumberBooleanDefault0} Possible values for `default_visibility` settings: `0` or `1`
+     * @param value {module:model/AddOrUpdateRoleSettingRequest.ValueEnum} Possible values for the `default_visibility` setting depending on the subscription plan:<br> <table class='role-setting'> <caption><b>Essential / Advanced plan</b></caption> <tr><th><b>Value</b></th><th><b>Description</b></th></tr> <tr><td>`1`</td><td>Owner & Followers</td></tr> <tr><td>`3`</td><td>Entire company</td></tr> </table> <br> <table class='role-setting'> <caption><b>Professional / Enterprise plan</b></caption> <tr><th><b>Value</b></th><th><b>Description</b></th></tr> <tr><td>`1`</td><td>Owner only</td></tr> <tr><td>`3`</td><td>Owner&#39;s visibility group</td></tr> <tr><td>`5`</td><td>Owner&#39;s visibility group and sub-groups</td></tr> <tr><td>`7`</td><td>Entire company</td></tr> </table> <br> Read more about visibility groups <a href='https://support.pipedrive.com/en/article/visibility-groups'>here</a>.
      */
     constructor(settingKey, value) { 
         
@@ -58,13 +57,13 @@ class AddOrUpdateRoleSettingRequest {
                 delete data['setting_key'];
             }
             if (data.hasOwnProperty('value')) {
-                obj['value'] = ApiClient.convertToType(data['value'], NumberBooleanDefault0);
+                obj['value'] = ApiClient.convertToType(data['value'], 'Number');
 
                 delete data['value'];
             }
 
             if (Object.keys(data).length > 0) {
-                obj['extra'] = data;
+                Object.assign(obj, data);
             }
 
         }
@@ -80,8 +79,8 @@ class AddOrUpdateRoleSettingRequest {
 AddOrUpdateRoleSettingRequest.prototype['setting_key'] = undefined;
 
 /**
- * Possible values for `default_visibility` settings: `0` or `1`
- * @member {module:model/NumberBooleanDefault0} value
+ * Possible values for the `default_visibility` setting depending on the subscription plan:<br> <table class='role-setting'> <caption><b>Essential / Advanced plan</b></caption> <tr><th><b>Value</b></th><th><b>Description</b></th></tr> <tr><td>`1`</td><td>Owner & Followers</td></tr> <tr><td>`3`</td><td>Entire company</td></tr> </table> <br> <table class='role-setting'> <caption><b>Professional / Enterprise plan</b></caption> <tr><th><b>Value</b></th><th><b>Description</b></th></tr> <tr><td>`1`</td><td>Owner only</td></tr> <tr><td>`3`</td><td>Owner&#39;s visibility group</td></tr> <tr><td>`5`</td><td>Owner&#39;s visibility group and sub-groups</td></tr> <tr><td>`7`</td><td>Entire company</td></tr> </table> <br> Read more about visibility groups <a href='https://support.pipedrive.com/en/article/visibility-groups'>here</a>.
+ * @member {module:model/AddOrUpdateRoleSettingRequest.ValueEnum} value
  */
 AddOrUpdateRoleSettingRequest.prototype['value'] = undefined;
 
@@ -103,6 +102,12 @@ AddOrUpdateRoleSettingRequest['SettingKeyEnum'] = {
     "deal_default_visibility": "deal_default_visibility",
 
     /**
+     * value: "lead_default_visibility"
+     * @const
+     */
+    "lead_default_visibility": "lead_default_visibility",
+
+    /**
      * value: "org_default_visibility"
      * @const
      */
@@ -119,6 +124,39 @@ AddOrUpdateRoleSettingRequest['SettingKeyEnum'] = {
      * @const
      */
     "product_default_visibility": "product_default_visibility"
+};
+
+
+/**
+ * Allowed values for the <code>value</code> property.
+ * @enum {Number}
+ * @readonly
+ */
+AddOrUpdateRoleSettingRequest['ValueEnum'] = {
+
+    /**
+     * value: 1
+     * @const
+     */
+    "1": 1,
+
+    /**
+     * value: 3
+     * @const
+     */
+    "3": 3,
+
+    /**
+     * value: 5
+     * @const
+     */
+    "5": 5,
+
+    /**
+     * value: 7
+     * @const
+     */
+    "7": 7
 };
 
 

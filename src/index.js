@@ -52,6 +52,7 @@ import AddNoteRequest from './model/AddNoteRequest';
 import AddNoteRequestAllOf from './model/AddNoteRequestAllOf';
 import AddOrUpdateGoalResponse200 from './model/AddOrUpdateGoalResponse200';
 import AddOrUpdateLeadLabelResponse200 from './model/AddOrUpdateLeadLabelResponse200';
+import AddOrUpdateRoleSettingRequest from './model/AddOrUpdateRoleSettingRequest';
 import AddOrganizationFollowerRequest from './model/AddOrganizationFollowerRequest';
 import AddOrganizationRelationshipRequest from './model/AddOrganizationRelationshipRequest';
 import AddPersonFollowerRequest from './model/AddPersonFollowerRequest';
@@ -63,6 +64,8 @@ import AddProductAttachmentDetails from './model/AddProductAttachmentDetails';
 import AddProductAttachmentDetailsAllOf from './model/AddProductAttachmentDetailsAllOf';
 import AddProductFollowerRequest from './model/AddProductFollowerRequest';
 import AddProductRequestBody from './model/AddProductRequestBody';
+import AddRole from './model/AddRole';
+import AddRoleAssignmentRequest from './model/AddRoleAssignmentRequest';
 import AddTeamUserRequest from './model/AddTeamUserRequest';
 import AddUserRequest from './model/AddUserRequest';
 import AddWebhookRequest from './model/AddWebhookRequest';
@@ -245,6 +248,7 @@ import DeleteRoleAllOfData from './model/DeleteRoleAllOfData';
 import DeleteRoleAssignment from './model/DeleteRoleAssignment';
 import DeleteRoleAssignmentAllOf from './model/DeleteRoleAssignmentAllOf';
 import DeleteRoleAssignmentAllOfData from './model/DeleteRoleAssignmentAllOfData';
+import DeleteRoleAssignmentRequest from './model/DeleteRoleAssignmentRequest';
 import DeleteStageResponse200 from './model/DeleteStageResponse200';
 import DeleteStageResponse200Data from './model/DeleteStageResponse200Data';
 import DeleteStagesResponse200 from './model/DeleteStagesResponse200';
@@ -689,6 +693,7 @@ import UpdateStageRequestAllOf from './model/UpdateStageRequestAllOf';
 import UpdateTeam from './model/UpdateTeam';
 import UpdateTeamAllOf from './model/UpdateTeamAllOf';
 import UpdateTeamWithAdditionalProperties from './model/UpdateTeamWithAdditionalProperties';
+import UpdateUserRequest from './model/UpdateUserRequest';
 import User from './model/User';
 import UserAccess from './model/UserAccess';
 import UserAllOf from './model/UserAllOf';
@@ -1033,6 +1038,12 @@ export {
     AddOrUpdateLeadLabelResponse200,
 
     /**
+     * The AddOrUpdateRoleSettingRequest model constructor.
+     * @property {module:model/AddOrUpdateRoleSettingRequest}
+     */
+    AddOrUpdateRoleSettingRequest,
+
+    /**
      * The AddOrganizationFollowerRequest model constructor.
      * @property {module:model/AddOrganizationFollowerRequest}
      */
@@ -1097,6 +1108,18 @@ export {
      * @property {module:model/AddProductRequestBody}
      */
     AddProductRequestBody,
+
+    /**
+     * The AddRole model constructor.
+     * @property {module:model/AddRole}
+     */
+    AddRole,
+
+    /**
+     * The AddRoleAssignmentRequest model constructor.
+     * @property {module:model/AddRoleAssignmentRequest}
+     */
+    AddRoleAssignmentRequest,
 
     /**
      * The AddTeamUserRequest model constructor.
@@ -2189,6 +2212,12 @@ export {
      * @property {module:model/DeleteRoleAssignmentAllOfData}
      */
     DeleteRoleAssignmentAllOfData,
+
+    /**
+     * The DeleteRoleAssignmentRequest model constructor.
+     * @property {module:model/DeleteRoleAssignmentRequest}
+     */
+    DeleteRoleAssignmentRequest,
 
     /**
      * The DeleteStageResponse200 model constructor.
@@ -4853,6 +4882,12 @@ export {
      * @property {module:model/UpdateTeamWithAdditionalProperties}
      */
     UpdateTeamWithAdditionalProperties,
+
+    /**
+     * The UpdateUserRequest model constructor.
+     * @property {module:model/UpdateUserRequest}
+     */
+    UpdateUserRequest,
 
     /**
      * The User model constructor.

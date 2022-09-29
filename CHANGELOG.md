@@ -8,6 +8,16 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## 17.1.4
+### Changed
+- Changed the content type to `application/json` in the following endpoints:
+  - `DELETE /roles/{id}/assignments`
+  - `POST /roles/{id}/settings`
+  - `PUT /roles/{id}`
+  - `POST /roles`
+  - `POST /roles/{id}/assignments`
+  - `PUT /users/{id}`
+
 ## 17.1.3
 ### Changed
 - Updated `PUT /users/{:id}`: required parameter `active_flag` has no default value

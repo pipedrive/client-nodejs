@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 ## addOrUpdateRoleSetting
 
-> PostRoleSettings addOrUpdateRoleSetting(id, settingKey, value)
+> PostRoleSettings addOrUpdateRoleSetting(id, opts)
 
 Add or update role setting
 
@@ -39,9 +39,10 @@ api_key.apiKey = 'YOUR API KEY';
 
 let apiInstance = new Pipedrive.RolesApi();
 let id = 56; // Number | The ID of the role
-let settingKey = "settingKey_example"; // String | 
-let value = 56; // Number | Possible values for the `default_visibility` setting depending on the subscription plan:<br> <table class='role-setting'> <caption><b>Essential / Advanced plan</b></caption> <tr><th><b>Value</b></th><th><b>Description</b></th></tr> <tr><td>`1`</td><td>Owner & Followers</td></tr> <tr><td>`3`</td><td>Entire company</td></tr> </table> <br> <table class='role-setting'> <caption><b>Professional / Enterprise plan</b></caption> <tr><th><b>Value</b></th><th><b>Description</b></th></tr> <tr><td>`1`</td><td>Owner only</td></tr> <tr><td>`3`</td><td>Owner&#39;s visibility group</td></tr> <tr><td>`5`</td><td>Owner&#39;s visibility group and sub-groups</td></tr> <tr><td>`7`</td><td>Entire company</td></tr> </table> <br> Read more about visibility groups <a href='https://support.pipedrive.com/en/article/visibility-groups'>here</a>.
-apiInstance.addOrUpdateRoleSetting(id, settingKey, value).then((data) => {
+let opts = Pipedrive.AddOrUpdateRoleSettingRequest.constructFromObject({
+  // Properties that you want to update
+});
+apiInstance.addOrUpdateRoleSetting(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -55,8 +56,7 @@ apiInstance.addOrUpdateRoleSetting(id, settingKey, value).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the role | 
- **settingKey** | **String**|  | 
- **value** | **Number**| Possible values for the &#x60;default_visibility&#x60; setting depending on the subscription plan:&lt;br&gt; &lt;table class&#x3D;&#39;role-setting&#39;&gt; &lt;caption&gt;&lt;b&gt;Essential / Advanced plan&lt;/b&gt;&lt;/caption&gt; &lt;tr&gt;&lt;th&gt;&lt;b&gt;Value&lt;/b&gt;&lt;/th&gt;&lt;th&gt;&lt;b&gt;Description&lt;/b&gt;&lt;/th&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&#x60;1&#x60;&lt;/td&gt;&lt;td&gt;Owner &amp; Followers&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&#x60;3&#x60;&lt;/td&gt;&lt;td&gt;Entire company&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; &lt;br&gt; &lt;table class&#x3D;&#39;role-setting&#39;&gt; &lt;caption&gt;&lt;b&gt;Professional / Enterprise plan&lt;/b&gt;&lt;/caption&gt; &lt;tr&gt;&lt;th&gt;&lt;b&gt;Value&lt;/b&gt;&lt;/th&gt;&lt;th&gt;&lt;b&gt;Description&lt;/b&gt;&lt;/th&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&#x60;1&#x60;&lt;/td&gt;&lt;td&gt;Owner only&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&#x60;3&#x60;&lt;/td&gt;&lt;td&gt;Owner&amp;#39;s visibility group&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&#x60;5&#x60;&lt;/td&gt;&lt;td&gt;Owner&amp;#39;s visibility group and sub-groups&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&#x60;7&#x60;&lt;/td&gt;&lt;td&gt;Entire company&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; &lt;br&gt; Read more about visibility groups &lt;a href&#x3D;&#39;https://support.pipedrive.com/en/article/visibility-groups&#39;&gt;here&lt;/a&gt;. | 
+ **addOrUpdateRoleSettingRequest** | [**AddOrUpdateRoleSettingRequest**](AddOrUpdateRoleSettingRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -90,10 +90,9 @@ api_key.apiKey = 'YOUR API KEY';
 //api_key.apiKeyPrefix = 'Token';
 
 let apiInstance = new Pipedrive.RolesApi();
-let opts = {
-  'parentRoleId': 56, // Number | The ID of the parent role
-  'name': "name_example" // String | The name of the role
-};
+let opts = Pipedrive.AddRole.constructFromObject({
+  // Properties that you want to update
+});
 apiInstance.addRole(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -107,8 +106,7 @@ apiInstance.addRole(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **parentRoleId** | **Number**| The ID of the parent role | [optional] 
- **name** | **String**| The name of the role | [optional] 
+ **addRole** | [**AddRole**](AddRole.md)|  | [optional] 
 
 ### Return type
 
@@ -120,13 +118,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## addRoleAssignment
 
-> PostRoleAssignment addRoleAssignment(id, userId)
+> PostRoleAssignment addRoleAssignment(id, opts)
 
 Add role assignment
 
@@ -145,8 +143,10 @@ api_key.apiKey = 'YOUR API KEY';
 
 let apiInstance = new Pipedrive.RolesApi();
 let id = 56; // Number | The ID of the role
-let userId = 56; // Number | The ID of the user
-apiInstance.addRoleAssignment(id, userId).then((data) => {
+let opts = Pipedrive.AddRoleAssignmentRequest.constructFromObject({
+  // Properties that you want to update
+});
+apiInstance.addRoleAssignment(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -160,7 +160,7 @@ apiInstance.addRoleAssignment(id, userId).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the role | 
- **userId** | **Number**| The ID of the user | 
+ **addRoleAssignmentRequest** | [**AddRoleAssignmentRequest**](AddRoleAssignmentRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -226,7 +226,7 @@ Name | Type | Description  | Notes
 
 ## deleteRoleAssignment
 
-> DeleteRoleAssignment deleteRoleAssignment(id, userId)
+> DeleteRoleAssignment deleteRoleAssignment(id, opts)
 
 Delete a role assignment
 
@@ -245,8 +245,10 @@ api_key.apiKey = 'YOUR API KEY';
 
 let apiInstance = new Pipedrive.RolesApi();
 let id = 56; // Number | The ID of the role
-let userId = 56; // Number | The ID of the user
-apiInstance.deleteRoleAssignment(id, userId).then((data) => {
+let opts = Pipedrive.DeleteRoleAssignmentRequest.constructFromObject({
+  // Properties that you want to update
+});
+apiInstance.deleteRoleAssignment(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -260,7 +262,7 @@ apiInstance.deleteRoleAssignment(id, userId).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the role | 
- **userId** | **Number**| The ID of the user | 
+ **deleteRoleAssignmentRequest** | [**DeleteRoleAssignmentRequest**](DeleteRoleAssignmentRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -272,7 +274,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -553,10 +555,9 @@ api_key.apiKey = 'YOUR API KEY';
 
 let apiInstance = new Pipedrive.RolesApi();
 let id = 56; // Number | The ID of the role
-let opts = {
-  'parentRoleId': 56, // Number | The ID of the parent role
-  'name': "name_example" // String | The name of the role
-};
+let opts = Pipedrive.BaseRole.constructFromObject({
+  // Properties that you want to update
+});
 apiInstance.updateRole(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -571,8 +572,7 @@ apiInstance.updateRole(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the role | 
- **parentRoleId** | **Number**| The ID of the parent role | [optional] 
- **name** | **String**| The name of the role | [optional] 
+ **baseRole** | [**BaseRole**](BaseRole.md)|  | [optional] 
 
 ### Return type
 
@@ -584,6 +584,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 

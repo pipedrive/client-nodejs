@@ -14,19 +14,19 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The AddRoleAssignmentRequest model module.
- * @module model/AddRoleAssignmentRequest
+ * The DeleteRoleAssignmentRequest model module.
+ * @module model/DeleteRoleAssignmentRequest
  * @version 1.0.0
  */
-class AddRoleAssignmentRequest {
+class DeleteRoleAssignmentRequest {
     /**
-     * Constructs a new <code>AddRoleAssignmentRequest</code>.
-     * @alias module:model/AddRoleAssignmentRequest
+     * Constructs a new <code>DeleteRoleAssignmentRequest</code>.
+     * @alias module:model/DeleteRoleAssignmentRequest
      * @param userId {Number} The ID of the user
      */
     constructor(userId) { 
         
-        AddRoleAssignmentRequest.initialize(this, userId);
+        DeleteRoleAssignmentRequest.initialize(this, userId);
     }
 
     /**
@@ -39,15 +39,15 @@ class AddRoleAssignmentRequest {
     }
 
     /**
-     * Constructs a <code>AddRoleAssignmentRequest</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>DeleteRoleAssignmentRequest</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/AddRoleAssignmentRequest} obj Optional instance to populate.
-     * @return {module:model/AddRoleAssignmentRequest} The populated <code>AddRoleAssignmentRequest</code> instance.
+     * @param {module:model/DeleteRoleAssignmentRequest} obj Optional instance to populate.
+     * @return {module:model/DeleteRoleAssignmentRequest} The populated <code>DeleteRoleAssignmentRequest</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new AddRoleAssignmentRequest();
+            obj = obj || new DeleteRoleAssignmentRequest();
 
             if (data.hasOwnProperty('user_id')) {
                 obj['user_id'] = ApiClient.convertToType(data['user_id'], 'Number');
@@ -70,12 +70,12 @@ class AddRoleAssignmentRequest {
  * The ID of the user
  * @member {Number} user_id
  */
-AddRoleAssignmentRequest.prototype['user_id'] = undefined;
+DeleteRoleAssignmentRequest.prototype['user_id'] = undefined;
 
 
 
 
 
 
-export default AddRoleAssignmentRequest;
+export default DeleteRoleAssignmentRequest;
 

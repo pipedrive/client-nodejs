@@ -606,7 +606,7 @@ This endpoint does not need any parameter.
 
 ## updateUser
 
-> User updateUser(id, activeFlag)
+> User updateUser(id, opts)
 
 Update user details
 
@@ -628,8 +628,10 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.UsersApi();
 let id = 56; // Number | The ID of the user
-let activeFlag = true; // Boolean | Whether the user is active or not. `false` = Not activated, `true` = Activated
-apiInstance.updateUser(id, activeFlag).then((data) => {
+let opts = Pipedrive.UpdateUserRequest.constructFromObject({
+  // Properties that you want to update
+});
+apiInstance.updateUser(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -643,7 +645,7 @@ apiInstance.updateUser(id, activeFlag).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the user | 
- **activeFlag** | **Boolean**| Whether the user is active or not. &#x60;false&#x60; &#x3D; Not activated, &#x60;true&#x60; &#x3D; Activated | 
+ **updateUserRequest** | [**UpdateUserRequest**](UpdateUserRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -655,6 +657,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 
