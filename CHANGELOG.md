@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## 17.1.5
+### Changed
+- Added and updated the descriptions of roles endpoints
+
 ## 17.1.4
 ### Changed
 - Changed the content type to `application/json` in the following endpoints:

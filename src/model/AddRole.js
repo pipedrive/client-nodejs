@@ -50,15 +50,15 @@ class AddRole {
         if (data) {
             obj = obj || new AddRole();
 
-            if (data.hasOwnProperty('parent_role_id')) {
-                obj['parent_role_id'] = ApiClient.convertToType(data['parent_role_id'], 'Number');
-
-                delete data['parent_role_id'];
-            }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
 
                 delete data['name'];
+            }
+            if (data.hasOwnProperty('parent_role_id')) {
+                obj['parent_role_id'] = ApiClient.convertToType(data['parent_role_id'], 'Number');
+
+                delete data['parent_role_id'];
             }
 
             if (Object.keys(data).length > 0) {
@@ -73,16 +73,16 @@ class AddRole {
 }
 
 /**
- * The ID of the parent role
- * @member {Number} parent_role_id
- */
-AddRole.prototype['parent_role_id'] = undefined;
-
-/**
  * The name of the role
  * @member {String} name
  */
 AddRole.prototype['name'] = undefined;
+
+/**
+ * The ID of the parent role
+ * @member {Number} parent_role_id
+ */
+AddRole.prototype['parent_role_id'] = undefined;
 
 
 
