@@ -21,6 +21,7 @@ import GetRoleSettings from '../model/GetRoleSettings';
 import NumberBooleanDefault0 from '../model/NumberBooleanDefault0';
 import PostRoleAssignment from '../model/PostRoleAssignment';
 import Unauthorized from '../model/Unauthorized';
+import UpdateUserRequest from '../model/UpdateUserRequest';
 import User from '../model/User';
 import UserIDs from '../model/UserIDs';
 import UserMe from '../model/UserMe';
@@ -795,21 +796,21 @@ export default class UsersApi {
      * Update user details
      * Updates the properties of a user. Currently, only `active_flag` can be updated.
      * @param {Number} id The ID of the user
-     * @param {Boolean} activeFlag Whether the user is active or not. `false` = Not activated, `true` = Activated
+     * @param {Object} opts Optional parameters
+     * @param {module:model/UpdateUserRequest} opts.updateUserRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/User} and HTTP response
      */
-    updateUserWithHttpInfo(id, activeFlag) {
-      const opts = {}
-      let postBody = null;
+    updateUserWithHttpInfo(id, opts) {
+      opts = opts || {};
+      let postBody = opts['updateUserRequest'];
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateUser");
       }
 
-      // verify the required parameter 'activeFlag' is set
-      if (activeFlag === undefined || activeFlag === null) {
-        throw new Error("Missing the required parameter 'activeFlag' when calling updateUser");
+      if (opts['active_flag'] === undefined || opts['active_flag'] === null) {
+        throw new Error("Missing the required parameter 'active_flag' when calling updateUser");
       }
 
       let pathParams = {
@@ -820,14 +821,12 @@ export default class UsersApi {
       let headerParams = {
       };
       let formParams = {
-        'active_flag': activeFlag,
       };
 
       let formParamArray = [
-        'activeFlag',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded', ];
+      let contentTypes = ['application/json', ];
       const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
       const isJSON = contentTypes.includes('application/json');
 
@@ -855,11 +854,12 @@ export default class UsersApi {
      * Update user details
      * Updates the properties of a user. Currently, only `active_flag` can be updated.
      * @param {Number} id The ID of the user
-     * @param {Boolean} activeFlag Whether the user is active or not. `false` = Not activated, `true` = Activated
+     * @param {Object} opts Optional parameters
+     * @param {module:model/UpdateUserRequest} opts.updateUserRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/User}
      */
-    updateUser(id, activeFlag) {
-      return this.updateUserWithHttpInfo(id, activeFlag)
+    updateUser(id, opts) {
+      return this.updateUserWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data;
         });

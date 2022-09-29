@@ -35,7 +35,7 @@ class UpdateUserRequest {
      * Only for internal use.
      */
     static initialize(obj, activeFlag) { 
-        obj['active_flag'] = activeFlag || true;
+        obj['active_flag'] = activeFlag;
     }
 
     /**
@@ -56,7 +56,7 @@ class UpdateUserRequest {
             }
 
             if (Object.keys(data).length > 0) {
-                obj['extra'] = data;
+                Object.assign(obj, data);
             }
 
         }
@@ -69,9 +69,8 @@ class UpdateUserRequest {
 /**
  * Whether the user is active or not. `false` = Not activated, `true` = Activated
  * @member {Boolean} active_flag
- * @default true
  */
-UpdateUserRequest.prototype['active_flag'] = true;
+UpdateUserRequest.prototype['active_flag'] = undefined;
 
 
 

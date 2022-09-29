@@ -1,4 +1,4 @@
-# Pipedrive.AddRoleAssignmentRequest
+# Pipedrive.DeleteRoleAssignmentRequest
 
 ## Properties
 
