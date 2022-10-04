@@ -91,7 +91,7 @@ class LeadSearchItemItem {
                 delete data['emails'];
             }
             if (data.hasOwnProperty('custom_fields')) {
-                obj['custom_fields'] = ApiClient.convertToType(data['custom_fields'], 'Number');
+                obj['custom_fields'] = ApiClient.convertToType(data['custom_fields'], ['String']);
 
                 delete data['custom_fields'];
             }
@@ -177,7 +177,7 @@ LeadSearchItemItem.prototype['emails'] = undefined;
 
 /**
  * Custom fields
- * @member {Number} custom_fields
+ * @member {Array.<String>} custom_fields
  */
 LeadSearchItemItem.prototype['custom_fields'] = undefined;
 

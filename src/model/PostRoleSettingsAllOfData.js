@@ -94,34 +94,28 @@ PostRoleSettingsAllOfData.prototype['deal_default_visibility'] = undefined;
 PostRoleSettingsAllOfData['DealDefaultVisibilityEnum'] = {
 
     /**
-     * value: null
+     * value: 1
      * @const
      */
-    "null": null,
+    "1": 1,
 
     /**
-     * value: null
+     * value: 3
      * @const
      */
-    "null": null,
+    "3": 3,
 
     /**
-     * value: null
+     * value: 5
      * @const
      */
-    "null": null,
+    "5": 5,
 
     /**
-     * value: null
+     * value: 7
      * @const
      */
-    "null": null,
-
-    /**
-     * value: null
-     * @const
-     */
-    "null": null
+    "7": 7
 };
 
 

@@ -12,6 +12,6 @@ Name | Type | Description | Notes
 **editFlag** | **Boolean** | The edit flag of the field | [optional] 
 **bulkEditAllowed** | **Boolean** | Not used | [optional] 
 **mandatoryFlag** | **Boolean** | Whether or not the field is mandatory | [optional] 
-**options** | **[Object]** | The options of the field. When there are no options, &#x60;null&#x60; is returned. | [optional] 
+**options** | [**[NoteFieldOptions]**](NoteFieldOptions.md) | The options of the field. When there are no options, &#x60;null&#x60; is returned. | [optional] 
 
 

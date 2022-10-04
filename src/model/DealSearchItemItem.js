@@ -72,7 +72,7 @@ class DealSearchItemItem {
                 delete data['value'];
             }
             if (data.hasOwnProperty('currency')) {
-                obj['currency'] = ApiClient.convertToType(data['currency'], 'Number');
+                obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
 
                 delete data['currency'];
             }
@@ -107,7 +107,7 @@ class DealSearchItemItem {
                 delete data['organization'];
             }
             if (data.hasOwnProperty('custom_fields')) {
-                obj['custom_fields'] = ApiClient.convertToType(data['custom_fields'], 'Number');
+                obj['custom_fields'] = ApiClient.convertToType(data['custom_fields'], ['String']);
 
                 delete data['custom_fields'];
             }
@@ -154,7 +154,7 @@ DealSearchItemItem.prototype['value'] = undefined;
 
 /**
  * The currency of the deal
- * @member {Number} currency
+ * @member {String} currency
  */
 DealSearchItemItem.prototype['currency'] = undefined;
 
@@ -192,7 +192,7 @@ DealSearchItemItem.prototype['organization'] = undefined;
 
 /**
  * Custom fields
- * @member {Number} custom_fields
+ * @member {Array.<String>} custom_fields
  */
 DealSearchItemItem.prototype['custom_fields'] = undefined;
 

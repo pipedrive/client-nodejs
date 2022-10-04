@@ -363,6 +363,7 @@ import GoalResults from './model/GoalResults';
 import GoalType from './model/GoalType';
 import GoalsResponseComponent from './model/GoalsResponseComponent';
 import IconKey from './model/IconKey';
+import InlineResponse200 from './model/InlineResponse200';
 import InlineResponse400 from './model/InlineResponse400';
 import InlineResponse4001 from './model/InlineResponse4001';
 import InlineResponse4001AdditionalData from './model/InlineResponse4001AdditionalData';
@@ -476,6 +477,7 @@ import NoteAllOf from './model/NoteAllOf';
 import NoteConnectToParams from './model/NoteConnectToParams';
 import NoteCreatorUser from './model/NoteCreatorUser';
 import NoteField from './model/NoteField';
+import NoteFieldOptions from './model/NoteFieldOptions';
 import NoteFieldsResponse from './model/NoteFieldsResponse';
 import NoteFieldsResponseAllOf from './model/NoteFieldsResponseAllOf';
 import NoteParams from './model/NoteParams';
@@ -543,7 +545,6 @@ import Params from './model/Params';
 import PaymentItem from './model/PaymentItem';
 import PaymentsResponse from './model/PaymentsResponse';
 import PaymentsResponseAllOf from './model/PaymentsResponseAllOf';
-import PaymentsResponseAllOfData from './model/PaymentsResponseAllOfData';
 import PermissionSets from './model/PermissionSets';
 import PermissionSetsAllOf from './model/PermissionSetsAllOf';
 import PermissionSetsItem from './model/PermissionSetsItem';
@@ -2904,6 +2905,12 @@ export {
     IconKey,
 
     /**
+     * The InlineResponse200 model constructor.
+     * @property {module:model/InlineResponse200}
+     */
+    InlineResponse200,
+
+    /**
      * The InlineResponse400 model constructor.
      * @property {module:model/InlineResponse400}
      */
@@ -3582,6 +3589,12 @@ export {
     NoteField,
 
     /**
+     * The NoteFieldOptions model constructor.
+     * @property {module:model/NoteFieldOptions}
+     */
+    NoteFieldOptions,
+
+    /**
      * The NoteFieldsResponse model constructor.
      * @property {module:model/NoteFieldsResponse}
      */
@@ -3982,12 +3995,6 @@ export {
      * @property {module:model/PaymentsResponseAllOf}
      */
     PaymentsResponseAllOf,
-
-    /**
-     * The PaymentsResponseAllOfData model constructor.
-     * @property {module:model/PaymentsResponseAllOfData}
-     */
-    PaymentsResponseAllOfData,
 
     /**
      * The PermissionSets model constructor.

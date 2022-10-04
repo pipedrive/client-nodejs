@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **visibleTo** | **Number** | The visibility of the person | [optional] 
 **owner** | [**PersonSearchItemItemOwner**](PersonSearchItemItemOwner.md) |  | [optional] 
 **organization** | [**PersonSearchItemItemOrganization**](PersonSearchItemItemOrganization.md) |  | [optional] 
-**customFields** | **Number** | Custom fields | [optional] 
+**customFields** | **[String]** | Custom fields | [optional] 
 **notes** | **[String]** | An array of notes | [optional] 
 
 

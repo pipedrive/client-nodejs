@@ -99,7 +99,7 @@ class FileItem {
                 delete data['file_name'];
             }
             if (data.hasOwnProperty('file_size')) {
-                obj['file_size'] = ApiClient.convertToType(data['file_size'], 'String');
+                obj['file_size'] = ApiClient.convertToType(data['file_size'], 'Number');
 
                 delete data['file_size'];
             }
@@ -252,7 +252,7 @@ FileItem.prototype['file_name'] = undefined;
 
 /**
  * The size of the file
- * @member {String} file_size
+ * @member {Number} file_size
  */
 FileItem.prototype['file_size'] = undefined;
 

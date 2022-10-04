@@ -13,8 +13,8 @@
 
 import ApiClient from '../ApiClient';
 import BaseResponse from './BaseResponse';
+import PaymentItem from './PaymentItem';
 import PaymentsResponseAllOf from './PaymentsResponseAllOf';
-import PaymentsResponseAllOfData from './PaymentsResponseAllOfData';
 
 /**
  * The PaymentsResponse model module.
@@ -60,7 +60,7 @@ class PaymentsResponse {
                 delete data['success'];
             }
             if (data.hasOwnProperty('data')) {
-                obj['data'] = PaymentsResponseAllOfData.constructFromObject(data['data']);
+                obj['data'] = ApiClient.convertToType(data['data'], [PaymentItem]);
 
                 delete data['data'];
             }
@@ -83,7 +83,7 @@ class PaymentsResponse {
 PaymentsResponse.prototype['success'] = undefined;
 
 /**
- * @member {module:model/PaymentsResponseAllOfData} data
+ * @member {Array.<module:model/PaymentItem>} data
  */
 PaymentsResponse.prototype['data'] = undefined;
 
@@ -96,7 +96,7 @@ PaymentsResponse.prototype['data'] = undefined;
 BaseResponse.prototype['success'] = undefined;
 // Implement PaymentsResponseAllOf interface:
 /**
- * @member {module:model/PaymentsResponseAllOfData} data
+ * @member {Array.<module:model/PaymentItem>} data
  */
 PaymentsResponseAllOf.prototype['data'] = undefined;
 

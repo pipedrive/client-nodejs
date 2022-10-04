@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **addTime** | **String** | The date and time when the file was added/created. Format: YYYY-MM-DD HH:MM:SS | [optional] 
 **updateTime** | **String** | The last updated date and time of the file. Format: YYYY-MM-DD HH:MM:SS | [optional] 
 **fileName** | **String** | The original name of the file | [optional] 
-**fileSize** | **String** | The size of the file | [optional] 
+**fileSize** | **Number** | The size of the file | [optional] 
 **activeFlag** | **Boolean** | Whether the user is active or not. false &#x3D; Not activated, true &#x3D; Activated | [optional] 
 **inlineFlag** | **Boolean** | Whether the file was uploaded as inline or not | [optional] 
 **remoteLocation** | **String** | The location type to send the file to. Only googledrive is supported at the moment. | [optional] 
