@@ -493,8 +493,6 @@ Class | Method | HTTP request | Description
 *Pipedrive.UserConnectionsApi* | [**getUserConnections**](docs/UserConnectionsApi.md#getUserConnections) | **GET** /userConnections | Get all user connections
 *Pipedrive.UserSettingsApi* | [**getUserSettings**](docs/UserSettingsApi.md#getUserSettings) | **GET** /userSettings | List settings of an authorized user
 *Pipedrive.UsersApi* | [**addUser**](docs/UsersApi.md#addUser) | **POST** /users | Add a new user
-*Pipedrive.UsersApi* | [**addUserRoleAssignment**](docs/UsersApi.md#addUserRoleAssignment) | **POST** /users/{id}/roleAssignments | Add role assignment
-*Pipedrive.UsersApi* | [**deleteUserRoleAssignment**](docs/UsersApi.md#deleteUserRoleAssignment) | **DELETE** /users/{id}/roleAssignments | Delete a role assignment
 *Pipedrive.UsersApi* | [**findUsersByName**](docs/UsersApi.md#findUsersByName) | **GET** /users/find | Find users by name
 *Pipedrive.UsersApi* | [**getCurrentUser**](docs/UsersApi.md#getCurrentUser) | **GET** /users/me | Get current user data
 *Pipedrive.UsersApi* | [**getUser**](docs/UsersApi.md#getUser) | **GET** /users/{id} | Get one user
@@ -861,6 +859,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.GoalType](docs/GoalType.md)
  - [Pipedrive.GoalsResponseComponent](docs/GoalsResponseComponent.md)
  - [Pipedrive.IconKey](docs/IconKey.md)
+ - [Pipedrive.InlineResponse200](docs/InlineResponse200.md)
  - [Pipedrive.InlineResponse400](docs/InlineResponse400.md)
  - [Pipedrive.InlineResponse4001](docs/InlineResponse4001.md)
  - [Pipedrive.InlineResponse4001AdditionalData](docs/InlineResponse4001AdditionalData.md)
@@ -974,6 +973,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.NoteConnectToParams](docs/NoteConnectToParams.md)
  - [Pipedrive.NoteCreatorUser](docs/NoteCreatorUser.md)
  - [Pipedrive.NoteField](docs/NoteField.md)
+ - [Pipedrive.NoteFieldOptions](docs/NoteFieldOptions.md)
  - [Pipedrive.NoteFieldsResponse](docs/NoteFieldsResponse.md)
  - [Pipedrive.NoteFieldsResponseAllOf](docs/NoteFieldsResponseAllOf.md)
  - [Pipedrive.NoteParams](docs/NoteParams.md)
@@ -1041,7 +1041,6 @@ Class | Method | HTTP request | Description
  - [Pipedrive.PaymentItem](docs/PaymentItem.md)
  - [Pipedrive.PaymentsResponse](docs/PaymentsResponse.md)
  - [Pipedrive.PaymentsResponseAllOf](docs/PaymentsResponseAllOf.md)
- - [Pipedrive.PaymentsResponseAllOfData](docs/PaymentsResponseAllOfData.md)
  - [Pipedrive.PermissionSets](docs/PermissionSets.md)
  - [Pipedrive.PermissionSetsAllOf](docs/PermissionSetsAllOf.md)
  - [Pipedrive.PermissionSetsItem](docs/PermissionSetsItem.md)

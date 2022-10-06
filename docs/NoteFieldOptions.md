@@ -1,9 +1,10 @@
-# Pipedrive.PaymentsResponseAllOf
+# Pipedrive.NoteFieldOptions
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[PaymentItem]**](PaymentItem.md) |  | [optional] 
+**id** | **Number** |  | [optional] 
+**label** | **String** |  | [optional] 
 
 

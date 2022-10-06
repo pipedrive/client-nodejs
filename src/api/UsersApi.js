@@ -14,12 +14,10 @@
 
 import ApiClient from "../ApiClient";
 import AddUserRequest from '../model/AddUserRequest';
-import DeleteRoleAssignment from '../model/DeleteRoleAssignment';
 import FailResponse from '../model/FailResponse';
 import GetRoleAssignments from '../model/GetRoleAssignments';
 import GetRoleSettings from '../model/GetRoleSettings';
 import NumberBooleanDefault0 from '../model/NumberBooleanDefault0';
-import PostRoleAssignment from '../model/PostRoleAssignment';
 import Unauthorized from '../model/Unauthorized';
 import UpdateUserRequest from '../model/UpdateUserRequest';
 import User from '../model/User';
@@ -108,156 +106,6 @@ export default class UsersApi {
      */
     addUser(opts) {
       return this.addUserWithHttpInfo(opts)
-        .then(function(response_and_data) {
-          return response_and_data;
-        });
-    }
-
-
-    /**
-     * Add role assignment
-     * Adds a role assignment for a user.
-     * @param {Number} id The ID of the user
-     * @param {Number} roleId The ID of the role
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PostRoleAssignment} and HTTP response
-     */
-    addUserRoleAssignmentWithHttpInfo(id, roleId) {
-      const opts = {}
-      let postBody = null;
-
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling addUserRoleAssignment");
-      }
-
-      // verify the required parameter 'roleId' is set
-      if (roleId === undefined || roleId === null) {
-        throw new Error("Missing the required parameter 'roleId' when calling addUserRoleAssignment");
-      }
-
-      let pathParams = {
-        'id': id,
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-        'role_id': roleId,
-      };
-
-      let formParamArray = [
-        'roleId',
-      ];
-
-      let contentTypes = ['application/x-www-form-urlencoded', ];
-      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
-      const isJSON = contentTypes.includes('application/json');
-
-      if (isJSON) {
-        postBody = { ...postBody, ...opts };
-      } else if (isURLEncoded) {
-        for (let key in opts) {
-          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
-            formParams[key] = opts[key];
-          }
-        }
-      }
-
-      let authNames = ['api_key', ];
-      let accepts = ['application/json', ];
-      let returnType = PostRoleAssignment;
-      return this.apiClient.callApi(
-        '/users/{id}/roleAssignments', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Add role assignment
-     * Adds a role assignment for a user.
-     * @param {Number} id The ID of the user
-     * @param {Number} roleId The ID of the role
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PostRoleAssignment}
-     */
-    addUserRoleAssignment(id, roleId) {
-      return this.addUserRoleAssignmentWithHttpInfo(id, roleId)
-        .then(function(response_and_data) {
-          return response_and_data;
-        });
-    }
-
-
-    /**
-     * Delete a role assignment
-     * Deletes a role assignment for a user.
-     * @param {Number} id The ID of the user
-     * @param {Number} roleId The ID of the role
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteRoleAssignment} and HTTP response
-     */
-    deleteUserRoleAssignmentWithHttpInfo(id, roleId) {
-      const opts = {}
-      let postBody = null;
-
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling deleteUserRoleAssignment");
-      }
-
-      // verify the required parameter 'roleId' is set
-      if (roleId === undefined || roleId === null) {
-        throw new Error("Missing the required parameter 'roleId' when calling deleteUserRoleAssignment");
-      }
-
-      let pathParams = {
-        'id': id,
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-        'role_id': roleId,
-      };
-
-      let formParamArray = [
-        'roleId',
-      ];
-
-      let contentTypes = ['application/x-www-form-urlencoded', ];
-      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
-      const isJSON = contentTypes.includes('application/json');
-
-      if (isJSON) {
-        postBody = { ...postBody, ...opts };
-      } else if (isURLEncoded) {
-        for (let key in opts) {
-          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
-            formParams[key] = opts[key];
-          }
-        }
-      }
-
-      let authNames = ['api_key', ];
-      let accepts = ['application/json', ];
-      let returnType = DeleteRoleAssignment;
-      return this.apiClient.callApi(
-        '/users/{id}/roleAssignments', 'DELETE',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Delete a role assignment
-     * Deletes a role assignment for a user.
-     * @param {Number} id The ID of the user
-     * @param {Number} roleId The ID of the role
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteRoleAssignment}
-     */
-    deleteUserRoleAssignment(id, roleId) {
-      return this.deleteUserRoleAssignmentWithHttpInfo(id, roleId)
         .then(function(response_and_data) {
           return response_and_data;
         });

@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 
 ## receiveMessage
 
-> MessageObject receiveMessage(opts)
+> InlineResponse200 receiveMessage(opts)
 
 Receives an incoming message
 
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MessageObject**](MessageObject.md)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 

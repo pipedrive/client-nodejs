@@ -54,7 +54,7 @@ class ChannelObjectResponse {
                 delete data['success'];
             }
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [ChannelObjectResponseData]);
+                obj['data'] = ChannelObjectResponseData.constructFromObject(data['data']);
 
                 delete data['data'];
             }
@@ -76,7 +76,7 @@ class ChannelObjectResponse {
 ChannelObjectResponse.prototype['success'] = undefined;
 
 /**
- * @member {Array.<module:model/ChannelObjectResponseData>} data
+ * @member {module:model/ChannelObjectResponseData} data
  */
 ChannelObjectResponse.prototype['data'] = undefined;
 

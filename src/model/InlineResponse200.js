@@ -12,21 +12,21 @@
  */
 
 import ApiClient from '../ApiClient';
-import PaymentItem from './PaymentItem';
+import MessageObject from './MessageObject';
 
 /**
- * The PaymentsResponseAllOf model module.
- * @module model/PaymentsResponseAllOf
+ * The InlineResponse200 model module.
+ * @module model/InlineResponse200
  * @version 1.0.0
  */
-class PaymentsResponseAllOf {
+class InlineResponse200 {
     /**
-     * Constructs a new <code>PaymentsResponseAllOf</code>.
-     * @alias module:model/PaymentsResponseAllOf
+     * Constructs a new <code>InlineResponse200</code>.
+     * @alias module:model/InlineResponse200
      */
     constructor() { 
         
-        PaymentsResponseAllOf.initialize(this);
+        InlineResponse200.initialize(this);
     }
 
     /**
@@ -38,18 +38,23 @@ class PaymentsResponseAllOf {
     }
 
     /**
-     * Constructs a <code>PaymentsResponseAllOf</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>InlineResponse200</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/PaymentsResponseAllOf} obj Optional instance to populate.
-     * @return {module:model/PaymentsResponseAllOf} The populated <code>PaymentsResponseAllOf</code> instance.
+     * @param {module:model/InlineResponse200} obj Optional instance to populate.
+     * @return {module:model/InlineResponse200} The populated <code>InlineResponse200</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new PaymentsResponseAllOf();
+            obj = obj || new InlineResponse200();
 
+            if (data.hasOwnProperty('success')) {
+                obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
+
+                delete data['success'];
+            }
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [PaymentItem]);
+                obj['data'] = MessageObject.constructFromObject(data['data']);
 
                 delete data['data'];
             }
@@ -66,14 +71,20 @@ class PaymentsResponseAllOf {
 }
 
 /**
- * @member {Array.<module:model/PaymentItem>} data
+ * If the request was successful or not
+ * @member {Boolean} success
  */
-PaymentsResponseAllOf.prototype['data'] = undefined;
+InlineResponse200.prototype['success'] = undefined;
+
+/**
+ * @member {module:model/MessageObject} data
+ */
+InlineResponse200.prototype['data'] = undefined;
 
 
 
 
 
 
-export default PaymentsResponseAllOf;
+export default InlineResponse200;
 

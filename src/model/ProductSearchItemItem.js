@@ -79,7 +79,7 @@ class ProductSearchItemItem {
                 delete data['owner'];
             }
             if (data.hasOwnProperty('custom_fields')) {
-                obj['custom_fields'] = ApiClient.convertToType(data['custom_fields'], 'Number');
+                obj['custom_fields'] = ApiClient.convertToType(data['custom_fields'], ['String']);
 
                 delete data['custom_fields'];
             }
@@ -132,7 +132,7 @@ ProductSearchItemItem.prototype['owner'] = undefined;
 
 /**
  * The custom fields
- * @member {Number} custom_fields
+ * @member {Array.<String>} custom_fields
  */
 ProductSearchItemItem.prototype['custom_fields'] = undefined;
 

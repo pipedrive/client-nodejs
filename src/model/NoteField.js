@@ -13,6 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import FieldTypeAsString from './FieldTypeAsString';
+import NoteFieldOptions from './NoteFieldOptions';
 
 /**
  * The NoteField model module.
@@ -89,7 +90,7 @@ class NoteField {
                 delete data['mandatory_flag'];
             }
             if (data.hasOwnProperty('options')) {
-                obj['options'] = ApiClient.convertToType(data['options'], [Object]);
+                obj['options'] = ApiClient.convertToType(data['options'], [NoteFieldOptions]);
 
                 delete data['options'];
             }
@@ -154,7 +155,7 @@ NoteField.prototype['mandatory_flag'] = undefined;
 
 /**
  * The options of the field. When there are no options, `null` is returned.
- * @member {Array.<Object>} options
+ * @member {Array.<module:model/NoteFieldOptions>} options
  */
 NoteField.prototype['options'] = undefined;
 

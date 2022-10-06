@@ -12,15 +12,13 @@ Name | Type | Description | Notes
 ## Enum: DealDefaultVisibilityEnum
 
 
-* `null` (value: `null`)
+* `1` (value: `1`)
 
-* `null` (value: `null`)
+* `3` (value: `3`)
 
-* `null` (value: `null`)
+* `5` (value: `5`)
 
-* `null` (value: `null`)
-
-* `null` (value: `null`)
+* `7` (value: `7`)
 
 
 

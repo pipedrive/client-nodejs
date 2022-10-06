@@ -69,7 +69,7 @@ class OrganizationFollowerItem {
                 delete data['id'];
             }
             if (data.hasOwnProperty('add_time')) {
-                obj['add_time'] = ApiClient.convertToType(data['add_time'], 'Number');
+                obj['add_time'] = ApiClient.convertToType(data['add_time'], 'Date');
 
                 delete data['add_time'];
             }
@@ -105,7 +105,7 @@ OrganizationFollowerItem.prototype['id'] = undefined;
 
 /**
  * The date and time of adding the follower to the item
- * @member {Number} add_time
+ * @member {Date} add_time
  */
 OrganizationFollowerItem.prototype['add_time'] = undefined;
 
@@ -129,7 +129,7 @@ BaseFollowerItem.prototype['user_id'] = undefined;
 BaseFollowerItem.prototype['id'] = undefined;
 /**
  * The date and time of adding the follower to the item
- * @member {Number} add_time
+ * @member {Date} add_time
  */
 BaseFollowerItem.prototype['add_time'] = undefined;
 
