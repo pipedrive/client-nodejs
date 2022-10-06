@@ -57,7 +57,7 @@ class GoalsResponseComponent {
                 delete data['id'];
             }
             if (data.hasOwnProperty('owner_id')) {
-                obj['owner_id'] = ApiClient.convertToType(data['owner_id'], 'String');
+                obj['owner_id'] = ApiClient.convertToType(data['owner_id'], 'Number');
 
                 delete data['owner_id'];
             }
@@ -97,7 +97,7 @@ class GoalsResponseComponent {
                 delete data['is_active'];
             }
             if (data.hasOwnProperty('report_ids')) {
-                obj['report_ids'] = ApiClient.convertToType(data['report_ids'], ['Number']);
+                obj['report_ids'] = ApiClient.convertToType(data['report_ids'], ['String']);
 
                 delete data['report_ids'];
             }
@@ -121,7 +121,7 @@ GoalsResponseComponent.prototype['id'] = undefined;
 
 /**
  * The ID of the creator of the goal
- * @member {String} owner_id
+ * @member {Number} owner_id
  */
 GoalsResponseComponent.prototype['owner_id'] = undefined;
 
@@ -165,7 +165,7 @@ GoalsResponseComponent.prototype['is_active'] = undefined;
 
 /**
  * The IDs of the reports that belong to the goal
- * @member {Array.<Number>} report_ids
+ * @member {Array.<String>} report_ids
  */
 GoalsResponseComponent.prototype['report_ids'] = undefined;
 

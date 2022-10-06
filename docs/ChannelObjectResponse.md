@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **success** | **Boolean** |  | [optional] 
-**data** | [**[ChannelObjectResponseData]**](ChannelObjectResponseData.md) |  | [optional] 
+**data** | [**ChannelObjectResponseData**](ChannelObjectResponseData.md) |  | [optional] 
 
 

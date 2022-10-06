@@ -10,6 +10,6 @@ Name | Type | Description | Notes
 **code** | **Number** | The code of the product | [optional] 
 **visibleTo** | **Number** | The visibility of the product | [optional] 
 **owner** | [**ProductSearchItemItemOwner**](ProductSearchItemItemOwner.md) |  | [optional] 
-**customFields** | **Number** | The custom fields | [optional] 
+**customFields** | **[String]** | The custom fields | [optional] 
 
 

@@ -17,6 +17,7 @@ import ChannelObject from '../model/ChannelObject';
 import ChannelObjectResponse from '../model/ChannelObjectResponse';
 import DeleteChannelSuccess from '../model/DeleteChannelSuccess';
 import DeleteConversationSuccess from '../model/DeleteConversationSuccess';
+import InlineResponse200 from '../model/InlineResponse200';
 import InlineResponse400 from '../model/InlineResponse400';
 import InlineResponse4001 from '../model/InlineResponse4001';
 import InlineResponse403 from '../model/InlineResponse403';
@@ -258,7 +259,7 @@ export default class ChannelsApi {
      * Adds a message to a conversation. To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
      * @param {Object} opts Optional parameters
      * @param {module:model/MessageObject} opts.messageObject 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MessageObject} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse200} and HTTP response
      */
     receiveMessageWithHttpInfo(opts) {
       opts = opts || {};
@@ -314,7 +315,7 @@ export default class ChannelsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = MessageObject;
+      let returnType = InlineResponse200;
       return this.apiClient.callApi(
         '/channels/messages/receive', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -327,7 +328,7 @@ export default class ChannelsApi {
      * Adds a message to a conversation. To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
      * @param {Object} opts Optional parameters
      * @param {module:model/MessageObject} opts.messageObject 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MessageObject}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse200}
      */
     receiveMessage(opts) {
       return this.receiveMessageWithHttpInfo(opts)

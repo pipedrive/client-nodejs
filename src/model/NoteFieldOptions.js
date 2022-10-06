@@ -14,19 +14,18 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The Assignee model module.
- * @module model/Assignee
+ * The NoteFieldOptions model module.
+ * @module model/NoteFieldOptions
  * @version 1.0.0
  */
-class Assignee {
+class NoteFieldOptions {
     /**
-     * Constructs a new <code>Assignee</code>.
-     * Who the goal is assigned to
-     * @alias module:model/Assignee
+     * Constructs a new <code>NoteFieldOptions</code>.
+     * @alias module:model/NoteFieldOptions
      */
     constructor() { 
         
-        Assignee.initialize(this);
+        NoteFieldOptions.initialize(this);
     }
 
     /**
@@ -38,25 +37,25 @@ class Assignee {
     }
 
     /**
-     * Constructs a <code>Assignee</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>NoteFieldOptions</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/Assignee} obj Optional instance to populate.
-     * @return {module:model/Assignee} The populated <code>Assignee</code> instance.
+     * @param {module:model/NoteFieldOptions} obj Optional instance to populate.
+     * @return {module:model/NoteFieldOptions} The populated <code>NoteFieldOptions</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new Assignee();
+            obj = obj || new NoteFieldOptions();
 
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
 
                 delete data['id'];
             }
-            if (data.hasOwnProperty('type')) {
-                obj['type'] = ApiClient.convertToType(data['type'], 'String');
+            if (data.hasOwnProperty('label')) {
+                obj['label'] = ApiClient.convertToType(data['label'], 'String');
 
-                delete data['type'];
+                delete data['label'];
             }
 
             if (Object.keys(data).length > 0) {
@@ -71,21 +70,19 @@ class Assignee {
 }
 
 /**
- * The ID of the goal assignee
  * @member {Number} id
  */
-Assignee.prototype['id'] = undefined;
+NoteFieldOptions.prototype['id'] = undefined;
 
 /**
- * The type of the assignee
- * @member {String} type
+ * @member {String} label
  */
-Assignee.prototype['type'] = undefined;
+NoteFieldOptions.prototype['label'] = undefined;
 
 
 
 
 
 
-export default Assignee;
+export default NoteFieldOptions;
 
