@@ -10,6 +10,12 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 ### Changed
 - Added deprecated flag to `GET /roles/{id}/roles`
 
+## 17.2.0
+### Removed
+- Removed deprecated endpoints that will be deleted:
+  - `POST /users/{id}/roleAssignments`
+  - `DELETE /users/{id}/roleAssignments`
+
 ## 17.1.5
 ### Changed
 - Added and updated the descriptions of roles endpoints
