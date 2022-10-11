@@ -7,6 +7,13 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Changed
+- Removed query `include_deleted_files` parameter for these endpoints based on this [post](https://developers.pipedrive.com/changelog/post/permanent-deletion-logic-for-6-core-entities)
+  - `GET /files` 
+  - `GET /deals/{id}/files` 
+  - `GET /organizations/{id}/files` 
+  - `GET /persons/{id}/files` 
+  - `GET /products/{id}/files`
 
 ## 17.2.0
 ### Removed
