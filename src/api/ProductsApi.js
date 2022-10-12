@@ -20,7 +20,6 @@ import DeleteProductResponse from '../model/DeleteProductResponse';
 import ListFilesResponse from '../model/ListFilesResponse';
 import ListProductFollowersResponse from '../model/ListProductFollowersResponse';
 import NewFollowerResponse from '../model/NewFollowerResponse';
-import NumberBoolean from '../model/NumberBoolean';
 import ProductResponse from '../model/ProductResponse';
 import ProductSearchResponse from '../model/ProductSearchResponse';
 import ProductsResponse from '../model/ProductsResponse';
@@ -479,7 +478,6 @@ export default class ProductsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {module:model/NumberBoolean} opts.includeDeletedFiles When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
      * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `product_id`, `add_time`, `update_time`, `file_name`, `file_type`, `file_size`, `comment`.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListFilesResponse} and HTTP response
      */
@@ -495,14 +493,12 @@ export default class ProductsApi {
 
 
 
-
       let pathParams = {
         'id': id,
       };
       let queryParams = {
         'start': opts['start'],
         'limit': opts['limit'],
-        'include_deleted_files': opts['includeDeletedFiles'],
         'sort': opts['sort'],
       };
       let headerParams = {
@@ -544,7 +540,6 @@ export default class ProductsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {module:model/NumberBoolean} opts.includeDeletedFiles When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
      * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `product_id`, `add_time`, `update_time`, `file_name`, `file_type`, `file_size`, `comment`.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListFilesResponse}
      */

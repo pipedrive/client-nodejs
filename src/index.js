@@ -30,11 +30,13 @@ import ActivityResponseObjectAllOf from './model/ActivityResponseObjectAllOf';
 import ActivityTypeBulkDeleteResponse from './model/ActivityTypeBulkDeleteResponse';
 import ActivityTypeBulkDeleteResponseAllOf from './model/ActivityTypeBulkDeleteResponseAllOf';
 import ActivityTypeBulkDeleteResponseAllOfData from './model/ActivityTypeBulkDeleteResponseAllOfData';
+import ActivityTypeCreateRequest from './model/ActivityTypeCreateRequest';
 import ActivityTypeCreateUpdateDeleteResponse from './model/ActivityTypeCreateUpdateDeleteResponse';
 import ActivityTypeCreateUpdateDeleteResponseAllOf from './model/ActivityTypeCreateUpdateDeleteResponseAllOf';
 import ActivityTypeListResponse from './model/ActivityTypeListResponse';
 import ActivityTypeListResponseAllOf from './model/ActivityTypeListResponseAllOf';
 import ActivityTypeObjectResponse from './model/ActivityTypeObjectResponse';
+import ActivityTypeUpdateRequest from './model/ActivityTypeUpdateRequest';
 import AddActivityResponse200 from './model/AddActivityResponse200';
 import AddActivityResponse200RelatedObjects from './model/AddActivityResponse200RelatedObjects';
 import AddDealFollowerRequest from './model/AddDealFollowerRequest';
@@ -907,6 +909,12 @@ export {
     ActivityTypeBulkDeleteResponseAllOfData,
 
     /**
+     * The ActivityTypeCreateRequest model constructor.
+     * @property {module:model/ActivityTypeCreateRequest}
+     */
+    ActivityTypeCreateRequest,
+
+    /**
      * The ActivityTypeCreateUpdateDeleteResponse model constructor.
      * @property {module:model/ActivityTypeCreateUpdateDeleteResponse}
      */
@@ -935,6 +943,12 @@ export {
      * @property {module:model/ActivityTypeObjectResponse}
      */
     ActivityTypeObjectResponse,
+
+    /**
+     * The ActivityTypeUpdateRequest model constructor.
+     * @property {module:model/ActivityTypeUpdateRequest}
+     */
+    ActivityTypeUpdateRequest,
 
     /**
      * The AddActivityResponse200 model constructor.
