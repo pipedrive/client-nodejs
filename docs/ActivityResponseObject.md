@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **note** | **String** | The note of the activity (HTML format) | [optional] 
 **location** | **String** | The address of the activity. Pipedrive will automatically check if the location matches a geo-location on Google maps. | [optional] 
 **publicDescription** | **String** | Additional details about the activity that is synced to your external calendar. Unlike the note added to the activity, the description is publicly visible to any guests added to the activity. | [optional] 
-**id** | **String** | The activity ID, generated when the activity was created | [optional] 
+**id** | **Number** | The activity ID, generated when the activity was created | [optional] 
 **done** | **Boolean** | Whether the activity is done or not | [optional] 
 **subject** | **String** | The subject of the activity | [optional] 
 **type** | **String** | The type of the activity. This is in correlation with the &#x60;key_string&#x60; parameter of ActivityTypes. | [optional] 

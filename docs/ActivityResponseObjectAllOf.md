@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | The activity ID, generated when the activity was created | [optional] 
+**id** | **Number** | The activity ID, generated when the activity was created | [optional] 
 **done** | **Boolean** | Whether the activity is done or not | [optional] 
 **subject** | **String** | The subject of the activity | [optional] 
 **type** | **String** | The type of the activity. This is in correlation with the &#x60;key_string&#x60; parameter of ActivityTypes. | [optional] 

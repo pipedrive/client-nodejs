@@ -14,9 +14,10 @@
 
 import ApiClient from "../ApiClient";
 import ActivityTypeBulkDeleteResponse from '../model/ActivityTypeBulkDeleteResponse';
+import ActivityTypeCreateRequest from '../model/ActivityTypeCreateRequest';
 import ActivityTypeCreateUpdateDeleteResponse from '../model/ActivityTypeCreateUpdateDeleteResponse';
 import ActivityTypeListResponse from '../model/ActivityTypeListResponse';
-import IconKey from '../model/IconKey';
+import ActivityTypeUpdateRequest from '../model/ActivityTypeUpdateRequest';
 
 /**
 * ActivityTypes service.
@@ -41,26 +42,20 @@ export default class ActivityTypesApi {
     /**
      * Add new activity type
      * Adds a new activity type.
-     * @param {String} name The name of the activity type
-     * @param {module:model/IconKey} iconKey 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.color A designated color for the activity type in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
+     * @param {module:model/ActivityTypeCreateRequest} opts.activityTypeCreateRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ActivityTypeCreateUpdateDeleteResponse} and HTTP response
      */
-    addActivityTypeWithHttpInfo(name, iconKey, opts) {
+    addActivityTypeWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = null;
+      let postBody = opts['activityTypeCreateRequest'];
 
-      // verify the required parameter 'name' is set
-      if (name === undefined || name === null) {
+      if (opts['name'] === undefined || opts['name'] === null) {
         throw new Error("Missing the required parameter 'name' when calling addActivityType");
       }
-
-      // verify the required parameter 'iconKey' is set
-      if (iconKey === undefined || iconKey === null) {
-        throw new Error("Missing the required parameter 'iconKey' when calling addActivityType");
+      if (opts['icon_key'] === undefined || opts['icon_key'] === null) {
+        throw new Error("Missing the required parameter 'icon_key' when calling addActivityType");
       }
-
 
       let pathParams = {
       };
@@ -69,18 +64,12 @@ export default class ActivityTypesApi {
       let headerParams = {
       };
       let formParams = {
-        'name': name,
-        'icon_key': iconKey,
-        'color': opts['color'],
       };
 
       let formParamArray = [
-        'name',
-        'iconKey',
-        'color',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded', ];
+      let contentTypes = ['application/json', ];
       const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
       const isJSON = contentTypes.includes('application/json');
 
@@ -107,14 +96,12 @@ export default class ActivityTypesApi {
     /**
      * Add new activity type
      * Adds a new activity type.
-     * @param {String} name The name of the activity type
-     * @param {module:model/IconKey} iconKey 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.color A designated color for the activity type in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
+     * @param {module:model/ActivityTypeCreateRequest} opts.activityTypeCreateRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ActivityTypeCreateUpdateDeleteResponse}
      */
-    addActivityType(name, iconKey, opts) {
-      return this.addActivityTypeWithHttpInfo(name, iconKey, opts)
+    addActivityType(opts) {
+      return this.addActivityTypeWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data;
         });
@@ -316,23 +303,17 @@ export default class ActivityTypesApi {
      * Updates an activity type.
      * @param {Number} id The ID of the activity type
      * @param {Object} opts Optional parameters
-     * @param {String} opts.name The name of the activity type
-     * @param {module:model/IconKey} opts.iconKey 
-     * @param {String} opts.color A designated color for the activity type in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
-     * @param {Number} opts.orderNr An order number for this activity type. Order numbers should be used to order the types in the activity type selections.
+     * @param {module:model/ActivityTypeUpdateRequest} opts.activityTypeUpdateRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ActivityTypeCreateUpdateDeleteResponse} and HTTP response
      */
     updateActivityTypeWithHttpInfo(id, opts) {
       opts = opts || {};
-      let postBody = null;
+      let postBody = opts['activityTypeUpdateRequest'];
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateActivityType");
       }
-
-
-
 
 
       let pathParams = {
@@ -343,20 +324,12 @@ export default class ActivityTypesApi {
       let headerParams = {
       };
       let formParams = {
-        'name': opts['name'],
-        'icon_key': opts['iconKey'],
-        'color': opts['color'],
-        'order_nr': opts['orderNr'],
       };
 
       let formParamArray = [
-        'name',
-        'iconKey',
-        'color',
-        'orderNr',
       ];
 
-      let contentTypes = ['application/x-www-form-urlencoded', ];
+      let contentTypes = ['application/json', ];
       const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
       const isJSON = contentTypes.includes('application/json');
 
@@ -385,10 +358,7 @@ export default class ActivityTypesApi {
      * Updates an activity type.
      * @param {Number} id The ID of the activity type
      * @param {Object} opts Optional parameters
-     * @param {String} opts.name The name of the activity type
-     * @param {module:model/IconKey} opts.iconKey 
-     * @param {String} opts.color A designated color for the activity type in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
-     * @param {Number} opts.orderNr An order number for this activity type. Order numbers should be used to order the types in the activity type selections.
+     * @param {module:model/ActivityTypeUpdateRequest} opts.activityTypeUpdateRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ActivityTypeCreateUpdateDeleteResponse}
      */
     updateActivityType(id, opts) {

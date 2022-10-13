@@ -104,7 +104,7 @@ class ActivityResponseObject {
                 delete data['public_description'];
             }
             if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
 
                 delete data['id'];
             }
@@ -437,7 +437,7 @@ ActivityResponseObject.prototype['public_description'] = undefined;
 
 /**
  * The activity ID, generated when the activity was created
- * @member {String} id
+ * @member {Number} id
  */
 ActivityResponseObject.prototype['id'] = undefined;
 
@@ -802,7 +802,7 @@ ActivityObjectFragment.prototype['public_description'] = undefined;
 // Implement ActivityResponseObjectAllOf interface:
 /**
  * The activity ID, generated when the activity was created
- * @member {String} id
+ * @member {Number} id
  */
 ActivityResponseObjectAllOf.prototype['id'] = undefined;
 /**
