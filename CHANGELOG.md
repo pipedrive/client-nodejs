@@ -7,6 +7,15 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Changed
+- Added `pipeline` and `stage` objects to the `related_objects` section in the following endpoints:
+  - `GET /v1/deals`
+  - `GET /v1/deals/{id}`
+  - `GET /v1/organizations/{id}/deals`
+  - `GET /v1/persons/{id}/deals`
+  - `GET /v1/products/{id}/deals`
+  - `POST /v1/deals`
+  - `PUT /v1/deals/{id}`
 
 ## 17.2.0
 ### Removed

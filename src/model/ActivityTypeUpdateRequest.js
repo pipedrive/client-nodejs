@@ -70,7 +70,7 @@ class ActivityTypeUpdateRequest {
             }
 
             if (Object.keys(data).length > 0) {
-                obj['extra'] = data;
+                Object.assign(obj, data);
             }
 
         }
@@ -81,7 +81,7 @@ class ActivityTypeUpdateRequest {
 }
 
 /**
- * The name of the ActivityType
+ * The name of the activity type
  * @member {String} name
  */
 ActivityTypeUpdateRequest.prototype['name'] = undefined;
@@ -92,13 +92,13 @@ ActivityTypeUpdateRequest.prototype['name'] = undefined;
 ActivityTypeUpdateRequest.prototype['icon_key'] = undefined;
 
 /**
- * A designated color for the ActivityType in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
+ * A designated color for the activity type in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
  * @member {String} color
  */
 ActivityTypeUpdateRequest.prototype['color'] = undefined;
 
 /**
- * An order number for this ActivityType. Order numbers should be used to order the types in the ActivityType selections.
+ * An order number for this activity type. Order numbers should be used to order the types in the activity type selections.
  * @member {Number} order_nr
  */
 ActivityTypeUpdateRequest.prototype['order_nr'] = undefined;

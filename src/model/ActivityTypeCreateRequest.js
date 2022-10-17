@@ -23,7 +23,7 @@ class ActivityTypeCreateRequest {
     /**
      * Constructs a new <code>ActivityTypeCreateRequest</code>.
      * @alias module:model/ActivityTypeCreateRequest
-     * @param name {String} The name of the ActivityType
+     * @param name {String} The name of the activity type
      * @param iconKey {module:model/IconKey} 
      */
     constructor(name, iconKey) { 
@@ -69,7 +69,7 @@ class ActivityTypeCreateRequest {
             }
 
             if (Object.keys(data).length > 0) {
-                obj['extra'] = data;
+                Object.assign(obj, data);
             }
 
         }
@@ -80,7 +80,7 @@ class ActivityTypeCreateRequest {
 }
 
 /**
- * The name of the ActivityType
+ * The name of the activity type
  * @member {String} name
  */
 ActivityTypeCreateRequest.prototype['name'] = undefined;
@@ -91,7 +91,7 @@ ActivityTypeCreateRequest.prototype['name'] = undefined;
 ActivityTypeCreateRequest.prototype['icon_key'] = undefined;
 
 /**
- * A designated color for the ActivityType in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
+ * A designated color for the activity type in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
  * @member {String} color
  */
 ActivityTypeCreateRequest.prototype['color'] = undefined;
