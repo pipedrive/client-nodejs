@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## addActivityType
 
-> ActivityTypeCreateUpdateDeleteResponse addActivityType(name, iconKey, opts)
+> ActivityTypeCreateUpdateDeleteResponse addActivityType(opts)
 
 Add new activity type
 
@@ -35,12 +35,10 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ActivityTypesApi();
-let name = "name_example"; // String | The name of the activity type
-let iconKey = new Pipedrive.IconKey(); // IconKey | 
-let opts = {
-  'color': "color_example" // String | A designated color for the activity type in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
-};
-apiInstance.addActivityType(name, iconKey, opts).then((data) => {
+let opts = Pipedrive.ActivityTypeCreateRequest.constructFromObject({
+  // Properties that you want to update
+});
+apiInstance.addActivityType(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -53,9 +51,7 @@ apiInstance.addActivityType(name, iconKey, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| The name of the activity type | 
- **iconKey** | [**IconKey**](IconKey.md)|  | 
- **color** | **String**| A designated color for the activity type in 6-character HEX format (e.g. &#x60;FFFFFF&#x60; for white, &#x60;000000&#x60; for black) | [optional] 
+ **activityTypeCreateRequest** | [**ActivityTypeCreateRequest**](ActivityTypeCreateRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -67,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -250,12 +246,9 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ActivityTypesApi();
 let id = 56; // Number | The ID of the activity type
-let opts = {
-  'name': "name_example", // String | The name of the activity type
-  'iconKey': new Pipedrive.IconKey(), // IconKey | 
-  'color': "color_example", // String | A designated color for the activity type in 6-character HEX format (e.g. `FFFFFF` for white, `000000` for black)
-  'orderNr': 56 // Number | An order number for this activity type. Order numbers should be used to order the types in the activity type selections.
-};
+let opts = Pipedrive.ActivityTypeUpdateRequest.constructFromObject({
+  // Properties that you want to update
+});
 apiInstance.updateActivityType(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -270,10 +263,7 @@ apiInstance.updateActivityType(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the activity type | 
- **name** | **String**| The name of the activity type | [optional] 
- **iconKey** | [**IconKey**](IconKey.md)|  | [optional] 
- **color** | **String**| A designated color for the activity type in 6-character HEX format (e.g. &#x60;FFFFFF&#x60; for white, &#x60;000000&#x60; for black) | [optional] 
- **orderNr** | **Number**| An order number for this activity type. Order numbers should be used to order the types in the activity type selections. | [optional] 
+ **activityTypeUpdateRequest** | [**ActivityTypeUpdateRequest**](ActivityTypeUpdateRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -285,6 +275,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/json
 - **Accept**: application/json
 

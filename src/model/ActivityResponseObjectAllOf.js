@@ -48,7 +48,7 @@ class ActivityResponseObjectAllOf {
             obj = obj || new ActivityResponseObjectAllOf();
 
             if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
 
                 delete data['id'];
             }
@@ -326,7 +326,7 @@ class ActivityResponseObjectAllOf {
 
 /**
  * The activity ID, generated when the activity was created
- * @member {String} id
+ * @member {Number} id
  */
 ActivityResponseObjectAllOf.prototype['id'] = undefined;
 
