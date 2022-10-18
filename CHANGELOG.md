@@ -12,6 +12,21 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
   - `POST /activityTypes`
   - `PUT /activityTypes/{id}`
 
+## 17.3.1
+### Changed
+- Changed the content type to `application/json` in the following endpoints:
+  - `POST /activityTypes`
+  - `PUT /activityTypes/{id}`
+
+## 17.3.0
+### Changed
+- Removed query `include_deleted_files` parameter for these endpoints based on this [post](https://developers.pipedrive.com/changelog/post/permanent-deletion-logic-for-6-core-entities)
+  - `GET /files`
+  - `GET /deals/{id}/files`
+  - `GET /organizations/{id}/files`
+  - `GET /persons/{id}/files`
+  - `GET /products/{id}/files`
+
 ## 17.2.0
 ### Removed
 - Removed deprecated endpoints that will be deleted:
