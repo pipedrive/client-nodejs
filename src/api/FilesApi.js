@@ -19,7 +19,6 @@ import DeleteFile from '../model/DeleteFile';
 import GetAllFiles from '../model/GetAllFiles';
 import GetOneFile from '../model/GetOneFile';
 import LinkRemoteFileToItem from '../model/LinkRemoteFileToItem';
-import NumberBoolean from '../model/NumberBoolean';
 import UpdateFile from '../model/UpdateFile';
 
 /**
@@ -443,7 +442,6 @@ export default class FilesApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {module:model/NumberBoolean} opts.includeDeletedFiles When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
      * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `product_id`, `add_time`, `update_time`, `file_name`, `file_type`, `file_size`, `comment`.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetAllFiles} and HTTP response
      */
@@ -454,13 +452,11 @@ export default class FilesApi {
 
 
 
-
       let pathParams = {
       };
       let queryParams = {
         'start': opts['start'],
         'limit': opts['limit'],
-        'include_deleted_files': opts['includeDeletedFiles'],
         'sort': opts['sort'],
       };
       let headerParams = {
@@ -501,7 +497,6 @@ export default class FilesApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {module:model/NumberBoolean} opts.includeDeletedFiles When enabled, the list of files will also include deleted files. Please note that trying to download these files will not work.
      * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `product_id`, `add_time`, `update_time`, `file_name`, `file_type`, `file_size`, `comment`.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetAllFiles}
      */
