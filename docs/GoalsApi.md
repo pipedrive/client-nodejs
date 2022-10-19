@@ -90,7 +90,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.GoalsApi();
-let id = "id_example"; // String | The ID of the goal to be deleted
+let id = "id_example"; // String | The ID of the goal
 apiInstance.deleteGoal(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -104,7 +104,7 @@ apiInstance.deleteGoal(id).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The ID of the goal to be deleted | 
+ **id** | **String**| The ID of the goal | 
 
 ### Return type
 
@@ -144,8 +144,8 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.GoalsApi();
 let id = "id_example"; // String | The ID of the goal that the results are looked for
-let periodStart = new Date("2013-10-20"); // Date | The start date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD. This date must be the same or after the goal duration start date.
-let periodEnd = new Date("2013-10-20"); // Date | The end date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD. This date must be the same or before the goal duration end date.
+let periodStart = new Date("2013-10-20"); // Date | The start date of the period for which to find the goal's progress. Format: YYYY-MM-DD. This date must be the same or after the goal duration start date. 
+let periodEnd = new Date("2013-10-20"); // Date | The end date of the period for which to find the goal's progress. Format: YYYY-MM-DD. This date must be the same or before the goal duration end date. 
 apiInstance.getGoalResult(id, periodStart, periodEnd).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -160,8 +160,8 @@ apiInstance.getGoalResult(id, periodStart, periodEnd).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The ID of the goal that the results are looked for | 
- **periodStart** | **Date**| The start date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD. This date must be the same or after the goal duration start date. | 
- **periodEnd** | **Date**| The end date of the period for which to find progress of a goal. Date in format of YYYY-MM-DD. This date must be the same or before the goal duration end date. | 
+ **periodStart** | **Date**| The start date of the period for which to find the goal&#39;s progress. Format: YYYY-MM-DD. This date must be the same or after the goal duration start date.  | 
+ **periodEnd** | **Date**| The end date of the period for which to find the goal&#39;s progress. Format: YYYY-MM-DD. This date must be the same or before the goal duration end date.  | 
 
 ### Return type
 
@@ -209,9 +209,9 @@ let opts = {
   'expectedOutcomeTarget': 3.4, // Number | The numeric value of the outcome. If provided, everyone's goals will be returned.
   'expectedOutcomeTrackingMetric': "expectedOutcomeTrackingMetric_example", // String | The tracking metric of the expected outcome of the goal. If provided, everyone's goals will be returned.
   'expectedOutcomeCurrencyId': 56, // Number | The numeric ID of the goal's currency. Only applicable to goals with `expected_outcome.tracking_metric` with value `sum`. If provided, everyone's goals will be returned.
-  'typeParamsPipelineId': 56, // Number | The ID of the pipeline or `null` for all pipelines. If provided, everyone's goals will be returned.
+  'typeParamsPipelineId': [null], // [Number] | An array of pipeline IDs or `null` for all pipelines. If provided, everyone's goals will be returned.
   'typeParamsStageId': 56, // Number | The ID of the stage. Applicable to only `deals_progressed` type of goals. If provided, everyone's goals will be returned.
-  'typeParamsActivityTypeId': 56, // Number | The ID of the activity type. Applicable to only `activities_completed` or `activities_added` types of goals. If provided, everyone's goals will be returned.
+  'typeParamsActivityTypeId': [null], // [Number] | An array of IDs or `null` for all activity types. Only applicable for `activities_completed` and/or `activities_added` types of goals. If provided, everyone's goals will be returned.
   'periodStart': new Date("2013-10-20"), // Date | The start date of the period for which to find goals. Date in format of YYYY-MM-DD. When `period.start` is provided, `period.end` must be provided too.
   'periodEnd': new Date("2013-10-20") // Date | The end date of the period for which to find goals. Date in format of YYYY-MM-DD.
 };
@@ -236,9 +236,9 @@ Name | Type | Description  | Notes
  **expectedOutcomeTarget** | **Number**| The numeric value of the outcome. If provided, everyone&#39;s goals will be returned. | [optional] 
  **expectedOutcomeTrackingMetric** | **String**| The tracking metric of the expected outcome of the goal. If provided, everyone&#39;s goals will be returned. | [optional] 
  **expectedOutcomeCurrencyId** | **Number**| The numeric ID of the goal&#39;s currency. Only applicable to goals with &#x60;expected_outcome.tracking_metric&#x60; with value &#x60;sum&#x60;. If provided, everyone&#39;s goals will be returned. | [optional] 
- **typeParamsPipelineId** | **Number**| The ID of the pipeline or &#x60;null&#x60; for all pipelines. If provided, everyone&#39;s goals will be returned. | [optional] 
+ **typeParamsPipelineId** | [**[Number]**](Number.md)| An array of pipeline IDs or &#x60;null&#x60; for all pipelines. If provided, everyone&#39;s goals will be returned. | [optional] 
  **typeParamsStageId** | **Number**| The ID of the stage. Applicable to only &#x60;deals_progressed&#x60; type of goals. If provided, everyone&#39;s goals will be returned. | [optional] 
- **typeParamsActivityTypeId** | **Number**| The ID of the activity type. Applicable to only &#x60;activities_completed&#x60; or &#x60;activities_added&#x60; types of goals. If provided, everyone&#39;s goals will be returned. | [optional] 
+ **typeParamsActivityTypeId** | [**[Number]**](Number.md)| An array of IDs or &#x60;null&#x60; for all activity types. Only applicable for &#x60;activities_completed&#x60; and/or &#x60;activities_added&#x60; types of goals. If provided, everyone&#39;s goals will be returned. | [optional] 
  **periodStart** | **Date**| The start date of the period for which to find goals. Date in format of YYYY-MM-DD. When &#x60;period.start&#x60; is provided, &#x60;period.end&#x60; must be provided too. | [optional] 
  **periodEnd** | **Date**| The end date of the period for which to find goals. Date in format of YYYY-MM-DD. | [optional] 
 
@@ -279,7 +279,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.GoalsApi();
-let id = "id_example"; // String | The ID of the goal to be updated
+let id = "id_example"; // String | The ID of the goal
 let opts = Pipedrive.BasicGoal.constructFromObject({
   // Properties that you want to update
 });
@@ -296,7 +296,7 @@ apiInstance.updateGoal(id, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The ID of the goal to be updated | 
+ **id** | **String**| The ID of the goal | 
  **basicGoal** | [**BasicGoal**](BasicGoal.md)|  | [optional] 
 
 ### Return type

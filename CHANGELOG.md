@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## 17.5.0
+### Changed
+- Updated `type.params.pipeline_id` and `type.params.activity_type_id` description, type and response example for goals queries
+
 ## 17.4.0
 ### Changed
 - Added `pipeline` and `stage` objects to the `related_objects` section in the following endpoints:

@@ -49,9 +49,14 @@ class Params {
             obj = obj || new Params();
 
             if (data.hasOwnProperty('pipeline_id')) {
-                obj['pipeline_id'] = ApiClient.convertToType(data['pipeline_id'], 'String');
+                obj['pipeline_id'] = ApiClient.convertToType(data['pipeline_id'], ['Number']);
 
                 delete data['pipeline_id'];
+            }
+            if (data.hasOwnProperty('activity_type_id')) {
+                obj['activity_type_id'] = ApiClient.convertToType(data['activity_type_id'], ['Number']);
+
+                delete data['activity_type_id'];
             }
 
             if (Object.keys(data).length > 0) {
@@ -66,10 +71,16 @@ class Params {
 }
 
 /**
- * The pipeline ID of the goal
- * @member {String} pipeline_id
+ * The IDs of pipelines of the goal
+ * @member {Array.<Number>} pipeline_id
  */
 Params.prototype['pipeline_id'] = undefined;
+
+/**
+ * The IDs of activity types of the goal
+ * @member {Array.<Number>} activity_type_id
+ */
+Params.prototype['activity_type_id'] = undefined;
 
 
 

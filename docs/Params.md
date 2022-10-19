@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pipelineId** | **String** | The pipeline ID of the goal | [optional] 
+**pipelineId** | **[Number]** | The IDs of pipelines of the goal | [optional] 
+**activityTypeId** | **[Number]** | The IDs of activity types of the goal | [optional] 
 
 
