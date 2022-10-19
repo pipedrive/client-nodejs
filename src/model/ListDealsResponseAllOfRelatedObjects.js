@@ -12,6 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
+import BasePipeline from './BasePipeline';
+import BaseStage from './BaseStage';
 import RelatedOrganizationDataWithActiveFlag from './RelatedOrganizationDataWithActiveFlag';
 import RelatedPersonDataWithActiveFlag from './RelatedPersonDataWithActiveFlag';
 import RelatedUserData from './RelatedUserData';
@@ -65,6 +67,16 @@ class ListDealsResponseAllOfRelatedObjects {
 
                 delete data['user'];
             }
+            if (data.hasOwnProperty('stage')) {
+                obj['stage'] = BaseStage.constructFromObject(data['stage']);
+
+                delete data['stage'];
+            }
+            if (data.hasOwnProperty('pipeline')) {
+                obj['pipeline'] = BasePipeline.constructFromObject(data['pipeline']);
+
+                delete data['pipeline'];
+            }
 
             if (Object.keys(data).length > 0) {
                 Object.assign(obj, data);
@@ -91,6 +103,16 @@ ListDealsResponseAllOfRelatedObjects.prototype['person'] = undefined;
  * @member {module:model/RelatedUserData} user
  */
 ListDealsResponseAllOfRelatedObjects.prototype['user'] = undefined;
+
+/**
+ * @member {module:model/BaseStage} stage
+ */
+ListDealsResponseAllOfRelatedObjects.prototype['stage'] = undefined;
+
+/**
+ * @member {module:model/BasePipeline} pipeline
+ */
+ListDealsResponseAllOfRelatedObjects.prototype['pipeline'] = undefined;
 
 
 

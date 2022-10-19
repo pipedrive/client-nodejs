@@ -294,7 +294,7 @@ Name | Type | Description  | Notes
 
 ## getProductDeals
 
-> UpdateDealRequest getProductDeals(id, opts)
+> ListDealsResponse getProductDeals(id, opts)
 
 Get deals where a product is attached to
 
@@ -341,7 +341,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateDealRequest**](UpdateDealRequest.md)
+[**ListDealsResponse**](ListDealsResponse.md)
 
 ### Authorization
 

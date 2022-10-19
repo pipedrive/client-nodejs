@@ -8,6 +8,17 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## 17.4.0
+### Changed
+- Added `pipeline` and `stage` objects to the `related_objects` section in the following endpoints:
+  - `GET /v1/deals`
+  - `GET /v1/deals/{id}`
+  - `GET /v1/organizations/{id}/deals`
+  - `GET /v1/persons/{id}/deals`
+  - `GET /v1/products/{id}/deals`
+  - `POST /v1/deals`
+  - `PUT /v1/deals/{id}`
+
 ## 17.3.1
 ### Changed
 - Changed the content type to `application/json` in the following endpoints:
