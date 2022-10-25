@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 
 Delete a person
 
-Marks a person as deleted.
+Marks a person as deleted. After 30 days, the person will be permanently deleted.
 
 ### Example
 
@@ -368,7 +368,7 @@ Name | Type | Description  | Notes
 
 Delete multiple persons in bulk
 
-Marks multiple persons as deleted.
+Marks multiple persons as deleted. After 30 days, the persons will be permanently deleted.
 
 ### Example
 

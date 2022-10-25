@@ -108,7 +108,7 @@ export default class ActivitiesApi {
 
     /**
      * Delete multiple activities in bulk
-     * Marks multiple activities as deleted.
+     * Marks multiple activities as deleted. After 30 days, the activities will be permanently deleted.
      * @param {String} ids The comma-separated IDs of activities that will be deleted
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteActivitiesResponse200} and HTTP response
      */
@@ -160,7 +160,7 @@ export default class ActivitiesApi {
 
     /**
      * Delete multiple activities in bulk
-     * Marks multiple activities as deleted.
+     * Marks multiple activities as deleted. After 30 days, the activities will be permanently deleted.
      * @param {String} ids The comma-separated IDs of activities that will be deleted
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteActivitiesResponse200}
      */
@@ -174,7 +174,7 @@ export default class ActivitiesApi {
 
     /**
      * Delete an activity
-     * Marks an activity as deleted.
+     * Marks an activity as deleted. After 30 days, the activity will be permanently deleted.
      * @param {Number} id The ID of the activity
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteActivityResponse200} and HTTP response
      */
@@ -226,7 +226,7 @@ export default class ActivitiesApi {
 
     /**
      * Delete an activity
-     * Marks an activity as deleted.
+     * Marks an activity as deleted. After 30 days, the activity will be permanently deleted.
      * @param {Number} id The ID of the activity
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteActivityResponse200}
      */

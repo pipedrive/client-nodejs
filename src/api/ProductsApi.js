@@ -187,7 +187,7 @@ export default class ProductsApi {
 
     /**
      * Delete a product
-     * Marks a product as deleted.
+     * Marks a product as deleted. After 30 days, the product will be permanently deleted.
      * @param {Number} id The ID of the product
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteProductResponse} and HTTP response
      */
@@ -239,7 +239,7 @@ export default class ProductsApi {
 
     /**
      * Delete a product
-     * Marks a product as deleted.
+     * Marks a product as deleted. After 30 days, the product will be permanently deleted.
      * @param {Number} id The ID of the product
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteProductResponse}
      */

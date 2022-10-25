@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 
 Delete a file
 
-Marks a file as deleted.
+Marks a file as deleted. After 30 days, the file will be permanently deleted.
 
 ### Example
 

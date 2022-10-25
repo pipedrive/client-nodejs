@@ -293,7 +293,7 @@ export default class PersonsApi {
 
     /**
      * Delete a person
-     * Marks a person as deleted.
+     * Marks a person as deleted. After 30 days, the person will be permanently deleted.
      * @param {Number} id The ID of the person
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeletePersonResponse} and HTTP response
      */
@@ -345,7 +345,7 @@ export default class PersonsApi {
 
     /**
      * Delete a person
-     * Marks a person as deleted.
+     * Marks a person as deleted. After 30 days, the person will be permanently deleted.
      * @param {Number} id The ID of the person
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeletePersonResponse}
      */
@@ -499,7 +499,7 @@ export default class PersonsApi {
 
     /**
      * Delete multiple persons in bulk
-     * Marks multiple persons as deleted.
+     * Marks multiple persons as deleted. After 30 days, the persons will be permanently deleted.
      * @param {String} ids The comma-separated IDs that will be deleted
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeletePersonsInBulkResponse} and HTTP response
      */
@@ -551,7 +551,7 @@ export default class PersonsApi {
 
     /**
      * Delete multiple persons in bulk
-     * Marks multiple persons as deleted.
+     * Marks multiple persons as deleted. After 30 days, the persons will be permanently deleted.
      * @param {String} ids The comma-separated IDs that will be deleted
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeletePersonsInBulkResponse}
      */

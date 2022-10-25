@@ -196,7 +196,7 @@ export default class OrganizationsApi {
 
     /**
      * Delete an organization
-     * Marks an organization as deleted.
+     * Marks an organization as deleted. After 30 days, the organization will be permanently deleted.
      * @param {Number} id The ID of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationDeleteResponse} and HTTP response
      */
@@ -248,7 +248,7 @@ export default class OrganizationsApi {
 
     /**
      * Delete an organization
-     * Marks an organization as deleted.
+     * Marks an organization as deleted. After 30 days, the organization will be permanently deleted.
      * @param {Number} id The ID of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationDeleteResponse}
      */
@@ -336,7 +336,7 @@ export default class OrganizationsApi {
 
     /**
      * Delete multiple organizations in bulk
-     * Marks multiple organizations as deleted.
+     * Marks multiple organizations as deleted. After 30 days, the organizations will be permanently deleted.
      * @param {String} ids The comma-separated IDs that will be deleted
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationsDeleteResponse} and HTTP response
      */
@@ -388,7 +388,7 @@ export default class OrganizationsApi {
 
     /**
      * Delete multiple organizations in bulk
-     * Marks multiple organizations as deleted.
+     * Marks multiple organizations as deleted. After 30 days, the organizations will be permanently deleted.
      * @param {String} ids The comma-separated IDs that will be deleted
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationsDeleteResponse}
      */
@@ -402,7 +402,7 @@ export default class OrganizationsApi {
 
     /**
      * Get details of an organization
-     * Returns details of an organization. Note that this also returns some additional fields which are not present when asking for all organizations. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of organizationFields.
+     * Returns the details of an organization. Note that this also returns some additional fields which are not present when asking for all organizations. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of organizationFields.
      * @param {Number} id The ID of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationDetailsGetResponse} and HTTP response
      */
@@ -454,7 +454,7 @@ export default class OrganizationsApi {
 
     /**
      * Get details of an organization
-     * Returns details of an organization. Note that this also returns some additional fields which are not present when asking for all organizations. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of organizationFields.
+     * Returns the details of an organization. Note that this also returns some additional fields which are not present when asking for all organizations. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of organizationFields.
      * @param {Number} id The ID of the organization
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationDetailsGetResponse}
      */

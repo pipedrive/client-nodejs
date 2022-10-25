@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 Delete multiple activities in bulk
 
-Marks multiple activities as deleted.
+Marks multiple activities as deleted. After 30 days, the activities will be permanently deleted.
 
 ### Example
 
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 Delete an activity
 
-Marks an activity as deleted.
+Marks an activity as deleted. After 30 days, the activity will be permanently deleted.
 
 ### Example
 

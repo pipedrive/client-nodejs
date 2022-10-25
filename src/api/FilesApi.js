@@ -240,7 +240,7 @@ export default class FilesApi {
 
     /**
      * Delete a file
-     * Marks a file as deleted.
+     * Marks a file as deleted. After 30 days, the file will be permanently deleted.
      * @param {Number} id The ID of the file
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteFile} and HTTP response
      */
@@ -292,7 +292,7 @@ export default class FilesApi {
 
     /**
      * Delete a file
-     * Marks a file as deleted.
+     * Marks a file as deleted. After 30 days, the file will be permanently deleted.
      * @param {Number} id The ID of the file
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteFile}
      */

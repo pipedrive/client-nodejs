@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 Delete an organization
 
-Marks an organization as deleted.
+Marks an organization as deleted. After 30 days, the organization will be permanently deleted.
 
 ### Example
 
@@ -248,7 +248,7 @@ Name | Type | Description  | Notes
 
 Delete multiple organizations in bulk
 
-Marks multiple organizations as deleted.
+Marks multiple organizations as deleted. After 30 days, the organizations will be permanently deleted.
 
 ### Example
 
@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 
 Get details of an organization
 
-Returns details of an organization. Note that this also returns some additional fields which are not present when asking for all organizations. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the &#x60;key&#x60; value of organizationFields.
+Returns the details of an organization. Note that this also returns some additional fields which are not present when asking for all organizations. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the &#x60;key&#x60; value of organizationFields.
 
 ### Example
 
