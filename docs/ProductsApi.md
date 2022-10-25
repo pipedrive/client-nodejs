@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 Delete a product
 
-Marks a product as deleted.
+Marks a product as deleted. After 30 days, the product will be permanently deleted.
 
 ### Example
 

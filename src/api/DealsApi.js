@@ -352,7 +352,7 @@ export default class DealsApi {
 
     /**
      * Delete a deal
-     * Marks a deal as deleted.
+     * Marks a deal as deleted. After 30 days, the deal will be permanently deleted.
      * @param {Number} id The ID of the deal
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteDeal} and HTTP response
      */
@@ -404,7 +404,7 @@ export default class DealsApi {
 
     /**
      * Delete a deal
-     * Marks a deal as deleted.
+     * Marks a deal as deleted. After 30 days, the deal will be permanently deleted.
      * @param {Number} id The ID of the deal
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteDeal}
      */
@@ -640,7 +640,7 @@ export default class DealsApi {
 
     /**
      * Delete multiple deals in bulk
-     * Marks multiple deals as deleted.
+     * Marks multiple deals as deleted. After 30 days, the deals will be permanently deleted.
      * @param {String} ids The comma-separated IDs that will be deleted
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteMultipleDeals} and HTTP response
      */
@@ -692,7 +692,7 @@ export default class DealsApi {
 
     /**
      * Delete multiple deals in bulk
-     * Marks multiple deals as deleted.
+     * Marks multiple deals as deleted. After 30 days, the deals will be permanently deleted.
      * @param {String} ids The comma-separated IDs that will be deleted
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteMultipleDeals}
      */

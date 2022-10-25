@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
 
 Delete a deal
 
-Marks a deal as deleted.
+Marks a deal as deleted. After 30 days, the deal will be permanently deleted.
 
 ### Example
 
@@ -484,7 +484,7 @@ Name | Type | Description  | Notes
 
 Delete multiple deals in bulk
 
-Marks multiple deals as deleted.
+Marks multiple deals as deleted. After 30 days, the deals will be permanently deleted.
 
 ### Example
 
