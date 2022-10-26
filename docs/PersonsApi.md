@@ -66,7 +66,7 @@ apiInstance.addPerson(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newPerson** | [**NewPerson**](NewPerson.md)|  | [optional] 
+ **addUserRequest** | [**AddUserRequest**](AddUserRequest.md)|  | [optional] 
 
 ### Return type
 
