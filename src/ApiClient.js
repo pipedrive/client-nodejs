@@ -568,7 +568,8 @@ class ApiClient {
         for (const key in obj) {
             let keyValue = obj[key];
             const isArray = Array.isArray(keyValue);
-            const isObject = typeof keyValue === 'object' && !isArray;
+            const isNull = keyValue === null;
+            const isObject = typeof keyValue === 'object' && !isArray && !isNull;
             const isHash = /^[a-f0-9]{40}$|^[a-f0-9]{40}_[a-z0-9]+$/i.test(key);
 
             if (isArray) keyValue = keyValue.map(kv => typeof kv === 'object' ? this.replaceCamelCaseObj(kv) : kv);
