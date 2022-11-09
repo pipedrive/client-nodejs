@@ -27,13 +27,13 @@ class ProductAttachmentDetails {
      * @alias module:model/ProductAttachmentDetails
      * @implements module:model/BasicDealProduct
      * @implements module:model/ProductAttachementFields
+     * @param productId {Number} The ID of the product
      * @param itemPrice {Number} The price at which this product will be added to the deal
      * @param quantity {Number} Quantity – e.g. how many items of this product will be added to the deal
-     * @param productId {Number} The ID of the product
      */
-    constructor(itemPrice, quantity, productId) { 
-        BasicDealProduct.initialize(this, itemPrice, quantity);ProductAttachementFields.initialize(this);
-        ProductAttachmentDetails.initialize(this, itemPrice, quantity, productId);
+    constructor(productId, itemPrice, quantity) { 
+        BasicDealProduct.initialize(this, productId, itemPrice, quantity);ProductAttachementFields.initialize(this);
+        ProductAttachmentDetails.initialize(this, productId, itemPrice, quantity);
     }
 
     /**
@@ -41,10 +41,10 @@ class ProductAttachmentDetails {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, itemPrice, quantity, productId) { 
+    static initialize(obj, productId, itemPrice, quantity) { 
+        obj['product_id'] = productId;
         obj['item_price'] = itemPrice;
         obj['quantity'] = quantity;
-        obj['product_id'] = productId;
     }
 
     /**
@@ -60,6 +60,11 @@ class ProductAttachmentDetails {
             BasicDealProduct.constructFromObject(data, obj);
             ProductAttachementFields.constructFromObject(data, obj);
 
+            if (data.hasOwnProperty('product_id')) {
+                obj['product_id'] = ApiClient.convertToType(data['product_id'], 'Number');
+
+                delete data['product_id'];
+            }
             if (data.hasOwnProperty('item_price')) {
                 obj['item_price'] = ApiClient.convertToType(data['item_price'], 'Number');
 
@@ -115,11 +120,6 @@ class ProductAttachmentDetails {
 
                 delete data['deal_id'];
             }
-            if (data.hasOwnProperty('product_id')) {
-                obj['product_id'] = ApiClient.convertToType(data['product_id'], 'Number');
-
-                delete data['product_id'];
-            }
             if (data.hasOwnProperty('duration_unit')) {
                 obj['duration_unit'] = ApiClient.convertToType(data['duration_unit'], 'String');
 
@@ -171,6 +171,12 @@ class ProductAttachmentDetails {
 
 
 }
+
+/**
+ * The ID of the product
+ * @member {Number} product_id
+ */
+ProductAttachmentDetails.prototype['product_id'] = undefined;
 
 /**
  * The price at which this product will be added to the deal
@@ -241,12 +247,6 @@ ProductAttachmentDetails.prototype['company_id'] = undefined;
 ProductAttachmentDetails.prototype['deal_id'] = undefined;
 
 /**
- * The ID of the product
- * @member {Number} product_id
- */
-ProductAttachmentDetails.prototype['product_id'] = undefined;
-
-/**
  * The type of the duration. (For example hourly, daily, etc.)
  * @member {String} duration_unit
  */
@@ -296,6 +296,11 @@ ProductAttachmentDetails.prototype['name'] = undefined;
 
 
 // Implement BasicDealProduct interface:
+/**
+ * The ID of the product to use
+ * @member {Number} product_id
+ */
+BasicDealProduct.prototype['product_id'] = undefined;
 /**
  * The price at which this product will be added to the deal
  * @member {Number} item_price
