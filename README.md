@@ -17,12 +17,6 @@ Pipedrive API’s core concepts for its usage can be found in our [Developer doc
 
 ## How to use it?
 
-> **Warning**
->
-> The `pipedrive.ApiClient.instance` shouldn't be used as a global static instance in the **Production code**.
->
-> Please, initialise a `new pipedrive.ApiClient()` instance separately for each request instead.
-
 ### With a pre-set API token
 You can retrieve the api_token from your existing Pipedrive account’s settings page. A step-by-step guide is available [here](https://pipedrive.readme.io/docs/how-to-find-the-api-token).
 
@@ -33,7 +27,7 @@ const pipedrive = require('pipedrive');
 
 const PORT = 1800;
 
-const defaultClient = new pipedrive.ApiClient();
+const defaultClient = pipedrive.ApiClient.instance;
 
 // Configure API key authorization: apiToken
 let apiToken = defaultClient.authentications.api_key;
@@ -44,7 +38,7 @@ app.listen(PORT, () => {
 });
 
 app.get('/', async (req, res) => {
-    const api = new pipedrive.DealsApi(defaultClient);
+    const api = new pipedrive.DealsApi();
     const deals = await api.getDeals();
 
     res.send(deals);
@@ -68,7 +62,7 @@ Next, initialize the API client as follows:
 ```JavaScript
 const pipedrive = require('pipedrive');
 
-const apiClient = new pipedrive.ApiClient();
+const apiClient = pipedrive.ApiClient.instance;
 
 // Configuration parameters and credentials
 let oauth2 = apiClient.authentications.oauth2;
@@ -221,9 +215,9 @@ app.use(cookieSession({
 }));
 const PORT = 1800;
 
-const pipedrive = require('pipedrive');
+const lib = require('pipedrive');
 
-const apiClient = new pipedrive.ApiClient();
+const apiClient = lib.ApiClient.instance;
 
 let oauth2 = apiClient.authentications.oauth2;
 oauth2.clientId = 'clientId'; // OAuth 2 Client ID
@@ -239,7 +233,7 @@ app.get('/', async (req, res) => {
         // token is already set in the session
         // now make API calls as required
         // client will automatically refresh the token when it expires and call the token update callback
-        const api = new pipedrive.DealsApi(apiClient);
+        const api = new lib.DealsApi();
         const deals = await api.getDeals();
 
         res.send(deals);
@@ -948,6 +942,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.MailThreadAllOf](docs/MailThreadAllOf.md)
  - [Pipedrive.MailThreadDelete](docs/MailThreadDelete.md)
  - [Pipedrive.MailThreadDeleteAllOf](docs/MailThreadDeleteAllOf.md)
+ - [Pipedrive.MailThreadDeleteAllOfData](docs/MailThreadDeleteAllOfData.md)
  - [Pipedrive.MailThreadMessages](docs/MailThreadMessages.md)
  - [Pipedrive.MailThreadMessagesAllOf](docs/MailThreadMessagesAllOf.md)
  - [Pipedrive.MailThreadOne](docs/MailThreadOne.md)
@@ -1252,7 +1247,7 @@ Class | Method | HTTP request | Description
 - **Type**: OAuth
 - **Flow**: accessCode
 - **Authorization URL**: https://oauth.pipedrive.com/oauth/authorize
-- **Scopes**:
+- **Scopes**: 
   - deals:read: Read most data about deals and related entities.
   - deals:full: Create, read, update and delete deals, its participants and followers.
   - goals:read: Read data on all goals.

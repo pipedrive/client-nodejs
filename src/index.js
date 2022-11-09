@@ -446,6 +446,7 @@ import MailThread from './model/MailThread';
 import MailThreadAllOf from './model/MailThreadAllOf';
 import MailThreadDelete from './model/MailThreadDelete';
 import MailThreadDeleteAllOf from './model/MailThreadDeleteAllOf';
+import MailThreadDeleteAllOfData from './model/MailThreadDeleteAllOfData';
 import MailThreadMessages from './model/MailThreadMessages';
 import MailThreadMessagesAllOf from './model/MailThreadMessagesAllOf';
 import MailThreadOne from './model/MailThreadOne';
@@ -3403,6 +3404,12 @@ export {
      * @property {module:model/MailThreadDeleteAllOf}
      */
     MailThreadDeleteAllOf,
+
+    /**
+     * The MailThreadDeleteAllOfData model constructor.
+     * @property {module:model/MailThreadDeleteAllOfData}
+     */
+    MailThreadDeleteAllOfData,
 
     /**
      * The MailThreadMessages model constructor.
