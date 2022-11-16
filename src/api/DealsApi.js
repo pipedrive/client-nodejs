@@ -280,8 +280,8 @@ export default class DealsApi {
 
 
     /**
-     * Add a product to the deal, eventually creating a new item called a deal-product
-     * Adds a product to the deal.
+     * Add a product to a deal
+     * Adds a product to a deal, creating a new item called a deal-product.
      * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {module:model/NewDealProduct} opts.newDealProduct 
@@ -335,8 +335,8 @@ export default class DealsApi {
     }
 
     /**
-     * Add a product to the deal, eventually creating a new item called a deal-product
-     * Adds a product to the deal.
+     * Add a product to a deal
+     * Adds a product to a deal, creating a new item called a deal-product.
      * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {module:model/NewDealProduct} opts.newDealProduct 
@@ -1531,7 +1531,7 @@ export default class DealsApi {
      * @param {Number} opts.userId If supplied, only deals matching the given user will be returned. However, `filter_id` and `owned_by_you` takes precedence over `user_id` when supplied.
      * @param {Number} opts.filterId The ID of the filter to use
      * @param {Number} opts.stageId If supplied, only deals within the given stage will be returned
-     * @param {module:model/String} opts.status Only fetch deals with a specific status. If omitted, all not deleted deals are fetched. (default to 'all_not_deleted')
+     * @param {module:model/String} opts.status Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. (default to 'all_not_deleted')
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
@@ -1601,7 +1601,7 @@ export default class DealsApi {
      * @param {Number} opts.userId If supplied, only deals matching the given user will be returned. However, `filter_id` and `owned_by_you` takes precedence over `user_id` when supplied.
      * @param {Number} opts.filterId The ID of the filter to use
      * @param {Number} opts.stageId If supplied, only deals within the given stage will be returned
-     * @param {module:model/String} opts.status Only fetch deals with a specific status. If omitted, all not deleted deals are fetched. (default to 'all_not_deleted')
+     * @param {module:model/String} opts.status Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. (default to 'all_not_deleted')
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
@@ -1881,7 +1881,7 @@ export default class DealsApi {
     /**
      * Search deals
      * Searches all deals by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found deals can be filtered by the person ID and the organization ID.
-     * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`).
+     * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`). Please note that the search term has to be URL encoded.
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.fields A comma-separated string array. The fields to perform the search from. Defaults to all of them.
      * @param {module:model/Boolean} opts.exactMatch When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
@@ -1958,7 +1958,7 @@ export default class DealsApi {
     /**
      * Search deals
      * Searches all deals by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found deals can be filtered by the person ID and the organization ID.
-     * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`).
+     * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`). Please note that the search term has to be URL encoded.
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.fields A comma-separated string array. The fields to perform the search from. Defaults to all of them.
      * @param {module:model/Boolean} opts.exactMatch When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
@@ -2050,8 +2050,8 @@ export default class DealsApi {
 
 
     /**
-     * Update product attachment details of the deal-product (a product already attached to a deal)
-     * Updates product attachment details.
+     * Update the product attached to a deal
+     * Updates the details of the product that has been attached to a deal.
      * @param {Number} id The ID of the deal
      * @param {Number} productAttachmentId The ID of the deal-product (the ID of the product attached to the deal)
      * @param {Object} opts Optional parameters
@@ -2072,6 +2072,9 @@ export default class DealsApi {
         throw new Error("Missing the required parameter 'productAttachmentId' when calling updateDealProduct");
       }
 
+      if (opts['product_id'] === undefined || opts['product_id'] === null) {
+        throw new Error("Missing the required parameter 'product_id' when calling updateDealProduct");
+      }
       if (opts['item_price'] === undefined || opts['item_price'] === null) {
         throw new Error("Missing the required parameter 'item_price' when calling updateDealProduct");
       }
@@ -2118,8 +2121,8 @@ export default class DealsApi {
     }
 
     /**
-     * Update product attachment details of the deal-product (a product already attached to a deal)
-     * Updates product attachment details.
+     * Update the product attached to a deal
+     * Updates the details of the product that has been attached to a deal.
      * @param {Number} id The ID of the deal
      * @param {Number} productAttachmentId The ID of the deal-product (the ID of the product attached to the deal)
      * @param {Object} opts Optional parameters

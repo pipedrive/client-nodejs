@@ -156,13 +156,13 @@ BasePersonItem.prototype['company_id'] = undefined;
 BasePersonItem.prototype['active_flag'] = undefined;
 
 /**
- * List of phone data related to the person
+ * A phone number supplied as a string or an array of phone objects related to the person. The structure of the array is as follows: `[{ \"value\": \"12345\", \"primary\": \"true\", \"label\": \"mobile\" }]`. Please note that only `value` is required.
  * @member {Array.<module:model/BasePersonItemPhone>} phone
  */
 BasePersonItem.prototype['phone'] = undefined;
 
 /**
- * List of email data related to the person
+ * An email address as a string or an array of email objects related to the person. The structure of the array is as follows: `[{ \"value\": \"mail@example.com\", \"primary\": \"true\", \"label\": \"main\" } ]`. Please note that only `value` is required.
  * @member {Array.<module:model/BasePersonItemEmail>} email
  */
 BasePersonItem.prototype['email'] = undefined;
