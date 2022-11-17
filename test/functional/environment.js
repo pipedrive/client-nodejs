@@ -19,19 +19,21 @@ const runTests = () => {
 	return code;
 };
 
-(async () => {
+(() => {
 	const argv = minimist(process.argv);
 
+	// needed for jenkins functional-tests job
 	if (argv['start-environment']) {
 		process.exit(0);
 	}
 
+	// needed for jenkins functional-tests job
 	if (argv['stop-environment']) {
 		process.exit(0);
 	}
 
 	try {
-		const code = await runTests();
+		const code = runTests();
 		process.exit(code || 0);
 	} catch (error) {
 		console.log(error);
