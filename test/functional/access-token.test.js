@@ -1,117 +1,109 @@
-const mockServer = require('mockserver-client');
-const { getSrc } = require('./utils');
-const mockServerClient = mockServer.mockServerClient;
+import { rest } from 'msw';
+import { setupServer } from 'msw/node';
+import { getLib } from './utils';
 
-let lib;
+const oauth2 = {
+	host: 'localhost',
+	clientId: 'fakeClientId',
+	clientSecret: 'fakeClientSecret',
+	redirectUri: 'https://example.org',
+};
 
-describe('oauth2 accessToken', () => {
-	let oauth2;
-	let pdClient;
-	let base64ClientIdAndSecret;
+const base64ClientIdAndSecret = Buffer.from(`${oauth2.clientId}:${oauth2.clientSecret}`).toString('base64');
 
+const server = setupServer(
+	rest.post('/oauth/token', async (req, res, ctx) => {
+		const body = await req.text();
+		const auth = req.headers.get('authorization');
 
-	beforeEach(async () => {
-		jest.resetModules();
+		if (auth !== `Basic ${base64ClientIdAndSecret}`) {
+			return res(
+				ctx.status(401),
+				ctx.json({
+					success: 'false',
+					message: 'Invalid header: Authorization header is invalid',
+					error: 'invalid_header',
+				}),
+			);
+		}
 
-		lib = getSrc();
-
-		await mockServerClient('localhost', global.MOCK_PORT, null, false).clear('/oauth/token', 'ALL');
-
-		pdClient = lib.ApiClient.instance;
-		oauth2 = pdClient.authentications.oauth2;
-
-		oauth2.host = global.MOCK_SERVER;
-		oauth2.clientId = 'fakeClientId';
-		oauth2.clientSecret = 'fakeClientSecret';
-		oauth2.redirectUri = 'https://example.org';
-		base64ClientIdAndSecret = Buffer.from(`${oauth2.clientId}:${oauth2.clientSecret}`).toString('base64');
-	});
-
-	it('should refresh accessToken with valid refreshToken', async () => {
-		oauth2.refreshToken = 'fakeRefreshToken';
-
-		await mockServerClient('localhost', global.MOCK_PORT, null, false).mockAnyResponse({
-			httpRequest: {
-				method: 'POST',
-				path: '/oauth/token',
-				body: 'refresh_token=fakeRefreshToken&grant_type=refresh_token',
-				headers: {
-					'Authorization': [`Basic ${base64ClientIdAndSecret}`],
-				},
-			},
-			httpResponse: {
-				statusCode: 200,
-				headers: {
-					'content-type': ['application/json; charset=utf-8'],
-				},
-				body: JSON.stringify({
+		if (body.includes('refresh_token=fakeRefreshToken')) {
+			return res(
+				ctx.status(200),
+				ctx.json({
 					access_token: 'freshAccessToken',
 					token_type: 'bearer',
 					refresh_token: 'freshRefreshToken',
 					scope: 'deals:full,users:full,1337',
 					expires_in: '3600',
-					api_domain: global.MOCK_SERVER,
-				})
-			},
-		});
+					api_domain: 'mock-server',
+				}),
+			);
+		}
+
+		return res(
+			ctx.status(400),
+			ctx.json({
+				success: 'false',
+				message: 'Invalid grant: refresh token is invalid',
+				error: 'invalid_grant',
+			}),
+		);
+	}),
+);
+
+describe('oauth2 accessToken', () => {
+	let ApiClient;
+
+	beforeAll(async () => {
+		const lib = await getLib();
+		ApiClient = lib.ApiClient;
+		server.listen();
+	});
+
+	afterEach(() => server.resetHandlers());
+	afterAll(() => server.close());
+
+	it('should refresh accessToken with valid refreshToken', async () => {
+		const pdClient = new ApiClient();
+		pdClient.authentications.oauth2 = { ...oauth2, refreshToken: 'fakeRefreshToken' };
 
 		const auth = await pdClient.refreshToken();
 
 		expect(auth).toMatchObject({
-				access_token: 'freshAccessToken',
-				token_type: 'bearer',
-				refresh_token: 'freshRefreshToken',
-				scope: 'deals:full,users:full,1337',
-				expires_in: '3600',
-				api_domain: global.MOCK_SERVER
-			}
-		);
+			access_token: 'freshAccessToken',
+			token_type: 'bearer',
+			refresh_token: 'freshRefreshToken',
+			scope: 'deals:full,users:full,1337',
+			expires_in: '3600',
+			api_domain: 'mock-server',
+		});
 
-		expect(oauth2.accessToken).toBe(auth.access_token);
-		expect(oauth2.refreshToken).toBe(auth.refresh_token);
+		expect(pdClient.authentications.oauth2.accessToken).toBe(auth.access_token);
+		expect(pdClient.authentications.oauth2.refreshToken).toBe(auth.refresh_token);
 	});
 
-	it('should throw refreshToken is not set', async () => {
+	it('should throw if refreshToken is not set', async () => {
+		const pdClient = new ApiClient();
+		pdClient.authentications.oauth2 = { ...oauth2 };
+
 		try {
-			expect(
-				await pdClient.refreshToken()
-			).toThrow();
+			expect(await pdClient.refreshToken()).toThrow();
 		} catch (error) {
 			expect(error.message).toBe('OAuth 2 property refreshToken is not set.');
 		}
 	});
 
-	it('should throw wrong refresh token', async () => {
-		oauth2.refreshToken = 'wrongRefreshToken';
-
-		await mockServerClient('localhost', global.MOCK_PORT, null, false).mockAnyResponse({
-			httpRequest: {
-				method: 'POST',
-				path: '/oauth/token',
-				headers: {
-					'Authorization': [`Basic ${base64ClientIdAndSecret}`],
-				},
-				body: 'refresh_token=wrongRefreshToken&grant_type=refresh_token',
-			},
-			httpResponse: {
-				statusCode: 400,
-				headers: {
-					'content-type': ['application/json; charset=utf-8'],
-				},
-				body: JSON.stringify({
-					success: 'false',
-					message: 'Invalid grant: refresh token is invalid',
-					error: 'invalid_grant',
-				})
-			},
-		});
+	it('should throw if wrong refresh token', async () => {
+		const pdClient = new ApiClient();
+		pdClient.authentications.oauth2 = { ...oauth2, refreshToken: 'wrongRefreshToken' };
 
 		try {
-			expect(
-				await pdClient.refreshToken()
-			).toThrow();
+			expect(await pdClient.refreshToken()).toThrow();
 		} catch (error) {
-			expect(error.context.error.text).toBe('{"success":"false","message":"Invalid grant: refresh token is invalid","error":"invalid_grant"}');
+			expect(error.context.error.text).toBe(
+				'{"success":"false","message":"Invalid grant: refresh token is invalid","error":"invalid_grant"}',
+			);
 		}
 	});
 });

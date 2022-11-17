@@ -1,1 +1,1 @@
-export const getSrc = () => process.env.AUTOMATION ? require('../../dist') : require('../../src');
+export const getLib = async () => await import(process.env.AUTOMATION ? '../../dist' : '../../src');
