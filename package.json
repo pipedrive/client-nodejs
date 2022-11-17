@@ -8,6 +8,8 @@
     "build": "babel src -d dist",
     "prepack": "npm run build",
     "test": "npm run test:functional",
+    "test:functional:start": "",
+    "test:functional:stop": "",
     "test:functional": "jest -c ./test/functional/jest.config.js --verbose --runInBand --detectOpenHandles --forceExit --color",
     "test:coverage": "npm run test:functional -- --collectCoverage",
     "sonar": "pipedrive-sonar-scanner",
