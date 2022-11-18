@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 
 Get all filter helpers
 
-Returns all supported filter helpers. It helps to know what conditions and helpers are available when you want to &lt;a href&#x3D;\&quot;/docs/api/v1/Filters#addFilter\&quot;&gt;add&lt;/a&gt; or &lt;a href&#x3D;\&quot;/docs/api/v1/Filters#updateFilter\&quot;&gt;update&lt;/a&gt; filters. Additionally, an exact date must be inserted in YYYY-MM-DD format and an exact time in HH:MM. For more information, see the tutorial for &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-a-filter\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;adding a filter&lt;/a&gt;.
+Returns all supported filter helpers. It helps to know what conditions and helpers are available when you want to &lt;a href&#x3D;\&quot;/docs/api/v1/Filters#addFilter\&quot;&gt;add&lt;/a&gt; or &lt;a href&#x3D;\&quot;/docs/api/v1/Filters#updateFilter\&quot;&gt;update&lt;/a&gt; filters. For more information, see the tutorial for &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-a-filter\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;adding a filter&lt;/a&gt;.
 
 ### Example
 

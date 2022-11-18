@@ -12,21 +12,20 @@
  */
 
 import ApiClient from '../ApiClient';
-import MailThreadDeleteAllOfData from './MailThreadDeleteAllOfData';
 
 /**
- * The MailThreadDeleteAllOf model module.
- * @module model/MailThreadDeleteAllOf
+ * The MailThreadDeleteAllOfData model module.
+ * @module model/MailThreadDeleteAllOfData
  * @version 1.0.0
  */
-class MailThreadDeleteAllOf {
+class MailThreadDeleteAllOfData {
     /**
-     * Constructs a new <code>MailThreadDeleteAllOf</code>.
-     * @alias module:model/MailThreadDeleteAllOf
+     * Constructs a new <code>MailThreadDeleteAllOfData</code>.
+     * @alias module:model/MailThreadDeleteAllOfData
      */
     constructor() { 
         
-        MailThreadDeleteAllOf.initialize(this);
+        MailThreadDeleteAllOfData.initialize(this);
     }
 
     /**
@@ -38,20 +37,20 @@ class MailThreadDeleteAllOf {
     }
 
     /**
-     * Constructs a <code>MailThreadDeleteAllOf</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>MailThreadDeleteAllOfData</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/MailThreadDeleteAllOf} obj Optional instance to populate.
-     * @return {module:model/MailThreadDeleteAllOf} The populated <code>MailThreadDeleteAllOf</code> instance.
+     * @param {module:model/MailThreadDeleteAllOfData} obj Optional instance to populate.
+     * @return {module:model/MailThreadDeleteAllOfData} The populated <code>MailThreadDeleteAllOfData</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new MailThreadDeleteAllOf();
+            obj = obj || new MailThreadDeleteAllOfData();
 
-            if (data.hasOwnProperty('data')) {
-                obj['data'] = MailThreadDeleteAllOfData.constructFromObject(data['data']);
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
 
-                delete data['data'];
+                delete data['id'];
             }
 
             if (Object.keys(data).length > 0) {
@@ -66,14 +65,15 @@ class MailThreadDeleteAllOf {
 }
 
 /**
- * @member {module:model/MailThreadDeleteAllOfData} data
+ * The ID of the deleted mail thread
+ * @member {Number} id
  */
-MailThreadDeleteAllOf.prototype['data'] = undefined;
+MailThreadDeleteAllOfData.prototype['id'] = undefined;
 
 
 
 
 
 
-export default MailThreadDeleteAllOf;
+export default MailThreadDeleteAllOfData;
 

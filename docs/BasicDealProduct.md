@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**productId** | **Number** | The ID of the product to use | 
 **itemPrice** | **Number** | The price at which this product will be added to the deal | 
 **quantity** | **Number** | Quantity – e.g. how many items of this product will be added to the deal | 
 **discountPercentage** | **Number** | The discount %. If omitted, will be set to 0. | [optional] [default to 0]

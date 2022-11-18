@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import BasicGoal from './BasicGoal';
 
 /**
  * The NewGoal model module.
@@ -23,11 +22,15 @@ class NewGoal {
     /**
      * Constructs a new <code>NewGoal</code>.
      * @alias module:model/NewGoal
-     * @implements module:model/BasicGoal
+     * @param assignee {Object} Who this goal is assigned to. It requires the following JSON structure: `{ \"id\": \"1\", \"type\": \"person\" }`. `type` can be either `person`, `company` or `team`. ID of the assignee person, company or team.
+     * @param type {Object} The type of the goal. It requires the following JSON structure: `{ \"name\": \"deals_started\", \"params\": { \"pipeline_id\": [1, 2], \"activity_type_id\": [9] } }`. Type can be one of: `deals_won`, `deals_progressed`, `activities_completed`, `activities_added`, `deals_started` or `revenue_forecast`. `params` can include `pipeline_id`, `stage_id` or `activity_type_id`. `stage_id` is related to only `deals_progressed` type of goals and `activity_type_id` to `activities_completed` or `activities_added` types of goals. The `pipeline_id` and `activity_type_id` need to be given as an array of integers. To track the goal in all pipelines, set `pipeline_id` as `null` and similarly, to track the goal for all activities, set `activity_type_id` as `null`.”
+     * @param expectedOutcome {Object} The expected outcome of the goal. Expected outcome can be tracked either by `quantity` or by `sum`. It requires the following JSON structure: `{ \"target\": \"50\", \"tracking_metric\": \"quantity\" }` or `{ \"target\": \"50\", \"tracking_metric\": \"sum\", \"currency_id\": 1 }`. `currency_id` should only be added to `sum` type of goals.
+     * @param duration {Object} The date when the goal starts and ends. It requires the following JSON structure: `{ \"start\": \"2019-01-01\", \"end\": \"2022-12-31\" }`. Date in format of YYYY-MM-DD. \"end\" can be set to `null` for an infinite, open-ended goal.
+     * @param interval {module:model/NewGoal.IntervalEnum} The interval of the goal
      */
-    constructor() { 
-        BasicGoal.initialize(this);
-        NewGoal.initialize(this);
+    constructor(assignee, type, expectedOutcome, duration, interval) { 
+        
+        NewGoal.initialize(this, assignee, type, expectedOutcome, duration, interval);
     }
 
     /**
@@ -35,7 +38,12 @@ class NewGoal {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, assignee, type, expectedOutcome, duration, interval) { 
+        obj['assignee'] = assignee;
+        obj['type'] = type;
+        obj['expected_outcome'] = expectedOutcome;
+        obj['duration'] = duration;
+        obj['interval'] = interval;
     }
 
     /**
@@ -48,7 +56,6 @@ class NewGoal {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new NewGoal();
-            BasicGoal.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('title')) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
@@ -99,25 +106,25 @@ class NewGoal {
 NewGoal.prototype['title'] = undefined;
 
 /**
- * Who this goal is assigned to. It requires the following JSON structure: { \"id\": \"1\", \"type\": \"person\" }. `type` can be either `person`, `company` or `team`. ID of the assignee person, company or team.
+ * Who this goal is assigned to. It requires the following JSON structure: `{ \"id\": \"1\", \"type\": \"person\" }`. `type` can be either `person`, `company` or `team`. ID of the assignee person, company or team.
  * @member {Object} assignee
  */
 NewGoal.prototype['assignee'] = undefined;
 
 /**
- * The type of the goal. It requires the following JSON structure: { \"name\": \"deals_started\", \"params\": { \"pipeline_id\": [1, 2], \"activity_type_id\": [9] } }. Type can be one of: `deals_won`, `deals_progressed`, `activities_completed`, `activities_added`, `deals_started` or `revenue_forecast`. `params` can include `pipeline_id`, `stage_id` or `activity_type_id`. `stage_id` is related to only `deals_progressed` type of goals and `activity_type_id` to `activities_completed` or `activities_added` types of goals. The `pipeline_id` and `activity_type_id` need to be given as an array of integers. To track the goal in all pipelines, set `pipeline_id` as `null` and similarly, to track the goal for all activities, set `activity_type_id` as `null`.”
+ * The type of the goal. It requires the following JSON structure: `{ \"name\": \"deals_started\", \"params\": { \"pipeline_id\": [1, 2], \"activity_type_id\": [9] } }`. Type can be one of: `deals_won`, `deals_progressed`, `activities_completed`, `activities_added`, `deals_started` or `revenue_forecast`. `params` can include `pipeline_id`, `stage_id` or `activity_type_id`. `stage_id` is related to only `deals_progressed` type of goals and `activity_type_id` to `activities_completed` or `activities_added` types of goals. The `pipeline_id` and `activity_type_id` need to be given as an array of integers. To track the goal in all pipelines, set `pipeline_id` as `null` and similarly, to track the goal for all activities, set `activity_type_id` as `null`.”
  * @member {Object} type
  */
 NewGoal.prototype['type'] = undefined;
 
 /**
- * The expected outcome of the goal. Expected outcome can be tracked either by `quantity` or by `sum`. It requires the following JSON structure: { \"target\": \"50\", \"tracking_metric\": \"quantity\" } or { \"target\": \"50\", \"tracking_metric\": \"sum\", \"currency_id\": 1 }. `currency_id` should only be added to `sum` type of goals.
+ * The expected outcome of the goal. Expected outcome can be tracked either by `quantity` or by `sum`. It requires the following JSON structure: `{ \"target\": \"50\", \"tracking_metric\": \"quantity\" }` or `{ \"target\": \"50\", \"tracking_metric\": \"sum\", \"currency_id\": 1 }`. `currency_id` should only be added to `sum` type of goals.
  * @member {Object} expected_outcome
  */
 NewGoal.prototype['expected_outcome'] = undefined;
 
 /**
- * The date when the goal starts and ends. It requires the following JSON structure: { \"start\": \"2019-01-01\", \"end\": \"2022-12-31\" }. Date in format of YYYY-MM-DD. \"end\" can be set to `null` for an infinite, open-ended goal.
+ * The date when the goal starts and ends. It requires the following JSON structure: `{ \"start\": \"2019-01-01\", \"end\": \"2022-12-31\" }`. Date in format of YYYY-MM-DD. \"end\" can be set to `null` for an infinite, open-ended goal.
  * @member {Object} duration
  */
 NewGoal.prototype['duration'] = undefined;
@@ -129,37 +136,6 @@ NewGoal.prototype['duration'] = undefined;
 NewGoal.prototype['interval'] = undefined;
 
 
-// Implement BasicGoal interface:
-/**
- * The title of the goal
- * @member {String} title
- */
-BasicGoal.prototype['title'] = undefined;
-/**
- * Who this goal is assigned to. It requires the following JSON structure: { \"id\": \"1\", \"type\": \"person\" }. `type` can be either `person`, `company` or `team`. ID of the assignee person, company or team.
- * @member {Object} assignee
- */
-BasicGoal.prototype['assignee'] = undefined;
-/**
- * The type of the goal. It requires the following JSON structure: { \"name\": \"deals_started\", \"params\": { \"pipeline_id\": [1, 2], \"activity_type_id\": [9] } }. Type can be one of: `deals_won`, `deals_progressed`, `activities_completed`, `activities_added`, `deals_started` or `revenue_forecast`. `params` can include `pipeline_id`, `stage_id` or `activity_type_id`. `stage_id` is related to only `deals_progressed` type of goals and `activity_type_id` to `activities_completed` or `activities_added` types of goals. The `pipeline_id` and `activity_type_id` need to be given as an array of integers. To track the goal in all pipelines, set `pipeline_id` as `null` and similarly, to track the goal for all activities, set `activity_type_id` as `null`.”
- * @member {Object} type
- */
-BasicGoal.prototype['type'] = undefined;
-/**
- * The expected outcome of the goal. Expected outcome can be tracked either by `quantity` or by `sum`. It requires the following JSON structure: { \"target\": \"50\", \"tracking_metric\": \"quantity\" } or { \"target\": \"50\", \"tracking_metric\": \"sum\", \"currency_id\": 1 }. `currency_id` should only be added to `sum` type of goals.
- * @member {Object} expected_outcome
- */
-BasicGoal.prototype['expected_outcome'] = undefined;
-/**
- * The date when the goal starts and ends. It requires the following JSON structure: { \"start\": \"2019-01-01\", \"end\": \"2022-12-31\" }. Date in format of YYYY-MM-DD. \"end\" can be set to `null` for an infinite, open-ended goal.
- * @member {Object} duration
- */
-BasicGoal.prototype['duration'] = undefined;
-/**
- * The interval of the goal
- * @member {module:model/BasicGoal.IntervalEnum} interval
- */
-BasicGoal.prototype['interval'] = undefined;
 
 
 

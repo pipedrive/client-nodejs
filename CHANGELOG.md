@@ -7,6 +7,8 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Changed
+- Updated `GET /v1/deals/{id}/persons` endpoint description to include information about `marketing_status`
 ## 17.5.2
 ### Changed
 - Updated endpoint descriptions to warn about permanently removing deleted entities:
