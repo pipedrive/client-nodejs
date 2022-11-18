@@ -12,9 +12,9 @@
  */
 
 import ApiClient from '../ApiClient';
-import BaseMailThread from './BaseMailThread';
 import BaseResponse from './BaseResponse';
 import MailThreadDeleteAllOf from './MailThreadDeleteAllOf';
+import MailThreadDeleteAllOfData from './MailThreadDeleteAllOfData';
 
 /**
  * The MailThreadDelete model module.
@@ -60,7 +60,7 @@ class MailThreadDelete {
                 delete data['success'];
             }
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [BaseMailThread]);
+                obj['data'] = MailThreadDeleteAllOfData.constructFromObject(data['data']);
 
                 delete data['data'];
             }
@@ -83,8 +83,7 @@ class MailThreadDelete {
 MailThreadDelete.prototype['success'] = undefined;
 
 /**
- * An array of mail threads
- * @member {Array.<module:model/BaseMailThread>} data
+ * @member {module:model/MailThreadDeleteAllOfData} data
  */
 MailThreadDelete.prototype['data'] = undefined;
 
@@ -97,8 +96,7 @@ MailThreadDelete.prototype['data'] = undefined;
 BaseResponse.prototype['success'] = undefined;
 // Implement MailThreadDeleteAllOf interface:
 /**
- * An array of mail threads
- * @member {Array.<module:model/BaseMailThread>} data
+ * @member {module:model/MailThreadDeleteAllOfData} data
  */
 MailThreadDeleteAllOf.prototype['data'] = undefined;
 

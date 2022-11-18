@@ -51,6 +51,21 @@ export default class GoalsApi {
       opts = opts || {};
       let postBody = opts['newGoal'];
 
+      if (opts['assignee'] === undefined || opts['assignee'] === null) {
+        throw new Error("Missing the required parameter 'assignee' when calling addGoal");
+      }
+      if (opts['type'] === undefined || opts['type'] === null) {
+        throw new Error("Missing the required parameter 'type' when calling addGoal");
+      }
+      if (opts['expected_outcome'] === undefined || opts['expected_outcome'] === null) {
+        throw new Error("Missing the required parameter 'expected_outcome' when calling addGoal");
+      }
+      if (opts['duration'] === undefined || opts['duration'] === null) {
+        throw new Error("Missing the required parameter 'duration' when calling addGoal");
+      }
+      if (opts['interval'] === undefined || opts['interval'] === null) {
+        throw new Error("Missing the required parameter 'interval' when calling addGoal");
+      }
 
       let pathParams = {
       };

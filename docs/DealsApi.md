@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**addDeal**](DealsApi.md#addDeal) | **POST** /deals | Add a deal
 [**addDealFollower**](DealsApi.md#addDealFollower) | **POST** /deals/{id}/followers | Add a follower to a deal
 [**addDealParticipant**](DealsApi.md#addDealParticipant) | **POST** /deals/{id}/participants | Add a participant to a deal
-[**addDealProduct**](DealsApi.md#addDealProduct) | **POST** /deals/{id}/products | Add a product to the deal, eventually creating a new item called a deal-product
+[**addDealProduct**](DealsApi.md#addDealProduct) | **POST** /deals/{id}/products | Add a product to a deal
 [**deleteDeal**](DealsApi.md#deleteDeal) | **DELETE** /deals/{id} | Delete a deal
 [**deleteDealFollower**](DealsApi.md#deleteDealFollower) | **DELETE** /deals/{id}/followers/{follower_id} | Delete a follower from a deal
 [**deleteDealParticipant**](DealsApi.md#deleteDealParticipant) | **DELETE** /deals/{id}/participants/{deal_participant_id} | Delete a participant from a deal
@@ -30,7 +30,7 @@ Method | HTTP request | Description
 [**mergeDeals**](DealsApi.md#mergeDeals) | **PUT** /deals/{id}/merge | Merge two deals
 [**searchDeals**](DealsApi.md#searchDeals) | **GET** /deals/search | Search deals
 [**updateDeal**](DealsApi.md#updateDeal) | **PUT** /deals/{id} | Update a deal
-[**updateDealProduct**](DealsApi.md#updateDealProduct) | **PUT** /deals/{id}/products/{product_attachment_id} | Update product attachment details of the deal-product (a product already attached to a deal)
+[**updateDealProduct**](DealsApi.md#updateDealProduct) | **PUT** /deals/{id}/products/{product_attachment_id} | Update the product attached to a deal
 
 
 
@@ -207,9 +207,9 @@ Name | Type | Description  | Notes
 
 > GetAddProductAttachementDetails addDealProduct(id, opts)
 
-Add a product to the deal, eventually creating a new item called a deal-product
+Add a product to a deal
 
-Adds a product to the deal.
+Adds a product to a deal, creating a new item called a deal-product.
 
 ### Example
 
@@ -938,7 +938,7 @@ Name | Type | Description  | Notes
 
 List all persons associated with a deal
 
-Lists all persons associated with a deal, regardless of whether the person is the primary contact of the deal, or added as a participant.
+Lists all persons associated with a deal, regardless of whether the person is the primary contact of the deal, or added as a participant.&lt;br&gt;If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the &#x60;data.marketing_status&#x60; field.
 
 ### Example
 
@@ -1192,7 +1192,7 @@ let opts = {
   'userId': 56, // Number | If supplied, only deals matching the given user will be returned. However, `filter_id` and `owned_by_you` takes precedence over `user_id` when supplied.
   'filterId': 56, // Number | The ID of the filter to use
   'stageId': 56, // Number | If supplied, only deals within the given stage will be returned
-  'status': "'all_not_deleted'", // String | Only fetch deals with a specific status. If omitted, all not deleted deals are fetched.
+  'status': "'all_not_deleted'", // String | Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included.
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
   'sort': "sort_example", // String | The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
@@ -1214,7 +1214,7 @@ Name | Type | Description  | Notes
  **userId** | **Number**| If supplied, only deals matching the given user will be returned. However, &#x60;filter_id&#x60; and &#x60;owned_by_you&#x60; takes precedence over &#x60;user_id&#x60; when supplied. | [optional] 
  **filterId** | **Number**| The ID of the filter to use | [optional] 
  **stageId** | **Number**| If supplied, only deals within the given stage will be returned | [optional] 
- **status** | **String**| Only fetch deals with a specific status. If omitted, all not deleted deals are fetched. | [optional] [default to &#39;all_not_deleted&#39;]
+ **status** | **String**| Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. | [optional] [default to &#39;all_not_deleted&#39;]
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
  **sort** | **String**| The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). | [optional] 
@@ -1446,7 +1446,7 @@ let oauth2 = defaultClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealsApi();
-let term = "term_example"; // String | The search term to look for. Minimum 2 characters (or 1 if using `exact_match`).
+let term = "term_example"; // String | The search term to look for. Minimum 2 characters (or 1 if using `exact_match`). Please note that the search term has to be URL encoded.
 let opts = {
   'fields': "fields_example", // String | A comma-separated string array. The fields to perform the search from. Defaults to all of them.
   'exactMatch': true, // Boolean | When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
@@ -1470,7 +1470,7 @@ apiInstance.searchDeals(term, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **term** | **String**| The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). | 
+ **term** | **String**| The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded. | 
  **fields** | **String**| A comma-separated string array. The fields to perform the search from. Defaults to all of them. | [optional] 
  **exactMatch** | **Boolean**| When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. | [optional] 
  **personId** | **Number**| Will filter deals by the provided person ID. The upper limit of found deals associated with the person is 2000. | [optional] 
@@ -1555,9 +1555,9 @@ Name | Type | Description  | Notes
 
 > GetProductAttachementDetails updateDealProduct(id, productAttachmentId, opts)
 
-Update product attachment details of the deal-product (a product already attached to a deal)
+Update the product attached to a deal
 
-Updates product attachment details.
+Updates the details of the product that has been attached to a deal.
 
 ### Example
 
