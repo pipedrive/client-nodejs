@@ -1,6 +1,4 @@
-import { rest } from 'msw';
-import { setupServer } from 'msw/node';
-import { getLib } from './utils';
+import { getLib, getMockServer } from './utils';
 
 const oauth2 = {
 	host: 'localhost',
@@ -9,48 +7,7 @@ const oauth2 = {
 	redirectUri: 'https://example.org',
 };
 
-const base64ClientIdAndSecret = Buffer.from(`${oauth2.clientId}:${oauth2.clientSecret}`).toString('base64');
-
-const server = setupServer(
-	rest.post('/oauth/token', async (req, res, ctx) => {
-		const body = await req.text();
-		const auth = req.headers.get('authorization');
-
-		if (auth !== `Basic ${base64ClientIdAndSecret}`) {
-			return res(
-				ctx.status(401),
-				ctx.json({
-					success: 'false',
-					message: 'Invalid header: Authorization header is invalid',
-					error: 'invalid_header',
-				}),
-			);
-		}
-
-		if (body.includes('refresh_token=fakeRefreshToken')) {
-			return res(
-				ctx.status(200),
-				ctx.json({
-					access_token: 'freshAccessToken',
-					token_type: 'bearer',
-					refresh_token: 'freshRefreshToken',
-					scope: 'deals:full,users:full,1337',
-					expires_in: '3600',
-					api_domain: 'mock-server',
-				}),
-			);
-		}
-
-		return res(
-			ctx.status(400),
-			ctx.json({
-				success: 'false',
-				message: 'Invalid grant: refresh token is invalid',
-				error: 'invalid_grant',
-			}),
-		);
-	}),
-);
+const server = getMockServer(oauth2);
 
 describe('oauth2 accessToken', () => {
 	let ApiClient;
@@ -76,7 +33,7 @@ describe('oauth2 accessToken', () => {
 			refresh_token: 'freshRefreshToken',
 			scope: 'deals:full,users:full,1337',
 			expires_in: '3600',
-			api_domain: 'mock-server',
+			api_domain: 'localhost',
 		});
 
 		expect(pdClient.authentications.oauth2.accessToken).toBe(auth.access_token);

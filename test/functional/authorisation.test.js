@@ -1,6 +1,4 @@
-import { rest } from 'msw';
-import { setupServer } from 'msw/node';
-import { getLib } from './utils';
+import { getLib, getMockServer } from './utils';
 
 const oauth2 = {
 	host: 'localhost',
@@ -9,34 +7,7 @@ const oauth2 = {
 	redirectUri: 'https://example.org',
 };
 
-const server = setupServer(
-	rest.post('/oauth/token', async (req, res, ctx) => {
-		const body = await req.text();
-
-		if (body === 'code=fakeAuthCode&redirect_uri=https://example.org&grant_type=authorization_code') {
-			return res(
-				ctx.status(200),
-				ctx.json({
-					access_token: 'freshAccessToken',
-					token_type: 'bearer',
-					refresh_token: 'freshRefreshToken',
-					scope: 'deals:full,users:full,1337',
-					expires_in: '3600',
-					api_domain: 'mock-server',
-				}),
-			);
-		}
-
-		return res(
-			ctx.status(400),
-			ctx.json({
-				success: 'false',
-				message: 'Invalid grant: authorization code is invalid',
-				error: 'invalid_grant',
-			}),
-		);
-	}),
-);
+const server = getMockServer(oauth2);
 
 describe('oauth2 authorization', () => {
 	let ApiClient;
@@ -61,7 +32,7 @@ describe('oauth2 authorization', () => {
 			refresh_token: 'freshRefreshToken',
 			scope: 'deals:full,users:full,1337',
 			expires_in: '3600',
-			api_domain: 'mock-server',
+			api_domain: 'localhost',
 		});
 
 		expect(pdClient.authentications.oauth2.accessToken).toBe(auth.access_token);
@@ -109,7 +80,7 @@ describe('oauth2 authorization', () => {
 			expect(await pdClient.authorize('wrongAuthCode')).toThrow();
 		} catch (error) {
 			expect(error.context.error.text).toBe(
-				'{"success":"false","message":"Invalid grant: authorization code is invalid","error":"invalid_grant"}',
+				'{"success":"false","message":"Invalid grant: refresh token is invalid","error":"invalid_grant"}',
 			);
 		}
 	});
