@@ -7,12 +7,13 @@
   "scripts": {
     "build": "babel src -d dist",
     "prepack": "npm run build",
-    "test": "npm run test:functional:start && npm run test:functional && npm run test:functional:stop",
+    "test": "npm run test:functional",
+    "test:functional:start": "npm run test:functional -- --start-environment",
+    "test:functional:stop": "npm run test:functional -- --stop-environment",
     "test:functional": "node ./test/functional/environment.js",
-    "test:functional:start": "node ./test/functional/environment.js --start-environment",
-    "test:functional:stop": "node ./test/functional/environment.js --stop-environment",
+    "test:coverage": "npm run test:functional -- --collectCoverage",
     "sonar": "pipedrive-sonar-scanner",
-    "test:coverage": "npm run test:functional:start && npm run test:functional -- --collectCoverage && npm run test:functional:stop"
+    "lint-staged": "lint-staged"
   },
   "browser": {
     "fs": false
@@ -25,6 +26,7 @@
   "devDependencies": {
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
+    "@babel/eslint-parser": "^7.19.1",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
     "@babel/plugin-proposal-decorators": "^7.0.0",
     "@babel/plugin-proposal-do-expressions": "^7.0.0",
@@ -45,21 +47,40 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/register": "^7.0.0",
     "@babel/runtime": "^7.14.0",
+    "@pipedrive/prettier-config": "^5.0.0",
     "@pipedrive/sonar-scanner": "^3.3.1",
-    "axios": "^0.21.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.27.0",
+    "eslint-config-pipedrive": "^13.0.0",
+    "eslint-plugin-jest": "^27.1.5",
     "expect.js": "^0.3.1",
     "get-port": "^5.1.1",
     "jest": "^26.6.3",
     "jest-environment-node": "^27.4.4",
+    "lint-staged": "^13.0.3",
     "minimist": "^1.2.5",
     "mocha": "^8.0.1",
-    "mockserver-client": "^5.11.2",
-    "mockserver-node": "^5.11.2",
+    "msw": "^0.48.2",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.7.1",
     "regenerator-runtime": "^0.13.7",
     "shelljs": "^0.8.4",
     "sinon": "^7.2.0"
   },
   "files": [
     "dist"
+  ],
+  "lint-staged": {
+    "*.{ts,js,json,md,yml}": [
+      "prettier --write"
+    ],
+    "*.{ts,js}": [
+      "eslint --fix"
+    ]
+  },
+  "pre-commit": [
+    "lint-staged",
+    "test",
+    "build"
   ]
 }
