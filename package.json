@@ -46,8 +46,6 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/register": "^7.0.0",
     "@babel/runtime": "^7.20.1",
-    "@pipedrive/prettier-config": "^5.0.0",
-    "@pipedrive/sonar-scanner": "^3.3.1",
     "babel-eslint": "^10.1.0",
     "eslint": "^8.27.0",
     "eslint-config-pipedrive": "^13.0.0",
@@ -61,7 +59,6 @@
     "mocha": "^8.0.1",
     "msw": "^0.48.2",
     "pre-commit": "^1.2.2",
-    "prettier": "^2.7.1",
     "regenerator-runtime": "^0.13.7",
     "shelljs": "^0.8.4",
     "sinon": "^7.2.0"
@@ -70,9 +67,6 @@
     "dist"
   ],
   "lint-staged": {
-    "*.{ts,js,json,md,yml}": [
-      "prettier --write"
-    ],
     "*.{ts,js}": [
       "eslint --fix"
     ]
