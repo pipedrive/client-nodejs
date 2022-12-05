@@ -23,17 +23,17 @@ Adds a new messaging channel, only admins are able to register new channels. It 
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.ChannelsApi();
+let apiInstance = new Pipedrive.ChannelsApi(apiClient);
 let opts = Pipedrive.ChannelObject.constructFromObject({
   // Properties that you want to update
 });
@@ -78,17 +78,17 @@ Deletes an existing messenger’s channel and all related entities (conversation
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.ChannelsApi();
+let apiInstance = new Pipedrive.ChannelsApi(apiClient);
 let id = "id_example"; // String | The ID of the channel provided by the integration
 apiInstance.deleteChannel(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -131,17 +131,17 @@ Deletes an existing conversation. To use the endpoint, you need to have **Messen
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.ChannelsApi();
+let apiInstance = new Pipedrive.ChannelsApi(apiClient);
 let channelId = "channelId_example"; // String | The ID of the channel provided by the integration
 let conversationId = "conversationId_example"; // String | The ID of the conversation provided by the integration
 apiInstance.deleteConversation(channelId, conversationId).then((data) => {
@@ -186,17 +186,17 @@ Adds a message to a conversation. To use the endpoint, you need to have **Messen
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.ChannelsApi();
+let apiInstance = new Pipedrive.ChannelsApi(apiClient);
 let opts = Pipedrive.MessageObject.constructFromObject({
   // Properties that you want to update
 });

@@ -29,17 +29,17 @@ Adds a new note.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.NotesApi();
+let apiInstance = new Pipedrive.NotesApi(apiClient);
 let opts = Pipedrive.AddNoteRequest.constructFromObject({
   // Properties that you want to update
 });
@@ -84,17 +84,17 @@ Adds a new comment to a note.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.NotesApi();
+let apiInstance = new Pipedrive.NotesApi(apiClient);
 let id = 56; // Number | The ID of the note
 let opts = Pipedrive.CommentPostPutObject.constructFromObject({
   // Properties that you want to update
@@ -141,17 +141,17 @@ Deletes a comment.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.NotesApi();
+let apiInstance = new Pipedrive.NotesApi(apiClient);
 let id = 56; // Number | The ID of the note
 let commentId = "commentId_example"; // String | The ID of the comment
 apiInstance.deleteComment(id, commentId).then((data) => {
@@ -196,17 +196,17 @@ Deletes a specific note.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.NotesApi();
+let apiInstance = new Pipedrive.NotesApi(apiClient);
 let id = 56; // Number | The ID of the note
 apiInstance.deleteNote(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -249,17 +249,17 @@ Returns the details of a comment.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.NotesApi();
+let apiInstance = new Pipedrive.NotesApi(apiClient);
 let id = 56; // Number | The ID of the note
 let commentId = "commentId_example"; // String | The ID of the comment
 apiInstance.getComment(id, commentId).then((data) => {
@@ -304,17 +304,17 @@ Returns details about a specific note.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.NotesApi();
+let apiInstance = new Pipedrive.NotesApi(apiClient);
 let id = 56; // Number | The ID of the note
 apiInstance.getNote(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -357,17 +357,17 @@ Returns all comments associated with a note.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.NotesApi();
+let apiInstance = new Pipedrive.NotesApi(apiClient);
 let id = 56; // Number | The ID of the note
 let opts = {
   'start': 0, // Number | Pagination start
@@ -416,17 +416,17 @@ Returns all notes.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.NotesApi();
+let apiInstance = new Pipedrive.NotesApi(apiClient);
 let opts = {
   'userId': 56, // Number | The ID of the user whose notes to fetch. If omitted, notes by all users will be returned.
   'leadId': "leadId_example", // String | The ID of the lead which notes to fetch. If omitted, notes about all leads will be returned.
@@ -497,17 +497,17 @@ Updates a comment related to a note.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.NotesApi();
+let apiInstance = new Pipedrive.NotesApi(apiClient);
 let id = 56; // Number | The ID of the note
 let commentId = "commentId_example"; // String | The ID of the comment
 let opts = Pipedrive.CommentPostPutObject.constructFromObject({
@@ -556,17 +556,17 @@ Updates a note.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.NotesApi();
+let apiInstance = new Pipedrive.NotesApi(apiClient);
 let id = 56; // Number | The ID of the note
 let opts = Pipedrive.Note.constructFromObject({
   // Properties that you want to update

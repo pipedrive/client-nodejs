@@ -27,17 +27,17 @@ Adds a new team to the company and returns the created object.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.LegacyTeamsApi();
+let apiInstance = new Pipedrive.LegacyTeamsApi(apiClient);
 let opts = Pipedrive.CreateTeam.constructFromObject({
   // Properties that you want to update
 });
@@ -82,17 +82,17 @@ Adds users to an existing team.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.LegacyTeamsApi();
+let apiInstance = new Pipedrive.LegacyTeamsApi(apiClient);
 let id = 56; // Number | The ID of the team
 let opts = Pipedrive.AddTeamUserRequest.constructFromObject({
   // Properties that you want to update
@@ -139,17 +139,17 @@ Deletes users from an existing team.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.LegacyTeamsApi();
+let apiInstance = new Pipedrive.LegacyTeamsApi(apiClient);
 let id = 56; // Number | The ID of the team
 let opts = Pipedrive.DeleteTeamUserRequest.constructFromObject({
   // Properties that you want to update
@@ -196,17 +196,17 @@ Returns data about a specific team.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.LegacyTeamsApi();
+let apiInstance = new Pipedrive.LegacyTeamsApi(apiClient);
 let id = 56; // Number | The ID of the team
 let opts = {
   'skipUsers': new Pipedrive.NumberBooleanDefault0() // NumberBooleanDefault0 | When enabled, the teams will not include IDs of member users
@@ -253,17 +253,17 @@ Returns a list of all user IDs within a team.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.LegacyTeamsApi();
+let apiInstance = new Pipedrive.LegacyTeamsApi(apiClient);
 let id = 56; // Number | The ID of the team
 apiInstance.getTeamUsers(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -306,17 +306,17 @@ Returns data about teams within the company.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.LegacyTeamsApi();
+let apiInstance = new Pipedrive.LegacyTeamsApi(apiClient);
 let opts = {
   'orderBy': "'id'", // String | The field name to sort returned teams by
   'skipUsers': new Pipedrive.NumberBooleanDefault0() // NumberBooleanDefault0 | When enabled, the teams will not include IDs of member users
@@ -363,17 +363,17 @@ Returns data about all teams which have the specified user as a member.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.LegacyTeamsApi();
+let apiInstance = new Pipedrive.LegacyTeamsApi(apiClient);
 let id = 56; // Number | The ID of the user
 let opts = {
   'orderBy': "'id'", // String | The field name to sort returned teams by
@@ -422,17 +422,17 @@ Updates an existing team and returns the updated object.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.LegacyTeamsApi();
+let apiInstance = new Pipedrive.LegacyTeamsApi(apiClient);
 let id = 56; // Number | The ID of the team
 let opts = Pipedrive.UpdateTeam.constructFromObject({
   // Properties that you want to update

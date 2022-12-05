@@ -29,17 +29,17 @@ Adds a new user to the company, returns the ID upon success.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.UsersApi();
+let apiInstance = new Pipedrive.UsersApi(apiClient);
 let opts = Pipedrive.AddUserRequest.constructFromObject({
   // Properties that you want to update
 });
@@ -84,17 +84,17 @@ Finds users by their name.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.UsersApi();
+let apiInstance = new Pipedrive.UsersApi(apiClient);
 let term = "term_example"; // String | The search term to look for
 let opts = {
   'searchByEmail': new Pipedrive.NumberBooleanDefault0() // NumberBooleanDefault0 | When enabled, the term will only be matched against email addresses of users. Default: `false`
@@ -141,17 +141,17 @@ Returns data about an authorized user within the company with bound company data
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.UsersApi();
+let apiInstance = new Pipedrive.UsersApi(apiClient);
 apiInstance.getCurrentUser().then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -190,17 +190,17 @@ Returns data about a specific user within the company.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.UsersApi();
+let apiInstance = new Pipedrive.UsersApi(apiClient);
 let id = 56; // Number | The ID of the user
 apiInstance.getUser(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -243,17 +243,17 @@ Lists the followers of a specific user.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.UsersApi();
+let apiInstance = new Pipedrive.UsersApi(apiClient);
 let id = 56; // Number | The ID of the user
 apiInstance.getUserFollowers(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -296,17 +296,17 @@ Lists aggregated permissions over all assigned permission sets for a user.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.UsersApi();
+let apiInstance = new Pipedrive.UsersApi(apiClient);
 let id = 56; // Number | The ID of the user
 apiInstance.getUserPermissions(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -349,17 +349,17 @@ Lists role assignments for a user.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.UsersApi();
+let apiInstance = new Pipedrive.UsersApi(apiClient);
 let id = 56; // Number | The ID of the user
 let opts = {
   'start': 0, // Number | Pagination start
@@ -408,17 +408,17 @@ Lists the settings of user&#39;s assigned role.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.UsersApi();
+let apiInstance = new Pipedrive.UsersApi(apiClient);
 let id = 56; // Number | The ID of the user
 apiInstance.getUserRoleSettings(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -461,17 +461,17 @@ Returns data about all users within the company.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.UsersApi();
+let apiInstance = new Pipedrive.UsersApi(apiClient);
 apiInstance.getUsers().then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -510,17 +510,17 @@ Updates the properties of a user. Currently, only &#x60;active_flag&#x60; can be
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.UsersApi();
+let apiInstance = new Pipedrive.UsersApi(apiClient);
 let id = 56; // Number | The ID of the user
 let opts = Pipedrive.UpdateUserRequest.constructFromObject({
   // Properties that you want to update

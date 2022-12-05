@@ -25,17 +25,17 @@ Marks a mail thread as deleted.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.MailboxApi();
+let apiInstance = new Pipedrive.MailboxApi(apiClient);
 let id = 56; // Number | The ID of the mail thread
 apiInstance.deleteMailThread(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -78,17 +78,17 @@ Returns data about a specific mail message.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.MailboxApi();
+let apiInstance = new Pipedrive.MailboxApi(apiClient);
 let id = 56; // Number | The ID of the mail message to fetch
 let opts = {
   'includeBody': new Pipedrive.NumberBooleanDefault0() // NumberBooleanDefault0 | Whether to include the full message body or not. `0` = Don't include, `1` = Include
@@ -135,17 +135,17 @@ Returns a specific mail thread.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.MailboxApi();
+let apiInstance = new Pipedrive.MailboxApi(apiClient);
 let id = 56; // Number | The ID of the mail thread
 apiInstance.getMailThread(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -188,17 +188,17 @@ Returns all the mail messages inside a specified mail thread.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.MailboxApi();
+let apiInstance = new Pipedrive.MailboxApi(apiClient);
 let id = 56; // Number | The ID of the mail thread
 apiInstance.getMailThreadMessages(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -241,17 +241,17 @@ Returns mail threads in a specified folder ordered by the most recent message wi
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.MailboxApi();
+let apiInstance = new Pipedrive.MailboxApi(apiClient);
 let folder = "'inbox'"; // String | The type of folder to fetch
 let opts = {
   'start': 0, // Number | Pagination start
@@ -300,17 +300,17 @@ Updates the properties of a mail thread.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.MailboxApi();
+let apiInstance = new Pipedrive.MailboxApi(apiClient);
 let id = 56; // Number | The ID of the mail thread
 let opts = {
   'dealId': 56, // Number | The ID of the deal this thread is associated with

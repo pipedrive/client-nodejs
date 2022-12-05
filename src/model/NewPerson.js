@@ -79,11 +79,6 @@ class NewPerson {
 
                 delete data['email'];
             }
-            if (data.hasOwnProperty('primary_email')) {
-                obj['primary_email'] = ApiClient.convertToType(data['primary_email'], 'String');
-
-                delete data['primary_email'];
-            }
             if (data.hasOwnProperty('phone')) {
                 obj['phone'] = ApiClient.convertToType(data['phone'], [BasePersonItemPhone]);
 
@@ -135,19 +130,13 @@ NewPerson.prototype['owner_id'] = undefined;
 NewPerson.prototype['org_id'] = undefined;
 
 /**
- * List of email data related to the person
+ * An email address as a string or an array of email objects related to the person. The structure of the array is as follows: `[{ \"value\": \"mail@example.com\", \"primary\": \"true\", \"label\": \"main\" }]`. Please note that only `value` is required.
  * @member {Array.<module:model/BasicPersonEmail>} email
  */
 NewPerson.prototype['email'] = undefined;
 
 /**
- * The primary email of the person
- * @member {String} primary_email
- */
-NewPerson.prototype['primary_email'] = undefined;
-
-/**
- * List of phone data related to the person
+ * A phone number supplied as a string or an array of phone objects related to the person. The structure of the array is as follows: `[{ \"value\": \"12345\", \"primary\": \"true\", \"label\": \"mobile\" }]`. Please note that only `value` is required.
  * @member {Array.<module:model/BasePersonItemPhone>} phone
  */
 NewPerson.prototype['phone'] = undefined;
@@ -189,17 +178,12 @@ BasicPerson.prototype['owner_id'] = undefined;
  */
 BasicPerson.prototype['org_id'] = undefined;
 /**
- * List of email data related to the person
+ * An email address as a string or an array of email objects related to the person. The structure of the array is as follows: `[{ \"value\": \"mail@example.com\", \"primary\": \"true\", \"label\": \"main\" }]`. Please note that only `value` is required.
  * @member {Array.<module:model/BasicPersonEmail>} email
  */
 BasicPerson.prototype['email'] = undefined;
 /**
- * The primary email of the person
- * @member {String} primary_email
- */
-BasicPerson.prototype['primary_email'] = undefined;
-/**
- * List of phone data related to the person
+ * A phone number supplied as a string or an array of phone objects related to the person. The structure of the array is as follows: `[{ \"value\": \"12345\", \"primary\": \"true\", \"label\": \"mobile\" }]`. Please note that only `value` is required.
  * @member {Array.<module:model/BasePersonItemPhone>} phone
  */
 BasicPerson.prototype['phone'] = undefined;

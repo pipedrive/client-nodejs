@@ -26,17 +26,17 @@ Adds a new filter, returns the ID upon success. Note that in the conditions JSON
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.FiltersApi();
+let apiInstance = new Pipedrive.FiltersApi(apiClient);
 let opts = Pipedrive.AddFilterRequest.constructFromObject({
   // Properties that you want to update
 });
@@ -81,17 +81,17 @@ Marks a filter as deleted.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.FiltersApi();
+let apiInstance = new Pipedrive.FiltersApi(apiClient);
 let id = 56; // Number | The ID of the filter
 apiInstance.deleteFilter(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -134,17 +134,17 @@ Marks multiple filters as deleted.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.FiltersApi();
+let apiInstance = new Pipedrive.FiltersApi(apiClient);
 let ids = "ids_example"; // String | The comma-separated filter IDs to delete
 apiInstance.deleteFilters(ids).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -187,17 +187,17 @@ Returns data about a specific filter. Note that this also returns the condition 
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.FiltersApi();
+let apiInstance = new Pipedrive.FiltersApi(apiClient);
 let id = 56; // Number | The ID of the filter
 apiInstance.getFilter(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -234,20 +234,20 @@ Name | Type | Description  | Notes
 
 Get all filter helpers
 
-Returns all supported filter helpers. It helps to know what conditions and helpers are available when you want to &lt;a href&#x3D;\&quot;/docs/api/v1/Filters#addFilter\&quot;&gt;add&lt;/a&gt; or &lt;a href&#x3D;\&quot;/docs/api/v1/Filters#updateFilter\&quot;&gt;update&lt;/a&gt; filters. Additionally, an exact date must be inserted in YYYY-MM-DD format and an exact time in HH:MM. For more information, see the tutorial for &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-a-filter\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;adding a filter&lt;/a&gt;.
+Returns all supported filter helpers. It helps to know what conditions and helpers are available when you want to &lt;a href&#x3D;\&quot;/docs/api/v1/Filters#addFilter\&quot;&gt;add&lt;/a&gt; or &lt;a href&#x3D;\&quot;/docs/api/v1/Filters#updateFilter\&quot;&gt;update&lt;/a&gt; filters. For more information, see the tutorial for &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-a-filter\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;adding a filter&lt;/a&gt;.
 
 ### Example
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 
-let apiInstance = new Pipedrive.FiltersApi();
+let apiInstance = new Pipedrive.FiltersApi(apiClient);
 apiInstance.getFilterHelpers().then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -286,17 +286,17 @@ Returns data about all filters.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.FiltersApi();
+let apiInstance = new Pipedrive.FiltersApi(apiClient);
 let opts = {
   'type': new Pipedrive.FilterType() // FilterType | The types of filters to fetch
 };
@@ -341,17 +341,17 @@ Updates an existing filter.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 // Configure OAuth2 access token for authorization: oauth2
-let oauth2 = defaultClient.authentications['oauth2'];
+let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new Pipedrive.FiltersApi();
+let apiInstance = new Pipedrive.FiltersApi(apiClient);
 let id = 56; // Number | The ID of the filter
 let opts = Pipedrive.UpdateFilterRequest.constructFromObject({
   // Properties that you want to update
