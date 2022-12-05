@@ -23,12 +23,13 @@ class BasicDealProduct {
     /**
      * Constructs a new <code>BasicDealProduct</code>.
      * @alias module:model/BasicDealProduct
+     * @param productId {Number} The ID of the product to use
      * @param itemPrice {Number} The price at which this product will be added to the deal
      * @param quantity {Number} Quantity – e.g. how many items of this product will be added to the deal
      */
-    constructor(itemPrice, quantity) { 
+    constructor(productId, itemPrice, quantity) { 
         
-        BasicDealProduct.initialize(this, itemPrice, quantity);
+        BasicDealProduct.initialize(this, productId, itemPrice, quantity);
     }
 
     /**
@@ -36,7 +37,8 @@ class BasicDealProduct {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, itemPrice, quantity) { 
+    static initialize(obj, productId, itemPrice, quantity) { 
+        obj['product_id'] = productId;
         obj['item_price'] = itemPrice;
         obj['quantity'] = quantity;
     }
@@ -52,6 +54,11 @@ class BasicDealProduct {
         if (data) {
             obj = obj || new BasicDealProduct();
 
+            if (data.hasOwnProperty('product_id')) {
+                obj['product_id'] = ApiClient.convertToType(data['product_id'], 'Number');
+
+                delete data['product_id'];
+            }
             if (data.hasOwnProperty('item_price')) {
                 obj['item_price'] = ApiClient.convertToType(data['item_price'], 'Number');
 
@@ -103,6 +110,12 @@ class BasicDealProduct {
 
 
 }
+
+/**
+ * The ID of the product to use
+ * @member {Number} product_id
+ */
+BasicDealProduct.prototype['product_id'] = undefined;
 
 /**
  * The price at which this product will be added to the deal

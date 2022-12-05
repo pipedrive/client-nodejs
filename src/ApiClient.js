@@ -962,9 +962,4 @@ ApiClient.CollectionFormatEnum = {
     MULTI: 'multi'
 };
 
-/**
-* The default API client implementation.
-* @type {module:ApiClient}
-*/
-ApiClient.instance = new ApiClient();
 export default ApiClient;

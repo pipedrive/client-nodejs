@@ -27,13 +27,13 @@ class AddProductAttachmentDetails {
      * @alias module:model/AddProductAttachmentDetails
      * @implements module:model/ProductAttachmentDetails
      * @implements module:model/AddProductAttachmentDetailsAllOf
+     * @param productId {Number} The ID of the product
      * @param itemPrice {Number} The price at which this product will be added to the deal
      * @param quantity {Number} Quantity – e.g. how many items of this product will be added to the deal
-     * @param productId {Number} The ID of the product
      */
-    constructor(itemPrice, quantity, productId) { 
-        ProductAttachmentDetails.initialize(this, itemPrice, quantity, productId);AddProductAttachmentDetailsAllOf.initialize(this);
-        AddProductAttachmentDetails.initialize(this, itemPrice, quantity, productId);
+    constructor(productId, itemPrice, quantity) { 
+        ProductAttachmentDetails.initialize(this, productId, itemPrice, quantity);AddProductAttachmentDetailsAllOf.initialize(this);
+        AddProductAttachmentDetails.initialize(this, productId, itemPrice, quantity);
     }
 
     /**
@@ -41,10 +41,10 @@ class AddProductAttachmentDetails {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, itemPrice, quantity, productId) { 
+    static initialize(obj, productId, itemPrice, quantity) { 
+        obj['product_id'] = productId;
         obj['item_price'] = itemPrice;
         obj['quantity'] = quantity;
-        obj['product_id'] = productId;
     }
 
     /**
@@ -60,6 +60,11 @@ class AddProductAttachmentDetails {
             ProductAttachmentDetails.constructFromObject(data, obj);
             AddProductAttachmentDetailsAllOf.constructFromObject(data, obj);
 
+            if (data.hasOwnProperty('product_id')) {
+                obj['product_id'] = ApiClient.convertToType(data['product_id'], 'Number');
+
+                delete data['product_id'];
+            }
             if (data.hasOwnProperty('item_price')) {
                 obj['item_price'] = ApiClient.convertToType(data['item_price'], 'Number');
 
@@ -114,11 +119,6 @@ class AddProductAttachmentDetails {
                 obj['deal_id'] = ApiClient.convertToType(data['deal_id'], 'Number');
 
                 delete data['deal_id'];
-            }
-            if (data.hasOwnProperty('product_id')) {
-                obj['product_id'] = ApiClient.convertToType(data['product_id'], 'Number');
-
-                delete data['product_id'];
             }
             if (data.hasOwnProperty('duration_unit')) {
                 obj['duration_unit'] = ApiClient.convertToType(data['duration_unit'], 'String');
@@ -176,6 +176,12 @@ class AddProductAttachmentDetails {
 
 
 }
+
+/**
+ * The ID of the product
+ * @member {Number} product_id
+ */
+AddProductAttachmentDetails.prototype['product_id'] = undefined;
 
 /**
  * The price at which this product will be added to the deal
@@ -246,12 +252,6 @@ AddProductAttachmentDetails.prototype['company_id'] = undefined;
 AddProductAttachmentDetails.prototype['deal_id'] = undefined;
 
 /**
- * The ID of the product
- * @member {Number} product_id
- */
-AddProductAttachmentDetails.prototype['product_id'] = undefined;
-
-/**
  * The type of the duration. (For example hourly, daily, etc.)
  * @member {String} duration_unit
  */
@@ -307,6 +307,11 @@ AddProductAttachmentDetails.prototype['product_attachment_id'] = undefined;
 
 
 // Implement ProductAttachmentDetails interface:
+/**
+ * The ID of the product
+ * @member {Number} product_id
+ */
+ProductAttachmentDetails.prototype['product_id'] = undefined;
 /**
  * The price at which this product will be added to the deal
  * @member {Number} item_price
@@ -364,11 +369,6 @@ ProductAttachmentDetails.prototype['company_id'] = undefined;
  * @member {Number} deal_id
  */
 ProductAttachmentDetails.prototype['deal_id'] = undefined;
-/**
- * The ID of the product
- * @member {Number} product_id
- */
-ProductAttachmentDetails.prototype['product_id'] = undefined;
 /**
  * The type of the duration. (For example hourly, daily, etc.)
  * @member {String} duration_unit

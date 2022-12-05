@@ -35,7 +35,7 @@ export default class LeadLabelsApi {
     * default to {@link module:ApiClient#instance} if unspecified.
     */
     constructor(apiClient) {
-        this.apiClient = apiClient || ApiClient.instance;
+        this.apiClient = apiClient;
     }
 
 

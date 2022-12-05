@@ -30,14 +30,14 @@ Adds or updates the visibility setting for a role.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 
-let apiInstance = new Pipedrive.RolesApi();
+let apiInstance = new Pipedrive.RolesApi(apiClient);
 let id = 56; // Number | The ID of the role
 let opts = Pipedrive.AddOrUpdateRoleSettingRequest.constructFromObject({
   // Properties that you want to update
@@ -84,14 +84,14 @@ Adds a new role.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 
-let apiInstance = new Pipedrive.RolesApi();
+let apiInstance = new Pipedrive.RolesApi(apiClient);
 let opts = Pipedrive.AddRole.constructFromObject({
   // Properties that you want to update
 });
@@ -136,14 +136,14 @@ Assigns a user to a role.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 
-let apiInstance = new Pipedrive.RolesApi();
+let apiInstance = new Pipedrive.RolesApi(apiClient);
 let id = 56; // Number | The ID of the role
 let opts = Pipedrive.AddRoleAssignmentRequest.constructFromObject({
   // Properties that you want to update
@@ -190,14 +190,14 @@ Marks a role as deleted.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 
-let apiInstance = new Pipedrive.RolesApi();
+let apiInstance = new Pipedrive.RolesApi(apiClient);
 let id = 56; // Number | The ID of the role
 apiInstance.deleteRole(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -240,14 +240,14 @@ Removes the assigned user from a role and adds to the default role.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 
-let apiInstance = new Pipedrive.RolesApi();
+let apiInstance = new Pipedrive.RolesApi(apiClient);
 let id = 56; // Number | The ID of the role
 let opts = Pipedrive.DeleteRoleAssignmentRequest.constructFromObject({
   // Properties that you want to update
@@ -294,14 +294,14 @@ Returns the details of a specific role.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 
-let apiInstance = new Pipedrive.RolesApi();
+let apiInstance = new Pipedrive.RolesApi(apiClient);
 let id = 56; // Number | The ID of the role
 apiInstance.getRole(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -344,14 +344,14 @@ Returns all users assigned to a role.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 
-let apiInstance = new Pipedrive.RolesApi();
+let apiInstance = new Pipedrive.RolesApi(apiClient);
 let id = 56; // Number | The ID of the role
 let opts = {
   'start': 0, // Number | Pagination start
@@ -400,14 +400,14 @@ Returns the visibility settings of a specific role.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 
-let apiInstance = new Pipedrive.RolesApi();
+let apiInstance = new Pipedrive.RolesApi(apiClient);
 let id = 56; // Number | The ID of the role
 apiInstance.getRoleSettings(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -450,14 +450,14 @@ Returns the direct children of a specific role.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 
-let apiInstance = new Pipedrive.RolesApi();
+let apiInstance = new Pipedrive.RolesApi(apiClient);
 let id = 56; // Number | The ID of the role
 let opts = {
   'start': 0, // Number | Pagination start
@@ -506,14 +506,14 @@ Returns all the roles within the company.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 
-let apiInstance = new Pipedrive.RolesApi();
+let apiInstance = new Pipedrive.RolesApi(apiClient);
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
@@ -560,14 +560,14 @@ Updates the parent role and/or the name of a specific role.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 
-let apiInstance = new Pipedrive.RolesApi();
+let apiInstance = new Pipedrive.RolesApi(apiClient);
 let id = 56; // Number | The ID of the role
 let opts = Pipedrive.BaseRole.constructFromObject({
   // Properties that you want to update

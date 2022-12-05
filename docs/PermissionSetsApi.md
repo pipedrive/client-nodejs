@@ -22,14 +22,14 @@ Returns data about a specific permission set.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 
-let apiInstance = new Pipedrive.PermissionSetsApi();
+let apiInstance = new Pipedrive.PermissionSetsApi(apiClient);
 let id = "id_example"; // String | The ID of the permission set
 apiInstance.getPermissionSet(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -72,14 +72,14 @@ Returns the list of assignments for a permission set.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 
-let apiInstance = new Pipedrive.PermissionSetsApi();
+let apiInstance = new Pipedrive.PermissionSetsApi(apiClient);
 let id = "id_example"; // String | The ID of the permission set
 let opts = {
   'start': 0, // Number | Pagination start
@@ -128,14 +128,14 @@ Returns data about all permission sets.
 
 ```javascript
 import Pipedrive from 'pipedrive';
-let defaultClient = Pipedrive.ApiClient.instance;
+let apiClient = new Pipedrive.ApiClient();
 // Configure API key authorization: api_key
-let api_key = defaultClient.authentications['api_key'];
+let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 
-let apiInstance = new Pipedrive.PermissionSetsApi();
+let apiInstance = new Pipedrive.PermissionSetsApi(apiClient);
 let opts = {
   'app': "app_example" // String | The app to filter the permission sets by
 };
