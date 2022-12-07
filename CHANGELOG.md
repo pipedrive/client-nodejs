@@ -7,6 +7,9 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Added
+- Optional `lead_id` parameter to `POST /v1/files`
+- `lead_id` and `lead_name` to the `/v1/files` endpoints
 ### Security
 - Removed `.instance` static property from sdk client to prevent race conditions when using it as a singleton
 See the updated examples in the readme to get an overview of the necessary code changes.
