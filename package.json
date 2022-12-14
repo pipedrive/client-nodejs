@@ -58,7 +58,7 @@
     "jest-environment-node": "^27.4.4",
     "lint-staged": "^13.0.3",
     "minimist": "^1.2.5",
-    "mocha": "^8.0.1",
+    "mocha": "^10.2.0",
     "msw": "^0.48.2",
     "pre-commit": "^1.2.2",
     "regenerator-runtime": "^0.13.7",
