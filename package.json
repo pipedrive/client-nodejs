@@ -13,7 +13,8 @@
     "test:functional": "node ./test/functional/environment.js",
     "test:coverage": "npm run test:functional -- --collectCoverage",
     "sonar": "pipedrive-sonar-scanner",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "version": "changelog-updater && git add CHANGELOG.md"
   },
   "browser": {
     "fs": false
@@ -47,6 +48,7 @@
     "@babel/register": "^7.0.0",
     "@babel/runtime": "^7.20.1",
     "babel-eslint": "^10.1.0",
+    "changelog-updater": "^2.0.3",
     "eslint": "^8.27.0",
     "eslint-config-pipedrive": "^13.0.0",
     "eslint-plugin-jest": "^27.1.5",
