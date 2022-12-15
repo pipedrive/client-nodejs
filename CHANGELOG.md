@@ -7,9 +7,16 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+
+## [18.0.1] - 2022-12-15
+### Fixed
+- Move @babel/runtime from devDependencies to dependencies to fix a runtime error
+
+## 18.0.0
 ### Security
 - Removed `.instance` static property from sdk client to prevent race conditions when using it as a singleton
 See the updated examples in the readme to get an overview of the necessary code changes.
+
 ## 17.5.2
 ### Changed
 - Updated endpoint descriptions to warn about permanently removing deleted entities:
@@ -404,4 +411,5 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v18.0.1...HEAD
+[18.0.1]: https://github.com/pipedrive/api-docs/compare/v1.0.0...v18.0.1
