@@ -355,8 +355,6 @@ import GetRoleAssignments from './model/GetRoleAssignments';
 import GetRoleAssignmentsAllOf from './model/GetRoleAssignmentsAllOf';
 import GetRoleSettings from './model/GetRoleSettings';
 import GetRoleSettingsAllOf from './model/GetRoleSettingsAllOf';
-import GetRoleSubroles from './model/GetRoleSubroles';
-import GetRoleSubrolesAllOf from './model/GetRoleSubrolesAllOf';
 import GetRoles from './model/GetRoles';
 import GetRolesAllOf from './model/GetRolesAllOf';
 import GetStageDeals from './model/GetStageDeals';
@@ -2858,18 +2856,6 @@ export {
      * @property {module:model/GetRoleSettingsAllOf}
      */
     GetRoleSettingsAllOf,
-
-    /**
-     * The GetRoleSubroles model constructor.
-     * @property {module:model/GetRoleSubroles}
-     */
-    GetRoleSubroles,
-
-    /**
-     * The GetRoleSubrolesAllOf model constructor.
-     * @property {module:model/GetRoleSubrolesAllOf}
-     */
-    GetRoleSubrolesAllOf,
 
     /**
      * The GetRoles model constructor.
