@@ -7,6 +7,8 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+
+## [18.0.2] - 2022-12-22
 ### Fixed
 - Fixed a typo in `GET /itemSearch/field`
 
@@ -413,5 +415,6 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v18.0.1...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v18.0.2...HEAD
+[18.0.2]: https://github.com/pipedrive/api-docs/compare/v18.0.1...v18.0.2
 [18.0.1]: https://github.com/pipedrive/api-docs/compare/v1.0.0...v18.0.1
