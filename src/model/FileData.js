@@ -83,6 +83,11 @@ class FileData {
 
                 delete data['activity_id'];
             }
+            if (data.hasOwnProperty('lead_id')) {
+                obj['lead_id'] = ApiClient.convertToType(data['lead_id'], 'String');
+
+                delete data['lead_id'];
+            }
             if (data.hasOwnProperty('add_time')) {
                 obj['add_time'] = ApiClient.convertToType(data['add_time'], 'String');
 
@@ -163,6 +168,11 @@ class FileData {
 
                 delete data['product_name'];
             }
+            if (data.hasOwnProperty('lead_name')) {
+                obj['lead_name'] = ApiClient.convertToType(data['lead_name'], 'String');
+
+                delete data['lead_name'];
+            }
             if (data.hasOwnProperty('url')) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
 
@@ -231,6 +241,12 @@ FileData.prototype['product_id'] = undefined;
  * @member {Number} activity_id
  */
 FileData.prototype['activity_id'] = undefined;
+
+/**
+ * The ID of the lead to associate the file with
+ * @member {String} lead_id
+ */
+FileData.prototype['lead_id'] = undefined;
 
 /**
  * The date and time when the file was added/created. Format: YYYY-MM-DD HH:MM:SS
@@ -327,6 +343,12 @@ FileData.prototype['org_name'] = undefined;
  * @member {String} product_name
  */
 FileData.prototype['product_name'] = undefined;
+
+/**
+ * The name of the lead associated with the file
+ * @member {String} lead_name
+ */
+FileData.prototype['lead_name'] = undefined;
 
 /**
  * The URL of the download file
