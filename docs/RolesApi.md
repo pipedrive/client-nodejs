@@ -12,7 +12,6 @@ Method | HTTP request | Description
 [**getRole**](RolesApi.md#getRole) | **GET** /roles/{id} | Get one role
 [**getRoleAssignments**](RolesApi.md#getRoleAssignments) | **GET** /roles/{id}/assignments | List role assignments
 [**getRoleSettings**](RolesApi.md#getRoleSettings) | **GET** /roles/{id}/settings | List role settings
-[**getRoleSubRoles**](RolesApi.md#getRoleSubRoles) | **GET** /roles/{id}/roles | List role sub-roles
 [**getRoles**](RolesApi.md#getRoles) | **GET** /roles | Get all roles
 [**updateRole**](RolesApi.md#updateRole) | **PUT** /roles/{id} | Update role details
 
@@ -427,62 +426,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetRoleSettings**](GetRoleSettings.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## getRoleSubRoles
-
-> GetRoleSubroles getRoleSubRoles(id, opts)
-
-List role sub-roles
-
-Returns the direct children of a specific role.
-
-### Example
-
-```javascript
-import Pipedrive from 'pipedrive';
-let apiClient = new Pipedrive.ApiClient();
-// Configure API key authorization: api_key
-let api_key = apiClient.authentications['api_key'];
-api_key.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.apiKeyPrefix = 'Token';
-
-let apiInstance = new Pipedrive.RolesApi(apiClient);
-let id = 56; // Number | The ID of the role
-let opts = {
-  'start': 0, // Number | Pagination start
-  'limit': 56 // Number | Items shown per page
-};
-apiInstance.getRoleSubRoles(id, opts).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Number**| The ID of the role | 
- **start** | **Number**| Pagination start | [optional] [default to 0]
- **limit** | **Number**| Items shown per page | [optional] 
-
-### Return type
-
-[**GetRoleSubroles**](GetRoleSubroles.md)
 
 ### Authorization
 

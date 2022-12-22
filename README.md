@@ -477,7 +477,6 @@ Class | Method | HTTP request | Description
 *Pipedrive.RolesApi* | [**getRole**](docs/RolesApi.md#getRole) | **GET** /roles/{id} | Get one role
 *Pipedrive.RolesApi* | [**getRoleAssignments**](docs/RolesApi.md#getRoleAssignments) | **GET** /roles/{id}/assignments | List role assignments
 *Pipedrive.RolesApi* | [**getRoleSettings**](docs/RolesApi.md#getRoleSettings) | **GET** /roles/{id}/settings | List role settings
-*Pipedrive.RolesApi* | [**getRoleSubRoles**](docs/RolesApi.md#getRoleSubRoles) | **GET** /roles/{id}/roles | List role sub-roles
 *Pipedrive.RolesApi* | [**getRoles**](docs/RolesApi.md#getRoles) | **GET** /roles | Get all roles
 *Pipedrive.RolesApi* | [**updateRole**](docs/RolesApi.md#updateRole) | **PUT** /roles/{id} | Update role details
 *Pipedrive.StagesApi* | [**addStage**](docs/StagesApi.md#addStage) | **POST** /stages | Add a new stage
@@ -857,8 +856,6 @@ Class | Method | HTTP request | Description
  - [Pipedrive.GetRoleAssignmentsAllOf](docs/GetRoleAssignmentsAllOf.md)
  - [Pipedrive.GetRoleSettings](docs/GetRoleSettings.md)
  - [Pipedrive.GetRoleSettingsAllOf](docs/GetRoleSettingsAllOf.md)
- - [Pipedrive.GetRoleSubroles](docs/GetRoleSubroles.md)
- - [Pipedrive.GetRoleSubrolesAllOf](docs/GetRoleSubrolesAllOf.md)
  - [Pipedrive.GetRoles](docs/GetRoles.md)
  - [Pipedrive.GetRolesAllOf](docs/GetRolesAllOf.md)
  - [Pipedrive.GetStageDeals](docs/GetStageDeals.md)

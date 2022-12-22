@@ -142,5 +142,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: applicatoin/json
+- **Accept**: application/json
 

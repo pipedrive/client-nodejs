@@ -202,7 +202,7 @@ export default class ItemSearchApi {
       }
 
       let authNames = ['api_key', 'oauth2', ];
-      let accepts = ['applicatoin/json', ];
+      let accepts = ['application/json', ];
       let returnType = ItemSearchFieldResponse;
       return this.apiClient.callApi(
         '/itemSearch/field', 'GET',

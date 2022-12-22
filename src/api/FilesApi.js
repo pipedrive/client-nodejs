@@ -43,7 +43,7 @@ export default class FilesApi {
 
     /**
      * Add file
-     * Lets you upload a file and associate it with a deal, person, organization, activity or product. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-file\" target=\"_blank\" rel=\"noopener noreferrer\">adding a file</a>.
+     * Lets you upload a file and associate it with a deal, person, organization, activity, product or lead. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-file\" target=\"_blank\" rel=\"noopener noreferrer\">adding a file</a>.
      * @param {File} file A single file, supplied in the multipart/form-data encoding and contained within the given boundaries
      * @param {Object} opts Optional parameters
      * @param {Number} opts.dealId The ID of the deal to associate file(s) with
@@ -51,6 +51,7 @@ export default class FilesApi {
      * @param {Number} opts.orgId The ID of the organization to associate file(s) with
      * @param {Number} opts.productId The ID of the product to associate file(s) with
      * @param {Number} opts.activityId The ID of the activity to associate file(s) with
+     * @param {String} opts.leadId The ID of the lead to associate file(s) with
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddFile} and HTTP response
      */
     addFileWithHttpInfo(file, opts) {
@@ -61,6 +62,7 @@ export default class FilesApi {
       if (file === undefined || file === null) {
         throw new Error("Missing the required parameter 'file' when calling addFile");
       }
+
 
 
 
@@ -80,6 +82,7 @@ export default class FilesApi {
         'org_id': opts['orgId'],
         'product_id': opts['productId'],
         'activity_id': opts['activityId'],
+        'lead_id': opts['leadId'],
       };
 
       let formParamArray = [
@@ -89,6 +92,7 @@ export default class FilesApi {
         'orgId',
         'productId',
         'activityId',
+        'leadId',
       ];
 
       let contentTypes = ['multipart/form-data', ];
@@ -117,7 +121,7 @@ export default class FilesApi {
 
     /**
      * Add file
-     * Lets you upload a file and associate it with a deal, person, organization, activity or product. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-file\" target=\"_blank\" rel=\"noopener noreferrer\">adding a file</a>.
+     * Lets you upload a file and associate it with a deal, person, organization, activity, product or lead. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-file\" target=\"_blank\" rel=\"noopener noreferrer\">adding a file</a>.
      * @param {File} file A single file, supplied in the multipart/form-data encoding and contained within the given boundaries
      * @param {Object} opts Optional parameters
      * @param {Number} opts.dealId The ID of the deal to associate file(s) with
@@ -125,6 +129,7 @@ export default class FilesApi {
      * @param {Number} opts.orgId The ID of the organization to associate file(s) with
      * @param {Number} opts.productId The ID of the product to associate file(s) with
      * @param {Number} opts.activityId The ID of the activity to associate file(s) with
+     * @param {String} opts.leadId The ID of the lead to associate file(s) with
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddFile}
      */
     addFile(file, opts) {

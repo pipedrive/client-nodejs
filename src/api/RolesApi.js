@@ -23,7 +23,6 @@ import DeleteRoleAssignmentRequest from '../model/DeleteRoleAssignmentRequest';
 import GetRole from '../model/GetRole';
 import GetRoleAssignments from '../model/GetRoleAssignments';
 import GetRoleSettings from '../model/GetRoleSettings';
-import GetRoleSubroles from '../model/GetRoleSubroles';
 import GetRoles from '../model/GetRoles';
 import PostRoleAssignment from '../model/PostRoleAssignment';
 import PostRoleSettings from '../model/PostRoleSettings';
@@ -609,82 +608,6 @@ export default class RolesApi {
      */
     getRoleSettings(id) {
       return this.getRoleSettingsWithHttpInfo(id)
-        .then(function(response_and_data) {
-          return response_and_data;
-        });
-    }
-
-
-    /**
-     * List role sub-roles
-     * Returns the direct children of a specific role.
-     * @param {Number} id The ID of the role
-     * @param {Object} opts Optional parameters
-     * @param {Number} opts.start Pagination start (default to 0)
-     * @param {Number} opts.limit Items shown per page
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetRoleSubroles} and HTTP response
-     */
-    getRoleSubRolesWithHttpInfo(id, opts) {
-      opts = opts || {};
-      let postBody = null;
-
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getRoleSubRoles");
-      }
-
-
-
-      let pathParams = {
-        'id': id,
-      };
-      let queryParams = {
-        'start': opts['start'],
-        'limit': opts['limit'],
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let formParamArray = [
-      ];
-
-      let contentTypes = [];
-      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
-      const isJSON = contentTypes.includes('application/json');
-
-      if (isJSON) {
-        postBody = { ...postBody, ...opts };
-      } else if (isURLEncoded) {
-        for (let key in opts) {
-          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
-            formParams[key] = opts[key];
-          }
-        }
-      }
-
-      let authNames = ['api_key', ];
-      let accepts = ['application/json', ];
-      let returnType = GetRoleSubroles;
-      return this.apiClient.callApi(
-        '/roles/{id}/roles', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * List role sub-roles
-     * Returns the direct children of a specific role.
-     * @param {Number} id The ID of the role
-     * @param {Object} opts Optional parameters
-     * @param {Number} opts.start Pagination start (default to 0)
-     * @param {Number} opts.limit Items shown per page
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetRoleSubroles}
-     */
-    getRoleSubRoles(id, opts) {
-      return this.getRoleSubRolesWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data;
         });

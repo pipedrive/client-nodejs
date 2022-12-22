@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 Add file
 
-Lets you upload a file and associate it with a deal, person, organization, activity or product. For more information, see the tutorial for &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-a-file\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;adding a file&lt;/a&gt;.
+Lets you upload a file and associate it with a deal, person, organization, activity, product or lead. For more information, see the tutorial for &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-a-file\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;adding a file&lt;/a&gt;.
 
 ### Example
 
@@ -44,7 +44,8 @@ let opts = {
   'personId': 56, // Number | The ID of the person to associate file(s) with
   'orgId': 56, // Number | The ID of the organization to associate file(s) with
   'productId': 56, // Number | The ID of the product to associate file(s) with
-  'activityId': 56 // Number | The ID of the activity to associate file(s) with
+  'activityId': 56, // Number | The ID of the activity to associate file(s) with
+  'leadId': "leadId_example" // String | The ID of the lead to associate file(s) with
 };
 apiInstance.addFile(file, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -65,6 +66,7 @@ Name | Type | Description  | Notes
  **orgId** | **Number**| The ID of the organization to associate file(s) with | [optional] 
  **productId** | **Number**| The ID of the product to associate file(s) with | [optional] 
  **activityId** | **Number**| The ID of the activity to associate file(s) with | [optional] 
+ **leadId** | **String**| The ID of the lead to associate file(s) with | [optional] 
 
 ### Return type
 
