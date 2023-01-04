@@ -112,11 +112,6 @@ class RecentDataProduct {
 
                 delete data['files_count'];
             }
-            if (data.hasOwnProperty('followers_count')) {
-                obj['followers_count'] = ApiClient.convertToType(data['followers_count'], 'Number');
-
-                delete data['followers_count'];
-            }
             if (data.hasOwnProperty('add_time')) {
                 obj['add_time'] = ApiClient.convertToType(data['add_time'], 'String');
 
@@ -222,12 +217,6 @@ RecentDataProduct.prototype['owner_id'] = undefined;
  * @member {Number} files_count
  */
 RecentDataProduct.prototype['files_count'] = undefined;
-
-/**
- * The count of followers
- * @member {Number} followers_count
- */
-RecentDataProduct.prototype['followers_count'] = undefined;
 
 /**
  * The date and time when the product was added to the deal
