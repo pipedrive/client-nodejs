@@ -54,7 +54,7 @@
     "eslint-plugin-jest": "^27.1.5",
     "expect.js": "^0.3.1",
     "get-port": "^5.1.1",
-    "jest": "^26.6.3",
+    "jest": "^29.3.1",
     "jest-environment-node": "^27.4.4",
     "lint-staged": "^13.0.3",
     "minimist": "^1.2.5",
