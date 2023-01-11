@@ -8,6 +8,15 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [18.0.3] - 2023-01-11
+### Updated dependencies
+  - Updated `json5` from 2.2.1 to 2.2.3
+  - Updated `qs` from 6.9.3 to 6.11.0
+  - Updated `formidable` from 2.0.1 to 2.1.1
+  - Updated `decode-uri-component` from 0.2.0 to 0.2.2
+  - Updated `minimatch` from 3.0.4 to 3.1.2
+  - Updated `mocha` from 8.4.0 to 10.1.0
+
 ## [18.0.2] - 2022-12-22
 ### Fixed
 - Fixed a typo in `GET /itemSearch/field`
@@ -415,6 +424,7 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v18.0.2...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v18.0.3...HEAD
+[18.0.3]: https://github.com/pipedrive/api-docs/compare/v18.0.2...v18.0.3
 [18.0.2]: https://github.com/pipedrive/api-docs/compare/v18.0.1...v18.0.2
 [18.0.1]: https://github.com/pipedrive/api-docs/compare/v1.0.0...v18.0.1
