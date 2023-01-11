@@ -7,7 +7,7 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
-- Bumped up library dependencies:
+### Updated dependencies
   - Updated `json5` from 2.2.1 to 2.2.3
   - Updated `qs` from 6.9.3 to 6.11.0
   - Updated `formidable` from 2.0.1 to 2.1.1
