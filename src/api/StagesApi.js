@@ -260,7 +260,7 @@ export default class StagesApi {
         'id': id,
       };
       let queryParams = {
-        'everyone': opts['everyone'],
+        'everyone': opts['everyone'] === undefined ? opts['everyone'] : opts['everyone'],
       };
       let headerParams = {
       };
@@ -340,11 +340,11 @@ export default class StagesApi {
         'id': id,
       };
       let queryParams = {
-        'filter_id': opts['filterId'],
-        'user_id': opts['userId'],
-        'everyone': opts['everyone'],
-        'start': opts['start'],
-        'limit': opts['limit'],
+        'filter_id': opts['filter_id'] === undefined ? opts['filterId'] : opts['filter_id'],
+        'user_id': opts['user_id'] === undefined ? opts['userId'] : opts['user_id'],
+        'everyone': opts['everyone'] === undefined ? opts['everyone'] : opts['everyone'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
       };
       let headerParams = {
       };
@@ -413,7 +413,7 @@ export default class StagesApi {
       let pathParams = {
       };
       let queryParams = {
-        'pipeline_id': opts['pipelineId'],
+        'pipeline_id': opts['pipeline_id'] === undefined ? opts['pipelineId'] : opts['pipeline_id'],
       };
       let headerParams = {
       };

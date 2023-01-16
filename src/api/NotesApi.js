@@ -485,8 +485,8 @@ export default class NotesApi {
         'id': id,
       };
       let queryParams = {
-        'start': opts['start'],
-        'limit': opts['limit'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
       };
       let headerParams = {
       };
@@ -578,20 +578,20 @@ export default class NotesApi {
       let pathParams = {
       };
       let queryParams = {
-        'user_id': opts['userId'],
-        'lead_id': opts['leadId'],
-        'deal_id': opts['dealId'],
-        'person_id': opts['personId'],
-        'org_id': opts['orgId'],
-        'start': opts['start'],
-        'limit': opts['limit'],
-        'sort': opts['sort'],
-        'start_date': opts['startDate'],
-        'end_date': opts['endDate'],
-        'pinned_to_lead_flag': opts['pinnedToLeadFlag'],
-        'pinned_to_deal_flag': opts['pinnedToDealFlag'],
-        'pinned_to_organization_flag': opts['pinnedToOrganizationFlag'],
-        'pinned_to_person_flag': opts['pinnedToPersonFlag'],
+        'user_id': opts['user_id'] === undefined ? opts['userId'] : opts['user_id'],
+        'lead_id': opts['lead_id'] === undefined ? opts['leadId'] : opts['lead_id'],
+        'deal_id': opts['deal_id'] === undefined ? opts['dealId'] : opts['deal_id'],
+        'person_id': opts['person_id'] === undefined ? opts['personId'] : opts['person_id'],
+        'org_id': opts['org_id'] === undefined ? opts['orgId'] : opts['org_id'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
+        'sort': opts['sort'] === undefined ? opts['sort'] : opts['sort'],
+        'start_date': opts['start_date'] === undefined ? opts['startDate'] : opts['start_date'],
+        'end_date': opts['end_date'] === undefined ? opts['endDate'] : opts['end_date'],
+        'pinned_to_lead_flag': opts['pinned_to_lead_flag'] === undefined ? opts['pinnedToLeadFlag'] : opts['pinned_to_lead_flag'],
+        'pinned_to_deal_flag': opts['pinned_to_deal_flag'] === undefined ? opts['pinnedToDealFlag'] : opts['pinned_to_deal_flag'],
+        'pinned_to_organization_flag': opts['pinned_to_organization_flag'] === undefined ? opts['pinnedToOrganizationFlag'] : opts['pinned_to_organization_flag'],
+        'pinned_to_person_flag': opts['pinned_to_person_flag'] === undefined ? opts['pinnedToPersonFlag'] : opts['pinned_to_person_flag'],
       };
       let headerParams = {
       };

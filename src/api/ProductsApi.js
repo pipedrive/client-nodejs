@@ -417,9 +417,9 @@ export default class ProductsApi {
         'id': id,
       };
       let queryParams = {
-        'start': opts['start'],
-        'limit': opts['limit'],
-        'status': opts['status'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
+        'status': opts['status'] === undefined ? opts['status'] : opts['status'],
       };
       let headerParams = {
       };
@@ -497,9 +497,9 @@ export default class ProductsApi {
         'id': id,
       };
       let queryParams = {
-        'start': opts['start'],
-        'limit': opts['limit'],
-        'sort': opts['sort'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
+        'sort': opts['sort'] === undefined ? opts['sort'] : opts['sort'],
       };
       let headerParams = {
       };
@@ -575,8 +575,8 @@ export default class ProductsApi {
         'id': id,
       };
       let queryParams = {
-        'start': opts['start'],
-        'limit': opts['limit'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
       };
       let headerParams = {
       };
@@ -720,13 +720,13 @@ export default class ProductsApi {
       let pathParams = {
       };
       let queryParams = {
-        'user_id': opts['userId'],
-        'filter_id': opts['filterId'],
+        'user_id': opts['user_id'] === undefined ? opts['userId'] : opts['user_id'],
+        'filter_id': opts['filter_id'] === undefined ? opts['filterId'] : opts['filter_id'],
         'ids': this.apiClient.buildCollectionParam(opts['ids'], 'csv'),
-        'first_char': opts['firstChar'],
-        'get_summary': opts['getSummary'],
-        'start': opts['start'],
-        'limit': opts['limit'],
+        'first_char': opts['first_char'] === undefined ? opts['firstChar'] : opts['first_char'],
+        'get_summary': opts['get_summary'] === undefined ? opts['getSummary'] : opts['get_summary'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
       };
       let headerParams = {
       };
@@ -811,11 +811,11 @@ export default class ProductsApi {
       };
       let queryParams = {
         'term': term,
-        'fields': opts['fields'],
-        'exact_match': opts['exactMatch'],
-        'include_fields': opts['includeFields'],
-        'start': opts['start'],
-        'limit': opts['limit'],
+        'fields': opts['fields'] === undefined ? opts['fields'] : opts['fields'],
+        'exact_match': opts['exact_match'] === undefined ? opts['exactMatch'] : opts['exact_match'],
+        'include_fields': opts['include_fields'] === undefined ? opts['includeFields'] : opts['include_fields'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
       };
       let headerParams = {
       };

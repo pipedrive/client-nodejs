@@ -201,7 +201,7 @@ export default class OrganizationRelationshipsApi {
         'id': id,
       };
       let queryParams = {
-        'org_id': opts['orgId'],
+        'org_id': opts['org_id'] === undefined ? opts['orgId'] : opts['org_id'],
       };
       let headerParams = {
       };

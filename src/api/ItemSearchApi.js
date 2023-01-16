@@ -70,13 +70,13 @@ export default class ItemSearchApi {
       };
       let queryParams = {
         'term': term,
-        'item_types': opts['itemTypes'],
-        'fields': opts['fields'],
-        'search_for_related_items': opts['searchForRelatedItems'],
-        'exact_match': opts['exactMatch'],
-        'include_fields': opts['includeFields'],
-        'start': opts['start'],
-        'limit': opts['limit'],
+        'item_types': opts['item_types'] === undefined ? opts['itemTypes'] : opts['item_types'],
+        'fields': opts['fields'] === undefined ? opts['fields'] : opts['fields'],
+        'search_for_related_items': opts['search_for_related_items'] === undefined ? opts['searchForRelatedItems'] : opts['search_for_related_items'],
+        'exact_match': opts['exact_match'] === undefined ? opts['exactMatch'] : opts['exact_match'],
+        'include_fields': opts['include_fields'] === undefined ? opts['includeFields'] : opts['include_fields'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
       };
       let headerParams = {
       };
@@ -173,11 +173,11 @@ export default class ItemSearchApi {
       let queryParams = {
         'term': term,
         'field_type': fieldType,
-        'exact_match': opts['exactMatch'],
+        'exact_match': opts['exact_match'] === undefined ? opts['exactMatch'] : opts['exact_match'],
         'field_key': fieldKey,
-        'return_item_ids': opts['returnItemIds'],
-        'start': opts['start'],
-        'limit': opts['limit'],
+        'return_item_ids': opts['return_item_ids'] === undefined ? opts['returnItemIds'] : opts['return_item_ids'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
       };
       let headerParams = {
       };

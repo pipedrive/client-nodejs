@@ -282,7 +282,7 @@ export default class LegacyTeamsApi {
         'id': id,
       };
       let queryParams = {
-        'skip_users': opts['skipUsers'],
+        'skip_users': opts['skip_users'] === undefined ? opts['skipUsers'] : opts['skip_users'],
       };
       let headerParams = {
       };
@@ -415,8 +415,8 @@ export default class LegacyTeamsApi {
       let pathParams = {
       };
       let queryParams = {
-        'order_by': opts['orderBy'],
-        'skip_users': opts['skipUsers'],
+        'order_by': opts['order_by'] === undefined ? opts['orderBy'] : opts['order_by'],
+        'skip_users': opts['skip_users'] === undefined ? opts['skipUsers'] : opts['skip_users'],
       };
       let headerParams = {
       };
@@ -490,8 +490,8 @@ export default class LegacyTeamsApi {
         'id': id,
       };
       let queryParams = {
-        'order_by': opts['orderBy'],
-        'skip_users': opts['skipUsers'],
+        'order_by': opts['order_by'] === undefined ? opts['orderBy'] : opts['order_by'],
+        'skip_users': opts['skip_users'] === undefined ? opts['skipUsers'] : opts['skip_users'],
       };
       let headerParams = {
       };

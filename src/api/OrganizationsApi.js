@@ -494,10 +494,10 @@ export default class OrganizationsApi {
         'id': id,
       };
       let queryParams = {
-        'start': opts['start'],
-        'limit': opts['limit'],
-        'done': opts['done'],
-        'exclude': opts['exclude'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
+        'done': opts['done'] === undefined ? opts['done'] : opts['done'],
+        'exclude': opts['exclude'] === undefined ? opts['exclude'] : opts['exclude'],
       };
       let headerParams = {
       };
@@ -580,11 +580,11 @@ export default class OrganizationsApi {
         'id': id,
       };
       let queryParams = {
-        'start': opts['start'],
-        'limit': opts['limit'],
-        'status': opts['status'],
-        'sort': opts['sort'],
-        'only_primary_association': opts['onlyPrimaryAssociation'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
+        'status': opts['status'] === undefined ? opts['status'] : opts['status'],
+        'sort': opts['sort'] === undefined ? opts['sort'] : opts['sort'],
+        'only_primary_association': opts['only_primary_association'] === undefined ? opts['onlyPrimaryAssociation'] : opts['only_primary_association'],
       };
       let headerParams = {
       };
@@ -664,9 +664,9 @@ export default class OrganizationsApi {
         'id': id,
       };
       let queryParams = {
-        'start': opts['start'],
-        'limit': opts['limit'],
-        'sort': opts['sort'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
+        'sort': opts['sort'] === undefined ? opts['sort'] : opts['sort'],
       };
       let headerParams = {
       };
@@ -808,8 +808,8 @@ export default class OrganizationsApi {
         'id': id,
       };
       let queryParams = {
-        'start': opts['start'],
-        'limit': opts['limit'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
       };
       let headerParams = {
       };
@@ -884,8 +884,8 @@ export default class OrganizationsApi {
         'id': id,
       };
       let queryParams = {
-        'start': opts['start'],
-        'limit': opts['limit'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
       };
       let headerParams = {
       };
@@ -964,10 +964,10 @@ export default class OrganizationsApi {
         'id': id,
       };
       let queryParams = {
-        'start': opts['start'],
-        'limit': opts['limit'],
-        'all_changes': opts['allChanges'],
-        'items': opts['items'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
+        'all_changes': opts['all_changes'] === undefined ? opts['allChanges'] : opts['all_changes'],
+        'items': opts['items'] === undefined ? opts['items'] : opts['items'],
       };
       let headerParams = {
       };
@@ -1111,12 +1111,12 @@ export default class OrganizationsApi {
       let pathParams = {
       };
       let queryParams = {
-        'user_id': opts['userId'],
-        'filter_id': opts['filterId'],
-        'first_char': opts['firstChar'],
-        'start': opts['start'],
-        'limit': opts['limit'],
-        'sort': opts['sort'],
+        'user_id': opts['user_id'] === undefined ? opts['userId'] : opts['user_id'],
+        'filter_id': opts['filter_id'] === undefined ? opts['filterId'] : opts['filter_id'],
+        'first_char': opts['first_char'] === undefined ? opts['firstChar'] : opts['first_char'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
+        'sort': opts['sort'] === undefined ? opts['sort'] : opts['sort'],
       };
       let headerParams = {
       };
@@ -1272,10 +1272,10 @@ export default class OrganizationsApi {
       };
       let queryParams = {
         'term': term,
-        'fields': opts['fields'],
-        'exact_match': opts['exactMatch'],
-        'start': opts['start'],
-        'limit': opts['limit'],
+        'fields': opts['fields'] === undefined ? opts['fields'] : opts['fields'],
+        'exact_match': opts['exact_match'] === undefined ? opts['exactMatch'] : opts['exact_match'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
       };
       let headerParams = {
       };

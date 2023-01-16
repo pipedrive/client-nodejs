@@ -268,14 +268,14 @@ export default class LeadsApi {
       let pathParams = {
       };
       let queryParams = {
-        'limit': opts['limit'],
-        'start': opts['start'],
-        'archived_status': opts['archivedStatus'],
-        'owner_id': opts['ownerId'],
-        'person_id': opts['personId'],
-        'organization_id': opts['organizationId'],
-        'filter_id': opts['filterId'],
-        'sort': opts['sort'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'archived_status': opts['archived_status'] === undefined ? opts['archivedStatus'] : opts['archived_status'],
+        'owner_id': opts['owner_id'] === undefined ? opts['ownerId'] : opts['owner_id'],
+        'person_id': opts['person_id'] === undefined ? opts['personId'] : opts['person_id'],
+        'organization_id': opts['organization_id'] === undefined ? opts['organizationId'] : opts['organization_id'],
+        'filter_id': opts['filter_id'] === undefined ? opts['filterId'] : opts['filter_id'],
+        'sort': opts['sort'] === undefined ? opts['sort'] : opts['sort'],
       };
       let headerParams = {
       };
@@ -365,13 +365,13 @@ export default class LeadsApi {
       };
       let queryParams = {
         'term': term,
-        'fields': opts['fields'],
-        'exact_match': opts['exactMatch'],
-        'person_id': opts['personId'],
-        'organization_id': opts['organizationId'],
-        'include_fields': opts['includeFields'],
-        'start': opts['start'],
-        'limit': opts['limit'],
+        'fields': opts['fields'] === undefined ? opts['fields'] : opts['fields'],
+        'exact_match': opts['exact_match'] === undefined ? opts['exactMatch'] : opts['exact_match'],
+        'person_id': opts['person_id'] === undefined ? opts['personId'] : opts['person_id'],
+        'organization_id': opts['organization_id'] === undefined ? opts['organizationId'] : opts['organization_id'],
+        'include_fields': opts['include_fields'] === undefined ? opts['includeFields'] : opts['include_fields'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
       };
       let headerParams = {
       };
