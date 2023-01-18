@@ -313,16 +313,6 @@ class ActivityResponseObject {
 
                 delete data['location_formatted_address'];
             }
-            if (data.hasOwnProperty('location_lat')) {
-                obj['location_lat'] = ApiClient.convertToType(data['location_lat'], 'Number');
-
-                delete data['location_lat'];
-            }
-            if (data.hasOwnProperty('location_long')) {
-                obj['location_long'] = ApiClient.convertToType(data['location_long'], 'Number');
-
-                delete data['location_long'];
-            }
             if (data.hasOwnProperty('org_name')) {
                 obj['org_name'] = ApiClient.convertToType(data['org_name'], 'String');
 
@@ -688,18 +678,6 @@ ActivityResponseObject.prototype['location_postal_code'] = undefined;
 ActivityResponseObject.prototype['location_formatted_address'] = undefined;
 
 /**
- * Subfield of location field. Indicates latitude.
- * @member {Number} location_lat
- */
-ActivityResponseObject.prototype['location_lat'] = undefined;
-
-/**
- * Subfield of location field. Indicates longitude.
- * @member {Number} location_long
- */
-ActivityResponseObject.prototype['location_long'] = undefined;
-
-/**
  * The name of the organization this activity is associated with
  * @member {String} org_name
  */
@@ -1015,16 +993,6 @@ ActivityResponseObjectAllOf.prototype['location_postal_code'] = undefined;
  * @member {String} location_formatted_address
  */
 ActivityResponseObjectAllOf.prototype['location_formatted_address'] = undefined;
-/**
- * Subfield of location field. Indicates latitude.
- * @member {Number} location_lat
- */
-ActivityResponseObjectAllOf.prototype['location_lat'] = undefined;
-/**
- * Subfield of location field. Indicates longitude.
- * @member {Number} location_long
- */
-ActivityResponseObjectAllOf.prototype['location_long'] = undefined;
 /**
  * The name of the organization this activity is associated with
  * @member {String} org_name

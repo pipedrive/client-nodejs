@@ -47,8 +47,6 @@ Name | Type | Description | Notes
 **locationCountry** | **String** | Subfield of location field. Indicates country. | [optional] 
 **locationPostalCode** | **String** | Subfield of location field. Indicates ZIP/postal code. | [optional] 
 **locationFormattedAddress** | **String** | Subfield of location field. Indicates full/combined address. | [optional] 
-**locationLat** | **Number** | Subfield of location field. Indicates latitude. | [optional] 
-**locationLong** | **Number** | Subfield of location field. Indicates longitude. | [optional] 
 **orgName** | **String** | The name of the organization this activity is associated with | [optional] 
 **personName** | **String** | The name of the person this activity is associated with | [optional] 
 **dealTitle** | **String** | The name of the deal this activity is associated with | [optional] 

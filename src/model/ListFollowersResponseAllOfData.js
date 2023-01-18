@@ -57,10 +57,10 @@ class ListFollowersResponseAllOfData {
 
                 delete data['id'];
             }
-            if (data.hasOwnProperty('person_id')) {
-                obj['person_id'] = ApiClient.convertToType(data['person_id'], 'Number');
+            if (data.hasOwnProperty('deal_id')) {
+                obj['deal_id'] = ApiClient.convertToType(data['deal_id'], 'Number');
 
-                delete data['person_id'];
+                delete data['deal_id'];
             }
             if (data.hasOwnProperty('add_time')) {
                 obj['add_time'] = ApiClient.convertToType(data['add_time'], 'String');
@@ -92,10 +92,10 @@ ListFollowersResponseAllOfData.prototype['user_id'] = undefined;
 ListFollowersResponseAllOfData.prototype['id'] = undefined;
 
 /**
- * The ID of the person
- * @member {Number} person_id
+ * The ID of the deal which the follower was added to
+ * @member {Number} deal_id
  */
-ListFollowersResponseAllOfData.prototype['person_id'] = undefined;
+ListFollowersResponseAllOfData.prototype['deal_id'] = undefined;
 
 /**
  * The date and time when the follower was added to the person
