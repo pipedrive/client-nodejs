@@ -22,12 +22,10 @@ class CreateTeam {
     /**
      * Constructs a new <code>CreateTeam</code>.
      * @alias module:model/CreateTeam
-     * @param name {String} The team name
-     * @param managerId {Number} The team manager ID
      */
-    constructor(name, managerId) { 
+    constructor() { 
         
-        CreateTeam.initialize(this, name, managerId);
+        CreateTeam.initialize(this);
     }
 
     /**
@@ -35,9 +33,7 @@ class CreateTeam {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, name, managerId) { 
-        obj['name'] = name;
-        obj['manager_id'] = managerId;
+    static initialize(obj) { 
     }
 
     /**

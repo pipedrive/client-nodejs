@@ -61,9 +61,9 @@ export default class RecentsApi {
       };
       let queryParams = {
         'since_timestamp': sinceTimestamp,
-        'items': opts['items'],
-        'start': opts['start'],
-        'limit': opts['limit'],
+        'items': opts['items'] === undefined ? opts['items'] : opts['items'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
       };
       let headerParams = {
       };

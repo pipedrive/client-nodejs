@@ -54,12 +54,6 @@ export default class LegacyTeamsApi {
       opts = opts || {};
       let postBody = opts['createTeam'];
 
-      if (opts['name'] === undefined || opts['name'] === null) {
-        throw new Error("Missing the required parameter 'name' when calling addTeam");
-      }
-      if (opts['manager_id'] === undefined || opts['manager_id'] === null) {
-        throw new Error("Missing the required parameter 'manager_id' when calling addTeam");
-      }
 
       let pathParams = {
       };
@@ -282,7 +276,7 @@ export default class LegacyTeamsApi {
         'id': id,
       };
       let queryParams = {
-        'skip_users': opts['skipUsers'],
+        'skip_users': opts['skip_users'] === undefined ? opts['skipUsers'] : opts['skip_users'],
       };
       let headerParams = {
       };
@@ -415,8 +409,8 @@ export default class LegacyTeamsApi {
       let pathParams = {
       };
       let queryParams = {
-        'order_by': opts['orderBy'],
-        'skip_users': opts['skipUsers'],
+        'order_by': opts['order_by'] === undefined ? opts['orderBy'] : opts['order_by'],
+        'skip_users': opts['skip_users'] === undefined ? opts['skipUsers'] : opts['skip_users'],
       };
       let headerParams = {
       };
@@ -490,8 +484,8 @@ export default class LegacyTeamsApi {
         'id': id,
       };
       let queryParams = {
-        'order_by': opts['orderBy'],
-        'skip_users': opts['skipUsers'],
+        'order_by': opts['order_by'] === undefined ? opts['orderBy'] : opts['order_by'],
+        'skip_users': opts['skip_users'] === undefined ? opts['skipUsers'] : opts['skip_users'],
       };
       let headerParams = {
       };

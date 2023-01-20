@@ -305,19 +305,19 @@ export default class GoalsApi {
       let pathParams = {
       };
       let queryParams = {
-        'type.name': opts['typeName'],
-        'title': opts['title'],
-        'is_active': opts['isActive'],
-        'assignee.id': opts['assigneeId'],
-        'assignee.type': opts['assigneeType'],
-        'expected_outcome.target': opts['expectedOutcomeTarget'],
-        'expected_outcome.tracking_metric': opts['expectedOutcomeTrackingMetric'],
-        'expected_outcome.currency_id': opts['expectedOutcomeCurrencyId'],
+        'type.name': opts['type.name'] === undefined ? opts['typeName'] : opts['type.name'],
+        'title': opts['title'] === undefined ? opts['title'] : opts['title'],
+        'is_active': opts['is_active'] === undefined ? opts['isActive'] : opts['is_active'],
+        'assignee.id': opts['assignee.id'] === undefined ? opts['assigneeId'] : opts['assignee.id'],
+        'assignee.type': opts['assignee.type'] === undefined ? opts['assigneeType'] : opts['assignee.type'],
+        'expected_outcome.target': opts['expected_outcome.target'] === undefined ? opts['expectedOutcomeTarget'] : opts['expected_outcome.target'],
+        'expected_outcome.tracking_metric': opts['expected_outcome.tracking_metric'] === undefined ? opts['expectedOutcomeTrackingMetric'] : opts['expected_outcome.tracking_metric'],
+        'expected_outcome.currency_id': opts['expected_outcome.currency_id'] === undefined ? opts['expectedOutcomeCurrencyId'] : opts['expected_outcome.currency_id'],
         'type.params.pipeline_id': this.apiClient.buildCollectionParam(opts['typeParamsPipelineId'], 'csv'),
-        'type.params.stage_id': opts['typeParamsStageId'],
+        'type.params.stage_id': opts['type.params.stage_id'] === undefined ? opts['typeParamsStageId'] : opts['type.params.stage_id'],
         'type.params.activity_type_id': this.apiClient.buildCollectionParam(opts['typeParamsActivityTypeId'], 'csv'),
-        'period.start': opts['periodStart'],
-        'period.end': opts['periodEnd'],
+        'period.start': opts['period.start'] === undefined ? opts['periodStart'] : opts['period.start'],
+        'period.end': opts['period.end'] === undefined ? opts['periodEnd'] : opts['period.end'],
       };
       let headerParams = {
       };
