@@ -12,6 +12,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 - Optional `lead_id` parameter to `POST /v1/files`
 - `lead_id` and `lead_name` to the `/v1/files` endpoints
 
+### Removed
+- Removed deprecated endpoints that will be deleted:
+  - `GET /roles/{id}/roles`
+
 ## [18.0.3] - 2023-01-11
 ### Updated dependencies
   - Updated `json5` from 2.2.1 to 2.2.3
