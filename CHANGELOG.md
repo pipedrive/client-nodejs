@@ -7,8 +7,10 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+
 ### Fixed
 - Fixed a typo in `GET /itemSearch/field`
+- Fixed mistakenly documented response field for `GET /v1/deals/{id}/followers` from `person_id` to `deal_id`.
 
 ### Added
 - Optional `lead_id` parameter to `POST /v1/files`
@@ -17,6 +19,12 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 ### Removed
 - Removed deprecated endpoints that will be deleted:
   - `GET /roles/{id}/roles`
+- Removed `followers_count` from Product-related entities and endpoints based on this [post](https://developers.pipedrive.com/changelog/post/removal-of-codefollowers_countcode-response-field-from-products-endpoints-and-webhook). Changing the following endpoints:
+  - GET /deals/{id}/products
+  - GET /products
+  - GET /products/{id}
+  - POST /products
+  - PUT /products/{id}
 
 ## [18.0.3] - 2023-01-11
 ### Updated dependencies
