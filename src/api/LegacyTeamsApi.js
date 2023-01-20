@@ -54,12 +54,6 @@ export default class LegacyTeamsApi {
       opts = opts || {};
       let postBody = opts['createTeam'];
 
-      if (opts['name'] === undefined || opts['name'] === null) {
-        throw new Error("Missing the required parameter 'name' when calling addTeam");
-      }
-      if (opts['manager_id'] === undefined || opts['manager_id'] === null) {
-        throw new Error("Missing the required parameter 'manager_id' when calling addTeam");
-      }
 
       let pathParams = {
       };
