@@ -134,7 +134,7 @@ export default class UsersApi {
       };
       let queryParams = {
         'term': term,
-        'search_by_email': opts['searchByEmail'],
+        'search_by_email': opts['search_by_email'] === undefined ? opts['searchByEmail'] : opts['search_by_email'],
       };
       let headerParams = {
       };
@@ -464,8 +464,8 @@ export default class UsersApi {
         'id': id,
       };
       let queryParams = {
-        'start': opts['start'],
-        'limit': opts['limit'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
       };
       let headerParams = {
       };

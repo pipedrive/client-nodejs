@@ -50,7 +50,7 @@ export default class CurrenciesApi {
       let pathParams = {
       };
       let queryParams = {
-        'term': opts['term'],
+        'term': opts['term'] === undefined ? opts['term'] : opts['term'],
       };
       let headerParams = {
       };

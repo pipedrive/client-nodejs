@@ -130,7 +130,7 @@ export default class MailboxApi {
         'id': id,
       };
       let queryParams = {
-        'include_body': opts['includeBody'],
+        'include_body': opts['include_body'] === undefined ? opts['includeBody'] : opts['include_body'],
       };
       let headerParams = {
       };
@@ -336,8 +336,8 @@ export default class MailboxApi {
       };
       let queryParams = {
         'folder': folder,
-        'start': opts['start'],
-        'limit': opts['limit'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
       };
       let headerParams = {
       };

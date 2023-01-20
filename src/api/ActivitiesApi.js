@@ -267,14 +267,14 @@ export default class ActivitiesApi {
       let pathParams = {
       };
       let queryParams = {
-        'user_id': opts['userId'],
-        'filter_id': opts['filterId'],
-        'type': opts['type'],
-        'limit': opts['limit'],
-        'start': opts['start'],
-        'start_date': opts['startDate'],
-        'end_date': opts['endDate'],
-        'done': opts['done'],
+        'user_id': opts['user_id'] === undefined ? opts['userId'] : opts['user_id'],
+        'filter_id': opts['filter_id'] === undefined ? opts['filterId'] : opts['filter_id'],
+        'type': opts['type'] === undefined ? opts['type'] : opts['type'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'start_date': opts['start_date'] === undefined ? opts['startDate'] : opts['start_date'],
+        'end_date': opts['end_date'] === undefined ? opts['endDate'] : opts['end_date'],
+        'done': opts['done'] === undefined ? opts['done'] : opts['done'],
       };
       let headerParams = {
       };
