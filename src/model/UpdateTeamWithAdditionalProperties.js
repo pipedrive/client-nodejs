@@ -27,12 +27,10 @@ class UpdateTeamWithAdditionalProperties {
      * @alias module:model/UpdateTeamWithAdditionalProperties
      * @implements module:model/UpdateTeam
      * @implements module:model/BaseTeamAdditionalProperties
-     * @param name {String} The team name
-     * @param managerId {Number} The team manager ID
      */
-    constructor(name, managerId) { 
-        UpdateTeam.initialize(this, name, managerId);BaseTeamAdditionalProperties.initialize(this);
-        UpdateTeamWithAdditionalProperties.initialize(this, name, managerId);
+    constructor() { 
+        UpdateTeam.initialize(this);BaseTeamAdditionalProperties.initialize(this);
+        UpdateTeamWithAdditionalProperties.initialize(this);
     }
 
     /**
@@ -40,9 +38,7 @@ class UpdateTeamWithAdditionalProperties {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, name, managerId) { 
-        obj['name'] = name;
-        obj['manager_id'] = managerId;
+    static initialize(obj) { 
     }
 
     /**

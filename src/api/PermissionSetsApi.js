@@ -127,8 +127,8 @@ export default class PermissionSetsApi {
         'id': id,
       };
       let queryParams = {
-        'start': opts['start'],
-        'limit': opts['limit'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
       };
       let headerParams = {
       };
@@ -194,7 +194,7 @@ export default class PermissionSetsApi {
       let pathParams = {
       };
       let queryParams = {
-        'app': opts['app'],
+        'app': opts['app'] === undefined ? opts['app'] : opts['app'],
       };
       let headerParams = {
       };

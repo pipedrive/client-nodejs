@@ -318,8 +318,8 @@ export default class DealFieldsApi {
       let pathParams = {
       };
       let queryParams = {
-        'start': opts['start'],
-        'limit': opts['limit'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
       };
       let headerParams = {
       };

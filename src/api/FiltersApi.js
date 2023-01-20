@@ -385,7 +385,7 @@ export default class FiltersApi {
       let pathParams = {
       };
       let queryParams = {
-        'type': opts['type'],
+        'type': opts['type'] === undefined ? opts['type'] : opts['type'],
       };
       let headerParams = {
       };

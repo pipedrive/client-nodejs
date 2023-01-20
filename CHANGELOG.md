@@ -8,6 +8,32 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [18.1.0] - 2023-01-20
+### Changed
+- Removed `location_lat` and `location_long` fields from the following endpoints activity details response:
+  - GET /v1/activities
+  - GET /v1/activities/{id}
+  - POST /v1/activities
+  - PUT /v1/activities/{id}
+
+### Fixed
+- Fixed a typo in `GET /itemSearch/field`
+- Fixed mistakenly documented response field for `GET /v1/deals/{id}/followers` from `person_id` to `deal_id`.
+
+### Added
+- Optional `lead_id` parameter to `POST /v1/files`
+- `lead_id` and `lead_name` to the `/v1/files` endpoints
+
+### Removed
+- Removed deprecated endpoints that will be deleted:
+  - `GET /roles/{id}/roles`
+- Removed `followers_count` from Product-related entities and endpoints based on this [post](https://developers.pipedrive.com/changelog/post/removal-of-codefollowers_countcode-response-field-from-products-endpoints-and-webhook). Changing the following endpoints:
+  - GET /deals/{id}/products
+  - GET /products
+  - GET /products/{id}
+  - POST /products
+  - PUT /products/{id}
+
 ## [18.0.3] - 2023-01-11
 ### Updated dependencies
   - Updated `json5` from 2.2.1 to 2.2.3
@@ -424,7 +450,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v18.0.3...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v18.1.0...HEAD
+[18.1.0]: https://github.com/pipedrive/api-docs/compare/v18.0.3...v18.1.0
 [18.0.3]: https://github.com/pipedrive/api-docs/compare/v18.0.2...v18.0.3
 [18.0.2]: https://github.com/pipedrive/api-docs/compare/v18.0.1...v18.0.2
 [18.0.1]: https://github.com/pipedrive/api-docs/compare/v1.0.0...v18.0.1

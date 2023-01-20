@@ -460,9 +460,9 @@ export default class FilesApi {
       let pathParams = {
       };
       let queryParams = {
-        'start': opts['start'],
-        'limit': opts['limit'],
-        'sort': opts['sort'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
+        'sort': opts['sort'] === undefined ? opts['sort'] : opts['sort'],
       };
       let headerParams = {
       };

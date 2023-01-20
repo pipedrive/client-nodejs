@@ -864,10 +864,10 @@ export default class DealsApi {
         'id': id,
       };
       let queryParams = {
-        'start': opts['start'],
-        'limit': opts['limit'],
-        'done': opts['done'],
-        'exclude': opts['exclude'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
+        'done': opts['done'] === undefined ? opts['done'] : opts['done'],
+        'exclude': opts['exclude'] === undefined ? opts['exclude'] : opts['exclude'],
       };
       let headerParams = {
       };
@@ -946,9 +946,9 @@ export default class DealsApi {
         'id': id,
       };
       let queryParams = {
-        'start': opts['start'],
-        'limit': opts['limit'],
-        'sort': opts['sort'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
+        'sort': opts['sort'] === undefined ? opts['sort'] : opts['sort'],
       };
       let headerParams = {
       };
@@ -1090,8 +1090,8 @@ export default class DealsApi {
         'id': id,
       };
       let queryParams = {
-        'start': opts['start'],
-        'limit': opts['limit'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
       };
       let headerParams = {
       };
@@ -1166,8 +1166,8 @@ export default class DealsApi {
         'id': id,
       };
       let queryParams = {
-        'start': opts['start'],
-        'limit': opts['limit'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
       };
       let headerParams = {
       };
@@ -1242,8 +1242,8 @@ export default class DealsApi {
         'id': id,
       };
       let queryParams = {
-        'start': opts['start'],
-        'limit': opts['limit'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
       };
       let headerParams = {
       };
@@ -1320,9 +1320,9 @@ export default class DealsApi {
         'id': id,
       };
       let queryParams = {
-        'start': opts['start'],
-        'limit': opts['limit'],
-        'include_product_data': opts['includeProductData'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
+        'include_product_data': opts['include_product_data'] === undefined ? opts['includeProductData'] : opts['include_product_data'],
       };
       let headerParams = {
       };
@@ -1402,10 +1402,10 @@ export default class DealsApi {
         'id': id,
       };
       let queryParams = {
-        'start': opts['start'],
-        'limit': opts['limit'],
-        'all_changes': opts['allChanges'],
-        'items': opts['items'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
+        'all_changes': opts['all_changes'] === undefined ? opts['allChanges'] : opts['all_changes'],
+        'items': opts['items'] === undefined ? opts['items'] : opts['items'],
       };
       let headerParams = {
       };
@@ -1553,14 +1553,14 @@ export default class DealsApi {
       let pathParams = {
       };
       let queryParams = {
-        'user_id': opts['userId'],
-        'filter_id': opts['filterId'],
-        'stage_id': opts['stageId'],
-        'status': opts['status'],
-        'start': opts['start'],
-        'limit': opts['limit'],
-        'sort': opts['sort'],
-        'owned_by_you': opts['ownedByYou'],
+        'user_id': opts['user_id'] === undefined ? opts['userId'] : opts['user_id'],
+        'filter_id': opts['filter_id'] === undefined ? opts['filterId'] : opts['filter_id'],
+        'stage_id': opts['stage_id'] === undefined ? opts['stageId'] : opts['stage_id'],
+        'status': opts['status'] === undefined ? opts['status'] : opts['status'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
+        'sort': opts['sort'] === undefined ? opts['sort'] : opts['sort'],
+        'owned_by_you': opts['owned_by_you'] === undefined ? opts['ownedByYou'] : opts['owned_by_you'],
       };
       let headerParams = {
       };
@@ -1637,10 +1637,10 @@ export default class DealsApi {
       let pathParams = {
       };
       let queryParams = {
-        'status': opts['status'],
-        'filter_id': opts['filterId'],
-        'user_id': opts['userId'],
-        'stage_id': opts['stageId'],
+        'status': opts['status'] === undefined ? opts['status'] : opts['status'],
+        'filter_id': opts['filter_id'] === undefined ? opts['filterId'] : opts['filter_id'],
+        'user_id': opts['user_id'] === undefined ? opts['userId'] : opts['user_id'],
+        'stage_id': opts['stage_id'] === undefined ? opts['stageId'] : opts['stage_id'],
       };
       let headerParams = {
       };
@@ -1743,11 +1743,11 @@ export default class DealsApi {
         'interval': interval,
         'amount': amount,
         'field_key': fieldKey,
-        'user_id': opts['userId'],
-        'pipeline_id': opts['pipelineId'],
-        'filter_id': opts['filterId'],
-        'exclude_deals': opts['excludeDeals'],
-        'totals_convert_currency': opts['totalsConvertCurrency'],
+        'user_id': opts['user_id'] === undefined ? opts['userId'] : opts['user_id'],
+        'pipeline_id': opts['pipeline_id'] === undefined ? opts['pipelineId'] : opts['pipeline_id'],
+        'filter_id': opts['filter_id'] === undefined ? opts['filterId'] : opts['filter_id'],
+        'exclude_deals': opts['exclude_deals'] === undefined ? opts['excludeDeals'] : opts['exclude_deals'],
+        'totals_convert_currency': opts['totals_convert_currency'] === undefined ? opts['totalsConvertCurrency'] : opts['totals_convert_currency'],
       };
       let headerParams = {
       };
@@ -1914,14 +1914,14 @@ export default class DealsApi {
       };
       let queryParams = {
         'term': term,
-        'fields': opts['fields'],
-        'exact_match': opts['exactMatch'],
-        'person_id': opts['personId'],
-        'organization_id': opts['organizationId'],
-        'status': opts['status'],
-        'include_fields': opts['includeFields'],
-        'start': opts['start'],
-        'limit': opts['limit'],
+        'fields': opts['fields'] === undefined ? opts['fields'] : opts['fields'],
+        'exact_match': opts['exact_match'] === undefined ? opts['exactMatch'] : opts['exact_match'],
+        'person_id': opts['person_id'] === undefined ? opts['personId'] : opts['person_id'],
+        'organization_id': opts['organization_id'] === undefined ? opts['organizationId'] : opts['organization_id'],
+        'status': opts['status'] === undefined ? opts['status'] : opts['status'],
+        'include_fields': opts['include_fields'] === undefined ? opts['includeFields'] : opts['include_fields'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
       };
       let headerParams = {
       };

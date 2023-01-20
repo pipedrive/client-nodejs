@@ -195,7 +195,7 @@ export default class PipelinesApi {
         'id': id,
       };
       let queryParams = {
-        'totals_convert_currency': opts['totalsConvertCurrency'],
+        'totals_convert_currency': opts['totals_convert_currency'] === undefined ? opts['totalsConvertCurrency'] : opts['totals_convert_currency'],
       };
       let headerParams = {
       };
@@ -281,7 +281,7 @@ export default class PipelinesApi {
       let queryParams = {
         'start_date': startDate,
         'end_date': endDate,
-        'user_id': opts['userId'],
+        'user_id': opts['user_id'] === undefined ? opts['userId'] : opts['user_id'],
       };
       let headerParams = {
       };
@@ -369,14 +369,14 @@ export default class PipelinesApi {
         'id': id,
       };
       let queryParams = {
-        'filter_id': opts['filterId'],
-        'user_id': opts['userId'],
-        'everyone': opts['everyone'],
-        'stage_id': opts['stageId'],
-        'start': opts['start'],
-        'limit': opts['limit'],
-        'get_summary': opts['getSummary'],
-        'totals_convert_currency': opts['totalsConvertCurrency'],
+        'filter_id': opts['filter_id'] === undefined ? opts['filterId'] : opts['filter_id'],
+        'user_id': opts['user_id'] === undefined ? opts['userId'] : opts['user_id'],
+        'everyone': opts['everyone'] === undefined ? opts['everyone'] : opts['everyone'],
+        'stage_id': opts['stage_id'] === undefined ? opts['stageId'] : opts['stage_id'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
+        'get_summary': opts['get_summary'] === undefined ? opts['getSummary'] : opts['get_summary'],
+        'totals_convert_currency': opts['totals_convert_currency'] === undefined ? opts['totalsConvertCurrency'] : opts['totals_convert_currency'],
       };
       let headerParams = {
       };
@@ -469,7 +469,7 @@ export default class PipelinesApi {
       let queryParams = {
         'start_date': startDate,
         'end_date': endDate,
-        'user_id': opts['userId'],
+        'user_id': opts['user_id'] === undefined ? opts['userId'] : opts['user_id'],
       };
       let headerParams = {
       };
