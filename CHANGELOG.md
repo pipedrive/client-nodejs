@@ -7,6 +7,7 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+
 ### Added
 - Optional `lead_id` parameter to `POST /v1/files`
 - `lead_id` and `lead_name` to the `/v1/files` endpoints
@@ -427,7 +428,4 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v18.0.3...HEAD
-[18.0.3]: https://github.com/pipedrive/api-docs/compare/v18.0.2...v18.0.3
-[18.0.2]: https://github.com/pipedrive/api-docs/compare/v18.0.1...v18.0.2
-[18.0.1]: https://github.com/pipedrive/api-docs/compare/v1.0.0...v18.0.1
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v1.0.0...HEAD
