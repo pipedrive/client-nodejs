@@ -1,0 +1,33 @@
+name: On Commit
+on:
+  pull_request_target:
+    branches:
+      - master
+
+jobs:
+  test-runtime:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Read .nvmrc
+        run: echo ::set-output name=NVMRC::$(cat .nvmrc)
+        id: nvm
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '${{ steps.nvm.outputs.NVMRC }}'
+
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
+      - run: npm install
+
+      - run: npm run build
+
+      - run: npm prune --production
+
+      - run: node ./test/runtime.js
