@@ -7,6 +7,10 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Fixed
+- Updated `user_id` description for `POST /webhooks/`
+### Fixed
+- Adds support for snake_case query params reported in pipedrive/client-nodejs#410
 
 ## [18.1.0] - 2023-01-20
 ### Changed
