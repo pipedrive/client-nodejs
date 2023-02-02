@@ -100,7 +100,7 @@ export default class RolesApi {
         }
       }
 
-      let authNames = ['api_key', ];
+      let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
       let returnType = PostRoleSettings;
       return this.apiClient.callApi(
@@ -167,7 +167,7 @@ export default class RolesApi {
         }
       }
 
-      let authNames = ['api_key', ];
+      let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
       let returnType = PostRoles;
       return this.apiClient.callApi(
@@ -240,7 +240,7 @@ export default class RolesApi {
         }
       }
 
-      let authNames = ['api_key', ];
+      let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
       let returnType = PostRoleAssignment;
       return this.apiClient.callApi(
@@ -308,7 +308,7 @@ export default class RolesApi {
         }
       }
 
-      let authNames = ['api_key', ];
+      let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
       let returnType = DeleteRole;
       return this.apiClient.callApi(
@@ -380,7 +380,7 @@ export default class RolesApi {
         }
       }
 
-      let authNames = ['api_key', ];
+      let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
       let returnType = DeleteRoleAssignment;
       return this.apiClient.callApi(
@@ -448,7 +448,7 @@ export default class RolesApi {
         }
       }
 
-      let authNames = ['api_key', ];
+      let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
       let returnType = GetRole;
       return this.apiClient.callApi(
@@ -521,7 +521,7 @@ export default class RolesApi {
         }
       }
 
-      let authNames = ['api_key', ];
+      let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
       let returnType = GetRoleAssignments;
       return this.apiClient.callApi(
@@ -590,7 +590,7 @@ export default class RolesApi {
         }
       }
 
-      let authNames = ['api_key', ];
+      let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
       let returnType = GetRoleSettings;
       return this.apiClient.callApi(
@@ -656,7 +656,7 @@ export default class RolesApi {
         }
       }
 
-      let authNames = ['api_key', ];
+      let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
       let returnType = GetRoles;
       return this.apiClient.callApi(
@@ -727,7 +727,7 @@ export default class RolesApi {
         }
       }
 
-      let authNames = ['api_key', ];
+      let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
       let returnType = PutRole;
       return this.apiClient.callApi(

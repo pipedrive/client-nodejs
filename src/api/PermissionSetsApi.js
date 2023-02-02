@@ -79,7 +79,7 @@ export default class PermissionSetsApi {
         }
       }
 
-      let authNames = ['api_key', ];
+      let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
       let returnType = SinglePermissionSetsItem;
       return this.apiClient.callApi(
@@ -152,7 +152,7 @@ export default class PermissionSetsApi {
         }
       }
 
-      let authNames = ['api_key', ];
+      let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
       let returnType = UserAssignmentsToPermissionSet;
       return this.apiClient.callApi(
@@ -218,7 +218,7 @@ export default class PermissionSetsApi {
         }
       }
 
-      let authNames = ['api_key', ];
+      let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
       let returnType = PermissionSets;
       return this.apiClient.callApi(
