@@ -329,7 +329,7 @@ export default class CallLogsApi {
      * Returns all call logs assigned to a particular user.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
-     * @param {Number} opts.limit Items shown per page
+     * @param {Number} opts.limit For pagination, the limit of entries to be returned. The upper limit is 50.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BaseResponse} and HTTP response
      */
     getUserCallLogsWithHttpInfo(opts) {
@@ -381,7 +381,7 @@ export default class CallLogsApi {
      * Returns all call logs assigned to a particular user.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
-     * @param {Number} opts.limit Items shown per page
+     * @param {Number} opts.limit For pagination, the limit of entries to be returned. The upper limit is 50.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BaseResponse}
      */
     getUserCallLogs(opts) {

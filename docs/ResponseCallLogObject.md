@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **userId** | **Number** | The ID of the owner of the call log. Please note that a user without account settings access cannot create call logs for other users. | [optional] 
-**activityId** | **Number** | If specified, this activity will be converted into a call log, with the information provided. When this field is used, you don&#39;t need to specify &#x60;deal_id&#x60;, &#x60;person_id&#x60; or &#x60;org_id&#x60;, as they will be ignored in favor of the values already available in the activity. | [optional] 
+**activityId** | **Number** | If specified, this activity will be converted into a call log, with the information provided. When this field is used, you don&#39;t need to specify &#x60;deal_id&#x60;, &#x60;person_id&#x60; or &#x60;org_id&#x60;, as they will be ignored in favor of the values already available in the activity. The &#x60;activity_id&#x60; must refer to a &#x60;call&#x60; type activity. | [optional] 
 **subject** | **String** | The name of the activity this call is attached to | [optional] 
 **duration** | **String** | The duration of the call in seconds | [optional] 
 **outcome** | **String** | Describes the outcome of the call | 
