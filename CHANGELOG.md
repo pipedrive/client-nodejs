@@ -7,6 +7,8 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+
+## [18.1.3] - 2023-02-08
 ### Fixed
 - Updated `limit` description for `GET /v1/callLogs`
 - Updated `activity_id` description for `POST /v1/callLogs`
@@ -464,7 +466,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v18.1.2...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v18.1.3...HEAD
+[18.1.3]: https://github.com/pipedrive/api-docs/compare/v18.1.2...v18.1.3
 [18.1.2]: https://github.com/pipedrive/api-docs/compare/v18.1.1...v18.1.2
 [18.1.1]: https://github.com/pipedrive/api-docs/compare/v18.1.0...v18.1.1
 [18.1.0]: https://github.com/pipedrive/api-docs/compare/v18.0.3...v18.1.0
