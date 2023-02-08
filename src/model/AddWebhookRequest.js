@@ -83,6 +83,11 @@ class AddWebhookRequest {
 
                 delete data['http_auth_password'];
             }
+            if (data.hasOwnProperty('version')) {
+                obj['version'] = ApiClient.convertToType(data['version'], 'String');
+
+                delete data['version'];
+            }
 
             if (Object.keys(data).length > 0) {
                 Object.assign(obj, data);
@@ -130,6 +135,12 @@ AddWebhookRequest.prototype['http_auth_user'] = undefined;
  * @member {String} http_auth_password
  */
 AddWebhookRequest.prototype['http_auth_password'] = undefined;
+
+/**
+ * The Webhook version. Defaults to \"1.0\"
+ * @member {module:model/AddWebhookRequest.VersionEnum} version
+ */
+AddWebhookRequest.prototype['version'] = undefined;
 
 
 
@@ -246,6 +257,27 @@ AddWebhookRequest['EventObjectEnum'] = {
      * @const
      */
     "STAR": "*"
+};
+
+
+/**
+ * Allowed values for the <code>version</code> property.
+ * @enum {String}
+ * @readonly
+ */
+AddWebhookRequest['VersionEnum'] = {
+
+    /**
+     * value: "1.0"
+     * @const
+     */
+    "1.0": "1.0",
+
+    /**
+     * value: "2.0"
+     * @const
+     */
+    "2.0": "2.0"
 };
 
 

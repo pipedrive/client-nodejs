@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **userId** | **Number** | The ID of the user that this webhook will be authorized with. You have the option to use a different user&#39;s &#x60;user_id&#x60;. If it is not set, the current user&#39;s &#x60;user_id&#x60; will be used. As each webhook event is checked against a user’s permissions, the webhook will only be sent if the user has access to the specified object(s). If you want to receive notifications for all events, please use a top-level admin user’s &#x60;user_id&#x60;. | [optional] 
 **httpAuthUser** | **String** | The HTTP basic auth username of the subscription URL endpoint (if required) | [optional] 
 **httpAuthPassword** | **String** | The HTTP basic auth password of the subscription URL endpoint (if required) | [optional] 
+**version** | **String** | The Webhook version. Defaults to \&quot;1.0\&quot; | [optional] 
 
 
 
@@ -54,6 +55,17 @@ Name | Type | Description | Notes
 * `user` (value: `"user"`)
 
 * `STAR` (value: `"*"`)
+
+
+
+
+
+## Enum: VersionEnum
+
+
+* `1.0` (value: `"1.0"`)
+
+* `2.0` (value: `"2.0"`)
 
 
 
