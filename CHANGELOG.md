@@ -8,6 +8,12 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [18.1.3] - 2023-02-08
+### Fixed
+- Updated `limit` description for `GET /v1/callLogs`
+- Updated `activity_id` description for `POST /v1/callLogs`
+- Added `next_start` field in the `GET /v1/callLogs` response example
+
 ## [18.1.2] - 2023-02-02
 ### Fixed
 - Added missing OAuth scopes for PermissionSets, Roles, and Users API endpoints
@@ -460,7 +466,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v18.1.2...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v18.1.3...HEAD
+[18.1.3]: https://github.com/pipedrive/api-docs/compare/v18.1.2...v18.1.3
 [18.1.2]: https://github.com/pipedrive/api-docs/compare/v18.1.1...v18.1.2
 [18.1.1]: https://github.com/pipedrive/api-docs/compare/v18.1.0...v18.1.1
 [18.1.0]: https://github.com/pipedrive/api-docs/compare/v18.0.3...v18.1.0

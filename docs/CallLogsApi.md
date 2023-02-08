@@ -253,7 +253,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new Pipedrive.CallLogsApi(apiClient);
 let opts = {
   'start': 0, // Number | Pagination start
-  'limit': 56 // Number | Items shown per page
+  'limit': 56 // Number | For pagination, the limit of entries to be returned. The upper limit is 50.
 };
 apiInstance.getUserCallLogs(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -269,7 +269,7 @@ apiInstance.getUserCallLogs(opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Number**| Pagination start | [optional] [default to 0]
- **limit** | **Number**| Items shown per page | [optional] 
+ **limit** | **Number**| For pagination, the limit of entries to be returned. The upper limit is 50. | [optional] 
 
 ### Return type
 
