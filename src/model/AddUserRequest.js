@@ -55,11 +55,6 @@ class AddUserRequest {
 
                 delete data['email'];
             }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
-
-                delete data['name'];
-            }
             if (data.hasOwnProperty('access')) {
                 obj['access'] = ApiClient.convertToType(data['access'], [UserAccess]);
 
@@ -87,12 +82,6 @@ class AddUserRequest {
  * @member {String} email
  */
 AddUserRequest.prototype['email'] = undefined;
-
-/**
- * The name of the user
- * @member {String} name
- */
-AddUserRequest.prototype['name'] = undefined;
 
 /**
  * The access given to the user. Each item in the array represents access to a specific app. Optionally may include either admin flag or permission set ID to specify which access to give within the app. If both are omitted, the default access for the corresponding app will be used. It requires structure as follows: `[{ app: 'sales', permission_set_id: '62cc4d7f-4038-4352-abf3-a8c1c822b631' }, { app: 'global', admin: true }, { app: 'account_settings' }]` 

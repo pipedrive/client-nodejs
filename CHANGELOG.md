@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [18.1.4] - 2023-02-13
+### Removed
+- Removed `name` body parameter from `POST /v1/users` based on this [post](https://developers.pipedrive.com/changelog/post/removal-of-fields-from-users-api).
+
 ## [18.1.3] - 2023-02-08
 ### Fixed
 - Updated `limit` description for `GET /v1/callLogs`
@@ -466,7 +470,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v18.1.3...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v18.1.4...HEAD
+[18.1.4]: https://github.com/pipedrive/api-docs/compare/v18.1.3...v18.1.4
 [18.1.3]: https://github.com/pipedrive/api-docs/compare/v18.1.2...v18.1.3
 [18.1.2]: https://github.com/pipedrive/api-docs/compare/v18.1.1...v18.1.2
 [18.1.1]: https://github.com/pipedrive/api-docs/compare/v18.1.0...v18.1.1
