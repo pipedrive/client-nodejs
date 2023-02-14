@@ -16,7 +16,6 @@ import ApiClient from "../ApiClient";
 import AddDealFollowerRequest from '../model/AddDealFollowerRequest';
 import AddDealParticipantRequest from '../model/AddDealParticipantRequest';
 import AddedDealFollower from '../model/AddedDealFollower';
-import BasicDealProduct from '../model/BasicDealProduct';
 import DealFlowResponse from '../model/DealFlowResponse';
 import DealListActivitiesResponse from '../model/DealListActivitiesResponse';
 import DealParticipants from '../model/DealParticipants';
@@ -46,6 +45,7 @@ import NewDeal from '../model/NewDeal';
 import NewDealProduct from '../model/NewDealProduct';
 import NumberBoolean from '../model/NumberBoolean';
 import PostDealParticipants from '../model/PostDealParticipants';
+import UpdateDealProduct from '../model/UpdateDealProduct';
 import UpdateDealRequest from '../model/UpdateDealRequest';
 
 /**
@@ -568,7 +568,7 @@ export default class DealsApi {
      * Delete an attached product from a deal
      * Deletes a product attachment from a deal, using the `product_attachment_id`.
      * @param {Number} id The ID of the deal
-     * @param {Number} productAttachmentId The product attachment ID. This is returned as `product_attachment_id` after attaching a product to a deal or as id when listing the products attached to a deal.
+     * @param {Number} productAttachmentId The product attachment ID
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteDealProduct} and HTTP response
      */
     deleteDealProductWithHttpInfo(id, productAttachmentId) {
@@ -627,7 +627,7 @@ export default class DealsApi {
      * Delete an attached product from a deal
      * Deletes a product attachment from a deal, using the `product_attachment_id`.
      * @param {Number} id The ID of the deal
-     * @param {Number} productAttachmentId The product attachment ID. This is returned as `product_attachment_id` after attaching a product to a deal or as id when listing the products attached to a deal.
+     * @param {Number} productAttachmentId The product attachment ID
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteDealProduct}
      */
     deleteDealProduct(id, productAttachmentId) {
@@ -2055,12 +2055,12 @@ export default class DealsApi {
      * @param {Number} id The ID of the deal
      * @param {Number} productAttachmentId The ID of the deal-product (the ID of the product attached to the deal)
      * @param {Object} opts Optional parameters
-     * @param {module:model/BasicDealProduct} opts.basicDealProduct 
+     * @param {module:model/UpdateDealProduct} opts.updateDealProduct 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetProductAttachementDetails} and HTTP response
      */
     updateDealProductWithHttpInfo(id, productAttachmentId, opts) {
       opts = opts || {};
-      let postBody = opts['basicDealProduct'];
+      let postBody = opts['updateDealProduct'];
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -2074,12 +2074,6 @@ export default class DealsApi {
 
       if (opts['product_id'] === undefined || opts['product_id'] === null) {
         throw new Error("Missing the required parameter 'product_id' when calling updateDealProduct");
-      }
-      if (opts['item_price'] === undefined || opts['item_price'] === null) {
-        throw new Error("Missing the required parameter 'item_price' when calling updateDealProduct");
-      }
-      if (opts['quantity'] === undefined || opts['quantity'] === null) {
-        throw new Error("Missing the required parameter 'quantity' when calling updateDealProduct");
       }
 
       let pathParams = {
@@ -2126,7 +2120,7 @@ export default class DealsApi {
      * @param {Number} id The ID of the deal
      * @param {Number} productAttachmentId The ID of the deal-product (the ID of the product attached to the deal)
      * @param {Object} opts Optional parameters
-     * @param {module:model/BasicDealProduct} opts.basicDealProduct 
+     * @param {module:model/UpdateDealProduct} opts.updateDealProduct 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetProductAttachementDetails}
      */
     updateDealProduct(id, productAttachmentId, opts) {

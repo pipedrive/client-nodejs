@@ -175,6 +175,7 @@ import DealPersonDataEmail from './model/DealPersonDataEmail';
 import DealPersonDataPhone from './model/DealPersonDataPhone';
 import DealPersonDataWithId from './model/DealPersonDataWithId';
 import DealPersonDataWithIdAllOf from './model/DealPersonDataWithIdAllOf';
+import DealProductUnitDuration from './model/DealProductUnitDuration';
 import DealSearchItem from './model/DealSearchItem';
 import DealSearchItemItem from './model/DealSearchItemItem';
 import DealSearchItemItemOrganization from './model/DealSearchItemItemOrganization';
@@ -426,6 +427,8 @@ import ListPersonsResponseAllOf from './model/ListPersonsResponseAllOf';
 import ListPersonsResponseAllOfRelatedObjects from './model/ListPersonsResponseAllOfRelatedObjects';
 import ListProductAdditionalData from './model/ListProductAdditionalData';
 import ListProductAdditionalDataAllOf from './model/ListProductAdditionalDataAllOf';
+import ListProductFilesResponse from './model/ListProductFilesResponse';
+import ListProductFilesResponseAllOf from './model/ListProductFilesResponseAllOf';
 import ListProductFollowersResponse from './model/ListProductFollowersResponse';
 import ListProductFollowersResponseAllOf from './model/ListProductFollowersResponseAllOf';
 import ListProductFollowersResponseAllOfData from './model/ListProductFollowersResponseAllOfData';
@@ -601,6 +604,7 @@ import ProductAttachmentDetails from './model/ProductAttachmentDetails';
 import ProductBaseDeal from './model/ProductBaseDeal';
 import ProductField from './model/ProductField';
 import ProductFieldAllOf from './model/ProductFieldAllOf';
+import ProductFileItem from './model/ProductFileItem';
 import ProductListItem from './model/ProductListItem';
 import ProductRequest from './model/ProductRequest';
 import ProductResponse from './model/ProductResponse';
@@ -677,6 +681,7 @@ import Teams from './model/Teams';
 import TeamsAllOf from './model/TeamsAllOf';
 import Unauthorized from './model/Unauthorized';
 import UpdateActivityResponse200 from './model/UpdateActivityResponse200';
+import UpdateDealProduct from './model/UpdateDealProduct';
 import UpdateDealRequest from './model/UpdateDealRequest';
 import UpdateFile from './model/UpdateFile';
 import UpdateFilterRequest from './model/UpdateFilterRequest';
@@ -1776,6 +1781,12 @@ export {
      * @property {module:model/DealPersonDataWithIdAllOf}
      */
     DealPersonDataWithIdAllOf,
+
+    /**
+     * The DealProductUnitDuration model constructor.
+     * @property {module:model/DealProductUnitDuration}
+     */
+    DealProductUnitDuration,
 
     /**
      * The DealSearchItem model constructor.
@@ -3284,6 +3295,18 @@ export {
     ListProductAdditionalDataAllOf,
 
     /**
+     * The ListProductFilesResponse model constructor.
+     * @property {module:model/ListProductFilesResponse}
+     */
+    ListProductFilesResponse,
+
+    /**
+     * The ListProductFilesResponseAllOf model constructor.
+     * @property {module:model/ListProductFilesResponseAllOf}
+     */
+    ListProductFilesResponseAllOf,
+
+    /**
      * The ListProductFollowersResponse model constructor.
      * @property {module:model/ListProductFollowersResponse}
      */
@@ -4334,6 +4357,12 @@ export {
     ProductFieldAllOf,
 
     /**
+     * The ProductFileItem model constructor.
+     * @property {module:model/ProductFileItem}
+     */
+    ProductFileItem,
+
+    /**
      * The ProductListItem model constructor.
      * @property {module:model/ProductListItem}
      */
@@ -4788,6 +4817,12 @@ export {
      * @property {module:model/UpdateActivityResponse200}
      */
     UpdateActivityResponse200,
+
+    /**
+     * The UpdateDealProduct model constructor.
+     * @property {module:model/UpdateDealProduct}
+     */
+    UpdateDealProduct,
 
     /**
      * The UpdateDealRequest model constructor.

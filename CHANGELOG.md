@@ -7,6 +7,18 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Removed
+Based on this [Changelog post](https://developers.pipedrive.com/changelog/post/breaking-changes-in-4-products-related-endpoints):
+- Removed non product-related fields from the response of `GET /products/{id}/files`
+- Removed `product_attachment_id` response field from `POST /deals/{id}/products` and `DELETE /deals/{id}/products/{product_attachment_id}`
+- Removed mistakenly documented pagination fields from `GET /products/{id}/permittedUsers`
+- Removed `item_price` and `quantity` as required request fields from `PUT /deals/{id}/products/{product_attachment_id}`
+### Changed
+Based on this [Changelog post](https://developers.pipedrive.com/changelog/post/breaking-changes-in-4-products-related-endpoints):
+- Updated the `sort` query parameter for `GET /products/{id}/files` to only support `id` and `update_time` field keys
+- For `PUT /deals/{id}/products/{product_attachment_id}`: parameters `item_price` and `quantity` are not required
+### Added
+- Added an optional `duration_unit` body parameter for `PUT /deals/{id}/products/{product_attachment_id}` and `POST /deals/{id}/products`
 
 ## [18.1.4] - 2023-02-13
 ### Removed

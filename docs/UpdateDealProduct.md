@@ -1,14 +1,14 @@
-# Pipedrive.BasicDealProduct
+# Pipedrive.UpdateDealProduct
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **productId** | **Number** | The ID of the product to use | 
-**itemPrice** | **Number** | The price at which this product will be added to the deal | 
-**quantity** | **Number** | Quantity – e.g. how many items of this product will be added to the deal | 
+**itemPrice** | **Number** | The price at which this product will be added to the deal | [optional] 
+**quantity** | **Number** | How many items of this product will be added to the deal | [optional] 
 **discountPercentage** | **Number** | The discount %. If omitted, will be set to 0. | [optional] [default to 0]
-**duration** | **Number** | The duration of the product. If omitted, will be set to 1. | [optional] [default to 1]
+**duration** | **Number** | The duration of the product | [optional] [default to 1]
 **durationUnit** | [**DealProductUnitDuration**](DealProductUnitDuration.md) | The unit duration of the product | [optional] 
 **productVariationId** | **Number** | The ID of the product variation to use. When omitted, no variation will be used. | [optional] 
 **comments** | **String** | A textual comment associated with this product-deal attachment | [optional] 
