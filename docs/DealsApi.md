@@ -447,7 +447,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealsApi(apiClient);
 let id = 56; // Number | The ID of the deal
-let productAttachmentId = 56; // Number | The product attachment ID. This is returned as `product_attachment_id` after attaching a product to a deal or as id when listing the products attached to a deal.
+let productAttachmentId = 56; // Number | The product attachment ID
 apiInstance.deleteDealProduct(id, productAttachmentId).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -462,7 +462,7 @@ apiInstance.deleteDealProduct(id, productAttachmentId).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the deal | 
- **productAttachmentId** | **Number**| The product attachment ID. This is returned as &#x60;product_attachment_id&#x60; after attaching a product to a deal or as id when listing the products attached to a deal. | 
+ **productAttachmentId** | **Number**| The product attachment ID | 
 
 ### Return type
 
@@ -1573,7 +1573,7 @@ api_key.apiKey = 'YOUR API KEY';
 let apiInstance = new Pipedrive.DealsApi(apiClient);
 let id = 56; // Number | The ID of the deal
 let productAttachmentId = 56; // Number | The ID of the deal-product (the ID of the product attached to the deal)
-let opts = Pipedrive.BasicDealProduct.constructFromObject({
+let opts = Pipedrive.UpdateDealProduct.constructFromObject({
   // Properties that you want to update
 });
 apiInstance.updateDealProduct(id, productAttachmentId, opts).then((data) => {
@@ -1591,7 +1591,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the deal | 
  **productAttachmentId** | **Number**| The ID of the deal-product (the ID of the product attached to the deal) | 
- **basicDealProduct** | [**BasicDealProduct**](BasicDealProduct.md)|  | [optional] 
+ **updateDealProduct** | [**UpdateDealProduct**](UpdateDealProduct.md)|  | [optional] 
 
 ### Return type
 

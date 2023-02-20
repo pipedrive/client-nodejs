@@ -85,6 +85,11 @@ class AddProductAttachmentDetails {
 
                 delete data['duration'];
             }
+            if (data.hasOwnProperty('duration_unit')) {
+                obj['duration_unit'] = ApiClient.convertToType(data['duration_unit'], 'String');
+
+                delete data['duration_unit'];
+            }
             if (data.hasOwnProperty('product_variation_id')) {
                 obj['product_variation_id'] = ApiClient.convertToType(data['product_variation_id'], 'Number');
 
@@ -119,11 +124,6 @@ class AddProductAttachmentDetails {
                 obj['deal_id'] = ApiClient.convertToType(data['deal_id'], 'Number');
 
                 delete data['deal_id'];
-            }
-            if (data.hasOwnProperty('duration_unit')) {
-                obj['duration_unit'] = ApiClient.convertToType(data['duration_unit'], 'String');
-
-                delete data['duration_unit'];
             }
             if (data.hasOwnProperty('sum_no_discount')) {
                 obj['sum_no_discount'] = ApiClient.convertToType(data['sum_no_discount'], 'Number');
@@ -203,11 +203,17 @@ AddProductAttachmentDetails.prototype['quantity'] = undefined;
 AddProductAttachmentDetails.prototype['discount_percentage'] = 0;
 
 /**
- * The duration of the product (when product durations are not enabled for the company or if omitted, defaults to 1)
+ * The duration of the product. If omitted, will be set to 1.
  * @member {Number} duration
  * @default 1
  */
 AddProductAttachmentDetails.prototype['duration'] = 1;
+
+/**
+ * The type of the duration. (For example hourly, daily, etc.)
+ * @member {String} duration_unit
+ */
+AddProductAttachmentDetails.prototype['duration_unit'] = undefined;
 
 /**
  * The ID of the product variation to use. When omitted, no variation will be used.
@@ -216,7 +222,7 @@ AddProductAttachmentDetails.prototype['duration'] = 1;
 AddProductAttachmentDetails.prototype['product_variation_id'] = undefined;
 
 /**
- * Any textual comment associated with this product-deal attachment. Visible and editable in the application UI.
+ * A textual comment associated with this product-deal attachment
  * @member {String} comments
  */
 AddProductAttachmentDetails.prototype['comments'] = undefined;
@@ -228,7 +234,7 @@ AddProductAttachmentDetails.prototype['comments'] = undefined;
 AddProductAttachmentDetails.prototype['tax'] = undefined;
 
 /**
- * Whether the product is enabled on the deal or not. This makes it possible to add products to a deal with a specific price and discount criteria - but keep them disabled, which refrains them from being included in the deal price calculation. When omitted, the product will be marked as enabled by default.
+ * Whether the product is enabled for a deal or not. This makes it possible to add products to a deal with a specific price and discount criteria, but keep them disabled, which refrains them from being included in the deal value calculation. When omitted, the product will be marked as enabled by default.
  * @member {module:model/NumberBoolean} enabled_flag
  */
 AddProductAttachmentDetails.prototype['enabled_flag'] = undefined;
@@ -250,12 +256,6 @@ AddProductAttachmentDetails.prototype['company_id'] = undefined;
  * @member {Number} deal_id
  */
 AddProductAttachmentDetails.prototype['deal_id'] = undefined;
-
-/**
- * The type of the duration. (For example hourly, daily, etc.)
- * @member {String} duration_unit
- */
-AddProductAttachmentDetails.prototype['duration_unit'] = undefined;
 
 /**
  * The product sum without the discount
@@ -329,18 +329,23 @@ ProductAttachmentDetails.prototype['quantity'] = undefined;
  */
 ProductAttachmentDetails.prototype['discount_percentage'] = 0;
 /**
- * The duration of the product (when product durations are not enabled for the company or if omitted, defaults to 1)
+ * The duration of the product. If omitted, will be set to 1.
  * @member {Number} duration
  * @default 1
  */
 ProductAttachmentDetails.prototype['duration'] = 1;
+/**
+ * The type of the duration. (For example hourly, daily, etc.)
+ * @member {String} duration_unit
+ */
+ProductAttachmentDetails.prototype['duration_unit'] = undefined;
 /**
  * The ID of the product variation to use. When omitted, no variation will be used.
  * @member {Number} product_variation_id
  */
 ProductAttachmentDetails.prototype['product_variation_id'] = undefined;
 /**
- * Any textual comment associated with this product-deal attachment. Visible and editable in the application UI.
+ * A textual comment associated with this product-deal attachment
  * @member {String} comments
  */
 ProductAttachmentDetails.prototype['comments'] = undefined;
@@ -350,7 +355,7 @@ ProductAttachmentDetails.prototype['comments'] = undefined;
  */
 ProductAttachmentDetails.prototype['tax'] = undefined;
 /**
- * Whether the product is enabled on the deal or not. This makes it possible to add products to a deal with a specific price and discount criteria - but keep them disabled, which refrains them from being included in the deal price calculation. When omitted, the product will be marked as enabled by default.
+ * Whether the product is enabled for a deal or not. This makes it possible to add products to a deal with a specific price and discount criteria, but keep them disabled, which refrains them from being included in the deal value calculation. When omitted, the product will be marked as enabled by default.
  * @member {module:model/NumberBoolean} enabled_flag
  */
 ProductAttachmentDetails.prototype['enabled_flag'] = undefined;
@@ -369,11 +374,6 @@ ProductAttachmentDetails.prototype['company_id'] = undefined;
  * @member {Number} deal_id
  */
 ProductAttachmentDetails.prototype['deal_id'] = undefined;
-/**
- * The type of the duration. (For example hourly, daily, etc.)
- * @member {String} duration_unit
- */
-ProductAttachmentDetails.prototype['duration_unit'] = undefined;
 /**
  * The product sum without the discount
  * @member {Number} sum_no_discount
