@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**addLead**](LeadsApi.md#addLead) | **POST** /leads | Add a lead
 [**deleteLead**](LeadsApi.md#deleteLead) | **DELETE** /leads/{id} | Delete a lead
 [**getLead**](LeadsApi.md#getLead) | **GET** /leads/{id} | Get one lead
+[**getLeadUsers**](LeadsApi.md#getLeadUsers) | **GET** /leads/{id}/permittedUsers | List permitted users
 [**getLeads**](LeadsApi.md#getLeads) | **GET** /leads | Get all leads
 [**searchLeads**](LeadsApi.md#searchLeads) | **GET** /leads/search | Search leads
 [**updateLead**](LeadsApi.md#updateLead) | **PATCH** /leads/{id} | Update a lead
@@ -167,6 +168,56 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getLeadUsers
+
+> UserIDs getLeadUsers(id)
+
+List permitted users
+
+Lists the users permitted to access a lead.
+
+### Example
+
+```javascript
+import Pipedrive from 'pipedrive';
+let apiClient = new Pipedrive.ApiClient();
+// Configure API key authorization: api_key
+let api_key = apiClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
+
+let apiInstance = new Pipedrive.LeadsApi(apiClient);
+let id = "id_example"; // String | The ID of the lead
+apiInstance.getLeadUsers(id).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| The ID of the lead | 
+
+### Return type
+
+[**UserIDs**](UserIDs.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
