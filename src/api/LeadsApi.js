@@ -20,6 +20,7 @@ import LeadResponse404 from '../model/LeadResponse404';
 import LeadSearchResponse from '../model/LeadSearchResponse';
 import OneLeadResponse200 from '../model/OneLeadResponse200';
 import UpdateLeadRequest from '../model/UpdateLeadRequest';
+import UserIDs from '../model/UserIDs';
 
 /**
 * Leads service.
@@ -233,6 +234,72 @@ export default class LeadsApi {
      */
     getLead(id) {
       return this.getLeadWithHttpInfo(id)
+        .then(function(response_and_data) {
+          return response_and_data;
+        });
+    }
+
+
+    /**
+     * List permitted users
+     * Lists the users permitted to access a lead.
+     * @param {String} id The ID of the lead
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UserIDs} and HTTP response
+     */
+    getLeadUsersWithHttpInfo(id) {
+      const opts = {}
+      let postBody = null;
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getLeadUsers");
+      }
+
+      let pathParams = {
+        'id': id,
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let formParamArray = [
+      ];
+
+      let contentTypes = [];
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
+
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', ];
+      let accepts = ['application/json', ];
+      let returnType = UserIDs;
+      return this.apiClient.callApi(
+        '/leads/{id}/permittedUsers', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List permitted users
+     * Lists the users permitted to access a lead.
+     * @param {String} id The ID of the lead
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UserIDs}
+     */
+    getLeadUsers(id) {
+      return this.getLeadUsersWithHttpInfo(id)
         .then(function(response_and_data) {
           return response_and_data;
         });

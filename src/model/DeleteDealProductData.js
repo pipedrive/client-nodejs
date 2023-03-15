@@ -52,11 +52,6 @@ class DeleteDealProductData {
 
                 delete data['id'];
             }
-            if (data.hasOwnProperty('product_attachment_id')) {
-                obj['product_attachment_id'] = ApiClient.convertToType(data['product_attachment_id'], 'Number');
-
-                delete data['product_attachment_id'];
-            }
 
             if (Object.keys(data).length > 0) {
                 Object.assign(obj, data);
@@ -74,12 +69,6 @@ class DeleteDealProductData {
  * @member {Number} id
  */
 DeleteDealProductData.prototype['id'] = undefined;
-
-/**
- * The ID of an attached product that was deleted from the deal
- * @member {Number} product_attachment_id
- */
-DeleteDealProductData.prototype['product_attachment_id'] = undefined;
 
 
 
