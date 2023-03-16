@@ -16,21 +16,19 @@ import DealProductUnitDuration from './DealProductUnitDuration';
 import NumberBoolean from './NumberBoolean';
 
 /**
- * The BasicDealProduct model module.
- * @module model/BasicDealProduct
+ * The UpdateDealProduct model module.
+ * @module model/UpdateDealProduct
  * @version 1.0.0
  */
-class BasicDealProduct {
+class UpdateDealProduct {
     /**
-     * Constructs a new <code>BasicDealProduct</code>.
-     * @alias module:model/BasicDealProduct
+     * Constructs a new <code>UpdateDealProduct</code>.
+     * @alias module:model/UpdateDealProduct
      * @param productId {Number} The ID of the product to use
-     * @param itemPrice {Number} The price at which this product will be added to the deal
-     * @param quantity {Number} Quantity – e.g. how many items of this product will be added to the deal
      */
-    constructor(productId, itemPrice, quantity) { 
+    constructor(productId) { 
         
-        BasicDealProduct.initialize(this, productId, itemPrice, quantity);
+        UpdateDealProduct.initialize(this, productId);
     }
 
     /**
@@ -38,22 +36,20 @@ class BasicDealProduct {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, productId, itemPrice, quantity) { 
+    static initialize(obj, productId) { 
         obj['product_id'] = productId;
-        obj['item_price'] = itemPrice;
-        obj['quantity'] = quantity;
     }
 
     /**
-     * Constructs a <code>BasicDealProduct</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>UpdateDealProduct</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/BasicDealProduct} obj Optional instance to populate.
-     * @return {module:model/BasicDealProduct} The populated <code>BasicDealProduct</code> instance.
+     * @param {module:model/UpdateDealProduct} obj Optional instance to populate.
+     * @return {module:model/UpdateDealProduct} The populated <code>UpdateDealProduct</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new BasicDealProduct();
+            obj = obj || new UpdateDealProduct();
 
             if (data.hasOwnProperty('product_id')) {
                 obj['product_id'] = ApiClient.convertToType(data['product_id'], 'Number');
@@ -121,69 +117,69 @@ class BasicDealProduct {
  * The ID of the product to use
  * @member {Number} product_id
  */
-BasicDealProduct.prototype['product_id'] = undefined;
+UpdateDealProduct.prototype['product_id'] = undefined;
 
 /**
  * The price at which this product will be added to the deal
  * @member {Number} item_price
  */
-BasicDealProduct.prototype['item_price'] = undefined;
+UpdateDealProduct.prototype['item_price'] = undefined;
 
 /**
- * Quantity – e.g. how many items of this product will be added to the deal
+ * How many items of this product will be added to the deal
  * @member {Number} quantity
  */
-BasicDealProduct.prototype['quantity'] = undefined;
+UpdateDealProduct.prototype['quantity'] = undefined;
 
 /**
  * The discount %. If omitted, will be set to 0.
  * @member {Number} discount_percentage
  * @default 0
  */
-BasicDealProduct.prototype['discount_percentage'] = 0;
+UpdateDealProduct.prototype['discount_percentage'] = 0;
 
 /**
- * The duration of the product. If omitted, will be set to 1.
+ * The duration of the product
  * @member {Number} duration
  * @default 1
  */
-BasicDealProduct.prototype['duration'] = 1;
+UpdateDealProduct.prototype['duration'] = 1;
 
 /**
  * The unit duration of the product
  * @member {module:model/DealProductUnitDuration} duration_unit
  */
-BasicDealProduct.prototype['duration_unit'] = undefined;
+UpdateDealProduct.prototype['duration_unit'] = undefined;
 
 /**
  * The ID of the product variation to use. When omitted, no variation will be used.
  * @member {Number} product_variation_id
  */
-BasicDealProduct.prototype['product_variation_id'] = undefined;
+UpdateDealProduct.prototype['product_variation_id'] = undefined;
 
 /**
  * A textual comment associated with this product-deal attachment
  * @member {String} comments
  */
-BasicDealProduct.prototype['comments'] = undefined;
+UpdateDealProduct.prototype['comments'] = undefined;
 
 /**
  * The tax percentage
  * @member {Number} tax
  * @default 0
  */
-BasicDealProduct.prototype['tax'] = 0;
+UpdateDealProduct.prototype['tax'] = 0;
 
 /**
  * Whether the product is enabled for a deal or not. This makes it possible to add products to a deal with a specific price and discount criteria, but keep them disabled, which refrains them from being included in the deal value calculation. When omitted, the product will be marked as enabled by default.
  * @member {module:model/NumberBoolean} enabled_flag
  */
-BasicDealProduct.prototype['enabled_flag'] = undefined;
+UpdateDealProduct.prototype['enabled_flag'] = undefined;
 
 
 
 
 
 
-export default BasicDealProduct;
+export default UpdateDealProduct;
 

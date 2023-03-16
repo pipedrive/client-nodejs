@@ -356,6 +356,7 @@ Class | Method | HTTP request | Description
 *Pipedrive.LeadsApi* | [**addLead**](docs/LeadsApi.md#addLead) | **POST** /leads | Add a lead
 *Pipedrive.LeadsApi* | [**deleteLead**](docs/LeadsApi.md#deleteLead) | **DELETE** /leads/{id} | Delete a lead
 *Pipedrive.LeadsApi* | [**getLead**](docs/LeadsApi.md#getLead) | **GET** /leads/{id} | Get one lead
+*Pipedrive.LeadsApi* | [**getLeadUsers**](docs/LeadsApi.md#getLeadUsers) | **GET** /leads/{id}/permittedUsers | List permitted users
 *Pipedrive.LeadsApi* | [**getLeads**](docs/LeadsApi.md#getLeads) | **GET** /leads | Get all leads
 *Pipedrive.LeadsApi* | [**searchLeads**](docs/LeadsApi.md#searchLeads) | **GET** /leads/search | Search leads
 *Pipedrive.LeadsApi* | [**updateLead**](docs/LeadsApi.md#updateLead) | **PATCH** /leads/{id} | Update a lead
@@ -676,6 +677,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.DealPersonDataPhone](docs/DealPersonDataPhone.md)
  - [Pipedrive.DealPersonDataWithId](docs/DealPersonDataWithId.md)
  - [Pipedrive.DealPersonDataWithIdAllOf](docs/DealPersonDataWithIdAllOf.md)
+ - [Pipedrive.DealProductUnitDuration](docs/DealProductUnitDuration.md)
  - [Pipedrive.DealSearchItem](docs/DealSearchItem.md)
  - [Pipedrive.DealSearchItemItem](docs/DealSearchItemItem.md)
  - [Pipedrive.DealSearchItemItemOrganization](docs/DealSearchItemItemOrganization.md)
@@ -927,6 +929,8 @@ Class | Method | HTTP request | Description
  - [Pipedrive.ListPersonsResponseAllOfRelatedObjects](docs/ListPersonsResponseAllOfRelatedObjects.md)
  - [Pipedrive.ListProductAdditionalData](docs/ListProductAdditionalData.md)
  - [Pipedrive.ListProductAdditionalDataAllOf](docs/ListProductAdditionalDataAllOf.md)
+ - [Pipedrive.ListProductFilesResponse](docs/ListProductFilesResponse.md)
+ - [Pipedrive.ListProductFilesResponseAllOf](docs/ListProductFilesResponseAllOf.md)
  - [Pipedrive.ListProductFollowersResponse](docs/ListProductFollowersResponse.md)
  - [Pipedrive.ListProductFollowersResponseAllOf](docs/ListProductFollowersResponseAllOf.md)
  - [Pipedrive.ListProductFollowersResponseAllOfData](docs/ListProductFollowersResponseAllOfData.md)
@@ -1102,6 +1106,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.ProductBaseDeal](docs/ProductBaseDeal.md)
  - [Pipedrive.ProductField](docs/ProductField.md)
  - [Pipedrive.ProductFieldAllOf](docs/ProductFieldAllOf.md)
+ - [Pipedrive.ProductFileItem](docs/ProductFileItem.md)
  - [Pipedrive.ProductListItem](docs/ProductListItem.md)
  - [Pipedrive.ProductRequest](docs/ProductRequest.md)
  - [Pipedrive.ProductResponse](docs/ProductResponse.md)
@@ -1178,6 +1183,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.TeamsAllOf](docs/TeamsAllOf.md)
  - [Pipedrive.Unauthorized](docs/Unauthorized.md)
  - [Pipedrive.UpdateActivityResponse200](docs/UpdateActivityResponse200.md)
+ - [Pipedrive.UpdateDealProduct](docs/UpdateDealProduct.md)
  - [Pipedrive.UpdateDealRequest](docs/UpdateDealRequest.md)
  - [Pipedrive.UpdateFile](docs/UpdateFile.md)
  - [Pipedrive.UpdateFilterRequest](docs/UpdateFilterRequest.md)
