@@ -356,6 +356,7 @@ Class | Method | HTTP request | Description
 *Pipedrive.LeadsApi* | [**addLead**](docs/LeadsApi.md#addLead) | **POST** /leads | Add a lead
 *Pipedrive.LeadsApi* | [**deleteLead**](docs/LeadsApi.md#deleteLead) | **DELETE** /leads/{id} | Delete a lead
 *Pipedrive.LeadsApi* | [**getLead**](docs/LeadsApi.md#getLead) | **GET** /leads/{id} | Get one lead
+*Pipedrive.LeadsApi* | [**getLeadUsers**](docs/LeadsApi.md#getLeadUsers) | **GET** /leads/{id}/permittedUsers | List permitted users
 *Pipedrive.LeadsApi* | [**getLeads**](docs/LeadsApi.md#getLeads) | **GET** /leads | Get all leads
 *Pipedrive.LeadsApi* | [**searchLeads**](docs/LeadsApi.md#searchLeads) | **GET** /leads/search | Search leads
 *Pipedrive.LeadsApi* | [**updateLead**](docs/LeadsApi.md#updateLead) | **PATCH** /leads/{id} | Update a lead
@@ -476,9 +477,11 @@ Class | Method | HTTP request | Description
 *Pipedrive.RolesApi* | [**deleteRoleAssignment**](docs/RolesApi.md#deleteRoleAssignment) | **DELETE** /roles/{id}/assignments | Delete a role assignment
 *Pipedrive.RolesApi* | [**getRole**](docs/RolesApi.md#getRole) | **GET** /roles/{id} | Get one role
 *Pipedrive.RolesApi* | [**getRoleAssignments**](docs/RolesApi.md#getRoleAssignments) | **GET** /roles/{id}/assignments | List role assignments
+*Pipedrive.RolesApi* | [**getRolePipelines**](docs/RolesApi.md#getRolePipelines) | **GET** /roles/{id}/pipelines | List pipeline visibility for a role
 *Pipedrive.RolesApi* | [**getRoleSettings**](docs/RolesApi.md#getRoleSettings) | **GET** /roles/{id}/settings | List role settings
 *Pipedrive.RolesApi* | [**getRoles**](docs/RolesApi.md#getRoles) | **GET** /roles | Get all roles
 *Pipedrive.RolesApi* | [**updateRole**](docs/RolesApi.md#updateRole) | **PUT** /roles/{id} | Update role details
+*Pipedrive.RolesApi* | [**updateRolePipelines**](docs/RolesApi.md#updateRolePipelines) | **PUT** /roles/{id}/pipelines | Update pipeline visibility for a role
 *Pipedrive.StagesApi* | [**addStage**](docs/StagesApi.md#addStage) | **POST** /stages | Add a new stage
 *Pipedrive.StagesApi* | [**deleteStage**](docs/StagesApi.md#deleteStage) | **DELETE** /stages/{id} | Delete a stage
 *Pipedrive.StagesApi* | [**deleteStages**](docs/StagesApi.md#deleteStages) | **DELETE** /stages | Delete multiple stages in bulk
@@ -676,6 +679,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.DealPersonDataPhone](docs/DealPersonDataPhone.md)
  - [Pipedrive.DealPersonDataWithId](docs/DealPersonDataWithId.md)
  - [Pipedrive.DealPersonDataWithIdAllOf](docs/DealPersonDataWithIdAllOf.md)
+ - [Pipedrive.DealProductUnitDuration](docs/DealProductUnitDuration.md)
  - [Pipedrive.DealSearchItem](docs/DealSearchItem.md)
  - [Pipedrive.DealSearchItemItem](docs/DealSearchItemItem.md)
  - [Pipedrive.DealSearchItemItemOrganization](docs/DealSearchItemItemOrganization.md)
@@ -854,6 +858,9 @@ Class | Method | HTTP request | Description
  - [Pipedrive.GetRoleAllOfAdditionalData](docs/GetRoleAllOfAdditionalData.md)
  - [Pipedrive.GetRoleAssignments](docs/GetRoleAssignments.md)
  - [Pipedrive.GetRoleAssignmentsAllOf](docs/GetRoleAssignmentsAllOf.md)
+ - [Pipedrive.GetRolePipelines](docs/GetRolePipelines.md)
+ - [Pipedrive.GetRolePipelinesAllOf](docs/GetRolePipelinesAllOf.md)
+ - [Pipedrive.GetRolePipelinesAllOfData](docs/GetRolePipelinesAllOfData.md)
  - [Pipedrive.GetRoleSettings](docs/GetRoleSettings.md)
  - [Pipedrive.GetRoleSettingsAllOf](docs/GetRoleSettingsAllOf.md)
  - [Pipedrive.GetRoles](docs/GetRoles.md)
@@ -927,6 +934,8 @@ Class | Method | HTTP request | Description
  - [Pipedrive.ListPersonsResponseAllOfRelatedObjects](docs/ListPersonsResponseAllOfRelatedObjects.md)
  - [Pipedrive.ListProductAdditionalData](docs/ListProductAdditionalData.md)
  - [Pipedrive.ListProductAdditionalDataAllOf](docs/ListProductAdditionalDataAllOf.md)
+ - [Pipedrive.ListProductFilesResponse](docs/ListProductFilesResponse.md)
+ - [Pipedrive.ListProductFilesResponseAllOf](docs/ListProductFilesResponseAllOf.md)
  - [Pipedrive.ListProductFollowersResponse](docs/ListProductFollowersResponse.md)
  - [Pipedrive.ListProductFollowersResponseAllOf](docs/ListProductFollowersResponseAllOf.md)
  - [Pipedrive.ListProductFollowersResponseAllOfData](docs/ListProductFollowersResponseAllOfData.md)
@@ -1102,6 +1111,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.ProductBaseDeal](docs/ProductBaseDeal.md)
  - [Pipedrive.ProductField](docs/ProductField.md)
  - [Pipedrive.ProductFieldAllOf](docs/ProductFieldAllOf.md)
+ - [Pipedrive.ProductFileItem](docs/ProductFileItem.md)
  - [Pipedrive.ProductListItem](docs/ProductListItem.md)
  - [Pipedrive.ProductRequest](docs/ProductRequest.md)
  - [Pipedrive.ProductResponse](docs/ProductResponse.md)
@@ -1117,6 +1127,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.PutRole](docs/PutRole.md)
  - [Pipedrive.PutRoleAllOf](docs/PutRoleAllOf.md)
  - [Pipedrive.PutRoleAllOfData](docs/PutRoleAllOfData.md)
+ - [Pipedrive.PutRolePipelinesBody](docs/PutRolePipelinesBody.md)
  - [Pipedrive.RecentDataProduct](docs/RecentDataProduct.md)
  - [Pipedrive.RecentsActivity](docs/RecentsActivity.md)
  - [Pipedrive.RecentsActivityType](docs/RecentsActivityType.md)
@@ -1178,6 +1189,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.TeamsAllOf](docs/TeamsAllOf.md)
  - [Pipedrive.Unauthorized](docs/Unauthorized.md)
  - [Pipedrive.UpdateActivityResponse200](docs/UpdateActivityResponse200.md)
+ - [Pipedrive.UpdateDealProduct](docs/UpdateDealProduct.md)
  - [Pipedrive.UpdateDealRequest](docs/UpdateDealRequest.md)
  - [Pipedrive.UpdateFile](docs/UpdateFile.md)
  - [Pipedrive.UpdateFilterRequest](docs/UpdateFilterRequest.md)

@@ -12,20 +12,21 @@
  */
 
 import ApiClient from '../ApiClient';
+import GetRolePipelinesAllOfData from './GetRolePipelinesAllOfData';
 
 /**
- * The DeleteDealProductData model module.
- * @module model/DeleteDealProductData
+ * The GetRolePipelinesAllOf model module.
+ * @module model/GetRolePipelinesAllOf
  * @version 1.0.0
  */
-class DeleteDealProductData {
+class GetRolePipelinesAllOf {
     /**
-     * Constructs a new <code>DeleteDealProductData</code>.
-     * @alias module:model/DeleteDealProductData
+     * Constructs a new <code>GetRolePipelinesAllOf</code>.
+     * @alias module:model/GetRolePipelinesAllOf
      */
     constructor() { 
         
-        DeleteDealProductData.initialize(this);
+        GetRolePipelinesAllOf.initialize(this);
     }
 
     /**
@@ -37,20 +38,20 @@ class DeleteDealProductData {
     }
 
     /**
-     * Constructs a <code>DeleteDealProductData</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>GetRolePipelinesAllOf</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/DeleteDealProductData} obj Optional instance to populate.
-     * @return {module:model/DeleteDealProductData} The populated <code>DeleteDealProductData</code> instance.
+     * @param {module:model/GetRolePipelinesAllOf} obj Optional instance to populate.
+     * @return {module:model/GetRolePipelinesAllOf} The populated <code>GetRolePipelinesAllOf</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new DeleteDealProductData();
+            obj = obj || new GetRolePipelinesAllOf();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+            if (data.hasOwnProperty('data')) {
+                obj['data'] = GetRolePipelinesAllOfData.constructFromObject(data['data']);
 
-                delete data['id'];
+                delete data['data'];
             }
 
             if (Object.keys(data).length > 0) {
@@ -65,15 +66,14 @@ class DeleteDealProductData {
 }
 
 /**
- * The ID of an attached product that was deleted from the deal
- * @member {Number} id
+ * @member {module:model/GetRolePipelinesAllOfData} data
  */
-DeleteDealProductData.prototype['id'] = undefined;
+GetRolePipelinesAllOf.prototype['data'] = undefined;
 
 
 
 
 
 
-export default DeleteDealProductData;
+export default GetRolePipelinesAllOf;
 
