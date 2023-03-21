@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import DealProductUnitDuration from './DealProductUnitDuration';
 import NumberBoolean from './NumberBoolean';
 
 /**
@@ -79,6 +80,11 @@ class BasicDealProduct {
 
                 delete data['duration'];
             }
+            if (data.hasOwnProperty('duration_unit')) {
+                obj['duration_unit'] = ApiClient.convertToType(data['duration_unit'], DealProductUnitDuration);
+
+                delete data['duration_unit'];
+            }
             if (data.hasOwnProperty('product_variation_id')) {
                 obj['product_variation_id'] = ApiClient.convertToType(data['product_variation_id'], 'Number');
 
@@ -137,11 +143,17 @@ BasicDealProduct.prototype['quantity'] = undefined;
 BasicDealProduct.prototype['discount_percentage'] = 0;
 
 /**
- * The duration of the product (when product durations are not enabled for the company or if omitted, defaults to 1)
+ * The duration of the product. If omitted, will be set to 1.
  * @member {Number} duration
  * @default 1
  */
 BasicDealProduct.prototype['duration'] = 1;
+
+/**
+ * The unit duration of the product
+ * @member {module:model/DealProductUnitDuration} duration_unit
+ */
+BasicDealProduct.prototype['duration_unit'] = undefined;
 
 /**
  * The ID of the product variation to use. When omitted, no variation will be used.
@@ -150,7 +162,7 @@ BasicDealProduct.prototype['duration'] = 1;
 BasicDealProduct.prototype['product_variation_id'] = undefined;
 
 /**
- * Any textual comment associated with this product-deal attachment. Visible and editable in the application UI.
+ * A textual comment associated with this product-deal attachment
  * @member {String} comments
  */
 BasicDealProduct.prototype['comments'] = undefined;
@@ -163,7 +175,7 @@ BasicDealProduct.prototype['comments'] = undefined;
 BasicDealProduct.prototype['tax'] = 0;
 
 /**
- * Whether the product is enabled on the deal or not. This makes it possible to add products to a deal with a specific price and discount criteria - but keep them disabled, which refrains them from being included in the deal price calculation. When omitted, the product will be marked as enabled by default.
+ * Whether the product is enabled for a deal or not. This makes it possible to add products to a deal with a specific price and discount criteria, but keep them disabled, which refrains them from being included in the deal value calculation. When omitted, the product will be marked as enabled by default.
  * @member {module:model/NumberBoolean} enabled_flag
  */
 BasicDealProduct.prototype['enabled_flag'] = undefined;

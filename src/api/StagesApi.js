@@ -403,6 +403,8 @@ export default class StagesApi {
      * Returns data about all stages.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.pipelineId The ID of the pipeline to fetch stages for. If omitted, stages for all pipelines will be fetched.
+     * @param {Number} opts.start Pagination start (default to 0)
+     * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetStages} and HTTP response
      */
     getStagesWithHttpInfo(opts) {
@@ -410,10 +412,14 @@ export default class StagesApi {
       let postBody = null;
 
 
+
+
       let pathParams = {
       };
       let queryParams = {
         'pipeline_id': opts['pipeline_id'] === undefined ? opts['pipelineId'] : opts['pipeline_id'],
+        'start': opts['start'] === undefined ? opts['start'] : opts['start'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
       };
       let headerParams = {
       };
@@ -452,6 +458,8 @@ export default class StagesApi {
      * Returns data about all stages.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.pipelineId The ID of the pipeline to fetch stages for. If omitted, stages for all pipelines will be fetched.
+     * @param {Number} opts.start Pagination start (default to 0)
+     * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetStages}
      */
     getStages(opts) {

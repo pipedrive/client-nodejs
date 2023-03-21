@@ -77,15 +77,15 @@ class ActivityObjectFragment {
 
                 delete data['person_id'];
             }
+            if (data.hasOwnProperty('project_id')) {
+                obj['project_id'] = ApiClient.convertToType(data['project_id'], 'Number');
+
+                delete data['project_id'];
+            }
             if (data.hasOwnProperty('org_id')) {
                 obj['org_id'] = ApiClient.convertToType(data['org_id'], 'Number');
 
                 delete data['org_id'];
-            }
-            if (data.hasOwnProperty('note')) {
-                obj['note'] = ApiClient.convertToType(data['note'], 'String');
-
-                delete data['note'];
             }
             if (data.hasOwnProperty('location')) {
                 obj['location'] = ApiClient.convertToType(data['location'], 'String');
@@ -134,7 +134,7 @@ ActivityObjectFragment.prototype['duration'] = undefined;
 ActivityObjectFragment.prototype['deal_id'] = undefined;
 
 /**
- * The ID of the lead this activity is associated with
+ * The ID of the lead in the UUID format this activity is associated with
  * @member {String} lead_id
  */
 ActivityObjectFragment.prototype['lead_id'] = undefined;
@@ -146,16 +146,16 @@ ActivityObjectFragment.prototype['lead_id'] = undefined;
 ActivityObjectFragment.prototype['person_id'] = undefined;
 
 /**
+ * The ID of the project this activity is associated with
+ * @member {Number} project_id
+ */
+ActivityObjectFragment.prototype['project_id'] = undefined;
+
+/**
  * The ID of the organization this activity is associated with
  * @member {Number} org_id
  */
 ActivityObjectFragment.prototype['org_id'] = undefined;
-
-/**
- * The note of the activity (HTML format)
- * @member {String} note
- */
-ActivityObjectFragment.prototype['note'] = undefined;
 
 /**
  * The address of the activity. Pipedrive will automatically check if the location matches a geo-location on Google maps.
