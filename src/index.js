@@ -354,6 +354,9 @@ import GetRoleAllOf from './model/GetRoleAllOf';
 import GetRoleAllOfAdditionalData from './model/GetRoleAllOfAdditionalData';
 import GetRoleAssignments from './model/GetRoleAssignments';
 import GetRoleAssignmentsAllOf from './model/GetRoleAssignmentsAllOf';
+import GetRolePipelines from './model/GetRolePipelines';
+import GetRolePipelinesAllOf from './model/GetRolePipelinesAllOf';
+import GetRolePipelinesAllOfData from './model/GetRolePipelinesAllOfData';
 import GetRoleSettings from './model/GetRoleSettings';
 import GetRoleSettingsAllOf from './model/GetRoleSettingsAllOf';
 import GetRoles from './model/GetRoles';
@@ -620,6 +623,7 @@ import ProductsResponse from './model/ProductsResponse';
 import PutRole from './model/PutRole';
 import PutRoleAllOf from './model/PutRoleAllOf';
 import PutRoleAllOfData from './model/PutRoleAllOfData';
+import PutRolePipelinesBody from './model/PutRolePipelinesBody';
 import RecentDataProduct from './model/RecentDataProduct';
 import RecentsActivity from './model/RecentsActivity';
 import RecentsActivityType from './model/RecentsActivityType';
@@ -2857,6 +2861,24 @@ export {
     GetRoleAssignmentsAllOf,
 
     /**
+     * The GetRolePipelines model constructor.
+     * @property {module:model/GetRolePipelines}
+     */
+    GetRolePipelines,
+
+    /**
+     * The GetRolePipelinesAllOf model constructor.
+     * @property {module:model/GetRolePipelinesAllOf}
+     */
+    GetRolePipelinesAllOf,
+
+    /**
+     * The GetRolePipelinesAllOfData model constructor.
+     * @property {module:model/GetRolePipelinesAllOfData}
+     */
+    GetRolePipelinesAllOfData,
+
+    /**
      * The GetRoleSettings model constructor.
      * @property {module:model/GetRoleSettings}
      */
@@ -4451,6 +4473,12 @@ export {
      * @property {module:model/PutRoleAllOfData}
      */
     PutRoleAllOfData,
+
+    /**
+     * The PutRolePipelinesBody model constructor.
+     * @property {module:model/PutRolePipelinesBody}
+     */
+    PutRolePipelinesBody,
 
     /**
      * The RecentDataProduct model constructor.

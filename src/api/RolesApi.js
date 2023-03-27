@@ -22,12 +22,14 @@ import DeleteRoleAssignment from '../model/DeleteRoleAssignment';
 import DeleteRoleAssignmentRequest from '../model/DeleteRoleAssignmentRequest';
 import GetRole from '../model/GetRole';
 import GetRoleAssignments from '../model/GetRoleAssignments';
+import GetRolePipelines from '../model/GetRolePipelines';
 import GetRoleSettings from '../model/GetRoleSettings';
 import GetRoles from '../model/GetRoles';
 import PostRoleAssignment from '../model/PostRoleAssignment';
 import PostRoleSettings from '../model/PostRoleSettings';
 import PostRoles from '../model/PostRoles';
 import PutRole from '../model/PutRole';
+import PutRolePipelinesBody from '../model/PutRolePipelinesBody';
 
 /**
 * Roles service.
@@ -549,6 +551,78 @@ export default class RolesApi {
 
 
     /**
+     * List pipeline visibility for a role
+     * Returns the list of either visible or hidden pipeline IDs for a specific role. For more information on pipeline visibility, please refer to the <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">Visibility groups article</a>.
+     * @param {Number} id The ID of the role
+     * @param {Object} opts Optional parameters
+     * @param {module:model/Boolean} opts.visible Whether to return the visible or hidden pipelines for the role (default to true)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetRolePipelines} and HTTP response
+     */
+    getRolePipelinesWithHttpInfo(id, opts) {
+      opts = opts || {};
+      let postBody = null;
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getRolePipelines");
+      }
+
+
+      let pathParams = {
+        'id': id,
+      };
+      let queryParams = {
+        'visible': opts['visible'] === undefined ? opts['visible'] : opts['visible'],
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let formParamArray = [
+      ];
+
+      let contentTypes = [];
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
+
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
+      let returnType = GetRolePipelines;
+      return this.apiClient.callApi(
+        '/roles/{id}/pipelines', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List pipeline visibility for a role
+     * Returns the list of either visible or hidden pipeline IDs for a specific role. For more information on pipeline visibility, please refer to the <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">Visibility groups article</a>.
+     * @param {Number} id The ID of the role
+     * @param {Object} opts Optional parameters
+     * @param {module:model/Boolean} opts.visible Whether to return the visible or hidden pipelines for the role (default to true)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetRolePipelines}
+     */
+    getRolePipelines(id, opts) {
+      return this.getRolePipelinesWithHttpInfo(id, opts)
+        .then(function(response_and_data) {
+          return response_and_data;
+        });
+    }
+
+
+    /**
      * List role settings
      * Returns the visibility settings of a specific role.
      * @param {Number} id The ID of the role
@@ -747,6 +821,80 @@ export default class RolesApi {
      */
     updateRole(id, opts) {
       return this.updateRoleWithHttpInfo(id, opts)
+        .then(function(response_and_data) {
+          return response_and_data;
+        });
+    }
+
+
+    /**
+     * Update pipeline visibility for a role
+     * Updates the specified pipelines to be visible and/or hidden for a specific role. For more information on pipeline visibility, please refer to the <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">Visibility groups article</a>.
+     * @param {Number} id The ID of the role
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PutRolePipelinesBody} opts.putRolePipelinesBody 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetRolePipelines} and HTTP response
+     */
+    updateRolePipelinesWithHttpInfo(id, opts) {
+      opts = opts || {};
+      let postBody = opts['putRolePipelinesBody'];
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling updateRolePipelines");
+      }
+
+      if (opts['visible_pipeline_ids'] === undefined || opts['visible_pipeline_ids'] === null) {
+        throw new Error("Missing the required parameter 'visible_pipeline_ids' when calling updateRolePipelines");
+      }
+
+      let pathParams = {
+        'id': id,
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let formParamArray = [
+      ];
+
+      let contentTypes = ['application/json', ];
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
+
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
+      let returnType = GetRolePipelines;
+      return this.apiClient.callApi(
+        '/roles/{id}/pipelines', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Update pipeline visibility for a role
+     * Updates the specified pipelines to be visible and/or hidden for a specific role. For more information on pipeline visibility, please refer to the <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">Visibility groups article</a>.
+     * @param {Number} id The ID of the role
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PutRolePipelinesBody} opts.putRolePipelinesBody 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetRolePipelines}
+     */
+    updateRolePipelines(id, opts) {
+      return this.updateRolePipelinesWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data;
         });

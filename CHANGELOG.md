@@ -22,6 +22,8 @@ Based on this [Changelog post](https://developers.pipedrive.com/changelog/post/b
 - Added `GET leads/:id/permittedUsers` endpoint to retrieve the users that have access to a certain lead
 - Added the `version` body parameter to `POST /webhooks` endpoint
 - Added pagination parameters documentation for `GET /stages` endpoint
+- Added `GET roles/:id/pipelines` endpoint to get pipelines visibility for a role
+- Added `PUT roles/:id/pipelines` endpoint to update pipelines visibility for a role
 
 ## [18.1.4] - 2023-02-13
 ### Removed
