@@ -20,6 +20,7 @@ Based on this [Changelog post](https://developers.pipedrive.com/changelog/post/b
 ### Added
 - Added an optional `duration_unit` body parameter for `PUT /deals/{id}/products/{product_attachment_id}` and `POST /deals/{id}/products`
 - Added `GET leads/:id/permittedUsers` endpoint to retrieve the users that have access to a certain lead
+- Added the `version` body parameter to `POST /webhooks` endpoint
 
 ## [18.1.4] - 2023-02-13
 ### Removed
