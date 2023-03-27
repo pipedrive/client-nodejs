@@ -356,6 +356,7 @@ Class | Method | HTTP request | Description
 *Pipedrive.LeadsApi* | [**addLead**](docs/LeadsApi.md#addLead) | **POST** /leads | Add a lead
 *Pipedrive.LeadsApi* | [**deleteLead**](docs/LeadsApi.md#deleteLead) | **DELETE** /leads/{id} | Delete a lead
 *Pipedrive.LeadsApi* | [**getLead**](docs/LeadsApi.md#getLead) | **GET** /leads/{id} | Get one lead
+*Pipedrive.LeadsApi* | [**getLeadUsers**](docs/LeadsApi.md#getLeadUsers) | **GET** /leads/{id}/permittedUsers | List permitted users
 *Pipedrive.LeadsApi* | [**getLeads**](docs/LeadsApi.md#getLeads) | **GET** /leads | Get all leads
 *Pipedrive.LeadsApi* | [**searchLeads**](docs/LeadsApi.md#searchLeads) | **GET** /leads/search | Search leads
 *Pipedrive.LeadsApi* | [**updateLead**](docs/LeadsApi.md#updateLead) | **PATCH** /leads/{id} | Update a lead
