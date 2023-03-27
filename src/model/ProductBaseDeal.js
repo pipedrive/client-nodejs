@@ -431,7 +431,7 @@ ProductBaseDeal.prototype['visible_to'] = undefined;
 ProductBaseDeal.prototype['close_time'] = undefined;
 
 /**
- * The ID of pipeline associated with the deal
+ * The ID of the pipeline associated with the deal
  * @member {Number} pipeline_id
  */
 ProductBaseDeal.prototype['pipeline_id'] = undefined;

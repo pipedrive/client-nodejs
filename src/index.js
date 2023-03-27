@@ -13,6 +13,8 @@
 
 
 import ApiClient from './ApiClient';
+import ActivityCollectionResponseObject from './model/ActivityCollectionResponseObject';
+import ActivityCollectionResponseObjectAllOf from './model/ActivityCollectionResponseObjectAllOf';
 import ActivityDistributionData from './model/ActivityDistributionData';
 import ActivityDistributionDataActivityDistribution from './model/ActivityDistributionDataActivityDistribution';
 import ActivityDistributionDataActivityDistributionASSIGNEDTOUSERID from './model/ActivityDistributionDataActivityDistributionASSIGNEDTOUSERID';
@@ -75,7 +77,8 @@ import AddedDealFollower from './model/AddedDealFollower';
 import AddedDealFollowerData from './model/AddedDealFollowerData';
 import AdditionalBaseOrganizationItemInfo from './model/AdditionalBaseOrganizationItemInfo';
 import AdditionalData from './model/AdditionalData';
-import AdditionalDataWithPagination from './model/AdditionalDataWithPagination';
+import AdditionalDataWithCursorPagination from './model/AdditionalDataWithCursorPagination';
+import AdditionalDataWithOffsetPagination from './model/AdditionalDataWithOffsetPagination';
 import AdditionalDataWithPaginationDetails from './model/AdditionalDataWithPaginationDetails';
 import AdditionalMergePersonInfo from './model/AdditionalMergePersonInfo';
 import AdditionalPersonInfo from './model/AdditionalPersonInfo';
@@ -149,6 +152,7 @@ import CommonMailThread from './model/CommonMailThread';
 import CreateRemoteFileAndLinkItToItem from './model/CreateRemoteFileAndLinkItToItem';
 import CreateTeam from './model/CreateTeam';
 import Currencies from './model/Currencies';
+import DealCollectionResponseObject from './model/DealCollectionResponseObject';
 import DealCountAndActivityInfo from './model/DealCountAndActivityInfo';
 import DealFlowResponse from './model/DealFlowResponse';
 import DealFlowResponseAllOf from './model/DealFlowResponseAllOf';
@@ -296,6 +300,7 @@ import FollowerDataWithID from './model/FollowerDataWithID';
 import FollowerDataWithIDAllOf from './model/FollowerDataWithIDAllOf';
 import FullRole from './model/FullRole';
 import FullRoleAllOf from './model/FullRoleAllOf';
+import GetActivitiesCollectionResponse200 from './model/GetActivitiesCollectionResponse200';
 import GetActivitiesResponse200 from './model/GetActivitiesResponse200';
 import GetActivitiesResponse200RelatedObjects from './model/GetActivitiesResponse200RelatedObjects';
 import GetActivityResponse200 from './model/GetActivityResponse200';
@@ -312,6 +317,7 @@ import GetComments from './model/GetComments';
 import GetDeal from './model/GetDeal';
 import GetDealAdditionalData from './model/GetDealAdditionalData';
 import GetDeals from './model/GetDeals';
+import GetDealsCollection from './model/GetDealsCollection';
 import GetDealsConversionRatesInPipeline from './model/GetDealsConversionRatesInPipeline';
 import GetDealsConversionRatesInPipelineAllOf from './model/GetDealsConversionRatesInPipelineAllOf';
 import GetDealsConversionRatesInPipelineAllOfData from './model/GetDealsConversionRatesInPipelineAllOfData';
@@ -815,6 +821,18 @@ export {
     ApiClient,
 
     /**
+     * The ActivityCollectionResponseObject model constructor.
+     * @property {module:model/ActivityCollectionResponseObject}
+     */
+    ActivityCollectionResponseObject,
+
+    /**
+     * The ActivityCollectionResponseObjectAllOf model constructor.
+     * @property {module:model/ActivityCollectionResponseObjectAllOf}
+     */
+    ActivityCollectionResponseObjectAllOf,
+
+    /**
      * The ActivityDistributionData model constructor.
      * @property {module:model/ActivityDistributionData}
      */
@@ -1187,10 +1205,16 @@ export {
     AdditionalData,
 
     /**
-     * The AdditionalDataWithPagination model constructor.
-     * @property {module:model/AdditionalDataWithPagination}
+     * The AdditionalDataWithCursorPagination model constructor.
+     * @property {module:model/AdditionalDataWithCursorPagination}
      */
-    AdditionalDataWithPagination,
+    AdditionalDataWithCursorPagination,
+
+    /**
+     * The AdditionalDataWithOffsetPagination model constructor.
+     * @property {module:model/AdditionalDataWithOffsetPagination}
+     */
+    AdditionalDataWithOffsetPagination,
 
     /**
      * The AdditionalDataWithPaginationDetails model constructor.
@@ -1629,6 +1653,12 @@ export {
      * @property {module:model/Currencies}
      */
     Currencies,
+
+    /**
+     * The DealCollectionResponseObject model constructor.
+     * @property {module:model/DealCollectionResponseObject}
+     */
+    DealCollectionResponseObject,
 
     /**
      * The DealCountAndActivityInfo model constructor.
@@ -2513,6 +2543,12 @@ export {
     FullRoleAllOf,
 
     /**
+     * The GetActivitiesCollectionResponse200 model constructor.
+     * @property {module:model/GetActivitiesCollectionResponse200}
+     */
+    GetActivitiesCollectionResponse200,
+
+    /**
      * The GetActivitiesResponse200 model constructor.
      * @property {module:model/GetActivitiesResponse200}
      */
@@ -2607,6 +2643,12 @@ export {
      * @property {module:model/GetDeals}
      */
     GetDeals,
+
+    /**
+     * The GetDealsCollection model constructor.
+     * @property {module:model/GetDealsCollection}
+     */
+    GetDealsCollection,
 
     /**
      * The GetDealsConversionRatesInPipeline model constructor.

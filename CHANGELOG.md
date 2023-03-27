@@ -24,6 +24,8 @@ Based on this [Changelog post](https://developers.pipedrive.com/changelog/post/b
 - Added pagination parameters documentation for `GET /stages` endpoint
 - Added `GET roles/:id/pipelines` endpoint to get pipelines visibility for a role
 - Added `PUT roles/:id/pipelines` endpoint to update pipelines visibility for a role
+- Added `GET /activities/collection` endpoint to fetch all activities with cursor pagination
+- Added `GET /deals/collection` endpoint to fetch all deals with cursor pagination
 
 ## [18.1.4] - 2023-02-13
 ### Removed

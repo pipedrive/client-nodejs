@@ -274,6 +274,7 @@ Class | Method | HTTP request | Description
 *Pipedrive.ActivitiesApi* | [**deleteActivities**](docs/ActivitiesApi.md#deleteActivities) | **DELETE** /activities | Delete multiple activities in bulk
 *Pipedrive.ActivitiesApi* | [**deleteActivity**](docs/ActivitiesApi.md#deleteActivity) | **DELETE** /activities/{id} | Delete an activity
 *Pipedrive.ActivitiesApi* | [**getActivities**](docs/ActivitiesApi.md#getActivities) | **GET** /activities | Get all activities assigned to a particular user
+*Pipedrive.ActivitiesApi* | [**getActivitiesCollection**](docs/ActivitiesApi.md#getActivitiesCollection) | **GET** /activities/collection | Get all activities (BETA)
 *Pipedrive.ActivitiesApi* | [**getActivity**](docs/ActivitiesApi.md#getActivity) | **GET** /activities/{id} | Get details of an activity
 *Pipedrive.ActivitiesApi* | [**updateActivity**](docs/ActivitiesApi.md#updateActivity) | **PUT** /activities/{id} | Update an activity
 *Pipedrive.ActivityFieldsApi* | [**getActivityFields**](docs/ActivityFieldsApi.md#getActivityFields) | **GET** /activityFields | Get all activity fields
@@ -320,6 +321,7 @@ Class | Method | HTTP request | Description
 *Pipedrive.DealsApi* | [**getDealUpdates**](docs/DealsApi.md#getDealUpdates) | **GET** /deals/{id}/flow | List updates about a deal
 *Pipedrive.DealsApi* | [**getDealUsers**](docs/DealsApi.md#getDealUsers) | **GET** /deals/{id}/permittedUsers | List permitted users
 *Pipedrive.DealsApi* | [**getDeals**](docs/DealsApi.md#getDeals) | **GET** /deals | Get all deals
+*Pipedrive.DealsApi* | [**getDealsCollection**](docs/DealsApi.md#getDealsCollection) | **GET** /deals/collection | Get all deals (BETA)
 *Pipedrive.DealsApi* | [**getDealsSummary**](docs/DealsApi.md#getDealsSummary) | **GET** /deals/summary | Get deals summary
 *Pipedrive.DealsApi* | [**getDealsTimeline**](docs/DealsApi.md#getDealsTimeline) | **GET** /deals/timeline | Get deals timeline
 *Pipedrive.DealsApi* | [**mergeDeals**](docs/DealsApi.md#mergeDeals) | **PUT** /deals/{id}/merge | Merge two deals
@@ -517,6 +519,8 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [Pipedrive.ActivityCollectionResponseObject](docs/ActivityCollectionResponseObject.md)
+ - [Pipedrive.ActivityCollectionResponseObjectAllOf](docs/ActivityCollectionResponseObjectAllOf.md)
  - [Pipedrive.ActivityDistributionData](docs/ActivityDistributionData.md)
  - [Pipedrive.ActivityDistributionDataActivityDistribution](docs/ActivityDistributionDataActivityDistribution.md)
  - [Pipedrive.ActivityDistributionDataActivityDistributionASSIGNEDTOUSERID](docs/ActivityDistributionDataActivityDistributionASSIGNEDTOUSERID.md)
@@ -579,7 +583,8 @@ Class | Method | HTTP request | Description
  - [Pipedrive.AddedDealFollowerData](docs/AddedDealFollowerData.md)
  - [Pipedrive.AdditionalBaseOrganizationItemInfo](docs/AdditionalBaseOrganizationItemInfo.md)
  - [Pipedrive.AdditionalData](docs/AdditionalData.md)
- - [Pipedrive.AdditionalDataWithPagination](docs/AdditionalDataWithPagination.md)
+ - [Pipedrive.AdditionalDataWithCursorPagination](docs/AdditionalDataWithCursorPagination.md)
+ - [Pipedrive.AdditionalDataWithOffsetPagination](docs/AdditionalDataWithOffsetPagination.md)
  - [Pipedrive.AdditionalDataWithPaginationDetails](docs/AdditionalDataWithPaginationDetails.md)
  - [Pipedrive.AdditionalMergePersonInfo](docs/AdditionalMergePersonInfo.md)
  - [Pipedrive.AdditionalPersonInfo](docs/AdditionalPersonInfo.md)
@@ -653,6 +658,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.CreateRemoteFileAndLinkItToItem](docs/CreateRemoteFileAndLinkItToItem.md)
  - [Pipedrive.CreateTeam](docs/CreateTeam.md)
  - [Pipedrive.Currencies](docs/Currencies.md)
+ - [Pipedrive.DealCollectionResponseObject](docs/DealCollectionResponseObject.md)
  - [Pipedrive.DealCountAndActivityInfo](docs/DealCountAndActivityInfo.md)
  - [Pipedrive.DealFlowResponse](docs/DealFlowResponse.md)
  - [Pipedrive.DealFlowResponseAllOf](docs/DealFlowResponseAllOf.md)
@@ -800,6 +806,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.FollowerDataWithIDAllOf](docs/FollowerDataWithIDAllOf.md)
  - [Pipedrive.FullRole](docs/FullRole.md)
  - [Pipedrive.FullRoleAllOf](docs/FullRoleAllOf.md)
+ - [Pipedrive.GetActivitiesCollectionResponse200](docs/GetActivitiesCollectionResponse200.md)
  - [Pipedrive.GetActivitiesResponse200](docs/GetActivitiesResponse200.md)
  - [Pipedrive.GetActivitiesResponse200RelatedObjects](docs/GetActivitiesResponse200RelatedObjects.md)
  - [Pipedrive.GetActivityResponse200](docs/GetActivityResponse200.md)
@@ -816,6 +823,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.GetDeal](docs/GetDeal.md)
  - [Pipedrive.GetDealAdditionalData](docs/GetDealAdditionalData.md)
  - [Pipedrive.GetDeals](docs/GetDeals.md)
+ - [Pipedrive.GetDealsCollection](docs/GetDealsCollection.md)
  - [Pipedrive.GetDealsConversionRatesInPipeline](docs/GetDealsConversionRatesInPipeline.md)
  - [Pipedrive.GetDealsConversionRatesInPipelineAllOf](docs/GetDealsConversionRatesInPipelineAllOf.md)
  - [Pipedrive.GetDealsConversionRatesInPipelineAllOfData](docs/GetDealsConversionRatesInPipelineAllOfData.md)

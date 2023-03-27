@@ -12,22 +12,22 @@
  */
 
 import ApiClient from '../ApiClient';
-import AdditionalDataWithOffsetPagination from './AdditionalDataWithOffsetPagination';
-import BaseComment from './BaseComment';
+import ActivityCollectionResponseObject from './ActivityCollectionResponseObject';
+import AdditionalDataWithCursorPagination from './AdditionalDataWithCursorPagination';
 
 /**
- * The GetComments model module.
- * @module model/GetComments
+ * The GetActivitiesCollectionResponse200 model module.
+ * @module model/GetActivitiesCollectionResponse200
  * @version 1.0.0
  */
-class GetComments {
+class GetActivitiesCollectionResponse200 {
     /**
-     * Constructs a new <code>GetComments</code>.
-     * @alias module:model/GetComments
+     * Constructs a new <code>GetActivitiesCollectionResponse200</code>.
+     * @alias module:model/GetActivitiesCollectionResponse200
      */
     constructor() { 
         
-        GetComments.initialize(this);
+        GetActivitiesCollectionResponse200.initialize(this);
     }
 
     /**
@@ -39,15 +39,15 @@ class GetComments {
     }
 
     /**
-     * Constructs a <code>GetComments</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>GetActivitiesCollectionResponse200</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/GetComments} obj Optional instance to populate.
-     * @return {module:model/GetComments} The populated <code>GetComments</code> instance.
+     * @param {module:model/GetActivitiesCollectionResponse200} obj Optional instance to populate.
+     * @return {module:model/GetActivitiesCollectionResponse200} The populated <code>GetActivitiesCollectionResponse200</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new GetComments();
+            obj = obj || new GetActivitiesCollectionResponse200();
 
             if (data.hasOwnProperty('success')) {
                 obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
@@ -55,12 +55,12 @@ class GetComments {
                 delete data['success'];
             }
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [BaseComment]);
+                obj['data'] = ApiClient.convertToType(data['data'], [ActivityCollectionResponseObject]);
 
                 delete data['data'];
             }
             if (data.hasOwnProperty('additional_data')) {
-                obj['additional_data'] = AdditionalDataWithOffsetPagination.constructFromObject(data['additional_data']);
+                obj['additional_data'] = AdditionalDataWithCursorPagination.constructFromObject(data['additional_data']);
 
                 delete data['additional_data'];
             }
@@ -77,26 +77,24 @@ class GetComments {
 }
 
 /**
- * If the request was successful or not
  * @member {Boolean} success
  */
-GetComments.prototype['success'] = undefined;
+GetActivitiesCollectionResponse200.prototype['success'] = undefined;
 
 /**
- * The array of comments
- * @member {Array.<module:model/BaseComment>} data
+ * @member {Array.<module:model/ActivityCollectionResponseObject>} data
  */
-GetComments.prototype['data'] = undefined;
+GetActivitiesCollectionResponse200.prototype['data'] = undefined;
 
 /**
- * @member {module:model/AdditionalDataWithOffsetPagination} additional_data
+ * @member {module:model/AdditionalDataWithCursorPagination} additional_data
  */
-GetComments.prototype['additional_data'] = undefined;
+GetActivitiesCollectionResponse200.prototype['additional_data'] = undefined;
 
 
 
 
 
 
-export default GetComments;
+export default GetActivitiesCollectionResponse200;
 

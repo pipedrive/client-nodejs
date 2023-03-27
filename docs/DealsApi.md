@@ -25,6 +25,7 @@ Method | HTTP request | Description
 [**getDealUpdates**](DealsApi.md#getDealUpdates) | **GET** /deals/{id}/flow | List updates about a deal
 [**getDealUsers**](DealsApi.md#getDealUsers) | **GET** /deals/{id}/permittedUsers | List permitted users
 [**getDeals**](DealsApi.md#getDeals) | **GET** /deals | Get all deals
+[**getDealsCollection**](DealsApi.md#getDealsCollection) | **GET** /deals/collection | Get all deals (BETA)
 [**getDealsSummary**](DealsApi.md#getDealsSummary) | **GET** /deals/summary | Get deals summary
 [**getDealsTimeline**](DealsApi.md#getDealsTimeline) | **GET** /deals/timeline | Get deals timeline
 [**mergeDeals**](DealsApi.md#mergeDeals) | **PUT** /deals/{id}/merge | Merge two deals
@@ -1223,6 +1224,73 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetDeals**](GetDeals.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getDealsCollection
+
+> GetDealsCollection getDealsCollection(opts)
+
+Get all deals (BETA)
+
+Returns all deals. This is a cursor-paginated endpoint that is currently in BETA. For more information, please refer to our documentation on &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/core-api-concepts-pagination\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;pagination&lt;/a&gt;.
+
+### Example
+
+```javascript
+import Pipedrive from 'pipedrive';
+let apiClient = new Pipedrive.ApiClient();
+// Configure API key authorization: api_key
+let api_key = apiClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = apiClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new Pipedrive.DealsApi(apiClient);
+let opts = {
+  'cursor': "cursor_example", // String | For pagination, the marker representing the first item on the next page. A Base64 encoded string containing `{\"deal\":id}`, e.g. `eyJhY3Rpdml0eSI6NDJ9`
+  'limit': 100, // Number | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+  'since': "since_example", // String | The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the `update_time` field.
+  'until': "until_example", // String | The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the `update_time` field.
+  'userId': 56, // Number | If supplied, only deals matching the given user will be returned
+  'stageId': 56, // Number | If supplied, only deals within the given stage will be returned
+  'status': "status_example" // String | Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included.
+};
+apiInstance.getDealsCollection(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cursor** | **String**| For pagination, the marker representing the first item on the next page. A Base64 encoded string containing &#x60;{\&quot;deal\&quot;:id}&#x60;, e.g. &#x60;eyJhY3Rpdml0eSI6NDJ9&#x60; | [optional] 
+ **limit** | **Number**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. | [optional] 
+ **since** | **String**| The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. | [optional] 
+ **until** | **String**| The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. | [optional] 
+ **userId** | **Number**| If supplied, only deals matching the given user will be returned | [optional] 
+ **stageId** | **Number**| If supplied, only deals within the given stage will be returned | [optional] 
+ **status** | **String**| Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. | [optional] 
+
+### Return type
+
+[**GetDealsCollection**](GetDealsCollection.md)
 
 ### Authorization
 

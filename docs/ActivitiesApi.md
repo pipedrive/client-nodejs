@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**deleteActivities**](ActivitiesApi.md#deleteActivities) | **DELETE** /activities | Delete multiple activities in bulk
 [**deleteActivity**](ActivitiesApi.md#deleteActivity) | **DELETE** /activities/{id} | Delete an activity
 [**getActivities**](ActivitiesApi.md#getActivities) | **GET** /activities | Get all activities assigned to a particular user
+[**getActivitiesCollection**](ActivitiesApi.md#getActivitiesCollection) | **GET** /activities/collection | Get all activities (BETA)
 [**getActivity**](ActivitiesApi.md#getActivity) | **GET** /activities/{id} | Get details of an activity
 [**updateActivity**](ActivitiesApi.md#updateActivity) | **PUT** /activities/{id} | Update an activity
 
@@ -232,6 +233,73 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetActivitiesResponse200**](GetActivitiesResponse200.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getActivitiesCollection
+
+> GetActivitiesCollectionResponse200 getActivitiesCollection(opts)
+
+Get all activities (BETA)
+
+Returns all activities. This is a cursor-paginated endpoint that is currently in BETA. For more information, please refer to our documentation on &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/core-api-concepts-pagination\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;pagination&lt;/a&gt;.
+
+### Example
+
+```javascript
+import Pipedrive from 'pipedrive';
+let apiClient = new Pipedrive.ApiClient();
+// Configure API key authorization: api_key
+let api_key = apiClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = apiClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new Pipedrive.ActivitiesApi(apiClient);
+let opts = {
+  'cursor': "cursor_example", // String | For pagination, the marker representing the first item on the next page. A Base64 encoded string containing `{\"activity\":id}`, e.g. `eyJhY3Rpdml0eSI6NDJ9`
+  'limit': 100, // Number | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+  'since': "since_example", // String | The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the `update_time` field.
+  'until': "until_example", // String | The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the `update_time` field.
+  'userId': 56, // Number | The ID of the user whose activities will be fetched. If omitted, all activities are returned.
+  'done': new Pipedrive.NumberBoolean(), // NumberBoolean | Whether the activity is done or not. 0 = Not done, 1 = Done. If omitted, returns both done and not done activities.
+  'type': "type_example" // String | The type of the activity, can be one type or multiple types separated by a comma. This is in correlation with the `key_string` parameter of ActivityTypes.
+};
+apiInstance.getActivitiesCollection(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cursor** | **String**| For pagination, the marker representing the first item on the next page. A Base64 encoded string containing &#x60;{\&quot;activity\&quot;:id}&#x60;, e.g. &#x60;eyJhY3Rpdml0eSI6NDJ9&#x60; | [optional] 
+ **limit** | **Number**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. | [optional] 
+ **since** | **String**| The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. | [optional] 
+ **until** | **String**| The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. | [optional] 
+ **userId** | **Number**| The ID of the user whose activities will be fetched. If omitted, all activities are returned. | [optional] 
+ **done** | [**NumberBoolean**](.md)| Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted, returns both done and not done activities. | [optional] 
+ **type** | **String**| The type of the activity, can be one type or multiple types separated by a comma. This is in correlation with the &#x60;key_string&#x60; parameter of ActivityTypes. | [optional] 
+
+### Return type
+
+[**GetActivitiesCollectionResponse200**](GetActivitiesCollectionResponse200.md)
 
 ### Authorization
 
