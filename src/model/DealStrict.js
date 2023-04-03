@@ -495,7 +495,7 @@ DealStrict.prototype['visible_to'] = undefined;
 DealStrict.prototype['close_time'] = undefined;
 
 /**
- * The ID of pipeline associated with the deal
+ * The ID of the pipeline associated with the deal
  * @member {Number} pipeline_id
  */
 DealStrict.prototype['pipeline_id'] = undefined;
@@ -816,7 +816,7 @@ BaseDeal.prototype['visible_to'] = undefined;
  */
 BaseDeal.prototype['close_time'] = undefined;
 /**
- * The ID of pipeline associated with the deal
+ * The ID of the pipeline associated with the deal
  * @member {Number} pipeline_id
  */
 BaseDeal.prototype['pipeline_id'] = undefined;

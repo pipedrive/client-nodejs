@@ -48,6 +48,11 @@ class ActivityPostObjectAllOf {
         if (data) {
             obj = obj || new ActivityPostObjectAllOf();
 
+            if (data.hasOwnProperty('note')) {
+                obj['note'] = ApiClient.convertToType(data['note'], 'String');
+
+                delete data['note'];
+            }
             if (data.hasOwnProperty('subject')) {
                 obj['subject'] = ApiClient.convertToType(data['subject'], 'String');
 
@@ -94,6 +99,12 @@ class ActivityPostObjectAllOf {
 
 
 }
+
+/**
+ * The note of the activity (HTML format)
+ * @member {String} note
+ */
+ActivityPostObjectAllOf.prototype['note'] = undefined;
 
 /**
  * The subject of the activity. When value for subject is not set, it will be given a default value `Call`.

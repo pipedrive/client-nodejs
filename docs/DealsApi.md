@@ -25,6 +25,7 @@ Method | HTTP request | Description
 [**getDealUpdates**](DealsApi.md#getDealUpdates) | **GET** /deals/{id}/flow | List updates about a deal
 [**getDealUsers**](DealsApi.md#getDealUsers) | **GET** /deals/{id}/permittedUsers | List permitted users
 [**getDeals**](DealsApi.md#getDeals) | **GET** /deals | Get all deals
+[**getDealsCollection**](DealsApi.md#getDealsCollection) | **GET** /deals/collection | Get all deals (BETA)
 [**getDealsSummary**](DealsApi.md#getDealsSummary) | **GET** /deals/summary | Get deals summary
 [**getDealsTimeline**](DealsApi.md#getDealsTimeline) | **GET** /deals/timeline | Get deals timeline
 [**mergeDeals**](DealsApi.md#mergeDeals) | **PUT** /deals/{id}/merge | Merge two deals
@@ -447,7 +448,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealsApi(apiClient);
 let id = 56; // Number | The ID of the deal
-let productAttachmentId = 56; // Number | The product attachment ID. This is returned as `product_attachment_id` after attaching a product to a deal or as id when listing the products attached to a deal.
+let productAttachmentId = 56; // Number | The product attachment ID
 apiInstance.deleteDealProduct(id, productAttachmentId).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -462,7 +463,7 @@ apiInstance.deleteDealProduct(id, productAttachmentId).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the deal | 
- **productAttachmentId** | **Number**| The product attachment ID. This is returned as &#x60;product_attachment_id&#x60; after attaching a product to a deal or as id when listing the products attached to a deal. | 
+ **productAttachmentId** | **Number**| The product attachment ID | 
 
 ### Return type
 
@@ -1234,6 +1235,73 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## getDealsCollection
+
+> GetDealsCollection getDealsCollection(opts)
+
+Get all deals (BETA)
+
+Returns all deals. This is a cursor-paginated endpoint that is currently in BETA. For more information, please refer to our documentation on &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/core-api-concepts-pagination\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;pagination&lt;/a&gt;. Please note that only global admins (those with global permissions) can access these endpoints. Users with regular permissions will receive a 403 response. Read more about global permissions &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/global-user-management\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
+
+### Example
+
+```javascript
+import Pipedrive from 'pipedrive';
+let apiClient = new Pipedrive.ApiClient();
+// Configure API key authorization: api_key
+let api_key = apiClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = apiClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new Pipedrive.DealsApi(apiClient);
+let opts = {
+  'cursor': "cursor_example", // String | For pagination, the marker (an opaque string value) representing the first item on the next page
+  'limit': 100, // Number | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+  'since': "since_example", // String | The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the `update_time` field.
+  'until': "until_example", // String | The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the `update_time` field.
+  'userId': 56, // Number | If supplied, only deals matching the given user will be returned
+  'stageId': 56, // Number | If supplied, only deals within the given stage will be returned
+  'status': "status_example" // String | Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included.
+};
+apiInstance.getDealsCollection(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cursor** | **String**| For pagination, the marker (an opaque string value) representing the first item on the next page | [optional] 
+ **limit** | **Number**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. | [optional] 
+ **since** | **String**| The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. | [optional] 
+ **until** | **String**| The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. | [optional] 
+ **userId** | **Number**| If supplied, only deals matching the given user will be returned | [optional] 
+ **stageId** | **Number**| If supplied, only deals within the given stage will be returned | [optional] 
+ **status** | **String**| Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. | [optional] 
+
+### Return type
+
+[**GetDealsCollection**](GetDealsCollection.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## getDealsSummary
 
 > GetDealsSummary getDealsSummary(opts)
@@ -1573,7 +1641,7 @@ api_key.apiKey = 'YOUR API KEY';
 let apiInstance = new Pipedrive.DealsApi(apiClient);
 let id = 56; // Number | The ID of the deal
 let productAttachmentId = 56; // Number | The ID of the deal-product (the ID of the product attached to the deal)
-let opts = Pipedrive.BasicDealProduct.constructFromObject({
+let opts = Pipedrive.UpdateDealProduct.constructFromObject({
   // Properties that you want to update
 });
 apiInstance.updateDealProduct(id, productAttachmentId, opts).then((data) => {
@@ -1591,7 +1659,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the deal | 
  **productAttachmentId** | **Number**| The ID of the deal-product (the ID of the product attached to the deal) | 
- **basicDealProduct** | [**BasicDealProduct**](BasicDealProduct.md)|  | [optional] 
+ **updateDealProduct** | [**UpdateDealProduct**](UpdateDealProduct.md)|  | [optional] 
 
 ### Return type
 

@@ -7,6 +7,9 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Added
+- Added `GET /activities/collection` endpoint to fetch all activities with cursor pagination
+- Added `GET /deals/collection` endpoint to fetch all deals with cursor pagination
 
 ## [18.1.4] - 2023-02-13
 ### Removed

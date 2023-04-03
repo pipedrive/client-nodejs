@@ -13,6 +13,8 @@
 
 
 import ApiClient from './ApiClient';
+import ActivityCollectionResponseObject from './model/ActivityCollectionResponseObject';
+import ActivityCollectionResponseObjectAllOf from './model/ActivityCollectionResponseObjectAllOf';
 import ActivityDistributionData from './model/ActivityDistributionData';
 import ActivityDistributionDataActivityDistribution from './model/ActivityDistributionDataActivityDistribution';
 import ActivityDistributionDataActivityDistributionASSIGNEDTOUSERID from './model/ActivityDistributionDataActivityDistributionASSIGNEDTOUSERID';
@@ -75,7 +77,8 @@ import AddedDealFollower from './model/AddedDealFollower';
 import AddedDealFollowerData from './model/AddedDealFollowerData';
 import AdditionalBaseOrganizationItemInfo from './model/AdditionalBaseOrganizationItemInfo';
 import AdditionalData from './model/AdditionalData';
-import AdditionalDataWithPagination from './model/AdditionalDataWithPagination';
+import AdditionalDataWithCursorPagination from './model/AdditionalDataWithCursorPagination';
+import AdditionalDataWithOffsetPagination from './model/AdditionalDataWithOffsetPagination';
 import AdditionalDataWithPaginationDetails from './model/AdditionalDataWithPaginationDetails';
 import AdditionalMergePersonInfo from './model/AdditionalMergePersonInfo';
 import AdditionalPersonInfo from './model/AdditionalPersonInfo';
@@ -149,6 +152,7 @@ import CommonMailThread from './model/CommonMailThread';
 import CreateRemoteFileAndLinkItToItem from './model/CreateRemoteFileAndLinkItToItem';
 import CreateTeam from './model/CreateTeam';
 import Currencies from './model/Currencies';
+import DealCollectionResponseObject from './model/DealCollectionResponseObject';
 import DealCountAndActivityInfo from './model/DealCountAndActivityInfo';
 import DealFlowResponse from './model/DealFlowResponse';
 import DealFlowResponseAllOf from './model/DealFlowResponseAllOf';
@@ -175,6 +179,7 @@ import DealPersonDataEmail from './model/DealPersonDataEmail';
 import DealPersonDataPhone from './model/DealPersonDataPhone';
 import DealPersonDataWithId from './model/DealPersonDataWithId';
 import DealPersonDataWithIdAllOf from './model/DealPersonDataWithIdAllOf';
+import DealProductUnitDuration from './model/DealProductUnitDuration';
 import DealSearchItem from './model/DealSearchItem';
 import DealSearchItemItem from './model/DealSearchItemItem';
 import DealSearchItemItemOrganization from './model/DealSearchItemItemOrganization';
@@ -295,6 +300,7 @@ import FollowerDataWithID from './model/FollowerDataWithID';
 import FollowerDataWithIDAllOf from './model/FollowerDataWithIDAllOf';
 import FullRole from './model/FullRole';
 import FullRoleAllOf from './model/FullRoleAllOf';
+import GetActivitiesCollectionResponse200 from './model/GetActivitiesCollectionResponse200';
 import GetActivitiesResponse200 from './model/GetActivitiesResponse200';
 import GetActivitiesResponse200RelatedObjects from './model/GetActivitiesResponse200RelatedObjects';
 import GetActivityResponse200 from './model/GetActivityResponse200';
@@ -311,6 +317,7 @@ import GetComments from './model/GetComments';
 import GetDeal from './model/GetDeal';
 import GetDealAdditionalData from './model/GetDealAdditionalData';
 import GetDeals from './model/GetDeals';
+import GetDealsCollection from './model/GetDealsCollection';
 import GetDealsConversionRatesInPipeline from './model/GetDealsConversionRatesInPipeline';
 import GetDealsConversionRatesInPipelineAllOf from './model/GetDealsConversionRatesInPipelineAllOf';
 import GetDealsConversionRatesInPipelineAllOfData from './model/GetDealsConversionRatesInPipelineAllOfData';
@@ -353,6 +360,9 @@ import GetRoleAllOf from './model/GetRoleAllOf';
 import GetRoleAllOfAdditionalData from './model/GetRoleAllOfAdditionalData';
 import GetRoleAssignments from './model/GetRoleAssignments';
 import GetRoleAssignmentsAllOf from './model/GetRoleAssignmentsAllOf';
+import GetRolePipelines from './model/GetRolePipelines';
+import GetRolePipelinesAllOf from './model/GetRolePipelinesAllOf';
+import GetRolePipelinesAllOfData from './model/GetRolePipelinesAllOfData';
 import GetRoleSettings from './model/GetRoleSettings';
 import GetRoleSettingsAllOf from './model/GetRoleSettingsAllOf';
 import GetRoles from './model/GetRoles';
@@ -426,6 +436,8 @@ import ListPersonsResponseAllOf from './model/ListPersonsResponseAllOf';
 import ListPersonsResponseAllOfRelatedObjects from './model/ListPersonsResponseAllOfRelatedObjects';
 import ListProductAdditionalData from './model/ListProductAdditionalData';
 import ListProductAdditionalDataAllOf from './model/ListProductAdditionalDataAllOf';
+import ListProductFilesResponse from './model/ListProductFilesResponse';
+import ListProductFilesResponseAllOf from './model/ListProductFilesResponseAllOf';
 import ListProductFollowersResponse from './model/ListProductFollowersResponse';
 import ListProductFollowersResponseAllOf from './model/ListProductFollowersResponseAllOf';
 import ListProductFollowersResponseAllOfData from './model/ListProductFollowersResponseAllOfData';
@@ -601,6 +613,7 @@ import ProductAttachmentDetails from './model/ProductAttachmentDetails';
 import ProductBaseDeal from './model/ProductBaseDeal';
 import ProductField from './model/ProductField';
 import ProductFieldAllOf from './model/ProductFieldAllOf';
+import ProductFileItem from './model/ProductFileItem';
 import ProductListItem from './model/ProductListItem';
 import ProductRequest from './model/ProductRequest';
 import ProductResponse from './model/ProductResponse';
@@ -616,6 +629,7 @@ import ProductsResponse from './model/ProductsResponse';
 import PutRole from './model/PutRole';
 import PutRoleAllOf from './model/PutRoleAllOf';
 import PutRoleAllOfData from './model/PutRoleAllOfData';
+import PutRolePipelinesBody from './model/PutRolePipelinesBody';
 import RecentDataProduct from './model/RecentDataProduct';
 import RecentsActivity from './model/RecentsActivity';
 import RecentsActivityType from './model/RecentsActivityType';
@@ -677,6 +691,7 @@ import Teams from './model/Teams';
 import TeamsAllOf from './model/TeamsAllOf';
 import Unauthorized from './model/Unauthorized';
 import UpdateActivityResponse200 from './model/UpdateActivityResponse200';
+import UpdateDealProduct from './model/UpdateDealProduct';
 import UpdateDealRequest from './model/UpdateDealRequest';
 import UpdateFile from './model/UpdateFile';
 import UpdateFilterRequest from './model/UpdateFilterRequest';
@@ -804,6 +819,18 @@ export {
      * @property {module:ApiClient}
      */
     ApiClient,
+
+    /**
+     * The ActivityCollectionResponseObject model constructor.
+     * @property {module:model/ActivityCollectionResponseObject}
+     */
+    ActivityCollectionResponseObject,
+
+    /**
+     * The ActivityCollectionResponseObjectAllOf model constructor.
+     * @property {module:model/ActivityCollectionResponseObjectAllOf}
+     */
+    ActivityCollectionResponseObjectAllOf,
 
     /**
      * The ActivityDistributionData model constructor.
@@ -1178,10 +1205,16 @@ export {
     AdditionalData,
 
     /**
-     * The AdditionalDataWithPagination model constructor.
-     * @property {module:model/AdditionalDataWithPagination}
+     * The AdditionalDataWithCursorPagination model constructor.
+     * @property {module:model/AdditionalDataWithCursorPagination}
      */
-    AdditionalDataWithPagination,
+    AdditionalDataWithCursorPagination,
+
+    /**
+     * The AdditionalDataWithOffsetPagination model constructor.
+     * @property {module:model/AdditionalDataWithOffsetPagination}
+     */
+    AdditionalDataWithOffsetPagination,
 
     /**
      * The AdditionalDataWithPaginationDetails model constructor.
@@ -1622,6 +1655,12 @@ export {
     Currencies,
 
     /**
+     * The DealCollectionResponseObject model constructor.
+     * @property {module:model/DealCollectionResponseObject}
+     */
+    DealCollectionResponseObject,
+
+    /**
      * The DealCountAndActivityInfo model constructor.
      * @property {module:model/DealCountAndActivityInfo}
      */
@@ -1776,6 +1815,12 @@ export {
      * @property {module:model/DealPersonDataWithIdAllOf}
      */
     DealPersonDataWithIdAllOf,
+
+    /**
+     * The DealProductUnitDuration model constructor.
+     * @property {module:model/DealProductUnitDuration}
+     */
+    DealProductUnitDuration,
 
     /**
      * The DealSearchItem model constructor.
@@ -2498,6 +2543,12 @@ export {
     FullRoleAllOf,
 
     /**
+     * The GetActivitiesCollectionResponse200 model constructor.
+     * @property {module:model/GetActivitiesCollectionResponse200}
+     */
+    GetActivitiesCollectionResponse200,
+
+    /**
      * The GetActivitiesResponse200 model constructor.
      * @property {module:model/GetActivitiesResponse200}
      */
@@ -2592,6 +2643,12 @@ export {
      * @property {module:model/GetDeals}
      */
     GetDeals,
+
+    /**
+     * The GetDealsCollection model constructor.
+     * @property {module:model/GetDealsCollection}
+     */
+    GetDealsCollection,
 
     /**
      * The GetDealsConversionRatesInPipeline model constructor.
@@ -2844,6 +2901,24 @@ export {
      * @property {module:model/GetRoleAssignmentsAllOf}
      */
     GetRoleAssignmentsAllOf,
+
+    /**
+     * The GetRolePipelines model constructor.
+     * @property {module:model/GetRolePipelines}
+     */
+    GetRolePipelines,
+
+    /**
+     * The GetRolePipelinesAllOf model constructor.
+     * @property {module:model/GetRolePipelinesAllOf}
+     */
+    GetRolePipelinesAllOf,
+
+    /**
+     * The GetRolePipelinesAllOfData model constructor.
+     * @property {module:model/GetRolePipelinesAllOfData}
+     */
+    GetRolePipelinesAllOfData,
 
     /**
      * The GetRoleSettings model constructor.
@@ -3282,6 +3357,18 @@ export {
      * @property {module:model/ListProductAdditionalDataAllOf}
      */
     ListProductAdditionalDataAllOf,
+
+    /**
+     * The ListProductFilesResponse model constructor.
+     * @property {module:model/ListProductFilesResponse}
+     */
+    ListProductFilesResponse,
+
+    /**
+     * The ListProductFilesResponseAllOf model constructor.
+     * @property {module:model/ListProductFilesResponseAllOf}
+     */
+    ListProductFilesResponseAllOf,
 
     /**
      * The ListProductFollowersResponse model constructor.
@@ -4334,6 +4421,12 @@ export {
     ProductFieldAllOf,
 
     /**
+     * The ProductFileItem model constructor.
+     * @property {module:model/ProductFileItem}
+     */
+    ProductFileItem,
+
+    /**
      * The ProductListItem model constructor.
      * @property {module:model/ProductListItem}
      */
@@ -4422,6 +4515,12 @@ export {
      * @property {module:model/PutRoleAllOfData}
      */
     PutRoleAllOfData,
+
+    /**
+     * The PutRolePipelinesBody model constructor.
+     * @property {module:model/PutRolePipelinesBody}
+     */
+    PutRolePipelinesBody,
 
     /**
      * The RecentDataProduct model constructor.
@@ -4788,6 +4887,12 @@ export {
      * @property {module:model/UpdateActivityResponse200}
      */
     UpdateActivityResponse200,
+
+    /**
+     * The UpdateDealProduct model constructor.
+     * @property {module:model/UpdateDealProduct}
+     */
+    UpdateDealProduct,
 
     /**
      * The UpdateDealRequest model constructor.

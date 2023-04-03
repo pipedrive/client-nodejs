@@ -18,7 +18,7 @@ import AddProductRequestBody from '../model/AddProductRequestBody';
 import DeleteProductFollowerResponse from '../model/DeleteProductFollowerResponse';
 import DeleteProductResponse from '../model/DeleteProductResponse';
 import ListDealsResponse from '../model/ListDealsResponse';
-import ListFilesResponse from '../model/ListFilesResponse';
+import ListProductFilesResponse from '../model/ListProductFilesResponse';
 import ListProductFollowersResponse from '../model/ListProductFollowersResponse';
 import NewFollowerResponse from '../model/NewFollowerResponse';
 import ProductResponse from '../model/ProductResponse';
@@ -478,8 +478,8 @@ export default class ProductsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `product_id`, `add_time`, `update_time`, `file_name`, `file_type`, `file_size`, `comment`.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListFilesResponse} and HTTP response
+     * @param {String} opts.sort The field name and sorting mode (`field_name_1 ASC` or `field_name_1 DESC`). Supported fields: `update_time`, `id`
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListProductFilesResponse} and HTTP response
      */
     getProductFilesWithHttpInfo(id, opts) {
       opts = opts || {};
@@ -525,7 +525,7 @@ export default class ProductsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = ListFilesResponse;
+      let returnType = ListProductFilesResponse;
       return this.apiClient.callApi(
         '/products/{id}/files', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -540,8 +540,8 @@ export default class ProductsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
-     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `product_id`, `add_time`, `update_time`, `file_name`, `file_type`, `file_size`, `comment`.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListFilesResponse}
+     * @param {String} opts.sort The field name and sorting mode (`field_name_1 ASC` or `field_name_1 DESC`). Supported fields: `update_time`, `id`
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListProductFilesResponse}
      */
     getProductFiles(id, opts) {
       return this.getProductFilesWithHttpInfo(id, opts)

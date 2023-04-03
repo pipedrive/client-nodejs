@@ -16,7 +16,6 @@ import ApiClient from "../ApiClient";
 import AddDealFollowerRequest from '../model/AddDealFollowerRequest';
 import AddDealParticipantRequest from '../model/AddDealParticipantRequest';
 import AddedDealFollower from '../model/AddedDealFollower';
-import BasicDealProduct from '../model/BasicDealProduct';
 import DealFlowResponse from '../model/DealFlowResponse';
 import DealListActivitiesResponse from '../model/DealListActivitiesResponse';
 import DealParticipants from '../model/DealParticipants';
@@ -26,10 +25,12 @@ import DeleteDealFollower from '../model/DeleteDealFollower';
 import DeleteDealParticipant from '../model/DeleteDealParticipant';
 import DeleteDealProduct from '../model/DeleteDealProduct';
 import DeleteMultipleDeals from '../model/DeleteMultipleDeals';
+import FailResponse from '../model/FailResponse';
 import GetAddProductAttachementDetails from '../model/GetAddProductAttachementDetails';
 import GetAddedDeal from '../model/GetAddedDeal';
 import GetDeal from '../model/GetDeal';
 import GetDeals from '../model/GetDeals';
+import GetDealsCollection from '../model/GetDealsCollection';
 import GetDealsSummary from '../model/GetDealsSummary';
 import GetDealsTimeline from '../model/GetDealsTimeline';
 import GetDuplicatedDeal from '../model/GetDuplicatedDeal';
@@ -46,6 +47,7 @@ import NewDeal from '../model/NewDeal';
 import NewDealProduct from '../model/NewDealProduct';
 import NumberBoolean from '../model/NumberBoolean';
 import PostDealParticipants from '../model/PostDealParticipants';
+import UpdateDealProduct from '../model/UpdateDealProduct';
 import UpdateDealRequest from '../model/UpdateDealRequest';
 
 /**
@@ -568,7 +570,7 @@ export default class DealsApi {
      * Delete an attached product from a deal
      * Deletes a product attachment from a deal, using the `product_attachment_id`.
      * @param {Number} id The ID of the deal
-     * @param {Number} productAttachmentId The product attachment ID. This is returned as `product_attachment_id` after attaching a product to a deal or as id when listing the products attached to a deal.
+     * @param {Number} productAttachmentId The product attachment ID
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteDealProduct} and HTTP response
      */
     deleteDealProductWithHttpInfo(id, productAttachmentId) {
@@ -627,7 +629,7 @@ export default class DealsApi {
      * Delete an attached product from a deal
      * Deletes a product attachment from a deal, using the `product_attachment_id`.
      * @param {Number} id The ID of the deal
-     * @param {Number} productAttachmentId The product attachment ID. This is returned as `product_attachment_id` after attaching a product to a deal or as id when listing the products attached to a deal.
+     * @param {Number} productAttachmentId The product attachment ID
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteDealProduct}
      */
     deleteDealProduct(id, productAttachmentId) {
@@ -1617,6 +1619,94 @@ export default class DealsApi {
 
 
     /**
+     * Get all deals (BETA)
+     * Returns all deals. This is a cursor-paginated endpoint that is currently in BETA. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>. Please note that only global admins (those with global permissions) can access these endpoints. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.cursor For pagination, the marker (an opaque string value) representing the first item on the next page
+     * @param {Number} opts.limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+     * @param {String} opts.since The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the `update_time` field.
+     * @param {String} opts.until The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the `update_time` field.
+     * @param {Number} opts.userId If supplied, only deals matching the given user will be returned
+     * @param {Number} opts.stageId If supplied, only deals within the given stage will be returned
+     * @param {module:model/String} opts.status Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetDealsCollection} and HTTP response
+     */
+    getDealsCollectionWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = null;
+
+
+
+
+
+
+
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'cursor': opts['cursor'] === undefined ? opts['cursor'] : opts['cursor'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
+        'since': opts['since'] === undefined ? opts['since'] : opts['since'],
+        'until': opts['until'] === undefined ? opts['until'] : opts['until'],
+        'user_id': opts['user_id'] === undefined ? opts['userId'] : opts['user_id'],
+        'stage_id': opts['stage_id'] === undefined ? opts['stageId'] : opts['stage_id'],
+        'status': opts['status'] === undefined ? opts['status'] : opts['status'],
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let formParamArray = [
+      ];
+
+      let contentTypes = [];
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
+
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
+      let returnType = GetDealsCollection;
+      return this.apiClient.callApi(
+        '/deals/collection', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get all deals (BETA)
+     * Returns all deals. This is a cursor-paginated endpoint that is currently in BETA. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>. Please note that only global admins (those with global permissions) can access these endpoints. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.cursor For pagination, the marker (an opaque string value) representing the first item on the next page
+     * @param {Number} opts.limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+     * @param {String} opts.since The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the `update_time` field.
+     * @param {String} opts.until The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the `update_time` field.
+     * @param {Number} opts.userId If supplied, only deals matching the given user will be returned
+     * @param {Number} opts.stageId If supplied, only deals within the given stage will be returned
+     * @param {module:model/String} opts.status Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetDealsCollection}
+     */
+    getDealsCollection(opts) {
+      return this.getDealsCollectionWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data;
+        });
+    }
+
+
+    /**
      * Get deals summary
      * Returns a summary of all the deals.
      * @param {Object} opts Optional parameters
@@ -2055,12 +2145,12 @@ export default class DealsApi {
      * @param {Number} id The ID of the deal
      * @param {Number} productAttachmentId The ID of the deal-product (the ID of the product attached to the deal)
      * @param {Object} opts Optional parameters
-     * @param {module:model/BasicDealProduct} opts.basicDealProduct 
+     * @param {module:model/UpdateDealProduct} opts.updateDealProduct 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetProductAttachementDetails} and HTTP response
      */
     updateDealProductWithHttpInfo(id, productAttachmentId, opts) {
       opts = opts || {};
-      let postBody = opts['basicDealProduct'];
+      let postBody = opts['updateDealProduct'];
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -2074,12 +2164,6 @@ export default class DealsApi {
 
       if (opts['product_id'] === undefined || opts['product_id'] === null) {
         throw new Error("Missing the required parameter 'product_id' when calling updateDealProduct");
-      }
-      if (opts['item_price'] === undefined || opts['item_price'] === null) {
-        throw new Error("Missing the required parameter 'item_price' when calling updateDealProduct");
-      }
-      if (opts['quantity'] === undefined || opts['quantity'] === null) {
-        throw new Error("Missing the required parameter 'quantity' when calling updateDealProduct");
       }
 
       let pathParams = {
@@ -2126,7 +2210,7 @@ export default class DealsApi {
      * @param {Number} id The ID of the deal
      * @param {Number} productAttachmentId The ID of the deal-product (the ID of the product attached to the deal)
      * @param {Object} opts Optional parameters
-     * @param {module:model/BasicDealProduct} opts.basicDealProduct 
+     * @param {module:model/UpdateDealProduct} opts.updateDealProduct 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetProductAttachementDetails}
      */
     updateDealProduct(id, productAttachmentId, opts) {
