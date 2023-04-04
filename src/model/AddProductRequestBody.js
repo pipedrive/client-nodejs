@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import NumberBooleanDefault1 from './NumberBooleanDefault1';
 import ProductRequest from './ProductRequest';
 import RequiredNameObject from './RequiredNameObject';
 import VisibleTo from './VisibleTo';
@@ -78,12 +77,12 @@ class AddProductRequestBody {
                 delete data['tax'];
             }
             if (data.hasOwnProperty('active_flag')) {
-                obj['active_flag'] = NumberBooleanDefault1.constructFromObject(data['active_flag']);
+                obj['active_flag'] = ApiClient.convertToType(data['active_flag'], 'Boolean');
 
                 delete data['active_flag'];
             }
             if (data.hasOwnProperty('selectable')) {
-                obj['selectable'] = NumberBooleanDefault1.constructFromObject(data['selectable']);
+                obj['selectable'] = ApiClient.convertToType(data['selectable'], 'Boolean');
 
                 delete data['selectable'];
             }
@@ -140,14 +139,18 @@ AddProductRequestBody.prototype['unit'] = undefined;
 AddProductRequestBody.prototype['tax'] = 0;
 
 /**
- * @member {module:model/NumberBooleanDefault1} active_flag
+ * Whether this product will be made active or not
+ * @member {Boolean} active_flag
+ * @default true
  */
-AddProductRequestBody.prototype['active_flag'] = undefined;
+AddProductRequestBody.prototype['active_flag'] = true;
 
 /**
- * @member {module:model/NumberBooleanDefault1} selectable
+ * Whether this product can be selected in deals or not
+ * @member {Boolean} selectable
+ * @default true
  */
-AddProductRequestBody.prototype['selectable'] = undefined;
+AddProductRequestBody.prototype['selectable'] = true;
 
 /**
  * The visibility of the product. If omitted, the visibility will be set to the default visibility setting of this item type for the authorized user. Read more about visibility groups <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.<h4>Essential / Advanced plan</h4><table><tr><th style=\"width: 40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers</td><tr><td>`3`</td><td>Entire company</td></tr></table><h4>Professional / Enterprise plan</h4><table><tr><th style=\"width: 40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner only</td><tr><td>`3`</td><td>Owner's visibility group</td></tr><tr><td>`5`</td><td>Owner's visibility group and sub-groups</td></tr><tr><td>`7`</td><td>Entire company</td></tr></table>
@@ -192,13 +195,17 @@ ProductRequest.prototype['unit'] = undefined;
  */
 ProductRequest.prototype['tax'] = 0;
 /**
- * @member {module:model/NumberBooleanDefault1} active_flag
+ * Whether this product will be made active or not
+ * @member {Boolean} active_flag
+ * @default true
  */
-ProductRequest.prototype['active_flag'] = undefined;
+ProductRequest.prototype['active_flag'] = true;
 /**
- * @member {module:model/NumberBooleanDefault1} selectable
+ * Whether this product can be selected in deals or not
+ * @member {Boolean} selectable
+ * @default true
  */
-ProductRequest.prototype['selectable'] = undefined;
+ProductRequest.prototype['selectable'] = true;
 /**
  * The visibility of the product. If omitted, the visibility will be set to the default visibility setting of this item type for the authorized user. Read more about visibility groups <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.<h4>Essential / Advanced plan</h4><table><tr><th style=\"width: 40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers</td><tr><td>`3`</td><td>Entire company</td></tr></table><h4>Professional / Enterprise plan</h4><table><tr><th style=\"width: 40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner only</td><tr><td>`3`</td><td>Owner's visibility group</td></tr><tr><td>`5`</td><td>Owner's visibility group and sub-groups</td></tr><tr><td>`7`</td><td>Entire company</td></tr></table>
  * @member {module:model/VisibleTo} visible_to

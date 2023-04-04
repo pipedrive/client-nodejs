@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import NumberBooleanDefault1 from './NumberBooleanDefault1';
 import VisibleTo from './VisibleTo';
 
 /**
@@ -75,12 +74,12 @@ class BaseProduct {
                 delete data['tax'];
             }
             if (data.hasOwnProperty('active_flag')) {
-                obj['active_flag'] = NumberBooleanDefault1.constructFromObject(data['active_flag']);
+                obj['active_flag'] = ApiClient.convertToType(data['active_flag'], 'Boolean');
 
                 delete data['active_flag'];
             }
             if (data.hasOwnProperty('selectable')) {
-                obj['selectable'] = NumberBooleanDefault1.constructFromObject(data['selectable']);
+                obj['selectable'] = ApiClient.convertToType(data['selectable'], 'Boolean');
 
                 delete data['selectable'];
             }
@@ -138,14 +137,18 @@ BaseProduct.prototype['unit'] = undefined;
 BaseProduct.prototype['tax'] = 0;
 
 /**
- * @member {module:model/NumberBooleanDefault1} active_flag
+ * Whether this product is active or not
+ * @member {Boolean} active_flag
+ * @default true
  */
-BaseProduct.prototype['active_flag'] = undefined;
+BaseProduct.prototype['active_flag'] = true;
 
 /**
- * @member {module:model/NumberBooleanDefault1} selectable
+ * Whether this product is selected in deals or not
+ * @member {Boolean} selectable
+ * @default true
  */
-BaseProduct.prototype['selectable'] = undefined;
+BaseProduct.prototype['selectable'] = true;
 
 /**
  * Visibility of the product
