@@ -17,6 +17,7 @@ Based on this [Changelog post](https://developers.pipedrive.com/changelog/post/b
 Based on this [Changelog post](https://developers.pipedrive.com/changelog/post/breaking-changes-in-4-products-related-endpoints):
 - Updated the `sort` query parameter for `GET /products/{id}/files` to only support `id` and `update_time` field keys
 - For `PUT /deals/{id}/products/{product_attachment_id}`: parameters `item_price` and `quantity` are not required
+- Changed `active_flag`, `enabled_flag`, and `selectable` body parameters and response examples data type from number -> boolean for all Products related endpoints
 ### Added
 - Added an optional `duration_unit` body parameter for `PUT /deals/{id}/products/{product_attachment_id}` and `POST /deals/{id}/products`
 - Added `GET /leads/:id/permittedUsers` endpoint to retrieve the users that have access to a certain lead
