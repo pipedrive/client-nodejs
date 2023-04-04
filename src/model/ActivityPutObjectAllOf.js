@@ -48,6 +48,11 @@ class ActivityPutObjectAllOf {
         if (data) {
             obj = obj || new ActivityPutObjectAllOf();
 
+            if (data.hasOwnProperty('note')) {
+                obj['note'] = ApiClient.convertToType(data['note'], 'String');
+
+                delete data['note'];
+            }
             if (data.hasOwnProperty('subject')) {
                 obj['subject'] = ApiClient.convertToType(data['subject'], 'String');
 
@@ -94,6 +99,12 @@ class ActivityPutObjectAllOf {
 
 
 }
+
+/**
+ * The note of the activity (HTML format)
+ * @member {String} note
+ */
+ActivityPutObjectAllOf.prototype['note'] = undefined;
 
 /**
  * The subject of the activity

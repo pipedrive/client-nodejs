@@ -321,7 +321,9 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.StagesApi(apiClient);
 let opts = {
-  'pipelineId': 56 // Number | The ID of the pipeline to fetch stages for. If omitted, stages for all pipelines will be fetched.
+  'pipelineId': 56, // Number | The ID of the pipeline to fetch stages for. If omitted, stages for all pipelines will be fetched.
+  'start': 0, // Number | Pagination start
+  'limit': 56 // Number | Items shown per page
 };
 apiInstance.getStages(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -337,6 +339,8 @@ apiInstance.getStages(opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pipelineId** | **Number**| The ID of the pipeline to fetch stages for. If omitted, stages for all pipelines will be fetched. | [optional] 
+ **start** | **Number**| Pagination start | [optional] [default to 0]
+ **limit** | **Number**| Items shown per page | [optional] 
 
 ### Return type
 

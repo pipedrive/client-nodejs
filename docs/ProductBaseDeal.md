@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 **lostReason** | **String** | The reason for losing the deal | [optional] 
 **visibleTo** | **String** | The visibility of the deal | [optional] 
 **closeTime** | **String** | The date and time of closing the deal | [optional] 
-**pipelineId** | **Number** | The ID of pipeline associated with the deal | [optional] 
+**pipelineId** | **Number** | The ID of the pipeline associated with the deal | [optional] 
 **wonTime** | **String** | The date and time of changing the deal status as won | [optional] 
 **firstWonTime** | **String** | The date and time of the first time changing the deal status as won | [optional] 
 **lostTime** | **String** | The date and time of changing the deal status as lost | [optional] 

@@ -8,6 +8,28 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [19.0.0] - 2023-04-04
+### Removed
+Based on this [Changelog post](https://developers.pipedrive.com/changelog/post/breaking-changes-in-4-products-related-endpoints):
+- Removed non product-related fields from the response of `GET /products/{id}/files`
+- Removed `product_attachment_id` response field from `POST /deals/{id}/products` and `DELETE /deals/{id}/products/{product_attachment_id}`
+- Removed mistakenly documented pagination fields from `GET /products/{id}/permittedUsers`
+- Removed `item_price` and `quantity` as required request fields from `PUT /deals/{id}/products/{product_attachment_id}`
+### Changed
+Based on this [Changelog post](https://developers.pipedrive.com/changelog/post/breaking-changes-in-4-products-related-endpoints):
+- Updated the `sort` query parameter for `GET /products/{id}/files` to only support `id` and `update_time` field keys
+- For `PUT /deals/{id}/products/{product_attachment_id}`: parameters `item_price` and `quantity` are not required
+- Changed `active_flag`, `enabled_flag`, and `selectable` body parameters and response examples data type from number -> boolean for all Products related endpoints
+### Added
+- Added an optional `duration_unit` body parameter for `PUT /deals/{id}/products/{product_attachment_id}` and `POST /deals/{id}/products`
+- Added `GET /leads/:id/permittedUsers` endpoint to retrieve the users that have access to a certain lead
+- Added the `version` body parameter to `POST /webhooks` endpoint
+- Added pagination parameters documentation for `GET /stages` endpoint
+- Added `GET /roles/:id/pipelines` endpoint to get pipelines visibility for a role
+- Added `PUT /roles/:id/pipelines` endpoint to update pipelines visibility for a role
+- Added `GET /activities/collection` endpoint to fetch all activities with cursor pagination
+- Added `GET /deals/collection` endpoint to fetch all deals with cursor pagination
+
 ## [18.1.4] - 2023-02-13
 ### Removed
 - Removed `name` body parameter from `POST /v1/users` based on this [post](https://developers.pipedrive.com/changelog/post/removal-of-fields-from-users-api).
@@ -470,7 +492,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v18.1.4...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v19.0.0...HEAD
+[19.0.0]: https://github.com/pipedrive/api-docs/compare/v18.1.4...v19.0.0
 [18.1.4]: https://github.com/pipedrive/api-docs/compare/v18.1.3...v18.1.4
 [18.1.3]: https://github.com/pipedrive/api-docs/compare/v18.1.2...v18.1.3
 [18.1.2]: https://github.com/pipedrive/api-docs/compare/v18.1.1...v18.1.2

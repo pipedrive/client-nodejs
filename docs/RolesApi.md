@@ -11,9 +11,11 @@ Method | HTTP request | Description
 [**deleteRoleAssignment**](RolesApi.md#deleteRoleAssignment) | **DELETE** /roles/{id}/assignments | Delete a role assignment
 [**getRole**](RolesApi.md#getRole) | **GET** /roles/{id} | Get one role
 [**getRoleAssignments**](RolesApi.md#getRoleAssignments) | **GET** /roles/{id}/assignments | List role assignments
+[**getRolePipelines**](RolesApi.md#getRolePipelines) | **GET** /roles/{id}/pipelines | List pipeline visibility for a role
 [**getRoleSettings**](RolesApi.md#getRoleSettings) | **GET** /roles/{id}/settings | List role settings
 [**getRoles**](RolesApi.md#getRoles) | **GET** /roles | Get all roles
 [**updateRole**](RolesApi.md#updateRole) | **PUT** /roles/{id} | Update role details
+[**updateRolePipelines**](RolesApi.md#updateRolePipelines) | **PUT** /roles/{id}/pipelines | Update pipeline visibility for a role
 
 
 
@@ -408,6 +410,63 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## getRolePipelines
+
+> GetRolePipelines getRolePipelines(id, opts)
+
+List pipeline visibility for a role
+
+Returns the list of either visible or hidden pipeline IDs for a specific role. For more information on pipeline visibility, please refer to the &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/visibility-groups\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Visibility groups article&lt;/a&gt;.
+
+### Example
+
+```javascript
+import Pipedrive from 'pipedrive';
+let apiClient = new Pipedrive.ApiClient();
+// Configure API key authorization: api_key
+let api_key = apiClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = apiClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new Pipedrive.RolesApi(apiClient);
+let id = 56; // Number | The ID of the role
+let opts = {
+  'visible': true // Boolean | Whether to return the visible or hidden pipelines for the role
+};
+apiInstance.getRolePipelines(id, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| The ID of the role | 
+ **visible** | **Boolean**| Whether to return the visible or hidden pipelines for the role | [optional] [default to true]
+
+### Return type
+
+[**GetRolePipelines**](GetRolePipelines.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## getRoleSettings
 
 > GetRoleSettings getRoleSettings(id)
@@ -564,6 +623,63 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PutRole**](PutRole.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## updateRolePipelines
+
+> GetRolePipelines updateRolePipelines(id, opts)
+
+Update pipeline visibility for a role
+
+Updates the specified pipelines to be visible and/or hidden for a specific role. For more information on pipeline visibility, please refer to the &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/visibility-groups\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Visibility groups article&lt;/a&gt;.
+
+### Example
+
+```javascript
+import Pipedrive from 'pipedrive';
+let apiClient = new Pipedrive.ApiClient();
+// Configure API key authorization: api_key
+let api_key = apiClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = apiClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new Pipedrive.RolesApi(apiClient);
+let id = 56; // Number | The ID of the role
+let opts = Pipedrive.PutRolePipelinesBody.constructFromObject({
+  // Properties that you want to update
+});
+apiInstance.updateRolePipelines(id, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| The ID of the role | 
+ **putRolePipelinesBody** | [**PutRolePipelinesBody**](PutRolePipelinesBody.md)|  | [optional] 
+
+### Return type
+
+[**GetRolePipelines**](GetRolePipelines.md)
 
 ### Authorization
 

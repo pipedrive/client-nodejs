@@ -83,15 +83,15 @@ class ActivityResponseObject {
 
                 delete data['person_id'];
             }
+            if (data.hasOwnProperty('project_id')) {
+                obj['project_id'] = ApiClient.convertToType(data['project_id'], 'Number');
+
+                delete data['project_id'];
+            }
             if (data.hasOwnProperty('org_id')) {
                 obj['org_id'] = ApiClient.convertToType(data['org_id'], 'Number');
 
                 delete data['org_id'];
-            }
-            if (data.hasOwnProperty('note')) {
-                obj['note'] = ApiClient.convertToType(data['note'], 'String');
-
-                delete data['note'];
             }
             if (data.hasOwnProperty('location')) {
                 obj['location'] = ApiClient.convertToType(data['location'], 'String');
@@ -107,6 +107,11 @@ class ActivityResponseObject {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
 
                 delete data['id'];
+            }
+            if (data.hasOwnProperty('note')) {
+                obj['note'] = ApiClient.convertToType(data['note'], 'String');
+
+                delete data['note'];
             }
             if (data.hasOwnProperty('done')) {
                 obj['done'] = ApiClient.convertToType(data['done'], 'Boolean');
@@ -402,16 +407,16 @@ ActivityResponseObject.prototype['lead_id'] = undefined;
 ActivityResponseObject.prototype['person_id'] = undefined;
 
 /**
+ * The ID of the project this activity is associated with
+ * @member {Number} project_id
+ */
+ActivityResponseObject.prototype['project_id'] = undefined;
+
+/**
  * The ID of the organization this activity is associated with
  * @member {Number} org_id
  */
 ActivityResponseObject.prototype['org_id'] = undefined;
-
-/**
- * The note of the activity (HTML format)
- * @member {String} note
- */
-ActivityResponseObject.prototype['note'] = undefined;
 
 /**
  * The address of the activity. Pipedrive will automatically check if the location matches a geo-location on Google maps.
@@ -426,10 +431,16 @@ ActivityResponseObject.prototype['location'] = undefined;
 ActivityResponseObject.prototype['public_description'] = undefined;
 
 /**
- * The activity ID, generated when the activity was created
+ * The ID of the activity, generated when the activity was created
  * @member {Number} id
  */
 ActivityResponseObject.prototype['id'] = undefined;
+
+/**
+ * The note of the activity (HTML format)
+ * @member {String} note
+ */
+ActivityResponseObject.prototype['note'] = undefined;
 
 /**
  * Whether the activity is done or not
@@ -492,7 +503,7 @@ ActivityResponseObject.prototype['reference_type'] = undefined;
 ActivityResponseObject.prototype['reference_id'] = undefined;
 
 /**
- * The ID of Marketplace app, which is connected to this activity
+ * The ID of the Marketplace app, which is connected to this activity
  * @member {String} conference_meeting_client
  */
 ActivityResponseObject.prototype['conference_meeting_client'] = undefined;
@@ -618,61 +629,61 @@ ActivityResponseObject.prototype['series'] = undefined;
 ActivityResponseObject.prototype['created_by_user_id'] = undefined;
 
 /**
- * Subfield of location field. Indicates apartment/suite number.
+ * A subfield of the location field. Indicates apartment/suite number.
  * @member {String} location_subpremise
  */
 ActivityResponseObject.prototype['location_subpremise'] = undefined;
 
 /**
- * Subfield of location field. Indicates house number.
+ * A subfield of the location field. Indicates house number.
  * @member {String} location_street_number
  */
 ActivityResponseObject.prototype['location_street_number'] = undefined;
 
 /**
- * Subfield of location field. Indicates street name.
+ * A subfield of the location field. Indicates street name.
  * @member {String} location_route
  */
 ActivityResponseObject.prototype['location_route'] = undefined;
 
 /**
- * Subfield of location field. Indicates district/sublocality.
+ * A subfield of the location field. Indicates district/sublocality.
  * @member {String} location_sublocality
  */
 ActivityResponseObject.prototype['location_sublocality'] = undefined;
 
 /**
- * Subfield of location field. Indicates city/town/village/locality.
+ * A subfield of the location field. Indicates city/town/village/locality.
  * @member {String} location_locality
  */
 ActivityResponseObject.prototype['location_locality'] = undefined;
 
 /**
- * Subfield of location field. Indicates state/county.
+ * A subfield of the location field. Indicates state/county.
  * @member {String} location_admin_area_level_1
  */
 ActivityResponseObject.prototype['location_admin_area_level_1'] = undefined;
 
 /**
- * Subfield of location field. Indicates region.
+ * A subfield of the location field. Indicates region.
  * @member {String} location_admin_area_level_2
  */
 ActivityResponseObject.prototype['location_admin_area_level_2'] = undefined;
 
 /**
- * Subfield of location field. Indicates country.
+ * A subfield of the location field. Indicates country.
  * @member {String} location_country
  */
 ActivityResponseObject.prototype['location_country'] = undefined;
 
 /**
- * Subfield of location field. Indicates ZIP/postal code.
+ * A subfield of the location field. Indicates ZIP/postal code.
  * @member {String} location_postal_code
  */
 ActivityResponseObject.prototype['location_postal_code'] = undefined;
 
 /**
- * Subfield of location field. Indicates full/combined address.
+ * A subfield of the location field. Indicates full/combined address.
  * @member {String} location_formatted_address
  */
 ActivityResponseObject.prototype['location_formatted_address'] = undefined;
@@ -748,7 +759,7 @@ ActivityObjectFragment.prototype['duration'] = undefined;
  */
 ActivityObjectFragment.prototype['deal_id'] = undefined;
 /**
- * The ID of the lead this activity is associated with
+ * The ID of the lead in the UUID format this activity is associated with
  * @member {String} lead_id
  */
 ActivityObjectFragment.prototype['lead_id'] = undefined;
@@ -758,15 +769,15 @@ ActivityObjectFragment.prototype['lead_id'] = undefined;
  */
 ActivityObjectFragment.prototype['person_id'] = undefined;
 /**
+ * The ID of the project this activity is associated with
+ * @member {Number} project_id
+ */
+ActivityObjectFragment.prototype['project_id'] = undefined;
+/**
  * The ID of the organization this activity is associated with
  * @member {Number} org_id
  */
 ActivityObjectFragment.prototype['org_id'] = undefined;
-/**
- * The note of the activity (HTML format)
- * @member {String} note
- */
-ActivityObjectFragment.prototype['note'] = undefined;
 /**
  * The address of the activity. Pipedrive will automatically check if the location matches a geo-location on Google maps.
  * @member {String} location
@@ -779,10 +790,15 @@ ActivityObjectFragment.prototype['location'] = undefined;
 ActivityObjectFragment.prototype['public_description'] = undefined;
 // Implement ActivityResponseObjectAllOf interface:
 /**
- * The activity ID, generated when the activity was created
+ * The ID of the activity, generated when the activity was created
  * @member {Number} id
  */
 ActivityResponseObjectAllOf.prototype['id'] = undefined;
+/**
+ * The note of the activity (HTML format)
+ * @member {String} note
+ */
+ActivityResponseObjectAllOf.prototype['note'] = undefined;
 /**
  * Whether the activity is done or not
  * @member {Boolean} done
@@ -834,7 +850,7 @@ ActivityResponseObjectAllOf.prototype['reference_type'] = undefined;
  */
 ActivityResponseObjectAllOf.prototype['reference_id'] = undefined;
 /**
- * The ID of Marketplace app, which is connected to this activity
+ * The ID of the Marketplace app, which is connected to this activity
  * @member {String} conference_meeting_client
  */
 ActivityResponseObjectAllOf.prototype['conference_meeting_client'] = undefined;
@@ -873,11 +889,6 @@ ActivityResponseObjectAllOf.prototype['last_notification_user_id'] = undefined;
  * @member {Number} notification_language_id
  */
 ActivityResponseObjectAllOf.prototype['notification_language_id'] = undefined;
-/**
- * The ID of the lead in the UUID format this activity is associated with
- * @member {String} lead_id
- */
-ActivityResponseObjectAllOf.prototype['lead_id'] = undefined;
 /**
  * Whether the activity is active or not
  * @member {Boolean} active_flag
@@ -944,52 +955,52 @@ ActivityResponseObjectAllOf.prototype['series'] = undefined;
  */
 ActivityResponseObjectAllOf.prototype['created_by_user_id'] = undefined;
 /**
- * Subfield of location field. Indicates apartment/suite number.
+ * A subfield of the location field. Indicates apartment/suite number.
  * @member {String} location_subpremise
  */
 ActivityResponseObjectAllOf.prototype['location_subpremise'] = undefined;
 /**
- * Subfield of location field. Indicates house number.
+ * A subfield of the location field. Indicates house number.
  * @member {String} location_street_number
  */
 ActivityResponseObjectAllOf.prototype['location_street_number'] = undefined;
 /**
- * Subfield of location field. Indicates street name.
+ * A subfield of the location field. Indicates street name.
  * @member {String} location_route
  */
 ActivityResponseObjectAllOf.prototype['location_route'] = undefined;
 /**
- * Subfield of location field. Indicates district/sublocality.
+ * A subfield of the location field. Indicates district/sublocality.
  * @member {String} location_sublocality
  */
 ActivityResponseObjectAllOf.prototype['location_sublocality'] = undefined;
 /**
- * Subfield of location field. Indicates city/town/village/locality.
+ * A subfield of the location field. Indicates city/town/village/locality.
  * @member {String} location_locality
  */
 ActivityResponseObjectAllOf.prototype['location_locality'] = undefined;
 /**
- * Subfield of location field. Indicates state/county.
+ * A subfield of the location field. Indicates state/county.
  * @member {String} location_admin_area_level_1
  */
 ActivityResponseObjectAllOf.prototype['location_admin_area_level_1'] = undefined;
 /**
- * Subfield of location field. Indicates region.
+ * A subfield of the location field. Indicates region.
  * @member {String} location_admin_area_level_2
  */
 ActivityResponseObjectAllOf.prototype['location_admin_area_level_2'] = undefined;
 /**
- * Subfield of location field. Indicates country.
+ * A subfield of the location field. Indicates country.
  * @member {String} location_country
  */
 ActivityResponseObjectAllOf.prototype['location_country'] = undefined;
 /**
- * Subfield of location field. Indicates ZIP/postal code.
+ * A subfield of the location field. Indicates ZIP/postal code.
  * @member {String} location_postal_code
  */
 ActivityResponseObjectAllOf.prototype['location_postal_code'] = undefined;
 /**
- * Subfield of location field. Indicates full/combined address.
+ * A subfield of the location field. Indicates full/combined address.
  * @member {String} location_formatted_address
  */
 ActivityResponseObjectAllOf.prototype['location_formatted_address'] = undefined;

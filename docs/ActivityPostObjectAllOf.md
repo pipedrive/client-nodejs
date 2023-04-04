@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**note** | **String** | The note of the activity (HTML format) | [optional] 
 **subject** | **String** | The subject of the activity. When value for subject is not set, it will be given a default value &#x60;Call&#x60;. | [optional] 
 **type** | **String** | The type of the activity. This is in correlation with the &#x60;key_string&#x60; parameter of ActivityTypes. When value for type is not set, it will be given a default value &#x60;Call&#x60;. | [optional] 
 **userId** | **Number** | The ID of the user whom the activity is assigned to. If omitted, the activity is assigned to the authorized user. | [optional] 

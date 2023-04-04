@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**note** | **String** | The note of the activity (HTML format) | [optional] 
 **subject** | **String** | The subject of the activity | [optional] 
 **type** | **String** | The type of the activity. This is in correlation with the &#x60;key_string&#x60; parameter of ActivityTypes. | [optional] 
 **userId** | **Number** | The ID of the user whom the activity is assigned to | [optional] 
