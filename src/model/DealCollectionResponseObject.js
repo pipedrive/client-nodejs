@@ -148,7 +148,7 @@ class DealCollectionResponseObject {
                 delete data['expected_close_date'];
             }
             if (data.hasOwnProperty('label')) {
-                obj['label'] = ApiClient.convertToType(data['label'], 'Number');
+                obj['label'] = ApiClient.convertToType(data['label'], 'String');
 
                 delete data['label'];
             }
@@ -285,8 +285,8 @@ DealCollectionResponseObject.prototype['lost_time'] = undefined;
 DealCollectionResponseObject.prototype['expected_close_date'] = undefined;
 
 /**
- * The label assigned to the deal
- * @member {Number} label
+ * The label or multiple labels assigned to the dea
+ * @member {String} label
  */
 DealCollectionResponseObject.prototype['label'] = undefined;
 

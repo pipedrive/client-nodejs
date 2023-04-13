@@ -254,7 +254,7 @@ class DealStrict {
                 delete data['last_outgoing_mail_time'];
             }
             if (data.hasOwnProperty('label')) {
-                obj['label'] = ApiClient.convertToType(data['label'], 'Number');
+                obj['label'] = ApiClient.convertToType(data['label'], 'String');
 
                 delete data['label'];
             }
@@ -591,8 +591,8 @@ DealStrict.prototype['last_incoming_mail_time'] = undefined;
 DealStrict.prototype['last_outgoing_mail_time'] = undefined;
 
 /**
- * The label assigned to the deal
- * @member {Number} label
+ * The label or multiple labels assigned to the deal
+ * @member {String} label
  */
 DealStrict.prototype['label'] = undefined;
 
@@ -896,8 +896,8 @@ BaseDeal.prototype['last_incoming_mail_time'] = undefined;
  */
 BaseDeal.prototype['last_outgoing_mail_time'] = undefined;
 /**
- * The label assigned to the deal
- * @member {Number} label
+ * The label or multiple labels assigned to the deal
+ * @member {String} label
  */
 BaseDeal.prototype['label'] = undefined;
 /**
