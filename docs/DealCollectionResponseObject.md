@@ -24,6 +24,6 @@ Name | Type | Description | Notes
 **wonTime** | **String** | The date and time of changing the deal status to won in UTC. Format: YYYY-MM-DD HH:MM:SS. | [optional] 
 **lostTime** | **String** | The date and time of changing the deal status to lost in UTC. Format: YYYY-MM-DD HH:MM:SS. | [optional] 
 **expectedCloseDate** | **Date** | The expected close date of the deal | [optional] 
-**label** | **Number** | The label assigned to the deal | [optional] 
+**label** | **String** | The label or multiple labels assigned to the deal | [optional] 
 
 

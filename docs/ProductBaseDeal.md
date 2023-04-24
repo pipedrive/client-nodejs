@@ -46,6 +46,6 @@ Name | Type | Description | Notes
 **expectedCloseDate** | **Date** | The expected close date of the deal | [optional] 
 **lastIncomingMailTime** | **String** | The date and time of the last incoming email associated with the deal | [optional] 
 **lastOutgoingMailTime** | **String** | The date and time of the last outgoing email associated with the deal | [optional] 
-**label** | **String** | The label assigned to the deal | [optional] 
+**label** | **String** | The label or multiple labels assigned to the deal | [optional] 
 
 

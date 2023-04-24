@@ -717,7 +717,7 @@ class ApiClient {
                 .send(`refresh_token=${refreshToken}`)
                 .send('grant_type=refresh_token');
 
-            this.updateToken(response.body);
+                this.updateToken(response.body);
 
             return response.body;
         } catch (error) {
@@ -768,6 +768,52 @@ class ApiClient {
         if (typeof (oauth2.tokenUpdateCallback) === 'function') {
             oauth2.tokenUpdateCallback(token);
         }
+    }
+
+    /**
+    * Revoke Refresh Token aka marking an app uninstalled or revoke the Access Token.
+    * @param {Object} optional opts object with tokenTypeHint param, values can be: 'access_token' or 'refresh_token'.
+    */
+    async revokeToken(opts = {}) {
+        const tokenTypeHint = opts.tokenTypeHint;
+
+        if (!this.isOauth2Supported()) {
+            throw new Error('Could not revoke the token. OAuth 2 is not supported.');
+        }
+
+        const token = tokenTypeHint === 'refresh_token' 
+            ? this.getOAuth2Property('refreshToken') : encodeURIComponent(this.getOAuth2Property('accessToken'));
+
+        const clientId = this.getOAuth2Property('clientId');
+        const clientSecret = this.getOAuth2Property('clientSecret');
+        const host = this.getOAuth2Property('host');
+        const revokeUrl = `${host}/oauth/revoke`;
+        const clientIdAndSecretInBase64 = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');
+
+        try {
+            let request = superagent
+                .post(revokeUrl)
+                .set('User-Agent', this.getUserAgent())
+                .set('Authorization', `Basic ${clientIdAndSecretInBase64}`)
+                .send(`token=${token}`);
+
+            if (tokenTypeHint) {
+                request = request.send(`token_type_hint=${tokenTypeHint}`);
+            }
+
+            const response = await request;
+
+            return response.body;
+        } catch (error) {
+            let exception = new OAuthProviderException();
+
+            exception.message = error.response.res.statusMessage;
+            exception.errorCode = error.status;
+            exception.context = error.response;
+
+            throw exception;
+        }
+
     }
 
     /**
