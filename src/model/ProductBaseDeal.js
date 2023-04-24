@@ -527,7 +527,7 @@ ProductBaseDeal.prototype['last_incoming_mail_time'] = undefined;
 ProductBaseDeal.prototype['last_outgoing_mail_time'] = undefined;
 
 /**
- * The label assigned to the deal
+ * The label or multiple labels assigned to the deal
  * @member {String} label
  */
 ProductBaseDeal.prototype['label'] = undefined;

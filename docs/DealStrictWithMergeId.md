@@ -44,7 +44,7 @@ Name | Type | Description | Notes
 **expectedCloseDate** | **Date** | The expected close date of the deal | [optional] 
 **lastIncomingMailTime** | **String** | The date and time of the last incoming email associated with the deal | [optional] 
 **lastOutgoingMailTime** | **String** | The date and time of the last outgoing email associated with the deal | [optional] 
-**label** | **Number** | The label assigned to the deal | [optional] 
+**label** | **String** | The label or multiple labels assigned to the deal | [optional] 
 **stageOrderNr** | **Number** | The order number of the deal stage associated with the deal | [optional] 
 **personName** | **String** | The name of the person associated with the deal | [optional] 
 **orgName** | **String** | The name of the organization associated with the deal | [optional] 
