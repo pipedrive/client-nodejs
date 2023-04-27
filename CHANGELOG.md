@@ -8,6 +8,12 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [19.0.1] - 2023-04-27
+### Changed
+- Updated `label` field data type in response examples from number -> string for Deals related endpoints
+### Changed
+Changed `active_flag`, `enabled_flag`, and `selectable` body parameters and response examples data type from number -> boolean for all Products related endpoints
+
 ## [19.0.0] - 2023-04-04
 ### Removed
 Based on this [Changelog post](https://developers.pipedrive.com/changelog/post/breaking-changes-in-4-products-related-endpoints):
@@ -492,7 +498,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v19.0.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v19.0.1...HEAD
+[19.0.1]: https://github.com/pipedrive/api-docs/compare/v19.0.0...v19.0.1
 [19.0.0]: https://github.com/pipedrive/api-docs/compare/v18.1.4...v19.0.0
 [18.1.4]: https://github.com/pipedrive/api-docs/compare/v18.1.3...v18.1.4
 [18.1.3]: https://github.com/pipedrive/api-docs/compare/v18.1.2...v18.1.3
