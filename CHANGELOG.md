@@ -7,6 +7,8 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+
+## [19.1.0] - 2023-04-27
 ### Added
 - Added `revokeToken` function to the sdk. With this function you can revoke an access token or refresh token (mark an app as uninstalled).
 
@@ -500,7 +502,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v19.0.1...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v19.1.0...HEAD
+[19.1.0]: https://github.com/pipedrive/api-docs/compare/v19.0.1...v19.1.0
 [19.0.1]: https://github.com/pipedrive/api-docs/compare/v19.0.0...v19.0.1
 [19.0.0]: https://github.com/pipedrive/api-docs/compare/v18.1.4...v19.0.0
 [18.1.4]: https://github.com/pipedrive/api-docs/compare/v18.1.3...v18.1.4
