@@ -1,0 +1,45 @@
+name: On Pipedrive Bot PR opened
+
+on:
+  pull_request_target:
+    types: [labeled]
+    branches:
+      - master
+
+jobs:
+  on_pr_opened:
+    if: |
+      github.actor == 'pipedrive-bot' &&
+      !contains(github.event.pull_request.labels.*.name, 'npm-ready-for-publish') && (
+         contains(github.event.pull_request.labels.*.name, 'npm-version-patch') ||
+         contains(github.event.pull_request.labels.*.name, 'npm-version-minor') ||
+         contains(github.event.pull_request.labels.*.name, 'npm-version-major')
+      )
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Read .nvmrc
+        run: echo ::set-output name=NVMRC::$(cat .nvmrc)
+        id: nvm
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '${{ steps.nvm.outputs.NVMRC }}'
+
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
+      - run: npm install
+
+      - run: npx changelog-updater --check
+
+      - name: Approve PR and add publish label
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr review ${{ github.event.number }} --approve --body "Approved by automation"
+          gh pr edit ${{ github.event.number }} --add-label "npm-ready-for-publish"
