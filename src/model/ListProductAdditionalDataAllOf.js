@@ -57,11 +57,6 @@ class ListProductAdditionalDataAllOf {
 
                 delete data['products_sum_total'];
             }
-            if (data.hasOwnProperty('variations_enabled')) {
-                obj['variations_enabled'] = ApiClient.convertToType(data['variations_enabled'], 'Boolean');
-
-                delete data['variations_enabled'];
-            }
             if (data.hasOwnProperty('products_quantity_total_formatted')) {
                 obj['products_quantity_total_formatted'] = ApiClient.convertToType(data['products_quantity_total_formatted'], 'String');
 
@@ -95,12 +90,6 @@ ListProductAdditionalDataAllOf.prototype['products_quantity_total'] = undefined;
  * @member {Number} products_sum_total
  */
 ListProductAdditionalDataAllOf.prototype['products_sum_total'] = undefined;
-
-/**
- * Whether variations is enabled or not
- * @member {Boolean} variations_enabled
- */
-ListProductAdditionalDataAllOf.prototype['variations_enabled'] = undefined;
 
 /**
  * The total formatted quantity of the products
