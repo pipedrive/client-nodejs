@@ -8,6 +8,12 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [20.0.0] - 2023-05-22
+### Changed
+- Updated `label` field data type in response examples from number -> string for Deals related endpoints
+### Changed
+Changed `active_flag`, `enabled_flag`, and `selectable` body parameters and response examples data type from number -> boolean for all Products related endpoints
+
 ## [19.1.0] - 2023-04-27
 ### Added
 - Added `revokeToken` function to the sdk. With this function you can revoke an access token or refresh token (mark an app as uninstalled).
@@ -502,7 +508,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v19.1.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v20.0.0...HEAD
+[20.0.0]: https://github.com/pipedrive/api-docs/compare/v19.1.0...v20.0.0
 [19.1.0]: https://github.com/pipedrive/api-docs/compare/v19.0.1...v19.1.0
 [19.0.1]: https://github.com/pipedrive/api-docs/compare/v19.0.0...v19.0.1
 [19.0.0]: https://github.com/pipedrive/api-docs/compare/v18.1.4...v19.0.0

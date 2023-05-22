@@ -1271,24 +1271,26 @@ Class | Method | HTTP request | Description
 - **Flow**: accessCode
 - **Authorization URL**: https://oauth.pipedrive.com/oauth/authorize
 - **Scopes**: 
-  - deals:read: Read most data about deals and related entities.
-  - deals:full: Create, read, update and delete deals, its participants and followers.
-  - goals:read: Read data on all goals.
-  - goals:full: Create, read, update and delete goals.
-  - leads:read: Read leads and leads labels.
-  - leads:full: Create, read, update and delete leads and leads labels
-  - activities:read: Read activities, its fields and types; all files and filters.
-  - activities:full: Create, read, update and delete activities and all files and filters.
-  - contacts:read: Read data about persons and organizations, their related fields and followers.
-  - contacts:full: Create, read, update and delete persons and organizations and their followers.
-  - admin: Allows to do many things that an administrator can do in a Pipedrive company account.
-  - recents:read: Read all recent changes occured in an account.
-  - search:read: Search across the account for deals, persons, organizations, files and products and see details about the returned results.
-  - mail:read: Read mail threads and messages.
-  - mail:full: Read, update and delete mail threads. Also grants read access to mail messages.
-  - products:read: Read products, its fields, files, followers and products connected to a deal.
+  - base: Read settings of the authorized user and currencies in an account
+  - deals:read: Read most of the data about deals and related entities - deal fields, products, followers, participants; all notes, files, filters, pipelines, stages, and statistics. Does not include access to activities (except the last and next activity related to a deal)
+  - deals:full: Create, read, update and delete deals, its participants and followers; all files, notes, and filters. It also includes read access to deal fields, pipelines, stages, and statistics. Does not include access to activities (except the last and next activity related to a deal)
+  - mail:read: Read mail threads and messages
+  - mail:full: Read, update and delete mail threads. Also grants read access to mail messages
+  - activities:read: Read activities, its fields and types; all files and filters
+  - activities:full: Create, read, update and delete activities and all files and filters. Also includes read access to activity fields and types
+  - contacts:read: Read the data about persons and organizations, their related fields and followers; also all notes, files, filters
+  - contacts:full: Create, read, update and delete persons and organizations and their followers; all notes, files, filters. Also grants read access to contacts-related fields
+  - products:read: Read products, its fields, files, followers and products connected to a deal
   - products:full: Create, read, update and delete products and its fields; add products to deals
-  - users:read: Read data about users (people with access to a Pipedrive account), their permissions, roles and followers, as well as about legacy teams.
-  - base: Read settings of the authorized user and currencies in an account.
-  - phone-integration: Create, read and delete call logs and its audio recordings.
+  - users:read: Read data about users (people with access to a Pipedrive account), their permissions, roles and followers
+  - recents:read: Read all recent changes occurred in an account. Includes data about activities, activity types, deals, files, filters, notes, persons, organizations, pipelines, stages, products and users
+  - search:read: Search across the account for deals, persons, organizations, files and products, and see details about the returned results
+  - admin: Allows to do many things that an administrator can do in a Pipedrive company account - create, read, update and delete pipelines and its stages; deal, person and organization fields; activity types; users and permissions, etc. It also allows the app to create webhooks and fetch and delete webhooks that are created by the app
+  - leads:read: Read data about leads and lead labels
+  - leads:full: Create, read, update and delete leads and lead labels
+  - phone-integration: Enables advanced call integration features like logging call duration and other metadata, and play call recordings inside Pipedrive
+  - goals:read: Read data on all goals
+  - goals:full: Create, read, update and delete goals
+  - video-calls: Allows application to register as a video call integration provider and create conference links
+  - messengers-integration: Allows application to register as a messengers integration provider and allows them to deliver incoming messages and their statuses
 
