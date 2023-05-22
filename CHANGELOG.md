@@ -7,6 +7,11 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Removed
+Based on this [Changelog post](https://developers.pipedrive.com/changelog/post/removal-of-codevariations_enabledcode-response-field-from-codeget-dealsidproductscode):
+- Removed `variations_enabled` response field from `GET /deals/{id}/products`
+### Added
+- Added `revokeToken` function to the sdk. With this function you can revoke an access token or refresh token (mark an app as uninstalled). 
 
 ## [20.0.0] - 2023-05-22
 ### Removed
