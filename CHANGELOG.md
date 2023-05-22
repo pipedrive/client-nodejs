@@ -7,6 +7,8 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+
+## [20.0.0] - 2023-05-22
 ### Changed
 - Updated `label` field data type in response examples from number -> string for Deals related endpoints
 ### Changed
@@ -506,7 +508,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v19.1.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v20.0.0...HEAD
+[20.0.0]: https://github.com/pipedrive/api-docs/compare/v19.1.0...v20.0.0
 [19.1.0]: https://github.com/pipedrive/api-docs/compare/v19.0.1...v19.1.0
 [19.0.1]: https://github.com/pipedrive/api-docs/compare/v19.0.0...v19.0.1
 [19.0.0]: https://github.com/pipedrive/api-docs/compare/v18.1.4...v19.0.0
