@@ -9,10 +9,11 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 ## [Unreleased]
 
 ## [20.0.0] - 2023-05-22
-### Changed
-- Updated `label` field data type in response examples from number -> string for Deals related endpoints
-### Changed
-Changed `active_flag`, `enabled_flag`, and `selectable` body parameters and response examples data type from number -> boolean for all Products related endpoints
+### Removed
+
+Based on this [Changelog post](https://developers.pipedrive.com/changelog/post/removal-of-codevariations_enabledcode-response-field-from-codeget-dealsidproductscode):
+
+- Removed `variations_enabled` response field from `GET /deals/{id}/products`
 
 ## [19.1.0] - 2023-04-27
 ### Added
@@ -21,7 +22,6 @@ Changed `active_flag`, `enabled_flag`, and `selectable` body parameters and resp
 ## [19.0.1] - 2023-04-27
 ### Changed
 - Updated `label` field data type in response examples from number -> string for Deals related endpoints
-### Changed
 Changed `active_flag`, `enabled_flag`, and `selectable` body parameters and response examples data type from number -> boolean for all Products related endpoints
 
 ## [19.0.0] - 2023-04-04
