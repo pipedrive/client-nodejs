@@ -4,6 +4,11 @@
   "description": "Pipedrive REST client for NodeJS",
   "license": "MIT",
   "main": "dist/index.js",
+  "homepage": "https://developers.pipedrive.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pipedrive/client-nodejs"
+  },
   "scripts": {
     "build": "babel src -d dist",
     "prepack": "npm run build",
