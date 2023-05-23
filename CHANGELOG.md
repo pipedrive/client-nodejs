@@ -8,6 +8,8 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [20.0.2] - 2023-05-23
+
 ## [20.0.1] - 2023-05-23
 ### Changed
 - Updated README.md file: fixed documentation links, added content table
@@ -512,7 +514,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v20.0.1...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v20.0.2...HEAD
+[20.0.2]: https://github.com/pipedrive/api-docs/compare/v20.0.1...v20.0.2
 [20.0.1]: https://github.com/pipedrive/api-docs/compare/v20.0.0...v20.0.1
 [20.0.0]: https://github.com/pipedrive/api-docs/compare/v19.1.0...v20.0.0
 [19.1.0]: https://github.com/pipedrive/api-docs/compare/v19.0.1...v19.1.0
