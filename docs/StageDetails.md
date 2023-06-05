@@ -17,14 +17,3 @@ Name | Type | Description | Notes
 **dealsSummary** | [**DealSummary**](DealSummary.md) |  | [optional] 
 
 
-
-## Enum: RottenFlagEnum
-
-
-* `true` (value: `"true"`)
-
-* `false` (value: `"false"`)
-
-
-
-

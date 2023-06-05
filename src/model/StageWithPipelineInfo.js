@@ -163,7 +163,7 @@ StageWithPipelineInfo.prototype['pipeline_id'] = undefined;
 
 /**
  * Whether deals in this stage can become rotten
- * @member {module:model/StageWithPipelineInfo.RottenFlagEnum} rotten_flag
+ * @member {Boolean} rotten_flag
  */
 StageWithPipelineInfo.prototype['rotten_flag'] = undefined;
 
@@ -231,7 +231,7 @@ BaseStage.prototype['deal_probability'] = undefined;
 BaseStage.prototype['pipeline_id'] = undefined;
 /**
  * Whether deals in this stage can become rotten
- * @member {module:model/BaseStage.RottenFlagEnum} rotten_flag
+ * @member {Boolean} rotten_flag
  */
 BaseStage.prototype['rotten_flag'] = undefined;
 /**
@@ -261,27 +261,6 @@ StageWithPipelineInfoAllOf.prototype['pipeline_name'] = undefined;
  */
 StageWithPipelineInfoAllOf.prototype['pipeline_deal_probability'] = undefined;
 
-
-
-/**
- * Allowed values for the <code>rotten_flag</code> property.
- * @enum {Boolean}
- * @readonly
- */
-StageWithPipelineInfo['RottenFlagEnum'] = {
-
-    /**
-     * value: "true"
-     * @const
-     */
-    "true": "true",
-
-    /**
-     * value: "false"
-     * @const
-     */
-    "false": "false"
-};
 
 
 

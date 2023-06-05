@@ -16,14 +16,3 @@ Name | Type | Description | Notes
 **updateTime** | **String** | The stage update time. Format: YYYY-MM-DD HH:MM:SS. | [optional] 
 
 
-
-## Enum: RottenFlagEnum
-
-
-* `true` (value: `"true"`)
-
-* `false` (value: `"false"`)
-
-
-
-

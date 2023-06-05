@@ -1974,7 +1974,7 @@ export default class DealsApi {
      * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`). Please note that the search term has to be URL encoded.
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.fields A comma-separated string array. The fields to perform the search from. Defaults to all of them.
-     * @param {module:model/Boolean} opts.exactMatch When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
+     * @param {Boolean} opts.exactMatch When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
      * @param {Number} opts.personId Will filter deals by the provided person ID. The upper limit of found deals associated with the person is 2000.
      * @param {Number} opts.organizationId Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000.
      * @param {module:model/String} opts.status Will filter deals by the provided specific status. open = Open, won = Won, lost = Lost. The upper limit of found deals associated with the status is 2000.
@@ -2051,7 +2051,7 @@ export default class DealsApi {
      * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`). Please note that the search term has to be URL encoded.
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.fields A comma-separated string array. The fields to perform the search from. Defaults to all of them.
-     * @param {module:model/Boolean} opts.exactMatch When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
+     * @param {Boolean} opts.exactMatch When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
      * @param {Number} opts.personId Will filter deals by the provided person ID. The upper limit of found deals associated with the person is 2000.
      * @param {Number} opts.organizationId Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000.
      * @param {module:model/String} opts.status Will filter deals by the provided specific status. open = Open, won = Won, lost = Lost. The upper limit of found deals associated with the status is 2000.

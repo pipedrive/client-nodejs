@@ -11,14 +11,3 @@ Name | Type | Description | Notes
 **rottenDays** | **Number** | The number of days the deals not updated in this stage would become rotten. Applies only if the &#x60;rotten_flag&#x60; is set. | [optional] 
 
 
-
-## Enum: RottenFlagEnum
-
-
-* `true` (value: `"true"`)
-
-* `false` (value: `"false"`)
-
-
-
-

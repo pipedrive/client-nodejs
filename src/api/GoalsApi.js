@@ -272,7 +272,7 @@ export default class GoalsApi {
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.typeName The type of the goal. If provided, everyone's goals will be returned.
      * @param {String} opts.title The title of the goal
-     * @param {module:model/Boolean} opts.isActive Whether the goal is active or not (default to true)
+     * @param {Boolean} opts.isActive Whether the goal is active or not (default to true)
      * @param {Number} opts.assigneeId The ID of the user who's goal to fetch. When omitted, only your goals will be returned.
      * @param {module:model/String} opts.assigneeType The type of the goal's assignee. If provided, everyone's goals will be returned.
      * @param {Number} opts.expectedOutcomeTarget The numeric value of the outcome. If provided, everyone's goals will be returned.
@@ -357,7 +357,7 @@ export default class GoalsApi {
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.typeName The type of the goal. If provided, everyone's goals will be returned.
      * @param {String} opts.title The title of the goal
-     * @param {module:model/Boolean} opts.isActive Whether the goal is active or not (default to true)
+     * @param {Boolean} opts.isActive Whether the goal is active or not (default to true)
      * @param {Number} opts.assigneeId The ID of the user who's goal to fetch. When omitted, only your goals will be returned.
      * @param {module:model/String} opts.assigneeType The type of the goal's assignee. If provided, everyone's goals will be returned.
      * @param {Number} opts.expectedOutcomeTarget The numeric value of the outcome. If provided, everyone's goals will be returned.

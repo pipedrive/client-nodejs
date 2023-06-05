@@ -555,7 +555,7 @@ export default class RolesApi {
      * Returns the list of either visible or hidden pipeline IDs for a specific role. For more information on pipeline visibility, please refer to the <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">Visibility groups article</a>.
      * @param {Number} id The ID of the role
      * @param {Object} opts Optional parameters
-     * @param {module:model/Boolean} opts.visible Whether to return the visible or hidden pipelines for the role (default to true)
+     * @param {Boolean} opts.visible Whether to return the visible or hidden pipelines for the role (default to true)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetRolePipelines} and HTTP response
      */
     getRolePipelinesWithHttpInfo(id, opts) {
@@ -611,7 +611,7 @@ export default class RolesApi {
      * Returns the list of either visible or hidden pipeline IDs for a specific role. For more information on pipeline visibility, please refer to the <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">Visibility groups article</a>.
      * @param {Number} id The ID of the role
      * @param {Object} opts Optional parameters
-     * @param {module:model/Boolean} opts.visible Whether to return the visible or hidden pipelines for the role (default to true)
+     * @param {Boolean} opts.visible Whether to return the visible or hidden pipelines for the role (default to true)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetRolePipelines}
      */
     getRolePipelines(id, opts) {

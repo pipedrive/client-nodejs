@@ -24,14 +24,3 @@ Name | Type | Description | Notes
 **done** | [**NumberBoolean**](NumberBoolean.md) | Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done | [optional] 
 
 
-
-## Enum: BusyFlagEnum
-
-
-* `true` (value: `"true"`)
-
-* `false` (value: `"false"`)
-
-
-
-

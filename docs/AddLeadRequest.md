@@ -15,14 +15,3 @@ Name | Type | Description | Notes
 **wasSeen** | **Boolean** | A flag indicating whether the lead was seen by someone in the Pipedrive UI | [optional] 
 
 
-
-## Enum: WasSeenEnum
-
-
-* `true` (value: `"true"`)
-
-* `false` (value: `"false"`)
-
-
-
-

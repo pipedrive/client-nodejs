@@ -18,14 +18,3 @@ Name | Type | Description | Notes
 **pipelineDealProbability** | **Boolean** | The pipeline deal probability. When &#x60;true&#x60;, overrides the stage probability. | [optional] 
 
 
-
-## Enum: RottenFlagEnum
-
-
-* `true` (value: `"true"`)
-
-* `false` (value: `"false"`)
-
-
-
-

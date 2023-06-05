@@ -90,34 +90,13 @@ FieldCreateRequestAllOf.prototype['options'] = undefined;
 
 /**
  * Whether the field is available in the 'add new' modal or not (both in the web and mobile app)
- * @member {module:model/FieldCreateRequestAllOf.AddVisibleFlagEnum} add_visible_flag
+ * @member {Boolean} add_visible_flag
  * @default true
  */
 FieldCreateRequestAllOf.prototype['add_visible_flag'] = true;
 
 
 
-
-
-/**
- * Allowed values for the <code>add_visible_flag</code> property.
- * @enum {Boolean}
- * @readonly
- */
-FieldCreateRequestAllOf['AddVisibleFlagEnum'] = {
-
-    /**
-     * value: "true"
-     * @const
-     */
-    "true": "true",
-
-    /**
-     * value: "false"
-     * @const
-     */
-    "false": "false"
-};
 
 
 

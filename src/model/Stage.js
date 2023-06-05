@@ -104,7 +104,7 @@ Stage.prototype['deal_probability'] = undefined;
 
 /**
  * Whether deals in this stage can become rotten
- * @member {module:model/Stage.RottenFlagEnum} rotten_flag
+ * @member {Boolean} rotten_flag
  */
 Stage.prototype['rotten_flag'] = undefined;
 
@@ -116,27 +116,6 @@ Stage.prototype['rotten_days'] = undefined;
 
 
 
-
-
-/**
- * Allowed values for the <code>rotten_flag</code> property.
- * @enum {Boolean}
- * @readonly
- */
-Stage['RottenFlagEnum'] = {
-
-    /**
-     * value: "true"
-     * @const
-     */
-    "true": "true",
-
-    /**
-     * value: "false"
-     * @const
-     */
-    "false": "false"
-};
 
 
 

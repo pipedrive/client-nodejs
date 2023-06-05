@@ -9,14 +9,3 @@ Name | Type | Description | Notes
 **addVisibleFlag** | **Boolean** | Whether the field is available in the &#39;add new&#39; modal or not (both in the web and mobile app) | [optional] [default to true]
 
 
-
-## Enum: AddVisibleFlagEnum
-
-
-* `true` (value: `"true"`)
-
-* `false` (value: `"false"`)
-
-
-
-

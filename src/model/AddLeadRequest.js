@@ -157,33 +157,12 @@ AddLeadRequest.prototype['visible_to'] = undefined;
 
 /**
  * A flag indicating whether the lead was seen by someone in the Pipedrive UI
- * @member {module:model/AddLeadRequest.WasSeenEnum} was_seen
+ * @member {Boolean} was_seen
  */
 AddLeadRequest.prototype['was_seen'] = undefined;
 
 
 
-
-
-/**
- * Allowed values for the <code>was_seen</code> property.
- * @enum {Boolean}
- * @readonly
- */
-AddLeadRequest['WasSeenEnum'] = {
-
-    /**
-     * value: "true"
-     * @const
-     */
-    "true": "true",
-
-    /**
-     * value: "false"
-     * @const
-     */
-    "false": "false"
-};
 
 
 

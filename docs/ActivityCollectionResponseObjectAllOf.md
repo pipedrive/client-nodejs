@@ -32,14 +32,3 @@ Name | Type | Description | Notes
 **locationFormattedAddress** | **String** | A subfield of the location field. Indicates full/combined address. | [optional] 
 
 
-
-## Enum: BusyFlagEnum
-
-
-* `true` (value: `"true"`)
-
-* `false` (value: `"false"`)
-
-
-
-

@@ -358,7 +358,7 @@ ActivityResponseObjectAllOf.prototype['participants'] = undefined;
 
 /**
  * Marks if the activity is set as 'Busy' or 'Free'. If the flag is set to `true`, your customers will not be able to book that time slot through any Scheduler links. The flag can also be unset. When the value of the flag is unset (`null`), the flag defaults to 'Busy' if it has a time set, and 'Free' if it is an all-day event without specified time.
- * @member {module:model/ActivityResponseObjectAllOf.BusyFlagEnum} busy_flag
+ * @member {Boolean} busy_flag
  */
 ActivityResponseObjectAllOf.prototype['busy_flag'] = undefined;
 
@@ -622,27 +622,6 @@ ActivityResponseObjectAllOf.prototype['file'] = undefined;
 
 
 
-
-
-/**
- * Allowed values for the <code>busy_flag</code> property.
- * @enum {Boolean}
- * @readonly
- */
-ActivityResponseObjectAllOf['BusyFlagEnum'] = {
-
-    /**
-     * value: "true"
-     * @const
-     */
-    "true": "true",
-
-    /**
-     * value: "false"
-     * @const
-     */
-    "false": "false"
-};
 
 
 
