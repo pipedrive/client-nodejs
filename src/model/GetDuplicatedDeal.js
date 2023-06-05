@@ -54,7 +54,7 @@ class GetDuplicatedDeal {
                 delete data['success'];
             }
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], DealStrict);
+                obj['data'] = DealStrict.constructFromObject(data['data']);
 
                 delete data['data'];
             }
@@ -77,7 +77,6 @@ class GetDuplicatedDeal {
 GetDuplicatedDeal.prototype['success'] = undefined;
 
 /**
- * The deal object
  * @member {module:model/DealStrict} data
  */
 GetDuplicatedDeal.prototype['data'] = undefined;

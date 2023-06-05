@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [20.1.0] - 2023-06-05
+### Changed
+- Update the paths to DealStrict and DealNonStrict schemas
+
 ## [20.0.2] - 2023-05-23
 
 ## [20.0.1] - 2023-05-23
@@ -514,7 +518,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v20.0.2...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v20.1.0...HEAD
+[20.1.0]: https://github.com/pipedrive/api-docs/compare/v20.0.2...v20.1.0
 [20.0.2]: https://github.com/pipedrive/api-docs/compare/v20.0.1...v20.0.2
 [20.0.1]: https://github.com/pipedrive/api-docs/compare/v20.0.0...v20.0.1
 [20.0.0]: https://github.com/pipedrive/api-docs/compare/v19.1.0...v20.0.0
