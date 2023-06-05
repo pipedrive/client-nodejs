@@ -55,7 +55,7 @@ class GetAddedDeal {
                 delete data['success'];
             }
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], DealNonStrict);
+                obj['data'] = DealNonStrict.constructFromObject(data['data']);
 
                 delete data['data'];
             }
@@ -83,7 +83,6 @@ class GetAddedDeal {
 GetAddedDeal.prototype['success'] = undefined;
 
 /**
- * The deal object
  * @member {module:model/DealNonStrict} data
  */
 GetAddedDeal.prototype['data'] = undefined;
