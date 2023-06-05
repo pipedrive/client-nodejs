@@ -337,7 +337,7 @@ ActivityCollectionResponseObject.prototype['user_id'] = undefined;
 
 /**
  * Marks if the activity is set as 'Busy' or 'Free'. If the flag is set to `true`, your customers will not be able to book that time slot through any Scheduler links. The flag can also be unset. When the value of the flag is unset (`null`), the flag defaults to 'Busy' if it has a time set, and 'Free' if it is an all-day event without specified time.
- * @member {module:model/ActivityCollectionResponseObject.BusyFlagEnum} busy_flag
+ * @member {Boolean} busy_flag
  */
 ActivityCollectionResponseObject.prototype['busy_flag'] = undefined;
 
@@ -541,7 +541,7 @@ ActivityCollectionResponseObjectAllOf.prototype['type'] = undefined;
 ActivityCollectionResponseObjectAllOf.prototype['user_id'] = undefined;
 /**
  * Marks if the activity is set as 'Busy' or 'Free'. If the flag is set to `true`, your customers will not be able to book that time slot through any Scheduler links. The flag can also be unset. When the value of the flag is unset (`null`), the flag defaults to 'Busy' if it has a time set, and 'Free' if it is an all-day event without specified time.
- * @member {module:model/ActivityCollectionResponseObjectAllOf.BusyFlagEnum} busy_flag
+ * @member {Boolean} busy_flag
  */
 ActivityCollectionResponseObjectAllOf.prototype['busy_flag'] = undefined;
 /**
@@ -645,27 +645,6 @@ ActivityCollectionResponseObjectAllOf.prototype['location_postal_code'] = undefi
  */
 ActivityCollectionResponseObjectAllOf.prototype['location_formatted_address'] = undefined;
 
-
-
-/**
- * Allowed values for the <code>busy_flag</code> property.
- * @enum {Boolean}
- * @readonly
- */
-ActivityCollectionResponseObject['BusyFlagEnum'] = {
-
-    /**
-     * value: "true"
-     * @const
-     */
-    "true": "true",
-
-    /**
-     * value: "false"
-     * @const
-     */
-    "false": "false"
-};
 
 
 

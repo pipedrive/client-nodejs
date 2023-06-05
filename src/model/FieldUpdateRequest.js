@@ -88,34 +88,13 @@ FieldUpdateRequest.prototype['options'] = undefined;
 
 /**
  * Whether the field is available in 'add new' modal or not (both in web and mobile app)
- * @member {module:model/FieldUpdateRequest.AddVisibleFlagEnum} add_visible_flag
+ * @member {Boolean} add_visible_flag
  * @default true
  */
 FieldUpdateRequest.prototype['add_visible_flag'] = true;
 
 
 
-
-
-/**
- * Allowed values for the <code>add_visible_flag</code> property.
- * @enum {Boolean}
- * @readonly
- */
-FieldUpdateRequest['AddVisibleFlagEnum'] = {
-
-    /**
-     * value: "true"
-     * @const
-     */
-    "true": "true",
-
-    /**
-     * value: "false"
-     * @const
-     */
-    "false": "false"
-};
 
 
 

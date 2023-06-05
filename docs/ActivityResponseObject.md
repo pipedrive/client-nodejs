@@ -67,14 +67,3 @@ Name | Type | Description | Notes
 **file** | **Object** | The file that is attached to this activity. For example, this can be a reference to an audio note file generated with Pipedrive mobile app. | [optional] 
 
 
-
-## Enum: BusyFlagEnum
-
-
-* `true` (value: `"true"`)
-
-* `false` (value: `"false"`)
-
-
-
-

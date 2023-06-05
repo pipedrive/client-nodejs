@@ -248,7 +248,7 @@ ActivityPostObject.prototype['participants'] = undefined;
 
 /**
  * Set the activity as 'Busy' or 'Free'. If the flag is set to `true`, your customers will not be able to book that time slot through any Scheduler links. The flag can also be unset by never setting it or overriding it with `null`. When the value of the flag is unset (`null`), the flag defaults to 'Busy' if it has a time set, and 'Free' if it is an all-day event without specified time.
- * @member {module:model/ActivityPostObject.BusyFlagEnum} busy_flag
+ * @member {Boolean} busy_flag
  */
 ActivityPostObject.prototype['busy_flag'] = undefined;
 
@@ -344,7 +344,7 @@ ActivityPostObjectAllOf.prototype['user_id'] = undefined;
 ActivityPostObjectAllOf.prototype['participants'] = undefined;
 /**
  * Set the activity as 'Busy' or 'Free'. If the flag is set to `true`, your customers will not be able to book that time slot through any Scheduler links. The flag can also be unset by never setting it or overriding it with `null`. When the value of the flag is unset (`null`), the flag defaults to 'Busy' if it has a time set, and 'Free' if it is an all-day event without specified time.
- * @member {module:model/ActivityPostObjectAllOf.BusyFlagEnum} busy_flag
+ * @member {Boolean} busy_flag
  */
 ActivityPostObjectAllOf.prototype['busy_flag'] = undefined;
 /**
@@ -358,27 +358,6 @@ ActivityPostObjectAllOf.prototype['attendees'] = undefined;
  */
 ActivityPostObjectAllOf.prototype['done'] = undefined;
 
-
-
-/**
- * Allowed values for the <code>busy_flag</code> property.
- * @enum {Boolean}
- * @readonly
- */
-ActivityPostObject['BusyFlagEnum'] = {
-
-    /**
-     * value: "true"
-     * @const
-     */
-    "true": "true",
-
-    /**
-     * value: "false"
-     * @const
-     */
-    "false": "false"
-};
 
 
 

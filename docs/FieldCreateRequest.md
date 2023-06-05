@@ -10,14 +10,3 @@ Name | Type | Description | Notes
 **fieldType** | [**FieldTypeAsString**](FieldTypeAsString.md) |  | 
 
 
-
-## Enum: AddVisibleFlagEnum
-
-
-* `true` (value: `"true"`)
-
-* `false` (value: `"false"`)
-
-
-
-

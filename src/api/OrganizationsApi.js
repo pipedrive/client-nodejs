@@ -1250,7 +1250,7 @@ export default class OrganizationsApi {
      * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`). Please note that the search term has to be URL encoded.
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.fields A comma-separated string array. The fields to perform the search from. Defaults to all of them.
-     * @param {module:model/Boolean} opts.exactMatch When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
+     * @param {Boolean} opts.exactMatch When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
      * @param {Number} opts.start Pagination start. Note that the pagination is based on main results and does not include related items when using `search_for_related_items` parameter. (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationSearchResponse} and HTTP response
@@ -1315,7 +1315,7 @@ export default class OrganizationsApi {
      * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`). Please note that the search term has to be URL encoded.
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.fields A comma-separated string array. The fields to perform the search from. Defaults to all of them.
-     * @param {module:model/Boolean} opts.exactMatch When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
+     * @param {Boolean} opts.exactMatch When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
      * @param {Number} opts.start Pagination start. Note that the pagination is based on main results and does not include related items when using `search_for_related_items` parameter. (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationSearchResponse}

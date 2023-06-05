@@ -115,7 +115,7 @@ UpdateStageRequest.prototype['deal_probability'] = undefined;
 
 /**
  * Whether deals in this stage can become rotten
- * @member {module:model/UpdateStageRequest.RottenFlagEnum} rotten_flag
+ * @member {Boolean} rotten_flag
  */
 UpdateStageRequest.prototype['rotten_flag'] = undefined;
 
@@ -150,7 +150,7 @@ Stage.prototype['pipeline_id'] = undefined;
 Stage.prototype['deal_probability'] = undefined;
 /**
  * Whether deals in this stage can become rotten
- * @member {module:model/Stage.RottenFlagEnum} rotten_flag
+ * @member {Boolean} rotten_flag
  */
 Stage.prototype['rotten_flag'] = undefined;
 /**
@@ -165,27 +165,6 @@ Stage.prototype['rotten_days'] = undefined;
  */
 UpdateStageRequestAllOf.prototype['order_nr'] = undefined;
 
-
-
-/**
- * Allowed values for the <code>rotten_flag</code> property.
- * @enum {Boolean}
- * @readonly
- */
-UpdateStageRequest['RottenFlagEnum'] = {
-
-    /**
-     * value: "true"
-     * @const
-     */
-    "true": "true",
-
-    /**
-     * value: "false"
-     * @const
-     */
-    "false": "false"
-};
 
 
 
