@@ -7,6 +7,8 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+
+## [20.1.1] - 2023-06-05
 ### Removed
 - `enum` keyword from boolean schema attributes as its possible values are not the string type
 
@@ -520,7 +522,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v20.1.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v20.1.1...HEAD
+[20.1.1]: https://github.com/pipedrive/api-docs/compare/v20.1.0...v20.1.1
 [20.1.0]: https://github.com/pipedrive/api-docs/compare/v20.0.2...v20.1.0
 [20.0.2]: https://github.com/pipedrive/api-docs/compare/v20.0.1...v20.0.2
 [20.0.1]: https://github.com/pipedrive/api-docs/compare/v20.0.0...v20.0.1
