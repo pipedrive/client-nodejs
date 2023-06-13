@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## addCallLog
 
-> BaseResponse addCallLog(opts)
+> CallLogResponse200 addCallLog(opts)
 
 Add a call log
 
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BaseResponse**](BaseResponse.md)
+[**CallLogResponse200**](CallLogResponse200.md)
 
 ### Authorization
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 ## getCallLog
 
-> BaseResponse getCallLog(id)
+> CallLogResponse200 getCallLog(id)
 
 Get details of a call log
 
@@ -216,7 +216,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BaseResponse**](BaseResponse.md)
+[**CallLogResponse200**](CallLogResponse200.md)
 
 ### Authorization
 
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ## getUserCallLogs
 
-> BaseResponse getUserCallLogs(opts)
+> CallLogsResponse getUserCallLogs(opts)
 
 Get all call logs assigned to a particular user
 
@@ -273,7 +273,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BaseResponse**](BaseResponse.md)
+[**CallLogsResponse**](CallLogsResponse.md)
 
 ### Authorization
 
