@@ -138,12 +138,15 @@ import BulkDeleteResponseAllOf from './model/BulkDeleteResponseAllOf';
 import BulkDeleteResponseAllOfData from './model/BulkDeleteResponseAllOfData';
 import CalculatedFields from './model/CalculatedFields';
 import CallLogObject from './model/CallLogObject';
+import CallLogResponse200 from './model/CallLogResponse200';
 import CallLogResponse400 from './model/CallLogResponse400';
 import CallLogResponse403 from './model/CallLogResponse403';
 import CallLogResponse404 from './model/CallLogResponse404';
 import CallLogResponse409 from './model/CallLogResponse409';
 import CallLogResponse410 from './model/CallLogResponse410';
 import CallLogResponse500 from './model/CallLogResponse500';
+import CallLogsResponse from './model/CallLogsResponse';
+import CallLogsResponseAdditionalData from './model/CallLogsResponseAdditionalData';
 import ChannelObject from './model/ChannelObject';
 import ChannelObjectResponse from './model/ChannelObjectResponse';
 import ChannelObjectResponseData from './model/ChannelObjectResponseData';
@@ -1571,6 +1574,12 @@ export {
     CallLogObject,
 
     /**
+     * The CallLogResponse200 model constructor.
+     * @property {module:model/CallLogResponse200}
+     */
+    CallLogResponse200,
+
+    /**
      * The CallLogResponse400 model constructor.
      * @property {module:model/CallLogResponse400}
      */
@@ -1605,6 +1614,18 @@ export {
      * @property {module:model/CallLogResponse500}
      */
     CallLogResponse500,
+
+    /**
+     * The CallLogsResponse model constructor.
+     * @property {module:model/CallLogsResponse}
+     */
+    CallLogsResponse,
+
+    /**
+     * The CallLogsResponseAdditionalData model constructor.
+     * @property {module:model/CallLogsResponseAdditionalData}
+     */
+    CallLogsResponseAdditionalData,
 
     /**
      * The ChannelObject model constructor.

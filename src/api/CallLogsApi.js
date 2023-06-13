@@ -15,12 +15,14 @@
 import ApiClient from "../ApiClient";
 import BaseResponse from '../model/BaseResponse';
 import CallLogObject from '../model/CallLogObject';
+import CallLogResponse200 from '../model/CallLogResponse200';
 import CallLogResponse400 from '../model/CallLogResponse400';
 import CallLogResponse403 from '../model/CallLogResponse403';
 import CallLogResponse404 from '../model/CallLogResponse404';
 import CallLogResponse409 from '../model/CallLogResponse409';
 import CallLogResponse410 from '../model/CallLogResponse410';
 import CallLogResponse500 from '../model/CallLogResponse500';
+import CallLogsResponse from '../model/CallLogsResponse';
 
 /**
 * CallLogs service.
@@ -47,7 +49,7 @@ export default class CallLogsApi {
      * Adds a new call log.
      * @param {Object} opts Optional parameters
      * @param {module:model/CallLogObject} opts.callLogObject 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BaseResponse} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CallLogResponse200} and HTTP response
      */
     addCallLogWithHttpInfo(opts) {
       opts = opts || {};
@@ -94,7 +96,7 @@ export default class CallLogsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = BaseResponse;
+      let returnType = CallLogResponse200;
       return this.apiClient.callApi(
         '/callLogs', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -107,7 +109,7 @@ export default class CallLogsApi {
      * Adds a new call log.
      * @param {Object} opts Optional parameters
      * @param {module:model/CallLogObject} opts.callLogObject 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BaseResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CallLogResponse200}
      */
     addCallLog(opts) {
       return this.addCallLogWithHttpInfo(opts)
@@ -262,7 +264,7 @@ export default class CallLogsApi {
      * Get details of a call log
      * Returns details of a specific call log.
      * @param {String} id The ID received when you create the call log
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BaseResponse} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CallLogResponse200} and HTTP response
      */
     getCallLogWithHttpInfo(id) {
       const opts = {}
@@ -302,7 +304,7 @@ export default class CallLogsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = BaseResponse;
+      let returnType = CallLogResponse200;
       return this.apiClient.callApi(
         '/callLogs/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -314,7 +316,7 @@ export default class CallLogsApi {
      * Get details of a call log
      * Returns details of a specific call log.
      * @param {String} id The ID received when you create the call log
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BaseResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CallLogResponse200}
      */
     getCallLog(id) {
       return this.getCallLogWithHttpInfo(id)
@@ -330,7 +332,7 @@ export default class CallLogsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit For pagination, the limit of entries to be returned. The upper limit is 50.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/BaseResponse} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CallLogsResponse} and HTTP response
      */
     getUserCallLogsWithHttpInfo(opts) {
       opts = opts || {};
@@ -368,7 +370,7 @@ export default class CallLogsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = BaseResponse;
+      let returnType = CallLogsResponse;
       return this.apiClient.callApi(
         '/callLogs', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -382,7 +384,7 @@ export default class CallLogsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit For pagination, the limit of entries to be returned. The upper limit is 50.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BaseResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CallLogsResponse}
      */
     getUserCallLogs(opts) {
       return this.getUserCallLogsWithHttpInfo(opts)
