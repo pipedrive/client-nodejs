@@ -23,11 +23,10 @@ class UpdateDealProduct {
     /**
      * Constructs a new <code>UpdateDealProduct</code>.
      * @alias module:model/UpdateDealProduct
-     * @param productId {Number} The ID of the product to use
      */
-    constructor(productId) { 
+    constructor() { 
         
-        UpdateDealProduct.initialize(this, productId);
+        UpdateDealProduct.initialize(this);
     }
 
     /**
@@ -35,8 +34,7 @@ class UpdateDealProduct {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, productId) { 
-        obj['product_id'] = productId;
+    static initialize(obj) { 
     }
 
     /**
