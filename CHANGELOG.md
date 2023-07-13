@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [20.4.0] - 2023-07-13
+### Changed
+- Schemas for `call-logs` as they only included `base-response` without additional properties in the response schema
+
 ## [20.3.0] - 2023-06-13
 ### Changed
 - Schemas for `call-logs` as they only included `base-response` without additional properties in the response schema
@@ -530,7 +534,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v20.3.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v20.4.0...HEAD
+[20.4.0]: https://github.com/pipedrive/api-docs/compare/v20.3.0...v20.4.0
 [20.3.0]: https://github.com/pipedrive/api-docs/compare/v20.2.0...v20.3.0
 [20.2.0]: https://github.com/pipedrive/api-docs/compare/v20.1.1...v20.2.0
 [20.1.1]: https://github.com/pipedrive/api-docs/compare/v20.1.0...v20.1.1
