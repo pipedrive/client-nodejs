@@ -7,18 +7,20 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Fixed
+- Variable name in the "Complete example" paragraph in the README
 
 ## [20.5.1] - 2023-07-18
 ### Changed
 - Added list of searchable custom field types to persons, organizations, products and deals search endpoints descriptions.
 
 ## [20.5.0] - 2023-07-17
-### Changed
-Changed `product_id` body parameter to be optional for Update Deal Product endpoint
+### Added
+- `deprecated_operators` field to `GET /filters/helpers` endpoint response
 
 ## [20.4.0] - 2023-07-13
 ### Changed
-- Schemas for `call-logs` as they only included `base-response` without additional properties in the response schema
+- Changed `product_id` body parameter to be optional for Update Deal Product endpoint
 
 ## [20.3.0] - 2023-06-13
 ### Changed
