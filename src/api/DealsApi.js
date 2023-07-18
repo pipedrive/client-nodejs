@@ -1973,7 +1973,7 @@ export default class DealsApi {
      * Searches all deals by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found deals can be filtered by the person ID and the organization ID.
      * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`). Please note that the search term has to be URL encoded.
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.fields A comma-separated string array. The fields to perform the search from. Defaults to all of them.
+     * @param {module:model/String} opts.fields A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: `address`, `varchar`, `text`, `varchar_auto`, `double`, `monetary` and `phone`. Read more about searching by custom fields <a href=\"https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
      * @param {Boolean} opts.exactMatch When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
      * @param {Number} opts.personId Will filter deals by the provided person ID. The upper limit of found deals associated with the person is 2000.
      * @param {Number} opts.organizationId Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000.
@@ -2050,7 +2050,7 @@ export default class DealsApi {
      * Searches all deals by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found deals can be filtered by the person ID and the organization ID.
      * @param {String} term The search term to look for. Minimum 2 characters (or 1 if using `exact_match`). Please note that the search term has to be URL encoded.
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.fields A comma-separated string array. The fields to perform the search from. Defaults to all of them.
+     * @param {module:model/String} opts.fields A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: `address`, `varchar`, `text`, `varchar_auto`, `double`, `monetary` and `phone`. Read more about searching by custom fields <a href=\"https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
      * @param {Boolean} opts.exactMatch When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
      * @param {Number} opts.personId Will filter deals by the provided person ID. The upper limit of found deals associated with the person is 2000.
      * @param {Number} opts.organizationId Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000.
