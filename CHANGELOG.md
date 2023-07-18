@@ -7,6 +7,8 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+
+## [20.5.1] - 2023-07-18
 ### Changed
 - Added list of searchable custom field types to persons, organizations, products and deals search endpoints descriptions.
 
@@ -540,7 +542,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v20.5.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v20.5.1...HEAD
+[20.5.1]: https://github.com/pipedrive/api-docs/compare/v20.5.0...v20.5.1
 [20.5.0]: https://github.com/pipedrive/api-docs/compare/v20.4.0...v20.5.0
 [20.4.0]: https://github.com/pipedrive/api-docs/compare/v20.3.0...v20.4.0
 [20.3.0]: https://github.com/pipedrive/api-docs/compare/v20.2.0...v20.3.0
