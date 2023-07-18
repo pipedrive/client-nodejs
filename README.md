@@ -275,7 +275,7 @@ app.get('/', async (req, res) => {
 
 app.get('/callback', (req, res) => {
     const authCode = req.query.code;
-    const promise = apiClient.authorize(code);
+    const promise = apiClient.authorize(authCode);
 
     promise.then(() => {
         req.session.accessToken = apiClient.authentications.oauth2.accessToken;
