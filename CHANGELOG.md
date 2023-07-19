@@ -8,17 +8,21 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [20.5.2] - 2023-07-19
+### Fixed
+- Variable name in the "Complete example" paragraph in the README
+
 ## [20.5.1] - 2023-07-18
 ### Changed
 - Added list of searchable custom field types to persons, organizations, products and deals search endpoints descriptions.
 
 ## [20.5.0] - 2023-07-17
-### Changed
-Changed `product_id` body parameter to be optional for Update Deal Product endpoint
+### Added
+- `deprecated_operators` field to `GET /filters/helpers` endpoint response
 
 ## [20.4.0] - 2023-07-13
 ### Changed
-- Schemas for `call-logs` as they only included `base-response` without additional properties in the response schema
+- Changed `product_id` body parameter to be optional for Update Deal Product endpoint
 
 ## [20.3.0] - 2023-06-13
 ### Changed
@@ -542,7 +546,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v20.5.1...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v20.5.2...HEAD
+[20.5.2]: https://github.com/pipedrive/api-docs/compare/v20.5.1...v20.5.2
 [20.5.1]: https://github.com/pipedrive/api-docs/compare/v20.5.0...v20.5.1
 [20.5.0]: https://github.com/pipedrive/api-docs/compare/v20.4.0...v20.5.0
 [20.4.0]: https://github.com/pipedrive/api-docs/compare/v20.3.0...v20.4.0
