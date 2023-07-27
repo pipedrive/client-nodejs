@@ -69,10 +69,15 @@ class BasicDealProduct {
 
                 delete data['quantity'];
             }
-            if (data.hasOwnProperty('discount_percentage')) {
-                obj['discount_percentage'] = ApiClient.convertToType(data['discount_percentage'], 'Number');
+            if (data.hasOwnProperty('discount')) {
+                obj['discount'] = ApiClient.convertToType(data['discount'], 'Number');
 
-                delete data['discount_percentage'];
+                delete data['discount'];
+            }
+            if (data.hasOwnProperty('discount_type')) {
+                obj['discount_type'] = ApiClient.convertToType(data['discount_type'], 'String');
+
+                delete data['discount_type'];
             }
             if (data.hasOwnProperty('duration')) {
                 obj['duration'] = ApiClient.convertToType(data['duration'], 'Number');
@@ -98,6 +103,11 @@ class BasicDealProduct {
                 obj['tax'] = ApiClient.convertToType(data['tax'], 'Number');
 
                 delete data['tax'];
+            }
+            if (data.hasOwnProperty('tax_method')) {
+                obj['tax_method'] = ApiClient.convertToType(data['tax_method'], 'String');
+
+                delete data['tax_method'];
             }
             if (data.hasOwnProperty('enabled_flag')) {
                 obj['enabled_flag'] = ApiClient.convertToType(data['enabled_flag'], 'Boolean');
@@ -135,11 +145,18 @@ BasicDealProduct.prototype['item_price'] = undefined;
 BasicDealProduct.prototype['quantity'] = undefined;
 
 /**
- * The discount %. If omitted, will be set to 0.
- * @member {Number} discount_percentage
+ * The value of the discount. The `discount_type` field can be used to specify whether the value is an amount or a percentage.
+ * @member {Number} discount
  * @default 0
  */
-BasicDealProduct.prototype['discount_percentage'] = 0;
+BasicDealProduct.prototype['discount'] = 0;
+
+/**
+ * The type of the discount's value.
+ * @member {module:model/BasicDealProduct.DiscountTypeEnum} discount_type
+ * @default 'percentage'
+ */
+BasicDealProduct.prototype['discount_type'] = 'percentage';
 
 /**
  * The duration of the product. If omitted, will be set to 1.
@@ -174,6 +191,12 @@ BasicDealProduct.prototype['comments'] = undefined;
 BasicDealProduct.prototype['tax'] = 0;
 
 /**
+ * The tax option to be applied to the products. When using `inclusive`, the tax percentage will already be included in the price. When using `exclusive`, the tax will not be included in the price. When using `none`, no tax will be added. Use the `tax` field for defining the tax percentage amount. By default, the user setting value for tax options will be used. Changing this in one product affects the rest of the products attached to the deal.
+ * @member {module:model/BasicDealProduct.TaxMethodEnum} tax_method
+ */
+BasicDealProduct.prototype['tax_method'] = undefined;
+
+/**
  * Whether the product is enabled for a deal or not. This makes it possible to add products to a deal with a specific price and discount criteria, but keep them disabled, which refrains them from being included in the deal value calculation. When omitted, the product will be marked as enabled by default.
  * @member {Boolean} enabled_flag
  * @default true
@@ -182,6 +205,54 @@ BasicDealProduct.prototype['enabled_flag'] = true;
 
 
 
+
+
+/**
+ * Allowed values for the <code>discount_type</code> property.
+ * @enum {String}
+ * @readonly
+ */
+BasicDealProduct['DiscountTypeEnum'] = {
+
+    /**
+     * value: "percentage"
+     * @const
+     */
+    "percentage": "percentage",
+
+    /**
+     * value: "amount"
+     * @const
+     */
+    "amount": "amount"
+};
+
+
+/**
+ * Allowed values for the <code>tax_method</code> property.
+ * @enum {String}
+ * @readonly
+ */
+BasicDealProduct['TaxMethodEnum'] = {
+
+    /**
+     * value: "exclusive"
+     * @const
+     */
+    "exclusive": "exclusive",
+
+    /**
+     * value: "inclusive"
+     * @const
+     */
+    "inclusive": "inclusive",
+
+    /**
+     * value: "none"
+     * @const
+     */
+    "none": "none"
+};
 
 
 
