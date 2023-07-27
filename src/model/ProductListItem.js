@@ -78,10 +78,15 @@ class ProductListItem {
 
                 delete data['item_price'];
             }
-            if (data.hasOwnProperty('discount_percentage')) {
-                obj['discount_percentage'] = ApiClient.convertToType(data['discount_percentage'], 'Number');
+            if (data.hasOwnProperty('discount')) {
+                obj['discount'] = ApiClient.convertToType(data['discount'], 'Number');
 
-                delete data['discount_percentage'];
+                delete data['discount'];
+            }
+            if (data.hasOwnProperty('discount_type')) {
+                obj['discount_type'] = ApiClient.convertToType(data['discount_type'], 'String');
+
+                delete data['discount_type'];
             }
             if (data.hasOwnProperty('duration')) {
                 obj['duration'] = ApiClient.convertToType(data['duration'], 'Number');
@@ -137,6 +142,11 @@ class ProductListItem {
                 obj['tax'] = ApiClient.convertToType(data['tax'], 'Number');
 
                 delete data['tax'];
+            }
+            if (data.hasOwnProperty('tax_method')) {
+                obj['tax_method'] = ApiClient.convertToType(data['tax_method'], 'String');
+
+                delete data['tax_method'];
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
@@ -212,10 +222,18 @@ ProductListItem.prototype['product_variation_id'] = undefined;
 ProductListItem.prototype['item_price'] = undefined;
 
 /**
- * The discount percentage of the product
- * @member {Number} discount_percentage
+ * The value of the discount. The `discount_type` field can be used to specify whether the value is an amount or a percentage.
+ * @member {Number} discount
+ * @default 0
  */
-ProductListItem.prototype['discount_percentage'] = undefined;
+ProductListItem.prototype['discount'] = 0;
+
+/**
+ * The type of the discount's value.
+ * @member {module:model/ProductListItem.DiscountTypeEnum} discount_type
+ * @default 'percentage'
+ */
+ProductListItem.prototype['discount_type'] = 'percentage';
 
 /**
  * The duration of the product
@@ -284,6 +302,12 @@ ProductListItem.prototype['active_flag'] = undefined;
 ProductListItem.prototype['tax'] = undefined;
 
 /**
+ * The tax option to be applied to the products. When using `inclusive`, the tax percentage will already be included in the price. When using `exclusive`, the tax will not be included in the price. When using `none`, no tax will be added. Use the `tax` field for defining the tax percentage amount. By default, the user setting value for tax options will be used. Changing this in one product affects the rest of the products attached to the deal.
+ * @member {module:model/ProductListItem.TaxMethodEnum} tax_method
+ */
+ProductListItem.prototype['tax_method'] = undefined;
+
+/**
  * The product name
  * @member {String} name
  */
@@ -314,6 +338,54 @@ ProductListItem.prototype['product'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>discount_type</code> property.
+ * @enum {String}
+ * @readonly
+ */
+ProductListItem['DiscountTypeEnum'] = {
+
+    /**
+     * value: "percentage"
+     * @const
+     */
+    "percentage": "percentage",
+
+    /**
+     * value: "amount"
+     * @const
+     */
+    "amount": "amount"
+};
+
+
+/**
+ * Allowed values for the <code>tax_method</code> property.
+ * @enum {String}
+ * @readonly
+ */
+ProductListItem['TaxMethodEnum'] = {
+
+    /**
+     * value: "exclusive"
+     * @const
+     */
+    "exclusive": "exclusive",
+
+    /**
+     * value: "inclusive"
+     * @const
+     */
+    "inclusive": "inclusive",
+
+    /**
+     * value: "none"
+     * @const
+     */
+    "none": "none"
+};
 
 
 

@@ -7,12 +7,14 @@ Name | Type | Description | Notes
 **productId** | **Number** | The ID of the product | 
 **itemPrice** | **Number** | The price at which this product will be added to the deal | 
 **quantity** | **Number** | Quantity – e.g. how many items of this product will be added to the deal | 
-**discountPercentage** | **Number** | The discount %. If omitted, will be set to 0. | [optional] [default to 0]
+**discount** | **Number** | The value of the discount. The &#x60;discount_type&#x60; field can be used to specify whether the value is an amount or a percentage. | [optional] [default to 0]
+**discountType** | **String** | The type of the discount&#39;s value. | [optional] [default to &#39;percentage&#39;]
 **duration** | **Number** | The duration of the product. If omitted, will be set to 1. | [optional] [default to 1]
 **durationUnit** | **String** | The type of the duration. (For example hourly, daily, etc.) | [optional] 
 **productVariationId** | **Number** | The ID of the product variation to use. When omitted, no variation will be used. | [optional] 
 **comments** | **String** | A textual comment associated with this product-deal attachment | [optional] 
 **tax** | **Number** | The product tax | [optional] 
+**taxMethod** | **String** | The tax option to be applied to the products. When using &#x60;inclusive&#x60;, the tax percentage will already be included in the price. When using &#x60;exclusive&#x60;, the tax will not be included in the price. When using &#x60;none&#x60;, no tax will be added. Use the &#x60;tax&#x60; field for defining the tax percentage amount. By default, the user setting value for tax options will be used. Changing this in one product affects the rest of the products attached to the deal. | [optional] 
 **enabledFlag** | **Boolean** | Whether the product is enabled for a deal or not. This makes it possible to add products to a deal with a specific price and discount criteria, but keep them disabled, which refrains them from being included in the deal value calculation. When omitted, the product will be marked as enabled by default. | [optional] [default to true]
 **id** | **Number** | The ID of the deal-product (the ID of the product attached to the deal) | [optional] 
 **companyId** | **Number** | The ID of the company | [optional] 
@@ -24,5 +26,29 @@ Name | Type | Description | Notes
 **lastEdit** | **String** | The date and time when the deal product was last edited | [optional] 
 **activeFlag** | **Boolean** | Whether the product is active or not | [optional] 
 **name** | **String** | The product name | [optional] 
+
+
+
+## Enum: DiscountTypeEnum
+
+
+* `percentage` (value: `"percentage"`)
+
+* `amount` (value: `"amount"`)
+
+
+
+
+
+## Enum: TaxMethodEnum
+
+
+* `exclusive` (value: `"exclusive"`)
+
+* `inclusive` (value: `"inclusive"`)
+
+* `none` (value: `"none"`)
+
+
 
 
