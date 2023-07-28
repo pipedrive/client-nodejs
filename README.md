@@ -484,6 +484,7 @@ Class | Method | HTTP request | Description
 *Pipedrive.OrganizationsApi* | [**getOrganizationUpdates**](https://github.com/pipedrive/client-nodejs/blob/master/docs/OrganizationsApi.md#getOrganizationUpdates) | **GET** /organizations/{id}/flow | List updates about an organization
 *Pipedrive.OrganizationsApi* | [**getOrganizationUsers**](https://github.com/pipedrive/client-nodejs/blob/master/docs/OrganizationsApi.md#getOrganizationUsers) | **GET** /organizations/{id}/permittedUsers | List permitted users
 *Pipedrive.OrganizationsApi* | [**getOrganizations**](https://github.com/pipedrive/client-nodejs/blob/master/docs/OrganizationsApi.md#getOrganizations) | **GET** /organizations | Get all organizations
+*Pipedrive.OrganizationsApi* | [**getOrganizationsCollection**](https://github.com/pipedrive/client-nodejs/blob/master/docs/OrganizationsApi.md#getOrganizationsCollection) | **GET** /organizations/collection | Get all organizations (BETA)
 *Pipedrive.OrganizationsApi* | [**mergeOrganizations**](https://github.com/pipedrive/client-nodejs/blob/master/docs/OrganizationsApi.md#mergeOrganizations) | **PUT** /organizations/{id}/merge | Merge two organizations
 *Pipedrive.OrganizationsApi* | [**searchOrganization**](https://github.com/pipedrive/client-nodejs/blob/master/docs/OrganizationsApi.md#searchOrganization) | **GET** /organizations/search | Search organizations
 *Pipedrive.OrganizationsApi* | [**updateOrganization**](https://github.com/pipedrive/client-nodejs/blob/master/docs/OrganizationsApi.md#updateOrganization) | **PUT** /organizations/{id} | Update an organization
@@ -513,6 +514,7 @@ Class | Method | HTTP request | Description
 *Pipedrive.PersonsApi* | [**getPersonUpdates**](https://github.com/pipedrive/client-nodejs/blob/master/docs/PersonsApi.md#getPersonUpdates) | **GET** /persons/{id}/flow | List updates about a person
 *Pipedrive.PersonsApi* | [**getPersonUsers**](https://github.com/pipedrive/client-nodejs/blob/master/docs/PersonsApi.md#getPersonUsers) | **GET** /persons/{id}/permittedUsers | List permitted users
 *Pipedrive.PersonsApi* | [**getPersons**](https://github.com/pipedrive/client-nodejs/blob/master/docs/PersonsApi.md#getPersons) | **GET** /persons | Get all persons
+*Pipedrive.PersonsApi* | [**getPersonsCollection**](https://github.com/pipedrive/client-nodejs/blob/master/docs/PersonsApi.md#getPersonsCollection) | **GET** /persons/collection | Get all persons (BETA)
 *Pipedrive.PersonsApi* | [**mergePersons**](https://github.com/pipedrive/client-nodejs/blob/master/docs/PersonsApi.md#mergePersons) | **PUT** /persons/{id}/merge | Merge two persons
 *Pipedrive.PersonsApi* | [**searchPersons**](https://github.com/pipedrive/client-nodejs/blob/master/docs/PersonsApi.md#searchPersons) | **GET** /persons/search | Search persons
 *Pipedrive.PersonsApi* | [**updatePerson**](https://github.com/pipedrive/client-nodejs/blob/master/docs/PersonsApi.md#updatePerson) | **PUT** /persons/{id} | Update a person
@@ -954,6 +956,8 @@ Class | Method | HTTP request | Description
  - [Pipedrive.GoalsResponseComponent](https://github.com/pipedrive/client-nodejs/blob/master/docs/GoalsResponseComponent.md)
  - [Pipedrive.IconKey](https://github.com/pipedrive/client-nodejs/blob/master/docs/IconKey.md)
  - [Pipedrive.InlineResponse200](https://github.com/pipedrive/client-nodejs/blob/master/docs/InlineResponse200.md)
+ - [Pipedrive.InlineResponse2001](https://github.com/pipedrive/client-nodejs/blob/master/docs/InlineResponse2001.md)
+ - [Pipedrive.InlineResponse2002](https://github.com/pipedrive/client-nodejs/blob/master/docs/InlineResponse2002.md)
  - [Pipedrive.InlineResponse400](https://github.com/pipedrive/client-nodejs/blob/master/docs/InlineResponse400.md)
  - [Pipedrive.InlineResponse4001](https://github.com/pipedrive/client-nodejs/blob/master/docs/InlineResponse4001.md)
  - [Pipedrive.InlineResponse4001AdditionalData](https://github.com/pipedrive/client-nodejs/blob/master/docs/InlineResponse4001AdditionalData.md)
@@ -1126,6 +1130,8 @@ Class | Method | HTTP request | Description
  - [Pipedrive.OrganizationSearchResponseAllOfData](https://github.com/pipedrive/client-nodejs/blob/master/docs/OrganizationSearchResponseAllOfData.md)
  - [Pipedrive.OrganizationUpdateResponse](https://github.com/pipedrive/client-nodejs/blob/master/docs/OrganizationUpdateResponse.md)
  - [Pipedrive.OrganizationUpdateResponseAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/OrganizationUpdateResponseAllOf.md)
+ - [Pipedrive.OrganizationsCollectionResponseObject](https://github.com/pipedrive/client-nodejs/blob/master/docs/OrganizationsCollectionResponseObject.md)
+ - [Pipedrive.OrganizationsCollectionResponseObjectAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/OrganizationsCollectionResponseObjectAllOf.md)
  - [Pipedrive.OrganizationsDeleteResponse](https://github.com/pipedrive/client-nodejs/blob/master/docs/OrganizationsDeleteResponse.md)
  - [Pipedrive.OrganizationsDeleteResponseData](https://github.com/pipedrive/client-nodejs/blob/master/docs/OrganizationsDeleteResponseData.md)
  - [Pipedrive.OrganizationsMergeResponse](https://github.com/pipedrive/client-nodejs/blob/master/docs/OrganizationsMergeResponse.md)
@@ -1166,6 +1172,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.PersonSearchResponse](https://github.com/pipedrive/client-nodejs/blob/master/docs/PersonSearchResponse.md)
  - [Pipedrive.PersonSearchResponseAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/PersonSearchResponseAllOf.md)
  - [Pipedrive.PersonSearchResponseAllOfData](https://github.com/pipedrive/client-nodejs/blob/master/docs/PersonSearchResponseAllOfData.md)
+ - [Pipedrive.PersonsCollectionResponseObject](https://github.com/pipedrive/client-nodejs/blob/master/docs/PersonsCollectionResponseObject.md)
  - [Pipedrive.PictureData](https://github.com/pipedrive/client-nodejs/blob/master/docs/PictureData.md)
  - [Pipedrive.PictureDataPictures](https://github.com/pipedrive/client-nodejs/blob/master/docs/PictureDataPictures.md)
  - [Pipedrive.PictureDataWithID](https://github.com/pipedrive/client-nodejs/blob/master/docs/PictureDataWithID.md)

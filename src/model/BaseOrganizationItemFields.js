@@ -196,7 +196,7 @@ BaseOrganizationItemFields.prototype['update_time'] = undefined;
 BaseOrganizationItemFields.prototype['visible_to'] = undefined;
 
 /**
- * The ID of the label
+ * The label assigned to the organization
  * @member {Number} label
  */
 BaseOrganizationItemFields.prototype['label'] = undefined;
@@ -208,7 +208,7 @@ BaseOrganizationItemFields.prototype['label'] = undefined;
 BaseOrganizationItemFields.prototype['owner_name'] = undefined;
 
 /**
- * The BCC email of the organization
+ * The BCC email associated with the organization
  * @member {String} cc_email
  */
 BaseOrganizationItemFields.prototype['cc_email'] = undefined;

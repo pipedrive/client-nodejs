@@ -367,7 +367,7 @@ BaseOrganizationItemWithEditNameFlag.prototype['update_time'] = undefined;
 BaseOrganizationItemWithEditNameFlag.prototype['visible_to'] = undefined;
 
 /**
- * The ID of the label
+ * The label assigned to the organization
  * @member {Number} label
  */
 BaseOrganizationItemWithEditNameFlag.prototype['label'] = undefined;
@@ -379,7 +379,7 @@ BaseOrganizationItemWithEditNameFlag.prototype['label'] = undefined;
 BaseOrganizationItemWithEditNameFlag.prototype['owner_name'] = undefined;
 
 /**
- * The BCC email of the organization
+ * The BCC email associated with the organization
  * @member {String} cc_email
  */
 BaseOrganizationItemWithEditNameFlag.prototype['cc_email'] = undefined;
@@ -638,7 +638,7 @@ BaseOrganizationItem.prototype['update_time'] = undefined;
  */
 BaseOrganizationItem.prototype['visible_to'] = undefined;
 /**
- * The ID of the label
+ * The label assigned to the organization
  * @member {Number} label
  */
 BaseOrganizationItem.prototype['label'] = undefined;
@@ -648,7 +648,7 @@ BaseOrganizationItem.prototype['label'] = undefined;
  */
 BaseOrganizationItem.prototype['owner_name'] = undefined;
 /**
- * The BCC email of the organization
+ * The BCC email associated with the organization
  * @member {String} cc_email
  */
 BaseOrganizationItem.prototype['cc_email'] = undefined;

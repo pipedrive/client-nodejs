@@ -700,7 +700,7 @@ export default class ProductsApi {
      * @param {Number} opts.userId If supplied, only products owned by the given user will be returned
      * @param {Number} opts.filterId The ID of the filter to use
      * @param {Array.<Number>} opts.ids An array of integers with the IDs of the products that should be returned in the response
-     * @param {String} opts.firstChar If supplied, only products whose name starts with the specified letter will be returned (case insensitive)
+     * @param {String} opts.firstChar If supplied, only products whose name starts with the specified letter will be returned (case-insensitive)
      * @param {Boolean} opts.getSummary If supplied, the response will return the total numbers of products in the `additional_data.summary.total_count` property
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
@@ -767,7 +767,7 @@ export default class ProductsApi {
      * @param {Number} opts.userId If supplied, only products owned by the given user will be returned
      * @param {Number} opts.filterId The ID of the filter to use
      * @param {Array.<Number>} opts.ids An array of integers with the IDs of the products that should be returned in the response
-     * @param {String} opts.firstChar If supplied, only products whose name starts with the specified letter will be returned (case insensitive)
+     * @param {String} opts.firstChar If supplied, only products whose name starts with the specified letter will be returned (case-insensitive)
      * @param {Boolean} opts.getSummary If supplied, the response will return the total numbers of products in the `additional_data.summary.total_count` property
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page

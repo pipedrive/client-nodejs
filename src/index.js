@@ -377,6 +377,8 @@ import GoalType from './model/GoalType';
 import GoalsResponseComponent from './model/GoalsResponseComponent';
 import IconKey from './model/IconKey';
 import InlineResponse200 from './model/InlineResponse200';
+import InlineResponse2001 from './model/InlineResponse2001';
+import InlineResponse2002 from './model/InlineResponse2002';
 import InlineResponse400 from './model/InlineResponse400';
 import InlineResponse4001 from './model/InlineResponse4001';
 import InlineResponse4001AdditionalData from './model/InlineResponse4001AdditionalData';
@@ -549,6 +551,8 @@ import OrganizationSearchResponseAllOf from './model/OrganizationSearchResponseA
 import OrganizationSearchResponseAllOfData from './model/OrganizationSearchResponseAllOfData';
 import OrganizationUpdateResponse from './model/OrganizationUpdateResponse';
 import OrganizationUpdateResponseAllOf from './model/OrganizationUpdateResponseAllOf';
+import OrganizationsCollectionResponseObject from './model/OrganizationsCollectionResponseObject';
+import OrganizationsCollectionResponseObjectAllOf from './model/OrganizationsCollectionResponseObjectAllOf';
 import OrganizationsDeleteResponse from './model/OrganizationsDeleteResponse';
 import OrganizationsDeleteResponseData from './model/OrganizationsDeleteResponseData';
 import OrganizationsMergeResponse from './model/OrganizationsMergeResponse';
@@ -589,6 +593,7 @@ import PersonSearchItemItemOwner from './model/PersonSearchItemItemOwner';
 import PersonSearchResponse from './model/PersonSearchResponse';
 import PersonSearchResponseAllOf from './model/PersonSearchResponseAllOf';
 import PersonSearchResponseAllOfData from './model/PersonSearchResponseAllOfData';
+import PersonsCollectionResponseObject from './model/PersonsCollectionResponseObject';
 import PictureData from './model/PictureData';
 import PictureDataPictures from './model/PictureDataPictures';
 import PictureDataWithID from './model/PictureDataWithID';
@@ -3008,6 +3013,18 @@ export {
     InlineResponse200,
 
     /**
+     * The InlineResponse2001 model constructor.
+     * @property {module:model/InlineResponse2001}
+     */
+    InlineResponse2001,
+
+    /**
+     * The InlineResponse2002 model constructor.
+     * @property {module:model/InlineResponse2002}
+     */
+    InlineResponse2002,
+
+    /**
      * The InlineResponse400 model constructor.
      * @property {module:model/InlineResponse400}
      */
@@ -4040,6 +4057,18 @@ export {
     OrganizationUpdateResponseAllOf,
 
     /**
+     * The OrganizationsCollectionResponseObject model constructor.
+     * @property {module:model/OrganizationsCollectionResponseObject}
+     */
+    OrganizationsCollectionResponseObject,
+
+    /**
+     * The OrganizationsCollectionResponseObjectAllOf model constructor.
+     * @property {module:model/OrganizationsCollectionResponseObjectAllOf}
+     */
+    OrganizationsCollectionResponseObjectAllOf,
+
+    /**
      * The OrganizationsDeleteResponse model constructor.
      * @property {module:model/OrganizationsDeleteResponse}
      */
@@ -4278,6 +4307,12 @@ export {
      * @property {module:model/PersonSearchResponseAllOfData}
      */
     PersonSearchResponseAllOfData,
+
+    /**
+     * The PersonsCollectionResponseObject model constructor.
+     * @property {module:model/PersonsCollectionResponseObject}
+     */
+    PersonsCollectionResponseObject,
 
     /**
      * The PictureData model constructor.

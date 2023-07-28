@@ -15,8 +15,8 @@ Name | Type | Description | Notes
 **addTime** | **String** | The creation date and time of the organization | [optional] 
 **updateTime** | **String** | The last updated date and time of the organization | [optional] 
 **visibleTo** | **String** | The visibility group ID of who can see the organization | [optional] 
-**label** | **Number** | The ID of the label | [optional] 
+**label** | **Number** | The label assigned to the organization | [optional] 
 **ownerName** | **String** | The name of the organization owner | [optional] 
-**ccEmail** | **String** | The BCC email of the organization | [optional] 
+**ccEmail** | **String** | The BCC email associated with the organization | [optional] 
 
 

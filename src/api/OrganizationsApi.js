@@ -15,6 +15,8 @@
 import ApiClient from "../ApiClient";
 import AddOrganizationFollowerRequest from '../model/AddOrganizationFollowerRequest';
 import AllOrganizationsGetResponse from '../model/AllOrganizationsGetResponse';
+import FailResponse from '../model/FailResponse';
+import InlineResponse2001 from '../model/InlineResponse2001';
 import ListActivitiesResponse from '../model/ListActivitiesResponse';
 import ListDealsResponse from '../model/ListDealsResponse';
 import ListFilesResponse from '../model/ListFilesResponse';
@@ -1092,7 +1094,7 @@ export default class OrganizationsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId If supplied, only organizations owned by the given user will be returned. However, `filter_id` takes precedence over `user_id` when both are supplied.
      * @param {Number} opts.filterId The ID of the filter to use
-     * @param {String} opts.firstChar If supplied, only organizations whose name starts with the specified letter will be returned (case insensitive)
+     * @param {String} opts.firstChar If supplied, only organizations whose name starts with the specified letter will be returned (case-insensitive)
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
@@ -1156,7 +1158,7 @@ export default class OrganizationsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.userId If supplied, only organizations owned by the given user will be returned. However, `filter_id` takes precedence over `user_id` when both are supplied.
      * @param {Number} opts.filterId The ID of the filter to use
-     * @param {String} opts.firstChar If supplied, only organizations whose name starts with the specified letter will be returned (case insensitive)
+     * @param {String} opts.firstChar If supplied, only organizations whose name starts with the specified letter will be returned (case-insensitive)
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
@@ -1164,6 +1166,90 @@ export default class OrganizationsApi {
      */
     getOrganizations(opts) {
       return this.getOrganizationsWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data;
+        });
+    }
+
+
+    /**
+     * Get all organizations (BETA)
+     * Returns all organizations. This is a cursor-paginated endpoint that is currently in BETA. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>. Please note that only global admins (those with global permissions) can access these endpoints. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.cursor For pagination, the marker (an opaque string value) representing the first item on the next page
+     * @param {Number} opts.limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+     * @param {String} opts.since The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the `update_time` field.
+     * @param {String} opts.until The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the `update_time` field.
+     * @param {Number} opts.ownerId If supplied, only organizations owned by the given user will be returned
+     * @param {String} opts.firstChar If supplied, only organizations whose name starts with the specified letter will be returned (case-insensitive)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2001} and HTTP response
+     */
+    getOrganizationsCollectionWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = null;
+
+
+
+
+
+
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'cursor': opts['cursor'] === undefined ? opts['cursor'] : opts['cursor'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
+        'since': opts['since'] === undefined ? opts['since'] : opts['since'],
+        'until': opts['until'] === undefined ? opts['until'] : opts['until'],
+        'owner_id': opts['owner_id'] === undefined ? opts['ownerId'] : opts['owner_id'],
+        'first_char': opts['first_char'] === undefined ? opts['firstChar'] : opts['first_char'],
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let formParamArray = [
+      ];
+
+      let contentTypes = [];
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
+
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
+      let returnType = InlineResponse2001;
+      return this.apiClient.callApi(
+        '/organizations/collection', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get all organizations (BETA)
+     * Returns all organizations. This is a cursor-paginated endpoint that is currently in BETA. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>. Please note that only global admins (those with global permissions) can access these endpoints. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.cursor For pagination, the marker (an opaque string value) representing the first item on the next page
+     * @param {Number} opts.limit For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+     * @param {String} opts.since The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the `update_time` field.
+     * @param {String} opts.until The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the `update_time` field.
+     * @param {Number} opts.ownerId If supplied, only organizations owned by the given user will be returned
+     * @param {String} opts.firstChar If supplied, only organizations whose name starts with the specified letter will be returned (case-insensitive)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2001}
+     */
+    getOrganizationsCollection(opts) {
+      return this.getOrganizationsCollectionWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data;
         });
