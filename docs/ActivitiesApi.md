@@ -273,7 +273,7 @@ let opts = {
   'since': "since_example", // String | The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the `update_time` field.
   'until': "until_example", // String | The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the `update_time` field.
   'userId': 56, // Number | The ID of the user whose activities will be fetched. If omitted, all activities are returned.
-  'done': new Pipedrive.NumberBoolean(), // NumberBoolean | Whether the activity is done or not. 0 = Not done, 1 = Done. If omitted, returns both done and not done activities.
+  'done': true, // Boolean | Whether the activity is done or not. `false` = Not done, `true` = Done. If omitted, returns both done and not done activities.
   'type': "type_example" // String | The type of the activity, can be one type or multiple types separated by a comma. This is in correlation with the `key_string` parameter of ActivityTypes.
 };
 apiInstance.getActivitiesCollection(opts).then((data) => {
@@ -294,7 +294,7 @@ Name | Type | Description  | Notes
  **since** | **String**| The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. | [optional] 
  **until** | **String**| The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. | [optional] 
  **userId** | **Number**| The ID of the user whose activities will be fetched. If omitted, all activities are returned. | [optional] 
- **done** | [**NumberBoolean**](.md)| Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted, returns both done and not done activities. | [optional] 
+ **done** | **Boolean**| Whether the activity is done or not. &#x60;false&#x60; &#x3D; Not done, &#x60;true&#x60; &#x3D; Done. If omitted, returns both done and not done activities. | [optional] 
  **type** | **String**| The type of the activity, can be one type or multiple types separated by a comma. This is in correlation with the &#x60;key_string&#x60; parameter of ActivityTypes. | [optional] 
 
 ### Return type

@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**getPersonUpdates**](PersonsApi.md#getPersonUpdates) | **GET** /persons/{id}/flow | List updates about a person
 [**getPersonUsers**](PersonsApi.md#getPersonUsers) | **GET** /persons/{id}/permittedUsers | List permitted users
 [**getPersons**](PersonsApi.md#getPersons) | **GET** /persons | Get all persons
+[**getPersonsCollection**](PersonsApi.md#getPersonsCollection) | **GET** /persons/collection | Get all persons (BETA)
 [**mergePersons**](PersonsApi.md#mergePersons) | **PUT** /persons/{id}/merge | Merge two persons
 [**searchPersons**](PersonsApi.md#searchPersons) | **GET** /persons/search | Search persons
 [**updatePerson**](PersonsApi.md#updatePerson) | **PUT** /persons/{id} | Update a person
@@ -962,7 +963,7 @@ let apiInstance = new Pipedrive.PersonsApi(apiClient);
 let opts = {
   'userId': 56, // Number | If supplied, only persons owned by the given user will be returned. However, `filter_id` takes precedence over `user_id` when both are supplied.
   'filterId': 56, // Number | The ID of the filter to use
-  'firstChar': "firstChar_example", // String | If supplied, only persons whose name starts with the specified letter will be returned (case insensitive)
+  'firstChar': "firstChar_example", // String | If supplied, only persons whose name starts with the specified letter will be returned (case-insensitive)
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
   'sort': "sort_example" // String | The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
@@ -982,7 +983,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Number**| If supplied, only persons owned by the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;user_id&#x60; when both are supplied. | [optional] 
  **filterId** | **Number**| The ID of the filter to use | [optional] 
- **firstChar** | **String**| If supplied, only persons whose name starts with the specified letter will be returned (case insensitive) | [optional] 
+ **firstChar** | **String**| If supplied, only persons whose name starts with the specified letter will be returned (case-insensitive) | [optional] 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
  **sort** | **String**| The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). | [optional] 
@@ -990,6 +991,71 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetAllPersonsResponse**](GetAllPersonsResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getPersonsCollection
+
+> InlineResponse2002 getPersonsCollection(opts)
+
+Get all persons (BETA)
+
+Returns all persons. This is a cursor-paginated endpoint that is currently in BETA. For more information, please refer to our documentation on &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/core-api-concepts-pagination\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;pagination&lt;/a&gt;. Please note that only global admins (those with global permissions) can access these endpoints. Users with regular permissions will receive a 403 response. Read more about global permissions &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/global-user-management\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
+
+### Example
+
+```javascript
+import Pipedrive from 'pipedrive';
+let apiClient = new Pipedrive.ApiClient();
+// Configure API key authorization: api_key
+let api_key = apiClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = apiClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new Pipedrive.PersonsApi(apiClient);
+let opts = {
+  'cursor': "cursor_example", // String | For pagination, the marker (an opaque string value) representing the first item on the next page
+  'limit': 100, // Number | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+  'since': "since_example", // String | The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the `update_time` field.
+  'until': "until_example", // String | The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the `update_time` field.
+  'ownerId': 56, // Number | If supplied, only persons owned by the given user will be returned
+  'firstChar': "firstChar_example" // String | If supplied, only persons whose name starts with the specified letter will be returned (case-insensitive)
+};
+apiInstance.getPersonsCollection(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cursor** | **String**| For pagination, the marker (an opaque string value) representing the first item on the next page | [optional] 
+ **limit** | **Number**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. | [optional] 
+ **since** | **String**| The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. | [optional] 
+ **until** | **String**| The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. | [optional] 
+ **ownerId** | **Number**| If supplied, only persons owned by the given user will be returned | [optional] 
+ **firstChar** | **String**| If supplied, only persons whose name starts with the specified letter will be returned (case-insensitive) | [optional] 
+
+### Return type
+
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 

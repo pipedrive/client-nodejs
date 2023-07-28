@@ -341,7 +341,7 @@ export default class ActivitiesApi {
      * @param {String} opts.since The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the `update_time` field.
      * @param {String} opts.until The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the `update_time` field.
      * @param {Number} opts.userId The ID of the user whose activities will be fetched. If omitted, all activities are returned.
-     * @param {module:model/NumberBoolean} opts.done Whether the activity is done or not. 0 = Not done, 1 = Done. If omitted, returns both done and not done activities.
+     * @param {Boolean} opts.done Whether the activity is done or not. `false` = Not done, `true` = Done. If omitted, returns both done and not done activities.
      * @param {String} opts.type The type of the activity, can be one type or multiple types separated by a comma. This is in correlation with the `key_string` parameter of ActivityTypes.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetActivitiesCollectionResponse200} and HTTP response
      */
@@ -408,7 +408,7 @@ export default class ActivitiesApi {
      * @param {String} opts.since The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the `update_time` field.
      * @param {String} opts.until The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the `update_time` field.
      * @param {Number} opts.userId The ID of the user whose activities will be fetched. If omitted, all activities are returned.
-     * @param {module:model/NumberBoolean} opts.done Whether the activity is done or not. 0 = Not done, 1 = Done. If omitted, returns both done and not done activities.
+     * @param {Boolean} opts.done Whether the activity is done or not. `false` = Not done, `true` = Done. If omitted, returns both done and not done activities.
      * @param {String} opts.type The type of the activity, can be one type or multiple types separated by a comma. This is in correlation with the `key_string` parameter of ActivityTypes.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetActivitiesCollectionResponse200}
      */
