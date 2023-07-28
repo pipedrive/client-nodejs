@@ -7,6 +7,8 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+
+## [21.1.0] - 2023-07-28
 ### Added
 - Added `GET /organizations/collection` endpoint to fetch all organizations with cursor pagination
 - Added `GET /persons/collection` endpoint to fetch all persons with cursor pagination
@@ -553,7 +555,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v21.0.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v21.1.0...HEAD
+[21.1.0]: https://github.com/pipedrive/api-docs/compare/v21.0.0...v21.1.0
 [21.0.0]: https://github.com/pipedrive/api-docs/compare/v20.5.2...v21.0.0
 [20.5.2]: https://github.com/pipedrive/api-docs/compare/v20.5.1...v20.5.2
 [20.5.1]: https://github.com/pipedrive/api-docs/compare/v20.5.0...v20.5.1
