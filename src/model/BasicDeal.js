@@ -48,46 +48,6 @@ class BasicDeal {
         if (data) {
             obj = obj || new BasicDeal();
 
-            if (data.hasOwnProperty('value')) {
-                obj['value'] = ApiClient.convertToType(data['value'], 'String');
-
-                delete data['value'];
-            }
-            if (data.hasOwnProperty('currency')) {
-                obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
-
-                delete data['currency'];
-            }
-            if (data.hasOwnProperty('user_id')) {
-                obj['user_id'] = ApiClient.convertToType(data['user_id'], 'Number');
-
-                delete data['user_id'];
-            }
-            if (data.hasOwnProperty('person_id')) {
-                obj['person_id'] = ApiClient.convertToType(data['person_id'], 'Number');
-
-                delete data['person_id'];
-            }
-            if (data.hasOwnProperty('org_id')) {
-                obj['org_id'] = ApiClient.convertToType(data['org_id'], 'Number');
-
-                delete data['org_id'];
-            }
-            if (data.hasOwnProperty('pipeline_id')) {
-                obj['pipeline_id'] = ApiClient.convertToType(data['pipeline_id'], 'Number');
-
-                delete data['pipeline_id'];
-            }
-            if (data.hasOwnProperty('stage_id')) {
-                obj['stage_id'] = ApiClient.convertToType(data['stage_id'], 'Number');
-
-                delete data['stage_id'];
-            }
-            if (data.hasOwnProperty('status')) {
-                obj['status'] = ApiClient.convertToType(data['status'], 'String');
-
-                delete data['status'];
-            }
             if (data.hasOwnProperty('expected_close_date')) {
                 obj['expected_close_date'] = ApiClient.convertToType(data['expected_close_date'], 'Date');
 
@@ -121,54 +81,6 @@ class BasicDeal {
 }
 
 /**
- * The value of the deal. If omitted, value will be set to 0.
- * @member {String} value
- */
-BasicDeal.prototype['value'] = undefined;
-
-/**
- * The currency of the deal. Accepts a 3-character currency code. If omitted, currency will be set to the default currency of the authorized user.
- * @member {String} currency
- */
-BasicDeal.prototype['currency'] = undefined;
-
-/**
- * The ID of the user which will be the owner of the created deal. If not provided, the user making the request will be used.
- * @member {Number} user_id
- */
-BasicDeal.prototype['user_id'] = undefined;
-
-/**
- * The ID of a person which this deal will be linked to. If the person does not exist yet, it needs to be created first. This property is required unless `org_id` is specified.
- * @member {Number} person_id
- */
-BasicDeal.prototype['person_id'] = undefined;
-
-/**
- * The ID of an organization which this deal will be linked to. If the organization does not exist yet, it needs to be created first. This property is required unless `person_id` is specified.
- * @member {Number} org_id
- */
-BasicDeal.prototype['org_id'] = undefined;
-
-/**
- * The ID of the pipeline this deal will be added to. By default, the deal will be added to the first stage of the specified pipeline. Please note that `pipeline_id` and `stage_id` should not be used together as `pipeline_id` will be ignored.
- * @member {Number} pipeline_id
- */
-BasicDeal.prototype['pipeline_id'] = undefined;
-
-/**
- * The ID of the stage this deal will be added to. Please note that a pipeline will be assigned automatically based on the `stage_id`. If omitted, the deal will be placed in the first stage of the default pipeline.
- * @member {Number} stage_id
- */
-BasicDeal.prototype['stage_id'] = undefined;
-
-/**
- * open = Open, won = Won, lost = Lost, deleted = Deleted. If omitted, status will be set to open.
- * @member {module:model/BasicDeal.StatusEnum} status
- */
-BasicDeal.prototype['status'] = undefined;
-
-/**
  * The expected close date of the deal. In ISO 8601 format: YYYY-MM-DD.
  * @member {Date} expected_close_date
  */
@@ -194,39 +106,6 @@ BasicDeal.prototype['visible_to'] = undefined;
 
 
 
-
-
-/**
- * Allowed values for the <code>status</code> property.
- * @enum {String}
- * @readonly
- */
-BasicDeal['StatusEnum'] = {
-
-    /**
-     * value: "open"
-     * @const
-     */
-    "open": "open",
-
-    /**
-     * value: "won"
-     * @const
-     */
-    "won": "won",
-
-    /**
-     * value: "lost"
-     * @const
-     */
-    "lost": "lost",
-
-    /**
-     * value: "deleted"
-     * @const
-     */
-    "deleted": "deleted"
-};
 
 
 

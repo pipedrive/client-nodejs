@@ -14,6 +14,7 @@
 import ApiClient from '../ApiClient';
 import BasicDeal from './BasicDeal';
 import DealTitleParameter from './DealTitleParameter';
+import UpdateDealParameters from './UpdateDealParameters';
 import VisibleTo from './VisibleTo';
 
 /**
@@ -26,10 +27,11 @@ class UpdateDealRequest {
      * Constructs a new <code>UpdateDealRequest</code>.
      * @alias module:model/UpdateDealRequest
      * @implements module:model/DealTitleParameter
+     * @implements module:model/UpdateDealParameters
      * @implements module:model/BasicDeal
      */
     constructor() { 
-        DealTitleParameter.initialize(this);BasicDeal.initialize(this);
+        DealTitleParameter.initialize(this);UpdateDealParameters.initialize(this);BasicDeal.initialize(this);
         UpdateDealRequest.initialize(this);
     }
 
@@ -52,6 +54,7 @@ class UpdateDealRequest {
         if (data) {
             obj = obj || new UpdateDealRequest();
             DealTitleParameter.constructFromObject(data, obj);
+            UpdateDealParameters.constructFromObject(data, obj);
             BasicDeal.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('title')) {
@@ -138,31 +141,31 @@ class UpdateDealRequest {
 UpdateDealRequest.prototype['title'] = undefined;
 
 /**
- * The value of the deal. If omitted, value will be set to 0.
+ * The value of the deal.
  * @member {String} value
  */
 UpdateDealRequest.prototype['value'] = undefined;
 
 /**
- * The currency of the deal. Accepts a 3-character currency code. If omitted, currency will be set to the default currency of the authorized user.
+ * The currency of the deal. Accepts a 3-character currency code.
  * @member {String} currency
  */
 UpdateDealRequest.prototype['currency'] = undefined;
 
 /**
- * The ID of the user which will be the owner of the created deal. If not provided, the user making the request will be used.
+ * The ID of the user which will be the new owner of the deal.
  * @member {Number} user_id
  */
 UpdateDealRequest.prototype['user_id'] = undefined;
 
 /**
- * The ID of a person which this deal will be linked to. If the person does not exist yet, it needs to be created first. This property is required unless `org_id` is specified.
+ * The ID of a person which this deal will be linked to. If the person does not exist yet, it needs to be created first.
  * @member {Number} person_id
  */
 UpdateDealRequest.prototype['person_id'] = undefined;
 
 /**
- * The ID of an organization which this deal will be linked to. If the organization does not exist yet, it needs to be created first. This property is required unless `person_id` is specified.
+ * The ID of an organization which this deal will be linked to. If the organization does not exist yet, it needs to be created first.
  * @member {Number} org_id
  */
 UpdateDealRequest.prototype['org_id'] = undefined;
@@ -174,13 +177,13 @@ UpdateDealRequest.prototype['org_id'] = undefined;
 UpdateDealRequest.prototype['pipeline_id'] = undefined;
 
 /**
- * The ID of the stage this deal will be added to. Please note that a pipeline will be assigned automatically based on the `stage_id`. If omitted, the deal will be placed in the first stage of the default pipeline.
+ * The ID of the stage this deal will be added to. Please note that a pipeline will be assigned automatically based on the `stage_id`.
  * @member {Number} stage_id
  */
 UpdateDealRequest.prototype['stage_id'] = undefined;
 
 /**
- * open = Open, won = Won, lost = Lost, deleted = Deleted. If omitted, status will be set to open.
+ * open = Open, won = Won, lost = Lost, deleted = Deleted.
  * @member {module:model/UpdateDealRequest.StatusEnum} status
  */
 UpdateDealRequest.prototype['status'] = undefined;
@@ -216,47 +219,48 @@ UpdateDealRequest.prototype['visible_to'] = undefined;
  * @member {String} title
  */
 DealTitleParameter.prototype['title'] = undefined;
-// Implement BasicDeal interface:
+// Implement UpdateDealParameters interface:
 /**
- * The value of the deal. If omitted, value will be set to 0.
+ * The value of the deal.
  * @member {String} value
  */
-BasicDeal.prototype['value'] = undefined;
+UpdateDealParameters.prototype['value'] = undefined;
 /**
- * The currency of the deal. Accepts a 3-character currency code. If omitted, currency will be set to the default currency of the authorized user.
+ * The currency of the deal. Accepts a 3-character currency code.
  * @member {String} currency
  */
-BasicDeal.prototype['currency'] = undefined;
+UpdateDealParameters.prototype['currency'] = undefined;
 /**
- * The ID of the user which will be the owner of the created deal. If not provided, the user making the request will be used.
+ * The ID of the user which will be the new owner of the deal.
  * @member {Number} user_id
  */
-BasicDeal.prototype['user_id'] = undefined;
+UpdateDealParameters.prototype['user_id'] = undefined;
 /**
- * The ID of a person which this deal will be linked to. If the person does not exist yet, it needs to be created first. This property is required unless `org_id` is specified.
+ * The ID of a person which this deal will be linked to. If the person does not exist yet, it needs to be created first.
  * @member {Number} person_id
  */
-BasicDeal.prototype['person_id'] = undefined;
+UpdateDealParameters.prototype['person_id'] = undefined;
 /**
- * The ID of an organization which this deal will be linked to. If the organization does not exist yet, it needs to be created first. This property is required unless `person_id` is specified.
+ * The ID of an organization which this deal will be linked to. If the organization does not exist yet, it needs to be created first.
  * @member {Number} org_id
  */
-BasicDeal.prototype['org_id'] = undefined;
+UpdateDealParameters.prototype['org_id'] = undefined;
 /**
  * The ID of the pipeline this deal will be added to. By default, the deal will be added to the first stage of the specified pipeline. Please note that `pipeline_id` and `stage_id` should not be used together as `pipeline_id` will be ignored.
  * @member {Number} pipeline_id
  */
-BasicDeal.prototype['pipeline_id'] = undefined;
+UpdateDealParameters.prototype['pipeline_id'] = undefined;
 /**
- * The ID of the stage this deal will be added to. Please note that a pipeline will be assigned automatically based on the `stage_id`. If omitted, the deal will be placed in the first stage of the default pipeline.
+ * The ID of the stage this deal will be added to. Please note that a pipeline will be assigned automatically based on the `stage_id`.
  * @member {Number} stage_id
  */
-BasicDeal.prototype['stage_id'] = undefined;
+UpdateDealParameters.prototype['stage_id'] = undefined;
 /**
- * open = Open, won = Won, lost = Lost, deleted = Deleted. If omitted, status will be set to open.
- * @member {module:model/BasicDeal.StatusEnum} status
+ * open = Open, won = Won, lost = Lost, deleted = Deleted.
+ * @member {module:model/UpdateDealParameters.StatusEnum} status
  */
-BasicDeal.prototype['status'] = undefined;
+UpdateDealParameters.prototype['status'] = undefined;
+// Implement BasicDeal interface:
 /**
  * The expected close date of the deal. In ISO 8601 format: YYYY-MM-DD.
  * @member {Date} expected_close_date

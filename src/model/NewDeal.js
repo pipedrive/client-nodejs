@@ -13,7 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import BasicDeal from './BasicDeal';
-import NewDealAllOf from './NewDealAllOf';
+import NewDealParameters from './NewDealParameters';
 import RequredTitleParameter from './RequredTitleParameter';
 import VisibleTo from './VisibleTo';
 
@@ -27,12 +27,12 @@ class NewDeal {
      * Constructs a new <code>NewDeal</code>.
      * @alias module:model/NewDeal
      * @implements module:model/RequredTitleParameter
+     * @implements module:model/NewDealParameters
      * @implements module:model/BasicDeal
-     * @implements module:model/NewDealAllOf
      * @param title {String} The title of the deal
      */
     constructor(title) { 
-        RequredTitleParameter.initialize(this, title);BasicDeal.initialize(this);NewDealAllOf.initialize(this);
+        RequredTitleParameter.initialize(this, title);NewDealParameters.initialize(this);BasicDeal.initialize(this);
         NewDeal.initialize(this, title);
     }
 
@@ -56,8 +56,8 @@ class NewDeal {
         if (data) {
             obj = obj || new NewDeal();
             RequredTitleParameter.constructFromObject(data, obj);
+            NewDealParameters.constructFromObject(data, obj);
             BasicDeal.constructFromObject(data, obj);
-            NewDealAllOf.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('title')) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
@@ -104,6 +104,11 @@ class NewDeal {
 
                 delete data['status'];
             }
+            if (data.hasOwnProperty('add_time')) {
+                obj['add_time'] = ApiClient.convertToType(data['add_time'], 'String');
+
+                delete data['add_time'];
+            }
             if (data.hasOwnProperty('expected_close_date')) {
                 obj['expected_close_date'] = ApiClient.convertToType(data['expected_close_date'], 'Date');
 
@@ -123,11 +128,6 @@ class NewDeal {
                 obj['visible_to'] = ApiClient.convertToType(data['visible_to'], VisibleTo);
 
                 delete data['visible_to'];
-            }
-            if (data.hasOwnProperty('add_time')) {
-                obj['add_time'] = ApiClient.convertToType(data['add_time'], 'String');
-
-                delete data['add_time'];
             }
 
             if (Object.keys(data).length > 0) {
@@ -196,6 +196,12 @@ NewDeal.prototype['stage_id'] = undefined;
 NewDeal.prototype['status'] = undefined;
 
 /**
+ * The optional creation date & time of the deal in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
+ * @member {String} add_time
+ */
+NewDeal.prototype['add_time'] = undefined;
+
+/**
  * The expected close date of the deal. In ISO 8601 format: YYYY-MM-DD.
  * @member {Date} expected_close_date
  */
@@ -219,12 +225,6 @@ NewDeal.prototype['lost_reason'] = undefined;
  */
 NewDeal.prototype['visible_to'] = undefined;
 
-/**
- * The optional creation date & time of the deal in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
- * @member {String} add_time
- */
-NewDeal.prototype['add_time'] = undefined;
-
 
 // Implement RequredTitleParameter interface:
 /**
@@ -232,47 +232,53 @@ NewDeal.prototype['add_time'] = undefined;
  * @member {String} title
  */
 RequredTitleParameter.prototype['title'] = undefined;
-// Implement BasicDeal interface:
+// Implement NewDealParameters interface:
 /**
  * The value of the deal. If omitted, value will be set to 0.
  * @member {String} value
  */
-BasicDeal.prototype['value'] = undefined;
+NewDealParameters.prototype['value'] = undefined;
 /**
  * The currency of the deal. Accepts a 3-character currency code. If omitted, currency will be set to the default currency of the authorized user.
  * @member {String} currency
  */
-BasicDeal.prototype['currency'] = undefined;
+NewDealParameters.prototype['currency'] = undefined;
 /**
  * The ID of the user which will be the owner of the created deal. If not provided, the user making the request will be used.
  * @member {Number} user_id
  */
-BasicDeal.prototype['user_id'] = undefined;
+NewDealParameters.prototype['user_id'] = undefined;
 /**
  * The ID of a person which this deal will be linked to. If the person does not exist yet, it needs to be created first. This property is required unless `org_id` is specified.
  * @member {Number} person_id
  */
-BasicDeal.prototype['person_id'] = undefined;
+NewDealParameters.prototype['person_id'] = undefined;
 /**
  * The ID of an organization which this deal will be linked to. If the organization does not exist yet, it needs to be created first. This property is required unless `person_id` is specified.
  * @member {Number} org_id
  */
-BasicDeal.prototype['org_id'] = undefined;
+NewDealParameters.prototype['org_id'] = undefined;
 /**
  * The ID of the pipeline this deal will be added to. By default, the deal will be added to the first stage of the specified pipeline. Please note that `pipeline_id` and `stage_id` should not be used together as `pipeline_id` will be ignored.
  * @member {Number} pipeline_id
  */
-BasicDeal.prototype['pipeline_id'] = undefined;
+NewDealParameters.prototype['pipeline_id'] = undefined;
 /**
  * The ID of the stage this deal will be added to. Please note that a pipeline will be assigned automatically based on the `stage_id`. If omitted, the deal will be placed in the first stage of the default pipeline.
  * @member {Number} stage_id
  */
-BasicDeal.prototype['stage_id'] = undefined;
+NewDealParameters.prototype['stage_id'] = undefined;
 /**
  * open = Open, won = Won, lost = Lost, deleted = Deleted. If omitted, status will be set to open.
- * @member {module:model/BasicDeal.StatusEnum} status
+ * @member {module:model/NewDealParameters.StatusEnum} status
  */
-BasicDeal.prototype['status'] = undefined;
+NewDealParameters.prototype['status'] = undefined;
+/**
+ * The optional creation date & time of the deal in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
+ * @member {String} add_time
+ */
+NewDealParameters.prototype['add_time'] = undefined;
+// Implement BasicDeal interface:
 /**
  * The expected close date of the deal. In ISO 8601 format: YYYY-MM-DD.
  * @member {Date} expected_close_date
@@ -293,12 +299,6 @@ BasicDeal.prototype['lost_reason'] = undefined;
  * @member {module:model/VisibleTo} visible_to
  */
 BasicDeal.prototype['visible_to'] = undefined;
-// Implement NewDealAllOf interface:
-/**
- * The optional creation date & time of the deal in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
- * @member {String} add_time
- */
-NewDealAllOf.prototype['add_time'] = undefined;
 
 
 

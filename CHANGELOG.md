@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [21.2.0] - 2023-08-22
+### Fixed
+- Fixed incorrect parameter descriptions for the `PUT /deals/{id}` endpoint
+
 ## [21.1.0] - 2023-07-28
 ### Added
 - Added `GET /organizations/collection` endpoint to fetch all organizations with cursor pagination
@@ -555,7 +559,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v21.1.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v21.2.0...HEAD
+[21.2.0]: https://github.com/pipedrive/api-docs/compare/v21.1.0...v21.2.0
 [21.1.0]: https://github.com/pipedrive/api-docs/compare/v21.0.0...v21.1.0
 [21.0.0]: https://github.com/pipedrive/api-docs/compare/v20.5.2...v21.0.0
 [20.5.2]: https://github.com/pipedrive/api-docs/compare/v20.5.1...v20.5.2
