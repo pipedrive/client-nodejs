@@ -480,7 +480,7 @@ import MergePersonsResponseAllOf from './model/MergePersonsResponseAllOf';
 import MessageObject from './model/MessageObject';
 import MessageObjectAttachments from './model/MessageObjectAttachments';
 import NewDeal from './model/NewDeal';
-import NewDealAllOf from './model/NewDealAllOf';
+import NewDealParameters from './model/NewDealParameters';
 import NewDealProduct from './model/NewDealProduct';
 import NewFollowerResponse from './model/NewFollowerResponse';
 import NewFollowerResponseData from './model/NewFollowerResponseData';
@@ -699,6 +699,7 @@ import Teams from './model/Teams';
 import TeamsAllOf from './model/TeamsAllOf';
 import Unauthorized from './model/Unauthorized';
 import UpdateActivityResponse200 from './model/UpdateActivityResponse200';
+import UpdateDealParameters from './model/UpdateDealParameters';
 import UpdateDealProduct from './model/UpdateDealProduct';
 import UpdateDealRequest from './model/UpdateDealRequest';
 import UpdateFile from './model/UpdateFile';
@@ -3631,10 +3632,10 @@ export {
     NewDeal,
 
     /**
-     * The NewDealAllOf model constructor.
-     * @property {module:model/NewDealAllOf}
+     * The NewDealParameters model constructor.
+     * @property {module:model/NewDealParameters}
      */
-    NewDealAllOf,
+    NewDealParameters,
 
     /**
      * The NewDealProduct model constructor.
@@ -4943,6 +4944,12 @@ export {
      * @property {module:model/UpdateActivityResponse200}
      */
     UpdateActivityResponse200,
+
+    /**
+     * The UpdateDealParameters model constructor.
+     * @property {module:model/UpdateDealParameters}
+     */
+    UpdateDealParameters,
 
     /**
      * The UpdateDealProduct model constructor.
