@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **dealId** | **Number** | The ID of the deal | [optional] 
 **productId** | **Number** | The ID of the product | [optional] 
 **durationUnit** | **String** | The type of the duration. (For example hourly, daily, etc.) | [optional] 
-**sumNoDiscount** | **Number** | The product sum without the discount | [optional] 
 **sum** | **Number** | The sum of all the products attached to the deal | [optional] 
 **currency** | **String** | The currency associated with the deal product | [optional] 
 **addTime** | **String** | The date and time when the product was added to the deal | [optional] 

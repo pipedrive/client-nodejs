@@ -134,11 +134,6 @@ class AddProductAttachmentDetails {
 
                 delete data['deal_id'];
             }
-            if (data.hasOwnProperty('sum_no_discount')) {
-                obj['sum_no_discount'] = ApiClient.convertToType(data['sum_no_discount'], 'Number');
-
-                delete data['sum_no_discount'];
-            }
             if (data.hasOwnProperty('sum')) {
                 obj['sum'] = ApiClient.convertToType(data['sum'], 'Number');
 
@@ -281,12 +276,6 @@ AddProductAttachmentDetails.prototype['company_id'] = undefined;
 AddProductAttachmentDetails.prototype['deal_id'] = undefined;
 
 /**
- * The product sum without the discount
- * @member {Number} sum_no_discount
- */
-AddProductAttachmentDetails.prototype['sum_no_discount'] = undefined;
-
-/**
  * The sum of all the products attached to the deal
  * @member {Number} sum
  */
@@ -409,11 +398,6 @@ ProductAttachmentDetails.prototype['company_id'] = undefined;
  * @member {Number} deal_id
  */
 ProductAttachmentDetails.prototype['deal_id'] = undefined;
-/**
- * The product sum without the discount
- * @member {Number} sum_no_discount
- */
-ProductAttachmentDetails.prototype['sum_no_discount'] = undefined;
 /**
  * The sum of all the products attached to the deal
  * @member {Number} sum

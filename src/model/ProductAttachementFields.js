@@ -72,11 +72,6 @@ class ProductAttachementFields {
 
                 delete data['duration_unit'];
             }
-            if (data.hasOwnProperty('sum_no_discount')) {
-                obj['sum_no_discount'] = ApiClient.convertToType(data['sum_no_discount'], 'Number');
-
-                delete data['sum_no_discount'];
-            }
             if (data.hasOwnProperty('sum')) {
                 obj['sum'] = ApiClient.convertToType(data['sum'], 'Number');
 
@@ -153,12 +148,6 @@ ProductAttachementFields.prototype['product_id'] = undefined;
  * @member {String} duration_unit
  */
 ProductAttachementFields.prototype['duration_unit'] = undefined;
-
-/**
- * The product sum without the discount
- * @member {Number} sum_no_discount
- */
-ProductAttachementFields.prototype['sum_no_discount'] = undefined;
 
 /**
  * The sum of all the products attached to the deal
