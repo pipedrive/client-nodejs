@@ -7,6 +7,8 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+
+## [22.0.2] - 2023-09-12
 ### Fixed
 - Fixed incorrect response schema for the `GET /deals/{id}/products` endpoint
 
@@ -569,7 +571,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.0.1...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.0.2...HEAD
+[22.0.2]: https://github.com/pipedrive/api-docs/compare/v22.0.1...v22.0.2
 [22.0.1]: https://github.com/pipedrive/api-docs/compare/v22.0.0...v22.0.1
 [22.0.0]: https://github.com/pipedrive/api-docs/compare/v21.2.0...v22.0.0
 [21.2.0]: https://github.com/pipedrive/api-docs/compare/v21.1.0...v21.2.0
