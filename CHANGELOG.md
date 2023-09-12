@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [22.0.1] - 2023-09-12
+### Changed
+- Added further details on behavior of `end_date` for `PUT /v1/subscriptions/recurring/{id}/cancel`
+
 ## [22.0.0] - 2023-08-30
 ### Removed
 - Removed request and response fields `sum_no_discount` for `GET /deals/{id}/products`, `POST /deals/{id}/products` and `PUT /deals/{id}/products/{product_attachment_id}`
@@ -563,7 +567,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.0.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.0.1...HEAD
+[22.0.1]: https://github.com/pipedrive/api-docs/compare/v22.0.0...v22.0.1
 [22.0.0]: https://github.com/pipedrive/api-docs/compare/v21.2.0...v22.0.0
 [21.2.0]: https://github.com/pipedrive/api-docs/compare/v21.1.0...v21.2.0
 [21.1.0]: https://github.com/pipedrive/api-docs/compare/v21.0.0...v21.1.0
