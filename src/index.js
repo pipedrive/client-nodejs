@@ -448,7 +448,6 @@ import ListProductFollowersResponseAllOf from './model/ListProductFollowersRespo
 import ListProductFollowersResponseAllOfData from './model/ListProductFollowersResponseAllOfData';
 import ListProductsResponse from './model/ListProductsResponse';
 import ListProductsResponseAllOf from './model/ListProductsResponseAllOf';
-import ListProductsResponseAllOfData from './model/ListProductsResponseAllOfData';
 import ListProductsResponseAllOfRelatedObjects from './model/ListProductsResponseAllOfRelatedObjects';
 import MailMessage from './model/MailMessage';
 import MailMessageAllOf from './model/MailMessageAllOf';
@@ -3438,12 +3437,6 @@ export {
      * @property {module:model/ListProductsResponseAllOf}
      */
     ListProductsResponseAllOf,
-
-    /**
-     * The ListProductsResponseAllOfData model constructor.
-     * @property {module:model/ListProductsResponseAllOfData}
-     */
-    ListProductsResponseAllOfData,
 
     /**
      * The ListProductsResponseAllOfRelatedObjects model constructor.

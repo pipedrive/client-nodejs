@@ -1027,7 +1027,6 @@ Class | Method | HTTP request | Description
  - [Pipedrive.ListProductFollowersResponseAllOfData](https://github.com/pipedrive/client-nodejs/blob/master/docs/ListProductFollowersResponseAllOfData.md)
  - [Pipedrive.ListProductsResponse](https://github.com/pipedrive/client-nodejs/blob/master/docs/ListProductsResponse.md)
  - [Pipedrive.ListProductsResponseAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/ListProductsResponseAllOf.md)
- - [Pipedrive.ListProductsResponseAllOfData](https://github.com/pipedrive/client-nodejs/blob/master/docs/ListProductsResponseAllOfData.md)
  - [Pipedrive.ListProductsResponseAllOfRelatedObjects](https://github.com/pipedrive/client-nodejs/blob/master/docs/ListProductsResponseAllOfRelatedObjects.md)
  - [Pipedrive.MailMessage](https://github.com/pipedrive/client-nodejs/blob/master/docs/MailMessage.md)
  - [Pipedrive.MailMessageAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/MailMessageAllOf.md)

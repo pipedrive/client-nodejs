@@ -13,8 +13,8 @@
 
 import ApiClient from '../ApiClient';
 import ListProductAdditionalData from './ListProductAdditionalData';
-import ListProductsResponseAllOfData from './ListProductsResponseAllOfData';
 import ListProductsResponseAllOfRelatedObjects from './ListProductsResponseAllOfRelatedObjects';
+import ProductListItem from './ProductListItem';
 
 /**
  * The ListProductsResponseAllOf model module.
@@ -51,7 +51,7 @@ class ListProductsResponseAllOf {
             obj = obj || new ListProductsResponseAllOf();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ListProductsResponseAllOfData.constructFromObject(data['data']);
+                obj['data'] = ApiClient.convertToType(data['data'], [ProductListItem]);
 
                 delete data['data'];
             }
@@ -78,7 +78,8 @@ class ListProductsResponseAllOf {
 }
 
 /**
- * @member {module:model/ListProductsResponseAllOfData} data
+ * The array of products
+ * @member {Array.<module:model/ProductListItem>} data
  */
 ListProductsResponseAllOf.prototype['data'] = undefined;
 
