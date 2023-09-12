@@ -15,8 +15,8 @@ import ApiClient from '../ApiClient';
 import BaseResponse from './BaseResponse';
 import ListProductAdditionalData from './ListProductAdditionalData';
 import ListProductsResponseAllOf from './ListProductsResponseAllOf';
-import ListProductsResponseAllOfData from './ListProductsResponseAllOfData';
 import ListProductsResponseAllOfRelatedObjects from './ListProductsResponseAllOfRelatedObjects';
+import ProductListItem from './ProductListItem';
 
 /**
  * The ListProductsResponse model module.
@@ -62,7 +62,7 @@ class ListProductsResponse {
                 delete data['success'];
             }
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ListProductsResponseAllOfData.constructFromObject(data['data']);
+                obj['data'] = ApiClient.convertToType(data['data'], [ProductListItem]);
 
                 delete data['data'];
             }
@@ -95,7 +95,8 @@ class ListProductsResponse {
 ListProductsResponse.prototype['success'] = undefined;
 
 /**
- * @member {module:model/ListProductsResponseAllOfData} data
+ * The array of products
+ * @member {Array.<module:model/ProductListItem>} data
  */
 ListProductsResponse.prototype['data'] = undefined;
 
@@ -118,7 +119,8 @@ ListProductsResponse.prototype['related_objects'] = undefined;
 BaseResponse.prototype['success'] = undefined;
 // Implement ListProductsResponseAllOf interface:
 /**
- * @member {module:model/ListProductsResponseAllOfData} data
+ * The array of products
+ * @member {Array.<module:model/ProductListItem>} data
  */
 ListProductsResponseAllOf.prototype['data'] = undefined;
 /**

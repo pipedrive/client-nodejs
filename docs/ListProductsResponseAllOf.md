@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**ListProductsResponseAllOfData**](ListProductsResponseAllOfData.md) |  | [optional] 
+**data** | [**[ProductListItem]**](ProductListItem.md) | The array of products | [optional] 
 **additionalData** | [**ListProductAdditionalData**](ListProductAdditionalData.md) |  | [optional] 
 **relatedObjects** | [**ListProductsResponseAllOfRelatedObjects**](ListProductsResponseAllOfRelatedObjects.md) |  | [optional] 
 
