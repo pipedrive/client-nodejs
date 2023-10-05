@@ -53,7 +53,7 @@ class FieldUpdateRequest {
                 delete data['name'];
             }
             if (data.hasOwnProperty('options')) {
-                obj['options'] = ApiClient.convertToType(data['options'], 'String');
+                obj['options'] = ApiClient.convertToType(data['options'], [Object]);
 
                 delete data['options'];
             }
@@ -82,7 +82,7 @@ FieldUpdateRequest.prototype['name'] = undefined;
 
 /**
  * When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. All active items must be supplied and already existing items must have their ID supplied. New items only require a label. Example: `[{\"id\":123,\"label\":\"Existing Item\"},{\"label\":\"New Item\"}]`
- * @member {String} options
+ * @member {Array.<Object>} options
  */
 FieldUpdateRequest.prototype['options'] = undefined;
 
