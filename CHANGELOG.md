@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [22.1.0] - 2023-10-06
+### Fixed
+- Changed node version in .nvmrc and fixed vulnerable dependencies
+
 ## [22.0.2] - 2023-09-12
 ### Fixed
 - Fixed incorrect response schema for the `GET /deals/{id}/products` endpoint
