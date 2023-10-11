@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **value** | **String** | The value of the deal. | [optional] 
+**label** | **[Number]** | Array of the deal labels IDs. | [optional] 
 **currency** | **String** | The currency of the deal. Accepts a 3-character currency code. | [optional] 
 **userId** | **Number** | The ID of the user which will be the new owner of the deal. | [optional] 
 **personId** | **Number** | The ID of a person which this deal will be linked to. If the person does not exist yet, it needs to be created first. | [optional] 

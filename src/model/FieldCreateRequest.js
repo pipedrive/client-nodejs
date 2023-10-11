@@ -64,7 +64,7 @@ class FieldCreateRequest {
                 delete data['name'];
             }
             if (data.hasOwnProperty('options')) {
-                obj['options'] = ApiClient.convertToType(data['options'], 'String');
+                obj['options'] = ApiClient.convertToType(data['options'], [Object]);
 
                 delete data['options'];
             }
@@ -98,7 +98,7 @@ FieldCreateRequest.prototype['name'] = undefined;
 
 /**
  * When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. Example: `[{\"label\":\"New Item\"}]`
- * @member {String} options
+ * @member {Array.<Object>} options
  */
 FieldCreateRequest.prototype['options'] = undefined;
 
@@ -123,7 +123,7 @@ FieldCreateRequest.prototype['field_type'] = undefined;
 FieldCreateRequestAllOf.prototype['name'] = undefined;
 /**
  * When `field_type` is either set or enum, possible options must be supplied as a JSON-encoded sequential array of objects. Example: `[{\"label\":\"New Item\"}]`
- * @member {String} options
+ * @member {Array.<Object>} options
  */
 FieldCreateRequestAllOf.prototype['options'] = undefined;
 /**
