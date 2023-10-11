@@ -84,6 +84,11 @@ class NewPerson {
 
                 delete data['phone'];
             }
+            if (data.hasOwnProperty('label')) {
+                obj['label'] = ApiClient.convertToType(data['label'], 'Number');
+
+                delete data['label'];
+            }
             if (data.hasOwnProperty('visible_to')) {
                 obj['visible_to'] = ApiClient.convertToType(data['visible_to'], VisibleTo);
 
@@ -142,6 +147,12 @@ NewPerson.prototype['email'] = undefined;
 NewPerson.prototype['phone'] = undefined;
 
 /**
+ * The ID of the label.
+ * @member {Number} label
+ */
+NewPerson.prototype['label'] = undefined;
+
+/**
  * The visibility of the person. If omitted, the visibility will be set to the default visibility setting of this item type for the authorized user. Read more about visibility groups <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.<h4>Essential / Advanced plan</h4><table><tr><th style=\"width:40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers</td><tr><td>`3`</td><td>Entire company</td></tr></table><h4>Professional / Enterprise plan</h4><table><tr><th style=\"width:40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner only</td><tr><td>`3`</td><td>Owner's visibility group</td></tr><tr><td>`5`</td><td>Owner's visibility group and sub-groups</td></tr><tr><td>`7`</td><td>Entire company</td></tr></table>
  * @member {module:model/VisibleTo} visible_to
  */
@@ -187,6 +198,11 @@ BasicPerson.prototype['email'] = undefined;
  * @member {Array.<module:model/BasePersonItemPhone>} phone
  */
 BasicPerson.prototype['phone'] = undefined;
+/**
+ * The ID of the label.
+ * @member {Number} label
+ */
+BasicPerson.prototype['label'] = undefined;
 /**
  * The visibility of the person. If omitted, the visibility will be set to the default visibility setting of this item type for the authorized user. Read more about visibility groups <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.<h4>Essential / Advanced plan</h4><table><tr><th style=\"width:40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers</td><tr><td>`3`</td><td>Entire company</td></tr></table><h4>Professional / Enterprise plan</h4><table><tr><th style=\"width:40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner only</td><tr><td>`3`</td><td>Owner's visibility group</td></tr><tr><td>`5`</td><td>Owner's visibility group and sub-groups</td></tr><tr><td>`7`</td><td>Entire company</td></tr></table>
  * @member {module:model/VisibleTo} visible_to
