@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [22.2.0] - 2023-10-11
+### Changed
+- Changed node version in .nvmrc and fixed vulnerable dependencies
+
 ## [22.1.0] - 2023-10-11
 ### Fixed
 - Incorrect type of `options`  for the `POST and PUT /dealFields, /personFields and /organizationFields` endpoints
@@ -578,7 +582,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.1.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.2.0...HEAD
+[22.2.0]: https://github.com/pipedrive/api-docs/compare/v22.1.0...v22.2.0
 [22.1.0]: https://github.com/pipedrive/api-docs/compare/v22.0.2...v22.1.0
 [22.0.2]: https://github.com/pipedrive/api-docs/compare/v22.0.1...v22.0.2
 [22.0.1]: https://github.com/pipedrive/api-docs/compare/v22.0.0...v22.0.1
