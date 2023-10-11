@@ -67,6 +67,11 @@ class UpdateDealRequest {
 
                 delete data['value'];
             }
+            if (data.hasOwnProperty('label')) {
+                obj['label'] = ApiClient.convertToType(data['label'], ['Number']);
+
+                delete data['label'];
+            }
             if (data.hasOwnProperty('currency')) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
 
@@ -147,6 +152,12 @@ UpdateDealRequest.prototype['title'] = undefined;
 UpdateDealRequest.prototype['value'] = undefined;
 
 /**
+ * Array of the deal labels IDs.
+ * @member {Array.<Number>} label
+ */
+UpdateDealRequest.prototype['label'] = undefined;
+
+/**
  * The currency of the deal. Accepts a 3-character currency code.
  * @member {String} currency
  */
@@ -225,6 +236,11 @@ DealTitleParameter.prototype['title'] = undefined;
  * @member {String} value
  */
 UpdateDealParameters.prototype['value'] = undefined;
+/**
+ * Array of the deal labels IDs.
+ * @member {Array.<Number>} label
+ */
+UpdateDealParameters.prototype['label'] = undefined;
 /**
  * The currency of the deal. Accepts a 3-character currency code.
  * @member {String} currency

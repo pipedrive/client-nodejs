@@ -69,6 +69,11 @@ class NewDeal {
 
                 delete data['value'];
             }
+            if (data.hasOwnProperty('label')) {
+                obj['label'] = ApiClient.convertToType(data['label'], ['Number']);
+
+                delete data['label'];
+            }
             if (data.hasOwnProperty('currency')) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
 
@@ -152,6 +157,12 @@ NewDeal.prototype['title'] = undefined;
  * @member {String} value
  */
 NewDeal.prototype['value'] = undefined;
+
+/**
+ * The array of the labels IDs.
+ * @member {Array.<Number>} label
+ */
+NewDeal.prototype['label'] = undefined;
 
 /**
  * The currency of the deal. Accepts a 3-character currency code. If omitted, currency will be set to the default currency of the authorized user.
@@ -238,6 +249,11 @@ RequredTitleParameter.prototype['title'] = undefined;
  * @member {String} value
  */
 NewDealParameters.prototype['value'] = undefined;
+/**
+ * The array of the labels IDs.
+ * @member {Array.<Number>} label
+ */
+NewDealParameters.prototype['label'] = undefined;
 /**
  * The currency of the deal. Accepts a 3-character currency code. If omitted, currency will be set to the default currency of the authorized user.
  * @member {String} currency
