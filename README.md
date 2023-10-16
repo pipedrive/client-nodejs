@@ -318,6 +318,8 @@ app.get('/callback', (req, res) => {
   - contacts:full: Create, read, update and delete persons and organizations and their followers; all notes, files, filters. Also grants read access to contacts-related fields
   - products:read: Read products, its fields, files, followers and products connected to a deal
   - products:full: Create, read, update and delete products and its fields; add products to deals
+  - projects:read: Read projects and its fields, tasks and project templates
+  - projects:full: Create, read, update and delete projects and its fields; add projects templates and project related tasks
   - users:read: Read data about users (people with access to a Pipedrive account), their permissions, roles and followers
   - recents:read: Read all recent changes occurred in an account. Includes data about activities, activity types, deals, files, filters, notes, persons, organizations, pipelines, stages, products and users
   - search:read: Search across the account for deals, persons, organizations, files and products, and see details about the returned results
@@ -544,6 +546,24 @@ Class | Method | HTTP request | Description
 *Pipedrive.ProductsApi* | [**getProducts**](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProductsApi.md#getProducts) | **GET** /products | Get all products
 *Pipedrive.ProductsApi* | [**searchProducts**](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProductsApi.md#searchProducts) | **GET** /products/search | Search products
 *Pipedrive.ProductsApi* | [**updateProduct**](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProductsApi.md#updateProduct) | **PUT** /products/{id} | Update a product
+*Pipedrive.ProjectTemplatesApi* | [**getProjectTemplate**](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectTemplatesApi.md#getProjectTemplate) | **GET** /projectTemplates/{id} | Get details of a template
+*Pipedrive.ProjectTemplatesApi* | [**getProjectTemplates**](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectTemplatesApi.md#getProjectTemplates) | **GET** /projectTemplates | Get all project templates
+*Pipedrive.ProjectTemplatesApi* | [**getProjectsBoard**](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectTemplatesApi.md#getProjectsBoard) | **GET** /projects/boards/{id} | Get details of a board
+*Pipedrive.ProjectTemplatesApi* | [**getProjectsPhase**](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectTemplatesApi.md#getProjectsPhase) | **GET** /projects/phases/{id} | Get details of a phase
+*Pipedrive.ProjectsApi* | [**addProject**](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectsApi.md#addProject) | **POST** /projects | Add a project
+*Pipedrive.ProjectsApi* | [**archiveProject**](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectsApi.md#archiveProject) | **POST** /projects/{id}/archive | Archive a project
+*Pipedrive.ProjectsApi* | [**deleteProject**](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectsApi.md#deleteProject) | **DELETE** /projects/{id} | Delete a project
+*Pipedrive.ProjectsApi* | [**getProject**](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectsApi.md#getProject) | **GET** /projects/{id} | Get details of a project
+*Pipedrive.ProjectsApi* | [**getProjectActivities**](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectsApi.md#getProjectActivities) | **GET** /projects/{id}/activities | Returns project activities
+*Pipedrive.ProjectsApi* | [**getProjectGroups**](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectsApi.md#getProjectGroups) | **GET** /projects/{id}/groups | Returns project groups
+*Pipedrive.ProjectsApi* | [**getProjectPlan**](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectsApi.md#getProjectPlan) | **GET** /projects/{id}/plan | Returns project plan
+*Pipedrive.ProjectsApi* | [**getProjectTasks**](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectsApi.md#getProjectTasks) | **GET** /projects/{id}/tasks | Returns project tasks
+*Pipedrive.ProjectsApi* | [**getProjects**](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectsApi.md#getProjects) | **GET** /projects | Get all projects
+*Pipedrive.ProjectsApi* | [**getProjectsBoards**](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectsApi.md#getProjectsBoards) | **GET** /projects/boards | Get all project boards
+*Pipedrive.ProjectsApi* | [**getProjectsPhases**](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectsApi.md#getProjectsPhases) | **GET** /projects/phases | Get project phases
+*Pipedrive.ProjectsApi* | [**putProjectPlanActivity**](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectsApi.md#putProjectPlanActivity) | **PUT** /projects/{id}/plan/activities/{activityId} | Update activity in project plan
+*Pipedrive.ProjectsApi* | [**putProjectPlanTask**](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectsApi.md#putProjectPlanTask) | **PUT** /projects/{id}/plan/tasks/{taskId} | Update task in project plan
+*Pipedrive.ProjectsApi* | [**updateProject**](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectsApi.md#updateProject) | **PUT** /projects/{id} | Update a project
 *Pipedrive.RecentsApi* | [**getRecents**](https://github.com/pipedrive/client-nodejs/blob/master/docs/RecentsApi.md#getRecents) | **GET** /recents | Get recents
 *Pipedrive.RolesApi* | [**addOrUpdateRoleSetting**](https://github.com/pipedrive/client-nodejs/blob/master/docs/RolesApi.md#addOrUpdateRoleSetting) | **POST** /roles/{id}/settings | Add or update role setting
 *Pipedrive.RolesApi* | [**addRole**](https://github.com/pipedrive/client-nodejs/blob/master/docs/RolesApi.md#addRole) | **POST** /roles | Add a role
@@ -573,6 +593,11 @@ Class | Method | HTTP request | Description
 *Pipedrive.SubscriptionsApi* | [**getSubscriptionPayments**](https://github.com/pipedrive/client-nodejs/blob/master/docs/SubscriptionsApi.md#getSubscriptionPayments) | **GET** /subscriptions/{id}/payments | Get all payments of a subscription
 *Pipedrive.SubscriptionsApi* | [**updateRecurringSubscription**](https://github.com/pipedrive/client-nodejs/blob/master/docs/SubscriptionsApi.md#updateRecurringSubscription) | **PUT** /subscriptions/recurring/{id} | Update a recurring subscription
 *Pipedrive.SubscriptionsApi* | [**updateSubscriptionInstallment**](https://github.com/pipedrive/client-nodejs/blob/master/docs/SubscriptionsApi.md#updateSubscriptionInstallment) | **PUT** /subscriptions/installment/{id} | Update an installment subscription
+*Pipedrive.TasksApi* | [**addTask**](https://github.com/pipedrive/client-nodejs/blob/master/docs/TasksApi.md#addTask) | **POST** /tasks | Add a task
+*Pipedrive.TasksApi* | [**deleteTask**](https://github.com/pipedrive/client-nodejs/blob/master/docs/TasksApi.md#deleteTask) | **DELETE** /tasks/{id} | Delete a task
+*Pipedrive.TasksApi* | [**getTask**](https://github.com/pipedrive/client-nodejs/blob/master/docs/TasksApi.md#getTask) | **GET** /tasks/{id} | Get details of a task
+*Pipedrive.TasksApi* | [**getTasks**](https://github.com/pipedrive/client-nodejs/blob/master/docs/TasksApi.md#getTasks) | **GET** /tasks | Get all tasks
+*Pipedrive.TasksApi* | [**updateTask**](https://github.com/pipedrive/client-nodejs/blob/master/docs/TasksApi.md#updateTask) | **PUT** /tasks/{id} | Update a task
 *Pipedrive.UserConnectionsApi* | [**getUserConnections**](https://github.com/pipedrive/client-nodejs/blob/master/docs/UserConnectionsApi.md#getUserConnections) | **GET** /userConnections | Get all user connections
 *Pipedrive.UserSettingsApi* | [**getUserSettings**](https://github.com/pipedrive/client-nodejs/blob/master/docs/UserSettingsApi.md#getUserSettings) | **GET** /userSettings | List settings of an authorized user
 *Pipedrive.UsersApi* | [**addUser**](https://github.com/pipedrive/client-nodejs/blob/master/docs/UsersApi.md#addUser) | **POST** /users | Add a new user
@@ -647,8 +672,10 @@ Class | Method | HTTP request | Description
  - [Pipedrive.AddProductAttachmentDetailsAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/AddProductAttachmentDetailsAllOf.md)
  - [Pipedrive.AddProductFollowerRequest](https://github.com/pipedrive/client-nodejs/blob/master/docs/AddProductFollowerRequest.md)
  - [Pipedrive.AddProductRequestBody](https://github.com/pipedrive/client-nodejs/blob/master/docs/AddProductRequestBody.md)
+ - [Pipedrive.AddProjectResponse201](https://github.com/pipedrive/client-nodejs/blob/master/docs/AddProjectResponse201.md)
  - [Pipedrive.AddRole](https://github.com/pipedrive/client-nodejs/blob/master/docs/AddRole.md)
  - [Pipedrive.AddRoleAssignmentRequest](https://github.com/pipedrive/client-nodejs/blob/master/docs/AddRoleAssignmentRequest.md)
+ - [Pipedrive.AddTaskResponse201](https://github.com/pipedrive/client-nodejs/blob/master/docs/AddTaskResponse201.md)
  - [Pipedrive.AddTeamUserRequest](https://github.com/pipedrive/client-nodejs/blob/master/docs/AddTeamUserRequest.md)
  - [Pipedrive.AddUserRequest](https://github.com/pipedrive/client-nodejs/blob/master/docs/AddUserRequest.md)
  - [Pipedrive.AddWebhookRequest](https://github.com/pipedrive/client-nodejs/blob/master/docs/AddWebhookRequest.md)
@@ -828,6 +855,9 @@ Class | Method | HTTP request | Description
  - [Pipedrive.DeleteProductFollowerResponseData](https://github.com/pipedrive/client-nodejs/blob/master/docs/DeleteProductFollowerResponseData.md)
  - [Pipedrive.DeleteProductResponse](https://github.com/pipedrive/client-nodejs/blob/master/docs/DeleteProductResponse.md)
  - [Pipedrive.DeleteProductResponseData](https://github.com/pipedrive/client-nodejs/blob/master/docs/DeleteProductResponseData.md)
+ - [Pipedrive.DeleteProject](https://github.com/pipedrive/client-nodejs/blob/master/docs/DeleteProject.md)
+ - [Pipedrive.DeleteProjectData](https://github.com/pipedrive/client-nodejs/blob/master/docs/DeleteProjectData.md)
+ - [Pipedrive.DeleteProjectResponse200](https://github.com/pipedrive/client-nodejs/blob/master/docs/DeleteProjectResponse200.md)
  - [Pipedrive.DeleteResponse](https://github.com/pipedrive/client-nodejs/blob/master/docs/DeleteResponse.md)
  - [Pipedrive.DeleteResponseAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/DeleteResponseAllOf.md)
  - [Pipedrive.DeleteResponseAllOfData](https://github.com/pipedrive/client-nodejs/blob/master/docs/DeleteResponseAllOfData.md)
@@ -842,6 +872,9 @@ Class | Method | HTTP request | Description
  - [Pipedrive.DeleteStageResponse200Data](https://github.com/pipedrive/client-nodejs/blob/master/docs/DeleteStageResponse200Data.md)
  - [Pipedrive.DeleteStagesResponse200](https://github.com/pipedrive/client-nodejs/blob/master/docs/DeleteStagesResponse200.md)
  - [Pipedrive.DeleteStagesResponse200Data](https://github.com/pipedrive/client-nodejs/blob/master/docs/DeleteStagesResponse200Data.md)
+ - [Pipedrive.DeleteTask](https://github.com/pipedrive/client-nodejs/blob/master/docs/DeleteTask.md)
+ - [Pipedrive.DeleteTaskData](https://github.com/pipedrive/client-nodejs/blob/master/docs/DeleteTaskData.md)
+ - [Pipedrive.DeleteTaskResponse200](https://github.com/pipedrive/client-nodejs/blob/master/docs/DeleteTaskResponse200.md)
  - [Pipedrive.DeleteTeamUserRequest](https://github.com/pipedrive/client-nodejs/blob/master/docs/DeleteTeamUserRequest.md)
  - [Pipedrive.Duration](https://github.com/pipedrive/client-nodejs/blob/master/docs/Duration.md)
  - [Pipedrive.EditPipeline](https://github.com/pipedrive/client-nodejs/blob/master/docs/EditPipeline.md)
@@ -880,8 +913,10 @@ Class | Method | HTTP request | Description
  - [Pipedrive.FollowerData](https://github.com/pipedrive/client-nodejs/blob/master/docs/FollowerData.md)
  - [Pipedrive.FollowerDataWithID](https://github.com/pipedrive/client-nodejs/blob/master/docs/FollowerDataWithID.md)
  - [Pipedrive.FollowerDataWithIDAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/FollowerDataWithIDAllOf.md)
+ - [Pipedrive.FullProjectObject](https://github.com/pipedrive/client-nodejs/blob/master/docs/FullProjectObject.md)
  - [Pipedrive.FullRole](https://github.com/pipedrive/client-nodejs/blob/master/docs/FullRole.md)
  - [Pipedrive.FullRoleAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/FullRoleAllOf.md)
+ - [Pipedrive.FullTaskObject](https://github.com/pipedrive/client-nodejs/blob/master/docs/FullTaskObject.md)
  - [Pipedrive.GetActivitiesCollectionResponse200](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetActivitiesCollectionResponse200.md)
  - [Pipedrive.GetActivitiesResponse200](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetActivitiesResponse200.md)
  - [Pipedrive.GetActivitiesResponse200RelatedObjects](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetActivitiesResponse200RelatedObjects.md)
@@ -935,6 +970,16 @@ Class | Method | HTTP request | Description
  - [Pipedrive.GetPersonDetailsResponseAllOfAdditionalData](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetPersonDetailsResponseAllOfAdditionalData.md)
  - [Pipedrive.GetProductAttachementDetails](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetProductAttachementDetails.md)
  - [Pipedrive.GetProductFieldResponse](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetProductFieldResponse.md)
+ - [Pipedrive.GetProjectBoardResponse200](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetProjectBoardResponse200.md)
+ - [Pipedrive.GetProjectBoardsResponse200](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetProjectBoardsResponse200.md)
+ - [Pipedrive.GetProjectGroupsResponse200](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetProjectGroupsResponse200.md)
+ - [Pipedrive.GetProjectPhaseResponse200](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetProjectPhaseResponse200.md)
+ - [Pipedrive.GetProjectPhasesResponse200](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetProjectPhasesResponse200.md)
+ - [Pipedrive.GetProjectPlanResponse200](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetProjectPlanResponse200.md)
+ - [Pipedrive.GetProjectResponse200](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetProjectResponse200.md)
+ - [Pipedrive.GetProjectTemplateResponse200](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetProjectTemplateResponse200.md)
+ - [Pipedrive.GetProjectTemplatesResponse200](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetProjectTemplatesResponse200.md)
+ - [Pipedrive.GetProjectsResponse200](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetProjectsResponse200.md)
  - [Pipedrive.GetRecents](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetRecents.md)
  - [Pipedrive.GetRecentsAdditionalData](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetRecentsAdditionalData.md)
  - [Pipedrive.GetRole](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetRole.md)
@@ -951,6 +996,8 @@ Class | Method | HTTP request | Description
  - [Pipedrive.GetRolesAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetRolesAllOf.md)
  - [Pipedrive.GetStageDeals](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetStageDeals.md)
  - [Pipedrive.GetStages](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetStages.md)
+ - [Pipedrive.GetTaskResponse200](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetTaskResponse200.md)
+ - [Pipedrive.GetTasksResponse200](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetTasksResponse200.md)
  - [Pipedrive.GoalResults](https://github.com/pipedrive/client-nodejs/blob/master/docs/GoalResults.md)
  - [Pipedrive.GoalType](https://github.com/pipedrive/client-nodejs/blob/master/docs/GoalType.md)
  - [Pipedrive.GoalsResponseComponent](https://github.com/pipedrive/client-nodejs/blob/master/docs/GoalsResponseComponent.md)
@@ -1212,6 +1259,19 @@ Class | Method | HTTP request | Description
  - [Pipedrive.ProductWithArrayPrices](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProductWithArrayPrices.md)
  - [Pipedrive.ProductWithObjectPrices](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProductWithObjectPrices.md)
  - [Pipedrive.ProductsResponse](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProductsResponse.md)
+ - [Pipedrive.ProjectBoardObject](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectBoardObject.md)
+ - [Pipedrive.ProjectGroupsObject](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectGroupsObject.md)
+ - [Pipedrive.ProjectId](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectId.md)
+ - [Pipedrive.ProjectMandatoryObjectFragment](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectMandatoryObjectFragment.md)
+ - [Pipedrive.ProjectNotChangeableObjectFragment](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectNotChangeableObjectFragment.md)
+ - [Pipedrive.ProjectObjectFragment](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectObjectFragment.md)
+ - [Pipedrive.ProjectPhaseObject](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectPhaseObject.md)
+ - [Pipedrive.ProjectPlanItemObject](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectPlanItemObject.md)
+ - [Pipedrive.ProjectPostObject](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectPostObject.md)
+ - [Pipedrive.ProjectPostObjectAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectPostObjectAllOf.md)
+ - [Pipedrive.ProjectPutObject](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectPutObject.md)
+ - [Pipedrive.ProjectPutPlanItemBodyObject](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectPutPlanItemBodyObject.md)
+ - [Pipedrive.ProjectResponseObject](https://github.com/pipedrive/client-nodejs/blob/master/docs/ProjectResponseObject.md)
  - [Pipedrive.PutRole](https://github.com/pipedrive/client-nodejs/blob/master/docs/PutRole.md)
  - [Pipedrive.PutRoleAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/PutRoleAllOf.md)
  - [Pipedrive.PutRoleAllOfData](https://github.com/pipedrive/client-nodejs/blob/master/docs/PutRoleAllOfData.md)
@@ -1243,6 +1303,8 @@ Class | Method | HTTP request | Description
  - [Pipedrive.RelationshipOrganizationInfoItemAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/RelationshipOrganizationInfoItemAllOf.md)
  - [Pipedrive.RelationshipOrganizationInfoItemWithActiveFlag](https://github.com/pipedrive/client-nodejs/blob/master/docs/RelationshipOrganizationInfoItemWithActiveFlag.md)
  - [Pipedrive.RequiredNameObject](https://github.com/pipedrive/client-nodejs/blob/master/docs/RequiredNameObject.md)
+ - [Pipedrive.RequiredPostProjectParameters](https://github.com/pipedrive/client-nodejs/blob/master/docs/RequiredPostProjectParameters.md)
+ - [Pipedrive.RequiredPostTaskParameters](https://github.com/pipedrive/client-nodejs/blob/master/docs/RequiredPostTaskParameters.md)
  - [Pipedrive.RequredTitleParameter](https://github.com/pipedrive/client-nodejs/blob/master/docs/RequredTitleParameter.md)
  - [Pipedrive.ResponseCallLogObject](https://github.com/pipedrive/client-nodejs/blob/master/docs/ResponseCallLogObject.md)
  - [Pipedrive.ResponseCallLogObjectAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/ResponseCallLogObjectAllOf.md)
@@ -1270,11 +1332,20 @@ Class | Method | HTTP request | Description
  - [Pipedrive.SubscriptionRecurringUpdateRequest](https://github.com/pipedrive/client-nodejs/blob/master/docs/SubscriptionRecurringUpdateRequest.md)
  - [Pipedrive.SubscriptionsIdResponse](https://github.com/pipedrive/client-nodejs/blob/master/docs/SubscriptionsIdResponse.md)
  - [Pipedrive.SubscriptionsIdResponseAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/SubscriptionsIdResponseAllOf.md)
+ - [Pipedrive.TaskId](https://github.com/pipedrive/client-nodejs/blob/master/docs/TaskId.md)
+ - [Pipedrive.TaskMandatoryObjectFragment](https://github.com/pipedrive/client-nodejs/blob/master/docs/TaskMandatoryObjectFragment.md)
+ - [Pipedrive.TaskNotChangeableObjectFragment](https://github.com/pipedrive/client-nodejs/blob/master/docs/TaskNotChangeableObjectFragment.md)
+ - [Pipedrive.TaskObjectFragment](https://github.com/pipedrive/client-nodejs/blob/master/docs/TaskObjectFragment.md)
+ - [Pipedrive.TaskPostObject](https://github.com/pipedrive/client-nodejs/blob/master/docs/TaskPostObject.md)
+ - [Pipedrive.TaskPutObject](https://github.com/pipedrive/client-nodejs/blob/master/docs/TaskPutObject.md)
+ - [Pipedrive.TaskResponseObject](https://github.com/pipedrive/client-nodejs/blob/master/docs/TaskResponseObject.md)
  - [Pipedrive.Team](https://github.com/pipedrive/client-nodejs/blob/master/docs/Team.md)
  - [Pipedrive.TeamAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/TeamAllOf.md)
  - [Pipedrive.TeamId](https://github.com/pipedrive/client-nodejs/blob/master/docs/TeamId.md)
  - [Pipedrive.Teams](https://github.com/pipedrive/client-nodejs/blob/master/docs/Teams.md)
  - [Pipedrive.TeamsAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/TeamsAllOf.md)
+ - [Pipedrive.TemplateObject](https://github.com/pipedrive/client-nodejs/blob/master/docs/TemplateObject.md)
+ - [Pipedrive.TemplateResponseObject](https://github.com/pipedrive/client-nodejs/blob/master/docs/TemplateResponseObject.md)
  - [Pipedrive.Unauthorized](https://github.com/pipedrive/client-nodejs/blob/master/docs/Unauthorized.md)
  - [Pipedrive.UpdateActivityResponse200](https://github.com/pipedrive/client-nodejs/blob/master/docs/UpdateActivityResponse200.md)
  - [Pipedrive.UpdateDealParameters](https://github.com/pipedrive/client-nodejs/blob/master/docs/UpdateDealParameters.md)
@@ -1292,12 +1363,16 @@ Class | Method | HTTP request | Description
  - [Pipedrive.UpdateProductField](https://github.com/pipedrive/client-nodejs/blob/master/docs/UpdateProductField.md)
  - [Pipedrive.UpdateProductRequestBody](https://github.com/pipedrive/client-nodejs/blob/master/docs/UpdateProductRequestBody.md)
  - [Pipedrive.UpdateProductResponse](https://github.com/pipedrive/client-nodejs/blob/master/docs/UpdateProductResponse.md)
+ - [Pipedrive.UpdateProjectResponse200](https://github.com/pipedrive/client-nodejs/blob/master/docs/UpdateProjectResponse200.md)
  - [Pipedrive.UpdateStageRequest](https://github.com/pipedrive/client-nodejs/blob/master/docs/UpdateStageRequest.md)
  - [Pipedrive.UpdateStageRequestAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/UpdateStageRequestAllOf.md)
+ - [Pipedrive.UpdateTaskResponse200](https://github.com/pipedrive/client-nodejs/blob/master/docs/UpdateTaskResponse200.md)
  - [Pipedrive.UpdateTeam](https://github.com/pipedrive/client-nodejs/blob/master/docs/UpdateTeam.md)
  - [Pipedrive.UpdateTeamAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/UpdateTeamAllOf.md)
  - [Pipedrive.UpdateTeamWithAdditionalProperties](https://github.com/pipedrive/client-nodejs/blob/master/docs/UpdateTeamWithAdditionalProperties.md)
  - [Pipedrive.UpdateUserRequest](https://github.com/pipedrive/client-nodejs/blob/master/docs/UpdateUserRequest.md)
+ - [Pipedrive.UpdatedActivityPlanItem200](https://github.com/pipedrive/client-nodejs/blob/master/docs/UpdatedActivityPlanItem200.md)
+ - [Pipedrive.UpdatedTaskPlanItem200](https://github.com/pipedrive/client-nodejs/blob/master/docs/UpdatedTaskPlanItem200.md)
  - [Pipedrive.User](https://github.com/pipedrive/client-nodejs/blob/master/docs/User.md)
  - [Pipedrive.UserAccess](https://github.com/pipedrive/client-nodejs/blob/master/docs/UserAccess.md)
  - [Pipedrive.UserAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/UserAllOf.md)

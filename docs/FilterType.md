@@ -15,4 +15,6 @@
 
 * `activity` (value: `"activity"`)
 
+* `projects` (value: `"projects"`)
+
 
