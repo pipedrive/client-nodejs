@@ -68,8 +68,10 @@ import AddProductAttachmentDetails from './model/AddProductAttachmentDetails';
 import AddProductAttachmentDetailsAllOf from './model/AddProductAttachmentDetailsAllOf';
 import AddProductFollowerRequest from './model/AddProductFollowerRequest';
 import AddProductRequestBody from './model/AddProductRequestBody';
+import AddProjectResponse201 from './model/AddProjectResponse201';
 import AddRole from './model/AddRole';
 import AddRoleAssignmentRequest from './model/AddRoleAssignmentRequest';
+import AddTaskResponse201 from './model/AddTaskResponse201';
 import AddTeamUserRequest from './model/AddTeamUserRequest';
 import AddUserRequest from './model/AddUserRequest';
 import AddWebhookRequest from './model/AddWebhookRequest';
@@ -249,6 +251,9 @@ import DeleteProductFollowerResponse from './model/DeleteProductFollowerResponse
 import DeleteProductFollowerResponseData from './model/DeleteProductFollowerResponseData';
 import DeleteProductResponse from './model/DeleteProductResponse';
 import DeleteProductResponseData from './model/DeleteProductResponseData';
+import DeleteProject from './model/DeleteProject';
+import DeleteProjectData from './model/DeleteProjectData';
+import DeleteProjectResponse200 from './model/DeleteProjectResponse200';
 import DeleteResponse from './model/DeleteResponse';
 import DeleteResponseAllOf from './model/DeleteResponseAllOf';
 import DeleteResponseAllOfData from './model/DeleteResponseAllOfData';
@@ -263,6 +268,9 @@ import DeleteStageResponse200 from './model/DeleteStageResponse200';
 import DeleteStageResponse200Data from './model/DeleteStageResponse200Data';
 import DeleteStagesResponse200 from './model/DeleteStagesResponse200';
 import DeleteStagesResponse200Data from './model/DeleteStagesResponse200Data';
+import DeleteTask from './model/DeleteTask';
+import DeleteTaskData from './model/DeleteTaskData';
+import DeleteTaskResponse200 from './model/DeleteTaskResponse200';
 import DeleteTeamUserRequest from './model/DeleteTeamUserRequest';
 import Duration from './model/Duration';
 import EditPipeline from './model/EditPipeline';
@@ -301,8 +309,10 @@ import FindGoalResponse from './model/FindGoalResponse';
 import FollowerData from './model/FollowerData';
 import FollowerDataWithID from './model/FollowerDataWithID';
 import FollowerDataWithIDAllOf from './model/FollowerDataWithIDAllOf';
+import FullProjectObject from './model/FullProjectObject';
 import FullRole from './model/FullRole';
 import FullRoleAllOf from './model/FullRoleAllOf';
+import FullTaskObject from './model/FullTaskObject';
 import GetActivitiesCollectionResponse200 from './model/GetActivitiesCollectionResponse200';
 import GetActivitiesResponse200 from './model/GetActivitiesResponse200';
 import GetActivitiesResponse200RelatedObjects from './model/GetActivitiesResponse200RelatedObjects';
@@ -356,6 +366,16 @@ import GetPersonDetailsResponseAllOf from './model/GetPersonDetailsResponseAllOf
 import GetPersonDetailsResponseAllOfAdditionalData from './model/GetPersonDetailsResponseAllOfAdditionalData';
 import GetProductAttachementDetails from './model/GetProductAttachementDetails';
 import GetProductFieldResponse from './model/GetProductFieldResponse';
+import GetProjectBoardResponse200 from './model/GetProjectBoardResponse200';
+import GetProjectBoardsResponse200 from './model/GetProjectBoardsResponse200';
+import GetProjectGroupsResponse200 from './model/GetProjectGroupsResponse200';
+import GetProjectPhaseResponse200 from './model/GetProjectPhaseResponse200';
+import GetProjectPhasesResponse200 from './model/GetProjectPhasesResponse200';
+import GetProjectPlanResponse200 from './model/GetProjectPlanResponse200';
+import GetProjectResponse200 from './model/GetProjectResponse200';
+import GetProjectTemplateResponse200 from './model/GetProjectTemplateResponse200';
+import GetProjectTemplatesResponse200 from './model/GetProjectTemplatesResponse200';
+import GetProjectsResponse200 from './model/GetProjectsResponse200';
 import GetRecents from './model/GetRecents';
 import GetRecentsAdditionalData from './model/GetRecentsAdditionalData';
 import GetRole from './model/GetRole';
@@ -372,6 +392,8 @@ import GetRoles from './model/GetRoles';
 import GetRolesAllOf from './model/GetRolesAllOf';
 import GetStageDeals from './model/GetStageDeals';
 import GetStages from './model/GetStages';
+import GetTaskResponse200 from './model/GetTaskResponse200';
+import GetTasksResponse200 from './model/GetTasksResponse200';
 import GoalResults from './model/GoalResults';
 import GoalType from './model/GoalType';
 import GoalsResponseComponent from './model/GoalsResponseComponent';
@@ -633,6 +655,19 @@ import ProductSearchResponseAllOfData from './model/ProductSearchResponseAllOfDa
 import ProductWithArrayPrices from './model/ProductWithArrayPrices';
 import ProductWithObjectPrices from './model/ProductWithObjectPrices';
 import ProductsResponse from './model/ProductsResponse';
+import ProjectBoardObject from './model/ProjectBoardObject';
+import ProjectGroupsObject from './model/ProjectGroupsObject';
+import ProjectId from './model/ProjectId';
+import ProjectMandatoryObjectFragment from './model/ProjectMandatoryObjectFragment';
+import ProjectNotChangeableObjectFragment from './model/ProjectNotChangeableObjectFragment';
+import ProjectObjectFragment from './model/ProjectObjectFragment';
+import ProjectPhaseObject from './model/ProjectPhaseObject';
+import ProjectPlanItemObject from './model/ProjectPlanItemObject';
+import ProjectPostObject from './model/ProjectPostObject';
+import ProjectPostObjectAllOf from './model/ProjectPostObjectAllOf';
+import ProjectPutObject from './model/ProjectPutObject';
+import ProjectPutPlanItemBodyObject from './model/ProjectPutPlanItemBodyObject';
+import ProjectResponseObject from './model/ProjectResponseObject';
 import PutRole from './model/PutRole';
 import PutRoleAllOf from './model/PutRoleAllOf';
 import PutRoleAllOfData from './model/PutRoleAllOfData';
@@ -664,6 +699,8 @@ import RelationshipOrganizationInfoItem from './model/RelationshipOrganizationIn
 import RelationshipOrganizationInfoItemAllOf from './model/RelationshipOrganizationInfoItemAllOf';
 import RelationshipOrganizationInfoItemWithActiveFlag from './model/RelationshipOrganizationInfoItemWithActiveFlag';
 import RequiredNameObject from './model/RequiredNameObject';
+import RequiredPostProjectParameters from './model/RequiredPostProjectParameters';
+import RequiredPostTaskParameters from './model/RequiredPostTaskParameters';
 import RequredTitleParameter from './model/RequredTitleParameter';
 import ResponseCallLogObject from './model/ResponseCallLogObject';
 import ResponseCallLogObjectAllOf from './model/ResponseCallLogObjectAllOf';
@@ -691,11 +728,20 @@ import SubscriptionRecurringCreateRequest from './model/SubscriptionRecurringCre
 import SubscriptionRecurringUpdateRequest from './model/SubscriptionRecurringUpdateRequest';
 import SubscriptionsIdResponse from './model/SubscriptionsIdResponse';
 import SubscriptionsIdResponseAllOf from './model/SubscriptionsIdResponseAllOf';
+import TaskId from './model/TaskId';
+import TaskMandatoryObjectFragment from './model/TaskMandatoryObjectFragment';
+import TaskNotChangeableObjectFragment from './model/TaskNotChangeableObjectFragment';
+import TaskObjectFragment from './model/TaskObjectFragment';
+import TaskPostObject from './model/TaskPostObject';
+import TaskPutObject from './model/TaskPutObject';
+import TaskResponseObject from './model/TaskResponseObject';
 import Team from './model/Team';
 import TeamAllOf from './model/TeamAllOf';
 import TeamId from './model/TeamId';
 import Teams from './model/Teams';
 import TeamsAllOf from './model/TeamsAllOf';
+import TemplateObject from './model/TemplateObject';
+import TemplateResponseObject from './model/TemplateResponseObject';
 import Unauthorized from './model/Unauthorized';
 import UpdateActivityResponse200 from './model/UpdateActivityResponse200';
 import UpdateDealParameters from './model/UpdateDealParameters';
@@ -713,12 +759,16 @@ import UpdatePersonResponse from './model/UpdatePersonResponse';
 import UpdateProductField from './model/UpdateProductField';
 import UpdateProductRequestBody from './model/UpdateProductRequestBody';
 import UpdateProductResponse from './model/UpdateProductResponse';
+import UpdateProjectResponse200 from './model/UpdateProjectResponse200';
 import UpdateStageRequest from './model/UpdateStageRequest';
 import UpdateStageRequestAllOf from './model/UpdateStageRequestAllOf';
+import UpdateTaskResponse200 from './model/UpdateTaskResponse200';
 import UpdateTeam from './model/UpdateTeam';
 import UpdateTeamAllOf from './model/UpdateTeamAllOf';
 import UpdateTeamWithAdditionalProperties from './model/UpdateTeamWithAdditionalProperties';
 import UpdateUserRequest from './model/UpdateUserRequest';
+import UpdatedActivityPlanItem200 from './model/UpdatedActivityPlanItem200';
+import UpdatedTaskPlanItem200 from './model/UpdatedTaskPlanItem200';
 import User from './model/User';
 import UserAccess from './model/UserAccess';
 import UserAllOf from './model/UserAllOf';
@@ -780,10 +830,13 @@ import PersonsApi from './api/PersonsApi';
 import PipelinesApi from './api/PipelinesApi';
 import ProductFieldsApi from './api/ProductFieldsApi';
 import ProductsApi from './api/ProductsApi';
+import ProjectTemplatesApi from './api/ProjectTemplatesApi';
+import ProjectsApi from './api/ProjectsApi';
 import RecentsApi from './api/RecentsApi';
 import RolesApi from './api/RolesApi';
 import StagesApi from './api/StagesApi';
 import SubscriptionsApi from './api/SubscriptionsApi';
+import TasksApi from './api/TasksApi';
 import UserConnectionsApi from './api/UserConnectionsApi';
 import UserSettingsApi from './api/UserSettingsApi';
 import UsersApi from './api/UsersApi';
@@ -1159,6 +1212,12 @@ export {
     AddProductRequestBody,
 
     /**
+     * The AddProjectResponse201 model constructor.
+     * @property {module:model/AddProjectResponse201}
+     */
+    AddProjectResponse201,
+
+    /**
      * The AddRole model constructor.
      * @property {module:model/AddRole}
      */
@@ -1169,6 +1228,12 @@ export {
      * @property {module:model/AddRoleAssignmentRequest}
      */
     AddRoleAssignmentRequest,
+
+    /**
+     * The AddTaskResponse201 model constructor.
+     * @property {module:model/AddTaskResponse201}
+     */
+    AddTaskResponse201,
 
     /**
      * The AddTeamUserRequest model constructor.
@@ -2245,6 +2310,24 @@ export {
     DeleteProductResponseData,
 
     /**
+     * The DeleteProject model constructor.
+     * @property {module:model/DeleteProject}
+     */
+    DeleteProject,
+
+    /**
+     * The DeleteProjectData model constructor.
+     * @property {module:model/DeleteProjectData}
+     */
+    DeleteProjectData,
+
+    /**
+     * The DeleteProjectResponse200 model constructor.
+     * @property {module:model/DeleteProjectResponse200}
+     */
+    DeleteProjectResponse200,
+
+    /**
      * The DeleteResponse model constructor.
      * @property {module:model/DeleteResponse}
      */
@@ -2327,6 +2410,24 @@ export {
      * @property {module:model/DeleteStagesResponse200Data}
      */
     DeleteStagesResponse200Data,
+
+    /**
+     * The DeleteTask model constructor.
+     * @property {module:model/DeleteTask}
+     */
+    DeleteTask,
+
+    /**
+     * The DeleteTaskData model constructor.
+     * @property {module:model/DeleteTaskData}
+     */
+    DeleteTaskData,
+
+    /**
+     * The DeleteTaskResponse200 model constructor.
+     * @property {module:model/DeleteTaskResponse200}
+     */
+    DeleteTaskResponse200,
 
     /**
      * The DeleteTeamUserRequest model constructor.
@@ -2557,6 +2658,12 @@ export {
     FollowerDataWithIDAllOf,
 
     /**
+     * The FullProjectObject model constructor.
+     * @property {module:model/FullProjectObject}
+     */
+    FullProjectObject,
+
+    /**
      * The FullRole model constructor.
      * @property {module:model/FullRole}
      */
@@ -2567,6 +2674,12 @@ export {
      * @property {module:model/FullRoleAllOf}
      */
     FullRoleAllOf,
+
+    /**
+     * The FullTaskObject model constructor.
+     * @property {module:model/FullTaskObject}
+     */
+    FullTaskObject,
 
     /**
      * The GetActivitiesCollectionResponse200 model constructor.
@@ -2887,6 +3000,66 @@ export {
     GetProductFieldResponse,
 
     /**
+     * The GetProjectBoardResponse200 model constructor.
+     * @property {module:model/GetProjectBoardResponse200}
+     */
+    GetProjectBoardResponse200,
+
+    /**
+     * The GetProjectBoardsResponse200 model constructor.
+     * @property {module:model/GetProjectBoardsResponse200}
+     */
+    GetProjectBoardsResponse200,
+
+    /**
+     * The GetProjectGroupsResponse200 model constructor.
+     * @property {module:model/GetProjectGroupsResponse200}
+     */
+    GetProjectGroupsResponse200,
+
+    /**
+     * The GetProjectPhaseResponse200 model constructor.
+     * @property {module:model/GetProjectPhaseResponse200}
+     */
+    GetProjectPhaseResponse200,
+
+    /**
+     * The GetProjectPhasesResponse200 model constructor.
+     * @property {module:model/GetProjectPhasesResponse200}
+     */
+    GetProjectPhasesResponse200,
+
+    /**
+     * The GetProjectPlanResponse200 model constructor.
+     * @property {module:model/GetProjectPlanResponse200}
+     */
+    GetProjectPlanResponse200,
+
+    /**
+     * The GetProjectResponse200 model constructor.
+     * @property {module:model/GetProjectResponse200}
+     */
+    GetProjectResponse200,
+
+    /**
+     * The GetProjectTemplateResponse200 model constructor.
+     * @property {module:model/GetProjectTemplateResponse200}
+     */
+    GetProjectTemplateResponse200,
+
+    /**
+     * The GetProjectTemplatesResponse200 model constructor.
+     * @property {module:model/GetProjectTemplatesResponse200}
+     */
+    GetProjectTemplatesResponse200,
+
+    /**
+     * The GetProjectsResponse200 model constructor.
+     * @property {module:model/GetProjectsResponse200}
+     */
+    GetProjectsResponse200,
+
+    /**
      * The GetRecents model constructor.
      * @property {module:model/GetRecents}
      */
@@ -2981,6 +3154,18 @@ export {
      * @property {module:model/GetStages}
      */
     GetStages,
+
+    /**
+     * The GetTaskResponse200 model constructor.
+     * @property {module:model/GetTaskResponse200}
+     */
+    GetTaskResponse200,
+
+    /**
+     * The GetTasksResponse200 model constructor.
+     * @property {module:model/GetTasksResponse200}
+     */
+    GetTasksResponse200,
 
     /**
      * The GoalResults model constructor.
@@ -4549,6 +4734,84 @@ export {
     ProductsResponse,
 
     /**
+     * The ProjectBoardObject model constructor.
+     * @property {module:model/ProjectBoardObject}
+     */
+    ProjectBoardObject,
+
+    /**
+     * The ProjectGroupsObject model constructor.
+     * @property {module:model/ProjectGroupsObject}
+     */
+    ProjectGroupsObject,
+
+    /**
+     * The ProjectId model constructor.
+     * @property {module:model/ProjectId}
+     */
+    ProjectId,
+
+    /**
+     * The ProjectMandatoryObjectFragment model constructor.
+     * @property {module:model/ProjectMandatoryObjectFragment}
+     */
+    ProjectMandatoryObjectFragment,
+
+    /**
+     * The ProjectNotChangeableObjectFragment model constructor.
+     * @property {module:model/ProjectNotChangeableObjectFragment}
+     */
+    ProjectNotChangeableObjectFragment,
+
+    /**
+     * The ProjectObjectFragment model constructor.
+     * @property {module:model/ProjectObjectFragment}
+     */
+    ProjectObjectFragment,
+
+    /**
+     * The ProjectPhaseObject model constructor.
+     * @property {module:model/ProjectPhaseObject}
+     */
+    ProjectPhaseObject,
+
+    /**
+     * The ProjectPlanItemObject model constructor.
+     * @property {module:model/ProjectPlanItemObject}
+     */
+    ProjectPlanItemObject,
+
+    /**
+     * The ProjectPostObject model constructor.
+     * @property {module:model/ProjectPostObject}
+     */
+    ProjectPostObject,
+
+    /**
+     * The ProjectPostObjectAllOf model constructor.
+     * @property {module:model/ProjectPostObjectAllOf}
+     */
+    ProjectPostObjectAllOf,
+
+    /**
+     * The ProjectPutObject model constructor.
+     * @property {module:model/ProjectPutObject}
+     */
+    ProjectPutObject,
+
+    /**
+     * The ProjectPutPlanItemBodyObject model constructor.
+     * @property {module:model/ProjectPutPlanItemBodyObject}
+     */
+    ProjectPutPlanItemBodyObject,
+
+    /**
+     * The ProjectResponseObject model constructor.
+     * @property {module:model/ProjectResponseObject}
+     */
+    ProjectResponseObject,
+
+    /**
      * The PutRole model constructor.
      * @property {module:model/PutRole}
      */
@@ -4735,6 +4998,18 @@ export {
     RequiredNameObject,
 
     /**
+     * The RequiredPostProjectParameters model constructor.
+     * @property {module:model/RequiredPostProjectParameters}
+     */
+    RequiredPostProjectParameters,
+
+    /**
+     * The RequiredPostTaskParameters model constructor.
+     * @property {module:model/RequiredPostTaskParameters}
+     */
+    RequiredPostTaskParameters,
+
+    /**
      * The RequredTitleParameter model constructor.
      * @property {module:model/RequredTitleParameter}
      */
@@ -4897,6 +5172,48 @@ export {
     SubscriptionsIdResponseAllOf,
 
     /**
+     * The TaskId model constructor.
+     * @property {module:model/TaskId}
+     */
+    TaskId,
+
+    /**
+     * The TaskMandatoryObjectFragment model constructor.
+     * @property {module:model/TaskMandatoryObjectFragment}
+     */
+    TaskMandatoryObjectFragment,
+
+    /**
+     * The TaskNotChangeableObjectFragment model constructor.
+     * @property {module:model/TaskNotChangeableObjectFragment}
+     */
+    TaskNotChangeableObjectFragment,
+
+    /**
+     * The TaskObjectFragment model constructor.
+     * @property {module:model/TaskObjectFragment}
+     */
+    TaskObjectFragment,
+
+    /**
+     * The TaskPostObject model constructor.
+     * @property {module:model/TaskPostObject}
+     */
+    TaskPostObject,
+
+    /**
+     * The TaskPutObject model constructor.
+     * @property {module:model/TaskPutObject}
+     */
+    TaskPutObject,
+
+    /**
+     * The TaskResponseObject model constructor.
+     * @property {module:model/TaskResponseObject}
+     */
+    TaskResponseObject,
+
+    /**
      * The Team model constructor.
      * @property {module:model/Team}
      */
@@ -4925,6 +5242,18 @@ export {
      * @property {module:model/TeamsAllOf}
      */
     TeamsAllOf,
+
+    /**
+     * The TemplateObject model constructor.
+     * @property {module:model/TemplateObject}
+     */
+    TemplateObject,
+
+    /**
+     * The TemplateResponseObject model constructor.
+     * @property {module:model/TemplateResponseObject}
+     */
+    TemplateResponseObject,
 
     /**
      * The Unauthorized model constructor.
@@ -5029,6 +5358,12 @@ export {
     UpdateProductResponse,
 
     /**
+     * The UpdateProjectResponse200 model constructor.
+     * @property {module:model/UpdateProjectResponse200}
+     */
+    UpdateProjectResponse200,
+
+    /**
      * The UpdateStageRequest model constructor.
      * @property {module:model/UpdateStageRequest}
      */
@@ -5039,6 +5374,12 @@ export {
      * @property {module:model/UpdateStageRequestAllOf}
      */
     UpdateStageRequestAllOf,
+
+    /**
+     * The UpdateTaskResponse200 model constructor.
+     * @property {module:model/UpdateTaskResponse200}
+     */
+    UpdateTaskResponse200,
 
     /**
      * The UpdateTeam model constructor.
@@ -5063,6 +5404,18 @@ export {
      * @property {module:model/UpdateUserRequest}
      */
     UpdateUserRequest,
+
+    /**
+     * The UpdatedActivityPlanItem200 model constructor.
+     * @property {module:model/UpdatedActivityPlanItem200}
+     */
+    UpdatedActivityPlanItem200,
+
+    /**
+     * The UpdatedTaskPlanItem200 model constructor.
+     * @property {module:model/UpdatedTaskPlanItem200}
+     */
+    UpdatedTaskPlanItem200,
 
     /**
      * The User model constructor.
@@ -5431,6 +5784,18 @@ export {
     ProductsApi,
 
     /**
+    * The ProjectTemplatesApi service constructor.
+    * @property {module:api/ProjectTemplatesApi}
+    */
+    ProjectTemplatesApi,
+
+    /**
+    * The ProjectsApi service constructor.
+    * @property {module:api/ProjectsApi}
+    */
+    ProjectsApi,
+
+    /**
     * The RecentsApi service constructor.
     * @property {module:api/RecentsApi}
     */
@@ -5453,6 +5818,12 @@ export {
     * @property {module:api/SubscriptionsApi}
     */
     SubscriptionsApi,
+
+    /**
+    * The TasksApi service constructor.
+    * @property {module:api/TasksApi}
+    */
+    TasksApi,
 
     /**
     * The UserConnectionsApi service constructor.

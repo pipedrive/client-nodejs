@@ -61,6 +61,13 @@ export default class FilterType {
         "activity" = "activity";
 
     
+        /**
+         * value: "projects"
+         * @const
+         */
+        "projects" = "projects";
+
+    
 
     /**
     * Returns a <code>FilterType</code> enum value from a Javascript object name.
