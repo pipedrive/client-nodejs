@@ -946,7 +946,7 @@ export default class OrganizationsApi {
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {String} opts.allChanges Whether to show custom field updates or not. 1 = Include custom field changes. If omitted, returns changes without custom field updates.
-     * @param {String} opts.items A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document)
+     * @param {String} opts.items A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationFlowResponse} and HTTP response
      */
     getOrganizationUpdatesWithHttpInfo(id, opts) {
@@ -1011,7 +1011,7 @@ export default class OrganizationsApi {
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {String} opts.allChanges Whether to show custom field updates or not. 1 = Include custom field changes. If omitted, returns changes without custom field updates.
-     * @param {String} opts.items A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document)
+     * @param {String} opts.items A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationFlowResponse}
      */
     getOrganizationUpdates(id, opts) {

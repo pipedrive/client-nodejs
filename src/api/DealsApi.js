@@ -1384,7 +1384,7 @@ export default class DealsApi {
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {String} opts.allChanges Whether to show custom field updates or not. 1 = Include custom field changes. If omitted returns changes without custom field updates.
-     * @param {String} opts.items A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change)
+     * @param {String} opts.items A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DealFlowResponse} and HTTP response
      */
     getDealUpdatesWithHttpInfo(id, opts) {
@@ -1449,7 +1449,7 @@ export default class DealsApi {
      * @param {Number} opts.start Pagination start (default to 0)
      * @param {Number} opts.limit Items shown per page
      * @param {String} opts.allChanges Whether to show custom field updates or not. 1 = Include custom field changes. If omitted returns changes without custom field updates.
-     * @param {String} opts.items A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change)
+     * @param {String} opts.items A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change).
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DealFlowResponse}
      */
     getDealUpdates(id, opts) {
@@ -1710,7 +1710,7 @@ export default class DealsApi {
      * Get deals summary
      * Returns a summary of all the deals.
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.status Only fetch deals with a specific status. open = Open, won = Won, lost = Lost
+     * @param {module:model/String} opts.status Only fetch deals with a specific status. open = Open, won = Won, lost = Lost.
      * @param {Number} opts.filterId <code>user_id</code> will not be considered. Only deals matching the given filter will be returned.
      * @param {Number} opts.userId Only deals matching the given user will be returned. `user_id` will not be considered if you use `filter_id`.
      * @param {Number} opts.stageId Only deals within the given stage will be returned
@@ -1768,7 +1768,7 @@ export default class DealsApi {
      * Get deals summary
      * Returns a summary of all the deals.
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.status Only fetch deals with a specific status. open = Open, won = Won, lost = Lost
+     * @param {module:model/String} opts.status Only fetch deals with a specific status. open = Open, won = Won, lost = Lost.
      * @param {Number} opts.filterId <code>user_id</code> will not be considered. Only deals matching the given filter will be returned.
      * @param {Number} opts.userId Only deals matching the given user will be returned. `user_id` will not be considered if you use `filter_id`.
      * @param {Number} opts.stageId Only deals within the given stage will be returned
@@ -1785,7 +1785,7 @@ export default class DealsApi {
     /**
      * Get deals timeline
      * Returns open and won deals, grouped by a defined interval of time set in a date-type dealField (`field_key`) — e.g. when month is the chosen interval, and 3 months are asked starting from January 1st, 2012, deals are returned grouped into 3 groups — January, February and March — based on the value of the given `field_key`.
-     * @param {Date} startDate The date when the first interval starts. Format: YYYY-MM-DD
+     * @param {Date} startDate The date when the first interval starts. Format: YYYY-MM-DD.
      * @param {module:model/String} interval The type of the interval<table><tr><th>Value</th><th>Description</th></tr><tr><td>`day`</td><td>Day</td></tr><tr><td>`week`</td><td>A full week (7 days) starting from `start_date`</td></tr><tr><td>`month`</td><td>A full month (depending on the number of days in given month) starting from `start_date`</td></tr><tr><td>`quarter`</td><td>A full quarter (3 months) starting from `start_date`</td></tr></table>
      * @param {Number} amount The number of given intervals, starting from `start_date`, to fetch. E.g. 3 (months).
      * @param {String} fieldKey The date field key which deals will be retrieved from
@@ -1874,7 +1874,7 @@ export default class DealsApi {
     /**
      * Get deals timeline
      * Returns open and won deals, grouped by a defined interval of time set in a date-type dealField (`field_key`) — e.g. when month is the chosen interval, and 3 months are asked starting from January 1st, 2012, deals are returned grouped into 3 groups — January, February and March — based on the value of the given `field_key`.
-     * @param {Date} startDate The date when the first interval starts. Format: YYYY-MM-DD
+     * @param {Date} startDate The date when the first interval starts. Format: YYYY-MM-DD.
      * @param {module:model/String} interval The type of the interval<table><tr><th>Value</th><th>Description</th></tr><tr><td>`day`</td><td>Day</td></tr><tr><td>`week`</td><td>A full week (7 days) starting from `start_date`</td></tr><tr><td>`month`</td><td>A full month (depending on the number of days in given month) starting from `start_date`</td></tr><tr><td>`quarter`</td><td>A full quarter (3 months) starting from `start_date`</td></tr></table>
      * @param {Number} amount The number of given intervals, starting from `start_date`, to fetch. E.g. 3 (months).
      * @param {String} fieldKey The date field key which deals will be retrieved from
