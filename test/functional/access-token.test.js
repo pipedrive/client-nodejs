@@ -11,25 +11,20 @@ const server = getMockServer(oauth2);
 
 describe('oauth2 accessToken', () => {
 	let lib;
+
 	beforeAll(async () => {
 		lib = await getLib();
-
 		server.listen();
-		server.events.on('request:start', ({ request }) => {
-			console.log('MSW intercepted:', request.method, request.url)
-		})
-
 	});
 
-	afterEach(() => server.resetHandlers())
-	afterAll(() => server.close())
+	afterEach(() => server.resetHandlers());
+	afterAll(() => server.close());
 
 	it('should refresh accessToken with valid refreshToken', async () => {
-
 		const configuration = new lib.OAuth2Configuration(oauth2);
-		configuration.refreshToken = 'fakeRefreshToken'
+		configuration.refreshToken = 'fakeRefreshToken';
 
-		const auth = await configuration.tokenRefresh()
+		const auth = await configuration.tokenRefresh();
 
 		expect(auth).toMatchObject({
 			access_token: 'freshAccessToken',
@@ -45,7 +40,6 @@ describe('oauth2 accessToken', () => {
 	});
 
 	it('should throw if refreshToken is not set', async () => {
-
 		const configuration = new lib.OAuth2Configuration(oauth2);
 
 		try {
@@ -56,16 +50,14 @@ describe('oauth2 accessToken', () => {
 	});
 
 	it('should throw if wrong refresh token', async () => {
-
-
 		const configuration = new lib.OAuth2Configuration(oauth2);
-		configuration.refreshToken = 'wrongRefreshToken'
+		configuration.refreshToken = 'wrongRefreshToken';
 
 		try {
 			expect(await configuration.tokenRefresh()).toThrow();
 		} catch (error) {
 			expect(error.context.data).toEqual(
-				{"success":"false","message":"Invalid grant: refresh token is invalid","error":"invalid_grant"},
+				{ success: 'false', message: 'Invalid grant: refresh token is invalid', error: 'invalid_grant' },
 			);
 		}
 	});
