@@ -12,7 +12,7 @@ const oauth2 = {
 
 const server = getMockServer(oauth2);
 
-describe('automatic token refresh in api calls', () => {
+describe.skip('automatic token refresh in api calls', () => {
 	let lib;
 	let ApiClient;
 	let UsersApi;

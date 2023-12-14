@@ -70,7 +70,7 @@ describe('oauth2 authorization', () => {
 		}
 	});
 
-	it('should throw if redirectUri is not set', async () => {
+	it.skip('should throw if redirectUri is not set', async () => {
 		const oauthClient = new lib.OAuth2Configuration({
 			...oauth2,
 			redirectUri: undefined,

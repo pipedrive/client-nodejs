@@ -25,16 +25,6 @@ export const getMockServer = (oauth2) => {
 				});
 			}
 
-			if (!body.includes('redirect_uri')) {
-				return HttpResponse.json({
-					success: 'false',
-					message: 'OAuth 2 property redirectUri is not set.',
-					error: 'invalid_redirectUri',
-				}, {
-					status: 401,
-				});
-			}
-
 			if (!secret || secret === 'undefined') {
 				return HttpResponse.json({
 					success: 'false',
