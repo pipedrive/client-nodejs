@@ -14,7 +14,7 @@
 import ApiClient from '../ApiClient';
 import DealNonStrictWithDetails from './DealNonStrictWithDetails';
 import GetDealAdditionalData from './GetDealAdditionalData';
-import GetDealsRelatedObjects from './GetDealsRelatedObjects';
+import GetDealRelatedObjects from './GetDealRelatedObjects';
 
 /**
  * The GetDeal model module.
@@ -66,7 +66,7 @@ class GetDeal {
                 delete data['additional_data'];
             }
             if (data.hasOwnProperty('related_objects')) {
-                obj['related_objects'] = GetDealsRelatedObjects.constructFromObject(data['related_objects']);
+                obj['related_objects'] = GetDealRelatedObjects.constructFromObject(data['related_objects']);
 
                 delete data['related_objects'];
             }
@@ -99,7 +99,7 @@ GetDeal.prototype['data'] = undefined;
 GetDeal.prototype['additional_data'] = undefined;
 
 /**
- * @member {module:model/GetDealsRelatedObjects} related_objects
+ * @member {module:model/GetDealRelatedObjects} related_objects
  */
 GetDeal.prototype['related_objects'] = undefined;
 

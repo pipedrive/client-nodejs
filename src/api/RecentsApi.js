@@ -38,7 +38,7 @@ export default class RecentsApi {
     /**
      * Get recents
      * Returns data about all recent changes occurred after the given timestamp.
-     * @param {String} sinceTimestamp The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS
+     * @param {String} sinceTimestamp The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS.
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.items Multiple selection of item types to include in the query (optional)
      * @param {Number} opts.start Pagination start (default to 0)
@@ -100,7 +100,7 @@ export default class RecentsApi {
     /**
      * Get recents
      * Returns data about all recent changes occurred after the given timestamp.
-     * @param {String} sinceTimestamp The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS
+     * @param {String} sinceTimestamp The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS.
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.items Multiple selection of item types to include in the query (optional)
      * @param {Number} opts.start Pagination start (default to 0)

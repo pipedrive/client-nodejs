@@ -12,8 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import GetDealsRelatedObjects from './GetDealsRelatedObjects';
 import PersonItem from './PersonItem';
+import PostDealParticipantsRelatedObjects from './PostDealParticipantsRelatedObjects';
 
 /**
  * The PostDealParticipants model module.
@@ -60,7 +60,7 @@ class PostDealParticipants {
                 delete data['data'];
             }
             if (data.hasOwnProperty('related_objects')) {
-                obj['related_objects'] = GetDealsRelatedObjects.constructFromObject(data['related_objects']);
+                obj['related_objects'] = PostDealParticipantsRelatedObjects.constructFromObject(data['related_objects']);
 
                 delete data['related_objects'];
             }
@@ -89,7 +89,7 @@ PostDealParticipants.prototype['success'] = undefined;
 PostDealParticipants.prototype['data'] = undefined;
 
 /**
- * @member {module:model/GetDealsRelatedObjects} related_objects
+ * @member {module:model/PostDealParticipantsRelatedObjects} related_objects
  */
 PostDealParticipants.prototype['related_objects'] = undefined;
 

@@ -329,6 +329,7 @@ import GetAllProductFieldsResponse from './model/GetAllProductFieldsResponse';
 import GetComments from './model/GetComments';
 import GetDeal from './model/GetDeal';
 import GetDealAdditionalData from './model/GetDealAdditionalData';
+import GetDealRelatedObjects from './model/GetDealRelatedObjects';
 import GetDeals from './model/GetDeals';
 import GetDealsCollection from './model/GetDealsCollection';
 import GetDealsConversionRatesInPipeline from './model/GetDealsConversionRatesInPipeline';
@@ -626,6 +627,7 @@ import PipelineDetails from './model/PipelineDetails';
 import PipelineDetailsAllOf from './model/PipelineDetailsAllOf';
 import PostComment from './model/PostComment';
 import PostDealParticipants from './model/PostDealParticipants';
+import PostDealParticipantsRelatedObjects from './model/PostDealParticipantsRelatedObjects';
 import PostGoalResponse from './model/PostGoalResponse';
 import PostNote from './model/PostNote';
 import PostRoleAssignment from './model/PostRoleAssignment';
@@ -2778,6 +2780,12 @@ export {
     GetDealAdditionalData,
 
     /**
+     * The GetDealRelatedObjects model constructor.
+     * @property {module:model/GetDealRelatedObjects}
+     */
+    GetDealRelatedObjects,
+
+    /**
      * The GetDeals model constructor.
      * @property {module:model/GetDeals}
      */
@@ -4558,6 +4566,12 @@ export {
      * @property {module:model/PostDealParticipants}
      */
     PostDealParticipants,
+
+    /**
+     * The PostDealParticipantsRelatedObjects model constructor.
+     * @property {module:model/PostDealParticipantsRelatedObjects}
+     */
+    PostDealParticipantsRelatedObjects,
 
     /**
      * The PostGoalResponse model constructor.

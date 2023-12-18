@@ -91,7 +91,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new Pipedrive.MailboxApi(apiClient);
 let id = 56; // Number | The ID of the mail message to fetch
 let opts = {
-  'includeBody': new Pipedrive.NumberBooleanDefault0() // NumberBooleanDefault0 | Whether to include the full message body or not. `0` = Don't include, `1` = Include
+  'includeBody': new Pipedrive.NumberBooleanDefault0() // NumberBooleanDefault0 | Whether to include the full message body or not. `0` = Don't include, `1` = Include.
 };
 apiInstance.getMailMessage(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -107,7 +107,7 @@ apiInstance.getMailMessage(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the mail message to fetch | 
- **includeBody** | [**NumberBooleanDefault0**](.md)| Whether to include the full message body or not. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include | [optional] 
+ **includeBody** | [**NumberBooleanDefault0**](.md)| Whether to include the full message body or not. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include. | [optional] 
 
 ### Return type
 

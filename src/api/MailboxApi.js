@@ -113,7 +113,7 @@ export default class MailboxApi {
      * Returns data about a specific mail message.
      * @param {Number} id The ID of the mail message to fetch
      * @param {Object} opts Optional parameters
-     * @param {module:model/NumberBooleanDefault0} opts.includeBody Whether to include the full message body or not. `0` = Don't include, `1` = Include
+     * @param {module:model/NumberBooleanDefault0} opts.includeBody Whether to include the full message body or not. `0` = Don't include, `1` = Include.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MailMessage} and HTTP response
      */
     getMailMessageWithHttpInfo(id, opts) {
@@ -169,7 +169,7 @@ export default class MailboxApi {
      * Returns data about a specific mail message.
      * @param {Number} id The ID of the mail message to fetch
      * @param {Object} opts Optional parameters
-     * @param {module:model/NumberBooleanDefault0} opts.includeBody Whether to include the full message body or not. `0` = Don't include, `1` = Include
+     * @param {module:model/NumberBooleanDefault0} opts.includeBody Whether to include the full message body or not. `0` = Don't include, `1` = Include.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MailMessage}
      */
     getMailMessage(id, opts) {

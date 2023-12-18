@@ -117,7 +117,7 @@ export default class UsersApi {
      * Finds users by their name.
      * @param {String} term The search term to look for
      * @param {Object} opts Optional parameters
-     * @param {module:model/NumberBooleanDefault0} opts.searchByEmail When enabled, the term will only be matched against email addresses of users. Default: `false`
+     * @param {module:model/NumberBooleanDefault0} opts.searchByEmail When enabled, the term will only be matched against email addresses of users. Default: `false`.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Users} and HTTP response
      */
     findUsersByNameWithHttpInfo(term, opts) {
@@ -173,7 +173,7 @@ export default class UsersApi {
      * Finds users by their name.
      * @param {String} term The search term to look for
      * @param {Object} opts Optional parameters
-     * @param {module:model/NumberBooleanDefault0} opts.searchByEmail When enabled, the term will only be matched against email addresses of users. Default: `false`
+     * @param {module:model/NumberBooleanDefault0} opts.searchByEmail When enabled, the term will only be matched against email addresses of users. Default: `false`.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Users}
      */
     findUsersByName(term, opts) {

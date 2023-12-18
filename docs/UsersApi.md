@@ -97,7 +97,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new Pipedrive.UsersApi(apiClient);
 let term = "term_example"; // String | The search term to look for
 let opts = {
-  'searchByEmail': new Pipedrive.NumberBooleanDefault0() // NumberBooleanDefault0 | When enabled, the term will only be matched against email addresses of users. Default: `false`
+  'searchByEmail': new Pipedrive.NumberBooleanDefault0() // NumberBooleanDefault0 | When enabled, the term will only be matched against email addresses of users. Default: `false`.
 };
 apiInstance.findUsersByName(term, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -113,7 +113,7 @@ apiInstance.findUsersByName(term, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **term** | **String**| The search term to look for | 
- **searchByEmail** | [**NumberBooleanDefault0**](.md)| When enabled, the term will only be matched against email addresses of users. Default: &#x60;false&#x60; | [optional] 
+ **searchByEmail** | [**NumberBooleanDefault0**](.md)| When enabled, the term will only be matched against email addresses of users. Default: &#x60;false&#x60;. | [optional] 
 
 ### Return type
 
