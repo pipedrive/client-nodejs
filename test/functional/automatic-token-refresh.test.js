@@ -1,6 +1,6 @@
 import { getLib, getMockServer } from './utils';
 
-const oauth2 = {
+const oauthConfig = {
 	type: 'oauth2',
 	host: 'localhost',
 	clientId: 'fakeClientId',
@@ -10,31 +10,31 @@ const oauth2 = {
 	refreshToken: 'fakeRefreshToken',
 };
 
-const server = getMockServer(oauth2);
+const server = getMockServer(oauthConfig);
 
-describe.skip('automatic token refresh in api calls', () => {
+describe('automatic token refresh in api calls', () => {
 	let lib;
-	let ApiClient;
-	let UsersApi;
 
 	beforeAll(async () => {
 		lib = await getLib();
-		ApiClient = lib.ApiClient;
-		UsersApi = lib.UsersApi;
+
 		server.listen();
 	});
 
 	afterEach(() => server.resetHandlers());
 	afterAll(() => server.close());
 
-	it('should refresh expired access token before making api call', async () => {
-		const pdClient = new ApiClient();
-		pdClient.basePath = 'localhost/v1';
-		pdClient.authentications.oauth2 = { ...oauth2, expiresAt: 100 };
+	it.skip('should refresh expired access token before making api call', async () => {
+		const oauthClient = new lib.OAuth2Configuration({ ...oauthConfig, expiresAt: 100 });
 
-		const users = await new UsersApi(pdClient).getUsers();
+		const apiConfig = new lib.Configuration({
+			accessToken: oauthClient.getAccessToken,
+			basePath: oauthClient.basePath,
+		});
 
-		expect(pdClient.authentications.oauth2.accessToken).toEqual('freshAccessToken');
+		const users = await new lib.UsersApi(apiConfig).getUsers();
+
+		expect(oauthClient.accessToken).toEqual('freshAccessToken');
 
 		expect(users).toEqual({
 			success: true,
@@ -48,28 +48,34 @@ describe.skip('automatic token refresh in api calls', () => {
 	});
 
 	it('should throw if incorrect User-Agent request header in api call', async () => {
-		const pdClient = new ApiClient();
-		pdClient.basePath = 'localhost/v1';
-		pdClient.authentications.oauth2 = { ...oauth2 };
-		pdClient.defaultHeaders = {
-			'User-Agent': 'Wrong-User-Agent',
-		};
+		const oauthClient = new lib.OAuth2Configuration(oauthConfig);
+
+		const apiConfig = new lib.Configuration({
+			accessToken: oauthClient.getAccessToken,
+			basePath: oauthClient.basePath,
+			userAgent: 'Wrong-User-Agent',
+		});
 
 		try {
-			expect(await new UsersApi(pdClient).getUsers()).toThrow();
+			expect(await new lib.UsersApi(apiConfig).getUsers()).toThrow();
 		} catch (error) {
-			expect(error.errorCode).toEqual(400);
+			expect(error.message).toEqual('Invalid header: User-Agent header is invalid');
+			expect(error.error).toEqual('invalid_header');
 		}
 	});
 
-	it('should refresh token and retry api call if status code is 401', async () => {
-		const pdClient = new ApiClient();
-		pdClient.basePath = 'localhost/v1';
-		pdClient.authentications.oauth2 = { ...oauth2 };
+	it.skip('should refresh token and retry api call if status code is 401', async () => {
+		const oauthClient = new lib.OAuth2Configuration({ ...oauthConfig, accessToken: null });
 
-		const users = await new UsersApi(pdClient).getUsers();
+		const apiConfig = new lib.Configuration({
+			accessToken: oauthClient.getAccessToken,
+			basePath: oauthClient.basePath,
 
-		expect(pdClient.authentications.oauth2.accessToken).toEqual('freshAccessToken');
+		});
+
+		const users = await new lib.UsersApi(apiConfig).getUsers();
+
+		expect(oauthClient.accessToken).toEqual('freshAccessToken');
 
 		expect(users).toEqual({
 			success: true,
