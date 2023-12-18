@@ -80,6 +80,7 @@ export const getMockServer = (oauth2) => {
 				status: 400,
 			});
 		}),
+
 		http.get('*/v1/users', async (req, res, ctx) => {
 			const auth = req.request.headers.get('authorization');
 			const ua = req.request.headers.get('User-Agent');
@@ -96,7 +97,7 @@ export const getMockServer = (oauth2) => {
 
 			// for simulating retry
 			if (auth === 'Bearer fakeAccessToken') {
-				return new HttpResponse(null, {
+				return HttpResponse.json(null, {
 					status: 401,
 				});
 			}

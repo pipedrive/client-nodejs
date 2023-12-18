@@ -43,10 +43,14 @@ export class OAuth2Configuration {
     clientId: string;
     clientSecret: string;
     redirectUri: string;
+   refreshToken:string
   }) {
     this.clientId = params.clientId;
     this.clientSecret = params.clientSecret;
     this.redirectUri = params.redirectUri;
+	if (params.refreshToken){
+		this.refreshToken= params.refreshToken;
+	}
   }
 
   public get authorizationUrl() {
@@ -215,6 +219,7 @@ export interface ConfigurationParameters {
     accessToken?: string | Promise<string> | ((name?: string, scopes?: string[]) => string) | ((name?: string, scopes?: string[]) => Promise<string>);
     formDataCtor?: new () => any;
     basePath?: string;
+	userAgent?: string
 }
 
 export class Configuration {
@@ -268,6 +273,9 @@ export class Configuration {
      */
     formDataCtor?: new () => any;
 
+	// Pipedrive SDK User-Agent header
+	public userAgent: string;
+
     constructor(param: ConfigurationParameters) {
         this.apiKey = param.apiKey;
         this.accessToken = param.accessToken;
@@ -279,6 +287,9 @@ export class Configuration {
         this.password = undefined;
         this.baseOptions = undefined;
 
+		const version = require("../package.json").version;
+		this.userAgent = param.userAgent || `Pipedrive-SDK-Javascript-${version}`;
+console.log('[userAgent]',this.userAgent);
     }
 
     /**
