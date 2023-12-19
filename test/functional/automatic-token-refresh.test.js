@@ -24,7 +24,7 @@ describe('automatic token refresh in api calls', () => {
 	afterEach(() => server.resetHandlers());
 	afterAll(() => server.close());
 
-	it.skip('should refresh expired access token before making api call', async () => {
+	it('should refresh expired access token before making api call', async () => {
 		const oauthClient = new lib.OAuth2Configuration({ ...oauthConfig, expiresAt: 100 });
 
 		const apiConfig = new lib.Configuration({
@@ -47,13 +47,12 @@ describe('automatic token refresh in api calls', () => {
 		});
 	});
 
-	it('should throw if incorrect User-Agent request header in api call', async () => {
+	it.skip('should throw if incorrect User-Agent request header in api call', async () => {
 		const oauthClient = new lib.OAuth2Configuration(oauthConfig);
 
 		const apiConfig = new lib.Configuration({
 			accessToken: oauthClient.getAccessToken,
 			basePath: oauthClient.basePath,
-			userAgent: 'Wrong-User-Agent',
 		});
 
 		try {

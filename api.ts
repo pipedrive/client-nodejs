@@ -14,15 +14,26 @@
 
 
 import { Configuration } from './configuration';
-import globalAxios, { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import globalAxios, { AxiosInstance } from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from './common';
+import {
+	assertParamExists,
+	createRequestFunction,
+	DUMMY_BASE_URL,
+	serializeDataIfNeeded,
+	setApiKeyToObject,
+	setBasicAuthToObject,
+	setBearerAuthToObject,
+	setOAuthToObject,
+	setSearchParams,
+	toPathString
+} from './common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from './base';
+import { BASE_PATH, BaseAPI, COLLECTION_FORMATS, RequestArgs, RequiredError } from './base';
 
 /**
- * 
+ *
  * @export
  * @interface ActivityCollectionResponseObject
  */
@@ -245,7 +256,7 @@ export interface ActivityCollectionResponseObject {
     'location_formatted_address'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface ActivityCollectionResponseObjectAllOf
  */
@@ -408,13 +419,13 @@ export interface ActivityCollectionResponseObjectAllOf {
     'location_formatted_address'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface ActivityDistributionDataWithAdditionalData
  */
 export interface ActivityDistributionDataWithAdditionalData {
     /**
-     * 
+     *
      * @type {ActivityDistributionDataWithAdditionalDataAllOfActivityDistribution}
      * @memberof ActivityDistributionDataWithAdditionalData
      */
@@ -439,13 +450,13 @@ export interface ActivityDistributionDataWithAdditionalData {
     'more_items_in_collection'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface ActivityDistributionDataWithAdditionalDataAllOf
  */
 export interface ActivityDistributionDataWithAdditionalDataAllOf {
     /**
-     * 
+     *
      * @type {ActivityDistributionDataWithAdditionalDataAllOfActivityDistribution}
      * @memberof ActivityDistributionDataWithAdditionalDataAllOf
      */
@@ -458,7 +469,7 @@ export interface ActivityDistributionDataWithAdditionalDataAllOf {
  */
 export interface ActivityDistributionDataWithAdditionalDataAllOfActivityDistribution {
     /**
-     * 
+     *
      * @type {ActivityDistributionDataWithAdditionalDataAllOfActivityDistributionASSIGNEDTOUSERID}
      * @memberof ActivityDistributionDataWithAdditionalDataAllOfActivityDistribution
      */
@@ -471,7 +482,7 @@ export interface ActivityDistributionDataWithAdditionalDataAllOfActivityDistribu
  */
 export interface ActivityDistributionDataWithAdditionalDataAllOfActivityDistributionASSIGNEDTOUSERID {
     /**
-     * 
+     *
      * @type {ActivityDistributionDataWithAdditionalDataAllOfActivityDistributionASSIGNEDTOUSERIDActivities}
      * @memberof ActivityDistributionDataWithAdditionalDataAllOfActivityDistributionASSIGNEDTOUSERID
      */
@@ -509,7 +520,7 @@ export interface ActivityDistributionDataWithAdditionalDataAllOfActivityDistribu
     'ACTIVITY_TYPE_NAME'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface ActivityResponseObject
  */
@@ -882,7 +893,7 @@ export interface ActivityResponseObject {
     'file'?: object;
 }
 /**
- * 
+ *
  * @export
  * @interface ActivityResponseObjectAllOf
  */
@@ -949,7 +960,7 @@ export interface ActivityResponseObjectAllOf {
     'public_description'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface ActivityResponseObjectAllOf1
  */
@@ -1262,7 +1273,7 @@ export interface ActivityResponseObjectAllOf1 {
     'file'?: object;
 }
 /**
- * 
+ *
  * @export
  * @interface AddActivityRequest
  */
@@ -1370,7 +1381,7 @@ export interface AddActivityRequest {
      */
     'attendees'?: Array<object>;
     /**
-     * 
+     *
      * @type {number}
      * @memberof AddActivityRequest
      */
@@ -1385,7 +1396,7 @@ export const AddActivityRequestDoneConst = {
 export type AddActivityRequestDoneConst = typeof AddActivityRequestDoneConst[keyof typeof AddActivityRequestDoneConst];
 
 /**
- * 
+ *
  * @export
  * @interface AddActivityRequestAllOf
  */
@@ -1433,7 +1444,7 @@ export interface AddActivityRequestAllOf {
      */
     'attendees'?: Array<object>;
     /**
-     * 
+     *
      * @type {number}
      * @memberof AddActivityRequestAllOf
      */
@@ -1448,38 +1459,38 @@ export const AddActivityRequestAllOfDoneConst = {
 export type AddActivityRequestAllOfDoneConst = typeof AddActivityRequestAllOfDoneConst[keyof typeof AddActivityRequestAllOfDoneConst];
 
 /**
- * 
+ *
  * @export
  * @interface AddActivityResponse200
  */
 export interface AddActivityResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof AddActivityResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {ActivityResponseObject}
      * @memberof AddActivityResponse200
      */
     'data'?: ActivityResponseObject;
     /**
-     * 
+     *
      * @type {AddActivityResponse200AdditionalData}
      * @memberof AddActivityResponse200
      */
     'additional_data'?: AddActivityResponse200AdditionalData;
     /**
-     * 
+     *
      * @type {AddActivityResponse200RelatedObjects}
      * @memberof AddActivityResponse200
      */
     'related_objects'?: AddActivityResponse200RelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface AddActivityResponse200AdditionalData
  */
@@ -1492,44 +1503,44 @@ export interface AddActivityResponse200AdditionalData {
     'updates_story_id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface AddActivityResponse200RelatedObjects
  */
 export interface AddActivityResponse200RelatedObjects {
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200RelatedObjectsUser}
      * @memberof AddActivityResponse200RelatedObjects
      */
     'user'?: GetActivitiesResponse200RelatedObjectsUser;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200RelatedObjectsDeal}
      * @memberof AddActivityResponse200RelatedObjects
      */
     'deal'?: GetActivitiesResponse200RelatedObjectsDeal;
     /**
-     * 
+     *
      * @type {AddActivityResponse200RelatedObjectsPerson}
      * @memberof AddActivityResponse200RelatedObjects
      */
     'person'?: AddActivityResponse200RelatedObjectsPerson;
     /**
-     * 
+     *
      * @type {AddActivityResponse200RelatedObjectsOrganization}
      * @memberof AddActivityResponse200RelatedObjects
      */
     'organization'?: AddActivityResponse200RelatedObjectsOrganization;
 }
 /**
- * 
+ *
  * @export
  * @interface AddActivityResponse200RelatedObjectsOrganization
  */
 export interface AddActivityResponse200RelatedObjectsOrganization {
     /**
-     * 
+     *
      * @type {AddActivityResponse200RelatedObjectsOrganizationORGANIZATIONID}
      * @memberof AddActivityResponse200RelatedObjectsOrganization
      */
@@ -1585,7 +1596,7 @@ export interface AddActivityResponse200RelatedObjectsOrganizationORGANIZATIONID 
     'cc_email'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface AddActivityResponse200RelatedObjectsOrganizationORGANIZATIONIDAllOf
  */
@@ -1598,13 +1609,13 @@ export interface AddActivityResponse200RelatedObjectsOrganizationORGANIZATIONIDA
     'active_flag'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface AddActivityResponse200RelatedObjectsPerson
  */
 export interface AddActivityResponse200RelatedObjectsPerson {
     /**
-     * 
+     *
      * @type {AddActivityResponse200RelatedObjectsPersonPERSONID}
      * @memberof AddActivityResponse200RelatedObjectsPerson
      */
@@ -1654,7 +1665,7 @@ export interface AddActivityResponse200RelatedObjectsPersonPERSONID {
     'owner_id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface AddActivityResponse200RelatedObjectsPersonPERSONIDAllOf
  */
@@ -1667,7 +1678,7 @@ export interface AddActivityResponse200RelatedObjectsPersonPERSONIDAllOf {
     'active_flag'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface AddActivityTypeRequest
  */
@@ -1738,7 +1749,7 @@ export const AddActivityTypeRequestIconKeyConst = {
 export type AddActivityTypeRequestIconKeyConst = typeof AddActivityTypeRequestIconKeyConst[keyof typeof AddActivityTypeRequestIconKeyConst];
 
 /**
- * 
+ *
  * @export
  * @interface AddCallLogRequest
  */
@@ -1835,26 +1846,26 @@ export const AddCallLogRequestOutcomeConst = {
 export type AddCallLogRequestOutcomeConst = typeof AddCallLogRequestOutcomeConst[keyof typeof AddCallLogRequestOutcomeConst];
 
 /**
- * 
+ *
  * @export
  * @interface AddChannel200Response
  */
 export interface AddChannel200Response {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof AddChannel200Response
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {AddChannel200ResponseData}
      * @memberof AddChannel200Response
      */
     'data'?: AddChannel200ResponseData;
 }
 /**
- * 
+ *
  * @export
  * @interface AddChannel200ResponseData
  */
@@ -1930,13 +1941,13 @@ export const AddChannel200ResponseDataProviderTypeConst = {
 export type AddChannel200ResponseDataProviderTypeConst = typeof AddChannel200ResponseDataProviderTypeConst[keyof typeof AddChannel200ResponseDataProviderTypeConst];
 
 /**
- * 
+ *
  * @export
  * @interface AddChannel400Response
  */
 export interface AddChannel400Response {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof AddChannel400Response
      */
@@ -1948,20 +1959,20 @@ export interface AddChannel400Response {
      */
     'error'?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof AddChannel400Response
      */
     'error_info'?: string;
     /**
-     * 
+     *
      * @type {AddChannel400ResponseAdditionalData}
      * @memberof AddChannel400Response
      */
     'additional_data'?: AddChannel400ResponseAdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface AddChannel400ResponseAdditionalData
  */
@@ -1974,13 +1985,13 @@ export interface AddChannel400ResponseAdditionalData {
     'code'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface AddChannel403Response
  */
 export interface AddChannel403Response {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof AddChannel403Response
      */
@@ -1992,20 +2003,20 @@ export interface AddChannel403Response {
      */
     'error'?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof AddChannel403Response
      */
     'error_info'?: string;
     /**
-     * 
+     *
      * @type {AddChannel403ResponseAdditionalData}
      * @memberof AddChannel403Response
      */
     'additional_data'?: AddChannel403ResponseAdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface AddChannel403ResponseAdditionalData
  */
@@ -2018,7 +2029,7 @@ export interface AddChannel403ResponseAdditionalData {
     'code'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface AddChannelRequest
  */
@@ -2064,7 +2075,7 @@ export const AddChannelRequestProviderTypeConst = {
 export type AddChannelRequestProviderTypeConst = typeof AddChannelRequestProviderTypeConst[keyof typeof AddChannelRequestProviderTypeConst];
 
 /**
- * 
+ *
  * @export
  * @interface AddDealFollowerRequest
  */
@@ -2077,7 +2088,7 @@ export interface AddDealFollowerRequest {
     'user_id': number;
 }
 /**
- * 
+ *
  * @export
  * @interface AddDealFollowerResponse200
  */
@@ -2089,14 +2100,14 @@ export interface AddDealFollowerResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {AddDealFollowerResponse200Data}
      * @memberof AddDealFollowerResponse200
      */
     'data'?: AddDealFollowerResponse200Data;
 }
 /**
- * 
+ *
  * @export
  * @interface AddDealFollowerResponse200Data
  */
@@ -2127,7 +2138,7 @@ export interface AddDealFollowerResponse200Data {
     'add_time'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface AddDealParticipantRequest
  */
@@ -2140,7 +2151,7 @@ export interface AddDealParticipantRequest {
     'person_id': number;
 }
 /**
- * 
+ *
  * @export
  * @interface AddDealParticipantResponse200
  */
@@ -2152,13 +2163,13 @@ export interface AddDealParticipantResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {AddDealParticipantResponse200Data}
      * @memberof AddDealParticipantResponse200
      */
     'data'?: AddDealParticipantResponse200Data;
     /**
-     * 
+     *
      * @type {GetDealsResponse200RelatedObjects}
      * @memberof AddDealParticipantResponse200
      */
@@ -2225,7 +2236,7 @@ export interface AddDealParticipantResponse200Data {
      */
     'visible_to'?: string;
     /**
-     * 
+     *
      * @type {PersonItemAllOfPictureId}
      * @memberof AddDealParticipantResponse200Data
      */
@@ -2255,13 +2266,13 @@ export interface AddDealParticipantResponse200Data {
      */
     'cc_email'?: string;
     /**
-     * 
+     *
      * @type {Owner}
      * @memberof AddDealParticipantResponse200Data
      */
     'owner_id'?: Owner;
     /**
-     * 
+     *
      * @type {RelationshipOrganizationInfoItemWithActiveFlag}
      * @memberof AddDealParticipantResponse200Data
      */
@@ -2418,7 +2429,7 @@ export interface AddDealParticipantResponse200Data {
     'last_activity_date'?: string | null;
 }
 /**
- * 
+ *
  * @export
  * @interface AddDealProductRequest
  */
@@ -2460,7 +2471,7 @@ export interface AddDealProductRequest {
      */
     'duration'?: number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof AddDealProductRequest
      */
@@ -2521,7 +2532,7 @@ export const AddDealProductRequestTaxMethodConst = {
 export type AddDealProductRequestTaxMethodConst = typeof AddDealProductRequestTaxMethodConst[keyof typeof AddDealProductRequestTaxMethodConst];
 
 /**
- * 
+ *
  * @export
  * @interface AddDealRequest
  */
@@ -2611,7 +2622,7 @@ export interface AddDealRequest {
      */
     'lost_reason'?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof AddDealRequest
      */
@@ -2636,7 +2647,7 @@ export const AddDealRequestVisibleToConst = {
 export type AddDealRequestVisibleToConst = typeof AddDealRequestVisibleToConst[keyof typeof AddDealRequestVisibleToConst];
 
 /**
- * 
+ *
  * @export
  * @interface AddFileAndLinkItResponse200
  */
@@ -2648,14 +2659,14 @@ export interface AddFileAndLinkItResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetFilesResponse200DataInner}
      * @memberof AddFileAndLinkItResponse200
      */
     'data'?: GetFilesResponse200DataInner;
 }
 /**
- * 
+ *
  * @export
  * @interface AddFileResponse200
  */
@@ -2667,14 +2678,14 @@ export interface AddFileResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetFilesResponse200DataInner}
      * @memberof AddFileResponse200
      */
     'data'?: GetFilesResponse200DataInner;
 }
 /**
- * 
+ *
  * @export
  * @interface AddFilterRequest
  */
@@ -2692,7 +2703,7 @@ export interface AddFilterRequest {
      */
     'conditions': object;
     /**
-     * 
+     *
      * @type {string}
      * @memberof AddFilterRequest
      */
@@ -2712,7 +2723,7 @@ export const AddFilterRequestTypeConst = {
 export type AddFilterRequestTypeConst = typeof AddFilterRequestTypeConst[keyof typeof AddFilterRequestTypeConst];
 
 /**
- * 
+ *
  * @export
  * @interface AddGoalRequest
  */
@@ -2765,7 +2776,7 @@ export const AddGoalRequestIntervalConst = {
 export type AddGoalRequestIntervalConst = typeof AddGoalRequestIntervalConst[keyof typeof AddGoalRequestIntervalConst];
 
 /**
- * 
+ *
  * @export
  * @interface AddLeadLabelRequest
  */
@@ -2796,7 +2807,7 @@ export const AddLeadLabelRequestColorConst = {
 export type AddLeadLabelRequestColorConst = typeof AddLeadLabelRequestColorConst[keyof typeof AddLeadLabelRequestColorConst];
 
 /**
- * 
+ *
  * @export
  * @interface AddLeadRequest
  */
@@ -2832,7 +2843,7 @@ export interface AddLeadRequest {
      */
     'organization_id'?: number;
     /**
-     * 
+     *
      * @type {AddLeadRequestValue}
      * @memberof AddLeadRequest
      */
@@ -2844,7 +2855,7 @@ export interface AddLeadRequest {
      */
     'expected_close_date'?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof AddLeadRequest
      */
@@ -2873,20 +2884,20 @@ export type AddLeadRequestVisibleToConst = typeof AddLeadRequestVisibleToConst[k
  */
 export interface AddLeadRequestValue {
     /**
-     * 
+     *
      * @type {number}
      * @memberof AddLeadRequestValue
      */
     'amount': number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof AddLeadRequestValue
      */
     'currency': string;
 }
 /**
- * 
+ *
  * @export
  * @interface AddNoteRequest
  */
@@ -2934,25 +2945,25 @@ export interface AddNoteRequest {
      */
     'add_time'?: string;
     /**
-     * 
+     *
      * @type {number}
      * @memberof AddNoteRequest
      */
     'pinned_to_lead_flag'?: AddNoteRequestPinnedToLeadFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof AddNoteRequest
      */
     'pinned_to_deal_flag'?: AddNoteRequestPinnedToDealFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof AddNoteRequest
      */
     'pinned_to_organization_flag'?: AddNoteRequestPinnedToOrganizationFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof AddNoteRequest
      */
@@ -2985,7 +2996,7 @@ export const AddNoteRequestPinnedToPersonFlagConst = {
 export type AddNoteRequestPinnedToPersonFlagConst = typeof AddNoteRequestPinnedToPersonFlagConst[keyof typeof AddNoteRequestPinnedToPersonFlagConst];
 
 /**
- * 
+ *
  * @export
  * @interface AddNoteRequestAllOf
  */
@@ -3022,7 +3033,7 @@ export interface AddNoteRequestAllOf {
     'org_id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface AddNoteRequestAllOf1
  */
@@ -3040,25 +3051,25 @@ export interface AddNoteRequestAllOf1 {
      */
     'add_time'?: string;
     /**
-     * 
+     *
      * @type {number}
      * @memberof AddNoteRequestAllOf1
      */
     'pinned_to_lead_flag'?: AddNoteRequestAllOf1PinnedToLeadFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof AddNoteRequestAllOf1
      */
     'pinned_to_deal_flag'?: AddNoteRequestAllOf1PinnedToDealFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof AddNoteRequestAllOf1
      */
     'pinned_to_organization_flag'?: AddNoteRequestAllOf1PinnedToOrganizationFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof AddNoteRequestAllOf1
      */
@@ -3091,7 +3102,7 @@ export const AddNoteRequestAllOf1PinnedToPersonFlagConst = {
 export type AddNoteRequestAllOf1PinnedToPersonFlagConst = typeof AddNoteRequestAllOf1PinnedToPersonFlagConst[keyof typeof AddNoteRequestAllOf1PinnedToPersonFlagConst];
 
 /**
- * 
+ *
  * @export
  * @interface AddOrUpdateGoalResponse200
  */
@@ -3103,27 +3114,27 @@ export interface AddOrUpdateGoalResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {AddOrUpdateGoalResponse200Data}
      * @memberof AddOrUpdateGoalResponse200
      */
     'data'?: AddOrUpdateGoalResponse200Data;
 }
 /**
- * 
+ *
  * @export
  * @interface AddOrUpdateGoalResponse200Data
  */
 export interface AddOrUpdateGoalResponse200Data {
     /**
-     * 
+     *
      * @type {AddOrUpdateGoalResponse200DataGoal}
      * @memberof AddOrUpdateGoalResponse200Data
      */
     'goal'?: AddOrUpdateGoalResponse200DataGoal;
 }
 /**
- * 
+ *
  * @export
  * @interface AddOrUpdateGoalResponse200DataGoal
  */
@@ -3147,13 +3158,13 @@ export interface AddOrUpdateGoalResponse200DataGoal {
      */
     'title'?: string;
     /**
-     * 
+     *
      * @type {AddOrUpdateGoalResponse200DataGoalType}
      * @memberof AddOrUpdateGoalResponse200DataGoal
      */
     'type'?: AddOrUpdateGoalResponse200DataGoalType;
     /**
-     * 
+     *
      * @type {AddOrUpdateGoalResponse200DataGoalAssignee}
      * @memberof AddOrUpdateGoalResponse200DataGoal
      */
@@ -3165,13 +3176,13 @@ export interface AddOrUpdateGoalResponse200DataGoal {
      */
     'interval'?: string;
     /**
-     * 
+     *
      * @type {AddOrUpdateGoalResponse200DataGoalDuration}
      * @memberof AddOrUpdateGoalResponse200DataGoal
      */
     'duration'?: AddOrUpdateGoalResponse200DataGoalDuration;
     /**
-     * 
+     *
      * @type {AddOrUpdateGoalResponse200DataGoalExpectedOutcome}
      * @memberof AddOrUpdateGoalResponse200DataGoal
      */
@@ -3259,7 +3270,7 @@ export interface AddOrUpdateGoalResponse200DataGoalType {
      */
     'name'?: string;
     /**
-     * 
+     *
      * @type {AddOrUpdateGoalResponse200DataGoalTypeParams}
      * @memberof AddOrUpdateGoalResponse200DataGoalType
      */
@@ -3285,32 +3296,32 @@ export interface AddOrUpdateGoalResponse200DataGoalTypeParams {
     'activity_type_id'?: Array<number>;
 }
 /**
- * 
+ *
  * @export
  * @interface AddOrUpdateLeadLabelResponse200
  */
 export interface AddOrUpdateLeadLabelResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof AddOrUpdateLeadLabelResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetLeadLabelsResponse200DataInner}
      * @memberof AddOrUpdateLeadLabelResponse200
      */
     'data'?: GetLeadLabelsResponse200DataInner;
 }
 /**
- * 
+ *
  * @export
  * @interface AddOrUpdateRoleSettingRequest
  */
 export interface AddOrUpdateRoleSettingRequest {
     /**
-     * 
+     *
      * @type {string}
      * @memberof AddOrUpdateRoleSettingRequest
      */
@@ -3342,7 +3353,7 @@ export const AddOrUpdateRoleSettingRequestValueConst = {
 export type AddOrUpdateRoleSettingRequestValueConst = typeof AddOrUpdateRoleSettingRequestValueConst[keyof typeof AddOrUpdateRoleSettingRequestValueConst];
 
 /**
- * 
+ *
  * @export
  * @interface AddOrUpdateRoleSettingResponse200
  */
@@ -3354,20 +3365,20 @@ export interface AddOrUpdateRoleSettingResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {AddOrUpdateRoleSettingResponse200AllOfData}
      * @memberof AddOrUpdateRoleSettingResponse200
      */
     'data'?: AddOrUpdateRoleSettingResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface AddOrUpdateRoleSettingResponse200AllOf
  */
 export interface AddOrUpdateRoleSettingResponse200AllOf {
     /**
-     * 
+     *
      * @type {AddOrUpdateRoleSettingResponse200AllOfData}
      * @memberof AddOrUpdateRoleSettingResponse200AllOf
      */
@@ -3403,7 +3414,7 @@ export const AddOrUpdateRoleSettingResponse200AllOfDataDealDefaultVisibilityCons
 export type AddOrUpdateRoleSettingResponse200AllOfDataDealDefaultVisibilityConst = typeof AddOrUpdateRoleSettingResponse200AllOfDataDealDefaultVisibilityConst[keyof typeof AddOrUpdateRoleSettingResponse200AllOfDataDealDefaultVisibilityConst];
 
 /**
- * 
+ *
  * @export
  * @interface AddOrganizationFollowerRequest
  */
@@ -3416,7 +3427,7 @@ export interface AddOrganizationFollowerRequest {
     'user_id': number;
 }
 /**
- * 
+ *
  * @export
  * @interface AddOrganizationFollowerResponse200
  */
@@ -3428,14 +3439,14 @@ export interface AddOrganizationFollowerResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetAssociatedFollowersResponse2001DataInner}
      * @memberof AddOrganizationFollowerResponse200
      */
     'data'?: GetAssociatedFollowersResponse2001DataInner;
 }
 /**
- * 
+ *
  * @export
  * @interface AddOrganizationRelationshipRequest
  */
@@ -3474,7 +3485,7 @@ export const AddOrganizationRelationshipRequestTypeConst = {
 export type AddOrganizationRelationshipRequestTypeConst = typeof AddOrganizationRelationshipRequestTypeConst[keyof typeof AddOrganizationRelationshipRequestTypeConst];
 
 /**
- * 
+ *
  * @export
  * @interface AddOrganizationRelationshipResponse200
  */
@@ -3486,39 +3497,39 @@ export interface AddOrganizationRelationshipResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {OrganizationRelationshipWithCalculatedFieldsAllOf}
      * @memberof AddOrganizationRelationshipResponse200
      */
     'data'?: OrganizationRelationshipWithCalculatedFieldsAllOf;
     /**
-     * 
+     *
      * @type {GetOrganizationRelationshipsResponse200AllOfRelatedObjects}
      * @memberof AddOrganizationRelationshipResponse200
      */
     'related_objects'?: GetOrganizationRelationshipsResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface AddOrganizationRelationshipResponse200AllOf
  */
 export interface AddOrganizationRelationshipResponse200AllOf {
     /**
-     * 
+     *
      * @type {OrganizationRelationshipWithCalculatedFieldsAllOf}
      * @memberof AddOrganizationRelationshipResponse200AllOf
      */
     'data'?: OrganizationRelationshipWithCalculatedFieldsAllOf;
     /**
-     * 
+     *
      * @type {GetOrganizationRelationshipsResponse200AllOfRelatedObjects}
      * @memberof AddOrganizationRelationshipResponse200AllOf
      */
     'related_objects'?: GetOrganizationRelationshipsResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface AddOrganizationRequest
  */
@@ -3548,7 +3559,7 @@ export interface AddOrganizationRequest {
      */
     'label'?: number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof AddOrganizationRequest
      */
@@ -3565,7 +3576,7 @@ export const AddOrganizationRequestVisibleToConst = {
 export type AddOrganizationRequestVisibleToConst = typeof AddOrganizationRequestVisibleToConst[keyof typeof AddOrganizationRequestVisibleToConst];
 
 /**
- * 
+ *
  * @export
  * @interface AddOrganizationRequestAllOf
  */
@@ -3584,7 +3595,7 @@ export interface AddOrganizationRequestAllOf {
     'add_time'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface AddOrganizationResponse200
  */
@@ -3596,39 +3607,39 @@ export interface AddOrganizationResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {BaseOrganizationItemWithEditNameFlag}
      * @memberof AddOrganizationResponse200
      */
     'data'?: BaseOrganizationItemWithEditNameFlag;
     /**
-     * 
+     *
      * @type {GetOrganizationsResponse200AllOfRelatedObjects}
      * @memberof AddOrganizationResponse200
      */
     'related_objects'?: GetOrganizationsResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface AddOrganizationResponse200AllOf
  */
 export interface AddOrganizationResponse200AllOf {
     /**
-     * 
+     *
      * @type {BaseOrganizationItemWithEditNameFlag}
      * @memberof AddOrganizationResponse200AllOf
      */
     'data'?: BaseOrganizationItemWithEditNameFlag;
     /**
-     * 
+     *
      * @type {GetOrganizationsResponse200AllOfRelatedObjects}
      * @memberof AddOrganizationResponse200AllOf
      */
     'related_objects'?: GetOrganizationsResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface AddPersonFollowerRequest
  */
@@ -3641,7 +3652,7 @@ export interface AddPersonFollowerRequest {
     'user_id': number;
 }
 /**
- * 
+ *
  * @export
  * @interface AddPersonFollowerResponse200
  */
@@ -3653,27 +3664,27 @@ export interface AddPersonFollowerResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {AddPersonFollowerResponse200AllOfData}
      * @memberof AddPersonFollowerResponse200
      */
     'data'?: AddPersonFollowerResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface AddPersonFollowerResponse200AllOf
  */
 export interface AddPersonFollowerResponse200AllOf {
     /**
-     * 
+     *
      * @type {AddPersonFollowerResponse200AllOfData}
      * @memberof AddPersonFollowerResponse200AllOf
      */
     'data'?: AddPersonFollowerResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface AddPersonFollowerResponse200AllOfData
  */
@@ -3704,7 +3715,7 @@ export interface AddPersonFollowerResponse200AllOfData {
     'add_time'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface AddPersonPictureResponse200
  */
@@ -3716,27 +3727,27 @@ export interface AddPersonPictureResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetOrganizationsResponse200AllOfRelatedObjectsPicture}
      * @memberof AddPersonPictureResponse200
      */
     'data'?: GetOrganizationsResponse200AllOfRelatedObjectsPicture;
 }
 /**
- * 
+ *
  * @export
  * @interface AddPersonPictureResponse200AllOf
  */
 export interface AddPersonPictureResponse200AllOf {
     /**
-     * 
+     *
      * @type {GetOrganizationsResponse200AllOfRelatedObjectsPicture}
      * @memberof AddPersonPictureResponse200AllOf
      */
     'data'?: GetOrganizationsResponse200AllOfRelatedObjectsPicture;
 }
 /**
- * 
+ *
  * @export
  * @interface AddPersonRequest
  */
@@ -3778,13 +3789,13 @@ export interface AddPersonRequest {
      */
     'label'?: number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof AddPersonRequest
      */
     'visible_to'?: AddPersonRequestVisibleToConst;
     /**
-     * 
+     *
      * @type {string}
      * @memberof AddPersonRequest
      */
@@ -3815,7 +3826,7 @@ export const AddPersonRequestMarketingStatusConst = {
 export type AddPersonRequestMarketingStatusConst = typeof AddPersonRequestMarketingStatusConst[keyof typeof AddPersonRequestMarketingStatusConst];
 
 /**
- * 
+ *
  * @export
  * @interface AddPersonRequestAllOf
  */
@@ -3828,7 +3839,7 @@ export interface AddPersonRequestAllOf {
     'name': string;
 }
 /**
- * 
+ *
  * @export
  * @interface AddPersonResponse200
  */
@@ -3840,39 +3851,39 @@ export interface AddPersonResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {PersonItem}
      * @memberof AddPersonResponse200
      */
     'data'?: PersonItem;
     /**
-     * 
+     *
      * @type {ListProductsResponse200AllOfRelatedObjects}
      * @memberof AddPersonResponse200
      */
     'related_objects'?: ListProductsResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface AddPersonResponse200AllOf
  */
 export interface AddPersonResponse200AllOf {
     /**
-     * 
+     *
      * @type {PersonItem}
      * @memberof AddPersonResponse200AllOf
      */
     'data'?: PersonItem;
     /**
-     * 
+     *
      * @type {ListProductsResponse200AllOfRelatedObjects}
      * @memberof AddPersonResponse200AllOf
      */
     'related_objects'?: ListProductsResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface AddPipelineResponse200
  */
@@ -3884,20 +3895,20 @@ export interface AddPipelineResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {AddPipelineResponse200AllOfData}
      * @memberof AddPipelineResponse200
      */
     'data'?: AddPipelineResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface AddPipelineResponse200AllOf
  */
 export interface AddPipelineResponse200AllOf {
     /**
-     * 
+     *
      * @type {AddPipelineResponse200AllOfData}
      * @memberof AddPipelineResponse200AllOf
      */
@@ -3959,7 +3970,7 @@ export interface AddPipelineResponse200AllOfData {
     'update_time'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface AddProductFollowerRequest
  */
@@ -3972,7 +3983,7 @@ export interface AddProductFollowerRequest {
     'user_id': number;
 }
 /**
- * 
+ *
  * @export
  * @interface AddProductRequest
  */
@@ -4014,7 +4025,7 @@ export interface AddProductRequest {
      */
     'selectable'?: boolean;
     /**
-     * 
+     *
      * @type {string}
      * @memberof AddProductRequest
      */
@@ -4043,7 +4054,7 @@ export const AddProductRequestVisibleToConst = {
 export type AddProductRequestVisibleToConst = typeof AddProductRequestVisibleToConst[keyof typeof AddProductRequestVisibleToConst];
 
 /**
- * 
+ *
  * @export
  * @interface AddProductRequest1
  */
@@ -4085,7 +4096,7 @@ export interface AddProductRequest1 {
      */
     'selectable'?: boolean;
     /**
-     * 
+     *
      * @type {string}
      * @memberof AddProductRequest1
      */
@@ -4114,7 +4125,7 @@ export const AddProductRequest1VisibleToConst = {
 export type AddProductRequest1VisibleToConst = typeof AddProductRequest1VisibleToConst[keyof typeof AddProductRequest1VisibleToConst];
 
 /**
- * 
+ *
  * @export
  * @interface AddProductRequest1AllOf
  */
@@ -4127,7 +4138,7 @@ export interface AddProductRequest1AllOf {
     'name'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface AddProductRequestAllOf
  */
@@ -4140,7 +4151,7 @@ export interface AddProductRequestAllOf {
     'name': string;
 }
 /**
- * 
+ *
  * @export
  * @interface AddProjectRequest
  */
@@ -4225,7 +4236,7 @@ export interface AddProjectRequest {
     'template_id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface AddProjectRequestAllOf
  */
@@ -4238,32 +4249,32 @@ export interface AddProjectRequestAllOf {
     'template_id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface AddProjectResponse201
  */
 export interface AddProjectResponse201 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof AddProjectResponse201
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {ProjectResponseObject}
      * @memberof AddProjectResponse201
      */
     'data'?: ProjectResponseObject;
     /**
-     * 
+     *
      * @type {object}
      * @memberof AddProjectResponse201
      */
     'additional_data'?: object | null;
 }
 /**
- * 
+ *
  * @export
  * @interface AddRecurringSubscriptionRequest
  */
@@ -4340,7 +4351,7 @@ export const AddRecurringSubscriptionRequestCadenceTypeConst = {
 export type AddRecurringSubscriptionRequestCadenceTypeConst = typeof AddRecurringSubscriptionRequestCadenceTypeConst[keyof typeof AddRecurringSubscriptionRequestCadenceTypeConst];
 
 /**
- * 
+ *
  * @export
  * @interface AddRoleAssignmentRequest
  */
@@ -4353,7 +4364,7 @@ export interface AddRoleAssignmentRequest {
     'user_id': number;
 }
 /**
- * 
+ *
  * @export
  * @interface AddRoleAssignmentResponse200
  */
@@ -4365,20 +4376,20 @@ export interface AddRoleAssignmentResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {AddRoleAssignmentResponse200AllOfData}
      * @memberof AddRoleAssignmentResponse200
      */
     'data'?: AddRoleAssignmentResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface AddRoleAssignmentResponse200AllOf
  */
 export interface AddRoleAssignmentResponse200AllOf {
     /**
-     * 
+     *
      * @type {AddRoleAssignmentResponse200AllOfData}
      * @memberof AddRoleAssignmentResponse200AllOf
      */
@@ -4423,7 +4434,7 @@ export interface AddRoleRequest {
     'parent_role_id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface AddRoleResponse200
  */
@@ -4435,20 +4446,20 @@ export interface AddRoleResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {AddRoleResponse200AllOfData}
      * @memberof AddRoleResponse200
      */
     'data'?: AddRoleResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface AddRoleResponse200AllOf
  */
 export interface AddRoleResponse200AllOf {
     /**
-     * 
+     *
      * @type {AddRoleResponse200AllOfData}
      * @memberof AddRoleResponse200AllOf
      */
@@ -4461,14 +4472,14 @@ export interface AddRoleResponse200AllOf {
  */
 export interface AddRoleResponse200AllOfData {
     /**
-     * 
+     *
      * @type {number}
      * @memberof AddRoleResponse200AllOfData
      */
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface AddStageRequest
  */
@@ -4505,7 +4516,7 @@ export interface AddStageRequest {
     'rotten_days'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface AddSubscriptionInstallmentRequest
  */
@@ -4536,7 +4547,7 @@ export interface AddSubscriptionInstallmentRequest {
     'update_deal_value'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface AddTaskRequest
  */
@@ -4572,7 +4583,7 @@ export interface AddTaskRequest {
      */
     'assignee_id'?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof AddTaskRequest
      */
@@ -4593,32 +4604,32 @@ export const AddTaskRequestDoneConst = {
 export type AddTaskRequestDoneConst = typeof AddTaskRequestDoneConst[keyof typeof AddTaskRequestDoneConst];
 
 /**
- * 
+ *
  * @export
  * @interface AddTaskResponse201
  */
 export interface AddTaskResponse201 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof AddTaskResponse201
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {TaskResponseObject}
      * @memberof AddTaskResponse201
      */
     'data'?: TaskResponseObject;
     /**
-     * 
+     *
      * @type {object}
      * @memberof AddTaskResponse201
      */
     'additional_data'?: object | null;
 }
 /**
- * 
+ *
  * @export
  * @interface AddTeamRequest
  */
@@ -4649,7 +4660,7 @@ export interface AddTeamRequest {
     'users'?: Array<number>;
 }
 /**
- * 
+ *
  * @export
  * @interface AddTeamRequest1
  */
@@ -4680,7 +4691,7 @@ export interface AddTeamRequest1 {
     'users'?: Array<number>;
 }
 /**
- * 
+ *
  * @export
  * @interface AddTeamUserRequest
  */
@@ -4693,7 +4704,7 @@ export interface AddTeamUserRequest {
     'users': Array<number>;
 }
 /**
- * 
+ *
  * @export
  * @interface AddUserRequest
  */
@@ -4705,7 +4716,7 @@ export interface AddUserRequest {
      */
     'email': string;
     /**
-     * The access given to the user. Each item in the array represents access to a specific app. Optionally may include either admin flag or permission set ID to specify which access to give within the app. If both are omitted, the default access for the corresponding app will be used. It requires structure as follows: `[{ app: \'sales\', permission_set_id: \'62cc4d7f-4038-4352-abf3-a8c1c822b631\' }, { app: \'global\', admin: true }, { app: \'account_settings\' }]` 
+     * The access given to the user. Each item in the array represents access to a specific app. Optionally may include either admin flag or permission set ID to specify which access to give within the app. If both are omitted, the default access for the corresponding app will be used. It requires structure as follows: `[{ app: \'sales\', permission_set_id: \'62cc4d7f-4038-4352-abf3-a8c1c822b631\' }, { app: \'global\', admin: true }, { app: \'account_settings\' }]`
      * @type {Array<AddUserRequestAccessInner>}
      * @memberof AddUserRequest
      */
@@ -4718,25 +4729,25 @@ export interface AddUserRequest {
     'active_flag'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface AddUserRequestAccessInner
  */
 export interface AddUserRequestAccessInner {
     /**
-     * 
+     *
      * @type {string}
      * @memberof AddUserRequestAccessInner
      */
     'app': AddUserRequestAccessInnerAppConst;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof AddUserRequestAccessInner
      */
     'admin'?: boolean;
     /**
-     * 
+     *
      * @type {string}
      * @memberof AddUserRequestAccessInner
      */
@@ -4754,7 +4765,7 @@ export const AddUserRequestAccessInnerAppConst = {
 export type AddUserRequestAccessInnerAppConst = typeof AddUserRequestAccessInnerAppConst[keyof typeof AddUserRequestAccessInnerAppConst];
 
 /**
- * 
+ *
  * @export
  * @interface AddWebhookRequest
  */
@@ -4835,7 +4846,7 @@ export const AddWebhookRequestVersionConst = {
 export type AddWebhookRequestVersionConst = typeof AddWebhookRequestVersionConst[keyof typeof AddWebhookRequestVersionConst];
 
 /**
- * 
+ *
  * @export
  * @interface AdditionalBaseOrganizationItemInfo
  */
@@ -5034,7 +5045,7 @@ export interface AdditionalBaseOrganizationItemInfo {
     'last_activity_date'?: string | null;
 }
 /**
- * 
+ *
  * @export
  * @interface AdditionalMergePersonInfo
  */
@@ -5221,19 +5232,19 @@ export interface AdditionalMergePersonInfo {
     'participant_closed_deals_count'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface AdditionalPersonInfo
  */
 export interface AdditionalPersonInfo {
     /**
-     * 
+     *
      * @type {Owner}
      * @memberof AdditionalPersonInfo
      */
     'owner_id'?: Owner;
     /**
-     * 
+     *
      * @type {RelationshipOrganizationInfoItemWithActiveFlag}
      * @memberof AdditionalPersonInfo
      */
@@ -5390,7 +5401,7 @@ export interface AdditionalPersonInfo {
     'last_activity_date'?: string | null;
 }
 /**
- * 
+ *
  * @export
  * @interface BaseDeal
  */
@@ -5709,7 +5720,7 @@ export interface BaseDeal {
     'person_hidden'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface BaseMailThread
  */
@@ -5745,7 +5756,7 @@ export interface BaseMailThread {
      */
     'snippet'?: string;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread
      */
@@ -5757,49 +5768,49 @@ export interface BaseMailThread {
      */
     'mail_tracking_status'?: string | null;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread
      */
     'has_attachments_flag'?: BaseMailThreadHasAttachmentsFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread
      */
     'has_inline_attachments_flag'?: BaseMailThreadHasInlineAttachmentsFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread
      */
     'has_real_attachments_flag'?: BaseMailThreadHasRealAttachmentsFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread
      */
     'deleted_flag'?: BaseMailThreadDeletedFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread
      */
     'synced_flag'?: BaseMailThreadSyncedFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread
      */
     'smart_bcc_flag'?: BaseMailThreadSmartBccFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread
      */
     'mail_link_tracking_enabled_flag'?: BaseMailThreadMailLinkTrackingEnabledFlagConst;
     /**
-     * 
+     *
      * @type {BaseMailThreadAllOf1Parties}
      * @memberof BaseMailThread
      */
@@ -5841,37 +5852,37 @@ export interface BaseMailThread {
      */
     'message_count'?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread
      */
     'has_draft_flag'?: BaseMailThreadHasDraftFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread
      */
     'has_sent_flag'?: BaseMailThreadHasSentFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread
      */
     'archived_flag'?: BaseMailThreadArchivedFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread
      */
     'shared_flag'?: BaseMailThreadSharedFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread
      */
     'external_deleted_flag'?: BaseMailThreadExternalDeletedFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread
      */
@@ -5931,7 +5942,7 @@ export interface BaseMailThread {
      */
     'lead_id'?: string | null;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread
      */
@@ -6066,7 +6077,7 @@ export interface BaseMailThread1 {
      */
     'snippet'?: string;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread1
      */
@@ -6078,49 +6089,49 @@ export interface BaseMailThread1 {
      */
     'mail_tracking_status'?: string | null;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread1
      */
     'has_attachments_flag'?: BaseMailThread1HasAttachmentsFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread1
      */
     'has_inline_attachments_flag'?: BaseMailThread1HasInlineAttachmentsFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread1
      */
     'has_real_attachments_flag'?: BaseMailThread1HasRealAttachmentsFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread1
      */
     'deleted_flag'?: BaseMailThread1DeletedFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread1
      */
     'synced_flag'?: BaseMailThread1SyncedFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread1
      */
     'smart_bcc_flag'?: BaseMailThread1SmartBccFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread1
      */
     'mail_link_tracking_enabled_flag'?: BaseMailThread1MailLinkTrackingEnabledFlagConst;
     /**
-     * 
+     *
      * @type {BaseMailThreadAllOf1Parties}
      * @memberof BaseMailThread1
      */
@@ -6162,37 +6173,37 @@ export interface BaseMailThread1 {
      */
     'message_count'?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread1
      */
     'has_draft_flag'?: BaseMailThread1HasDraftFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread1
      */
     'has_sent_flag'?: BaseMailThread1HasSentFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread1
      */
     'archived_flag'?: BaseMailThread1ArchivedFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread1
      */
     'shared_flag'?: BaseMailThread1SharedFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread1
      */
     'external_deleted_flag'?: BaseMailThread1ExternalDeletedFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread1
      */
@@ -6252,7 +6263,7 @@ export interface BaseMailThread1 {
      */
     'lead_id'?: string | null;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThread1
      */
@@ -6351,7 +6362,7 @@ export const BaseMailThread1AllMessagesSentFlagConst = {
 export type BaseMailThread1AllMessagesSentFlagConst = typeof BaseMailThread1AllMessagesSentFlagConst[keyof typeof BaseMailThread1AllMessagesSentFlagConst];
 
 /**
- * 
+ *
  * @export
  * @interface BaseMailThreadAllOf
  */
@@ -6387,7 +6398,7 @@ export interface BaseMailThreadAllOf {
      */
     'snippet'?: string;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThreadAllOf
      */
@@ -6399,43 +6410,43 @@ export interface BaseMailThreadAllOf {
      */
     'mail_tracking_status'?: string | null;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThreadAllOf
      */
     'has_attachments_flag'?: BaseMailThreadAllOfHasAttachmentsFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThreadAllOf
      */
     'has_inline_attachments_flag'?: BaseMailThreadAllOfHasInlineAttachmentsFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThreadAllOf
      */
     'has_real_attachments_flag'?: BaseMailThreadAllOfHasRealAttachmentsFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThreadAllOf
      */
     'deleted_flag'?: BaseMailThreadAllOfDeletedFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThreadAllOf
      */
     'synced_flag'?: BaseMailThreadAllOfSyncedFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThreadAllOf
      */
     'smart_bcc_flag'?: BaseMailThreadAllOfSmartBccFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThreadAllOf
      */
@@ -6492,13 +6503,13 @@ export const BaseMailThreadAllOfMailLinkTrackingEnabledFlagConst = {
 export type BaseMailThreadAllOfMailLinkTrackingEnabledFlagConst = typeof BaseMailThreadAllOfMailLinkTrackingEnabledFlagConst[keyof typeof BaseMailThreadAllOfMailLinkTrackingEnabledFlagConst];
 
 /**
- * 
+ *
  * @export
  * @interface BaseMailThreadAllOf1
  */
 export interface BaseMailThreadAllOf1 {
     /**
-     * 
+     *
      * @type {BaseMailThreadAllOf1Parties}
      * @memberof BaseMailThreadAllOf1
      */
@@ -6540,37 +6551,37 @@ export interface BaseMailThreadAllOf1 {
      */
     'message_count'?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThreadAllOf1
      */
     'has_draft_flag'?: BaseMailThreadAllOf1HasDraftFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThreadAllOf1
      */
     'has_sent_flag'?: BaseMailThreadAllOf1HasSentFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThreadAllOf1
      */
     'archived_flag'?: BaseMailThreadAllOf1ArchivedFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThreadAllOf1
      */
     'shared_flag'?: BaseMailThreadAllOf1SharedFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThreadAllOf1
      */
     'external_deleted_flag'?: BaseMailThreadAllOf1ExternalDeletedFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThreadAllOf1
      */
@@ -6630,7 +6641,7 @@ export interface BaseMailThreadAllOf1 {
      */
     'lead_id'?: string | null;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseMailThreadAllOf1
      */
@@ -6761,7 +6772,7 @@ export interface BaseMailThreadAllOf1PartiesToInner {
     'linked_organization_id'?: number | null;
 }
 /**
- * 
+ *
  * @export
  * @interface BaseOrganizationItem
  */
@@ -6779,7 +6790,7 @@ export interface BaseOrganizationItem {
      */
     'company_id'?: number;
     /**
-     * 
+     *
      * @type {Owner}
      * @memberof BaseOrganizationItem
      */
@@ -6797,7 +6808,7 @@ export interface BaseOrganizationItem {
      */
     'active_flag'?: boolean;
     /**
-     * 
+     *
      * @type {BaseOrganizationItemAllOfPictureId}
      * @memberof BaseOrganizationItem
      */
@@ -7044,7 +7055,7 @@ export interface BaseOrganizationItem {
     'last_activity_date'?: string | null;
 }
 /**
- * 
+ *
  * @export
  * @interface BaseOrganizationItemAllOf
  */
@@ -7062,7 +7073,7 @@ export interface BaseOrganizationItemAllOf {
      */
     'company_id'?: number;
     /**
-     * 
+     *
      * @type {Owner}
      * @memberof BaseOrganizationItemAllOf
      */
@@ -7080,7 +7091,7 @@ export interface BaseOrganizationItemAllOf {
      */
     'active_flag'?: boolean;
     /**
-     * 
+     *
      * @type {BaseOrganizationItemAllOfPictureId}
      * @memberof BaseOrganizationItemAllOf
      */
@@ -7135,7 +7146,7 @@ export interface BaseOrganizationItemAllOf {
     'cc_email'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface BaseOrganizationItemAllOfPictureId
  */
@@ -7183,14 +7194,14 @@ export interface BaseOrganizationItemAllOfPictureId {
      */
     'added_by_user_id'?: number;
     /**
-     * 
+     *
      * @type {PersonItemAllOfPictureIdAllOf1Pictures}
      * @memberof BaseOrganizationItemAllOfPictureId
      */
     'pictures'?: PersonItemAllOfPictureIdAllOf1Pictures;
 }
 /**
- * 
+ *
  * @export
  * @interface BaseOrganizationItemAllOfPictureIdAllOf
  */
@@ -7203,7 +7214,7 @@ export interface BaseOrganizationItemAllOfPictureIdAllOf {
     'value'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface BaseOrganizationItemWithEditNameFlag
  */
@@ -7221,7 +7232,7 @@ export interface BaseOrganizationItemWithEditNameFlag {
      */
     'company_id'?: number;
     /**
-     * 
+     *
      * @type {Owner}
      * @memberof BaseOrganizationItemWithEditNameFlag
      */
@@ -7239,7 +7250,7 @@ export interface BaseOrganizationItemWithEditNameFlag {
      */
     'active_flag'?: boolean;
     /**
-     * 
+     *
      * @type {BaseOrganizationItemAllOfPictureId}
      * @memberof BaseOrganizationItemWithEditNameFlag
      */
@@ -7492,7 +7503,7 @@ export interface BaseOrganizationItemWithEditNameFlag {
     'edit_name'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface BaseOrganizationItemWithEditNameFlagAllOf
  */
@@ -7505,7 +7516,7 @@ export interface BaseOrganizationItemWithEditNameFlagAllOf {
     'edit_name'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface BasePipelineWithSelectedFlag
  */
@@ -7566,7 +7577,7 @@ export interface BasePipelineWithSelectedFlag {
     'selected'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface BasePipelineWithSelectedFlagAllOf
  */
@@ -7579,7 +7590,7 @@ export interface BasePipelineWithSelectedFlagAllOf {
     'selected'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface BaseResponse
  */
@@ -7592,7 +7603,7 @@ export interface BaseResponse {
     'success'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface BaseResponse200
  */
@@ -7611,7 +7622,7 @@ export interface BaseResponse200 {
     'status'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface BaseResponse200AllOf
  */
@@ -7643,7 +7654,7 @@ export interface BaseRoleRequest {
     'name'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface BaseTeam
  */
@@ -7679,13 +7690,13 @@ export interface BaseTeam {
      */
     'users'?: Array<number>;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseTeam
      */
     'active_flag'?: BaseTeamActiveFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof BaseTeam
      */
@@ -7718,7 +7729,7 @@ export const BaseTeamDeletedFlagConst = {
 export type BaseTeamDeletedFlagConst = typeof BaseTeamDeletedFlagConst[keyof typeof BaseTeamDeletedFlagConst];
 
 /**
- * 
+ *
  * @export
  * @interface BaseTeamAdditionalProperties
  */
@@ -7737,7 +7748,7 @@ export interface BaseTeamAdditionalProperties {
     'created_by_user_id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface BasicDeal
  */
@@ -7761,7 +7772,7 @@ export interface BasicDeal {
      */
     'lost_reason'?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof BasicDeal
      */
@@ -7778,7 +7789,7 @@ export const BasicDealVisibleToConst = {
 export type BasicDealVisibleToConst = typeof BasicDealVisibleToConst[keyof typeof BasicDealVisibleToConst];
 
 /**
- * 
+ *
  * @export
  * @interface BasicDealProductRequest
  */
@@ -7820,7 +7831,7 @@ export interface BasicDealProductRequest {
      */
     'duration'?: number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof BasicDealProductRequest
      */
@@ -7881,7 +7892,7 @@ export const BasicDealProductRequestTaxMethodConst = {
 export type BasicDealProductRequestTaxMethodConst = typeof BasicDealProductRequestTaxMethodConst[keyof typeof BasicDealProductRequestTaxMethodConst];
 
 /**
- * 
+ *
  * @export
  * @interface BasicGoalRequest
  */
@@ -7934,7 +7945,7 @@ export const BasicGoalRequestIntervalConst = {
 export type BasicGoalRequestIntervalConst = typeof BasicGoalRequestIntervalConst[keyof typeof BasicGoalRequestIntervalConst];
 
 /**
- * 
+ *
  * @export
  * @interface BasicOrganization
  */
@@ -7952,7 +7963,7 @@ export interface BasicOrganization {
      */
     'label'?: number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof BasicOrganization
      */
@@ -7969,7 +7980,7 @@ export const BasicOrganizationVisibleToConst = {
 export type BasicOrganizationVisibleToConst = typeof BasicOrganizationVisibleToConst[keyof typeof BasicOrganizationVisibleToConst];
 
 /**
- * 
+ *
  * @export
  * @interface BasicPersonRequest
  */
@@ -8005,13 +8016,13 @@ export interface BasicPersonRequest {
      */
     'label'?: number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof BasicPersonRequest
      */
     'visible_to'?: BasicPersonRequestVisibleToConst;
     /**
-     * 
+     *
      * @type {string}
      * @memberof BasicPersonRequest
      */
@@ -8042,7 +8053,7 @@ export const BasicPersonRequestMarketingStatusConst = {
 export type BasicPersonRequestMarketingStatusConst = typeof BasicPersonRequestMarketingStatusConst[keyof typeof BasicPersonRequestMarketingStatusConst];
 
 /**
- * 
+ *
  * @export
  * @interface BasicPersonRequestEmailInner
  */
@@ -8067,7 +8078,7 @@ export interface BasicPersonRequestEmailInner {
     'label'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface CallLogResponse200
  */
@@ -8079,20 +8090,20 @@ export interface CallLogResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {ResponseCallLogObject}
      * @memberof CallLogResponse200
      */
     'data'?: ResponseCallLogObject;
 }
 /**
- * 
+ *
  * @export
  * @interface CallLogResponse400
  */
 export interface CallLogResponse400 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof CallLogResponse400
      */
@@ -8110,26 +8121,26 @@ export interface CallLogResponse400 {
      */
     'error_info'?: string;
     /**
-     * 
+     *
      * @type {object}
      * @memberof CallLogResponse400
      */
     'data'?: object | null;
     /**
-     * 
+     *
      * @type {object}
      * @memberof CallLogResponse400
      */
     'additional_data'?: object | null;
 }
 /**
- * 
+ *
  * @export
  * @interface CallLogResponse403
  */
 export interface CallLogResponse403 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof CallLogResponse403
      */
@@ -8147,26 +8158,26 @@ export interface CallLogResponse403 {
      */
     'error_info'?: string;
     /**
-     * 
+     *
      * @type {object}
      * @memberof CallLogResponse403
      */
     'data'?: object | null;
     /**
-     * 
+     *
      * @type {object}
      * @memberof CallLogResponse403
      */
     'additional_data'?: object | null;
 }
 /**
- * 
+ *
  * @export
  * @interface CallLogResponse404
  */
 export interface CallLogResponse404 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof CallLogResponse404
      */
@@ -8184,26 +8195,26 @@ export interface CallLogResponse404 {
      */
     'error_info'?: string;
     /**
-     * 
+     *
      * @type {object}
      * @memberof CallLogResponse404
      */
     'data'?: object | null;
     /**
-     * 
+     *
      * @type {object}
      * @memberof CallLogResponse404
      */
     'additional_data'?: object | null;
 }
 /**
- * 
+ *
  * @export
  * @interface CallLogResponse409
  */
 export interface CallLogResponse409 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof CallLogResponse409
      */
@@ -8221,26 +8232,26 @@ export interface CallLogResponse409 {
      */
     'error_info'?: string;
     /**
-     * 
+     *
      * @type {object}
      * @memberof CallLogResponse409
      */
     'data'?: object | null;
     /**
-     * 
+     *
      * @type {object}
      * @memberof CallLogResponse409
      */
     'additional_data'?: object | null;
 }
 /**
- * 
+ *
  * @export
  * @interface CallLogResponse410
  */
 export interface CallLogResponse410 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof CallLogResponse410
      */
@@ -8258,26 +8269,26 @@ export interface CallLogResponse410 {
      */
     'error_info'?: string;
     /**
-     * 
+     *
      * @type {object}
      * @memberof CallLogResponse410
      */
     'data'?: object | null;
     /**
-     * 
+     *
      * @type {object}
      * @memberof CallLogResponse410
      */
     'additional_data'?: object | null;
 }
 /**
- * 
+ *
  * @export
  * @interface CallLogResponse500
  */
 export interface CallLogResponse500 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof CallLogResponse500
      */
@@ -8295,20 +8306,20 @@ export interface CallLogResponse500 {
      */
     'error_info'?: string;
     /**
-     * 
+     *
      * @type {object}
      * @memberof CallLogResponse500
      */
     'data'?: object | null;
     /**
-     * 
+     *
      * @type {object}
      * @memberof CallLogResponse500
      */
     'additional_data'?: object | null;
 }
 /**
- * 
+ *
  * @export
  * @interface CallLogsResponse
  */
@@ -8320,33 +8331,33 @@ export interface CallLogsResponse {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {Array<ResponseCallLogObject>}
      * @memberof CallLogsResponse
      */
     'data'?: Array<ResponseCallLogObject>;
     /**
-     * 
+     *
      * @type {CallLogsResponseAdditionalData}
      * @memberof CallLogsResponse
      */
     'additional_data'?: CallLogsResponseAdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface CallLogsResponseAdditionalData
  */
 export interface CallLogsResponseAdditionalData {
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof CallLogsResponseAdditionalData
      */
     'pagination'?: FieldsResponse200AllOfAdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface CancelRecurringSubscriptionRequest
  */
@@ -8359,7 +8370,7 @@ export interface CancelRecurringSubscriptionRequest {
     'end_date'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface CommentPostPutObject
  */
@@ -8372,7 +8383,7 @@ export interface CommentPostPutObject {
     'content': string;
 }
 /**
- * 
+ *
  * @export
  * @interface CreateFieldRequest
  */
@@ -8426,7 +8437,7 @@ export const CreateFieldRequestFieldTypeConst = {
 export type CreateFieldRequestFieldTypeConst = typeof CreateFieldRequestFieldTypeConst[keyof typeof CreateFieldRequestFieldTypeConst];
 
 /**
- * 
+ *
  * @export
  * @interface CreateFieldRequestAllOf
  */
@@ -8451,7 +8462,7 @@ export interface CreateFieldRequestAllOf {
     'add_visible_flag'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface CreateFieldRequestAllOf1
  */
@@ -8487,7 +8498,7 @@ export const CreateFieldRequestAllOf1FieldTypeConst = {
 export type CreateFieldRequestAllOf1FieldTypeConst = typeof CreateFieldRequestAllOf1FieldTypeConst[keyof typeof CreateFieldRequestAllOf1FieldTypeConst];
 
 /**
- * 
+ *
  * @export
  * @interface CreateUpdateDeleteActivityTypeResponse200
  */
@@ -8499,27 +8510,27 @@ export interface CreateUpdateDeleteActivityTypeResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetActivityTypesResponse200AllOfDataInner}
      * @memberof CreateUpdateDeleteActivityTypeResponse200
      */
     'data'?: GetActivityTypesResponse200AllOfDataInner;
 }
 /**
- * 
+ *
  * @export
  * @interface CreateUpdateDeleteActivityTypeResponse200AllOf
  */
 export interface CreateUpdateDeleteActivityTypeResponse200AllOf {
     /**
-     * 
+     *
      * @type {GetActivityTypesResponse200AllOfDataInner}
      * @memberof CreateUpdateDeleteActivityTypeResponse200AllOf
      */
     'data'?: GetActivityTypesResponse200AllOfDataInner;
 }
 /**
- * 
+ *
  * @export
  * @interface DealCollectionResponseObject
  */
@@ -8652,7 +8663,7 @@ export interface DealCollectionResponseObject {
     'label'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface DealCountAndActivityInfo
  */
@@ -8737,7 +8748,7 @@ export interface DealCountAndActivityInfo {
     'last_activity_date'?: string | null;
 }
 /**
- * 
+ *
  * @export
  * @interface DealCountAndActivityInfoAllOf
  */
@@ -8792,7 +8803,7 @@ export interface DealCountAndActivityInfoAllOf {
     'related_lost_deals_count'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface DealCountAndActivityInfoAllOf1
  */
@@ -8829,7 +8840,7 @@ export interface DealCountAndActivityInfoAllOf1 {
     'last_activity_date'?: string | null;
 }
 /**
- * 
+ *
  * @export
  * @interface DealNonStrict
  */
@@ -8841,25 +8852,25 @@ export interface DealNonStrict {
      */
     'id'?: number;
     /**
-     * 
+     *
      * @type {DealNonStrictAllOfCreatorUserId}
      * @memberof DealNonStrict
      */
     'creator_user_id'?: DealNonStrictAllOfCreatorUserId;
     /**
-     * 
+     *
      * @type {DealUserDataWithId}
      * @memberof DealNonStrict
      */
     'user_id'?: DealUserDataWithId;
     /**
-     * 
+     *
      * @type {DealPersonDataWithId}
      * @memberof DealNonStrict
      */
     'person_id'?: DealPersonDataWithId;
     /**
-     * 
+     *
      * @type {DealOrganizationDataWithId}
      * @memberof DealNonStrict
      */
@@ -9178,7 +9189,7 @@ export interface DealNonStrict {
     'person_hidden'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface DealNonStrictAllOf
  */
@@ -9190,25 +9201,25 @@ export interface DealNonStrictAllOf {
      */
     'id'?: number;
     /**
-     * 
+     *
      * @type {DealNonStrictAllOfCreatorUserId}
      * @memberof DealNonStrictAllOf
      */
     'creator_user_id'?: DealNonStrictAllOfCreatorUserId;
     /**
-     * 
+     *
      * @type {DealUserDataWithId}
      * @memberof DealNonStrictAllOf
      */
     'user_id'?: DealUserDataWithId;
     /**
-     * 
+     *
      * @type {DealPersonDataWithId}
      * @memberof DealNonStrictAllOf
      */
     'person_id'?: DealPersonDataWithId;
     /**
-     * 
+     *
      * @type {DealOrganizationDataWithId}
      * @memberof DealNonStrictAllOf
      */
@@ -9264,7 +9275,7 @@ export interface DealNonStrictAllOfCreatorUserId {
     'value'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface DealNonStrictWithDetails
  */
@@ -9276,25 +9287,25 @@ export interface DealNonStrictWithDetails {
      */
     'id'?: number;
     /**
-     * 
+     *
      * @type {DealNonStrictAllOfCreatorUserId}
      * @memberof DealNonStrictWithDetails
      */
     'creator_user_id'?: DealNonStrictAllOfCreatorUserId;
     /**
-     * 
+     *
      * @type {DealUserDataWithId}
      * @memberof DealNonStrictWithDetails
      */
     'user_id'?: DealUserDataWithId;
     /**
-     * 
+     *
      * @type {DealPersonDataWithId}
      * @memberof DealNonStrictWithDetails
      */
     'person_id'?: DealPersonDataWithId;
     /**
-     * 
+     *
      * @type {DealOrganizationDataWithId}
      * @memberof DealNonStrictWithDetails
      */
@@ -9612,7 +9623,7 @@ export interface DealNonStrictWithDetails {
      */
     'person_hidden'?: boolean;
     /**
-     * 
+     *
      * @type {DealNonStrictWithDetailsAllOfAverageTimeToWon}
      * @memberof DealNonStrictWithDetails
      */
@@ -9624,13 +9635,13 @@ export interface DealNonStrictWithDetails {
      */
     'average_stage_progress'?: number;
     /**
-     * 
+     *
      * @type {DealNonStrictWithDetailsAllOfAge}
      * @memberof DealNonStrictWithDetails
      */
     'age'?: DealNonStrictWithDetailsAllOfAge;
     /**
-     * 
+     *
      * @type {DealNonStrictWithDetailsAllOfStayInPipelineStages}
      * @memberof DealNonStrictWithDetails
      */
@@ -9649,13 +9660,13 @@ export interface DealNonStrictWithDetails {
     'next_activity'?: object | null;
 }
 /**
- * 
+ *
  * @export
  * @interface DealNonStrictWithDetailsAllOf
  */
 export interface DealNonStrictWithDetailsAllOf {
     /**
-     * 
+     *
      * @type {DealNonStrictWithDetailsAllOfAverageTimeToWon}
      * @memberof DealNonStrictWithDetailsAllOf
      */
@@ -9667,13 +9678,13 @@ export interface DealNonStrictWithDetailsAllOf {
      */
     'average_stage_progress'?: number;
     /**
-     * 
+     *
      * @type {DealNonStrictWithDetailsAllOfAge}
      * @memberof DealNonStrictWithDetailsAllOf
      */
     'age'?: DealNonStrictWithDetailsAllOfAge;
     /**
-     * 
+     *
      * @type {DealNonStrictWithDetailsAllOfStayInPipelineStages}
      * @memberof DealNonStrictWithDetailsAllOf
      */
@@ -9809,7 +9820,7 @@ export interface DealNonStrictWithDetailsAllOfStayInPipelineStages {
     'order_of_stages'?: Array<number>;
 }
 /**
- * 
+ *
  * @export
  * @interface DealOrganizationDataWithId
  */
@@ -9901,7 +9912,7 @@ export interface DealOrganizationDataWithIdAllOf {
     'cc_email'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface DealOrganizationDataWithIdAllOf1
  */
@@ -9914,7 +9925,7 @@ export interface DealOrganizationDataWithIdAllOf1 {
     'value'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface DealPersonDataWithId
  */
@@ -9994,7 +10005,7 @@ export interface DealPersonDataWithIdAllOf {
     'owner_id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface DealPersonDataWithIdAllOf1
  */
@@ -10007,7 +10018,7 @@ export interface DealPersonDataWithIdAllOf1 {
     'value'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface DealPersonDataWithIdAllOfEmailInner
  */
@@ -10032,7 +10043,7 @@ export interface DealPersonDataWithIdAllOfEmailInner {
     'primary'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface DealPersonDataWithIdAllOfPhoneInner
  */
@@ -10057,7 +10068,7 @@ export interface DealPersonDataWithIdAllOfPhoneInner {
     'primary'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface DealResponse200
  */
@@ -10069,20 +10080,20 @@ export interface DealResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DealNonStrict}
      * @memberof DealResponse200
      */
     'data'?: DealNonStrict;
     /**
-     * 
+     *
      * @type {GetDealsResponse200RelatedObjects}
      * @memberof DealResponse200
      */
     'related_objects'?: GetDealsResponse200RelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface DealStrict
  */
@@ -10431,7 +10442,7 @@ export interface DealStrict {
     'person_hidden'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface DealStrictAllOf
  */
@@ -10468,7 +10479,7 @@ export interface DealStrictAllOf {
     'org_id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface DealTitleParam
  */
@@ -10481,7 +10492,7 @@ export interface DealTitleParam {
     'title'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface DealUserDataWithId
  */
@@ -10573,7 +10584,7 @@ export interface DealUserDataWithIdAllOf {
     'active_flag'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface DealUserDataWithIdAllOf1
  */
@@ -10586,7 +10597,7 @@ export interface DealUserDataWithIdAllOf1 {
     'value'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface DealsCountAndActivityInfo
  */
@@ -10671,26 +10682,26 @@ export interface DealsCountAndActivityInfo {
     'last_activity_date'?: string | null;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteActivitiesResponse200
  */
 export interface DeleteActivitiesResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof DeleteActivitiesResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeleteActivitiesResponse200Data}
      * @memberof DeleteActivitiesResponse200
      */
     'data'?: DeleteActivitiesResponse200Data;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteActivitiesResponse200Data
  */
@@ -10703,26 +10714,26 @@ export interface DeleteActivitiesResponse200Data {
     'id'?: Array<number>;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteActivityResponse200
  */
 export interface DeleteActivityResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof DeleteActivityResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeleteActivityResponse200Data}
      * @memberof DeleteActivityResponse200
      */
     'data'?: DeleteActivityResponse200Data;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteActivityResponse200Data
  */
@@ -10735,7 +10746,7 @@ export interface DeleteActivityResponse200Data {
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteActivityTypesResponse200
  */
@@ -10747,27 +10758,27 @@ export interface DeleteActivityTypesResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeleteActivityTypesResponse200AllOfData}
      * @memberof DeleteActivityTypesResponse200
      */
     'data'?: DeleteActivityTypesResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteActivityTypesResponse200AllOf
  */
 export interface DeleteActivityTypesResponse200AllOf {
     /**
-     * 
+     *
      * @type {DeleteActivityTypesResponse200AllOfData}
      * @memberof DeleteActivityTypesResponse200AllOf
      */
     'data'?: DeleteActivityTypesResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteActivityTypesResponse200AllOfData
  */
@@ -10780,20 +10791,20 @@ export interface DeleteActivityTypesResponse200AllOfData {
     'id'?: Array<number>;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteChannel200Response
  */
 export interface DeleteChannel200Response {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof DeleteChannel200Response
      */
     'success'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteCommentResponse200
  */
@@ -10812,13 +10823,13 @@ export interface DeleteCommentResponse200 {
     'data'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteConversation403Response
  */
 export interface DeleteConversation403Response {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof DeleteConversation403Response
      */
@@ -10830,20 +10841,20 @@ export interface DeleteConversation403Response {
      */
     'error'?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof DeleteConversation403Response
      */
     'error_info'?: string;
     /**
-     * 
+     *
      * @type {DeleteConversation403ResponseAdditionalData}
      * @memberof DeleteConversation403Response
      */
     'additional_data'?: DeleteConversation403ResponseAdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteConversation403ResponseAdditionalData
  */
@@ -10856,13 +10867,13 @@ export interface DeleteConversation403ResponseAdditionalData {
     'code'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteConversation404Response
  */
 export interface DeleteConversation404Response {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof DeleteConversation404Response
      */
@@ -10874,20 +10885,20 @@ export interface DeleteConversation404Response {
      */
     'error'?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof DeleteConversation404Response
      */
     'error_info'?: string;
     /**
-     * 
+     *
      * @type {DeleteConversation404ResponseAdditionalData}
      * @memberof DeleteConversation404Response
      */
     'additional_data'?: DeleteConversation404ResponseAdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteConversation404ResponseAdditionalData
  */
@@ -10900,7 +10911,7 @@ export interface DeleteConversation404ResponseAdditionalData {
     'code'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteDealFollowerResponse200
  */
@@ -10912,14 +10923,14 @@ export interface DeleteDealFollowerResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeleteDealFollowerResponse200Data}
      * @memberof DeleteDealFollowerResponse200
      */
     'data'?: DeleteDealFollowerResponse200Data;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteDealFollowerResponse200Data
  */
@@ -10932,7 +10943,7 @@ export interface DeleteDealFollowerResponse200Data {
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteDealParticipantResponse200
  */
@@ -10944,14 +10955,14 @@ export interface DeleteDealParticipantResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeleteDealParticipantResponse200Data}
      * @memberof DeleteDealParticipantResponse200
      */
     'data'?: DeleteDealParticipantResponse200Data;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteDealParticipantResponse200Data
  */
@@ -10964,7 +10975,7 @@ export interface DeleteDealParticipantResponse200Data {
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteDealProductResponse200
  */
@@ -10976,14 +10987,14 @@ export interface DeleteDealProductResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeleteDealProductResponse200Data}
      * @memberof DeleteDealProductResponse200
      */
     'data'?: DeleteDealProductResponse200Data;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteDealProductResponse200Data
  */
@@ -10996,7 +11007,7 @@ export interface DeleteDealProductResponse200Data {
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteDealResponse200
  */
@@ -11008,14 +11019,14 @@ export interface DeleteDealResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeleteDealResponse200Data}
      * @memberof DeleteDealResponse200
      */
     'data'?: DeleteDealResponse200Data;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteDealResponse200Data
  */
@@ -11028,7 +11039,7 @@ export interface DeleteDealResponse200Data {
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteDealsResponse200
  */
@@ -11040,14 +11051,14 @@ export interface DeleteDealsResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeleteDealsResponse200Data}
      * @memberof DeleteDealsResponse200
      */
     'data'?: DeleteDealsResponse200Data;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteDealsResponse200Data
  */
@@ -11060,7 +11071,7 @@ export interface DeleteDealsResponse200Data {
     'id'?: Array<number>;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteFieldResponse200
  */
@@ -11072,27 +11083,27 @@ export interface DeleteFieldResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeleteFieldResponse200AllOfData}
      * @memberof DeleteFieldResponse200
      */
     'data'?: DeleteFieldResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteFieldResponse200AllOf
  */
 export interface DeleteFieldResponse200AllOf {
     /**
-     * 
+     *
      * @type {DeleteFieldResponse200AllOfData}
      * @memberof DeleteFieldResponse200AllOf
      */
     'data'?: DeleteFieldResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteFieldResponse200AllOfData
  */
@@ -11105,7 +11116,7 @@ export interface DeleteFieldResponse200AllOfData {
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteFieldsResponse200
  */
@@ -11117,27 +11128,27 @@ export interface DeleteFieldsResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeleteFieldsResponse200AllOfData}
      * @memberof DeleteFieldsResponse200
      */
     'data'?: DeleteFieldsResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteFieldsResponse200AllOf
  */
 export interface DeleteFieldsResponse200AllOf {
     /**
-     * 
+     *
      * @type {DeleteFieldsResponse200AllOfData}
      * @memberof DeleteFieldsResponse200AllOf
      */
     'data'?: DeleteFieldsResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteFieldsResponse200AllOfData
  */
@@ -11150,7 +11161,7 @@ export interface DeleteFieldsResponse200AllOfData {
     'id'?: Array<number>;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteFileResponse200
  */
@@ -11162,14 +11173,14 @@ export interface DeleteFileResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeleteFileResponse200Data}
      * @memberof DeleteFileResponse200
      */
     'data'?: DeleteFileResponse200Data;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteFileResponse200Data
  */
@@ -11182,7 +11193,7 @@ export interface DeleteFileResponse200Data {
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteFilterResponse200
  */
@@ -11194,27 +11205,27 @@ export interface DeleteFilterResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeleteFilterResponse200AllOfData}
      * @memberof DeleteFilterResponse200
      */
     'data'?: DeleteFilterResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteFilterResponse200AllOf
  */
 export interface DeleteFilterResponse200AllOf {
     /**
-     * 
+     *
      * @type {DeleteFilterResponse200AllOfData}
      * @memberof DeleteFilterResponse200AllOf
      */
     'data'?: DeleteFilterResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteFilterResponse200AllOfData
  */
@@ -11227,7 +11238,7 @@ export interface DeleteFilterResponse200AllOfData {
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteFiltersResponse200
  */
@@ -11239,27 +11250,27 @@ export interface DeleteFiltersResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeleteFiltersResponse200AllOfData}
      * @memberof DeleteFiltersResponse200
      */
     'data'?: DeleteFiltersResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteFiltersResponse200AllOf
  */
 export interface DeleteFiltersResponse200AllOf {
     /**
-     * 
+     *
      * @type {DeleteFiltersResponse200AllOfData}
      * @memberof DeleteFiltersResponse200AllOf
      */
     'data'?: DeleteFiltersResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteFiltersResponse200AllOfData
  */
@@ -11272,7 +11283,7 @@ export interface DeleteFiltersResponse200AllOfData {
     'id'?: Array<number>;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteGoalResponse200
  */
@@ -11285,7 +11296,7 @@ export interface DeleteGoalResponse200 {
     'success'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteMailThreadResponse200
  */
@@ -11297,27 +11308,27 @@ export interface DeleteMailThreadResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeleteMailThreadResponse200AllOfData}
      * @memberof DeleteMailThreadResponse200
      */
     'data'?: DeleteMailThreadResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteMailThreadResponse200AllOf
  */
 export interface DeleteMailThreadResponse200AllOf {
     /**
-     * 
+     *
      * @type {DeleteMailThreadResponse200AllOfData}
      * @memberof DeleteMailThreadResponse200AllOf
      */
     'data'?: DeleteMailThreadResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteMailThreadResponse200AllOfData
  */
@@ -11330,7 +11341,7 @@ export interface DeleteMailThreadResponse200AllOfData {
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteNoteResponse200
  */
@@ -11349,7 +11360,7 @@ export interface DeleteNoteResponse200 {
     'data'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteOrganizationFollowerResponse200
  */
@@ -11361,14 +11372,14 @@ export interface DeleteOrganizationFollowerResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeleteOrganizationFollowerResponse200Data}
      * @memberof DeleteOrganizationFollowerResponse200
      */
     'data'?: DeleteOrganizationFollowerResponse200Data;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteOrganizationFollowerResponse200Data
  */
@@ -11381,7 +11392,7 @@ export interface DeleteOrganizationFollowerResponse200Data {
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteOrganizationRelationshipResponse200
  */
@@ -11393,27 +11404,27 @@ export interface DeleteOrganizationRelationshipResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeleteOrganizationRelationshipResponse200AllOfData}
      * @memberof DeleteOrganizationRelationshipResponse200
      */
     'data'?: DeleteOrganizationRelationshipResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteOrganizationRelationshipResponse200AllOf
  */
 export interface DeleteOrganizationRelationshipResponse200AllOf {
     /**
-     * 
+     *
      * @type {DeleteOrganizationRelationshipResponse200AllOfData}
      * @memberof DeleteOrganizationRelationshipResponse200AllOf
      */
     'data'?: DeleteOrganizationRelationshipResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteOrganizationRelationshipResponse200AllOfData
  */
@@ -11426,7 +11437,7 @@ export interface DeleteOrganizationRelationshipResponse200AllOfData {
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteOrganizationResponse200
  */
@@ -11438,14 +11449,14 @@ export interface DeleteOrganizationResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeleteOrganizationResponse200Data}
      * @memberof DeleteOrganizationResponse200
      */
     'data'?: DeleteOrganizationResponse200Data;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteOrganizationResponse200Data
  */
@@ -11458,7 +11469,7 @@ export interface DeleteOrganizationResponse200Data {
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteOrganizationsResponse200
  */
@@ -11470,14 +11481,14 @@ export interface DeleteOrganizationsResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeleteOrganizationsResponse200Data}
      * @memberof DeleteOrganizationsResponse200
      */
     'data'?: DeleteOrganizationsResponse200Data;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteOrganizationsResponse200Data
  */
@@ -11490,7 +11501,7 @@ export interface DeleteOrganizationsResponse200Data {
     'id'?: Array<number>;
 }
 /**
- * 
+ *
  * @export
  * @interface DeletePersonResponse200
  */
@@ -11502,27 +11513,27 @@ export interface DeletePersonResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeletePersonResponse200AllOfData}
      * @memberof DeletePersonResponse200
      */
     'data'?: DeletePersonResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface DeletePersonResponse200AllOf
  */
 export interface DeletePersonResponse200AllOf {
     /**
-     * 
+     *
      * @type {DeletePersonResponse200AllOfData}
      * @memberof DeletePersonResponse200AllOf
      */
     'data'?: DeletePersonResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface DeletePersonResponse200AllOfData
  */
@@ -11535,7 +11546,7 @@ export interface DeletePersonResponse200AllOfData {
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface DeletePersonsResponse200
  */
@@ -11547,27 +11558,27 @@ export interface DeletePersonsResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeletePersonsResponse200AllOfData}
      * @memberof DeletePersonsResponse200
      */
     'data'?: DeletePersonsResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface DeletePersonsResponse200AllOf
  */
 export interface DeletePersonsResponse200AllOf {
     /**
-     * 
+     *
      * @type {DeletePersonsResponse200AllOfData}
      * @memberof DeletePersonsResponse200AllOf
      */
     'data'?: DeletePersonsResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface DeletePersonsResponse200AllOfData
  */
@@ -11580,7 +11591,7 @@ export interface DeletePersonsResponse200AllOfData {
     'id'?: Array<number>;
 }
 /**
- * 
+ *
  * @export
  * @interface DeletePipelineResponse200
  */
@@ -11592,14 +11603,14 @@ export interface DeletePipelineResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeletePipelineResponse200Data}
      * @memberof DeletePipelineResponse200
      */
     'data'?: DeletePipelineResponse200Data;
 }
 /**
- * 
+ *
  * @export
  * @interface DeletePipelineResponse200Data
  */
@@ -11612,7 +11623,7 @@ export interface DeletePipelineResponse200Data {
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteProductFieldResponse200
  */
@@ -11624,14 +11635,14 @@ export interface DeleteProductFieldResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeleteProductResponse200Data}
      * @memberof DeleteProductFieldResponse200
      */
     'data'?: DeleteProductResponse200Data;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteProductFieldsResponse200
  */
@@ -11643,14 +11654,14 @@ export interface DeleteProductFieldsResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeleteProductFieldsResponse200Data}
      * @memberof DeleteProductFieldsResponse200
      */
     'data'?: DeleteProductFieldsResponse200Data;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteProductFieldsResponse200Data
  */
@@ -11663,7 +11674,7 @@ export interface DeleteProductFieldsResponse200Data {
     'id'?: Array<number>;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteProductFollowerResponse200
  */
@@ -11675,14 +11686,14 @@ export interface DeleteProductFollowerResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeleteProductResponse200Data}
      * @memberof DeleteProductFollowerResponse200
      */
     'data'?: DeleteProductResponse200Data;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteProductResponse200
  */
@@ -11694,27 +11705,27 @@ export interface DeleteProductResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeleteProductResponse200Data}
      * @memberof DeleteProductResponse200
      */
     'data'?: DeleteProductResponse200Data;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteProductResponse200Data
  */
 export interface DeleteProductResponse200Data {
     /**
-     * 
+     *
      * @type {number}
      * @memberof DeleteProductResponse200Data
      */
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteProject
  */
@@ -11726,14 +11737,14 @@ export interface DeleteProject {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeleteProjectData}
      * @memberof DeleteProject
      */
     'data'?: DeleteProjectData;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteProjectData
  */
@@ -11746,32 +11757,32 @@ export interface DeleteProjectData {
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteProjectResponse200
  */
 export interface DeleteProjectResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof DeleteProjectResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeleteProject}
      * @memberof DeleteProjectResponse200
      */
     'data'?: DeleteProject;
     /**
-     * 
+     *
      * @type {object}
      * @memberof DeleteProjectResponse200
      */
     'additional_data'?: object | null;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteRoleAssignmentRequest
  */
@@ -11784,7 +11795,7 @@ export interface DeleteRoleAssignmentRequest {
     'user_id': number;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteRoleAssignmentResponse200
  */
@@ -11796,14 +11807,14 @@ export interface DeleteRoleAssignmentResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {AddRoleResponse200AllOfData}
      * @memberof DeleteRoleAssignmentResponse200
      */
     'data'?: AddRoleResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteRoleResponse200
  */
@@ -11815,14 +11826,14 @@ export interface DeleteRoleResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {AddRoleResponse200AllOfData}
      * @memberof DeleteRoleResponse200
      */
     'data'?: AddRoleResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteStageResponse200
  */
@@ -11834,14 +11845,14 @@ export interface DeleteStageResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeleteStageResponse200Data}
      * @memberof DeleteStageResponse200
      */
     'data'?: DeleteStageResponse200Data;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteStageResponse200Data
  */
@@ -11854,7 +11865,7 @@ export interface DeleteStageResponse200Data {
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteStagesResponse200
  */
@@ -11866,14 +11877,14 @@ export interface DeleteStagesResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeleteStagesResponse200Data}
      * @memberof DeleteStagesResponse200
      */
     'data'?: DeleteStagesResponse200Data;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteStagesResponse200Data
  */
@@ -11886,7 +11897,7 @@ export interface DeleteStagesResponse200Data {
     'id'?: Array<number>;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteTask
  */
@@ -11898,14 +11909,14 @@ export interface DeleteTask {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeleteTaskData}
      * @memberof DeleteTask
      */
     'data'?: DeleteTaskData;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteTaskData
  */
@@ -11918,32 +11929,32 @@ export interface DeleteTaskData {
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteTaskResponse200
  */
 export interface DeleteTaskResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof DeleteTaskResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DeleteTask}
      * @memberof DeleteTaskResponse200
      */
     'data'?: DeleteTask;
     /**
-     * 
+     *
      * @type {object}
      * @memberof DeleteTaskResponse200
      */
     'additional_data'?: object | null;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteTeamUserRequest
  */
@@ -11956,7 +11967,7 @@ export interface DeleteTeamUserRequest {
     'users': Array<number>;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteWebhook403Response
  */
@@ -11975,7 +11986,7 @@ export interface DeleteWebhook403Response {
     'message'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface DeleteWebhook403ResponseAllOf
  */
@@ -11988,7 +11999,7 @@ export interface DeleteWebhook403ResponseAllOf {
     'message'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface DuplicateDealResponse200
  */
@@ -12000,14 +12011,14 @@ export interface DuplicateDealResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DealStrict}
      * @memberof DuplicateDealResponse200
      */
     'data'?: DealStrict;
 }
 /**
- * 
+ *
  * @export
  * @interface FailResponse
  */
@@ -12026,7 +12037,7 @@ export interface FailResponse {
     'error'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface FieldResponse200
  */
@@ -12038,27 +12049,27 @@ export interface FieldResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfDataInner}
      * @memberof FieldResponse200
      */
     'data'?: FieldsResponse200AllOfDataInner;
 }
 /**
- * 
+ *
  * @export
  * @interface FieldResponse200AllOf
  */
 export interface FieldResponse200AllOf {
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfDataInner}
      * @memberof FieldResponse200AllOf
      */
     'data'?: FieldsResponse200AllOfDataInner;
 }
 /**
- * 
+ *
  * @export
  * @interface FieldsResponse200
  */
@@ -12070,32 +12081,32 @@ export interface FieldsResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {Array<FieldsResponse200AllOfDataInner>}
      * @memberof FieldsResponse200
      */
     'data'?: Array<FieldsResponse200AllOfDataInner>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof FieldsResponse200
      */
     'additional_data'?: FieldsResponse200AllOfAdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface FieldsResponse200AllOf
  */
 export interface FieldsResponse200AllOf {
     /**
-     * 
+     *
      * @type {Array<FieldsResponse200AllOfDataInner>}
      * @memberof FieldsResponse200AllOf
      */
     'data'?: Array<FieldsResponse200AllOfDataInner>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof FieldsResponse200AllOf
      */
@@ -12127,7 +12138,7 @@ export interface FieldsResponse200AllOfAdditionalData {
     'more_items_in_collection'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface FieldsResponse200AllOfDataInner
  */
@@ -12295,7 +12306,7 @@ export const FieldsResponse200AllOfDataInnerFieldTypeConst = {
 export type FieldsResponse200AllOfDataInnerFieldTypeConst = typeof FieldsResponse200AllOfDataInnerFieldTypeConst[keyof typeof FieldsResponse200AllOfDataInnerFieldTypeConst];
 
 /**
- * 
+ *
  * @export
  * @interface FullProjectObject
  */
@@ -12398,7 +12409,7 @@ export interface FullProjectObject {
     'archive_time'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface FullProjectObjectAllOf
  */
@@ -12423,7 +12434,7 @@ export interface FullProjectObjectAllOf {
     'phase_id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface FullProjectObjectAllOf1
  */
@@ -12484,7 +12495,7 @@ export interface FullProjectObjectAllOf1 {
     'labels'?: Array<number>;
 }
 /**
- * 
+ *
  * @export
  * @interface FullProjectObjectAllOf2
  */
@@ -12515,7 +12526,7 @@ export interface FullProjectObjectAllOf2 {
     'archive_time'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface FullRole
  */
@@ -12564,7 +12575,7 @@ export interface FullRole {
     'level'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface FullRoleAllOf
  */
@@ -12577,25 +12588,25 @@ export interface FullRoleAllOf {
     'level'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface GetActivitiesCollectionResponse200
  */
 export interface GetActivitiesCollectionResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof GetActivitiesCollectionResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {Array<ActivityCollectionResponseObject>}
      * @memberof GetActivitiesCollectionResponse200
      */
     'data'?: Array<ActivityCollectionResponseObject>;
     /**
-     * 
+     *
      * @type {GetActivitiesCollectionResponse200AdditionalData}
      * @memberof GetActivitiesCollectionResponse200
      */
@@ -12615,44 +12626,44 @@ export interface GetActivitiesCollectionResponse200AdditionalData {
     'next_cursor'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface GetActivitiesResponse200
  */
 export interface GetActivitiesResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof GetActivitiesResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {Array<ActivityResponseObject>}
      * @memberof GetActivitiesResponse200
      */
     'data'?: Array<ActivityResponseObject>;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200AdditionalData}
      * @memberof GetActivitiesResponse200
      */
     'additional_data'?: GetActivitiesResponse200AdditionalData;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200RelatedObjects}
      * @memberof GetActivitiesResponse200
      */
     'related_objects'?: GetActivitiesResponse200RelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface GetActivitiesResponse200AdditionalData
  */
 export interface GetActivitiesResponse200AdditionalData {
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200AdditionalDataPagination}
      * @memberof GetActivitiesResponse200AdditionalData
      */
@@ -12690,44 +12701,44 @@ export interface GetActivitiesResponse200AdditionalDataPagination {
     'next_start'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface GetActivitiesResponse200RelatedObjects
  */
 export interface GetActivitiesResponse200RelatedObjects {
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200RelatedObjectsUser}
      * @memberof GetActivitiesResponse200RelatedObjects
      */
     'user'?: GetActivitiesResponse200RelatedObjectsUser;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200RelatedObjectsDeal}
      * @memberof GetActivitiesResponse200RelatedObjects
      */
     'deal'?: GetActivitiesResponse200RelatedObjectsDeal;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200RelatedObjectsPerson}
      * @memberof GetActivitiesResponse200RelatedObjects
      */
     'person'?: GetActivitiesResponse200RelatedObjectsPerson;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200RelatedObjectsOrganization}
      * @memberof GetActivitiesResponse200RelatedObjects
      */
     'organization'?: GetActivitiesResponse200RelatedObjectsOrganization;
 }
 /**
- * 
+ *
  * @export
  * @interface GetActivitiesResponse200RelatedObjectsDeal
  */
 export interface GetActivitiesResponse200RelatedObjectsDeal {
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200RelatedObjectsDealDEALID}
      * @memberof GetActivitiesResponse200RelatedObjectsDeal
      */
@@ -12783,13 +12794,13 @@ export interface GetActivitiesResponse200RelatedObjectsDealDEALID {
     'pipeline_id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface GetActivitiesResponse200RelatedObjectsOrganization
  */
 export interface GetActivitiesResponse200RelatedObjectsOrganization {
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200RelatedObjectsOrganizationORGANIZATIONID}
      * @memberof GetActivitiesResponse200RelatedObjectsOrganization
      */
@@ -12839,7 +12850,7 @@ export interface GetActivitiesResponse200RelatedObjectsOrganizationORGANIZATIONI
     'cc_email'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface GetActivitiesResponse200RelatedObjectsOrganizationORGANIZATIONIDAllOf
  */
@@ -12852,7 +12863,7 @@ export interface GetActivitiesResponse200RelatedObjectsOrganizationORGANIZATIONI
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface GetActivitiesResponse200RelatedObjectsOrganizationORGANIZATIONIDAllOf1
  */
@@ -12889,13 +12900,13 @@ export interface GetActivitiesResponse200RelatedObjectsOrganizationORGANIZATIONI
     'cc_email'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface GetActivitiesResponse200RelatedObjectsPerson
  */
 export interface GetActivitiesResponse200RelatedObjectsPerson {
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200RelatedObjectsPersonPERSONID}
      * @memberof GetActivitiesResponse200RelatedObjectsPerson
      */
@@ -12939,7 +12950,7 @@ export interface GetActivitiesResponse200RelatedObjectsPersonPERSONID {
     'owner_id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface GetActivitiesResponse200RelatedObjectsPersonPERSONIDAllOf
  */
@@ -12976,7 +12987,7 @@ export interface GetActivitiesResponse200RelatedObjectsPersonPERSONIDAllOf {
     'owner_id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface GetActivitiesResponse200RelatedObjectsPersonPERSONIDAllOfEmailInner
  */
@@ -13001,7 +13012,7 @@ export interface GetActivitiesResponse200RelatedObjectsPersonPERSONIDAllOfEmailI
     'primary'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface GetActivitiesResponse200RelatedObjectsPersonPERSONIDAllOfPhoneInner
  */
@@ -13026,45 +13037,45 @@ export interface GetActivitiesResponse200RelatedObjectsPersonPERSONIDAllOfPhoneI
     'primary'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface GetActivitiesResponse200RelatedObjectsUser
  */
 export interface GetActivitiesResponse200RelatedObjectsUser {
     /**
-     * 
+     *
      * @type {UserDataWithId}
      * @memberof GetActivitiesResponse200RelatedObjectsUser
      */
     'USER_ID'?: UserDataWithId;
 }
 /**
- * 
+ *
  * @export
  * @interface GetActivityResponse200
  */
 export interface GetActivityResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof GetActivityResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {ActivityResponseObject}
      * @memberof GetActivityResponse200
      */
     'data'?: ActivityResponseObject;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200RelatedObjects}
      * @memberof GetActivityResponse200
      */
     'related_objects'?: GetActivitiesResponse200RelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface GetActivityTypesResponse200
  */
@@ -13083,7 +13094,7 @@ export interface GetActivityTypesResponse200 {
     'data'?: Array<GetActivityTypesResponse200AllOfDataInner>;
 }
 /**
- * 
+ *
  * @export
  * @interface GetActivityTypesResponse200AllOf
  */
@@ -13096,7 +13107,7 @@ export interface GetActivityTypesResponse200AllOf {
     'data'?: Array<GetActivityTypesResponse200AllOfDataInner>;
 }
 /**
- * 
+ *
  * @export
  * @interface GetActivityTypesResponse200AllOfDataInner
  */
@@ -13209,7 +13220,7 @@ export const GetActivityTypesResponse200AllOfDataInnerIconKeyConst = {
 export type GetActivityTypesResponse200AllOfDataInnerIconKeyConst = typeof GetActivityTypesResponse200AllOfDataInnerIconKeyConst[keyof typeof GetActivityTypesResponse200AllOfDataInnerIconKeyConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetAddProductAttachementResponse200
  */
@@ -13221,7 +13232,7 @@ export interface GetAddProductAttachementResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetAddProductAttachementResponse200Data}
      * @memberof GetAddProductAttachementResponse200
      */
@@ -13382,7 +13393,7 @@ export const GetAddProductAttachementResponse200DataTaxMethodConst = {
 export type GetAddProductAttachementResponse200DataTaxMethodConst = typeof GetAddProductAttachementResponse200DataTaxMethodConst[keyof typeof GetAddProductAttachementResponse200DataTaxMethodConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetAddProductAttachementResponse200DataAllOf
  */
@@ -13536,7 +13547,7 @@ export const GetAddProductAttachementResponse200DataAllOfTaxMethodConst = {
 export type GetAddProductAttachementResponse200DataAllOfTaxMethodConst = typeof GetAddProductAttachementResponse200DataAllOfTaxMethodConst[keyof typeof GetAddProductAttachementResponse200DataAllOfTaxMethodConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetAddProductAttachementResponse200DataAllOfAllOf
  */
@@ -13684,7 +13695,7 @@ export const GetAddProductAttachementResponse200DataAllOfAllOfTaxMethodConst = {
 export type GetAddProductAttachementResponse200DataAllOfAllOfTaxMethodConst = typeof GetAddProductAttachementResponse200DataAllOfAllOfTaxMethodConst[keyof typeof GetAddProductAttachementResponse200DataAllOfAllOfTaxMethodConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetAddProductAttachementResponse200DataAllOfAllOf1
  */
@@ -13697,7 +13708,7 @@ export interface GetAddProductAttachementResponse200DataAllOfAllOf1 {
     'product_attachment_id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAddProductAttachementResponse200DataAllOfAllOfAllOf
  */
@@ -13776,7 +13787,7 @@ export interface GetAddProductAttachementResponse200DataAllOfAllOfAllOf {
     'name'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAllMailMessagesOfMailThreadResponse200
  */
@@ -13795,7 +13806,7 @@ export interface GetAllMailMessagesOfMailThreadResponse200 {
     'data'?: Array<GetAllMailMessagesOfMailThreadResponse200AllOfDataInner>;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAllMailMessagesOfMailThreadResponse200AllOf
  */
@@ -13808,7 +13819,7 @@ export interface GetAllMailMessagesOfMailThreadResponse200AllOf {
     'data'?: Array<GetAllMailMessagesOfMailThreadResponse200AllOfDataInner>;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAllMailMessagesOfMailThreadResponse200AllOfDataInner
  */
@@ -13844,7 +13855,7 @@ export interface GetAllMailMessagesOfMailThreadResponse200AllOfDataInner {
      */
     'snippet'?: string;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetAllMailMessagesOfMailThreadResponse200AllOfDataInner
      */
@@ -13856,43 +13867,43 @@ export interface GetAllMailMessagesOfMailThreadResponse200AllOfDataInner {
      */
     'mail_tracking_status'?: string | null;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetAllMailMessagesOfMailThreadResponse200AllOfDataInner
      */
     'has_attachments_flag'?: GetAllMailMessagesOfMailThreadResponse200AllOfDataInnerHasAttachmentsFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetAllMailMessagesOfMailThreadResponse200AllOfDataInner
      */
     'has_inline_attachments_flag'?: GetAllMailMessagesOfMailThreadResponse200AllOfDataInnerHasInlineAttachmentsFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetAllMailMessagesOfMailThreadResponse200AllOfDataInner
      */
     'has_real_attachments_flag'?: GetAllMailMessagesOfMailThreadResponse200AllOfDataInnerHasRealAttachmentsFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetAllMailMessagesOfMailThreadResponse200AllOfDataInner
      */
     'deleted_flag'?: GetAllMailMessagesOfMailThreadResponse200AllOfDataInnerDeletedFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetAllMailMessagesOfMailThreadResponse200AllOfDataInner
      */
     'synced_flag'?: GetAllMailMessagesOfMailThreadResponse200AllOfDataInnerSyncedFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetAllMailMessagesOfMailThreadResponse200AllOfDataInner
      */
     'smart_bcc_flag'?: GetAllMailMessagesOfMailThreadResponse200AllOfDataInnerSmartBccFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetAllMailMessagesOfMailThreadResponse200AllOfDataInner
      */
@@ -13940,19 +13951,19 @@ export interface GetAllMailMessagesOfMailThreadResponse200AllOfDataInner {
      */
     'draft'?: string | null;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetAllMailMessagesOfMailThreadResponse200AllOfDataInner
      */
     'has_body_flag'?: GetAllMailMessagesOfMailThreadResponse200AllOfDataInnerHasBodyFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetAllMailMessagesOfMailThreadResponse200AllOfDataInner
      */
     'sent_flag'?: GetAllMailMessagesOfMailThreadResponse200AllOfDataInnerSentFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetAllMailMessagesOfMailThreadResponse200AllOfDataInner
      */
@@ -14045,7 +14056,7 @@ export const GetAllMailMessagesOfMailThreadResponse200AllOfDataInnerSentFromPipe
 export type GetAllMailMessagesOfMailThreadResponse200AllOfDataInnerSentFromPipedriveFlagConst = typeof GetAllMailMessagesOfMailThreadResponse200AllOfDataInnerSentFromPipedriveFlagConst[keyof typeof GetAllMailMessagesOfMailThreadResponse200AllOfDataInnerSentFromPipedriveFlagConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetAllMailMessagesOfMailThreadResponse200AllOfDataInnerAllOf
  */
@@ -14093,19 +14104,19 @@ export interface GetAllMailMessagesOfMailThreadResponse200AllOfDataInnerAllOf {
      */
     'draft'?: string | null;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetAllMailMessagesOfMailThreadResponse200AllOfDataInnerAllOf
      */
     'has_body_flag'?: GetAllMailMessagesOfMailThreadResponse200AllOfDataInnerAllOfHasBodyFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetAllMailMessagesOfMailThreadResponse200AllOfDataInnerAllOf
      */
     'sent_flag'?: GetAllMailMessagesOfMailThreadResponse200AllOfDataInnerAllOfSentFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetAllMailMessagesOfMailThreadResponse200AllOfDataInnerAllOf
      */
@@ -14150,7 +14161,7 @@ export const GetAllMailMessagesOfMailThreadResponse200AllOfDataInnerAllOfSentFro
 export type GetAllMailMessagesOfMailThreadResponse200AllOfDataInnerAllOfSentFromPipedriveFlagConst = typeof GetAllMailMessagesOfMailThreadResponse200AllOfDataInnerAllOfSentFromPipedriveFlagConst[keyof typeof GetAllMailMessagesOfMailThreadResponse200AllOfDataInnerAllOfSentFromPipedriveFlagConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetAssociatedActivitiesResponse200
  */
@@ -14168,14 +14179,14 @@ export interface GetAssociatedActivitiesResponse200 {
      */
     'data'?: Array<ActivityResponseObject>;
     /**
-     * 
+     *
      * @type {ActivityDistributionDataWithAdditionalData}
      * @memberof GetAssociatedActivitiesResponse200
      */
     'additional_data'?: ActivityDistributionDataWithAdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAssociatedActivitiesResponse200AllOf
  */
@@ -14187,14 +14198,14 @@ export interface GetAssociatedActivitiesResponse200AllOf {
      */
     'data'?: Array<ActivityResponseObject>;
     /**
-     * 
+     *
      * @type {ActivityDistributionDataWithAdditionalData}
      * @memberof GetAssociatedActivitiesResponse200AllOf
      */
     'additional_data'?: ActivityDistributionDataWithAdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAssociatedDealsResponse200
  */
@@ -14212,20 +14223,20 @@ export interface GetAssociatedDealsResponse200 {
      */
     'data'?: Array<DealNonStrict>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof GetAssociatedDealsResponse200
      */
     'additional_data'?: FieldsResponse200AllOfAdditionalData;
     /**
-     * 
+     *
      * @type {GetAssociatedDealsResponse200AllOfRelatedObjects}
      * @memberof GetAssociatedDealsResponse200
      */
     'related_objects'?: GetAssociatedDealsResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAssociatedDealsResponse200AllOf
  */
@@ -14237,57 +14248,57 @@ export interface GetAssociatedDealsResponse200AllOf {
      */
     'data'?: Array<DealNonStrict>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof GetAssociatedDealsResponse200AllOf
      */
     'additional_data'?: FieldsResponse200AllOfAdditionalData;
     /**
-     * 
+     *
      * @type {GetAssociatedDealsResponse200AllOfRelatedObjects}
      * @memberof GetAssociatedDealsResponse200AllOf
      */
     'related_objects'?: GetAssociatedDealsResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAssociatedDealsResponse200AllOfRelatedObjects
  */
 export interface GetAssociatedDealsResponse200AllOfRelatedObjects {
     /**
-     * 
+     *
      * @type {AddActivityResponse200RelatedObjectsOrganization}
      * @memberof GetAssociatedDealsResponse200AllOfRelatedObjects
      */
     'organization'?: AddActivityResponse200RelatedObjectsOrganization;
     /**
-     * 
+     *
      * @type {AddActivityResponse200RelatedObjectsPerson}
      * @memberof GetAssociatedDealsResponse200AllOfRelatedObjects
      */
     'person'?: AddActivityResponse200RelatedObjectsPerson;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200RelatedObjectsUser}
      * @memberof GetAssociatedDealsResponse200AllOfRelatedObjects
      */
     'user'?: GetActivitiesResponse200RelatedObjectsUser;
     /**
-     * 
+     *
      * @type {GetAssociatedDealsResponse200AllOfRelatedObjectsStage}
      * @memberof GetAssociatedDealsResponse200AllOfRelatedObjects
      */
     'stage'?: GetAssociatedDealsResponse200AllOfRelatedObjectsStage;
     /**
-     * 
+     *
      * @type {GetAssociatedDealsResponse200AllOfRelatedObjectsPipeline}
      * @memberof GetAssociatedDealsResponse200AllOfRelatedObjects
      */
     'pipeline'?: GetAssociatedDealsResponse200AllOfRelatedObjectsPipeline;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAssociatedDealsResponse200AllOfRelatedObjectsPipeline
  */
@@ -14342,7 +14353,7 @@ export interface GetAssociatedDealsResponse200AllOfRelatedObjectsPipeline {
     'update_time'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAssociatedDealsResponse200AllOfRelatedObjectsStage
  */
@@ -14409,7 +14420,7 @@ export interface GetAssociatedDealsResponse200AllOfRelatedObjectsStage {
     'update_time'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAssociatedFilesResponse200
  */
@@ -14427,14 +14438,14 @@ export interface GetAssociatedFilesResponse200 {
      */
     'data'?: Array<GetAssociatedFilesResponse200AllOfDataInner>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof GetAssociatedFilesResponse200
      */
     'additional_data'?: FieldsResponse200AllOfAdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAssociatedFilesResponse2001
  */
@@ -14452,14 +14463,14 @@ export interface GetAssociatedFilesResponse2001 {
      */
     'data'?: Array<GetAssociatedFilesResponse2001AllOfDataInner>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof GetAssociatedFilesResponse2001
      */
     'additional_data'?: FieldsResponse200AllOfAdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAssociatedFilesResponse2001AllOf
  */
@@ -14471,7 +14482,7 @@ export interface GetAssociatedFilesResponse2001AllOf {
      */
     'data'?: Array<GetAssociatedFilesResponse2001AllOfDataInner>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof GetAssociatedFilesResponse2001AllOf
      */
@@ -14575,7 +14586,7 @@ export interface GetAssociatedFilesResponse2001AllOfDataInner {
     'description'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAssociatedFilesResponse200AllOf
  */
@@ -14587,7 +14598,7 @@ export interface GetAssociatedFilesResponse200AllOf {
      */
     'data'?: Array<GetAssociatedFilesResponse200AllOfDataInner>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof GetAssociatedFilesResponse200AllOf
      */
@@ -14769,7 +14780,7 @@ export interface GetAssociatedFilesResponse200AllOfDataInner {
     'description'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAssociatedFollowersResponse200
  */
@@ -14787,14 +14798,14 @@ export interface GetAssociatedFollowersResponse200 {
      */
     'data'?: Array<GetAssociatedFollowersResponse200AllOfDataInner>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof GetAssociatedFollowersResponse200
      */
     'additional_data'?: FieldsResponse200AllOfAdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAssociatedFollowersResponse2001
  */
@@ -14812,14 +14823,14 @@ export interface GetAssociatedFollowersResponse2001 {
      */
     'data'?: Array<GetAssociatedFollowersResponse2001DataInner>;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200AdditionalData}
      * @memberof GetAssociatedFollowersResponse2001
      */
     'additional_data'?: GetActivitiesResponse200AdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAssociatedFollowersResponse2001DataInner
  */
@@ -14850,7 +14861,7 @@ export interface GetAssociatedFollowersResponse2001DataInner {
     'add_time'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAssociatedFollowersResponse2001DataInnerAllOf
  */
@@ -14863,7 +14874,7 @@ export interface GetAssociatedFollowersResponse2001DataInnerAllOf {
     'org_id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAssociatedFollowersResponse2001DataInnerAllOf1
  */
@@ -14888,7 +14899,7 @@ export interface GetAssociatedFollowersResponse2001DataInnerAllOf1 {
     'add_time'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAssociatedFollowersResponse200AllOf
  */
@@ -14900,14 +14911,14 @@ export interface GetAssociatedFollowersResponse200AllOf {
      */
     'data'?: Array<GetAssociatedFollowersResponse200AllOfDataInner>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof GetAssociatedFollowersResponse200AllOf
      */
     'additional_data'?: FieldsResponse200AllOfAdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAssociatedFollowersResponse200AllOfDataInner
  */
@@ -14938,7 +14949,7 @@ export interface GetAssociatedFollowersResponse200AllOfDataInner {
     'add_time'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAssociatedMailMessagesResponse200
  */
@@ -14956,14 +14967,14 @@ export interface GetAssociatedMailMessagesResponse200 {
      */
     'data'?: Array<GetAssociatedMailMessagesResponse200AllOfDataInner>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof GetAssociatedMailMessagesResponse200
      */
     'additional_data'?: FieldsResponse200AllOfAdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAssociatedMailMessagesResponse200AllOf
  */
@@ -14975,14 +14986,14 @@ export interface GetAssociatedMailMessagesResponse200AllOf {
      */
     'data'?: Array<GetAssociatedMailMessagesResponse200AllOfDataInner>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof GetAssociatedMailMessagesResponse200AllOf
      */
     'additional_data'?: FieldsResponse200AllOfAdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAssociatedMailMessagesResponse200AllOfDataInner
  */
@@ -15000,14 +15011,14 @@ export interface GetAssociatedMailMessagesResponse200AllOfDataInner {
      */
     'timestamp'?: string;
     /**
-     * 
+     *
      * @type {MailMessageItemForList}
      * @memberof GetAssociatedMailMessagesResponse200AllOfDataInner
      */
     'data'?: MailMessageItemForList;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAssociatedPersonUpdatesResponse200
  */
@@ -15019,51 +15030,51 @@ export interface GetAssociatedPersonUpdatesResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {Array<GetAssociatedPersonUpdatesResponse200AllOfDataInner>}
      * @memberof GetAssociatedPersonUpdatesResponse200
      */
     'data'?: Array<GetAssociatedPersonUpdatesResponse200AllOfDataInner>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof GetAssociatedPersonUpdatesResponse200
      */
     'additional_data'?: FieldsResponse200AllOfAdditionalData;
     /**
-     * 
+     *
      * @type {GetDealUpdatesResponse200AllOfRelatedObjects}
      * @memberof GetAssociatedPersonUpdatesResponse200
      */
     'related_objects'?: GetDealUpdatesResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAssociatedPersonUpdatesResponse200AllOf
  */
 export interface GetAssociatedPersonUpdatesResponse200AllOf {
     /**
-     * 
+     *
      * @type {Array<GetAssociatedPersonUpdatesResponse200AllOfDataInner>}
      * @memberof GetAssociatedPersonUpdatesResponse200AllOf
      */
     'data'?: Array<GetAssociatedPersonUpdatesResponse200AllOfDataInner>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof GetAssociatedPersonUpdatesResponse200AllOf
      */
     'additional_data'?: FieldsResponse200AllOfAdditionalData;
     /**
-     * 
+     *
      * @type {GetDealUpdatesResponse200AllOfRelatedObjects}
      * @memberof GetAssociatedPersonUpdatesResponse200AllOf
      */
     'related_objects'?: GetDealUpdatesResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAssociatedPersonUpdatesResponse200AllOfDataInner
  */
@@ -15088,7 +15099,7 @@ export interface GetAssociatedPersonUpdatesResponse200AllOfDataInner {
     'data'?: object;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAssociatedUpdatesResponse200
  */
@@ -15100,51 +15111,51 @@ export interface GetAssociatedUpdatesResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {Array<GetAssociatedUpdatesResponse200AllOfDataInner>}
      * @memberof GetAssociatedUpdatesResponse200
      */
     'data'?: Array<GetAssociatedUpdatesResponse200AllOfDataInner>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof GetAssociatedUpdatesResponse200
      */
     'additional_data'?: FieldsResponse200AllOfAdditionalData;
     /**
-     * 
+     *
      * @type {GetAssociatedUpdatesResponse200AllOfRelatedObjects}
      * @memberof GetAssociatedUpdatesResponse200
      */
     'related_objects'?: GetAssociatedUpdatesResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAssociatedUpdatesResponse200AllOf
  */
 export interface GetAssociatedUpdatesResponse200AllOf {
     /**
-     * 
+     *
      * @type {Array<GetAssociatedUpdatesResponse200AllOfDataInner>}
      * @memberof GetAssociatedUpdatesResponse200AllOf
      */
     'data'?: Array<GetAssociatedUpdatesResponse200AllOfDataInner>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof GetAssociatedUpdatesResponse200AllOf
      */
     'additional_data'?: FieldsResponse200AllOfAdditionalData;
     /**
-     * 
+     *
      * @type {GetAssociatedUpdatesResponse200AllOfRelatedObjects}
      * @memberof GetAssociatedUpdatesResponse200AllOf
      */
     'related_objects'?: GetAssociatedUpdatesResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAssociatedUpdatesResponse200AllOfDataInner
  */
@@ -15169,26 +15180,26 @@ export interface GetAssociatedUpdatesResponse200AllOfDataInner {
     'data'?: object;
 }
 /**
- * 
+ *
  * @export
  * @interface GetAssociatedUpdatesResponse200AllOfRelatedObjects
  */
 export interface GetAssociatedUpdatesResponse200AllOfRelatedObjects {
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200RelatedObjectsOrganization}
      * @memberof GetAssociatedUpdatesResponse200AllOfRelatedObjects
      */
     'organization'?: GetActivitiesResponse200RelatedObjectsOrganization;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200RelatedObjectsUser}
      * @memberof GetAssociatedUpdatesResponse200AllOfRelatedObjects
      */
     'user'?: GetActivitiesResponse200RelatedObjectsUser;
 }
 /**
- * 
+ *
  * @export
  * @interface GetCommentsResponse200
  */
@@ -15206,14 +15217,14 @@ export interface GetCommentsResponse200 {
      */
     'data'?: Array<GetCommentsResponse200DataInner>;
     /**
-     * 
+     *
      * @type {GetNotesResponse200AdditionalData}
      * @memberof GetCommentsResponse200
      */
     'additional_data'?: GetNotesResponse200AdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetCommentsResponse200DataInner
  */
@@ -15280,7 +15291,7 @@ export interface GetCommentsResponse200DataInner {
     'company_id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface GetCurrenciesResponse200
  */
@@ -15299,7 +15310,7 @@ export interface GetCurrenciesResponse200 {
     'data'?: Array<GetCurrenciesResponse200DataInner>;
 }
 /**
- * 
+ *
  * @export
  * @interface GetCurrenciesResponse200DataInner
  */
@@ -15348,7 +15359,7 @@ export interface GetCurrenciesResponse200DataInner {
     'is_custom_flag'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface GetCurrentUserResponse200
  */
@@ -15360,27 +15371,27 @@ export interface GetCurrentUserResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetCurrentUserResponse200AllOfData}
      * @memberof GetCurrentUserResponse200
      */
     'data'?: GetCurrentUserResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetCurrentUserResponse200AllOf
  */
 export interface GetCurrentUserResponse200AllOf {
     /**
-     * 
+     *
      * @type {GetCurrentUserResponse200AllOfData}
      * @memberof GetCurrentUserResponse200AllOf
      */
     'data'?: GetCurrentUserResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetCurrentUserResponse200AllOfData
  */
@@ -15458,7 +15469,7 @@ export interface GetCurrentUserResponse200AllOfData {
      */
     'has_created_company'?: boolean;
     /**
-     * 
+     *
      * @type {Array<GetRecentsResponse200DataInnerAnyOf11DataAccessInner>}
      * @memberof GetCurrentUserResponse200AllOfData
      */
@@ -15530,14 +15541,14 @@ export interface GetCurrentUserResponse200AllOfData {
      */
     'company_industry'?: string;
     /**
-     * 
+     *
      * @type {GetCurrentUserResponse200AllOfDataAllOfLanguage}
      * @memberof GetCurrentUserResponse200AllOfData
      */
     'language'?: GetCurrentUserResponse200AllOfDataAllOfLanguage;
 }
 /**
- * 
+ *
  * @export
  * @interface GetCurrentUserResponse200AllOfDataAllOf
  */
@@ -15573,7 +15584,7 @@ export interface GetCurrentUserResponse200AllOfDataAllOf {
      */
     'company_industry'?: string;
     /**
-     * 
+     *
      * @type {GetCurrentUserResponse200AllOfDataAllOfLanguage}
      * @memberof GetCurrentUserResponse200AllOfDataAllOf
      */
@@ -15599,7 +15610,7 @@ export interface GetCurrentUserResponse200AllOfDataAllOfLanguage {
     'country_code'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface GetDealActivitiesResponse200
  */
@@ -15617,20 +15628,20 @@ export interface GetDealActivitiesResponse200 {
      */
     'data'?: Array<ActivityResponseObject>;
     /**
-     * 
+     *
      * @type {ActivityDistributionDataWithAdditionalData}
      * @memberof GetDealActivitiesResponse200
      */
     'additional_data'?: ActivityDistributionDataWithAdditionalData;
     /**
-     * 
+     *
      * @type {GetDealActivitiesResponse200AllOfRelatedObjects}
      * @memberof GetDealActivitiesResponse200
      */
     'related_objects'?: GetDealActivitiesResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface GetDealActivitiesResponse200AllOf
  */
@@ -15642,51 +15653,51 @@ export interface GetDealActivitiesResponse200AllOf {
      */
     'data'?: Array<ActivityResponseObject>;
     /**
-     * 
+     *
      * @type {ActivityDistributionDataWithAdditionalData}
      * @memberof GetDealActivitiesResponse200AllOf
      */
     'additional_data'?: ActivityDistributionDataWithAdditionalData;
     /**
-     * 
+     *
      * @type {GetDealActivitiesResponse200AllOfRelatedObjects}
      * @memberof GetDealActivitiesResponse200AllOf
      */
     'related_objects'?: GetDealActivitiesResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface GetDealActivitiesResponse200AllOfRelatedObjects
  */
 export interface GetDealActivitiesResponse200AllOfRelatedObjects {
     /**
-     * 
+     *
      * @type {AddActivityResponse200RelatedObjectsOrganization}
      * @memberof GetDealActivitiesResponse200AllOfRelatedObjects
      */
     'organization'?: AddActivityResponse200RelatedObjectsOrganization;
     /**
-     * 
+     *
      * @type {AddActivityResponse200RelatedObjectsPerson}
      * @memberof GetDealActivitiesResponse200AllOfRelatedObjects
      */
     'person'?: AddActivityResponse200RelatedObjectsPerson;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200RelatedObjectsDeal}
      * @memberof GetDealActivitiesResponse200AllOfRelatedObjects
      */
     'deal'?: GetActivitiesResponse200RelatedObjectsDeal;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200RelatedObjectsUser}
      * @memberof GetDealActivitiesResponse200AllOfRelatedObjects
      */
     'user'?: GetActivitiesResponse200RelatedObjectsUser;
 }
 /**
- * 
+ *
  * @export
  * @interface GetDealParticipantsResponse200
  */
@@ -15704,20 +15715,20 @@ export interface GetDealParticipantsResponse200 {
      */
     'data'?: Array<PersonItem>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof GetDealParticipantsResponse200
      */
     'additional_data'?: FieldsResponse200AllOfAdditionalData;
     /**
-     * 
+     *
      * @type {GetDealsResponse200RelatedObjects}
      * @memberof GetDealParticipantsResponse200
      */
     'related_objects'?: GetDealsResponse200RelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface GetDealResponse200
  */
@@ -15729,26 +15740,26 @@ export interface GetDealResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {DealNonStrictWithDetails}
      * @memberof GetDealResponse200
      */
     'data'?: DealNonStrictWithDetails;
     /**
-     * 
+     *
      * @type {GetDealResponse200AdditionalData}
      * @memberof GetDealResponse200
      */
     'additional_data'?: GetDealResponse200AdditionalData;
     /**
-     * 
+     *
      * @type {GetDealsResponse200RelatedObjects}
      * @memberof GetDealResponse200
      */
     'related_objects'?: GetDealsResponse200RelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface GetDealResponse200AdditionalData
  */
@@ -15761,7 +15772,7 @@ export interface GetDealResponse200AdditionalData {
     'dropbox_email'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface GetDealUpdatesResponse200
  */
@@ -15773,51 +15784,51 @@ export interface GetDealUpdatesResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {Array<GetDealUpdatesResponse200AllOfDataInner>}
      * @memberof GetDealUpdatesResponse200
      */
     'data'?: Array<GetDealUpdatesResponse200AllOfDataInner>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof GetDealUpdatesResponse200
      */
     'additional_data'?: FieldsResponse200AllOfAdditionalData;
     /**
-     * 
+     *
      * @type {GetDealUpdatesResponse200AllOfRelatedObjects}
      * @memberof GetDealUpdatesResponse200
      */
     'related_objects'?: GetDealUpdatesResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface GetDealUpdatesResponse200AllOf
  */
 export interface GetDealUpdatesResponse200AllOf {
     /**
-     * 
+     *
      * @type {Array<GetDealUpdatesResponse200AllOfDataInner>}
      * @memberof GetDealUpdatesResponse200AllOf
      */
     'data'?: Array<GetDealUpdatesResponse200AllOfDataInner>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof GetDealUpdatesResponse200AllOf
      */
     'additional_data'?: FieldsResponse200AllOfAdditionalData;
     /**
-     * 
+     *
      * @type {GetDealUpdatesResponse200AllOfRelatedObjects}
      * @memberof GetDealUpdatesResponse200AllOf
      */
     'related_objects'?: GetDealUpdatesResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface GetDealUpdatesResponse200AllOfDataInner
  */
@@ -15842,38 +15853,38 @@ export interface GetDealUpdatesResponse200AllOfDataInner {
     'data'?: object;
 }
 /**
- * 
+ *
  * @export
  * @interface GetDealUpdatesResponse200AllOfRelatedObjects
  */
 export interface GetDealUpdatesResponse200AllOfRelatedObjects {
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200RelatedObjectsDeal}
      * @memberof GetDealUpdatesResponse200AllOfRelatedObjects
      */
     'deal'?: GetActivitiesResponse200RelatedObjectsDeal;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200RelatedObjectsOrganization}
      * @memberof GetDealUpdatesResponse200AllOfRelatedObjects
      */
     'organization'?: GetActivitiesResponse200RelatedObjectsOrganization;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200RelatedObjectsUser}
      * @memberof GetDealUpdatesResponse200AllOfRelatedObjects
      */
     'user'?: GetActivitiesResponse200RelatedObjectsUser;
     /**
-     * 
+     *
      * @type {AddActivityResponse200RelatedObjectsPerson}
      * @memberof GetDealUpdatesResponse200AllOfRelatedObjects
      */
     'person'?: AddActivityResponse200RelatedObjectsPerson;
 }
 /**
- * 
+ *
  * @export
  * @interface GetDealsCollectionResponse200
  */
@@ -15885,20 +15896,20 @@ export interface GetDealsCollectionResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {Array<DealCollectionResponseObject>}
      * @memberof GetDealsCollectionResponse200
      */
     'data'?: Array<DealCollectionResponseObject>;
     /**
-     * 
+     *
      * @type {GetActivitiesCollectionResponse200AdditionalData}
      * @memberof GetDealsCollectionResponse200
      */
     'additional_data'?: GetActivitiesCollectionResponse200AdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetDealsResponse200
  */
@@ -15916,45 +15927,45 @@ export interface GetDealsResponse200 {
      */
     'data'?: Array<DealNonStrict>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof GetDealsResponse200
      */
     'additional_data'?: FieldsResponse200AllOfAdditionalData;
     /**
-     * 
+     *
      * @type {GetDealsResponse200RelatedObjects}
      * @memberof GetDealsResponse200
      */
     'related_objects'?: GetDealsResponse200RelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface GetDealsResponse200RelatedObjects
  */
 export interface GetDealsResponse200RelatedObjects {
     /**
-     * 
+     *
      * @type {DealUserDataWithIdAllOf}
      * @memberof GetDealsResponse200RelatedObjects
      */
     'user'?: DealUserDataWithIdAllOf;
     /**
-     * 
+     *
      * @type {DealOrganizationDataWithIdAllOf}
      * @memberof GetDealsResponse200RelatedObjects
      */
     'organization'?: DealOrganizationDataWithIdAllOf;
     /**
-     * 
+     *
      * @type {DealPersonDataWithIdAllOf}
      * @memberof GetDealsResponse200RelatedObjects
      */
     'person'?: DealPersonDataWithIdAllOf;
 }
 /**
- * 
+ *
  * @export
  * @interface GetDealsSummaryResponse200
  */
@@ -15966,7 +15977,7 @@ export interface GetDealsSummaryResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetDealsSummaryResponse200Data}
      * @memberof GetDealsSummaryResponse200
      */
@@ -15979,13 +15990,13 @@ export interface GetDealsSummaryResponse200 {
  */
 export interface GetDealsSummaryResponse200Data {
     /**
-     * 
+     *
      * @type {GetDealsSummaryResponse200DataValuesTotal}
      * @memberof GetDealsSummaryResponse200Data
      */
     'values_total'?: GetDealsSummaryResponse200DataValuesTotal;
     /**
-     * 
+     *
      * @type {GetDealsSummaryResponse200DataWeightedValuesTotal}
      * @memberof GetDealsSummaryResponse200Data
      */
@@ -16084,7 +16095,7 @@ export interface GetDealsSummaryResponse200DataWeightedValuesTotal {
     'value_formatted'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface GetDealsTimelineResponse200
  */
@@ -16096,7 +16107,7 @@ export interface GetDealsTimelineResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetDealsTimelineResponse200Data}
      * @memberof GetDealsTimelineResponse200
      */
@@ -16121,13 +16132,13 @@ export interface GetDealsTimelineResponse200Data {
      */
     'period_end'?: string;
     /**
-     * 
+     *
      * @type {Array<DealStrict>}
      * @memberof GetDealsTimelineResponse200Data
      */
     'deals'?: Array<DealStrict>;
     /**
-     * 
+     *
      * @type {GetDealsTimelineResponse200DataTotals}
      * @memberof GetDealsTimelineResponse200Data
      */
@@ -16189,7 +16200,7 @@ export interface GetDealsTimelineResponse200DataTotals {
     'won_values'?: object;
 }
 /**
- * 
+ *
  * @export
  * @interface GetFileResponse200
  */
@@ -16201,14 +16212,14 @@ export interface GetFileResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetFilesResponse200DataInner}
      * @memberof GetFileResponse200
      */
     'data'?: GetFilesResponse200DataInner;
 }
 /**
- * 
+ *
  * @export
  * @interface GetFilesResponse200
  */
@@ -16226,20 +16237,20 @@ export interface GetFilesResponse200 {
      */
     'data'?: Array<GetFilesResponse200DataInner>;
     /**
-     * 
+     *
      * @type {GetFilesResponse200AdditionalData}
      * @memberof GetFilesResponse200
      */
     'additional_data'?: GetFilesResponse200AdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetFilesResponse200AdditionalData
  */
 export interface GetFilesResponse200AdditionalData {
     /**
-     * 
+     *
      * @type {PaginationDetails}
      * @memberof GetFilesResponse200AdditionalData
      */
@@ -16421,7 +16432,7 @@ export interface GetFilesResponse200DataInner {
     'description'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface GetFilterResponse200
  */
@@ -16433,27 +16444,27 @@ export interface GetFilterResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetFiltersResponse200AllOfDataInner}
      * @memberof GetFilterResponse200
      */
     'data'?: GetFiltersResponse200AllOfDataInner;
 }
 /**
- * 
+ *
  * @export
  * @interface GetFilterResponse200AllOf
  */
 export interface GetFilterResponse200AllOf {
     /**
-     * 
+     *
      * @type {GetFiltersResponse200AllOfDataInner}
      * @memberof GetFilterResponse200AllOf
      */
     'data'?: GetFiltersResponse200AllOfDataInner;
 }
 /**
- * 
+ *
  * @export
  * @interface GetFiltersResponse200
  */
@@ -16472,7 +16483,7 @@ export interface GetFiltersResponse200 {
     'data'?: Array<GetFiltersResponse200AllOfDataInner>;
 }
 /**
- * 
+ *
  * @export
  * @interface GetFiltersResponse200AllOf
  */
@@ -16546,7 +16557,7 @@ export interface GetFiltersResponse200AllOfDataInner {
     'custom_view_id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface GetGoalResultResponse200
  */
@@ -16558,14 +16569,14 @@ export interface GetGoalResultResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetGoalResultResponse200Data}
      * @memberof GetGoalResultResponse200
      */
     'data'?: GetGoalResultResponse200Data;
 }
 /**
- * 
+ *
  * @export
  * @interface GetGoalResultResponse200Data
  */
@@ -16577,14 +16588,14 @@ export interface GetGoalResultResponse200Data {
      */
     'progress'?: number;
     /**
-     * 
+     *
      * @type {AddOrUpdateGoalResponse200DataGoal}
      * @memberof GetGoalResultResponse200Data
      */
     'goal'?: AddOrUpdateGoalResponse200DataGoal;
 }
 /**
- * 
+ *
  * @export
  * @interface GetGoalsResponse200
  */
@@ -16596,46 +16607,46 @@ export interface GetGoalsResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetGoalsResponse200Data}
      * @memberof GetGoalsResponse200
      */
     'data'?: GetGoalsResponse200Data;
 }
 /**
- * 
+ *
  * @export
  * @interface GetGoalsResponse200Data
  */
 export interface GetGoalsResponse200Data {
     /**
-     * 
+     *
      * @type {Array<AddOrUpdateGoalResponse200DataGoal>}
      * @memberof GetGoalsResponse200Data
      */
     'goals'?: Array<AddOrUpdateGoalResponse200DataGoal>;
 }
 /**
- * 
+ *
  * @export
  * @interface GetLeadLabelsResponse200
  */
 export interface GetLeadLabelsResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof GetLeadLabelsResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {Array<GetLeadLabelsResponse200DataInner>}
      * @memberof GetLeadLabelsResponse200
      */
     'data'?: Array<GetLeadLabelsResponse200DataInner>;
 }
 /**
- * 
+ *
  * @export
  * @interface GetLeadLabelsResponse200DataInner
  */
@@ -16684,26 +16695,26 @@ export const GetLeadLabelsResponse200DataInnerColorConst = {
 export type GetLeadLabelsResponse200DataInnerColorConst = typeof GetLeadLabelsResponse200DataInnerColorConst[keyof typeof GetLeadLabelsResponse200DataInnerColorConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetLeadSourcesResponse200
  */
 export interface GetLeadSourcesResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof GetLeadSourcesResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {Array<GetLeadSourcesResponse200DataInner>}
      * @memberof GetLeadSourcesResponse200
      */
     'data'?: Array<GetLeadSourcesResponse200DataInner>;
 }
 /**
- * 
+ *
  * @export
  * @interface GetLeadSourcesResponse200DataInner
  */
@@ -16716,32 +16727,32 @@ export interface GetLeadSourcesResponse200DataInner {
     'name'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface GetLeadsResponse200
  */
 export interface GetLeadsResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof GetLeadsResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {Array<GetLeadsResponse200DataInner>}
      * @memberof GetLeadsResponse200
      */
     'data'?: Array<GetLeadsResponse200DataInner>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof GetLeadsResponse200
      */
     'additional_data'?: FieldsResponse200AllOfAdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetLeadsResponse200DataInner
  */
@@ -16789,7 +16800,7 @@ export interface GetLeadsResponse200DataInner {
      */
     'organization_id'?: number | null;
     /**
-     * Defines where the lead comes from. Will be `API` if the lead was created through the Public API and will be `Manually created` if the lead was created manually through the UI. 
+     * Defines where the lead comes from. Will be `API` if the lead was created through the Public API and will be `Manually created` if the lead was created manually through the UI.
      * @type {string}
      * @memberof GetLeadsResponse200DataInner
      */
@@ -16807,7 +16818,7 @@ export interface GetLeadsResponse200DataInner {
      */
     'was_seen'?: boolean;
     /**
-     * 
+     *
      * @type {GetLeadsResponse200DataInnerValue}
      * @memberof GetLeadsResponse200DataInner
      */
@@ -16837,7 +16848,7 @@ export interface GetLeadsResponse200DataInner {
      */
     'update_time'?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof GetLeadsResponse200DataInner
      */
@@ -16866,20 +16877,20 @@ export type GetLeadsResponse200DataInnerVisibleToConst = typeof GetLeadsResponse
  */
 export interface GetLeadsResponse200DataInnerValue {
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetLeadsResponse200DataInnerValue
      */
     'amount': number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof GetLeadsResponse200DataInnerValue
      */
     'currency': string;
 }
 /**
- * 
+ *
  * @export
  * @interface GetMailThreadsResponse200
  */
@@ -16898,7 +16909,7 @@ export interface GetMailThreadsResponse200 {
     'data'?: Array<BaseMailThread>;
 }
 /**
- * 
+ *
  * @export
  * @interface GetMailThreadsResponse200AllOf
  */
@@ -16911,7 +16922,7 @@ export interface GetMailThreadsResponse200AllOf {
     'data'?: Array<BaseMailThread>;
 }
 /**
- * 
+ *
  * @export
  * @interface GetNoteFieldsResponse200
  */
@@ -16923,39 +16934,39 @@ export interface GetNoteFieldsResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {Array<GetNoteFieldsResponse200AllOfDataInner>}
      * @memberof GetNoteFieldsResponse200
      */
     'data'?: Array<GetNoteFieldsResponse200AllOfDataInner>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof GetNoteFieldsResponse200
      */
     'additional_data'?: FieldsResponse200AllOfAdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetNoteFieldsResponse200AllOf
  */
 export interface GetNoteFieldsResponse200AllOf {
     /**
-     * 
+     *
      * @type {Array<GetNoteFieldsResponse200AllOfDataInner>}
      * @memberof GetNoteFieldsResponse200AllOf
      */
     'data'?: Array<GetNoteFieldsResponse200AllOfDataInner>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof GetNoteFieldsResponse200AllOf
      */
     'additional_data'?: FieldsResponse200AllOfAdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetNoteFieldsResponse200AllOfDataInner
  */
@@ -17039,26 +17050,26 @@ export const GetNoteFieldsResponse200AllOfDataInnerFieldTypeConst = {
 export type GetNoteFieldsResponse200AllOfDataInnerFieldTypeConst = typeof GetNoteFieldsResponse200AllOfDataInnerFieldTypeConst[keyof typeof GetNoteFieldsResponse200AllOfDataInnerFieldTypeConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetNoteFieldsResponse200AllOfDataInnerOptionsInner
  */
 export interface GetNoteFieldsResponse200AllOfDataInnerOptionsInner {
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetNoteFieldsResponse200AllOfDataInnerOptionsInner
      */
     'id'?: number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof GetNoteFieldsResponse200AllOfDataInnerOptionsInner
      */
     'label'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface GetNotesResponse200
  */
@@ -17076,20 +17087,20 @@ export interface GetNotesResponse200 {
      */
     'data'?: Array<GetNotesResponse200DataInner>;
     /**
-     * 
+     *
      * @type {GetNotesResponse200AdditionalData}
      * @memberof GetNotesResponse200
      */
     'additional_data'?: GetNotesResponse200AdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetNotesResponse200AdditionalData
  */
 export interface GetNotesResponse200AdditionalData {
     /**
-     * 
+     *
      * @type {GetNotesResponse200AdditionalDataPagination}
      * @memberof GetNotesResponse200AdditionalData
      */
@@ -17127,7 +17138,7 @@ export interface GetNotesResponse200AdditionalDataPagination {
     'next_start'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface GetNotesResponse200DataInner
  */
@@ -17157,7 +17168,7 @@ export interface GetNotesResponse200DataInner {
      */
     'content'?: string;
     /**
-     * 
+     *
      * @type {GetNotesResponse200DataInnerDeal}
      * @memberof GetNotesResponse200DataInner
      */
@@ -17187,13 +17198,13 @@ export interface GetNotesResponse200DataInner {
      */
     'org_id'?: number;
     /**
-     * 
+     *
      * @type {GetNotesResponse200DataInnerOrganization}
      * @memberof GetNotesResponse200DataInner
      */
     'organization'?: GetNotesResponse200DataInnerOrganization;
     /**
-     * 
+     *
      * @type {GetNotesResponse200DataInnerPerson}
      * @memberof GetNotesResponse200DataInner
      */
@@ -17229,7 +17240,7 @@ export interface GetNotesResponse200DataInner {
      */
     'update_time'?: string;
     /**
-     * 
+     *
      * @type {GetNotesResponse200DataInnerUser}
      * @memberof GetNotesResponse200DataInner
      */
@@ -17312,7 +17323,7 @@ export interface GetNotesResponse200DataInnerUser {
     'name'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface GetOneMailThreadResponse200
  */
@@ -17324,20 +17335,20 @@ export interface GetOneMailThreadResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetOneMailThreadResponse200AllOfData}
      * @memberof GetOneMailThreadResponse200
      */
     'data'?: GetOneMailThreadResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetOneMailThreadResponse200AllOf
  */
 export interface GetOneMailThreadResponse200AllOf {
     /**
-     * 
+     *
      * @type {GetOneMailThreadResponse200AllOfData}
      * @memberof GetOneMailThreadResponse200AllOf
      */
@@ -17380,7 +17391,7 @@ export interface GetOneMailThreadResponse200AllOfData {
      */
     'snippet'?: string;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetOneMailThreadResponse200AllOfData
      */
@@ -17392,49 +17403,49 @@ export interface GetOneMailThreadResponse200AllOfData {
      */
     'mail_tracking_status'?: string | null;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetOneMailThreadResponse200AllOfData
      */
     'has_attachments_flag'?: GetOneMailThreadResponse200AllOfDataHasAttachmentsFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetOneMailThreadResponse200AllOfData
      */
     'has_inline_attachments_flag'?: GetOneMailThreadResponse200AllOfDataHasInlineAttachmentsFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetOneMailThreadResponse200AllOfData
      */
     'has_real_attachments_flag'?: GetOneMailThreadResponse200AllOfDataHasRealAttachmentsFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetOneMailThreadResponse200AllOfData
      */
     'deleted_flag'?: GetOneMailThreadResponse200AllOfDataDeletedFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetOneMailThreadResponse200AllOfData
      */
     'synced_flag'?: GetOneMailThreadResponse200AllOfDataSyncedFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetOneMailThreadResponse200AllOfData
      */
     'smart_bcc_flag'?: GetOneMailThreadResponse200AllOfDataSmartBccFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetOneMailThreadResponse200AllOfData
      */
     'mail_link_tracking_enabled_flag'?: GetOneMailThreadResponse200AllOfDataMailLinkTrackingEnabledFlagConst;
     /**
-     * 
+     *
      * @type {BaseMailThreadAllOf1Parties}
      * @memberof GetOneMailThreadResponse200AllOfData
      */
@@ -17476,37 +17487,37 @@ export interface GetOneMailThreadResponse200AllOfData {
      */
     'message_count'?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetOneMailThreadResponse200AllOfData
      */
     'has_draft_flag'?: GetOneMailThreadResponse200AllOfDataHasDraftFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetOneMailThreadResponse200AllOfData
      */
     'has_sent_flag'?: GetOneMailThreadResponse200AllOfDataHasSentFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetOneMailThreadResponse200AllOfData
      */
     'archived_flag'?: GetOneMailThreadResponse200AllOfDataArchivedFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetOneMailThreadResponse200AllOfData
      */
     'shared_flag'?: GetOneMailThreadResponse200AllOfDataSharedFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetOneMailThreadResponse200AllOfData
      */
     'external_deleted_flag'?: GetOneMailThreadResponse200AllOfDataExternalDeletedFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetOneMailThreadResponse200AllOfData
      */
@@ -17566,7 +17577,7 @@ export interface GetOneMailThreadResponse200AllOfData {
      */
     'lead_id'?: string | null;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetOneMailThreadResponse200AllOfData
      */
@@ -17665,7 +17676,7 @@ export const GetOneMailThreadResponse200AllOfDataAllMessagesSentFlagConst = {
 export type GetOneMailThreadResponse200AllOfDataAllMessagesSentFlagConst = typeof GetOneMailThreadResponse200AllOfDataAllMessagesSentFlagConst[keyof typeof GetOneMailThreadResponse200AllOfDataAllMessagesSentFlagConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetOrganizationRelationshipResponse200
  */
@@ -17677,39 +17688,39 @@ export interface GetOrganizationRelationshipResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {OrganizationRelationshipWithCalculatedFields}
      * @memberof GetOrganizationRelationshipResponse200
      */
     'data'?: OrganizationRelationshipWithCalculatedFields;
     /**
-     * 
+     *
      * @type {GetOrganizationRelationshipsResponse200AllOfRelatedObjects}
      * @memberof GetOrganizationRelationshipResponse200
      */
     'related_objects'?: GetOrganizationRelationshipsResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface GetOrganizationRelationshipResponse200AllOf
  */
 export interface GetOrganizationRelationshipResponse200AllOf {
     /**
-     * 
+     *
      * @type {OrganizationRelationshipWithCalculatedFields}
      * @memberof GetOrganizationRelationshipResponse200AllOf
      */
     'data'?: OrganizationRelationshipWithCalculatedFields;
     /**
-     * 
+     *
      * @type {GetOrganizationRelationshipsResponse200AllOfRelatedObjects}
      * @memberof GetOrganizationRelationshipResponse200AllOf
      */
     'related_objects'?: GetOrganizationRelationshipsResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface GetOrganizationRelationshipsResponse200
  */
@@ -17727,20 +17738,20 @@ export interface GetOrganizationRelationshipsResponse200 {
      */
     'data'?: Array<OrganizationRelationshipDetails>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof GetOrganizationRelationshipsResponse200
      */
     'additional_data'?: FieldsResponse200AllOfAdditionalData;
     /**
-     * 
+     *
      * @type {GetOrganizationRelationshipsResponse200AllOfRelatedObjects}
      * @memberof GetOrganizationRelationshipsResponse200
      */
     'related_objects'?: GetOrganizationRelationshipsResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface GetOrganizationRelationshipsResponse200AllOf
  */
@@ -17752,33 +17763,33 @@ export interface GetOrganizationRelationshipsResponse200AllOf {
      */
     'data'?: Array<OrganizationRelationshipDetails>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof GetOrganizationRelationshipsResponse200AllOf
      */
     'additional_data'?: FieldsResponse200AllOfAdditionalData;
     /**
-     * 
+     *
      * @type {GetOrganizationRelationshipsResponse200AllOfRelatedObjects}
      * @memberof GetOrganizationRelationshipsResponse200AllOf
      */
     'related_objects'?: GetOrganizationRelationshipsResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface GetOrganizationRelationshipsResponse200AllOfRelatedObjects
  */
 export interface GetOrganizationRelationshipsResponse200AllOfRelatedObjects {
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200RelatedObjectsOrganization}
      * @memberof GetOrganizationRelationshipsResponse200AllOfRelatedObjects
      */
     'organization'?: GetActivitiesResponse200RelatedObjectsOrganization;
 }
 /**
- * 
+ *
  * @export
  * @interface GetOrganizationResponse200
  */
@@ -17790,57 +17801,57 @@ export interface GetOrganizationResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {OrganizationItem}
      * @memberof GetOrganizationResponse200
      */
     'data'?: OrganizationItem;
     /**
-     * 
+     *
      * @type {GetOrganizationResponse200AllOfAdditionalData}
      * @memberof GetOrganizationResponse200
      */
     'additional_data'?: GetOrganizationResponse200AllOfAdditionalData;
     /**
-     * 
+     *
      * @type {GetOrganizationsResponse200AllOfRelatedObjects}
      * @memberof GetOrganizationResponse200
      */
     'related_objects'?: GetOrganizationsResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface GetOrganizationResponse200AllOf
  */
 export interface GetOrganizationResponse200AllOf {
     /**
-     * 
+     *
      * @type {OrganizationItem}
      * @memberof GetOrganizationResponse200AllOf
      */
     'data'?: OrganizationItem;
     /**
-     * 
+     *
      * @type {GetOrganizationResponse200AllOfAdditionalData}
      * @memberof GetOrganizationResponse200AllOf
      */
     'additional_data'?: GetOrganizationResponse200AllOfAdditionalData;
     /**
-     * 
+     *
      * @type {GetOrganizationsResponse200AllOfRelatedObjects}
      * @memberof GetOrganizationResponse200AllOf
      */
     'related_objects'?: GetOrganizationsResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface GetOrganizationResponse200AllOfAdditionalData
  */
 export interface GetOrganizationResponse200AllOfAdditionalData {
     /**
-     * 
+     *
      * @type {GetOrganizationResponse200AllOfAdditionalDataFollowers}
      * @memberof GetOrganizationResponse200AllOfAdditionalData
      */
@@ -17859,7 +17870,7 @@ export interface GetOrganizationResponse200AllOfAdditionalData {
  */
 export interface GetOrganizationResponse200AllOfAdditionalDataFollowers {
     /**
-     * 
+     *
      * @type {GetOrganizationResponse200AllOfAdditionalDataFollowersFOLLOWERUSERID}
      * @memberof GetOrganizationResponse200AllOfAdditionalDataFollowers
      */
@@ -17903,7 +17914,7 @@ export interface GetOrganizationResponse200AllOfAdditionalDataFollowersFOLLOWERU
     'pic_hash'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface GetOrganizationResponse200AllOfAdditionalDataFollowersFOLLOWERUSERIDAllOf
  */
@@ -17940,7 +17951,7 @@ export interface GetOrganizationResponse200AllOfAdditionalDataFollowersFOLLOWERU
     'pic_hash'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface GetOrganizationResponse200AllOfAdditionalDataFollowersFOLLOWERUSERIDAllOfAllOf
  */
@@ -17953,7 +17964,7 @@ export interface GetOrganizationResponse200AllOfAdditionalDataFollowersFOLLOWERU
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface GetOrganizationResponse200AllOfAdditionalDataFollowersFOLLOWERUSERIDAllOfAllOf1
  */
@@ -17984,32 +17995,32 @@ export interface GetOrganizationResponse200AllOfAdditionalDataFollowersFOLLOWERU
     'pic_hash'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface GetOrganizationsCollection200Response
  */
 export interface GetOrganizationsCollection200Response {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof GetOrganizationsCollection200Response
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {Array<OrganizationsCollectionResponseObject>}
      * @memberof GetOrganizationsCollection200Response
      */
     'data'?: Array<OrganizationsCollectionResponseObject>;
     /**
-     * 
+     *
      * @type {GetActivitiesCollectionResponse200AdditionalData}
      * @memberof GetOrganizationsCollection200Response
      */
     'additional_data'?: GetActivitiesCollectionResponse200AdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetOrganizationsResponse200
  */
@@ -18027,20 +18038,20 @@ export interface GetOrganizationsResponse200 {
      */
     'data'?: Array<BaseOrganizationItem>;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200AdditionalData}
      * @memberof GetOrganizationsResponse200
      */
     'additional_data'?: GetActivitiesResponse200AdditionalData;
     /**
-     * 
+     *
      * @type {GetOrganizationsResponse200AllOfRelatedObjects}
      * @memberof GetOrganizationsResponse200
      */
     'related_objects'?: GetOrganizationsResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface GetOrganizationsResponse200AllOf
  */
@@ -18052,38 +18063,38 @@ export interface GetOrganizationsResponse200AllOf {
      */
     'data'?: Array<BaseOrganizationItem>;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200AdditionalData}
      * @memberof GetOrganizationsResponse200AllOf
      */
     'additional_data'?: GetActivitiesResponse200AdditionalData;
     /**
-     * 
+     *
      * @type {GetOrganizationsResponse200AllOfRelatedObjects}
      * @memberof GetOrganizationsResponse200AllOf
      */
     'related_objects'?: GetOrganizationsResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface GetOrganizationsResponse200AllOfRelatedObjects
  */
 export interface GetOrganizationsResponse200AllOfRelatedObjects {
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200RelatedObjectsOrganization}
      * @memberof GetOrganizationsResponse200AllOfRelatedObjects
      */
     'organization'?: GetActivitiesResponse200RelatedObjectsOrganization;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200RelatedObjectsUser}
      * @memberof GetOrganizationsResponse200AllOfRelatedObjects
      */
     'user'?: GetActivitiesResponse200RelatedObjectsUser;
     /**
-     * 
+     *
      * @type {GetOrganizationsResponse200AllOfRelatedObjectsPicture}
      * @memberof GetOrganizationsResponse200AllOfRelatedObjects
      */
@@ -18096,7 +18107,7 @@ export interface GetOrganizationsResponse200AllOfRelatedObjects {
  */
 export interface GetOrganizationsResponse200AllOfRelatedObjectsPicture {
     /**
-     * 
+     *
      * @type {GetOrganizationsResponse200AllOfRelatedObjectsPicturePICTUREID}
      * @memberof GetOrganizationsResponse200AllOfRelatedObjectsPicture
      */
@@ -18151,14 +18162,14 @@ export interface GetOrganizationsResponse200AllOfRelatedObjectsPicturePICTUREID 
      */
     'added_by_user_id'?: number;
     /**
-     * 
+     *
      * @type {PersonItemAllOfPictureIdAllOf1Pictures}
      * @memberof GetOrganizationsResponse200AllOfRelatedObjectsPicturePICTUREID
      */
     'pictures'?: PersonItemAllOfPictureIdAllOf1Pictures;
 }
 /**
- * 
+ *
  * @export
  * @interface GetPermissionSetsResponse200
  */
@@ -18177,7 +18188,7 @@ export interface GetPermissionSetsResponse200 {
     'data'?: Array<GetPermissionSetsResponse200AllOfDataInner>;
 }
 /**
- * 
+ *
  * @export
  * @interface GetPermissionSetsResponse200AllOf
  */
@@ -18190,7 +18201,7 @@ export interface GetPermissionSetsResponse200AllOf {
     'data'?: Array<GetPermissionSetsResponse200AllOfDataInner>;
 }
 /**
- * 
+ *
  * @export
  * @interface GetPermissionSetsResponse200AllOfDataInner
  */
@@ -18252,7 +18263,7 @@ export const GetPermissionSetsResponse200AllOfDataInnerTypeConst = {
 export type GetPermissionSetsResponse200AllOfDataInnerTypeConst = typeof GetPermissionSetsResponse200AllOfDataInnerTypeConst[keyof typeof GetPermissionSetsResponse200AllOfDataInnerTypeConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetPersonProductsResponse200
  */
@@ -18270,14 +18281,14 @@ export interface GetPersonProductsResponse200 {
      */
     'data'?: Array<GetPersonProductsResponse200AllOfDataInner>;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200AdditionalData}
      * @memberof GetPersonProductsResponse200
      */
     'additional_data'?: GetActivitiesResponse200AdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetPersonProductsResponse200AllOf
  */
@@ -18289,46 +18300,46 @@ export interface GetPersonProductsResponse200AllOf {
      */
     'data'?: Array<GetPersonProductsResponse200AllOfDataInner>;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200AdditionalData}
      * @memberof GetPersonProductsResponse200AllOf
      */
     'additional_data'?: GetActivitiesResponse200AdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetPersonProductsResponse200AllOfDataInner
  */
 export interface GetPersonProductsResponse200AllOfDataInner {
     /**
-     * 
+     *
      * @type {GetPersonProductsResponse200AllOfDataInnerDEALID}
      * @memberof GetPersonProductsResponse200AllOfDataInner
      */
     'DEAL_ID'?: GetPersonProductsResponse200AllOfDataInnerDEALID;
 }
 /**
- * 
+ *
  * @export
  * @interface GetPersonProductsResponse200AllOfDataInnerDEALID
  */
 export interface GetPersonProductsResponse200AllOfDataInnerDEALID {
     /**
-     * 
+     *
      * @type {GetPersonProductsResponse200AllOfDataInnerDEALIDDeal}
      * @memberof GetPersonProductsResponse200AllOfDataInnerDEALID
      */
     'deal'?: GetPersonProductsResponse200AllOfDataInnerDEALIDDeal;
     /**
-     * 
+     *
      * @type {GetPersonProductsResponse200AllOfDataInnerDEALIDProduct}
      * @memberof GetPersonProductsResponse200AllOfDataInnerDEALID
      */
     'product'?: GetPersonProductsResponse200AllOfDataInnerDEALIDProduct;
 }
 /**
- * 
+ *
  * @export
  * @interface GetPersonProductsResponse200AllOfDataInnerDEALIDDeal
  */
@@ -18593,7 +18604,7 @@ export interface GetPersonProductsResponse200AllOfDataInnerDEALIDDeal {
     'label'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface GetPersonProductsResponse200AllOfDataInnerDEALIDProduct
  */
@@ -18665,7 +18676,7 @@ export interface GetPersonProductsResponse200AllOfDataInnerDEALIDProduct {
      */
     'first_char'?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof GetPersonProductsResponse200AllOfDataInnerDEALIDProduct
      */
@@ -18712,7 +18723,7 @@ export const GetPersonProductsResponse200AllOfDataInnerDEALIDProductVisibleToCon
 export type GetPersonProductsResponse200AllOfDataInnerDEALIDProductVisibleToConst = typeof GetPersonProductsResponse200AllOfDataInnerDEALIDProductVisibleToConst[keyof typeof GetPersonProductsResponse200AllOfDataInnerDEALIDProductVisibleToConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetPersonResponse200
  */
@@ -18724,51 +18735,51 @@ export interface GetPersonResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {PersonItem}
      * @memberof GetPersonResponse200
      */
     'data'?: PersonItem;
     /**
-     * 
+     *
      * @type {GetPersonResponse200AllOfAdditionalData}
      * @memberof GetPersonResponse200
      */
     'additional_data'?: GetPersonResponse200AllOfAdditionalData;
     /**
-     * 
+     *
      * @type {GetOrganizationsResponse200AllOfRelatedObjects}
      * @memberof GetPersonResponse200
      */
     'related_objects'?: GetOrganizationsResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface GetPersonResponse200AllOf
  */
 export interface GetPersonResponse200AllOf {
     /**
-     * 
+     *
      * @type {PersonItem}
      * @memberof GetPersonResponse200AllOf
      */
     'data'?: PersonItem;
     /**
-     * 
+     *
      * @type {GetPersonResponse200AllOfAdditionalData}
      * @memberof GetPersonResponse200AllOf
      */
     'additional_data'?: GetPersonResponse200AllOfAdditionalData;
     /**
-     * 
+     *
      * @type {GetOrganizationsResponse200AllOfRelatedObjects}
      * @memberof GetPersonResponse200AllOf
      */
     'related_objects'?: GetOrganizationsResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface GetPersonResponse200AllOfAdditionalData
  */
@@ -18781,32 +18792,32 @@ export interface GetPersonResponse200AllOfAdditionalData {
     'dropbox_email'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface GetPersonsCollection200Response
  */
 export interface GetPersonsCollection200Response {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof GetPersonsCollection200Response
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {Array<PersonsCollectionResponseObject>}
      * @memberof GetPersonsCollection200Response
      */
     'data'?: Array<PersonsCollectionResponseObject>;
     /**
-     * 
+     *
      * @type {GetActivitiesCollectionResponse200AdditionalData}
      * @memberof GetPersonsCollection200Response
      */
     'additional_data'?: GetActivitiesCollectionResponse200AdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetPersonsResponse200
  */
@@ -18824,20 +18835,20 @@ export interface GetPersonsResponse200 {
      */
     'data'?: Array<PersonItem>;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200AdditionalData}
      * @memberof GetPersonsResponse200
      */
     'additional_data'?: GetActivitiesResponse200AdditionalData;
     /**
-     * 
+     *
      * @type {GetOrganizationsResponse200AllOfRelatedObjects}
      * @memberof GetPersonsResponse200
      */
     'related_objects'?: GetOrganizationsResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface GetPersonsResponse200AllOf
  */
@@ -18849,20 +18860,20 @@ export interface GetPersonsResponse200AllOf {
      */
     'data'?: Array<PersonItem>;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200AdditionalData}
      * @memberof GetPersonsResponse200AllOf
      */
     'additional_data'?: GetActivitiesResponse200AdditionalData;
     /**
-     * 
+     *
      * @type {GetOrganizationsResponse200AllOfRelatedObjects}
      * @memberof GetPersonsResponse200AllOf
      */
     'related_objects'?: GetOrganizationsResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface GetPipelineConversionStatisticsResponse200
  */
@@ -18874,20 +18885,20 @@ export interface GetPipelineConversionStatisticsResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetPipelineConversionStatisticsResponse200AllOfData}
      * @memberof GetPipelineConversionStatisticsResponse200
      */
     'data'?: GetPipelineConversionStatisticsResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetPipelineConversionStatisticsResponse200AllOf
  */
 export interface GetPipelineConversionStatisticsResponse200AllOf {
     /**
-     * 
+     *
      * @type {GetPipelineConversionStatisticsResponse200AllOfData}
      * @memberof GetPipelineConversionStatisticsResponse200AllOf
      */
@@ -18919,7 +18930,7 @@ export interface GetPipelineConversionStatisticsResponse200AllOfData {
     'lost_conversion'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface GetPipelineConversionStatisticsResponse200AllOfDataStageConversionsInner
  */
@@ -18944,7 +18955,7 @@ export interface GetPipelineConversionStatisticsResponse200AllOfDataStageConvers
     'conversion_rate'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface GetPipelineMovementStatisticsResponse200
  */
@@ -18956,20 +18967,20 @@ export interface GetPipelineMovementStatisticsResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetPipelineMovementStatisticsResponse200AllOfData}
      * @memberof GetPipelineMovementStatisticsResponse200
      */
     'data'?: GetPipelineMovementStatisticsResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetPipelineMovementStatisticsResponse200AllOf
  */
 export interface GetPipelineMovementStatisticsResponse200AllOf {
     /**
-     * 
+     *
      * @type {GetPipelineMovementStatisticsResponse200AllOfData}
      * @memberof GetPipelineMovementStatisticsResponse200AllOf
      */
@@ -18982,37 +18993,37 @@ export interface GetPipelineMovementStatisticsResponse200AllOf {
  */
 export interface GetPipelineMovementStatisticsResponse200AllOfData {
     /**
-     * 
+     *
      * @type {GetPipelineMovementStatisticsResponse200AllOfDataMovementsBetweenStages}
      * @memberof GetPipelineMovementStatisticsResponse200AllOfData
      */
     'movements_between_stages'?: GetPipelineMovementStatisticsResponse200AllOfDataMovementsBetweenStages;
     /**
-     * 
+     *
      * @type {GetPipelineMovementStatisticsResponse200AllOfDataNewDeals}
      * @memberof GetPipelineMovementStatisticsResponse200AllOfData
      */
     'new_deals'?: GetPipelineMovementStatisticsResponse200AllOfDataNewDeals;
     /**
-     * 
+     *
      * @type {GetPipelineMovementStatisticsResponse200AllOfDataNewDeals}
      * @memberof GetPipelineMovementStatisticsResponse200AllOfData
      */
     'deals_left_open'?: GetPipelineMovementStatisticsResponse200AllOfDataNewDeals;
     /**
-     * 
+     *
      * @type {GetPipelineMovementStatisticsResponse200AllOfDataNewDeals}
      * @memberof GetPipelineMovementStatisticsResponse200AllOfData
      */
     'won_deals'?: GetPipelineMovementStatisticsResponse200AllOfDataNewDeals;
     /**
-     * 
+     *
      * @type {GetPipelineMovementStatisticsResponse200AllOfDataNewDeals}
      * @memberof GetPipelineMovementStatisticsResponse200AllOfData
      */
     'lost_deals'?: GetPipelineMovementStatisticsResponse200AllOfDataNewDeals;
     /**
-     * 
+     *
      * @type {GetPipelineMovementStatisticsResponse200AllOfDataAverageAgeInDays}
      * @memberof GetPipelineMovementStatisticsResponse200AllOfData
      */
@@ -19088,13 +19099,13 @@ export interface GetPipelineMovementStatisticsResponse200AllOfDataNewDeals {
      */
     'deals_ids'?: Array<number>;
     /**
-     * 
+     *
      * @type {GetPipelineMovementStatisticsResponse200AllOfDataNewDealsValues}
      * @memberof GetPipelineMovementStatisticsResponse200AllOfDataNewDeals
      */
     'values'?: GetPipelineMovementStatisticsResponse200AllOfDataNewDealsValues;
     /**
-     * 
+     *
      * @type {GetPipelineMovementStatisticsResponse200AllOfDataNewDealsFormattedValues}
      * @memberof GetPipelineMovementStatisticsResponse200AllOfDataNewDeals
      */
@@ -19127,7 +19138,7 @@ export interface GetPipelineMovementStatisticsResponse200AllOfDataNewDealsValues
     'CURRENCY_ID'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface GetPipelineResponse200
  */
@@ -19139,27 +19150,27 @@ export interface GetPipelineResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {PipelineDetails}
      * @memberof GetPipelineResponse200
      */
     'data'?: PipelineDetails;
 }
 /**
- * 
+ *
  * @export
  * @interface GetPipelineResponse200AllOf
  */
 export interface GetPipelineResponse200AllOf {
     /**
-     * 
+     *
      * @type {PipelineDetails}
      * @memberof GetPipelineResponse200AllOf
      */
     'data'?: PipelineDetails;
 }
 /**
- * 
+ *
  * @export
  * @interface GetPipelinesResponse200
  */
@@ -19178,7 +19189,7 @@ export interface GetPipelinesResponse200 {
     'data'?: Array<BasePipelineWithSelectedFlag>;
 }
 /**
- * 
+ *
  * @export
  * @interface GetPipelinesResponse200AllOf
  */
@@ -19191,7 +19202,7 @@ export interface GetPipelinesResponse200AllOf {
     'data'?: Array<BasePipelineWithSelectedFlag>;
 }
 /**
- * 
+ *
  * @export
  * @interface GetProductAttachementResponse200
  */
@@ -19203,7 +19214,7 @@ export interface GetProductAttachementResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetProductAttachementResponse200Data}
      * @memberof GetProductAttachementResponse200
      */
@@ -19358,7 +19369,7 @@ export const GetProductAttachementResponse200DataTaxMethodConst = {
 export type GetProductAttachementResponse200DataTaxMethodConst = typeof GetProductAttachementResponse200DataTaxMethodConst[keyof typeof GetProductAttachementResponse200DataTaxMethodConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetProductFieldResponse200
  */
@@ -19370,7 +19381,7 @@ export interface GetProductFieldResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetProductFieldResponse200Data}
      * @memberof GetProductFieldResponse200
      */
@@ -19514,7 +19525,7 @@ export const GetProductFieldResponse200DataFieldTypeConst = {
 export type GetProductFieldResponse200DataFieldTypeConst = typeof GetProductFieldResponse200DataFieldTypeConst[keyof typeof GetProductFieldResponse200DataFieldTypeConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetProductFieldsResponse200
  */
@@ -19539,7 +19550,7 @@ export interface GetProductFieldsResponse200 {
     'additional_data'?: object;
 }
 /**
- * 
+ *
  * @export
  * @interface GetProductFollowersResponseSuccess
  */
@@ -19557,14 +19568,14 @@ export interface GetProductFollowersResponseSuccess {
      */
     'data'?: Array<GetProductFollowersResponseSuccessAllOfDataInner>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof GetProductFollowersResponseSuccess
      */
     'additional_data'?: FieldsResponse200AllOfAdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetProductFollowersResponseSuccessAllOf
  */
@@ -19576,14 +19587,14 @@ export interface GetProductFollowersResponseSuccessAllOf {
      */
     'data'?: Array<GetProductFollowersResponseSuccessAllOfDataInner>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof GetProductFollowersResponseSuccessAllOf
      */
     'additional_data'?: FieldsResponse200AllOfAdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetProductFollowersResponseSuccessAllOfDataInner
  */
@@ -19614,7 +19625,7 @@ export interface GetProductFollowersResponseSuccessAllOfDataInner {
     'add_time'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface GetProductsResponse200
  */
@@ -19632,13 +19643,13 @@ export interface GetProductsResponse200 {
      */
     'data'?: Array<GetproductResponse200>;
     /**
-     * 
+     *
      * @type {GetProductsResponse200AdditionalData}
      * @memberof GetProductsResponse200
      */
     'additional_data'?: GetProductsResponse200AdditionalData;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200RelatedObjects}
      * @memberof GetProductsResponse200
      */
@@ -19670,57 +19681,57 @@ export interface GetProductsResponse200AdditionalData {
     'more_items_in_collection'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface GetProjectBoardResponse200
  */
 export interface GetProjectBoardResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof GetProjectBoardResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetProjectBoardsResponse200DataInner}
      * @memberof GetProjectBoardResponse200
      */
     'data'?: GetProjectBoardsResponse200DataInner;
     /**
-     * 
+     *
      * @type {object}
      * @memberof GetProjectBoardResponse200
      */
     'additional_data'?: object | null;
 }
 /**
- * 
+ *
  * @export
  * @interface GetProjectBoardsResponse200
  */
 export interface GetProjectBoardsResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof GetProjectBoardsResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {Array<GetProjectBoardsResponse200DataInner>}
      * @memberof GetProjectBoardsResponse200
      */
     'data'?: Array<GetProjectBoardsResponse200DataInner>;
     /**
-     * 
+     *
      * @type {object}
      * @memberof GetProjectBoardsResponse200
      */
     'additional_data'?: object | null;
 }
 /**
- * 
+ *
  * @export
  * @interface GetProjectBoardsResponse200DataInner
  */
@@ -19757,32 +19768,32 @@ export interface GetProjectBoardsResponse200DataInner {
     'update_time'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface GetProjectGroupsResponse200
  */
 export interface GetProjectGroupsResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof GetProjectGroupsResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {Array<GetProjectGroupsResponse200DataInner>}
      * @memberof GetProjectGroupsResponse200
      */
     'data'?: Array<GetProjectGroupsResponse200DataInner>;
     /**
-     * 
+     *
      * @type {object}
      * @memberof GetProjectGroupsResponse200
      */
     'additional_data'?: object | null;
 }
 /**
- * 
+ *
  * @export
  * @interface GetProjectGroupsResponse200DataInner
  */
@@ -19807,57 +19818,57 @@ export interface GetProjectGroupsResponse200DataInner {
     'order_nr'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface GetProjectPhaseResponse200
  */
 export interface GetProjectPhaseResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof GetProjectPhaseResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetProjectPhasesResponse200DataInner}
      * @memberof GetProjectPhaseResponse200
      */
     'data'?: GetProjectPhasesResponse200DataInner;
     /**
-     * 
+     *
      * @type {object}
      * @memberof GetProjectPhaseResponse200
      */
     'additional_data'?: object | null;
 }
 /**
- * 
+ *
  * @export
  * @interface GetProjectPhasesResponse200
  */
 export interface GetProjectPhasesResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof GetProjectPhasesResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {Array<GetProjectPhasesResponse200DataInner>}
      * @memberof GetProjectPhasesResponse200
      */
     'data'?: Array<GetProjectPhasesResponse200DataInner>;
     /**
-     * 
+     *
      * @type {object}
      * @memberof GetProjectPhasesResponse200
      */
     'additional_data'?: object | null;
 }
 /**
- * 
+ *
  * @export
  * @interface GetProjectPhasesResponse200DataInner
  */
@@ -19900,32 +19911,32 @@ export interface GetProjectPhasesResponse200DataInner {
     'update_time'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface GetProjectPlanResponse200
  */
 export interface GetProjectPlanResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof GetProjectPlanResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {Array<GetProjectPlanResponse200DataInner>}
      * @memberof GetProjectPlanResponse200
      */
     'data'?: Array<GetProjectPlanResponse200DataInner>;
     /**
-     * 
+     *
      * @type {object}
      * @memberof GetProjectPlanResponse200
      */
     'additional_data'?: object | null;
 }
 /**
- * 
+ *
  * @export
  * @interface GetProjectPlanResponse200DataInner
  */
@@ -19956,107 +19967,107 @@ export interface GetProjectPlanResponse200DataInner {
     'group_id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface GetProjectResponse200
  */
 export interface GetProjectResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof GetProjectResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {ProjectResponseObject}
      * @memberof GetProjectResponse200
      */
     'data'?: ProjectResponseObject;
     /**
-     * 
+     *
      * @type {object}
      * @memberof GetProjectResponse200
      */
     'additional_data'?: object | null;
 }
 /**
- * 
+ *
  * @export
  * @interface GetProjectTemplateResponse200
  */
 export interface GetProjectTemplateResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof GetProjectTemplateResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {TemplateResponseObject}
      * @memberof GetProjectTemplateResponse200
      */
     'data'?: TemplateResponseObject;
     /**
-     * 
+     *
      * @type {object}
      * @memberof GetProjectTemplateResponse200
      */
     'additional_data'?: object | null;
 }
 /**
- * 
+ *
  * @export
  * @interface GetProjectTemplatesResponse200
  */
 export interface GetProjectTemplatesResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof GetProjectTemplatesResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {Array<TemplateResponseObject>}
      * @memberof GetProjectTemplatesResponse200
      */
     'data'?: Array<TemplateResponseObject>;
     /**
-     * 
+     *
      * @type {GetActivitiesCollectionResponse200AdditionalData}
      * @memberof GetProjectTemplatesResponse200
      */
     'additional_data'?: GetActivitiesCollectionResponse200AdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetProjectsResponse200
  */
 export interface GetProjectsResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof GetProjectsResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {Array<ProjectResponseObject>}
      * @memberof GetProjectsResponse200
      */
     'data'?: Array<ProjectResponseObject>;
     /**
-     * 
+     *
      * @type {GetActivitiesCollectionResponse200AdditionalData}
      * @memberof GetProjectsResponse200
      */
     'additional_data'?: GetActivitiesCollectionResponse200AdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetRecentsResponse200
  */
@@ -20068,20 +20079,20 @@ export interface GetRecentsResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {Array<GetRecentsResponse200DataInner>}
      * @memberof GetRecentsResponse200
      */
     'data'?: Array<GetRecentsResponse200DataInner>;
     /**
-     * 
+     *
      * @type {GetRecentsResponse200AdditionalData}
      * @memberof GetRecentsResponse200
      */
     'additional_data'?: GetRecentsResponse200AdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetRecentsResponse200AdditionalData
  */
@@ -20099,32 +20110,32 @@ export interface GetRecentsResponse200AdditionalData {
      */
     'last_timestamp_on_page'?: string;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof GetRecentsResponse200AdditionalData
      */
     'pagination'?: FieldsResponse200AllOfAdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetRecentsResponse200DataInner
  */
 export interface GetRecentsResponse200DataInner {
     /**
-     * 
+     *
      * @type {string}
      * @memberof GetRecentsResponse200DataInner
      */
     'item'?: GetRecentsResponse200DataInnerItemConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetRecentsResponse200DataInner
      */
     'id'?: number;
     /**
-     * 
+     *
      * @type {GetRecentsResponse200DataInnerAnyOf11Data}
      * @memberof GetRecentsResponse200DataInner
      */
@@ -20138,25 +20149,25 @@ export const GetRecentsResponse200DataInnerItemConst = {
 export type GetRecentsResponse200DataInnerItemConst = typeof GetRecentsResponse200DataInnerItemConst[keyof typeof GetRecentsResponse200DataInnerItemConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetRecentsResponse200DataInnerAnyOf
  */
 export interface GetRecentsResponse200DataInnerAnyOf {
     /**
-     * 
+     *
      * @type {string}
      * @memberof GetRecentsResponse200DataInnerAnyOf
      */
     'item'?: GetRecentsResponse200DataInnerAnyOfItemConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetRecentsResponse200DataInnerAnyOf
      */
     'id'?: number;
     /**
-     * 
+     *
      * @type {ActivityResponseObject}
      * @memberof GetRecentsResponse200DataInnerAnyOf
      */
@@ -20170,25 +20181,25 @@ export const GetRecentsResponse200DataInnerAnyOfItemConst = {
 export type GetRecentsResponse200DataInnerAnyOfItemConst = typeof GetRecentsResponse200DataInnerAnyOfItemConst[keyof typeof GetRecentsResponse200DataInnerAnyOfItemConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetRecentsResponse200DataInnerAnyOf1
  */
 export interface GetRecentsResponse200DataInnerAnyOf1 {
     /**
-     * 
+     *
      * @type {string}
      * @memberof GetRecentsResponse200DataInnerAnyOf1
      */
     'item'?: GetRecentsResponse200DataInnerAnyOf1ItemConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetRecentsResponse200DataInnerAnyOf1
      */
     'id'?: number;
     /**
-     * 
+     *
      * @type {GetActivityTypesResponse200AllOfDataInner}
      * @memberof GetRecentsResponse200DataInnerAnyOf1
      */
@@ -20202,25 +20213,25 @@ export const GetRecentsResponse200DataInnerAnyOf1ItemConst = {
 export type GetRecentsResponse200DataInnerAnyOf1ItemConst = typeof GetRecentsResponse200DataInnerAnyOf1ItemConst[keyof typeof GetRecentsResponse200DataInnerAnyOf1ItemConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetRecentsResponse200DataInnerAnyOf10
  */
 export interface GetRecentsResponse200DataInnerAnyOf10 {
     /**
-     * 
+     *
      * @type {string}
      * @memberof GetRecentsResponse200DataInnerAnyOf10
      */
     'item'?: GetRecentsResponse200DataInnerAnyOf10ItemConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetRecentsResponse200DataInnerAnyOf10
      */
     'id'?: number;
     /**
-     * 
+     *
      * @type {GetAssociatedDealsResponse200AllOfRelatedObjectsStage}
      * @memberof GetRecentsResponse200DataInnerAnyOf10
      */
@@ -20234,25 +20245,25 @@ export const GetRecentsResponse200DataInnerAnyOf10ItemConst = {
 export type GetRecentsResponse200DataInnerAnyOf10ItemConst = typeof GetRecentsResponse200DataInnerAnyOf10ItemConst[keyof typeof GetRecentsResponse200DataInnerAnyOf10ItemConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetRecentsResponse200DataInnerAnyOf11
  */
 export interface GetRecentsResponse200DataInnerAnyOf11 {
     /**
-     * 
+     *
      * @type {string}
      * @memberof GetRecentsResponse200DataInnerAnyOf11
      */
     'item'?: GetRecentsResponse200DataInnerAnyOf11ItemConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetRecentsResponse200DataInnerAnyOf11
      */
     'id'?: number;
     /**
-     * 
+     *
      * @type {GetRecentsResponse200DataInnerAnyOf11Data}
      * @memberof GetRecentsResponse200DataInnerAnyOf11
      */
@@ -20266,7 +20277,7 @@ export const GetRecentsResponse200DataInnerAnyOf11ItemConst = {
 export type GetRecentsResponse200DataInnerAnyOf11ItemConst = typeof GetRecentsResponse200DataInnerAnyOf11ItemConst[keyof typeof GetRecentsResponse200DataInnerAnyOf11ItemConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetRecentsResponse200DataInnerAnyOf11Data
  */
@@ -20344,7 +20355,7 @@ export interface GetRecentsResponse200DataInnerAnyOf11Data {
      */
     'has_created_company'?: boolean;
     /**
-     * 
+     *
      * @type {Array<GetRecentsResponse200DataInnerAnyOf11DataAccessInner>}
      * @memberof GetRecentsResponse200DataInnerAnyOf11Data
      */
@@ -20387,25 +20398,25 @@ export interface GetRecentsResponse200DataInnerAnyOf11Data {
     'is_you'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface GetRecentsResponse200DataInnerAnyOf11DataAccessInner
  */
 export interface GetRecentsResponse200DataInnerAnyOf11DataAccessInner {
     /**
-     * 
+     *
      * @type {string}
      * @memberof GetRecentsResponse200DataInnerAnyOf11DataAccessInner
      */
     'app'?: GetRecentsResponse200DataInnerAnyOf11DataAccessInnerAppConst;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof GetRecentsResponse200DataInnerAnyOf11DataAccessInner
      */
     'admin'?: boolean;
     /**
-     * 
+     *
      * @type {string}
      * @memberof GetRecentsResponse200DataInnerAnyOf11DataAccessInner
      */
@@ -20423,25 +20434,25 @@ export const GetRecentsResponse200DataInnerAnyOf11DataAccessInnerAppConst = {
 export type GetRecentsResponse200DataInnerAnyOf11DataAccessInnerAppConst = typeof GetRecentsResponse200DataInnerAnyOf11DataAccessInnerAppConst[keyof typeof GetRecentsResponse200DataInnerAnyOf11DataAccessInnerAppConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetRecentsResponse200DataInnerAnyOf2
  */
 export interface GetRecentsResponse200DataInnerAnyOf2 {
     /**
-     * 
+     *
      * @type {string}
      * @memberof GetRecentsResponse200DataInnerAnyOf2
      */
     'item'?: GetRecentsResponse200DataInnerAnyOf2ItemConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetRecentsResponse200DataInnerAnyOf2
      */
     'id'?: number;
     /**
-     * 
+     *
      * @type {DealStrict}
      * @memberof GetRecentsResponse200DataInnerAnyOf2
      */
@@ -20455,25 +20466,25 @@ export const GetRecentsResponse200DataInnerAnyOf2ItemConst = {
 export type GetRecentsResponse200DataInnerAnyOf2ItemConst = typeof GetRecentsResponse200DataInnerAnyOf2ItemConst[keyof typeof GetRecentsResponse200DataInnerAnyOf2ItemConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetRecentsResponse200DataInnerAnyOf3
  */
 export interface GetRecentsResponse200DataInnerAnyOf3 {
     /**
-     * 
+     *
      * @type {string}
      * @memberof GetRecentsResponse200DataInnerAnyOf3
      */
     'item'?: GetRecentsResponse200DataInnerAnyOf3ItemConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetRecentsResponse200DataInnerAnyOf3
      */
     'id'?: number;
     /**
-     * 
+     *
      * @type {GetAssociatedFilesResponse200AllOfDataInner}
      * @memberof GetRecentsResponse200DataInnerAnyOf3
      */
@@ -20487,25 +20498,25 @@ export const GetRecentsResponse200DataInnerAnyOf3ItemConst = {
 export type GetRecentsResponse200DataInnerAnyOf3ItemConst = typeof GetRecentsResponse200DataInnerAnyOf3ItemConst[keyof typeof GetRecentsResponse200DataInnerAnyOf3ItemConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetRecentsResponse200DataInnerAnyOf4
  */
 export interface GetRecentsResponse200DataInnerAnyOf4 {
     /**
-     * 
+     *
      * @type {string}
      * @memberof GetRecentsResponse200DataInnerAnyOf4
      */
     'item'?: GetRecentsResponse200DataInnerAnyOf4ItemConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetRecentsResponse200DataInnerAnyOf4
      */
     'id'?: number;
     /**
-     * 
+     *
      * @type {GetFiltersResponse200AllOfDataInner}
      * @memberof GetRecentsResponse200DataInnerAnyOf4
      */
@@ -20519,25 +20530,25 @@ export const GetRecentsResponse200DataInnerAnyOf4ItemConst = {
 export type GetRecentsResponse200DataInnerAnyOf4ItemConst = typeof GetRecentsResponse200DataInnerAnyOf4ItemConst[keyof typeof GetRecentsResponse200DataInnerAnyOf4ItemConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetRecentsResponse200DataInnerAnyOf5
  */
 export interface GetRecentsResponse200DataInnerAnyOf5 {
     /**
-     * 
+     *
      * @type {string}
      * @memberof GetRecentsResponse200DataInnerAnyOf5
      */
     'item'?: GetRecentsResponse200DataInnerAnyOf5ItemConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetRecentsResponse200DataInnerAnyOf5
      */
     'id'?: number;
     /**
-     * 
+     *
      * @type {GetNotesResponse200DataInner}
      * @memberof GetRecentsResponse200DataInnerAnyOf5
      */
@@ -20551,25 +20562,25 @@ export const GetRecentsResponse200DataInnerAnyOf5ItemConst = {
 export type GetRecentsResponse200DataInnerAnyOf5ItemConst = typeof GetRecentsResponse200DataInnerAnyOf5ItemConst[keyof typeof GetRecentsResponse200DataInnerAnyOf5ItemConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetRecentsResponse200DataInnerAnyOf6
  */
 export interface GetRecentsResponse200DataInnerAnyOf6 {
     /**
-     * 
+     *
      * @type {string}
      * @memberof GetRecentsResponse200DataInnerAnyOf6
      */
     'item'?: GetRecentsResponse200DataInnerAnyOf6ItemConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetRecentsResponse200DataInnerAnyOf6
      */
     'id'?: number;
     /**
-     * 
+     *
      * @type {MergePersonItem}
      * @memberof GetRecentsResponse200DataInnerAnyOf6
      */
@@ -20583,25 +20594,25 @@ export const GetRecentsResponse200DataInnerAnyOf6ItemConst = {
 export type GetRecentsResponse200DataInnerAnyOf6ItemConst = typeof GetRecentsResponse200DataInnerAnyOf6ItemConst[keyof typeof GetRecentsResponse200DataInnerAnyOf6ItemConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetRecentsResponse200DataInnerAnyOf7
  */
 export interface GetRecentsResponse200DataInnerAnyOf7 {
     /**
-     * 
+     *
      * @type {string}
      * @memberof GetRecentsResponse200DataInnerAnyOf7
      */
     'item'?: GetRecentsResponse200DataInnerAnyOf7ItemConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetRecentsResponse200DataInnerAnyOf7
      */
     'id'?: number;
     /**
-     * 
+     *
      * @type {BaseOrganizationItem}
      * @memberof GetRecentsResponse200DataInnerAnyOf7
      */
@@ -20615,25 +20626,25 @@ export const GetRecentsResponse200DataInnerAnyOf7ItemConst = {
 export type GetRecentsResponse200DataInnerAnyOf7ItemConst = typeof GetRecentsResponse200DataInnerAnyOf7ItemConst[keyof typeof GetRecentsResponse200DataInnerAnyOf7ItemConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetRecentsResponse200DataInnerAnyOf8
  */
 export interface GetRecentsResponse200DataInnerAnyOf8 {
     /**
-     * 
+     *
      * @type {string}
      * @memberof GetRecentsResponse200DataInnerAnyOf8
      */
     'item'?: GetRecentsResponse200DataInnerAnyOf8ItemConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetRecentsResponse200DataInnerAnyOf8
      */
     'id'?: number;
     /**
-     * 
+     *
      * @type {GetAssociatedDealsResponse200AllOfRelatedObjectsPipeline}
      * @memberof GetRecentsResponse200DataInnerAnyOf8
      */
@@ -20647,25 +20658,25 @@ export const GetRecentsResponse200DataInnerAnyOf8ItemConst = {
 export type GetRecentsResponse200DataInnerAnyOf8ItemConst = typeof GetRecentsResponse200DataInnerAnyOf8ItemConst[keyof typeof GetRecentsResponse200DataInnerAnyOf8ItemConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetRecentsResponse200DataInnerAnyOf9
  */
 export interface GetRecentsResponse200DataInnerAnyOf9 {
     /**
-     * 
+     *
      * @type {string}
      * @memberof GetRecentsResponse200DataInnerAnyOf9
      */
     'item'?: GetRecentsResponse200DataInnerAnyOf9ItemConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetRecentsResponse200DataInnerAnyOf9
      */
     'id'?: number;
     /**
-     * 
+     *
      * @type {GetRecentsResponse200DataInnerAnyOf9Data}
      * @memberof GetRecentsResponse200DataInnerAnyOf9
      */
@@ -20679,7 +20690,7 @@ export const GetRecentsResponse200DataInnerAnyOf9ItemConst = {
 export type GetRecentsResponse200DataInnerAnyOf9ItemConst = typeof GetRecentsResponse200DataInnerAnyOf9ItemConst[keyof typeof GetRecentsResponse200DataInnerAnyOf9ItemConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetRecentsResponse200DataInnerAnyOf9Data
  */
@@ -20782,7 +20793,7 @@ export interface GetRecentsResponse200DataInnerAnyOf9Data {
     'prices'?: Array<object>;
 }
 /**
- * 
+ *
  * @export
  * @interface GetRolePipelines200
  */
@@ -20794,20 +20805,20 @@ export interface GetRolePipelines200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetRolePipelines200AllOfData}
      * @memberof GetRolePipelines200
      */
     'data'?: GetRolePipelines200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetRolePipelines200AllOf
  */
 export interface GetRolePipelines200AllOf {
     /**
-     * 
+     *
      * @type {GetRolePipelines200AllOfData}
      * @memberof GetRolePipelines200AllOf
      */
@@ -20833,7 +20844,7 @@ export interface GetRolePipelines200AllOfData {
     'visible'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface GetRoleResponse200
  */
@@ -20845,32 +20856,32 @@ export interface GetRoleResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {SubRole}
      * @memberof GetRoleResponse200
      */
     'data'?: SubRole;
     /**
-     * 
+     *
      * @type {GetRoleResponse200AllOfAdditionalData}
      * @memberof GetRoleResponse200
      */
     'additional_data'?: GetRoleResponse200AllOfAdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetRoleResponse200AllOf
  */
 export interface GetRoleResponse200AllOf {
     /**
-     * 
+     *
      * @type {SubRole}
      * @memberof GetRoleResponse200AllOf
      */
     'data'?: SubRole;
     /**
-     * 
+     *
      * @type {GetRoleResponse200AllOfAdditionalData}
      * @memberof GetRoleResponse200AllOf
      */
@@ -20883,7 +20894,7 @@ export interface GetRoleResponse200AllOf {
  */
 export interface GetRoleResponse200AllOfAdditionalData {
     /**
-     * 
+     *
      * @type {GetRoleResponse200AllOfAdditionalDataSettings}
      * @memberof GetRoleResponse200AllOfAdditionalData
      */
@@ -20951,7 +20962,7 @@ export interface GetRoleResponse200AllOfAdditionalDataSettings {
     'product_access_level'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface GetRoleSettingsResponse200
  */
@@ -20963,27 +20974,27 @@ export interface GetRoleSettingsResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetRoleResponse200AllOfAdditionalDataSettings}
      * @memberof GetRoleSettingsResponse200
      */
     'data'?: GetRoleResponse200AllOfAdditionalDataSettings;
 }
 /**
- * 
+ *
  * @export
  * @interface GetRoleSettingsResponse200AllOf
  */
 export interface GetRoleSettingsResponse200AllOf {
     /**
-     * 
+     *
      * @type {GetRoleResponse200AllOfAdditionalDataSettings}
      * @memberof GetRoleSettingsResponse200AllOf
      */
     'data'?: GetRoleResponse200AllOfAdditionalDataSettings;
 }
 /**
- * 
+ *
  * @export
  * @interface GetRolesResponse200
  */
@@ -21001,14 +21012,14 @@ export interface GetRolesResponse200 {
      */
     'data'?: Array<FullRole>;
     /**
-     * 
+     *
      * @type {GetRolesResponse200AllOfAdditionalData}
      * @memberof GetRolesResponse200
      */
     'additional_data'?: GetRolesResponse200AllOfAdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetRolesResponse200AllOf
  */
@@ -21020,7 +21031,7 @@ export interface GetRolesResponse200AllOf {
      */
     'data'?: Array<FullRole>;
     /**
-     * 
+     *
      * @type {GetRolesResponse200AllOfAdditionalData}
      * @memberof GetRolesResponse200AllOf
      */
@@ -21033,7 +21044,7 @@ export interface GetRolesResponse200AllOf {
  */
 export interface GetRolesResponse200AllOfAdditionalData {
     /**
-     * 
+     *
      * @type {GetRolesResponse200AllOfAdditionalDataPagination}
      * @memberof GetRolesResponse200AllOfAdditionalData
      */
@@ -21065,7 +21076,7 @@ export interface GetRolesResponse200AllOfAdditionalDataPagination {
     'more_items_in_collection'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface GetStageDealsResponse200
  */
@@ -21083,14 +21094,14 @@ export interface GetStageDealsResponse200 {
      */
     'data'?: Array<DealStrict>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof GetStageDealsResponse200
      */
     'additional_data'?: FieldsResponse200AllOfAdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetStageResponse200
  */
@@ -21102,7 +21113,7 @@ export interface GetStageResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetStageResponse200Data}
      * @memberof GetStageResponse200
      */
@@ -21175,14 +21186,14 @@ export interface GetStageResponse200Data {
      */
     'update_time'?: string;
     /**
-     * 
+     *
      * @type {PipelineDetailsAllOfDealsSummary}
      * @memberof GetStageResponse200Data
      */
     'deals_summary'?: PipelineDetailsAllOfDealsSummary;
 }
 /**
- * 
+ *
  * @export
  * @interface GetStagesResponse200
  */
@@ -21201,7 +21212,7 @@ export interface GetStagesResponse200 {
     'data'?: Array<GetStagesResponse200DataInner>;
 }
 /**
- * 
+ *
  * @export
  * @interface GetStagesResponse200DataInner
  */
@@ -21280,7 +21291,7 @@ export interface GetStagesResponse200DataInner {
     'pipeline_deal_probability'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface GetStagesResponse200DataInnerAllOf
  */
@@ -21299,57 +21310,57 @@ export interface GetStagesResponse200DataInnerAllOf {
     'pipeline_deal_probability'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface GetTaskResponse200
  */
 export interface GetTaskResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof GetTaskResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {TaskResponseObject}
      * @memberof GetTaskResponse200
      */
     'data'?: TaskResponseObject;
     /**
-     * 
+     *
      * @type {object}
      * @memberof GetTaskResponse200
      */
     'additional_data'?: object | null;
 }
 /**
- * 
+ *
  * @export
  * @interface GetTasksResponse200
  */
 export interface GetTasksResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof GetTasksResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {Array<TaskResponseObject>}
      * @memberof GetTasksResponse200
      */
     'data'?: Array<TaskResponseObject>;
     /**
-     * 
+     *
      * @type {GetActivitiesCollectionResponse200AdditionalData}
      * @memberof GetTasksResponse200
      */
     'additional_data'?: GetActivitiesCollectionResponse200AdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetUserPermissionsResponse200
  */
@@ -21361,27 +21372,27 @@ export interface GetUserPermissionsResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetUserPermissionsResponse200AllOfData}
      * @memberof GetUserPermissionsResponse200
      */
     'data'?: GetUserPermissionsResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetUserPermissionsResponse200AllOf
  */
 export interface GetUserPermissionsResponse200AllOf {
     /**
-     * 
+     *
      * @type {GetUserPermissionsResponse200AllOfData}
      * @memberof GetUserPermissionsResponse200AllOf
      */
     'data'?: GetUserPermissionsResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetUserPermissionsResponse200AllOfData
  */
@@ -21574,7 +21585,7 @@ export interface GetUserPermissionsResponse200AllOfData {
     'can_use_import'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface GetUserRoleAssignmentsResponse200
  */
@@ -21592,14 +21603,14 @@ export interface GetUserRoleAssignmentsResponse200 {
      */
     'data'?: Array<RoleAssignment>;
     /**
-     * 
+     *
      * @type {GetRolesResponse200AllOfAdditionalData}
      * @memberof GetUserRoleAssignmentsResponse200
      */
     'additional_data'?: GetRolesResponse200AllOfAdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetUserRoleAssignmentsResponse200AllOf
  */
@@ -21611,14 +21622,14 @@ export interface GetUserRoleAssignmentsResponse200AllOf {
      */
     'data'?: Array<RoleAssignment>;
     /**
-     * 
+     *
      * @type {GetRolesResponse200AllOfAdditionalData}
      * @memberof GetUserRoleAssignmentsResponse200AllOf
      */
     'additional_data'?: GetRolesResponse200AllOfAdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetUserSettingsResponse200
  */
@@ -21630,27 +21641,27 @@ export interface GetUserSettingsResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetUserSettingsResponse200AllOfData}
      * @memberof GetUserSettingsResponse200
      */
     'data'?: GetUserSettingsResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetUserSettingsResponse200AllOf
  */
 export interface GetUserSettingsResponse200AllOf {
     /**
-     * 
+     *
      * @type {GetUserSettingsResponse200AllOfData}
      * @memberof GetUserSettingsResponse200AllOf
      */
     'data'?: GetUserSettingsResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface GetUserSettingsResponse200AllOfData
  */
@@ -21717,7 +21728,7 @@ export interface GetUserSettingsResponse200AllOfData {
     'person_duplicate_condition'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface GetWebhooksResponse200
  */
@@ -21742,7 +21753,7 @@ export interface GetWebhooksResponse200 {
     'data'?: Array<GetWebhooksResponse200AllOfDataInner>;
 }
 /**
- * 
+ *
  * @export
  * @interface GetWebhooksResponse200AllOf
  */
@@ -21755,7 +21766,7 @@ export interface GetWebhooksResponse200AllOf {
     'data'?: Array<GetWebhooksResponse200AllOfDataInner>;
 }
 /**
- * 
+ *
  * @export
  * @interface GetWebhooksResponse200AllOfDataInner
  */
@@ -21803,7 +21814,7 @@ export interface GetWebhooksResponse200AllOfDataInner {
      */
     'subscription_url'?: string;
     /**
-     * 
+     *
      * @type {number}
      * @memberof GetWebhooksResponse200AllOfDataInner
      */
@@ -21884,7 +21895,7 @@ export const GetWebhooksResponse200AllOfDataInnerTypeConst = {
 export type GetWebhooksResponse200AllOfDataInnerTypeConst = typeof GetWebhooksResponse200AllOfDataInnerTypeConst[keyof typeof GetWebhooksResponse200AllOfDataInnerTypeConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetproductResponse200
  */
@@ -21896,20 +21907,20 @@ export interface GetproductResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetproductResponse200Data}
      * @memberof GetproductResponse200
      */
     'data'?: GetproductResponse200Data;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200RelatedObjects}
      * @memberof GetproductResponse200
      */
     'related_objects'?: GetActivitiesResponse200RelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface GetproductResponse200Data
  */
@@ -21957,7 +21968,7 @@ export interface GetproductResponse200Data {
      */
     'selectable'?: boolean;
     /**
-     * 
+     *
      * @type {string}
      * @memberof GetproductResponse200Data
      */
@@ -21986,7 +21997,7 @@ export const GetproductResponse200DataVisibleToConst = {
 export type GetproductResponse200DataVisibleToConst = typeof GetproductResponse200DataVisibleToConst[keyof typeof GetproductResponse200DataVisibleToConst];
 
 /**
- * 
+ *
  * @export
  * @interface GetproductResponse200DataAllOf
  */
@@ -21999,45 +22010,45 @@ export interface GetproductResponse200DataAllOf {
     'prices'?: Array<object>;
 }
 /**
- * 
+ *
  * @export
  * @interface LeadIdResponse200
  */
 export interface LeadIdResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof LeadIdResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {LeadIdResponse200Data}
      * @memberof LeadIdResponse200
      */
     'data'?: LeadIdResponse200Data;
 }
 /**
- * 
+ *
  * @export
  * @interface LeadIdResponse200Data
  */
 export interface LeadIdResponse200Data {
     /**
-     * 
+     *
      * @type {string}
      * @memberof LeadIdResponse200Data
      */
     'id'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface LeadResponse404
  */
 export interface LeadResponse404 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof LeadResponse404
      */
@@ -22055,20 +22066,20 @@ export interface LeadResponse404 {
      */
     'error_info'?: string;
     /**
-     * 
+     *
      * @type {object}
      * @memberof LeadResponse404
      */
     'data'?: object | null;
     /**
-     * 
+     *
      * @type {object}
      * @memberof LeadResponse404
      */
     'additional_data'?: object | null;
 }
 /**
- * 
+ *
  * @export
  * @interface LinkFileToItemResponse200
  */
@@ -22080,14 +22091,14 @@ export interface LinkFileToItemResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetFilesResponse200DataInner}
      * @memberof LinkFileToItemResponse200
      */
     'data'?: GetFilesResponse200DataInner;
 }
 /**
- * 
+ *
  * @export
  * @interface ListPermittedUsersResponse200
  */
@@ -22099,14 +22110,14 @@ export interface ListPermittedUsersResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {ListPermittedUsersResponse200AllOfData}
      * @memberof ListPermittedUsersResponse200
      */
     'data'?: ListPermittedUsersResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface ListPermittedUsersResponse2001
  */
@@ -22125,7 +22136,7 @@ export interface ListPermittedUsersResponse2001 {
     'data'?: Array<number>;
 }
 /**
- * 
+ *
  * @export
  * @interface ListPermittedUsersResponse2001AllOf
  */
@@ -22138,20 +22149,20 @@ export interface ListPermittedUsersResponse2001AllOf {
     'data'?: Array<number>;
 }
 /**
- * 
+ *
  * @export
  * @interface ListPermittedUsersResponse200AllOf
  */
 export interface ListPermittedUsersResponse200AllOf {
     /**
-     * 
+     *
      * @type {ListPermittedUsersResponse200AllOfData}
      * @memberof ListPermittedUsersResponse200AllOf
      */
     'data'?: ListPermittedUsersResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface ListPermittedUsersResponse200AllOfData
  */
@@ -22164,7 +22175,7 @@ export interface ListPermittedUsersResponse200AllOfData {
     'id'?: Array<number>;
 }
 /**
- * 
+ *
  * @export
  * @interface ListPersonsResponse200
  */
@@ -22182,20 +22193,20 @@ export interface ListPersonsResponse200 {
      */
     'data'?: Array<PersonItem>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof ListPersonsResponse200
      */
     'additional_data'?: FieldsResponse200AllOfAdditionalData;
     /**
-     * 
+     *
      * @type {ListPersonsResponse200AllOfRelatedObjects}
      * @memberof ListPersonsResponse200
      */
     'related_objects'?: ListPersonsResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface ListPersonsResponse200AllOf
  */
@@ -22207,39 +22218,39 @@ export interface ListPersonsResponse200AllOf {
      */
     'data'?: Array<PersonItem>;
     /**
-     * 
+     *
      * @type {FieldsResponse200AllOfAdditionalData}
      * @memberof ListPersonsResponse200AllOf
      */
     'additional_data'?: FieldsResponse200AllOfAdditionalData;
     /**
-     * 
+     *
      * @type {ListPersonsResponse200AllOfRelatedObjects}
      * @memberof ListPersonsResponse200AllOf
      */
     'related_objects'?: ListPersonsResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface ListPersonsResponse200AllOfRelatedObjects
  */
 export interface ListPersonsResponse200AllOfRelatedObjects {
     /**
-     * 
+     *
      * @type {AddActivityResponse200RelatedObjectsOrganization}
      * @memberof ListPersonsResponse200AllOfRelatedObjects
      */
     'organization'?: AddActivityResponse200RelatedObjectsOrganization;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200RelatedObjectsUser}
      * @memberof ListPersonsResponse200AllOfRelatedObjects
      */
     'user'?: GetActivitiesResponse200RelatedObjectsUser;
 }
 /**
- * 
+ *
  * @export
  * @interface ListProductsResponse200
  */
@@ -22257,20 +22268,20 @@ export interface ListProductsResponse200 {
      */
     'data'?: Array<ListProductsResponse200AllOfDataInner>;
     /**
-     * 
+     *
      * @type {ListProductsResponse200AllOfAdditionalData}
      * @memberof ListProductsResponse200
      */
     'additional_data'?: ListProductsResponse200AllOfAdditionalData;
     /**
-     * 
+     *
      * @type {ListProductsResponse200AllOfRelatedObjects}
      * @memberof ListProductsResponse200
      */
     'related_objects'?: ListProductsResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface ListProductsResponse200AllOf
  */
@@ -22282,20 +22293,20 @@ export interface ListProductsResponse200AllOf {
      */
     'data'?: Array<ListProductsResponse200AllOfDataInner>;
     /**
-     * 
+     *
      * @type {ListProductsResponse200AllOfAdditionalData}
      * @memberof ListProductsResponse200AllOf
      */
     'additional_data'?: ListProductsResponse200AllOfAdditionalData;
     /**
-     * 
+     *
      * @type {ListProductsResponse200AllOfRelatedObjects}
      * @memberof ListProductsResponse200AllOf
      */
     'related_objects'?: ListProductsResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface ListProductsResponse200AllOfAdditionalData
  */
@@ -22325,14 +22336,14 @@ export interface ListProductsResponse200AllOfAdditionalData {
      */
     'products_sum_total_formatted'?: string;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200AdditionalDataPagination}
      * @memberof ListProductsResponse200AllOfAdditionalData
      */
     'pagination'?: GetActivitiesResponse200AdditionalDataPagination;
 }
 /**
- * 
+ *
  * @export
  * @interface ListProductsResponse200AllOfAdditionalDataAllOf
  */
@@ -22363,7 +22374,7 @@ export interface ListProductsResponse200AllOfAdditionalDataAllOf {
     'products_sum_total_formatted'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface ListProductsResponse200AllOfDataInner
  */
@@ -22507,7 +22518,7 @@ export interface ListProductsResponse200AllOfDataInner {
      */
     'quantity'?: number;
     /**
-     * 
+     *
      * @type {ListProductsResponse200AllOfDataInnerProduct}
      * @memberof ListProductsResponse200AllOfDataInner
      */
@@ -22529,7 +22540,7 @@ export const ListProductsResponse200AllOfDataInnerTaxMethodConst = {
 export type ListProductsResponse200AllOfDataInnerTaxMethodConst = typeof ListProductsResponse200AllOfDataInnerTaxMethodConst[keyof typeof ListProductsResponse200AllOfDataInnerTaxMethodConst];
 
 /**
- * 
+ *
  * @export
  * @interface ListProductsResponse200AllOfDataInnerProduct
  */
@@ -22577,7 +22588,7 @@ export interface ListProductsResponse200AllOfDataInnerProduct {
      */
     'selectable'?: boolean;
     /**
-     * 
+     *
      * @type {string}
      * @memberof ListProductsResponse200AllOfDataInnerProduct
      */
@@ -22606,7 +22617,7 @@ export const ListProductsResponse200AllOfDataInnerProductVisibleToConst = {
 export type ListProductsResponse200AllOfDataInnerProductVisibleToConst = typeof ListProductsResponse200AllOfDataInnerProductVisibleToConst[keyof typeof ListProductsResponse200AllOfDataInnerProductVisibleToConst];
 
 /**
- * 
+ *
  * @export
  * @interface ListProductsResponse200AllOfDataInnerProductAllOf
  */
@@ -22654,7 +22665,7 @@ export interface ListProductsResponse200AllOfDataInnerProductAllOf {
      */
     'selectable'?: boolean;
     /**
-     * 
+     *
      * @type {string}
      * @memberof ListProductsResponse200AllOfDataInnerProductAllOf
      */
@@ -22677,7 +22688,7 @@ export const ListProductsResponse200AllOfDataInnerProductAllOfVisibleToConst = {
 export type ListProductsResponse200AllOfDataInnerProductAllOfVisibleToConst = typeof ListProductsResponse200AllOfDataInnerProductAllOfVisibleToConst[keyof typeof ListProductsResponse200AllOfDataInnerProductAllOfVisibleToConst];
 
 /**
- * 
+ *
  * @export
  * @interface ListProductsResponse200AllOfDataInnerProductAllOf1
  */
@@ -22690,20 +22701,20 @@ export interface ListProductsResponse200AllOfDataInnerProductAllOf1 {
     'prices'?: object;
 }
 /**
- * 
+ *
  * @export
  * @interface ListProductsResponse200AllOfRelatedObjects
  */
 export interface ListProductsResponse200AllOfRelatedObjects {
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200RelatedObjectsUser}
      * @memberof ListProductsResponse200AllOfRelatedObjects
      */
     'user'?: GetActivitiesResponse200RelatedObjectsUser;
 }
 /**
- * 
+ *
  * @export
  * @interface MailMessageItemForList
  */
@@ -22781,13 +22792,13 @@ export interface MailMessageItemForList {
      */
     'mail_tracking_status'?: MailMessageItemForListMailTrackingStatusConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof MailMessageItemForList
      */
     'mail_link_tracking_enabled_flag'?: MailMessageItemForListMailLinkTrackingEnabledFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof MailMessageItemForList
      */
@@ -22799,43 +22810,43 @@ export interface MailMessageItemForList {
      */
     'draft'?: string;
     /**
-     * 
+     *
      * @type {number}
      * @memberof MailMessageItemForList
      */
     'draft_flag'?: MailMessageItemForListDraftFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof MailMessageItemForList
      */
     'synced_flag'?: MailMessageItemForListSyncedFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof MailMessageItemForList
      */
     'deleted_flag'?: MailMessageItemForListDeletedFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof MailMessageItemForList
      */
     'has_body_flag'?: MailMessageItemForListHasBodyFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof MailMessageItemForList
      */
     'sent_flag'?: MailMessageItemForListSentFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof MailMessageItemForList
      */
     'sent_from_pipedrive_flag'?: MailMessageItemForListSentFromPipedriveFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof MailMessageItemForList
      */
@@ -22859,19 +22870,19 @@ export interface MailMessageItemForList {
      */
     'update_time'?: string;
     /**
-     * 
+     *
      * @type {number}
      * @memberof MailMessageItemForList
      */
     'has_attachments_flag'?: MailMessageItemForListHasAttachmentsFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof MailMessageItemForList
      */
     'has_inline_attachments_flag'?: MailMessageItemForListHasInlineAttachmentsFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof MailMessageItemForList
      */
@@ -23012,7 +23023,7 @@ export const MailMessageItemForListHasRealAttachmentsFlagConst = {
 export type MailMessageItemForListHasRealAttachmentsFlagConst = typeof MailMessageItemForListHasRealAttachmentsFlagConst[keyof typeof MailMessageItemForListHasRealAttachmentsFlagConst];
 
 /**
- * 
+ *
  * @export
  * @interface MailMessageItemForListAllOf
  */
@@ -23090,13 +23101,13 @@ export interface MailMessageItemForListAllOf {
      */
     'mail_tracking_status'?: MailMessageItemForListAllOfMailTrackingStatusConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof MailMessageItemForListAllOf
      */
     'mail_link_tracking_enabled_flag'?: MailMessageItemForListAllOfMailLinkTrackingEnabledFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof MailMessageItemForListAllOf
      */
@@ -23108,43 +23119,43 @@ export interface MailMessageItemForListAllOf {
      */
     'draft'?: string;
     /**
-     * 
+     *
      * @type {number}
      * @memberof MailMessageItemForListAllOf
      */
     'draft_flag'?: MailMessageItemForListAllOfDraftFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof MailMessageItemForListAllOf
      */
     'synced_flag'?: MailMessageItemForListAllOfSyncedFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof MailMessageItemForListAllOf
      */
     'deleted_flag'?: MailMessageItemForListAllOfDeletedFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof MailMessageItemForListAllOf
      */
     'has_body_flag'?: MailMessageItemForListAllOfHasBodyFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof MailMessageItemForListAllOf
      */
     'sent_flag'?: MailMessageItemForListAllOfSentFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof MailMessageItemForListAllOf
      */
     'sent_from_pipedrive_flag'?: MailMessageItemForListAllOfSentFromPipedriveFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof MailMessageItemForListAllOf
      */
@@ -23168,19 +23179,19 @@ export interface MailMessageItemForListAllOf {
      */
     'update_time'?: string;
     /**
-     * 
+     *
      * @type {number}
      * @memberof MailMessageItemForListAllOf
      */
     'has_attachments_flag'?: MailMessageItemForListAllOfHasAttachmentsFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof MailMessageItemForListAllOf
      */
     'has_inline_attachments_flag'?: MailMessageItemForListAllOfHasInlineAttachmentsFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof MailMessageItemForListAllOf
      */
@@ -23267,7 +23278,7 @@ export const MailMessageItemForListAllOfHasRealAttachmentsFlagConst = {
 export type MailMessageItemForListAllOfHasRealAttachmentsFlagConst = typeof MailMessageItemForListAllOfHasRealAttachmentsFlagConst[keyof typeof MailMessageItemForListAllOfHasRealAttachmentsFlagConst];
 
 /**
- * 
+ *
  * @export
  * @interface MailMessageItemForListAllOf1
  */
@@ -23328,7 +23339,7 @@ export interface MailMessageItemForListAllOf1 {
     'company_id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface MailMessageItemForListAllOfFromInner
  */
@@ -23371,7 +23382,7 @@ export interface MailMessageItemForListAllOfFromInner {
     'mail_message_party_id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface MailMessageResponse200
  */
@@ -23401,14 +23412,14 @@ export interface MailMessageResponse200 {
      */
     'service'?: string;
     /**
-     * 
+     *
      * @type {MailMessageItemForListAllOf}
      * @memberof MailMessageResponse200
      */
     'data'?: MailMessageItemForListAllOf;
 }
 /**
- * 
+ *
  * @export
  * @interface MailMessageResponse200AllOf
  */
@@ -23439,20 +23450,20 @@ export interface MailMessageResponse200AllOf {
     'service'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface MailMessageResponse200AllOf1
  */
 export interface MailMessageResponse200AllOf1 {
     /**
-     * 
+     *
      * @type {MailMessageItemForListAllOf}
      * @memberof MailMessageResponse200AllOf1
      */
     'data'?: MailMessageItemForListAllOf;
 }
 /**
- * 
+ *
  * @export
  * @interface MergeDealsRequest
  */
@@ -23465,7 +23476,7 @@ export interface MergeDealsRequest {
     'merge_with_id': number;
 }
 /**
- * 
+ *
  * @export
  * @interface MergeDealsResponse200
  */
@@ -23477,14 +23488,14 @@ export interface MergeDealsResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {MergeDealsResponse200Data}
      * @memberof MergeDealsResponse200
      */
     'data'?: MergeDealsResponse200Data;
 }
 /**
- * 
+ *
  * @export
  * @interface MergeDealsResponse200Data
  */
@@ -23839,7 +23850,7 @@ export interface MergeDealsResponse200Data {
     'merge_what_id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface MergeDealsResponse200DataAllOf
  */
@@ -23852,7 +23863,7 @@ export interface MergeDealsResponse200DataAllOf {
     'merge_what_id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface MergeOrganizationsRequest
  */
@@ -23865,7 +23876,7 @@ export interface MergeOrganizationsRequest {
     'merge_with_id': number;
 }
 /**
- * 
+ *
  * @export
  * @interface MergeOrganizationsResponse200
  */
@@ -23877,14 +23888,14 @@ export interface MergeOrganizationsResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {MergeOrganizationsResponse200Data}
      * @memberof MergeOrganizationsResponse200
      */
     'data'?: MergeOrganizationsResponse200Data;
 }
 /**
- * 
+ *
  * @export
  * @interface MergeOrganizationsResponse200Data
  */
@@ -23897,7 +23908,7 @@ export interface MergeOrganizationsResponse200Data {
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface MergePersonDealRelatedInfo
  */
@@ -23994,7 +24005,7 @@ export interface MergePersonDealRelatedInfo {
     'participant_closed_deals_count'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface MergePersonDealRelatedInfoAllOf
  */
@@ -24013,7 +24024,7 @@ export interface MergePersonDealRelatedInfoAllOf {
     'participant_closed_deals_count'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface MergePersonItem
  */
@@ -24073,7 +24084,7 @@ export interface MergePersonItem {
      */
     'visible_to'?: string;
     /**
-     * 
+     *
      * @type {PersonItemAllOfPictureId}
      * @memberof MergePersonItem
      */
@@ -24284,7 +24295,7 @@ export interface MergePersonItem {
     'participant_closed_deals_count'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface MergePersonsRequest
  */
@@ -24297,7 +24308,7 @@ export interface MergePersonsRequest {
     'merge_with_id': number;
 }
 /**
- * 
+ *
  * @export
  * @interface MergePersonsResponse200
  */
@@ -24309,27 +24320,27 @@ export interface MergePersonsResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {MergePersonItem}
      * @memberof MergePersonsResponse200
      */
     'data'?: MergePersonItem;
 }
 /**
- * 
+ *
  * @export
  * @interface MergePersonsResponse200AllOf
  */
 export interface MergePersonsResponse200AllOf {
     /**
-     * 
+     *
      * @type {MergePersonItem}
      * @memberof MergePersonsResponse200AllOf
      */
     'data'?: MergePersonItem;
 }
 /**
- * 
+ *
  * @export
  * @interface NewDealParameters
  */
@@ -24406,7 +24417,7 @@ export const NewDealParametersStatusConst = {
 export type NewDealParametersStatusConst = typeof NewDealParametersStatusConst[keyof typeof NewDealParametersStatusConst];
 
 /**
- * 
+ *
  * @export
  * @interface NewFollowerResponse200
  */
@@ -24418,14 +24429,14 @@ export interface NewFollowerResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {NewFollowerResponse200Data}
      * @memberof NewFollowerResponse200
      */
     'data'?: NewFollowerResponse200Data;
 }
 /**
- * 
+ *
  * @export
  * @interface NewFollowerResponse200Data
  */
@@ -24456,7 +24467,7 @@ export interface NewFollowerResponse200Data {
     'add_time'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface NoteRequest
  */
@@ -24504,25 +24515,25 @@ export interface NoteRequest {
      */
     'add_time'?: string;
     /**
-     * 
+     *
      * @type {number}
      * @memberof NoteRequest
      */
     'pinned_to_lead_flag'?: NoteRequestPinnedToLeadFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof NoteRequest
      */
     'pinned_to_deal_flag'?: NoteRequestPinnedToDealFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof NoteRequest
      */
     'pinned_to_organization_flag'?: NoteRequestPinnedToOrganizationFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof NoteRequest
      */
@@ -24555,7 +24566,7 @@ export const NoteRequestPinnedToPersonFlagConst = {
 export type NoteRequestPinnedToPersonFlagConst = typeof NoteRequestPinnedToPersonFlagConst[keyof typeof NoteRequestPinnedToPersonFlagConst];
 
 /**
- * 
+ *
  * @export
  * @interface NoteRequestAllOf
  */
@@ -24568,7 +24579,7 @@ export interface NoteRequestAllOf {
     'content'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface NoteRequestAllOf1
  */
@@ -24599,7 +24610,7 @@ export interface NoteRequestAllOf1 {
     'org_id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface OneCommentResponse200
  */
@@ -24611,33 +24622,33 @@ export interface OneCommentResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetCommentsResponse200DataInner}
      * @memberof OneCommentResponse200
      */
     'data'?: GetCommentsResponse200DataInner;
 }
 /**
- * 
+ *
  * @export
  * @interface OneLeadResponse200
  */
 export interface OneLeadResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof OneLeadResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetLeadsResponse200DataInner}
      * @memberof OneLeadResponse200
      */
     'data'?: GetLeadsResponse200DataInner;
 }
 /**
- * 
+ *
  * @export
  * @interface OneNoteResponse200
  */
@@ -24649,14 +24660,14 @@ export interface OneNoteResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetNotesResponse200DataInner}
      * @memberof OneNoteResponse200
      */
     'data'?: GetNotesResponse200DataInner;
 }
 /**
- * 
+ *
  * @export
  * @interface OrganizationCountAndAddressInfo
  */
@@ -24777,7 +24788,7 @@ export interface OrganizationCountAndAddressInfo {
     'address_formatted_address'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface OrganizationCountAndAddressInfoAllOf
  */
@@ -24832,7 +24843,7 @@ export interface OrganizationCountAndAddressInfoAllOf {
     'followers_count'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface OrganizationCountAndAddressInfoAllOf1
  */
@@ -24905,7 +24916,7 @@ export interface OrganizationCountAndAddressInfoAllOf1 {
     'address_formatted_address'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface OrganizationItem
  */
@@ -24923,7 +24934,7 @@ export interface OrganizationItem {
      */
     'company_id'?: number;
     /**
-     * 
+     *
      * @type {Owner}
      * @memberof OrganizationItem
      */
@@ -24941,7 +24952,7 @@ export interface OrganizationItem {
      */
     'active_flag'?: boolean;
     /**
-     * 
+     *
      * @type {BaseOrganizationItemAllOfPictureId}
      * @memberof OrganizationItem
      */
@@ -25206,7 +25217,7 @@ export interface OrganizationItem {
     'next_activity'?: object | null;
 }
 /**
- * 
+ *
  * @export
  * @interface OrganizationItemAllOf
  */
@@ -25225,7 +25236,7 @@ export interface OrganizationItemAllOf {
     'next_activity'?: object | null;
 }
 /**
- * 
+ *
  * @export
  * @interface OrganizationRelationship
  */
@@ -25264,7 +25275,7 @@ export const OrganizationRelationshipTypeConst = {
 export type OrganizationRelationshipTypeConst = typeof OrganizationRelationshipTypeConst[keyof typeof OrganizationRelationshipTypeConst];
 
 /**
- * 
+ *
  * @export
  * @interface OrganizationRelationshipDetails
  */
@@ -25282,13 +25293,13 @@ export interface OrganizationRelationshipDetails {
      */
     'type'?: string;
     /**
-     * 
+     *
      * @type {RelationshipOrganizationInfoItem}
      * @memberof OrganizationRelationshipDetails
      */
     'rel_owner_org_id'?: RelationshipOrganizationInfoItem;
     /**
-     * 
+     *
      * @type {RelationshipOrganizationInfoItem}
      * @memberof OrganizationRelationshipDetails
      */
@@ -25331,7 +25342,7 @@ export interface OrganizationRelationshipDetails {
     'related_organization_name'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface OrganizationRelationshipDetailsAllOf
  */
@@ -25344,7 +25355,7 @@ export interface OrganizationRelationshipDetailsAllOf {
     'related_organization_name'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface OrganizationRelationshipWithCalculatedFields
  */
@@ -25362,13 +25373,13 @@ export interface OrganizationRelationshipWithCalculatedFields {
      */
     'type'?: string;
     /**
-     * 
+     *
      * @type {RelationshipOrganizationInfoItem}
      * @memberof OrganizationRelationshipWithCalculatedFields
      */
     'rel_owner_org_id'?: RelationshipOrganizationInfoItem;
     /**
-     * 
+     *
      * @type {RelationshipOrganizationInfoItem}
      * @memberof OrganizationRelationshipWithCalculatedFields
      */
@@ -25405,7 +25416,7 @@ export interface OrganizationRelationshipWithCalculatedFields {
     'calculated_related_org_id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface OrganizationRelationshipWithCalculatedFieldsAllOf
  */
@@ -25423,13 +25434,13 @@ export interface OrganizationRelationshipWithCalculatedFieldsAllOf {
      */
     'type'?: string;
     /**
-     * 
+     *
      * @type {RelationshipOrganizationInfoItem}
      * @memberof OrganizationRelationshipWithCalculatedFieldsAllOf
      */
     'rel_owner_org_id'?: RelationshipOrganizationInfoItem;
     /**
-     * 
+     *
      * @type {RelationshipOrganizationInfoItem}
      * @memberof OrganizationRelationshipWithCalculatedFieldsAllOf
      */
@@ -25454,7 +25465,7 @@ export interface OrganizationRelationshipWithCalculatedFieldsAllOf {
     'active_flag'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface OrganizationRelationshipWithCalculatedFieldsAllOf1
  */
@@ -25473,7 +25484,7 @@ export interface OrganizationRelationshipWithCalculatedFieldsAllOf1 {
     'calculated_related_org_id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface OrganizationsCollectionResponseObject
  */
@@ -25606,7 +25617,7 @@ export interface OrganizationsCollectionResponseObject {
     'cc_email'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface OrganizationsCollectionResponseObjectAllOf
  */
@@ -25673,7 +25684,7 @@ export interface OrganizationsCollectionResponseObjectAllOf {
     'cc_email'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface Owner
  */
@@ -25722,7 +25733,7 @@ export interface Owner {
     'value'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface OwnerAllOf
  */
@@ -25766,7 +25777,7 @@ export interface PaginationDetails {
     'next_start'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface PaginationDetailsAllOf
  */
@@ -25779,7 +25790,7 @@ export interface PaginationDetailsAllOf {
     'next_start'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface PaymentResponse200
  */
@@ -25791,27 +25802,27 @@ export interface PaymentResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {Array<PaymentResponse200AllOfDataInner>}
      * @memberof PaymentResponse200
      */
     'data'?: Array<PaymentResponse200AllOfDataInner>;
 }
 /**
- * 
+ *
  * @export
  * @interface PaymentResponse200AllOf
  */
 export interface PaymentResponse200AllOf {
     /**
-     * 
+     *
      * @type {Array<PaymentResponse200AllOfDataInner>}
      * @memberof PaymentResponse200AllOf
      */
     'data'?: Array<PaymentResponse200AllOfDataInner>;
 }
 /**
- * 
+ *
  * @export
  * @interface PaymentResponse200AllOfDataInner
  */
@@ -25915,7 +25926,7 @@ export const PaymentResponse200AllOfDataInnerPaymentTypeConst = {
 export type PaymentResponse200AllOfDataInnerPaymentTypeConst = typeof PaymentResponse200AllOfDataInnerPaymentTypeConst[keyof typeof PaymentResponse200AllOfDataInnerPaymentTypeConst];
 
 /**
- * 
+ *
  * @export
  * @interface PersonCountAndEmailInfo
  */
@@ -25976,7 +25987,7 @@ export interface PersonCountAndEmailInfo {
     'last_outgoing_mail_time'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface PersonCountAndEmailInfoAllOf
  */
@@ -26025,7 +26036,7 @@ export interface PersonCountAndEmailInfoAllOf {
     'followers_count'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface PersonCountAndEmailInfoAllOf1
  */
@@ -26044,7 +26055,7 @@ export interface PersonCountAndEmailInfoAllOf1 {
     'last_outgoing_mail_time'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface PersonCountEmailDealAndActivityInfo
  */
@@ -26183,7 +26194,7 @@ export interface PersonCountEmailDealAndActivityInfo {
     'last_activity_date'?: string | null;
 }
 /**
- * 
+ *
  * @export
  * @interface PersonItem
  */
@@ -26243,7 +26254,7 @@ export interface PersonItem {
      */
     'visible_to'?: string;
     /**
-     * 
+     *
      * @type {PersonItemAllOfPictureId}
      * @memberof PersonItem
      */
@@ -26273,13 +26284,13 @@ export interface PersonItem {
      */
     'cc_email'?: string;
     /**
-     * 
+     *
      * @type {Owner}
      * @memberof PersonItem
      */
     'owner_id'?: Owner;
     /**
-     * 
+     *
      * @type {RelationshipOrganizationInfoItemWithActiveFlag}
      * @memberof PersonItem
      */
@@ -26436,7 +26447,7 @@ export interface PersonItem {
     'last_activity_date'?: string | null;
 }
 /**
- * 
+ *
  * @export
  * @interface PersonItemAllOf
  */
@@ -26496,7 +26507,7 @@ export interface PersonItemAllOf {
      */
     'visible_to'?: string;
     /**
-     * 
+     *
      * @type {PersonItemAllOfPictureId}
      * @memberof PersonItemAllOf
      */
@@ -26527,7 +26538,7 @@ export interface PersonItemAllOf {
     'cc_email'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface PersonItemAllOfEmailInner
  */
@@ -26552,7 +26563,7 @@ export interface PersonItemAllOfEmailInner {
     'label'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface PersonItemAllOfPhoneInner
  */
@@ -26577,7 +26588,7 @@ export interface PersonItemAllOfPhoneInner {
     'label'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface PersonItemAllOfPictureId
  */
@@ -26625,14 +26636,14 @@ export interface PersonItemAllOfPictureId {
      */
     'added_by_user_id'?: number;
     /**
-     * 
+     *
      * @type {PersonItemAllOfPictureIdAllOf1Pictures}
      * @memberof PersonItemAllOfPictureId
      */
     'pictures'?: PersonItemAllOfPictureIdAllOf1Pictures;
 }
 /**
- * 
+ *
  * @export
  * @interface PersonItemAllOfPictureIdAllOf
  */
@@ -26645,7 +26656,7 @@ export interface PersonItemAllOfPictureIdAllOf {
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface PersonItemAllOfPictureIdAllOf1
  */
@@ -26687,14 +26698,14 @@ export interface PersonItemAllOfPictureIdAllOf1 {
      */
     'added_by_user_id'?: number;
     /**
-     * 
+     *
      * @type {PersonItemAllOfPictureIdAllOf1Pictures}
      * @memberof PersonItemAllOfPictureIdAllOf1
      */
     'pictures'?: PersonItemAllOfPictureIdAllOf1Pictures;
 }
 /**
- * 
+ *
  * @export
  * @interface PersonItemAllOfPictureIdAllOf1Pictures
  */
@@ -26713,7 +26724,7 @@ export interface PersonItemAllOfPictureIdAllOf1Pictures {
     '512'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface PersonNameCountAndEmailInfo
  */
@@ -26792,7 +26803,7 @@ export interface PersonNameCountAndEmailInfo {
     'last_outgoing_mail_time'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface PersonNameCountAndEmailInfoWithIds
  */
@@ -26889,7 +26900,7 @@ export interface PersonNameCountAndEmailInfoWithIds {
     'last_outgoing_mail_time'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface PersonNameCountAndEmailInfoWithIdsAllOf
  */
@@ -26914,19 +26925,19 @@ export interface PersonNameCountAndEmailInfoWithIdsAllOf {
     'merge_what_id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface PersonNameInfoWithOrgAndOwnerId
  */
 export interface PersonNameInfoWithOrgAndOwnerId {
     /**
-     * 
+     *
      * @type {Owner}
      * @memberof PersonNameInfoWithOrgAndOwnerId
      */
     'owner_id'?: Owner;
     /**
-     * 
+     *
      * @type {RelationshipOrganizationInfoItemWithActiveFlag}
      * @memberof PersonNameInfoWithOrgAndOwnerId
      */
@@ -26951,26 +26962,26 @@ export interface PersonNameInfoWithOrgAndOwnerId {
     'last_name'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface PersonNameInfoWithOrgAndOwnerIdAllOf
  */
 export interface PersonNameInfoWithOrgAndOwnerIdAllOf {
     /**
-     * 
+     *
      * @type {Owner}
      * @memberof PersonNameInfoWithOrgAndOwnerIdAllOf
      */
     'owner_id'?: Owner;
     /**
-     * 
+     *
      * @type {RelationshipOrganizationInfoItemWithActiveFlag}
      * @memberof PersonNameInfoWithOrgAndOwnerIdAllOf
      */
     'org_id'?: RelationshipOrganizationInfoItemWithActiveFlag;
 }
 /**
- * 
+ *
  * @export
  * @interface PersonNameInfoWithOrgAndOwnerIdAllOf1
  */
@@ -26995,7 +27006,7 @@ export interface PersonNameInfoWithOrgAndOwnerIdAllOf1 {
     'last_name'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface PersonsCollectionResponseObject
  */
@@ -27146,20 +27157,20 @@ export interface PipelineDetails {
      */
     'selected'?: boolean;
     /**
-     * 
+     *
      * @type {PipelineDetailsAllOfDealsSummary}
      * @memberof PipelineDetails
      */
     'deals_summary'?: PipelineDetailsAllOfDealsSummary;
 }
 /**
- * 
+ *
  * @export
  * @interface PipelineDetailsAllOf
  */
 export interface PipelineDetailsAllOf {
     /**
-     * 
+     *
      * @type {PipelineDetailsAllOfDealsSummary}
      * @memberof PipelineDetailsAllOf
      */
@@ -27172,13 +27183,13 @@ export interface PipelineDetailsAllOf {
  */
 export interface PipelineDetailsAllOfDealsSummary {
     /**
-     * 
+     *
      * @type {PipelineDetailsAllOfDealsSummaryPerStages}
      * @memberof PipelineDetailsAllOfDealsSummary
      */
     'per_stages'?: PipelineDetailsAllOfDealsSummaryPerStages;
     /**
-     * 
+     *
      * @type {PipelineDetailsAllOfDealsSummaryPerCurrency}
      * @memberof PipelineDetailsAllOfDealsSummary
      */
@@ -27190,7 +27201,7 @@ export interface PipelineDetailsAllOfDealsSummary {
      */
     'total_count'?: number;
     /**
-     * 
+     *
      * @type {PipelineDetailsAllOfDealsSummaryPerCurrencyFull}
      * @memberof PipelineDetailsAllOfDealsSummary
      */
@@ -27216,7 +27227,7 @@ export interface PipelineDetailsAllOfDealsSummaryPerCurrency {
  */
 export interface PipelineDetailsAllOfDealsSummaryPerCurrencyFull {
     /**
-     * 
+     *
      * @type {PipelineDetailsAllOfDealsSummaryPerCurrencyFullCURRENCYID}
      * @memberof PipelineDetailsAllOfDealsSummaryPerCurrencyFull
      */
@@ -27248,7 +27259,7 @@ export interface PipelineDetailsAllOfDealsSummaryPerCurrencyFullCURRENCYID {
  */
 export interface PipelineDetailsAllOfDealsSummaryPerStages {
     /**
-     * 
+     *
      * @type {PipelineDetailsAllOfDealsSummaryPerStagesSTAGEID}
      * @memberof PipelineDetailsAllOfDealsSummaryPerStages
      */
@@ -27261,7 +27272,7 @@ export interface PipelineDetailsAllOfDealsSummaryPerStages {
  */
 export interface PipelineDetailsAllOfDealsSummaryPerStagesSTAGEID {
     /**
-     * 
+     *
      * @type {PipelineDetailsAllOfDealsSummaryPerStagesSTAGEIDCURRENCYID}
      * @memberof PipelineDetailsAllOfDealsSummaryPerStagesSTAGEID
      */
@@ -27305,7 +27316,7 @@ export interface PipelineDetailsAllOfDealsSummaryPerStagesSTAGEIDCURRENCYID {
     'weighted_value_formatted'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface PipelineRequest
  */
@@ -27317,7 +27328,7 @@ export interface PipelineRequest {
      */
     'name': string;
     /**
-     * 
+     *
      * @type {number}
      * @memberof PipelineRequest
      */
@@ -27329,7 +27340,7 @@ export interface PipelineRequest {
      */
     'order_nr'?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof PipelineRequest
      */
@@ -27350,7 +27361,7 @@ export const PipelineRequestActiveConst = {
 export type PipelineRequestActiveConst = typeof PipelineRequestActiveConst[keyof typeof PipelineRequestActiveConst];
 
 /**
- * 
+ *
  * @export
  * @interface PipelineRequest1
  */
@@ -27362,7 +27373,7 @@ export interface PipelineRequest1 {
      */
     'name'?: string;
     /**
-     * 
+     *
      * @type {number}
      * @memberof PipelineRequest1
      */
@@ -27374,7 +27385,7 @@ export interface PipelineRequest1 {
      */
     'order_nr'?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof PipelineRequest1
      */
@@ -27395,7 +27406,7 @@ export const PipelineRequest1ActiveConst = {
 export type PipelineRequest1ActiveConst = typeof PipelineRequest1ActiveConst[keyof typeof PipelineRequest1ActiveConst];
 
 /**
- * 
+ *
  * @export
  * @interface PostFilterResponse200
  */
@@ -27407,27 +27418,27 @@ export interface PostFilterResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {PostFilterResponse200AllOfData}
      * @memberof PostFilterResponse200
      */
     'data'?: PostFilterResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface PostFilterResponse200AllOf
  */
 export interface PostFilterResponse200AllOf {
     /**
-     * 
+     *
      * @type {PostFilterResponse200AllOfData}
      * @memberof PostFilterResponse200AllOf
      */
     'data'?: PostFilterResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface PostFilterResponse200AllOfData
  */
@@ -27451,7 +27462,7 @@ export interface PostFilterResponse200AllOfData {
      */
     'active_flag'?: boolean;
     /**
-     * 
+     *
      * @type {string}
      * @memberof PostFilterResponse200AllOfData
      */
@@ -27513,7 +27524,7 @@ export const PostFilterResponse200AllOfDataTypeConst = {
 export type PostFilterResponse200AllOfDataTypeConst = typeof PostFilterResponse200AllOfDataTypeConst[keyof typeof PostFilterResponse200AllOfDataTypeConst];
 
 /**
- * 
+ *
  * @export
  * @interface ProductField
  */
@@ -27650,7 +27661,7 @@ export const ProductFieldFieldTypeConst = {
 export type ProductFieldFieldTypeConst = typeof ProductFieldFieldTypeConst[keyof typeof ProductFieldFieldTypeConst];
 
 /**
- * 
+ *
  * @export
  * @interface ProductFieldAllOf
  */
@@ -27697,7 +27708,7 @@ export const ProductFieldAllOfFieldTypeConst = {
 export type ProductFieldAllOfFieldTypeConst = typeof ProductFieldAllOfFieldTypeConst[keyof typeof ProductFieldAllOfFieldTypeConst];
 
 /**
- * 
+ *
  * @export
  * @interface ProductFieldAllOf1
  */
@@ -27794,7 +27805,7 @@ export interface ProductFieldAllOf1 {
     'mandatory_flag'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface ProductRequest
  */
@@ -27830,7 +27841,7 @@ export interface ProductRequest {
      */
     'selectable'?: boolean;
     /**
-     * 
+     *
      * @type {string}
      * @memberof ProductRequest
      */
@@ -27859,7 +27870,7 @@ export const ProductRequestVisibleToConst = {
 export type ProductRequestVisibleToConst = typeof ProductRequestVisibleToConst[keyof typeof ProductRequestVisibleToConst];
 
 /**
- * 
+ *
  * @export
  * @interface ProjectPutPlanItemBodyObject
  */
@@ -27878,7 +27889,7 @@ export interface ProjectPutPlanItemBodyObject {
     'group_id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface ProjectResponseObject
  */
@@ -27987,7 +27998,7 @@ export interface ProjectResponseObject {
     'archive_time'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface ProjectResponseObjectAllOf
  */
@@ -28000,7 +28011,7 @@ export interface ProjectResponseObjectAllOf {
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface PutRolePipelinesBody
  */
@@ -28013,7 +28024,7 @@ export interface PutRolePipelinesBody {
     'visible_pipeline_ids': object;
 }
 /**
- * 
+ *
  * @export
  * @interface ReceiveMessage200Response
  */
@@ -28025,20 +28036,20 @@ export interface ReceiveMessage200Response {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {ReceiveMessageRequest}
      * @memberof ReceiveMessage200Response
      */
     'data'?: ReceiveMessageRequest;
 }
 /**
- * 
+ *
  * @export
  * @interface ReceiveMessage400Response
  */
 export interface ReceiveMessage400Response {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof ReceiveMessage400Response
      */
@@ -28050,20 +28061,20 @@ export interface ReceiveMessage400Response {
      */
     'error'?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof ReceiveMessage400Response
      */
     'error_info'?: string;
     /**
-     * 
+     *
      * @type {ReceiveMessage400ResponseAdditionalData}
      * @memberof ReceiveMessage400Response
      */
     'additional_data'?: ReceiveMessage400ResponseAdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface ReceiveMessage400ResponseAdditionalData
  */
@@ -28076,7 +28087,7 @@ export interface ReceiveMessage400ResponseAdditionalData {
     'code'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface ReceiveMessageRequest
  */
@@ -28153,7 +28164,7 @@ export const ReceiveMessageRequestStatusConst = {
 export type ReceiveMessageRequestStatusConst = typeof ReceiveMessageRequestStatusConst[keyof typeof ReceiveMessageRequestStatusConst];
 
 /**
- * 
+ *
  * @export
  * @interface ReceiveMessageRequestAttachmentsInner
  */
@@ -28202,7 +28213,7 @@ export interface ReceiveMessageRequestAttachmentsInner {
     'link_expires'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface RelationshipOrganizationInfoItem
  */
@@ -28245,7 +28256,7 @@ export interface RelationshipOrganizationInfoItem {
     'value'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface RelationshipOrganizationInfoItemAllOf
  */
@@ -28258,7 +28269,7 @@ export interface RelationshipOrganizationInfoItemAllOf {
     'value'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface RelationshipOrganizationInfoItemWithActiveFlag
  */
@@ -28307,7 +28318,7 @@ export interface RelationshipOrganizationInfoItemWithActiveFlag {
     'active_flag'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface RequiedPostProjectParameters
  */
@@ -28326,7 +28337,7 @@ export interface RequiedPostProjectParameters {
     'project_id': number;
 }
 /**
- * 
+ *
  * @export
  * @interface RequiredPostProjectParameters
  */
@@ -28351,7 +28362,7 @@ export interface RequiredPostProjectParameters {
     'phase_id': number;
 }
 /**
- * 
+ *
  * @export
  * @interface RequredTitleParameter
  */
@@ -28364,7 +28375,7 @@ export interface RequredTitleParameter {
     'title': string;
 }
 /**
- * 
+ *
  * @export
  * @interface ResponseCallLogObject
  */
@@ -28479,7 +28490,7 @@ export const ResponseCallLogObjectOutcomeConst = {
 export type ResponseCallLogObjectOutcomeConst = typeof ResponseCallLogObjectOutcomeConst[keyof typeof ResponseCallLogObjectOutcomeConst];
 
 /**
- * 
+ *
  * @export
  * @interface ResponseCallLogObjectAllOf
  */
@@ -28547,7 +28558,7 @@ export interface RoleAssignment {
     'type'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface RoleAssignmentAllOf
  */
@@ -28578,7 +28589,7 @@ export interface RoleAssignmentAllOf {
     'type'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchDealsResponse200
  */
@@ -28590,39 +28601,39 @@ export interface SearchDealsResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {SearchDealsResponse200AllOfData}
      * @memberof SearchDealsResponse200
      */
     'data'?: SearchDealsResponse200AllOfData;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200AdditionalData}
      * @memberof SearchDealsResponse200
      */
     'additional_data'?: GetActivitiesResponse200AdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchDealsResponse200AllOf
  */
 export interface SearchDealsResponse200AllOf {
     /**
-     * 
+     *
      * @type {SearchDealsResponse200AllOfData}
      * @memberof SearchDealsResponse200AllOf
      */
     'data'?: SearchDealsResponse200AllOfData;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200AdditionalData}
      * @memberof SearchDealsResponse200AllOf
      */
     'additional_data'?: GetActivitiesResponse200AdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchDealsResponse200AllOfData
  */
@@ -28635,7 +28646,7 @@ export interface SearchDealsResponse200AllOfData {
     'items'?: Array<SearchDealsResponse200AllOfDataItemsInner>;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchDealsResponse200AllOfDataItemsInner
  */
@@ -28647,14 +28658,14 @@ export interface SearchDealsResponse200AllOfDataItemsInner {
      */
     'result_score'?: number;
     /**
-     * 
+     *
      * @type {SearchDealsResponse200AllOfDataItemsInnerItem}
      * @memberof SearchDealsResponse200AllOfDataItemsInner
      */
     'item'?: SearchDealsResponse200AllOfDataItemsInnerItem;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchDealsResponse200AllOfDataItemsInnerItem
  */
@@ -28702,25 +28713,25 @@ export interface SearchDealsResponse200AllOfDataItemsInnerItem {
      */
     'visible_to'?: number;
     /**
-     * 
+     *
      * @type {SearchDealsResponse200AllOfDataItemsInnerItemOwner}
      * @memberof SearchDealsResponse200AllOfDataItemsInnerItem
      */
     'owner'?: SearchDealsResponse200AllOfDataItemsInnerItemOwner;
     /**
-     * 
+     *
      * @type {SearchDealsResponse200AllOfDataItemsInnerItemStage}
      * @memberof SearchDealsResponse200AllOfDataItemsInnerItem
      */
     'stage'?: SearchDealsResponse200AllOfDataItemsInnerItemStage;
     /**
-     * 
+     *
      * @type {SearchDealsResponse200AllOfDataItemsInnerItemPerson}
      * @memberof SearchDealsResponse200AllOfDataItemsInnerItem
      */
     'person'?: SearchDealsResponse200AllOfDataItemsInnerItemPerson | null;
     /**
-     * 
+     *
      * @type {SearchDealsResponse200AllOfDataItemsInnerItemOrganization}
      * @memberof SearchDealsResponse200AllOfDataItemsInnerItem
      */
@@ -28739,7 +28750,7 @@ export interface SearchDealsResponse200AllOfDataItemsInnerItem {
     'notes'?: Array<string>;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchDealsResponse200AllOfDataItemsInnerItemOrganization
  */
@@ -28758,7 +28769,7 @@ export interface SearchDealsResponse200AllOfDataItemsInnerItemOrganization {
     'name'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchDealsResponse200AllOfDataItemsInnerItemOwner
  */
@@ -28771,7 +28782,7 @@ export interface SearchDealsResponse200AllOfDataItemsInnerItemOwner {
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchDealsResponse200AllOfDataItemsInnerItemPerson
  */
@@ -28790,7 +28801,7 @@ export interface SearchDealsResponse200AllOfDataItemsInnerItemPerson {
     'name'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchDealsResponse200AllOfDataItemsInnerItemStage
  */
@@ -28809,7 +28820,7 @@ export interface SearchDealsResponse200AllOfDataItemsInnerItemStage {
     'name'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchItemByFieldResponse200
  */
@@ -28827,14 +28838,14 @@ export interface SearchItemByFieldResponse200 {
      */
     'data'?: Array<SearchItemByFieldResponse200AllOfDataInner>;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200AdditionalData}
      * @memberof SearchItemByFieldResponse200
      */
     'additional_data'?: GetActivitiesResponse200AdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchItemByFieldResponse200AllOf
  */
@@ -28846,14 +28857,14 @@ export interface SearchItemByFieldResponse200AllOf {
      */
     'data'?: Array<SearchItemByFieldResponse200AllOfDataInner>;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200AdditionalData}
      * @memberof SearchItemByFieldResponse200AllOf
      */
     'additional_data'?: GetActivitiesResponse200AdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchItemByFieldResponse200AllOfDataInner
  */
@@ -28872,7 +28883,7 @@ export interface SearchItemByFieldResponse200AllOfDataInner {
     '$field_key'?: any;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchItemResponse200
  */
@@ -28884,39 +28895,39 @@ export interface SearchItemResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {SearchItemResponse200AllOfData}
      * @memberof SearchItemResponse200
      */
     'data'?: SearchItemResponse200AllOfData;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200AdditionalData}
      * @memberof SearchItemResponse200
      */
     'additional_data'?: GetActivitiesResponse200AdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchItemResponse200AllOf
  */
 export interface SearchItemResponse200AllOf {
     /**
-     * 
+     *
      * @type {SearchItemResponse200AllOfData}
      * @memberof SearchItemResponse200AllOf
      */
     'data'?: SearchItemResponse200AllOfData;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200AdditionalData}
      * @memberof SearchItemResponse200AllOf
      */
     'additional_data'?: GetActivitiesResponse200AdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchItemResponse200AllOfData
  */
@@ -28935,7 +28946,7 @@ export interface SearchItemResponse200AllOfData {
     'related_items'?: Array<SearchItemResponse200AllOfDataItemsInner>;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchItemResponse200AllOfDataItemsInner
  */
@@ -28954,7 +28965,7 @@ export interface SearchItemResponse200AllOfDataItemsInner {
     'item'?: object;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchLeadsResponse200
  */
@@ -28966,39 +28977,39 @@ export interface SearchLeadsResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {SearchLeadsResponse200AllOfData}
      * @memberof SearchLeadsResponse200
      */
     'data'?: SearchLeadsResponse200AllOfData;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200AdditionalData}
      * @memberof SearchLeadsResponse200
      */
     'additional_data'?: GetActivitiesResponse200AdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchLeadsResponse200AllOf
  */
 export interface SearchLeadsResponse200AllOf {
     /**
-     * 
+     *
      * @type {SearchLeadsResponse200AllOfData}
      * @memberof SearchLeadsResponse200AllOf
      */
     'data'?: SearchLeadsResponse200AllOfData;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200AdditionalData}
      * @memberof SearchLeadsResponse200AllOf
      */
     'additional_data'?: GetActivitiesResponse200AdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchLeadsResponse200AllOfData
  */
@@ -29011,7 +29022,7 @@ export interface SearchLeadsResponse200AllOfData {
     'items'?: Array<SearchLeadsResponse200AllOfDataItemsInner>;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchLeadsResponse200AllOfDataItemsInner
  */
@@ -29023,14 +29034,14 @@ export interface SearchLeadsResponse200AllOfDataItemsInner {
      */
     'result_score'?: number;
     /**
-     * 
+     *
      * @type {SearchLeadsResponse200AllOfDataItemsInnerItem}
      * @memberof SearchLeadsResponse200AllOfDataItemsInner
      */
     'item'?: SearchLeadsResponse200AllOfDataItemsInnerItem;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchLeadsResponse200AllOfDataItemsInnerItem
  */
@@ -29054,31 +29065,31 @@ export interface SearchLeadsResponse200AllOfDataItemsInnerItem {
      */
     'title'?: string;
     /**
-     * 
+     *
      * @type {SearchLeadsResponse200AllOfDataItemsInnerItemOwner}
      * @memberof SearchLeadsResponse200AllOfDataItemsInnerItem
      */
     'owner'?: SearchLeadsResponse200AllOfDataItemsInnerItemOwner;
     /**
-     * 
+     *
      * @type {SearchLeadsResponse200AllOfDataItemsInnerItemPerson}
      * @memberof SearchLeadsResponse200AllOfDataItemsInnerItem
      */
     'person'?: SearchLeadsResponse200AllOfDataItemsInnerItemPerson;
     /**
-     * 
+     *
      * @type {SearchLeadsResponse200AllOfDataItemsInnerItemOrganization}
      * @memberof SearchLeadsResponse200AllOfDataItemsInnerItem
      */
     'organization'?: SearchLeadsResponse200AllOfDataItemsInnerItemOrganization;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof SearchLeadsResponse200AllOfDataItemsInnerItem
      */
     'phones'?: Array<string>;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof SearchLeadsResponse200AllOfDataItemsInnerItem
      */
@@ -29121,7 +29132,7 @@ export interface SearchLeadsResponse200AllOfDataItemsInnerItem {
     'is_archived'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchLeadsResponse200AllOfDataItemsInnerItemOrganization
  */
@@ -29140,7 +29151,7 @@ export interface SearchLeadsResponse200AllOfDataItemsInnerItemOrganization {
     'name'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchLeadsResponse200AllOfDataItemsInnerItemOwner
  */
@@ -29153,7 +29164,7 @@ export interface SearchLeadsResponse200AllOfDataItemsInnerItemOwner {
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchLeadsResponse200AllOfDataItemsInnerItemPerson
  */
@@ -29172,7 +29183,7 @@ export interface SearchLeadsResponse200AllOfDataItemsInnerItemPerson {
     'name'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchOrganizationResponse200
  */
@@ -29184,39 +29195,39 @@ export interface SearchOrganizationResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {SearchOrganizationResponse200AllOfData}
      * @memberof SearchOrganizationResponse200
      */
     'data'?: SearchOrganizationResponse200AllOfData;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200AdditionalData}
      * @memberof SearchOrganizationResponse200
      */
     'additional_data'?: GetActivitiesResponse200AdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchOrganizationResponse200AllOf
  */
 export interface SearchOrganizationResponse200AllOf {
     /**
-     * 
+     *
      * @type {SearchOrganizationResponse200AllOfData}
      * @memberof SearchOrganizationResponse200AllOf
      */
     'data'?: SearchOrganizationResponse200AllOfData;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200AdditionalData}
      * @memberof SearchOrganizationResponse200AllOf
      */
     'additional_data'?: GetActivitiesResponse200AdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchOrganizationResponse200AllOfData
  */
@@ -29229,7 +29240,7 @@ export interface SearchOrganizationResponse200AllOfData {
     'items'?: Array<SearchOrganizationResponse200AllOfDataItemsInner>;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchOrganizationResponse200AllOfDataItemsInner
  */
@@ -29241,14 +29252,14 @@ export interface SearchOrganizationResponse200AllOfDataItemsInner {
      */
     'result_score'?: number;
     /**
-     * 
+     *
      * @type {SearchOrganizationResponse200AllOfDataItemsInnerItem}
      * @memberof SearchOrganizationResponse200AllOfDataItemsInner
      */
     'item'?: SearchOrganizationResponse200AllOfDataItemsInnerItem;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchOrganizationResponse200AllOfDataItemsInnerItem
  */
@@ -29284,7 +29295,7 @@ export interface SearchOrganizationResponse200AllOfDataItemsInnerItem {
      */
     'visible_to'?: number;
     /**
-     * 
+     *
      * @type {SearchDealsResponse200AllOfDataItemsInnerItemOwner}
      * @memberof SearchOrganizationResponse200AllOfDataItemsInnerItem
      */
@@ -29303,7 +29314,7 @@ export interface SearchOrganizationResponse200AllOfDataItemsInnerItem {
     'notes'?: Array<string>;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchPersonsResponse200
  */
@@ -29315,39 +29326,39 @@ export interface SearchPersonsResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {SearchPersonsResponse200AllOfData}
      * @memberof SearchPersonsResponse200
      */
     'data'?: SearchPersonsResponse200AllOfData;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200AdditionalData}
      * @memberof SearchPersonsResponse200
      */
     'additional_data'?: GetActivitiesResponse200AdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchPersonsResponse200AllOf
  */
 export interface SearchPersonsResponse200AllOf {
     /**
-     * 
+     *
      * @type {SearchPersonsResponse200AllOfData}
      * @memberof SearchPersonsResponse200AllOf
      */
     'data'?: SearchPersonsResponse200AllOfData;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200AdditionalData}
      * @memberof SearchPersonsResponse200AllOf
      */
     'additional_data'?: GetActivitiesResponse200AdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchPersonsResponse200AllOfData
  */
@@ -29360,7 +29371,7 @@ export interface SearchPersonsResponse200AllOfData {
     'items'?: Array<SearchPersonsResponse200AllOfDataItemsInner>;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchPersonsResponse200AllOfDataItemsInner
  */
@@ -29372,14 +29383,14 @@ export interface SearchPersonsResponse200AllOfDataItemsInner {
      */
     'result_score'?: number;
     /**
-     * 
+     *
      * @type {SearchPersonsResponse200AllOfDataItemsInnerItem}
      * @memberof SearchPersonsResponse200AllOfDataItemsInner
      */
     'item'?: SearchPersonsResponse200AllOfDataItemsInnerItem;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchPersonsResponse200AllOfDataItemsInnerItem
  */
@@ -29421,13 +29432,13 @@ export interface SearchPersonsResponse200AllOfDataItemsInnerItem {
      */
     'visible_to'?: number;
     /**
-     * 
+     *
      * @type {SearchPersonsResponse200AllOfDataItemsInnerItemOwner}
      * @memberof SearchPersonsResponse200AllOfDataItemsInnerItem
      */
     'owner'?: SearchPersonsResponse200AllOfDataItemsInnerItemOwner;
     /**
-     * 
+     *
      * @type {SearchPersonsResponse200AllOfDataItemsInnerItemOrganization}
      * @memberof SearchPersonsResponse200AllOfDataItemsInnerItem
      */
@@ -29446,7 +29457,7 @@ export interface SearchPersonsResponse200AllOfDataItemsInnerItem {
     'notes'?: Array<string>;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchPersonsResponse200AllOfDataItemsInnerItemOrganization
  */
@@ -29465,7 +29476,7 @@ export interface SearchPersonsResponse200AllOfDataItemsInnerItemOrganization {
     'name'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchPersonsResponse200AllOfDataItemsInnerItemOwner
  */
@@ -29478,7 +29489,7 @@ export interface SearchPersonsResponse200AllOfDataItemsInnerItemOwner {
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchProductsResponse200
  */
@@ -29490,39 +29501,39 @@ export interface SearchProductsResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {SearchProductsResponse200AllOfData}
      * @memberof SearchProductsResponse200
      */
     'data'?: SearchProductsResponse200AllOfData;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200AdditionalData}
      * @memberof SearchProductsResponse200
      */
     'additional_data'?: GetActivitiesResponse200AdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchProductsResponse200AllOf
  */
 export interface SearchProductsResponse200AllOf {
     /**
-     * 
+     *
      * @type {SearchProductsResponse200AllOfData}
      * @memberof SearchProductsResponse200AllOf
      */
     'data'?: SearchProductsResponse200AllOfData;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200AdditionalData}
      * @memberof SearchProductsResponse200AllOf
      */
     'additional_data'?: GetActivitiesResponse200AdditionalData;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchProductsResponse200AllOfData
  */
@@ -29535,7 +29546,7 @@ export interface SearchProductsResponse200AllOfData {
     'items'?: Array<SearchProductsResponse200AllOfDataItemsInner>;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchProductsResponse200AllOfDataItemsInner
  */
@@ -29547,14 +29558,14 @@ export interface SearchProductsResponse200AllOfDataItemsInner {
      */
     'result_score'?: number;
     /**
-     * 
+     *
      * @type {SearchProductsResponse200AllOfDataItemsInnerItem}
      * @memberof SearchProductsResponse200AllOfDataItemsInner
      */
     'item'?: SearchProductsResponse200AllOfDataItemsInnerItem;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchProductsResponse200AllOfDataItemsInnerItem
  */
@@ -29590,7 +29601,7 @@ export interface SearchProductsResponse200AllOfDataItemsInnerItem {
      */
     'visible_to'?: number;
     /**
-     * 
+     *
      * @type {SearchProductsResponse200AllOfDataItemsInnerItemOwner}
      * @memberof SearchProductsResponse200AllOfDataItemsInnerItem
      */
@@ -29603,7 +29614,7 @@ export interface SearchProductsResponse200AllOfDataItemsInnerItem {
     'custom_fields'?: Array<string>;
 }
 /**
- * 
+ *
  * @export
  * @interface SearchProductsResponse200AllOfDataItemsInnerItemOwner
  */
@@ -29616,7 +29627,7 @@ export interface SearchProductsResponse200AllOfDataItemsInnerItemOwner {
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface SinglePermissionSetResponse200
  */
@@ -29684,7 +29695,7 @@ export const SinglePermissionSetResponse200TypeConst = {
 export type SinglePermissionSetResponse200TypeConst = typeof SinglePermissionSetResponse200TypeConst[keyof typeof SinglePermissionSetResponse200TypeConst];
 
 /**
- * 
+ *
  * @export
  * @interface SinglePermissionSetResponse200AllOf
  */
@@ -29697,7 +29708,7 @@ export interface SinglePermissionSetResponse200AllOf {
     'contents'?: Array<string>;
 }
 /**
- * 
+ *
  * @export
  * @interface StageResponse200
  */
@@ -29709,7 +29720,7 @@ export interface StageResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {StageResponse200Data}
      * @memberof StageResponse200
      */
@@ -29826,7 +29837,7 @@ export interface SubRole {
     'sub_role_count'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface SubRoleAllOf
  */
@@ -29857,7 +29868,7 @@ export interface SubRoleAllOf {
     'sub_role_count'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface SubscriptionAddonsResponse200
  */
@@ -29876,7 +29887,7 @@ export interface SubscriptionAddonsResponse200 {
     'data'?: Array<object>;
 }
 /**
- * 
+ *
  * @export
  * @interface SubscriptionAddonsResponse200AllOf
  */
@@ -29889,7 +29900,7 @@ export interface SubscriptionAddonsResponse200AllOf {
     'data'?: Array<object>;
 }
 /**
- * 
+ *
  * @export
  * @interface SubscriptionsIdResponse200
  */
@@ -29901,27 +29912,27 @@ export interface SubscriptionsIdResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {SubscriptionsIdResponse200AllOfData}
      * @memberof SubscriptionsIdResponse200
      */
     'data'?: SubscriptionsIdResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface SubscriptionsIdResponse200AllOf
  */
 export interface SubscriptionsIdResponse200AllOf {
     /**
-     * 
+     *
      * @type {SubscriptionsIdResponse200AllOfData}
      * @memberof SubscriptionsIdResponse200AllOf
      */
     'data'?: SubscriptionsIdResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface SubscriptionsIdResponse200AllOfData
  */
@@ -30024,7 +30035,7 @@ export interface SubscriptionsIdResponse200AllOfData {
     'update_time'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface TaskResponseObject
  */
@@ -30066,7 +30077,7 @@ export interface TaskResponseObject {
      */
     'assignee_id'?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof TaskResponseObject
      */
@@ -30111,7 +30122,7 @@ export const TaskResponseObjectDoneConst = {
 export type TaskResponseObjectDoneConst = typeof TaskResponseObjectDoneConst[keyof typeof TaskResponseObjectDoneConst];
 
 /**
- * 
+ *
  * @export
  * @interface TaskResponseObjectAllOf
  */
@@ -30124,7 +30135,7 @@ export interface TaskResponseObjectAllOf {
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface TeamId
  */
@@ -30137,7 +30148,7 @@ export interface TeamId {
     'id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface TeamResponse200
  */
@@ -30149,27 +30160,27 @@ export interface TeamResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {BaseTeam}
      * @memberof TeamResponse200
      */
     'data'?: BaseTeam;
 }
 /**
- * 
+ *
  * @export
  * @interface TeamResponse200AllOf
  */
 export interface TeamResponse200AllOf {
     /**
-     * 
+     *
      * @type {BaseTeam}
      * @memberof TeamResponse200AllOf
      */
     'data'?: BaseTeam;
 }
 /**
- * 
+ *
  * @export
  * @interface TeamsResponse200
  */
@@ -30181,27 +30192,27 @@ export interface TeamsResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {Array<BaseTeam>}
      * @memberof TeamsResponse200
      */
     'data'?: Array<BaseTeam>;
 }
 /**
- * 
+ *
  * @export
  * @interface TeamsResponse200AllOf
  */
 export interface TeamsResponse200AllOf {
     /**
-     * 
+     *
      * @type {Array<BaseTeam>}
      * @memberof TeamsResponse200AllOf
      */
     'data'?: Array<BaseTeam>;
 }
 /**
- * 
+ *
  * @export
  * @interface TemplateResponseObject
  */
@@ -30250,7 +30261,7 @@ export interface TemplateResponseObject {
     'update_time'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface TemplateResponseObjectAllOf
  */
@@ -30299,7 +30310,7 @@ export interface TemplateResponseObjectAllOf {
     'update_time'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface UnathorizedResponse
  */
@@ -30324,7 +30335,7 @@ export interface UnathorizedResponse {
     'errorCode'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdateActivityRequest
  */
@@ -30432,7 +30443,7 @@ export interface UpdateActivityRequest {
      */
     'attendees'?: Array<object>;
     /**
-     * 
+     *
      * @type {number}
      * @memberof UpdateActivityRequest
      */
@@ -30447,7 +30458,7 @@ export const UpdateActivityRequestDoneConst = {
 export type UpdateActivityRequestDoneConst = typeof UpdateActivityRequestDoneConst[keyof typeof UpdateActivityRequestDoneConst];
 
 /**
- * 
+ *
  * @export
  * @interface UpdateActivityRequestAllOf
  */
@@ -30495,7 +30506,7 @@ export interface UpdateActivityRequestAllOf {
      */
     'attendees'?: Array<object>;
     /**
-     * 
+     *
      * @type {number}
      * @memberof UpdateActivityRequestAllOf
      */
@@ -30510,32 +30521,32 @@ export const UpdateActivityRequestAllOfDoneConst = {
 export type UpdateActivityRequestAllOfDoneConst = typeof UpdateActivityRequestAllOfDoneConst[keyof typeof UpdateActivityRequestAllOfDoneConst];
 
 /**
- * 
+ *
  * @export
  * @interface UpdateActivityResponse200
  */
 export interface UpdateActivityResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof UpdateActivityResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {ActivityResponseObject}
      * @memberof UpdateActivityResponse200
      */
     'data'?: ActivityResponseObject;
     /**
-     * 
+     *
      * @type {AddActivityResponse200RelatedObjects}
      * @memberof UpdateActivityResponse200
      */
     'related_objects'?: AddActivityResponse200RelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdateActivityTypeRequest
  */
@@ -30612,7 +30623,7 @@ export const UpdateActivityTypeRequestIconKeyConst = {
 export type UpdateActivityTypeRequestIconKeyConst = typeof UpdateActivityTypeRequestIconKeyConst[keyof typeof UpdateActivityTypeRequestIconKeyConst];
 
 /**
- * 
+ *
  * @export
  * @interface UpdateDealParameters
  */
@@ -30683,7 +30694,7 @@ export const UpdateDealParametersStatusConst = {
 export type UpdateDealParametersStatusConst = typeof UpdateDealParametersStatusConst[keyof typeof UpdateDealParametersStatusConst];
 
 /**
- * 
+ *
  * @export
  * @interface UpdateDealProductRequest
  */
@@ -30725,7 +30736,7 @@ export interface UpdateDealProductRequest {
      */
     'duration'?: number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof UpdateDealProductRequest
      */
@@ -30786,7 +30797,7 @@ export const UpdateDealProductRequestTaxMethodConst = {
 export type UpdateDealProductRequestTaxMethodConst = typeof UpdateDealProductRequestTaxMethodConst[keyof typeof UpdateDealProductRequestTaxMethodConst];
 
 /**
- * 
+ *
  * @export
  * @interface UpdateDealRequest
  */
@@ -30870,7 +30881,7 @@ export interface UpdateDealRequest {
      */
     'lost_reason'?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof UpdateDealRequest
      */
@@ -30895,7 +30906,7 @@ export const UpdateDealRequestVisibleToConst = {
 export type UpdateDealRequestVisibleToConst = typeof UpdateDealRequestVisibleToConst[keyof typeof UpdateDealRequestVisibleToConst];
 
 /**
- * 
+ *
  * @export
  * @interface UpdateFieldRequest
  */
@@ -30920,7 +30931,7 @@ export interface UpdateFieldRequest {
     'add_visible_flag'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdateFileResponse200
  */
@@ -30932,14 +30943,14 @@ export interface UpdateFileResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetFilesResponse200DataInner}
      * @memberof UpdateFileResponse200
      */
     'data'?: GetFilesResponse200DataInner;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdateFilterRequest
  */
@@ -30958,7 +30969,7 @@ export interface UpdateFilterRequest {
     'conditions': object;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdateLeadLabelRequest
  */
@@ -30989,7 +31000,7 @@ export const UpdateLeadLabelRequestColorConst = {
 export type UpdateLeadLabelRequestColorConst = typeof UpdateLeadLabelRequestColorConst[keyof typeof UpdateLeadLabelRequestColorConst];
 
 /**
- * 
+ *
  * @export
  * @interface UpdateLeadRequest
  */
@@ -31013,7 +31024,7 @@ export interface UpdateLeadRequest {
      */
     'label_ids'?: Array<string>;
     /**
-     * The ID of a person which this lead will be linked to. If the person does not exist yet, it needs to be created first. A lead always has to be linked to a person or organization or both. 
+     * The ID of a person which this lead will be linked to. If the person does not exist yet, it needs to be created first. A lead always has to be linked to a person or organization or both.
      * @type {number}
      * @memberof UpdateLeadRequest
      */
@@ -31031,7 +31042,7 @@ export interface UpdateLeadRequest {
      */
     'is_archived'?: boolean;
     /**
-     * 
+     *
      * @type {UpdateLeadRequestValue}
      * @memberof UpdateLeadRequest
      */
@@ -31043,7 +31054,7 @@ export interface UpdateLeadRequest {
      */
     'expected_close_date'?: string | null;
     /**
-     * 
+     *
      * @type {string}
      * @memberof UpdateLeadRequest
      */
@@ -31072,20 +31083,20 @@ export type UpdateLeadRequestVisibleToConst = typeof UpdateLeadRequestVisibleToC
  */
 export interface UpdateLeadRequestValue {
     /**
-     * 
+     *
      * @type {number}
      * @memberof UpdateLeadRequestValue
      */
     'amount': number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof UpdateLeadRequestValue
      */
     'currency': string;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdateMailThreadDetailsResponse200
  */
@@ -31097,27 +31108,27 @@ export interface UpdateMailThreadDetailsResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {BaseMailThread1}
      * @memberof UpdateMailThreadDetailsResponse200
      */
     'data'?: BaseMailThread1;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdateMailThreadDetailsResponse200AllOf
  */
 export interface UpdateMailThreadDetailsResponse200AllOf {
     /**
-     * 
+     *
      * @type {BaseMailThread1}
      * @memberof UpdateMailThreadDetailsResponse200AllOf
      */
     'data'?: BaseMailThread1;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdateOrganizationRelationshipResponse200
  */
@@ -31129,20 +31140,20 @@ export interface UpdateOrganizationRelationshipResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {OrganizationRelationshipWithCalculatedFieldsAllOf}
      * @memberof UpdateOrganizationRelationshipResponse200
      */
     'data'?: OrganizationRelationshipWithCalculatedFieldsAllOf;
     /**
-     * 
+     *
      * @type {GetOrganizationRelationshipsResponse200AllOfRelatedObjects}
      * @memberof UpdateOrganizationRelationshipResponse200
      */
     'related_objects'?: GetOrganizationRelationshipsResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdateOrganizationRequest
  */
@@ -31166,7 +31177,7 @@ export interface UpdateOrganizationRequest {
      */
     'label'?: number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof UpdateOrganizationRequest
      */
@@ -31183,7 +31194,7 @@ export const UpdateOrganizationRequestVisibleToConst = {
 export type UpdateOrganizationRequestVisibleToConst = typeof UpdateOrganizationRequestVisibleToConst[keyof typeof UpdateOrganizationRequestVisibleToConst];
 
 /**
- * 
+ *
  * @export
  * @interface UpdateOrganizationRequestAllOf
  */
@@ -31196,7 +31207,7 @@ export interface UpdateOrganizationRequestAllOf {
     'name'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdateOrganizationResponse200
  */
@@ -31208,39 +31219,39 @@ export interface UpdateOrganizationResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {BaseOrganizationItem}
      * @memberof UpdateOrganizationResponse200
      */
     'data'?: BaseOrganizationItem;
     /**
-     * 
+     *
      * @type {GetOrganizationsResponse200AllOfRelatedObjects}
      * @memberof UpdateOrganizationResponse200
      */
     'related_objects'?: GetOrganizationsResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdateOrganizationResponse200AllOf
  */
 export interface UpdateOrganizationResponse200AllOf {
     /**
-     * 
+     *
      * @type {BaseOrganizationItem}
      * @memberof UpdateOrganizationResponse200AllOf
      */
     'data'?: BaseOrganizationItem;
     /**
-     * 
+     *
      * @type {GetOrganizationsResponse200AllOfRelatedObjects}
      * @memberof UpdateOrganizationResponse200AllOf
      */
     'related_objects'?: GetOrganizationsResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdatePersonRequest
  */
@@ -31282,13 +31293,13 @@ export interface UpdatePersonRequest {
      */
     'label'?: number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof UpdatePersonRequest
      */
     'visible_to'?: UpdatePersonRequestVisibleToConst;
     /**
-     * 
+     *
      * @type {string}
      * @memberof UpdatePersonRequest
      */
@@ -31319,7 +31330,7 @@ export const UpdatePersonRequestMarketingStatusConst = {
 export type UpdatePersonRequestMarketingStatusConst = typeof UpdatePersonRequestMarketingStatusConst[keyof typeof UpdatePersonRequestMarketingStatusConst];
 
 /**
- * 
+ *
  * @export
  * @interface UpdatePersonRequestAllOf
  */
@@ -31332,7 +31343,7 @@ export interface UpdatePersonRequestAllOf {
     'name'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdatePersonResponse200
  */
@@ -31344,20 +31355,20 @@ export interface UpdatePersonResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {PersonItem}
      * @memberof UpdatePersonResponse200
      */
     'data'?: PersonItem;
     /**
-     * 
+     *
      * @type {ListProductsResponse200AllOfRelatedObjects}
      * @memberof UpdatePersonResponse200
      */
     'related_objects'?: ListProductsResponse200AllOfRelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdatePipelineResponse200
  */
@@ -31369,20 +31380,20 @@ export interface UpdatePipelineResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {UpdatePipelineResponse200AllOfData}
      * @memberof UpdatePipelineResponse200
      */
     'data'?: UpdatePipelineResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdatePipelineResponse200AllOf
  */
 export interface UpdatePipelineResponse200AllOf {
     /**
-     * 
+     *
      * @type {UpdatePipelineResponse200AllOfData}
      * @memberof UpdatePipelineResponse200AllOf
      */
@@ -31450,7 +31461,7 @@ export interface UpdatePipelineResponse200AllOfData {
     'selected'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdateProductFieldResponse200
  */
@@ -31469,7 +31480,7 @@ export interface UpdateProductFieldResponse200 {
     'options'?: Array<object>;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdateProductResponse200
  */
@@ -31481,20 +31492,20 @@ export interface UpdateProductResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {ListProductsResponse200AllOfDataInnerProduct}
      * @memberof UpdateProductResponse200
      */
     'data'?: ListProductsResponse200AllOfDataInnerProduct;
     /**
-     * 
+     *
      * @type {GetActivitiesResponse200RelatedObjects}
      * @memberof UpdateProductResponse200
      */
     'related_objects'?: GetActivitiesResponse200RelatedObjects;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdateProjectRequest
  */
@@ -31573,7 +31584,7 @@ export interface UpdateProjectRequest {
     'labels'?: Array<number>;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdateProjectRequest1
  */
@@ -31609,7 +31620,7 @@ export interface UpdateProjectRequest1 {
      */
     'assignee_id'?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof UpdateProjectRequest1
      */
@@ -31654,7 +31665,7 @@ export const UpdateProjectRequest1DoneConst = {
 export type UpdateProjectRequest1DoneConst = typeof UpdateProjectRequest1DoneConst[keyof typeof UpdateProjectRequest1DoneConst];
 
 /**
- * 
+ *
  * @export
  * @interface UpdateProjectRequest1AllOf
  */
@@ -31673,7 +31684,7 @@ export interface UpdateProjectRequest1AllOf {
     'project_id'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdateProjectRequest1AllOf1
  */
@@ -31697,7 +31708,7 @@ export interface UpdateProjectRequest1AllOf1 {
      */
     'assignee_id'?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof UpdateProjectRequest1AllOf1
      */
@@ -31718,7 +31729,7 @@ export const UpdateProjectRequest1AllOf1DoneConst = {
 export type UpdateProjectRequest1AllOf1DoneConst = typeof UpdateProjectRequest1AllOf1DoneConst[keyof typeof UpdateProjectRequest1AllOf1DoneConst];
 
 /**
- * 
+ *
  * @export
  * @interface UpdateProjectRequest1AllOf2
  */
@@ -31749,7 +31760,7 @@ export interface UpdateProjectRequest1AllOf2 {
     'marked_as_done_time'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdateProjectRequest2
  */
@@ -31785,7 +31796,7 @@ export interface UpdateProjectRequest2 {
      */
     'assignee_id'?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof UpdateProjectRequest2
      */
@@ -31806,32 +31817,32 @@ export const UpdateProjectRequest2DoneConst = {
 export type UpdateProjectRequest2DoneConst = typeof UpdateProjectRequest2DoneConst[keyof typeof UpdateProjectRequest2DoneConst];
 
 /**
- * 
+ *
  * @export
  * @interface UpdateProjectResponse200
  */
 export interface UpdateProjectResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof UpdateProjectResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {ProjectResponseObject}
      * @memberof UpdateProjectResponse200
      */
     'data'?: ProjectResponseObject;
     /**
-     * 
+     *
      * @type {object}
      * @memberof UpdateProjectResponse200
      */
     'additional_data'?: object | null;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdateRecurringSubscriptionRequest
  */
@@ -31868,7 +31879,7 @@ export interface UpdateRecurringSubscriptionRequest {
     'effective_date': string;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdateRoleResponse200
  */
@@ -31880,14 +31891,14 @@ export interface UpdateRoleResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {AddRoleResponse200AllOfData}
      * @memberof UpdateRoleResponse200
      */
     'data'?: AddRoleResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdateStageRequest
  */
@@ -31930,7 +31941,7 @@ export interface UpdateStageRequest {
     'order_nr'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdateStageRequestAllOf
  */
@@ -31967,7 +31978,7 @@ export interface UpdateStageRequestAllOf {
     'rotten_days'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdateStageRequestAllOf1
  */
@@ -31980,7 +31991,7 @@ export interface UpdateStageRequestAllOf1 {
     'order_nr'?: number;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdateSubscriptionInstallmentRequest
  */
@@ -31999,32 +32010,32 @@ export interface UpdateSubscriptionInstallmentRequest {
     'update_deal_value'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdateTaskResponse200
  */
 export interface UpdateTaskResponse200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof UpdateTaskResponse200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {TaskResponseObject}
      * @memberof UpdateTaskResponse200
      */
     'data'?: TaskResponseObject;
     /**
-     * 
+     *
      * @type {object}
      * @memberof UpdateTaskResponse200
      */
     'additional_data'?: object | null;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdateTeamRequest
  */
@@ -32054,13 +32065,13 @@ export interface UpdateTeamRequest {
      */
     'users'?: Array<number>;
     /**
-     * 
+     *
      * @type {number}
      * @memberof UpdateTeamRequest
      */
     'active_flag'?: UpdateTeamRequestActiveFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof UpdateTeamRequest
      */
@@ -32081,19 +32092,19 @@ export const UpdateTeamRequestDeletedFlagConst = {
 export type UpdateTeamRequestDeletedFlagConst = typeof UpdateTeamRequestDeletedFlagConst[keyof typeof UpdateTeamRequestDeletedFlagConst];
 
 /**
- * 
+ *
  * @export
  * @interface UpdateTeamRequestAllOf
  */
 export interface UpdateTeamRequestAllOf {
     /**
-     * 
+     *
      * @type {number}
      * @memberof UpdateTeamRequestAllOf
      */
     'active_flag'?: UpdateTeamRequestAllOfActiveFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof UpdateTeamRequestAllOf
      */
@@ -32114,7 +32125,7 @@ export const UpdateTeamRequestAllOfDeletedFlagConst = {
 export type UpdateTeamRequestAllOfDeletedFlagConst = typeof UpdateTeamRequestAllOfDeletedFlagConst[keyof typeof UpdateTeamRequestAllOfDeletedFlagConst];
 
 /**
- * 
+ *
  * @export
  * @interface UpdateTeamWithAdditionalProperties
  */
@@ -32144,13 +32155,13 @@ export interface UpdateTeamWithAdditionalProperties {
      */
     'users'?: Array<number>;
     /**
-     * 
+     *
      * @type {number}
      * @memberof UpdateTeamWithAdditionalProperties
      */
     'active_flag'?: UpdateTeamWithAdditionalPropertiesActiveFlagConst;
     /**
-     * 
+     *
      * @type {number}
      * @memberof UpdateTeamWithAdditionalProperties
      */
@@ -32183,7 +32194,7 @@ export const UpdateTeamWithAdditionalPropertiesDeletedFlagConst = {
 export type UpdateTeamWithAdditionalPropertiesDeletedFlagConst = typeof UpdateTeamWithAdditionalPropertiesDeletedFlagConst[keyof typeof UpdateTeamWithAdditionalPropertiesDeletedFlagConst];
 
 /**
- * 
+ *
  * @export
  * @interface UpdateUserRequest
  */
@@ -32196,57 +32207,57 @@ export interface UpdateUserRequest {
     'active_flag': boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdatedActivityPlanItem200
  */
 export interface UpdatedActivityPlanItem200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof UpdatedActivityPlanItem200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetProjectPlanResponse200DataInner}
      * @memberof UpdatedActivityPlanItem200
      */
     'data'?: GetProjectPlanResponse200DataInner;
     /**
-     * 
+     *
      * @type {object}
      * @memberof UpdatedActivityPlanItem200
      */
     'additional_data'?: object | null;
 }
 /**
- * 
+ *
  * @export
  * @interface UpdatedTaskPlanItem200
  */
 export interface UpdatedTaskPlanItem200 {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof UpdatedTaskPlanItem200
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetProjectPlanResponse200DataInner}
      * @memberof UpdatedTaskPlanItem200
      */
     'data'?: GetProjectPlanResponse200DataInner;
     /**
-     * 
+     *
      * @type {object}
      * @memberof UpdatedTaskPlanItem200
      */
     'additional_data'?: object | null;
 }
 /**
- * 
+ *
  * @export
  * @interface UserAssignmentsToPermissionSetResponse200
  */
@@ -32265,7 +32276,7 @@ export interface UserAssignmentsToPermissionSetResponse200 {
     'data'?: Array<UserAssignmentsToPermissionSetResponse200AllOfDataInner>;
 }
 /**
- * 
+ *
  * @export
  * @interface UserAssignmentsToPermissionSetResponse200AllOf
  */
@@ -32278,7 +32289,7 @@ export interface UserAssignmentsToPermissionSetResponse200AllOf {
     'data'?: Array<UserAssignmentsToPermissionSetResponse200AllOfDataInner>;
 }
 /**
- * 
+ *
  * @export
  * @interface UserAssignmentsToPermissionSetResponse200AllOfDataInner
  */
@@ -32303,7 +32314,7 @@ export interface UserAssignmentsToPermissionSetResponse200AllOfDataInner {
     'name'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface UserConnectionsResponse200
  */
@@ -32315,20 +32326,20 @@ export interface UserConnectionsResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {UserConnectionsResponse200AllOfData}
      * @memberof UserConnectionsResponse200
      */
     'data'?: UserConnectionsResponse200AllOfData;
 }
 /**
- * 
+ *
  * @export
  * @interface UserConnectionsResponse200AllOf
  */
 export interface UserConnectionsResponse200AllOf {
     /**
-     * 
+     *
      * @type {UserConnectionsResponse200AllOfData}
      * @memberof UserConnectionsResponse200AllOf
      */
@@ -32348,7 +32359,7 @@ export interface UserConnectionsResponse200AllOfData {
     'google'?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface UserDataWithId
  */
@@ -32391,7 +32402,7 @@ export interface UserDataWithId {
     'active_flag'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface UserDataWithIdAllOf
  */
@@ -32434,7 +32445,7 @@ export interface UserDataWithIdAllOf {
     'active_flag'?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface UserIds
  */
@@ -32453,7 +32464,7 @@ export interface UserIds {
     'data'?: Array<number>;
 }
 /**
- * 
+ *
  * @export
  * @interface UserIdsAllOf
  */
@@ -32466,7 +32477,7 @@ export interface UserIdsAllOf {
     'data'?: Array<number>;
 }
 /**
- * 
+ *
  * @export
  * @interface UserResponse200
  */
@@ -32478,27 +32489,27 @@ export interface UserResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {GetRecentsResponse200DataInnerAnyOf11Data}
      * @memberof UserResponse200
      */
     'data'?: GetRecentsResponse200DataInnerAnyOf11Data;
 }
 /**
- * 
+ *
  * @export
  * @interface UserResponse200AllOf
  */
 export interface UserResponse200AllOf {
     /**
-     * 
+     *
      * @type {GetRecentsResponse200DataInnerAnyOf11Data}
      * @memberof UserResponse200AllOf
      */
     'data'?: GetRecentsResponse200DataInnerAnyOf11Data;
 }
 /**
- * 
+ *
  * @export
  * @interface UsersResponse200
  */
@@ -32510,27 +32521,27 @@ export interface UsersResponse200 {
      */
     'success'?: boolean;
     /**
-     * 
+     *
      * @type {Array<GetRecentsResponse200DataInnerAnyOf11Data>}
      * @memberof UsersResponse200
      */
     'data'?: Array<GetRecentsResponse200DataInnerAnyOf11Data>;
 }
 /**
- * 
+ *
  * @export
  * @interface UsersResponse200AllOf
  */
 export interface UsersResponse200AllOf {
     /**
-     * 
+     *
      * @type {Array<GetRecentsResponse200DataInnerAnyOf11Data>}
      * @memberof UsersResponse200AllOf
      */
     'data'?: Array<GetRecentsResponse200DataInnerAnyOf11Data>;
 }
 /**
- * 
+ *
  * @export
  * @interface WebhookResponse200
  */
@@ -32548,27 +32559,27 @@ export interface WebhookResponse200 {
      */
     'status'?: string;
     /**
-     * 
+     *
      * @type {GetWebhooksResponse200AllOfDataInner}
      * @memberof WebhookResponse200
      */
     'data'?: GetWebhooksResponse200AllOfDataInner;
 }
 /**
- * 
+ *
  * @export
  * @interface WebhookResponse200AllOf
  */
 export interface WebhookResponse200AllOf {
     /**
-     * 
+     *
      * @type {GetWebhooksResponse200AllOfDataInner}
      * @memberof WebhookResponse200AllOf
      */
     'data'?: GetWebhooksResponse200AllOfDataInner;
 }
 /**
- * 
+ *
  * @export
  * @interface WebhooksBadRequestResponse
  */
@@ -32593,7 +32604,7 @@ export interface WebhooksBadRequestResponse {
     'errors'?: object;
 }
 /**
- * 
+ *
  * @export
  * @interface WebhooksBadRequestResponseAllOf
  */
@@ -32615,7 +32626,7 @@ export const ActivitiesApiAxiosParamCreator = function (configuration?: Configur
         /**
          * Adds a new activity. Includes `more_activities_scheduled_in_context` property in response\'s `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">adding an activity</a>.
          * @summary Add an activity
-         * @param {AddActivityRequest} [AddActivityRequest] 
+         * @param {AddActivityRequest} [AddActivityRequest]
 
          * @throws {RequiredError}
          */
@@ -32640,7 +32651,7 @@ export const ActivitiesApiAxiosParamCreator = function (configuration?: Configur
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["activities:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -32687,7 +32698,7 @@ export const ActivitiesApiAxiosParamCreator = function (configuration?: Configur
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -32728,7 +32739,7 @@ export const ActivitiesApiAxiosParamCreator = function (configuration?: Configur
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["activities:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -32809,7 +32820,7 @@ export const ActivitiesApiAxiosParamCreator = function (configuration?: Configur
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -32881,7 +32892,7 @@ export const ActivitiesApiAxiosParamCreator = function (configuration?: Configur
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -32922,7 +32933,7 @@ export const ActivitiesApiAxiosParamCreator = function (configuration?: Configur
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["activities:read", "activities:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -32936,7 +32947,7 @@ export const ActivitiesApiAxiosParamCreator = function (configuration?: Configur
          * Updates an activity. Includes `more_activities_scheduled_in_context` property in response\'s `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data).
          * @summary Update an activity
          * @param {number} id The ID of the activity
-         * @param {UpdateActivityRequest} [UpdateActivityRequest] 
+         * @param {UpdateActivityRequest} [UpdateActivityRequest]
 
          * @throws {RequiredError}
          */
@@ -32964,7 +32975,7 @@ export const ActivitiesApiAxiosParamCreator = function (configuration?: Configur
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["activities:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -33001,7 +33012,7 @@ export const ActivitiesApiFp = function(configuration?: Configuration) {
         /**
          * Adds a new activity. Includes `more_activities_scheduled_in_context` property in response\'s `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">adding an activity</a>.
          * @summary Add an activity
-         * @param {AddActivityRequest} [AddActivityRequest] 
+         * @param {AddActivityRequest} [AddActivityRequest]
 
          * @throws {RequiredError}
          */
@@ -33081,7 +33092,7 @@ export const ActivitiesApiFp = function(configuration?: Configuration) {
          * Updates an activity. Includes `more_activities_scheduled_in_context` property in response\'s `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data).
          * @summary Update an activity
          * @param {number} id The ID of the activity
-         * @param {UpdateActivityRequest} [UpdateActivityRequest] 
+         * @param {UpdateActivityRequest} [UpdateActivityRequest]
 
          * @throws {RequiredError}
          */
@@ -33179,7 +33190,7 @@ export const ActivitiesApiFactory = function (configuration?: Configuration, bas
  */
 export interface ActivitiesApiAddActivityRequest {
     /**
-     * 
+     *
      * @type {AddActivityRequest}
      * @memberof ActivitiesApiAddActivity
      */
@@ -33361,7 +33372,7 @@ export interface ActivitiesApiUpdateActivityRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {UpdateActivityRequest}
      * @memberof ActivitiesApiUpdateActivity
      */
@@ -33494,7 +33505,7 @@ export const ActivityFieldsApiAxiosParamCreator = function (configuration?: Conf
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["activities:read", "activities:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -33586,7 +33597,7 @@ export const ActivityTypesApiAxiosParamCreator = function (configuration?: Confi
         /**
          * Adds a new activity type.
          * @summary Add new activity type
-         * @param {AddActivityTypeRequest} [AddActivityTypeRequest] 
+         * @param {AddActivityTypeRequest} [AddActivityTypeRequest]
 
          * @throws {RequiredError}
          */
@@ -33611,7 +33622,7 @@ export const ActivityTypesApiAxiosParamCreator = function (configuration?: Confi
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -33655,7 +33666,7 @@ export const ActivityTypesApiAxiosParamCreator = function (configuration?: Confi
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -33699,7 +33710,7 @@ export const ActivityTypesApiAxiosParamCreator = function (configuration?: Confi
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -33736,7 +33747,7 @@ export const ActivityTypesApiAxiosParamCreator = function (configuration?: Confi
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["activities:read", "activities:full", "admin"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -33750,7 +33761,7 @@ export const ActivityTypesApiAxiosParamCreator = function (configuration?: Confi
          * Updates an activity type.
          * @summary Update an activity type
          * @param {number} id The ID of the activity type
-         * @param {UpdateActivityTypeRequest} [UpdateActivityTypeRequest] 
+         * @param {UpdateActivityTypeRequest} [UpdateActivityTypeRequest]
 
          * @throws {RequiredError}
          */
@@ -33778,7 +33789,7 @@ export const ActivityTypesApiAxiosParamCreator = function (configuration?: Confi
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -33815,7 +33826,7 @@ export const ActivityTypesApiFp = function(configuration?: Configuration) {
         /**
          * Adds a new activity type.
          * @summary Add new activity type
-         * @param {AddActivityTypeRequest} [AddActivityTypeRequest] 
+         * @param {AddActivityTypeRequest} [AddActivityTypeRequest]
 
          * @throws {RequiredError}
          */
@@ -33859,7 +33870,7 @@ export const ActivityTypesApiFp = function(configuration?: Configuration) {
          * Updates an activity type.
          * @summary Update an activity type
          * @param {number} id The ID of the activity type
-         * @param {UpdateActivityTypeRequest} [UpdateActivityTypeRequest] 
+         * @param {UpdateActivityTypeRequest} [UpdateActivityTypeRequest]
 
          * @throws {RequiredError}
          */
@@ -33936,7 +33947,7 @@ export const ActivityTypesApiFactory = function (configuration?: Configuration, 
  */
 export interface ActivityTypesApiAddActivityTypeRequest {
     /**
-     * 
+     *
      * @type {AddActivityTypeRequest}
      * @memberof ActivityTypesApiAddActivityType
      */
@@ -33985,7 +33996,7 @@ export interface ActivityTypesApiUpdateActivityTypeRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {UpdateActivityTypeRequest}
      * @memberof ActivityTypesApiUpdateActivityType
      */
@@ -34093,7 +34104,7 @@ export const BillingApiAxiosParamCreator = function (configuration?: Configurati
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["users:read"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -34185,7 +34196,7 @@ export const CallLogsApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * Adds a new call log.
          * @summary Add a call log
-         * @param {AddCallLogRequest} [AddCallLogRequest] 
+         * @param {AddCallLogRequest} [AddCallLogRequest]
 
          * @throws {RequiredError}
          */
@@ -34210,7 +34221,7 @@ export const CallLogsApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["phone-integration"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -34258,13 +34269,13 @@ export const CallLogsApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["phone-integration"], configuration)
 
 
-            if (file !== undefined) { 
+            if (file !== undefined) {
                 localVarFormParams.append('file', file as any);
             }
-    
-    
+
+
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -34306,7 +34317,7 @@ export const CallLogsApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["phone-integration"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -34347,7 +34358,7 @@ export const CallLogsApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["phone-integration"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -34394,7 +34405,7 @@ export const CallLogsApiAxiosParamCreator = function (configuration?: Configurat
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -34428,7 +34439,7 @@ export const CallLogsApiFp = function(configuration?: Configuration) {
         /**
          * Adds a new call log.
          * @summary Add a call log
-         * @param {AddCallLogRequest} [AddCallLogRequest] 
+         * @param {AddCallLogRequest} [AddCallLogRequest]
 
          * @throws {RequiredError}
          */
@@ -34552,7 +34563,7 @@ export const CallLogsApiFactory = function (configuration?: Configuration, baseP
  */
 export interface CallLogsApiAddCallLogRequest {
     /**
-     * 
+     *
      * @type {AddCallLogRequest}
      * @memberof CallLogsApiAddCallLog
      */
@@ -34707,7 +34718,7 @@ export const ChannelsApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * Adds a new messaging channel, only admins are able to register new channels. It will use the getConversations endpoint to fetch conversations, participants and messages afterward. To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
          * @summary Add a channel
-         * @param {AddChannelRequest} [AddChannelRequest] 
+         * @param {AddChannelRequest} [AddChannelRequest]
 
          * @throws {RequiredError}
          */
@@ -34732,7 +34743,7 @@ export const ChannelsApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["messengers-integration"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -34776,7 +34787,7 @@ export const ChannelsApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["messengers-integration"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -34821,7 +34832,7 @@ export const ChannelsApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["messengers-integration"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -34834,7 +34845,7 @@ export const ChannelsApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * Adds a message to a conversation. To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
          * @summary Receives an incoming message
-         * @param {ReceiveMessageRequest} [ReceiveMessageRequest] 
+         * @param {ReceiveMessageRequest} [ReceiveMessageRequest]
 
          * @throws {RequiredError}
          */
@@ -34859,7 +34870,7 @@ export const ChannelsApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["messengers-integration"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -34896,7 +34907,7 @@ export const ChannelsApiFp = function(configuration?: Configuration) {
         /**
          * Adds a new messaging channel, only admins are able to register new channels. It will use the getConversations endpoint to fetch conversations, participants and messages afterward. To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
          * @summary Add a channel
-         * @param {AddChannelRequest} [AddChannelRequest] 
+         * @param {AddChannelRequest} [AddChannelRequest]
 
          * @throws {RequiredError}
          */
@@ -34930,7 +34941,7 @@ export const ChannelsApiFp = function(configuration?: Configuration) {
         /**
          * Adds a message to a conversation. To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
          * @summary Receives an incoming message
-         * @param {ReceiveMessageRequest} [ReceiveMessageRequest] 
+         * @param {ReceiveMessageRequest} [ReceiveMessageRequest]
 
          * @throws {RequiredError}
          */
@@ -34998,7 +35009,7 @@ export const ChannelsApiFactory = function (configuration?: Configuration, baseP
  */
 export interface ChannelsApiAddChannelRequest {
     /**
-     * 
+     *
      * @type {AddChannelRequest}
      * @memberof ChannelsApiAddChannel
      */
@@ -35047,7 +35058,7 @@ export interface ChannelsApiDeleteConversationRequest {
  */
 export interface ChannelsApiReceiveMessageRequest {
     /**
-     * 
+     *
      * @type {ReceiveMessageRequest}
      * @memberof ChannelsApiReceiveMessage
      */
@@ -35149,7 +35160,7 @@ export const CurrenciesApiAxiosParamCreator = function (configuration?: Configur
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -35258,7 +35269,7 @@ export const DealFieldsApiAxiosParamCreator = function (configuration?: Configur
         /**
          * Adds a new deal field. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-new-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">adding a new custom field</a>.
          * @summary Add a new deal field
-         * @param {CreateFieldRequest} [CreateFieldRequest] 
+         * @param {CreateFieldRequest} [CreateFieldRequest]
 
          * @throws {RequiredError}
          */
@@ -35283,7 +35294,7 @@ export const DealFieldsApiAxiosParamCreator = function (configuration?: Configur
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -35327,7 +35338,7 @@ export const DealFieldsApiAxiosParamCreator = function (configuration?: Configur
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -35371,7 +35382,7 @@ export const DealFieldsApiAxiosParamCreator = function (configuration?: Configur
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -35412,7 +35423,7 @@ export const DealFieldsApiAxiosParamCreator = function (configuration?: Configur
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full", "admin"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -35459,7 +35470,7 @@ export const DealFieldsApiAxiosParamCreator = function (configuration?: Configur
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -35473,7 +35484,7 @@ export const DealFieldsApiAxiosParamCreator = function (configuration?: Configur
          * Updates a deal field. For more information, see the tutorial for <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields\' values</a>.
          * @summary Update a deal field
          * @param {number} id The ID of the field
-         * @param {UpdateFieldRequest} [UpdateFieldRequest] 
+         * @param {UpdateFieldRequest} [UpdateFieldRequest]
 
          * @throws {RequiredError}
          */
@@ -35501,7 +35512,7 @@ export const DealFieldsApiAxiosParamCreator = function (configuration?: Configur
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -35538,7 +35549,7 @@ export const DealFieldsApiFp = function(configuration?: Configuration) {
         /**
          * Adds a new deal field. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-new-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">adding a new custom field</a>.
          * @summary Add a new deal field
-         * @param {CreateFieldRequest} [CreateFieldRequest] 
+         * @param {CreateFieldRequest} [CreateFieldRequest]
 
          * @throws {RequiredError}
          */
@@ -35595,7 +35606,7 @@ export const DealFieldsApiFp = function(configuration?: Configuration) {
          * Updates a deal field. For more information, see the tutorial for <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields\' values</a>.
          * @summary Update a deal field
          * @param {number} id The ID of the field
-         * @param {UpdateFieldRequest} [UpdateFieldRequest] 
+         * @param {UpdateFieldRequest} [UpdateFieldRequest]
 
          * @throws {RequiredError}
          */
@@ -35683,7 +35694,7 @@ export const DealFieldsApiFactory = function (configuration?: Configuration, bas
  */
 export interface DealFieldsApiAddDealFieldRequest {
     /**
-     * 
+     *
      * @type {CreateFieldRequest}
      * @memberof DealFieldsApiAddDealField
      */
@@ -35767,7 +35778,7 @@ export interface DealFieldsApiUpdateDealFieldRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {UpdateFieldRequest}
      * @memberof DealFieldsApiUpdateDealField
      */
@@ -35864,7 +35875,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * Adds a new deal. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the dealFields and look for `key` values. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/creating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">adding a deal</a>.
          * @summary Add a deal
-         * @param {AddDealRequest} [AddDealRequest] 
+         * @param {AddDealRequest} [AddDealRequest]
 
          * @throws {RequiredError}
          */
@@ -35889,7 +35900,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -35906,7 +35917,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * Adds a follower to a deal.
          * @summary Add a follower to a deal
          * @param {number} id The ID of the deal
-         * @param {AddDealFollowerRequest} [AddDealFollowerRequest] 
+         * @param {AddDealFollowerRequest} [AddDealFollowerRequest]
 
          * @throws {RequiredError}
          */
@@ -35934,7 +35945,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -35951,7 +35962,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * Adds a participant to a deal.
          * @summary Add a participant to a deal
          * @param {number} id The ID of the deal
-         * @param {AddDealParticipantRequest} [AddDealParticipantRequest] 
+         * @param {AddDealParticipantRequest} [AddDealParticipantRequest]
 
          * @throws {RequiredError}
          */
@@ -35979,7 +35990,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -35996,7 +36007,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * Adds a product to a deal, creating a new item called a deal-product.
          * @summary Add a product to a deal
          * @param {number} id The ID of the deal
-         * @param {AddDealProductRequest} [AddDealProductRequest] 
+         * @param {AddDealProductRequest} [AddDealProductRequest]
 
          * @throws {RequiredError}
          */
@@ -36024,7 +36035,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "products:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -36068,7 +36079,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -36113,7 +36124,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -36158,7 +36169,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -36203,7 +36214,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "products:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -36247,7 +36258,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -36288,7 +36299,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -36329,7 +36340,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -36390,7 +36401,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -36446,7 +36457,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -36487,7 +36498,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -36538,7 +36549,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -36589,7 +36600,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -36640,7 +36651,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -36696,7 +36707,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -36757,7 +36768,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -36794,7 +36805,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -36871,7 +36882,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -36943,7 +36954,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -37000,7 +37011,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -37092,7 +37103,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -37106,7 +37117,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * Merges a deal with another deal. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/merging-two-deals\" target=\"_blank\" rel=\"noopener noreferrer\">merging two deals</a>.
          * @summary Merge two deals
          * @param {number} id The ID of the deal
-         * @param {MergeDealsRequest} [MergeDealsRequest] 
+         * @param {MergeDealsRequest} [MergeDealsRequest]
 
          * @throws {RequiredError}
          */
@@ -37134,7 +37145,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -37221,7 +37232,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -37235,7 +37246,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * Updates the properties of a deal. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/updating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">updating a deal</a>.
          * @summary Update a deal
          * @param {number} id The ID of the deal
-         * @param {UpdateDealRequest} [UpdateDealRequest] 
+         * @param {UpdateDealRequest} [UpdateDealRequest]
 
          * @throws {RequiredError}
          */
@@ -37263,7 +37274,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -37281,7 +37292,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * @summary Update the product attached to a deal
          * @param {number} id The ID of the deal
          * @param {number} product_attachment_id The ID of the deal-product (the ID of the product attached to the deal)
-         * @param {UpdateDealProductRequest} [UpdateDealProductRequest] 
+         * @param {UpdateDealProductRequest} [UpdateDealProductRequest]
 
          * @throws {RequiredError}
          */
@@ -37308,7 +37319,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -37345,7 +37356,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
         /**
          * Adds a new deal. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the dealFields and look for `key` values. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/creating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">adding a deal</a>.
          * @summary Add a deal
-         * @param {AddDealRequest} [AddDealRequest] 
+         * @param {AddDealRequest} [AddDealRequest]
 
          * @throws {RequiredError}
          */
@@ -37357,7 +37368,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * Adds a follower to a deal.
          * @summary Add a follower to a deal
          * @param {number} id The ID of the deal
-         * @param {AddDealFollowerRequest} [AddDealFollowerRequest] 
+         * @param {AddDealFollowerRequest} [AddDealFollowerRequest]
 
          * @throws {RequiredError}
          */
@@ -37369,7 +37380,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * Adds a participant to a deal.
          * @summary Add a participant to a deal
          * @param {number} id The ID of the deal
-         * @param {AddDealParticipantRequest} [AddDealParticipantRequest] 
+         * @param {AddDealParticipantRequest} [AddDealParticipantRequest]
 
          * @throws {RequiredError}
          */
@@ -37381,7 +37392,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * Adds a product to a deal, creating a new item called a deal-product.
          * @summary Add a product to a deal
          * @param {number} id The ID of the deal
-         * @param {AddDealProductRequest} [AddDealProductRequest] 
+         * @param {AddDealProductRequest} [AddDealProductRequest]
 
          * @throws {RequiredError}
          */
@@ -37660,7 +37671,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * Merges a deal with another deal. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/merging-two-deals\" target=\"_blank\" rel=\"noopener noreferrer\">merging two deals</a>.
          * @summary Merge two deals
          * @param {number} id The ID of the deal
-         * @param {MergeDealsRequest} [MergeDealsRequest] 
+         * @param {MergeDealsRequest} [MergeDealsRequest]
 
          * @throws {RequiredError}
          */
@@ -37691,7 +37702,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * Updates the properties of a deal. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/updating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">updating a deal</a>.
          * @summary Update a deal
          * @param {number} id The ID of the deal
-         * @param {UpdateDealRequest} [UpdateDealRequest] 
+         * @param {UpdateDealRequest} [UpdateDealRequest]
 
          * @throws {RequiredError}
          */
@@ -37704,7 +37715,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * @summary Update the product attached to a deal
          * @param {number} id The ID of the deal
          * @param {number} product_attachment_id The ID of the deal-product (the ID of the product attached to the deal)
-         * @param {UpdateDealProductRequest} [UpdateDealProductRequest] 
+         * @param {UpdateDealProductRequest} [UpdateDealProductRequest]
 
          * @throws {RequiredError}
          */
@@ -38012,7 +38023,7 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
  */
 export interface DealsApiAddDealRequest {
     /**
-     * 
+     *
      * @type {AddDealRequest}
      * @memberof DealsApiAddDeal
      */
@@ -38033,7 +38044,7 @@ export interface DealsApiAddDealFollowerRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {AddDealFollowerRequest}
      * @memberof DealsApiAddDealFollower
      */
@@ -38054,7 +38065,7 @@ export interface DealsApiAddDealParticipantRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {AddDealParticipantRequest}
      * @memberof DealsApiAddDealParticipant
      */
@@ -38075,7 +38086,7 @@ export interface DealsApiAddDealProductRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {AddDealProductRequest}
      * @memberof DealsApiAddDealProduct
      */
@@ -38705,7 +38716,7 @@ export interface DealsApiMergeDealsRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {MergeDealsRequest}
      * @memberof DealsApiMergeDeals
      */
@@ -38796,7 +38807,7 @@ export interface DealsApiUpdateDealRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {UpdateDealRequest}
      * @memberof DealsApiUpdateDeal
      */
@@ -38824,7 +38835,7 @@ export interface DealsApiUpdateDealProductRequest {
     readonly product_attachment_id: number
 
     /**
-     * 
+     *
      * @type {UpdateDealProductRequest}
      * @memberof DealsApiUpdateDealProduct
      */
@@ -39219,37 +39230,37 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "activities:full", "contacts:full"], configuration)
 
 
-            if (file !== undefined) { 
+            if (file !== undefined) {
                 localVarFormParams.append('file', file as any);
             }
-    
-            if (deal_id !== undefined) { 
+
+            if (deal_id !== undefined) {
                 localVarFormParams.append('deal_id', deal_id as any);
             }
-    
-            if (person_id !== undefined) { 
+
+            if (person_id !== undefined) {
                 localVarFormParams.append('person_id', person_id as any);
             }
-    
-            if (org_id !== undefined) { 
+
+            if (org_id !== undefined) {
                 localVarFormParams.append('org_id', org_id as any);
             }
-    
-            if (product_id !== undefined) { 
+
+            if (product_id !== undefined) {
                 localVarFormParams.append('product_id', product_id as any);
             }
-    
-            if (activity_id !== undefined) { 
+
+            if (activity_id !== undefined) {
                 localVarFormParams.append('activity_id', activity_id as any);
             }
-    
-            if (lead_id !== undefined) { 
+
+            if (lead_id !== undefined) {
                 localVarFormParams.append('lead_id', lead_id as any);
             }
-    
-    
+
+
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -39303,29 +39314,29 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "activities:full", "contacts:full"], configuration)
 
 
-            if (file_type !== undefined) { 
+            if (file_type !== undefined) {
                 localVarFormParams.set('file_type', file_type as any);
             }
-    
-            if (title !== undefined) { 
+
+            if (title !== undefined) {
                 localVarFormParams.set('title', title as any);
             }
-    
-            if (item_type !== undefined) { 
+
+            if (item_type !== undefined) {
                 localVarFormParams.set('item_type', item_type as any);
             }
-    
-            if (item_id !== undefined) { 
+
+            if (item_id !== undefined) {
                 localVarFormParams.set('item_id', item_id as any);
             }
-    
-            if (remote_location !== undefined) { 
+
+            if (remote_location !== undefined) {
                 localVarFormParams.set('remote_location', remote_location as any);
             }
-    
-    
+
+
             localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -39367,7 +39378,7 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "activities:full", "contacts:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -39408,7 +39419,7 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full", "activities:read", "activities:full", "contacts:read", "contacts:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -39449,7 +39460,7 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full", "activities:read", "activities:full", "contacts:read", "contacts:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -39501,7 +39512,7 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -39551,25 +39562,25 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "activities:full", "contacts:full"], configuration)
 
 
-            if (item_type !== undefined) { 
+            if (item_type !== undefined) {
                 localVarFormParams.set('item_type', item_type as any);
             }
-    
-            if (item_id !== undefined) { 
+
+            if (item_id !== undefined) {
                 localVarFormParams.set('item_id', item_id as any);
             }
-    
-            if (remote_id !== undefined) { 
+
+            if (remote_id !== undefined) {
                 localVarFormParams.set('remote_id', remote_id as any);
             }
-    
-            if (remote_location !== undefined) { 
+
+            if (remote_location !== undefined) {
                 localVarFormParams.set('remote_location', remote_location as any);
             }
-    
-    
+
+
             localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -39614,17 +39625,17 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "activities:full", "contacts:full"], configuration)
 
 
-            if (name !== undefined) { 
+            if (name !== undefined) {
                 localVarFormParams.set('name', name as any);
             }
-    
-            if (description !== undefined) { 
+
+            if (description !== undefined) {
                 localVarFormParams.set('description', description as any);
             }
-    
-    
+
+
             localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -40199,7 +40210,7 @@ export const FiltersApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * Adds a new filter, returns the ID upon success. Note that in the conditions JSON object only one first-level condition group is supported, and it must be glued with \'AND\', and only two second level condition groups are supported of which one must be glued with \'AND\' and the second with \'OR\'. Other combinations do not work (yet) but the syntax supports introducing them in future. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-filter\" target=\"_blank\" rel=\"noopener noreferrer\">adding a filter</a>.
          * @summary Add a new filter
-         * @param {AddFilterRequest} [AddFilterRequest] 
+         * @param {AddFilterRequest} [AddFilterRequest]
 
          * @throws {RequiredError}
          */
@@ -40224,7 +40235,7 @@ export const FiltersApiAxiosParamCreator = function (configuration?: Configurati
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "activities:full", "contacts:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -40268,7 +40279,7 @@ export const FiltersApiAxiosParamCreator = function (configuration?: Configurati
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "activities:full", "contacts:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -40312,7 +40323,7 @@ export const FiltersApiAxiosParamCreator = function (configuration?: Configurati
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -40353,7 +40364,7 @@ export const FiltersApiAxiosParamCreator = function (configuration?: Configurati
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full", "activities:read", "activities:full", "contacts:read", "contacts:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -40386,7 +40397,7 @@ export const FiltersApiAxiosParamCreator = function (configuration?: Configurati
             await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -40428,7 +40439,7 @@ export const FiltersApiAxiosParamCreator = function (configuration?: Configurati
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -40442,7 +40453,7 @@ export const FiltersApiAxiosParamCreator = function (configuration?: Configurati
          * Updates an existing filter.
          * @summary Update filter
          * @param {number} id The ID of the filter
-         * @param {UpdateFilterRequest} [UpdateFilterRequest] 
+         * @param {UpdateFilterRequest} [UpdateFilterRequest]
 
          * @throws {RequiredError}
          */
@@ -40470,7 +40481,7 @@ export const FiltersApiAxiosParamCreator = function (configuration?: Configurati
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "activities:full", "contacts:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -40507,7 +40518,7 @@ export const FiltersApiFp = function(configuration?: Configuration) {
         /**
          * Adds a new filter, returns the ID upon success. Note that in the conditions JSON object only one first-level condition group is supported, and it must be glued with \'AND\', and only two second level condition groups are supported of which one must be glued with \'AND\' and the second with \'OR\'. Other combinations do not work (yet) but the syntax supports introducing them in future. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-filter\" target=\"_blank\" rel=\"noopener noreferrer\">adding a filter</a>.
          * @summary Add a new filter
-         * @param {AddFilterRequest} [AddFilterRequest] 
+         * @param {AddFilterRequest} [AddFilterRequest]
 
          * @throws {RequiredError}
          */
@@ -40573,7 +40584,7 @@ export const FiltersApiFp = function(configuration?: Configuration) {
          * Updates an existing filter.
          * @summary Update filter
          * @param {number} id The ID of the filter
-         * @param {UpdateFilterRequest} [UpdateFilterRequest] 
+         * @param {UpdateFilterRequest} [UpdateFilterRequest]
 
          * @throws {RequiredError}
          */
@@ -40670,7 +40681,7 @@ export const FiltersApiFactory = function (configuration?: Configuration, basePa
  */
 export interface FiltersApiAddFilterRequest {
     /**
-     * 
+     *
      * @type {AddFilterRequest}
      * @memberof FiltersApiAddFilter
      */
@@ -40747,7 +40758,7 @@ export interface FiltersApiUpdateFilterRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {UpdateFilterRequest}
      * @memberof FiltersApiUpdateFilter
      */
@@ -40855,7 +40866,7 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * Adds a new goal. Along with adding a new goal, a report is created to track the progress of your goal.
          * @summary Add a new goal
-         * @param {AddGoalRequest} [AddGoalRequest] 
+         * @param {AddGoalRequest} [AddGoalRequest]
 
          * @throws {RequiredError}
          */
@@ -40880,7 +40891,7 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["goals:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -40924,7 +40935,7 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["goals:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -40938,8 +40949,8 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
          * Gets the progress of a goal for the specified period.
          * @summary Get result of a goal
          * @param {string} id The ID of the goal that the results are looked for
-         * @param {string} period_start The start date of the period for which to find the goal\&#39;s progress. Format: YYYY-MM-DD. This date must be the same or after the goal duration start date. 
-         * @param {string} period_end The end date of the period for which to find the goal\&#39;s progress. Format: YYYY-MM-DD. This date must be the same or before the goal duration end date. 
+         * @param {string} period_start The start date of the period for which to find the goal\&#39;s progress. Format: YYYY-MM-DD. This date must be the same or after the goal duration start date.
+         * @param {string} period_end The end date of the period for which to find the goal\&#39;s progress. Format: YYYY-MM-DD. This date must be the same or before the goal duration end date.
 
          * @throws {RequiredError}
          */
@@ -40983,7 +40994,7 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -41089,7 +41100,7 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -41103,7 +41114,7 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
          * Updates an existing goal.
          * @summary Update existing goal
          * @param {string} id The ID of the goal
-         * @param {BasicGoalRequest} [BasicGoalRequest] 
+         * @param {BasicGoalRequest} [BasicGoalRequest]
 
          * @throws {RequiredError}
          */
@@ -41131,7 +41142,7 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["goals:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -41168,7 +41179,7 @@ export const GoalsApiFp = function(configuration?: Configuration) {
         /**
          * Adds a new goal. Along with adding a new goal, a report is created to track the progress of your goal.
          * @summary Add a new goal
-         * @param {AddGoalRequest} [AddGoalRequest] 
+         * @param {AddGoalRequest} [AddGoalRequest]
 
          * @throws {RequiredError}
          */
@@ -41191,8 +41202,8 @@ export const GoalsApiFp = function(configuration?: Configuration) {
          * Gets the progress of a goal for the specified period.
          * @summary Get result of a goal
          * @param {string} id The ID of the goal that the results are looked for
-         * @param {string} period_start The start date of the period for which to find the goal\&#39;s progress. Format: YYYY-MM-DD. This date must be the same or after the goal duration start date. 
-         * @param {string} period_end The end date of the period for which to find the goal\&#39;s progress. Format: YYYY-MM-DD. This date must be the same or before the goal duration end date. 
+         * @param {string} period_start The start date of the period for which to find the goal\&#39;s progress. Format: YYYY-MM-DD. This date must be the same or after the goal duration start date.
+         * @param {string} period_end The end date of the period for which to find the goal\&#39;s progress. Format: YYYY-MM-DD. This date must be the same or before the goal duration end date.
 
          * @throws {RequiredError}
          */
@@ -41227,7 +41238,7 @@ export const GoalsApiFp = function(configuration?: Configuration) {
          * Updates an existing goal.
          * @summary Update existing goal
          * @param {string} id The ID of the goal
-         * @param {BasicGoalRequest} [BasicGoalRequest] 
+         * @param {BasicGoalRequest} [BasicGoalRequest]
 
          * @throws {RequiredError}
          */
@@ -41305,7 +41316,7 @@ export const GoalsApiFactory = function (configuration?: Configuration, basePath
  */
 export interface GoalsApiAddGoalRequest {
     /**
-     * 
+     *
      * @type {AddGoalRequest}
      * @memberof GoalsApiAddGoal
      */
@@ -41340,14 +41351,14 @@ export interface GoalsApiGetGoalResultRequest {
     readonly id: string
 
     /**
-     * The start date of the period for which to find the goal\&#39;s progress. Format: YYYY-MM-DD. This date must be the same or after the goal duration start date. 
+     * The start date of the period for which to find the goal\&#39;s progress. Format: YYYY-MM-DD. This date must be the same or after the goal duration start date.
      * @type {string}
      * @memberof GoalsApiGetGoalResult
      */
     readonly period_start: string
 
     /**
-     * The end date of the period for which to find the goal\&#39;s progress. Format: YYYY-MM-DD. This date must be the same or before the goal duration end date. 
+     * The end date of the period for which to find the goal\&#39;s progress. Format: YYYY-MM-DD. This date must be the same or before the goal duration end date.
      * @type {string}
      * @memberof GoalsApiGetGoalResult
      */
@@ -41466,7 +41477,7 @@ export interface GoalsApiUpdateGoalRequest {
     readonly id: string
 
     /**
-     * 
+     *
      * @type {BasicGoalRequest}
      * @memberof GoalsApiUpdateGoal
      */
@@ -41617,7 +41628,7 @@ export const ItemSearchApiAxiosParamCreator = function (configuration?: Configur
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -41695,7 +41706,7 @@ export const ItemSearchApiAxiosParamCreator = function (configuration?: Configur
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -41955,7 +41966,7 @@ export const LeadLabelsApiAxiosParamCreator = function (configuration?: Configur
         /**
          * Creates a lead label.
          * @summary Add a lead label
-         * @param {AddLeadLabelRequest} [AddLeadLabelRequest] 
+         * @param {AddLeadLabelRequest} [AddLeadLabelRequest]
 
          * @throws {RequiredError}
          */
@@ -41980,7 +41991,7 @@ export const LeadLabelsApiAxiosParamCreator = function (configuration?: Configur
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["leads:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -42024,7 +42035,7 @@ export const LeadLabelsApiAxiosParamCreator = function (configuration?: Configur
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["leads:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -42061,7 +42072,7 @@ export const LeadLabelsApiAxiosParamCreator = function (configuration?: Configur
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["leads:read", "leads:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -42072,10 +42083,10 @@ export const LeadLabelsApiAxiosParamCreator = function (configuration?: Configur
             };
         },
         /**
-         * Updates one or more properties of a lead label. Only properties included in the request will be updated. 
+         * Updates one or more properties of a lead label. Only properties included in the request will be updated.
          * @summary Update a lead label
          * @param {string} id The ID of the lead label
-         * @param {UpdateLeadLabelRequest} [UpdateLeadLabelRequest] 
+         * @param {UpdateLeadLabelRequest} [UpdateLeadLabelRequest]
 
          * @throws {RequiredError}
          */
@@ -42103,7 +42114,7 @@ export const LeadLabelsApiAxiosParamCreator = function (configuration?: Configur
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["leads:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -42140,7 +42151,7 @@ export const LeadLabelsApiFp = function(configuration?: Configuration) {
         /**
          * Creates a lead label.
          * @summary Add a lead label
-         * @param {AddLeadLabelRequest} [AddLeadLabelRequest] 
+         * @param {AddLeadLabelRequest} [AddLeadLabelRequest]
 
          * @throws {RequiredError}
          */
@@ -42170,10 +42181,10 @@ export const LeadLabelsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Updates one or more properties of a lead label. Only properties included in the request will be updated. 
+         * Updates one or more properties of a lead label. Only properties included in the request will be updated.
          * @summary Update a lead label
          * @param {string} id The ID of the lead label
-         * @param {UpdateLeadLabelRequest} [UpdateLeadLabelRequest] 
+         * @param {UpdateLeadLabelRequest} [UpdateLeadLabelRequest]
 
          * @throws {RequiredError}
          */
@@ -42221,7 +42232,7 @@ export const LeadLabelsApiFactory = function (configuration?: Configuration, bas
             return localVarFp.getLeadLabels().then((request) => request(axios, basePath));
         },
         /**
-         * Updates one or more properties of a lead label. Only properties included in the request will be updated. 
+         * Updates one or more properties of a lead label. Only properties included in the request will be updated.
          * @summary Update a lead label
          * @param {LeadLabelsApiUpdateLeadLabelRequest} requestParameters Request parameters.
 
@@ -42240,7 +42251,7 @@ export const LeadLabelsApiFactory = function (configuration?: Configuration, bas
  */
 export interface LeadLabelsApiAddLeadLabelRequest {
     /**
-     * 
+     *
      * @type {AddLeadLabelRequest}
      * @memberof LeadLabelsApiAddLeadLabel
      */
@@ -42275,7 +42286,7 @@ export interface LeadLabelsApiUpdateLeadLabelRequest {
     readonly id: string
 
     /**
-     * 
+     *
      * @type {UpdateLeadLabelRequest}
      * @memberof LeadLabelsApiUpdateLeadLabel
      */
@@ -42325,7 +42336,7 @@ export class LeadLabelsApi extends BaseAPI {
     }
 
     /**
-     * Updates one or more properties of a lead label. Only properties included in the request will be updated. 
+     * Updates one or more properties of a lead label. Only properties included in the request will be updated.
      * @summary Update a lead label
      * @param {LeadLabelsApiUpdateLeadLabelRequest} requestParameters Request parameters.
 
@@ -42345,7 +42356,7 @@ export class LeadLabelsApi extends BaseAPI {
 export const LeadSourcesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Returns all lead sources. Please note that the list of lead sources is fixed, it cannot be modified. All leads created through the Pipedrive API will have a lead source `API` assigned. 
+         * Returns all lead sources. Please note that the list of lead sources is fixed, it cannot be modified. All leads created through the Pipedrive API will have a lead source `API` assigned.
          * @summary Get all lead sources
 
          * @throws {RequiredError}
@@ -42371,7 +42382,7 @@ export const LeadSourcesApiAxiosParamCreator = function (configuration?: Configu
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["leads:read", "leads:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -42403,7 +42414,7 @@ export const LeadSourcesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = LeadSourcesApiAxiosParamCreator(configuration)
     return {
         /**
-         * Returns all lead sources. Please note that the list of lead sources is fixed, it cannot be modified. All leads created through the Pipedrive API will have a lead source `API` assigned. 
+         * Returns all lead sources. Please note that the list of lead sources is fixed, it cannot be modified. All leads created through the Pipedrive API will have a lead source `API` assigned.
          * @summary Get all lead sources
 
          * @throws {RequiredError}
@@ -42423,7 +42434,7 @@ export const LeadSourcesApiFactory = function (configuration?: Configuration, ba
     const localVarFp = LeadSourcesApiFp(configuration)
     return {
         /**
-         * Returns all lead sources. Please note that the list of lead sources is fixed, it cannot be modified. All leads created through the Pipedrive API will have a lead source `API` assigned. 
+         * Returns all lead sources. Please note that the list of lead sources is fixed, it cannot be modified. All leads created through the Pipedrive API will have a lead source `API` assigned.
          * @summary Get all lead sources
 
          * @throws {RequiredError}
@@ -42442,7 +42453,7 @@ export const LeadSourcesApiFactory = function (configuration?: Configuration, ba
  */
 export class LeadSourcesApi extends BaseAPI {
     /**
-     * Returns all lead sources. Please note that the list of lead sources is fixed, it cannot be modified. All leads created through the Pipedrive API will have a lead source `API` assigned. 
+     * Returns all lead sources. Please note that the list of lead sources is fixed, it cannot be modified. All leads created through the Pipedrive API will have a lead source `API` assigned.
      * @summary Get all lead sources
 
      * @throws {RequiredError}
@@ -42463,7 +42474,7 @@ export const LeadsApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * Creates a lead. A lead always has to be linked to a person or an organization or both. All leads created through the Pipedrive API will have a lead source `API` assigned. Here\'s the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-lead\" target=\"_blank\" rel=\"noopener noreferrer\">adding a lead</a>. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields\' structure from deals. See an example given in the <a href=\"https://pipedrive.readme.io/docs/updating-custom-field-value\" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields\' values tutorial</a>.
          * @summary Add a lead
-         * @param {AddLeadRequest} [AddLeadRequest] 
+         * @param {AddLeadRequest} [AddLeadRequest]
 
          * @throws {RequiredError}
          */
@@ -42488,7 +42499,7 @@ export const LeadsApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["leads:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -42532,7 +42543,7 @@ export const LeadsApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["leads:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -42573,7 +42584,7 @@ export const LeadsApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["leads:read", "leads:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -42610,7 +42621,7 @@ export const LeadsApiAxiosParamCreator = function (configuration?: Configuration
             await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -42621,7 +42632,7 @@ export const LeadsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Returns multiple leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields\' structure from deals. 
+         * Returns multiple leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields\' structure from deals.
          * @summary Get all leads
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned.
          * @param {number} [start] For pagination, the position that represents the first result for the page
@@ -42687,7 +42698,7 @@ export const LeadsApiAxiosParamCreator = function (configuration?: Configuration
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -42766,7 +42777,7 @@ export const LeadsApiAxiosParamCreator = function (configuration?: Configuration
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -42780,7 +42791,7 @@ export const LeadsApiAxiosParamCreator = function (configuration?: Configuration
          * Updates one or more properties of a lead. Only properties included in the request will be updated. Send `null` to unset a property (applicable for example for `value`, `person_id` or `organization_id`). If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from deals. See an example given in the <a href=\"https://pipedrive.readme.io/docs/updating-custom-field-value\" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields’ values tutorial</a>.
          * @summary Update a lead
          * @param {string} id The ID of the lead
-         * @param {UpdateLeadRequest} [UpdateLeadRequest] 
+         * @param {UpdateLeadRequest} [UpdateLeadRequest]
 
          * @throws {RequiredError}
          */
@@ -42808,7 +42819,7 @@ export const LeadsApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["leads:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -42845,7 +42856,7 @@ export const LeadsApiFp = function(configuration?: Configuration) {
         /**
          * Creates a lead. A lead always has to be linked to a person or an organization or both. All leads created through the Pipedrive API will have a lead source `API` assigned. Here\'s the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-lead\" target=\"_blank\" rel=\"noopener noreferrer\">adding a lead</a>. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields\' structure from deals. See an example given in the <a href=\"https://pipedrive.readme.io/docs/updating-custom-field-value\" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields\' values tutorial</a>.
          * @summary Add a lead
-         * @param {AddLeadRequest} [AddLeadRequest] 
+         * @param {AddLeadRequest} [AddLeadRequest]
 
          * @throws {RequiredError}
          */
@@ -42887,7 +42898,7 @@ export const LeadsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns multiple leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields\' structure from deals. 
+         * Returns multiple leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields\' structure from deals.
          * @summary Get all leads
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned.
          * @param {number} [start] For pagination, the position that represents the first result for the page
@@ -42926,7 +42937,7 @@ export const LeadsApiFp = function(configuration?: Configuration) {
          * Updates one or more properties of a lead. Only properties included in the request will be updated. Send `null` to unset a property (applicable for example for `value`, `person_id` or `organization_id`). If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from deals. See an example given in the <a href=\"https://pipedrive.readme.io/docs/updating-custom-field-value\" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields’ values tutorial</a>.
          * @summary Update a lead
          * @param {string} id The ID of the lead
-         * @param {UpdateLeadRequest} [UpdateLeadRequest] 
+         * @param {UpdateLeadRequest} [UpdateLeadRequest]
 
          * @throws {RequiredError}
          */
@@ -42985,7 +42996,7 @@ export const LeadsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.getLeadUsers(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
-         * Returns multiple leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields\' structure from deals. 
+         * Returns multiple leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields\' structure from deals.
          * @summary Get all leads
          * @param {LeadsApiGetLeadsRequest} requestParameters Request parameters.
 
@@ -43024,7 +43035,7 @@ export const LeadsApiFactory = function (configuration?: Configuration, basePath
  */
 export interface LeadsApiAddLeadRequest {
     /**
-     * 
+     *
      * @type {AddLeadRequest}
      * @memberof LeadsApiAddLead
      */
@@ -43213,7 +43224,7 @@ export interface LeadsApiUpdateLeadRequest {
     readonly id: string
 
     /**
-     * 
+     *
      * @type {UpdateLeadRequest}
      * @memberof LeadsApiUpdateLead
      */
@@ -43276,7 +43287,7 @@ export class LeadsApi extends BaseAPI {
     }
 
     /**
-     * Returns multiple leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields\' structure from deals. 
+     * Returns multiple leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields\' structure from deals.
      * @summary Get all leads
      * @param {LeadsApiGetLeadsRequest} requestParameters Request parameters.
 
@@ -43322,7 +43333,7 @@ export const LegacyTeamsApiAxiosParamCreator = function (configuration?: Configu
         /**
          * Adds a new team to the company and returns the created object.
          * @summary Add a new team
-         * @param {AddTeamRequest1} [AddTeamRequest1] 
+         * @param {AddTeamRequest1} [AddTeamRequest1]
          * @deprecated
          * @throws {RequiredError}
          */
@@ -43347,7 +43358,7 @@ export const LegacyTeamsApiAxiosParamCreator = function (configuration?: Configu
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -43364,7 +43375,7 @@ export const LegacyTeamsApiAxiosParamCreator = function (configuration?: Configu
          * Adds users to an existing team.
          * @summary Add users to a team
          * @param {number} id The ID of the team
-         * @param {AddTeamUserRequest} [AddTeamUserRequest] 
+         * @param {AddTeamUserRequest} [AddTeamUserRequest]
          * @deprecated
          * @throws {RequiredError}
          */
@@ -43392,7 +43403,7 @@ export const LegacyTeamsApiAxiosParamCreator = function (configuration?: Configu
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -43409,7 +43420,7 @@ export const LegacyTeamsApiAxiosParamCreator = function (configuration?: Configu
          * Deletes users from an existing team.
          * @summary Delete users from a team
          * @param {number} id The ID of the team
-         * @param {DeleteTeamUserRequest} [DeleteTeamUserRequest] 
+         * @param {DeleteTeamUserRequest} [DeleteTeamUserRequest]
          * @deprecated
          * @throws {RequiredError}
          */
@@ -43437,7 +43448,7 @@ export const LegacyTeamsApiAxiosParamCreator = function (configuration?: Configu
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -43486,7 +43497,7 @@ export const LegacyTeamsApiAxiosParamCreator = function (configuration?: Configu
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -43527,7 +43538,7 @@ export const LegacyTeamsApiAxiosParamCreator = function (configuration?: Configu
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["users:read"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -43574,7 +43585,7 @@ export const LegacyTeamsApiAxiosParamCreator = function (configuration?: Configu
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -43625,7 +43636,7 @@ export const LegacyTeamsApiAxiosParamCreator = function (configuration?: Configu
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -43639,7 +43650,7 @@ export const LegacyTeamsApiAxiosParamCreator = function (configuration?: Configu
          * Updates an existing team and returns the updated object.
          * @summary Update a team
          * @param {number} id The ID of the team
-         * @param {UpdateTeamRequest} [UpdateTeamRequest] 
+         * @param {UpdateTeamRequest} [UpdateTeamRequest]
          * @deprecated
          * @throws {RequiredError}
          */
@@ -43667,7 +43678,7 @@ export const LegacyTeamsApiAxiosParamCreator = function (configuration?: Configu
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -43704,7 +43715,7 @@ export const LegacyTeamsApiFp = function(configuration?: Configuration) {
         /**
          * Adds a new team to the company and returns the created object.
          * @summary Add a new team
-         * @param {AddTeamRequest1} [AddTeamRequest1] 
+         * @param {AddTeamRequest1} [AddTeamRequest1]
          * @deprecated
          * @throws {RequiredError}
          */
@@ -43716,7 +43727,7 @@ export const LegacyTeamsApiFp = function(configuration?: Configuration) {
          * Adds users to an existing team.
          * @summary Add users to a team
          * @param {number} id The ID of the team
-         * @param {AddTeamUserRequest} [AddTeamUserRequest] 
+         * @param {AddTeamUserRequest} [AddTeamUserRequest]
          * @deprecated
          * @throws {RequiredError}
          */
@@ -43728,7 +43739,7 @@ export const LegacyTeamsApiFp = function(configuration?: Configuration) {
          * Deletes users from an existing team.
          * @summary Delete users from a team
          * @param {number} id The ID of the team
-         * @param {DeleteTeamUserRequest} [DeleteTeamUserRequest] 
+         * @param {DeleteTeamUserRequest} [DeleteTeamUserRequest]
          * @deprecated
          * @throws {RequiredError}
          */
@@ -43788,7 +43799,7 @@ export const LegacyTeamsApiFp = function(configuration?: Configuration) {
          * Updates an existing team and returns the updated object.
          * @summary Update a team
          * @param {number} id The ID of the team
-         * @param {UpdateTeamRequest} [UpdateTeamRequest] 
+         * @param {UpdateTeamRequest} [UpdateTeamRequest]
          * @deprecated
          * @throws {RequiredError}
          */
@@ -43896,7 +43907,7 @@ export const LegacyTeamsApiFactory = function (configuration?: Configuration, ba
  */
 export interface LegacyTeamsApiAddTeamRequest {
     /**
-     * 
+     *
      * @type {AddTeamRequest1}
      * @memberof LegacyTeamsApiAddTeam
      */
@@ -43917,7 +43928,7 @@ export interface LegacyTeamsApiAddTeamUserRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {AddTeamUserRequest}
      * @memberof LegacyTeamsApiAddTeamUser
      */
@@ -43938,7 +43949,7 @@ export interface LegacyTeamsApiDeleteTeamUserRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {DeleteTeamUserRequest}
      * @memberof LegacyTeamsApiDeleteTeamUser
      */
@@ -44043,7 +44054,7 @@ export interface LegacyTeamsApiUpdateTeamRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {UpdateTeamRequest}
      * @memberof LegacyTeamsApiUpdateTeam
      */
@@ -44192,7 +44203,7 @@ export const MailboxApiAxiosParamCreator = function (configuration?: Configurati
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["mail:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -44238,7 +44249,7 @@ export const MailboxApiAxiosParamCreator = function (configuration?: Configurati
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -44279,7 +44290,7 @@ export const MailboxApiAxiosParamCreator = function (configuration?: Configurati
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["mail:read", "mail:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -44320,7 +44331,7 @@ export const MailboxApiAxiosParamCreator = function (configuration?: Configurati
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["mail:read", "mail:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -44374,7 +44385,7 @@ export const MailboxApiAxiosParamCreator = function (configuration?: Configurati
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -44390,9 +44401,9 @@ export const MailboxApiAxiosParamCreator = function (configuration?: Configurati
          * @param {number} id The ID of the mail thread
          * @param {number} [deal_id] The ID of the deal this thread is associated with
          * @param {string} [lead_id] The ID of the lead this thread is associated with
-         * @param {number} [shared_flag] 
-         * @param {number} [read_flag] 
-         * @param {number} [archived_flag] 
+         * @param {number} [shared_flag]
+         * @param {number} [read_flag]
+         * @param {number} [archived_flag]
 
          * @throws {RequiredError}
          */
@@ -44421,29 +44432,29 @@ export const MailboxApiAxiosParamCreator = function (configuration?: Configurati
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["mail:full"], configuration)
 
 
-            if (deal_id !== undefined) { 
+            if (deal_id !== undefined) {
                 localVarFormParams.set('deal_id', deal_id as any);
             }
-    
-            if (lead_id !== undefined) { 
+
+            if (lead_id !== undefined) {
                 localVarFormParams.set('lead_id', lead_id as any);
             }
-    
-            if (shared_flag !== undefined) { 
+
+            if (shared_flag !== undefined) {
                 localVarFormParams.set('shared_flag', shared_flag as any);
             }
-    
-            if (read_flag !== undefined) { 
+
+            if (read_flag !== undefined) {
                 localVarFormParams.set('read_flag', read_flag as any);
             }
-    
-            if (archived_flag !== undefined) { 
+
+            if (archived_flag !== undefined) {
                 localVarFormParams.set('archived_flag', archived_flag as any);
             }
-    
-    
+
+
             localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -44539,9 +44550,9 @@ export const MailboxApiFp = function(configuration?: Configuration) {
          * @param {number} id The ID of the mail thread
          * @param {number} [deal_id] The ID of the deal this thread is associated with
          * @param {string} [lead_id] The ID of the lead this thread is associated with
-         * @param {number} [shared_flag] 
-         * @param {number} [read_flag] 
-         * @param {number} [archived_flag] 
+         * @param {number} [shared_flag]
+         * @param {number} [read_flag]
+         * @param {number} [archived_flag]
 
          * @throws {RequiredError}
          */
@@ -44741,21 +44752,21 @@ export interface MailboxApiUpdateMailThreadDetailsRequest {
     readonly lead_id?: string
 
     /**
-     * 
+     *
      * @type {number}
      * @memberof MailboxApiUpdateMailThreadDetails
      */
     readonly shared_flag?: number
 
     /**
-     * 
+     *
      * @type {number}
      * @memberof MailboxApiUpdateMailThreadDetails
      */
     readonly read_flag?: number
 
     /**
-     * 
+     *
      * @type {number}
      * @memberof MailboxApiUpdateMailThreadDetails
      */
@@ -44876,7 +44887,7 @@ export const NoteFieldsApiAxiosParamCreator = function (configuration?: Configur
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full", "contacts:read", "contacts:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -44968,7 +44979,7 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * Adds a new note.
          * @summary Add a note
-         * @param {AddNoteRequest} [AddNoteRequest] 
+         * @param {AddNoteRequest} [AddNoteRequest]
 
          * @throws {RequiredError}
          */
@@ -44993,7 +45004,7 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "contacts:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -45010,7 +45021,7 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
          * Adds a new comment to a note.
          * @summary Add a comment to a note
          * @param {number} id The ID of the note
-         * @param {CommentPostPutObject} [CommentPostPutObject] 
+         * @param {CommentPostPutObject} [CommentPostPutObject]
 
          * @throws {RequiredError}
          */
@@ -45038,7 +45049,7 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "contacts:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -45086,7 +45097,7 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "contacts:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -45127,7 +45138,7 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "contacts:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -45172,7 +45183,7 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full", "contacts:read", "contacts:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -45213,7 +45224,7 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full", "contacts:read", "contacts:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -45264,7 +45275,7 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -45375,7 +45386,7 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -45390,7 +45401,7 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
          * @summary Update a comment related to a note
          * @param {number} id The ID of the note
          * @param {string} commentId The ID of the comment
-         * @param {CommentPostPutObject} [CommentPostPutObject] 
+         * @param {CommentPostPutObject} [CommentPostPutObject]
 
          * @throws {RequiredError}
          */
@@ -45421,7 +45432,7 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "contacts:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -45438,7 +45449,7 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
          * Updates a note.
          * @summary Update a note
          * @param {number} id The ID of the note
-         * @param {NoteRequest} [NoteRequest] 
+         * @param {NoteRequest} [NoteRequest]
 
          * @throws {RequiredError}
          */
@@ -45466,7 +45477,7 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "contacts:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -45503,7 +45514,7 @@ export const NotesApiFp = function(configuration?: Configuration) {
         /**
          * Adds a new note.
          * @summary Add a note
-         * @param {AddNoteRequest} [AddNoteRequest] 
+         * @param {AddNoteRequest} [AddNoteRequest]
 
          * @throws {RequiredError}
          */
@@ -45515,7 +45526,7 @@ export const NotesApiFp = function(configuration?: Configuration) {
          * Adds a new comment to a note.
          * @summary Add a comment to a note
          * @param {number} id The ID of the note
-         * @param {CommentPostPutObject} [CommentPostPutObject] 
+         * @param {CommentPostPutObject} [CommentPostPutObject]
 
          * @throws {RequiredError}
          */
@@ -45611,7 +45622,7 @@ export const NotesApiFp = function(configuration?: Configuration) {
          * @summary Update a comment related to a note
          * @param {number} id The ID of the note
          * @param {string} commentId The ID of the comment
-         * @param {CommentPostPutObject} [CommentPostPutObject] 
+         * @param {CommentPostPutObject} [CommentPostPutObject]
 
          * @throws {RequiredError}
          */
@@ -45623,7 +45634,7 @@ export const NotesApiFp = function(configuration?: Configuration) {
          * Updates a note.
          * @summary Update a note
          * @param {number} id The ID of the note
-         * @param {NoteRequest} [NoteRequest] 
+         * @param {NoteRequest} [NoteRequest]
 
          * @throws {RequiredError}
          */
@@ -45751,7 +45762,7 @@ export const NotesApiFactory = function (configuration?: Configuration, basePath
  */
 export interface NotesApiAddNoteRequest {
     /**
-     * 
+     *
      * @type {AddNoteRequest}
      * @memberof NotesApiAddNote
      */
@@ -45772,7 +45783,7 @@ export interface NotesApiAddNoteCommentRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {CommentPostPutObject}
      * @memberof NotesApiAddNoteComment
      */
@@ -46003,7 +46014,7 @@ export interface NotesApiUpdateCommentForNoteRequest {
     readonly commentId: string
 
     /**
-     * 
+     *
      * @type {CommentPostPutObject}
      * @memberof NotesApiUpdateCommentForNote
      */
@@ -46024,7 +46035,7 @@ export interface NotesApiUpdateNoteRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {NoteRequest}
      * @memberof NotesApiUpdateNote
      */
@@ -46169,7 +46180,7 @@ export const OrganizationFieldsApiAxiosParamCreator = function (configuration?: 
         /**
          * Adds a new organization field. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-new-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">adding a new custom field</a>.
          * @summary Add a new organization field
-         * @param {CreateFieldRequest} [CreateFieldRequest] 
+         * @param {CreateFieldRequest} [CreateFieldRequest]
 
          * @throws {RequiredError}
          */
@@ -46194,7 +46205,7 @@ export const OrganizationFieldsApiAxiosParamCreator = function (configuration?: 
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -46238,7 +46249,7 @@ export const OrganizationFieldsApiAxiosParamCreator = function (configuration?: 
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -46282,7 +46293,7 @@ export const OrganizationFieldsApiAxiosParamCreator = function (configuration?: 
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -46323,7 +46334,7 @@ export const OrganizationFieldsApiAxiosParamCreator = function (configuration?: 
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full", "admin"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -46370,7 +46381,7 @@ export const OrganizationFieldsApiAxiosParamCreator = function (configuration?: 
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -46384,7 +46395,7 @@ export const OrganizationFieldsApiAxiosParamCreator = function (configuration?: 
          * Updates an organization field. For more information, see the tutorial for <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields\' values</a>.
          * @summary Update an organization field
          * @param {number} id The ID of the field
-         * @param {UpdateFieldRequest} [UpdateFieldRequest] 
+         * @param {UpdateFieldRequest} [UpdateFieldRequest]
 
          * @throws {RequiredError}
          */
@@ -46412,7 +46423,7 @@ export const OrganizationFieldsApiAxiosParamCreator = function (configuration?: 
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -46449,7 +46460,7 @@ export const OrganizationFieldsApiFp = function(configuration?: Configuration) {
         /**
          * Adds a new organization field. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-new-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">adding a new custom field</a>.
          * @summary Add a new organization field
-         * @param {CreateFieldRequest} [CreateFieldRequest] 
+         * @param {CreateFieldRequest} [CreateFieldRequest]
 
          * @throws {RequiredError}
          */
@@ -46506,7 +46517,7 @@ export const OrganizationFieldsApiFp = function(configuration?: Configuration) {
          * Updates an organization field. For more information, see the tutorial for <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields\' values</a>.
          * @summary Update an organization field
          * @param {number} id The ID of the field
-         * @param {UpdateFieldRequest} [UpdateFieldRequest] 
+         * @param {UpdateFieldRequest} [UpdateFieldRequest]
 
          * @throws {RequiredError}
          */
@@ -46594,7 +46605,7 @@ export const OrganizationFieldsApiFactory = function (configuration?: Configurat
  */
 export interface OrganizationFieldsApiAddOrganizationFieldRequest {
     /**
-     * 
+     *
      * @type {CreateFieldRequest}
      * @memberof OrganizationFieldsApiAddOrganizationField
      */
@@ -46678,7 +46689,7 @@ export interface OrganizationFieldsApiUpdateOrganizationFieldRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {UpdateFieldRequest}
      * @memberof OrganizationFieldsApiUpdateOrganizationField
      */
@@ -46775,7 +46786,7 @@ export const OrganizationRelationshipsApiAxiosParamCreator = function (configura
         /**
          * Creates and returns an organization relationship.
          * @summary Create an organization relationship
-         * @param {AddOrganizationRelationshipRequest} [AddOrganizationRelationshipRequest] 
+         * @param {AddOrganizationRelationshipRequest} [AddOrganizationRelationshipRequest]
 
          * @throws {RequiredError}
          */
@@ -46800,7 +46811,7 @@ export const OrganizationRelationshipsApiAxiosParamCreator = function (configura
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -46844,7 +46855,7 @@ export const OrganizationRelationshipsApiAxiosParamCreator = function (configura
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -46890,7 +46901,7 @@ export const OrganizationRelationshipsApiAxiosParamCreator = function (configura
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -46934,7 +46945,7 @@ export const OrganizationRelationshipsApiAxiosParamCreator = function (configura
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -46948,7 +46959,7 @@ export const OrganizationRelationshipsApiAxiosParamCreator = function (configura
          * Updates and returns an organization relationship.
          * @summary Update an organization relationship
          * @param {number} id The ID of the organization relationship
-         * @param {OrganizationRelationship} [OrganizationRelationship] 
+         * @param {OrganizationRelationship} [OrganizationRelationship]
 
          * @throws {RequiredError}
          */
@@ -46976,7 +46987,7 @@ export const OrganizationRelationshipsApiAxiosParamCreator = function (configura
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -47013,7 +47024,7 @@ export const OrganizationRelationshipsApiFp = function(configuration?: Configura
         /**
          * Creates and returns an organization relationship.
          * @summary Create an organization relationship
-         * @param {AddOrganizationRelationshipRequest} [AddOrganizationRelationshipRequest] 
+         * @param {AddOrganizationRelationshipRequest} [AddOrganizationRelationshipRequest]
 
          * @throws {RequiredError}
          */
@@ -47059,7 +47070,7 @@ export const OrganizationRelationshipsApiFp = function(configuration?: Configura
          * Updates and returns an organization relationship.
          * @summary Update an organization relationship
          * @param {number} id The ID of the organization relationship
-         * @param {OrganizationRelationship} [OrganizationRelationship] 
+         * @param {OrganizationRelationship} [OrganizationRelationship]
 
          * @throws {RequiredError}
          */
@@ -47137,7 +47148,7 @@ export const OrganizationRelationshipsApiFactory = function (configuration?: Con
  */
 export interface OrganizationRelationshipsApiAddOrganizationRelationshipRequest {
     /**
-     * 
+     *
      * @type {AddOrganizationRelationshipRequest}
      * @memberof OrganizationRelationshipsApiAddOrganizationRelationship
      */
@@ -47207,7 +47218,7 @@ export interface OrganizationRelationshipsApiUpdateOrganizationRelationshipReque
     readonly id: number
 
     /**
-     * 
+     *
      * @type {OrganizationRelationship}
      * @memberof OrganizationRelationshipsApiUpdateOrganizationRelationship
      */
@@ -47292,7 +47303,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
         /**
          * Adds a new organization. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the organizationFields and look for `key` values. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-organization\" target=\"_blank\" rel=\"noopener noreferrer\">adding an organization</a>.
          * @summary Add an organization
-         * @param {AddOrganizationRequest} [AddOrganizationRequest] 
+         * @param {AddOrganizationRequest} [AddOrganizationRequest]
 
          * @throws {RequiredError}
          */
@@ -47317,7 +47328,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -47334,7 +47345,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
          * Adds a follower to an organization.
          * @summary Add a follower to an organization
          * @param {number} id The ID of the organization
-         * @param {AddOrganizationFollowerRequest} [AddOrganizationFollowerRequest] 
+         * @param {AddOrganizationFollowerRequest} [AddOrganizationFollowerRequest]
 
          * @throws {RequiredError}
          */
@@ -47362,7 +47373,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -47406,7 +47417,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -47447,7 +47458,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -47491,7 +47502,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -47532,7 +47543,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -47593,7 +47604,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -47659,7 +47670,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -47715,7 +47726,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -47756,7 +47767,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -47807,7 +47818,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -47858,7 +47869,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -47919,7 +47930,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -47956,7 +47967,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -48023,7 +48034,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -48090,7 +48101,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -48104,7 +48115,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
          * Merges an organization with another organization. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/merging-two-organizations\" target=\"_blank\" rel=\"noopener noreferrer\">merging two organizations</a>.
          * @summary Merge two organizations
          * @param {number} id The ID of the organization
-         * @param {MergeOrganizationsRequest} [MergeOrganizationsRequest] 
+         * @param {MergeOrganizationsRequest} [MergeOrganizationsRequest]
 
          * @throws {RequiredError}
          */
@@ -48132,7 +48143,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -48199,7 +48210,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -48213,7 +48224,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
          * Updates the properties of an organization.
          * @summary Update an organization
          * @param {number} id The ID of the organization
-         * @param {UpdateOrganizationRequest} [UpdateOrganizationRequest] 
+         * @param {UpdateOrganizationRequest} [UpdateOrganizationRequest]
 
          * @throws {RequiredError}
          */
@@ -48241,7 +48252,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -48278,7 +48289,7 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
         /**
          * Adds a new organization. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the organizationFields and look for `key` values. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-organization\" target=\"_blank\" rel=\"noopener noreferrer\">adding an organization</a>.
          * @summary Add an organization
-         * @param {AddOrganizationRequest} [AddOrganizationRequest] 
+         * @param {AddOrganizationRequest} [AddOrganizationRequest]
 
          * @throws {RequiredError}
          */
@@ -48290,7 +48301,7 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
          * Adds a follower to an organization.
          * @summary Add a follower to an organization
          * @param {number} id The ID of the organization
-         * @param {AddOrganizationFollowerRequest} [AddOrganizationFollowerRequest] 
+         * @param {AddOrganizationFollowerRequest} [AddOrganizationFollowerRequest]
 
          * @throws {RequiredError}
          */
@@ -48487,7 +48498,7 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
          * Merges an organization with another organization. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/merging-two-organizations\" target=\"_blank\" rel=\"noopener noreferrer\">merging two organizations</a>.
          * @summary Merge two organizations
          * @param {number} id The ID of the organization
-         * @param {MergeOrganizationsRequest} [MergeOrganizationsRequest] 
+         * @param {MergeOrganizationsRequest} [MergeOrganizationsRequest]
 
          * @throws {RequiredError}
          */
@@ -48514,7 +48525,7 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
          * Updates the properties of an organization.
          * @summary Update an organization
          * @param {number} id The ID of the organization
-         * @param {UpdateOrganizationRequest} [UpdateOrganizationRequest] 
+         * @param {UpdateOrganizationRequest} [UpdateOrganizationRequest]
 
          * @throws {RequiredError}
          */
@@ -48732,7 +48743,7 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
  */
 export interface OrganizationsApiAddOrganizationRequest {
     /**
-     * 
+     *
      * @type {AddOrganizationRequest}
      * @memberof OrganizationsApiAddOrganization
      */
@@ -48753,7 +48764,7 @@ export interface OrganizationsApiAddOrganizationFollowerRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {AddOrganizationFollowerRequest}
      * @memberof OrganizationsApiAddOrganizationFollower
      */
@@ -49187,7 +49198,7 @@ export interface OrganizationsApiMergeOrganizationsRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {MergeOrganizationsRequest}
      * @memberof OrganizationsApiMergeOrganizations
      */
@@ -49250,7 +49261,7 @@ export interface OrganizationsApiUpdateOrganizationRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {UpdateOrganizationRequest}
      * @memberof OrganizationsApiUpdateOrganization
      */
@@ -49531,7 +49542,7 @@ export const PermissionSetsApiAxiosParamCreator = function (configuration?: Conf
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -49582,7 +49593,7 @@ export const PermissionSetsApiAxiosParamCreator = function (configuration?: Conf
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -49624,7 +49635,7 @@ export const PermissionSetsApiAxiosParamCreator = function (configuration?: Conf
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -49843,7 +49854,7 @@ export const PersonFieldsApiAxiosParamCreator = function (configuration?: Config
         /**
          * Adds a new person field. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-new-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">adding a new custom field</a>.
          * @summary Add a new person field
-         * @param {CreateFieldRequest} [CreateFieldRequest] 
+         * @param {CreateFieldRequest} [CreateFieldRequest]
 
          * @throws {RequiredError}
          */
@@ -49868,7 +49879,7 @@ export const PersonFieldsApiAxiosParamCreator = function (configuration?: Config
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -49912,7 +49923,7 @@ export const PersonFieldsApiAxiosParamCreator = function (configuration?: Config
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -49956,7 +49967,7 @@ export const PersonFieldsApiAxiosParamCreator = function (configuration?: Config
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -49997,7 +50008,7 @@ export const PersonFieldsApiAxiosParamCreator = function (configuration?: Config
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full", "admin"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -50044,7 +50055,7 @@ export const PersonFieldsApiAxiosParamCreator = function (configuration?: Config
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -50058,7 +50069,7 @@ export const PersonFieldsApiAxiosParamCreator = function (configuration?: Config
          * Updates a person field. For more information, see the tutorial for <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields\' values</a>.
          * @summary Update a person field
          * @param {number} id The ID of the field
-         * @param {UpdateFieldRequest} [UpdateFieldRequest] 
+         * @param {UpdateFieldRequest} [UpdateFieldRequest]
 
          * @throws {RequiredError}
          */
@@ -50086,7 +50097,7 @@ export const PersonFieldsApiAxiosParamCreator = function (configuration?: Config
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -50123,7 +50134,7 @@ export const PersonFieldsApiFp = function(configuration?: Configuration) {
         /**
          * Adds a new person field. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-new-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">adding a new custom field</a>.
          * @summary Add a new person field
-         * @param {CreateFieldRequest} [CreateFieldRequest] 
+         * @param {CreateFieldRequest} [CreateFieldRequest]
 
          * @throws {RequiredError}
          */
@@ -50180,7 +50191,7 @@ export const PersonFieldsApiFp = function(configuration?: Configuration) {
          * Updates a person field. For more information, see the tutorial for <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields\' values</a>.
          * @summary Update a person field
          * @param {number} id The ID of the field
-         * @param {UpdateFieldRequest} [UpdateFieldRequest] 
+         * @param {UpdateFieldRequest} [UpdateFieldRequest]
 
          * @throws {RequiredError}
          */
@@ -50268,7 +50279,7 @@ export const PersonFieldsApiFactory = function (configuration?: Configuration, b
  */
 export interface PersonFieldsApiAddPersonFieldRequest {
     /**
-     * 
+     *
      * @type {CreateFieldRequest}
      * @memberof PersonFieldsApiAddPersonField
      */
@@ -50352,7 +50363,7 @@ export interface PersonFieldsApiUpdatePersonFieldRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {UpdateFieldRequest}
      * @memberof PersonFieldsApiUpdatePersonField
      */
@@ -50449,7 +50460,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * Adds a new person. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the personFields and look for `key` values.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `data.marketing_status` field.
          * @summary Add a person
-         * @param {AddPersonRequest} [AddPersonRequest] 
+         * @param {AddPersonRequest} [AddPersonRequest]
 
          * @throws {RequiredError}
          */
@@ -50474,7 +50485,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -50491,7 +50502,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
          * Adds a follower to a person.
          * @summary Add a follower to a person
          * @param {number} id The ID of the person
-         * @param {AddPersonFollowerRequest} [AddPersonFollowerRequest] 
+         * @param {AddPersonFollowerRequest} [AddPersonFollowerRequest]
 
          * @throws {RequiredError}
          */
@@ -50519,7 +50530,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -50571,29 +50582,29 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
 
 
-            if (file !== undefined) { 
+            if (file !== undefined) {
                 localVarFormParams.append('file', file as any);
             }
-    
-            if (crop_x !== undefined) { 
+
+            if (crop_x !== undefined) {
                 localVarFormParams.append('crop_x', crop_x as any);
             }
-    
-            if (crop_y !== undefined) { 
+
+            if (crop_y !== undefined) {
                 localVarFormParams.append('crop_y', crop_y as any);
             }
-    
-            if (crop_width !== undefined) { 
+
+            if (crop_width !== undefined) {
                 localVarFormParams.append('crop_width', crop_width as any);
             }
-    
-            if (crop_height !== undefined) { 
+
+            if (crop_height !== undefined) {
                 localVarFormParams.append('crop_height', crop_height as any);
             }
-    
-    
+
+
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -50635,7 +50646,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -50676,7 +50687,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -50717,7 +50728,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -50761,7 +50772,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -50802,7 +50813,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -50863,7 +50874,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -50924,7 +50935,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -50980,7 +50991,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -51021,7 +51032,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -51072,7 +51083,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -51119,7 +51130,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -51180,7 +51191,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -51217,7 +51228,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -51284,7 +51295,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -51351,7 +51362,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -51365,7 +51376,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
          * Merges a person with another person. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/merging-two-persons\" target=\"_blank\" rel=\"noopener noreferrer\">merging two persons</a>.
          * @summary Merge two persons
          * @param {number} id The ID of the person
-         * @param {MergePersonsRequest} [MergePersonsRequest] 
+         * @param {MergePersonsRequest} [MergePersonsRequest]
 
          * @throws {RequiredError}
          */
@@ -51393,7 +51404,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -51470,7 +51481,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -51484,7 +51495,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
          * Updates the properties of a person. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/updating-a-person\" target=\"_blank\" rel=\"noopener noreferrer\">updating a person</a>.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `data.marketing_status` field.
          * @summary Update a person
          * @param {number} id The ID of the person
-         * @param {UpdatePersonRequest} [UpdatePersonRequest] 
+         * @param {UpdatePersonRequest} [UpdatePersonRequest]
 
          * @throws {RequiredError}
          */
@@ -51512,7 +51523,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -51549,7 +51560,7 @@ export const PersonsApiFp = function(configuration?: Configuration) {
         /**
          * Adds a new person. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the personFields and look for `key` values.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `data.marketing_status` field.
          * @summary Add a person
-         * @param {AddPersonRequest} [AddPersonRequest] 
+         * @param {AddPersonRequest} [AddPersonRequest]
 
          * @throws {RequiredError}
          */
@@ -51561,7 +51572,7 @@ export const PersonsApiFp = function(configuration?: Configuration) {
          * Adds a follower to a person.
          * @summary Add a follower to a person
          * @param {number} id The ID of the person
-         * @param {AddPersonFollowerRequest} [AddPersonFollowerRequest] 
+         * @param {AddPersonFollowerRequest} [AddPersonFollowerRequest]
 
          * @throws {RequiredError}
          */
@@ -51784,7 +51795,7 @@ export const PersonsApiFp = function(configuration?: Configuration) {
          * Merges a person with another person. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/merging-two-persons\" target=\"_blank\" rel=\"noopener noreferrer\">merging two persons</a>.
          * @summary Merge two persons
          * @param {number} id The ID of the person
-         * @param {MergePersonsRequest} [MergePersonsRequest] 
+         * @param {MergePersonsRequest} [MergePersonsRequest]
 
          * @throws {RequiredError}
          */
@@ -51813,7 +51824,7 @@ export const PersonsApiFp = function(configuration?: Configuration) {
          * Updates the properties of a person. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/updating-a-person\" target=\"_blank\" rel=\"noopener noreferrer\">updating a person</a>.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `data.marketing_status` field.
          * @summary Update a person
          * @param {number} id The ID of the person
-         * @param {UpdatePersonRequest} [UpdatePersonRequest] 
+         * @param {UpdatePersonRequest} [UpdatePersonRequest]
 
          * @throws {RequiredError}
          */
@@ -52051,7 +52062,7 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
  */
 export interface PersonsApiAddPersonRequest {
     /**
-     * 
+     *
      * @type {AddPersonRequest}
      * @memberof PersonsApiAddPerson
      */
@@ -52072,7 +52083,7 @@ export interface PersonsApiAddPersonFollowerRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {AddPersonFollowerRequest}
      * @memberof PersonsApiAddPersonFollower
      */
@@ -52562,7 +52573,7 @@ export interface PersonsApiMergePersonsRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {MergePersonsRequest}
      * @memberof PersonsApiMergePersons
      */
@@ -52639,7 +52650,7 @@ export interface PersonsApiUpdatePersonRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {UpdatePersonRequest}
      * @memberof PersonsApiUpdatePerson
      */
@@ -52916,7 +52927,7 @@ export const PipelinesApiAxiosParamCreator = function (configuration?: Configura
         /**
          * Adds a new pipeline.
          * @summary Add a new pipeline
-         * @param {PipelineRequest} [PipelineRequest] 
+         * @param {PipelineRequest} [PipelineRequest]
 
          * @throws {RequiredError}
          */
@@ -52941,7 +52952,7 @@ export const PipelinesApiAxiosParamCreator = function (configuration?: Configura
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -52985,7 +52996,7 @@ export const PipelinesApiAxiosParamCreator = function (configuration?: Configura
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -53031,7 +53042,7 @@ export const PipelinesApiAxiosParamCreator = function (configuration?: Configura
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -53095,7 +53106,7 @@ export const PipelinesApiAxiosParamCreator = function (configuration?: Configura
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -53176,7 +53187,7 @@ export const PipelinesApiAxiosParamCreator = function (configuration?: Configura
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -53240,7 +53251,7 @@ export const PipelinesApiAxiosParamCreator = function (configuration?: Configura
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -53277,7 +53288,7 @@ export const PipelinesApiAxiosParamCreator = function (configuration?: Configura
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full", "admin"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -53291,7 +53302,7 @@ export const PipelinesApiAxiosParamCreator = function (configuration?: Configura
          * Updates the properties of a pipeline.
          * @summary Update a pipeline
          * @param {number} id The ID of the pipeline
-         * @param {PipelineRequest1} [PipelineRequest1] 
+         * @param {PipelineRequest1} [PipelineRequest1]
 
          * @throws {RequiredError}
          */
@@ -53319,7 +53330,7 @@ export const PipelinesApiAxiosParamCreator = function (configuration?: Configura
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -53356,7 +53367,7 @@ export const PipelinesApiFp = function(configuration?: Configuration) {
         /**
          * Adds a new pipeline.
          * @summary Add a new pipeline
-         * @param {PipelineRequest} [PipelineRequest] 
+         * @param {PipelineRequest} [PipelineRequest]
 
          * @throws {RequiredError}
          */
@@ -53448,7 +53459,7 @@ export const PipelinesApiFp = function(configuration?: Configuration) {
          * Updates the properties of a pipeline.
          * @summary Update a pipeline
          * @param {number} id The ID of the pipeline
-         * @param {PipelineRequest1} [PipelineRequest1] 
+         * @param {PipelineRequest1} [PipelineRequest1]
 
          * @throws {RequiredError}
          */
@@ -53555,7 +53566,7 @@ export const PipelinesApiFactory = function (configuration?: Configuration, base
  */
 export interface PipelinesApiAddPipelineRequest {
     /**
-     * 
+     *
      * @type {PipelineRequest}
      * @memberof PipelinesApiAddPipeline
      */
@@ -53751,7 +53762,7 @@ export interface PipelinesApiUpdatePipelineRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {PipelineRequest1}
      * @memberof PipelinesApiUpdatePipeline
      */
@@ -53871,7 +53882,7 @@ export const ProductFieldsApiAxiosParamCreator = function (configuration?: Confi
         /**
          * Adds a new product field. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-new-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">adding a new custom field</a>.
          * @summary Add a new product field
-         * @param {ProductFieldAllOf} [ProductFieldAllOf] 
+         * @param {ProductFieldAllOf} [ProductFieldAllOf]
 
          * @throws {RequiredError}
          */
@@ -53896,7 +53907,7 @@ export const ProductFieldsApiAxiosParamCreator = function (configuration?: Confi
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -53940,7 +53951,7 @@ export const ProductFieldsApiAxiosParamCreator = function (configuration?: Confi
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -53984,7 +53995,7 @@ export const ProductFieldsApiAxiosParamCreator = function (configuration?: Confi
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -54025,7 +54036,7 @@ export const ProductFieldsApiAxiosParamCreator = function (configuration?: Confi
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:read", "products:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -54072,7 +54083,7 @@ export const ProductFieldsApiAxiosParamCreator = function (configuration?: Confi
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -54086,7 +54097,7 @@ export const ProductFieldsApiAxiosParamCreator = function (configuration?: Confi
          * Updates a product field. For more information, see the tutorial for <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields\' values</a>.
          * @summary Update a product field
          * @param {number} id The ID of the product field
-         * @param {UpdateProductFieldResponse200} [UpdateProductFieldResponse200] 
+         * @param {UpdateProductFieldResponse200} [UpdateProductFieldResponse200]
 
          * @throws {RequiredError}
          */
@@ -54114,7 +54125,7 @@ export const ProductFieldsApiAxiosParamCreator = function (configuration?: Confi
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -54151,7 +54162,7 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
         /**
          * Adds a new product field. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-new-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">adding a new custom field</a>.
          * @summary Add a new product field
-         * @param {ProductFieldAllOf} [ProductFieldAllOf] 
+         * @param {ProductFieldAllOf} [ProductFieldAllOf]
 
          * @throws {RequiredError}
          */
@@ -54208,7 +54219,7 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
          * Updates a product field. For more information, see the tutorial for <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields\' values</a>.
          * @summary Update a product field
          * @param {number} id The ID of the product field
-         * @param {UpdateProductFieldResponse200} [UpdateProductFieldResponse200] 
+         * @param {UpdateProductFieldResponse200} [UpdateProductFieldResponse200]
 
          * @throws {RequiredError}
          */
@@ -54296,7 +54307,7 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
  */
 export interface ProductFieldsApiAddProductFieldRequest {
     /**
-     * 
+     *
      * @type {ProductFieldAllOf}
      * @memberof ProductFieldsApiAddProductField
      */
@@ -54380,7 +54391,7 @@ export interface ProductFieldsApiUpdateProductFieldRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {UpdateProductFieldResponse200}
      * @memberof ProductFieldsApiUpdateProductField
      */
@@ -54477,7 +54488,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * Adds a new product to the Products inventory. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-product\" target=\"_blank\" rel=\"noopener noreferrer\">adding a product</a>.
          * @summary Add a product
-         * @param {AddProductRequest} [AddProductRequest] 
+         * @param {AddProductRequest} [AddProductRequest]
 
          * @throws {RequiredError}
          */
@@ -54502,7 +54513,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -54519,7 +54530,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
          * Adds a follower to a product.
          * @summary Add a follower to a product
          * @param {number} id The ID of the product
-         * @param {AddProductFollowerRequest} [AddProductFollowerRequest] 
+         * @param {AddProductFollowerRequest} [AddProductFollowerRequest]
 
          * @throws {RequiredError}
          */
@@ -54547,7 +54558,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -54591,7 +54602,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -54636,7 +54647,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -54677,7 +54688,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:read", "products:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -54733,7 +54744,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -54789,7 +54800,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -54840,7 +54851,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -54881,7 +54892,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:read", "products:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -54953,7 +54964,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -55022,7 +55033,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -55036,7 +55047,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
          * Updates product data.
          * @summary Update a product
          * @param {number} id The ID of the product
-         * @param {AddProductRequest1} [AddProductRequest1] 
+         * @param {AddProductRequest1} [AddProductRequest1]
 
          * @throws {RequiredError}
          */
@@ -55064,7 +55075,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -55101,7 +55112,7 @@ export const ProductsApiFp = function(configuration?: Configuration) {
         /**
          * Adds a new product to the Products inventory. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-product\" target=\"_blank\" rel=\"noopener noreferrer\">adding a product</a>.
          * @summary Add a product
-         * @param {AddProductRequest} [AddProductRequest] 
+         * @param {AddProductRequest} [AddProductRequest]
 
          * @throws {RequiredError}
          */
@@ -55113,7 +55124,7 @@ export const ProductsApiFp = function(configuration?: Configuration) {
          * Adds a follower to a product.
          * @summary Add a follower to a product
          * @param {number} id The ID of the product
-         * @param {AddProductFollowerRequest} [AddProductFollowerRequest] 
+         * @param {AddProductFollowerRequest} [AddProductFollowerRequest]
 
          * @throws {RequiredError}
          */
@@ -55244,7 +55255,7 @@ export const ProductsApiFp = function(configuration?: Configuration) {
          * Updates product data.
          * @summary Update a product
          * @param {number} id The ID of the product
-         * @param {AddProductRequest1} [AddProductRequest1] 
+         * @param {AddProductRequest1} [AddProductRequest1]
 
          * @throws {RequiredError}
          */
@@ -55392,7 +55403,7 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
  */
 export interface ProductsApiAddProductRequest {
     /**
-     * 
+     *
      * @type {AddProductRequest}
      * @memberof ProductsApiAddProduct
      */
@@ -55413,7 +55424,7 @@ export interface ProductsApiAddProductFollowerRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {AddProductFollowerRequest}
      * @memberof ProductsApiAddProductFollower
      */
@@ -55700,7 +55711,7 @@ export interface ProductsApiUpdateProductRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {AddProductRequest1}
      * @memberof ProductsApiUpdateProduct
      */
@@ -55897,7 +55908,7 @@ export const ProjectTemplatesApiAxiosParamCreator = function (configuration?: Co
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:read", "projects:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -55944,7 +55955,7 @@ export const ProjectTemplatesApiAxiosParamCreator = function (configuration?: Co
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -55985,7 +55996,7 @@ export const ProjectTemplatesApiAxiosParamCreator = function (configuration?: Co
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:read", "projects:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -56026,7 +56037,7 @@ export const ProjectTemplatesApiAxiosParamCreator = function (configuration?: Co
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:read"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -56284,7 +56295,7 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * Adds a new project. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys.
          * @summary Add a project
-         * @param {AddProjectRequest} [AddProjectRequest] 
+         * @param {AddProjectRequest} [AddProjectRequest]
 
          * @throws {RequiredError}
          */
@@ -56309,7 +56320,7 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -56353,7 +56364,7 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -56394,7 +56405,7 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -56435,7 +56446,7 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:read", "projects:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -56476,7 +56487,7 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:read", "projects:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -56517,7 +56528,7 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:read", "projects:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -56558,7 +56569,7 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:read", "projects:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -56599,7 +56610,7 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:read", "projects:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -56666,7 +56677,7 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -56703,7 +56714,7 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:read", "projects:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -56747,7 +56758,7 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -56762,7 +56773,7 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
          * @summary Update activity in project plan
          * @param {number} id The ID of the project
          * @param {number} activityId The ID of the activity
-         * @param {ProjectPutPlanItemBodyObject} [ProjectPutPlanItemBodyObject] 
+         * @param {ProjectPutPlanItemBodyObject} [ProjectPutPlanItemBodyObject]
 
          * @throws {RequiredError}
          */
@@ -56793,7 +56804,7 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -56811,7 +56822,7 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
          * @summary Update task in project plan
          * @param {number} id The ID of the project
          * @param {number} taskId The ID of the task
-         * @param {ProjectPutPlanItemBodyObject} [ProjectPutPlanItemBodyObject] 
+         * @param {ProjectPutPlanItemBodyObject} [ProjectPutPlanItemBodyObject]
 
          * @throws {RequiredError}
          */
@@ -56842,7 +56853,7 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -56859,7 +56870,7 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
          * Updates a project.
          * @summary Update a project
          * @param {number} id The ID of the project
-         * @param {UpdateProjectRequest} [UpdateProjectRequest] 
+         * @param {UpdateProjectRequest} [UpdateProjectRequest]
 
          * @throws {RequiredError}
          */
@@ -56887,7 +56898,7 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -56924,7 +56935,7 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
         /**
          * Adds a new project. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys.
          * @summary Add a project
-         * @param {AddProjectRequest} [AddProjectRequest] 
+         * @param {AddProjectRequest} [AddProjectRequest]
 
          * @throws {RequiredError}
          */
@@ -57051,7 +57062,7 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
          * @summary Update activity in project plan
          * @param {number} id The ID of the project
          * @param {number} activityId The ID of the activity
-         * @param {ProjectPutPlanItemBodyObject} [ProjectPutPlanItemBodyObject] 
+         * @param {ProjectPutPlanItemBodyObject} [ProjectPutPlanItemBodyObject]
 
          * @throws {RequiredError}
          */
@@ -57064,7 +57075,7 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
          * @summary Update task in project plan
          * @param {number} id The ID of the project
          * @param {number} taskId The ID of the task
-         * @param {ProjectPutPlanItemBodyObject} [ProjectPutPlanItemBodyObject] 
+         * @param {ProjectPutPlanItemBodyObject} [ProjectPutPlanItemBodyObject]
 
          * @throws {RequiredError}
          */
@@ -57076,7 +57087,7 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
          * Updates a project.
          * @summary Update a project
          * @param {number} id The ID of the project
-         * @param {UpdateProjectRequest} [UpdateProjectRequest] 
+         * @param {UpdateProjectRequest} [UpdateProjectRequest]
 
          * @throws {RequiredError}
          */
@@ -57243,7 +57254,7 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
  */
 export interface ProjectsApiAddProjectRequest {
     /**
-     * 
+     *
      * @type {AddProjectRequest}
      * @memberof ProjectsApiAddProject
      */
@@ -57432,7 +57443,7 @@ export interface ProjectsApiPutProjectPlanActivityRequest {
     readonly activityId: number
 
     /**
-     * 
+     *
      * @type {ProjectPutPlanItemBodyObject}
      * @memberof ProjectsApiPutProjectPlanActivity
      */
@@ -57460,7 +57471,7 @@ export interface ProjectsApiPutProjectPlanTaskRequest {
     readonly taskId: number
 
     /**
-     * 
+     *
      * @type {ProjectPutPlanItemBodyObject}
      * @memberof ProjectsApiPutProjectPlanTask
      */
@@ -57481,7 +57492,7 @@ export interface ProjectsApiUpdateProjectRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {UpdateProjectRequest}
      * @memberof ProjectsApiUpdateProject
      */
@@ -57719,7 +57730,7 @@ export const RecentsApiAxiosParamCreator = function (configuration?: Configurati
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -57853,7 +57864,7 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
          * Adds or updates the visibility setting for a role.
          * @summary Add or update role setting
          * @param {number} id The ID of the role
-         * @param {AddOrUpdateRoleSettingRequest} [AddOrUpdateRoleSettingRequest] 
+         * @param {AddOrUpdateRoleSettingRequest} [AddOrUpdateRoleSettingRequest]
 
          * @throws {RequiredError}
          */
@@ -57881,7 +57892,7 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -57897,7 +57908,7 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * Adds a new role.
          * @summary Add a role
-         * @param {AddRoleRequest} [AddRoleRequest] 
+         * @param {AddRoleRequest} [AddRoleRequest]
 
          * @throws {RequiredError}
          */
@@ -57922,7 +57933,7 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -57939,7 +57950,7 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
          * Assigns a user to a role.
          * @summary Add role assignment
          * @param {number} id The ID of the role
-         * @param {AddRoleAssignmentRequest} [AddRoleAssignmentRequest] 
+         * @param {AddRoleAssignmentRequest} [AddRoleAssignmentRequest]
 
          * @throws {RequiredError}
          */
@@ -57967,7 +57978,7 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -58011,7 +58022,7 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -58025,7 +58036,7 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
          * Removes the assigned user from a role and adds to the default role.
          * @summary Delete a role assignment
          * @param {number} id The ID of the role
-         * @param {DeleteRoleAssignmentRequest} [DeleteRoleAssignmentRequest] 
+         * @param {DeleteRoleAssignmentRequest} [DeleteRoleAssignmentRequest]
 
          * @throws {RequiredError}
          */
@@ -58053,7 +58064,7 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -58097,7 +58108,7 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -58148,7 +58159,7 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -58194,7 +58205,7 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -58235,7 +58246,7 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -58282,7 +58293,7 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -58296,7 +58307,7 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
          * Updates the parent role and/or the name of a specific role.
          * @summary Update role details
          * @param {number} id The ID of the role
-         * @param {BaseRoleRequest} [BaseRoleRequest] 
+         * @param {BaseRoleRequest} [BaseRoleRequest]
 
          * @throws {RequiredError}
          */
@@ -58324,7 +58335,7 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -58341,7 +58352,7 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
          * Updates the specified pipelines to be visible and/or hidden for a specific role. For more information on pipeline visibility, please refer to the <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">Visibility groups article</a>.
          * @summary Update pipeline visibility for a role
          * @param {number} id The ID of the role
-         * @param {PutRolePipelinesBody} [PutRolePipelinesBody] 
+         * @param {PutRolePipelinesBody} [PutRolePipelinesBody]
 
          * @throws {RequiredError}
          */
@@ -58369,7 +58380,7 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -58407,7 +58418,7 @@ export const RolesApiFp = function(configuration?: Configuration) {
          * Adds or updates the visibility setting for a role.
          * @summary Add or update role setting
          * @param {number} id The ID of the role
-         * @param {AddOrUpdateRoleSettingRequest} [AddOrUpdateRoleSettingRequest] 
+         * @param {AddOrUpdateRoleSettingRequest} [AddOrUpdateRoleSettingRequest]
 
          * @throws {RequiredError}
          */
@@ -58418,7 +58429,7 @@ export const RolesApiFp = function(configuration?: Configuration) {
         /**
          * Adds a new role.
          * @summary Add a role
-         * @param {AddRoleRequest} [AddRoleRequest] 
+         * @param {AddRoleRequest} [AddRoleRequest]
 
          * @throws {RequiredError}
          */
@@ -58430,7 +58441,7 @@ export const RolesApiFp = function(configuration?: Configuration) {
          * Assigns a user to a role.
          * @summary Add role assignment
          * @param {number} id The ID of the role
-         * @param {AddRoleAssignmentRequest} [AddRoleAssignmentRequest] 
+         * @param {AddRoleAssignmentRequest} [AddRoleAssignmentRequest]
 
          * @throws {RequiredError}
          */
@@ -58453,7 +58464,7 @@ export const RolesApiFp = function(configuration?: Configuration) {
          * Removes the assigned user from a role and adds to the default role.
          * @summary Delete a role assignment
          * @param {number} id The ID of the role
-         * @param {DeleteRoleAssignmentRequest} [DeleteRoleAssignmentRequest] 
+         * @param {DeleteRoleAssignmentRequest} [DeleteRoleAssignmentRequest]
 
          * @throws {RequiredError}
          */
@@ -58524,7 +58535,7 @@ export const RolesApiFp = function(configuration?: Configuration) {
          * Updates the parent role and/or the name of a specific role.
          * @summary Update role details
          * @param {number} id The ID of the role
-         * @param {BaseRoleRequest} [BaseRoleRequest] 
+         * @param {BaseRoleRequest} [BaseRoleRequest]
 
          * @throws {RequiredError}
          */
@@ -58536,7 +58547,7 @@ export const RolesApiFp = function(configuration?: Configuration) {
          * Updates the specified pipelines to be visible and/or hidden for a specific role. For more information on pipeline visibility, please refer to the <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">Visibility groups article</a>.
          * @summary Update pipeline visibility for a role
          * @param {number} id The ID of the role
-         * @param {PutRolePipelinesBody} [PutRolePipelinesBody] 
+         * @param {PutRolePipelinesBody} [PutRolePipelinesBody]
 
          * @throws {RequiredError}
          */
@@ -58691,7 +58702,7 @@ export interface RolesApiAddOrUpdateRoleSettingRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {AddOrUpdateRoleSettingRequest}
      * @memberof RolesApiAddOrUpdateRoleSetting
      */
@@ -58705,7 +58716,7 @@ export interface RolesApiAddOrUpdateRoleSettingRequest {
  */
 export interface RolesApiAddRoleRequest {
     /**
-     * 
+     *
      * @type {AddRoleRequest}
      * @memberof RolesApiAddRole
      */
@@ -58726,7 +58737,7 @@ export interface RolesApiAddRoleAssignmentRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {AddRoleAssignmentRequest}
      * @memberof RolesApiAddRoleAssignment
      */
@@ -58761,7 +58772,7 @@ export interface RolesApiDeleteRoleAssignmentRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {DeleteRoleAssignmentRequest}
      * @memberof RolesApiDeleteRoleAssignment
      */
@@ -58880,7 +58891,7 @@ export interface RolesApiUpdateRoleRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {BaseRoleRequest}
      * @memberof RolesApiUpdateRole
      */
@@ -58901,7 +58912,7 @@ export interface RolesApiUpdateRolePipelinesRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {PutRolePipelinesBody}
      * @memberof RolesApiUpdateRolePipelines
      */
@@ -59070,7 +59081,7 @@ export const StagesApiAxiosParamCreator = function (configuration?: Configuratio
         /**
          * Adds a new stage, returns the ID upon success.
          * @summary Add a new stage
-         * @param {AddStageRequest} [AddStageRequest] 
+         * @param {AddStageRequest} [AddStageRequest]
 
          * @throws {RequiredError}
          */
@@ -59095,7 +59106,7 @@ export const StagesApiAxiosParamCreator = function (configuration?: Configuratio
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -59139,7 +59150,7 @@ export const StagesApiAxiosParamCreator = function (configuration?: Configuratio
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -59183,7 +59194,7 @@ export const StagesApiAxiosParamCreator = function (configuration?: Configuratio
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -59229,7 +59240,7 @@ export const StagesApiAxiosParamCreator = function (configuration?: Configuratio
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -59295,7 +59306,7 @@ export const StagesApiAxiosParamCreator = function (configuration?: Configuratio
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -59347,7 +59358,7 @@ export const StagesApiAxiosParamCreator = function (configuration?: Configuratio
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -59361,7 +59372,7 @@ export const StagesApiAxiosParamCreator = function (configuration?: Configuratio
          * Updates the properties of a stage.
          * @summary Update stage details
          * @param {number} id The ID of the stage
-         * @param {UpdateStageRequest} [UpdateStageRequest] 
+         * @param {UpdateStageRequest} [UpdateStageRequest]
 
          * @throws {RequiredError}
          */
@@ -59389,7 +59400,7 @@ export const StagesApiAxiosParamCreator = function (configuration?: Configuratio
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -59426,7 +59437,7 @@ export const StagesApiFp = function(configuration?: Configuration) {
         /**
          * Adds a new stage, returns the ID upon success.
          * @summary Add a new stage
-         * @param {AddStageRequest} [AddStageRequest] 
+         * @param {AddStageRequest} [AddStageRequest]
 
          * @throws {RequiredError}
          */
@@ -59501,7 +59512,7 @@ export const StagesApiFp = function(configuration?: Configuration) {
          * Updates the properties of a stage.
          * @summary Update stage details
          * @param {number} id The ID of the stage
-         * @param {UpdateStageRequest} [UpdateStageRequest] 
+         * @param {UpdateStageRequest} [UpdateStageRequest]
 
          * @throws {RequiredError}
          */
@@ -59599,7 +59610,7 @@ export const StagesApiFactory = function (configuration?: Configuration, basePat
  */
 export interface StagesApiAddStageRequest {
     /**
-     * 
+     *
      * @type {AddStageRequest}
      * @memberof StagesApiAddStage
      */
@@ -59746,7 +59757,7 @@ export interface StagesApiUpdateStageRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {UpdateStageRequest}
      * @memberof StagesApiUpdateStage
      */
@@ -59855,7 +59866,7 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
         /**
          * Adds a new recurring subscription.
          * @summary Add a recurring subscription
-         * @param {AddRecurringSubscriptionRequest} [AddRecurringSubscriptionRequest] 
+         * @param {AddRecurringSubscriptionRequest} [AddRecurringSubscriptionRequest]
 
          * @throws {RequiredError}
          */
@@ -59880,7 +59891,7 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -59896,7 +59907,7 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
         /**
          * Adds a new installment subscription.
          * @summary Add an installment subscription
-         * @param {AddSubscriptionInstallmentRequest} [AddSubscriptionInstallmentRequest] 
+         * @param {AddSubscriptionInstallmentRequest} [AddSubscriptionInstallmentRequest]
 
          * @throws {RequiredError}
          */
@@ -59921,7 +59932,7 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -59938,7 +59949,7 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
          * Cancels a recurring subscription.
          * @summary Cancel a recurring subscription
          * @param {number} id The ID of the subscription
-         * @param {CancelRecurringSubscriptionRequest} [CancelRecurringSubscriptionRequest] 
+         * @param {CancelRecurringSubscriptionRequest} [CancelRecurringSubscriptionRequest]
 
          * @throws {RequiredError}
          */
@@ -59966,7 +59977,7 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -60010,7 +60021,7 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -60051,7 +60062,7 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -60092,7 +60103,7 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -60133,7 +60144,7 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -60147,7 +60158,7 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
          * Updates a recurring subscription.
          * @summary Update a recurring subscription
          * @param {number} id The ID of the subscription
-         * @param {UpdateRecurringSubscriptionRequest} [UpdateRecurringSubscriptionRequest] 
+         * @param {UpdateRecurringSubscriptionRequest} [UpdateRecurringSubscriptionRequest]
 
          * @throws {RequiredError}
          */
@@ -60175,7 +60186,7 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -60192,7 +60203,7 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
          * Updates an installment subscription.
          * @summary Update an installment subscription
          * @param {number} id The ID of the subscription
-         * @param {UpdateSubscriptionInstallmentRequest} [UpdateSubscriptionInstallmentRequest] 
+         * @param {UpdateSubscriptionInstallmentRequest} [UpdateSubscriptionInstallmentRequest]
 
          * @throws {RequiredError}
          */
@@ -60220,7 +60231,7 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -60257,7 +60268,7 @@ export const SubscriptionsApiFp = function(configuration?: Configuration) {
         /**
          * Adds a new recurring subscription.
          * @summary Add a recurring subscription
-         * @param {AddRecurringSubscriptionRequest} [AddRecurringSubscriptionRequest] 
+         * @param {AddRecurringSubscriptionRequest} [AddRecurringSubscriptionRequest]
 
          * @throws {RequiredError}
          */
@@ -60268,7 +60279,7 @@ export const SubscriptionsApiFp = function(configuration?: Configuration) {
         /**
          * Adds a new installment subscription.
          * @summary Add an installment subscription
-         * @param {AddSubscriptionInstallmentRequest} [AddSubscriptionInstallmentRequest] 
+         * @param {AddSubscriptionInstallmentRequest} [AddSubscriptionInstallmentRequest]
 
          * @throws {RequiredError}
          */
@@ -60280,7 +60291,7 @@ export const SubscriptionsApiFp = function(configuration?: Configuration) {
          * Cancels a recurring subscription.
          * @summary Cancel a recurring subscription
          * @param {number} id The ID of the subscription
-         * @param {CancelRecurringSubscriptionRequest} [CancelRecurringSubscriptionRequest] 
+         * @param {CancelRecurringSubscriptionRequest} [CancelRecurringSubscriptionRequest]
 
          * @throws {RequiredError}
          */
@@ -60336,7 +60347,7 @@ export const SubscriptionsApiFp = function(configuration?: Configuration) {
          * Updates a recurring subscription.
          * @summary Update a recurring subscription
          * @param {number} id The ID of the subscription
-         * @param {UpdateRecurringSubscriptionRequest} [UpdateRecurringSubscriptionRequest] 
+         * @param {UpdateRecurringSubscriptionRequest} [UpdateRecurringSubscriptionRequest]
 
          * @throws {RequiredError}
          */
@@ -60348,7 +60359,7 @@ export const SubscriptionsApiFp = function(configuration?: Configuration) {
          * Updates an installment subscription.
          * @summary Update an installment subscription
          * @param {number} id The ID of the subscription
-         * @param {UpdateSubscriptionInstallmentRequest} [UpdateSubscriptionInstallmentRequest] 
+         * @param {UpdateSubscriptionInstallmentRequest} [UpdateSubscriptionInstallmentRequest]
 
          * @throws {RequiredError}
          */
@@ -60466,7 +60477,7 @@ export const SubscriptionsApiFactory = function (configuration?: Configuration, 
  */
 export interface SubscriptionsApiAddRecurringSubscriptionRequest {
     /**
-     * 
+     *
      * @type {AddRecurringSubscriptionRequest}
      * @memberof SubscriptionsApiAddRecurringSubscription
      */
@@ -60480,7 +60491,7 @@ export interface SubscriptionsApiAddRecurringSubscriptionRequest {
  */
 export interface SubscriptionsApiAddSubscriptionInstallmentRequest {
     /**
-     * 
+     *
      * @type {AddSubscriptionInstallmentRequest}
      * @memberof SubscriptionsApiAddSubscriptionInstallment
      */
@@ -60501,7 +60512,7 @@ export interface SubscriptionsApiCancelRecurringSubscriptionRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {CancelRecurringSubscriptionRequest}
      * @memberof SubscriptionsApiCancelRecurringSubscription
      */
@@ -60578,7 +60589,7 @@ export interface SubscriptionsApiUpdateRecurringSubscriptionRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {UpdateRecurringSubscriptionRequest}
      * @memberof SubscriptionsApiUpdateRecurringSubscription
      */
@@ -60599,7 +60610,7 @@ export interface SubscriptionsApiUpdateSubscriptionInstallmentRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {UpdateSubscriptionInstallmentRequest}
      * @memberof SubscriptionsApiUpdateSubscriptionInstallment
      */
@@ -60732,7 +60743,7 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * Adds a new task.
          * @summary Add a task
-         * @param {AddTaskRequest} [AddTaskRequest] 
+         * @param {AddTaskRequest} [AddTaskRequest]
 
          * @throws {RequiredError}
          */
@@ -60757,7 +60768,7 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -60801,7 +60812,7 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -60842,7 +60853,7 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:read", "projects:full"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -60909,7 +60920,7 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -60923,7 +60934,7 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
          * Updates a task.
          * @summary Update a task
          * @param {number} id The ID of the task
-         * @param {UpdateProjectRequest2} [UpdateProjectRequest2] 
+         * @param {UpdateProjectRequest2} [UpdateProjectRequest2]
 
          * @throws {RequiredError}
          */
@@ -60951,7 +60962,7 @@ export const TasksApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:full"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -60988,7 +60999,7 @@ export const TasksApiFp = function(configuration?: Configuration) {
         /**
          * Adds a new task.
          * @summary Add a task
-         * @param {AddTaskRequest} [AddTaskRequest] 
+         * @param {AddTaskRequest} [AddTaskRequest]
 
          * @throws {RequiredError}
          */
@@ -61038,7 +61049,7 @@ export const TasksApiFp = function(configuration?: Configuration) {
          * Updates a task.
          * @summary Update a task
          * @param {number} id The ID of the task
-         * @param {UpdateProjectRequest2} [UpdateProjectRequest2] 
+         * @param {UpdateProjectRequest2} [UpdateProjectRequest2]
 
          * @throws {RequiredError}
          */
@@ -61116,7 +61127,7 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
  */
 export interface TasksApiAddTaskRequest {
     /**
-     * 
+     *
      * @type {AddTaskRequest}
      * @memberof TasksApiAddTask
      */
@@ -61214,7 +61225,7 @@ export interface TasksApiUpdateTaskRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {UpdateProjectRequest2}
      * @memberof TasksApiUpdateTask
      */
@@ -61323,7 +61334,7 @@ export const UserConnectionsApiAxiosParamCreator = function (configuration?: Con
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["base"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -61439,7 +61450,7 @@ export const UserSettingsApiAxiosParamCreator = function (configuration?: Config
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["base"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -61531,7 +61542,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * Adds a new user to the company, returns the ID upon success.
          * @summary Add a new user
-         * @param {AddUserRequest} [AddUserRequest] 
+         * @param {AddUserRequest} [AddUserRequest]
 
          * @throws {RequiredError}
          */
@@ -61556,7 +61567,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -61608,7 +61619,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -61645,7 +61656,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["base"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -61686,7 +61697,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["users:read"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -61727,7 +61738,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["users:read"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -61768,7 +61779,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["users:read"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -61819,7 +61830,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             }
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -61860,7 +61871,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["users:read"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -61897,7 +61908,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["users:read"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -61911,7 +61922,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * Updates the properties of a user. Currently, only `active_flag` can be updated.
          * @summary Update user details
          * @param {number} id The ID of the user
-         * @param {UpdateUserRequest} [UpdateUserRequest] 
+         * @param {UpdateUserRequest} [UpdateUserRequest]
 
          * @throws {RequiredError}
          */
@@ -61939,7 +61950,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -61966,7 +61977,8 @@ export const UsersApiFp = function(configuration?: Configuration) {
 	 * Axios interceptor to add the SDK version as a User-Agent header
 	 * */
 	globalAxios.interceptors.request.use(function (config) {
-		config.headers['User-Agent'] =  configuration.userAgent;
+		const version = require("../package.json").version;
+		config.headers['User-Agent'] = `Pipedrive-SDK-Javascript-${version}`;
 		return config;
 	});
 
@@ -61986,7 +61998,7 @@ export const UsersApiFp = function(configuration?: Configuration) {
         /**
          * Adds a new user to the company, returns the ID upon success.
          * @summary Add a new user
-         * @param {AddUserRequest} [AddUserRequest] 
+         * @param {AddUserRequest} [AddUserRequest]
 
          * @throws {RequiredError}
          */
@@ -62087,7 +62099,7 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * Updates the properties of a user. Currently, only `active_flag` can be updated.
          * @summary Update user details
          * @param {number} id The ID of the user
-         * @param {UpdateUserRequest} [UpdateUserRequest] 
+         * @param {UpdateUserRequest} [UpdateUserRequest]
 
          * @throws {RequiredError}
          */
@@ -62213,7 +62225,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
  */
 export interface UsersApiAddUserRequest {
     /**
-     * 
+     *
      * @type {AddUserRequest}
      * @memberof UsersApiAddUser
      */
@@ -62339,7 +62351,7 @@ export interface UsersApiUpdateUserRequest {
     readonly id: number
 
     /**
-     * 
+     *
      * @type {UpdateUserRequest}
      * @memberof UsersApiUpdateUser
      */
@@ -62482,7 +62494,7 @@ export const WebhooksApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * Creates a new Webhook and returns its details. Note that specifying an event which triggers the Webhook combines 2 parameters - `event_action` and `event_object`. E.g., use `*.*` for getting notifications about all events, `added.deal` for any newly added deals, `deleted.persons` for any deleted persons, etc. See <a href=\"https://pipedrive.readme.io/docs/guide-for-webhooks?ref=api_reference\" target=\"_blank\" rel=\"noopener noreferrer\">the guide for Webhooks</a> for more details.
          * @summary Create a new Webhook
-         * @param {AddWebhookRequest} [AddWebhookRequest] 
+         * @param {AddWebhookRequest} [AddWebhookRequest]
 
          * @throws {RequiredError}
          */
@@ -62507,7 +62519,7 @@ export const WebhooksApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -62551,7 +62563,7 @@ export const WebhooksApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -62588,7 +62600,7 @@ export const WebhooksApiAxiosParamCreator = function (configuration?: Configurat
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
 
 
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
@@ -62622,7 +62634,7 @@ export const WebhooksApiFp = function(configuration?: Configuration) {
         /**
          * Creates a new Webhook and returns its details. Note that specifying an event which triggers the Webhook combines 2 parameters - `event_action` and `event_object`. E.g., use `*.*` for getting notifications about all events, `added.deal` for any newly added deals, `deleted.persons` for any deleted persons, etc. See <a href=\"https://pipedrive.readme.io/docs/guide-for-webhooks?ref=api_reference\" target=\"_blank\" rel=\"noopener noreferrer\">the guide for Webhooks</a> for more details.
          * @summary Create a new Webhook
-         * @param {AddWebhookRequest} [AddWebhookRequest] 
+         * @param {AddWebhookRequest} [AddWebhookRequest]
 
          * @throws {RequiredError}
          */
@@ -62700,7 +62712,7 @@ export const WebhooksApiFactory = function (configuration?: Configuration, baseP
  */
 export interface WebhooksApiAddWebhookRequest {
     /**
-     * 
+     *
      * @type {AddWebhookRequest}
      * @memberof WebhooksApiAddWebhook
      */
