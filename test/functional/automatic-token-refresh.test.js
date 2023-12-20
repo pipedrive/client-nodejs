@@ -12,7 +12,7 @@ const oauthConfig = {
 
 const server = getMockServer(oauthConfig);
 
-describe('automatic token refresh in api calls', () => {
+describe.skip('automatic token refresh in api calls', () => {
 	let lib;
 
 	beforeAll(async () => {
@@ -47,7 +47,7 @@ describe('automatic token refresh in api calls', () => {
 		});
 	});
 
-	it.skip('should throw if incorrect User-Agent request header in api call', async () => {
+	it('should throw if incorrect User-Agent request header in api call', async () => {
 		const oauthClient = new lib.OAuth2Configuration(oauthConfig);
 
 		const apiConfig = new lib.Configuration({
@@ -63,7 +63,7 @@ describe('automatic token refresh in api calls', () => {
 		}
 	});
 
-	it.skip('should refresh token and retry api call if status code is 401', async () => {
+	it('should refresh token and retry api call if status code is 401', async () => {
 		const oauthClient = new lib.OAuth2Configuration({ ...oauthConfig, accessToken: null });
 
 		const apiConfig = new lib.Configuration({

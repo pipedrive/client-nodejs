@@ -87,7 +87,7 @@
   },
   "pre-commit": [
     "lint-staged",
-    "test",
-    "build"
+    "build",
+    "test"
   ]
 }
