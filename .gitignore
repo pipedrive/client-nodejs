@@ -25,13 +25,7 @@ build/Release
 
 # Dependency directory
 node_modules
-
-# Optional npm cache directory
-.npm
-
-# Optional REPL history
-.node_repl_history
-
-.openapi-generator
-.idea
+typings
 dist
+wwwroot/*.js
+.idea
