@@ -449,6 +449,8 @@ Class | Method | HTTP request | Description
 *Pipedrive.MailboxApi* | [**getMailThreadMessages**](https://github.com/pipedrive/client-nodejs/blob/master/docs/MailboxApi.md#getMailThreadMessages) | **GET** /mailbox/mailThreads/{id}/mailMessages | Get all mail messages of mail thread
 *Pipedrive.MailboxApi* | [**getMailThreads**](https://github.com/pipedrive/client-nodejs/blob/master/docs/MailboxApi.md#getMailThreads) | **GET** /mailbox/mailThreads | Get mail threads
 *Pipedrive.MailboxApi* | [**updateMailThreadDetails**](https://github.com/pipedrive/client-nodejs/blob/master/docs/MailboxApi.md#updateMailThreadDetails) | **PUT** /mailbox/mailThreads/{id} | Update mail thread details
+*Pipedrive.MeetingsApi* | [**deleteUserProviderLink**](https://github.com/pipedrive/client-nodejs/blob/master/docs/MeetingsApi.md#deleteUserProviderLink) | **DELETE** /meetings/userProviderLinks/{id} | Delete the link between a user and the installed video call integration
+*Pipedrive.MeetingsApi* | [**saveUserProviderLink**](https://github.com/pipedrive/client-nodejs/blob/master/docs/MeetingsApi.md#saveUserProviderLink) | **POST** /meetings/userProviderLinks | Link a user with the installed video call integration
 *Pipedrive.NoteFieldsApi* | [**getNoteFields**](https://github.com/pipedrive/client-nodejs/blob/master/docs/NoteFieldsApi.md#getNoteFields) | **GET** /noteFields | Get all note fields
 *Pipedrive.NotesApi* | [**addNote**](https://github.com/pipedrive/client-nodejs/blob/master/docs/NotesApi.md#addNote) | **POST** /notes | Add a note
 *Pipedrive.NotesApi* | [**addNoteComment**](https://github.com/pipedrive/client-nodejs/blob/master/docs/NotesApi.md#addNoteComment) | **POST** /notes/{id}/comments | Add a comment to a note
@@ -933,6 +935,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.GetComments](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetComments.md)
  - [Pipedrive.GetDeal](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetDeal.md)
  - [Pipedrive.GetDealAdditionalData](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetDealAdditionalData.md)
+ - [Pipedrive.GetDealRelatedObjects](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetDealRelatedObjects.md)
  - [Pipedrive.GetDeals](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetDeals.md)
  - [Pipedrive.GetDealsCollection](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetDealsCollection.md)
  - [Pipedrive.GetDealsConversionRatesInPipeline](https://github.com/pipedrive/client-nodejs/blob/master/docs/GetDealsConversionRatesInPipeline.md)
@@ -1230,6 +1233,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.PipelineDetailsAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/PipelineDetailsAllOf.md)
  - [Pipedrive.PostComment](https://github.com/pipedrive/client-nodejs/blob/master/docs/PostComment.md)
  - [Pipedrive.PostDealParticipants](https://github.com/pipedrive/client-nodejs/blob/master/docs/PostDealParticipants.md)
+ - [Pipedrive.PostDealParticipantsRelatedObjects](https://github.com/pipedrive/client-nodejs/blob/master/docs/PostDealParticipantsRelatedObjects.md)
  - [Pipedrive.PostGoalResponse](https://github.com/pipedrive/client-nodejs/blob/master/docs/PostGoalResponse.md)
  - [Pipedrive.PostNote](https://github.com/pipedrive/client-nodejs/blob/master/docs/PostNote.md)
  - [Pipedrive.PostRoleAssignment](https://github.com/pipedrive/client-nodejs/blob/master/docs/PostRoleAssignment.md)
@@ -1391,6 +1395,10 @@ Class | Method | HTTP request | Description
  - [Pipedrive.UserPermissions](https://github.com/pipedrive/client-nodejs/blob/master/docs/UserPermissions.md)
  - [Pipedrive.UserPermissionsAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/UserPermissionsAllOf.md)
  - [Pipedrive.UserPermissionsItem](https://github.com/pipedrive/client-nodejs/blob/master/docs/UserPermissionsItem.md)
+ - [Pipedrive.UserProviderLinkCreateRequest](https://github.com/pipedrive/client-nodejs/blob/master/docs/UserProviderLinkCreateRequest.md)
+ - [Pipedrive.UserProviderLinkErrorResponse](https://github.com/pipedrive/client-nodejs/blob/master/docs/UserProviderLinkErrorResponse.md)
+ - [Pipedrive.UserProviderLinkSuccessResponse](https://github.com/pipedrive/client-nodejs/blob/master/docs/UserProviderLinkSuccessResponse.md)
+ - [Pipedrive.UserProviderLinkSuccessResponseData](https://github.com/pipedrive/client-nodejs/blob/master/docs/UserProviderLinkSuccessResponseData.md)
  - [Pipedrive.UserSettings](https://github.com/pipedrive/client-nodejs/blob/master/docs/UserSettings.md)
  - [Pipedrive.UserSettingsAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/UserSettingsAllOf.md)
  - [Pipedrive.UserSettingsItem](https://github.com/pipedrive/client-nodejs/blob/master/docs/UserSettingsItem.md)

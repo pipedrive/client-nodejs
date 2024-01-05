@@ -15,7 +15,8 @@ Name | Type | Description | Notes
 **endTime** | **Date** | The date and time of the end of the call in UTC. Format: YYYY-MM-DD HH:MM:SS. | 
 **personId** | **Number** | The ID of the person this call is associated with | [optional] 
 **orgId** | **Number** | The ID of the organization this call is associated with | [optional] 
-**dealId** | **Number** | The ID of the deal this call is associated with | [optional] 
+**dealId** | **Number** | The ID of the deal this call is associated with. A call log can be associated with either a deal or a lead, but not both at once. | [optional] 
+**leadId** | **String** | The ID of the lead in the UUID format this call is associated with. A call log can be associated with either a deal or a lead, but not both at once. | [optional] 
 **note** | **String** | The note for the call log in HTML format | [optional] 
 
 

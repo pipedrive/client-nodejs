@@ -380,7 +380,7 @@ let id = 56; // Number | The ID of the product
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
-  'sort': "sort_example" // String | The field name and sorting mode (`field_name_1 ASC` or `field_name_1 DESC`). Supported fields: `update_time`, `id`
+  'sort': "sort_example" // String | The field name and sorting mode (`field_name_1 ASC` or `field_name_1 DESC`). Supported fields: `update_time`, `id`.
 };
 apiInstance.getProductFiles(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -398,7 +398,7 @@ Name | Type | Description  | Notes
  **id** | **Number**| The ID of the product | 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
- **sort** | **String**| The field name and sorting mode (&#x60;field_name_1 ASC&#x60; or &#x60;field_name_1 DESC&#x60;). Supported fields: &#x60;update_time&#x60;, &#x60;id&#x60; | [optional] 
+ **sort** | **String**| The field name and sorting mode (&#x60;field_name_1 ASC&#x60; or &#x60;field_name_1 DESC&#x60;). Supported fields: &#x60;update_time&#x60;, &#x60;id&#x60;. | [optional] 
 
 ### Return type
 

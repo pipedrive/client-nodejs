@@ -12,22 +12,21 @@
  */
 
 import ApiClient from '../ApiClient';
-import PersonItem from './PersonItem';
-import PostDealParticipantsRelatedObjects from './PostDealParticipantsRelatedObjects';
+import UserProviderLinkSuccessResponseData from './UserProviderLinkSuccessResponseData';
 
 /**
- * The PostDealParticipants model module.
- * @module model/PostDealParticipants
+ * The UserProviderLinkSuccessResponse model module.
+ * @module model/UserProviderLinkSuccessResponse
  * @version 1.0.0
  */
-class PostDealParticipants {
+class UserProviderLinkSuccessResponse {
     /**
-     * Constructs a new <code>PostDealParticipants</code>.
-     * @alias module:model/PostDealParticipants
+     * Constructs a new <code>UserProviderLinkSuccessResponse</code>.
+     * @alias module:model/UserProviderLinkSuccessResponse
      */
     constructor() { 
         
-        PostDealParticipants.initialize(this);
+        UserProviderLinkSuccessResponse.initialize(this);
     }
 
     /**
@@ -39,15 +38,15 @@ class PostDealParticipants {
     }
 
     /**
-     * Constructs a <code>PostDealParticipants</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>UserProviderLinkSuccessResponse</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/PostDealParticipants} obj Optional instance to populate.
-     * @return {module:model/PostDealParticipants} The populated <code>PostDealParticipants</code> instance.
+     * @param {module:model/UserProviderLinkSuccessResponse} obj Optional instance to populate.
+     * @return {module:model/UserProviderLinkSuccessResponse} The populated <code>UserProviderLinkSuccessResponse</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new PostDealParticipants();
+            obj = obj || new UserProviderLinkSuccessResponse();
 
             if (data.hasOwnProperty('success')) {
                 obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
@@ -55,14 +54,9 @@ class PostDealParticipants {
                 delete data['success'];
             }
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], PersonItem);
+                obj['data'] = UserProviderLinkSuccessResponseData.constructFromObject(data['data']);
 
                 delete data['data'];
-            }
-            if (data.hasOwnProperty('related_objects')) {
-                obj['related_objects'] = PostDealParticipantsRelatedObjects.constructFromObject(data['related_objects']);
-
-                delete data['related_objects'];
             }
 
             if (Object.keys(data).length > 0) {
@@ -77,26 +71,20 @@ class PostDealParticipants {
 }
 
 /**
- * If the request was successful or not
+ * Boolean that indicates whether the request was successful or not
  * @member {Boolean} success
  */
-PostDealParticipants.prototype['success'] = undefined;
+UserProviderLinkSuccessResponse.prototype['success'] = undefined;
 
 /**
- * The object of participant
- * @member {module:model/PersonItem} data
+ * @member {module:model/UserProviderLinkSuccessResponseData} data
  */
-PostDealParticipants.prototype['data'] = undefined;
-
-/**
- * @member {module:model/PostDealParticipantsRelatedObjects} related_objects
- */
-PostDealParticipants.prototype['related_objects'] = undefined;
+UserProviderLinkSuccessResponse.prototype['data'] = undefined;
 
 
 
 
 
 
-export default PostDealParticipants;
+export default UserProviderLinkSuccessResponse;
 

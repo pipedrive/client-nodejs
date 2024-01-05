@@ -17,18 +17,18 @@ import RelatedPersonDataWithActiveFlag from './RelatedPersonDataWithActiveFlag';
 import RelatedUserData from './RelatedUserData';
 
 /**
- * The GetDealsRelatedObjects model module.
- * @module model/GetDealsRelatedObjects
+ * The GetDealRelatedObjects model module.
+ * @module model/GetDealRelatedObjects
  * @version 1.0.0
  */
-class GetDealsRelatedObjects {
+class GetDealRelatedObjects {
     /**
-     * Constructs a new <code>GetDealsRelatedObjects</code>.
-     * @alias module:model/GetDealsRelatedObjects
+     * Constructs a new <code>GetDealRelatedObjects</code>.
+     * @alias module:model/GetDealRelatedObjects
      */
     constructor() { 
         
-        GetDealsRelatedObjects.initialize(this);
+        GetDealRelatedObjects.initialize(this);
     }
 
     /**
@@ -40,30 +40,30 @@ class GetDealsRelatedObjects {
     }
 
     /**
-     * Constructs a <code>GetDealsRelatedObjects</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>GetDealRelatedObjects</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/GetDealsRelatedObjects} obj Optional instance to populate.
-     * @return {module:model/GetDealsRelatedObjects} The populated <code>GetDealsRelatedObjects</code> instance.
+     * @param {module:model/GetDealRelatedObjects} obj Optional instance to populate.
+     * @return {module:model/GetDealRelatedObjects} The populated <code>GetDealRelatedObjects</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new GetDealsRelatedObjects();
+            obj = obj || new GetDealRelatedObjects();
 
             if (data.hasOwnProperty('user')) {
                 obj['user'] = RelatedUserData.constructFromObject(data['user']);
 
                 delete data['user'];
             }
-            if (data.hasOwnProperty('organization')) {
-                obj['organization'] = RelatedOrganizationDataWithActiveFlag.constructFromObject(data['organization']);
-
-                delete data['organization'];
-            }
             if (data.hasOwnProperty('person')) {
                 obj['person'] = RelatedPersonDataWithActiveFlag.constructFromObject(data['person']);
 
                 delete data['person'];
+            }
+            if (data.hasOwnProperty('organization')) {
+                obj['organization'] = RelatedOrganizationDataWithActiveFlag.constructFromObject(data['organization']);
+
+                delete data['organization'];
             }
 
             if (Object.keys(data).length > 0) {
@@ -80,22 +80,22 @@ class GetDealsRelatedObjects {
 /**
  * @member {module:model/RelatedUserData} user
  */
-GetDealsRelatedObjects.prototype['user'] = undefined;
-
-/**
- * @member {module:model/RelatedOrganizationDataWithActiveFlag} organization
- */
-GetDealsRelatedObjects.prototype['organization'] = undefined;
+GetDealRelatedObjects.prototype['user'] = undefined;
 
 /**
  * @member {module:model/RelatedPersonDataWithActiveFlag} person
  */
-GetDealsRelatedObjects.prototype['person'] = undefined;
+GetDealRelatedObjects.prototype['person'] = undefined;
+
+/**
+ * @member {module:model/RelatedOrganizationDataWithActiveFlag} organization
+ */
+GetDealRelatedObjects.prototype['organization'] = undefined;
 
 
 
 
 
 
-export default GetDealsRelatedObjects;
+export default GetDealRelatedObjects;
 

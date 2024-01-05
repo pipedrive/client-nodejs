@@ -115,6 +115,11 @@ class CallLogObject {
 
                 delete data['deal_id'];
             }
+            if (data.hasOwnProperty('lead_id')) {
+                obj['lead_id'] = ApiClient.convertToType(data['lead_id'], 'String');
+
+                delete data['lead_id'];
+            }
             if (data.hasOwnProperty('note')) {
                 obj['note'] = ApiClient.convertToType(data['note'], 'String');
 
@@ -199,10 +204,16 @@ CallLogObject.prototype['person_id'] = undefined;
 CallLogObject.prototype['org_id'] = undefined;
 
 /**
- * The ID of the deal this call is associated with
+ * The ID of the deal this call is associated with. A call log can be associated with either a deal or a lead, but not both at once.
  * @member {Number} deal_id
  */
 CallLogObject.prototype['deal_id'] = undefined;
+
+/**
+ * The ID of the lead in the UUID format this call is associated with. A call log can be associated with either a deal or a lead, but not both at once.
+ * @member {String} lead_id
+ */
+CallLogObject.prototype['lead_id'] = undefined;
 
 /**
  * The note for the call log in HTML format
