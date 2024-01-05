@@ -329,6 +329,7 @@ import GetAllProductFieldsResponse from './model/GetAllProductFieldsResponse';
 import GetComments from './model/GetComments';
 import GetDeal from './model/GetDeal';
 import GetDealAdditionalData from './model/GetDealAdditionalData';
+import GetDealRelatedObjects from './model/GetDealRelatedObjects';
 import GetDeals from './model/GetDeals';
 import GetDealsCollection from './model/GetDealsCollection';
 import GetDealsConversionRatesInPipeline from './model/GetDealsConversionRatesInPipeline';
@@ -626,6 +627,7 @@ import PipelineDetails from './model/PipelineDetails';
 import PipelineDetailsAllOf from './model/PipelineDetailsAllOf';
 import PostComment from './model/PostComment';
 import PostDealParticipants from './model/PostDealParticipants';
+import PostDealParticipantsRelatedObjects from './model/PostDealParticipantsRelatedObjects';
 import PostGoalResponse from './model/PostGoalResponse';
 import PostNote from './model/PostNote';
 import PostRoleAssignment from './model/PostRoleAssignment';
@@ -787,6 +789,10 @@ import UserMeAllOf from './model/UserMeAllOf';
 import UserPermissions from './model/UserPermissions';
 import UserPermissionsAllOf from './model/UserPermissionsAllOf';
 import UserPermissionsItem from './model/UserPermissionsItem';
+import UserProviderLinkCreateRequest from './model/UserProviderLinkCreateRequest';
+import UserProviderLinkErrorResponse from './model/UserProviderLinkErrorResponse';
+import UserProviderLinkSuccessResponse from './model/UserProviderLinkSuccessResponse';
+import UserProviderLinkSuccessResponseData from './model/UserProviderLinkSuccessResponseData';
 import UserSettings from './model/UserSettings';
 import UserSettingsAllOf from './model/UserSettingsAllOf';
 import UserSettingsItem from './model/UserSettingsItem';
@@ -819,6 +825,7 @@ import LeadSourcesApi from './api/LeadSourcesApi';
 import LeadsApi from './api/LeadsApi';
 import LegacyTeamsApi from './api/LegacyTeamsApi';
 import MailboxApi from './api/MailboxApi';
+import MeetingsApi from './api/MeetingsApi';
 import NoteFieldsApi from './api/NoteFieldsApi';
 import NotesApi from './api/NotesApi';
 import OrganizationFieldsApi from './api/OrganizationFieldsApi';
@@ -2778,6 +2785,12 @@ export {
     GetDealAdditionalData,
 
     /**
+     * The GetDealRelatedObjects model constructor.
+     * @property {module:model/GetDealRelatedObjects}
+     */
+    GetDealRelatedObjects,
+
+    /**
      * The GetDeals model constructor.
      * @property {module:model/GetDeals}
      */
@@ -4560,6 +4573,12 @@ export {
     PostDealParticipants,
 
     /**
+     * The PostDealParticipantsRelatedObjects model constructor.
+     * @property {module:model/PostDealParticipantsRelatedObjects}
+     */
+    PostDealParticipantsRelatedObjects,
+
+    /**
      * The PostGoalResponse model constructor.
      * @property {module:model/PostGoalResponse}
      */
@@ -5526,6 +5545,30 @@ export {
     UserPermissionsItem,
 
     /**
+     * The UserProviderLinkCreateRequest model constructor.
+     * @property {module:model/UserProviderLinkCreateRequest}
+     */
+    UserProviderLinkCreateRequest,
+
+    /**
+     * The UserProviderLinkErrorResponse model constructor.
+     * @property {module:model/UserProviderLinkErrorResponse}
+     */
+    UserProviderLinkErrorResponse,
+
+    /**
+     * The UserProviderLinkSuccessResponse model constructor.
+     * @property {module:model/UserProviderLinkSuccessResponse}
+     */
+    UserProviderLinkSuccessResponse,
+
+    /**
+     * The UserProviderLinkSuccessResponseData model constructor.
+     * @property {module:model/UserProviderLinkSuccessResponseData}
+     */
+    UserProviderLinkSuccessResponseData,
+
+    /**
      * The UserSettings model constructor.
      * @property {module:model/UserSettings}
      */
@@ -5716,6 +5759,12 @@ export {
     * @property {module:api/MailboxApi}
     */
     MailboxApi,
+
+    /**
+    * The MeetingsApi service constructor.
+    * @property {module:api/MeetingsApi}
+    */
+    MeetingsApi,
 
     /**
     * The NoteFieldsApi service constructor.

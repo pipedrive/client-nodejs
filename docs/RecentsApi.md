@@ -31,7 +31,7 @@ let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.RecentsApi(apiClient);
-let sinceTimestamp = "sinceTimestamp_example"; // String | The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS
+let sinceTimestamp = "sinceTimestamp_example"; // String | The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS.
 let opts = {
   'items': "items_example", // String | Multiple selection of item types to include in the query (optional)
   'start': 0, // Number | Pagination start
@@ -50,7 +50,7 @@ apiInstance.getRecents(sinceTimestamp, opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sinceTimestamp** | **String**| The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS | 
+ **sinceTimestamp** | **String**| The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS. | 
  **items** | **String**| Multiple selection of item types to include in the query (optional) | [optional] 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
