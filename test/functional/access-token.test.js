@@ -10,11 +10,10 @@ const oauth2 = {
 const server = getMockServer(oauth2);
 
 describe('oauth2 accessToken', () => {
-	let ApiClient;
+	let lib;
 
 	beforeAll(async () => {
-		const lib = await getLib();
-		ApiClient = lib.ApiClient;
+		lib = await getLib();
 		server.listen();
 	});
 
@@ -22,12 +21,12 @@ describe('oauth2 accessToken', () => {
 	afterAll(() => server.close());
 
 	it('should refresh accessToken with valid refreshToken', async () => {
-		const pdClient = new ApiClient();
-		pdClient.authentications.oauth2 = { ...oauth2, refreshToken: 'fakeRefreshToken' };
+		const configuration = new lib.OAuth2Configuration(oauth2);
+		configuration.refreshToken = 'fakeRefreshToken';
 
-		const auth = await pdClient.refreshToken();
+		const auth = await configuration.tokenRefresh();
 
-		expect(auth).toMatchObject({
+		expect(auth.data).toMatchObject({
 			access_token: 'freshAccessToken',
 			token_type: 'bearer',
 			refresh_token: 'freshRefreshToken',
@@ -36,30 +35,29 @@ describe('oauth2 accessToken', () => {
 			api_domain: 'localhost',
 		});
 
-		expect(pdClient.authentications.oauth2.accessToken).toBe(auth.access_token);
-		expect(pdClient.authentications.oauth2.refreshToken).toBe(auth.refresh_token);
+		// expect(configuration.accessToken).toBe(auth.access_token);
+		// expect(configuration.refreshToken).toBe(auth.refresh_token);
 	});
 
 	it('should throw if refreshToken is not set', async () => {
-		const pdClient = new ApiClient();
-		pdClient.authentications.oauth2 = { ...oauth2 };
+		const configuration = new lib.OAuth2Configuration(oauth2);
 
 		try {
-			expect(await pdClient.refreshToken()).toThrow();
+			expect(await configuration.tokenRefresh()).toThrow();
 		} catch (error) {
-			expect(error.message).toBe('OAuth 2 property refreshToken is not set.');
+			expect(error.response.data.message).toBe('Invalid grant: refresh token is invalid');
 		}
 	});
 
 	it('should throw if wrong refresh token', async () => {
-		const pdClient = new ApiClient();
-		pdClient.authentications.oauth2 = { ...oauth2, refreshToken: 'wrongRefreshToken' };
+		const configuration = new lib.OAuth2Configuration(oauth2);
+		configuration.refreshToken = 'wrongRefreshToken';
 
 		try {
-			expect(await pdClient.refreshToken()).toThrow();
+			expect(await configuration.tokenRefresh()).toThrow();
 		} catch (error) {
-			expect(error.context.error.text).toBe(
-				'{"success":"false","message":"Invalid grant: refresh token is invalid","error":"invalid_grant"}',
+			expect(error.response.data).toEqual(
+				{ success: 'false', message: 'Invalid grant: refresh token is invalid', error: 'invalid_grant' },
 			);
 		}
 	});

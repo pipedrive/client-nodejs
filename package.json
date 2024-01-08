@@ -1,17 +1,20 @@
 {
   "name": "pipedrive",
-  "version": "22.4.0",
+  "version": "22.3.1-rc.2",
   "description": "Pipedrive REST client for NodeJS",
   "license": "MIT",
-  "main": "dist/index.js",
   "homepage": "https://developers.pipedrive.com",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pipedrive/client-nodejs"
   },
+  "main": "dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "module": "./dist/esm/index.js",
+  "sideEffects": false,
   "scripts": {
-    "build": "babel src -d dist",
-    "prepack": "npm run build",
+    "build": "tsc && tsc -p tsconfig.esm.json",
+    "prepare": "npm run build",
     "test": "npm run test:functional",
     "test:functional:start": "npm run test:functional -- --start-environment",
     "test:functional:stop": "npm run test:functional -- --stop-environment",
@@ -25,9 +28,8 @@
     "fs": false
   },
   "dependencies": {
-    "lodash": "^4.17.21",
-    "superagent": "^7.1.3",
-    "@babel/runtime": "^7.20.1"
+    "axios": "^1.3.3",
+    "qs": "^6.11.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
@@ -50,38 +52,32 @@
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-syntax-import-meta": "^7.0.0",
     "@babel/plugin-transform-runtime": "^7.12.1",
-    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-env": "^7.23.5",
     "@babel/register": "^7.0.0",
+    "@types/node": "^18.13.0",
+    "@types/qs": "^6.9.7",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
     "babel-eslint": "^10.1.0",
+    "babel-jest": "^29.7.0",
     "changelog-updater": "^2.0.3",
-    "eslint": "^8.27.0",
+    "eslint": "^8.56.0",
     "eslint-config-pipedrive": "^13.0.0",
     "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-jest": "^27.1.5",
     "expect.js": "^0.3.1",
     "get-port": "^5.1.1",
-    "jest": "^26.6.3",
+    "jest": "^29.7.0",
     "jest-environment-node": "^27.4.4",
     "lint-staged": "^13.0.3",
     "minimist": "^1.2.5",
     "mocha": "^10.2.0",
-    "msw": "^0.48.2",
+    "msw": "^2.0.10",
     "pre-commit": "^1.2.2",
     "regenerator-runtime": "^0.13.7",
     "shelljs": "^0.8.4",
-    "sinon": "^7.2.0"
-  },
-  "files": [
-    "dist"
-  ],
-  "lint-staged": {
-    "*.{ts,js}": [
-      "eslint --fix"
-    ]
-  },
-  "pre-commit": [
-    "lint-staged",
-    "test",
-    "build"
-  ]
+    "sinon": "^7.2.0",
+    "ts-jest": "^29.1.1",
+    "typescript": "^4.9.5",
+    "eslint-plugin-jest": "^27.6.0"
+  }
 }

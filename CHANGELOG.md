@@ -9,9 +9,12 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 ## [Unreleased]
 - Add `lead_id` as an acceptable body parameter for the `POST /v1/callLogs` endpoint
 
-## [22.4.0] - 2024-01-05
-### Added
-- Added documentation for `/meetings/userProviderLinks` endpoints
+## [22.3.1-rc.2] - 2023-12-22
+
+## [22.3.1-rc.1] - 2023-12-22
+
+## [22.3.1-rc.0] - 2023-12-22
+- Add Support for TypeScript
 
 ## [22.3.0] - 2023-10-17
 - Add `Projects`, `ProjectTemplates` and `Tasks` public routes.
