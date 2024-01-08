@@ -1,6 +1,6 @@
 {
   "name": "pipedrive",
-  "version": "22.3.1-rc.2",
+  "version": "22.3.1-rc.3",
   "description": "Pipedrive REST client for NodeJS",
   "license": "MIT",
   "homepage": "https://developers.pipedrive.com",
@@ -29,7 +29,6 @@
   },
   "dependencies": {
     "axios": "^1.3.3",
-    "eslint-plugin-jest": "^27.6.0",
     "qs": "^6.11.0"
   },
   "devDependencies": {
@@ -78,6 +77,7 @@
     "shelljs": "^0.8.4",
     "sinon": "^7.2.0",
     "ts-jest": "^29.1.1",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "eslint-plugin-jest": "^27.6.0"
   }
 }

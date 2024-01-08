@@ -29,12 +29,13 @@ export interface Parameters {
   clientId: string;
   clientSecret: string;
   redirectUri: string;
+  host?:string;
 };
 
 export type ParamKey = keyof Parameters;
 
 export class OAuth2Configuration {
-  private host = "https://oauth.pipedrive.com";
+  private host: string;
   private accessToken: string | null = null;
   private refreshToken: string | null = null;
   private scope: string | null = null;
@@ -51,6 +52,7 @@ export class OAuth2Configuration {
     this.clientId = this.validateParam(params, 'clientId');
     this.clientSecret = this.validateParam(params, 'clientSecret');
     this.redirectUri = this.validateParam(params, 'redirectUri');
+    this.host = params.host || "https://oauth.pipedrive.com";
   }
 
   public get authorizationUrl() {

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**user** | [**DealUserData**](DealUserData.md) |  | [optional] 
-**organization** | [**DealOrganizationData**](DealOrganizationData.md) |  | [optional] 
-**person** | [**DealPersonData**](DealPersonData.md) |  | [optional] 
+**user** | [**RelatedUserData**](RelatedUserData.md) |  | [optional] 
+**organization** | [**RelatedOrganizationDataWithActiveFlag**](RelatedOrganizationDataWithActiveFlag.md) |  | [optional] 
+**person** | [**RelatedPersonDataWithActiveFlag**](RelatedPersonDataWithActiveFlag.md) |  | [optional] 
 
 
