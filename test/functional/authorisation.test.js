@@ -14,9 +14,6 @@ describe('oauth2 authorization', () => {
 	beforeAll(async () => {
 		lib = await getLib();
 		server.listen();
-		// server.events.on('request:start', ({ request }) => {
-		// 	console.log('MSW intercepted:', request.method, request.url);
-		// });
 	});
 
 	afterEach(() => server.resetHandlers());
@@ -27,7 +24,7 @@ describe('oauth2 authorization', () => {
 		oauthClient.refreshToken = 'fakeRefreshToken';
 		const auth = await oauthClient.authorize('fakeAuthCode');
 
-		expect(auth.data).toMatchObject({
+		expect(auth).toMatchObject({
 			access_token: 'freshAccessToken',
 			token_type: 'bearer',
 			refresh_token: 'freshRefreshToken',
@@ -36,8 +33,8 @@ describe('oauth2 authorization', () => {
 			api_domain: 'localhost',
 		});
 
-		// expect(oauthClient.accessToken).toEqual(auth.access_token);
-		// expect(oauthClient.refreshToken).toEqual(auth.refresh_token);
+		expect(oauthClient.accessToken).toEqual(auth.access_token);
+		expect(oauthClient.refreshToken).toEqual(auth.refresh_token);
 	});
 
 	it.skip('should throw if clientId is not set', async () => {
@@ -66,7 +63,7 @@ describe('oauth2 authorization', () => {
 		try {
 			expect(await oauthClient.authorize('fakeAuthCode')).toThrow();
 		} catch (error) {
-			expect(error.response.data.message).toBe('OAuth 2 property clientSecret is not set.');
+			expect(error.message).toBe('OAuth 2 property clientSecret is not set.');
 		}
 	});
 
@@ -94,7 +91,7 @@ describe('oauth2 authorization', () => {
 		try {
 			expect(await oauthClient.authorize('wrongAuthCode')).toThrow();
 		} catch (error) {
-			expect(error.response.data).toEqual(
+			expect(error).toEqual(
 				{ success: 'false', message: 'Invalid grant: refresh token is invalid', error: 'invalid_grant' },
 			);
 		}

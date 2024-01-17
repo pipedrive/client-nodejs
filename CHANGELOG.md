@@ -8,6 +8,9 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [22.3.1-rc.3] - 2024-01-08
+- Add `lead_id` as an acceptable body parameter for the `POST /v1/callLogs` endpoint
+
 ## [22.3.1-rc.2] - 2023-12-22
 
 ## [22.3.1-rc.1] - 2023-12-22
@@ -592,10 +595,9 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.3.1-rc.2...HEAD
-[22.3.1-rc.2]: https://github.com/pipedrive/api-docs/compare/v22.3.1-rc.1...v22.3.1-rc.2
-[22.3.1-rc.1]: https://github.com/pipedrive/api-docs/compare/v22.3.1-rc.0...v22.3.1-rc.1
-[22.3.1-rc.0]: https://github.com/pipedrive/api-docs/compare/v22.3.0...v22.3.1-rc.0
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.3.1-rc.3...HEAD
+[22.3.1-rc.3]: https://github.com/pipedrive/api-docs/compare/v22.4.0...v22.3.1-rc.3
+[22.4.0]: https://github.com/pipedrive/api-docs/compare/v22.3.0...v22.4.0
 [22.3.0]: https://github.com/pipedrive/api-docs/compare/v22.2.0...v22.3.0
 [22.2.0]: https://github.com/pipedrive/api-docs/compare/v22.1.0...v22.2.0
 [22.1.0]: https://github.com/pipedrive/api-docs/compare/v22.0.2...v22.1.0

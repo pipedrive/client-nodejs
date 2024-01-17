@@ -301,32 +301,12 @@ export const PersonFieldsApiAxiosParamCreator = function (configuration?: Config
     }
 };
 
+
 /**
  * PersonFieldsApi - functional programming interface
  * @export
  */
 export const PersonFieldsApiFp = function(configuration?: Configuration) {
-
-    /**
-    * Axios interceptor to add the SDK version as a User-Agent header
-    * */
-    globalAxios.interceptors.request.use(function (config) {
-        const version = require("../../package.json").version;
-        config.headers['User-Agent'] = `Pipedrive-SDK-Javascript-${version}`;
-        return config;
-    });
-
-    /**
-    * Axios response interceptor to modify response structure
-    */
-    globalAxios.interceptors.response.use(function (response) {
-        return response.hasOwnProperty('success') ? response : response.data;
-    }, function (error) {
-        if(error?.response?.data) {
-            return Promise.reject(error.response.data);
-        }
-        return Promise.reject(error);
-    });
     const localVarAxiosParamCreator = PersonFieldsApiAxiosParamCreator(configuration)
     return {
         /**
