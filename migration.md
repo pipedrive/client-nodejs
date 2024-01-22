@@ -4,9 +4,9 @@
 - Function signatures have changed from the previous version of the sdk. Now each function takes a strongly typed root object that contains all the parameters needed such as id and request payload, where in the previous version those were seperate function params
 
 
-Example
+Example functions change:
 
-previous version:
+- Previous version:
 
 ```
 
@@ -23,7 +23,7 @@ await api.getDeal(1);
 
 ```
 
-new version:
+- New version:
 ```
 await dealsApi.addDeal({
 	AddDealRequest: {
@@ -48,12 +48,10 @@ await dealsApi.deleteDeal({
 
 ```
 
-
-
 ## Installation
 
 ```
-npm install pipedrive@1.0.0 --save
+npm i pipedrive@22.3.1-rc.3
 ```
 
 ## API Reference
