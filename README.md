@@ -300,6 +300,12 @@ app.get('/callback', (req, res) => {
 
 
 
+### basic_authentication
+
+- **Type**: HTTP basic authentication
+
+
+
 ### oauth2
 
 

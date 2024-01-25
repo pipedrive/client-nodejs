@@ -48,6 +48,21 @@ class BasicDeal {
         if (data) {
             obj = obj || new BasicDeal();
 
+            if (data.hasOwnProperty('won_time')) {
+                obj['won_time'] = ApiClient.convertToType(data['won_time'], 'String');
+
+                delete data['won_time'];
+            }
+            if (data.hasOwnProperty('lost_time')) {
+                obj['lost_time'] = ApiClient.convertToType(data['lost_time'], 'String');
+
+                delete data['lost_time'];
+            }
+            if (data.hasOwnProperty('close_time')) {
+                obj['close_time'] = ApiClient.convertToType(data['close_time'], 'String');
+
+                delete data['close_time'];
+            }
             if (data.hasOwnProperty('expected_close_date')) {
                 obj['expected_close_date'] = ApiClient.convertToType(data['expected_close_date'], 'Date');
 
@@ -79,6 +94,24 @@ class BasicDeal {
 
 
 }
+
+/**
+ * The optional date and time of changing the deal status as won in UTC. Format: YYYY-MM-DD HH:MM:SS. Can be set only when deal `status` is already Won. Can not be used together with `lost_time`.
+ * @member {String} won_time
+ */
+BasicDeal.prototype['won_time'] = undefined;
+
+/**
+ * The optional date and time of changing the deal status as lost in UTC. Format: YYYY-MM-DD HH:MM:SS. Can be set only when deal `status` is already Lost. Can not be used together with `won_time`.
+ * @member {String} lost_time
+ */
+BasicDeal.prototype['lost_time'] = undefined;
+
+/**
+ * The optional date and time of closing the deal in UTC. Format: YYYY-MM-DD HH:MM:SS.
+ * @member {String} close_time
+ */
+BasicDeal.prototype['close_time'] = undefined;
 
 /**
  * The expected close date of the deal. In ISO 8601 format: YYYY-MM-DD.
