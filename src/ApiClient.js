@@ -52,6 +52,7 @@ class ApiClient {
                 name: 'api_token',
                 apiKey: ''
             },
+            'basic_authentication': {type: 'basic'},
             'oauth2': {
                 type: 'oauth2',
                 host: 'https://oauth.pipedrive.com',

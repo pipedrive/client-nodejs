@@ -300,6 +300,12 @@ app.get('/callback', (req, res) => {
 
 
 
+### basic_authentication
+
+- **Type**: HTTP basic authentication
+
+
+
 ### oauth2
 
 
@@ -389,6 +395,7 @@ Class | Method | HTTP request | Description
 *Pipedrive.DealsApi* | [**getDealFollowers**](https://github.com/pipedrive/client-nodejs/blob/master/docs/DealsApi.md#getDealFollowers) | **GET** /deals/{id}/followers | List followers of a deal
 *Pipedrive.DealsApi* | [**getDealMailMessages**](https://github.com/pipedrive/client-nodejs/blob/master/docs/DealsApi.md#getDealMailMessages) | **GET** /deals/{id}/mailMessages | List mail messages associated with a deal
 *Pipedrive.DealsApi* | [**getDealParticipants**](https://github.com/pipedrive/client-nodejs/blob/master/docs/DealsApi.md#getDealParticipants) | **GET** /deals/{id}/participants | List participants of a deal
+*Pipedrive.DealsApi* | [**getDealParticipantsChangelog**](https://github.com/pipedrive/client-nodejs/blob/master/docs/DealsApi.md#getDealParticipantsChangelog) | **GET** /deals/{id}/participantsChangelog | List updates about participants of a deal
 *Pipedrive.DealsApi* | [**getDealPersons**](https://github.com/pipedrive/client-nodejs/blob/master/docs/DealsApi.md#getDealPersons) | **GET** /deals/{id}/persons | List all persons associated with a deal
 *Pipedrive.DealsApi* | [**getDealProducts**](https://github.com/pipedrive/client-nodejs/blob/master/docs/DealsApi.md#getDealProducts) | **GET** /deals/{id}/products | List products attached to a deal
 *Pipedrive.DealsApi* | [**getDealUpdates**](https://github.com/pipedrive/client-nodejs/blob/master/docs/DealsApi.md#getDealUpdates) | **GET** /deals/{id}/flow | List updates about a deal
@@ -785,6 +792,7 @@ Class | Method | HTTP request | Description
  - [Pipedrive.DealOrganizationDataWithIdAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/DealOrganizationDataWithIdAllOf.md)
  - [Pipedrive.DealParticipantCountInfo](https://github.com/pipedrive/client-nodejs/blob/master/docs/DealParticipantCountInfo.md)
  - [Pipedrive.DealParticipants](https://github.com/pipedrive/client-nodejs/blob/master/docs/DealParticipants.md)
+ - [Pipedrive.DealParticipantsChangelog](https://github.com/pipedrive/client-nodejs/blob/master/docs/DealParticipantsChangelog.md)
  - [Pipedrive.DealPersonData](https://github.com/pipedrive/client-nodejs/blob/master/docs/DealPersonData.md)
  - [Pipedrive.DealPersonDataEmail](https://github.com/pipedrive/client-nodejs/blob/master/docs/DealPersonDataEmail.md)
  - [Pipedrive.DealPersonDataPhone](https://github.com/pipedrive/client-nodejs/blob/master/docs/DealPersonDataPhone.md)
@@ -1190,6 +1198,8 @@ Class | Method | HTTP request | Description
  - [Pipedrive.PaginationDetails](https://github.com/pipedrive/client-nodejs/blob/master/docs/PaginationDetails.md)
  - [Pipedrive.PaginationDetailsAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/PaginationDetailsAllOf.md)
  - [Pipedrive.Params](https://github.com/pipedrive/client-nodejs/blob/master/docs/Params.md)
+ - [Pipedrive.ParticipantsChangelog](https://github.com/pipedrive/client-nodejs/blob/master/docs/ParticipantsChangelog.md)
+ - [Pipedrive.ParticipantsChangelogItem](https://github.com/pipedrive/client-nodejs/blob/master/docs/ParticipantsChangelogItem.md)
  - [Pipedrive.PaymentItem](https://github.com/pipedrive/client-nodejs/blob/master/docs/PaymentItem.md)
  - [Pipedrive.PaymentsResponse](https://github.com/pipedrive/client-nodejs/blob/master/docs/PaymentsResponse.md)
  - [Pipedrive.PaymentsResponseAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/PaymentsResponseAllOf.md)

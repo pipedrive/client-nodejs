@@ -179,6 +179,7 @@ import DealOrganizationDataWithId from './model/DealOrganizationDataWithId';
 import DealOrganizationDataWithIdAllOf from './model/DealOrganizationDataWithIdAllOf';
 import DealParticipantCountInfo from './model/DealParticipantCountInfo';
 import DealParticipants from './model/DealParticipants';
+import DealParticipantsChangelog from './model/DealParticipantsChangelog';
 import DealPersonData from './model/DealPersonData';
 import DealPersonDataEmail from './model/DealPersonDataEmail';
 import DealPersonDataPhone from './model/DealPersonDataPhone';
@@ -584,6 +585,8 @@ import OwnerAllOf from './model/OwnerAllOf';
 import PaginationDetails from './model/PaginationDetails';
 import PaginationDetailsAllOf from './model/PaginationDetailsAllOf';
 import Params from './model/Params';
+import ParticipantsChangelog from './model/ParticipantsChangelog';
+import ParticipantsChangelogItem from './model/ParticipantsChangelogItem';
 import PaymentItem from './model/PaymentItem';
 import PaymentsResponse from './model/PaymentsResponse';
 import PaymentsResponseAllOf from './model/PaymentsResponseAllOf';
@@ -1883,6 +1886,12 @@ export {
      * @property {module:model/DealParticipants}
      */
     DealParticipants,
+
+    /**
+     * The DealParticipantsChangelog model constructor.
+     * @property {module:model/DealParticipantsChangelog}
+     */
+    DealParticipantsChangelog,
 
     /**
      * The DealPersonData model constructor.
@@ -4313,6 +4322,18 @@ export {
      * @property {module:model/Params}
      */
     Params,
+
+    /**
+     * The ParticipantsChangelog model constructor.
+     * @property {module:model/ParticipantsChangelog}
+     */
+    ParticipantsChangelog,
+
+    /**
+     * The ParticipantsChangelogItem model constructor.
+     * @property {module:model/ParticipantsChangelogItem}
+     */
+    ParticipantsChangelogItem,
 
     /**
      * The PaymentItem model constructor.

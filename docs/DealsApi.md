@@ -20,6 +20,7 @@ Method | HTTP request | Description
 [**getDealFollowers**](DealsApi.md#getDealFollowers) | **GET** /deals/{id}/followers | List followers of a deal
 [**getDealMailMessages**](DealsApi.md#getDealMailMessages) | **GET** /deals/{id}/mailMessages | List mail messages associated with a deal
 [**getDealParticipants**](DealsApi.md#getDealParticipants) | **GET** /deals/{id}/participants | List participants of a deal
+[**getDealParticipantsChangelog**](DealsApi.md#getDealParticipantsChangelog) | **GET** /deals/{id}/participantsChangelog | List updates about participants of a deal
 [**getDealPersons**](DealsApi.md#getDealPersons) | **GET** /deals/{id}/persons | List all persons associated with a deal
 [**getDealProducts**](DealsApi.md#getDealProducts) | **GET** /deals/{id}/products | List products attached to a deal
 [**getDealUpdates**](DealsApi.md#getDealUpdates) | **GET** /deals/{id}/flow | List updates about a deal
@@ -922,6 +923,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DealParticipants**](DealParticipants.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getDealParticipantsChangelog
+
+> ParticipantsChangelog getDealParticipantsChangelog(id, opts)
+
+List updates about participants of a deal
+
+List updates about participants of a deal. This is a cursor-paginated endpoint. For more information, please refer to our documentation on &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/core-api-concepts-pagination\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;pagination&lt;/a&gt;.
+
+### Example
+
+```javascript
+import Pipedrive from 'pipedrive';
+let apiClient = new Pipedrive.ApiClient();
+// Configure API key authorization: api_key
+let api_key = apiClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = apiClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new Pipedrive.DealsApi(apiClient);
+let id = 56; // Number | The ID of the deal
+let opts = {
+  'limit': 56, // Number | Items shown per page
+  'cursor': "cursor_example" // String | For pagination, the marker (an opaque string value) representing the first item on the next page
+};
+apiInstance.getDealParticipantsChangelog(id, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| The ID of the deal | 
+ **limit** | **Number**| Items shown per page | [optional] 
+ **cursor** | **String**| For pagination, the marker (an opaque string value) representing the first item on the next page | [optional] 
+
+### Return type
+
+[**ParticipantsChangelog**](ParticipantsChangelog.md)
 
 ### Authorization
 
