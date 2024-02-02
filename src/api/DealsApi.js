@@ -46,6 +46,7 @@ import MergeDealsRequest from '../model/MergeDealsRequest';
 import NewDeal from '../model/NewDeal';
 import NewDealProduct from '../model/NewDealProduct';
 import NumberBoolean from '../model/NumberBoolean';
+import ParticipantsChangelog from '../model/ParticipantsChangelog';
 import PostDealParticipants from '../model/PostDealParticipants';
 import UpdateDealProduct from '../model/UpdateDealProduct';
 import UpdateDealRequest from '../model/UpdateDealRequest';
@@ -1214,6 +1215,82 @@ export default class DealsApi {
      */
     getDealParticipants(id, opts) {
       return this.getDealParticipantsWithHttpInfo(id, opts)
+        .then(function(response_and_data) {
+          return response_and_data;
+        });
+    }
+
+
+    /**
+     * List updates about participants of a deal
+     * List updates about participants of a deal. This is a cursor-paginated endpoint. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>.
+     * @param {Number} id The ID of the deal
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit Items shown per page
+     * @param {String} opts.cursor For pagination, the marker (an opaque string value) representing the first item on the next page
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ParticipantsChangelog} and HTTP response
+     */
+    getDealParticipantsChangelogWithHttpInfo(id, opts) {
+      opts = opts || {};
+      let postBody = null;
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getDealParticipantsChangelog");
+      }
+
+
+
+      let pathParams = {
+        'id': id,
+      };
+      let queryParams = {
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
+        'cursor': opts['cursor'] === undefined ? opts['cursor'] : opts['cursor'],
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let formParamArray = [
+      ];
+
+      let contentTypes = [];
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
+
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
+      let returnType = ParticipantsChangelog;
+      return this.apiClient.callApi(
+        '/deals/{id}/participantsChangelog', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List updates about participants of a deal
+     * List updates about participants of a deal. This is a cursor-paginated endpoint. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>.
+     * @param {Number} id The ID of the deal
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit Items shown per page
+     * @param {String} opts.cursor For pagination, the marker (an opaque string value) representing the first item on the next page
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ParticipantsChangelog}
+     */
+    getDealParticipantsChangelog(id, opts) {
+      return this.getDealParticipantsChangelogWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data;
         });

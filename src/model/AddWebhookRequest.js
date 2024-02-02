@@ -119,7 +119,7 @@ AddWebhookRequest.prototype['event_action'] = undefined;
 AddWebhookRequest.prototype['event_object'] = undefined;
 
 /**
- * The ID of the user that this webhook will be authorized with. You have the option to use a different user's `user_id`. If it is not set, the current user's `user_id` will be used. As each webhook event is checked against a user’s permissions, the webhook will only be sent if the user has access to the specified object(s). If you want to receive notifications for all events, please use a top-level admin user’s `user_id`.
+ * The ID of the user that this webhook will be authorized with. You have the option to use a different user's `user_id`. If it is not set, the current user's `user_id` will be used. As each webhook event is checked against a user's permissions, the webhook will only be sent if the user has access to the specified object(s). If you want to receive notifications for all events, please use a top-level admin user’s `user_id`.
  * @member {Number} user_id
  */
 AddWebhookRequest.prototype['user_id'] = undefined;
