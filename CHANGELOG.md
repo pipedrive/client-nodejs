@@ -7,6 +7,8 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+
+## [22.5.0] - 2024-02-02
 ### Added
 - Added documentation for new endpoint `/deals/{id}/participantsChangelog`.
 
@@ -591,7 +593,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.4.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.5.0...HEAD
+[22.5.0]: https://github.com/pipedrive/api-docs/compare/v22.4.0...v22.5.0
 [22.4.0]: https://github.com/pipedrive/api-docs/compare/v22.3.0...v22.4.0
 [22.3.0]: https://github.com/pipedrive/api-docs/compare/v22.2.0...v22.3.0
 [22.2.0]: https://github.com/pipedrive/api-docs/compare/v22.1.0...v22.2.0
