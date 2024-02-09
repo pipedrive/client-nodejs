@@ -17,6 +17,13 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 ### Added
 - Added documentation for `/meetings/userProviderLinks` endpoints
 
+## [22.3.1-rc.2] - 2023-12-22
+
+## [22.3.1-rc.1] - 2023-12-22
+
+## [22.3.1-rc.0] - 2023-12-22
+- Add Support for TypeScript
+
 ## [22.3.0] - 2023-10-17
 - Add `Projects`, `ProjectTemplates` and `Tasks` public routes.
 

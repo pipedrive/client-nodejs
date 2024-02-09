@@ -205,7 +205,7 @@ const oauth2 = new OAuth2Configuration({
 });
 
 app.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}`);
+  console.log(`Listening on port ${PORT}`);
 });
 
 app.get('/', async (req, res) => {
