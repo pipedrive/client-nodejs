@@ -45,8 +45,16 @@ export interface RequestArgs {
 * Axios interceptor to add the SDK version as a User-Agent header
 * */
 globalAxios.interceptors.request.use(function (config) {
-    const version = require("../package.json").version;
+    let version;
+
+    try {
+        version = require('../package.json').version;
+    } catch (error) {
+        version = '22.x';
+    }
+
     config.headers['User-Agent'] = `Pipedrive-SDK-Javascript-${version}`;
+
     return config;
 });
 

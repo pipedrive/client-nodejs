@@ -8,8 +8,18 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [22.3.1-rc.4] - 2024-02-12
+
 ## [22.3.1-rc.3] - 2024-01-08
-- Add `lead_id` as an acceptable body parameter for the `POST /v1/callLogs` endpoint
+- Add TypeScript Support
+
+## [22.5.0] - 2024-02-02
+### Added
+- Added documentation for new endpoint `/deals/{id}/participantsChangelog`.
+
+## [22.4.0] - 2024-01-05
+### Added
+- Added documentation for `/meetings/userProviderLinks` endpoints
 
 ## [22.3.1-rc.2] - 2023-12-22
 
@@ -595,7 +605,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.3.1-rc.3...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.3.1-rc.4...HEAD
+[22.3.1-rc.4]: https://github.com/pipedrive/api-docs/compare/v22.3.1-rc.3...v22.3.1-rc.4
 [22.3.1-rc.3]: https://github.com/pipedrive/api-docs/compare/v22.4.0...v22.3.1-rc.3
 [22.4.0]: https://github.com/pipedrive/api-docs/compare/v22.3.0...v22.4.0
 [22.3.0]: https://github.com/pipedrive/api-docs/compare/v22.2.0...v22.3.0

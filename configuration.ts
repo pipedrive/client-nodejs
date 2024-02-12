@@ -206,7 +206,14 @@ export class OAuth2Configuration {
   }
 
   private getUserAgent = () => {
-    const version = require("../package.json").version;
+    let version;
+
+    try {
+        version = require('../package.json').version;
+    } catch (error) {
+        version = '22.x';
+    }
+
     return `Pipedrive-SDK-Javascript-${version}`;
   };
 

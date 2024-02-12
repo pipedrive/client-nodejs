@@ -191,17 +191,17 @@ const app = express();
 
 app.use(cookieParser());
 app.use(cookieSession({
-  name: "session",
-  keys: ["key1"]
+    name: "session",
+    keys: ["key1"]
 }));
 
 const PORT = 3000;
 
 
 const oauth2 = new OAuth2Configuration({
-  clientId: "clientId", // OAuth 2 Client ID
-  clientSecret: "clientSecret",  // OAuth 2 Client Secret
-  redirectUri: 'redirectUri' // OAuth 2 Redirection endpoint or Callback Uri
+    clientId: "clientId", // OAuth 2 Client ID
+    clientSecret: "clientSecret",  // OAuth 2 Client Secret
+    redirectUri: 'redirectUri' // OAuth 2 Redirection endpoint or Callback Uri
 });
 
 app.listen(PORT, () => {
@@ -209,44 +209,47 @@ app.listen(PORT, () => {
 });
 
 app.get('/', async (req, res) => {
-  try {
+try {
     // method will handle return null if token is not available in the session
     const token = oauth2.updateToken(req.session?.accessToken);
 
-    if (!token) {
-      const authUrl = oauth2.authorizationUrl;
-      return res.redirect(authUrl);
+     if (!token) {
+        const authUrl = oauth2.authorizationUrl;
+        return res.redirect(authUrl);
     }
 
 
     const apiConfig = new Configuration({
-      accessToken: oauth2.getAccessToken,
-      basePath: oauth2.basePath,
+        accessToken: oauth2.getAccessToken,
+        basePath: oauth2.basePath,
     });
 
+    // token is already set in the session
+    // now make API calls as required
+    // client will automatically refresh the token when it expires and call the token update callback
     const dealsApi = new DealsApi(apiConfig)
 
     const response = await dealsApi.getDeals();
     const { data: deals } = response;
 
     return res.send(deals);
-  } catch (error){
+} catch (error){
     console.error(error)
     return res.status(500).send(error)
-  }
+}
 });
 
 app.get('/callback', async (req, res) => {
-  try {
-    const authCode = req.query.code as string;
-    const newAccessToken = await oauth2.authorize(authCode);
+    try {
+        const authCode = req.query.code as string;
+        const newAccessToken = await oauth2.authorize(authCode);
 
-    req.session.accessToken = newAccessToken;
-    return res.redirect("/");
-  }catch (error) {
-    console.error(error)
-    return res.status(500).send(error)
-  }
+        req.session.accessToken = newAccessToken;
+        return res.redirect("/");
+    }catch (error) {
+        console.error(error)
+        return res.status(500).send(error)
+    }
 });
 
 ```
@@ -547,7 +550,7 @@ WebhooksApi | getWebhooks | **GET** /webhooks | Get all Webhooks
 - **Type**: OAuth
 - **Flow**: accessCode
 - **Authorization URL**: https://oauth.pipedrive.com/oauth/authorize
-- **Scopes**:
+- **Scopes**: 
    - base: Read settings of the authorized user and currencies in an account
  - deals:read: Read most of the data about deals and related entities - deal fields, products, followers, participants; all notes, files, filters, pipelines, stages, and statistics. Does not include access to activities (except the last and next activity related to a deal)
  - deals:full: Create, read, update and delete deals, its participants and followers; all files, notes, and filters. It also includes read access to deal fields, pipelines, stages, and statistics. Does not include access to activities (except the last and next activity related to a deal)
