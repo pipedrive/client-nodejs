@@ -391,6 +391,7 @@ Class | Method | HTTP request | Description
 *Pipedrive.DealsApi* | [**duplicateDeal**](https://github.com/pipedrive/client-nodejs/blob/master/docs/DealsApi.md#duplicateDeal) | **POST** /deals/{id}/duplicate | Duplicate deal
 *Pipedrive.DealsApi* | [**getDeal**](https://github.com/pipedrive/client-nodejs/blob/master/docs/DealsApi.md#getDeal) | **GET** /deals/{id} | Get details of a deal
 *Pipedrive.DealsApi* | [**getDealActivities**](https://github.com/pipedrive/client-nodejs/blob/master/docs/DealsApi.md#getDealActivities) | **GET** /deals/{id}/activities | List activities associated with a deal
+*Pipedrive.DealsApi* | [**getDealChangelog**](https://github.com/pipedrive/client-nodejs/blob/master/docs/DealsApi.md#getDealChangelog) | **GET** /deals/{id}/changelog | List updates about deal field values
 *Pipedrive.DealsApi* | [**getDealFiles**](https://github.com/pipedrive/client-nodejs/blob/master/docs/DealsApi.md#getDealFiles) | **GET** /deals/{id}/files | List files attached to a deal
 *Pipedrive.DealsApi* | [**getDealFollowers**](https://github.com/pipedrive/client-nodejs/blob/master/docs/DealsApi.md#getDealFollowers) | **GET** /deals/{id}/followers | List followers of a deal
 *Pipedrive.DealsApi* | [**getDealMailMessages**](https://github.com/pipedrive/client-nodejs/blob/master/docs/DealsApi.md#getDealMailMessages) | **GET** /deals/{id}/mailMessages | List mail messages associated with a deal
@@ -487,6 +488,7 @@ Class | Method | HTTP request | Description
 *Pipedrive.OrganizationsApi* | [**deleteOrganizations**](https://github.com/pipedrive/client-nodejs/blob/master/docs/OrganizationsApi.md#deleteOrganizations) | **DELETE** /organizations | Delete multiple organizations in bulk
 *Pipedrive.OrganizationsApi* | [**getOrganization**](https://github.com/pipedrive/client-nodejs/blob/master/docs/OrganizationsApi.md#getOrganization) | **GET** /organizations/{id} | Get details of an organization
 *Pipedrive.OrganizationsApi* | [**getOrganizationActivities**](https://github.com/pipedrive/client-nodejs/blob/master/docs/OrganizationsApi.md#getOrganizationActivities) | **GET** /organizations/{id}/activities | List activities associated with an organization
+*Pipedrive.OrganizationsApi* | [**getOrganizationChangelog**](https://github.com/pipedrive/client-nodejs/blob/master/docs/OrganizationsApi.md#getOrganizationChangelog) | **GET** /organizations/{id}/changelog | List updates about organization field values
 *Pipedrive.OrganizationsApi* | [**getOrganizationDeals**](https://github.com/pipedrive/client-nodejs/blob/master/docs/OrganizationsApi.md#getOrganizationDeals) | **GET** /organizations/{id}/deals | List deals associated with an organization
 *Pipedrive.OrganizationsApi* | [**getOrganizationFiles**](https://github.com/pipedrive/client-nodejs/blob/master/docs/OrganizationsApi.md#getOrganizationFiles) | **GET** /organizations/{id}/files | List files attached to an organization
 *Pipedrive.OrganizationsApi* | [**getOrganizationFollowers**](https://github.com/pipedrive/client-nodejs/blob/master/docs/OrganizationsApi.md#getOrganizationFollowers) | **GET** /organizations/{id}/followers | List followers of an organization
@@ -517,6 +519,7 @@ Class | Method | HTTP request | Description
 *Pipedrive.PersonsApi* | [**deletePersons**](https://github.com/pipedrive/client-nodejs/blob/master/docs/PersonsApi.md#deletePersons) | **DELETE** /persons | Delete multiple persons in bulk
 *Pipedrive.PersonsApi* | [**getPerson**](https://github.com/pipedrive/client-nodejs/blob/master/docs/PersonsApi.md#getPerson) | **GET** /persons/{id} | Get details of a person
 *Pipedrive.PersonsApi* | [**getPersonActivities**](https://github.com/pipedrive/client-nodejs/blob/master/docs/PersonsApi.md#getPersonActivities) | **GET** /persons/{id}/activities | List activities associated with a person
+*Pipedrive.PersonsApi* | [**getPersonChangelog**](https://github.com/pipedrive/client-nodejs/blob/master/docs/PersonsApi.md#getPersonChangelog) | **GET** /persons/{id}/changelog | List updates about person field values
 *Pipedrive.PersonsApi* | [**getPersonDeals**](https://github.com/pipedrive/client-nodejs/blob/master/docs/PersonsApi.md#getPersonDeals) | **GET** /persons/{id}/deals | List deals associated with a person
 *Pipedrive.PersonsApi* | [**getPersonFiles**](https://github.com/pipedrive/client-nodejs/blob/master/docs/PersonsApi.md#getPersonFiles) | **GET** /persons/{id}/files | List files attached to a person
 *Pipedrive.PersonsApi* | [**getPersonFollowers**](https://github.com/pipedrive/client-nodejs/blob/master/docs/PersonsApi.md#getPersonFollowers) | **GET** /persons/{id}/followers | List followers of a person
@@ -762,6 +765,9 @@ Class | Method | HTTP request | Description
  - [Pipedrive.CallLogResponse500](https://github.com/pipedrive/client-nodejs/blob/master/docs/CallLogResponse500.md)
  - [Pipedrive.CallLogsResponse](https://github.com/pipedrive/client-nodejs/blob/master/docs/CallLogsResponse.md)
  - [Pipedrive.CallLogsResponseAdditionalData](https://github.com/pipedrive/client-nodejs/blob/master/docs/CallLogsResponseAdditionalData.md)
+ - [Pipedrive.ChangelogResponse](https://github.com/pipedrive/client-nodejs/blob/master/docs/ChangelogResponse.md)
+ - [Pipedrive.ChangelogResponseAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/ChangelogResponseAllOf.md)
+ - [Pipedrive.ChangelogResponseAllOfData](https://github.com/pipedrive/client-nodejs/blob/master/docs/ChangelogResponseAllOfData.md)
  - [Pipedrive.ChannelObject](https://github.com/pipedrive/client-nodejs/blob/master/docs/ChannelObject.md)
  - [Pipedrive.ChannelObjectResponse](https://github.com/pipedrive/client-nodejs/blob/master/docs/ChannelObjectResponse.md)
  - [Pipedrive.ChannelObjectResponseData](https://github.com/pipedrive/client-nodejs/blob/master/docs/ChannelObjectResponseData.md)

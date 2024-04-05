@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **endDate** | **Date** | The end date of the subscription | [optional] 
 **lifetimeValue** | **Number** | The total value of all payments | [optional] 
 **finalStatus** | **String** | The final status of the subscription | [optional] 
-**addTime** | **String** | The creation time of the subscription | [optional] 
-**updateTime** | **String** | The update time of the subscription | [optional] 
+**addTime** | **Date** | The creation time of the subscription | [optional] 
+**updateTime** | **Date** | The update time of the subscription | [optional] 
 
 

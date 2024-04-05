@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**duplicateDeal**](DealsApi.md#duplicateDeal) | **POST** /deals/{id}/duplicate | Duplicate deal
 [**getDeal**](DealsApi.md#getDeal) | **GET** /deals/{id} | Get details of a deal
 [**getDealActivities**](DealsApi.md#getDealActivities) | **GET** /deals/{id}/activities | List activities associated with a deal
+[**getDealChangelog**](DealsApi.md#getDealChangelog) | **GET** /deals/{id}/changelog | List updates about deal field values
 [**getDealFiles**](DealsApi.md#getDealFiles) | **GET** /deals/{id}/files | List files attached to a deal
 [**getDealFollowers**](DealsApi.md#getDealFollowers) | **GET** /deals/{id}/followers | List followers of a deal
 [**getDealMailMessages**](DealsApi.md#getDealMailMessages) | **GET** /deals/{id}/mailMessages | List mail messages associated with a deal
@@ -691,6 +692,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DealListActivitiesResponse**](DealListActivitiesResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getDealChangelog
+
+> ChangelogResponse getDealChangelog(id, opts)
+
+List updates about deal field values
+
+Lists updates about field values of a deal.
+
+### Example
+
+```javascript
+import Pipedrive from 'pipedrive';
+let apiClient = new Pipedrive.ApiClient();
+// Configure API key authorization: api_key
+let api_key = apiClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = apiClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new Pipedrive.DealsApi(apiClient);
+let id = 56; // Number | The ID of the deal
+let opts = {
+  'cursor': "cursor_example", // String | For pagination, the marker (an opaque string value) representing the first item on the next page
+  'limit': 56 // Number | Items shown per page
+};
+apiInstance.getDealChangelog(id, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| The ID of the deal | 
+ **cursor** | **String**| For pagination, the marker (an opaque string value) representing the first item on the next page | [optional] 
+ **limit** | **Number**| Items shown per page | [optional] 
+
+### Return type
+
+[**ChangelogResponse**](ChangelogResponse.md)
 
 ### Authorization
 
