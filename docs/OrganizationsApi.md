@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**deleteOrganizations**](OrganizationsApi.md#deleteOrganizations) | **DELETE** /organizations | Delete multiple organizations in bulk
 [**getOrganization**](OrganizationsApi.md#getOrganization) | **GET** /organizations/{id} | Get details of an organization
 [**getOrganizationActivities**](OrganizationsApi.md#getOrganizationActivities) | **GET** /organizations/{id}/activities | List activities associated with an organization
+[**getOrganizationChangelog**](OrganizationsApi.md#getOrganizationChangelog) | **GET** /organizations/{id}/changelog | List updates about organization field values
 [**getOrganizationDeals**](OrganizationsApi.md#getOrganizationDeals) | **GET** /organizations/{id}/deals | List deals associated with an organization
 [**getOrganizationFiles**](OrganizationsApi.md#getOrganizationFiles) | **GET** /organizations/{id}/files | List files attached to an organization
 [**getOrganizationFollowers**](OrganizationsApi.md#getOrganizationFollowers) | **GET** /organizations/{id}/followers | List followers of an organization
@@ -404,6 +405,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ListActivitiesResponse**](ListActivitiesResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getOrganizationChangelog
+
+> ChangelogResponse getOrganizationChangelog(id, opts)
+
+List updates about organization field values
+
+Lists updates about field values of an organization.
+
+### Example
+
+```javascript
+import Pipedrive from 'pipedrive';
+let apiClient = new Pipedrive.ApiClient();
+// Configure API key authorization: api_key
+let api_key = apiClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = apiClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new Pipedrive.OrganizationsApi(apiClient);
+let id = 56; // Number | The ID of the organization
+let opts = {
+  'cursor': "cursor_example", // String | For pagination, the marker (an opaque string value) representing the first item on the next page
+  'limit': 56 // Number | Items shown per page
+};
+apiInstance.getOrganizationChangelog(id, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| The ID of the organization | 
+ **cursor** | **String**| For pagination, the marker (an opaque string value) representing the first item on the next page | [optional] 
+ **limit** | **Number**| Items shown per page | [optional] 
+
+### Return type
+
+[**ChangelogResponse**](ChangelogResponse.md)
 
 ### Authorization
 

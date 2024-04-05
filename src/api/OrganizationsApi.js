@@ -15,6 +15,7 @@
 import ApiClient from "../ApiClient";
 import AddOrganizationFollowerRequest from '../model/AddOrganizationFollowerRequest';
 import AllOrganizationsGetResponse from '../model/AllOrganizationsGetResponse';
+import ChangelogResponse from '../model/ChangelogResponse';
 import FailResponse from '../model/FailResponse';
 import InlineResponse2001 from '../model/InlineResponse2001';
 import ListActivitiesResponse from '../model/ListActivitiesResponse';
@@ -546,6 +547,82 @@ export default class OrganizationsApi {
      */
     getOrganizationActivities(id, opts) {
       return this.getOrganizationActivitiesWithHttpInfo(id, opts)
+        .then(function(response_and_data) {
+          return response_and_data;
+        });
+    }
+
+
+    /**
+     * List updates about organization field values
+     * Lists updates about field values of an organization.
+     * @param {Number} id The ID of the organization
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.cursor For pagination, the marker (an opaque string value) representing the first item on the next page
+     * @param {Number} opts.limit Items shown per page
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ChangelogResponse} and HTTP response
+     */
+    getOrganizationChangelogWithHttpInfo(id, opts) {
+      opts = opts || {};
+      let postBody = null;
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getOrganizationChangelog");
+      }
+
+
+
+      let pathParams = {
+        'id': id,
+      };
+      let queryParams = {
+        'cursor': opts['cursor'] === undefined ? opts['cursor'] : opts['cursor'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let formParamArray = [
+      ];
+
+      let contentTypes = [];
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
+
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
+      let returnType = ChangelogResponse;
+      return this.apiClient.callApi(
+        '/organizations/{id}/changelog', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List updates about organization field values
+     * Lists updates about field values of an organization.
+     * @param {Number} id The ID of the organization
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.cursor For pagination, the marker (an opaque string value) representing the first item on the next page
+     * @param {Number} opts.limit Items shown per page
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ChangelogResponse}
+     */
+    getOrganizationChangelog(id, opts) {
+      return this.getOrganizationChangelogWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data;
         });

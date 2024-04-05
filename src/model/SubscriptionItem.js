@@ -118,12 +118,12 @@ class SubscriptionItem {
                 delete data['final_status'];
             }
             if (data.hasOwnProperty('add_time')) {
-                obj['add_time'] = ApiClient.convertToType(data['add_time'], 'String');
+                obj['add_time'] = ApiClient.convertToType(data['add_time'], 'Date');
 
                 delete data['add_time'];
             }
             if (data.hasOwnProperty('update_time')) {
-                obj['update_time'] = ApiClient.convertToType(data['update_time'], 'String');
+                obj['update_time'] = ApiClient.convertToType(data['update_time'], 'Date');
 
                 delete data['update_time'];
             }
@@ -225,13 +225,13 @@ SubscriptionItem.prototype['final_status'] = undefined;
 
 /**
  * The creation time of the subscription
- * @member {String} add_time
+ * @member {Date} add_time
  */
 SubscriptionItem.prototype['add_time'] = undefined;
 
 /**
  * The update time of the subscription
- * @member {String} update_time
+ * @member {Date} update_time
  */
 SubscriptionItem.prototype['update_time'] = undefined;
 

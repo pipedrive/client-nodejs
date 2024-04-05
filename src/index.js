@@ -149,6 +149,9 @@ import CallLogResponse410 from './model/CallLogResponse410';
 import CallLogResponse500 from './model/CallLogResponse500';
 import CallLogsResponse from './model/CallLogsResponse';
 import CallLogsResponseAdditionalData from './model/CallLogsResponseAdditionalData';
+import ChangelogResponse from './model/ChangelogResponse';
+import ChangelogResponseAllOf from './model/ChangelogResponseAllOf';
+import ChangelogResponseAllOfData from './model/ChangelogResponseAllOfData';
 import ChannelObject from './model/ChannelObject';
 import ChannelObjectResponse from './model/ChannelObjectResponse';
 import ChannelObjectResponseData from './model/ChannelObjectResponseData';
@@ -1706,6 +1709,24 @@ export {
      * @property {module:model/CallLogsResponseAdditionalData}
      */
     CallLogsResponseAdditionalData,
+
+    /**
+     * The ChangelogResponse model constructor.
+     * @property {module:model/ChangelogResponse}
+     */
+    ChangelogResponse,
+
+    /**
+     * The ChangelogResponseAllOf model constructor.
+     * @property {module:model/ChangelogResponseAllOf}
+     */
+    ChangelogResponseAllOf,
+
+    /**
+     * The ChangelogResponseAllOfData model constructor.
+     * @property {module:model/ChangelogResponseAllOfData}
+     */
+    ChangelogResponseAllOfData,
 
     /**
      * The ChannelObject model constructor.

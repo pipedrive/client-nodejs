@@ -103,12 +103,12 @@ class PaymentItem {
                 delete data['description'];
             }
             if (data.hasOwnProperty('add_time')) {
-                obj['add_time'] = ApiClient.convertToType(data['add_time'], 'String');
+                obj['add_time'] = ApiClient.convertToType(data['add_time'], 'Date');
 
                 delete data['add_time'];
             }
             if (data.hasOwnProperty('update_time')) {
-                obj['update_time'] = ApiClient.convertToType(data['update_time'], 'String');
+                obj['update_time'] = ApiClient.convertToType(data['update_time'], 'Date');
 
                 delete data['update_time'];
             }
@@ -192,13 +192,13 @@ PaymentItem.prototype['description'] = undefined;
 
 /**
  * The creation time of the payment
- * @member {String} add_time
+ * @member {Date} add_time
  */
 PaymentItem.prototype['add_time'] = undefined;
 
 /**
  * The update time of the payment
- * @member {String} update_time
+ * @member {Date} update_time
  */
 PaymentItem.prototype['update_time'] = undefined;
 

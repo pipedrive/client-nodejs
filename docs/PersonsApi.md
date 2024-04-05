@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**deletePersons**](PersonsApi.md#deletePersons) | **DELETE** /persons | Delete multiple persons in bulk
 [**getPerson**](PersonsApi.md#getPerson) | **GET** /persons/{id} | Get details of a person
 [**getPersonActivities**](PersonsApi.md#getPersonActivities) | **GET** /persons/{id}/activities | List activities associated with a person
+[**getPersonChangelog**](PersonsApi.md#getPersonChangelog) | **GET** /persons/{id}/changelog | List updates about person field values
 [**getPersonDeals**](PersonsApi.md#getPersonDeals) | **GET** /persons/{id}/deals | List deals associated with a person
 [**getPersonFiles**](PersonsApi.md#getPersonFiles) | **GET** /persons/{id}/files | List files attached to a person
 [**getPersonFollowers**](PersonsApi.md#getPersonFollowers) | **GET** /persons/{id}/followers | List followers of a person
@@ -524,6 +525,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ListActivitiesResponse**](ListActivitiesResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getPersonChangelog
+
+> ChangelogResponse getPersonChangelog(id, opts)
+
+List updates about person field values
+
+Lists updates about field values of a person.
+
+### Example
+
+```javascript
+import Pipedrive from 'pipedrive';
+let apiClient = new Pipedrive.ApiClient();
+// Configure API key authorization: api_key
+let api_key = apiClient.authentications['api_key'];
+api_key.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oauth2
+let oauth2 = apiClient.authentications['oauth2'];
+oauth2.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new Pipedrive.PersonsApi(apiClient);
+let id = 56; // Number | The ID of the person
+let opts = {
+  'cursor': "cursor_example", // String | For pagination, the marker (an opaque string value) representing the first item on the next page
+  'limit': 56 // Number | Items shown per page
+};
+apiInstance.getPersonChangelog(id, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| The ID of the person | 
+ **cursor** | **String**| For pagination, the marker (an opaque string value) representing the first item on the next page | [optional] 
+ **limit** | **Number**| Items shown per page | [optional] 
+
+### Return type
+
+[**ChangelogResponse**](ChangelogResponse.md)
 
 ### Authorization
 

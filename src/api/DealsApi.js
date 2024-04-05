@@ -16,6 +16,7 @@ import ApiClient from "../ApiClient";
 import AddDealFollowerRequest from '../model/AddDealFollowerRequest';
 import AddDealParticipantRequest from '../model/AddDealParticipantRequest';
 import AddedDealFollower from '../model/AddedDealFollower';
+import ChangelogResponse from '../model/ChangelogResponse';
 import DealFlowResponse from '../model/DealFlowResponse';
 import DealListActivitiesResponse from '../model/DealListActivitiesResponse';
 import DealParticipants from '../model/DealParticipants';
@@ -917,6 +918,82 @@ export default class DealsApi {
      */
     getDealActivities(id, opts) {
       return this.getDealActivitiesWithHttpInfo(id, opts)
+        .then(function(response_and_data) {
+          return response_and_data;
+        });
+    }
+
+
+    /**
+     * List updates about deal field values
+     * Lists updates about field values of a deal.
+     * @param {Number} id The ID of the deal
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.cursor For pagination, the marker (an opaque string value) representing the first item on the next page
+     * @param {Number} opts.limit Items shown per page
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ChangelogResponse} and HTTP response
+     */
+    getDealChangelogWithHttpInfo(id, opts) {
+      opts = opts || {};
+      let postBody = null;
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getDealChangelog");
+      }
+
+
+
+      let pathParams = {
+        'id': id,
+      };
+      let queryParams = {
+        'cursor': opts['cursor'] === undefined ? opts['cursor'] : opts['cursor'],
+        'limit': opts['limit'] === undefined ? opts['limit'] : opts['limit'],
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let formParamArray = [
+      ];
+
+      let contentTypes = [];
+      const isURLEncoded = contentTypes.includes('application/x-www-form-urlencoded');
+      const isJSON = contentTypes.includes('application/json');
+
+      if (isJSON) {
+        postBody = { ...postBody, ...opts };
+      } else if (isURLEncoded) {
+        for (let key in opts) {
+          if (opts.hasOwnProperty(key) && !formParamArray.includes(key)) {
+            formParams[key] = opts[key];
+          }
+        }
+      }
+
+      let authNames = ['api_key', 'oauth2', ];
+      let accepts = ['application/json', ];
+      let returnType = ChangelogResponse;
+      return this.apiClient.callApi(
+        '/deals/{id}/changelog', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List updates about deal field values
+     * Lists updates about field values of a deal.
+     * @param {Number} id The ID of the deal
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.cursor For pagination, the marker (an opaque string value) representing the first item on the next page
+     * @param {Number} opts.limit Items shown per page
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ChangelogResponse}
+     */
+    getDealChangelog(id, opts) {
+      return this.getDealChangelogWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data;
         });

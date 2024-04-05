@@ -15,8 +15,8 @@ Name | Type | Description | Notes
 **revenueMovementType** | **String** | Represents the movement of revenue in comparison with the previous payment. Possible values are: &#x60;New&#x60; - first payment of the subscription. &#x60;Recurring&#x60; - no movement. &#x60;Expansion&#x60; - current payment amount &gt; previous payment amount. &#x60;Contraction&#x60; - current payment amount &lt; previous payment amount. &#x60;Churn&#x60; - last payment of the subscription. | [optional] 
 **paymentType** | **String** | The type of the payment. Possible values are: &#x60;Recurring&#x60; - payments occur over fixed intervals of time, &#x60;Additional&#x60; - extra payment not the recurring payment of the recurring subscription, &#x60;Installment&#x60; - payment of the installment subscription. | [optional] 
 **description** | **String** | The description of the payment | [optional] 
-**addTime** | **String** | The creation time of the payment | [optional] 
-**updateTime** | **String** | The update time of the payment | [optional] 
+**addTime** | **Date** | The creation time of the payment | [optional] 
+**updateTime** | **Date** | The update time of the payment | [optional] 
 
 
 
