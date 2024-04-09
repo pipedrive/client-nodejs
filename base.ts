@@ -16,7 +16,8 @@
 import type { Configuration } from './configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import type { AxiosPromise, AxiosInstance, AxiosRequestConfig, AxiosError, AxiosResponse } from 'axios';
+import axios from 'axios';
 import globalAxios from 'axios';
 
 export const BASE_PATH = "https://api.pipedrive.com/v1".replace(/\/+$/, "");
@@ -58,17 +59,6 @@ globalAxios.interceptors.request.use(function (config) {
     return config;
 });
 
-/**
-* Axios response interceptor to modify response structure
-*/
-globalAxios.interceptors.response.use(function (response) {
-        return response ? (response.hasOwnProperty('success') ? response : response.data) : response;
-    }, function (error) {
-        if(error?.response?.data) {
-            return Promise.reject(error.response.data);
-        }
-        return Promise.reject(error);
-});
 
 /**
  *
@@ -78,14 +68,32 @@ globalAxios.interceptors.response.use(function (response) {
 export class BaseAPI {
     protected configuration: Configuration | undefined;
     protected basePath: string = BASE_PATH;
-    protected axios = globalAxios;
+    protected axios = axios.create();
 
-    constructor(configuration: Configuration) {
-        if (configuration) {
-            this.configuration = configuration;
-            this.basePath = configuration.basePath || this.basePath;
-        }
+  constructor(configuration: Configuration) {
+    const interceptor = (response: AxiosResponse) => {
+      return response
+        ? response.hasOwnProperty('success')
+          ? response
+          : response.data
+        : response;
+    };
+
+    const errorInterceptor = (error: AxiosError) => {
+      if (error.response && error.response.data) {
+        return Promise.reject(error.response.data);
+      }
+      return Promise.reject(error);
+    };
+
+    // Add the interceptor to the axios instance
+    this.axios.interceptors.response.use(interceptor, errorInterceptor);
+
+    if (configuration) {
+      this.configuration = configuration;
+      this.basePath = configuration.basePath || this.basePath;
     }
+}
 };
 
 /**
