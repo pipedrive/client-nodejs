@@ -150,6 +150,11 @@ class BaseUserMe {
 
                 delete data['is_you'];
             }
+            if (data.hasOwnProperty('is_deleted')) {
+                obj['is_deleted'] = ApiClient.convertToType(data['is_deleted'], 'Boolean');
+
+                delete data['is_deleted'];
+            }
             if (data.hasOwnProperty('company_id')) {
                 obj['company_id'] = ApiClient.convertToType(data['company_id'], 'Number');
 
@@ -306,6 +311,12 @@ BaseUserMe.prototype['icon_url'] = undefined;
 BaseUserMe.prototype['is_you'] = undefined;
 
 /**
+ * Boolean that indicates whether the user is deleted from the company
+ * @member {Boolean} is_deleted
+ */
+BaseUserMe.prototype['is_deleted'] = undefined;
+
+/**
  * The user company ID
  * @member {Number} company_id
  */
@@ -436,6 +447,11 @@ BaseUser.prototype['icon_url'] = undefined;
  * @member {Boolean} is_you
  */
 BaseUser.prototype['is_you'] = undefined;
+/**
+ * Boolean that indicates whether the user is deleted from the company
+ * @member {Boolean} is_deleted
+ */
+BaseUser.prototype['is_deleted'] = undefined;
 // Implement BaseUserMeAllOf interface:
 /**
  * The user company ID

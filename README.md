@@ -1073,8 +1073,6 @@ Class | Method | HTTP request | Description
  - [Pipedrive.ListPermittedUsersResponse](https://github.com/pipedrive/client-nodejs/blob/master/docs/ListPermittedUsersResponse.md)
  - [Pipedrive.ListPermittedUsersResponse1](https://github.com/pipedrive/client-nodejs/blob/master/docs/ListPermittedUsersResponse1.md)
  - [Pipedrive.ListPermittedUsersResponse1AllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/ListPermittedUsersResponse1AllOf.md)
- - [Pipedrive.ListPermittedUsersResponseAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/ListPermittedUsersResponseAllOf.md)
- - [Pipedrive.ListPermittedUsersResponseAllOfData](https://github.com/pipedrive/client-nodejs/blob/master/docs/ListPermittedUsersResponseAllOfData.md)
  - [Pipedrive.ListPersonProductsResponse](https://github.com/pipedrive/client-nodejs/blob/master/docs/ListPersonProductsResponse.md)
  - [Pipedrive.ListPersonProductsResponseAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/ListPersonProductsResponseAllOf.md)
  - [Pipedrive.ListPersonProductsResponseAllOfDEALID](https://github.com/pipedrive/client-nodejs/blob/master/docs/ListPersonProductsResponseAllOfDEALID.md)

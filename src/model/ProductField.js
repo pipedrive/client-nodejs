@@ -102,6 +102,11 @@ class ProductField {
 
                 delete data['last_updated_by_user_id'];
             }
+            if (data.hasOwnProperty('created_by_user_id')) {
+                obj['created_by_user_id'] = ApiClient.convertToType(data['created_by_user_id'], 'Number');
+
+                delete data['created_by_user_id'];
+            }
             if (data.hasOwnProperty('active_flag')) {
                 obj['active_flag'] = ApiClient.convertToType(data['active_flag'], 'Boolean');
 
@@ -214,6 +219,12 @@ ProductField.prototype['update_time'] = undefined;
 ProductField.prototype['last_updated_by_user_id'] = undefined;
 
 /**
+ * The ID of the user who created the product field
+ * @member {Number} created_by_user_id
+ */
+ProductField.prototype['created_by_user_id'] = undefined;
+
+/**
  * Whether or not the product field is currently active
  * @member {Boolean} active_flag
  */
@@ -315,6 +326,11 @@ ProductFieldAllOf.prototype['update_time'] = undefined;
  * @member {Number} last_updated_by_user_id
  */
 ProductFieldAllOf.prototype['last_updated_by_user_id'] = undefined;
+/**
+ * The ID of the user who created the product field
+ * @member {Number} created_by_user_id
+ */
+ProductFieldAllOf.prototype['created_by_user_id'] = undefined;
 /**
  * Whether or not the product field is currently active
  * @member {Boolean} active_flag

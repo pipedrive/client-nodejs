@@ -13,8 +13,6 @@
 
 import ApiClient from '../ApiClient';
 import BaseResponse from './BaseResponse';
-import ListPermittedUsersResponseAllOf from './ListPermittedUsersResponseAllOf';
-import ListPermittedUsersResponseAllOfData from './ListPermittedUsersResponseAllOfData';
 
 /**
  * The ListPermittedUsersResponse model module.
@@ -26,10 +24,9 @@ class ListPermittedUsersResponse {
      * Constructs a new <code>ListPermittedUsersResponse</code>.
      * @alias module:model/ListPermittedUsersResponse
      * @implements module:model/BaseResponse
-     * @implements module:model/ListPermittedUsersResponseAllOf
      */
     constructor() { 
-        BaseResponse.initialize(this);ListPermittedUsersResponseAllOf.initialize(this);
+        BaseResponse.initialize(this);
         ListPermittedUsersResponse.initialize(this);
     }
 
@@ -52,17 +49,11 @@ class ListPermittedUsersResponse {
         if (data) {
             obj = obj || new ListPermittedUsersResponse();
             BaseResponse.constructFromObject(data, obj);
-            ListPermittedUsersResponseAllOf.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('success')) {
                 obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
 
                 delete data['success'];
-            }
-            if (data.hasOwnProperty('data')) {
-                obj['data'] = ListPermittedUsersResponseAllOfData.constructFromObject(data['data']);
-
-                delete data['data'];
             }
 
             if (Object.keys(data).length > 0) {
@@ -82,11 +73,6 @@ class ListPermittedUsersResponse {
  */
 ListPermittedUsersResponse.prototype['success'] = undefined;
 
-/**
- * @member {module:model/ListPermittedUsersResponseAllOfData} data
- */
-ListPermittedUsersResponse.prototype['data'] = undefined;
-
 
 // Implement BaseResponse interface:
 /**
@@ -94,11 +80,6 @@ ListPermittedUsersResponse.prototype['data'] = undefined;
  * @member {Boolean} success
  */
 BaseResponse.prototype['success'] = undefined;
-// Implement ListPermittedUsersResponseAllOf interface:
-/**
- * @member {module:model/ListPermittedUsersResponseAllOfData} data
- */
-ListPermittedUsersResponseAllOf.prototype['data'] = undefined;
 
 
 

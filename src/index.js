@@ -457,8 +457,6 @@ import ListMailMessagesResponseAllOfData from './model/ListMailMessagesResponseA
 import ListPermittedUsersResponse from './model/ListPermittedUsersResponse';
 import ListPermittedUsersResponse1 from './model/ListPermittedUsersResponse1';
 import ListPermittedUsersResponse1AllOf from './model/ListPermittedUsersResponse1AllOf';
-import ListPermittedUsersResponseAllOf from './model/ListPermittedUsersResponseAllOf';
-import ListPermittedUsersResponseAllOfData from './model/ListPermittedUsersResponseAllOfData';
 import ListPersonProductsResponse from './model/ListPersonProductsResponse';
 import ListPersonProductsResponseAllOf from './model/ListPersonProductsResponseAllOf';
 import ListPersonProductsResponseAllOfDEALID from './model/ListPersonProductsResponseAllOfDEALID';
@@ -3557,18 +3555,6 @@ export {
      * @property {module:model/ListPermittedUsersResponse1AllOf}
      */
     ListPermittedUsersResponse1AllOf,
-
-    /**
-     * The ListPermittedUsersResponseAllOf model constructor.
-     * @property {module:model/ListPermittedUsersResponseAllOf}
-     */
-    ListPermittedUsersResponseAllOf,
-
-    /**
-     * The ListPermittedUsersResponseAllOfData model constructor.
-     * @property {module:model/ListPermittedUsersResponseAllOfData}
-     */
-    ListPermittedUsersResponseAllOfData,
 
     /**
      * The ListPersonProductsResponse model constructor.

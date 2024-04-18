@@ -143,6 +143,11 @@ class BaseUser {
 
                 delete data['is_you'];
             }
+            if (data.hasOwnProperty('is_deleted')) {
+                obj['is_deleted'] = ApiClient.convertToType(data['is_deleted'], 'Boolean');
+
+                delete data['is_deleted'];
+            }
 
             if (Object.keys(data).length > 0) {
                 Object.assign(obj, data);
@@ -267,6 +272,12 @@ BaseUser.prototype['icon_url'] = undefined;
  * @member {Boolean} is_you
  */
 BaseUser.prototype['is_you'] = undefined;
+
+/**
+ * Boolean that indicates whether the user is deleted from the company
+ * @member {Boolean} is_deleted
+ */
+BaseUser.prototype['is_deleted'] = undefined;
 
 
 
