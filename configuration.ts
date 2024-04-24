@@ -13,8 +13,9 @@
  */
 
 
-import globalAxios from "axios";
+import axios from "axios";
 import { stringify } from "qs";
+import { errorInterceptor, responseInterceptor, versionInterceptor } from './base';
 
 export type TokenResponse = {
   access_token: string;
@@ -35,6 +36,7 @@ export interface Parameters {
 export type ParamKey = keyof Parameters;
 
 export class OAuth2Configuration {
+  private axios = axios.create();
   private host: string;
   private accessToken: string | null = null;
   private refreshToken: string | null = null;
@@ -53,6 +55,9 @@ export class OAuth2Configuration {
     this.clientSecret = this.validateParam(params, 'clientSecret');
     this.redirectUri = this.validateParam(params, 'redirectUri');
     this.host = params.host || "https://oauth.pipedrive.com";
+
+    this.axios.interceptors.response.use(responseInterceptor, errorInterceptor);
+    this.axios.interceptors.request.use(versionInterceptor);
   }
 
   public get authorizationUrl() {
@@ -88,7 +93,7 @@ export class OAuth2Configuration {
       `${this.clientId}:${this.clientSecret}`
     ).toString("base64");
 
-    const response = await globalAxios.post(
+    const response = await this.axios.post(
             authorizationUrl,
             stringify({
                 code,
@@ -115,7 +120,7 @@ export class OAuth2Configuration {
       `${this.clientId}:${this.clientSecret}`
     ).toString("base64");
 
-    const response = await globalAxios.post(
+    const response = await this.axios.post(
             refreshUrl,
             stringify({
                 refresh_token: this.refreshToken,
@@ -187,7 +192,7 @@ export class OAuth2Configuration {
     const revokeUrl = `${this.host}/oauth/revoke?`;
     const clientIdAndSecretInBase64 = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');
 
-    const response = await globalAxios.post(
+    const response = await this.axios.post(
       revokeUrl,
       stringify({
         token,

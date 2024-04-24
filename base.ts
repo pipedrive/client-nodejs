@@ -16,8 +16,8 @@
 import type { Configuration } from './configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
-import globalAxios from 'axios';
+import type { AxiosError, AxiosResponse, AxiosRequestConfig , InternalAxiosRequestConfig } from 'axios';
+import axios from 'axios';
 
 export const BASE_PATH = "https://api.pipedrive.com/v1".replace(/\/+$/, "");
 
@@ -41,34 +41,28 @@ export interface RequestArgs {
     url: string;
     options: AxiosRequestConfig;
 }
-/**
-* Axios interceptor to add the SDK version as a User-Agent header
-* */
-globalAxios.interceptors.request.use(function (config) {
-    let version;
 
+export const versionInterceptor = (config:InternalAxiosRequestConfig) => {
+    let version:string;
     try {
         version = require('../package.json').version;
     } catch (error) {
         version = '22.x';
     }
-
     config.headers['User-Agent'] = `Pipedrive-SDK-Javascript-${version}`;
-
     return config;
-});
+}
 
-/**
-* Axios response interceptor to modify response structure
-*/
-globalAxios.interceptors.response.use(function (response) {
-        return response ? (response.hasOwnProperty('success') ? response : response.data) : response;
-    }, function (error) {
-        if(error?.response?.data) {
-            return Promise.reject(error.response.data);
-        }
-        return Promise.reject(error);
-});
+export const responseInterceptor = (response: AxiosResponse) => {
+    return response?.data ? response.data: response;
+};
+
+export const errorInterceptor = (error: AxiosError) => {
+    if (error.response && error.response.data) {
+        return Promise.reject(error.response.data);
+    }
+    return Promise.reject(error);
+};
 
 /**
  *
@@ -78,13 +72,16 @@ globalAxios.interceptors.response.use(function (response) {
 export class BaseAPI {
     protected configuration: Configuration | undefined;
     protected basePath: string = BASE_PATH;
-    protected axios = globalAxios;
-
+    protected axios = axios.create();
     constructor(configuration: Configuration) {
         if (configuration) {
             this.configuration = configuration;
             this.basePath = configuration.basePath || this.basePath;
         }
+
+
+        this.axios.interceptors.response.use(responseInterceptor, errorInterceptor);
+        this.axios.interceptors.request.use(versionInterceptor);
     }
 };
 

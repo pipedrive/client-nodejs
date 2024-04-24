@@ -11,6 +11,7 @@ const server = getMockServer(oauth2);
 
 describe('oauth2 authorization', () => {
 	let lib;
+
 	beforeAll(async () => {
 		lib = await getLib();
 		server.listen();
@@ -37,49 +38,39 @@ describe('oauth2 authorization', () => {
 		expect(oauthClient.refreshToken).toEqual(auth.refresh_token);
 	});
 
-	it.skip('should throw if clientId is not set', async () => {
-		const oauthClient = new lib.OAuth2Configuration({
-			host: 'localhost',
-			clientSecret: 'fakeClientSecret',
-			redirectUri: 'https://example.org',
-		});
-		oauthClient.refreshToken = 'fakeRefreshToken';
-
+	it('should throw if clientId is not set', async () => {
 		try {
-			expect(await oauthClient.authorize('fakeAuthCode')).toThrow();
+		 	new lib.OAuth2Configuration({
+				host: 'localhost',
+				clientSecret: 'fakeClientSecret',
+				redirectUri: 'https://example.org',
+			});
+
 		} catch (error) {
-			expect(error.response.data.message).toBe('OAuth 2 property clientId is not set.');
+			expect(error).toEqual(new Error('OAuth 2 property clientId is not set.'));
 		}
 	});
 
-	it.skip('should throw if clientSecret is not set', async () => {
-		const oauthClient = new lib.OAuth2Configuration({
-			...oauth2,
-			clientSecret: undefined,
-
-		});
-		oauthClient.refreshToken = 'fakeRefreshToken';
-
+	it('should throw if clientSecret is not set', async () => {
 		try {
-			expect(await oauthClient.authorize('fakeAuthCode')).toThrow();
+			new lib.OAuth2Configuration({
+				...oauth2,
+				clientSecret: undefined,
+			});
 		} catch (error) {
-			expect(error.message).toBe('OAuth 2 property clientSecret is not set.');
+			expect(error).toEqual(new Error('OAuth 2 property clientSecret is not set.'));
 		}
 	});
 
-	it.skip('should throw if redirectUri is not set', async () => {
-		const oauthClient = new lib.OAuth2Configuration({
-			...oauth2,
-			redirectUri: undefined,
-
-		});
-
-		oauthClient.refreshToken = 'fakeRefreshToken';
-
+	it('should throw if redirectUri is not set', async () => {
 		try {
-			expect(await oauthClient.authorize('fakeAuthCode')).toThrow();
+			new lib.OAuth2Configuration({
+				...oauth2,
+				redirectUri: undefined,
+
+			});
 		} catch (error) {
-			expect(error.response.data.message).toBe('OAuth 2 property redirectUri is not set.');
+			expect(error).toEqual(new Error('OAuth 2 property redirectUri is not set.'));
 		}
 	});
 

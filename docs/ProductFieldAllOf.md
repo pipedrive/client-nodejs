@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **addTime** | **String** | The product field creation time. Format: YYYY-MM-DD HH:MM:SS | [optional] 
 **updateTime** | **String** | The product field last update time. Format: YYYY-MM-DD HH:MM:SS | [optional] 
 **lastUpdatedByUserId** | **Number** | The ID of the last user to update the product field | [optional] 
+**createdByUserId** | **Number** | The ID of the user who created the product field | [optional] 
 **activeFlag** | **Boolean** | Whether or not the product field is currently active | [optional] 
 **editFlag** | **Boolean** | Whether or not the product field name and metadata is editable | [optional] 
 **addVisibleFlag** | **Boolean** | Whether or not the product field is visible in the Add Product Modal | [optional] 

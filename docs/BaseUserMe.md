@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **roleId** | **Number** | The ID of the user role | [optional] 
 **iconUrl** | **String** | The user icon URL | [optional] 
 **isYou** | **Boolean** | Boolean that indicates if the requested user is the same which is logged in (in this case, always true) | [optional] 
+**isDeleted** | **Boolean** | Boolean that indicates whether the user is deleted from the company | [optional] 
 **companyId** | **Number** | The user company ID | [optional] 
 **companyName** | **String** | The user company name | [optional] 
 **companyDomain** | **String** | The user company domain | [optional] 
