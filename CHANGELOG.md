@@ -7,6 +7,8 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+
+## [22.3.1-rc.5] - 2024-04-24
 - Add `lead_id` as an acceptable body parameter for the `POST /v1/callLogs` endpoint
 
 
@@ -615,7 +617,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.3.1-rc.4...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.3.1-rc.5...HEAD
+[22.3.1-rc.5]: https://github.com/pipedrive/api-docs/compare/v22.3.1-rc.4...v22.3.1-rc.5
 [22.3.1-rc.4]: https://github.com/pipedrive/api-docs/compare/v22.3.1-rc.3...v22.3.1-rc.4
 [22.5.0]: https://github.com/pipedrive/api-docs/compare/v22.4.0...v22.5.0
 [22.6.0]: https://github.com/pipedrive/api-docs/compare/v22.5.0...v22.6.0
