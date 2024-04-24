@@ -57,7 +57,6 @@ export const getMockServer = (oauth2) => {
 
 			if (
 				body === 'refresh_token=fakeRefreshToken&grant_type=refresh_token' ||
-				body === 'refresh_token=freshRefreshToken&grant_type=refresh_token' ||
 				decodeURIComponent(body) === 'code=fakeAuthCode&redirect_uri=https://example.org&grant_type=authorization_code'
 			) {
 				return HttpResponse.json({

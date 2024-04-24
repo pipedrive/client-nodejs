@@ -1,18 +1,15 @@
 import { getLib, getMockServer } from './utils';
 
 const oauthConfig = {
-	type: 'oauth2',
 	host: 'localhost',
 	clientId: 'fakeClientId',
 	clientSecret: 'fakeClientSecret',
 	redirectUri: 'https://example.org',
-	accessToken: 'fakeAccessToken',
-	refreshToken: 'fakeRefreshToken',
 };
 
 const server = getMockServer(oauthConfig);
 
-describe.skip('automatic token refresh in api calls', () => {
+describe('automatic token refresh in api calls', () => {
 	let lib;
 
 	beforeAll(async () => {
@@ -26,6 +23,7 @@ describe.skip('automatic token refresh in api calls', () => {
 
 	it('should refresh expired access token before making api call', async () => {
 		const oauthClient = new lib.OAuth2Configuration({ ...oauthConfig, expiresAt: 100 });
+		oauthClient.refreshToken = 'fakeRefreshToken';
 
 		const apiConfig = new lib.Configuration({
 			accessToken: oauthClient.getAccessToken,
@@ -47,8 +45,10 @@ describe.skip('automatic token refresh in api calls', () => {
 		});
 	});
 
-	it('should throw if incorrect User-Agent request header in api call', async () => {
-		const oauthClient = new lib.OAuth2Configuration(oauthConfig);
+	it.skip('should throw if incorrect User-Agent request header in api call', async () => {
+		const oauthClient =	new lib.OAuth2Configuration(oauthConfig);
+		oauthClient.refreshToken = 'fakeRefreshToken';
+
 
 		const apiConfig = new lib.Configuration({
 			accessToken: oauthClient.getAccessToken,
@@ -65,6 +65,7 @@ describe.skip('automatic token refresh in api calls', () => {
 
 	it('should refresh token and retry api call if status code is 401', async () => {
 		const oauthClient = new lib.OAuth2Configuration({ ...oauthConfig, accessToken: null });
+		oauthClient.refreshToken = 'fakeRefreshToken';
 
 		const apiConfig = new lib.Configuration({
 			accessToken: oauthClient.getAccessToken,
