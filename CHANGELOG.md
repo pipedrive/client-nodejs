@@ -9,6 +9,11 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 ## [Unreleased]
 - Add `lead_id` as an acceptable body parameter for the `POST /v1/callLogs` endpoint
 
+
+## [22.3.1-rc.5] - 2024-02-12
+- Add TypeScript Support
+
+
 ## [22.6.1] - 2024-04-18
 ### Added
 - Added `is_deleted` parameter for `/v1/users/*` responses.
@@ -17,6 +22,7 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 ### Added
 - Added documentation for new endpoints `/deals/{id}/changelog`, `/persons/{id}/changelog` and `/organizations/{id}/changelog`.
 
+
 ## [22.5.0] - 2024-02-02
 ### Added
 - Added documentation for new endpoint `/deals/{id}/participantsChangelog`.
@@ -24,6 +30,13 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 ## [22.4.0] - 2024-01-05
 ### Added
 - Added documentation for `/meetings/userProviderLinks` endpoints
+
+## [22.3.1-rc.2] - 2023-12-22
+
+## [22.3.1-rc.1] - 2023-12-22
+
+## [22.3.1-rc.0] - 2023-12-22
+- Add Support for TypeScript
 
 ## [22.3.0] - 2023-10-17
 - Add `Projects`, `ProjectTemplates` and `Tasks` public routes.
@@ -602,10 +615,11 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.6.1...HEAD
-[22.6.1]: https://github.com/pipedrive/api-docs/compare/v22.6.0...v22.6.1
-[22.6.0]: https://github.com/pipedrive/api-docs/compare/v22.5.0...v22.6.0
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.3.1-rc.4...HEAD
+[22.3.1-rc.4]: https://github.com/pipedrive/api-docs/compare/v22.3.1-rc.3...v22.3.1-rc.4
 [22.5.0]: https://github.com/pipedrive/api-docs/compare/v22.4.0...v22.5.0
+[22.6.0]: https://github.com/pipedrive/api-docs/compare/v22.5.0...v22.6.0
+[22.6.1]: https://github.com/pipedrive/api-docs/compare/v22.6.0...v22.6.1
 [22.4.0]: https://github.com/pipedrive/api-docs/compare/v22.3.0...v22.4.0
 [22.3.0]: https://github.com/pipedrive/api-docs/compare/v22.2.0...v22.3.0
 [22.2.0]: https://github.com/pipedrive/api-docs/compare/v22.1.0...v22.2.0
