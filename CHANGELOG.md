@@ -7,6 +7,16 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Added
+- Added `billing_frequency`, `billing_frequency_cycles` and `billing_start_date` fields to
+  - `GET`, `POST` and `PUT` `/v1/deals/{id}/products` endpoints
+  - `GET`, `POST` and `PATCH` `/v2/deals/{id}/products` endpoints
+  - `GET` `/v2/deals/products` endpoint
+- Added `billing_frequency`, `billing_frequency_cycles` fields to
+  - `GET`, `POST` and `PUT` `/v1/products` endpoints
+  - `GET` `/v1/products/{id}` endpoint
+  - `GET`, `POST` and `PATCH` `/v2/products` endpoints
+  - `GET` `/v2/products/{id}` endpoints
 
 ## [22.6.1] - 2024-04-18
 ### Added

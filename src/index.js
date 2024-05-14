@@ -68,6 +68,7 @@ import AddProductAttachmentDetails from './model/AddProductAttachmentDetails';
 import AddProductAttachmentDetailsAllOf from './model/AddProductAttachmentDetailsAllOf';
 import AddProductFollowerRequest from './model/AddProductFollowerRequest';
 import AddProductRequestBody from './model/AddProductRequestBody';
+import AddProductRequestBodyAllOf from './model/AddProductRequestBodyAllOf';
 import AddProjectResponse201 from './model/AddProjectResponse201';
 import AddRole from './model/AddRole';
 import AddRoleAssignmentRequest from './model/AddRoleAssignmentRequest';
@@ -131,10 +132,13 @@ import BaseUserMeAllOfLanguage from './model/BaseUserMeAllOfLanguage';
 import BaseWebhook from './model/BaseWebhook';
 import BasicDeal from './model/BasicDeal';
 import BasicDealProduct from './model/BasicDealProduct';
+import BasicDealProductAllOf from './model/BasicDealProductAllOf';
 import BasicGoal from './model/BasicGoal';
 import BasicOrganization from './model/BasicOrganization';
 import BasicPerson from './model/BasicPerson';
 import BasicPersonEmail from './model/BasicPersonEmail';
+import BillingFrequency from './model/BillingFrequency';
+import BillingFrequency1 from './model/BillingFrequency1';
 import BulkDeleteResponse from './model/BulkDeleteResponse';
 import BulkDeleteResponseAllOf from './model/BulkDeleteResponseAllOf';
 import BulkDeleteResponseAllOfData from './model/BulkDeleteResponseAllOfData';
@@ -188,6 +192,7 @@ import DealPersonDataEmail from './model/DealPersonDataEmail';
 import DealPersonDataPhone from './model/DealPersonDataPhone';
 import DealPersonDataWithId from './model/DealPersonDataWithId';
 import DealPersonDataWithIdAllOf from './model/DealPersonDataWithIdAllOf';
+import DealProductRequestBody from './model/DealProductRequestBody';
 import DealProductUnitDuration from './model/DealProductUnitDuration';
 import DealSearchItem from './model/DealSearchItem';
 import DealSearchItemItem from './model/DealSearchItemItem';
@@ -503,9 +508,13 @@ import MergePersonsResponse from './model/MergePersonsResponse';
 import MergePersonsResponseAllOf from './model/MergePersonsResponseAllOf';
 import MessageObject from './model/MessageObject';
 import MessageObjectAttachments from './model/MessageObjectAttachments';
+import NameObject from './model/NameObject';
 import NewDeal from './model/NewDeal';
 import NewDealParameters from './model/NewDealParameters';
 import NewDealProduct from './model/NewDealProduct';
+import NewDealProductAllOf from './model/NewDealProductAllOf';
+import NewDealProductAllOf1 from './model/NewDealProductAllOf1';
+import NewDealProductAllOf2 from './model/NewDealProductAllOf2';
 import NewFollowerResponse from './model/NewFollowerResponse';
 import NewFollowerResponseData from './model/NewFollowerResponseData';
 import NewGoal from './model/NewGoal';
@@ -526,9 +535,7 @@ import NoteParams from './model/NoteParams';
 import NumberBoolean from './model/NumberBoolean';
 import NumberBooleanDefault0 from './model/NumberBooleanDefault0';
 import NumberBooleanDefault1 from './model/NumberBooleanDefault1';
-import ObjectPrices from './model/ObjectPrices';
 import OneLeadResponse200 from './model/OneLeadResponse200';
-import OptionalNameObject from './model/OptionalNameObject';
 import OrgAndOwnerId from './model/OrgAndOwnerId';
 import OrganizationAddressInfo from './model/OrganizationAddressInfo';
 import OrganizationCountAndAddressInfo from './model/OrganizationCountAndAddressInfo';
@@ -659,7 +666,6 @@ import ProductSearchResponse from './model/ProductSearchResponse';
 import ProductSearchResponseAllOf from './model/ProductSearchResponseAllOf';
 import ProductSearchResponseAllOfData from './model/ProductSearchResponseAllOfData';
 import ProductWithArrayPrices from './model/ProductWithArrayPrices';
-import ProductWithObjectPrices from './model/ProductWithObjectPrices';
 import ProductsResponse from './model/ProductsResponse';
 import ProjectBoardObject from './model/ProjectBoardObject';
 import ProjectGroupsObject from './model/ProjectGroupsObject';
@@ -704,7 +710,6 @@ import RelatedUserData from './model/RelatedUserData';
 import RelationshipOrganizationInfoItem from './model/RelationshipOrganizationInfoItem';
 import RelationshipOrganizationInfoItemAllOf from './model/RelationshipOrganizationInfoItemAllOf';
 import RelationshipOrganizationInfoItemWithActiveFlag from './model/RelationshipOrganizationInfoItemWithActiveFlag';
-import RequiredNameObject from './model/RequiredNameObject';
 import RequiredPostProjectParameters from './model/RequiredPostProjectParameters';
 import RequiredPostTaskParameters from './model/RequiredPostTaskParameters';
 import RequredTitleParameter from './model/RequredTitleParameter';
@@ -1223,6 +1228,12 @@ export {
     AddProductRequestBody,
 
     /**
+     * The AddProductRequestBodyAllOf model constructor.
+     * @property {module:model/AddProductRequestBodyAllOf}
+     */
+    AddProductRequestBodyAllOf,
+
+    /**
      * The AddProjectResponse201 model constructor.
      * @property {module:model/AddProjectResponse201}
      */
@@ -1601,6 +1612,12 @@ export {
     BasicDealProduct,
 
     /**
+     * The BasicDealProductAllOf model constructor.
+     * @property {module:model/BasicDealProductAllOf}
+     */
+    BasicDealProductAllOf,
+
+    /**
      * The BasicGoal model constructor.
      * @property {module:model/BasicGoal}
      */
@@ -1623,6 +1640,18 @@ export {
      * @property {module:model/BasicPersonEmail}
      */
     BasicPersonEmail,
+
+    /**
+     * The BillingFrequency model constructor.
+     * @property {module:model/BillingFrequency}
+     */
+    BillingFrequency,
+
+    /**
+     * The BillingFrequency1 model constructor.
+     * @property {module:model/BillingFrequency1}
+     */
+    BillingFrequency1,
 
     /**
      * The BulkDeleteResponse model constructor.
@@ -1941,6 +1970,12 @@ export {
      * @property {module:model/DealPersonDataWithIdAllOf}
      */
     DealPersonDataWithIdAllOf,
+
+    /**
+     * The DealProductRequestBody model constructor.
+     * @property {module:model/DealProductRequestBody}
+     */
+    DealProductRequestBody,
 
     /**
      * The DealProductUnitDuration model constructor.
@@ -3833,6 +3868,12 @@ export {
     MessageObjectAttachments,
 
     /**
+     * The NameObject model constructor.
+     * @property {module:model/NameObject}
+     */
+    NameObject,
+
+    /**
      * The NewDeal model constructor.
      * @property {module:model/NewDeal}
      */
@@ -3849,6 +3890,24 @@ export {
      * @property {module:model/NewDealProduct}
      */
     NewDealProduct,
+
+    /**
+     * The NewDealProductAllOf model constructor.
+     * @property {module:model/NewDealProductAllOf}
+     */
+    NewDealProductAllOf,
+
+    /**
+     * The NewDealProductAllOf1 model constructor.
+     * @property {module:model/NewDealProductAllOf1}
+     */
+    NewDealProductAllOf1,
+
+    /**
+     * The NewDealProductAllOf2 model constructor.
+     * @property {module:model/NewDealProductAllOf2}
+     */
+    NewDealProductAllOf2,
 
     /**
      * The NewFollowerResponse model constructor.
@@ -3971,22 +4030,10 @@ export {
     NumberBooleanDefault1,
 
     /**
-     * The ObjectPrices model constructor.
-     * @property {module:model/ObjectPrices}
-     */
-    ObjectPrices,
-
-    /**
      * The OneLeadResponse200 model constructor.
      * @property {module:model/OneLeadResponse200}
      */
     OneLeadResponse200,
-
-    /**
-     * The OptionalNameObject model constructor.
-     * @property {module:model/OptionalNameObject}
-     */
-    OptionalNameObject,
 
     /**
      * The OrgAndOwnerId model constructor.
@@ -4769,12 +4816,6 @@ export {
     ProductWithArrayPrices,
 
     /**
-     * The ProductWithObjectPrices model constructor.
-     * @property {module:model/ProductWithObjectPrices}
-     */
-    ProductWithObjectPrices,
-
-    /**
      * The ProductsResponse model constructor.
      * @property {module:model/ProductsResponse}
      */
@@ -5037,12 +5078,6 @@ export {
      * @property {module:model/RelationshipOrganizationInfoItemWithActiveFlag}
      */
     RelationshipOrganizationInfoItemWithActiveFlag,
-
-    /**
-     * The RequiredNameObject model constructor.
-     * @property {module:model/RequiredNameObject}
-     */
-    RequiredNameObject,
 
     /**
      * The RequiredPostProjectParameters model constructor.

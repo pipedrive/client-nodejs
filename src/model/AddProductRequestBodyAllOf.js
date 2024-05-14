@@ -12,21 +12,21 @@
  */
 
 import ApiClient from '../ApiClient';
-import BillingFrequency from './BillingFrequency';
+import BillingFrequency1 from './BillingFrequency1';
 
 /**
- * The NewDealProductAllOf model module.
- * @module model/NewDealProductAllOf
+ * The AddProductRequestBodyAllOf model module.
+ * @module model/AddProductRequestBodyAllOf
  * @version 1.0.0
  */
-class NewDealProductAllOf {
+class AddProductRequestBodyAllOf {
     /**
-     * Constructs a new <code>NewDealProductAllOf</code>.
-     * @alias module:model/NewDealProductAllOf
+     * Constructs a new <code>AddProductRequestBodyAllOf</code>.
+     * @alias module:model/AddProductRequestBodyAllOf
      */
     constructor() { 
         
-        NewDealProductAllOf.initialize(this);
+        AddProductRequestBodyAllOf.initialize(this);
     }
 
     /**
@@ -38,18 +38,18 @@ class NewDealProductAllOf {
     }
 
     /**
-     * Constructs a <code>NewDealProductAllOf</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>AddProductRequestBodyAllOf</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/NewDealProductAllOf} obj Optional instance to populate.
-     * @return {module:model/NewDealProductAllOf} The populated <code>NewDealProductAllOf</code> instance.
+     * @param {module:model/AddProductRequestBodyAllOf} obj Optional instance to populate.
+     * @return {module:model/AddProductRequestBodyAllOf} The populated <code>AddProductRequestBodyAllOf</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new NewDealProductAllOf();
+            obj = obj || new AddProductRequestBodyAllOf();
 
             if (data.hasOwnProperty('billing_frequency')) {
-                obj['billing_frequency'] = BillingFrequency.constructFromObject(data['billing_frequency']);
+                obj['billing_frequency'] = BillingFrequency1.constructFromObject(data['billing_frequency']);
 
                 delete data['billing_frequency'];
             }
@@ -66,14 +66,14 @@ class NewDealProductAllOf {
 }
 
 /**
- * @member {module:model/BillingFrequency} billing_frequency
+ * @member {module:model/BillingFrequency1} billing_frequency
  */
-NewDealProductAllOf.prototype['billing_frequency'] = undefined;
+AddProductRequestBodyAllOf.prototype['billing_frequency'] = undefined;
 
 
 
 
 
 
-export default NewDealProductAllOf;
+export default AddProductRequestBodyAllOf;
 

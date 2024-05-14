@@ -13,7 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import GetActivitiesResponse200RelatedObjects from './GetActivitiesResponse200RelatedObjects';
-import ProductWithObjectPrices from './ProductWithObjectPrices';
+import ProductWithArrayPrices from './ProductWithArrayPrices';
 
 /**
  * The UpdateProductResponse model module.
@@ -55,7 +55,7 @@ class UpdateProductResponse {
                 delete data['success'];
             }
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ProductWithObjectPrices.constructFromObject(data['data']);
+                obj['data'] = ProductWithArrayPrices.constructFromObject(data['data']);
 
                 delete data['data'];
             }
@@ -83,7 +83,7 @@ class UpdateProductResponse {
 UpdateProductResponse.prototype['success'] = undefined;
 
 /**
- * @member {module:model/ProductWithObjectPrices} data
+ * @member {module:model/ProductWithArrayPrices} data
  */
 UpdateProductResponse.prototype['data'] = undefined;
 

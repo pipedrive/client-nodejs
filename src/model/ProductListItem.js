@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import ProductWithObjectPrices from './ProductWithObjectPrices';
+import ProductWithArrayPrices from './ProductWithArrayPrices';
 
 /**
  * The ProductListItem model module.
@@ -164,7 +164,7 @@ class ProductListItem {
                 delete data['quantity'];
             }
             if (data.hasOwnProperty('product')) {
-                obj['product'] = ProductWithObjectPrices.constructFromObject(data['product']);
+                obj['product'] = ProductWithArrayPrices.constructFromObject(data['product']);
 
                 delete data['product'];
             }
@@ -217,14 +217,14 @@ ProductListItem.prototype['product_variation_id'] = undefined;
 ProductListItem.prototype['item_price'] = undefined;
 
 /**
- * The value of the discount. The `discount_type` field can be used to specify whether the value is an amount or a percentage.
+ * The value of the discount. The `discount_type` field can be used to specify whether the value is an amount or a percentage
  * @member {Number} discount
  * @default 0
  */
 ProductListItem.prototype['discount'] = 0;
 
 /**
- * The type of the discount's value.
+ * The type of the discount's value
  * @member {module:model/ProductListItem.DiscountTypeEnum} discount_type
  * @default 'percentage'
  */
@@ -291,7 +291,7 @@ ProductListItem.prototype['active_flag'] = undefined;
 ProductListItem.prototype['tax'] = undefined;
 
 /**
- * The tax option to be applied to the products. When using `inclusive`, the tax percentage will already be included in the price. When using `exclusive`, the tax will not be included in the price. When using `none`, no tax will be added. Use the `tax` field for defining the tax percentage amount. By default, the user setting value for tax options will be used. Changing this in one product affects the rest of the products attached to the deal.
+ * The tax option to be applied to the products. When using `inclusive`, the tax percentage will already be included in the price. When using `exclusive`, the tax will not be included in the price. When using `none`, no tax will be added. Use the `tax` field for defining the tax percentage amount. By default, the user setting value for tax options will be used. Changing this in one product affects the rest of the products attached to the deal
  * @member {module:model/ProductListItem.TaxMethodEnum} tax_method
  */
 ProductListItem.prototype['tax_method'] = undefined;
@@ -321,7 +321,7 @@ ProductListItem.prototype['quantity_formatted'] = undefined;
 ProductListItem.prototype['quantity'] = undefined;
 
 /**
- * @member {module:model/ProductWithObjectPrices} product
+ * @member {module:model/ProductWithArrayPrices} product
  */
 ProductListItem.prototype['product'] = undefined;
 

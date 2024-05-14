@@ -140,7 +140,7 @@ ProductRequest.prototype['selectable'] = true;
 ProductRequest.prototype['visible_to'] = undefined;
 
 /**
- * The ID of the user who will be marked as the owner of this product. When omitted, the authorized user ID will be used.
+ * The ID of the user who will be marked as the owner of this product. When omitted, the authorized user ID will be used
  * @member {Number} owner_id
  */
 ProductRequest.prototype['owner_id'] = undefined;

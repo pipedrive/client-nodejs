@@ -12,8 +12,11 @@
  */
 
 import ApiClient from '../ApiClient';
+import AddProductRequestBodyAllOf from './AddProductRequestBodyAllOf';
+import BillingFrequency1 from './BillingFrequency1';
+import NameObject from './NameObject';
+import NewDealProductAllOf1 from './NewDealProductAllOf1';
 import ProductRequest from './ProductRequest';
-import RequiredNameObject from './RequiredNameObject';
 import VisibleTo from './VisibleTo';
 
 /**
@@ -25,13 +28,14 @@ class AddProductRequestBody {
     /**
      * Constructs a new <code>AddProductRequestBody</code>.
      * @alias module:model/AddProductRequestBody
-     * @implements module:model/RequiredNameObject
+     * @implements module:model/NameObject
      * @implements module:model/ProductRequest
-     * @param name {String} The name of the product
+     * @implements module:model/AddProductRequestBodyAllOf
+     * @implements module:model/NewDealProductAllOf1
      */
-    constructor(name) { 
-        RequiredNameObject.initialize(this, name);ProductRequest.initialize(this);
-        AddProductRequestBody.initialize(this, name);
+    constructor() { 
+        NameObject.initialize(this);ProductRequest.initialize(this);AddProductRequestBodyAllOf.initialize(this);NewDealProductAllOf1.initialize(this);
+        AddProductRequestBody.initialize(this);
     }
 
     /**
@@ -39,8 +43,7 @@ class AddProductRequestBody {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, name) { 
-        obj['name'] = name;
+    static initialize(obj) { 
     }
 
     /**
@@ -53,8 +56,10 @@ class AddProductRequestBody {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new AddProductRequestBody();
-            RequiredNameObject.constructFromObject(data, obj);
+            NameObject.constructFromObject(data, obj);
             ProductRequest.constructFromObject(data, obj);
+            AddProductRequestBodyAllOf.constructFromObject(data, obj);
+            NewDealProductAllOf1.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
@@ -100,6 +105,16 @@ class AddProductRequestBody {
                 obj['prices'] = ApiClient.convertToType(data['prices'], [Object]);
 
                 delete data['prices'];
+            }
+            if (data.hasOwnProperty('billing_frequency')) {
+                obj['billing_frequency'] = BillingFrequency1.constructFromObject(data['billing_frequency']);
+
+                delete data['billing_frequency'];
+            }
+            if (data.hasOwnProperty('billing_frequency_cycles')) {
+                obj['billing_frequency_cycles'] = ApiClient.convertToType(data['billing_frequency_cycles'], 'Number');
+
+                delete data['billing_frequency_cycles'];
             }
 
             if (Object.keys(data).length > 0) {
@@ -159,7 +174,7 @@ AddProductRequestBody.prototype['selectable'] = true;
 AddProductRequestBody.prototype['visible_to'] = undefined;
 
 /**
- * The ID of the user who will be marked as the owner of this product. When omitted, the authorized user ID will be used.
+ * The ID of the user who will be marked as the owner of this product. When omitted, the authorized user ID will be used
  * @member {Number} owner_id
  */
 AddProductRequestBody.prototype['owner_id'] = undefined;
@@ -170,13 +185,24 @@ AddProductRequestBody.prototype['owner_id'] = undefined;
  */
 AddProductRequestBody.prototype['prices'] = undefined;
 
+/**
+ * @member {module:model/BillingFrequency1} billing_frequency
+ */
+AddProductRequestBody.prototype['billing_frequency'] = undefined;
 
-// Implement RequiredNameObject interface:
+/**
+ * Only available in Advanced and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 312 
+ * @member {Number} billing_frequency_cycles
+ */
+AddProductRequestBody.prototype['billing_frequency_cycles'] = undefined;
+
+
+// Implement NameObject interface:
 /**
  * The name of the product
  * @member {String} name
  */
-RequiredNameObject.prototype['name'] = undefined;
+NameObject.prototype['name'] = undefined;
 // Implement ProductRequest interface:
 /**
  * The product code
@@ -212,7 +238,7 @@ ProductRequest.prototype['selectable'] = true;
  */
 ProductRequest.prototype['visible_to'] = undefined;
 /**
- * The ID of the user who will be marked as the owner of this product. When omitted, the authorized user ID will be used.
+ * The ID of the user who will be marked as the owner of this product. When omitted, the authorized user ID will be used
  * @member {Number} owner_id
  */
 ProductRequest.prototype['owner_id'] = undefined;
@@ -221,6 +247,17 @@ ProductRequest.prototype['owner_id'] = undefined;
  * @member {Array.<Object>} prices
  */
 ProductRequest.prototype['prices'] = undefined;
+// Implement AddProductRequestBodyAllOf interface:
+/**
+ * @member {module:model/BillingFrequency1} billing_frequency
+ */
+AddProductRequestBodyAllOf.prototype['billing_frequency'] = undefined;
+// Implement NewDealProductAllOf1 interface:
+/**
+ * Only available in Advanced and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 312 
+ * @member {Number} billing_frequency_cycles
+ */
+NewDealProductAllOf1.prototype['billing_frequency_cycles'] = undefined;
 
 
 
