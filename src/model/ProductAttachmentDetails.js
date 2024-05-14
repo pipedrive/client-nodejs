@@ -13,6 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import BasicDealProduct from './BasicDealProduct';
+import BillingFrequency from './BillingFrequency';
 import ProductAttachementFields from './ProductAttachementFields';
 
 /**
@@ -26,13 +27,10 @@ class ProductAttachmentDetails {
      * @alias module:model/ProductAttachmentDetails
      * @implements module:model/BasicDealProduct
      * @implements module:model/ProductAttachementFields
-     * @param productId {Number} The ID of the product
-     * @param itemPrice {Number} The price at which this product will be added to the deal
-     * @param quantity {Number} Quantity – e.g. how many items of this product will be added to the deal
      */
-    constructor(productId, itemPrice, quantity) { 
-        BasicDealProduct.initialize(this, productId, itemPrice, quantity);ProductAttachementFields.initialize(this);
-        ProductAttachmentDetails.initialize(this, productId, itemPrice, quantity);
+    constructor() { 
+        BasicDealProduct.initialize(this);ProductAttachementFields.initialize(this);
+        ProductAttachmentDetails.initialize(this);
     }
 
     /**
@@ -40,10 +38,7 @@ class ProductAttachmentDetails {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, productId, itemPrice, quantity) { 
-        obj['product_id'] = productId;
-        obj['item_price'] = itemPrice;
-        obj['quantity'] = quantity;
+    static initialize(obj) { 
     }
 
     /**
@@ -118,6 +113,21 @@ class ProductAttachmentDetails {
                 obj['enabled_flag'] = ApiClient.convertToType(data['enabled_flag'], 'Boolean');
 
                 delete data['enabled_flag'];
+            }
+            if (data.hasOwnProperty('billing_frequency')) {
+                obj['billing_frequency'] = BillingFrequency.constructFromObject(data['billing_frequency']);
+
+                delete data['billing_frequency'];
+            }
+            if (data.hasOwnProperty('billing_frequency_cycles')) {
+                obj['billing_frequency_cycles'] = ApiClient.convertToType(data['billing_frequency_cycles'], 'Number');
+
+                delete data['billing_frequency_cycles'];
+            }
+            if (data.hasOwnProperty('billing_start_date')) {
+                obj['billing_start_date'] = ApiClient.convertToType(data['billing_start_date'], 'String');
+
+                delete data['billing_start_date'];
             }
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
@@ -195,21 +205,21 @@ ProductAttachmentDetails.prototype['item_price'] = undefined;
 ProductAttachmentDetails.prototype['quantity'] = undefined;
 
 /**
- * The value of the discount. The `discount_type` field can be used to specify whether the value is an amount or a percentage.
+ * The value of the discount. The `discount_type` field can be used to specify whether the value is an amount or a percentage
  * @member {Number} discount
  * @default 0
  */
 ProductAttachmentDetails.prototype['discount'] = 0;
 
 /**
- * The type of the discount's value.
+ * The type of the discount's value
  * @member {module:model/ProductAttachmentDetails.DiscountTypeEnum} discount_type
  * @default 'percentage'
  */
 ProductAttachmentDetails.prototype['discount_type'] = 'percentage';
 
 /**
- * The duration of the product. If omitted, will be set to 1.
+ * The duration of the product. If omitted, will be set to 1
  * @member {Number} duration
  * @default 1
  */
@@ -222,7 +232,7 @@ ProductAttachmentDetails.prototype['duration'] = 1;
 ProductAttachmentDetails.prototype['duration_unit'] = undefined;
 
 /**
- * The ID of the product variation to use. When omitted, no variation will be used.
+ * The ID of the product variation to use. When omitted, no variation will be used
  * @member {Number} product_variation_id
  */
 ProductAttachmentDetails.prototype['product_variation_id'] = undefined;
@@ -240,17 +250,34 @@ ProductAttachmentDetails.prototype['comments'] = undefined;
 ProductAttachmentDetails.prototype['tax'] = undefined;
 
 /**
- * The tax option to be applied to the products. When using `inclusive`, the tax percentage will already be included in the price. When using `exclusive`, the tax will not be included in the price. When using `none`, no tax will be added. Use the `tax` field for defining the tax percentage amount. By default, the user setting value for tax options will be used. Changing this in one product affects the rest of the products attached to the deal.
+ * The tax option to be applied to the products. When using `inclusive`, the tax percentage will already be included in the price. When using `exclusive`, the tax will not be included in the price. When using `none`, no tax will be added. Use the `tax` field for defining the tax percentage amount. By default, the user setting value for tax options will be used. Changing this in one product affects the rest of the products attached to the deal
  * @member {module:model/ProductAttachmentDetails.TaxMethodEnum} tax_method
  */
 ProductAttachmentDetails.prototype['tax_method'] = undefined;
 
 /**
- * Whether the product is enabled for a deal or not. This makes it possible to add products to a deal with a specific price and discount criteria, but keep them disabled, which refrains them from being included in the deal value calculation. When omitted, the product will be marked as enabled by default.
+ * Whether the product is enabled for a deal or not. This makes it possible to add products to a deal with a specific price and discount criteria, but keep them disabled, which refrains them from being included in the deal value calculation. When omitted, the product will be marked as enabled by default
  * @member {Boolean} enabled_flag
  * @default true
  */
 ProductAttachmentDetails.prototype['enabled_flag'] = true;
+
+/**
+ * @member {module:model/BillingFrequency} billing_frequency
+ */
+ProductAttachmentDetails.prototype['billing_frequency'] = undefined;
+
+/**
+ * Only available in Advanced and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 312 
+ * @member {Number} billing_frequency_cycles
+ */
+ProductAttachmentDetails.prototype['billing_frequency_cycles'] = undefined;
+
+/**
+ * Only available in Advanced and above plans  The billing start date. Must be between 15 years in the past and 15 years in the future 
+ * @member {String} billing_start_date
+ */
+ProductAttachmentDetails.prototype['billing_start_date'] = undefined;
 
 /**
  * The ID of the deal-product (the ID of the product attached to the deal)
@@ -324,19 +351,19 @@ BasicDealProduct.prototype['item_price'] = undefined;
  */
 BasicDealProduct.prototype['quantity'] = undefined;
 /**
- * The value of the discount. The `discount_type` field can be used to specify whether the value is an amount or a percentage.
+ * The value of the discount. The `discount_type` field can be used to specify whether the value is an amount or a percentage
  * @member {Number} discount
  * @default 0
  */
 BasicDealProduct.prototype['discount'] = 0;
 /**
- * The type of the discount's value.
+ * The type of the discount's value
  * @member {module:model/BasicDealProduct.DiscountTypeEnum} discount_type
  * @default 'percentage'
  */
 BasicDealProduct.prototype['discount_type'] = 'percentage';
 /**
- * The duration of the product. If omitted, will be set to 1.
+ * The duration of the product. If omitted, will be set to 1
  * @member {Number} duration
  * @default 1
  */
@@ -347,7 +374,7 @@ BasicDealProduct.prototype['duration'] = 1;
  */
 BasicDealProduct.prototype['duration_unit'] = undefined;
 /**
- * The ID of the product variation to use. When omitted, no variation will be used.
+ * The ID of the product variation to use. When omitted, no variation will be used
  * @member {Number} product_variation_id
  */
 BasicDealProduct.prototype['product_variation_id'] = undefined;
@@ -363,16 +390,30 @@ BasicDealProduct.prototype['comments'] = undefined;
  */
 BasicDealProduct.prototype['tax'] = 0;
 /**
- * The tax option to be applied to the products. When using `inclusive`, the tax percentage will already be included in the price. When using `exclusive`, the tax will not be included in the price. When using `none`, no tax will be added. Use the `tax` field for defining the tax percentage amount. By default, the user setting value for tax options will be used. Changing this in one product affects the rest of the products attached to the deal.
+ * The tax option to be applied to the products. When using `inclusive`, the tax percentage will already be included in the price. When using `exclusive`, the tax will not be included in the price. When using `none`, no tax will be added. Use the `tax` field for defining the tax percentage amount. By default, the user setting value for tax options will be used. Changing this in one product affects the rest of the products attached to the deal
  * @member {module:model/BasicDealProduct.TaxMethodEnum} tax_method
  */
 BasicDealProduct.prototype['tax_method'] = undefined;
 /**
- * Whether the product is enabled for a deal or not. This makes it possible to add products to a deal with a specific price and discount criteria, but keep them disabled, which refrains them from being included in the deal value calculation. When omitted, the product will be marked as enabled by default.
+ * Whether the product is enabled for a deal or not. This makes it possible to add products to a deal with a specific price and discount criteria, but keep them disabled, which refrains them from being included in the deal value calculation. When omitted, the product will be marked as enabled by default
  * @member {Boolean} enabled_flag
  * @default true
  */
 BasicDealProduct.prototype['enabled_flag'] = true;
+/**
+ * @member {module:model/BillingFrequency} billing_frequency
+ */
+BasicDealProduct.prototype['billing_frequency'] = undefined;
+/**
+ * Only available in Advanced and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 312 
+ * @member {Number} billing_frequency_cycles
+ */
+BasicDealProduct.prototype['billing_frequency_cycles'] = undefined;
+/**
+ * Only available in Advanced and above plans  The billing start date. Must be between 15 years in the past and 15 years in the future 
+ * @member {String} billing_start_date
+ */
+BasicDealProduct.prototype['billing_start_date'] = undefined;
 // Implement ProductAttachementFields interface:
 /**
  * The ID of the deal-product (the ID of the product attached to the deal)

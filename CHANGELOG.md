@@ -8,6 +8,18 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [22.7.0] - 2024-05-14
+### Added
+- Added `billing_frequency`, `billing_frequency_cycles` and `billing_start_date` fields to
+  - `GET`, `POST` and `PUT` `/v1/deals/{id}/products` endpoints
+  - `GET`, `POST` and `PATCH` `/v2/deals/{id}/products` endpoints
+  - `GET` `/v2/deals/products` endpoint
+- Added `billing_frequency`, `billing_frequency_cycles` fields to
+  - `GET`, `POST` and `PUT` `/v1/products` endpoints
+  - `GET` `/v1/products/{id}` endpoint
+  - `GET`, `POST` and `PATCH` `/v2/products` endpoints
+  - `GET` `/v2/products/{id}` endpoints
+
 ## [22.6.1] - 2024-04-18
 ### Added
 - Added `is_deleted` parameter for `/v1/users/*` responses.
@@ -601,7 +613,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.6.1...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.7.0...HEAD
+[22.7.0]: https://github.com/pipedrive/api-docs/compare/v22.6.1...v22.7.0
 [22.6.1]: https://github.com/pipedrive/api-docs/compare/v22.6.0...v22.6.1
 [22.6.0]: https://github.com/pipedrive/api-docs/compare/v22.5.0...v22.6.0
 [22.5.0]: https://github.com/pipedrive/api-docs/compare/v22.4.0...v22.5.0

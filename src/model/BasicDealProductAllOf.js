@@ -12,30 +12,21 @@
  */
 
 import ApiClient from '../ApiClient';
-import BasicDealProductAllOf from './BasicDealProductAllOf';
-import BillingFrequency from './BillingFrequency';
 import DealProductUnitDuration from './DealProductUnitDuration';
-import NewDealProductAllOf from './NewDealProductAllOf';
-import NewDealProductAllOf1 from './NewDealProductAllOf1';
-import NewDealProductAllOf2 from './NewDealProductAllOf2';
 
 /**
- * The BasicDealProduct model module.
- * @module model/BasicDealProduct
+ * The BasicDealProductAllOf model module.
+ * @module model/BasicDealProductAllOf
  * @version 1.0.0
  */
-class BasicDealProduct {
+class BasicDealProductAllOf {
     /**
-     * Constructs a new <code>BasicDealProduct</code>.
-     * @alias module:model/BasicDealProduct
-     * @implements module:model/BasicDealProductAllOf
-     * @implements module:model/NewDealProductAllOf
-     * @implements module:model/NewDealProductAllOf1
-     * @implements module:model/NewDealProductAllOf2
+     * Constructs a new <code>BasicDealProductAllOf</code>.
+     * @alias module:model/BasicDealProductAllOf
      */
     constructor() { 
-        BasicDealProductAllOf.initialize(this);NewDealProductAllOf.initialize(this);NewDealProductAllOf1.initialize(this);NewDealProductAllOf2.initialize(this);
-        BasicDealProduct.initialize(this);
+        
+        BasicDealProductAllOf.initialize(this);
     }
 
     /**
@@ -47,19 +38,15 @@ class BasicDealProduct {
     }
 
     /**
-     * Constructs a <code>BasicDealProduct</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>BasicDealProductAllOf</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/BasicDealProduct} obj Optional instance to populate.
-     * @return {module:model/BasicDealProduct} The populated <code>BasicDealProduct</code> instance.
+     * @param {module:model/BasicDealProductAllOf} obj Optional instance to populate.
+     * @return {module:model/BasicDealProductAllOf} The populated <code>BasicDealProductAllOf</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new BasicDealProduct();
-            BasicDealProductAllOf.constructFromObject(data, obj);
-            NewDealProductAllOf.constructFromObject(data, obj);
-            NewDealProductAllOf1.constructFromObject(data, obj);
-            NewDealProductAllOf2.constructFromObject(data, obj);
+            obj = obj || new BasicDealProductAllOf();
 
             if (data.hasOwnProperty('product_id')) {
                 obj['product_id'] = ApiClient.convertToType(data['product_id'], 'Number');
@@ -121,21 +108,6 @@ class BasicDealProduct {
 
                 delete data['enabled_flag'];
             }
-            if (data.hasOwnProperty('billing_frequency')) {
-                obj['billing_frequency'] = BillingFrequency.constructFromObject(data['billing_frequency']);
-
-                delete data['billing_frequency'];
-            }
-            if (data.hasOwnProperty('billing_frequency_cycles')) {
-                obj['billing_frequency_cycles'] = ApiClient.convertToType(data['billing_frequency_cycles'], 'Number');
-
-                delete data['billing_frequency_cycles'];
-            }
-            if (data.hasOwnProperty('billing_start_date')) {
-                obj['billing_start_date'] = ApiClient.convertToType(data['billing_start_date'], 'String');
-
-                delete data['billing_start_date'];
-            }
 
             if (Object.keys(data).length > 0) {
                 Object.assign(obj, data);
@@ -152,180 +124,80 @@ class BasicDealProduct {
  * The ID of the product to use
  * @member {Number} product_id
  */
-BasicDealProduct.prototype['product_id'] = undefined;
-
-/**
- * The price at which this product will be added to the deal
- * @member {Number} item_price
- */
-BasicDealProduct.prototype['item_price'] = undefined;
-
-/**
- * Quantity – e.g. how many items of this product will be added to the deal
- * @member {Number} quantity
- */
-BasicDealProduct.prototype['quantity'] = undefined;
-
-/**
- * The value of the discount. The `discount_type` field can be used to specify whether the value is an amount or a percentage
- * @member {Number} discount
- * @default 0
- */
-BasicDealProduct.prototype['discount'] = 0;
-
-/**
- * The type of the discount's value
- * @member {module:model/BasicDealProduct.DiscountTypeEnum} discount_type
- * @default 'percentage'
- */
-BasicDealProduct.prototype['discount_type'] = 'percentage';
-
-/**
- * The duration of the product. If omitted, will be set to 1
- * @member {Number} duration
- * @default 1
- */
-BasicDealProduct.prototype['duration'] = 1;
-
-/**
- * The unit duration of the product
- * @member {module:model/DealProductUnitDuration} duration_unit
- */
-BasicDealProduct.prototype['duration_unit'] = undefined;
-
-/**
- * The ID of the product variation to use. When omitted, no variation will be used
- * @member {Number} product_variation_id
- */
-BasicDealProduct.prototype['product_variation_id'] = undefined;
-
-/**
- * A textual comment associated with this product-deal attachment
- * @member {String} comments
- */
-BasicDealProduct.prototype['comments'] = undefined;
-
-/**
- * The tax percentage
- * @member {Number} tax
- * @default 0
- */
-BasicDealProduct.prototype['tax'] = 0;
-
-/**
- * The tax option to be applied to the products. When using `inclusive`, the tax percentage will already be included in the price. When using `exclusive`, the tax will not be included in the price. When using `none`, no tax will be added. Use the `tax` field for defining the tax percentage amount. By default, the user setting value for tax options will be used. Changing this in one product affects the rest of the products attached to the deal
- * @member {module:model/BasicDealProduct.TaxMethodEnum} tax_method
- */
-BasicDealProduct.prototype['tax_method'] = undefined;
-
-/**
- * Whether the product is enabled for a deal or not. This makes it possible to add products to a deal with a specific price and discount criteria, but keep them disabled, which refrains them from being included in the deal value calculation. When omitted, the product will be marked as enabled by default
- * @member {Boolean} enabled_flag
- * @default true
- */
-BasicDealProduct.prototype['enabled_flag'] = true;
-
-/**
- * @member {module:model/BillingFrequency} billing_frequency
- */
-BasicDealProduct.prototype['billing_frequency'] = undefined;
-
-/**
- * Only available in Advanced and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 312 
- * @member {Number} billing_frequency_cycles
- */
-BasicDealProduct.prototype['billing_frequency_cycles'] = undefined;
-
-/**
- * Only available in Advanced and above plans  The billing start date. Must be between 15 years in the past and 15 years in the future 
- * @member {String} billing_start_date
- */
-BasicDealProduct.prototype['billing_start_date'] = undefined;
-
-
-// Implement BasicDealProductAllOf interface:
-/**
- * The ID of the product to use
- * @member {Number} product_id
- */
 BasicDealProductAllOf.prototype['product_id'] = undefined;
+
 /**
  * The price at which this product will be added to the deal
  * @member {Number} item_price
  */
 BasicDealProductAllOf.prototype['item_price'] = undefined;
+
 /**
  * Quantity – e.g. how many items of this product will be added to the deal
  * @member {Number} quantity
  */
 BasicDealProductAllOf.prototype['quantity'] = undefined;
+
 /**
  * The value of the discount. The `discount_type` field can be used to specify whether the value is an amount or a percentage
  * @member {Number} discount
  * @default 0
  */
 BasicDealProductAllOf.prototype['discount'] = 0;
+
 /**
  * The type of the discount's value
  * @member {module:model/BasicDealProductAllOf.DiscountTypeEnum} discount_type
  * @default 'percentage'
  */
 BasicDealProductAllOf.prototype['discount_type'] = 'percentage';
+
 /**
  * The duration of the product. If omitted, will be set to 1
  * @member {Number} duration
  * @default 1
  */
 BasicDealProductAllOf.prototype['duration'] = 1;
+
 /**
  * The unit duration of the product
  * @member {module:model/DealProductUnitDuration} duration_unit
  */
 BasicDealProductAllOf.prototype['duration_unit'] = undefined;
+
 /**
  * The ID of the product variation to use. When omitted, no variation will be used
  * @member {Number} product_variation_id
  */
 BasicDealProductAllOf.prototype['product_variation_id'] = undefined;
+
 /**
  * A textual comment associated with this product-deal attachment
  * @member {String} comments
  */
 BasicDealProductAllOf.prototype['comments'] = undefined;
+
 /**
  * The tax percentage
  * @member {Number} tax
  * @default 0
  */
 BasicDealProductAllOf.prototype['tax'] = 0;
+
 /**
  * The tax option to be applied to the products. When using `inclusive`, the tax percentage will already be included in the price. When using `exclusive`, the tax will not be included in the price. When using `none`, no tax will be added. Use the `tax` field for defining the tax percentage amount. By default, the user setting value for tax options will be used. Changing this in one product affects the rest of the products attached to the deal
  * @member {module:model/BasicDealProductAllOf.TaxMethodEnum} tax_method
  */
 BasicDealProductAllOf.prototype['tax_method'] = undefined;
+
 /**
  * Whether the product is enabled for a deal or not. This makes it possible to add products to a deal with a specific price and discount criteria, but keep them disabled, which refrains them from being included in the deal value calculation. When omitted, the product will be marked as enabled by default
  * @member {Boolean} enabled_flag
  * @default true
  */
 BasicDealProductAllOf.prototype['enabled_flag'] = true;
-// Implement NewDealProductAllOf interface:
-/**
- * @member {module:model/BillingFrequency} billing_frequency
- */
-NewDealProductAllOf.prototype['billing_frequency'] = undefined;
-// Implement NewDealProductAllOf1 interface:
-/**
- * Only available in Advanced and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 312 
- * @member {Number} billing_frequency_cycles
- */
-NewDealProductAllOf1.prototype['billing_frequency_cycles'] = undefined;
-// Implement NewDealProductAllOf2 interface:
-/**
- * Only available in Advanced and above plans  The billing start date. Must be between 15 years in the past and 15 years in the future 
- * @member {String} billing_start_date
- */
-NewDealProductAllOf2.prototype['billing_start_date'] = undefined;
+
+
 
 
 
@@ -334,7 +206,7 @@ NewDealProductAllOf2.prototype['billing_start_date'] = undefined;
  * @enum {String}
  * @readonly
  */
-BasicDealProduct['DiscountTypeEnum'] = {
+BasicDealProductAllOf['DiscountTypeEnum'] = {
 
     /**
      * value: "percentage"
@@ -355,7 +227,7 @@ BasicDealProduct['DiscountTypeEnum'] = {
  * @enum {String}
  * @readonly
  */
-BasicDealProduct['TaxMethodEnum'] = {
+BasicDealProductAllOf['TaxMethodEnum'] = {
 
     /**
      * value: "exclusive"
@@ -378,5 +250,5 @@ BasicDealProduct['TaxMethodEnum'] = {
 
 
 
-export default BasicDealProduct;
+export default BasicDealProductAllOf;
 

@@ -12,21 +12,20 @@
  */
 
 import ApiClient from '../ApiClient';
-import BillingFrequency from './BillingFrequency';
 
 /**
- * The NewDealProductAllOf model module.
- * @module model/NewDealProductAllOf
+ * The NewDealProductAllOf2 model module.
+ * @module model/NewDealProductAllOf2
  * @version 1.0.0
  */
-class NewDealProductAllOf {
+class NewDealProductAllOf2 {
     /**
-     * Constructs a new <code>NewDealProductAllOf</code>.
-     * @alias module:model/NewDealProductAllOf
+     * Constructs a new <code>NewDealProductAllOf2</code>.
+     * @alias module:model/NewDealProductAllOf2
      */
     constructor() { 
         
-        NewDealProductAllOf.initialize(this);
+        NewDealProductAllOf2.initialize(this);
     }
 
     /**
@@ -38,20 +37,20 @@ class NewDealProductAllOf {
     }
 
     /**
-     * Constructs a <code>NewDealProductAllOf</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>NewDealProductAllOf2</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/NewDealProductAllOf} obj Optional instance to populate.
-     * @return {module:model/NewDealProductAllOf} The populated <code>NewDealProductAllOf</code> instance.
+     * @param {module:model/NewDealProductAllOf2} obj Optional instance to populate.
+     * @return {module:model/NewDealProductAllOf2} The populated <code>NewDealProductAllOf2</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new NewDealProductAllOf();
+            obj = obj || new NewDealProductAllOf2();
 
-            if (data.hasOwnProperty('billing_frequency')) {
-                obj['billing_frequency'] = BillingFrequency.constructFromObject(data['billing_frequency']);
+            if (data.hasOwnProperty('billing_start_date')) {
+                obj['billing_start_date'] = ApiClient.convertToType(data['billing_start_date'], 'String');
 
-                delete data['billing_frequency'];
+                delete data['billing_start_date'];
             }
 
             if (Object.keys(data).length > 0) {
@@ -66,14 +65,15 @@ class NewDealProductAllOf {
 }
 
 /**
- * @member {module:model/BillingFrequency} billing_frequency
+ * Only available in Advanced and above plans  The billing start date. Must be between 15 years in the past and 15 years in the future 
+ * @member {String} billing_start_date
  */
-NewDealProductAllOf.prototype['billing_frequency'] = undefined;
+NewDealProductAllOf2.prototype['billing_start_date'] = undefined;
 
 
 
 
 
 
-export default NewDealProductAllOf;
+export default NewDealProductAllOf2;
 

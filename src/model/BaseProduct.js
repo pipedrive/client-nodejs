@@ -93,6 +93,16 @@ class BaseProduct {
 
                 delete data['owner_id'];
             }
+            if (data.hasOwnProperty('billing_frequency')) {
+                obj['billing_frequency'] = ApiClient.convertToType(data['billing_frequency'], 'String');
+
+                delete data['billing_frequency'];
+            }
+            if (data.hasOwnProperty('billing_frequency_cycles')) {
+                obj['billing_frequency_cycles'] = ApiClient.convertToType(data['billing_frequency_cycles'], 'Number');
+
+                delete data['billing_frequency_cycles'];
+            }
 
             if (Object.keys(data).length > 0) {
                 Object.assign(obj, data);
@@ -130,7 +140,7 @@ BaseProduct.prototype['code'] = undefined;
 BaseProduct.prototype['unit'] = undefined;
 
 /**
- * The ax percentage
+ * The tax percentage
  * @member {Number} tax
  * @default 0
  */
@@ -162,8 +172,66 @@ BaseProduct.prototype['visible_to'] = undefined;
  */
 BaseProduct.prototype['owner_id'] = undefined;
 
+/**
+ * Only available in Advanced and above plans  How often a customer is billed for access to a service or product 
+ * @member {module:model/BaseProduct.BillingFrequencyEnum} billing_frequency
+ * @default 'one-time'
+ */
+BaseProduct.prototype['billing_frequency'] = 'one-time';
+
+/**
+ * Only available in Advanced and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field is always `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 312 
+ * @member {Number} billing_frequency_cycles
+ */
+BaseProduct.prototype['billing_frequency_cycles'] = undefined;
 
 
+
+
+
+/**
+ * Allowed values for the <code>billing_frequency</code> property.
+ * @enum {String}
+ * @readonly
+ */
+BaseProduct['BillingFrequencyEnum'] = {
+
+    /**
+     * value: "one-time"
+     * @const
+     */
+    "one-time": "one-time",
+
+    /**
+     * value: "annually"
+     * @const
+     */
+    "annually": "annually",
+
+    /**
+     * value: "semi-annually"
+     * @const
+     */
+    "semi-annually": "semi-annually",
+
+    /**
+     * value: "quarterly"
+     * @const
+     */
+    "quarterly": "quarterly",
+
+    /**
+     * value: "monthly"
+     * @const
+     */
+    "monthly": "monthly",
+
+    /**
+     * value: "weekly"
+     * @const
+     */
+    "weekly": "weekly"
+};
 
 
 

@@ -99,6 +99,16 @@ class ProductWithArrayPrices {
 
                 delete data['owner_id'];
             }
+            if (data.hasOwnProperty('billing_frequency')) {
+                obj['billing_frequency'] = ApiClient.convertToType(data['billing_frequency'], 'String');
+
+                delete data['billing_frequency'];
+            }
+            if (data.hasOwnProperty('billing_frequency_cycles')) {
+                obj['billing_frequency_cycles'] = ApiClient.convertToType(data['billing_frequency_cycles'], 'Number');
+
+                delete data['billing_frequency_cycles'];
+            }
             if (data.hasOwnProperty('prices')) {
                 obj['prices'] = ApiClient.convertToType(data['prices'], [Object]);
 
@@ -141,7 +151,7 @@ ProductWithArrayPrices.prototype['code'] = undefined;
 ProductWithArrayPrices.prototype['unit'] = undefined;
 
 /**
- * The ax percentage
+ * The tax percentage
  * @member {Number} tax
  * @default 0
  */
@@ -174,6 +184,19 @@ ProductWithArrayPrices.prototype['visible_to'] = undefined;
 ProductWithArrayPrices.prototype['owner_id'] = undefined;
 
 /**
+ * Only available in Advanced and above plans  How often a customer is billed for access to a service or product 
+ * @member {module:model/ProductWithArrayPrices.BillingFrequencyEnum} billing_frequency
+ * @default 'one-time'
+ */
+ProductWithArrayPrices.prototype['billing_frequency'] = 'one-time';
+
+/**
+ * Only available in Advanced and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field is always `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 312 
+ * @member {Number} billing_frequency_cycles
+ */
+ProductWithArrayPrices.prototype['billing_frequency_cycles'] = undefined;
+
+/**
  * Array of objects, each containing: currency (string), price (number), cost (number, optional), overhead_cost (number, optional)
  * @member {Array.<Object>} prices
  */
@@ -202,7 +225,7 @@ BaseProduct.prototype['code'] = undefined;
  */
 BaseProduct.prototype['unit'] = undefined;
 /**
- * The ax percentage
+ * The tax percentage
  * @member {Number} tax
  * @default 0
  */
@@ -229,6 +252,17 @@ BaseProduct.prototype['visible_to'] = undefined;
  * @member {Object} owner_id
  */
 BaseProduct.prototype['owner_id'] = undefined;
+/**
+ * Only available in Advanced and above plans  How often a customer is billed for access to a service or product 
+ * @member {module:model/BaseProduct.BillingFrequencyEnum} billing_frequency
+ * @default 'one-time'
+ */
+BaseProduct.prototype['billing_frequency'] = 'one-time';
+/**
+ * Only available in Advanced and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field is always `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 312 
+ * @member {Number} billing_frequency_cycles
+ */
+BaseProduct.prototype['billing_frequency_cycles'] = undefined;
 // Implement ArrayPrices interface:
 /**
  * Array of objects, each containing: currency (string), price (number), cost (number, optional), overhead_cost (number, optional)
@@ -236,6 +270,51 @@ BaseProduct.prototype['owner_id'] = undefined;
  */
 ArrayPrices.prototype['prices'] = undefined;
 
+
+
+/**
+ * Allowed values for the <code>billing_frequency</code> property.
+ * @enum {String}
+ * @readonly
+ */
+ProductWithArrayPrices['BillingFrequencyEnum'] = {
+
+    /**
+     * value: "one-time"
+     * @const
+     */
+    "one-time": "one-time",
+
+    /**
+     * value: "annually"
+     * @const
+     */
+    "annually": "annually",
+
+    /**
+     * value: "semi-annually"
+     * @const
+     */
+    "semi-annually": "semi-annually",
+
+    /**
+     * value: "quarterly"
+     * @const
+     */
+    "quarterly": "quarterly",
+
+    /**
+     * value: "monthly"
+     * @const
+     */
+    "monthly": "monthly",
+
+    /**
+     * value: "weekly"
+     * @const
+     */
+    "weekly": "weekly"
+};
 
 
 

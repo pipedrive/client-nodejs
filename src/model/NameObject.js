@@ -12,21 +12,20 @@
  */
 
 import ApiClient from '../ApiClient';
-import BillingFrequency from './BillingFrequency';
 
 /**
- * The NewDealProductAllOf model module.
- * @module model/NewDealProductAllOf
+ * The NameObject model module.
+ * @module model/NameObject
  * @version 1.0.0
  */
-class NewDealProductAllOf {
+class NameObject {
     /**
-     * Constructs a new <code>NewDealProductAllOf</code>.
-     * @alias module:model/NewDealProductAllOf
+     * Constructs a new <code>NameObject</code>.
+     * @alias module:model/NameObject
      */
     constructor() { 
         
-        NewDealProductAllOf.initialize(this);
+        NameObject.initialize(this);
     }
 
     /**
@@ -38,20 +37,20 @@ class NewDealProductAllOf {
     }
 
     /**
-     * Constructs a <code>NewDealProductAllOf</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>NameObject</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/NewDealProductAllOf} obj Optional instance to populate.
-     * @return {module:model/NewDealProductAllOf} The populated <code>NewDealProductAllOf</code> instance.
+     * @param {module:model/NameObject} obj Optional instance to populate.
+     * @return {module:model/NameObject} The populated <code>NameObject</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new NewDealProductAllOf();
+            obj = obj || new NameObject();
 
-            if (data.hasOwnProperty('billing_frequency')) {
-                obj['billing_frequency'] = BillingFrequency.constructFromObject(data['billing_frequency']);
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
 
-                delete data['billing_frequency'];
+                delete data['name'];
             }
 
             if (Object.keys(data).length > 0) {
@@ -66,14 +65,15 @@ class NewDealProductAllOf {
 }
 
 /**
- * @member {module:model/BillingFrequency} billing_frequency
+ * The name of the product
+ * @member {String} name
  */
-NewDealProductAllOf.prototype['billing_frequency'] = undefined;
+NameObject.prototype['name'] = undefined;
 
 
 
 
 
 
-export default NewDealProductAllOf;
+export default NameObject;
 
