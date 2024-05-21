@@ -96,6 +96,21 @@ class AddLeadRequest {
 
                 delete data['was_seen'];
             }
+            if (data.hasOwnProperty('origin_id')) {
+                obj['origin_id'] = ApiClient.convertToType(data['origin_id'], 'String');
+
+                delete data['origin_id'];
+            }
+            if (data.hasOwnProperty('channel')) {
+                obj['channel'] = ApiClient.convertToType(data['channel'], 'Number');
+
+                delete data['channel'];
+            }
+            if (data.hasOwnProperty('channel_id')) {
+                obj['channel_id'] = ApiClient.convertToType(data['channel_id'], 'String');
+
+                delete data['channel_id'];
+            }
 
             if (Object.keys(data).length > 0) {
                 Object.assign(obj, data);
@@ -160,6 +175,24 @@ AddLeadRequest.prototype['visible_to'] = undefined;
  * @member {Boolean} was_seen
  */
 AddLeadRequest.prototype['was_seen'] = undefined;
+
+/**
+ * The optional ID to further distinguish the origin of the lead - e.g. Which API integration created this lead. If omitted, `origin_id` will be set to null.
+ * @member {String} origin_id
+ */
+AddLeadRequest.prototype['origin_id'] = undefined;
+
+/**
+ * The ID of Marketing channel this lead was created from. Provided value must be one of the channels configured for your company. You can fetch allowed values with <a href=\"https://developers.pipedrive.com/docs/api/v1/DealFields#getDealField\" target=\"_blank\" rel=\"noopener noreferrer\">GET /v1/dealFields</a>. If omitted, channel will be set to null.
+ * @member {Number} channel
+ */
+AddLeadRequest.prototype['channel'] = undefined;
+
+/**
+ * The optional ID to further distinguish the Marketing channel. If omitted, `channel_id` will be set to null.
+ * @member {String} channel_id
+ */
+AddLeadRequest.prototype['channel_id'] = undefined;
 
 
 

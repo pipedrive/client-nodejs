@@ -307,6 +307,26 @@ class BaseDeal {
 
                 delete data['person_hidden'];
             }
+            if (data.hasOwnProperty('origin')) {
+                obj['origin'] = ApiClient.convertToType(data['origin'], 'String');
+
+                delete data['origin'];
+            }
+            if (data.hasOwnProperty('origin_id')) {
+                obj['origin_id'] = ApiClient.convertToType(data['origin_id'], 'String');
+
+                delete data['origin_id'];
+            }
+            if (data.hasOwnProperty('channel')) {
+                obj['channel'] = ApiClient.convertToType(data['channel'], 'Number');
+
+                delete data['channel'];
+            }
+            if (data.hasOwnProperty('channel_id')) {
+                obj['channel_id'] = ApiClient.convertToType(data['channel_id'], 'String');
+
+                delete data['channel_id'];
+            }
 
             if (Object.keys(data).length > 0) {
                 Object.assign(obj, data);
@@ -630,6 +650,30 @@ BaseDeal.prototype['org_hidden'] = undefined;
  * @member {Boolean} person_hidden
  */
 BaseDeal.prototype['person_hidden'] = undefined;
+
+/**
+ * The way this Deal was created. `origin` field is set by Pipedrive when Deal is created and cannot be changed.
+ * @member {String} origin
+ */
+BaseDeal.prototype['origin'] = undefined;
+
+/**
+ * The optional ID to further distinguish the origin of the deal - e.g. Which API integration created this Deal.
+ * @member {String} origin_id
+ */
+BaseDeal.prototype['origin_id'] = undefined;
+
+/**
+ * The ID of your Marketing channel this Deal was created from. Recognized Marketing channels can be configured in your <a href=\"https://app.pipedrive.com/settings/fields\" target=\"_blank\" rel=\"noopener noreferrer\">Company settings</a>.
+ * @member {Number} channel
+ */
+BaseDeal.prototype['channel'] = undefined;
+
+/**
+ * The optional ID to further distinguish the Marketing channel.
+ * @member {String} channel_id
+ */
+BaseDeal.prototype['channel_id'] = undefined;
 
 
 
