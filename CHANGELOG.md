@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [22.8.0] - 2024-05-21
+### Added
+- Added `origin`, `origin_id`, `channel` and `channel_id` parameters representing the Source for Lead and Deal entity.
+
 ## [22.7.0] - 2024-05-14
 ### Added
 - Added `billing_frequency`, `billing_frequency_cycles` and `billing_start_date` fields to
@@ -613,7 +617,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.7.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.8.0...HEAD
+[22.8.0]: https://github.com/pipedrive/api-docs/compare/v22.7.0...v22.8.0
 [22.7.0]: https://github.com/pipedrive/api-docs/compare/v22.6.1...v22.7.0
 [22.6.1]: https://github.com/pipedrive/api-docs/compare/v22.6.0...v22.6.1
 [22.6.0]: https://github.com/pipedrive/api-docs/compare/v22.5.0...v22.6.0

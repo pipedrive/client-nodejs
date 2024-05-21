@@ -99,6 +99,16 @@ class UpdateLeadRequest {
 
                 delete data['was_seen'];
             }
+            if (data.hasOwnProperty('channel')) {
+                obj['channel'] = ApiClient.convertToType(data['channel'], 'Number');
+
+                delete data['channel'];
+            }
+            if (data.hasOwnProperty('channel_id')) {
+                obj['channel_id'] = ApiClient.convertToType(data['channel_id'], 'String');
+
+                delete data['channel_id'];
+            }
 
             if (Object.keys(data).length > 0) {
                 Object.assign(obj, data);
@@ -169,6 +179,18 @@ UpdateLeadRequest.prototype['visible_to'] = undefined;
  * @member {Boolean} was_seen
  */
 UpdateLeadRequest.prototype['was_seen'] = undefined;
+
+/**
+ * The ID of Marketing channel this lead was created from. Provided value must be one of the channels configured for your company which you can fetch with <a href=\"https://developers.pipedrive.com/docs/api/v1/DealFields#getDealField\" target=\"_blank\" rel=\"noopener noreferrer\">GET /v1/dealFields</a>.
+ * @member {Number} channel
+ */
+UpdateLeadRequest.prototype['channel'] = undefined;
+
+/**
+ * The optional ID to further distinguish the Marketing channel.
+ * @member {String} channel_id
+ */
+UpdateLeadRequest.prototype['channel_id'] = undefined;
 
 
 

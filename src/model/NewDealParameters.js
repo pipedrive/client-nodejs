@@ -92,6 +92,21 @@ class NewDealParameters {
 
                 delete data['status'];
             }
+            if (data.hasOwnProperty('origin_id')) {
+                obj['origin_id'] = ApiClient.convertToType(data['origin_id'], 'String');
+
+                delete data['origin_id'];
+            }
+            if (data.hasOwnProperty('channel')) {
+                obj['channel'] = ApiClient.convertToType(data['channel'], 'Number');
+
+                delete data['channel'];
+            }
+            if (data.hasOwnProperty('channel_id')) {
+                obj['channel_id'] = ApiClient.convertToType(data['channel_id'], 'String');
+
+                delete data['channel_id'];
+            }
             if (data.hasOwnProperty('add_time')) {
                 obj['add_time'] = ApiClient.convertToType(data['add_time'], 'String');
 
@@ -162,6 +177,24 @@ NewDealParameters.prototype['stage_id'] = undefined;
  * @member {module:model/NewDealParameters.StatusEnum} status
  */
 NewDealParameters.prototype['status'] = undefined;
+
+/**
+ * The optional ID to further distinguish the origin of the deal - e.g. Which API integration created this deal. If omitted, `origin_id` will be set to null.
+ * @member {String} origin_id
+ */
+NewDealParameters.prototype['origin_id'] = undefined;
+
+/**
+ * The ID of Marketing channel this deal was created from. Provided value must be one of the channels configured for your company. You can fetch allowed values with <a href=\"https://developers.pipedrive.com/docs/api/v1/DealFields#getDealField\" target=\"_blank\" rel=\"noopener noreferrer\">GET /v1/dealFields</a>. If omitted, channel will be set to null.
+ * @member {Number} channel
+ */
+NewDealParameters.prototype['channel'] = undefined;
+
+/**
+ * The optional ID to further distinguish the Marketing channel. If omitted, `channel_id` will be set to null.
+ * @member {String} channel_id
+ */
+NewDealParameters.prototype['channel_id'] = undefined;
 
 /**
  * The optional creation date & time of the deal in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS

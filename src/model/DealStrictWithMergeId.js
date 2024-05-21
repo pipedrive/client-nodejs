@@ -338,6 +338,26 @@ class DealStrictWithMergeId {
 
                 delete data['person_hidden'];
             }
+            if (data.hasOwnProperty('origin')) {
+                obj['origin'] = ApiClient.convertToType(data['origin'], 'String');
+
+                delete data['origin'];
+            }
+            if (data.hasOwnProperty('origin_id')) {
+                obj['origin_id'] = ApiClient.convertToType(data['origin_id'], 'String');
+
+                delete data['origin_id'];
+            }
+            if (data.hasOwnProperty('channel')) {
+                obj['channel'] = ApiClient.convertToType(data['channel'], 'Number');
+
+                delete data['channel'];
+            }
+            if (data.hasOwnProperty('channel_id')) {
+                obj['channel_id'] = ApiClient.convertToType(data['channel_id'], 'String');
+
+                delete data['channel_id'];
+            }
             if (data.hasOwnProperty('merge_what_id')) {
                 obj['merge_what_id'] = ApiClient.convertToType(data['merge_what_id'], 'Number');
 
@@ -698,6 +718,30 @@ DealStrictWithMergeId.prototype['org_hidden'] = undefined;
 DealStrictWithMergeId.prototype['person_hidden'] = undefined;
 
 /**
+ * The way this Deal was created. `origin` field is set by Pipedrive when Deal is created and cannot be changed.
+ * @member {String} origin
+ */
+DealStrictWithMergeId.prototype['origin'] = undefined;
+
+/**
+ * The optional ID to further distinguish the origin of the deal - e.g. Which API integration created this Deal.
+ * @member {String} origin_id
+ */
+DealStrictWithMergeId.prototype['origin_id'] = undefined;
+
+/**
+ * The ID of your Marketing channel this Deal was created from. Recognized Marketing channels can be configured in your <a href=\"https://app.pipedrive.com/settings/fields\" target=\"_blank\" rel=\"noopener noreferrer\">Company settings</a>.
+ * @member {Number} channel
+ */
+DealStrictWithMergeId.prototype['channel'] = undefined;
+
+/**
+ * The optional ID to further distinguish the Marketing channel.
+ * @member {String} channel_id
+ */
+DealStrictWithMergeId.prototype['channel_id'] = undefined;
+
+/**
  * The deal ID of the deal which the original deal was merged with
  * @member {Number} merge_what_id
  */
@@ -990,6 +1034,26 @@ DealStrict.prototype['org_hidden'] = undefined;
  * @member {Boolean} person_hidden
  */
 DealStrict.prototype['person_hidden'] = undefined;
+/**
+ * The way this Deal was created. `origin` field is set by Pipedrive when Deal is created and cannot be changed.
+ * @member {String} origin
+ */
+DealStrict.prototype['origin'] = undefined;
+/**
+ * The optional ID to further distinguish the origin of the deal - e.g. Which API integration created this Deal.
+ * @member {String} origin_id
+ */
+DealStrict.prototype['origin_id'] = undefined;
+/**
+ * The ID of your Marketing channel this Deal was created from. Recognized Marketing channels can be configured in your <a href=\"https://app.pipedrive.com/settings/fields\" target=\"_blank\" rel=\"noopener noreferrer\">Company settings</a>.
+ * @member {Number} channel
+ */
+DealStrict.prototype['channel'] = undefined;
+/**
+ * The optional ID to further distinguish the Marketing channel.
+ * @member {String} channel_id
+ */
+DealStrict.prototype['channel_id'] = undefined;
 // Implement DealStrictWithMergeIdAllOf interface:
 /**
  * The deal ID of the deal which the original deal was merged with

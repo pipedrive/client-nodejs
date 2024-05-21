@@ -89,6 +89,26 @@ class LeadResponse {
 
                 delete data['source_name'];
             }
+            if (data.hasOwnProperty('origin')) {
+                obj['origin'] = ApiClient.convertToType(data['origin'], 'String');
+
+                delete data['origin'];
+            }
+            if (data.hasOwnProperty('origin_id')) {
+                obj['origin_id'] = ApiClient.convertToType(data['origin_id'], 'String');
+
+                delete data['origin_id'];
+            }
+            if (data.hasOwnProperty('channel')) {
+                obj['channel'] = ApiClient.convertToType(data['channel'], 'Number');
+
+                delete data['channel'];
+            }
+            if (data.hasOwnProperty('channel_id')) {
+                obj['channel_id'] = ApiClient.convertToType(data['channel_id'], 'String');
+
+                delete data['channel_id'];
+            }
             if (data.hasOwnProperty('is_archived')) {
                 obj['is_archived'] = ApiClient.convertToType(data['is_archived'], 'Boolean');
 
@@ -193,6 +213,30 @@ LeadResponse.prototype['organization_id'] = undefined;
  * @member {String} source_name
  */
 LeadResponse.prototype['source_name'] = undefined;
+
+/**
+ * The way this Lead was created. `origin` field is set by Pipedrive when Lead is created and cannot be changed.
+ * @member {String} origin
+ */
+LeadResponse.prototype['origin'] = undefined;
+
+/**
+ * The optional ID to further distinguish the origin of the lead - e.g. Which API integration created this Lead.
+ * @member {String} origin_id
+ */
+LeadResponse.prototype['origin_id'] = undefined;
+
+/**
+ * The ID of your Marketing channel this Lead was created from. Recognized Marketing channels can be configured in your <a href=\"https://app.pipedrive.com/settings/fields\" target=\"_blank\" rel=\"noopener noreferrer\">Company settings</a>.
+ * @member {Number} channel
+ */
+LeadResponse.prototype['channel'] = undefined;
+
+/**
+ * The optional ID to further distinguish the Marketing channel.
+ * @member {String} channel_id
+ */
+LeadResponse.prototype['channel_id'] = undefined;
 
 /**
  * A flag indicating whether the lead is archived or not
