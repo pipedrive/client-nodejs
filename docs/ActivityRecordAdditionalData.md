@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**updatesStoryId** | **Number** | This field will be deprecated | [optional] 
+**updates_story_id** | **Number** | This field will be deprecated | [optional] 
 
 

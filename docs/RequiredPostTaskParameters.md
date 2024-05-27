@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **title** | **String** | The title of the task | 
-**projectId** | **Number** | The ID of a project | 
+**project_id** | **Number** | The ID of a project | 
 
 

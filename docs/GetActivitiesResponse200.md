@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **success** | **Boolean** |  | [optional] 
 **data** | [**[ActivityResponseObject]**](ActivityResponseObject.md) |  | [optional] 
-**additionalData** | [**ItemSearchAdditionalData**](ItemSearchAdditionalData.md) |  | [optional] 
-**relatedObjects** | [**GetActivitiesResponse200RelatedObjects**](GetActivitiesResponse200RelatedObjects.md) |  | [optional] 
+**additional_data** | [**ItemSearchAdditionalData**](ItemSearchAdditionalData.md) |  | [optional] 
+**related_objects** | [**GetActivitiesResponse200RelatedObjects**](GetActivitiesResponse200RelatedObjects.md) |  | [optional] 
 
 

@@ -54,7 +54,7 @@ apiInstance.addTeam(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createTeam** | [**CreateTeam**](CreateTeam.md)|  | [optional] 
+ **CreateTeam** | [**CreateTeam**](CreateTeam.md)|  | [optional] 
 
 ### Return type
 
@@ -111,7 +111,7 @@ apiInstance.addTeamUser(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the team | 
- **addTeamUserRequest** | [**AddTeamUserRequest**](AddTeamUserRequest.md)|  | [optional] 
+ **AddTeamUserRequest** | [**AddTeamUserRequest**](AddTeamUserRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -168,7 +168,7 @@ apiInstance.deleteTeamUser(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the team | 
- **deleteTeamUserRequest** | [**DeleteTeamUserRequest**](DeleteTeamUserRequest.md)|  | [optional] 
+ **DeleteTeamUserRequest** | [**DeleteTeamUserRequest**](DeleteTeamUserRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -208,6 +208,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.LegacyTeamsApi(apiClient);
 let id = 56; // Number | The ID of the team
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'skipUsers': new Pipedrive.NumberBooleanDefault0() // NumberBooleanDefault0 | When enabled, the teams will not include IDs of member users
 };
@@ -225,7 +226,7 @@ apiInstance.getTeam(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the team | 
- **skipUsers** | [**NumberBooleanDefault0**](.md)| When enabled, the teams will not include IDs of member users | [optional] 
+ **skip_users** | [**NumberBooleanDefault0**](.md)| When enabled, the teams will not include IDs of member users | [optional] 
 
 ### Return type
 
@@ -317,6 +318,7 @@ let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.LegacyTeamsApi(apiClient);
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'orderBy': "'id'", // String | The field name to sort returned teams by
   'skipUsers': new Pipedrive.NumberBooleanDefault0() // NumberBooleanDefault0 | When enabled, the teams will not include IDs of member users
@@ -334,8 +336,8 @@ apiInstance.getTeams(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderBy** | **String**| The field name to sort returned teams by | [optional] [default to &#39;id&#39;]
- **skipUsers** | [**NumberBooleanDefault0**](.md)| When enabled, the teams will not include IDs of member users | [optional] 
+ **order_by** | **String**| The field name to sort returned teams by | [optional] [default to &#39;id&#39;]
+ **skip_users** | [**NumberBooleanDefault0**](.md)| When enabled, the teams will not include IDs of member users | [optional] 
 
 ### Return type
 
@@ -375,6 +377,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.LegacyTeamsApi(apiClient);
 let id = 56; // Number | The ID of the user
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'orderBy': "'id'", // String | The field name to sort returned teams by
   'skipUsers': new Pipedrive.NumberBooleanDefault0() // NumberBooleanDefault0 | When enabled, the teams will not include IDs of member users
@@ -393,8 +396,8 @@ apiInstance.getUserTeams(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the user | 
- **orderBy** | **String**| The field name to sort returned teams by | [optional] [default to &#39;id&#39;]
- **skipUsers** | [**NumberBooleanDefault0**](.md)| When enabled, the teams will not include IDs of member users | [optional] 
+ **order_by** | **String**| The field name to sort returned teams by | [optional] [default to &#39;id&#39;]
+ **skip_users** | [**NumberBooleanDefault0**](.md)| When enabled, the teams will not include IDs of member users | [optional] 
 
 ### Return type
 
@@ -451,7 +454,7 @@ apiInstance.updateTeam(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the team | 
- **updateTeam** | [**UpdateTeam**](UpdateTeam.md)|  | [optional] 
+ **UpdateTeam** | [**UpdateTeam**](UpdateTeam.md)|  | [optional] 
 
 ### Return type
 

@@ -6,6 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **success** | **Boolean** |  | [optional] 
 **data** | [**ProjectResponseObject**](ProjectResponseObject.md) |  | [optional] 
-**additionalData** | **Object** |  | [optional] 
+**additional_data** | **Object** |  | [optional] 
 
 

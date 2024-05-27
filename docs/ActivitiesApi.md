@@ -53,7 +53,7 @@ apiInstance.addActivity(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **activityPostObject** | [**ActivityPostObject**](ActivityPostObject.md)|  | [optional] 
+ **ActivityPostObject** | [**ActivityPostObject**](ActivityPostObject.md)|  | [optional] 
 
 ### Return type
 
@@ -198,6 +198,7 @@ let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ActivitiesApi(apiClient);
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'userId': 56, // Number | The ID of the user whose activities will be fetched. If omitted, the user associated with the API token will be used. If 0, activities for all company users will be fetched based on the permission sets.
   'filterId': 56, // Number | The ID of the filter to use (will narrow down results if used together with `user_id` parameter)
@@ -221,13 +222,13 @@ apiInstance.getActivities(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| The ID of the user whose activities will be fetched. If omitted, the user associated with the API token will be used. If 0, activities for all company users will be fetched based on the permission sets. | [optional] 
- **filterId** | **Number**| The ID of the filter to use (will narrow down results if used together with &#x60;user_id&#x60; parameter) | [optional] 
+ **user_id** | **Number**| The ID of the user whose activities will be fetched. If omitted, the user associated with the API token will be used. If 0, activities for all company users will be fetched based on the permission sets. | [optional] 
+ **filter_id** | **Number**| The ID of the filter to use (will narrow down results if used together with &#x60;user_id&#x60; parameter) | [optional] 
  **type** | **String**| The type of the activity, can be one type or multiple types separated by a comma. This is in correlation with the &#x60;key_string&#x60; parameter of ActivityTypes. | [optional] 
  **limit** | **Number**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. | [optional] 
  **start** | **Number**| For pagination, the position that represents the first result for the page | [optional] 
- **startDate** | **Date**| Use the activity due date where you wish to begin fetching activities from. Insert due date in YYYY-MM-DD format. | [optional] 
- **endDate** | **Date**| Use the activity due date where you wish to stop fetching activities from. Insert due date in YYYY-MM-DD format. | [optional] 
+ **start_date** | **Date**| Use the activity due date where you wish to begin fetching activities from. Insert due date in YYYY-MM-DD format. | [optional] 
+ **end_date** | **Date**| Use the activity due date where you wish to stop fetching activities from. Insert due date in YYYY-MM-DD format. | [optional] 
  **done** | [**NumberBoolean**](.md)| Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted returns both done and not done activities. | [optional] 
 
 ### Return type
@@ -267,6 +268,7 @@ let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ActivitiesApi(apiClient);
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'cursor': "cursor_example", // String | For pagination, the marker (an opaque string value) representing the first item on the next page
   'limit': 100, // Number | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
@@ -293,7 +295,7 @@ Name | Type | Description  | Notes
  **limit** | **Number**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. | [optional] 
  **since** | **String**| The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. | [optional] 
  **until** | **String**| The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. | [optional] 
- **userId** | **Number**| The ID of the user whose activities will be fetched. If omitted, all activities are returned. | [optional] 
+ **user_id** | **Number**| The ID of the user whose activities will be fetched. If omitted, all activities are returned. | [optional] 
  **done** | **Boolean**| Whether the activity is done or not. &#x60;false&#x60; &#x3D; Not done, &#x60;true&#x60; &#x3D; Done. If omitted, returns both done and not done activities. | [optional] 
  **type** | **String**| The type of the activity, can be one type or multiple types separated by a comma. This is in correlation with the &#x60;key_string&#x60; parameter of ActivityTypes. | [optional] 
 
@@ -405,7 +407,7 @@ apiInstance.updateActivity(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the activity | 
- **activityPutObject** | [**ActivityPutObject**](ActivityPutObject.md)|  | [optional] 
+ **ActivityPutObject** | [**ActivityPutObject**](ActivityPutObject.md)|  | [optional] 
 
 ### Return type
 

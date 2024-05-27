@@ -87,6 +87,7 @@ let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProjectTemplatesApi(apiClient);
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'cursor': "cursor_example", // String | For pagination, the marker (an opaque string value) representing the first item on the next page
   'limit': 500 // Number | For pagination, the limit of entries to be returned. If not provided, up to 500 items will be returned.

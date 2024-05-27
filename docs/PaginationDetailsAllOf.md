@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**nextStart** | **Number** | Next pagination start | [optional] 
+**next_start** | **Number** | Next pagination start | [optional] 
 
 

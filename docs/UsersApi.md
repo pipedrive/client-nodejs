@@ -56,7 +56,7 @@ apiInstance.addUser(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addUserRequest** | [**AddUserRequest**](AddUserRequest.md)|  | [optional] 
+ **AddUserRequest** | [**AddUserRequest**](AddUserRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -96,6 +96,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.UsersApi(apiClient);
 let term = "term_example"; // String | The search term to look for
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'searchByEmail': new Pipedrive.NumberBooleanDefault0() // NumberBooleanDefault0 | When enabled, the term will only be matched against email addresses of users. Default: `false`.
 };
@@ -113,7 +114,7 @@ apiInstance.findUsersByName(term, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **term** | **String**| The search term to look for | 
- **searchByEmail** | [**NumberBooleanDefault0**](.md)| When enabled, the term will only be matched against email addresses of users. Default: &#x60;false&#x60;. | [optional] 
+ **search_by_email** | [**NumberBooleanDefault0**](.md)| When enabled, the term will only be matched against email addresses of users. Default: &#x60;false&#x60;. | [optional] 
 
 ### Return type
 
@@ -361,6 +362,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.UsersApi(apiClient);
 let id = 56; // Number | The ID of the user
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
@@ -539,7 +541,7 @@ apiInstance.updateUser(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the user | 
- **updateUserRequest** | [**UpdateUserRequest**](UpdateUserRequest.md)|  | [optional] 
+ **UpdateUserRequest** | [**UpdateUserRequest**](UpdateUserRequest.md)|  | [optional] 
 
 ### Return type
 

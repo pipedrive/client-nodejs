@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**calculatedType** | **String** | The calculated type of the relationship with the linked organization | [optional] 
-**calculatedRelatedOrgId** | **Number** | The ID of the linked organization | [optional] 
+**calculated_type** | **String** | The calculated type of the relationship with the linked organization | [optional] 
+**calculated_related_org_id** | **Number** | The ID of the linked organization | [optional] 
 
 

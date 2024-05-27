@@ -51,7 +51,7 @@ apiInstance.addGoal(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newGoal** | [**NewGoal**](NewGoal.md)|  | [optional] 
+ **NewGoal** | [**NewGoal**](NewGoal.md)|  | [optional] 
 
 ### Return type
 
@@ -160,8 +160,8 @@ apiInstance.getGoalResult(id, periodStart, periodEnd).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The ID of the goal that the results are looked for | 
- **periodStart** | **Date**| The start date of the period for which to find the goal&#39;s progress. Format: YYYY-MM-DD. This date must be the same or after the goal duration start date.  | 
- **periodEnd** | **Date**| The end date of the period for which to find the goal&#39;s progress. Format: YYYY-MM-DD. This date must be the same or before the goal duration end date.  | 
+ **period.start** | **Date**| The start date of the period for which to find the goal&#39;s progress. Format: YYYY-MM-DD. This date must be the same or after the goal duration start date.  | 
+ **period.end** | **Date**| The end date of the period for which to find the goal&#39;s progress. Format: YYYY-MM-DD. This date must be the same or before the goal duration end date.  | 
 
 ### Return type
 
@@ -200,6 +200,7 @@ let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.GoalsApi(apiClient);
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'typeName': "typeName_example", // String | The type of the goal. If provided, everyone's goals will be returned.
   'title': "title_example", // String | The title of the goal
@@ -228,19 +229,19 @@ apiInstance.getGoals(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **typeName** | **String**| The type of the goal. If provided, everyone&#39;s goals will be returned. | [optional] 
+ **type.name** | **String**| The type of the goal. If provided, everyone&#39;s goals will be returned. | [optional] 
  **title** | **String**| The title of the goal | [optional] 
- **isActive** | **Boolean**| Whether the goal is active or not | [optional] [default to true]
- **assigneeId** | **Number**| The ID of the user who&#39;s goal to fetch. When omitted, only your goals will be returned. | [optional] 
- **assigneeType** | **String**| The type of the goal&#39;s assignee. If provided, everyone&#39;s goals will be returned. | [optional] 
- **expectedOutcomeTarget** | **Number**| The numeric value of the outcome. If provided, everyone&#39;s goals will be returned. | [optional] 
- **expectedOutcomeTrackingMetric** | **String**| The tracking metric of the expected outcome of the goal. If provided, everyone&#39;s goals will be returned. | [optional] 
- **expectedOutcomeCurrencyId** | **Number**| The numeric ID of the goal&#39;s currency. Only applicable to goals with &#x60;expected_outcome.tracking_metric&#x60; with value &#x60;sum&#x60;. If provided, everyone&#39;s goals will be returned. | [optional] 
- **typeParamsPipelineId** | [**[Number]**](Number.md)| An array of pipeline IDs or &#x60;null&#x60; for all pipelines. If provided, everyone&#39;s goals will be returned. | [optional] 
- **typeParamsStageId** | **Number**| The ID of the stage. Applicable to only &#x60;deals_progressed&#x60; type of goals. If provided, everyone&#39;s goals will be returned. | [optional] 
- **typeParamsActivityTypeId** | [**[Number]**](Number.md)| An array of IDs or &#x60;null&#x60; for all activity types. Only applicable for &#x60;activities_completed&#x60; and/or &#x60;activities_added&#x60; types of goals. If provided, everyone&#39;s goals will be returned. | [optional] 
- **periodStart** | **Date**| The start date of the period for which to find goals. Date in format of YYYY-MM-DD. When &#x60;period.start&#x60; is provided, &#x60;period.end&#x60; must be provided too. | [optional] 
- **periodEnd** | **Date**| The end date of the period for which to find goals. Date in format of YYYY-MM-DD. | [optional] 
+ **is_active** | **Boolean**| Whether the goal is active or not | [optional] [default to true]
+ **assignee.id** | **Number**| The ID of the user who&#39;s goal to fetch. When omitted, only your goals will be returned. | [optional] 
+ **assignee.type** | **String**| The type of the goal&#39;s assignee. If provided, everyone&#39;s goals will be returned. | [optional] 
+ **expected_outcome.target** | **Number**| The numeric value of the outcome. If provided, everyone&#39;s goals will be returned. | [optional] 
+ **expected_outcome.tracking_metric** | **String**| The tracking metric of the expected outcome of the goal. If provided, everyone&#39;s goals will be returned. | [optional] 
+ **expected_outcome.currency_id** | **Number**| The numeric ID of the goal&#39;s currency. Only applicable to goals with &#x60;expected_outcome.tracking_metric&#x60; with value &#x60;sum&#x60;. If provided, everyone&#39;s goals will be returned. | [optional] 
+ **type.params.pipeline_id** | [**[Number]**](Number.md)| An array of pipeline IDs or &#x60;null&#x60; for all pipelines. If provided, everyone&#39;s goals will be returned. | [optional] 
+ **type.params.stage_id** | **Number**| The ID of the stage. Applicable to only &#x60;deals_progressed&#x60; type of goals. If provided, everyone&#39;s goals will be returned. | [optional] 
+ **type.params.activity_type_id** | [**[Number]**](Number.md)| An array of IDs or &#x60;null&#x60; for all activity types. Only applicable for &#x60;activities_completed&#x60; and/or &#x60;activities_added&#x60; types of goals. If provided, everyone&#39;s goals will be returned. | [optional] 
+ **period.start** | **Date**| The start date of the period for which to find goals. Date in format of YYYY-MM-DD. When &#x60;period.start&#x60; is provided, &#x60;period.end&#x60; must be provided too. | [optional] 
+ **period.end** | **Date**| The end date of the period for which to find goals. Date in format of YYYY-MM-DD. | [optional] 
 
 ### Return type
 
@@ -297,7 +298,7 @@ apiInstance.updateGoal(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The ID of the goal | 
- **basicGoal** | [**BasicGoal**](BasicGoal.md)|  | [optional] 
+ **BasicGoal** | [**BasicGoal**](BasicGoal.md)|  | [optional] 
 
 ### Return type
 

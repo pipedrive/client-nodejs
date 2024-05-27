@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fieldType** | [**FieldTypeAsString**](FieldTypeAsString.md) |  | 
+**field_type** | [**FieldTypeAsString**](FieldTypeAsString.md) |  | 
 
 

@@ -6,6 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **success** | **Boolean** |  | [optional] 
 **data** | [**DeleteProject**](DeleteProject.md) |  | [optional] 
-**additionalData** | **Object** |  | [optional] 
+**additional_data** | **Object** |  | [optional] 
 
 

@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **type** | **String** | The type of the item | [optional] 
 **name** | **String** | The name of the product | [optional] 
 **code** | **Number** | The code of the product | [optional] 
-**visibleTo** | **Number** | The visibility of the product | [optional] 
+**visible_to** | **Number** | The visibility of the product | [optional] 
 **owner** | [**ProductSearchItemItemOwner**](ProductSearchItemItemOwner.md) |  | [optional] 
-**customFields** | **[String]** | The custom fields | [optional] 
+**custom_fields** | **[String]** | The custom fields | [optional] 
 
 

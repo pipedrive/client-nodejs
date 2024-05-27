@@ -6,6 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **success** | **Boolean** |  | [optional] 
 **data** | [**ActivityResponseObject**](ActivityResponseObject.md) |  | [optional] 
-**relatedObjects** | [**AddActivityResponse200RelatedObjects**](AddActivityResponse200RelatedObjects.md) |  | [optional] 
+**related_objects** | [**AddActivityResponse200RelatedObjects**](AddActivityResponse200RelatedObjects.md) |  | [optional] 
 
 

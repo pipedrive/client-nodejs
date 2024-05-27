@@ -6,6 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **success** | **Boolean** | If the request was successful or not | [optional] 
 **data** | [**[BaseComment]**](BaseComment.md) | The array of comments | [optional] 
-**additionalData** | [**AdditionalDataWithOffsetPagination**](AdditionalDataWithOffsetPagination.md) |  | [optional] 
+**additional_data** | [**AdditionalDataWithOffsetPagination**](AdditionalDataWithOffsetPagination.md) |  | [optional] 
 
 
