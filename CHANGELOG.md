@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [22.8.1] - 2024-05-29
+### Removed
+- Removed mention of address autocompletion by Google in Add Activites endpoint and other entities(organization, person, deal) fields.
+
 ## [22.8.0] - 2024-05-21
 ### Added
 - Added `origin`, `origin_id`, `channel` and `channel_id` parameters representing the Source for Lead and Deal entity.
@@ -617,7 +621,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.8.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.8.1...HEAD
+[22.8.1]: https://github.com/pipedrive/api-docs/compare/v22.8.0...v22.8.1
 [22.8.0]: https://github.com/pipedrive/api-docs/compare/v22.7.0...v22.8.0
 [22.7.0]: https://github.com/pipedrive/api-docs/compare/v22.6.1...v22.7.0
 [22.6.1]: https://github.com/pipedrive/api-docs/compare/v22.6.0...v22.6.1

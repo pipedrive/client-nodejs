@@ -419,7 +419,7 @@ ActivityResponseObject.prototype['project_id'] = undefined;
 ActivityResponseObject.prototype['org_id'] = undefined;
 
 /**
- * The address of the activity. Pipedrive will automatically check if the location matches a geo-location on Google maps.
+ * The address of the activity.
  * @member {String} location
  */
 ActivityResponseObject.prototype['location'] = undefined;
@@ -779,7 +779,7 @@ ActivityObjectFragment.prototype['project_id'] = undefined;
  */
 ActivityObjectFragment.prototype['org_id'] = undefined;
 /**
- * The address of the activity. Pipedrive will automatically check if the location matches a geo-location on Google maps.
+ * The address of the activity.
  * @member {String} location
  */
 ActivityObjectFragment.prototype['location'] = undefined;
