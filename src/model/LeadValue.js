@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class LeadValue {
     /**
      * Constructs a new <code>LeadValue</code>.
-     * The potential value of the lead
+     * The potential value of the lead represented by a JSON object: &#x60;{ \&quot;amount\&quot;: 200, \&quot;currency\&quot;: \&quot;EUR\&quot; }&#x60;. Both amount and currency are required.
      * @alias module:model/LeadValue
      * @param amount {Number} 
      * @param currency {String} 
