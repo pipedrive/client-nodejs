@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**billingFrequency** | [**BillingFrequency1**](BillingFrequency1.md) |  | [optional] 
+**billing_frequency** | [**BillingFrequency1**](BillingFrequency1.md) |  | [optional] 
 
 

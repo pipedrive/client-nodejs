@@ -101,7 +101,7 @@ apiInstance.saveUserProviderLink(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userProviderLinkCreateRequest** | [**UserProviderLinkCreateRequest**](UserProviderLinkCreateRequest.md)|  | [optional] 
+ **UserProviderLinkCreateRequest** | [**UserProviderLinkCreateRequest**](UserProviderLinkCreateRequest.md)|  | [optional] 
 
 ### Return type
 

@@ -60,7 +60,7 @@ apiInstance.addOrUpdateRoleSetting(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the role | 
- **addOrUpdateRoleSettingRequest** | [**AddOrUpdateRoleSettingRequest**](AddOrUpdateRoleSettingRequest.md)|  | [optional] 
+ **AddOrUpdateRoleSettingRequest** | [**AddOrUpdateRoleSettingRequest**](AddOrUpdateRoleSettingRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -115,7 +115,7 @@ apiInstance.addRole(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addRole** | [**AddRole**](AddRole.md)|  | [optional] 
+ **AddRole** | [**AddRole**](AddRole.md)|  | [optional] 
 
 ### Return type
 
@@ -172,7 +172,7 @@ apiInstance.addRoleAssignment(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the role | 
- **addRoleAssignmentRequest** | [**AddRoleAssignmentRequest**](AddRoleAssignmentRequest.md)|  | [optional] 
+ **AddRoleAssignmentRequest** | [**AddRoleAssignmentRequest**](AddRoleAssignmentRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -282,7 +282,7 @@ apiInstance.deleteRoleAssignment(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the role | 
- **deleteRoleAssignmentRequest** | [**DeleteRoleAssignmentRequest**](DeleteRoleAssignmentRequest.md)|  | [optional] 
+ **DeleteRoleAssignmentRequest** | [**DeleteRoleAssignmentRequest**](DeleteRoleAssignmentRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -375,6 +375,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.RolesApi(apiClient);
 let id = 56; // Number | The ID of the role
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
@@ -434,6 +435,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.RolesApi(apiClient);
 let id = 56; // Number | The ID of the role
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'visible': true // Boolean | Whether to return the visible or hidden pipelines for the role
 };
@@ -543,6 +545,7 @@ let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.RolesApi(apiClient);
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
@@ -618,7 +621,7 @@ apiInstance.updateRole(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the role | 
- **baseRole** | [**BaseRole**](BaseRole.md)|  | [optional] 
+ **BaseRole** | [**BaseRole**](BaseRole.md)|  | [optional] 
 
 ### Return type
 
@@ -675,7 +678,7 @@ apiInstance.updateRolePipelines(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the role | 
- **putRolePipelinesBody** | [**PutRolePipelinesBody**](PutRolePipelinesBody.md)|  | [optional] 
+ **PutRolePipelinesBody** | [**PutRolePipelinesBody**](PutRolePipelinesBody.md)|  | [optional] 
 
 ### Return type
 

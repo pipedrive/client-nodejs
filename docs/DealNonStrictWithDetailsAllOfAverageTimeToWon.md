@@ -10,6 +10,6 @@ Name | Type | Description | Notes
 **h** | **Number** | Hours | [optional] 
 **i** | **Number** | Minutes | [optional] 
 **s** | **Number** | Seconds | [optional] 
-**totalSeconds** | **Number** | The total time in seconds | [optional] 
+**total_seconds** | **Number** | The total time in seconds | [optional] 
 
 

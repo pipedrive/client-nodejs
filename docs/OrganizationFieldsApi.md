@@ -52,7 +52,7 @@ apiInstance.addOrganizationField(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fieldCreateRequest** | [**FieldCreateRequest**](FieldCreateRequest.md)|  | [optional] 
+ **FieldCreateRequest** | [**FieldCreateRequest**](FieldCreateRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -250,6 +250,7 @@ let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.OrganizationFieldsApi(apiClient);
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
@@ -325,7 +326,7 @@ apiInstance.updateOrganizationField(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the field | 
- **fieldUpdateRequest** | [**FieldUpdateRequest**](FieldUpdateRequest.md)|  | [optional] 
+ **FieldUpdateRequest** | [**FieldUpdateRequest**](FieldUpdateRequest.md)|  | [optional] 
 
 ### Return type
 

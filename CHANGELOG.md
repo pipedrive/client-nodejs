@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [22.9.0] - 2024-05-30
+### Fixed
+- Documentation for response models: changed property names to snake_case instead of camelCase
+
 ## [22.8.2] - 2024-05-29
 ### Fixed
 - Fixed documentation: property `value` of Lead is nullable.
@@ -625,7 +629,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.8.2...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.9.0...HEAD
+[22.9.0]: https://github.com/pipedrive/api-docs/compare/v22.8.2...v22.9.0
 [22.8.2]: https://github.com/pipedrive/api-docs/compare/v22.8.1...v22.8.2
 [22.8.1]: https://github.com/pipedrive/api-docs/compare/v22.8.0...v22.8.1
 [22.8.0]: https://github.com/pipedrive/api-docs/compare/v22.7.0...v22.8.0

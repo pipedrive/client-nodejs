@@ -49,7 +49,7 @@ apiInstance.addWebhook(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addWebhookRequest** | [**AddWebhookRequest**](AddWebhookRequest.md)|  | [optional] 
+ **AddWebhookRequest** | [**AddWebhookRequest**](AddWebhookRequest.md)|  | [optional] 
 
 ### Return type
 

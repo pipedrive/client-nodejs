@@ -68,7 +68,7 @@ apiInstance.addPerson(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newPerson** | [**NewPerson**](NewPerson.md)|  | [optional] 
+ **NewPerson** | [**NewPerson**](NewPerson.md)|  | [optional] 
 
 ### Return type
 
@@ -125,7 +125,7 @@ apiInstance.addPersonFollower(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the person | 
- **addPersonFollowerRequest** | [**AddPersonFollowerRequest**](AddPersonFollowerRequest.md)|  | [optional] 
+ **AddPersonFollowerRequest** | [**AddPersonFollowerRequest**](AddPersonFollowerRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -166,6 +166,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new Pipedrive.PersonsApi(apiClient);
 let id = 56; // Number | The ID of the person
 let file = "/path/to/file"; // File | One image supplied in the multipart/form-data encoding
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'cropX': 56, // Number | X coordinate to where start cropping form (in pixels)
   'cropY': 56, // Number | Y coordinate to where start cropping form (in pixels)
@@ -187,10 +188,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the person | 
  **file** | **File**| One image supplied in the multipart/form-data encoding | 
- **cropX** | **Number**| X coordinate to where start cropping form (in pixels) | [optional] 
- **cropY** | **Number**| Y coordinate to where start cropping form (in pixels) | [optional] 
- **cropWidth** | **Number**| The width of the cropping area (in pixels) | [optional] 
- **cropHeight** | **Number**| The height of the cropping area (in pixels) | [optional] 
+ **crop_x** | **Number**| X coordinate to where start cropping form (in pixels) | [optional] 
+ **crop_y** | **Number**| Y coordinate to where start cropping form (in pixels) | [optional] 
+ **crop_width** | **Number**| The width of the cropping area (in pixels) | [optional] 
+ **crop_height** | **Number**| The height of the cropping area (in pixels) | [optional] 
 
 ### Return type
 
@@ -298,7 +299,7 @@ apiInstance.deletePersonFollower(id, followerId).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the person | 
- **followerId** | **Number**| The ID of the follower | 
+ **follower_id** | **Number**| The ID of the follower | 
 
 ### Return type
 
@@ -497,6 +498,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi(apiClient);
 let id = 56; // Number | The ID of the person
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
@@ -560,6 +562,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi(apiClient);
 let id = 56; // Number | The ID of the person
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'cursor': "cursor_example", // String | For pagination, the marker (an opaque string value) representing the first item on the next page
   'limit': 56 // Number | Items shown per page
@@ -619,6 +622,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi(apiClient);
 let id = 56; // Number | The ID of the person
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
@@ -682,6 +686,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi(apiClient);
 let id = 56; // Number | The ID of the person
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
@@ -796,6 +801,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi(apiClient);
 let id = 56; // Number | The ID of the person
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
@@ -855,6 +861,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi(apiClient);
 let id = 56; // Number | The ID of the person
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
@@ -914,6 +921,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi(apiClient);
 let id = 56; // Number | The ID of the person
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
@@ -936,7 +944,7 @@ Name | Type | Description  | Notes
  **id** | **Number**| The ID of the person | 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
- **allChanges** | **String**| Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates. | [optional] 
+ **all_changes** | **String**| Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates. | [optional] 
  **items** | **String**| A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change). | [optional] 
 
 ### Return type
@@ -1029,6 +1037,7 @@ let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi(apiClient);
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'userId': 56, // Number | If supplied, only persons owned by the given user will be returned. However, `filter_id` takes precedence over `user_id` when both are supplied.
   'filterId': 56, // Number | The ID of the filter to use
@@ -1050,9 +1059,9 @@ apiInstance.getPersons(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| If supplied, only persons owned by the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;user_id&#x60; when both are supplied. | [optional] 
- **filterId** | **Number**| The ID of the filter to use | [optional] 
- **firstChar** | **String**| If supplied, only persons whose name starts with the specified letter will be returned (case-insensitive) | [optional] 
+ **user_id** | **Number**| If supplied, only persons owned by the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;user_id&#x60; when both are supplied. | [optional] 
+ **filter_id** | **Number**| The ID of the filter to use | [optional] 
+ **first_char** | **String**| If supplied, only persons whose name starts with the specified letter will be returned (case-insensitive) | [optional] 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
  **sort** | **String**| The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). | [optional] 
@@ -1094,6 +1103,7 @@ let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi(apiClient);
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'cursor': "cursor_example", // String | For pagination, the marker (an opaque string value) representing the first item on the next page
   'limit': 100, // Number | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
@@ -1119,8 +1129,8 @@ Name | Type | Description  | Notes
  **limit** | **Number**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. | [optional] 
  **since** | **String**| The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. | [optional] 
  **until** | **String**| The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. | [optional] 
- **ownerId** | **Number**| If supplied, only persons owned by the given user will be returned | [optional] 
- **firstChar** | **String**| If supplied, only persons whose name starts with the specified letter will be returned (case-insensitive) | [optional] 
+ **owner_id** | **Number**| If supplied, only persons owned by the given user will be returned | [optional] 
+ **first_char** | **String**| If supplied, only persons whose name starts with the specified letter will be returned (case-insensitive) | [optional] 
 
 ### Return type
 
@@ -1177,7 +1187,7 @@ apiInstance.mergePersons(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the person | 
- **mergePersonsRequest** | [**MergePersonsRequest**](MergePersonsRequest.md)|  | [optional] 
+ **MergePersonsRequest** | [**MergePersonsRequest**](MergePersonsRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -1217,6 +1227,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PersonsApi(apiClient);
 let term = "term_example"; // String | The search term to look for. Minimum 2 characters (or 1 if using `exact_match`). Please note that the search term has to be URL encoded.
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'fields': "fields_example", // String | A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: `address`, `varchar`, `text`, `varchar_auto`, `double`, `monetary` and `phone`. Read more about searching by custom fields <a href=\"https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
   'exactMatch': true, // Boolean | When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
@@ -1240,9 +1251,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **term** | **String**| The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded. | 
  **fields** | **String**| A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;. | [optional] 
- **exactMatch** | **Boolean**| When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. | [optional] 
- **organizationId** | **Number**| Will filter persons by the provided organization ID. The upper limit of found persons associated with the organization is 2000. | [optional] 
- **includeFields** | **String**| Supports including optional fields in the results which are not provided by default | [optional] 
+ **exact_match** | **Boolean**| When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. | [optional] 
+ **organization_id** | **Number**| Will filter persons by the provided organization ID. The upper limit of found persons associated with the organization is 2000. | [optional] 
+ **include_fields** | **String**| Supports including optional fields in the results which are not provided by default | [optional] 
  **start** | **Number**| Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter. | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
 
@@ -1301,7 +1312,7 @@ apiInstance.updatePerson(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the person | 
- **updatePerson** | [**UpdatePerson**](UpdatePerson.md)|  | [optional] 
+ **UpdatePerson** | [**UpdatePerson**](UpdatePerson.md)|  | [optional] 
 
 ### Return type
 

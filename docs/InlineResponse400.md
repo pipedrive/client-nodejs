@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **success** | **Boolean** |  | [optional] 
 **error** | **String** | The error description | [optional] 
-**errorInfo** | **String** |  | [optional] 
-**additionalData** | [**InlineResponse400AdditionalData**](InlineResponse400AdditionalData.md) |  | [optional] 
+**error_info** | **String** |  | [optional] 
+**additional_data** | [**InlineResponse400AdditionalData**](InlineResponse400AdditionalData.md) |  | [optional] 
 
 

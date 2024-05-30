@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **app** | **String** |  | [optional] 
 **admin** | **Boolean** |  | [optional] 
-**permissionSetId** | **String** |  | [optional] 
+**permission_set_id** | **String** |  | [optional] 
 
 
 

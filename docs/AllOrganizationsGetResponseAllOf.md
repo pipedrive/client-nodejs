@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | [**[BaseOrganizationItem]**](BaseOrganizationItem.md) | The array of organizations | [optional] 
-**additionalData** | [**ItemSearchAdditionalData**](ItemSearchAdditionalData.md) |  | [optional] 
-**relatedObjects** | [**AllOrganizationsGetResponseAllOfRelatedObjects**](AllOrganizationsGetResponseAllOfRelatedObjects.md) |  | [optional] 
+**additional_data** | [**ItemSearchAdditionalData**](ItemSearchAdditionalData.md) |  | [optional] 
+**related_objects** | [**AllOrganizationsGetResponseAllOfRelatedObjects**](AllOrganizationsGetResponseAllOfRelatedObjects.md) |  | [optional] 
 
 

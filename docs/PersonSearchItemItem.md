@@ -9,10 +9,10 @@ Name | Type | Description | Notes
 **name** | **String** | The name of the person | [optional] 
 **phones** | **[String]** | An array of phone numbers | [optional] 
 **emails** | **[String]** | An array of email addresses | [optional] 
-**visibleTo** | **Number** | The visibility of the person | [optional] 
+**visible_to** | **Number** | The visibility of the person | [optional] 
 **owner** | [**PersonSearchItemItemOwner**](PersonSearchItemItemOwner.md) |  | [optional] 
 **organization** | [**PersonSearchItemItemOrganization**](PersonSearchItemItemOrganization.md) |  | [optional] 
-**customFields** | **[String]** | Custom fields | [optional] 
+**custom_fields** | **[String]** | Custom fields | [optional] 
 **notes** | **[String]** | An array of notes | [optional] 
 
 

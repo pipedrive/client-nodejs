@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | The ID of the message | 
-**channelId** | **String** | The channel ID as in the provider | 
-**senderId** | **String** | The ID of the provider&#39;s user that sent the message | 
-**conversationId** | **String** | The ID of the conversation | 
+**channel_id** | **String** | The channel ID as in the provider | 
+**sender_id** | **String** | The ID of the provider&#39;s user that sent the message | 
+**conversation_id** | **String** | The ID of the conversation | 
 **message** | **String** | The body of the message | 
 **status** | **String** | The status of the message | 
-**createdAt** | **Date** | The date and time when the message was created in the provider, in UTC. Format: YYYY-MM-DD HH:MM | 
-**replyBy** | **Date** | The date and time when the message can no longer receive a reply, in UTC. Format: YYYY-MM-DD HH:MM | [optional] 
-**conversationLink** | **String** | A URL that can open the conversation in the provider&#39;s side | [optional] 
+**created_at** | **Date** | The date and time when the message was created in the provider, in UTC. Format: YYYY-MM-DD HH:MM | 
+**reply_by** | **Date** | The date and time when the message can no longer receive a reply, in UTC. Format: YYYY-MM-DD HH:MM | [optional] 
+**conversation_link** | **String** | A URL that can open the conversation in the provider&#39;s side | [optional] 
 **attachments** | [**[MessageObjectAttachments]**](MessageObjectAttachments.md) | The list of attachments available in the message | [optional] 
 
 
