@@ -53,7 +53,7 @@ apiInstance.addStage(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stage** | [**Stage**](Stage.md)|  | [optional] 
+ **Stage** | [**Stage**](Stage.md)|  | [optional] 
 
 ### Return type
 
@@ -199,6 +199,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.StagesApi(apiClient);
 let id = 56; // Number | The ID of the stage
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'everyone': new Pipedrive.NumberBoolean() // NumberBoolean | If `everyone=1` is provided, deals summary will return deals owned by every user
 };
@@ -256,6 +257,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.StagesApi(apiClient);
 let id = 56; // Number | The ID of the stage
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'filterId': 56, // Number | If supplied, only deals matching the given filter will be returned
   'userId': 56, // Number | If supplied, `filter_id` will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned.
@@ -277,8 +279,8 @@ apiInstance.getStageDeals(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the stage | 
- **filterId** | **Number**| If supplied, only deals matching the given filter will be returned | [optional] 
- **userId** | **Number**| If supplied, &#x60;filter_id&#x60; will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned. | [optional] 
+ **filter_id** | **Number**| If supplied, only deals matching the given filter will be returned | [optional] 
+ **user_id** | **Number**| If supplied, &#x60;filter_id&#x60; will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned. | [optional] 
  **everyone** | [**NumberBoolean**](.md)| If supplied, &#x60;filter_id&#x60; and &#x60;user_id&#x60; will not be considered – instead, deals owned by everyone will be returned | [optional] 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
@@ -320,6 +322,7 @@ let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.StagesApi(apiClient);
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'pipelineId': 56, // Number | The ID of the pipeline to fetch stages for. If omitted, stages for all pipelines will be fetched.
   'start': 0, // Number | Pagination start
@@ -338,7 +341,7 @@ apiInstance.getStages(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pipelineId** | **Number**| The ID of the pipeline to fetch stages for. If omitted, stages for all pipelines will be fetched. | [optional] 
+ **pipeline_id** | **Number**| The ID of the pipeline to fetch stages for. If omitted, stages for all pipelines will be fetched. | [optional] 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
 
@@ -397,7 +400,7 @@ apiInstance.updateStage(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the stage | 
- **updateStageRequest** | [**UpdateStageRequest**](UpdateStageRequest.md)|  | [optional] 
+ **UpdateStageRequest** | [**UpdateStageRequest**](UpdateStageRequest.md)|  | [optional] 
 
 ### Return type
 

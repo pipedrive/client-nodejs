@@ -90,6 +90,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.MailboxApi(apiClient);
 let id = 56; // Number | The ID of the mail message to fetch
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'includeBody': new Pipedrive.NumberBooleanDefault0() // NumberBooleanDefault0 | Whether to include the full message body or not. `0` = Don't include, `1` = Include.
 };
@@ -107,7 +108,7 @@ apiInstance.getMailMessage(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the mail message to fetch | 
- **includeBody** | [**NumberBooleanDefault0**](.md)| Whether to include the full message body or not. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include. | [optional] 
+ **include_body** | [**NumberBooleanDefault0**](.md)| Whether to include the full message body or not. &#x60;0&#x60; &#x3D; Don&#39;t include, &#x60;1&#x60; &#x3D; Include. | [optional] 
 
 ### Return type
 
@@ -253,6 +254,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.MailboxApi(apiClient);
 let folder = "'inbox'"; // String | The type of folder to fetch
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
@@ -312,6 +314,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.MailboxApi(apiClient);
 let id = 56; // Number | The ID of the mail thread
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'dealId': 56, // Number | The ID of the deal this thread is associated with
   'leadId': "leadId_example", // String | The ID of the lead this thread is associated with
@@ -333,11 +336,11 @@ apiInstance.updateMailThreadDetails(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the mail thread | 
- **dealId** | **Number**| The ID of the deal this thread is associated with | [optional] 
- **leadId** | **String**| The ID of the lead this thread is associated with | [optional] 
- **sharedFlag** | [**NumberBoolean**](NumberBoolean.md)| Whether this thread is shared with other users in your company | [optional] 
- **readFlag** | [**NumberBoolean**](NumberBoolean.md)| Whether this thread is read or unread | [optional] 
- **archivedFlag** | [**NumberBoolean**](NumberBoolean.md)| Whether this thread is archived or not. You can only archive threads that belong to Inbox folder. Archived threads will disappear from Inbox. | [optional] 
+ **deal_id** | **Number**| The ID of the deal this thread is associated with | [optional] 
+ **lead_id** | **String**| The ID of the lead this thread is associated with | [optional] 
+ **shared_flag** | [**NumberBoolean**](NumberBoolean.md)| Whether this thread is shared with other users in your company | [optional] 
+ **read_flag** | [**NumberBoolean**](NumberBoolean.md)| Whether this thread is read or unread | [optional] 
+ **archived_flag** | [**NumberBoolean**](NumberBoolean.md)| Whether this thread is archived or not. You can only archive threads that belong to Inbox folder. Archived threads will disappear from Inbox. | [optional] 
 
 ### Return type
 

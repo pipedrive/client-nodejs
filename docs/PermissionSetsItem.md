@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **description** | **String** | The description of the permission set | [optional] 
 **app** | **String** | The app that permission set belongs to | [optional] 
 **type** | **String** | The type of permission set | [optional] 
-**assignmentCount** | **Number** | The number of users assigned to this permission set | [optional] 
+**assignment_count** | **Number** | The number of users assigned to this permission set | [optional] 
 
 
 

@@ -39,6 +39,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.FilesApi(apiClient);
 let file = "/path/to/file"; // File | A single file, supplied in the multipart/form-data encoding and contained within the given boundaries
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'dealId': 56, // Number | The ID of the deal to associate file(s) with
   'personId': 56, // Number | The ID of the person to associate file(s) with
@@ -61,12 +62,12 @@ apiInstance.addFile(file, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **file** | **File**| A single file, supplied in the multipart/form-data encoding and contained within the given boundaries | 
- **dealId** | **Number**| The ID of the deal to associate file(s) with | [optional] 
- **personId** | **Number**| The ID of the person to associate file(s) with | [optional] 
- **orgId** | **Number**| The ID of the organization to associate file(s) with | [optional] 
- **productId** | **Number**| The ID of the product to associate file(s) with | [optional] 
- **activityId** | **Number**| The ID of the activity to associate file(s) with | [optional] 
- **leadId** | **String**| The ID of the lead to associate file(s) with | [optional] 
+ **deal_id** | **Number**| The ID of the deal to associate file(s) with | [optional] 
+ **person_id** | **Number**| The ID of the person to associate file(s) with | [optional] 
+ **org_id** | **Number**| The ID of the organization to associate file(s) with | [optional] 
+ **product_id** | **Number**| The ID of the product to associate file(s) with | [optional] 
+ **activity_id** | **Number**| The ID of the activity to associate file(s) with | [optional] 
+ **lead_id** | **String**| The ID of the lead to associate file(s) with | [optional] 
 
 ### Return type
 
@@ -123,11 +124,11 @@ apiInstance.addFileAndLinkIt(fileType, title, itemType, itemId, remoteLocation).
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fileType** | **String**| The file type | 
+ **file_type** | **String**| The file type | 
  **title** | **String**| The title of the file | 
- **itemType** | **String**| The item type | 
- **itemId** | **Number**| The ID of the item to associate the file with | 
- **remoteLocation** | **String**| The location type to send the file to. Only &#x60;googledrive&#x60; is supported at the moment. | 
+ **item_type** | **String**| The item type | 
+ **item_id** | **Number**| The ID of the item to associate the file with | 
+ **remote_location** | **String**| The location type to send the file to. Only &#x60;googledrive&#x60; is supported at the moment. | 
 
 ### Return type
 
@@ -325,6 +326,7 @@ let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.FilesApi(apiClient);
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
@@ -401,10 +403,10 @@ apiInstance.linkFileToItem(itemType, itemId, remoteId, remoteLocation).then((dat
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemType** | **String**| The item type | 
- **itemId** | **Number**| The ID of the item to associate the file with | 
- **remoteId** | **String**| The remote item ID | 
- **remoteLocation** | **String**| The location type to send the file to. Only &#x60;googledrive&#x60; is supported at the moment. | 
+ **item_type** | **String**| The item type | 
+ **item_id** | **Number**| The ID of the item to associate the file with | 
+ **remote_id** | **String**| The remote item ID | 
+ **remote_location** | **String**| The location type to send the file to. Only &#x60;googledrive&#x60; is supported at the moment. | 
 
 ### Return type
 
@@ -444,6 +446,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.FilesApi(apiClient);
 let id = 56; // Number | The ID of the file
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'name': "name_example", // String | The visible name of the file
   'description': "description_example" // String | The description of the file

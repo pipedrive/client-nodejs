@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | [**[FullRole]**](FullRole.md) | The array of roles | [optional] 
-**additionalData** | [**RolesAdditionalData**](RolesAdditionalData.md) |  | [optional] 
+**additional_data** | [**RolesAdditionalData**](RolesAdditionalData.md) |  | [optional] 
 
 

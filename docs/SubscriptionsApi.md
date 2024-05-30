@@ -55,7 +55,7 @@ apiInstance.addRecurringSubscription(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subscriptionRecurringCreateRequest** | [**SubscriptionRecurringCreateRequest**](SubscriptionRecurringCreateRequest.md)|  | [optional] 
+ **SubscriptionRecurringCreateRequest** | [**SubscriptionRecurringCreateRequest**](SubscriptionRecurringCreateRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -110,7 +110,7 @@ apiInstance.addSubscriptionInstallment(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subscriptionInstallmentCreateRequest** | [**SubscriptionInstallmentCreateRequest**](SubscriptionInstallmentCreateRequest.md)|  | [optional] 
+ **SubscriptionInstallmentCreateRequest** | [**SubscriptionInstallmentCreateRequest**](SubscriptionInstallmentCreateRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -167,7 +167,7 @@ apiInstance.cancelRecurringSubscription(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the subscription | 
- **subscriptionRecurringCancelRequest** | [**SubscriptionRecurringCancelRequest**](SubscriptionRecurringCancelRequest.md)|  | [optional] 
+ **SubscriptionRecurringCancelRequest** | [**SubscriptionRecurringCancelRequest**](SubscriptionRecurringCancelRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -436,7 +436,7 @@ apiInstance.updateRecurringSubscription(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the subscription | 
- **subscriptionRecurringUpdateRequest** | [**SubscriptionRecurringUpdateRequest**](SubscriptionRecurringUpdateRequest.md)|  | [optional] 
+ **SubscriptionRecurringUpdateRequest** | [**SubscriptionRecurringUpdateRequest**](SubscriptionRecurringUpdateRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -493,7 +493,7 @@ apiInstance.updateSubscriptionInstallment(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the subscription | 
- **subscriptionInstallmentUpdateRequest** | [**SubscriptionInstallmentUpdateRequest**](SubscriptionInstallmentUpdateRequest.md)|  | [optional] 
+ **SubscriptionInstallmentUpdateRequest** | [**SubscriptionInstallmentUpdateRequest**](SubscriptionInstallmentUpdateRequest.md)|  | [optional] 
 
 ### Return type
 

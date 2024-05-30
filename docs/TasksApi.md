@@ -51,7 +51,7 @@ apiInstance.addTask(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **taskPostObject** | [**TaskPostObject**](TaskPostObject.md)|  | [optional] 
+ **TaskPostObject** | [**TaskPostObject**](TaskPostObject.md)|  | [optional] 
 
 ### Return type
 
@@ -196,6 +196,7 @@ let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.TasksApi(apiClient);
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'cursor': "cursor_example", // String | For pagination, the marker (an opaque string value) representing the first item on the next page
   'limit': 500, // Number | For pagination, the limit of entries to be returned. If not provided, up to 500 items will be returned.
@@ -219,9 +220,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cursor** | **String**| For pagination, the marker (an opaque string value) representing the first item on the next page | [optional] 
  **limit** | **Number**| For pagination, the limit of entries to be returned. If not provided, up to 500 items will be returned. | [optional] 
- **assigneeId** | **Number**| If supplied, only tasks that are assigned to this user are returned | [optional] 
- **projectId** | **Number**| If supplied, only tasks that are assigned to this project are returned | [optional] 
- **parentTaskId** | **Number**| If &#x60;null&#x60; is supplied then only parent tasks are returned. If integer is supplied then only subtasks of a specific task are returned. By default all tasks are returned. | [optional] 
+ **assignee_id** | **Number**| If supplied, only tasks that are assigned to this user are returned | [optional] 
+ **project_id** | **Number**| If supplied, only tasks that are assigned to this project are returned | [optional] 
+ **parent_task_id** | **Number**| If &#x60;null&#x60; is supplied then only parent tasks are returned. If integer is supplied then only subtasks of a specific task are returned. By default all tasks are returned. | [optional] 
  **done** | [**NumberBoolean**](.md)| Whether the task is done or not. &#x60;0&#x60; &#x3D; Not done, &#x60;1&#x60; &#x3D; Done. If not omitted then returns both done and not done tasks. | [optional] 
 
 ### Return type
@@ -279,7 +280,7 @@ apiInstance.updateTask(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the task | 
- **taskPutObject** | [**TaskPutObject**](TaskPutObject.md)|  | [optional] 
+ **TaskPutObject** | [**TaskPutObject**](TaskPutObject.md)|  | [optional] 
 
 ### Return type
 

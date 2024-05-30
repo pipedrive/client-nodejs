@@ -31,6 +31,7 @@ let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.CurrenciesApi(apiClient);
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'term': "term_example" // String | Optional search term that is searched for from currency's name and/or code
 };

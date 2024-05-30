@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | [**SubRole**](SubRole.md) |  | [optional] 
-**additionalData** | [**GetRoleAllOfAdditionalData**](GetRoleAllOfAdditionalData.md) |  | [optional] 
+**additional_data** | [**GetRoleAllOfAdditionalData**](GetRoleAllOfAdditionalData.md) |  | [optional] 
 
 

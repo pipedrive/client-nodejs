@@ -51,7 +51,7 @@ apiInstance.addOrganizationRelationship(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addOrganizationRelationshipRequest** | [**AddOrganizationRelationshipRequest**](AddOrganizationRelationshipRequest.md)|  | [optional] 
+ **AddOrganizationRelationshipRequest** | [**AddOrganizationRelationshipRequest**](AddOrganizationRelationshipRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -144,6 +144,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.OrganizationRelationshipsApi(apiClient);
 let id = 56; // Number | The ID of the organization relationship
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'orgId': 56 // Number | The ID of the base organization for the returned calculated values
 };
@@ -161,7 +162,7 @@ apiInstance.getOrganizationRelationship(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the organization relationship | 
- **orgId** | **Number**| The ID of the base organization for the returned calculated values | [optional] 
+ **org_id** | **Number**| The ID of the base organization for the returned calculated values | [optional] 
 
 ### Return type
 
@@ -214,7 +215,7 @@ apiInstance.getOrganizationRelationships(orgId).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orgId** | **Number**| The ID of the organization to get relationships for | 
+ **org_id** | **Number**| The ID of the organization to get relationships for | 
 
 ### Return type
 
@@ -271,7 +272,7 @@ apiInstance.updateOrganizationRelationship(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the organization relationship | 
- **organizationRelationship** | [**OrganizationRelationship**](OrganizationRelationship.md)|  | [optional] 
+ **OrganizationRelationship** | [**OrganizationRelationship**](OrganizationRelationship.md)|  | [optional] 
 
 ### Return type
 

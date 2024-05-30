@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | [**[ProductFileItem]**](ProductFileItem.md) | The array of files | [optional] 
-**additionalData** | [**AdditionalData**](AdditionalData.md) |  | [optional] 
+**additional_data** | [**AdditionalData**](AdditionalData.md) |  | [optional] 
 
 

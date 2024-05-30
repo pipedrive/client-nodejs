@@ -56,7 +56,7 @@ apiInstance.addNote(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addNoteRequest** | [**AddNoteRequest**](AddNoteRequest.md)|  | [optional] 
+ **AddNoteRequest** | [**AddNoteRequest**](AddNoteRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -113,7 +113,7 @@ apiInstance.addNoteComment(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the note | 
- **commentPostPutObject** | [**CommentPostPutObject**](CommentPostPutObject.md)|  | [optional] 
+ **CommentPostPutObject** | [**CommentPostPutObject**](CommentPostPutObject.md)|  | [optional] 
 
 ### Return type
 
@@ -369,6 +369,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.NotesApi(apiClient);
 let id = 56; // Number | The ID of the note
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
@@ -427,6 +428,7 @@ let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.NotesApi(apiClient);
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'userId': 56, // Number | The ID of the user whose notes to fetch. If omitted, notes by all users will be returned.
   'leadId': "leadId_example", // String | The ID of the lead which notes to fetch. If omitted, notes about all leads will be returned.
@@ -456,20 +458,20 @@ apiInstance.getNotes(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| The ID of the user whose notes to fetch. If omitted, notes by all users will be returned. | [optional] 
- **leadId** | **String**| The ID of the lead which notes to fetch. If omitted, notes about all leads will be returned. | [optional] 
- **dealId** | **Number**| The ID of the deal which notes to fetch. If omitted, notes about all deals will be returned. | [optional] 
- **personId** | **Number**| The ID of the person whose notes to fetch. If omitted, notes about all persons will be returned. | [optional] 
- **orgId** | **Number**| The ID of the organization which notes to fetch. If omitted, notes about all organizations will be returned. | [optional] 
+ **user_id** | **Number**| The ID of the user whose notes to fetch. If omitted, notes by all users will be returned. | [optional] 
+ **lead_id** | **String**| The ID of the lead which notes to fetch. If omitted, notes about all leads will be returned. | [optional] 
+ **deal_id** | **Number**| The ID of the deal which notes to fetch. If omitted, notes about all deals will be returned. | [optional] 
+ **person_id** | **Number**| The ID of the person whose notes to fetch. If omitted, notes about all persons will be returned. | [optional] 
+ **org_id** | **Number**| The ID of the organization which notes to fetch. If omitted, notes about all organizations will be returned. | [optional] 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
  **sort** | **String**| The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: &#x60;id&#x60;, &#x60;user_id&#x60;, &#x60;deal_id&#x60;, &#x60;person_id&#x60;, &#x60;org_id&#x60;, &#x60;content&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;. | [optional] 
- **startDate** | **Date**| The date in format of YYYY-MM-DD from which notes to fetch | [optional] 
- **endDate** | **Date**| The date in format of YYYY-MM-DD until which notes to fetch to | [optional] 
- **pinnedToLeadFlag** | [**NumberBoolean**](.md)| If set, the results are filtered by note to lead pinning state | [optional] 
- **pinnedToDealFlag** | [**NumberBoolean**](.md)| If set, the results are filtered by note to deal pinning state | [optional] 
- **pinnedToOrganizationFlag** | [**NumberBoolean**](.md)| If set, the results are filtered by note to organization pinning state | [optional] 
- **pinnedToPersonFlag** | [**NumberBoolean**](.md)| If set, the results are filtered by note to person pinning state | [optional] 
+ **start_date** | **Date**| The date in format of YYYY-MM-DD from which notes to fetch | [optional] 
+ **end_date** | **Date**| The date in format of YYYY-MM-DD until which notes to fetch to | [optional] 
+ **pinned_to_lead_flag** | [**NumberBoolean**](.md)| If set, the results are filtered by note to lead pinning state | [optional] 
+ **pinned_to_deal_flag** | [**NumberBoolean**](.md)| If set, the results are filtered by note to deal pinning state | [optional] 
+ **pinned_to_organization_flag** | [**NumberBoolean**](.md)| If set, the results are filtered by note to organization pinning state | [optional] 
+ **pinned_to_person_flag** | [**NumberBoolean**](.md)| If set, the results are filtered by note to person pinning state | [optional] 
 
 ### Return type
 
@@ -528,7 +530,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the note | 
  **commentId** | **String**| The ID of the comment | 
- **commentPostPutObject** | [**CommentPostPutObject**](CommentPostPutObject.md)|  | [optional] 
+ **CommentPostPutObject** | [**CommentPostPutObject**](CommentPostPutObject.md)|  | [optional] 
 
 ### Return type
 
@@ -585,7 +587,7 @@ apiInstance.updateNote(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the note | 
- **note** | [**Note**](Note.md)|  | [optional] 
+ **Note** | [**Note**](Note.md)|  | [optional] 
 
 ### Return type
 

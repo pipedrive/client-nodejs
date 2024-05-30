@@ -51,7 +51,7 @@ apiInstance.addActivityType(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **activityTypeCreateRequest** | [**ActivityTypeCreateRequest**](ActivityTypeCreateRequest.md)|  | [optional] 
+ **ActivityTypeCreateRequest** | [**ActivityTypeCreateRequest**](ActivityTypeCreateRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -263,7 +263,7 @@ apiInstance.updateActivityType(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the activity type | 
- **activityTypeUpdateRequest** | [**ActivityTypeUpdateRequest**](ActivityTypeUpdateRequest.md)|  | [optional] 
+ **ActivityTypeUpdateRequest** | [**ActivityTypeUpdateRequest**](ActivityTypeUpdateRequest.md)|  | [optional] 
 
 ### Return type
 

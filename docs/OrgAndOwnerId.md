@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ownerId** | [**Owner**](Owner.md) |  | [optional] 
-**orgId** | [**RelationshipOrganizationInfoItemWithActiveFlag**](RelationshipOrganizationInfoItemWithActiveFlag.md) |  | [optional] 
+**owner_id** | [**Owner**](Owner.md) |  | [optional] 
+**org_id** | [**RelationshipOrganizationInfoItemWithActiveFlag**](RelationshipOrganizationInfoItemWithActiveFlag.md) |  | [optional] 
 
 
