@@ -7,6 +7,13 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Added
+Added `acv`, `mrr`, `arr`, `acv_currency`, `mrr_currency`, and `arr_currency` to the BaseDeal entity and the following endpoints' response:
+- `GET`, `POST` `/v1/deals`
+- `GET`, `PUT` `/v1/deals/{id}`
+- `GET` `/v1/deals/timeline`
+- `PUT` `/v1/deals/{id}/merge`
+- `POST` `/v1/deals/{id}/duplicate`
 
 ## [22.9.0] - 2024-05-30
 ### Fixed

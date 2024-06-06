@@ -160,7 +160,7 @@ AddNoteRequest.prototype['org_id'] = undefined;
 AddNoteRequest.prototype['user_id'] = undefined;
 
 /**
- * The optional creation date & time of the note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
+ * The optional creation date & time of the note in UTC. Can be set in the past or in the future. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} add_time
  */
 AddNoteRequest.prototype['add_time'] = undefined;
@@ -223,7 +223,7 @@ AddNoteRequestAllOf.prototype['org_id'] = undefined;
  */
 NoteParams.prototype['user_id'] = undefined;
 /**
- * The optional creation date & time of the note in UTC. Can be set in the past or in the future. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
+ * The optional creation date & time of the note in UTC. Can be set in the past or in the future. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} add_time
  */
 NoteParams.prototype['add_time'] = undefined;

@@ -65,5 +65,11 @@ Name | Type | Description | Notes
 **origin_id** | **String** | The optional ID to further distinguish the origin of the deal - e.g. Which API integration created this Deal. | [optional] 
 **channel** | **Number** | The ID of your Marketing channel this Deal was created from. Recognized Marketing channels can be configured in your &lt;a href&#x3D;\&quot;https://app.pipedrive.com/settings/fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;Company settings&lt;/a&gt;. | [optional] 
 **channel_id** | **String** | The optional ID to further distinguish the Marketing channel. | [optional] 
+**arr** | **Number** | Only available in Advanced and above plans  The Annual Recurring Revenue of the deal  Null if there are no products attached to the deal  | [optional] 
+**mrr** | **Number** | Only available in Advanced and above plans  The Monthly Recurring Revenue of the deal  Null if there are no products attached to the deal  | [optional] 
+**acv** | **Number** | Only available in Advanced and above plans  The Annual Contract Value of the deal  Null if there are no products attached to the deal  | [optional] 
+**arr_currency** | **String** | Only available in Advanced and above plans  The Currency for Annual Recurring Revenue of the deal  If the &#x60;arr&#x60; is null, this will also be null  | [optional] 
+**mrr_currency** | **String** | Only available in Advanced and above plans  The Currency for Monthly Recurring Revenue of the deal  If the &#x60;mrr&#x60; is null, this will also be null  | [optional] 
+**acv_currency** | **String** | Only available in Advanced and above plans  The Currency for Annual Contract Value of the deal  If the &#x60;acv&#x60; is null, this will also be null  | [optional] 
 
 

@@ -365,6 +365,36 @@ class DealNonStrictWithDetails {
 
                 delete data['channel_id'];
             }
+            if (data.hasOwnProperty('arr')) {
+                obj['arr'] = ApiClient.convertToType(data['arr'], 'Number');
+
+                delete data['arr'];
+            }
+            if (data.hasOwnProperty('mrr')) {
+                obj['mrr'] = ApiClient.convertToType(data['mrr'], 'Number');
+
+                delete data['mrr'];
+            }
+            if (data.hasOwnProperty('acv')) {
+                obj['acv'] = ApiClient.convertToType(data['acv'], 'Number');
+
+                delete data['acv'];
+            }
+            if (data.hasOwnProperty('arr_currency')) {
+                obj['arr_currency'] = ApiClient.convertToType(data['arr_currency'], 'String');
+
+                delete data['arr_currency'];
+            }
+            if (data.hasOwnProperty('mrr_currency')) {
+                obj['mrr_currency'] = ApiClient.convertToType(data['mrr_currency'], 'String');
+
+                delete data['mrr_currency'];
+            }
+            if (data.hasOwnProperty('acv_currency')) {
+                obj['acv_currency'] = ApiClient.convertToType(data['acv_currency'], 'String');
+
+                delete data['acv_currency'];
+            }
             if (data.hasOwnProperty('average_time_to_won')) {
                 obj['average_time_to_won'] = DealNonStrictWithDetailsAllOfAverageTimeToWon.constructFromObject(data['average_time_to_won']);
 
@@ -770,6 +800,42 @@ DealNonStrictWithDetails.prototype['channel'] = undefined;
 DealNonStrictWithDetails.prototype['channel_id'] = undefined;
 
 /**
+ * Only available in Advanced and above plans  The Annual Recurring Revenue of the deal  Null if there are no products attached to the deal 
+ * @member {Number} arr
+ */
+DealNonStrictWithDetails.prototype['arr'] = undefined;
+
+/**
+ * Only available in Advanced and above plans  The Monthly Recurring Revenue of the deal  Null if there are no products attached to the deal 
+ * @member {Number} mrr
+ */
+DealNonStrictWithDetails.prototype['mrr'] = undefined;
+
+/**
+ * Only available in Advanced and above plans  The Annual Contract Value of the deal  Null if there are no products attached to the deal 
+ * @member {Number} acv
+ */
+DealNonStrictWithDetails.prototype['acv'] = undefined;
+
+/**
+ * Only available in Advanced and above plans  The Currency for Annual Recurring Revenue of the deal  If the `arr` is null, this will also be null 
+ * @member {String} arr_currency
+ */
+DealNonStrictWithDetails.prototype['arr_currency'] = undefined;
+
+/**
+ * Only available in Advanced and above plans  The Currency for Monthly Recurring Revenue of the deal  If the `mrr` is null, this will also be null 
+ * @member {String} mrr_currency
+ */
+DealNonStrictWithDetails.prototype['mrr_currency'] = undefined;
+
+/**
+ * Only available in Advanced and above plans  The Currency for Annual Contract Value of the deal  If the `acv` is null, this will also be null 
+ * @member {String} acv_currency
+ */
+DealNonStrictWithDetails.prototype['acv_currency'] = undefined;
+
+/**
  * @member {module:model/DealNonStrictWithDetailsAllOfAverageTimeToWon} average_time_to_won
  */
 DealNonStrictWithDetails.prototype['average_time_to_won'] = undefined;
@@ -1105,6 +1171,36 @@ DealNonStrict.prototype['channel'] = undefined;
  * @member {String} channel_id
  */
 DealNonStrict.prototype['channel_id'] = undefined;
+/**
+ * Only available in Advanced and above plans  The Annual Recurring Revenue of the deal  Null if there are no products attached to the deal 
+ * @member {Number} arr
+ */
+DealNonStrict.prototype['arr'] = undefined;
+/**
+ * Only available in Advanced and above plans  The Monthly Recurring Revenue of the deal  Null if there are no products attached to the deal 
+ * @member {Number} mrr
+ */
+DealNonStrict.prototype['mrr'] = undefined;
+/**
+ * Only available in Advanced and above plans  The Annual Contract Value of the deal  Null if there are no products attached to the deal 
+ * @member {Number} acv
+ */
+DealNonStrict.prototype['acv'] = undefined;
+/**
+ * Only available in Advanced and above plans  The Currency for Annual Recurring Revenue of the deal  If the `arr` is null, this will also be null 
+ * @member {String} arr_currency
+ */
+DealNonStrict.prototype['arr_currency'] = undefined;
+/**
+ * Only available in Advanced and above plans  The Currency for Monthly Recurring Revenue of the deal  If the `mrr` is null, this will also be null 
+ * @member {String} mrr_currency
+ */
+DealNonStrict.prototype['mrr_currency'] = undefined;
+/**
+ * Only available in Advanced and above plans  The Currency for Annual Contract Value of the deal  If the `acv` is null, this will also be null 
+ * @member {String} acv_currency
+ */
+DealNonStrict.prototype['acv_currency'] = undefined;
 // Implement DealNonStrictWithDetailsAllOf interface:
 /**
  * @member {module:model/DealNonStrictWithDetailsAllOfAverageTimeToWon} average_time_to_won

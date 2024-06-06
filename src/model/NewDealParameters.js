@@ -197,7 +197,7 @@ NewDealParameters.prototype['channel'] = undefined;
 NewDealParameters.prototype['channel_id'] = undefined;
 
 /**
- * The optional creation date & time of the deal in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
+ * The optional creation date & time of the deal in UTC. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} add_time
  */
 NewDealParameters.prototype['add_time'] = undefined;

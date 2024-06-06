@@ -165,7 +165,7 @@ NewPerson.prototype['visible_to'] = undefined;
 NewPerson.prototype['marketing_status'] = undefined;
 
 /**
- * The optional creation date & time of the person in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
+ * The optional creation date & time of the person in UTC. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} add_time
  */
 NewPerson.prototype['add_time'] = undefined;
@@ -214,7 +214,7 @@ BasicPerson.prototype['visible_to'] = undefined;
  */
 BasicPerson.prototype['marketing_status'] = undefined;
 /**
- * The optional creation date & time of the person in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
+ * The optional creation date & time of the person in UTC. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} add_time
  */
 BasicPerson.prototype['add_time'] = undefined;
