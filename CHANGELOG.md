@@ -7,6 +7,8 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+
+## [22.10.1] - 2024-06-07
 ### Removed
 - Cleanup unused company settings
 
@@ -640,7 +642,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.10.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.10.1...HEAD
+[22.10.1]: https://github.com/pipedrive/api-docs/compare/v22.10.0...v22.10.1
 [22.10.0]: https://github.com/pipedrive/api-docs/compare/v22.9.0...v22.10.0
 [22.9.0]: https://github.com/pipedrive/api-docs/compare/v22.8.2...v22.9.0
 [22.8.2]: https://github.com/pipedrive/api-docs/compare/v22.8.1...v22.8.2
