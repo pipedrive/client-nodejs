@@ -47,16 +47,6 @@ class UserSettingsItem {
         if (data) {
             obj = obj || new UserSettingsItem();
 
-            if (data.hasOwnProperty('marketplace_allow_custom_install_url')) {
-                obj['marketplace_allow_custom_install_url'] = ApiClient.convertToType(data['marketplace_allow_custom_install_url'], 'Boolean');
-
-                delete data['marketplace_allow_custom_install_url'];
-            }
-            if (data.hasOwnProperty('marketplace_app_extensions_vendor')) {
-                obj['marketplace_app_extensions_vendor'] = ApiClient.convertToType(data['marketplace_app_extensions_vendor'], 'Boolean');
-
-                delete data['marketplace_app_extensions_vendor'];
-            }
             if (data.hasOwnProperty('marketplace_team')) {
                 obj['marketplace_team'] = ApiClient.convertToType(data['marketplace_team'], 'Boolean');
 
@@ -108,18 +98,6 @@ class UserSettingsItem {
 
 
 }
-
-/**
- * If the vendors are allowed to install custom Marketplace apps with functionality and content in the Pipedrive UI or not
- * @member {Boolean} marketplace_allow_custom_install_url
- */
-UserSettingsItem.prototype['marketplace_allow_custom_install_url'] = undefined;
-
-/**
- * If the vendors are allowed to extend their Marketplace apps with functionality and content in the Pipedrive UI or not
- * @member {Boolean} marketplace_app_extensions_vendor
- */
-UserSettingsItem.prototype['marketplace_app_extensions_vendor'] = undefined;
 
 /**
  * If the vendors are allowed to be part of the Marketplace team or not
