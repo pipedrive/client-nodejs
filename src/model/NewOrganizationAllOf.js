@@ -78,7 +78,7 @@ class NewOrganizationAllOf {
 NewOrganizationAllOf.prototype['name'] = undefined;
 
 /**
- * The optional creation date & time of the organization in UTC. Requires admin user API token. Format: YYYY-MM-DD HH:MM:SS
+ * The optional creation date & time of the organization in UTC. Format: YYYY-MM-DD HH:MM:SS
  * @member {String} add_time
  */
 NewOrganizationAllOf.prototype['add_time'] = undefined;

@@ -358,6 +358,36 @@ class DealStrictWithMergeId {
 
                 delete data['channel_id'];
             }
+            if (data.hasOwnProperty('arr')) {
+                obj['arr'] = ApiClient.convertToType(data['arr'], 'Number');
+
+                delete data['arr'];
+            }
+            if (data.hasOwnProperty('mrr')) {
+                obj['mrr'] = ApiClient.convertToType(data['mrr'], 'Number');
+
+                delete data['mrr'];
+            }
+            if (data.hasOwnProperty('acv')) {
+                obj['acv'] = ApiClient.convertToType(data['acv'], 'Number');
+
+                delete data['acv'];
+            }
+            if (data.hasOwnProperty('arr_currency')) {
+                obj['arr_currency'] = ApiClient.convertToType(data['arr_currency'], 'String');
+
+                delete data['arr_currency'];
+            }
+            if (data.hasOwnProperty('mrr_currency')) {
+                obj['mrr_currency'] = ApiClient.convertToType(data['mrr_currency'], 'String');
+
+                delete data['mrr_currency'];
+            }
+            if (data.hasOwnProperty('acv_currency')) {
+                obj['acv_currency'] = ApiClient.convertToType(data['acv_currency'], 'String');
+
+                delete data['acv_currency'];
+            }
             if (data.hasOwnProperty('merge_what_id')) {
                 obj['merge_what_id'] = ApiClient.convertToType(data['merge_what_id'], 'Number');
 
@@ -742,6 +772,42 @@ DealStrictWithMergeId.prototype['channel'] = undefined;
 DealStrictWithMergeId.prototype['channel_id'] = undefined;
 
 /**
+ * Only available in Advanced and above plans  The Annual Recurring Revenue of the deal  Null if there are no products attached to the deal 
+ * @member {Number} arr
+ */
+DealStrictWithMergeId.prototype['arr'] = undefined;
+
+/**
+ * Only available in Advanced and above plans  The Monthly Recurring Revenue of the deal  Null if there are no products attached to the deal 
+ * @member {Number} mrr
+ */
+DealStrictWithMergeId.prototype['mrr'] = undefined;
+
+/**
+ * Only available in Advanced and above plans  The Annual Contract Value of the deal  Null if there are no products attached to the deal 
+ * @member {Number} acv
+ */
+DealStrictWithMergeId.prototype['acv'] = undefined;
+
+/**
+ * Only available in Advanced and above plans  The Currency for Annual Recurring Revenue of the deal  If the `arr` is null, this will also be null 
+ * @member {String} arr_currency
+ */
+DealStrictWithMergeId.prototype['arr_currency'] = undefined;
+
+/**
+ * Only available in Advanced and above plans  The Currency for Monthly Recurring Revenue of the deal  If the `mrr` is null, this will also be null 
+ * @member {String} mrr_currency
+ */
+DealStrictWithMergeId.prototype['mrr_currency'] = undefined;
+
+/**
+ * Only available in Advanced and above plans  The Currency for Annual Contract Value of the deal  If the `acv` is null, this will also be null 
+ * @member {String} acv_currency
+ */
+DealStrictWithMergeId.prototype['acv_currency'] = undefined;
+
+/**
  * The deal ID of the deal which the original deal was merged with
  * @member {Number} merge_what_id
  */
@@ -1054,6 +1120,36 @@ DealStrict.prototype['channel'] = undefined;
  * @member {String} channel_id
  */
 DealStrict.prototype['channel_id'] = undefined;
+/**
+ * Only available in Advanced and above plans  The Annual Recurring Revenue of the deal  Null if there are no products attached to the deal 
+ * @member {Number} arr
+ */
+DealStrict.prototype['arr'] = undefined;
+/**
+ * Only available in Advanced and above plans  The Monthly Recurring Revenue of the deal  Null if there are no products attached to the deal 
+ * @member {Number} mrr
+ */
+DealStrict.prototype['mrr'] = undefined;
+/**
+ * Only available in Advanced and above plans  The Annual Contract Value of the deal  Null if there are no products attached to the deal 
+ * @member {Number} acv
+ */
+DealStrict.prototype['acv'] = undefined;
+/**
+ * Only available in Advanced and above plans  The Currency for Annual Recurring Revenue of the deal  If the `arr` is null, this will also be null 
+ * @member {String} arr_currency
+ */
+DealStrict.prototype['arr_currency'] = undefined;
+/**
+ * Only available in Advanced and above plans  The Currency for Monthly Recurring Revenue of the deal  If the `mrr` is null, this will also be null 
+ * @member {String} mrr_currency
+ */
+DealStrict.prototype['mrr_currency'] = undefined;
+/**
+ * Only available in Advanced and above plans  The Currency for Annual Contract Value of the deal  If the `acv` is null, this will also be null 
+ * @member {String} acv_currency
+ */
+DealStrict.prototype['acv_currency'] = undefined;
 // Implement DealStrictWithMergeIdAllOf interface:
 /**
  * The deal ID of the deal which the original deal was merged with

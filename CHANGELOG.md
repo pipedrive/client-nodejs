@@ -8,6 +8,15 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [22.10.0] - 2024-06-07
+### Added
+Added `acv`, `mrr`, `arr`, `acv_currency`, `mrr_currency`, and `arr_currency` to the BaseDeal entity and the following endpoints' response:
+- `GET`, `POST` `/v1/deals`
+- `GET`, `PUT` `/v1/deals/{id}`
+- `GET` `/v1/deals/timeline`
+- `PUT` `/v1/deals/{id}/merge`
+- `POST` `/v1/deals/{id}/duplicate`
+
 ## [22.9.0] - 2024-05-30
 ### Fixed
 - Documentation for response models: changed property names to snake_case instead of camelCase
@@ -629,7 +638,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.9.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.10.0...HEAD
+[22.10.0]: https://github.com/pipedrive/api-docs/compare/v22.9.0...v22.10.0
 [22.9.0]: https://github.com/pipedrive/api-docs/compare/v22.8.2...v22.9.0
 [22.8.2]: https://github.com/pipedrive/api-docs/compare/v22.8.1...v22.8.2
 [22.8.1]: https://github.com/pipedrive/api-docs/compare/v22.8.0...v22.8.1
