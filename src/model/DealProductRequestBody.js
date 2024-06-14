@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import DealProductUnitDuration from './DealProductUnitDuration';
 
 /**
  * The DealProductRequestBody model module.
@@ -72,16 +71,6 @@ class DealProductRequestBody {
                 obj['discount_type'] = ApiClient.convertToType(data['discount_type'], 'String');
 
                 delete data['discount_type'];
-            }
-            if (data.hasOwnProperty('duration')) {
-                obj['duration'] = ApiClient.convertToType(data['duration'], 'Number');
-
-                delete data['duration'];
-            }
-            if (data.hasOwnProperty('duration_unit')) {
-                obj['duration_unit'] = ApiClient.convertToType(data['duration_unit'], DealProductUnitDuration);
-
-                delete data['duration_unit'];
             }
             if (data.hasOwnProperty('product_variation_id')) {
                 obj['product_variation_id'] = ApiClient.convertToType(data['product_variation_id'], 'Number');
@@ -151,19 +140,6 @@ DealProductRequestBody.prototype['discount'] = 0;
  * @default 'percentage'
  */
 DealProductRequestBody.prototype['discount_type'] = 'percentage';
-
-/**
- * The duration of the product
- * @member {Number} duration
- * @default 1
- */
-DealProductRequestBody.prototype['duration'] = 1;
-
-/**
- * The unit duration of the product
- * @member {module:model/DealProductUnitDuration} duration_unit
- */
-DealProductRequestBody.prototype['duration_unit'] = undefined;
 
 /**
  * The ID of the product variation to use. When omitted, no variation will be used

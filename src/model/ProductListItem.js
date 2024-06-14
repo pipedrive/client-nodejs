@@ -88,16 +88,6 @@ class ProductListItem {
 
                 delete data['discount_type'];
             }
-            if (data.hasOwnProperty('duration')) {
-                obj['duration'] = ApiClient.convertToType(data['duration'], 'Number');
-
-                delete data['duration'];
-            }
-            if (data.hasOwnProperty('duration_unit')) {
-                obj['duration_unit'] = ApiClient.convertToType(data['duration_unit'], 'String');
-
-                delete data['duration_unit'];
-            }
             if (data.hasOwnProperty('sum')) {
                 obj['sum'] = ApiClient.convertToType(data['sum'], 'Number');
 
@@ -229,18 +219,6 @@ ProductListItem.prototype['discount'] = 0;
  * @default 'percentage'
  */
 ProductListItem.prototype['discount_type'] = 'percentage';
-
-/**
- * The duration of the product
- * @member {Number} duration
- */
-ProductListItem.prototype['duration'] = undefined;
-
-/**
- * The type of the duration. (For example hourly, daily, etc.)
- * @member {String} duration_unit
- */
-ProductListItem.prototype['duration_unit'] = undefined;
 
 /**
  * The sum of all the products attached to the deal

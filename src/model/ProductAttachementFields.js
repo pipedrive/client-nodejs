@@ -67,11 +67,6 @@ class ProductAttachementFields {
 
                 delete data['product_id'];
             }
-            if (data.hasOwnProperty('duration_unit')) {
-                obj['duration_unit'] = ApiClient.convertToType(data['duration_unit'], 'String');
-
-                delete data['duration_unit'];
-            }
             if (data.hasOwnProperty('sum')) {
                 obj['sum'] = ApiClient.convertToType(data['sum'], 'Number');
 
@@ -142,12 +137,6 @@ ProductAttachementFields.prototype['deal_id'] = undefined;
  * @member {Number} product_id
  */
 ProductAttachementFields.prototype['product_id'] = undefined;
-
-/**
- * The type of the duration. (For example hourly, daily, etc.)
- * @member {String} duration_unit
- */
-ProductAttachementFields.prototype['duration_unit'] = undefined;
 
 /**
  * The sum of all the products attached to the deal
