@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [23.0.0] - 2024-06-14
+### Removed
+- Removed request and response fields `duration` and `duration_unit` for all endpoints of deals and products using them
+
 ## [22.10.1] - 2024-06-07
 ### Removed
 - Cleanup unused company settings
@@ -642,7 +646,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.10.1...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v23.0.0...HEAD
+[23.0.0]: https://github.com/pipedrive/api-docs/compare/v22.10.1...v23.0.0
 [22.10.1]: https://github.com/pipedrive/api-docs/compare/v22.10.0...v22.10.1
 [22.10.0]: https://github.com/pipedrive/api-docs/compare/v22.9.0...v22.10.0
 [22.9.0]: https://github.com/pipedrive/api-docs/compare/v22.8.2...v22.9.0

@@ -193,7 +193,6 @@ import DealPersonDataPhone from './model/DealPersonDataPhone';
 import DealPersonDataWithId from './model/DealPersonDataWithId';
 import DealPersonDataWithIdAllOf from './model/DealPersonDataWithIdAllOf';
 import DealProductRequestBody from './model/DealProductRequestBody';
-import DealProductUnitDuration from './model/DealProductUnitDuration';
 import DealSearchItem from './model/DealSearchItem';
 import DealSearchItemItem from './model/DealSearchItemItem';
 import DealSearchItemItemOrganization from './model/DealSearchItemItemOrganization';
@@ -1976,12 +1975,6 @@ export {
      * @property {module:model/DealProductRequestBody}
      */
     DealProductRequestBody,
-
-    /**
-     * The DealProductUnitDuration model constructor.
-     * @property {module:model/DealProductUnitDuration}
-     */
-    DealProductUnitDuration,
 
     /**
      * The DealSearchItem model constructor.

@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **company_id** | **Number** | The ID of the company | [optional] 
 **deal_id** | **Number** | The ID of the deal | [optional] 
 **product_id** | **Number** | The ID of the product | [optional] 
-**duration_unit** | **String** | The type of the duration. (For example hourly, daily, etc.) | [optional] 
 **sum** | **Number** | The sum of all the products attached to the deal | [optional] 
 **currency** | **String** | The currency associated with the deal product | [optional] 
 **add_time** | **String** | The date and time when the product was added to the deal | [optional] 

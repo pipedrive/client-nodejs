@@ -79,16 +79,6 @@ class ProductAttachmentDetails {
 
                 delete data['discount_type'];
             }
-            if (data.hasOwnProperty('duration')) {
-                obj['duration'] = ApiClient.convertToType(data['duration'], 'Number');
-
-                delete data['duration'];
-            }
-            if (data.hasOwnProperty('duration_unit')) {
-                obj['duration_unit'] = ApiClient.convertToType(data['duration_unit'], 'String');
-
-                delete data['duration_unit'];
-            }
             if (data.hasOwnProperty('product_variation_id')) {
                 obj['product_variation_id'] = ApiClient.convertToType(data['product_variation_id'], 'Number');
 
@@ -217,19 +207,6 @@ ProductAttachmentDetails.prototype['discount'] = 0;
  * @default 'percentage'
  */
 ProductAttachmentDetails.prototype['discount_type'] = 'percentage';
-
-/**
- * The duration of the product. If omitted, will be set to 1
- * @member {Number} duration
- * @default 1
- */
-ProductAttachmentDetails.prototype['duration'] = 1;
-
-/**
- * The type of the duration. (For example hourly, daily, etc.)
- * @member {String} duration_unit
- */
-ProductAttachmentDetails.prototype['duration_unit'] = undefined;
 
 /**
  * The ID of the product variation to use. When omitted, no variation will be used
@@ -363,17 +340,6 @@ BasicDealProduct.prototype['discount'] = 0;
  */
 BasicDealProduct.prototype['discount_type'] = 'percentage';
 /**
- * The duration of the product. If omitted, will be set to 1
- * @member {Number} duration
- * @default 1
- */
-BasicDealProduct.prototype['duration'] = 1;
-/**
- * The unit duration of the product
- * @member {module:model/DealProductUnitDuration} duration_unit
- */
-BasicDealProduct.prototype['duration_unit'] = undefined;
-/**
  * The ID of the product variation to use. When omitted, no variation will be used
  * @member {Number} product_variation_id
  */
@@ -435,11 +401,6 @@ ProductAttachementFields.prototype['deal_id'] = undefined;
  * @member {Number} product_id
  */
 ProductAttachementFields.prototype['product_id'] = undefined;
-/**
- * The type of the duration. (For example hourly, daily, etc.)
- * @member {String} duration_unit
- */
-ProductAttachementFields.prototype['duration_unit'] = undefined;
 /**
  * The sum of all the products attached to the deal
  * @member {Number} sum

@@ -12,8 +12,6 @@ Name | Type | Description | Notes
 **item_price** | **Number** | The price value of the product | [optional] 
 **discount** | **Number** | The value of the discount. The &#x60;discount_type&#x60; field can be used to specify whether the value is an amount or a percentage | [optional] [default to 0]
 **discount_type** | **String** | The type of the discount&#39;s value | [optional] [default to &#39;percentage&#39;]
-**duration** | **Number** | The duration of the product | [optional] 
-**duration_unit** | **String** | The type of the duration. (For example hourly, daily, etc.) | [optional] 
 **sum** | **Number** | The sum of all the products attached to the deal | [optional] 
 **currency** | **String** | The currency associated with the deal product | [optional] 
 **enabled_flag** | **Boolean** | Whether the product is enabled or not | [optional] 

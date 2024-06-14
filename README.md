@@ -809,7 +809,6 @@ Class | Method | HTTP request | Description
  - [Pipedrive.DealPersonDataWithId](https://github.com/pipedrive/client-nodejs/blob/master/docs/DealPersonDataWithId.md)
  - [Pipedrive.DealPersonDataWithIdAllOf](https://github.com/pipedrive/client-nodejs/blob/master/docs/DealPersonDataWithIdAllOf.md)
  - [Pipedrive.DealProductRequestBody](https://github.com/pipedrive/client-nodejs/blob/master/docs/DealProductRequestBody.md)
- - [Pipedrive.DealProductUnitDuration](https://github.com/pipedrive/client-nodejs/blob/master/docs/DealProductUnitDuration.md)
  - [Pipedrive.DealSearchItem](https://github.com/pipedrive/client-nodejs/blob/master/docs/DealSearchItem.md)
  - [Pipedrive.DealSearchItemItem](https://github.com/pipedrive/client-nodejs/blob/master/docs/DealSearchItemItem.md)
  - [Pipedrive.DealSearchItemItemOrganization](https://github.com/pipedrive/client-nodejs/blob/master/docs/DealSearchItemItemOrganization.md)
