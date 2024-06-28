@@ -664,7 +664,7 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.3.1-rc.5...v22.3.1-rc.6
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.3.1-rc.5...v23.0.0-rc.1
 [22.3.1-rc.5]: https://github.com/pipedrive/api-docs/compare/v22.3.1-rc.4...v22.3.1-rc.5
 [22.3.1-rc.4]: https://github.com/pipedrive/api-docs/compare/v22.3.1-rc.3...v22.3.1-rc.4
 [23.0.0]: https://github.com/pipedrive/api-docs/compare/v22.10.1...v23.0.0
