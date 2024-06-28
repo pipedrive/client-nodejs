@@ -205,7 +205,7 @@ const oauth2 = new OAuth2Configuration({
 });
 
 app.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}`);
+  console.log(`Listening on port ${PORT}`);
 });
 
 app.get('/', async (req, res) => {
@@ -550,19 +550,13 @@ WebhooksApi | getWebhooks | **GET** /webhooks | Get all Webhooks
 
 
 
-### basic_authentication
-
-- **Type**: HTTP basic authentication
-
-
-
 ### oauth2
 
 
 - **Type**: OAuth
 - **Flow**: accessCode
 - **Authorization URL**: https://oauth.pipedrive.com/oauth/authorize
-- **Scopes**: 
+- **Scopes**:
    - base: Read settings of the authorized user and currencies in an account
  - deals:read: Read most of the data about deals and related entities - deal fields, products, followers, participants; all notes, files, filters, pipelines, stages, and statistics. Does not include access to activities (except the last and next activity related to a deal)
  - deals:full: Create, read, update and delete deals, its participants and followers; all files, notes, and filters. It also includes read access to deal fields, pipelines, stages, and statistics. Does not include access to activities (except the last and next activity related to a deal)

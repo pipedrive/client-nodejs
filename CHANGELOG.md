@@ -55,6 +55,14 @@ Added `acv`, `mrr`, `arr`, `acv_currency`, `mrr_currency`, and `arr_currency` to
   - `GET`, `POST` and `PATCH` `/v2/products` endpoints
   - `GET` `/v2/products/{id}` endpoints
 
+## [22.3.1-rc.5] - 2024-04-24
+- Add `lead_id` as an acceptable body parameter for the `POST /v1/callLogs` endpoint
+
+
+## [22.3.1-rc.5] - 2024-02-12
+- Add TypeScript Support
+
+
 ## [22.6.1] - 2024-04-18
 ### Added
 - Added `is_deleted` parameter for `/v1/users/*` responses.
@@ -63,6 +71,7 @@ Added `acv`, `mrr`, `arr`, `acv_currency`, `mrr_currency`, and `arr_currency` to
 ### Added
 - Added documentation for new endpoints `/deals/{id}/changelog`, `/persons/{id}/changelog` and `/organizations/{id}/changelog`.
 
+
 ## [22.5.0] - 2024-02-02
 ### Added
 - Added documentation for new endpoint `/deals/{id}/participantsChangelog`.
@@ -70,6 +79,13 @@ Added `acv`, `mrr`, `arr`, `acv_currency`, `mrr_currency`, and `arr_currency` to
 ## [22.4.0] - 2024-01-05
 ### Added
 - Added documentation for `/meetings/userProviderLinks` endpoints
+
+## [22.3.1-rc.2] - 2023-12-22
+
+## [22.3.1-rc.1] - 2023-12-22
+
+## [22.3.1-rc.0] - 2023-12-22
+- Add Support for TypeScript
 
 ## [22.3.0] - 2023-10-17
 - Add `Projects`, `ProjectTemplates` and `Tasks` public routes.
@@ -648,7 +664,9 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v23.0.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.3.1-rc.5...v22.3.1-rc.6
+[22.3.1-rc.5]: https://github.com/pipedrive/api-docs/compare/v22.3.1-rc.4...v22.3.1-rc.5
+[22.3.1-rc.4]: https://github.com/pipedrive/api-docs/compare/v22.3.1-rc.3...v22.3.1-rc.4
 [23.0.0]: https://github.com/pipedrive/api-docs/compare/v22.10.1...v23.0.0
 [22.10.1]: https://github.com/pipedrive/api-docs/compare/v22.10.0...v22.10.1
 [22.10.0]: https://github.com/pipedrive/api-docs/compare/v22.9.0...v22.10.0
