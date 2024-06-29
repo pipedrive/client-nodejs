@@ -35,3 +35,5 @@ node_modules
 .openapi-generator
 .idea
 dist
+
+cfoc.dat

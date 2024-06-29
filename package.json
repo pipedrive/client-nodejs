@@ -4,13 +4,14 @@
   "description": "Pipedrive REST client for NodeJS",
   "license": "MIT",
   "main": "dist/index.js",
+  "types": "dist/pipedrive.d.ts",
   "homepage": "https://developers.pipedrive.com",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pipedrive/client-nodejs"
   },
   "scripts": {
-    "build": "babel src -d dist",
+    "build": "babel src -d dist && ruby make-pipedrive.d.ts.rb",
     "prepack": "npm run build",
     "test": "npm run test:functional",
     "test:functional:start": "npm run test:functional -- --start-environment",
