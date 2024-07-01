@@ -43,7 +43,7 @@ Method | HTTP request | Description
 
 Add a deal
 
-Adds a new deal. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the dealFields and look for &#x60;key&#x60; values. For more information, see the tutorial for &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/creating-a-deal\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;adding a deal&lt;/a&gt;.
+Adds a new deal. All deals created through the Pipedrive API will have a &#x60;origin&#x60; set to &#x60;API&#x60;. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the dealFields and look for &#x60;key&#x60; values. For more information, see the tutorial for &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/creating-a-deal\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;adding a deal&lt;/a&gt;.
 
 ### Example
 
@@ -76,7 +76,7 @@ apiInstance.addDeal(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newDeal** | [**NewDeal**](NewDeal.md)|  | [optional] 
+ **NewDeal** | [**NewDeal**](NewDeal.md)|  | [optional] 
 
 ### Return type
 
@@ -133,7 +133,7 @@ apiInstance.addDealFollower(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the deal | 
- **addDealFollowerRequest** | [**AddDealFollowerRequest**](AddDealFollowerRequest.md)|  | [optional] 
+ **AddDealFollowerRequest** | [**AddDealFollowerRequest**](AddDealFollowerRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -190,7 +190,7 @@ apiInstance.addDealParticipant(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the deal | 
- **addDealParticipantRequest** | [**AddDealParticipantRequest**](AddDealParticipantRequest.md)|  | [optional] 
+ **AddDealParticipantRequest** | [**AddDealParticipantRequest**](AddDealParticipantRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -247,7 +247,7 @@ apiInstance.addDealProduct(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the deal | 
- **newDealProduct** | [**NewDealProduct**](NewDealProduct.md)|  | [optional] 
+ **NewDealProduct** | [**NewDealProduct**](NewDealProduct.md)|  | [optional] 
 
 ### Return type
 
@@ -355,7 +355,7 @@ apiInstance.deleteDealFollower(id, followerId).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the deal | 
- **followerId** | **Number**| The ID of the follower | 
+ **follower_id** | **Number**| The ID of the follower | 
 
 ### Return type
 
@@ -410,7 +410,7 @@ apiInstance.deleteDealParticipant(id, dealParticipantId).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the deal | 
- **dealParticipantId** | **Number**| The ID of the participant of the deal | 
+ **deal_participant_id** | **Number**| The ID of the participant of the deal | 
 
 ### Return type
 
@@ -465,7 +465,7 @@ apiInstance.deleteDealProduct(id, productAttachmentId).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the deal | 
- **productAttachmentId** | **Number**| The product attachment ID | 
+ **product_attachment_id** | **Number**| The product attachment ID | 
 
 ### Return type
 
@@ -664,6 +664,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealsApi(apiClient);
 let id = 56; // Number | The ID of the deal
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
@@ -727,6 +728,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealsApi(apiClient);
 let id = 56; // Number | The ID of the deal
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'cursor': "cursor_example", // String | For pagination, the marker (an opaque string value) representing the first item on the next page
   'limit': 56 // Number | Items shown per page
@@ -786,6 +788,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealsApi(apiClient);
 let id = 56; // Number | The ID of the deal
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
@@ -900,6 +903,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealsApi(apiClient);
 let id = 56; // Number | The ID of the deal
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
@@ -959,6 +963,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealsApi(apiClient);
 let id = 56; // Number | The ID of the deal
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
@@ -1018,6 +1023,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealsApi(apiClient);
 let id = 56; // Number | The ID of the deal
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'limit': 56, // Number | Items shown per page
   'cursor': "cursor_example" // String | For pagination, the marker (an opaque string value) representing the first item on the next page
@@ -1077,6 +1083,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealsApi(apiClient);
 let id = 56; // Number | The ID of the deal
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
@@ -1136,6 +1143,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealsApi(apiClient);
 let id = 56; // Number | The ID of the deal
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
@@ -1157,7 +1165,7 @@ Name | Type | Description  | Notes
  **id** | **Number**| The ID of the deal | 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
- **includeProductData** | [**NumberBoolean**](.md)| Whether to fetch product data along with each attached product (1) or not (0, default) | [optional] 
+ **include_product_data** | [**NumberBoolean**](.md)| Whether to fetch product data along with each attached product (1) or not (0, default) | [optional] 
 
 ### Return type
 
@@ -1197,6 +1205,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealsApi(apiClient);
 let id = 56; // Number | The ID of the deal
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
@@ -1219,7 +1228,7 @@ Name | Type | Description  | Notes
  **id** | **Number**| The ID of the deal | 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
- **allChanges** | **String**| Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates. | [optional] 
+ **all_changes** | **String**| Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates. | [optional] 
  **items** | **String**| A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change). | [optional] 
 
 ### Return type
@@ -1312,6 +1321,7 @@ let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealsApi(apiClient);
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'userId': 56, // Number | If supplied, only deals matching the given user will be returned. However, `filter_id` and `owned_by_you` takes precedence over `user_id` when supplied.
   'filterId': 56, // Number | The ID of the filter to use
@@ -1335,14 +1345,14 @@ apiInstance.getDeals(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| If supplied, only deals matching the given user will be returned. However, &#x60;filter_id&#x60; and &#x60;owned_by_you&#x60; takes precedence over &#x60;user_id&#x60; when supplied. | [optional] 
- **filterId** | **Number**| The ID of the filter to use | [optional] 
- **stageId** | **Number**| If supplied, only deals within the given stage will be returned | [optional] 
+ **user_id** | **Number**| If supplied, only deals matching the given user will be returned. However, &#x60;filter_id&#x60; and &#x60;owned_by_you&#x60; takes precedence over &#x60;user_id&#x60; when supplied. | [optional] 
+ **filter_id** | **Number**| The ID of the filter to use | [optional] 
+ **stage_id** | **Number**| If supplied, only deals within the given stage will be returned | [optional] 
  **status** | **String**| Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. | [optional] [default to &#39;all_not_deleted&#39;]
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
  **sort** | **String**| The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). | [optional] 
- **ownedByYou** | [**NumberBoolean**](.md)| When supplied, only deals owned by you are returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owned_by_you&#x60; when both are supplied. | [optional] 
+ **owned_by_you** | [**NumberBoolean**](.md)| When supplied, only deals owned by you are returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owned_by_you&#x60; when both are supplied. | [optional] 
 
 ### Return type
 
@@ -1381,6 +1391,7 @@ let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealsApi(apiClient);
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'cursor': "cursor_example", // String | For pagination, the marker (an opaque string value) representing the first item on the next page
   'limit': 100, // Number | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
@@ -1407,8 +1418,8 @@ Name | Type | Description  | Notes
  **limit** | **Number**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed. | [optional] 
  **since** | **String**| The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. | [optional] 
  **until** | **String**| The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field. | [optional] 
- **userId** | **Number**| If supplied, only deals matching the given user will be returned | [optional] 
- **stageId** | **Number**| If supplied, only deals within the given stage will be returned | [optional] 
+ **user_id** | **Number**| If supplied, only deals matching the given user will be returned | [optional] 
+ **stage_id** | **Number**| If supplied, only deals within the given stage will be returned | [optional] 
  **status** | **String**| Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. | [optional] 
 
 ### Return type
@@ -1448,6 +1459,7 @@ let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealsApi(apiClient);
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'status': "status_example", // String | Only fetch deals with a specific status. open = Open, won = Won, lost = Lost.
   'filterId': 56, // Number | <code>user_id</code> will not be considered. Only deals matching the given filter will be returned.
@@ -1468,9 +1480,9 @@ apiInstance.getDealsSummary(opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **status** | **String**| Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. | [optional] 
- **filterId** | **Number**| &lt;code&gt;user_id&lt;/code&gt; will not be considered. Only deals matching the given filter will be returned. | [optional] 
- **userId** | **Number**| Only deals matching the given user will be returned. &#x60;user_id&#x60; will not be considered if you use &#x60;filter_id&#x60;. | [optional] 
- **stageId** | **Number**| Only deals within the given stage will be returned | [optional] 
+ **filter_id** | **Number**| &lt;code&gt;user_id&lt;/code&gt; will not be considered. Only deals matching the given filter will be returned. | [optional] 
+ **user_id** | **Number**| Only deals matching the given user will be returned. &#x60;user_id&#x60; will not be considered if you use &#x60;filter_id&#x60;. | [optional] 
+ **stage_id** | **Number**| Only deals within the given stage will be returned | [optional] 
 
 ### Return type
 
@@ -1513,6 +1525,7 @@ let startDate = new Date("2013-10-20"); // Date | The date when the first interv
 let interval = "interval_example"; // String | The type of the interval<table><tr><th>Value</th><th>Description</th></tr><tr><td>`day`</td><td>Day</td></tr><tr><td>`week`</td><td>A full week (7 days) starting from `start_date`</td></tr><tr><td>`month`</td><td>A full month (depending on the number of days in given month) starting from `start_date`</td></tr><tr><td>`quarter`</td><td>A full quarter (3 months) starting from `start_date`</td></tr></table>
 let amount = 56; // Number | The number of given intervals, starting from `start_date`, to fetch. E.g. 3 (months).
 let fieldKey = "fieldKey_example"; // String | The date field key which deals will be retrieved from
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'userId': 56, // Number | If supplied, only deals matching the given user will be returned
   'pipelineId': 56, // Number | If supplied, only deals matching the given pipeline will be returned
@@ -1533,15 +1546,15 @@ apiInstance.getDealsTimeline(startDate, interval, amount, fieldKey, opts).then((
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **startDate** | **Date**| The date when the first interval starts. Format: YYYY-MM-DD. | 
+ **start_date** | **Date**| The date when the first interval starts. Format: YYYY-MM-DD. | 
  **interval** | **String**| The type of the interval&lt;table&gt;&lt;tr&gt;&lt;th&gt;Value&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;day&#x60;&lt;/td&gt;&lt;td&gt;Day&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;week&#x60;&lt;/td&gt;&lt;td&gt;A full week (7 days) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;month&#x60;&lt;/td&gt;&lt;td&gt;A full month (depending on the number of days in given month) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;quarter&#x60;&lt;/td&gt;&lt;td&gt;A full quarter (3 months) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; | 
  **amount** | **Number**| The number of given intervals, starting from &#x60;start_date&#x60;, to fetch. E.g. 3 (months). | 
- **fieldKey** | **String**| The date field key which deals will be retrieved from | 
- **userId** | **Number**| If supplied, only deals matching the given user will be returned | [optional] 
- **pipelineId** | **Number**| If supplied, only deals matching the given pipeline will be returned | [optional] 
- **filterId** | **Number**| If supplied, only deals matching the given filter will be returned | [optional] 
- **excludeDeals** | [**NumberBoolean**](.md)| Whether to exclude deals list (1) or not (0). Note that when deals are excluded, the timeline summary (counts and values) is still returned. | [optional] 
- **totalsConvertCurrency** | **String**| The 3-letter currency code of any of the supported currencies. When supplied, &#x60;totals_converted&#x60; is returned per each interval which contains the currency-converted total amounts in the given currency. You may also set this parameter to &#x60;default_currency&#x60; in which case the user&#39;s default currency is used. | [optional] 
+ **field_key** | **String**| The date field key which deals will be retrieved from | 
+ **user_id** | **Number**| If supplied, only deals matching the given user will be returned | [optional] 
+ **pipeline_id** | **Number**| If supplied, only deals matching the given pipeline will be returned | [optional] 
+ **filter_id** | **Number**| If supplied, only deals matching the given filter will be returned | [optional] 
+ **exclude_deals** | [**NumberBoolean**](.md)| Whether to exclude deals list (1) or not (0). Note that when deals are excluded, the timeline summary (counts and values) is still returned. | [optional] 
+ **totals_convert_currency** | **String**| The 3-letter currency code of any of the supported currencies. When supplied, &#x60;totals_converted&#x60; is returned per each interval which contains the currency-converted total amounts in the given currency. You may also set this parameter to &#x60;default_currency&#x60; in which case the user&#39;s default currency is used. | [optional] 
 
 ### Return type
 
@@ -1598,7 +1611,7 @@ apiInstance.mergeDeals(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the deal | 
- **mergeDealsRequest** | [**MergeDealsRequest**](MergeDealsRequest.md)|  | [optional] 
+ **MergeDealsRequest** | [**MergeDealsRequest**](MergeDealsRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -1638,6 +1651,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.DealsApi(apiClient);
 let term = "term_example"; // String | The search term to look for. Minimum 2 characters (or 1 if using `exact_match`). Please note that the search term has to be URL encoded.
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'fields': "fields_example", // String | A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: `address`, `varchar`, `text`, `varchar_auto`, `double`, `monetary` and `phone`. Read more about searching by custom fields <a href=\"https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
   'exactMatch': true, // Boolean | When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
@@ -1663,11 +1677,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **term** | **String**| The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded. | 
  **fields** | **String**| A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;. | [optional] 
- **exactMatch** | **Boolean**| When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. | [optional] 
- **personId** | **Number**| Will filter deals by the provided person ID. The upper limit of found deals associated with the person is 2000. | [optional] 
- **organizationId** | **Number**| Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000. | [optional] 
+ **exact_match** | **Boolean**| When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. | [optional] 
+ **person_id** | **Number**| Will filter deals by the provided person ID. The upper limit of found deals associated with the person is 2000. | [optional] 
+ **organization_id** | **Number**| Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000. | [optional] 
  **status** | **String**| Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000. | [optional] 
- **includeFields** | **String**| Supports including optional fields in the results which are not provided by default | [optional] 
+ **include_fields** | **String**| Supports including optional fields in the results which are not provided by default | [optional] 
  **start** | **Number**| Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter. | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
 
@@ -1726,7 +1740,7 @@ apiInstance.updateDeal(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the deal | 
- **updateDealRequest** | [**UpdateDealRequest**](UpdateDealRequest.md)|  | [optional] 
+ **UpdateDealRequest** | [**UpdateDealRequest**](UpdateDealRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -1784,8 +1798,8 @@ apiInstance.updateDealProduct(id, productAttachmentId, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the deal | 
- **productAttachmentId** | **Number**| The ID of the deal-product (the ID of the product attached to the deal) | 
- **updateDealProduct** | [**UpdateDealProduct**](UpdateDealProduct.md)|  | [optional] 
+ **product_attachment_id** | **Number**| The ID of the deal-product (the ID of the product attached to the deal) | 
+ **UpdateDealProduct** | [**UpdateDealProduct**](UpdateDealProduct.md)|  | [optional] 
 
 ### Return type
 

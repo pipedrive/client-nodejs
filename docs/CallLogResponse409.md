@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **success** | **Boolean** |  | [optional] 
 **error** | **String** | The description of the error | [optional] 
-**errorInfo** | **String** | A message describing how to solve the problem | [optional] 
+**error_info** | **String** | A message describing how to solve the problem | [optional] 
 **data** | **Object** |  | [optional] 
-**additionalData** | **Object** |  | [optional] 
+**additional_data** | **Object** |  | [optional] 
 
 

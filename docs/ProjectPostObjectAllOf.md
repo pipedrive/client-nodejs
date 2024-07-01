@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**templateId** | **Number** | The ID of the template the project will be based on | [optional] 
+**template_id** | **Number** | The ID of the template the project will be based on | [optional] 
 
 

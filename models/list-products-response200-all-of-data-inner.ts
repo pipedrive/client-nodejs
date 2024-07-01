@@ -60,18 +60,28 @@ export interface ListProductsResponse200AllOfDataInner {
      */
     'item_price'?: number;
     /**
+<<<<<<< HEAD
+     * The value of the discount. The `discount_type` field can be used to specify whether the value is an amount or a percentage
+=======
      * The value of the discount. The `discount_type` field can be used to specify whether the value is an amount or a percentage.
+>>>>>>> typescript-rc
      * @type {number}
      * @memberof ListProductsResponse200AllOfDataInner
      */
     'discount'?: number;
     /**
+<<<<<<< HEAD
+     * The type of the discount\'s value
+=======
      * The type of the discount\'s value.
+>>>>>>> typescript-rc
      * @type {string}
      * @memberof ListProductsResponse200AllOfDataInner
      */
     'discount_type'?: ListProductsResponse200AllOfDataInnerDiscountTypeConst;
     /**
+<<<<<<< HEAD
+=======
      * The duration of the product
      * @type {number}
      * @memberof ListProductsResponse200AllOfDataInner
@@ -84,6 +94,7 @@ export interface ListProductsResponse200AllOfDataInner {
      */
     'duration_unit'?: string;
     /**
+>>>>>>> typescript-rc
      * The sum of all the products attached to the deal
      * @type {number}
      * @memberof ListProductsResponse200AllOfDataInner
@@ -132,7 +143,11 @@ export interface ListProductsResponse200AllOfDataInner {
      */
     'tax'?: number;
     /**
+<<<<<<< HEAD
+     * The tax option to be applied to the products. When using `inclusive`, the tax percentage will already be included in the price. When using `exclusive`, the tax will not be included in the price. When using `none`, no tax will be added. Use the `tax` field for defining the tax percentage amount. By default, the user setting value for tax options will be used. Changing this in one product affects the rest of the products attached to the deal
+=======
      * The tax option to be applied to the products. When using `inclusive`, the tax percentage will already be included in the price. When using `exclusive`, the tax will not be included in the price. When using `none`, no tax will be added. Use the `tax` field for defining the tax percentage amount. By default, the user setting value for tax options will be used. Changing this in one product affects the rest of the products attached to the deal.
+>>>>>>> typescript-rc
      * @type {string}
      * @memberof ListProductsResponse200AllOfDataInner
      */

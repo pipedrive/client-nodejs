@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **title** | **String** | The title of the project | 
-**boardId** | **Number** | The ID of a project board | 
-**phaseId** | **Number** | The ID of a phase on a project board | 
+**board_id** | **Number** | The ID of a project board | 
+**phase_id** | **Number** | The ID of a phase on a project board | 
 
 

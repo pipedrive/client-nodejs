@@ -60,7 +60,7 @@ apiInstance.addProject(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projectPostObject** | [**ProjectPostObject**](ProjectPostObject.md)|  | [optional] 
+ **ProjectPostObject** | [**ProjectPostObject**](ProjectPostObject.md)|  | [optional] 
 
 ### Return type
 
@@ -470,6 +470,7 @@ let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProjectsApi(apiClient);
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'cursor': "cursor_example", // String | For pagination, the marker (an opaque string value) representing the first item on the next page
   'limit': 100, // Number | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned.
@@ -493,10 +494,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cursor** | **String**| For pagination, the marker (an opaque string value) representing the first item on the next page | [optional] 
  **limit** | **Number**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. | [optional] 
- **filterId** | **Number**| The ID of the filter to use | [optional] 
+ **filter_id** | **Number**| The ID of the filter to use | [optional] 
  **status** | **String**| If supplied, includes only projects with the specified statuses. Possible values are &#x60;open&#x60;, &#x60;completed&#x60;, &#x60;canceled&#x60; and &#x60;deleted&#x60;. By default &#x60;deleted&#x60; projects are not returned. | [optional] 
- **phaseId** | **Number**| If supplied, only projects in specified phase are returned | [optional] 
- **includeArchived** | **Boolean**| If supplied with &#x60;true&#x60; then archived projects are also included in the response. By default only not archived projects are returned. | [optional] 
+ **phase_id** | **Number**| If supplied, only projects in specified phase are returned | [optional] 
+ **include_archived** | **Boolean**| If supplied with &#x60;true&#x60; then archived projects are also included in the response. By default only not archived projects are returned. | [optional] 
 
 ### Return type
 
@@ -598,7 +599,7 @@ apiInstance.getProjectsPhases(boardId).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **boardId** | **Number**| ID of the board for which phases are requested | 
+ **board_id** | **Number**| ID of the board for which phases are requested | 
 
 ### Return type
 
@@ -657,7 +658,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the project | 
  **activityId** | **Number**| The ID of the activity | 
- **projectPutPlanItemBodyObject** | [**ProjectPutPlanItemBodyObject**](ProjectPutPlanItemBodyObject.md)|  | [optional] 
+ **ProjectPutPlanItemBodyObject** | [**ProjectPutPlanItemBodyObject**](ProjectPutPlanItemBodyObject.md)|  | [optional] 
 
 ### Return type
 
@@ -716,7 +717,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the project | 
  **taskId** | **Number**| The ID of the task | 
- **projectPutPlanItemBodyObject** | [**ProjectPutPlanItemBodyObject**](ProjectPutPlanItemBodyObject.md)|  | [optional] 
+ **ProjectPutPlanItemBodyObject** | [**ProjectPutPlanItemBodyObject**](ProjectPutPlanItemBodyObject.md)|  | [optional] 
 
 ### Return type
 
@@ -773,7 +774,7 @@ apiInstance.updateProject(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the project | 
- **projectPutObject** | [**ProjectPutObject**](ProjectPutObject.md)|  | [optional] 
+ **ProjectPutObject** | [**ProjectPutObject**](ProjectPutObject.md)|  | [optional] 
 
 ### Return type
 

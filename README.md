@@ -302,10 +302,12 @@ DealsApi | deleteDeals | **DELETE** /deals | Delete multiple deals in bulk
 DealsApi | duplicateDeal | **POST** /deals/{id}/duplicate | Duplicate deal
 DealsApi | getDeal | **GET** /deals/{id} | Get details of a deal
 DealsApi | getDealActivities | **GET** /deals/{id}/activities | List activities associated with a deal
+DealsApi | getDealChangelog | **GET** /deals/{id}/changelog | List updates about deal field values
 DealsApi | getDealFiles | **GET** /deals/{id}/files | List files attached to a deal
 DealsApi | getDealFollowers | **GET** /deals/{id}/followers | List followers of a deal
 DealsApi | getDealMailMessages | **GET** /deals/{id}/mailMessages | List mail messages associated with a deal
 DealsApi | getDealParticipants | **GET** /deals/{id}/participants | List participants of a deal
+DealsApi | getDealParticipantsChangelog | **GET** /deals/{id}/participantsChangelog | List updates about participants of a deal
 DealsApi | getDealPersons | **GET** /deals/{id}/persons | List all persons associated with a deal
 DealsApi | getDealProducts | **GET** /deals/{id}/products | List products attached to a deal
 DealsApi | getDealUpdates | **GET** /deals/{id}/flow | List updates about a deal
@@ -366,6 +368,8 @@ MailboxApi | getMailThread | **GET** /mailbox/mailThreads/{id} | Get one mail th
 MailboxApi | getMailThreadMessages | **GET** /mailbox/mailThreads/{id}/mailMessages | Get all mail messages of mail thread
 MailboxApi | getMailThreads | **GET** /mailbox/mailThreads | Get mail threads
 MailboxApi | updateMailThreadDetails | **PUT** /mailbox/mailThreads/{id} | Update mail thread details
+MeetingsApi | deleteUserProviderLink | **DELETE** /meetings/userProviderLinks/{id} | Delete the link between a user and the installed video call integration
+MeetingsApi | saveUserProviderLink | **POST** /meetings/userProviderLinks | Link a user with the installed video call integration
 NoteFieldsApi | getNoteFields | **GET** /noteFields | Get all note fields
 NotesApi | addNote | **POST** /notes | Add a note
 NotesApi | addNoteComment | **POST** /notes/{id}/comments | Add a comment to a note
@@ -395,6 +399,7 @@ OrganizationsApi | deleteOrganizationFollower | **DELETE** /organizations/{id}/f
 OrganizationsApi | deleteOrganizations | **DELETE** /organizations | Delete multiple organizations in bulk
 OrganizationsApi | getOrganization | **GET** /organizations/{id} | Get details of an organization
 OrganizationsApi | getOrganizationActivities | **GET** /organizations/{id}/activities | List activities associated with an organization
+OrganizationsApi | getOrganizationChangelog | **GET** /organizations/{id}/changelog | List updates about organization field values
 OrganizationsApi | getOrganizationDeals | **GET** /organizations/{id}/deals | List deals associated with an organization
 OrganizationsApi | getOrganizationFiles | **GET** /organizations/{id}/files | List files attached to an organization
 OrganizationsApi | getOrganizationFollowers | **GET** /organizations/{id}/followers | List followers of an organization
@@ -425,6 +430,7 @@ PersonsApi | deletePersonPicture | **DELETE** /persons/{id}/picture | Delete per
 PersonsApi | deletePersons | **DELETE** /persons | Delete multiple persons in bulk
 PersonsApi | getPerson | **GET** /persons/{id} | Get details of a person
 PersonsApi | getPersonActivities | **GET** /persons/{id}/activities | List activities associated with a person
+PersonsApi | getPersonChangelog | **GET** /persons/{id}/changelog | List updates about person field values
 PersonsApi | getPersonDeals | **GET** /persons/{id}/deals | List deals associated with a person
 PersonsApi | getPersonFiles | **GET** /persons/{id}/files | List files attached to a person
 PersonsApi | getPersonFollowers | **GET** /persons/{id}/followers | List followers of a person
@@ -550,7 +556,7 @@ WebhooksApi | getWebhooks | **GET** /webhooks | Get all Webhooks
 - **Type**: OAuth
 - **Flow**: accessCode
 - **Authorization URL**: https://oauth.pipedrive.com/oauth/authorize
-- **Scopes**: 
+- **Scopes**:
    - base: Read settings of the authorized user and currencies in an account
  - deals:read: Read most of the data about deals and related entities - deal fields, products, followers, participants; all notes, files, filters, pipelines, stages, and statistics. Does not include access to activities (except the last and next activity related to a deal)
  - deals:full: Create, read, update and delete deals, its participants and followers; all files, notes, and filters. It also includes read access to deal fields, pipelines, stages, and statistics. Does not include access to activities (except the last and next activity related to a deal)

@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**activeFlag** | **Boolean** | Whether the associated person is active or not | [optional] 
+**active_flag** | **Boolean** | Whether the associated person is active or not | [optional] 
 
 

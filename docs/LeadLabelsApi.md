@@ -50,7 +50,7 @@ apiInstance.addLeadLabel(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addLeadLabelRequest** | [**AddLeadLabelRequest**](AddLeadLabelRequest.md)|  | [optional] 
+ **AddLeadLabelRequest** | [**AddLeadLabelRequest**](AddLeadLabelRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -209,7 +209,7 @@ apiInstance.updateLeadLabel(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The ID of the lead label | 
- **updateLeadLabelRequest** | [**UpdateLeadLabelRequest**](UpdateLeadLabelRequest.md)|  | [optional] 
+ **UpdateLeadLabelRequest** | [**UpdateLeadLabelRequest**](UpdateLeadLabelRequest.md)|  | [optional] 
 
 ### Return type
 

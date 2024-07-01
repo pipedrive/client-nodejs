@@ -58,7 +58,7 @@ apiInstance.addProduct(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addProductRequestBody** | [**AddProductRequestBody**](AddProductRequestBody.md)|  | [optional] 
+ **AddProductRequestBody** | [**AddProductRequestBody**](AddProductRequestBody.md)|  | [optional] 
 
 ### Return type
 
@@ -115,7 +115,7 @@ apiInstance.addProductFollower(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the product | 
- **addProductFollowerRequest** | [**AddProductFollowerRequest**](AddProductFollowerRequest.md)|  | [optional] 
+ **AddProductFollowerRequest** | [**AddProductFollowerRequest**](AddProductFollowerRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -223,7 +223,7 @@ apiInstance.deleteProductFollower(id, followerId).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the product | 
- **followerId** | **Number**| The ID of the relationship between the follower and the product | 
+ **follower_id** | **Number**| The ID of the relationship between the follower and the product | 
 
 ### Return type
 
@@ -316,6 +316,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductsApi(apiClient);
 let id = 56; // Number | The ID of the product
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
@@ -377,6 +378,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductsApi(apiClient);
 let id = 56; // Number | The ID of the product
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56, // Number | Items shown per page
@@ -438,6 +440,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductsApi(apiClient);
 let id = 56; // Number | The ID of the product
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
@@ -549,6 +552,7 @@ let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductsApi(apiClient);
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'userId': 56, // Number | If supplied, only products owned by the given user will be returned
   'filterId': 56, // Number | The ID of the filter to use
@@ -571,11 +575,11 @@ apiInstance.getProducts(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **Number**| If supplied, only products owned by the given user will be returned | [optional] 
- **filterId** | **Number**| The ID of the filter to use | [optional] 
+ **user_id** | **Number**| If supplied, only products owned by the given user will be returned | [optional] 
+ **filter_id** | **Number**| The ID of the filter to use | [optional] 
  **ids** | [**[Number]**](Number.md)| An array of integers with the IDs of the products that should be returned in the response | [optional] 
- **firstChar** | **String**| If supplied, only products whose name starts with the specified letter will be returned (case-insensitive) | [optional] 
- **getSummary** | **Boolean**| If supplied, the response will return the total numbers of products in the &#x60;additional_data.summary.total_count&#x60; property | [optional] 
+ **first_char** | **String**| If supplied, only products whose name starts with the specified letter will be returned (case-insensitive) | [optional] 
+ **get_summary** | **Boolean**| If supplied, the response will return the total numbers of products in the &#x60;additional_data.summary.total_count&#x60; property | [optional] 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
 
@@ -617,6 +621,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.ProductsApi(apiClient);
 let term = "term_example"; // String | The search term to look for. Minimum 2 characters (or 1 if using `exact_match`). Please note that the search term has to be URL encoded.
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'fields': "fields_example", // String | A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: `address`, `varchar`, `text`, `varchar_auto`, `double`, `monetary` and `phone`. Read more about searching by custom fields <a href=\"https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
   'exactMatch': true, // Boolean | When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
@@ -639,8 +644,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **term** | **String**| The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded. | 
  **fields** | **String**| A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;. | [optional] 
- **exactMatch** | **Boolean**| When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. | [optional] 
- **includeFields** | **String**| Supports including optional fields in the results which are not provided by default | [optional] 
+ **exact_match** | **Boolean**| When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. | [optional] 
+ **include_fields** | **String**| Supports including optional fields in the results which are not provided by default | [optional] 
  **start** | **Number**| Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter. | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
 
@@ -699,7 +704,7 @@ apiInstance.updateProduct(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the product | 
- **updateProductRequestBody** | [**UpdateProductRequestBody**](UpdateProductRequestBody.md)|  | [optional] 
+ **UpdateProductRequestBody** | [**UpdateProductRequestBody**](UpdateProductRequestBody.md)|  | [optional] 
 
 ### Return type
 

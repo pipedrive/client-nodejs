@@ -87,6 +87,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PermissionSetsApi(apiClient);
 let id = "id_example"; // String | The ID of the permission set
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | Items shown per page
@@ -145,6 +146,7 @@ let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PermissionSetsApi(apiClient);
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'app': "app_example" // String | The app to filter the permission sets by
 };

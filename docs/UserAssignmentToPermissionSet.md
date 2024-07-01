@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**userId** | **Number** | The ID of the user in the permission set | [optional] 
-**permissionSetId** | **String** | The ID of the permission set | [optional] 
+**user_id** | **Number** | The ID of the user in the permission set | [optional] 
+**permission_set_id** | **String** | The ID of the permission set | [optional] 
 **name** | **String** | The name of the permission set | [optional] 
 
 

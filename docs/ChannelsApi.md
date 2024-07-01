@@ -50,7 +50,7 @@ apiInstance.addChannel(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **channelObject** | [**ChannelObject**](ChannelObject.md)|  | [optional] 
+ **ChannelObject** | [**ChannelObject**](ChannelObject.md)|  | [optional] 
 
 ### Return type
 
@@ -157,8 +157,8 @@ apiInstance.deleteConversation(channelId, conversationId).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **channelId** | **String**| The ID of the channel provided by the integration | 
- **conversationId** | **String**| The ID of the conversation provided by the integration | 
+ **channel-id** | **String**| The ID of the channel provided by the integration | 
+ **conversation-id** | **String**| The ID of the conversation provided by the integration | 
 
 ### Return type
 
@@ -213,7 +213,7 @@ apiInstance.receiveMessage(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **messageObject** | [**MessageObject**](MessageObject.md)|  | [optional] 
+ **MessageObject** | [**MessageObject**](MessageObject.md)|  | [optional] 
 
 ### Return type
 

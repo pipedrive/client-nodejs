@@ -51,7 +51,7 @@ apiInstance.addCallLog(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **callLogObject** | [**CallLogObject**](CallLogObject.md)|  | [optional] 
+ **CallLogObject** | [**CallLogObject**](CallLogObject.md)|  | [optional] 
 
 ### Return type
 
@@ -251,6 +251,7 @@ let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.CallLogsApi(apiClient);
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'start': 0, // Number | Pagination start
   'limit': 56 // Number | For pagination, the limit of entries to be returned. The upper limit is 50.

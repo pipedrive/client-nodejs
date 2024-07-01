@@ -54,7 +54,7 @@ apiInstance.addPipeline(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pipeline** | [**Pipeline**](Pipeline.md)|  | [optional] 
+ **Pipeline** | [**Pipeline**](Pipeline.md)|  | [optional] 
 
 ### Return type
 
@@ -147,6 +147,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PipelinesApi(apiClient);
 let id = 56; // Number | The ID of the pipeline
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'totalsConvertCurrency': "totalsConvertCurrency_example" // String | The 3-letter currency code of any of the supported currencies. When supplied, `per_stages_converted` is returned in `deals_summary` which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to `default_currency` in which case users default currency is used.
 };
@@ -164,7 +165,7 @@ apiInstance.getPipeline(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the pipeline | 
- **totalsConvertCurrency** | **String**| The 3-letter currency code of any of the supported currencies. When supplied, &#x60;per_stages_converted&#x60; is returned in &#x60;deals_summary&#x60; which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to &#x60;default_currency&#x60; in which case users default currency is used. | [optional] 
+ **totals_convert_currency** | **String**| The 3-letter currency code of any of the supported currencies. When supplied, &#x60;per_stages_converted&#x60; is returned in &#x60;deals_summary&#x60; which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to &#x60;default_currency&#x60; in which case users default currency is used. | [optional] 
 
 ### Return type
 
@@ -206,6 +207,7 @@ let apiInstance = new Pipedrive.PipelinesApi(apiClient);
 let id = 56; // Number | The ID of the pipeline
 let startDate = new Date("2013-10-20"); // Date | The start of the period. Date in format of YYYY-MM-DD.
 let endDate = new Date("2013-10-20"); // Date | The end of the period. Date in format of YYYY-MM-DD.
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'userId': 56 // Number | The ID of the user who's pipeline metrics statistics to fetch. If omitted, the authorized user will be used.
 };
@@ -223,9 +225,9 @@ apiInstance.getPipelineConversionStatistics(id, startDate, endDate, opts).then((
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the pipeline | 
- **startDate** | **Date**| The start of the period. Date in format of YYYY-MM-DD. | 
- **endDate** | **Date**| The end of the period. Date in format of YYYY-MM-DD. | 
- **userId** | **Number**| The ID of the user who&#39;s pipeline metrics statistics to fetch. If omitted, the authorized user will be used. | [optional] 
+ **start_date** | **Date**| The start of the period. Date in format of YYYY-MM-DD. | 
+ **end_date** | **Date**| The end of the period. Date in format of YYYY-MM-DD. | 
+ **user_id** | **Number**| The ID of the user who&#39;s pipeline metrics statistics to fetch. If omitted, the authorized user will be used. | [optional] 
 
 ### Return type
 
@@ -265,6 +267,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.PipelinesApi(apiClient);
 let id = 56; // Number | The ID of the pipeline
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'filterId': 56, // Number | If supplied, only deals matching the given filter will be returned
   'userId': 56, // Number | If supplied, `filter_id` will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned.
@@ -289,14 +292,14 @@ apiInstance.getPipelineDeals(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the pipeline | 
- **filterId** | **Number**| If supplied, only deals matching the given filter will be returned | [optional] 
- **userId** | **Number**| If supplied, &#x60;filter_id&#x60; will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned. | [optional] 
+ **filter_id** | **Number**| If supplied, only deals matching the given filter will be returned | [optional] 
+ **user_id** | **Number**| If supplied, &#x60;filter_id&#x60; will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned. | [optional] 
  **everyone** | [**NumberBoolean**](.md)| If supplied, &#x60;filter_id&#x60; and &#x60;user_id&#x60; will not be considered – instead, deals owned by everyone will be returned | [optional] 
- **stageId** | **Number**| If supplied, only deals within the given stage will be returned | [optional] 
+ **stage_id** | **Number**| If supplied, only deals within the given stage will be returned | [optional] 
  **start** | **Number**| Pagination start | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
- **getSummary** | [**NumberBoolean**](.md)| Whether to include a summary of the pipeline in the &#x60;additional_data&#x60; or not | [optional] 
- **totalsConvertCurrency** | **String**| The 3-letter currency code of any of the supported currencies. When supplied, &#x60;per_stages_converted&#x60; is returned inside &#x60;deals_summary&#x60; inside &#x60;additional_data&#x60; which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to &#x60;default_currency&#x60; in which case users default currency is used. Only works when &#x60;get_summary&#x60; parameter flag is enabled. | [optional] 
+ **get_summary** | [**NumberBoolean**](.md)| Whether to include a summary of the pipeline in the &#x60;additional_data&#x60; or not | [optional] 
+ **totals_convert_currency** | **String**| The 3-letter currency code of any of the supported currencies. When supplied, &#x60;per_stages_converted&#x60; is returned inside &#x60;deals_summary&#x60; inside &#x60;additional_data&#x60; which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to &#x60;default_currency&#x60; in which case users default currency is used. Only works when &#x60;get_summary&#x60; parameter flag is enabled. | [optional] 
 
 ### Return type
 
@@ -338,6 +341,7 @@ let apiInstance = new Pipedrive.PipelinesApi(apiClient);
 let id = 56; // Number | The ID of the pipeline
 let startDate = new Date("2013-10-20"); // Date | The start of the period. Date in format of YYYY-MM-DD.
 let endDate = new Date("2013-10-20"); // Date | The end of the period. Date in format of YYYY-MM-DD.
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'userId': 56 // Number | The ID of the user who's pipeline statistics to fetch. If omitted, the authorized user will be used.
 };
@@ -355,9 +359,9 @@ apiInstance.getPipelineMovementStatistics(id, startDate, endDate, opts).then((da
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the pipeline | 
- **startDate** | **Date**| The start of the period. Date in format of YYYY-MM-DD. | 
- **endDate** | **Date**| The end of the period. Date in format of YYYY-MM-DD. | 
- **userId** | **Number**| The ID of the user who&#39;s pipeline statistics to fetch. If omitted, the authorized user will be used. | [optional] 
+ **start_date** | **Date**| The start of the period. Date in format of YYYY-MM-DD. | 
+ **end_date** | **Date**| The end of the period. Date in format of YYYY-MM-DD. | 
+ **user_id** | **Number**| The ID of the user who&#39;s pipeline statistics to fetch. If omitted, the authorized user will be used. | [optional] 
 
 ### Return type
 
@@ -463,7 +467,7 @@ apiInstance.updatePipeline(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the pipeline | 
- **pipeline** | [**Pipeline**](Pipeline.md)|  | [optional] 
+ **Pipeline** | [**Pipeline**](Pipeline.md)|  | [optional] 
 
 ### Return type
 

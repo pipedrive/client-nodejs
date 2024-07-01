@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**activeFlag** | **Boolean** | Whether the associated person is active or not | [optional] 
+**active_flag** | **Boolean** | Whether the associated person is active or not | [optional] 
 **id** | **Number** | The ID of the person associated with the item | [optional] 
 **name** | **String** | The name of the person associated with the item | [optional] 
 **email** | [**[PersonDataEmail]**](PersonDataEmail.md) | The emails of the person associated with the item | [optional] 
 **phone** | [**[PersonDataPhone]**](PersonDataPhone.md) | The phone numbers of the person associated with the item | [optional] 
-**ownerId** | **Number** | The ID of the owner of the person that is associated with the item | [optional] 
+**owner_id** | **Number** | The ID of the owner of the person that is associated with the item | [optional] 
 
 

@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**perStages** | [**DealSummaryPerStages**](DealSummaryPerStages.md) |  | [optional] 
-**perCurrency** | [**DealSummaryPerCurrency**](DealSummaryPerCurrency.md) |  | [optional] 
-**totalCount** | **Number** | Deals count | [optional] 
-**perCurrencyFull** | [**DealSummaryPerCurrencyFull**](DealSummaryPerCurrencyFull.md) |  | [optional] 
+**per_stages** | [**DealSummaryPerStages**](DealSummaryPerStages.md) |  | [optional] 
+**per_currency** | [**DealSummaryPerCurrency**](DealSummaryPerCurrency.md) |  | [optional] 
+**total_count** | **Number** | Deals count | [optional] 
+**per_currency_full** | [**DealSummaryPerCurrencyFull**](DealSummaryPerCurrencyFull.md) |  | [optional] 
 
 

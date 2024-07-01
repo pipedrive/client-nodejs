@@ -20,6 +20,7 @@ api/lead-sources-api.ts
 api/leads-api.ts
 api/legacy-teams-api.ts
 api/mailbox-api.ts
+api/meetings-api.ts
 api/note-fields-api.ts
 api/notes-api.ts
 api/organization-fields-api.ts
@@ -84,6 +85,9 @@ models/add-deal-participant-request.ts
 models/add-deal-participant-response200-data.ts
 models/add-deal-participant-response200-related-objects.ts
 models/add-deal-participant-response200.ts
+models/add-deal-product-request-all-of.ts
+models/add-deal-product-request-all-of1.ts
+models/add-deal-product-request-all-of2.ts
 models/add-deal-product-request.ts
 models/add-deal-request.ts
 models/add-file-and-link-it-response200.ts
@@ -91,7 +95,6 @@ models/add-file-response200.ts
 models/add-filter-request.ts
 models/add-goal-request.ts
 models/add-lead-label-request.ts
-models/add-lead-request-value.ts
 models/add-lead-request.ts
 models/add-note-request-all-of.ts
 models/add-note-request-all-of1.ts
@@ -133,9 +136,8 @@ models/add-pipeline-response200-all-of.ts
 models/add-pipeline-response200.ts
 models/add-product-follower-request.ts
 models/add-product-request-all-of.ts
+models/add-product-request-all-of1.ts
 models/add-product-request.ts
-models/add-product-request1-all-of.ts
-models/add-product-request1.ts
 models/add-project-request-all-of.ts
 models/add-project-request.ts
 models/add-project-response201.ts
@@ -155,6 +157,7 @@ models/add-task-response201.ts
 models/add-team-request.ts
 models/add-team-request1.ts
 models/add-team-user-request.ts
+models/add-user-provider-link-request.ts
 models/add-user-request-access-inner.ts
 models/add-user-request.ts
 models/add-webhook-request.ts
@@ -177,11 +180,13 @@ models/base-organization-item.ts
 models/base-pipeline-with-selected-flag-all-of.ts
 models/base-pipeline-with-selected-flag.ts
 models/base-response.ts
+models/base-response1.ts
 models/base-response200-all-of.ts
 models/base-response200.ts
 models/base-role-request.ts
 models/base-team-additional-properties.ts
 models/base-team.ts
+models/basic-deal-product-request-all-of.ts
 models/basic-deal-product-request.ts
 models/basic-deal.ts
 models/basic-goal-request.ts
@@ -224,6 +229,8 @@ models/deal-person-data-with-id-all-of-phone-inner.ts
 models/deal-person-data-with-id-all-of.ts
 models/deal-person-data-with-id-all-of1.ts
 models/deal-person-data-with-id.ts
+models/deal-product-request-body.ts
+models/deal-product-request-body1.ts
 models/deal-response200.ts
 models/deal-strict-all-of.ts
 models/deal-strict.ts
@@ -389,6 +396,9 @@ models/get-associated-updates-response200-all-of-data-inner.ts
 models/get-associated-updates-response200-all-of-related-objects.ts
 models/get-associated-updates-response200-all-of.ts
 models/get-associated-updates-response200.ts
+models/get-changelog-response200-all-of-data-inner.ts
+models/get-changelog-response200-all-of.ts
+models/get-changelog-response200.ts
 models/get-comments-response200-data-inner.ts
 models/get-comments-response200.ts
 models/get-currencies-response200-data-inner.ts
@@ -475,6 +485,7 @@ models/get-organizations-response200-all-of-related-objects-picture.ts
 models/get-organizations-response200-all-of-related-objects.ts
 models/get-organizations-response200-all-of.ts
 models/get-organizations-response200.ts
+models/get-participants-changelog200.ts
 models/get-permission-sets-response200-all-of-data-inner.ts
 models/get-permission-sets-response200-all-of.ts
 models/get-permission-sets-response200.ts
@@ -581,16 +592,12 @@ models/get-user-settings-response200.ts
 models/get-webhooks-response200-all-of-data-inner.ts
 models/get-webhooks-response200-all-of.ts
 models/get-webhooks-response200.ts
-models/getproduct-response200-data-all-of.ts
-models/getproduct-response200-data.ts
 models/getproduct-response200.ts
 models/index.ts
 models/lead-id-response200-data.ts
 models/lead-id-response200.ts
 models/lead-response404.ts
 models/link-file-to-item-response200.ts
-models/list-permitted-users-response200-all-of-data.ts
-models/list-permitted-users-response200-all-of.ts
 models/list-permitted-users-response200.ts
 models/list-permitted-users-response2001-all-of.ts
 models/list-permitted-users-response2001.ts
@@ -652,6 +659,8 @@ models/owner-all-of.ts
 models/owner.ts
 models/pagination-details-all-of.ts
 models/pagination-details.ts
+models/participant-changelog-item-all-of.ts
+models/participant-changelog-item.ts
 models/payment-response200-all-of-data-inner.ts
 models/payment-response200-all-of.ts
 models/payment-response200.ts
@@ -779,13 +788,14 @@ models/update-activity-request.ts
 models/update-activity-response200.ts
 models/update-activity-type-request.ts
 models/update-deal-parameters.ts
+models/update-deal-product-request-all-of.ts
+models/update-deal-product-request-all-of1.ts
 models/update-deal-product-request.ts
 models/update-deal-request.ts
 models/update-field-request.ts
 models/update-file-response200.ts
 models/update-filter-request.ts
 models/update-lead-label-request.ts
-models/update-lead-request-value.ts
 models/update-lead-request.ts
 models/update-mail-thread-details-response200-all-of.ts
 models/update-mail-thread-details-response200.ts
@@ -801,6 +811,9 @@ models/update-pipeline-response200-all-of-data.ts
 models/update-pipeline-response200-all-of.ts
 models/update-pipeline-response200.ts
 models/update-product-field-response200.ts
+models/update-product-request-all-of.ts
+models/update-product-request-all-of1.ts
+models/update-product-request.ts
 models/update-product-response200.ts
 models/update-project-request.ts
 models/update-project-request1-all-of.ts
@@ -832,6 +845,9 @@ models/user-data-with-id-all-of.ts
 models/user-data-with-id.ts
 models/user-ids-all-of.ts
 models/user-ids.ts
+models/user-provider-link-error-response.ts
+models/user-provider-link-success-response-data.ts
+models/user-provider-link-success-response.ts
 models/user-response200-all-of.ts
 models/user-response200.ts
 models/users-response200-all-of.ts

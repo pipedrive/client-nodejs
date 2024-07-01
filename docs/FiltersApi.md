@@ -53,7 +53,7 @@ apiInstance.addFilter(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addFilterRequest** | [**AddFilterRequest**](AddFilterRequest.md)|  | [optional] 
+ **AddFilterRequest** | [**AddFilterRequest**](AddFilterRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -300,6 +300,7 @@ let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.FiltersApi(apiClient);
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'type': new Pipedrive.FilterType() // FilterType | The types of filters to fetch
 };
@@ -373,7 +374,7 @@ apiInstance.updateFilter(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the filter | 
- **updateFilterRequest** | [**UpdateFilterRequest**](UpdateFilterRequest.md)|  | [optional] 
+ **UpdateFilterRequest** | [**UpdateFilterRequest**](UpdateFilterRequest.md)|  | [optional] 
 
 ### Return type
 

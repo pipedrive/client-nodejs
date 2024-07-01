@@ -6,6 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **success** | **Boolean** |  | [optional] 
 **data** | [**[ProjectResponseObject]**](ProjectResponseObject.md) |  | [optional] 
-**additionalData** | [**AdditionalDataWithCursorPagination**](AdditionalDataWithCursorPagination.md) |  | [optional] 
+**additional_data** | [**AdditionalDataWithCursorPagination**](AdditionalDataWithCursorPagination.md) |  | [optional] 
 
 

@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**activityDistribution** | [**ActivityDistributionDataActivityDistribution**](ActivityDistributionDataActivityDistribution.md) |  | [optional] 
+**activity_distribution** | [**ActivityDistributionDataActivityDistribution**](ActivityDistributionDataActivityDistribution.md) |  | [optional] 
 
 

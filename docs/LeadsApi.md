@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 Add a lead
 
-Creates a lead. A lead always has to be linked to a person or an organization or both. All leads created through the Pipedrive API will have a lead source &#x60;API&#x60; assigned. Here&#39;s the tutorial for &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-a-lead\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;adding a lead&lt;/a&gt;. If a lead contains custom fields, the fields&#39; values will be included in the response in the same format as with the &#x60;Deals&#x60; endpoints. If a custom field&#39;s value hasn&#39;t been set for the lead, it won&#39;t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields&#39; structure from deals. See an example given in the &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/updating-custom-field-value\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;updating custom fields&#39; values tutorial&lt;/a&gt;.
+Creates a lead. A lead always has to be linked to a person or an organization or both. All leads created through the Pipedrive API will have a lead source and origin set to &#x60;API&#x60;. Here&#39;s the tutorial for &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-a-lead\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;adding a lead&lt;/a&gt;. If a lead contains custom fields, the fields&#39; values will be included in the response in the same format as with the &#x60;Deals&#x60; endpoints. If a custom field&#39;s value hasn&#39;t been set for the lead, it won&#39;t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields&#39; structure from deals. See an example given in the &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/updating-custom-field-value\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;updating custom fields&#39; values tutorial&lt;/a&gt;.
 
 ### Example
 
@@ -53,7 +53,7 @@ apiInstance.addLead(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addLeadRequest** | [**AddLeadRequest**](AddLeadRequest.md)|  | [optional] 
+ **AddLeadRequest** | [**AddLeadRequest**](AddLeadRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -251,6 +251,7 @@ let oauth2 = apiClient.authentications['oauth2'];
 oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.LeadsApi(apiClient);
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'limit': 100, // Number | For pagination, the limit of entries to be returned. If not provided, 100 items will be returned.
   'start': 0, // Number | For pagination, the position that represents the first result for the page
@@ -276,11 +277,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Number**| For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. | [optional] 
  **start** | **Number**| For pagination, the position that represents the first result for the page | [optional] 
- **archivedStatus** | **String**| Filtering based on the archived status of a lead. If not provided, &#x60;All&#x60; is used. | [optional] 
- **ownerId** | **Number**| If supplied, only leads matching the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owner_id&#x60; when supplied. | [optional] 
- **personId** | **Number**| If supplied, only leads matching the given person will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;person_id&#x60; when supplied. | [optional] 
- **organizationId** | **Number**| If supplied, only leads matching the given organization will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;organization_id&#x60; when supplied. | [optional] 
- **filterId** | **Number**| The ID of the filter to use | [optional] 
+ **archived_status** | **String**| Filtering based on the archived status of a lead. If not provided, &#x60;All&#x60; is used. | [optional] 
+ **owner_id** | **Number**| If supplied, only leads matching the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owner_id&#x60; when supplied. | [optional] 
+ **person_id** | **Number**| If supplied, only leads matching the given person will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;person_id&#x60; when supplied. | [optional] 
+ **organization_id** | **Number**| If supplied, only leads matching the given organization will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;organization_id&#x60; when supplied. | [optional] 
+ **filter_id** | **Number**| The ID of the filter to use | [optional] 
  **sort** | **String**| The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). | [optional] 
 
 ### Return type
@@ -321,6 +322,7 @@ oauth2.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new Pipedrive.LeadsApi(apiClient);
 let term = "term_example"; // String | The search term to look for. Minimum 2 characters (or 1 if using `exact_match`). Please note that the search term has to be URL encoded.
+// snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'fields': "fields_example", // String | A comma-separated string array. The fields to perform the search from. Defaults to all of them.
   'exactMatch': true, // Boolean | When enabled, only full exact matches against the given term are returned. It is <b>not</b> case sensitive.
@@ -345,10 +347,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **term** | **String**| The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded. | 
  **fields** | **String**| A comma-separated string array. The fields to perform the search from. Defaults to all of them. | [optional] 
- **exactMatch** | **Boolean**| When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. | [optional] 
- **personId** | **Number**| Will filter leads by the provided person ID. The upper limit of found leads associated with the person is 2000. | [optional] 
- **organizationId** | **Number**| Will filter leads by the provided organization ID. The upper limit of found leads associated with the organization is 2000. | [optional] 
- **includeFields** | **String**| Supports including optional fields in the results which are not provided by default | [optional] 
+ **exact_match** | **Boolean**| When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive. | [optional] 
+ **person_id** | **Number**| Will filter leads by the provided person ID. The upper limit of found leads associated with the person is 2000. | [optional] 
+ **organization_id** | **Number**| Will filter leads by the provided organization ID. The upper limit of found leads associated with the organization is 2000. | [optional] 
+ **include_fields** | **String**| Supports including optional fields in the results which are not provided by default | [optional] 
  **start** | **Number**| Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter. | [optional] [default to 0]
  **limit** | **Number**| Items shown per page | [optional] 
 
@@ -407,7 +409,7 @@ apiInstance.updateLead(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The ID of the lead | 
- **updateLeadRequest** | [**UpdateLeadRequest**](UpdateLeadRequest.md)|  | [optional] 
+ **UpdateLeadRequest** | [**UpdateLeadRequest**](UpdateLeadRequest.md)|  | [optional] 
 
 ### Return type
 

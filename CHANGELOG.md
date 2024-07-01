@@ -8,6 +8,55 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [23.0.0-rc.2] - 2024-07-01
+### Removed
+- Removed request and response fields `duration` and `duration_unit` for all endpoints of deals and products using them
+
+## [23.0.0] - 2024-06-14
+### Removed
+- Removed request and response fields `duration` and `duration_unit` for all endpoints of deals and products using them
+
+## [22.10.1] - 2024-06-07
+### Removed
+- Cleanup unused company settings
+
+## [22.10.0] - 2024-06-07
+### Added
+Added `acv`, `mrr`, `arr`, `acv_currency`, `mrr_currency`, and `arr_currency` to the BaseDeal entity and the following endpoints' response:
+- `GET`, `POST` `/v1/deals`
+- `GET`, `PUT` `/v1/deals/{id}`
+- `GET` `/v1/deals/timeline`
+- `PUT` `/v1/deals/{id}/merge`
+- `POST` `/v1/deals/{id}/duplicate`
+
+## [22.9.0] - 2024-05-30
+### Fixed
+- Documentation for response models: changed property names to snake_case instead of camelCase
+
+## [22.8.2] - 2024-05-29
+### Fixed
+- Fixed documentation: property `value` of Lead is nullable.
+
+## [22.8.1] - 2024-05-29
+### Removed
+- Removed mention of address autocompletion by Google in Add Activites endpoint and other entities(organization, person, deal) fields.
+
+## [22.8.0] - 2024-05-21
+### Added
+- Added `origin`, `origin_id`, `channel` and `channel_id` parameters representing the Source for Lead and Deal entity.
+
+## [22.7.0] - 2024-05-14
+### Added
+- Added `billing_frequency`, `billing_frequency_cycles` and `billing_start_date` fields to
+  - `GET`, `POST` and `PUT` `/v1/deals/{id}/products` endpoints
+  - `GET`, `POST` and `PATCH` `/v2/deals/{id}/products` endpoints
+  - `GET` `/v2/deals/products` endpoint
+- Added `billing_frequency`, `billing_frequency_cycles` fields to
+  - `GET`, `POST` and `PUT` `/v1/products` endpoints
+  - `GET` `/v1/products/{id}` endpoint
+  - `GET`, `POST` and `PATCH` `/v2/products` endpoints
+  - `GET` `/v2/products/{id}` endpoints
+
 ## [22.3.1-rc.5] - 2024-04-24
 - Add `lead_id` as an acceptable body parameter for the `POST /v1/callLogs` endpoint
 
@@ -617,12 +666,20 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.3.1-rc.5...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.3.1-rc.5...v23.0.0-rc.1
 [22.3.1-rc.5]: https://github.com/pipedrive/api-docs/compare/v22.3.1-rc.4...v22.3.1-rc.5
 [22.3.1-rc.4]: https://github.com/pipedrive/api-docs/compare/v22.3.1-rc.3...v22.3.1-rc.4
-[22.5.0]: https://github.com/pipedrive/api-docs/compare/v22.4.0...v22.5.0
-[22.6.0]: https://github.com/pipedrive/api-docs/compare/v22.5.0...v22.6.0
+[23.0.0]: https://github.com/pipedrive/api-docs/compare/v22.10.1...v23.0.0
+[22.10.1]: https://github.com/pipedrive/api-docs/compare/v22.10.0...v22.10.1
+[22.10.0]: https://github.com/pipedrive/api-docs/compare/v22.9.0...v22.10.0
+[22.9.0]: https://github.com/pipedrive/api-docs/compare/v22.8.2...v22.9.0
+[22.8.2]: https://github.com/pipedrive/api-docs/compare/v22.8.1...v22.8.2
+[22.8.1]: https://github.com/pipedrive/api-docs/compare/v22.8.0...v22.8.1
+[22.8.0]: https://github.com/pipedrive/api-docs/compare/v22.7.0...v22.8.0
+[22.7.0]: https://github.com/pipedrive/api-docs/compare/v22.6.1...v22.7.0
 [22.6.1]: https://github.com/pipedrive/api-docs/compare/v22.6.0...v22.6.1
+[22.6.0]: https://github.com/pipedrive/api-docs/compare/v22.5.0...v22.6.0
+[22.5.0]: https://github.com/pipedrive/api-docs/compare/v22.4.0...v22.5.0
 [22.4.0]: https://github.com/pipedrive/api-docs/compare/v22.3.0...v22.4.0
 [22.3.0]: https://github.com/pipedrive/api-docs/compare/v22.2.0...v22.3.0
 [22.2.0]: https://github.com/pipedrive/api-docs/compare/v22.1.0...v22.2.0
