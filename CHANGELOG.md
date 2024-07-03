@@ -8,6 +8,12 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [23.1.0] - 2024-07-03
+### Added
+- Added `notes` field to Prices in:
+  - `GET` and `POST` `/v2/products/{productId}/variations` endpoints
+  - `PATCH` `/api/v2/products/{productId}/variations/{productVariationId}` endpoint
+
 ## [23.0.0] - 2024-06-14
 ### Removed
 - Removed request and response fields `duration` and `duration_unit` for all endpoints of deals and products using them
@@ -646,7 +652,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v23.0.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v23.1.0...HEAD
+[23.1.0]: https://github.com/pipedrive/api-docs/compare/v23.0.0...v23.1.0
 [23.0.0]: https://github.com/pipedrive/api-docs/compare/v22.10.1...v23.0.0
 [22.10.1]: https://github.com/pipedrive/api-docs/compare/v22.10.0...v22.10.1
 [22.10.0]: https://github.com/pipedrive/api-docs/compare/v22.9.0...v22.10.0
