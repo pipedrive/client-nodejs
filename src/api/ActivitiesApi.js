@@ -47,7 +47,7 @@ export default class ActivitiesApi {
 
     /**
      * Add an activity
-     * Adds a new activity. Includes `more_activities_scheduled_in_context` property in response's `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">adding an activity</a>.
+     * Adds a new activity. Includes `more_activities_scheduled_in_context` property in response's `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">adding an activity</a>. <br /> <br /> ***Starting from 30.09.2024, activity attendees will receive updates only if the activity owner has an active calendar sync***
      * @param {Object} opts Optional parameters
      * @param {module:model/ActivityPostObject} opts.activityPostObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddActivityResponse200} and HTTP response
@@ -95,7 +95,7 @@ export default class ActivitiesApi {
 
     /**
      * Add an activity
-     * Adds a new activity. Includes `more_activities_scheduled_in_context` property in response's `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">adding an activity</a>.
+     * Adds a new activity. Includes `more_activities_scheduled_in_context` property in response's `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">adding an activity</a>. <br /> <br /> ***Starting from 30.09.2024, activity attendees will receive updates only if the activity owner has an active calendar sync***
      * @param {Object} opts Optional parameters
      * @param {module:model/ActivityPostObject} opts.activityPostObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddActivityResponse200}
@@ -488,7 +488,7 @@ export default class ActivitiesApi {
 
     /**
      * Update an activity
-     * Updates an activity. Includes `more_activities_scheduled_in_context` property in response's `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data).
+     * Updates an activity. Includes `more_activities_scheduled_in_context` property in response's `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). <br /> <br /> ***Starting from 30.09.2024, activity attendees will receive updates only if the activity owner has an active calendar sync***
      * @param {Number} id The ID of the activity
      * @param {Object} opts Optional parameters
      * @param {module:model/ActivityPutObject} opts.activityPutObject 
@@ -543,7 +543,7 @@ export default class ActivitiesApi {
 
     /**
      * Update an activity
-     * Updates an activity. Includes `more_activities_scheduled_in_context` property in response's `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data).
+     * Updates an activity. Includes `more_activities_scheduled_in_context` property in response's `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). <br /> <br /> ***Starting from 30.09.2024, activity attendees will receive updates only if the activity owner has an active calendar sync***
      * @param {Number} id The ID of the activity
      * @param {Object} opts Optional parameters
      * @param {module:model/ActivityPutObject} opts.activityPutObject 
