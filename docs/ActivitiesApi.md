@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 Add an activity
 
-Adds a new activity. Includes &#x60;more_activities_scheduled_in_context&#x60; property in response&#39;s &#x60;additional_data&#x60; which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information, see the tutorial for &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-an-activity\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;adding an activity&lt;/a&gt;.
+Adds a new activity. Includes &#x60;more_activities_scheduled_in_context&#x60; property in response&#39;s &#x60;additional_data&#x60; which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information, see the tutorial for &lt;a href&#x3D;\&quot;https://pipedrive.readme.io/docs/adding-an-activity\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;adding an activity&lt;/a&gt;. &lt;br /&gt; &lt;br /&gt; ***Starting from 30.09.2024, activity attendees will receive updates only if the activity owner has an active calendar sync***
 
 ### Example
 
@@ -372,7 +372,7 @@ Name | Type | Description  | Notes
 
 Update an activity
 
-Updates an activity. Includes &#x60;more_activities_scheduled_in_context&#x60; property in response&#39;s &#x60;additional_data&#x60; which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data).
+Updates an activity. Includes &#x60;more_activities_scheduled_in_context&#x60; property in response&#39;s &#x60;additional_data&#x60; which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). &lt;br /&gt; &lt;br /&gt; ***Starting from 30.09.2024, activity attendees will receive updates only if the activity owner has an active calendar sync***
 
 ### Example
 
