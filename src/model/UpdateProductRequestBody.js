@@ -71,6 +71,11 @@ class UpdateProductRequestBody {
 
                 delete data['code'];
             }
+            if (data.hasOwnProperty('description')) {
+                obj['description'] = ApiClient.convertToType(data['description'], 'String');
+
+                delete data['description'];
+            }
             if (data.hasOwnProperty('unit')) {
                 obj['unit'] = ApiClient.convertToType(data['unit'], 'String');
 
@@ -141,6 +146,12 @@ UpdateProductRequestBody.prototype['name'] = undefined;
 UpdateProductRequestBody.prototype['code'] = undefined;
 
 /**
+ * The product description
+ * @member {String} description
+ */
+UpdateProductRequestBody.prototype['description'] = undefined;
+
+/**
  * The unit in which this product is sold
  * @member {String} unit
  */
@@ -209,6 +220,11 @@ NameObject.prototype['name'] = undefined;
  * @member {String} code
  */
 ProductRequest.prototype['code'] = undefined;
+/**
+ * The product description
+ * @member {String} description
+ */
+ProductRequest.prototype['description'] = undefined;
 /**
  * The unit in which this product is sold
  * @member {String} unit

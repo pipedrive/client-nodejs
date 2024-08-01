@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [23.2.1] - 2024-08-01
+### Fixed
+- Added missing "description" parameter to "Add a product" and "Update a product" endpoints
+
 ## [23.2.0] - 2024-07-25
 ### Added
 - Notice informing the users of the upcoming Activity Invites feature deprecation:
@@ -657,7 +661,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v23.2.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v23.2.1...HEAD
+[23.2.1]: https://github.com/pipedrive/api-docs/compare/v23.2.0...v23.2.1
 [23.2.0]: https://github.com/pipedrive/api-docs/compare/v23.1.0...v23.2.0
 [23.1.0]: https://github.com/pipedrive/api-docs/compare/v23.0.0...v23.1.0
 [23.0.0]: https://github.com/pipedrive/api-docs/compare/v22.10.1...v23.0.0

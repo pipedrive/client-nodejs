@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **code** | **String** | The product code | [optional] 
+**description** | **String** | The product description | [optional] 
 **unit** | **String** | The unit in which this product is sold | [optional] 
 **tax** | **Number** | The tax percentage | [optional] [default to 0]
 **active_flag** | **Boolean** | Whether this product will be made active or not | [optional] [default to true]
