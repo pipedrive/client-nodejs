@@ -53,6 +53,11 @@ class ProductRequest {
 
                 delete data['code'];
             }
+            if (data.hasOwnProperty('description')) {
+                obj['description'] = ApiClient.convertToType(data['description'], 'String');
+
+                delete data['description'];
+            }
             if (data.hasOwnProperty('unit')) {
                 obj['unit'] = ApiClient.convertToType(data['unit'], 'String');
 
@@ -105,6 +110,12 @@ class ProductRequest {
  * @member {String} code
  */
 ProductRequest.prototype['code'] = undefined;
+
+/**
+ * The product description
+ * @member {String} description
+ */
+ProductRequest.prototype['description'] = undefined;
 
 /**
  * The unit in which this product is sold
