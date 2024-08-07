@@ -115,6 +115,11 @@ class BaseOrganizationItemWithEditNameFlag {
 
                 delete data['label'];
             }
+            if (data.hasOwnProperty('label_ids')) {
+                obj['label_ids'] = ApiClient.convertToType(data['label_ids'], ['Number']);
+
+                delete data['label_ids'];
+            }
             if (data.hasOwnProperty('owner_name')) {
                 obj['owner_name'] = ApiClient.convertToType(data['owner_name'], 'String');
 
@@ -367,10 +372,16 @@ BaseOrganizationItemWithEditNameFlag.prototype['update_time'] = undefined;
 BaseOrganizationItemWithEditNameFlag.prototype['visible_to'] = undefined;
 
 /**
- * The label assigned to the organization
+ * The label assigned to the organization. When the label field is updated, the label_ids field value will be overwritten by the label field value.
  * @member {Number} label
  */
 BaseOrganizationItemWithEditNameFlag.prototype['label'] = undefined;
+
+/**
+ * The IDs of labels assigned to the organization. When the label_ids field is updated, the label field value will be set to the first value of the label_ids field.
+ * @member {Array.<Number>} label_ids
+ */
+BaseOrganizationItemWithEditNameFlag.prototype['label_ids'] = undefined;
 
 /**
  * The name of the organization owner
@@ -638,10 +649,15 @@ BaseOrganizationItem.prototype['update_time'] = undefined;
  */
 BaseOrganizationItem.prototype['visible_to'] = undefined;
 /**
- * The label assigned to the organization
+ * The label assigned to the organization. When the label field is updated, the label_ids field value will be overwritten by the label field value.
  * @member {Number} label
  */
 BaseOrganizationItem.prototype['label'] = undefined;
+/**
+ * The IDs of labels assigned to the organization. When the label_ids field is updated, the label field value will be set to the first value of the label_ids field.
+ * @member {Array.<Number>} label_ids
+ */
+BaseOrganizationItem.prototype['label_ids'] = undefined;
 /**
  * The name of the organization owner
  * @member {String} owner_name

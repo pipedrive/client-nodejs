@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 
 Get deals in a stage
 
-Lists deals in a specific stage.
+Lists deals in a specific stage. If no parameters are provided open deals owned by the authorized user will be returned.
 
 ### Example
 

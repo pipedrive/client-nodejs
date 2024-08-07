@@ -76,6 +76,11 @@ class BasicPerson {
 
                 delete data['label'];
             }
+            if (data.hasOwnProperty('label_ids')) {
+                obj['label_ids'] = ApiClient.convertToType(data['label_ids'], ['Number']);
+
+                delete data['label_ids'];
+            }
             if (data.hasOwnProperty('visible_to')) {
                 obj['visible_to'] = ApiClient.convertToType(data['visible_to'], VisibleTo);
 
@@ -128,10 +133,16 @@ BasicPerson.prototype['email'] = undefined;
 BasicPerson.prototype['phone'] = undefined;
 
 /**
- * The ID of the label.
+ * The label assigned to the person. When the label field is updated, the label_ids field value will be overwritten by the label field value.
  * @member {Number} label
  */
 BasicPerson.prototype['label'] = undefined;
+
+/**
+ * The IDs of labels assigned to the person. When the label_ids field is updated, the label field value will be set to the first value of the label_ids field.
+ * @member {Array.<Number>} label_ids
+ */
+BasicPerson.prototype['label_ids'] = undefined;
 
 /**
  * The visibility of the person. If omitted, the visibility will be set to the default visibility setting of this item type for the authorized user. Read more about visibility groups <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.<h4>Essential / Advanced plan</h4><table><tr><th style=\"width:40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner &amp; followers</td><tr><td>`3`</td><td>Entire company</td></tr></table><h4>Professional / Enterprise plan</h4><table><tr><th style=\"width:40px\">Value</th><th>Description</th></tr><tr><td>`1`</td><td>Owner only</td><tr><td>`3`</td><td>Owner's visibility group</td></tr><tr><td>`5`</td><td>Owner's visibility group and sub-groups</td></tr><tr><td>`7`</td><td>Entire company</td></tr></table>

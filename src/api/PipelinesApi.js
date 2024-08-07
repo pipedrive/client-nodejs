@@ -335,7 +335,7 @@ export default class PipelinesApi {
 
     /**
      * Get deals in a pipeline
-     * Lists deals in a specific pipeline across all its stages.
+     * Lists deals in a specific pipeline across all its stages. If no parameters are provided open deals owned by the authorized user will be returned.
      * @param {Number} id The ID of the pipeline
      * @param {Object} opts Optional parameters
      * @param {Number} opts.filterId If supplied, only deals matching the given filter will be returned
@@ -412,7 +412,7 @@ export default class PipelinesApi {
 
     /**
      * Get deals in a pipeline
-     * Lists deals in a specific pipeline across all its stages.
+     * Lists deals in a specific pipeline across all its stages. If no parameters are provided open deals owned by the authorized user will be returned.
      * @param {Number} id The ID of the pipeline
      * @param {Object} opts Optional parameters
      * @param {Number} opts.filterId If supplied, only deals matching the given filter will be returned

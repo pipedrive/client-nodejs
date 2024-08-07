@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
 
 Get deals in a pipeline
 
-Lists deals in a specific pipeline across all its stages.
+Lists deals in a specific pipeline across all its stages. If no parameters are provided open deals owned by the authorized user will be returned.
 
 ### Example
 
