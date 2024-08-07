@@ -16,7 +16,8 @@ Name | Type | Description | Notes
 **add_time** | **String** | The date and time when the person was added/created. Format: YYYY-MM-DD HH:MM:SS | [optional] 
 **visible_to** | **String** | The visibility group ID of who can see the person | [optional] 
 **picture_id** | **Number** | The ID of the picture associated with the item | [optional] 
-**label** | **Number** | The label assigned to the person | [optional] 
+**label** | **Number** | The label assigned to the person. When the label field is updated, the label_ids field value will be overwritten by the label field value. | [optional] 
+**label_ids** | **[Number]** | The IDs of labels assigned to the person. When the label_ids field is updated, the label field value will be set to the first value of the label_ids field. | [optional] 
 **cc_email** | **String** | The BCC email associated with the person | [optional] 
 
 

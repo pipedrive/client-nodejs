@@ -113,6 +113,11 @@ class PersonItem {
 
                 delete data['label'];
             }
+            if (data.hasOwnProperty('label_ids')) {
+                obj['label_ids'] = ApiClient.convertToType(data['label_ids'], ['Number']);
+
+                delete data['label_ids'];
+            }
             if (data.hasOwnProperty('org_name')) {
                 obj['org_name'] = ApiClient.convertToType(data['org_name'], 'String');
 
@@ -335,10 +340,16 @@ PersonItem.prototype['visible_to'] = undefined;
 PersonItem.prototype['picture_id'] = undefined;
 
 /**
- * The label assigned to the person
+ * The label assigned to the person. When the label field is updated, the label_ids field value will be overwritten by the label field value.
  * @member {Number} label
  */
 PersonItem.prototype['label'] = undefined;
+
+/**
+ * The IDs of labels assigned to the person. When the label_ids field is updated, the label field value will be set to the first value of the label_ids field.
+ * @member {Array.<Number>} label_ids
+ */
+PersonItem.prototype['label_ids'] = undefined;
 
 /**
  * The name of the organization associated with the person
@@ -570,10 +581,15 @@ BasePersonItem.prototype['visible_to'] = undefined;
  */
 BasePersonItem.prototype['picture_id'] = undefined;
 /**
- * The label assigned to the person
+ * The label assigned to the person. When the label field is updated, the label_ids field value will be overwritten by the label field value.
  * @member {Number} label
  */
 BasePersonItem.prototype['label'] = undefined;
+/**
+ * The IDs of labels assigned to the person. When the label_ids field is updated, the label field value will be set to the first value of the label_ids field.
+ * @member {Array.<Number>} label_ids
+ */
+BasePersonItem.prototype['label_ids'] = undefined;
 /**
  * The name of the organization associated with the person
  * @member {String} org_name

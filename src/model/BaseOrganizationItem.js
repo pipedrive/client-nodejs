@@ -115,6 +115,11 @@ class BaseOrganizationItem {
 
                 delete data['label'];
             }
+            if (data.hasOwnProperty('label_ids')) {
+                obj['label_ids'] = ApiClient.convertToType(data['label_ids'], ['Number']);
+
+                delete data['label_ids'];
+            }
             if (data.hasOwnProperty('owner_name')) {
                 obj['owner_name'] = ApiClient.convertToType(data['owner_name'], 'String');
 
@@ -362,10 +367,16 @@ BaseOrganizationItem.prototype['update_time'] = undefined;
 BaseOrganizationItem.prototype['visible_to'] = undefined;
 
 /**
- * The label assigned to the organization
+ * The label assigned to the organization. When the label field is updated, the label_ids field value will be overwritten by the label field value.
  * @member {Number} label
  */
 BaseOrganizationItem.prototype['label'] = undefined;
+
+/**
+ * The IDs of labels assigned to the organization. When the label_ids field is updated, the label field value will be set to the first value of the label_ids field.
+ * @member {Array.<Number>} label_ids
+ */
+BaseOrganizationItem.prototype['label_ids'] = undefined;
 
 /**
  * The name of the organization owner
@@ -627,10 +638,15 @@ BaseOrganizationItemFields.prototype['update_time'] = undefined;
  */
 BaseOrganizationItemFields.prototype['visible_to'] = undefined;
 /**
- * The label assigned to the organization
+ * The label assigned to the organization. When the label field is updated, the label_ids field value will be overwritten by the label field value.
  * @member {Number} label
  */
 BaseOrganizationItemFields.prototype['label'] = undefined;
+/**
+ * The IDs of labels assigned to the organization. When the label_ids field is updated, the label field value will be set to the first value of the label_ids field.
+ * @member {Array.<Number>} label_ids
+ */
+BaseOrganizationItemFields.prototype['label_ids'] = undefined;
 /**
  * The name of the organization owner
  * @member {String} owner_name

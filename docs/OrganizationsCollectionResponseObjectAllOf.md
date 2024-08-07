@@ -12,7 +12,8 @@ Name | Type | Description | Notes
 **delete_time** | **String** | The date and time this organization was deleted. Format: YYYY-MM-DD HH:MM:SS | [optional] 
 **add_time** | **String** | The date and time when the organization was added/created. Format: YYYY-MM-DD HH:MM:SS | [optional] 
 **visible_to** | **String** | The visibility group ID of who can see the organization | [optional] 
-**label** | **Number** | The label assigned to the organization | [optional] 
+**label** | **Number** | The label assigned to the organization. When the label field is updated, the label_ids field value will be overwritten by the label field value. | [optional] 
+**label_ids** | **[Number]** | The IDs of labels assigned to the organization. When the label_ids field is updated, the label field value will be set to the first value of the label_ids field. | [optional] 
 **cc_email** | **String** | The BCC email associated with the organization | [optional] 
 
 
