@@ -353,13 +353,13 @@ MergePersonItem.prototype['visible_to'] = undefined;
 MergePersonItem.prototype['picture_id'] = undefined;
 
 /**
- * The label assigned to the person. When the label field is updated, the label_ids field value will be overwritten by the label field value.
+ * The label assigned to the person. When the `label` field is updated, the `label_ids` field value will be overwritten by the `label` field value.
  * @member {Number} label
  */
 MergePersonItem.prototype['label'] = undefined;
 
 /**
- * The IDs of labels assigned to the person. When the label_ids field is updated, the label field value will be set to the first value of the label_ids field.
+ * The IDs of labels assigned to the person. When the `label_ids` field is updated, the `label` field value will be set to the first value of the `label_ids` field.
  * @member {Array.<Number>} label_ids
  */
 MergePersonItem.prototype['label_ids'] = undefined;
@@ -614,12 +614,12 @@ BasePersonItem.prototype['visible_to'] = undefined;
  */
 BasePersonItem.prototype['picture_id'] = undefined;
 /**
- * The label assigned to the person. When the label field is updated, the label_ids field value will be overwritten by the label field value.
+ * The label assigned to the person. When the `label` field is updated, the `label_ids` field value will be overwritten by the `label` field value.
  * @member {Number} label
  */
 BasePersonItem.prototype['label'] = undefined;
 /**
- * The IDs of labels assigned to the person. When the label_ids field is updated, the label field value will be set to the first value of the label_ids field.
+ * The IDs of labels assigned to the person. When the `label_ids` field is updated, the `label` field value will be set to the first value of the `label_ids` field.
  * @member {Array.<Number>} label_ids
  */
 BasePersonItem.prototype['label_ids'] = undefined;

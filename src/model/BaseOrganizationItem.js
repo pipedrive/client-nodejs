@@ -367,13 +367,13 @@ BaseOrganizationItem.prototype['update_time'] = undefined;
 BaseOrganizationItem.prototype['visible_to'] = undefined;
 
 /**
- * The label assigned to the organization. When the label field is updated, the label_ids field value will be overwritten by the label field value.
+ * The label assigned to the organization. When the `label` field is updated, the `label_ids` field value will be overwritten by the `label` field value.
  * @member {Number} label
  */
 BaseOrganizationItem.prototype['label'] = undefined;
 
 /**
- * The IDs of labels assigned to the organization. When the label_ids field is updated, the label field value will be set to the first value of the label_ids field.
+ * The IDs of labels assigned to the organization. When the `label_ids` field is updated, the `label` field value will be set to the first value of the `label_ids` field.
  * @member {Array.<Number>} label_ids
  */
 BaseOrganizationItem.prototype['label_ids'] = undefined;
@@ -638,12 +638,12 @@ BaseOrganizationItemFields.prototype['update_time'] = undefined;
  */
 BaseOrganizationItemFields.prototype['visible_to'] = undefined;
 /**
- * The label assigned to the organization. When the label field is updated, the label_ids field value will be overwritten by the label field value.
+ * The label assigned to the organization. When the `label` field is updated, the `label_ids` field value will be overwritten by the `label` field value.
  * @member {Number} label
  */
 BaseOrganizationItemFields.prototype['label'] = undefined;
 /**
- * The IDs of labels assigned to the organization. When the label_ids field is updated, the label field value will be set to the first value of the label_ids field.
+ * The IDs of labels assigned to the organization. When the `label_ids` field is updated, the `label` field value will be set to the first value of the `label_ids` field.
  * @member {Array.<Number>} label_ids
  */
 BaseOrganizationItemFields.prototype['label_ids'] = undefined;

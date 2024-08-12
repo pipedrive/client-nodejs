@@ -15,8 +15,8 @@ Name | Type | Description | Notes
 **add_time** | **String** | The creation date and time of the organization | [optional] 
 **update_time** | **String** | The last updated date and time of the organization | [optional] 
 **visible_to** | **String** | The visibility group ID of who can see the organization | [optional] 
-**label** | **Number** | The label assigned to the organization. When the label field is updated, the label_ids field value will be overwritten by the label field value. | [optional] 
-**label_ids** | **[Number]** | The IDs of labels assigned to the organization. When the label_ids field is updated, the label field value will be set to the first value of the label_ids field. | [optional] 
+**label** | **Number** | The label assigned to the organization. When the &#x60;label&#x60; field is updated, the &#x60;label_ids&#x60; field value will be overwritten by the &#x60;label&#x60; field value. | [optional] 
+**label_ids** | **[Number]** | The IDs of labels assigned to the organization. When the &#x60;label_ids&#x60; field is updated, the &#x60;label&#x60; field value will be set to the first value of the &#x60;label_ids&#x60; field. | [optional] 
 **owner_name** | **String** | The name of the organization owner | [optional] 
 **cc_email** | **String** | The BCC email associated with the organization | [optional] 
 
