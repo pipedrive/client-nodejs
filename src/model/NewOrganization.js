@@ -117,13 +117,13 @@ NewOrganization.prototype['add_time'] = undefined;
 NewOrganization.prototype['owner_id'] = undefined;
 
 /**
- * The label assigned to the organization. When the label field is updated, the label_ids field value will be overwritten by the label field value.
+ * The label assigned to the organization. When the `label` field is updated, the `label_ids` field value will be overwritten by the `label` field value.
  * @member {Number} label
  */
 NewOrganization.prototype['label'] = undefined;
 
 /**
- * The IDs of labels assigned to the organization. When the label_ids field is updated, the label field value will be set to the first value of the label_ids field.
+ * The IDs of labels assigned to the organization. When the `label_ids` field is updated, the `label` field value will be set to the first value of the `label_ids` field.
  * @member {Array.<Number>} label_ids
  */
 NewOrganization.prototype['label_ids'] = undefined;
@@ -153,12 +153,12 @@ NewOrganizationAllOf.prototype['add_time'] = undefined;
  */
 BasicOrganization.prototype['owner_id'] = undefined;
 /**
- * The label assigned to the organization. When the label field is updated, the label_ids field value will be overwritten by the label field value.
+ * The label assigned to the organization. When the `label` field is updated, the `label_ids` field value will be overwritten by the `label` field value.
  * @member {Number} label
  */
 BasicOrganization.prototype['label'] = undefined;
 /**
- * The IDs of labels assigned to the organization. When the label_ids field is updated, the label field value will be set to the first value of the label_ids field.
+ * The IDs of labels assigned to the organization. When the `label_ids` field is updated, the `label` field value will be set to the first value of the `label_ids` field.
  * @member {Array.<Number>} label_ids
  */
 BasicOrganization.prototype['label_ids'] = undefined;
