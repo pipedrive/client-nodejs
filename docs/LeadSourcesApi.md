@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## getLeadSources
 
-> GetLeadSourcesResponse200 getLeadSources()
+> GetLeadsSourceResponse getLeadSources()
 
 Get all lead sources
 
@@ -45,7 +45,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**GetLeadSourcesResponse200**](GetLeadSourcesResponse200.md)
+[**GetLeadsSourceResponse**](GetLeadsSourceResponse.md)
 
 ### Authorization
 

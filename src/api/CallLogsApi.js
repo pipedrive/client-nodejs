@@ -14,14 +14,14 @@
 
 import ApiClient from "../ApiClient";
 import BaseResponse from '../model/BaseResponse';
+import CallLogBadRequestResponse from '../model/CallLogBadRequestResponse';
+import CallLogConflictResponse from '../model/CallLogConflictResponse';
+import CallLogForbiddenResponse from '../model/CallLogForbiddenResponse';
+import CallLogGoneResponse from '../model/CallLogGoneResponse';
+import CallLogInternalErrorResponse from '../model/CallLogInternalErrorResponse';
+import CallLogNotFoundResponse from '../model/CallLogNotFoundResponse';
 import CallLogObject from '../model/CallLogObject';
 import CallLogResponse200 from '../model/CallLogResponse200';
-import CallLogResponse400 from '../model/CallLogResponse400';
-import CallLogResponse403 from '../model/CallLogResponse403';
-import CallLogResponse404 from '../model/CallLogResponse404';
-import CallLogResponse409 from '../model/CallLogResponse409';
-import CallLogResponse410 from '../model/CallLogResponse410';
-import CallLogResponse500 from '../model/CallLogResponse500';
 import CallLogsResponse from '../model/CallLogsResponse';
 
 /**

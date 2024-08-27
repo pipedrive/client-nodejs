@@ -14,11 +14,11 @@
 
 import ApiClient from "../ApiClient";
 import AddLeadRequest from '../model/AddLeadRequest';
-import GetLeadsResponse200 from '../model/GetLeadsResponse200';
-import LeadIdResponse200 from '../model/LeadIdResponse200';
-import LeadResponse404 from '../model/LeadResponse404';
+import GetLeadIdResponse from '../model/GetLeadIdResponse';
+import GetLeadResponse from '../model/GetLeadResponse';
+import GetLeadsResponse from '../model/GetLeadsResponse';
+import LeadNotFoundResponse from '../model/LeadNotFoundResponse';
 import LeadSearchResponse from '../model/LeadSearchResponse';
-import OneLeadResponse200 from '../model/OneLeadResponse200';
 import UpdateLeadRequest from '../model/UpdateLeadRequest';
 import UserIDs from '../model/UserIDs';
 
@@ -47,7 +47,7 @@ export default class LeadsApi {
      * Creates a lead. A lead always has to be linked to a person or an organization or both. All leads created through the Pipedrive API will have a lead source and origin set to `API`. Here's the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-lead\" target=\"_blank\" rel=\"noopener noreferrer\">adding a lead</a>. If a lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the lead, it won't appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields' structure from deals. See an example given in the <a href=\"https://pipedrive.readme.io/docs/updating-custom-field-value\" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields' values tutorial</a>.
      * @param {Object} opts Optional parameters
      * @param {module:model/AddLeadRequest} opts.addLeadRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OneLeadResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetLeadResponse} and HTTP response
      */
     addLeadWithHttpInfo(opts) {
       opts = opts || {};
@@ -85,7 +85,7 @@ export default class LeadsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = OneLeadResponse200;
+      let returnType = GetLeadResponse;
       return this.apiClient.callApi(
         '/leads', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -98,7 +98,7 @@ export default class LeadsApi {
      * Creates a lead. A lead always has to be linked to a person or an organization or both. All leads created through the Pipedrive API will have a lead source and origin set to `API`. Here's the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-lead\" target=\"_blank\" rel=\"noopener noreferrer\">adding a lead</a>. If a lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the lead, it won't appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields' structure from deals. See an example given in the <a href=\"https://pipedrive.readme.io/docs/updating-custom-field-value\" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields' values tutorial</a>.
      * @param {Object} opts Optional parameters
      * @param {module:model/AddLeadRequest} opts.addLeadRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OneLeadResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetLeadResponse}
      */
     addLead(opts) {
       return this.addLeadWithHttpInfo(opts)
@@ -112,7 +112,7 @@ export default class LeadsApi {
      * Delete a lead
      * Deletes a specific lead.
      * @param {String} id The ID of the lead
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/LeadIdResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetLeadIdResponse} and HTTP response
      */
     deleteLeadWithHttpInfo(id) {
       const opts = {}
@@ -152,7 +152,7 @@ export default class LeadsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = LeadIdResponse200;
+      let returnType = GetLeadIdResponse;
       return this.apiClient.callApi(
         '/leads/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -164,7 +164,7 @@ export default class LeadsApi {
      * Delete a lead
      * Deletes a specific lead.
      * @param {String} id The ID of the lead
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/LeadIdResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetLeadIdResponse}
      */
     deleteLead(id) {
       return this.deleteLeadWithHttpInfo(id)
@@ -178,7 +178,7 @@ export default class LeadsApi {
      * Get one lead
      * Returns details of a specific lead. If a lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the lead, it won't appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from deals.
      * @param {String} id The ID of the lead
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OneLeadResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetLeadResponse} and HTTP response
      */
     getLeadWithHttpInfo(id) {
       const opts = {}
@@ -218,7 +218,7 @@ export default class LeadsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = OneLeadResponse200;
+      let returnType = GetLeadResponse;
       return this.apiClient.callApi(
         '/leads/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -230,7 +230,7 @@ export default class LeadsApi {
      * Get one lead
      * Returns details of a specific lead. If a lead contains custom fields, the fields' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field's value hasn't been set for the lead, it won't appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from deals.
      * @param {String} id The ID of the lead
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OneLeadResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetLeadResponse}
      */
     getLead(id) {
       return this.getLeadWithHttpInfo(id)
@@ -318,7 +318,7 @@ export default class LeadsApi {
      * @param {Number} opts.organizationId If supplied, only leads matching the given organization will be returned. However, `filter_id` takes precedence over `organization_id` when supplied.
      * @param {Number} opts.filterId The ID of the filter to use
      * @param {module:model/String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetLeadsResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetLeadsResponse} and HTTP response
      */
     getLeadsWithHttpInfo(opts) {
       opts = opts || {};
@@ -368,7 +368,7 @@ export default class LeadsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = GetLeadsResponse200;
+      let returnType = GetLeadsResponse;
       return this.apiClient.callApi(
         '/leads', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -388,7 +388,7 @@ export default class LeadsApi {
      * @param {Number} opts.organizationId If supplied, only leads matching the given organization will be returned. However, `filter_id` takes precedence over `organization_id` when supplied.
      * @param {Number} opts.filterId The ID of the filter to use
      * @param {module:model/String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys).
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetLeadsResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetLeadsResponse}
      */
     getLeads(opts) {
       return this.getLeadsWithHttpInfo(opts)
@@ -500,7 +500,7 @@ export default class LeadsApi {
      * @param {String} id The ID of the lead
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateLeadRequest} opts.updateLeadRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OneLeadResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetLeadResponse} and HTTP response
      */
     updateLeadWithHttpInfo(id, opts) {
       opts = opts || {};
@@ -541,7 +541,7 @@ export default class LeadsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = OneLeadResponse200;
+      let returnType = GetLeadResponse;
       return this.apiClient.callApi(
         '/leads/{id}', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -555,7 +555,7 @@ export default class LeadsApi {
      * @param {String} id The ID of the lead
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateLeadRequest} opts.updateLeadRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OneLeadResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetLeadResponse}
      */
     updateLead(id, opts) {
       return this.updateLeadWithHttpInfo(id, opts)

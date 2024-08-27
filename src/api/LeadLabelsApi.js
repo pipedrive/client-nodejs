@@ -14,11 +14,11 @@
 
 import ApiClient from "../ApiClient";
 import AddLeadLabelRequest from '../model/AddLeadLabelRequest';
-import AddOrUpdateLeadLabelResponse200 from '../model/AddOrUpdateLeadLabelResponse200';
-import GetLeadLabelsResponse200 from '../model/GetLeadLabelsResponse200';
-import LeadIdResponse200 from '../model/LeadIdResponse200';
-import LeadResponse404 from '../model/LeadResponse404';
+import DeleteLeadIdResponse from '../model/DeleteLeadIdResponse';
+import GetLeadLabelsResponse from '../model/GetLeadLabelsResponse';
+import LeadNotFoundResponse from '../model/LeadNotFoundResponse';
 import UpdateLeadLabelRequest from '../model/UpdateLeadLabelRequest';
+import UpsertLeadLabelResponse from '../model/UpsertLeadLabelResponse';
 
 /**
 * LeadLabels service.
@@ -45,7 +45,7 @@ export default class LeadLabelsApi {
      * Creates a lead label.
      * @param {Object} opts Optional parameters
      * @param {module:model/AddLeadLabelRequest} opts.addLeadLabelRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddOrUpdateLeadLabelResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UpsertLeadLabelResponse} and HTTP response
      */
     addLeadLabelWithHttpInfo(opts) {
       opts = opts || {};
@@ -86,7 +86,7 @@ export default class LeadLabelsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = AddOrUpdateLeadLabelResponse200;
+      let returnType = UpsertLeadLabelResponse;
       return this.apiClient.callApi(
         '/leadLabels', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -99,7 +99,7 @@ export default class LeadLabelsApi {
      * Creates a lead label.
      * @param {Object} opts Optional parameters
      * @param {module:model/AddLeadLabelRequest} opts.addLeadLabelRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddOrUpdateLeadLabelResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UpsertLeadLabelResponse}
      */
     addLeadLabel(opts) {
       return this.addLeadLabelWithHttpInfo(opts)
@@ -113,7 +113,7 @@ export default class LeadLabelsApi {
      * Delete a lead label
      * Deletes a specific lead label.
      * @param {String} id The ID of the lead label
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/LeadIdResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteLeadIdResponse} and HTTP response
      */
     deleteLeadLabelWithHttpInfo(id) {
       const opts = {}
@@ -153,7 +153,7 @@ export default class LeadLabelsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = LeadIdResponse200;
+      let returnType = DeleteLeadIdResponse;
       return this.apiClient.callApi(
         '/leadLabels/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -165,7 +165,7 @@ export default class LeadLabelsApi {
      * Delete a lead label
      * Deletes a specific lead label.
      * @param {String} id The ID of the lead label
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/LeadIdResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteLeadIdResponse}
      */
     deleteLeadLabel(id) {
       return this.deleteLeadLabelWithHttpInfo(id)
@@ -178,7 +178,7 @@ export default class LeadLabelsApi {
     /**
      * Get all lead labels
      * Returns details of all lead labels. This endpoint does not support pagination and all labels are always returned.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetLeadLabelsResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetLeadLabelsResponse} and HTTP response
      */
     getLeadLabelsWithHttpInfo() {
       const opts = {}
@@ -212,7 +212,7 @@ export default class LeadLabelsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = GetLeadLabelsResponse200;
+      let returnType = GetLeadLabelsResponse;
       return this.apiClient.callApi(
         '/leadLabels', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -223,7 +223,7 @@ export default class LeadLabelsApi {
     /**
      * Get all lead labels
      * Returns details of all lead labels. This endpoint does not support pagination and all labels are always returned.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetLeadLabelsResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetLeadLabelsResponse}
      */
     getLeadLabels() {
       return this.getLeadLabelsWithHttpInfo()
@@ -239,7 +239,7 @@ export default class LeadLabelsApi {
      * @param {String} id The ID of the lead label
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateLeadLabelRequest} opts.updateLeadLabelRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddOrUpdateLeadLabelResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UpsertLeadLabelResponse} and HTTP response
      */
     updateLeadLabelWithHttpInfo(id, opts) {
       opts = opts || {};
@@ -280,7 +280,7 @@ export default class LeadLabelsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = AddOrUpdateLeadLabelResponse200;
+      let returnType = UpsertLeadLabelResponse;
       return this.apiClient.callApi(
         '/leadLabels/{id}', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -294,7 +294,7 @@ export default class LeadLabelsApi {
      * @param {String} id The ID of the lead label
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateLeadLabelRequest} opts.updateLeadLabelRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddOrUpdateLeadLabelResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UpsertLeadLabelResponse}
      */
     updateLeadLabel(id, opts) {
       return this.updateLeadLabelWithHttpInfo(id, opts)

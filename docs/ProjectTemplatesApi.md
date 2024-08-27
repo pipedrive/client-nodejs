@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## getProjectTemplate
 
-> GetProjectTemplateResponse200 getProjectTemplate(id)
+> GetProjectTemplateResponse getProjectTemplate(id)
 
 Get details of a template
 
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetProjectTemplateResponse200**](GetProjectTemplateResponse200.md)
+[**GetProjectTemplateResponse**](GetProjectTemplateResponse.md)
 
 ### Authorization
 
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ## getProjectTemplates
 
-> GetProjectTemplatesResponse200 getProjectTemplates(opts)
+> GetProjectTemplatesResponse getProjectTemplates(opts)
 
 Get all project templates
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetProjectTemplatesResponse200**](GetProjectTemplatesResponse200.md)
+[**GetProjectTemplatesResponse**](GetProjectTemplatesResponse.md)
 
 ### Authorization
 
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 
 ## getProjectsBoard
 
-> GetProjectBoardResponse200 getProjectsBoard(id)
+> GetProjectBoardResponse getProjectsBoard(id)
 
 Get details of a board
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetProjectBoardResponse200**](GetProjectBoardResponse200.md)
+[**GetProjectBoardResponse**](GetProjectBoardResponse.md)
 
 ### Authorization
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 ## getProjectsPhase
 
-> GetProjectPhaseResponse200 getProjectsPhase(id)
+> GetProjectPhaseResponse getProjectsPhase(id)
 
 Get details of a phase
 
@@ -216,7 +216,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetProjectPhaseResponse200**](GetProjectPhaseResponse200.md)
+[**GetProjectPhaseResponse**](GetProjectPhaseResponse.md)
 
 ### Authorization
 

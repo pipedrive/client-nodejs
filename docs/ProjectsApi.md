@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 ## addProject
 
-> AddProjectResponse201 addProject(opts)
+> AddProjectResponse addProject(opts)
 
 Add a project
 
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AddProjectResponse201**](AddProjectResponse201.md)
+[**AddProjectResponse**](AddProjectResponse.md)
 
 ### Authorization
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 ## archiveProject
 
-> UpdateProjectResponse200 archiveProject(id)
+> UpdateProjectResponse archiveProject(id)
 
 Archive a project
 
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateProjectResponse200**](UpdateProjectResponse200.md)
+[**UpdateProjectResponse**](UpdateProjectResponse.md)
 
 ### Authorization
 
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ## deleteProject
 
-> DeleteProjectResponse200 deleteProject(id)
+> DeleteProjectResponse deleteProject(id)
 
 Delete a project
 
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteProjectResponse200**](DeleteProjectResponse200.md)
+[**DeleteProjectResponse**](DeleteProjectResponse.md)
 
 ### Authorization
 
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 
 ## getProject
 
-> GetProjectResponse200 getProject(id)
+> GetProjectResponse getProject(id)
 
 Get details of a project
 
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetProjectResponse200**](GetProjectResponse200.md)
+[**GetProjectResponse**](GetProjectResponse.md)
 
 ### Authorization
 
@@ -237,7 +237,7 @@ Name | Type | Description  | Notes
 
 ## getProjectActivities
 
-> GetActivitiesCollectionResponse200 getProjectActivities(id)
+> GetActivitiesCollectionResponse getProjectActivities(id)
 
 Returns project activities
 
@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetActivitiesCollectionResponse200**](GetActivitiesCollectionResponse200.md)
+[**GetActivitiesCollectionResponse**](GetActivitiesCollectionResponse.md)
 
 ### Authorization
 
@@ -290,7 +290,7 @@ Name | Type | Description  | Notes
 
 ## getProjectGroups
 
-> GetProjectGroupsResponse200 getProjectGroups(id)
+> GetProjectGroupsResponse getProjectGroups(id)
 
 Returns project groups
 
@@ -329,7 +329,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetProjectGroupsResponse200**](GetProjectGroupsResponse200.md)
+[**GetProjectGroupsResponse**](GetProjectGroupsResponse.md)
 
 ### Authorization
 
@@ -343,7 +343,7 @@ Name | Type | Description  | Notes
 
 ## getProjectPlan
 
-> GetProjectPlanResponse200 getProjectPlan(id)
+> GetProjectPlanResponse getProjectPlan(id)
 
 Returns project plan
 
@@ -382,7 +382,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetProjectPlanResponse200**](GetProjectPlanResponse200.md)
+[**GetProjectPlanResponse**](GetProjectPlanResponse.md)
 
 ### Authorization
 
@@ -396,7 +396,7 @@ Name | Type | Description  | Notes
 
 ## getProjectTasks
 
-> GetTasksResponse200 getProjectTasks(id)
+> GetTasksResponse getProjectTasks(id)
 
 Returns project tasks
 
@@ -435,7 +435,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTasksResponse200**](GetTasksResponse200.md)
+[**GetTasksResponse**](GetTasksResponse.md)
 
 ### Authorization
 
@@ -449,7 +449,7 @@ Name | Type | Description  | Notes
 
 ## getProjects
 
-> GetProjectsResponse200 getProjects(opts)
+> GetProjectsResponse getProjects(opts)
 
 Get all projects
 
@@ -501,7 +501,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetProjectsResponse200**](GetProjectsResponse200.md)
+[**GetProjectsResponse**](GetProjectsResponse.md)
 
 ### Authorization
 
@@ -515,7 +515,7 @@ Name | Type | Description  | Notes
 
 ## getProjectsBoards
 
-> GetProjectBoardsResponse200 getProjectsBoards()
+> GetProjectBoardsResponse getProjectsBoards()
 
 Get all project boards
 
@@ -550,7 +550,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**GetProjectBoardsResponse200**](GetProjectBoardsResponse200.md)
+[**GetProjectBoardsResponse**](GetProjectBoardsResponse.md)
 
 ### Authorization
 
@@ -564,7 +564,7 @@ This endpoint does not need any parameter.
 
 ## getProjectsPhases
 
-> GetProjectPhasesResponse200 getProjectsPhases(boardId)
+> GetProjectPhasesResponse getProjectsPhases(boardId)
 
 Get project phases
 
@@ -603,7 +603,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetProjectPhasesResponse200**](GetProjectPhasesResponse200.md)
+[**GetProjectPhasesResponse**](GetProjectPhasesResponse.md)
 
 ### Authorization
 
@@ -617,7 +617,7 @@ Name | Type | Description  | Notes
 
 ## putProjectPlanActivity
 
-> UpdatedActivityPlanItem200 putProjectPlanActivity(id, activityId, opts)
+> UpdateActivityPlanItem putProjectPlanActivity(id, activityId, opts)
 
 Update activity in project plan
 
@@ -662,7 +662,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdatedActivityPlanItem200**](UpdatedActivityPlanItem200.md)
+[**UpdateActivityPlanItem**](UpdateActivityPlanItem.md)
 
 ### Authorization
 
@@ -676,7 +676,7 @@ Name | Type | Description  | Notes
 
 ## putProjectPlanTask
 
-> UpdatedTaskPlanItem200 putProjectPlanTask(id, taskId, opts)
+> UpdateTaskPlanItem putProjectPlanTask(id, taskId, opts)
 
 Update task in project plan
 
@@ -721,7 +721,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdatedTaskPlanItem200**](UpdatedTaskPlanItem200.md)
+[**UpdateTaskPlanItem**](UpdateTaskPlanItem.md)
 
 ### Authorization
 
@@ -735,7 +735,7 @@ Name | Type | Description  | Notes
 
 ## updateProject
 
-> UpdateProjectResponse200 updateProject(id, opts)
+> UpdateProjectResponse updateProject(id, opts)
 
 Update a project
 
@@ -778,7 +778,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateProjectResponse200**](UpdateProjectResponse200.md)
+[**UpdateProjectResponse**](UpdateProjectResponse.md)
 
 ### Authorization
 

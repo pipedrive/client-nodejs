@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## addActivity
 
-> AddActivityResponse200 addActivity(opts)
+> AddActivityResponse addActivity(opts)
 
 Add an activity
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AddActivityResponse200**](AddActivityResponse200.md)
+[**AddActivityResponse**](AddActivityResponse.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ## deleteActivities
 
-> DeleteActivitiesResponse200 deleteActivities(ids)
+> DeleteActivitiesResponse deleteActivities(ids)
 
 Delete multiple activities in bulk
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteActivitiesResponse200**](DeleteActivitiesResponse200.md)
+[**DeleteActivitiesResponse**](DeleteActivitiesResponse.md)
 
 ### Authorization
 
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 
 ## deleteActivity
 
-> DeleteActivityResponse200 deleteActivity(id)
+> DeleteActivityResponse deleteActivity(id)
 
 Delete an activity
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteActivityResponse200**](DeleteActivityResponse200.md)
+[**DeleteActivityResponse**](DeleteActivityResponse.md)
 
 ### Authorization
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 ## getActivities
 
-> GetActivitiesResponse200 getActivities(opts)
+> GetActivitiesResponse getActivities(opts)
 
 Get all activities assigned to a particular user
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetActivitiesResponse200**](GetActivitiesResponse200.md)
+[**GetActivitiesResponse**](GetActivitiesResponse.md)
 
 ### Authorization
 
@@ -247,7 +247,7 @@ Name | Type | Description  | Notes
 
 ## getActivitiesCollection
 
-> GetActivitiesCollectionResponse200 getActivitiesCollection(opts)
+> GetActivitiesCollectionResponse getActivitiesCollection(opts)
 
 Get all activities (BETA)
 
@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetActivitiesCollectionResponse200**](GetActivitiesCollectionResponse200.md)
+[**GetActivitiesCollectionResponse**](GetActivitiesCollectionResponse.md)
 
 ### Authorization
 
@@ -315,7 +315,7 @@ Name | Type | Description  | Notes
 
 ## getActivity
 
-> GetActivityResponse200 getActivity(id)
+> GetActivityResponse getActivity(id)
 
 Get details of an activity
 
@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetActivityResponse200**](GetActivityResponse200.md)
+[**GetActivityResponse**](GetActivityResponse.md)
 
 ### Authorization
 
@@ -368,7 +368,7 @@ Name | Type | Description  | Notes
 
 ## updateActivity
 
-> UpdateActivityResponse200 updateActivity(id, opts)
+> UpdateActivityResponse updateActivity(id, opts)
 
 Update an activity
 
@@ -411,7 +411,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateActivityResponse200**](UpdateActivityResponse200.md)
+[**UpdateActivityResponse**](UpdateActivityResponse.md)
 
 ### Authorization
 

@@ -13,14 +13,14 @@
 
 
 import ApiClient from "../ApiClient";
-import AddTaskResponse201 from '../model/AddTaskResponse201';
-import DeleteTaskResponse200 from '../model/DeleteTaskResponse200';
-import GetTaskResponse200 from '../model/GetTaskResponse200';
-import GetTasksResponse200 from '../model/GetTasksResponse200';
+import AddTaskResponse from '../model/AddTaskResponse';
+import DeleteTaskResponse from '../model/DeleteTaskResponse';
+import GetTaskResponse from '../model/GetTaskResponse';
+import GetTasksResponse from '../model/GetTasksResponse';
 import NumberBoolean from '../model/NumberBoolean';
 import TaskPostObject from '../model/TaskPostObject';
 import TaskPutObject from '../model/TaskPutObject';
-import UpdateTaskResponse200 from '../model/UpdateTaskResponse200';
+import UpdateTaskResponse from '../model/UpdateTaskResponse';
 
 /**
 * Tasks service.
@@ -47,7 +47,7 @@ export default class TasksApi {
      * Adds a new task.
      * @param {Object} opts Optional parameters
      * @param {module:model/TaskPostObject} opts.taskPostObject 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddTaskResponse201} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddTaskResponse} and HTTP response
      */
     addTaskWithHttpInfo(opts) {
       opts = opts || {};
@@ -82,7 +82,7 @@ export default class TasksApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = AddTaskResponse201;
+      let returnType = AddTaskResponse;
       return this.apiClient.callApi(
         '/tasks', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -95,7 +95,7 @@ export default class TasksApi {
      * Adds a new task.
      * @param {Object} opts Optional parameters
      * @param {module:model/TaskPostObject} opts.taskPostObject 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddTaskResponse201}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddTaskResponse}
      */
     addTask(opts) {
       return this.addTaskWithHttpInfo(opts)
@@ -109,7 +109,7 @@ export default class TasksApi {
      * Delete a task
      * Marks a task as deleted. If the task has subtasks then those will also be deleted.
      * @param {Number} id The ID of the task
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteTaskResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteTaskResponse} and HTTP response
      */
     deleteTaskWithHttpInfo(id) {
       const opts = {}
@@ -149,7 +149,7 @@ export default class TasksApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = DeleteTaskResponse200;
+      let returnType = DeleteTaskResponse;
       return this.apiClient.callApi(
         '/tasks/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -161,7 +161,7 @@ export default class TasksApi {
      * Delete a task
      * Marks a task as deleted. If the task has subtasks then those will also be deleted.
      * @param {Number} id The ID of the task
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteTaskResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteTaskResponse}
      */
     deleteTask(id) {
       return this.deleteTaskWithHttpInfo(id)
@@ -175,7 +175,7 @@ export default class TasksApi {
      * Get details of a task
      * Returns the details of a specific task.
      * @param {Number} id The ID of the task
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetTaskResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetTaskResponse} and HTTP response
      */
     getTaskWithHttpInfo(id) {
       const opts = {}
@@ -215,7 +215,7 @@ export default class TasksApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = GetTaskResponse200;
+      let returnType = GetTaskResponse;
       return this.apiClient.callApi(
         '/tasks/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -227,7 +227,7 @@ export default class TasksApi {
      * Get details of a task
      * Returns the details of a specific task.
      * @param {Number} id The ID of the task
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetTaskResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetTaskResponse}
      */
     getTask(id) {
       return this.getTaskWithHttpInfo(id)
@@ -247,7 +247,7 @@ export default class TasksApi {
      * @param {Number} opts.projectId If supplied, only tasks that are assigned to this project are returned
      * @param {Number} opts.parentTaskId If `null` is supplied then only parent tasks are returned. If integer is supplied then only subtasks of a specific task are returned. By default all tasks are returned.
      * @param {module:model/NumberBoolean} opts.done Whether the task is done or not. `0` = Not done, `1` = Done. If not omitted then returns both done and not done tasks.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetTasksResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetTasksResponse} and HTTP response
      */
     getTasksWithHttpInfo(opts) {
       opts = opts || {};
@@ -293,7 +293,7 @@ export default class TasksApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = GetTasksResponse200;
+      let returnType = GetTasksResponse;
       return this.apiClient.callApi(
         '/tasks', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -311,7 +311,7 @@ export default class TasksApi {
      * @param {Number} opts.projectId If supplied, only tasks that are assigned to this project are returned
      * @param {Number} opts.parentTaskId If `null` is supplied then only parent tasks are returned. If integer is supplied then only subtasks of a specific task are returned. By default all tasks are returned.
      * @param {module:model/NumberBoolean} opts.done Whether the task is done or not. `0` = Not done, `1` = Done. If not omitted then returns both done and not done tasks.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetTasksResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetTasksResponse}
      */
     getTasks(opts) {
       return this.getTasksWithHttpInfo(opts)
@@ -327,7 +327,7 @@ export default class TasksApi {
      * @param {Number} id The ID of the task
      * @param {Object} opts Optional parameters
      * @param {module:model/TaskPutObject} opts.taskPutObject 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UpdateTaskResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UpdateTaskResponse} and HTTP response
      */
     updateTaskWithHttpInfo(id, opts) {
       opts = opts || {};
@@ -368,7 +368,7 @@ export default class TasksApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = UpdateTaskResponse200;
+      let returnType = UpdateTaskResponse;
       return this.apiClient.callApi(
         '/tasks/{id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -382,7 +382,7 @@ export default class TasksApi {
      * @param {Number} id The ID of the task
      * @param {Object} opts Optional parameters
      * @param {module:model/TaskPutObject} opts.taskPutObject 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UpdateTaskResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UpdateTaskResponse}
      */
     updateTask(id, opts) {
       return this.updateTaskWithHttpInfo(id, opts)

@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ## deleteStage
 
-> DeleteStageResponse200 deleteStage(id)
+> DeleteStageResponse deleteStage(id)
 
 Delete a stage
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteStageResponse200**](DeleteStageResponse200.md)
+[**DeleteStageResponse**](DeleteStageResponse.md)
 
 ### Authorization
 
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 
 ## deleteStages
 
-> DeleteStagesResponse200 deleteStages(ids)
+> DeleteStagesResponse deleteStages(ids)
 
 Delete multiple stages in bulk
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteStagesResponse200**](DeleteStagesResponse200.md)
+[**DeleteStagesResponse**](DeleteStagesResponse.md)
 
 ### Authorization
 

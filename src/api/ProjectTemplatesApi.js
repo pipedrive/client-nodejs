@@ -13,10 +13,10 @@
 
 
 import ApiClient from "../ApiClient";
-import GetProjectBoardResponse200 from '../model/GetProjectBoardResponse200';
-import GetProjectPhaseResponse200 from '../model/GetProjectPhaseResponse200';
-import GetProjectTemplateResponse200 from '../model/GetProjectTemplateResponse200';
-import GetProjectTemplatesResponse200 from '../model/GetProjectTemplatesResponse200';
+import GetProjectBoardResponse from '../model/GetProjectBoardResponse';
+import GetProjectPhaseResponse from '../model/GetProjectPhaseResponse';
+import GetProjectTemplateResponse from '../model/GetProjectTemplateResponse';
+import GetProjectTemplatesResponse from '../model/GetProjectTemplatesResponse';
 
 /**
 * ProjectTemplates service.
@@ -42,7 +42,7 @@ export default class ProjectTemplatesApi {
      * Get details of a template
      * Returns the details of a specific project template.
      * @param {Number} id The ID of the project template
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetProjectTemplateResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetProjectTemplateResponse} and HTTP response
      */
     getProjectTemplateWithHttpInfo(id) {
       const opts = {}
@@ -82,7 +82,7 @@ export default class ProjectTemplatesApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = GetProjectTemplateResponse200;
+      let returnType = GetProjectTemplateResponse;
       return this.apiClient.callApi(
         '/projectTemplates/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -94,7 +94,7 @@ export default class ProjectTemplatesApi {
      * Get details of a template
      * Returns the details of a specific project template.
      * @param {Number} id The ID of the project template
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetProjectTemplateResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetProjectTemplateResponse}
      */
     getProjectTemplate(id) {
       return this.getProjectTemplateWithHttpInfo(id)
@@ -110,7 +110,7 @@ export default class ProjectTemplatesApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.cursor For pagination, the marker (an opaque string value) representing the first item on the next page
      * @param {Number} opts.limit For pagination, the limit of entries to be returned. If not provided, up to 500 items will be returned.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetProjectTemplatesResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetProjectTemplatesResponse} and HTTP response
      */
     getProjectTemplatesWithHttpInfo(opts) {
       opts = opts || {};
@@ -148,7 +148,7 @@ export default class ProjectTemplatesApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = GetProjectTemplatesResponse200;
+      let returnType = GetProjectTemplatesResponse;
       return this.apiClient.callApi(
         '/projectTemplates', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -162,7 +162,7 @@ export default class ProjectTemplatesApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.cursor For pagination, the marker (an opaque string value) representing the first item on the next page
      * @param {Number} opts.limit For pagination, the limit of entries to be returned. If not provided, up to 500 items will be returned.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetProjectTemplatesResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetProjectTemplatesResponse}
      */
     getProjectTemplates(opts) {
       return this.getProjectTemplatesWithHttpInfo(opts)
@@ -176,7 +176,7 @@ export default class ProjectTemplatesApi {
      * Get details of a board
      * Returns the details of a specific project board.
      * @param {Number} id The ID of the project board
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetProjectBoardResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetProjectBoardResponse} and HTTP response
      */
     getProjectsBoardWithHttpInfo(id) {
       const opts = {}
@@ -216,7 +216,7 @@ export default class ProjectTemplatesApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = GetProjectBoardResponse200;
+      let returnType = GetProjectBoardResponse;
       return this.apiClient.callApi(
         '/projects/boards/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -228,7 +228,7 @@ export default class ProjectTemplatesApi {
      * Get details of a board
      * Returns the details of a specific project board.
      * @param {Number} id The ID of the project board
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetProjectBoardResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetProjectBoardResponse}
      */
     getProjectsBoard(id) {
       return this.getProjectsBoardWithHttpInfo(id)
@@ -242,7 +242,7 @@ export default class ProjectTemplatesApi {
      * Get details of a phase
      * Returns the details of a specific project phase.
      * @param {Number} id The ID of the project phase
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetProjectPhaseResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetProjectPhaseResponse} and HTTP response
      */
     getProjectsPhaseWithHttpInfo(id) {
       const opts = {}
@@ -282,7 +282,7 @@ export default class ProjectTemplatesApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = GetProjectPhaseResponse200;
+      let returnType = GetProjectPhaseResponse;
       return this.apiClient.callApi(
         '/projects/phases/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -294,7 +294,7 @@ export default class ProjectTemplatesApi {
      * Get details of a phase
      * Returns the details of a specific project phase.
      * @param {Number} id The ID of the project phase
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetProjectPhaseResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetProjectPhaseResponse}
      */
     getProjectsPhase(id) {
       return this.getProjectsPhaseWithHttpInfo(id)

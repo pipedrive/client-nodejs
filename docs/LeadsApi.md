@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## addLead
 
-> OneLeadResponse200 addLead(opts)
+> GetLeadResponse addLead(opts)
 
 Add a lead
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OneLeadResponse200**](OneLeadResponse200.md)
+[**GetLeadResponse**](GetLeadResponse.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ## deleteLead
 
-> LeadIdResponse200 deleteLead(id)
+> GetLeadIdResponse deleteLead(id)
 
 Delete a lead
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LeadIdResponse200**](LeadIdResponse200.md)
+[**GetLeadIdResponse**](GetLeadIdResponse.md)
 
 ### Authorization
 
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 
 ## getLead
 
-> OneLeadResponse200 getLead(id)
+> GetLeadResponse getLead(id)
 
 Get one lead
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OneLeadResponse200**](OneLeadResponse200.md)
+[**GetLeadResponse**](GetLeadResponse.md)
 
 ### Authorization
 
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ## getLeads
 
-> GetLeadsResponse200 getLeads(opts)
+> GetLeadsResponse getLeads(opts)
 
 Get all leads
 
@@ -286,7 +286,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetLeadsResponse200**](GetLeadsResponse200.md)
+[**GetLeadsResponse**](GetLeadsResponse.md)
 
 ### Authorization
 
@@ -370,7 +370,7 @@ Name | Type | Description  | Notes
 
 ## updateLead
 
-> OneLeadResponse200 updateLead(id, opts)
+> GetLeadResponse updateLead(id, opts)
 
 Update a lead
 
@@ -413,7 +413,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OneLeadResponse200**](OneLeadResponse200.md)
+[**GetLeadResponse**](GetLeadResponse.md)
 
 ### Authorization
 
