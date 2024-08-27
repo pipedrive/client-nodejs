@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## addGoal
 
-> AddOrUpdateGoalResponse200 addGoal(opts)
+> UpsertGoalResponse addGoal(opts)
 
 Add a new goal
 
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AddOrUpdateGoalResponse200**](AddOrUpdateGoalResponse200.md)
+[**UpsertGoalResponse**](UpsertGoalResponse.md)
 
 ### Authorization
 
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 ## deleteGoal
 
-> DeleteGoalResponse200 deleteGoal(id)
+> DeleteGoalResponse deleteGoal(id)
 
 Delete existing goal
 
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteGoalResponse200**](DeleteGoalResponse200.md)
+[**DeleteGoalResponse**](DeleteGoalResponse.md)
 
 ### Authorization
 
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ## getGoalResult
 
-> GetGoalResultResponse200 getGoalResult(id, periodStart, periodEnd)
+> GetGoalResultResponse getGoalResult(id, periodStart, periodEnd)
 
 Get result of a goal
 
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetGoalResultResponse200**](GetGoalResultResponse200.md)
+[**GetGoalResultResponse**](GetGoalResultResponse.md)
 
 ### Authorization
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 ## getGoals
 
-> GetGoalsResponse200 getGoals(opts)
+> GetGoalsResponse getGoals(opts)
 
 Find goals
 
@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetGoalsResponse200**](GetGoalsResponse200.md)
+[**GetGoalsResponse**](GetGoalsResponse.md)
 
 ### Authorization
 
@@ -259,7 +259,7 @@ Name | Type | Description  | Notes
 
 ## updateGoal
 
-> AddOrUpdateGoalResponse200 updateGoal(id, opts)
+> UpsertGoalResponse updateGoal(id, opts)
 
 Update existing goal
 
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AddOrUpdateGoalResponse200**](AddOrUpdateGoalResponse200.md)
+[**UpsertGoalResponse**](UpsertGoalResponse.md)
 
 ### Authorization
 

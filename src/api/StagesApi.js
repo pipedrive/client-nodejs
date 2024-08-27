@@ -13,8 +13,8 @@
 
 
 import ApiClient from "../ApiClient";
-import DeleteStageResponse200 from '../model/DeleteStageResponse200';
-import DeleteStagesResponse200 from '../model/DeleteStagesResponse200';
+import DeleteStageResponse from '../model/DeleteStageResponse';
+import DeleteStagesResponse from '../model/DeleteStagesResponse';
 import GetAddUpdateStage from '../model/GetAddUpdateStage';
 import GetOneStage from '../model/GetOneStage';
 import GetStageDeals from '../model/GetStageDeals';
@@ -110,7 +110,7 @@ export default class StagesApi {
      * Delete a stage
      * Marks a stage as deleted.
      * @param {Number} id The ID of the stage
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteStageResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteStageResponse} and HTTP response
      */
     deleteStageWithHttpInfo(id) {
       const opts = {}
@@ -150,7 +150,7 @@ export default class StagesApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = DeleteStageResponse200;
+      let returnType = DeleteStageResponse;
       return this.apiClient.callApi(
         '/stages/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -162,7 +162,7 @@ export default class StagesApi {
      * Delete a stage
      * Marks a stage as deleted.
      * @param {Number} id The ID of the stage
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteStageResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteStageResponse}
      */
     deleteStage(id) {
       return this.deleteStageWithHttpInfo(id)
@@ -176,7 +176,7 @@ export default class StagesApi {
      * Delete multiple stages in bulk
      * Marks multiple stages as deleted.
      * @param {String} ids The comma-separated stage IDs to delete
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteStagesResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteStagesResponse} and HTTP response
      */
     deleteStagesWithHttpInfo(ids) {
       const opts = {}
@@ -216,7 +216,7 @@ export default class StagesApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = DeleteStagesResponse200;
+      let returnType = DeleteStagesResponse;
       return this.apiClient.callApi(
         '/stages', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -228,7 +228,7 @@ export default class StagesApi {
      * Delete multiple stages in bulk
      * Marks multiple stages as deleted.
      * @param {String} ids The comma-separated stage IDs to delete
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteStagesResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteStagesResponse}
      */
     deleteStages(ids) {
       return this.deleteStagesWithHttpInfo(ids)

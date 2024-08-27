@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [23.2.5] - 2024-08-27
+### Fixed
+- Updated default values for "billing_frequency_cycles", "billing_start_date" fields
+
 ## [23.2.4] - 2024-08-13
 ### Fixed
 - Added "filter_id" to GET /api/v2/deals documentation
@@ -673,7 +677,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v23.2.4...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v23.2.5...HEAD
+[23.2.5]: https://github.com/pipedrive/api-docs/compare/v23.2.4...v23.2.5
 [23.2.4]: https://github.com/pipedrive/api-docs/compare/v23.2.3...v23.2.4
 [23.2.3]: https://github.com/pipedrive/api-docs/compare/v23.2.2...v23.2.3
 [23.2.2]: https://github.com/pipedrive/api-docs/compare/v23.2.1...v23.2.2

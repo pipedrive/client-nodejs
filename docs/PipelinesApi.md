@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 ## deletePipeline
 
-> DeletePipelineResponse200 deletePipeline(id)
+> DeletePipelineResponse deletePipeline(id)
 
 Delete a pipeline
 
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeletePipelineResponse200**](DeletePipelineResponse200.md)
+[**DeletePipelineResponse**](DeletePipelineResponse.md)
 
 ### Authorization
 

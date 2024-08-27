@@ -15,15 +15,15 @@
 import ApiClient from "../ApiClient";
 import ActivityPostObject from '../model/ActivityPostObject';
 import ActivityPutObject from '../model/ActivityPutObject';
-import AddActivityResponse200 from '../model/AddActivityResponse200';
-import DeleteActivitiesResponse200 from '../model/DeleteActivitiesResponse200';
-import DeleteActivityResponse200 from '../model/DeleteActivityResponse200';
+import AddActivityResponse from '../model/AddActivityResponse';
+import DeleteActivitiesResponse from '../model/DeleteActivitiesResponse';
+import DeleteActivityResponse from '../model/DeleteActivityResponse';
 import FailResponse from '../model/FailResponse';
-import GetActivitiesCollectionResponse200 from '../model/GetActivitiesCollectionResponse200';
-import GetActivitiesResponse200 from '../model/GetActivitiesResponse200';
-import GetActivityResponse200 from '../model/GetActivityResponse200';
+import GetActivitiesCollectionResponse from '../model/GetActivitiesCollectionResponse';
+import GetActivitiesResponse from '../model/GetActivitiesResponse';
+import GetActivityResponse from '../model/GetActivityResponse';
 import NumberBoolean from '../model/NumberBoolean';
-import UpdateActivityResponse200 from '../model/UpdateActivityResponse200';
+import UpdateActivityResponse from '../model/UpdateActivityResponse';
 
 /**
 * Activities service.
@@ -50,7 +50,7 @@ export default class ActivitiesApi {
      * Adds a new activity. Includes `more_activities_scheduled_in_context` property in response's `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">adding an activity</a>. <br /> <br /> ***Starting from 30.09.2024, activity attendees will receive updates only if the activity owner has an active calendar sync***
      * @param {Object} opts Optional parameters
      * @param {module:model/ActivityPostObject} opts.activityPostObject 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddActivityResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddActivityResponse} and HTTP response
      */
     addActivityWithHttpInfo(opts) {
       opts = opts || {};
@@ -85,7 +85,7 @@ export default class ActivitiesApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = AddActivityResponse200;
+      let returnType = AddActivityResponse;
       return this.apiClient.callApi(
         '/activities', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -98,7 +98,7 @@ export default class ActivitiesApi {
      * Adds a new activity. Includes `more_activities_scheduled_in_context` property in response's `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">adding an activity</a>. <br /> <br /> ***Starting from 30.09.2024, activity attendees will receive updates only if the activity owner has an active calendar sync***
      * @param {Object} opts Optional parameters
      * @param {module:model/ActivityPostObject} opts.activityPostObject 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddActivityResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddActivityResponse}
      */
     addActivity(opts) {
       return this.addActivityWithHttpInfo(opts)
@@ -112,7 +112,7 @@ export default class ActivitiesApi {
      * Delete multiple activities in bulk
      * Marks multiple activities as deleted. After 30 days, the activities will be permanently deleted.
      * @param {String} ids The comma-separated IDs of activities that will be deleted
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteActivitiesResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteActivitiesResponse} and HTTP response
      */
     deleteActivitiesWithHttpInfo(ids) {
       const opts = {}
@@ -152,7 +152,7 @@ export default class ActivitiesApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = DeleteActivitiesResponse200;
+      let returnType = DeleteActivitiesResponse;
       return this.apiClient.callApi(
         '/activities', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -164,7 +164,7 @@ export default class ActivitiesApi {
      * Delete multiple activities in bulk
      * Marks multiple activities as deleted. After 30 days, the activities will be permanently deleted.
      * @param {String} ids The comma-separated IDs of activities that will be deleted
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteActivitiesResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteActivitiesResponse}
      */
     deleteActivities(ids) {
       return this.deleteActivitiesWithHttpInfo(ids)
@@ -178,7 +178,7 @@ export default class ActivitiesApi {
      * Delete an activity
      * Marks an activity as deleted. After 30 days, the activity will be permanently deleted.
      * @param {Number} id The ID of the activity
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteActivityResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteActivityResponse} and HTTP response
      */
     deleteActivityWithHttpInfo(id) {
       const opts = {}
@@ -218,7 +218,7 @@ export default class ActivitiesApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = DeleteActivityResponse200;
+      let returnType = DeleteActivityResponse;
       return this.apiClient.callApi(
         '/activities/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -230,7 +230,7 @@ export default class ActivitiesApi {
      * Delete an activity
      * Marks an activity as deleted. After 30 days, the activity will be permanently deleted.
      * @param {Number} id The ID of the activity
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteActivityResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteActivityResponse}
      */
     deleteActivity(id) {
       return this.deleteActivityWithHttpInfo(id)
@@ -252,7 +252,7 @@ export default class ActivitiesApi {
      * @param {Date} opts.startDate Use the activity due date where you wish to begin fetching activities from. Insert due date in YYYY-MM-DD format.
      * @param {Date} opts.endDate Use the activity due date where you wish to stop fetching activities from. Insert due date in YYYY-MM-DD format.
      * @param {module:model/NumberBoolean} opts.done Whether the activity is done or not. 0 = Not done, 1 = Done. If omitted returns both done and not done activities.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetActivitiesResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetActivitiesResponse} and HTTP response
      */
     getActivitiesWithHttpInfo(opts) {
       opts = opts || {};
@@ -302,7 +302,7 @@ export default class ActivitiesApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = GetActivitiesResponse200;
+      let returnType = GetActivitiesResponse;
       return this.apiClient.callApi(
         '/activities', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -322,7 +322,7 @@ export default class ActivitiesApi {
      * @param {Date} opts.startDate Use the activity due date where you wish to begin fetching activities from. Insert due date in YYYY-MM-DD format.
      * @param {Date} opts.endDate Use the activity due date where you wish to stop fetching activities from. Insert due date in YYYY-MM-DD format.
      * @param {module:model/NumberBoolean} opts.done Whether the activity is done or not. 0 = Not done, 1 = Done. If omitted returns both done and not done activities.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetActivitiesResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetActivitiesResponse}
      */
     getActivities(opts) {
       return this.getActivitiesWithHttpInfo(opts)
@@ -343,7 +343,7 @@ export default class ActivitiesApi {
      * @param {Number} opts.userId The ID of the user whose activities will be fetched. If omitted, all activities are returned.
      * @param {Boolean} opts.done Whether the activity is done or not. `false` = Not done, `true` = Done. If omitted, returns both done and not done activities.
      * @param {String} opts.type The type of the activity, can be one type or multiple types separated by a comma. This is in correlation with the `key_string` parameter of ActivityTypes.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetActivitiesCollectionResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetActivitiesCollectionResponse} and HTTP response
      */
     getActivitiesCollectionWithHttpInfo(opts) {
       opts = opts || {};
@@ -391,7 +391,7 @@ export default class ActivitiesApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = GetActivitiesCollectionResponse200;
+      let returnType = GetActivitiesCollectionResponse;
       return this.apiClient.callApi(
         '/activities/collection', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -410,7 +410,7 @@ export default class ActivitiesApi {
      * @param {Number} opts.userId The ID of the user whose activities will be fetched. If omitted, all activities are returned.
      * @param {Boolean} opts.done Whether the activity is done or not. `false` = Not done, `true` = Done. If omitted, returns both done and not done activities.
      * @param {String} opts.type The type of the activity, can be one type or multiple types separated by a comma. This is in correlation with the `key_string` parameter of ActivityTypes.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetActivitiesCollectionResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetActivitiesCollectionResponse}
      */
     getActivitiesCollection(opts) {
       return this.getActivitiesCollectionWithHttpInfo(opts)
@@ -424,7 +424,7 @@ export default class ActivitiesApi {
      * Get details of an activity
      * Returns the details of a specific activity.
      * @param {Number} id The ID of the activity
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetActivityResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetActivityResponse} and HTTP response
      */
     getActivityWithHttpInfo(id) {
       const opts = {}
@@ -464,7 +464,7 @@ export default class ActivitiesApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = GetActivityResponse200;
+      let returnType = GetActivityResponse;
       return this.apiClient.callApi(
         '/activities/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -476,7 +476,7 @@ export default class ActivitiesApi {
      * Get details of an activity
      * Returns the details of a specific activity.
      * @param {Number} id The ID of the activity
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetActivityResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetActivityResponse}
      */
     getActivity(id) {
       return this.getActivityWithHttpInfo(id)
@@ -492,7 +492,7 @@ export default class ActivitiesApi {
      * @param {Number} id The ID of the activity
      * @param {Object} opts Optional parameters
      * @param {module:model/ActivityPutObject} opts.activityPutObject 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UpdateActivityResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UpdateActivityResponse} and HTTP response
      */
     updateActivityWithHttpInfo(id, opts) {
       opts = opts || {};
@@ -533,7 +533,7 @@ export default class ActivitiesApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = UpdateActivityResponse200;
+      let returnType = UpdateActivityResponse;
       return this.apiClient.callApi(
         '/activities/{id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -547,7 +547,7 @@ export default class ActivitiesApi {
      * @param {Number} id The ID of the activity
      * @param {Object} opts Optional parameters
      * @param {module:model/ActivityPutObject} opts.activityPutObject 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UpdateActivityResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UpdateActivityResponse}
      */
     updateActivity(id, opts) {
       return this.updateActivityWithHttpInfo(id, opts)

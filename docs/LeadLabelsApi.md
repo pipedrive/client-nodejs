@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## addLeadLabel
 
-> AddOrUpdateLeadLabelResponse200 addLeadLabel(opts)
+> UpsertLeadLabelResponse addLeadLabel(opts)
 
 Add a lead label
 
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AddOrUpdateLeadLabelResponse200**](AddOrUpdateLeadLabelResponse200.md)
+[**UpsertLeadLabelResponse**](UpsertLeadLabelResponse.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ## deleteLeadLabel
 
-> LeadIdResponse200 deleteLeadLabel(id)
+> DeleteLeadIdResponse deleteLeadLabel(id)
 
 Delete a lead label
 
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LeadIdResponse200**](LeadIdResponse200.md)
+[**DeleteLeadIdResponse**](DeleteLeadIdResponse.md)
 
 ### Authorization
 
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 ## getLeadLabels
 
-> GetLeadLabelsResponse200 getLeadLabels()
+> GetLeadLabelsResponse getLeadLabels()
 
 Get all lead labels
 
@@ -156,7 +156,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**GetLeadLabelsResponse200**](GetLeadLabelsResponse200.md)
+[**GetLeadLabelsResponse**](GetLeadLabelsResponse.md)
 
 ### Authorization
 
@@ -170,7 +170,7 @@ This endpoint does not need any parameter.
 
 ## updateLeadLabel
 
-> AddOrUpdateLeadLabelResponse200 updateLeadLabel(id, opts)
+> UpsertLeadLabelResponse updateLeadLabel(id, opts)
 
 Update a lead label
 
@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AddOrUpdateLeadLabelResponse200**](AddOrUpdateLeadLabelResponse200.md)
+[**UpsertLeadLabelResponse**](UpsertLeadLabelResponse.md)
 
 ### Authorization
 

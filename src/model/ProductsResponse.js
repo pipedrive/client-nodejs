@@ -13,7 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import AdditionalData from './AdditionalData';
-import GetActivitiesResponse200RelatedObjects from './GetActivitiesResponse200RelatedObjects';
+import GetActivitiesResponseRelatedObjects from './GetActivitiesResponseRelatedObjects';
 import ProductResponse from './ProductResponse';
 
 /**
@@ -66,7 +66,7 @@ class ProductsResponse {
                 delete data['additional_data'];
             }
             if (data.hasOwnProperty('related_objects')) {
-                obj['related_objects'] = GetActivitiesResponse200RelatedObjects.constructFromObject(data['related_objects']);
+                obj['related_objects'] = GetActivitiesResponseRelatedObjects.constructFromObject(data['related_objects']);
 
                 delete data['related_objects'];
             }
@@ -100,7 +100,7 @@ ProductsResponse.prototype['data'] = undefined;
 ProductsResponse.prototype['additional_data'] = undefined;
 
 /**
- * @member {module:model/GetActivitiesResponse200RelatedObjects} related_objects
+ * @member {module:model/GetActivitiesResponseRelatedObjects} related_objects
  */
 ProductsResponse.prototype['related_objects'] = undefined;
 

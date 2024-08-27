@@ -27,7 +27,7 @@ import DeleteDealParticipant from '../model/DeleteDealParticipant';
 import DeleteDealProduct from '../model/DeleteDealProduct';
 import DeleteMultipleDeals from '../model/DeleteMultipleDeals';
 import FailResponse from '../model/FailResponse';
-import GetAddProductAttachementDetails from '../model/GetAddProductAttachementDetails';
+import GetAddProductAttachmentDetails from '../model/GetAddProductAttachmentDetails';
 import GetAddedDeal from '../model/GetAddedDeal';
 import GetDeal from '../model/GetDeal';
 import GetDeals from '../model/GetDeals';
@@ -36,7 +36,7 @@ import GetDealsSummary from '../model/GetDealsSummary';
 import GetDealsTimeline from '../model/GetDealsTimeline';
 import GetDuplicatedDeal from '../model/GetDuplicatedDeal';
 import GetMergedDeal from '../model/GetMergedDeal';
-import GetProductAttachementDetails from '../model/GetProductAttachementDetails';
+import GetProductAttachmentDetails from '../model/GetProductAttachmentDetails';
 import ListFilesResponse from '../model/ListFilesResponse';
 import ListFollowersResponse from '../model/ListFollowersResponse';
 import ListMailMessagesResponse from '../model/ListMailMessagesResponse';
@@ -289,7 +289,7 @@ export default class DealsApi {
      * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {module:model/NewDealProduct} opts.newDealProduct 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetAddProductAttachementDetails} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetAddProductAttachmentDetails} and HTTP response
      */
     addDealProductWithHttpInfo(id, opts) {
       opts = opts || {};
@@ -330,7 +330,7 @@ export default class DealsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = GetAddProductAttachementDetails;
+      let returnType = GetAddProductAttachmentDetails;
       return this.apiClient.callApi(
         '/deals/{id}/products', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -344,7 +344,7 @@ export default class DealsApi {
      * @param {Number} id The ID of the deal
      * @param {Object} opts Optional parameters
      * @param {module:model/NewDealProduct} opts.newDealProduct 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetAddProductAttachementDetails}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetAddProductAttachmentDetails}
      */
     addDealProduct(id, opts) {
       return this.addDealProductWithHttpInfo(id, opts)
@@ -2300,7 +2300,7 @@ export default class DealsApi {
      * @param {Number} productAttachmentId The ID of the deal-product (the ID of the product attached to the deal)
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateDealProduct} opts.updateDealProduct 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetProductAttachementDetails} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetProductAttachmentDetails} and HTTP response
      */
     updateDealProductWithHttpInfo(id, productAttachmentId, opts) {
       opts = opts || {};
@@ -2347,7 +2347,7 @@ export default class DealsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = GetProductAttachementDetails;
+      let returnType = GetProductAttachmentDetails;
       return this.apiClient.callApi(
         '/deals/{id}/products/{product_attachment_id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -2362,7 +2362,7 @@ export default class DealsApi {
      * @param {Number} productAttachmentId The ID of the deal-product (the ID of the product attached to the deal)
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateDealProduct} opts.updateDealProduct 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetProductAttachementDetails}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetProductAttachmentDetails}
      */
     updateDealProduct(id, productAttachmentId, opts) {
       return this.updateDealProductWithHttpInfo(id, productAttachmentId, opts)

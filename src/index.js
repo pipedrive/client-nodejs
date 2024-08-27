@@ -39,8 +39,8 @@ import ActivityTypeListResponse from './model/ActivityTypeListResponse';
 import ActivityTypeListResponseAllOf from './model/ActivityTypeListResponseAllOf';
 import ActivityTypeObjectResponse from './model/ActivityTypeObjectResponse';
 import ActivityTypeUpdateRequest from './model/ActivityTypeUpdateRequest';
-import AddActivityResponse200 from './model/AddActivityResponse200';
-import AddActivityResponse200RelatedObjects from './model/AddActivityResponse200RelatedObjects';
+import AddActivityResponse from './model/AddActivityResponse';
+import AddActivityResponseRelatedObjects from './model/AddActivityResponseRelatedObjects';
 import AddDealFollowerRequest from './model/AddDealFollowerRequest';
 import AddDealParticipantRequest from './model/AddDealParticipantRequest';
 import AddFile from './model/AddFile';
@@ -54,8 +54,6 @@ import AddNewPipeline from './model/AddNewPipeline';
 import AddNewPipelineAllOf from './model/AddNewPipelineAllOf';
 import AddNoteRequest from './model/AddNoteRequest';
 import AddNoteRequestAllOf from './model/AddNoteRequestAllOf';
-import AddOrUpdateGoalResponse200 from './model/AddOrUpdateGoalResponse200';
-import AddOrUpdateLeadLabelResponse200 from './model/AddOrUpdateLeadLabelResponse200';
 import AddOrUpdateRoleSettingRequest from './model/AddOrUpdateRoleSettingRequest';
 import AddOrganizationFollowerRequest from './model/AddOrganizationFollowerRequest';
 import AddOrganizationRelationshipRequest from './model/AddOrganizationRelationshipRequest';
@@ -69,10 +67,10 @@ import AddProductAttachmentDetailsAllOf from './model/AddProductAttachmentDetail
 import AddProductFollowerRequest from './model/AddProductFollowerRequest';
 import AddProductRequestBody from './model/AddProductRequestBody';
 import AddProductRequestBodyAllOf from './model/AddProductRequestBodyAllOf';
-import AddProjectResponse201 from './model/AddProjectResponse201';
+import AddProjectResponse from './model/AddProjectResponse';
 import AddRole from './model/AddRole';
 import AddRoleAssignmentRequest from './model/AddRoleAssignmentRequest';
-import AddTaskResponse201 from './model/AddTaskResponse201';
+import AddTaskResponse from './model/AddTaskResponse';
 import AddTeamUserRequest from './model/AddTeamUserRequest';
 import AddUserRequest from './model/AddUserRequest';
 import AddWebhookRequest from './model/AddWebhookRequest';
@@ -143,14 +141,14 @@ import BulkDeleteResponse from './model/BulkDeleteResponse';
 import BulkDeleteResponseAllOf from './model/BulkDeleteResponseAllOf';
 import BulkDeleteResponseAllOfData from './model/BulkDeleteResponseAllOfData';
 import CalculatedFields from './model/CalculatedFields';
+import CallLogBadRequestResponse from './model/CallLogBadRequestResponse';
+import CallLogConflictResponse from './model/CallLogConflictResponse';
+import CallLogForbiddenResponse from './model/CallLogForbiddenResponse';
+import CallLogGoneResponse from './model/CallLogGoneResponse';
+import CallLogInternalErrorResponse from './model/CallLogInternalErrorResponse';
+import CallLogNotFoundResponse from './model/CallLogNotFoundResponse';
 import CallLogObject from './model/CallLogObject';
 import CallLogResponse200 from './model/CallLogResponse200';
-import CallLogResponse400 from './model/CallLogResponse400';
-import CallLogResponse403 from './model/CallLogResponse403';
-import CallLogResponse404 from './model/CallLogResponse404';
-import CallLogResponse409 from './model/CallLogResponse409';
-import CallLogResponse410 from './model/CallLogResponse410';
-import CallLogResponse500 from './model/CallLogResponse500';
 import CallLogsResponse from './model/CallLogsResponse';
 import CallLogsResponseAdditionalData from './model/CallLogsResponseAdditionalData';
 import ChangelogResponse from './model/ChangelogResponse';
@@ -222,10 +220,10 @@ import DealsCountInfo from './model/DealsCountInfo';
 import DealsMovementsInfo from './model/DealsMovementsInfo';
 import DealsMovementsInfoFormattedValues from './model/DealsMovementsInfoFormattedValues';
 import DealsMovementsInfoValues from './model/DealsMovementsInfoValues';
-import DeleteActivitiesResponse200 from './model/DeleteActivitiesResponse200';
-import DeleteActivitiesResponse200Data from './model/DeleteActivitiesResponse200Data';
-import DeleteActivityResponse200 from './model/DeleteActivityResponse200';
-import DeleteActivityResponse200Data from './model/DeleteActivityResponse200Data';
+import DeleteActivitiesResponse from './model/DeleteActivitiesResponse';
+import DeleteActivitiesResponseData from './model/DeleteActivitiesResponseData';
+import DeleteActivityResponse from './model/DeleteActivityResponse';
+import DeleteActivityResponseData from './model/DeleteActivityResponseData';
 import DeleteChannelSuccess from './model/DeleteChannelSuccess';
 import DeleteComment from './model/DeleteComment';
 import DeleteConversationSuccess from './model/DeleteConversationSuccess';
@@ -239,7 +237,8 @@ import DeleteDealProduct from './model/DeleteDealProduct';
 import DeleteDealProductData from './model/DeleteDealProductData';
 import DeleteFile from './model/DeleteFile';
 import DeleteFileData from './model/DeleteFileData';
-import DeleteGoalResponse200 from './model/DeleteGoalResponse200';
+import DeleteGoalResponse from './model/DeleteGoalResponse';
+import DeleteLeadIdResponse from './model/DeleteLeadIdResponse';
 import DeleteMultipleDeals from './model/DeleteMultipleDeals';
 import DeleteMultipleDealsData from './model/DeleteMultipleDealsData';
 import DeleteMultipleProductFieldsResponse from './model/DeleteMultipleProductFieldsResponse';
@@ -251,8 +250,8 @@ import DeletePersonResponseAllOfData from './model/DeletePersonResponseAllOfData
 import DeletePersonsInBulkResponse from './model/DeletePersonsInBulkResponse';
 import DeletePersonsInBulkResponseAllOf from './model/DeletePersonsInBulkResponseAllOf';
 import DeletePersonsInBulkResponseAllOfData from './model/DeletePersonsInBulkResponseAllOfData';
-import DeletePipelineResponse200 from './model/DeletePipelineResponse200';
-import DeletePipelineResponse200Data from './model/DeletePipelineResponse200Data';
+import DeletePipelineResponse from './model/DeletePipelineResponse';
+import DeletePipelineResponseData from './model/DeletePipelineResponseData';
 import DeleteProductFieldResponse from './model/DeleteProductFieldResponse';
 import DeleteProductFieldResponseData from './model/DeleteProductFieldResponseData';
 import DeleteProductFollowerResponse from './model/DeleteProductFollowerResponse';
@@ -261,7 +260,7 @@ import DeleteProductResponse from './model/DeleteProductResponse';
 import DeleteProductResponseData from './model/DeleteProductResponseData';
 import DeleteProject from './model/DeleteProject';
 import DeleteProjectData from './model/DeleteProjectData';
-import DeleteProjectResponse200 from './model/DeleteProjectResponse200';
+import DeleteProjectResponse from './model/DeleteProjectResponse';
 import DeleteResponse from './model/DeleteResponse';
 import DeleteResponseAllOf from './model/DeleteResponseAllOf';
 import DeleteResponseAllOfData from './model/DeleteResponseAllOfData';
@@ -272,13 +271,13 @@ import DeleteRoleAssignment from './model/DeleteRoleAssignment';
 import DeleteRoleAssignmentAllOf from './model/DeleteRoleAssignmentAllOf';
 import DeleteRoleAssignmentAllOfData from './model/DeleteRoleAssignmentAllOfData';
 import DeleteRoleAssignmentRequest from './model/DeleteRoleAssignmentRequest';
-import DeleteStageResponse200 from './model/DeleteStageResponse200';
-import DeleteStageResponse200Data from './model/DeleteStageResponse200Data';
-import DeleteStagesResponse200 from './model/DeleteStagesResponse200';
-import DeleteStagesResponse200Data from './model/DeleteStagesResponse200Data';
+import DeleteStageResponse from './model/DeleteStageResponse';
+import DeleteStageResponseData from './model/DeleteStageResponseData';
+import DeleteStagesResponse from './model/DeleteStagesResponse';
+import DeleteStagesResponseData from './model/DeleteStagesResponseData';
 import DeleteTask from './model/DeleteTask';
 import DeleteTaskData from './model/DeleteTaskData';
-import DeleteTaskResponse200 from './model/DeleteTaskResponse200';
+import DeleteTaskResponse from './model/DeleteTaskResponse';
 import DeleteTeamUserRequest from './model/DeleteTeamUserRequest';
 import Duration from './model/Duration';
 import EditPipeline from './model/EditPipeline';
@@ -321,11 +320,11 @@ import FullProjectObject from './model/FullProjectObject';
 import FullRole from './model/FullRole';
 import FullRoleAllOf from './model/FullRoleAllOf';
 import FullTaskObject from './model/FullTaskObject';
-import GetActivitiesCollectionResponse200 from './model/GetActivitiesCollectionResponse200';
-import GetActivitiesResponse200 from './model/GetActivitiesResponse200';
-import GetActivitiesResponse200RelatedObjects from './model/GetActivitiesResponse200RelatedObjects';
-import GetActivityResponse200 from './model/GetActivityResponse200';
-import GetAddProductAttachementDetails from './model/GetAddProductAttachementDetails';
+import GetActivitiesCollectionResponse from './model/GetActivitiesCollectionResponse';
+import GetActivitiesResponse from './model/GetActivitiesResponse';
+import GetActivitiesResponseRelatedObjects from './model/GetActivitiesResponseRelatedObjects';
+import GetActivityResponse from './model/GetActivityResponse';
+import GetAddProductAttachmentDetails from './model/GetAddProductAttachmentDetails';
 import GetAddUpdateStage from './model/GetAddUpdateStage';
 import GetAddedDeal from './model/GetAddedDeal';
 import GetAllFiles from './model/GetAllFiles';
@@ -358,12 +357,15 @@ import GetDealsTimeline from './model/GetDealsTimeline';
 import GetDealsTimelineData from './model/GetDealsTimelineData';
 import GetDealsTimelineDataTotals from './model/GetDealsTimelineDataTotals';
 import GetDuplicatedDeal from './model/GetDuplicatedDeal';
-import GetGoalResultResponse200 from './model/GetGoalResultResponse200';
-import GetGoalsResponse200 from './model/GetGoalsResponse200';
-import GetLeadLabelsResponse200 from './model/GetLeadLabelsResponse200';
-import GetLeadSourcesResponse200 from './model/GetLeadSourcesResponse200';
-import GetLeadSourcesResponse200Data from './model/GetLeadSourcesResponse200Data';
-import GetLeadsResponse200 from './model/GetLeadsResponse200';
+import GetGoalResultResponse from './model/GetGoalResultResponse';
+import GetGoalsResponse from './model/GetGoalsResponse';
+import GetLeadIdResponse from './model/GetLeadIdResponse';
+import GetLeadIdResponseData from './model/GetLeadIdResponseData';
+import GetLeadLabelsResponse from './model/GetLeadLabelsResponse';
+import GetLeadResponse from './model/GetLeadResponse';
+import GetLeadsResponse from './model/GetLeadsResponse';
+import GetLeadsSourceResponse from './model/GetLeadsSourceResponse';
+import GetLeadsSourceResponseData from './model/GetLeadsSourceResponseData';
 import GetMergedDeal from './model/GetMergedDeal';
 import GetNotes from './model/GetNotes';
 import GetOneFile from './model/GetOneFile';
@@ -373,18 +375,18 @@ import GetOneStage from './model/GetOneStage';
 import GetPersonDetailsResponse from './model/GetPersonDetailsResponse';
 import GetPersonDetailsResponseAllOf from './model/GetPersonDetailsResponseAllOf';
 import GetPersonDetailsResponseAllOfAdditionalData from './model/GetPersonDetailsResponseAllOfAdditionalData';
-import GetProductAttachementDetails from './model/GetProductAttachementDetails';
+import GetProductAttachmentDetails from './model/GetProductAttachmentDetails';
 import GetProductFieldResponse from './model/GetProductFieldResponse';
-import GetProjectBoardResponse200 from './model/GetProjectBoardResponse200';
-import GetProjectBoardsResponse200 from './model/GetProjectBoardsResponse200';
-import GetProjectGroupsResponse200 from './model/GetProjectGroupsResponse200';
-import GetProjectPhaseResponse200 from './model/GetProjectPhaseResponse200';
-import GetProjectPhasesResponse200 from './model/GetProjectPhasesResponse200';
-import GetProjectPlanResponse200 from './model/GetProjectPlanResponse200';
-import GetProjectResponse200 from './model/GetProjectResponse200';
-import GetProjectTemplateResponse200 from './model/GetProjectTemplateResponse200';
-import GetProjectTemplatesResponse200 from './model/GetProjectTemplatesResponse200';
-import GetProjectsResponse200 from './model/GetProjectsResponse200';
+import GetProjectBoardResponse from './model/GetProjectBoardResponse';
+import GetProjectBoardsResponse from './model/GetProjectBoardsResponse';
+import GetProjectGroupsResponse from './model/GetProjectGroupsResponse';
+import GetProjectPhaseResponse from './model/GetProjectPhaseResponse';
+import GetProjectPhasesResponse from './model/GetProjectPhasesResponse';
+import GetProjectPlanResponse from './model/GetProjectPlanResponse';
+import GetProjectResponse from './model/GetProjectResponse';
+import GetProjectTemplateResponse from './model/GetProjectTemplateResponse';
+import GetProjectTemplatesResponse from './model/GetProjectTemplatesResponse';
+import GetProjectsResponse from './model/GetProjectsResponse';
 import GetRecents from './model/GetRecents';
 import GetRecentsAdditionalData from './model/GetRecentsAdditionalData';
 import GetRole from './model/GetRole';
@@ -401,8 +403,8 @@ import GetRoles from './model/GetRoles';
 import GetRolesAllOf from './model/GetRolesAllOf';
 import GetStageDeals from './model/GetStageDeals';
 import GetStages from './model/GetStages';
-import GetTaskResponse200 from './model/GetTaskResponse200';
-import GetTasksResponse200 from './model/GetTasksResponse200';
+import GetTaskResponse from './model/GetTaskResponse';
+import GetTasksResponse from './model/GetTasksResponse';
 import GoalResults from './model/GoalResults';
 import GoalType from './model/GoalType';
 import GoalsResponseComponent from './model/GoalsResponseComponent';
@@ -429,12 +431,10 @@ import ItemSearchItem from './model/ItemSearchItem';
 import ItemSearchResponse from './model/ItemSearchResponse';
 import ItemSearchResponseAllOf from './model/ItemSearchResponseAllOf';
 import ItemSearchResponseAllOfData from './model/ItemSearchResponseAllOfData';
-import LeadIdResponse200 from './model/LeadIdResponse200';
-import LeadIdResponse200Data from './model/LeadIdResponse200Data';
 import LeadLabelColor from './model/LeadLabelColor';
 import LeadLabelResponse from './model/LeadLabelResponse';
+import LeadNotFoundResponse from './model/LeadNotFoundResponse';
 import LeadResponse from './model/LeadResponse';
-import LeadResponse404 from './model/LeadResponse404';
 import LeadSearchItem from './model/LeadSearchItem';
 import LeadSearchItemItem from './model/LeadSearchItemItem';
 import LeadSearchItemItemOrganization from './model/LeadSearchItemItemOrganization';
@@ -534,7 +534,6 @@ import NoteParams from './model/NoteParams';
 import NumberBoolean from './model/NumberBoolean';
 import NumberBooleanDefault0 from './model/NumberBooleanDefault0';
 import NumberBooleanDefault1 from './model/NumberBooleanDefault1';
-import OneLeadResponse200 from './model/OneLeadResponse200';
 import OrgAndOwnerId from './model/OrgAndOwnerId';
 import OrganizationAddressInfo from './model/OrganizationAddressInfo';
 import OrganizationCountAndAddressInfo from './model/OrganizationCountAndAddressInfo';
@@ -753,7 +752,8 @@ import TeamsAllOf from './model/TeamsAllOf';
 import TemplateObject from './model/TemplateObject';
 import TemplateResponseObject from './model/TemplateResponseObject';
 import Unauthorized from './model/Unauthorized';
-import UpdateActivityResponse200 from './model/UpdateActivityResponse200';
+import UpdateActivityPlanItem from './model/UpdateActivityPlanItem';
+import UpdateActivityResponse from './model/UpdateActivityResponse';
 import UpdateDealParameters from './model/UpdateDealParameters';
 import UpdateDealProduct from './model/UpdateDealProduct';
 import UpdateDealRequest from './model/UpdateDealRequest';
@@ -769,16 +769,17 @@ import UpdatePersonResponse from './model/UpdatePersonResponse';
 import UpdateProductField from './model/UpdateProductField';
 import UpdateProductRequestBody from './model/UpdateProductRequestBody';
 import UpdateProductResponse from './model/UpdateProductResponse';
-import UpdateProjectResponse200 from './model/UpdateProjectResponse200';
+import UpdateProjectResponse from './model/UpdateProjectResponse';
 import UpdateStageRequest from './model/UpdateStageRequest';
 import UpdateStageRequestAllOf from './model/UpdateStageRequestAllOf';
-import UpdateTaskResponse200 from './model/UpdateTaskResponse200';
+import UpdateTaskPlanItem from './model/UpdateTaskPlanItem';
+import UpdateTaskResponse from './model/UpdateTaskResponse';
 import UpdateTeam from './model/UpdateTeam';
 import UpdateTeamAllOf from './model/UpdateTeamAllOf';
 import UpdateTeamWithAdditionalProperties from './model/UpdateTeamWithAdditionalProperties';
 import UpdateUserRequest from './model/UpdateUserRequest';
-import UpdatedActivityPlanItem200 from './model/UpdatedActivityPlanItem200';
-import UpdatedTaskPlanItem200 from './model/UpdatedTaskPlanItem200';
+import UpsertGoalResponse from './model/UpsertGoalResponse';
+import UpsertLeadLabelResponse from './model/UpsertLeadLabelResponse';
 import User from './model/User';
 import UserAccess from './model/UserAccess';
 import UserAllOf from './model/UserAllOf';
@@ -1053,16 +1054,16 @@ export {
     ActivityTypeUpdateRequest,
 
     /**
-     * The AddActivityResponse200 model constructor.
-     * @property {module:model/AddActivityResponse200}
+     * The AddActivityResponse model constructor.
+     * @property {module:model/AddActivityResponse}
      */
-    AddActivityResponse200,
+    AddActivityResponse,
 
     /**
-     * The AddActivityResponse200RelatedObjects model constructor.
-     * @property {module:model/AddActivityResponse200RelatedObjects}
+     * The AddActivityResponseRelatedObjects model constructor.
+     * @property {module:model/AddActivityResponseRelatedObjects}
      */
-    AddActivityResponse200RelatedObjects,
+    AddActivityResponseRelatedObjects,
 
     /**
      * The AddDealFollowerRequest model constructor.
@@ -1143,18 +1144,6 @@ export {
     AddNoteRequestAllOf,
 
     /**
-     * The AddOrUpdateGoalResponse200 model constructor.
-     * @property {module:model/AddOrUpdateGoalResponse200}
-     */
-    AddOrUpdateGoalResponse200,
-
-    /**
-     * The AddOrUpdateLeadLabelResponse200 model constructor.
-     * @property {module:model/AddOrUpdateLeadLabelResponse200}
-     */
-    AddOrUpdateLeadLabelResponse200,
-
-    /**
      * The AddOrUpdateRoleSettingRequest model constructor.
      * @property {module:model/AddOrUpdateRoleSettingRequest}
      */
@@ -1233,10 +1222,10 @@ export {
     AddProductRequestBodyAllOf,
 
     /**
-     * The AddProjectResponse201 model constructor.
-     * @property {module:model/AddProjectResponse201}
+     * The AddProjectResponse model constructor.
+     * @property {module:model/AddProjectResponse}
      */
-    AddProjectResponse201,
+    AddProjectResponse,
 
     /**
      * The AddRole model constructor.
@@ -1251,10 +1240,10 @@ export {
     AddRoleAssignmentRequest,
 
     /**
-     * The AddTaskResponse201 model constructor.
-     * @property {module:model/AddTaskResponse201}
+     * The AddTaskResponse model constructor.
+     * @property {module:model/AddTaskResponse}
      */
-    AddTaskResponse201,
+    AddTaskResponse,
 
     /**
      * The AddTeamUserRequest model constructor.
@@ -1677,6 +1666,42 @@ export {
     CalculatedFields,
 
     /**
+     * The CallLogBadRequestResponse model constructor.
+     * @property {module:model/CallLogBadRequestResponse}
+     */
+    CallLogBadRequestResponse,
+
+    /**
+     * The CallLogConflictResponse model constructor.
+     * @property {module:model/CallLogConflictResponse}
+     */
+    CallLogConflictResponse,
+
+    /**
+     * The CallLogForbiddenResponse model constructor.
+     * @property {module:model/CallLogForbiddenResponse}
+     */
+    CallLogForbiddenResponse,
+
+    /**
+     * The CallLogGoneResponse model constructor.
+     * @property {module:model/CallLogGoneResponse}
+     */
+    CallLogGoneResponse,
+
+    /**
+     * The CallLogInternalErrorResponse model constructor.
+     * @property {module:model/CallLogInternalErrorResponse}
+     */
+    CallLogInternalErrorResponse,
+
+    /**
+     * The CallLogNotFoundResponse model constructor.
+     * @property {module:model/CallLogNotFoundResponse}
+     */
+    CallLogNotFoundResponse,
+
+    /**
      * The CallLogObject model constructor.
      * @property {module:model/CallLogObject}
      */
@@ -1687,42 +1712,6 @@ export {
      * @property {module:model/CallLogResponse200}
      */
     CallLogResponse200,
-
-    /**
-     * The CallLogResponse400 model constructor.
-     * @property {module:model/CallLogResponse400}
-     */
-    CallLogResponse400,
-
-    /**
-     * The CallLogResponse403 model constructor.
-     * @property {module:model/CallLogResponse403}
-     */
-    CallLogResponse403,
-
-    /**
-     * The CallLogResponse404 model constructor.
-     * @property {module:model/CallLogResponse404}
-     */
-    CallLogResponse404,
-
-    /**
-     * The CallLogResponse409 model constructor.
-     * @property {module:model/CallLogResponse409}
-     */
-    CallLogResponse409,
-
-    /**
-     * The CallLogResponse410 model constructor.
-     * @property {module:model/CallLogResponse410}
-     */
-    CallLogResponse410,
-
-    /**
-     * The CallLogResponse500 model constructor.
-     * @property {module:model/CallLogResponse500}
-     */
-    CallLogResponse500,
 
     /**
      * The CallLogsResponse model constructor.
@@ -2151,28 +2140,28 @@ export {
     DealsMovementsInfoValues,
 
     /**
-     * The DeleteActivitiesResponse200 model constructor.
-     * @property {module:model/DeleteActivitiesResponse200}
+     * The DeleteActivitiesResponse model constructor.
+     * @property {module:model/DeleteActivitiesResponse}
      */
-    DeleteActivitiesResponse200,
+    DeleteActivitiesResponse,
 
     /**
-     * The DeleteActivitiesResponse200Data model constructor.
-     * @property {module:model/DeleteActivitiesResponse200Data}
+     * The DeleteActivitiesResponseData model constructor.
+     * @property {module:model/DeleteActivitiesResponseData}
      */
-    DeleteActivitiesResponse200Data,
+    DeleteActivitiesResponseData,
 
     /**
-     * The DeleteActivityResponse200 model constructor.
-     * @property {module:model/DeleteActivityResponse200}
+     * The DeleteActivityResponse model constructor.
+     * @property {module:model/DeleteActivityResponse}
      */
-    DeleteActivityResponse200,
+    DeleteActivityResponse,
 
     /**
-     * The DeleteActivityResponse200Data model constructor.
-     * @property {module:model/DeleteActivityResponse200Data}
+     * The DeleteActivityResponseData model constructor.
+     * @property {module:model/DeleteActivityResponseData}
      */
-    DeleteActivityResponse200Data,
+    DeleteActivityResponseData,
 
     /**
      * The DeleteChannelSuccess model constructor.
@@ -2253,10 +2242,16 @@ export {
     DeleteFileData,
 
     /**
-     * The DeleteGoalResponse200 model constructor.
-     * @property {module:model/DeleteGoalResponse200}
+     * The DeleteGoalResponse model constructor.
+     * @property {module:model/DeleteGoalResponse}
      */
-    DeleteGoalResponse200,
+    DeleteGoalResponse,
+
+    /**
+     * The DeleteLeadIdResponse model constructor.
+     * @property {module:model/DeleteLeadIdResponse}
+     */
+    DeleteLeadIdResponse,
 
     /**
      * The DeleteMultipleDeals model constructor.
@@ -2325,16 +2320,16 @@ export {
     DeletePersonsInBulkResponseAllOfData,
 
     /**
-     * The DeletePipelineResponse200 model constructor.
-     * @property {module:model/DeletePipelineResponse200}
+     * The DeletePipelineResponse model constructor.
+     * @property {module:model/DeletePipelineResponse}
      */
-    DeletePipelineResponse200,
+    DeletePipelineResponse,
 
     /**
-     * The DeletePipelineResponse200Data model constructor.
-     * @property {module:model/DeletePipelineResponse200Data}
+     * The DeletePipelineResponseData model constructor.
+     * @property {module:model/DeletePipelineResponseData}
      */
-    DeletePipelineResponse200Data,
+    DeletePipelineResponseData,
 
     /**
      * The DeleteProductFieldResponse model constructor.
@@ -2385,10 +2380,10 @@ export {
     DeleteProjectData,
 
     /**
-     * The DeleteProjectResponse200 model constructor.
-     * @property {module:model/DeleteProjectResponse200}
+     * The DeleteProjectResponse model constructor.
+     * @property {module:model/DeleteProjectResponse}
      */
-    DeleteProjectResponse200,
+    DeleteProjectResponse,
 
     /**
      * The DeleteResponse model constructor.
@@ -2451,28 +2446,28 @@ export {
     DeleteRoleAssignmentRequest,
 
     /**
-     * The DeleteStageResponse200 model constructor.
-     * @property {module:model/DeleteStageResponse200}
+     * The DeleteStageResponse model constructor.
+     * @property {module:model/DeleteStageResponse}
      */
-    DeleteStageResponse200,
+    DeleteStageResponse,
 
     /**
-     * The DeleteStageResponse200Data model constructor.
-     * @property {module:model/DeleteStageResponse200Data}
+     * The DeleteStageResponseData model constructor.
+     * @property {module:model/DeleteStageResponseData}
      */
-    DeleteStageResponse200Data,
+    DeleteStageResponseData,
 
     /**
-     * The DeleteStagesResponse200 model constructor.
-     * @property {module:model/DeleteStagesResponse200}
+     * The DeleteStagesResponse model constructor.
+     * @property {module:model/DeleteStagesResponse}
      */
-    DeleteStagesResponse200,
+    DeleteStagesResponse,
 
     /**
-     * The DeleteStagesResponse200Data model constructor.
-     * @property {module:model/DeleteStagesResponse200Data}
+     * The DeleteStagesResponseData model constructor.
+     * @property {module:model/DeleteStagesResponseData}
      */
-    DeleteStagesResponse200Data,
+    DeleteStagesResponseData,
 
     /**
      * The DeleteTask model constructor.
@@ -2487,10 +2482,10 @@ export {
     DeleteTaskData,
 
     /**
-     * The DeleteTaskResponse200 model constructor.
-     * @property {module:model/DeleteTaskResponse200}
+     * The DeleteTaskResponse model constructor.
+     * @property {module:model/DeleteTaskResponse}
      */
-    DeleteTaskResponse200,
+    DeleteTaskResponse,
 
     /**
      * The DeleteTeamUserRequest model constructor.
@@ -2745,34 +2740,34 @@ export {
     FullTaskObject,
 
     /**
-     * The GetActivitiesCollectionResponse200 model constructor.
-     * @property {module:model/GetActivitiesCollectionResponse200}
+     * The GetActivitiesCollectionResponse model constructor.
+     * @property {module:model/GetActivitiesCollectionResponse}
      */
-    GetActivitiesCollectionResponse200,
+    GetActivitiesCollectionResponse,
 
     /**
-     * The GetActivitiesResponse200 model constructor.
-     * @property {module:model/GetActivitiesResponse200}
+     * The GetActivitiesResponse model constructor.
+     * @property {module:model/GetActivitiesResponse}
      */
-    GetActivitiesResponse200,
+    GetActivitiesResponse,
 
     /**
-     * The GetActivitiesResponse200RelatedObjects model constructor.
-     * @property {module:model/GetActivitiesResponse200RelatedObjects}
+     * The GetActivitiesResponseRelatedObjects model constructor.
+     * @property {module:model/GetActivitiesResponseRelatedObjects}
      */
-    GetActivitiesResponse200RelatedObjects,
+    GetActivitiesResponseRelatedObjects,
 
     /**
-     * The GetActivityResponse200 model constructor.
-     * @property {module:model/GetActivityResponse200}
+     * The GetActivityResponse model constructor.
+     * @property {module:model/GetActivityResponse}
      */
-    GetActivityResponse200,
+    GetActivityResponse,
 
     /**
-     * The GetAddProductAttachementDetails model constructor.
-     * @property {module:model/GetAddProductAttachementDetails}
+     * The GetAddProductAttachmentDetails model constructor.
+     * @property {module:model/GetAddProductAttachmentDetails}
      */
-    GetAddProductAttachementDetails,
+    GetAddProductAttachmentDetails,
 
     /**
      * The GetAddUpdateStage model constructor.
@@ -2967,40 +2962,58 @@ export {
     GetDuplicatedDeal,
 
     /**
-     * The GetGoalResultResponse200 model constructor.
-     * @property {module:model/GetGoalResultResponse200}
+     * The GetGoalResultResponse model constructor.
+     * @property {module:model/GetGoalResultResponse}
      */
-    GetGoalResultResponse200,
+    GetGoalResultResponse,
 
     /**
-     * The GetGoalsResponse200 model constructor.
-     * @property {module:model/GetGoalsResponse200}
+     * The GetGoalsResponse model constructor.
+     * @property {module:model/GetGoalsResponse}
      */
-    GetGoalsResponse200,
+    GetGoalsResponse,
 
     /**
-     * The GetLeadLabelsResponse200 model constructor.
-     * @property {module:model/GetLeadLabelsResponse200}
+     * The GetLeadIdResponse model constructor.
+     * @property {module:model/GetLeadIdResponse}
      */
-    GetLeadLabelsResponse200,
+    GetLeadIdResponse,
 
     /**
-     * The GetLeadSourcesResponse200 model constructor.
-     * @property {module:model/GetLeadSourcesResponse200}
+     * The GetLeadIdResponseData model constructor.
+     * @property {module:model/GetLeadIdResponseData}
      */
-    GetLeadSourcesResponse200,
+    GetLeadIdResponseData,
 
     /**
-     * The GetLeadSourcesResponse200Data model constructor.
-     * @property {module:model/GetLeadSourcesResponse200Data}
+     * The GetLeadLabelsResponse model constructor.
+     * @property {module:model/GetLeadLabelsResponse}
      */
-    GetLeadSourcesResponse200Data,
+    GetLeadLabelsResponse,
 
     /**
-     * The GetLeadsResponse200 model constructor.
-     * @property {module:model/GetLeadsResponse200}
+     * The GetLeadResponse model constructor.
+     * @property {module:model/GetLeadResponse}
      */
-    GetLeadsResponse200,
+    GetLeadResponse,
+
+    /**
+     * The GetLeadsResponse model constructor.
+     * @property {module:model/GetLeadsResponse}
+     */
+    GetLeadsResponse,
+
+    /**
+     * The GetLeadsSourceResponse model constructor.
+     * @property {module:model/GetLeadsSourceResponse}
+     */
+    GetLeadsSourceResponse,
+
+    /**
+     * The GetLeadsSourceResponseData model constructor.
+     * @property {module:model/GetLeadsSourceResponseData}
+     */
+    GetLeadsSourceResponseData,
 
     /**
      * The GetMergedDeal model constructor.
@@ -3057,10 +3070,10 @@ export {
     GetPersonDetailsResponseAllOfAdditionalData,
 
     /**
-     * The GetProductAttachementDetails model constructor.
-     * @property {module:model/GetProductAttachementDetails}
+     * The GetProductAttachmentDetails model constructor.
+     * @property {module:model/GetProductAttachmentDetails}
      */
-    GetProductAttachementDetails,
+    GetProductAttachmentDetails,
 
     /**
      * The GetProductFieldResponse model constructor.
@@ -3069,64 +3082,64 @@ export {
     GetProductFieldResponse,
 
     /**
-     * The GetProjectBoardResponse200 model constructor.
-     * @property {module:model/GetProjectBoardResponse200}
+     * The GetProjectBoardResponse model constructor.
+     * @property {module:model/GetProjectBoardResponse}
      */
-    GetProjectBoardResponse200,
+    GetProjectBoardResponse,
 
     /**
-     * The GetProjectBoardsResponse200 model constructor.
-     * @property {module:model/GetProjectBoardsResponse200}
+     * The GetProjectBoardsResponse model constructor.
+     * @property {module:model/GetProjectBoardsResponse}
      */
-    GetProjectBoardsResponse200,
+    GetProjectBoardsResponse,
 
     /**
-     * The GetProjectGroupsResponse200 model constructor.
-     * @property {module:model/GetProjectGroupsResponse200}
+     * The GetProjectGroupsResponse model constructor.
+     * @property {module:model/GetProjectGroupsResponse}
      */
-    GetProjectGroupsResponse200,
+    GetProjectGroupsResponse,
 
     /**
-     * The GetProjectPhaseResponse200 model constructor.
-     * @property {module:model/GetProjectPhaseResponse200}
+     * The GetProjectPhaseResponse model constructor.
+     * @property {module:model/GetProjectPhaseResponse}
      */
-    GetProjectPhaseResponse200,
+    GetProjectPhaseResponse,
 
     /**
-     * The GetProjectPhasesResponse200 model constructor.
-     * @property {module:model/GetProjectPhasesResponse200}
+     * The GetProjectPhasesResponse model constructor.
+     * @property {module:model/GetProjectPhasesResponse}
      */
-    GetProjectPhasesResponse200,
+    GetProjectPhasesResponse,
 
     /**
-     * The GetProjectPlanResponse200 model constructor.
-     * @property {module:model/GetProjectPlanResponse200}
+     * The GetProjectPlanResponse model constructor.
+     * @property {module:model/GetProjectPlanResponse}
      */
-    GetProjectPlanResponse200,
+    GetProjectPlanResponse,
 
     /**
-     * The GetProjectResponse200 model constructor.
-     * @property {module:model/GetProjectResponse200}
+     * The GetProjectResponse model constructor.
+     * @property {module:model/GetProjectResponse}
      */
-    GetProjectResponse200,
+    GetProjectResponse,
 
     /**
-     * The GetProjectTemplateResponse200 model constructor.
-     * @property {module:model/GetProjectTemplateResponse200}
+     * The GetProjectTemplateResponse model constructor.
+     * @property {module:model/GetProjectTemplateResponse}
      */
-    GetProjectTemplateResponse200,
+    GetProjectTemplateResponse,
 
     /**
-     * The GetProjectTemplatesResponse200 model constructor.
-     * @property {module:model/GetProjectTemplatesResponse200}
+     * The GetProjectTemplatesResponse model constructor.
+     * @property {module:model/GetProjectTemplatesResponse}
      */
-    GetProjectTemplatesResponse200,
+    GetProjectTemplatesResponse,
 
     /**
-     * The GetProjectsResponse200 model constructor.
-     * @property {module:model/GetProjectsResponse200}
+     * The GetProjectsResponse model constructor.
+     * @property {module:model/GetProjectsResponse}
      */
-    GetProjectsResponse200,
+    GetProjectsResponse,
 
     /**
      * The GetRecents model constructor.
@@ -3225,16 +3238,16 @@ export {
     GetStages,
 
     /**
-     * The GetTaskResponse200 model constructor.
-     * @property {module:model/GetTaskResponse200}
+     * The GetTaskResponse model constructor.
+     * @property {module:model/GetTaskResponse}
      */
-    GetTaskResponse200,
+    GetTaskResponse,
 
     /**
-     * The GetTasksResponse200 model constructor.
-     * @property {module:model/GetTasksResponse200}
+     * The GetTasksResponse model constructor.
+     * @property {module:model/GetTasksResponse}
      */
-    GetTasksResponse200,
+    GetTasksResponse,
 
     /**
      * The GoalResults model constructor.
@@ -3393,18 +3406,6 @@ export {
     ItemSearchResponseAllOfData,
 
     /**
-     * The LeadIdResponse200 model constructor.
-     * @property {module:model/LeadIdResponse200}
-     */
-    LeadIdResponse200,
-
-    /**
-     * The LeadIdResponse200Data model constructor.
-     * @property {module:model/LeadIdResponse200Data}
-     */
-    LeadIdResponse200Data,
-
-    /**
      * The LeadLabelColor model constructor.
      * @property {module:model/LeadLabelColor}
      */
@@ -3417,16 +3418,16 @@ export {
     LeadLabelResponse,
 
     /**
+     * The LeadNotFoundResponse model constructor.
+     * @property {module:model/LeadNotFoundResponse}
+     */
+    LeadNotFoundResponse,
+
+    /**
      * The LeadResponse model constructor.
      * @property {module:model/LeadResponse}
      */
     LeadResponse,
-
-    /**
-     * The LeadResponse404 model constructor.
-     * @property {module:model/LeadResponse404}
-     */
-    LeadResponse404,
 
     /**
      * The LeadSearchItem model constructor.
@@ -4021,12 +4022,6 @@ export {
      * @property {module:model/NumberBooleanDefault1}
      */
     NumberBooleanDefault1,
-
-    /**
-     * The OneLeadResponse200 model constructor.
-     * @property {module:model/OneLeadResponse200}
-     */
-    OneLeadResponse200,
 
     /**
      * The OrgAndOwnerId model constructor.
@@ -5337,10 +5332,16 @@ export {
     Unauthorized,
 
     /**
-     * The UpdateActivityResponse200 model constructor.
-     * @property {module:model/UpdateActivityResponse200}
+     * The UpdateActivityPlanItem model constructor.
+     * @property {module:model/UpdateActivityPlanItem}
      */
-    UpdateActivityResponse200,
+    UpdateActivityPlanItem,
+
+    /**
+     * The UpdateActivityResponse model constructor.
+     * @property {module:model/UpdateActivityResponse}
+     */
+    UpdateActivityResponse,
 
     /**
      * The UpdateDealParameters model constructor.
@@ -5433,10 +5434,10 @@ export {
     UpdateProductResponse,
 
     /**
-     * The UpdateProjectResponse200 model constructor.
-     * @property {module:model/UpdateProjectResponse200}
+     * The UpdateProjectResponse model constructor.
+     * @property {module:model/UpdateProjectResponse}
      */
-    UpdateProjectResponse200,
+    UpdateProjectResponse,
 
     /**
      * The UpdateStageRequest model constructor.
@@ -5451,10 +5452,16 @@ export {
     UpdateStageRequestAllOf,
 
     /**
-     * The UpdateTaskResponse200 model constructor.
-     * @property {module:model/UpdateTaskResponse200}
+     * The UpdateTaskPlanItem model constructor.
+     * @property {module:model/UpdateTaskPlanItem}
      */
-    UpdateTaskResponse200,
+    UpdateTaskPlanItem,
+
+    /**
+     * The UpdateTaskResponse model constructor.
+     * @property {module:model/UpdateTaskResponse}
+     */
+    UpdateTaskResponse,
 
     /**
      * The UpdateTeam model constructor.
@@ -5481,16 +5488,16 @@ export {
     UpdateUserRequest,
 
     /**
-     * The UpdatedActivityPlanItem200 model constructor.
-     * @property {module:model/UpdatedActivityPlanItem200}
+     * The UpsertGoalResponse model constructor.
+     * @property {module:model/UpsertGoalResponse}
      */
-    UpdatedActivityPlanItem200,
+    UpsertGoalResponse,
 
     /**
-     * The UpdatedTaskPlanItem200 model constructor.
-     * @property {module:model/UpdatedTaskPlanItem200}
+     * The UpsertLeadLabelResponse model constructor.
+     * @property {module:model/UpsertLeadLabelResponse}
      */
-    UpdatedTaskPlanItem200,
+    UpsertLeadLabelResponse,
 
     /**
      * The User model constructor.

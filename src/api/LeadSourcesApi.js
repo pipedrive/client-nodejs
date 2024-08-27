@@ -13,7 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
-import GetLeadSourcesResponse200 from '../model/GetLeadSourcesResponse200';
+import GetLeadsSourceResponse from '../model/GetLeadsSourceResponse';
 
 /**
 * LeadSources service.
@@ -38,7 +38,7 @@ export default class LeadSourcesApi {
     /**
      * Get all lead sources
      * Returns all lead sources. Please note that the list of lead sources is fixed, it cannot be modified. All leads created through the Pipedrive API will have a lead source `API` assigned. 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetLeadSourcesResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetLeadsSourceResponse} and HTTP response
      */
     getLeadSourcesWithHttpInfo() {
       const opts = {}
@@ -72,7 +72,7 @@ export default class LeadSourcesApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = GetLeadSourcesResponse200;
+      let returnType = GetLeadsSourceResponse;
       return this.apiClient.callApi(
         '/leadSources', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -83,7 +83,7 @@ export default class LeadSourcesApi {
     /**
      * Get all lead sources
      * Returns all lead sources. Please note that the list of lead sources is fixed, it cannot be modified. All leads created through the Pipedrive API will have a lead source `API` assigned. 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetLeadSourcesResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetLeadsSourceResponse}
      */
     getLeadSources() {
       return this.getLeadSourcesWithHttpInfo()

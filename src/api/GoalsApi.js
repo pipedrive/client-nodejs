@@ -13,12 +13,12 @@
 
 
 import ApiClient from "../ApiClient";
-import AddOrUpdateGoalResponse200 from '../model/AddOrUpdateGoalResponse200';
 import BasicGoal from '../model/BasicGoal';
-import DeleteGoalResponse200 from '../model/DeleteGoalResponse200';
-import GetGoalResultResponse200 from '../model/GetGoalResultResponse200';
-import GetGoalsResponse200 from '../model/GetGoalsResponse200';
+import DeleteGoalResponse from '../model/DeleteGoalResponse';
+import GetGoalResultResponse from '../model/GetGoalResultResponse';
+import GetGoalsResponse from '../model/GetGoalsResponse';
 import NewGoal from '../model/NewGoal';
+import UpsertGoalResponse from '../model/UpsertGoalResponse';
 
 /**
 * Goals service.
@@ -45,7 +45,7 @@ export default class GoalsApi {
      * Adds a new goal. Along with adding a new goal, a report is created to track the progress of your goal.
      * @param {Object} opts Optional parameters
      * @param {module:model/NewGoal} opts.newGoal 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddOrUpdateGoalResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UpsertGoalResponse} and HTTP response
      */
     addGoalWithHttpInfo(opts) {
       opts = opts || {};
@@ -95,7 +95,7 @@ export default class GoalsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = AddOrUpdateGoalResponse200;
+      let returnType = UpsertGoalResponse;
       return this.apiClient.callApi(
         '/goals', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -108,7 +108,7 @@ export default class GoalsApi {
      * Adds a new goal. Along with adding a new goal, a report is created to track the progress of your goal.
      * @param {Object} opts Optional parameters
      * @param {module:model/NewGoal} opts.newGoal 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddOrUpdateGoalResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UpsertGoalResponse}
      */
     addGoal(opts) {
       return this.addGoalWithHttpInfo(opts)
@@ -122,7 +122,7 @@ export default class GoalsApi {
      * Delete existing goal
      * Marks a goal as deleted.
      * @param {String} id The ID of the goal
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteGoalResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteGoalResponse} and HTTP response
      */
     deleteGoalWithHttpInfo(id) {
       const opts = {}
@@ -162,7 +162,7 @@ export default class GoalsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = DeleteGoalResponse200;
+      let returnType = DeleteGoalResponse;
       return this.apiClient.callApi(
         '/goals/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -174,7 +174,7 @@ export default class GoalsApi {
      * Delete existing goal
      * Marks a goal as deleted.
      * @param {String} id The ID of the goal
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteGoalResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteGoalResponse}
      */
     deleteGoal(id) {
       return this.deleteGoalWithHttpInfo(id)
@@ -190,7 +190,7 @@ export default class GoalsApi {
      * @param {String} id The ID of the goal that the results are looked for
      * @param {Date} periodStart The start date of the period for which to find the goal's progress. Format: YYYY-MM-DD. This date must be the same or after the goal duration start date. 
      * @param {Date} periodEnd The end date of the period for which to find the goal's progress. Format: YYYY-MM-DD. This date must be the same or before the goal duration end date. 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetGoalResultResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetGoalResultResponse} and HTTP response
      */
     getGoalResultWithHttpInfo(id, periodStart, periodEnd) {
       const opts = {}
@@ -242,7 +242,7 @@ export default class GoalsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = GetGoalResultResponse200;
+      let returnType = GetGoalResultResponse;
       return this.apiClient.callApi(
         '/goals/{id}/results', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -256,7 +256,7 @@ export default class GoalsApi {
      * @param {String} id The ID of the goal that the results are looked for
      * @param {Date} periodStart The start date of the period for which to find the goal's progress. Format: YYYY-MM-DD. This date must be the same or after the goal duration start date. 
      * @param {Date} periodEnd The end date of the period for which to find the goal's progress. Format: YYYY-MM-DD. This date must be the same or before the goal duration end date. 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetGoalResultResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetGoalResultResponse}
      */
     getGoalResult(id, periodStart, periodEnd) {
       return this.getGoalResultWithHttpInfo(id, periodStart, periodEnd)
@@ -283,7 +283,7 @@ export default class GoalsApi {
      * @param {Array.<Number>} opts.typeParamsActivityTypeId An array of IDs or `null` for all activity types. Only applicable for `activities_completed` and/or `activities_added` types of goals. If provided, everyone's goals will be returned.
      * @param {Date} opts.periodStart The start date of the period for which to find goals. Date in format of YYYY-MM-DD. When `period.start` is provided, `period.end` must be provided too.
      * @param {Date} opts.periodEnd The end date of the period for which to find goals. Date in format of YYYY-MM-DD.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetGoalsResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetGoalsResponse} and HTTP response
      */
     getGoalsWithHttpInfo(opts) {
       opts = opts || {};
@@ -343,7 +343,7 @@ export default class GoalsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = GetGoalsResponse200;
+      let returnType = GetGoalsResponse;
       return this.apiClient.callApi(
         '/goals/find', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -368,7 +368,7 @@ export default class GoalsApi {
      * @param {Array.<Number>} opts.typeParamsActivityTypeId An array of IDs or `null` for all activity types. Only applicable for `activities_completed` and/or `activities_added` types of goals. If provided, everyone's goals will be returned.
      * @param {Date} opts.periodStart The start date of the period for which to find goals. Date in format of YYYY-MM-DD. When `period.start` is provided, `period.end` must be provided too.
      * @param {Date} opts.periodEnd The end date of the period for which to find goals. Date in format of YYYY-MM-DD.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetGoalsResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetGoalsResponse}
      */
     getGoals(opts) {
       return this.getGoalsWithHttpInfo(opts)
@@ -384,7 +384,7 @@ export default class GoalsApi {
      * @param {String} id The ID of the goal
      * @param {Object} opts Optional parameters
      * @param {module:model/BasicGoal} opts.basicGoal 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddOrUpdateGoalResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UpsertGoalResponse} and HTTP response
      */
     updateGoalWithHttpInfo(id, opts) {
       opts = opts || {};
@@ -425,7 +425,7 @@ export default class GoalsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = AddOrUpdateGoalResponse200;
+      let returnType = UpsertGoalResponse;
       return this.apiClient.callApi(
         '/goals/{id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -439,7 +439,7 @@ export default class GoalsApi {
      * @param {String} id The ID of the goal
      * @param {Object} opts Optional parameters
      * @param {module:model/BasicGoal} opts.basicGoal 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddOrUpdateGoalResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UpsertGoalResponse}
      */
     updateGoal(id, opts) {
       return this.updateGoalWithHttpInfo(id, opts)

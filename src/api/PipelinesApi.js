@@ -14,7 +14,7 @@
 
 import ApiClient from "../ApiClient";
 import AddNewPipeline from '../model/AddNewPipeline';
-import DeletePipelineResponse200 from '../model/DeletePipelineResponse200';
+import DeletePipelineResponse from '../model/DeletePipelineResponse';
 import EditPipeline from '../model/EditPipeline';
 import GetAllPipelines from '../model/GetAllPipelines';
 import GetDealsConversionRatesInPipeline from '../model/GetDealsConversionRatesInPipeline';
@@ -111,7 +111,7 @@ export default class PipelinesApi {
      * Delete a pipeline
      * Marks a pipeline as deleted.
      * @param {Number} id The ID of the pipeline
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeletePipelineResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeletePipelineResponse} and HTTP response
      */
     deletePipelineWithHttpInfo(id) {
       const opts = {}
@@ -151,7 +151,7 @@ export default class PipelinesApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = DeletePipelineResponse200;
+      let returnType = DeletePipelineResponse;
       return this.apiClient.callApi(
         '/pipelines/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -163,7 +163,7 @@ export default class PipelinesApi {
      * Delete a pipeline
      * Marks a pipeline as deleted.
      * @param {Number} id The ID of the pipeline
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeletePipelineResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeletePipelineResponse}
      */
     deletePipeline(id) {
       return this.deletePipelineWithHttpInfo(id)
