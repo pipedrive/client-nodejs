@@ -2,7 +2,7 @@ name: Auto-close stale issues
 
 on:
   schedule:
-    - cron: "0 0 1 * *"  # Runs the action on the first day of each month
+    - cron: "0 7 * * 0"  # Runs the action on Sundays at 7am UTC
 
 jobs:
   close-stale-issues:
