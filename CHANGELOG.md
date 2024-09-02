@@ -12,39 +12,9 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 ### Updated
 -  Updated TypeScript interfaces
 
-### Fixed
-- Updated default values for "billing_frequency_cycles", "billing_start_date" fields
-
-## [23.2.5] - 2024-08-27
-### Fixed
-- Updated default values for "billing_frequency_cycles", "billing_start_date" fields
-
-## [23.2.4] - 2024-08-13
-### Fixed
-- Added "filter_id" to GET /api/v2/deals documentation
-
-## [23.2.3] - 2024-08-12
-### Fixed
-- Fix "label_ids" field formatting.
-
-## [23.2.2] - 2024-08-07
-### Fixed
-- Added the missing "label_ids" field to the contacts endpoints.
-
-## [23.2.1] - 2024-08-01
-### Fixed
-- Added missing "description" parameter to "Add a product" and "Update a product" endpoints
-
-## [23.2.0] - 2024-07-25
-### Added
-- Notice informing the users of the upcoming Activity Invites feature deprecation:
-  - `POST` and `PUT` `/v1/activities` endpoints
-
-## [23.1.0] - 2024-07-03
-### Added
-- Added `notes` field to Prices in:
-  - `GET` and `POST` `/v2/products/{productId}/variations` endpoints
-  - `PATCH` `/api/v2/products/{productId}/variations/{productVariationId}` endpoint
+## [23.0.0-rc.2] - 2024-07-01
+### Removed
+- Removed request and response fields `duration` and `duration_unit` for all endpoints of deals and products using them
 
 ## [23.0.0] - 2024-06-14
 ### Removed
