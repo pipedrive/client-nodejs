@@ -205,7 +205,7 @@ const oauth2 = new OAuth2Configuration({
 });
 
 app.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}`);
+  console.log(`Listening on port ${PORT}`);
 });
 
 app.get('/', async (req, res) => {
@@ -547,12 +547,6 @@ WebhooksApi | getWebhooks | **GET** /webhooks | Get all Webhooks
 - **Type**: API key
 - **API key parameter name**: api_token
 - **Location**: URL query string
-
-
-
-### basic_authentication
-
-- **Type**: HTTP basic authentication
 
 
 
