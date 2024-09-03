@@ -22,19 +22,19 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
-import { AddFileAndLinkItResponse200 } from '../models';
+import { AddFileResponse } from '../models';
 // @ts-ignore
-import { AddFileResponse200 } from '../models';
+import { AddRemoteFileAndLinkItToItemResponse } from '../models';
 // @ts-ignore
-import { DeleteFileResponse200 } from '../models';
+import { DeleteFileResponse } from '../models';
 // @ts-ignore
-import { GetFileResponse200 } from '../models';
+import { GetFileResponse } from '../models';
 // @ts-ignore
-import { GetFilesResponse200 } from '../models';
+import { GetFilesResponse } from '../models';
 // @ts-ignore
-import { LinkFileToItemResponse200 } from '../models';
+import { GetLinkRemoteFileToItemResponse } from '../models';
 // @ts-ignore
-import { UpdateFileResponse200 } from '../models';
+import { UpdateFileResponse } from '../models';
 /**
  * FilesApi - axios parameter creator
  * @export
@@ -518,7 +518,7 @@ export const FilesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async addFile(file: File, deal_id?: number, person_id?: number, org_id?: number, product_id?: number, activity_id?: number, lead_id?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddFileResponse200>> {
+        async addFile(file: File, deal_id?: number, person_id?: number, org_id?: number, product_id?: number, activity_id?: number, lead_id?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddFileResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addFile(file, deal_id, person_id, org_id, product_id, activity_id, lead_id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -533,7 +533,7 @@ export const FilesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async addFileAndLinkIt(file_type: string, title: string, item_type: string, item_id: number, remote_location: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddFileAndLinkItResponse200>> {
+        async addFileAndLinkIt(file_type: string, title: string, item_type: string, item_id: number, remote_location: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddRemoteFileAndLinkItToItemResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addFileAndLinkIt(file_type, title, item_type, item_id, remote_location, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -544,7 +544,7 @@ export const FilesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deleteFile(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteFileResponse200>> {
+        async deleteFile(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteFileResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteFile(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -566,7 +566,7 @@ export const FilesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getFile(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFileResponse200>> {
+        async getFile(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFileResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getFile(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -579,7 +579,7 @@ export const FilesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getFiles(start?: number, limit?: number, sort?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFilesResponse200>> {
+        async getFiles(start?: number, limit?: number, sort?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFilesResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getFiles(start, limit, sort, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -593,7 +593,7 @@ export const FilesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async linkFileToItem(item_type: string, item_id: number, remote_id: string, remote_location: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<LinkFileToItemResponse200>> {
+        async linkFileToItem(item_type: string, item_id: number, remote_id: string, remote_location: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetLinkRemoteFileToItemResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.linkFileToItem(item_type, item_id, remote_id, remote_location, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -606,7 +606,7 @@ export const FilesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async updateFile(id: number, name?: string, description?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateFileResponse200>> {
+        async updateFile(id: number, name?: string, description?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateFileResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateFile(id, name, description, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -627,7 +627,7 @@ export const FilesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        addFile(requestParameters: FilesApiAddFileRequest, ): Promise<AddFileResponse200> {
+        addFile(requestParameters: FilesApiAddFileRequest, ): Promise<AddFileResponse> {
             return localVarFp.addFile(requestParameters.file, requestParameters.deal_id, requestParameters.person_id, requestParameters.org_id, requestParameters.product_id, requestParameters.activity_id, requestParameters.lead_id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -637,7 +637,7 @@ export const FilesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        addFileAndLinkIt(requestParameters: FilesApiAddFileAndLinkItRequest, ): Promise<AddFileAndLinkItResponse200> {
+        addFileAndLinkIt(requestParameters: FilesApiAddFileAndLinkItRequest, ): Promise<AddRemoteFileAndLinkItToItemResponse> {
             return localVarFp.addFileAndLinkIt(requestParameters.file_type, requestParameters.title, requestParameters.item_type, requestParameters.item_id, requestParameters.remote_location, ).then((request) => request(axios, basePath));
         },
         /**
@@ -647,7 +647,7 @@ export const FilesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        deleteFile(requestParameters: FilesApiDeleteFileRequest, ): Promise<DeleteFileResponse200> {
+        deleteFile(requestParameters: FilesApiDeleteFileRequest, ): Promise<DeleteFileResponse> {
             return localVarFp.deleteFile(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -667,7 +667,7 @@ export const FilesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        getFile(requestParameters: FilesApiGetFileRequest, ): Promise<GetFileResponse200> {
+        getFile(requestParameters: FilesApiGetFileRequest, ): Promise<GetFileResponse> {
             return localVarFp.getFile(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -677,7 +677,7 @@ export const FilesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        getFiles(requestParameters: FilesApiGetFilesRequest = {}, ): Promise<GetFilesResponse200> {
+        getFiles(requestParameters: FilesApiGetFilesRequest = {}, ): Promise<GetFilesResponse> {
             return localVarFp.getFiles(requestParameters.start, requestParameters.limit, requestParameters.sort, ).then((request) => request(axios, basePath));
         },
         /**
@@ -687,7 +687,7 @@ export const FilesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        linkFileToItem(requestParameters: FilesApiLinkFileToItemRequest, ): Promise<LinkFileToItemResponse200> {
+        linkFileToItem(requestParameters: FilesApiLinkFileToItemRequest, ): Promise<GetLinkRemoteFileToItemResponse> {
             return localVarFp.linkFileToItem(requestParameters.item_type, requestParameters.item_id, requestParameters.remote_id, requestParameters.remote_location, ).then((request) => request(axios, basePath));
         },
         /**
@@ -697,7 +697,7 @@ export const FilesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        updateFile(requestParameters: FilesApiUpdateFileRequest, ): Promise<UpdateFileResponse200> {
+        updateFile(requestParameters: FilesApiUpdateFileRequest, ): Promise<UpdateFileResponse> {
             return localVarFp.updateFile(requestParameters.id, requestParameters.name, requestParameters.description, ).then((request) => request(axios, basePath));
         },
     };

@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 ## deletePipeline
 
-> DeletePipelineResponse200 deletePipeline(id)
+> DeletePipelineResponse deletePipeline(id)
 
 Delete a pipeline
 
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeletePipelineResponse200**](DeletePipelineResponse200.md)
+[**DeletePipelineResponse**](DeletePipelineResponse.md)
 
 ### Authorization
 
@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
 
 Get deals in a pipeline
 
-Lists deals in a specific pipeline across all its stages.
+Lists deals in a specific pipeline across all its stages. If no parameters are provided open deals owned by the authorized user will be returned.
 
 ### Example
 

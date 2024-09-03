@@ -22,25 +22,25 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
-import { AddPipelineResponse200 } from '../models';
+import { AddPipelineResponse } from '../models';
 // @ts-ignore
-import { DeletePipelineResponse200 } from '../models';
+import { DeletePipelineResponse } from '../models';
 // @ts-ignore
-import { GetPipelineConversionStatisticsResponse200 } from '../models';
+import { GetPipelineDealsConversionRatesInResponse } from '../models';
 // @ts-ignore
-import { GetPipelineMovementStatisticsResponse200 } from '../models';
+import { GetPipelineDealsMovementsStatisticsResponse } from '../models';
 // @ts-ignore
-import { GetPipelineResponse200 } from '../models';
+import { GetPipelineResponse } from '../models';
 // @ts-ignore
-import { GetPipelinesResponse200 } from '../models';
+import { GetPipelinesResponse } from '../models';
 // @ts-ignore
-import { GetStageDealsResponse200 } from '../models';
+import { GetStageDealsResponse } from '../models';
 // @ts-ignore
 import { PipelineRequest } from '../models';
 // @ts-ignore
 import { PipelineRequest1 } from '../models';
 // @ts-ignore
-import { UpdatePipelineResponse200 } from '../models';
+import { UpdatePipelineResponse } from '../models';
 /**
  * PipelinesApi - axios parameter creator
  * @export
@@ -240,7 +240,7 @@ export const PipelinesApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         * Lists deals in a specific pipeline across all its stages.
+         * Lists deals in a specific pipeline across all its stages. If no parameters are provided open deals owned by the authorized user will be returned.
          * @summary Get deals in a pipeline
          * @param {number} id The ID of the pipeline
          * @param {number} [filter_id] If supplied, only deals matching the given filter will be returned
@@ -484,7 +484,7 @@ export const PipelinesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async addPipeline(PipelineRequest?: PipelineRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddPipelineResponse200>> {
+        async addPipeline(PipelineRequest?: PipelineRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddPipelineResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addPipeline(PipelineRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -495,7 +495,7 @@ export const PipelinesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deletePipeline(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeletePipelineResponse200>> {
+        async deletePipeline(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeletePipelineResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deletePipeline(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -507,7 +507,7 @@ export const PipelinesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getPipeline(id: number, totals_convert_currency?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPipelineResponse200>> {
+        async getPipeline(id: number, totals_convert_currency?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPipelineResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPipeline(id, totals_convert_currency, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -521,12 +521,12 @@ export const PipelinesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getPipelineConversionStatistics(id: number, start_date: string, end_date: string, user_id?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPipelineConversionStatisticsResponse200>> {
+        async getPipelineConversionStatistics(id: number, start_date: string, end_date: string, user_id?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPipelineDealsConversionRatesInResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPipelineConversionStatistics(id, start_date, end_date, user_id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Lists deals in a specific pipeline across all its stages.
+         * Lists deals in a specific pipeline across all its stages. If no parameters are provided open deals owned by the authorized user will be returned.
          * @summary Get deals in a pipeline
          * @param {number} id The ID of the pipeline
          * @param {number} [filter_id] If supplied, only deals matching the given filter will be returned
@@ -540,7 +540,7 @@ export const PipelinesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getPipelineDeals(id: number, filter_id?: number, user_id?: number, everyone?: 0 | 1, stage_id?: number, start?: number, limit?: number, get_summary?: 0 | 1, totals_convert_currency?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetStageDealsResponse200>> {
+        async getPipelineDeals(id: number, filter_id?: number, user_id?: number, everyone?: 0 | 1, stage_id?: number, start?: number, limit?: number, get_summary?: 0 | 1, totals_convert_currency?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetStageDealsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPipelineDeals(id, filter_id, user_id, everyone, stage_id, start, limit, get_summary, totals_convert_currency, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -554,7 +554,7 @@ export const PipelinesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getPipelineMovementStatistics(id: number, start_date: string, end_date: string, user_id?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPipelineMovementStatisticsResponse200>> {
+        async getPipelineMovementStatistics(id: number, start_date: string, end_date: string, user_id?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPipelineDealsMovementsStatisticsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPipelineMovementStatistics(id, start_date, end_date, user_id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -564,7 +564,7 @@ export const PipelinesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getPipelines(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPipelinesResponse200>> {
+        async getPipelines(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPipelinesResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPipelines();
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -576,7 +576,7 @@ export const PipelinesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async updatePipeline(id: number, PipelineRequest1?: PipelineRequest1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdatePipelineResponse200>> {
+        async updatePipeline(id: number, PipelineRequest1?: PipelineRequest1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdatePipelineResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updatePipeline(id, PipelineRequest1, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -597,7 +597,7 @@ export const PipelinesApiFactory = function (configuration?: Configuration, base
 
          * @throws {RequiredError}
          */
-        addPipeline(requestParameters: PipelinesApiAddPipelineRequest = {}, ): Promise<AddPipelineResponse200> {
+        addPipeline(requestParameters: PipelinesApiAddPipelineRequest = {}, ): Promise<AddPipelineResponse> {
             return localVarFp.addPipeline(requestParameters.PipelineRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -607,7 +607,7 @@ export const PipelinesApiFactory = function (configuration?: Configuration, base
 
          * @throws {RequiredError}
          */
-        deletePipeline(requestParameters: PipelinesApiDeletePipelineRequest, ): Promise<DeletePipelineResponse200> {
+        deletePipeline(requestParameters: PipelinesApiDeletePipelineRequest, ): Promise<DeletePipelineResponse> {
             return localVarFp.deletePipeline(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -617,7 +617,7 @@ export const PipelinesApiFactory = function (configuration?: Configuration, base
 
          * @throws {RequiredError}
          */
-        getPipeline(requestParameters: PipelinesApiGetPipelineRequest, ): Promise<GetPipelineResponse200> {
+        getPipeline(requestParameters: PipelinesApiGetPipelineRequest, ): Promise<GetPipelineResponse> {
             return localVarFp.getPipeline(requestParameters.id, requestParameters.totals_convert_currency, ).then((request) => request(axios, basePath));
         },
         /**
@@ -627,17 +627,17 @@ export const PipelinesApiFactory = function (configuration?: Configuration, base
 
          * @throws {RequiredError}
          */
-        getPipelineConversionStatistics(requestParameters: PipelinesApiGetPipelineConversionStatisticsRequest, ): Promise<GetPipelineConversionStatisticsResponse200> {
+        getPipelineConversionStatistics(requestParameters: PipelinesApiGetPipelineConversionStatisticsRequest, ): Promise<GetPipelineDealsConversionRatesInResponse> {
             return localVarFp.getPipelineConversionStatistics(requestParameters.id, requestParameters.start_date, requestParameters.end_date, requestParameters.user_id, ).then((request) => request(axios, basePath));
         },
         /**
-         * Lists deals in a specific pipeline across all its stages.
+         * Lists deals in a specific pipeline across all its stages. If no parameters are provided open deals owned by the authorized user will be returned.
          * @summary Get deals in a pipeline
          * @param {PipelinesApiGetPipelineDealsRequest} requestParameters Request parameters.
 
          * @throws {RequiredError}
          */
-        getPipelineDeals(requestParameters: PipelinesApiGetPipelineDealsRequest, ): Promise<GetStageDealsResponse200> {
+        getPipelineDeals(requestParameters: PipelinesApiGetPipelineDealsRequest, ): Promise<GetStageDealsResponse> {
             return localVarFp.getPipelineDeals(requestParameters.id, requestParameters.filter_id, requestParameters.user_id, requestParameters.everyone, requestParameters.stage_id, requestParameters.start, requestParameters.limit, requestParameters.get_summary, requestParameters.totals_convert_currency, ).then((request) => request(axios, basePath));
         },
         /**
@@ -647,7 +647,7 @@ export const PipelinesApiFactory = function (configuration?: Configuration, base
 
          * @throws {RequiredError}
          */
-        getPipelineMovementStatistics(requestParameters: PipelinesApiGetPipelineMovementStatisticsRequest, ): Promise<GetPipelineMovementStatisticsResponse200> {
+        getPipelineMovementStatistics(requestParameters: PipelinesApiGetPipelineMovementStatisticsRequest, ): Promise<GetPipelineDealsMovementsStatisticsResponse> {
             return localVarFp.getPipelineMovementStatistics(requestParameters.id, requestParameters.start_date, requestParameters.end_date, requestParameters.user_id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -656,7 +656,7 @@ export const PipelinesApiFactory = function (configuration?: Configuration, base
 
          * @throws {RequiredError}
          */
-        getPipelines(): Promise<GetPipelinesResponse200> {
+        getPipelines(): Promise<GetPipelinesResponse> {
             return localVarFp.getPipelines().then((request) => request(axios, basePath));
         },
         /**
@@ -666,7 +666,7 @@ export const PipelinesApiFactory = function (configuration?: Configuration, base
 
          * @throws {RequiredError}
          */
-        updatePipeline(requestParameters: PipelinesApiUpdatePipelineRequest, ): Promise<UpdatePipelineResponse200> {
+        updatePipeline(requestParameters: PipelinesApiUpdatePipelineRequest, ): Promise<UpdatePipelineResponse> {
             return localVarFp.updatePipeline(requestParameters.id, requestParameters.PipelineRequest1, ).then((request) => request(axios, basePath));
         },
     };
@@ -938,7 +938,7 @@ export class PipelinesApi extends BaseAPI {
     }
 
     /**
-     * Lists deals in a specific pipeline across all its stages.
+     * Lists deals in a specific pipeline across all its stages. If no parameters are provided open deals owned by the authorized user will be returned.
      * @summary Get deals in a pipeline
      * @param {PipelinesApiGetPipelineDealsRequest} requestParameters Request parameters.
 

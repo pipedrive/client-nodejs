@@ -8,9 +8,44 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
-## [23.0.0-rc.2] - 2024-07-01
-### Removed
-- Removed request and response fields `duration` and `duration_unit` for all endpoints of deals and products using them
+## [23.2.5-rc.2] - 2024-09-03
+### Fixed
+- Updated default values for "billing_frequency_cycles", "billing_start_date" fields
+
+## [23.2.5-rc.1] - 2024-09-02
+### Updated
+-  Updated TypeScript interfaces
+
+## [23.2.5] - 2024-08-27
+### Fixed
+- Updated default values for "billing_frequency_cycles", "billing_start_date" fields
+
+## [23.2.4] - 2024-08-13
+### Fixed
+- Added "filter_id" to GET /api/v2/deals documentation
+
+## [23.2.3] - 2024-08-12
+### Fixed
+- Fix "label_ids" field formatting.
+
+## [23.2.2] - 2024-08-07
+### Fixed
+- Added the missing "label_ids" field to the contacts endpoints.
+
+## [23.2.1] - 2024-08-01
+### Fixed
+- Added missing "description" parameter to "Add a product" and "Update a product" endpoints
+
+## [23.2.0] - 2024-07-25
+### Added
+- Notice informing the users of the upcoming Activity Invites feature deprecation:
+  - `POST` and `PUT` `/v1/activities` endpoints
+
+## [23.1.0] - 2024-07-03
+### Added
+- Added `notes` field to Prices in:
+  - `GET` and `POST` `/v2/products/{productId}/variations` endpoints
+  - `PATCH` `/api/v2/products/{productId}/variations/{productVariationId}` endpoint
 
 ## [23.0.0] - 2024-06-14
 ### Removed
@@ -57,14 +92,6 @@ Added `acv`, `mrr`, `arr`, `acv_currency`, `mrr_currency`, and `arr_currency` to
   - `GET`, `POST` and `PATCH` `/v2/products` endpoints
   - `GET` `/v2/products/{id}` endpoints
 
-## [22.3.1-rc.5] - 2024-04-24
-- Add `lead_id` as an acceptable body parameter for the `POST /v1/callLogs` endpoint
-
-
-## [22.3.1-rc.5] - 2024-02-12
-- Add TypeScript Support
-
-
 ## [22.6.1] - 2024-04-18
 ### Added
 - Added `is_deleted` parameter for `/v1/users/*` responses.
@@ -73,7 +100,6 @@ Added `acv`, `mrr`, `arr`, `acv_currency`, `mrr_currency`, and `arr_currency` to
 ### Added
 - Added documentation for new endpoints `/deals/{id}/changelog`, `/persons/{id}/changelog` and `/organizations/{id}/changelog`.
 
-
 ## [22.5.0] - 2024-02-02
 ### Added
 - Added documentation for new endpoint `/deals/{id}/participantsChangelog`.
@@ -81,13 +107,6 @@ Added `acv`, `mrr`, `arr`, `acv_currency`, `mrr_currency`, and `arr_currency` to
 ## [22.4.0] - 2024-01-05
 ### Added
 - Added documentation for `/meetings/userProviderLinks` endpoints
-
-## [22.3.1-rc.2] - 2023-12-22
-
-## [22.3.1-rc.1] - 2023-12-22
-
-## [22.3.1-rc.0] - 2023-12-22
-- Add Support for TypeScript
 
 ## [22.3.0] - 2023-10-17
 - Add `Projects`, `ProjectTemplates` and `Tasks` public routes.
@@ -666,9 +685,15 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v22.3.1-rc.5...v23.0.0-rc.1
-[22.3.1-rc.5]: https://github.com/pipedrive/api-docs/compare/v22.3.1-rc.4...v22.3.1-rc.5
-[22.3.1-rc.4]: https://github.com/pipedrive/api-docs/compare/v22.3.1-rc.3...v22.3.1-rc.4
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v23.2.5-rc.2...HEAD
+[23.2.5-rc.2]: https://github.com/pipedrive/api-docs/compare/v23.2.5...v23.2.5-rc.2
+[23.2.5]: https://github.com/pipedrive/api-docs/compare/v23.2.4...v23.2.5
+[23.2.4]: https://github.com/pipedrive/api-docs/compare/v23.2.3...v23.2.4
+[23.2.3]: https://github.com/pipedrive/api-docs/compare/v23.2.2...v23.2.3
+[23.2.2]: https://github.com/pipedrive/api-docs/compare/v23.2.1...v23.2.2
+[23.2.1]: https://github.com/pipedrive/api-docs/compare/v23.2.0...v23.2.1
+[23.2.0]: https://github.com/pipedrive/api-docs/compare/v23.1.0...v23.2.0
+[23.1.0]: https://github.com/pipedrive/api-docs/compare/v23.0.0...v23.1.0
 [23.0.0]: https://github.com/pipedrive/api-docs/compare/v22.10.1...v23.0.0
 [22.10.1]: https://github.com/pipedrive/api-docs/compare/v22.10.0...v22.10.1
 [22.10.0]: https://github.com/pipedrive/api-docs/compare/v22.9.0...v22.10.0

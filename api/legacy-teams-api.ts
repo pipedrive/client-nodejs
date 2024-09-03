@@ -30,9 +30,9 @@ import { DeleteTeamUserRequest } from '../models';
 // @ts-ignore
 import { FailResponse } from '../models';
 // @ts-ignore
-import { TeamResponse200 } from '../models';
+import { GetTeamResponse } from '../models';
 // @ts-ignore
-import { TeamsResponse200 } from '../models';
+import { GetTeamsResponse } from '../models';
 // @ts-ignore
 import { UpdateTeamRequest } from '../models';
 // @ts-ignore
@@ -422,7 +422,7 @@ export const LegacyTeamsApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async addTeam(AddTeamRequest1?: AddTeamRequest1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<TeamResponse200>> {
+        async addTeam(AddTeamRequest1?: AddTeamRequest1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetTeamResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addTeam(AddTeamRequest1, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -458,7 +458,7 @@ export const LegacyTeamsApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async getTeam(id: number, skip_users?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<TeamResponse200>> {
+        async getTeam(id: number, skip_users?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetTeamResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTeam(id, skip_users, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -481,7 +481,7 @@ export const LegacyTeamsApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async getTeams(order_by?: 'id' | 'name' | 'manager_id' | 'active_flag', skip_users?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<TeamsResponse200>> {
+        async getTeams(order_by?: 'id' | 'name' | 'manager_id' | 'active_flag', skip_users?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetTeamsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTeams(order_by, skip_users, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -494,7 +494,7 @@ export const LegacyTeamsApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async getUserTeams(id: number, order_by?: 'id' | 'name' | 'manager_id' | 'active_flag', skip_users?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<TeamsResponse200>> {
+        async getUserTeams(id: number, order_by?: 'id' | 'name' | 'manager_id' | 'active_flag', skip_users?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetTeamsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUserTeams(id, order_by, skip_users, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -506,7 +506,7 @@ export const LegacyTeamsApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async updateTeam(id: number, UpdateTeamRequest?: UpdateTeamRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<TeamResponse200>> {
+        async updateTeam(id: number, UpdateTeamRequest?: UpdateTeamRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetTeamResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateTeam(id, UpdateTeamRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -527,7 +527,7 @@ export const LegacyTeamsApiFactory = function (configuration?: Configuration, ba
          * @deprecated
          * @throws {RequiredError}
          */
-        addTeam(requestParameters: LegacyTeamsApiAddTeamRequest = {}, ): Promise<TeamResponse200> {
+        addTeam(requestParameters: LegacyTeamsApiAddTeamRequest = {}, ): Promise<GetTeamResponse> {
             return localVarFp.addTeam(requestParameters.AddTeamRequest1, ).then((request) => request(axios, basePath));
         },
         /**
@@ -557,7 +557,7 @@ export const LegacyTeamsApiFactory = function (configuration?: Configuration, ba
          * @deprecated
          * @throws {RequiredError}
          */
-        getTeam(requestParameters: LegacyTeamsApiGetTeamRequest, ): Promise<TeamResponse200> {
+        getTeam(requestParameters: LegacyTeamsApiGetTeamRequest, ): Promise<GetTeamResponse> {
             return localVarFp.getTeam(requestParameters.id, requestParameters.skip_users, ).then((request) => request(axios, basePath));
         },
         /**
@@ -577,7 +577,7 @@ export const LegacyTeamsApiFactory = function (configuration?: Configuration, ba
          * @deprecated
          * @throws {RequiredError}
          */
-        getTeams(requestParameters: LegacyTeamsApiGetTeamsRequest = {}, ): Promise<TeamsResponse200> {
+        getTeams(requestParameters: LegacyTeamsApiGetTeamsRequest = {}, ): Promise<GetTeamsResponse> {
             return localVarFp.getTeams(requestParameters.order_by, requestParameters.skip_users, ).then((request) => request(axios, basePath));
         },
         /**
@@ -587,7 +587,7 @@ export const LegacyTeamsApiFactory = function (configuration?: Configuration, ba
          * @deprecated
          * @throws {RequiredError}
          */
-        getUserTeams(requestParameters: LegacyTeamsApiGetUserTeamsRequest, ): Promise<TeamsResponse200> {
+        getUserTeams(requestParameters: LegacyTeamsApiGetUserTeamsRequest, ): Promise<GetTeamsResponse> {
             return localVarFp.getUserTeams(requestParameters.id, requestParameters.order_by, requestParameters.skip_users, ).then((request) => request(axios, basePath));
         },
         /**
@@ -597,7 +597,7 @@ export const LegacyTeamsApiFactory = function (configuration?: Configuration, ba
          * @deprecated
          * @throws {RequiredError}
          */
-        updateTeam(requestParameters: LegacyTeamsApiUpdateTeamRequest, ): Promise<TeamResponse200> {
+        updateTeam(requestParameters: LegacyTeamsApiUpdateTeamRequest, ): Promise<GetTeamResponse> {
             return localVarFp.updateTeam(requestParameters.id, requestParameters.UpdateTeamRequest, ).then((request) => request(axios, basePath));
         },
     };

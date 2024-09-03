@@ -24,13 +24,13 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { CreateFieldRequest } from '../models';
 // @ts-ignore
-import { DeleteFieldResponse200 } from '../models';
+import { DeleteFieldsResponse } from '../models';
 // @ts-ignore
-import { DeleteFieldsResponse200 } from '../models';
+import { DeleteResponse } from '../models';
 // @ts-ignore
-import { FieldResponse200 } from '../models';
+import { GetFieldResponse } from '../models';
 // @ts-ignore
-import { FieldsResponse200 } from '../models';
+import { GetFieldsResponse } from '../models';
 // @ts-ignore
 import { UpdateFieldRequest } from '../models';
 /**
@@ -316,7 +316,7 @@ export const OrganizationFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async addOrganizationField(CreateFieldRequest?: CreateFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<FieldResponse200>> {
+        async addOrganizationField(CreateFieldRequest?: CreateFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFieldResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addOrganizationField(CreateFieldRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -327,7 +327,7 @@ export const OrganizationFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deleteOrganizationField(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteFieldResponse200>> {
+        async deleteOrganizationField(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteOrganizationField(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -338,7 +338,7 @@ export const OrganizationFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deleteOrganizationFields(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteFieldsResponse200>> {
+        async deleteOrganizationFields(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteFieldsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteOrganizationFields(ids, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -349,7 +349,7 @@ export const OrganizationFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getOrganizationField(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<FieldResponse200>> {
+        async getOrganizationField(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFieldResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationField(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -361,7 +361,7 @@ export const OrganizationFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getOrganizationFields(start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<FieldsResponse200>> {
+        async getOrganizationFields(start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFieldsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationFields(start, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -373,7 +373,7 @@ export const OrganizationFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async updateOrganizationField(id: number, UpdateFieldRequest?: UpdateFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<FieldResponse200>> {
+        async updateOrganizationField(id: number, UpdateFieldRequest?: UpdateFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFieldResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateOrganizationField(id, UpdateFieldRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -394,7 +394,7 @@ export const OrganizationFieldsApiFactory = function (configuration?: Configurat
 
          * @throws {RequiredError}
          */
-        addOrganizationField(requestParameters: OrganizationFieldsApiAddOrganizationFieldRequest = {}, ): Promise<FieldResponse200> {
+        addOrganizationField(requestParameters: OrganizationFieldsApiAddOrganizationFieldRequest = {}, ): Promise<GetFieldResponse> {
             return localVarFp.addOrganizationField(requestParameters.CreateFieldRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -404,7 +404,7 @@ export const OrganizationFieldsApiFactory = function (configuration?: Configurat
 
          * @throws {RequiredError}
          */
-        deleteOrganizationField(requestParameters: OrganizationFieldsApiDeleteOrganizationFieldRequest, ): Promise<DeleteFieldResponse200> {
+        deleteOrganizationField(requestParameters: OrganizationFieldsApiDeleteOrganizationFieldRequest, ): Promise<DeleteResponse> {
             return localVarFp.deleteOrganizationField(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -414,7 +414,7 @@ export const OrganizationFieldsApiFactory = function (configuration?: Configurat
 
          * @throws {RequiredError}
          */
-        deleteOrganizationFields(requestParameters: OrganizationFieldsApiDeleteOrganizationFieldsRequest, ): Promise<DeleteFieldsResponse200> {
+        deleteOrganizationFields(requestParameters: OrganizationFieldsApiDeleteOrganizationFieldsRequest, ): Promise<DeleteFieldsResponse> {
             return localVarFp.deleteOrganizationFields(requestParameters.ids, ).then((request) => request(axios, basePath));
         },
         /**
@@ -424,7 +424,7 @@ export const OrganizationFieldsApiFactory = function (configuration?: Configurat
 
          * @throws {RequiredError}
          */
-        getOrganizationField(requestParameters: OrganizationFieldsApiGetOrganizationFieldRequest, ): Promise<FieldResponse200> {
+        getOrganizationField(requestParameters: OrganizationFieldsApiGetOrganizationFieldRequest, ): Promise<GetFieldResponse> {
             return localVarFp.getOrganizationField(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -434,7 +434,7 @@ export const OrganizationFieldsApiFactory = function (configuration?: Configurat
 
          * @throws {RequiredError}
          */
-        getOrganizationFields(requestParameters: OrganizationFieldsApiGetOrganizationFieldsRequest = {}, ): Promise<FieldsResponse200> {
+        getOrganizationFields(requestParameters: OrganizationFieldsApiGetOrganizationFieldsRequest = {}, ): Promise<GetFieldsResponse> {
             return localVarFp.getOrganizationFields(requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
         /**
@@ -444,7 +444,7 @@ export const OrganizationFieldsApiFactory = function (configuration?: Configurat
 
          * @throws {RequiredError}
          */
-        updateOrganizationField(requestParameters: OrganizationFieldsApiUpdateOrganizationFieldRequest, ): Promise<FieldResponse200> {
+        updateOrganizationField(requestParameters: OrganizationFieldsApiUpdateOrganizationFieldRequest, ): Promise<GetFieldResponse> {
             return localVarFp.updateOrganizationField(requestParameters.id, requestParameters.UpdateFieldRequest, ).then((request) => request(axios, basePath));
         },
     };

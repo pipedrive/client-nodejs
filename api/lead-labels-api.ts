@@ -24,15 +24,15 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { AddLeadLabelRequest } from '../models';
 // @ts-ignore
-import { AddOrUpdateLeadLabelResponse200 } from '../models';
+import { DeleteLeadIdResponse } from '../models';
 // @ts-ignore
-import { GetLeadLabelsResponse200 } from '../models';
+import { GetLeadLabelsResponse } from '../models';
 // @ts-ignore
-import { LeadIdResponse200 } from '../models';
-// @ts-ignore
-import { LeadResponse404 } from '../models';
+import { LeadNotFoundResponse } from '../models';
 // @ts-ignore
 import { UpdateLeadLabelRequest } from '../models';
+// @ts-ignore
+import { UpsertLeadLabelResponse } from '../models';
 /**
  * LeadLabelsApi - axios parameter creator
  * @export
@@ -221,7 +221,7 @@ export const LeadLabelsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async addLeadLabel(AddLeadLabelRequest?: AddLeadLabelRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddOrUpdateLeadLabelResponse200>> {
+        async addLeadLabel(AddLeadLabelRequest?: AddLeadLabelRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertLeadLabelResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addLeadLabel(AddLeadLabelRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -232,7 +232,7 @@ export const LeadLabelsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deleteLeadLabel(id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<LeadIdResponse200>> {
+        async deleteLeadLabel(id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteLeadIdResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteLeadLabel(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -242,7 +242,7 @@ export const LeadLabelsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getLeadLabels(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetLeadLabelsResponse200>> {
+        async getLeadLabels(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetLeadLabelsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getLeadLabels();
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -254,7 +254,7 @@ export const LeadLabelsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async updateLeadLabel(id: string, UpdateLeadLabelRequest?: UpdateLeadLabelRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddOrUpdateLeadLabelResponse200>> {
+        async updateLeadLabel(id: string, UpdateLeadLabelRequest?: UpdateLeadLabelRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertLeadLabelResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateLeadLabel(id, UpdateLeadLabelRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -275,7 +275,7 @@ export const LeadLabelsApiFactory = function (configuration?: Configuration, bas
 
          * @throws {RequiredError}
          */
-        addLeadLabel(requestParameters: LeadLabelsApiAddLeadLabelRequest = {}, ): Promise<AddOrUpdateLeadLabelResponse200> {
+        addLeadLabel(requestParameters: LeadLabelsApiAddLeadLabelRequest = {}, ): Promise<UpsertLeadLabelResponse> {
             return localVarFp.addLeadLabel(requestParameters.AddLeadLabelRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -285,7 +285,7 @@ export const LeadLabelsApiFactory = function (configuration?: Configuration, bas
 
          * @throws {RequiredError}
          */
-        deleteLeadLabel(requestParameters: LeadLabelsApiDeleteLeadLabelRequest, ): Promise<LeadIdResponse200> {
+        deleteLeadLabel(requestParameters: LeadLabelsApiDeleteLeadLabelRequest, ): Promise<DeleteLeadIdResponse> {
             return localVarFp.deleteLeadLabel(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -294,7 +294,7 @@ export const LeadLabelsApiFactory = function (configuration?: Configuration, bas
 
          * @throws {RequiredError}
          */
-        getLeadLabels(): Promise<GetLeadLabelsResponse200> {
+        getLeadLabels(): Promise<GetLeadLabelsResponse> {
             return localVarFp.getLeadLabels().then((request) => request(axios, basePath));
         },
         /**
@@ -304,7 +304,7 @@ export const LeadLabelsApiFactory = function (configuration?: Configuration, bas
 
          * @throws {RequiredError}
          */
-        updateLeadLabel(requestParameters: LeadLabelsApiUpdateLeadLabelRequest, ): Promise<AddOrUpdateLeadLabelResponse200> {
+        updateLeadLabel(requestParameters: LeadLabelsApiUpdateLeadLabelRequest, ): Promise<UpsertLeadLabelResponse> {
             return localVarFp.updateLeadLabel(requestParameters.id, requestParameters.UpdateLeadLabelRequest, ).then((request) => request(axios, basePath));
         },
     };

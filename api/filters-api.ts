@@ -24,15 +24,15 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { AddFilterRequest } from '../models';
 // @ts-ignore
-import { DeleteFilterResponse200 } from '../models';
+import { AddFiltersResponse } from '../models';
 // @ts-ignore
-import { DeleteFiltersResponse200 } from '../models';
+import { DeleteFilterResponse } from '../models';
 // @ts-ignore
-import { GetFilterResponse200 } from '../models';
+import { DeleteFiltersResponse } from '../models';
 // @ts-ignore
-import { GetFiltersResponse200 } from '../models';
+import { GetFiltersResponse } from '../models';
 // @ts-ignore
-import { PostFilterResponse200 } from '../models';
+import { GetFiltersResponse1 } from '../models';
 // @ts-ignore
 import { UpdateFilterRequest } from '../models';
 /**
@@ -350,7 +350,7 @@ export const FiltersApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async addFilter(AddFilterRequest?: AddFilterRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<PostFilterResponse200>> {
+        async addFilter(AddFilterRequest?: AddFilterRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddFiltersResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addFilter(AddFilterRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -361,7 +361,7 @@ export const FiltersApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deleteFilter(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteFilterResponse200>> {
+        async deleteFilter(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteFilterResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteFilter(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -372,7 +372,7 @@ export const FiltersApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deleteFilters(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteFiltersResponse200>> {
+        async deleteFilters(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteFiltersResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteFilters(ids, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -383,7 +383,7 @@ export const FiltersApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getFilter(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFilterResponse200>> {
+        async getFilter(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFiltersResponse1>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getFilter(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -404,7 +404,7 @@ export const FiltersApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getFilters(type?: 'deals' | 'leads' | 'org' | 'people' | 'products' | 'activity' | 'projects', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFiltersResponse200>> {
+        async getFilters(type?: 'deals' | 'leads' | 'org' | 'people' | 'products' | 'activity' | 'projects', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFiltersResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getFilters(type, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -416,7 +416,7 @@ export const FiltersApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async updateFilter(id: number, UpdateFilterRequest?: UpdateFilterRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<PostFilterResponse200>> {
+        async updateFilter(id: number, UpdateFilterRequest?: UpdateFilterRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddFiltersResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateFilter(id, UpdateFilterRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -437,7 +437,7 @@ export const FiltersApiFactory = function (configuration?: Configuration, basePa
 
          * @throws {RequiredError}
          */
-        addFilter(requestParameters: FiltersApiAddFilterRequest = {}, ): Promise<PostFilterResponse200> {
+        addFilter(requestParameters: FiltersApiAddFilterRequest = {}, ): Promise<AddFiltersResponse> {
             return localVarFp.addFilter(requestParameters.AddFilterRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -447,7 +447,7 @@ export const FiltersApiFactory = function (configuration?: Configuration, basePa
 
          * @throws {RequiredError}
          */
-        deleteFilter(requestParameters: FiltersApiDeleteFilterRequest, ): Promise<DeleteFilterResponse200> {
+        deleteFilter(requestParameters: FiltersApiDeleteFilterRequest, ): Promise<DeleteFilterResponse> {
             return localVarFp.deleteFilter(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -457,7 +457,7 @@ export const FiltersApiFactory = function (configuration?: Configuration, basePa
 
          * @throws {RequiredError}
          */
-        deleteFilters(requestParameters: FiltersApiDeleteFiltersRequest, ): Promise<DeleteFiltersResponse200> {
+        deleteFilters(requestParameters: FiltersApiDeleteFiltersRequest, ): Promise<DeleteFiltersResponse> {
             return localVarFp.deleteFilters(requestParameters.ids, ).then((request) => request(axios, basePath));
         },
         /**
@@ -467,7 +467,7 @@ export const FiltersApiFactory = function (configuration?: Configuration, basePa
 
          * @throws {RequiredError}
          */
-        getFilter(requestParameters: FiltersApiGetFilterRequest, ): Promise<GetFilterResponse200> {
+        getFilter(requestParameters: FiltersApiGetFilterRequest, ): Promise<GetFiltersResponse1> {
             return localVarFp.getFilter(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -486,7 +486,7 @@ export const FiltersApiFactory = function (configuration?: Configuration, basePa
 
          * @throws {RequiredError}
          */
-        getFilters(requestParameters: FiltersApiGetFiltersRequest = {}, ): Promise<GetFiltersResponse200> {
+        getFilters(requestParameters: FiltersApiGetFiltersRequest = {}, ): Promise<GetFiltersResponse> {
             return localVarFp.getFilters(requestParameters.type, ).then((request) => request(axios, basePath));
         },
         /**
@@ -496,7 +496,7 @@ export const FiltersApiFactory = function (configuration?: Configuration, basePa
 
          * @throws {RequiredError}
          */
-        updateFilter(requestParameters: FiltersApiUpdateFilterRequest, ): Promise<PostFilterResponse200> {
+        updateFilter(requestParameters: FiltersApiUpdateFilterRequest, ): Promise<AddFiltersResponse> {
             return localVarFp.updateFilter(requestParameters.id, requestParameters.UpdateFilterRequest, ).then((request) => request(axios, basePath));
         },
     };

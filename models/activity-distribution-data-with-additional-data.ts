@@ -21,12 +21,12 @@ import { ActivityDistributionDataWithAdditionalDataAllOf } from './activity-dist
 import { ActivityDistributionDataWithAdditionalDataAllOfActivityDistribution } from './activity-distribution-data-with-additional-data-all-of-activity-distribution';
 // May contain unused imports in some cases
 // @ts-ignore
-import { FieldsResponse200AllOfAdditionalData } from './fields-response200-all-of-additional-data';
+import { GetFieldsResponseAllOfAdditionalData } from './get-fields-response-all-of-additional-data';
 
 /**
  * @type ActivityDistributionDataWithAdditionalData
  * @export
  */
-export type ActivityDistributionDataWithAdditionalData = ActivityDistributionDataWithAdditionalDataAllOf & FieldsResponse200AllOfAdditionalData;
+export type ActivityDistributionDataWithAdditionalData = ActivityDistributionDataWithAdditionalDataAllOf & GetFieldsResponseAllOfAdditionalData;
 
 

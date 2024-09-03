@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 ## addDealProduct
 
-> GetAddProductAttachementDetails addDealProduct(id, opts)
+> GetAddProductAttachmentDetails addDealProduct(id, opts)
 
 Add a product to a deal
 
@@ -251,7 +251,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetAddProductAttachementDetails**](GetAddProductAttachementDetails.md)
+[**GetAddProductAttachmentDetails**](GetAddProductAttachmentDetails.md)
 
 ### Authorization
 
@@ -1758,7 +1758,7 @@ Name | Type | Description  | Notes
 
 ## updateDealProduct
 
-> GetProductAttachementDetails updateDealProduct(id, productAttachmentId, opts)
+> GetProductAttachmentDetails updateDealProduct(id, productAttachmentId, opts)
 
 Update the product attached to a deal
 
@@ -1803,7 +1803,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetProductAttachementDetails**](GetProductAttachementDetails.md)
+[**GetProductAttachmentDetails**](GetProductAttachmentDetails.md)
 
 ### Authorization
 

@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { BaseResponse200 } from './base-response200';
+import { BaseResponse } from './base-response';
 // May contain unused imports in some cases
 // @ts-ignore
 import { WebhooksBadRequestResponseAllOf } from './webhooks-bad-request-response-all-of';
@@ -24,6 +24,6 @@ import { WebhooksBadRequestResponseAllOf } from './webhooks-bad-request-response
  * @type WebhooksBadRequestResponse
  * @export
  */
-export type WebhooksBadRequestResponse = BaseResponse200 & WebhooksBadRequestResponseAllOf;
+export type WebhooksBadRequestResponse = BaseResponse & WebhooksBadRequestResponseAllOf;
 
 

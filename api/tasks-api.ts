@@ -24,17 +24,17 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { AddTaskRequest } from '../models';
 // @ts-ignore
-import { AddTaskResponse201 } from '../models';
+import { AddTaskResponse } from '../models';
 // @ts-ignore
-import { DeleteTaskResponse200 } from '../models';
+import { DeleteTaskResponse } from '../models';
 // @ts-ignore
-import { GetTaskResponse200 } from '../models';
+import { GetTaskResponse } from '../models';
 // @ts-ignore
-import { GetTasksResponse200 } from '../models';
+import { GetTasksResponse } from '../models';
 // @ts-ignore
 import { UpdateProjectRequest2 } from '../models';
 // @ts-ignore
-import { UpdateTaskResponse200 } from '../models';
+import { UpdateTaskResponse } from '../models';
 /**
  * TasksApi - axios parameter creator
  * @export
@@ -294,7 +294,7 @@ export const TasksApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async addTask(AddTaskRequest?: AddTaskRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddTaskResponse201>> {
+        async addTask(AddTaskRequest?: AddTaskRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddTaskResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addTask(AddTaskRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -305,7 +305,7 @@ export const TasksApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deleteTask(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteTaskResponse200>> {
+        async deleteTask(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteTaskResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTask(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -316,7 +316,7 @@ export const TasksApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getTask(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetTaskResponse200>> {
+        async getTask(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetTaskResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTask(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -332,7 +332,7 @@ export const TasksApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getTasks(cursor?: string, limit?: number, assignee_id?: number, project_id?: number, parent_task_id?: number, done?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetTasksResponse200>> {
+        async getTasks(cursor?: string, limit?: number, assignee_id?: number, project_id?: number, parent_task_id?: number, done?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetTasksResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTasks(cursor, limit, assignee_id, project_id, parent_task_id, done, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -344,7 +344,7 @@ export const TasksApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async updateTask(id: number, UpdateProjectRequest2?: UpdateProjectRequest2, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateTaskResponse200>> {
+        async updateTask(id: number, UpdateProjectRequest2?: UpdateProjectRequest2, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateTaskResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateTask(id, UpdateProjectRequest2, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -365,7 +365,7 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        addTask(requestParameters: TasksApiAddTaskRequest = {}, ): Promise<AddTaskResponse201> {
+        addTask(requestParameters: TasksApiAddTaskRequest = {}, ): Promise<AddTaskResponse> {
             return localVarFp.addTask(requestParameters.AddTaskRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -375,7 +375,7 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        deleteTask(requestParameters: TasksApiDeleteTaskRequest, ): Promise<DeleteTaskResponse200> {
+        deleteTask(requestParameters: TasksApiDeleteTaskRequest, ): Promise<DeleteTaskResponse> {
             return localVarFp.deleteTask(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -385,7 +385,7 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        getTask(requestParameters: TasksApiGetTaskRequest, ): Promise<GetTaskResponse200> {
+        getTask(requestParameters: TasksApiGetTaskRequest, ): Promise<GetTaskResponse> {
             return localVarFp.getTask(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -395,7 +395,7 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        getTasks(requestParameters: TasksApiGetTasksRequest = {}, ): Promise<GetTasksResponse200> {
+        getTasks(requestParameters: TasksApiGetTasksRequest = {}, ): Promise<GetTasksResponse> {
             return localVarFp.getTasks(requestParameters.cursor, requestParameters.limit, requestParameters.assignee_id, requestParameters.project_id, requestParameters.parent_task_id, requestParameters.done, ).then((request) => request(axios, basePath));
         },
         /**
@@ -405,7 +405,7 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        updateTask(requestParameters: TasksApiUpdateTaskRequest, ): Promise<UpdateTaskResponse200> {
+        updateTask(requestParameters: TasksApiUpdateTaskRequest, ): Promise<UpdateTaskResponse> {
             return localVarFp.updateTask(requestParameters.id, requestParameters.UpdateProjectRequest2, ).then((request) => request(axios, basePath));
         },
     };

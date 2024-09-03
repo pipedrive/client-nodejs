@@ -26,21 +26,21 @@ import { AddCallLogRequest } from '../models';
 // @ts-ignore
 import { BaseResponse } from '../models';
 // @ts-ignore
-import { CallLogResponse200 } from '../models';
+import { CallLogBadRequestResponse } from '../models';
 // @ts-ignore
-import { CallLogResponse400 } from '../models';
+import { CallLogConflictResponse } from '../models';
 // @ts-ignore
-import { CallLogResponse403 } from '../models';
+import { CallLogForbiddenResponse } from '../models';
 // @ts-ignore
-import { CallLogResponse404 } from '../models';
+import { CallLogGoneResponse } from '../models';
 // @ts-ignore
-import { CallLogResponse409 } from '../models';
+import { CallLogInternalErrorResponse } from '../models';
 // @ts-ignore
-import { CallLogResponse410 } from '../models';
+import { CallLogNotFoundResponse } from '../models';
 // @ts-ignore
-import { CallLogResponse500 } from '../models';
+import { GetCallLogResponse } from '../models';
 // @ts-ignore
-import { CallLogsResponse } from '../models';
+import { GetCallLogsResponse } from '../models';
 /**
  * CallLogsApi - axios parameter creator
  * @export
@@ -287,7 +287,7 @@ export const CallLogsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async addCallLog(AddCallLogRequest?: AddCallLogRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<CallLogResponse200>> {
+        async addCallLog(AddCallLogRequest?: AddCallLogRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetCallLogResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addCallLog(AddCallLogRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -321,7 +321,7 @@ export const CallLogsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getCallLog(id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<CallLogResponse200>> {
+        async getCallLog(id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetCallLogResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCallLog(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -333,7 +333,7 @@ export const CallLogsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getUserCallLogs(start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<CallLogsResponse>> {
+        async getUserCallLogs(start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetCallLogsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUserCallLogs(start, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -354,7 +354,7 @@ export const CallLogsApiFactory = function (configuration?: Configuration, baseP
 
          * @throws {RequiredError}
          */
-        addCallLog(requestParameters: CallLogsApiAddCallLogRequest = {}, ): Promise<CallLogResponse200> {
+        addCallLog(requestParameters: CallLogsApiAddCallLogRequest = {}, ): Promise<GetCallLogResponse> {
             return localVarFp.addCallLog(requestParameters.AddCallLogRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -384,7 +384,7 @@ export const CallLogsApiFactory = function (configuration?: Configuration, baseP
 
          * @throws {RequiredError}
          */
-        getCallLog(requestParameters: CallLogsApiGetCallLogRequest, ): Promise<CallLogResponse200> {
+        getCallLog(requestParameters: CallLogsApiGetCallLogRequest, ): Promise<GetCallLogResponse> {
             return localVarFp.getCallLog(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -394,7 +394,7 @@ export const CallLogsApiFactory = function (configuration?: Configuration, baseP
 
          * @throws {RequiredError}
          */
-        getUserCallLogs(requestParameters: CallLogsApiGetUserCallLogsRequest = {}, ): Promise<CallLogsResponse> {
+        getUserCallLogs(requestParameters: CallLogsApiGetUserCallLogsRequest = {}, ): Promise<GetCallLogsResponse> {
             return localVarFp.getUserCallLogs(requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
     };

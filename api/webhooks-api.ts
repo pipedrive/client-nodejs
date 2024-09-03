@@ -24,15 +24,15 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { AddWebhookRequest } from '../models';
 // @ts-ignore
-import { BaseResponse200 } from '../models';
+import { BaseResponse } from '../models';
 // @ts-ignore
 import { DeleteWebhook403Response } from '../models';
 // @ts-ignore
-import { GetWebhooksResponse200 } from '../models';
+import { GetWebhookResponse } from '../models';
+// @ts-ignore
+import { GetWebhooksResponse } from '../models';
 // @ts-ignore
 import { UnathorizedResponse } from '../models';
-// @ts-ignore
-import { WebhookResponse200 } from '../models';
 // @ts-ignore
 import { WebhooksBadRequestResponse } from '../models';
 /**
@@ -178,7 +178,7 @@ export const WebhooksApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async addWebhook(AddWebhookRequest?: AddWebhookRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<WebhookResponse200>> {
+        async addWebhook(AddWebhookRequest?: AddWebhookRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetWebhookResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addWebhook(AddWebhookRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -189,7 +189,7 @@ export const WebhooksApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deleteWebhook(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<BaseResponse200>> {
+        async deleteWebhook(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<BaseResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWebhook(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -199,7 +199,7 @@ export const WebhooksApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getWebhooks(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetWebhooksResponse200>> {
+        async getWebhooks(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetWebhooksResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWebhooks();
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -220,7 +220,7 @@ export const WebhooksApiFactory = function (configuration?: Configuration, baseP
 
          * @throws {RequiredError}
          */
-        addWebhook(requestParameters: WebhooksApiAddWebhookRequest = {}, ): Promise<WebhookResponse200> {
+        addWebhook(requestParameters: WebhooksApiAddWebhookRequest = {}, ): Promise<GetWebhookResponse> {
             return localVarFp.addWebhook(requestParameters.AddWebhookRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -230,7 +230,7 @@ export const WebhooksApiFactory = function (configuration?: Configuration, baseP
 
          * @throws {RequiredError}
          */
-        deleteWebhook(requestParameters: WebhooksApiDeleteWebhookRequest, ): Promise<BaseResponse200> {
+        deleteWebhook(requestParameters: WebhooksApiDeleteWebhookRequest, ): Promise<BaseResponse> {
             return localVarFp.deleteWebhook(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -239,7 +239,7 @@ export const WebhooksApiFactory = function (configuration?: Configuration, baseP
 
          * @throws {RequiredError}
          */
-        getWebhooks(): Promise<GetWebhooksResponse200> {
+        getWebhooks(): Promise<GetWebhooksResponse> {
             return localVarFp.getWebhooks().then((request) => request(axios, basePath));
         },
     };

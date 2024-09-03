@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetActivitiesCollectionResponse200AdditionalData } from './get-activities-collection-response200-additional-data';
+import { GetActivitiesCollectionResponseAdditionalData } from './get-activities-collection-response-additional-data';
 // May contain unused imports in some cases
 // @ts-ignore
 import { PersonsCollectionResponseObject } from './persons-collection-response-object';
@@ -40,9 +40,9 @@ export interface GetPersonsCollection200Response {
     'data'?: Array<PersonsCollectionResponseObject>;
     /**
      * 
-     * @type {GetActivitiesCollectionResponse200AdditionalData}
+     * @type {GetActivitiesCollectionResponseAdditionalData}
      * @memberof GetPersonsCollection200Response
      */
-    'additional_data'?: GetActivitiesCollectionResponse200AdditionalData;
+    'additional_data'?: GetActivitiesCollectionResponseAdditionalData;
 }
 

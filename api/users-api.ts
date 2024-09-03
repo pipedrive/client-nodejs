@@ -26,23 +26,23 @@ import { AddUserRequest } from '../models';
 // @ts-ignore
 import { FailResponse } from '../models';
 // @ts-ignore
-import { GetCurrentUserResponse200 } from '../models';
+import { GetCurrentUserResponse } from '../models';
 // @ts-ignore
-import { GetRoleSettingsResponse200 } from '../models';
+import { GetRoleAssignmentsResponse } from '../models';
 // @ts-ignore
-import { GetUserPermissionsResponse200 } from '../models';
+import { GetRoleSettingsResponse } from '../models';
 // @ts-ignore
-import { GetUserRoleAssignmentsResponse200 } from '../models';
+import { GetUserPermissionsResponse } from '../models';
+// @ts-ignore
+import { GetUserResponse } from '../models';
+// @ts-ignore
+import { GetUsersResponse } from '../models';
 // @ts-ignore
 import { UnathorizedResponse } from '../models';
 // @ts-ignore
 import { UpdateUserRequest } from '../models';
 // @ts-ignore
 import { UserIds } from '../models';
-// @ts-ignore
-import { UserResponse200 } from '../models';
-// @ts-ignore
-import { UsersResponse200 } from '../models';
 /**
  * UsersApi - axios parameter creator
  * @export
@@ -491,7 +491,7 @@ export const UsersApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async addUser(AddUserRequest?: AddUserRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UserResponse200>> {
+        async addUser(AddUserRequest?: AddUserRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetUserResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addUser(AddUserRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -503,7 +503,7 @@ export const UsersApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async findUsersByName(term: string, search_by_email?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UsersResponse200>> {
+        async findUsersByName(term: string, search_by_email?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetUsersResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.findUsersByName(term, search_by_email, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -513,7 +513,7 @@ export const UsersApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getCurrentUser(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetCurrentUserResponse200>> {
+        async getCurrentUser(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetCurrentUserResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCurrentUser();
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -524,7 +524,7 @@ export const UsersApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getUser(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UserResponse200>> {
+        async getUser(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetUserResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUser(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -546,7 +546,7 @@ export const UsersApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getUserPermissions(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetUserPermissionsResponse200>> {
+        async getUserPermissions(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetUserPermissionsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUserPermissions(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -559,7 +559,7 @@ export const UsersApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getUserRoleAssignments(id: number, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetUserRoleAssignmentsResponse200>> {
+        async getUserRoleAssignments(id: number, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetRoleAssignmentsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUserRoleAssignments(id, start, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -570,7 +570,7 @@ export const UsersApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getUserRoleSettings(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetRoleSettingsResponse200>> {
+        async getUserRoleSettings(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetRoleSettingsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUserRoleSettings(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -580,7 +580,7 @@ export const UsersApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getUsers(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UsersResponse200>> {
+        async getUsers(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetUsersResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUsers();
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -592,7 +592,7 @@ export const UsersApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async updateUser(id: number, UpdateUserRequest?: UpdateUserRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UserResponse200>> {
+        async updateUser(id: number, UpdateUserRequest?: UpdateUserRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetUserResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateUser(id, UpdateUserRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -613,7 +613,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        addUser(requestParameters: UsersApiAddUserRequest = {}, ): Promise<UserResponse200> {
+        addUser(requestParameters: UsersApiAddUserRequest = {}, ): Promise<GetUserResponse> {
             return localVarFp.addUser(requestParameters.AddUserRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -623,7 +623,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        findUsersByName(requestParameters: UsersApiFindUsersByNameRequest, ): Promise<UsersResponse200> {
+        findUsersByName(requestParameters: UsersApiFindUsersByNameRequest, ): Promise<GetUsersResponse> {
             return localVarFp.findUsersByName(requestParameters.term, requestParameters.search_by_email, ).then((request) => request(axios, basePath));
         },
         /**
@@ -632,7 +632,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        getCurrentUser(): Promise<GetCurrentUserResponse200> {
+        getCurrentUser(): Promise<GetCurrentUserResponse> {
             return localVarFp.getCurrentUser().then((request) => request(axios, basePath));
         },
         /**
@@ -642,7 +642,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        getUser(requestParameters: UsersApiGetUserRequest, ): Promise<UserResponse200> {
+        getUser(requestParameters: UsersApiGetUserRequest, ): Promise<GetUserResponse> {
             return localVarFp.getUser(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -662,7 +662,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        getUserPermissions(requestParameters: UsersApiGetUserPermissionsRequest, ): Promise<GetUserPermissionsResponse200> {
+        getUserPermissions(requestParameters: UsersApiGetUserPermissionsRequest, ): Promise<GetUserPermissionsResponse> {
             return localVarFp.getUserPermissions(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -672,7 +672,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        getUserRoleAssignments(requestParameters: UsersApiGetUserRoleAssignmentsRequest, ): Promise<GetUserRoleAssignmentsResponse200> {
+        getUserRoleAssignments(requestParameters: UsersApiGetUserRoleAssignmentsRequest, ): Promise<GetRoleAssignmentsResponse> {
             return localVarFp.getUserRoleAssignments(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
         /**
@@ -682,7 +682,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        getUserRoleSettings(requestParameters: UsersApiGetUserRoleSettingsRequest, ): Promise<GetRoleSettingsResponse200> {
+        getUserRoleSettings(requestParameters: UsersApiGetUserRoleSettingsRequest, ): Promise<GetRoleSettingsResponse> {
             return localVarFp.getUserRoleSettings(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -691,7 +691,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        getUsers(): Promise<UsersResponse200> {
+        getUsers(): Promise<GetUsersResponse> {
             return localVarFp.getUsers().then((request) => request(axios, basePath));
         },
         /**
@@ -701,7 +701,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        updateUser(requestParameters: UsersApiUpdateUserRequest, ): Promise<UserResponse200> {
+        updateUser(requestParameters: UsersApiUpdateUserRequest, ): Promise<GetUserResponse> {
             return localVarFp.updateUser(requestParameters.id, requestParameters.UpdateUserRequest, ).then((request) => request(axios, basePath));
         },
     };

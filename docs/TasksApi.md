@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## addTask
 
-> AddTaskResponse201 addTask(opts)
+> AddTaskResponse addTask(opts)
 
 Add a task
 
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AddTaskResponse201**](AddTaskResponse201.md)
+[**AddTaskResponse**](AddTaskResponse.md)
 
 ### Authorization
 
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 ## deleteTask
 
-> DeleteTaskResponse200 deleteTask(id)
+> DeleteTaskResponse deleteTask(id)
 
 Delete a task
 
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteTaskResponse200**](DeleteTaskResponse200.md)
+[**DeleteTaskResponse**](DeleteTaskResponse.md)
 
 ### Authorization
 
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ## getTask
 
-> GetTaskResponse200 getTask(id)
+> GetTaskResponse getTask(id)
 
 Get details of a task
 
@@ -161,7 +161,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTaskResponse200**](GetTaskResponse200.md)
+[**GetTaskResponse**](GetTaskResponse.md)
 
 ### Authorization
 
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 
 ## getTasks
 
-> GetTasksResponse200 getTasks(opts)
+> GetTasksResponse getTasks(opts)
 
 Get all tasks
 
@@ -227,7 +227,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTasksResponse200**](GetTasksResponse200.md)
+[**GetTasksResponse**](GetTasksResponse.md)
 
 ### Authorization
 
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 ## updateTask
 
-> UpdateTaskResponse200 updateTask(id, opts)
+> UpdateTaskResponse updateTask(id, opts)
 
 Update a task
 
@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateTaskResponse200**](UpdateTaskResponse200.md)
+[**UpdateTaskResponse**](UpdateTaskResponse.md)
 
 ### Authorization
 

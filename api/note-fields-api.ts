@@ -22,7 +22,7 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
-import { GetNoteFieldsResponse200 } from '../models';
+import { GetNoteFieldsResponse } from '../models';
 /**
  * NoteFieldsApi - axios parameter creator
  * @export
@@ -83,7 +83,7 @@ export const NoteFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getNoteFields(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetNoteFieldsResponse200>> {
+        async getNoteFields(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetNoteFieldsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNoteFields();
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -103,7 +103,7 @@ export const NoteFieldsApiFactory = function (configuration?: Configuration, bas
 
          * @throws {RequiredError}
          */
-        getNoteFields(): Promise<GetNoteFieldsResponse200> {
+        getNoteFields(): Promise<GetNoteFieldsResponse> {
             return localVarFp.getNoteFields().then((request) => request(axios, basePath));
         },
     };

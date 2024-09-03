@@ -24,37 +24,37 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { AddOrUpdateRoleSettingRequest } from '../models';
 // @ts-ignore
-import { AddOrUpdateRoleSettingResponse200 } from '../models';
-// @ts-ignore
 import { AddRoleAssignmentRequest } from '../models';
 // @ts-ignore
-import { AddRoleAssignmentResponse200 } from '../models';
+import { AddRoleAssignmentResponse } from '../models';
 // @ts-ignore
 import { AddRoleRequest } from '../models';
 // @ts-ignore
-import { AddRoleResponse200 } from '../models';
+import { AddRolesResponse } from '../models';
 // @ts-ignore
 import { BaseRoleRequest } from '../models';
 // @ts-ignore
 import { DeleteRoleAssignmentRequest } from '../models';
 // @ts-ignore
-import { DeleteRoleAssignmentResponse200 } from '../models';
+import { DeleteRoleAssignmentResponse } from '../models';
 // @ts-ignore
-import { DeleteRoleResponse200 } from '../models';
+import { DeleteRoleResponse } from '../models';
 // @ts-ignore
-import { GetRolePipelines200 } from '../models';
+import { GetRoleAssignmentsResponse } from '../models';
 // @ts-ignore
-import { GetRoleResponse200 } from '../models';
+import { GetRolePipelinesResponse } from '../models';
 // @ts-ignore
-import { GetRoleSettingsResponse200 } from '../models';
+import { GetRoleResponse } from '../models';
 // @ts-ignore
-import { GetRolesResponse200 } from '../models';
+import { GetRoleSettingsResponse } from '../models';
 // @ts-ignore
-import { GetUserRoleAssignmentsResponse200 } from '../models';
+import { GetRolesResponse } from '../models';
 // @ts-ignore
 import { PutRolePipelinesBody } from '../models';
 // @ts-ignore
-import { UpdateRoleResponse200 } from '../models';
+import { UpdateRoleResponse } from '../models';
+// @ts-ignore
+import { UpsertRoleSettingsResponse } from '../models';
 /**
  * RolesApi - axios parameter creator
  * @export
@@ -613,7 +613,7 @@ export const RolesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async addOrUpdateRoleSetting(id: number, AddOrUpdateRoleSettingRequest?: AddOrUpdateRoleSettingRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddOrUpdateRoleSettingResponse200>> {
+        async addOrUpdateRoleSetting(id: number, AddOrUpdateRoleSettingRequest?: AddOrUpdateRoleSettingRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertRoleSettingsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addOrUpdateRoleSetting(id, AddOrUpdateRoleSettingRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -624,7 +624,7 @@ export const RolesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async addRole(AddRoleRequest?: AddRoleRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddRoleResponse200>> {
+        async addRole(AddRoleRequest?: AddRoleRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddRolesResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addRole(AddRoleRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -636,7 +636,7 @@ export const RolesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async addRoleAssignment(id: number, AddRoleAssignmentRequest?: AddRoleAssignmentRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddRoleAssignmentResponse200>> {
+        async addRoleAssignment(id: number, AddRoleAssignmentRequest?: AddRoleAssignmentRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddRoleAssignmentResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addRoleAssignment(id, AddRoleAssignmentRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -647,7 +647,7 @@ export const RolesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deleteRole(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteRoleResponse200>> {
+        async deleteRole(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteRoleResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteRole(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -659,7 +659,7 @@ export const RolesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deleteRoleAssignment(id: number, DeleteRoleAssignmentRequest?: DeleteRoleAssignmentRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteRoleAssignmentResponse200>> {
+        async deleteRoleAssignment(id: number, DeleteRoleAssignmentRequest?: DeleteRoleAssignmentRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteRoleAssignmentResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteRoleAssignment(id, DeleteRoleAssignmentRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -670,7 +670,7 @@ export const RolesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getRole(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetRoleResponse200>> {
+        async getRole(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetRoleResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRole(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -683,7 +683,7 @@ export const RolesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getRoleAssignments(id: number, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetUserRoleAssignmentsResponse200>> {
+        async getRoleAssignments(id: number, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetRoleAssignmentsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleAssignments(id, start, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -695,7 +695,7 @@ export const RolesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getRolePipelines(id: number, visible?: boolean, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetRolePipelines200>> {
+        async getRolePipelines(id: number, visible?: boolean, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetRolePipelinesResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRolePipelines(id, visible, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -706,7 +706,7 @@ export const RolesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getRoleSettings(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetRoleSettingsResponse200>> {
+        async getRoleSettings(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetRoleSettingsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleSettings(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -718,7 +718,7 @@ export const RolesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getRoles(start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetRolesResponse200>> {
+        async getRoles(start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetRolesResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRoles(start, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -730,7 +730,7 @@ export const RolesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async updateRole(id: number, BaseRoleRequest?: BaseRoleRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateRoleResponse200>> {
+        async updateRole(id: number, BaseRoleRequest?: BaseRoleRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateRoleResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateRole(id, BaseRoleRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -742,7 +742,7 @@ export const RolesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async updateRolePipelines(id: number, PutRolePipelinesBody?: PutRolePipelinesBody, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetRolePipelines200>> {
+        async updateRolePipelines(id: number, PutRolePipelinesBody?: PutRolePipelinesBody, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetRolePipelinesResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateRolePipelines(id, PutRolePipelinesBody, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -763,7 +763,7 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        addOrUpdateRoleSetting(requestParameters: RolesApiAddOrUpdateRoleSettingRequest, ): Promise<AddOrUpdateRoleSettingResponse200> {
+        addOrUpdateRoleSetting(requestParameters: RolesApiAddOrUpdateRoleSettingRequest, ): Promise<UpsertRoleSettingsResponse> {
             return localVarFp.addOrUpdateRoleSetting(requestParameters.id, requestParameters.AddOrUpdateRoleSettingRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -773,7 +773,7 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        addRole(requestParameters: RolesApiAddRoleRequest = {}, ): Promise<AddRoleResponse200> {
+        addRole(requestParameters: RolesApiAddRoleRequest = {}, ): Promise<AddRolesResponse> {
             return localVarFp.addRole(requestParameters.AddRoleRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -783,7 +783,7 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        addRoleAssignment(requestParameters: RolesApiAddRoleAssignmentRequest, ): Promise<AddRoleAssignmentResponse200> {
+        addRoleAssignment(requestParameters: RolesApiAddRoleAssignmentRequest, ): Promise<AddRoleAssignmentResponse> {
             return localVarFp.addRoleAssignment(requestParameters.id, requestParameters.AddRoleAssignmentRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -793,7 +793,7 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        deleteRole(requestParameters: RolesApiDeleteRoleRequest, ): Promise<DeleteRoleResponse200> {
+        deleteRole(requestParameters: RolesApiDeleteRoleRequest, ): Promise<DeleteRoleResponse> {
             return localVarFp.deleteRole(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -803,7 +803,7 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        deleteRoleAssignment(requestParameters: RolesApiDeleteRoleAssignmentRequest, ): Promise<DeleteRoleAssignmentResponse200> {
+        deleteRoleAssignment(requestParameters: RolesApiDeleteRoleAssignmentRequest, ): Promise<DeleteRoleAssignmentResponse> {
             return localVarFp.deleteRoleAssignment(requestParameters.id, requestParameters.DeleteRoleAssignmentRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -813,7 +813,7 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        getRole(requestParameters: RolesApiGetRoleRequest, ): Promise<GetRoleResponse200> {
+        getRole(requestParameters: RolesApiGetRoleRequest, ): Promise<GetRoleResponse> {
             return localVarFp.getRole(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -823,7 +823,7 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        getRoleAssignments(requestParameters: RolesApiGetRoleAssignmentsRequest, ): Promise<GetUserRoleAssignmentsResponse200> {
+        getRoleAssignments(requestParameters: RolesApiGetRoleAssignmentsRequest, ): Promise<GetRoleAssignmentsResponse> {
             return localVarFp.getRoleAssignments(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
         /**
@@ -833,7 +833,7 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        getRolePipelines(requestParameters: RolesApiGetRolePipelinesRequest, ): Promise<GetRolePipelines200> {
+        getRolePipelines(requestParameters: RolesApiGetRolePipelinesRequest, ): Promise<GetRolePipelinesResponse> {
             return localVarFp.getRolePipelines(requestParameters.id, requestParameters.visible, ).then((request) => request(axios, basePath));
         },
         /**
@@ -843,7 +843,7 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        getRoleSettings(requestParameters: RolesApiGetRoleSettingsRequest, ): Promise<GetRoleSettingsResponse200> {
+        getRoleSettings(requestParameters: RolesApiGetRoleSettingsRequest, ): Promise<GetRoleSettingsResponse> {
             return localVarFp.getRoleSettings(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -853,7 +853,7 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        getRoles(requestParameters: RolesApiGetRolesRequest = {}, ): Promise<GetRolesResponse200> {
+        getRoles(requestParameters: RolesApiGetRolesRequest = {}, ): Promise<GetRolesResponse> {
             return localVarFp.getRoles(requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
         /**
@@ -863,7 +863,7 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        updateRole(requestParameters: RolesApiUpdateRoleRequest, ): Promise<UpdateRoleResponse200> {
+        updateRole(requestParameters: RolesApiUpdateRoleRequest, ): Promise<UpdateRoleResponse> {
             return localVarFp.updateRole(requestParameters.id, requestParameters.BaseRoleRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -873,7 +873,7 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        updateRolePipelines(requestParameters: RolesApiUpdateRolePipelinesRequest, ): Promise<GetRolePipelines200> {
+        updateRolePipelines(requestParameters: RolesApiUpdateRolePipelinesRequest, ): Promise<GetRolePipelinesResponse> {
             return localVarFp.updateRolePipelines(requestParameters.id, requestParameters.PutRolePipelinesBody, ).then((request) => request(axios, basePath));
         },
     };

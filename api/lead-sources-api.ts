@@ -22,7 +22,7 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
-import { GetLeadSourcesResponse200 } from '../models';
+import { GetLeadsSourceResponse } from '../models';
 /**
  * LeadSourcesApi - axios parameter creator
  * @export
@@ -83,7 +83,7 @@ export const LeadSourcesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getLeadSources(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetLeadSourcesResponse200>> {
+        async getLeadSources(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetLeadsSourceResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getLeadSources();
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -103,7 +103,7 @@ export const LeadSourcesApiFactory = function (configuration?: Configuration, ba
 
          * @throws {RequiredError}
          */
-        getLeadSources(): Promise<GetLeadSourcesResponse200> {
+        getLeadSources(): Promise<GetLeadsSourceResponse> {
             return localVarFp.getLeadSources().then((request) => request(axios, basePath));
         },
     };

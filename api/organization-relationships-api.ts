@@ -24,17 +24,17 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { AddOrganizationRelationshipRequest } from '../models';
 // @ts-ignore
-import { AddOrganizationRelationshipResponse200 } from '../models';
+import { AddOrganizationRelationshipResponse } from '../models';
 // @ts-ignore
-import { DeleteOrganizationRelationshipResponse200 } from '../models';
+import { DeleteOrganizationRelationshipResponse } from '../models';
 // @ts-ignore
-import { GetOrganizationRelationshipResponse200 } from '../models';
+import { GetOrganizationRelationshipResponse } from '../models';
 // @ts-ignore
-import { GetOrganizationRelationshipsResponse200 } from '../models';
+import { GetOrganizationRelationshipsResponse } from '../models';
 // @ts-ignore
 import { OrganizationRelationship } from '../models';
 // @ts-ignore
-import { UpdateOrganizationRelationshipResponse200 } from '../models';
+import { UpdateOrganizationRelationshipResponse } from '../models';
 /**
  * OrganizationRelationshipsApi - axios parameter creator
  * @export
@@ -276,7 +276,7 @@ export const OrganizationRelationshipsApiFp = function(configuration?: Configura
 
          * @throws {RequiredError}
          */
-        async addOrganizationRelationship(AddOrganizationRelationshipRequest?: AddOrganizationRelationshipRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddOrganizationRelationshipResponse200>> {
+        async addOrganizationRelationship(AddOrganizationRelationshipRequest?: AddOrganizationRelationshipRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddOrganizationRelationshipResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addOrganizationRelationship(AddOrganizationRelationshipRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -287,7 +287,7 @@ export const OrganizationRelationshipsApiFp = function(configuration?: Configura
 
          * @throws {RequiredError}
          */
-        async deleteOrganizationRelationship(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteOrganizationRelationshipResponse200>> {
+        async deleteOrganizationRelationship(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteOrganizationRelationshipResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteOrganizationRelationship(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -299,7 +299,7 @@ export const OrganizationRelationshipsApiFp = function(configuration?: Configura
 
          * @throws {RequiredError}
          */
-        async getOrganizationRelationship(id: number, org_id?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetOrganizationRelationshipResponse200>> {
+        async getOrganizationRelationship(id: number, org_id?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetOrganizationRelationshipResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationRelationship(id, org_id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -310,7 +310,7 @@ export const OrganizationRelationshipsApiFp = function(configuration?: Configura
 
          * @throws {RequiredError}
          */
-        async getOrganizationRelationships(org_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetOrganizationRelationshipsResponse200>> {
+        async getOrganizationRelationships(org_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetOrganizationRelationshipsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationRelationships(org_id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -322,7 +322,7 @@ export const OrganizationRelationshipsApiFp = function(configuration?: Configura
 
          * @throws {RequiredError}
          */
-        async updateOrganizationRelationship(id: number, OrganizationRelationship?: OrganizationRelationship, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateOrganizationRelationshipResponse200>> {
+        async updateOrganizationRelationship(id: number, OrganizationRelationship?: OrganizationRelationship, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateOrganizationRelationshipResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateOrganizationRelationship(id, OrganizationRelationship, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -343,7 +343,7 @@ export const OrganizationRelationshipsApiFactory = function (configuration?: Con
 
          * @throws {RequiredError}
          */
-        addOrganizationRelationship(requestParameters: OrganizationRelationshipsApiAddOrganizationRelationshipRequest = {}, ): Promise<AddOrganizationRelationshipResponse200> {
+        addOrganizationRelationship(requestParameters: OrganizationRelationshipsApiAddOrganizationRelationshipRequest = {}, ): Promise<AddOrganizationRelationshipResponse> {
             return localVarFp.addOrganizationRelationship(requestParameters.AddOrganizationRelationshipRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -353,7 +353,7 @@ export const OrganizationRelationshipsApiFactory = function (configuration?: Con
 
          * @throws {RequiredError}
          */
-        deleteOrganizationRelationship(requestParameters: OrganizationRelationshipsApiDeleteOrganizationRelationshipRequest, ): Promise<DeleteOrganizationRelationshipResponse200> {
+        deleteOrganizationRelationship(requestParameters: OrganizationRelationshipsApiDeleteOrganizationRelationshipRequest, ): Promise<DeleteOrganizationRelationshipResponse> {
             return localVarFp.deleteOrganizationRelationship(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -363,7 +363,7 @@ export const OrganizationRelationshipsApiFactory = function (configuration?: Con
 
          * @throws {RequiredError}
          */
-        getOrganizationRelationship(requestParameters: OrganizationRelationshipsApiGetOrganizationRelationshipRequest, ): Promise<GetOrganizationRelationshipResponse200> {
+        getOrganizationRelationship(requestParameters: OrganizationRelationshipsApiGetOrganizationRelationshipRequest, ): Promise<GetOrganizationRelationshipResponse> {
             return localVarFp.getOrganizationRelationship(requestParameters.id, requestParameters.org_id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -373,7 +373,7 @@ export const OrganizationRelationshipsApiFactory = function (configuration?: Con
 
          * @throws {RequiredError}
          */
-        getOrganizationRelationships(requestParameters: OrganizationRelationshipsApiGetOrganizationRelationshipsRequest, ): Promise<GetOrganizationRelationshipsResponse200> {
+        getOrganizationRelationships(requestParameters: OrganizationRelationshipsApiGetOrganizationRelationshipsRequest, ): Promise<GetOrganizationRelationshipsResponse> {
             return localVarFp.getOrganizationRelationships(requestParameters.org_id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -383,7 +383,7 @@ export const OrganizationRelationshipsApiFactory = function (configuration?: Con
 
          * @throws {RequiredError}
          */
-        updateOrganizationRelationship(requestParameters: OrganizationRelationshipsApiUpdateOrganizationRelationshipRequest, ): Promise<UpdateOrganizationRelationshipResponse200> {
+        updateOrganizationRelationship(requestParameters: OrganizationRelationshipsApiUpdateOrganizationRelationshipRequest, ): Promise<UpdateOrganizationRelationshipResponse> {
             return localVarFp.updateOrganizationRelationship(requestParameters.id, requestParameters.OrganizationRelationship, ).then((request) => request(axios, basePath));
         },
     };

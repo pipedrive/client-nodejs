@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetActivitiesResponse200RelatedObjectsOrganizationORGANIZATIONIDAllOf1 } from './get-activities-response200-related-objects-organization-organizationidall-of1';
+import { GetActivitiesResponseRelatedObjectsOrganizationORGANIZATIONIDAllOf1 } from './get-activities-response-related-objects-organization-organizationidall-of1';
 // May contain unused imports in some cases
 // @ts-ignore
 import { RelationshipOrganizationInfoItemAllOf } from './relationship-organization-info-item-all-of';
@@ -24,6 +24,6 @@ import { RelationshipOrganizationInfoItemAllOf } from './relationship-organizati
  * @type RelationshipOrganizationInfoItem
  * @export
  */
-export type RelationshipOrganizationInfoItem = GetActivitiesResponse200RelatedObjectsOrganizationORGANIZATIONIDAllOf1 & RelationshipOrganizationInfoItemAllOf;
+export type RelationshipOrganizationInfoItem = GetActivitiesResponseRelatedObjectsOrganizationORGANIZATIONIDAllOf1 & RelationshipOrganizationInfoItemAllOf;
 
 

@@ -22,9 +22,9 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
-import { UnathorizedResponse } from '../models';
+import { GetUserConnectionsResponse } from '../models';
 // @ts-ignore
-import { UserConnectionsResponse200 } from '../models';
+import { UnathorizedResponse } from '../models';
 /**
  * UserConnectionsApi - axios parameter creator
  * @export
@@ -85,7 +85,7 @@ export const UserConnectionsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getUserConnections(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UserConnectionsResponse200>> {
+        async getUserConnections(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetUserConnectionsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUserConnections();
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -105,7 +105,7 @@ export const UserConnectionsApiFactory = function (configuration?: Configuration
 
          * @throws {RequiredError}
          */
-        getUserConnections(): Promise<UserConnectionsResponse200> {
+        getUserConnections(): Promise<GetUserConnectionsResponse> {
             return localVarFp.getUserConnections().then((request) => request(axios, basePath));
         },
     };

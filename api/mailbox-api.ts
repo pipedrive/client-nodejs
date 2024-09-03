@@ -22,17 +22,17 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
-import { DeleteMailThreadResponse200 } from '../models';
+import { DeleteMailThreadResponse } from '../models';
 // @ts-ignore
-import { GetAllMailMessagesOfMailThreadResponse200 } from '../models';
+import { GetMailMessageResponse } from '../models';
 // @ts-ignore
-import { GetMailThreadsResponse200 } from '../models';
+import { GetMailThreadMessagesResponse } from '../models';
 // @ts-ignore
-import { GetOneMailThreadResponse200 } from '../models';
+import { GetMailThreadResponse } from '../models';
 // @ts-ignore
-import { MailMessageResponse200 } from '../models';
+import { GetMailThreadResponse1 } from '../models';
 // @ts-ignore
-import { UpdateMailThreadDetailsResponse200 } from '../models';
+import { UpdateMailThreadResponse } from '../models';
 /**
  * MailboxApi - axios parameter creator
  * @export
@@ -350,7 +350,7 @@ export const MailboxApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deleteMailThread(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteMailThreadResponse200>> {
+        async deleteMailThread(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteMailThreadResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteMailThread(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -362,7 +362,7 @@ export const MailboxApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getMailMessage(id: number, include_body?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<MailMessageResponse200>> {
+        async getMailMessage(id: number, include_body?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetMailMessageResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMailMessage(id, include_body, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -373,7 +373,7 @@ export const MailboxApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getMailThread(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetOneMailThreadResponse200>> {
+        async getMailThread(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetMailThreadResponse1>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMailThread(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -384,7 +384,7 @@ export const MailboxApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getMailThreadMessages(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetAllMailMessagesOfMailThreadResponse200>> {
+        async getMailThreadMessages(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetMailThreadMessagesResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMailThreadMessages(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -397,7 +397,7 @@ export const MailboxApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getMailThreads(folder: 'inbox' | 'drafts' | 'sent' | 'archive', start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetMailThreadsResponse200>> {
+        async getMailThreads(folder: 'inbox' | 'drafts' | 'sent' | 'archive', start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetMailThreadResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMailThreads(folder, start, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -413,7 +413,7 @@ export const MailboxApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async updateMailThreadDetails(id: number, deal_id?: number, lead_id?: string, shared_flag?: number, read_flag?: number, archived_flag?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateMailThreadDetailsResponse200>> {
+        async updateMailThreadDetails(id: number, deal_id?: number, lead_id?: string, shared_flag?: number, read_flag?: number, archived_flag?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateMailThreadResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateMailThreadDetails(id, deal_id, lead_id, shared_flag, read_flag, archived_flag, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -434,7 +434,7 @@ export const MailboxApiFactory = function (configuration?: Configuration, basePa
 
          * @throws {RequiredError}
          */
-        deleteMailThread(requestParameters: MailboxApiDeleteMailThreadRequest, ): Promise<DeleteMailThreadResponse200> {
+        deleteMailThread(requestParameters: MailboxApiDeleteMailThreadRequest, ): Promise<DeleteMailThreadResponse> {
             return localVarFp.deleteMailThread(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -444,7 +444,7 @@ export const MailboxApiFactory = function (configuration?: Configuration, basePa
 
          * @throws {RequiredError}
          */
-        getMailMessage(requestParameters: MailboxApiGetMailMessageRequest, ): Promise<MailMessageResponse200> {
+        getMailMessage(requestParameters: MailboxApiGetMailMessageRequest, ): Promise<GetMailMessageResponse> {
             return localVarFp.getMailMessage(requestParameters.id, requestParameters.include_body, ).then((request) => request(axios, basePath));
         },
         /**
@@ -454,7 +454,7 @@ export const MailboxApiFactory = function (configuration?: Configuration, basePa
 
          * @throws {RequiredError}
          */
-        getMailThread(requestParameters: MailboxApiGetMailThreadRequest, ): Promise<GetOneMailThreadResponse200> {
+        getMailThread(requestParameters: MailboxApiGetMailThreadRequest, ): Promise<GetMailThreadResponse1> {
             return localVarFp.getMailThread(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -464,7 +464,7 @@ export const MailboxApiFactory = function (configuration?: Configuration, basePa
 
          * @throws {RequiredError}
          */
-        getMailThreadMessages(requestParameters: MailboxApiGetMailThreadMessagesRequest, ): Promise<GetAllMailMessagesOfMailThreadResponse200> {
+        getMailThreadMessages(requestParameters: MailboxApiGetMailThreadMessagesRequest, ): Promise<GetMailThreadMessagesResponse> {
             return localVarFp.getMailThreadMessages(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -474,7 +474,7 @@ export const MailboxApiFactory = function (configuration?: Configuration, basePa
 
          * @throws {RequiredError}
          */
-        getMailThreads(requestParameters: MailboxApiGetMailThreadsRequest, ): Promise<GetMailThreadsResponse200> {
+        getMailThreads(requestParameters: MailboxApiGetMailThreadsRequest, ): Promise<GetMailThreadResponse> {
             return localVarFp.getMailThreads(requestParameters.folder, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
         /**
@@ -484,7 +484,7 @@ export const MailboxApiFactory = function (configuration?: Configuration, basePa
 
          * @throws {RequiredError}
          */
-        updateMailThreadDetails(requestParameters: MailboxApiUpdateMailThreadDetailsRequest, ): Promise<UpdateMailThreadDetailsResponse200> {
+        updateMailThreadDetails(requestParameters: MailboxApiUpdateMailThreadDetailsRequest, ): Promise<UpdateMailThreadResponse> {
             return localVarFp.updateMailThreadDetails(requestParameters.id, requestParameters.deal_id, requestParameters.lead_id, requestParameters.shared_flag, requestParameters.read_flag, requestParameters.archived_flag, ).then((request) => request(axios, basePath));
         },
     };

@@ -26,19 +26,19 @@ import { AddNoteRequest } from '../models';
 // @ts-ignore
 import { CommentPostPutObject } from '../models';
 // @ts-ignore
-import { DeleteCommentResponse200 } from '../models';
+import { DeleteCommentResponse } from '../models';
 // @ts-ignore
-import { DeleteNoteResponse200 } from '../models';
+import { DeleteNoteResponse } from '../models';
 // @ts-ignore
-import { GetCommentsResponse200 } from '../models';
+import { GetCommentsResponse } from '../models';
 // @ts-ignore
-import { GetNotesResponse200 } from '../models';
+import { GetNotesResponse } from '../models';
 // @ts-ignore
 import { NoteRequest } from '../models';
 // @ts-ignore
-import { OneCommentResponse200 } from '../models';
+import { UpsertCommentResponse } from '../models';
 // @ts-ignore
-import { OneNoteResponse200 } from '../models';
+import { UpsertNoteResponse } from '../models';
 /**
  * NotesApi - axios parameter creator
  * @export
@@ -577,7 +577,7 @@ export const NotesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async addNote(AddNoteRequest?: AddNoteRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<OneNoteResponse200>> {
+        async addNote(AddNoteRequest?: AddNoteRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertNoteResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addNote(AddNoteRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -589,7 +589,7 @@ export const NotesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async addNoteComment(id: number, CommentPostPutObject?: CommentPostPutObject, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<OneCommentResponse200>> {
+        async addNoteComment(id: number, CommentPostPutObject?: CommentPostPutObject, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertCommentResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addNoteComment(id, CommentPostPutObject, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -601,7 +601,7 @@ export const NotesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deleteComment(id: number, commentId: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteCommentResponse200>> {
+        async deleteComment(id: number, commentId: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteCommentResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteComment(id, commentId, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -612,7 +612,7 @@ export const NotesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deleteNote(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteNoteResponse200>> {
+        async deleteNote(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteNoteResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNote(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -624,7 +624,7 @@ export const NotesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getComment(id: number, commentId: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<OneCommentResponse200>> {
+        async getComment(id: number, commentId: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertCommentResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getComment(id, commentId, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -635,7 +635,7 @@ export const NotesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getNote(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<OneNoteResponse200>> {
+        async getNote(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertNoteResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNote(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -648,7 +648,7 @@ export const NotesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getNoteComments(id: number, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetCommentsResponse200>> {
+        async getNoteComments(id: number, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetCommentsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNoteComments(id, start, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -672,7 +672,7 @@ export const NotesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getNotes(user_id?: number, lead_id?: string, deal_id?: number, person_id?: number, org_id?: number, start?: number, limit?: number, sort?: string, start_date?: string, end_date?: string, pinned_to_lead_flag?: 0 | 1, pinned_to_deal_flag?: 0 | 1, pinned_to_organization_flag?: 0 | 1, pinned_to_person_flag?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetNotesResponse200>> {
+        async getNotes(user_id?: number, lead_id?: string, deal_id?: number, person_id?: number, org_id?: number, start?: number, limit?: number, sort?: string, start_date?: string, end_date?: string, pinned_to_lead_flag?: 0 | 1, pinned_to_deal_flag?: 0 | 1, pinned_to_organization_flag?: 0 | 1, pinned_to_person_flag?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetNotesResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNotes(user_id, lead_id, deal_id, person_id, org_id, start, limit, sort, start_date, end_date, pinned_to_lead_flag, pinned_to_deal_flag, pinned_to_organization_flag, pinned_to_person_flag, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -685,7 +685,7 @@ export const NotesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async updateCommentForNote(id: number, commentId: string, CommentPostPutObject?: CommentPostPutObject, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<OneCommentResponse200>> {
+        async updateCommentForNote(id: number, commentId: string, CommentPostPutObject?: CommentPostPutObject, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertCommentResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateCommentForNote(id, commentId, CommentPostPutObject, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -697,7 +697,7 @@ export const NotesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async updateNote(id: number, NoteRequest?: NoteRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<OneNoteResponse200>> {
+        async updateNote(id: number, NoteRequest?: NoteRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertNoteResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateNote(id, NoteRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -718,7 +718,7 @@ export const NotesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        addNote(requestParameters: NotesApiAddNoteRequest = {}, ): Promise<OneNoteResponse200> {
+        addNote(requestParameters: NotesApiAddNoteRequest = {}, ): Promise<UpsertNoteResponse> {
             return localVarFp.addNote(requestParameters.AddNoteRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -728,7 +728,7 @@ export const NotesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        addNoteComment(requestParameters: NotesApiAddNoteCommentRequest, ): Promise<OneCommentResponse200> {
+        addNoteComment(requestParameters: NotesApiAddNoteCommentRequest, ): Promise<UpsertCommentResponse> {
             return localVarFp.addNoteComment(requestParameters.id, requestParameters.CommentPostPutObject, ).then((request) => request(axios, basePath));
         },
         /**
@@ -738,7 +738,7 @@ export const NotesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        deleteComment(requestParameters: NotesApiDeleteCommentRequest, ): Promise<DeleteCommentResponse200> {
+        deleteComment(requestParameters: NotesApiDeleteCommentRequest, ): Promise<DeleteCommentResponse> {
             return localVarFp.deleteComment(requestParameters.id, requestParameters.commentId, ).then((request) => request(axios, basePath));
         },
         /**
@@ -748,7 +748,7 @@ export const NotesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        deleteNote(requestParameters: NotesApiDeleteNoteRequest, ): Promise<DeleteNoteResponse200> {
+        deleteNote(requestParameters: NotesApiDeleteNoteRequest, ): Promise<DeleteNoteResponse> {
             return localVarFp.deleteNote(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -758,7 +758,7 @@ export const NotesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        getComment(requestParameters: NotesApiGetCommentRequest, ): Promise<OneCommentResponse200> {
+        getComment(requestParameters: NotesApiGetCommentRequest, ): Promise<UpsertCommentResponse> {
             return localVarFp.getComment(requestParameters.id, requestParameters.commentId, ).then((request) => request(axios, basePath));
         },
         /**
@@ -768,7 +768,7 @@ export const NotesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        getNote(requestParameters: NotesApiGetNoteRequest, ): Promise<OneNoteResponse200> {
+        getNote(requestParameters: NotesApiGetNoteRequest, ): Promise<UpsertNoteResponse> {
             return localVarFp.getNote(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -778,7 +778,7 @@ export const NotesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        getNoteComments(requestParameters: NotesApiGetNoteCommentsRequest, ): Promise<GetCommentsResponse200> {
+        getNoteComments(requestParameters: NotesApiGetNoteCommentsRequest, ): Promise<GetCommentsResponse> {
             return localVarFp.getNoteComments(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
         /**
@@ -788,7 +788,7 @@ export const NotesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        getNotes(requestParameters: NotesApiGetNotesRequest = {}, ): Promise<GetNotesResponse200> {
+        getNotes(requestParameters: NotesApiGetNotesRequest = {}, ): Promise<GetNotesResponse> {
             return localVarFp.getNotes(requestParameters.user_id, requestParameters.lead_id, requestParameters.deal_id, requestParameters.person_id, requestParameters.org_id, requestParameters.start, requestParameters.limit, requestParameters.sort, requestParameters.start_date, requestParameters.end_date, requestParameters.pinned_to_lead_flag, requestParameters.pinned_to_deal_flag, requestParameters.pinned_to_organization_flag, requestParameters.pinned_to_person_flag, ).then((request) => request(axios, basePath));
         },
         /**
@@ -798,7 +798,7 @@ export const NotesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        updateCommentForNote(requestParameters: NotesApiUpdateCommentForNoteRequest, ): Promise<OneCommentResponse200> {
+        updateCommentForNote(requestParameters: NotesApiUpdateCommentForNoteRequest, ): Promise<UpsertCommentResponse> {
             return localVarFp.updateCommentForNote(requestParameters.id, requestParameters.commentId, requestParameters.CommentPostPutObject, ).then((request) => request(axios, basePath));
         },
         /**
@@ -808,7 +808,7 @@ export const NotesApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        updateNote(requestParameters: NotesApiUpdateNoteRequest, ): Promise<OneNoteResponse200> {
+        updateNote(requestParameters: NotesApiUpdateNoteRequest, ): Promise<UpsertNoteResponse> {
             return localVarFp.updateNote(requestParameters.id, requestParameters.NoteRequest, ).then((request) => request(axios, basePath));
         },
     };

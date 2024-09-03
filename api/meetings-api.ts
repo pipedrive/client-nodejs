@@ -24,9 +24,9 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { AddUserProviderLinkRequest } from '../models';
 // @ts-ignore
-import { UserProviderLinkErrorResponse } from '../models';
+import { GetUserProviderLinkSuccessResponse } from '../models';
 // @ts-ignore
-import { UserProviderLinkSuccessResponse } from '../models';
+import { UserProviderLinkErrorResponse } from '../models';
 /**
  * MeetingsApi - axios parameter creator
  * @export
@@ -133,7 +133,7 @@ export const MeetingsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deleteUserProviderLink(id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UserProviderLinkSuccessResponse>> {
+        async deleteUserProviderLink(id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetUserProviderLinkSuccessResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteUserProviderLink(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -144,7 +144,7 @@ export const MeetingsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async saveUserProviderLink(AddUserProviderLinkRequest?: AddUserProviderLinkRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UserProviderLinkSuccessResponse>> {
+        async saveUserProviderLink(AddUserProviderLinkRequest?: AddUserProviderLinkRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetUserProviderLinkSuccessResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.saveUserProviderLink(AddUserProviderLinkRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -165,7 +165,7 @@ export const MeetingsApiFactory = function (configuration?: Configuration, baseP
 
          * @throws {RequiredError}
          */
-        deleteUserProviderLink(requestParameters: MeetingsApiDeleteUserProviderLinkRequest, ): Promise<UserProviderLinkSuccessResponse> {
+        deleteUserProviderLink(requestParameters: MeetingsApiDeleteUserProviderLinkRequest, ): Promise<GetUserProviderLinkSuccessResponse> {
             return localVarFp.deleteUserProviderLink(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -175,7 +175,7 @@ export const MeetingsApiFactory = function (configuration?: Configuration, baseP
 
          * @throws {RequiredError}
          */
-        saveUserProviderLink(requestParameters: MeetingsApiSaveUserProviderLinkRequest = {}, ): Promise<UserProviderLinkSuccessResponse> {
+        saveUserProviderLink(requestParameters: MeetingsApiSaveUserProviderLinkRequest = {}, ): Promise<GetUserProviderLinkSuccessResponse> {
             return localVarFp.saveUserProviderLink(requestParameters.AddUserProviderLinkRequest, ).then((request) => request(axios, basePath));
         },
     };

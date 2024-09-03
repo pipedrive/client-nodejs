@@ -24,35 +24,35 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { AddProjectRequest } from '../models';
 // @ts-ignore
-import { AddProjectResponse201 } from '../models';
+import { AddProjectResponse } from '../models';
 // @ts-ignore
-import { DeleteProjectResponse200 } from '../models';
+import { DeleteProjectResponse } from '../models';
 // @ts-ignore
-import { GetActivitiesCollectionResponse200 } from '../models';
+import { GetActivitiesCollectionResponse } from '../models';
 // @ts-ignore
-import { GetProjectBoardsResponse200 } from '../models';
+import { GetProjectBoardsResponse } from '../models';
 // @ts-ignore
-import { GetProjectGroupsResponse200 } from '../models';
+import { GetProjectGroupsResponse } from '../models';
 // @ts-ignore
-import { GetProjectPhasesResponse200 } from '../models';
+import { GetProjectPhasesResponse } from '../models';
 // @ts-ignore
-import { GetProjectPlanResponse200 } from '../models';
+import { GetProjectPlanResponse } from '../models';
 // @ts-ignore
-import { GetProjectResponse200 } from '../models';
+import { GetProjectResponse } from '../models';
 // @ts-ignore
-import { GetProjectsResponse200 } from '../models';
+import { GetProjectsResponse } from '../models';
 // @ts-ignore
-import { GetTasksResponse200 } from '../models';
+import { GetTasksResponse } from '../models';
 // @ts-ignore
 import { ProjectPutPlanItemBodyObject } from '../models';
 // @ts-ignore
+import { UpdateActivityPlanItemResponse } from '../models';
+// @ts-ignore
 import { UpdateProjectRequest } from '../models';
 // @ts-ignore
-import { UpdateProjectResponse200 } from '../models';
+import { UpdateProjectResponse } from '../models';
 // @ts-ignore
-import { UpdatedActivityPlanItem200 } from '../models';
-// @ts-ignore
-import { UpdatedTaskPlanItem200 } from '../models';
+import { UpdateTaskPlanItemResponse } from '../models';
 /**
  * ProjectsApi - axios parameter creator
  * @export
@@ -696,7 +696,7 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async addProject(AddProjectRequest?: AddProjectRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddProjectResponse201>> {
+        async addProject(AddProjectRequest?: AddProjectRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddProjectResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addProject(AddProjectRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -707,7 +707,7 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async archiveProject(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateProjectResponse200>> {
+        async archiveProject(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateProjectResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.archiveProject(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -718,7 +718,7 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deleteProject(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteProjectResponse200>> {
+        async deleteProject(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteProjectResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProject(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -729,7 +729,7 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getProject(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectResponse200>> {
+        async getProject(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProject(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -740,7 +740,7 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getProjectActivities(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivitiesCollectionResponse200>> {
+        async getProjectActivities(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivitiesCollectionResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectActivities(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -751,7 +751,7 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getProjectGroups(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectGroupsResponse200>> {
+        async getProjectGroups(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectGroupsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectGroups(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -762,7 +762,7 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getProjectPlan(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectPlanResponse200>> {
+        async getProjectPlan(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectPlanResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectPlan(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -773,7 +773,7 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getProjectTasks(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetTasksResponse200>> {
+        async getProjectTasks(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetTasksResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectTasks(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -789,7 +789,7 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getProjects(cursor?: string, limit?: number, filter_id?: number, status?: string, phase_id?: number, include_archived?: boolean, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectsResponse200>> {
+        async getProjects(cursor?: string, limit?: number, filter_id?: number, status?: string, phase_id?: number, include_archived?: boolean, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjects(cursor, limit, filter_id, status, phase_id, include_archived, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -799,7 +799,7 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getProjectsBoards(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectBoardsResponse200>> {
+        async getProjectsBoards(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectBoardsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectsBoards();
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -810,7 +810,7 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getProjectsPhases(board_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectPhasesResponse200>> {
+        async getProjectsPhases(board_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectPhasesResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectsPhases(board_id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -823,7 +823,7 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async putProjectPlanActivity(id: number, activityId: number, ProjectPutPlanItemBodyObject?: ProjectPutPlanItemBodyObject, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdatedActivityPlanItem200>> {
+        async putProjectPlanActivity(id: number, activityId: number, ProjectPutPlanItemBodyObject?: ProjectPutPlanItemBodyObject, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateActivityPlanItemResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putProjectPlanActivity(id, activityId, ProjectPutPlanItemBodyObject, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -836,7 +836,7 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async putProjectPlanTask(id: number, taskId: number, ProjectPutPlanItemBodyObject?: ProjectPutPlanItemBodyObject, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdatedTaskPlanItem200>> {
+        async putProjectPlanTask(id: number, taskId: number, ProjectPutPlanItemBodyObject?: ProjectPutPlanItemBodyObject, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateTaskPlanItemResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putProjectPlanTask(id, taskId, ProjectPutPlanItemBodyObject, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -848,7 +848,7 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async updateProject(id: number, UpdateProjectRequest?: UpdateProjectRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateProjectResponse200>> {
+        async updateProject(id: number, UpdateProjectRequest?: UpdateProjectRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateProjectResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateProject(id, UpdateProjectRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -869,7 +869,7 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
 
          * @throws {RequiredError}
          */
-        addProject(requestParameters: ProjectsApiAddProjectRequest = {}, ): Promise<AddProjectResponse201> {
+        addProject(requestParameters: ProjectsApiAddProjectRequest = {}, ): Promise<AddProjectResponse> {
             return localVarFp.addProject(requestParameters.AddProjectRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -879,7 +879,7 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
 
          * @throws {RequiredError}
          */
-        archiveProject(requestParameters: ProjectsApiArchiveProjectRequest, ): Promise<UpdateProjectResponse200> {
+        archiveProject(requestParameters: ProjectsApiArchiveProjectRequest, ): Promise<UpdateProjectResponse> {
             return localVarFp.archiveProject(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -889,7 +889,7 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
 
          * @throws {RequiredError}
          */
-        deleteProject(requestParameters: ProjectsApiDeleteProjectRequest, ): Promise<DeleteProjectResponse200> {
+        deleteProject(requestParameters: ProjectsApiDeleteProjectRequest, ): Promise<DeleteProjectResponse> {
             return localVarFp.deleteProject(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -899,7 +899,7 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
 
          * @throws {RequiredError}
          */
-        getProject(requestParameters: ProjectsApiGetProjectRequest, ): Promise<GetProjectResponse200> {
+        getProject(requestParameters: ProjectsApiGetProjectRequest, ): Promise<GetProjectResponse> {
             return localVarFp.getProject(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -909,7 +909,7 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
 
          * @throws {RequiredError}
          */
-        getProjectActivities(requestParameters: ProjectsApiGetProjectActivitiesRequest, ): Promise<GetActivitiesCollectionResponse200> {
+        getProjectActivities(requestParameters: ProjectsApiGetProjectActivitiesRequest, ): Promise<GetActivitiesCollectionResponse> {
             return localVarFp.getProjectActivities(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -919,7 +919,7 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
 
          * @throws {RequiredError}
          */
-        getProjectGroups(requestParameters: ProjectsApiGetProjectGroupsRequest, ): Promise<GetProjectGroupsResponse200> {
+        getProjectGroups(requestParameters: ProjectsApiGetProjectGroupsRequest, ): Promise<GetProjectGroupsResponse> {
             return localVarFp.getProjectGroups(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -929,7 +929,7 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
 
          * @throws {RequiredError}
          */
-        getProjectPlan(requestParameters: ProjectsApiGetProjectPlanRequest, ): Promise<GetProjectPlanResponse200> {
+        getProjectPlan(requestParameters: ProjectsApiGetProjectPlanRequest, ): Promise<GetProjectPlanResponse> {
             return localVarFp.getProjectPlan(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -939,7 +939,7 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
 
          * @throws {RequiredError}
          */
-        getProjectTasks(requestParameters: ProjectsApiGetProjectTasksRequest, ): Promise<GetTasksResponse200> {
+        getProjectTasks(requestParameters: ProjectsApiGetProjectTasksRequest, ): Promise<GetTasksResponse> {
             return localVarFp.getProjectTasks(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -949,7 +949,7 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
 
          * @throws {RequiredError}
          */
-        getProjects(requestParameters: ProjectsApiGetProjectsRequest = {}, ): Promise<GetProjectsResponse200> {
+        getProjects(requestParameters: ProjectsApiGetProjectsRequest = {}, ): Promise<GetProjectsResponse> {
             return localVarFp.getProjects(requestParameters.cursor, requestParameters.limit, requestParameters.filter_id, requestParameters.status, requestParameters.phase_id, requestParameters.include_archived, ).then((request) => request(axios, basePath));
         },
         /**
@@ -958,7 +958,7 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
 
          * @throws {RequiredError}
          */
-        getProjectsBoards(): Promise<GetProjectBoardsResponse200> {
+        getProjectsBoards(): Promise<GetProjectBoardsResponse> {
             return localVarFp.getProjectsBoards().then((request) => request(axios, basePath));
         },
         /**
@@ -968,7 +968,7 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
 
          * @throws {RequiredError}
          */
-        getProjectsPhases(requestParameters: ProjectsApiGetProjectsPhasesRequest, ): Promise<GetProjectPhasesResponse200> {
+        getProjectsPhases(requestParameters: ProjectsApiGetProjectsPhasesRequest, ): Promise<GetProjectPhasesResponse> {
             return localVarFp.getProjectsPhases(requestParameters.board_id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -978,7 +978,7 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
 
          * @throws {RequiredError}
          */
-        putProjectPlanActivity(requestParameters: ProjectsApiPutProjectPlanActivityRequest, ): Promise<UpdatedActivityPlanItem200> {
+        putProjectPlanActivity(requestParameters: ProjectsApiPutProjectPlanActivityRequest, ): Promise<UpdateActivityPlanItemResponse> {
             return localVarFp.putProjectPlanActivity(requestParameters.id, requestParameters.activityId, requestParameters.ProjectPutPlanItemBodyObject, ).then((request) => request(axios, basePath));
         },
         /**
@@ -988,7 +988,7 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
 
          * @throws {RequiredError}
          */
-        putProjectPlanTask(requestParameters: ProjectsApiPutProjectPlanTaskRequest, ): Promise<UpdatedTaskPlanItem200> {
+        putProjectPlanTask(requestParameters: ProjectsApiPutProjectPlanTaskRequest, ): Promise<UpdateTaskPlanItemResponse> {
             return localVarFp.putProjectPlanTask(requestParameters.id, requestParameters.taskId, requestParameters.ProjectPutPlanItemBodyObject, ).then((request) => request(axios, basePath));
         },
         /**
@@ -998,7 +998,7 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
 
          * @throws {RequiredError}
          */
-        updateProject(requestParameters: ProjectsApiUpdateProjectRequest, ): Promise<UpdateProjectResponse200> {
+        updateProject(requestParameters: ProjectsApiUpdateProjectRequest, ): Promise<UpdateProjectResponse> {
             return localVarFp.updateProject(requestParameters.id, requestParameters.UpdateProjectRequest, ).then((request) => request(axios, basePath));
         },
     };

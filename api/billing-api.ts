@@ -22,7 +22,7 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
-import { SubscriptionAddonsResponse200 } from '../models';
+import { GetSubscriptionAddonsResponse } from '../models';
 /**
  * BillingApi - axios parameter creator
  * @export
@@ -83,7 +83,7 @@ export const BillingApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getCompanyAddons(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<SubscriptionAddonsResponse200>> {
+        async getCompanyAddons(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetSubscriptionAddonsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCompanyAddons();
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -103,7 +103,7 @@ export const BillingApiFactory = function (configuration?: Configuration, basePa
 
          * @throws {RequiredError}
          */
-        getCompanyAddons(): Promise<SubscriptionAddonsResponse200> {
+        getCompanyAddons(): Promise<GetSubscriptionAddonsResponse> {
             return localVarFp.getCompanyAddons().then((request) => request(axios, basePath));
         },
     };

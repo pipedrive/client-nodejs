@@ -18,12 +18,12 @@
 import { BasePipelineWithSelectedFlagAllOf } from './base-pipeline-with-selected-flag-all-of';
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetAssociatedDealsResponse200AllOfRelatedObjectsPipeline } from './get-associated-deals-response200-all-of-related-objects-pipeline';
+import { GetAssociatedDealsResponseAllOfRelatedObjectsPipeline } from './get-associated-deals-response-all-of-related-objects-pipeline';
 
 /**
  * @type BasePipelineWithSelectedFlag
  * @export
  */
-export type BasePipelineWithSelectedFlag = BasePipelineWithSelectedFlagAllOf & GetAssociatedDealsResponse200AllOfRelatedObjectsPipeline;
+export type BasePipelineWithSelectedFlag = BasePipelineWithSelectedFlagAllOf & GetAssociatedDealsResponseAllOfRelatedObjectsPipeline;
 
 

@@ -22,11 +22,11 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
-import { GetPermissionSetsResponse200 } from '../models';
+import { GetPermissionSetResponse } from '../models';
 // @ts-ignore
-import { SinglePermissionSetResponse200 } from '../models';
+import { GetPermissionSetsResponse } from '../models';
 // @ts-ignore
-import { UserAssignmentsToPermissionSetResponse200 } from '../models';
+import { GetUserAssignmentsToPermissionSetResponse } from '../models';
 /**
  * PermissionSetsApi - axios parameter creator
  * @export
@@ -185,7 +185,7 @@ export const PermissionSetsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getPermissionSet(id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<SinglePermissionSetResponse200>> {
+        async getPermissionSet(id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPermissionSetResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPermissionSet(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -198,7 +198,7 @@ export const PermissionSetsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getPermissionSetAssignments(id: string, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UserAssignmentsToPermissionSetResponse200>> {
+        async getPermissionSetAssignments(id: string, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetUserAssignmentsToPermissionSetResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPermissionSetAssignments(id, start, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -209,7 +209,7 @@ export const PermissionSetsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getPermissionSets(app?: 'sales' | 'projects' | 'campaigns' | 'global' | 'account_settings', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPermissionSetsResponse200>> {
+        async getPermissionSets(app?: 'sales' | 'projects' | 'campaigns' | 'global' | 'account_settings', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPermissionSetsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPermissionSets(app, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -230,7 +230,7 @@ export const PermissionSetsApiFactory = function (configuration?: Configuration,
 
          * @throws {RequiredError}
          */
-        getPermissionSet(requestParameters: PermissionSetsApiGetPermissionSetRequest, ): Promise<SinglePermissionSetResponse200> {
+        getPermissionSet(requestParameters: PermissionSetsApiGetPermissionSetRequest, ): Promise<GetPermissionSetResponse> {
             return localVarFp.getPermissionSet(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -240,7 +240,7 @@ export const PermissionSetsApiFactory = function (configuration?: Configuration,
 
          * @throws {RequiredError}
          */
-        getPermissionSetAssignments(requestParameters: PermissionSetsApiGetPermissionSetAssignmentsRequest, ): Promise<UserAssignmentsToPermissionSetResponse200> {
+        getPermissionSetAssignments(requestParameters: PermissionSetsApiGetPermissionSetAssignmentsRequest, ): Promise<GetUserAssignmentsToPermissionSetResponse> {
             return localVarFp.getPermissionSetAssignments(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
         /**
@@ -250,7 +250,7 @@ export const PermissionSetsApiFactory = function (configuration?: Configuration,
 
          * @throws {RequiredError}
          */
-        getPermissionSets(requestParameters: PermissionSetsApiGetPermissionSetsRequest = {}, ): Promise<GetPermissionSetsResponse200> {
+        getPermissionSets(requestParameters: PermissionSetsApiGetPermissionSetsRequest = {}, ): Promise<GetPermissionSetsResponse> {
             return localVarFp.getPermissionSets(requestParameters.app, ).then((request) => request(axios, basePath));
         },
     };

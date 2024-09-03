@@ -90,11 +90,17 @@ export interface PersonItemAllOf {
      */
     'picture_id'?: PersonItemAllOfPictureId;
     /**
-     * The label assigned to the person
+     * The label assigned to the person. When the `label` field is updated, the `label_ids` field value will be overwritten by the `label` field value.
      * @type {number}
      * @memberof PersonItemAllOf
      */
     'label'?: number;
+    /**
+     * The IDs of labels assigned to the person. When the `label_ids` field is updated, the `label` field value will be set to the first value of the `label_ids` field.
+     * @type {Array<number>}
+     * @memberof PersonItemAllOf
+     */
+    'label_ids'?: Array<number>;
     /**
      * The name of the organization associated with the person
      * @type {string}

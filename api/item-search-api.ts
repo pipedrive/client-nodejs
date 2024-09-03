@@ -22,9 +22,9 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
-import { SearchItemByFieldResponse200 } from '../models';
+import { GetItemSearchFieldResponse } from '../models';
 // @ts-ignore
-import { SearchItemResponse200 } from '../models';
+import { GetItemSearchResponse } from '../models';
 /**
  * ItemSearchApi - axios parameter creator
  * @export
@@ -213,7 +213,7 @@ export const ItemSearchApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async searchItem(term: string, item_types?: 'deal' | 'person' | 'organization' | 'product' | 'lead' | 'file' | 'mail_attachment' | 'project', fields?: 'address' | 'code' | 'custom_fields' | 'email' | 'name' | 'notes' | 'organization_name' | 'person_name' | 'phone' | 'title' | 'description', search_for_related_items?: boolean, exact_match?: boolean, include_fields?: 'deal.cc_email' | 'person.picture' | 'product.price', start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<SearchItemResponse200>> {
+        async searchItem(term: string, item_types?: 'deal' | 'person' | 'organization' | 'product' | 'lead' | 'file' | 'mail_attachment' | 'project', fields?: 'address' | 'code' | 'custom_fields' | 'email' | 'name' | 'notes' | 'organization_name' | 'person_name' | 'phone' | 'title' | 'description', search_for_related_items?: boolean, exact_match?: boolean, include_fields?: 'deal.cc_email' | 'person.picture' | 'product.price', start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetItemSearchResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchItem(term, item_types, fields, search_for_related_items, exact_match, include_fields, start, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -230,7 +230,7 @@ export const ItemSearchApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async searchItemByField(term: string, field_type: 'dealField' | 'leadField' | 'personField' | 'organizationField' | 'productField' | 'projectField', field_key: string, exact_match?: boolean, return_item_ids?: boolean, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<SearchItemByFieldResponse200>> {
+        async searchItemByField(term: string, field_type: 'dealField' | 'leadField' | 'personField' | 'organizationField' | 'productField' | 'projectField', field_key: string, exact_match?: boolean, return_item_ids?: boolean, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetItemSearchFieldResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchItemByField(term, field_type, field_key, exact_match, return_item_ids, start, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -251,7 +251,7 @@ export const ItemSearchApiFactory = function (configuration?: Configuration, bas
 
          * @throws {RequiredError}
          */
-        searchItem(requestParameters: ItemSearchApiSearchItemRequest, ): Promise<SearchItemResponse200> {
+        searchItem(requestParameters: ItemSearchApiSearchItemRequest, ): Promise<GetItemSearchResponse> {
             return localVarFp.searchItem(requestParameters.term, requestParameters.item_types, requestParameters.fields, requestParameters.search_for_related_items, requestParameters.exact_match, requestParameters.include_fields, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
         /**
@@ -261,7 +261,7 @@ export const ItemSearchApiFactory = function (configuration?: Configuration, bas
 
          * @throws {RequiredError}
          */
-        searchItemByField(requestParameters: ItemSearchApiSearchItemByFieldRequest, ): Promise<SearchItemByFieldResponse200> {
+        searchItemByField(requestParameters: ItemSearchApiSearchItemByFieldRequest, ): Promise<GetItemSearchFieldResponse> {
             return localVarFp.searchItemByField(requestParameters.term, requestParameters.field_type, requestParameters.field_key, requestParameters.exact_match, requestParameters.return_item_ids, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
     };

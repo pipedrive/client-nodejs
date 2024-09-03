@@ -22,7 +22,7 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
-import { GetUserSettingsResponse200 } from '../models';
+import { GetUserSettingsResponse } from '../models';
 // @ts-ignore
 import { UnathorizedResponse } from '../models';
 /**
@@ -85,7 +85,7 @@ export const UserSettingsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getUserSettings(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetUserSettingsResponse200>> {
+        async getUserSettings(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetUserSettingsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUserSettings();
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -105,7 +105,7 @@ export const UserSettingsApiFactory = function (configuration?: Configuration, b
 
          * @throws {RequiredError}
          */
-        getUserSettings(): Promise<GetUserSettingsResponse200> {
+        getUserSettings(): Promise<GetUserSettingsResponse> {
             return localVarFp.getUserSettings().then((request) => request(axios, basePath));
         },
     };

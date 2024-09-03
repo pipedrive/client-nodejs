@@ -24,15 +24,15 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { AddGoalRequest } from '../models';
 // @ts-ignore
-import { AddOrUpdateGoalResponse200 } from '../models';
-// @ts-ignore
 import { BasicGoalRequest } from '../models';
 // @ts-ignore
-import { DeleteGoalResponse200 } from '../models';
+import { DeleteGoalResponse } from '../models';
 // @ts-ignore
-import { GetGoalResultResponse200 } from '../models';
+import { GetGoalResultResponse } from '../models';
 // @ts-ignore
-import { GetGoalsResponse200 } from '../models';
+import { GetGoalsResponse } from '../models';
+// @ts-ignore
+import { UpsertGoalResponse } from '../models';
 /**
  * GoalsApi - axios parameter creator
  * @export
@@ -349,7 +349,7 @@ export const GoalsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async addGoal(AddGoalRequest?: AddGoalRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddOrUpdateGoalResponse200>> {
+        async addGoal(AddGoalRequest?: AddGoalRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertGoalResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addGoal(AddGoalRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -360,7 +360,7 @@ export const GoalsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deleteGoal(id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteGoalResponse200>> {
+        async deleteGoal(id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteGoalResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteGoal(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -373,7 +373,7 @@ export const GoalsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getGoalResult(id: string, period_start: string, period_end: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetGoalResultResponse200>> {
+        async getGoalResult(id: string, period_start: string, period_end: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetGoalResultResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getGoalResult(id, period_start, period_end, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -396,7 +396,7 @@ export const GoalsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getGoals(type_name?: 'deals_won' | 'deals_progressed' | 'activities_completed' | 'activities_added' | 'deals_started', title?: string, is_active?: boolean, assignee_id?: number, assignee_type?: 'person' | 'company' | 'team', expected_outcome_target?: number, expected_outcome_tracking_metric?: 'quantity' | 'sum', expected_outcome_currency_id?: number, type_params_pipeline_id?: Array<number>, type_params_stage_id?: number, type_params_activity_type_id?: Array<number>, period_start?: string, period_end?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetGoalsResponse200>> {
+        async getGoals(type_name?: 'deals_won' | 'deals_progressed' | 'activities_completed' | 'activities_added' | 'deals_started', title?: string, is_active?: boolean, assignee_id?: number, assignee_type?: 'person' | 'company' | 'team', expected_outcome_target?: number, expected_outcome_tracking_metric?: 'quantity' | 'sum', expected_outcome_currency_id?: number, type_params_pipeline_id?: Array<number>, type_params_stage_id?: number, type_params_activity_type_id?: Array<number>, period_start?: string, period_end?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetGoalsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getGoals(type_name, title, is_active, assignee_id, assignee_type, expected_outcome_target, expected_outcome_tracking_metric, expected_outcome_currency_id, type_params_pipeline_id, type_params_stage_id, type_params_activity_type_id, period_start, period_end, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -408,7 +408,7 @@ export const GoalsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async updateGoal(id: string, BasicGoalRequest?: BasicGoalRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddOrUpdateGoalResponse200>> {
+        async updateGoal(id: string, BasicGoalRequest?: BasicGoalRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertGoalResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateGoal(id, BasicGoalRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -429,7 +429,7 @@ export const GoalsApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        addGoal(requestParameters: GoalsApiAddGoalRequest = {}, ): Promise<AddOrUpdateGoalResponse200> {
+        addGoal(requestParameters: GoalsApiAddGoalRequest = {}, ): Promise<UpsertGoalResponse> {
             return localVarFp.addGoal(requestParameters.AddGoalRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -439,7 +439,7 @@ export const GoalsApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        deleteGoal(requestParameters: GoalsApiDeleteGoalRequest, ): Promise<DeleteGoalResponse200> {
+        deleteGoal(requestParameters: GoalsApiDeleteGoalRequest, ): Promise<DeleteGoalResponse> {
             return localVarFp.deleteGoal(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -449,7 +449,7 @@ export const GoalsApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        getGoalResult(requestParameters: GoalsApiGetGoalResultRequest, ): Promise<GetGoalResultResponse200> {
+        getGoalResult(requestParameters: GoalsApiGetGoalResultRequest, ): Promise<GetGoalResultResponse> {
             return localVarFp.getGoalResult(requestParameters.id, requestParameters.period_start, requestParameters.period_end, ).then((request) => request(axios, basePath));
         },
         /**
@@ -459,7 +459,7 @@ export const GoalsApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        getGoals(requestParameters: GoalsApiGetGoalsRequest = {}, ): Promise<GetGoalsResponse200> {
+        getGoals(requestParameters: GoalsApiGetGoalsRequest = {}, ): Promise<GetGoalsResponse> {
             return localVarFp.getGoals(requestParameters.type_name, requestParameters.title, requestParameters.is_active, requestParameters.assignee_id, requestParameters.assignee_type, requestParameters.expected_outcome_target, requestParameters.expected_outcome_tracking_metric, requestParameters.expected_outcome_currency_id, requestParameters.type_params_pipeline_id, requestParameters.type_params_stage_id, requestParameters.type_params_activity_type_id, requestParameters.period_start, requestParameters.period_end, ).then((request) => request(axios, basePath));
         },
         /**
@@ -469,7 +469,7 @@ export const GoalsApiFactory = function (configuration?: Configuration, basePath
 
          * @throws {RequiredError}
          */
-        updateGoal(requestParameters: GoalsApiUpdateGoalRequest, ): Promise<AddOrUpdateGoalResponse200> {
+        updateGoal(requestParameters: GoalsApiUpdateGoalRequest, ): Promise<UpsertGoalResponse> {
             return localVarFp.updateGoal(requestParameters.id, requestParameters.BasicGoalRequest, ).then((request) => request(axios, basePath));
         },
     };

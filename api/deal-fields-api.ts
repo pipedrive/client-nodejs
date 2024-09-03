@@ -24,13 +24,13 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { CreateFieldRequest } from '../models';
 // @ts-ignore
-import { DeleteFieldResponse200 } from '../models';
+import { DeleteFieldsResponse } from '../models';
 // @ts-ignore
-import { DeleteFieldsResponse200 } from '../models';
+import { DeleteResponse } from '../models';
 // @ts-ignore
-import { FieldResponse200 } from '../models';
+import { GetFieldResponse } from '../models';
 // @ts-ignore
-import { FieldsResponse200 } from '../models';
+import { GetFieldsResponse } from '../models';
 // @ts-ignore
 import { UpdateFieldRequest } from '../models';
 /**
@@ -316,7 +316,7 @@ export const DealFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async addDealField(CreateFieldRequest?: CreateFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<FieldResponse200>> {
+        async addDealField(CreateFieldRequest?: CreateFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFieldResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addDealField(CreateFieldRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -327,7 +327,7 @@ export const DealFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deleteDealField(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteFieldResponse200>> {
+        async deleteDealField(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDealField(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -338,7 +338,7 @@ export const DealFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deleteDealFields(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteFieldsResponse200>> {
+        async deleteDealFields(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteFieldsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDealFields(ids, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -349,7 +349,7 @@ export const DealFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getDealField(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<FieldResponse200>> {
+        async getDealField(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFieldResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDealField(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -361,7 +361,7 @@ export const DealFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getDealFields(start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<FieldsResponse200>> {
+        async getDealFields(start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFieldsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDealFields(start, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -373,7 +373,7 @@ export const DealFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async updateDealField(id: number, UpdateFieldRequest?: UpdateFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<FieldResponse200>> {
+        async updateDealField(id: number, UpdateFieldRequest?: UpdateFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFieldResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateDealField(id, UpdateFieldRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -394,7 +394,7 @@ export const DealFieldsApiFactory = function (configuration?: Configuration, bas
 
          * @throws {RequiredError}
          */
-        addDealField(requestParameters: DealFieldsApiAddDealFieldRequest = {}, ): Promise<FieldResponse200> {
+        addDealField(requestParameters: DealFieldsApiAddDealFieldRequest = {}, ): Promise<GetFieldResponse> {
             return localVarFp.addDealField(requestParameters.CreateFieldRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -404,7 +404,7 @@ export const DealFieldsApiFactory = function (configuration?: Configuration, bas
 
          * @throws {RequiredError}
          */
-        deleteDealField(requestParameters: DealFieldsApiDeleteDealFieldRequest, ): Promise<DeleteFieldResponse200> {
+        deleteDealField(requestParameters: DealFieldsApiDeleteDealFieldRequest, ): Promise<DeleteResponse> {
             return localVarFp.deleteDealField(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -414,7 +414,7 @@ export const DealFieldsApiFactory = function (configuration?: Configuration, bas
 
          * @throws {RequiredError}
          */
-        deleteDealFields(requestParameters: DealFieldsApiDeleteDealFieldsRequest, ): Promise<DeleteFieldsResponse200> {
+        deleteDealFields(requestParameters: DealFieldsApiDeleteDealFieldsRequest, ): Promise<DeleteFieldsResponse> {
             return localVarFp.deleteDealFields(requestParameters.ids, ).then((request) => request(axios, basePath));
         },
         /**
@@ -424,7 +424,7 @@ export const DealFieldsApiFactory = function (configuration?: Configuration, bas
 
          * @throws {RequiredError}
          */
-        getDealField(requestParameters: DealFieldsApiGetDealFieldRequest, ): Promise<FieldResponse200> {
+        getDealField(requestParameters: DealFieldsApiGetDealFieldRequest, ): Promise<GetFieldResponse> {
             return localVarFp.getDealField(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -434,7 +434,7 @@ export const DealFieldsApiFactory = function (configuration?: Configuration, bas
 
          * @throws {RequiredError}
          */
-        getDealFields(requestParameters: DealFieldsApiGetDealFieldsRequest = {}, ): Promise<FieldsResponse200> {
+        getDealFields(requestParameters: DealFieldsApiGetDealFieldsRequest = {}, ): Promise<GetFieldsResponse> {
             return localVarFp.getDealFields(requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
         /**
@@ -444,7 +444,7 @@ export const DealFieldsApiFactory = function (configuration?: Configuration, bas
 
          * @throws {RequiredError}
          */
-        updateDealField(requestParameters: DealFieldsApiUpdateDealFieldRequest, ): Promise<FieldResponse200> {
+        updateDealField(requestParameters: DealFieldsApiUpdateDealFieldRequest, ): Promise<GetFieldResponse> {
             return localVarFp.updateDealField(requestParameters.id, requestParameters.UpdateFieldRequest, ).then((request) => request(axios, basePath));
         },
     };

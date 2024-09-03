@@ -22,7 +22,7 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
-import { FieldsResponse200 } from '../models';
+import { GetFieldsResponse } from '../models';
 /**
  * ActivityFieldsApi - axios parameter creator
  * @export
@@ -83,7 +83,7 @@ export const ActivityFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getActivityFields(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<FieldsResponse200>> {
+        async getActivityFields(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFieldsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getActivityFields();
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -103,7 +103,7 @@ export const ActivityFieldsApiFactory = function (configuration?: Configuration,
 
          * @throws {RequiredError}
          */
-        getActivityFields(): Promise<FieldsResponse200> {
+        getActivityFields(): Promise<GetFieldsResponse> {
             return localVarFp.getActivityFields().then((request) => request(axios, basePath));
         },
     };

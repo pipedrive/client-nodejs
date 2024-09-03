@@ -22,7 +22,7 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
-import { GetRecentsResponse200 } from '../models';
+import { GetRecentsResponse } from '../models';
 /**
  * RecentsApi - axios parameter creator
  * @export
@@ -109,7 +109,7 @@ export const RecentsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getRecents(since_timestamp: string, items?: 'activity' | 'activityType' | 'deal' | 'file' | 'filter' | 'note' | 'person' | 'organization' | 'pipeline' | 'product' | 'stage' | 'user', start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetRecentsResponse200>> {
+        async getRecents(since_timestamp: string, items?: 'activity' | 'activityType' | 'deal' | 'file' | 'filter' | 'note' | 'person' | 'organization' | 'pipeline' | 'product' | 'stage' | 'user', start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetRecentsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRecents(since_timestamp, items, start, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -130,7 +130,7 @@ export const RecentsApiFactory = function (configuration?: Configuration, basePa
 
          * @throws {RequiredError}
          */
-        getRecents(requestParameters: RecentsApiGetRecentsRequest, ): Promise<GetRecentsResponse200> {
+        getRecents(requestParameters: RecentsApiGetRecentsRequest, ): Promise<GetRecentsResponse> {
             return localVarFp.getRecents(requestParameters.since_timestamp, requestParameters.items, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
     };

@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { FieldsResponse200AllOfAdditionalData } from './fields-response200-all-of-additional-data';
+import { GetFieldsResponseAllOfAdditionalData } from './get-fields-response-all-of-additional-data';
 // May contain unused imports in some cases
 // @ts-ignore
 import { PaginationDetailsAllOf } from './pagination-details-all-of';
@@ -25,6 +25,6 @@ import { PaginationDetailsAllOf } from './pagination-details-all-of';
  * Pagination details of the list
  * @export
  */
-export type PaginationDetails = FieldsResponse200AllOfAdditionalData & PaginationDetailsAllOf;
+export type PaginationDetails = GetFieldsResponseAllOfAdditionalData & PaginationDetailsAllOf;
 
 

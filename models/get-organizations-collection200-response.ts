@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetActivitiesCollectionResponse200AdditionalData } from './get-activities-collection-response200-additional-data';
+import { GetActivitiesCollectionResponseAdditionalData } from './get-activities-collection-response-additional-data';
 // May contain unused imports in some cases
 // @ts-ignore
-import { OrganizationsCollectionResponseObject } from './organizations-collection-response-object';
+import { GetOrganizationsCollectionResponseObject } from './get-organizations-collection-response-object';
 
 /**
  * 
@@ -34,15 +34,15 @@ export interface GetOrganizationsCollection200Response {
     'success'?: boolean;
     /**
      * 
-     * @type {Array<OrganizationsCollectionResponseObject>}
+     * @type {Array<GetOrganizationsCollectionResponseObject>}
      * @memberof GetOrganizationsCollection200Response
      */
-    'data'?: Array<OrganizationsCollectionResponseObject>;
+    'data'?: Array<GetOrganizationsCollectionResponseObject>;
     /**
      * 
-     * @type {GetActivitiesCollectionResponse200AdditionalData}
+     * @type {GetActivitiesCollectionResponseAdditionalData}
      * @memberof GetOrganizationsCollection200Response
      */
-    'additional_data'?: GetActivitiesCollectionResponse200AdditionalData;
+    'additional_data'?: GetActivitiesCollectionResponseAdditionalData;
 }
 

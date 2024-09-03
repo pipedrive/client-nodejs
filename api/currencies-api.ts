@@ -22,7 +22,7 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
-import { GetCurrenciesResponse200 } from '../models';
+import { GetCurrenciesResponse } from '../models';
 /**
  * CurrenciesApi - axios parameter creator
  * @export
@@ -89,7 +89,7 @@ export const CurrenciesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getCurrencies(term?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetCurrenciesResponse200>> {
+        async getCurrencies(term?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetCurrenciesResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCurrencies(term, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -110,7 +110,7 @@ export const CurrenciesApiFactory = function (configuration?: Configuration, bas
 
          * @throws {RequiredError}
          */
-        getCurrencies(requestParameters: CurrenciesApiGetCurrenciesRequest = {}, ): Promise<GetCurrenciesResponse200> {
+        getCurrencies(requestParameters: CurrenciesApiGetCurrenciesRequest = {}, ): Promise<GetCurrenciesResponse> {
             return localVarFp.getCurrencies(requestParameters.term, ).then((request) => request(axios, basePath));
         },
     };

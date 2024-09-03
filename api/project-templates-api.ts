@@ -22,13 +22,13 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
-import { GetProjectBoardResponse200 } from '../models';
+import { GetProjectBoardResponse } from '../models';
 // @ts-ignore
-import { GetProjectPhaseResponse200 } from '../models';
+import { GetProjectPhaseResponse } from '../models';
 // @ts-ignore
-import { GetProjectTemplateResponse200 } from '../models';
+import { GetProjectTemplateResponse } from '../models';
 // @ts-ignore
-import { GetProjectTemplatesResponse200 } from '../models';
+import { GetProjectTemplatesResponse } from '../models';
 /**
  * ProjectTemplatesApi - axios parameter creator
  * @export
@@ -223,7 +223,7 @@ export const ProjectTemplatesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getProjectTemplate(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectTemplateResponse200>> {
+        async getProjectTemplate(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectTemplateResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectTemplate(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -235,7 +235,7 @@ export const ProjectTemplatesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getProjectTemplates(cursor?: string, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectTemplatesResponse200>> {
+        async getProjectTemplates(cursor?: string, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectTemplatesResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectTemplates(cursor, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -246,7 +246,7 @@ export const ProjectTemplatesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getProjectsBoard(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectBoardResponse200>> {
+        async getProjectsBoard(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectBoardResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectsBoard(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -257,7 +257,7 @@ export const ProjectTemplatesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getProjectsPhase(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectPhaseResponse200>> {
+        async getProjectsPhase(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectPhaseResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectsPhase(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -278,7 +278,7 @@ export const ProjectTemplatesApiFactory = function (configuration?: Configuratio
 
          * @throws {RequiredError}
          */
-        getProjectTemplate(requestParameters: ProjectTemplatesApiGetProjectTemplateRequest, ): Promise<GetProjectTemplateResponse200> {
+        getProjectTemplate(requestParameters: ProjectTemplatesApiGetProjectTemplateRequest, ): Promise<GetProjectTemplateResponse> {
             return localVarFp.getProjectTemplate(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -288,7 +288,7 @@ export const ProjectTemplatesApiFactory = function (configuration?: Configuratio
 
          * @throws {RequiredError}
          */
-        getProjectTemplates(requestParameters: ProjectTemplatesApiGetProjectTemplatesRequest = {}, ): Promise<GetProjectTemplatesResponse200> {
+        getProjectTemplates(requestParameters: ProjectTemplatesApiGetProjectTemplatesRequest = {}, ): Promise<GetProjectTemplatesResponse> {
             return localVarFp.getProjectTemplates(requestParameters.cursor, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
         /**
@@ -298,7 +298,7 @@ export const ProjectTemplatesApiFactory = function (configuration?: Configuratio
 
          * @throws {RequiredError}
          */
-        getProjectsBoard(requestParameters: ProjectTemplatesApiGetProjectsBoardRequest, ): Promise<GetProjectBoardResponse200> {
+        getProjectsBoard(requestParameters: ProjectTemplatesApiGetProjectsBoardRequest, ): Promise<GetProjectBoardResponse> {
             return localVarFp.getProjectsBoard(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -308,7 +308,7 @@ export const ProjectTemplatesApiFactory = function (configuration?: Configuratio
 
          * @throws {RequiredError}
          */
-        getProjectsPhase(requestParameters: ProjectTemplatesApiGetProjectsPhaseRequest, ): Promise<GetProjectPhaseResponse200> {
+        getProjectsPhase(requestParameters: ProjectTemplatesApiGetProjectsPhaseRequest, ): Promise<GetProjectPhaseResponse> {
             return localVarFp.getProjectsPhase(requestParameters.id, ).then((request) => request(axios, basePath));
         },
     };

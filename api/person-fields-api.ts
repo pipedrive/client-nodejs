@@ -24,13 +24,13 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { CreateFieldRequest } from '../models';
 // @ts-ignore
-import { DeleteFieldResponse200 } from '../models';
+import { DeleteFieldsResponse } from '../models';
 // @ts-ignore
-import { DeleteFieldsResponse200 } from '../models';
+import { DeleteResponse } from '../models';
 // @ts-ignore
-import { FieldResponse200 } from '../models';
+import { GetFieldResponse } from '../models';
 // @ts-ignore
-import { FieldsResponse200 } from '../models';
+import { GetFieldsResponse } from '../models';
 // @ts-ignore
 import { UpdateFieldRequest } from '../models';
 /**
@@ -316,7 +316,7 @@ export const PersonFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async addPersonField(CreateFieldRequest?: CreateFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<FieldResponse200>> {
+        async addPersonField(CreateFieldRequest?: CreateFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFieldResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addPersonField(CreateFieldRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -327,7 +327,7 @@ export const PersonFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deletePersonField(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteFieldResponse200>> {
+        async deletePersonField(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deletePersonField(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -338,7 +338,7 @@ export const PersonFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deletePersonFields(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteFieldsResponse200>> {
+        async deletePersonFields(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteFieldsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deletePersonFields(ids, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -349,7 +349,7 @@ export const PersonFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getPersonField(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<FieldResponse200>> {
+        async getPersonField(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFieldResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonField(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -361,7 +361,7 @@ export const PersonFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getPersonFields(start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<FieldsResponse200>> {
+        async getPersonFields(start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFieldsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonFields(start, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -373,7 +373,7 @@ export const PersonFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async updatePersonField(id: number, UpdateFieldRequest?: UpdateFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<FieldResponse200>> {
+        async updatePersonField(id: number, UpdateFieldRequest?: UpdateFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFieldResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updatePersonField(id, UpdateFieldRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -394,7 +394,7 @@ export const PersonFieldsApiFactory = function (configuration?: Configuration, b
 
          * @throws {RequiredError}
          */
-        addPersonField(requestParameters: PersonFieldsApiAddPersonFieldRequest = {}, ): Promise<FieldResponse200> {
+        addPersonField(requestParameters: PersonFieldsApiAddPersonFieldRequest = {}, ): Promise<GetFieldResponse> {
             return localVarFp.addPersonField(requestParameters.CreateFieldRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -404,7 +404,7 @@ export const PersonFieldsApiFactory = function (configuration?: Configuration, b
 
          * @throws {RequiredError}
          */
-        deletePersonField(requestParameters: PersonFieldsApiDeletePersonFieldRequest, ): Promise<DeleteFieldResponse200> {
+        deletePersonField(requestParameters: PersonFieldsApiDeletePersonFieldRequest, ): Promise<DeleteResponse> {
             return localVarFp.deletePersonField(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -414,7 +414,7 @@ export const PersonFieldsApiFactory = function (configuration?: Configuration, b
 
          * @throws {RequiredError}
          */
-        deletePersonFields(requestParameters: PersonFieldsApiDeletePersonFieldsRequest, ): Promise<DeleteFieldsResponse200> {
+        deletePersonFields(requestParameters: PersonFieldsApiDeletePersonFieldsRequest, ): Promise<DeleteFieldsResponse> {
             return localVarFp.deletePersonFields(requestParameters.ids, ).then((request) => request(axios, basePath));
         },
         /**
@@ -424,7 +424,7 @@ export const PersonFieldsApiFactory = function (configuration?: Configuration, b
 
          * @throws {RequiredError}
          */
-        getPersonField(requestParameters: PersonFieldsApiGetPersonFieldRequest, ): Promise<FieldResponse200> {
+        getPersonField(requestParameters: PersonFieldsApiGetPersonFieldRequest, ): Promise<GetFieldResponse> {
             return localVarFp.getPersonField(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -434,7 +434,7 @@ export const PersonFieldsApiFactory = function (configuration?: Configuration, b
 
          * @throws {RequiredError}
          */
-        getPersonFields(requestParameters: PersonFieldsApiGetPersonFieldsRequest = {}, ): Promise<FieldsResponse200> {
+        getPersonFields(requestParameters: PersonFieldsApiGetPersonFieldsRequest = {}, ): Promise<GetFieldsResponse> {
             return localVarFp.getPersonFields(requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
         /**
@@ -444,7 +444,7 @@ export const PersonFieldsApiFactory = function (configuration?: Configuration, b
 
          * @throws {RequiredError}
          */
-        updatePersonField(requestParameters: PersonFieldsApiUpdatePersonFieldRequest, ): Promise<FieldResponse200> {
+        updatePersonField(requestParameters: PersonFieldsApiUpdatePersonFieldRequest, ): Promise<GetFieldResponse> {
             return localVarFp.updatePersonField(requestParameters.id, requestParameters.UpdateFieldRequest, ).then((request) => request(axios, basePath));
         },
     };

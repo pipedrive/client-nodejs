@@ -28,9 +28,9 @@ import { AddSubscriptionInstallmentRequest } from '../models';
 // @ts-ignore
 import { CancelRecurringSubscriptionRequest } from '../models';
 // @ts-ignore
-import { PaymentResponse200 } from '../models';
+import { GetPaymentsResponse } from '../models';
 // @ts-ignore
-import { SubscriptionsIdResponse200 } from '../models';
+import { GetSubscriptionsIdResponse } from '../models';
 // @ts-ignore
 import { UpdateRecurringSubscriptionRequest } from '../models';
 // @ts-ignore
@@ -440,7 +440,7 @@ export const SubscriptionsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async addRecurringSubscription(AddRecurringSubscriptionRequest?: AddRecurringSubscriptionRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<SubscriptionsIdResponse200>> {
+        async addRecurringSubscription(AddRecurringSubscriptionRequest?: AddRecurringSubscriptionRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetSubscriptionsIdResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addRecurringSubscription(AddRecurringSubscriptionRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -451,7 +451,7 @@ export const SubscriptionsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async addSubscriptionInstallment(AddSubscriptionInstallmentRequest?: AddSubscriptionInstallmentRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<SubscriptionsIdResponse200>> {
+        async addSubscriptionInstallment(AddSubscriptionInstallmentRequest?: AddSubscriptionInstallmentRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetSubscriptionsIdResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addSubscriptionInstallment(AddSubscriptionInstallmentRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -463,7 +463,7 @@ export const SubscriptionsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async cancelRecurringSubscription(id: number, CancelRecurringSubscriptionRequest?: CancelRecurringSubscriptionRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<SubscriptionsIdResponse200>> {
+        async cancelRecurringSubscription(id: number, CancelRecurringSubscriptionRequest?: CancelRecurringSubscriptionRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetSubscriptionsIdResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.cancelRecurringSubscription(id, CancelRecurringSubscriptionRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -474,7 +474,7 @@ export const SubscriptionsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deleteSubscription(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<SubscriptionsIdResponse200>> {
+        async deleteSubscription(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetSubscriptionsIdResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSubscription(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -485,7 +485,7 @@ export const SubscriptionsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async findSubscriptionByDeal(dealId: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<SubscriptionsIdResponse200>> {
+        async findSubscriptionByDeal(dealId: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetSubscriptionsIdResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.findSubscriptionByDeal(dealId, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -496,7 +496,7 @@ export const SubscriptionsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getSubscription(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<SubscriptionsIdResponse200>> {
+        async getSubscription(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetSubscriptionsIdResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSubscription(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -507,7 +507,7 @@ export const SubscriptionsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getSubscriptionPayments(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<PaymentResponse200>> {
+        async getSubscriptionPayments(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPaymentsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSubscriptionPayments(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -519,7 +519,7 @@ export const SubscriptionsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async updateRecurringSubscription(id: number, UpdateRecurringSubscriptionRequest?: UpdateRecurringSubscriptionRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<SubscriptionsIdResponse200>> {
+        async updateRecurringSubscription(id: number, UpdateRecurringSubscriptionRequest?: UpdateRecurringSubscriptionRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetSubscriptionsIdResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateRecurringSubscription(id, UpdateRecurringSubscriptionRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -531,7 +531,7 @@ export const SubscriptionsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async updateSubscriptionInstallment(id: number, UpdateSubscriptionInstallmentRequest?: UpdateSubscriptionInstallmentRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<SubscriptionsIdResponse200>> {
+        async updateSubscriptionInstallment(id: number, UpdateSubscriptionInstallmentRequest?: UpdateSubscriptionInstallmentRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetSubscriptionsIdResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateSubscriptionInstallment(id, UpdateSubscriptionInstallmentRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -552,7 +552,7 @@ export const SubscriptionsApiFactory = function (configuration?: Configuration, 
 
          * @throws {RequiredError}
          */
-        addRecurringSubscription(requestParameters: SubscriptionsApiAddRecurringSubscriptionRequest = {}, ): Promise<SubscriptionsIdResponse200> {
+        addRecurringSubscription(requestParameters: SubscriptionsApiAddRecurringSubscriptionRequest = {}, ): Promise<GetSubscriptionsIdResponse> {
             return localVarFp.addRecurringSubscription(requestParameters.AddRecurringSubscriptionRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -562,7 +562,7 @@ export const SubscriptionsApiFactory = function (configuration?: Configuration, 
 
          * @throws {RequiredError}
          */
-        addSubscriptionInstallment(requestParameters: SubscriptionsApiAddSubscriptionInstallmentRequest = {}, ): Promise<SubscriptionsIdResponse200> {
+        addSubscriptionInstallment(requestParameters: SubscriptionsApiAddSubscriptionInstallmentRequest = {}, ): Promise<GetSubscriptionsIdResponse> {
             return localVarFp.addSubscriptionInstallment(requestParameters.AddSubscriptionInstallmentRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -572,7 +572,7 @@ export const SubscriptionsApiFactory = function (configuration?: Configuration, 
 
          * @throws {RequiredError}
          */
-        cancelRecurringSubscription(requestParameters: SubscriptionsApiCancelRecurringSubscriptionRequest, ): Promise<SubscriptionsIdResponse200> {
+        cancelRecurringSubscription(requestParameters: SubscriptionsApiCancelRecurringSubscriptionRequest, ): Promise<GetSubscriptionsIdResponse> {
             return localVarFp.cancelRecurringSubscription(requestParameters.id, requestParameters.CancelRecurringSubscriptionRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -582,7 +582,7 @@ export const SubscriptionsApiFactory = function (configuration?: Configuration, 
 
          * @throws {RequiredError}
          */
-        deleteSubscription(requestParameters: SubscriptionsApiDeleteSubscriptionRequest, ): Promise<SubscriptionsIdResponse200> {
+        deleteSubscription(requestParameters: SubscriptionsApiDeleteSubscriptionRequest, ): Promise<GetSubscriptionsIdResponse> {
             return localVarFp.deleteSubscription(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -592,7 +592,7 @@ export const SubscriptionsApiFactory = function (configuration?: Configuration, 
 
          * @throws {RequiredError}
          */
-        findSubscriptionByDeal(requestParameters: SubscriptionsApiFindSubscriptionByDealRequest, ): Promise<SubscriptionsIdResponse200> {
+        findSubscriptionByDeal(requestParameters: SubscriptionsApiFindSubscriptionByDealRequest, ): Promise<GetSubscriptionsIdResponse> {
             return localVarFp.findSubscriptionByDeal(requestParameters.dealId, ).then((request) => request(axios, basePath));
         },
         /**
@@ -602,7 +602,7 @@ export const SubscriptionsApiFactory = function (configuration?: Configuration, 
 
          * @throws {RequiredError}
          */
-        getSubscription(requestParameters: SubscriptionsApiGetSubscriptionRequest, ): Promise<SubscriptionsIdResponse200> {
+        getSubscription(requestParameters: SubscriptionsApiGetSubscriptionRequest, ): Promise<GetSubscriptionsIdResponse> {
             return localVarFp.getSubscription(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -612,7 +612,7 @@ export const SubscriptionsApiFactory = function (configuration?: Configuration, 
 
          * @throws {RequiredError}
          */
-        getSubscriptionPayments(requestParameters: SubscriptionsApiGetSubscriptionPaymentsRequest, ): Promise<PaymentResponse200> {
+        getSubscriptionPayments(requestParameters: SubscriptionsApiGetSubscriptionPaymentsRequest, ): Promise<GetPaymentsResponse> {
             return localVarFp.getSubscriptionPayments(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -622,7 +622,7 @@ export const SubscriptionsApiFactory = function (configuration?: Configuration, 
 
          * @throws {RequiredError}
          */
-        updateRecurringSubscription(requestParameters: SubscriptionsApiUpdateRecurringSubscriptionRequest, ): Promise<SubscriptionsIdResponse200> {
+        updateRecurringSubscription(requestParameters: SubscriptionsApiUpdateRecurringSubscriptionRequest, ): Promise<GetSubscriptionsIdResponse> {
             return localVarFp.updateRecurringSubscription(requestParameters.id, requestParameters.UpdateRecurringSubscriptionRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -632,7 +632,7 @@ export const SubscriptionsApiFactory = function (configuration?: Configuration, 
 
          * @throws {RequiredError}
          */
-        updateSubscriptionInstallment(requestParameters: SubscriptionsApiUpdateSubscriptionInstallmentRequest, ): Promise<SubscriptionsIdResponse200> {
+        updateSubscriptionInstallment(requestParameters: SubscriptionsApiUpdateSubscriptionInstallmentRequest, ): Promise<GetSubscriptionsIdResponse> {
             return localVarFp.updateSubscriptionInstallment(requestParameters.id, requestParameters.UpdateSubscriptionInstallmentRequest, ).then((request) => request(axios, basePath));
         },
     };

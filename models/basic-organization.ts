@@ -27,11 +27,17 @@ export interface BasicOrganization {
      */
     'owner_id'?: number;
     /**
-     * The ID of the label.
+     * The label assigned to the organization. When the `label` field is updated, the `label_ids` field value will be overwritten by the `label` field value.
      * @type {number}
      * @memberof BasicOrganization
      */
     'label'?: number;
+    /**
+     * The IDs of labels assigned to the organization. When the `label_ids` field is updated, the `label` field value will be set to the first value of the `label_ids` field.
+     * @type {Array<number>}
+     * @memberof BasicOrganization
+     */
+    'label_ids'?: Array<number>;
     /**
      * 
      * @type {string}

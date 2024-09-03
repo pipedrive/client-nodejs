@@ -24,23 +24,23 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { AddActivityRequest } from '../models';
 // @ts-ignore
-import { AddActivityResponse200 } from '../models';
+import { AddActivityResponse } from '../models';
 // @ts-ignore
-import { DeleteActivitiesResponse200 } from '../models';
+import { DeleteActivitiesResponse } from '../models';
 // @ts-ignore
-import { DeleteActivityResponse200 } from '../models';
+import { DeleteActivityResponse } from '../models';
 // @ts-ignore
 import { FailResponse } from '../models';
 // @ts-ignore
-import { GetActivitiesCollectionResponse200 } from '../models';
+import { GetActivitiesCollectionResponse } from '../models';
 // @ts-ignore
-import { GetActivitiesResponse200 } from '../models';
+import { GetActivitiesResponse } from '../models';
 // @ts-ignore
-import { GetActivityResponse200 } from '../models';
+import { GetActivityResponse } from '../models';
 // @ts-ignore
 import { UpdateActivityRequest } from '../models';
 // @ts-ignore
-import { UpdateActivityResponse200 } from '../models';
+import { UpdateActivityResponse } from '../models';
 /**
  * ActivitiesApi - axios parameter creator
  * @export
@@ -48,7 +48,7 @@ import { UpdateActivityResponse200 } from '../models';
 export const ActivitiesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Adds a new activity. Includes `more_activities_scheduled_in_context` property in response\'s `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">adding an activity</a>.
+         * Adds a new activity. Includes `more_activities_scheduled_in_context` property in response\'s `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">adding an activity</a>. <br /> <br /> ***Starting from 30.09.2024, activity attendees will receive updates only if the activity owner has an active calendar sync***
          * @summary Add an activity
          * @param {AddActivityRequest} [AddActivityRequest] 
 
@@ -368,7 +368,7 @@ export const ActivitiesApiAxiosParamCreator = function (configuration?: Configur
             };
         },
         /**
-         * Updates an activity. Includes `more_activities_scheduled_in_context` property in response\'s `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data).
+         * Updates an activity. Includes `more_activities_scheduled_in_context` property in response\'s `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). <br /> <br /> ***Starting from 30.09.2024, activity attendees will receive updates only if the activity owner has an active calendar sync***
          * @summary Update an activity
          * @param {number} id The ID of the activity
          * @param {UpdateActivityRequest} [UpdateActivityRequest] 
@@ -424,13 +424,13 @@ export const ActivitiesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ActivitiesApiAxiosParamCreator(configuration)
     return {
         /**
-         * Adds a new activity. Includes `more_activities_scheduled_in_context` property in response\'s `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">adding an activity</a>.
+         * Adds a new activity. Includes `more_activities_scheduled_in_context` property in response\'s `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">adding an activity</a>. <br /> <br /> ***Starting from 30.09.2024, activity attendees will receive updates only if the activity owner has an active calendar sync***
          * @summary Add an activity
          * @param {AddActivityRequest} [AddActivityRequest] 
 
          * @throws {RequiredError}
          */
-        async addActivity(AddActivityRequest?: AddActivityRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddActivityResponse200>> {
+        async addActivity(AddActivityRequest?: AddActivityRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddActivityResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addActivity(AddActivityRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -441,7 +441,7 @@ export const ActivitiesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deleteActivities(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteActivitiesResponse200>> {
+        async deleteActivities(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteActivitiesResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteActivities(ids, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -452,7 +452,7 @@ export const ActivitiesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deleteActivity(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteActivityResponse200>> {
+        async deleteActivity(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteActivityResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteActivity(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -470,7 +470,7 @@ export const ActivitiesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getActivities(user_id?: number, filter_id?: number, type?: string, limit?: number, start?: number, start_date?: string, end_date?: string, done?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivitiesResponse200>> {
+        async getActivities(user_id?: number, filter_id?: number, type?: string, limit?: number, start?: number, start_date?: string, end_date?: string, done?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivitiesResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getActivities(user_id, filter_id, type, limit, start, start_date, end_date, done, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -487,7 +487,7 @@ export const ActivitiesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getActivitiesCollection(cursor?: string, limit?: number, since?: string, until?: string, user_id?: number, done?: boolean, type?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivitiesCollectionResponse200>> {
+        async getActivitiesCollection(cursor?: string, limit?: number, since?: string, until?: string, user_id?: number, done?: boolean, type?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivitiesCollectionResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getActivitiesCollection(cursor, limit, since, until, user_id, done, type, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -498,19 +498,19 @@ export const ActivitiesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getActivity(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivityResponse200>> {
+        async getActivity(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivityResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getActivity(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Updates an activity. Includes `more_activities_scheduled_in_context` property in response\'s `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data).
+         * Updates an activity. Includes `more_activities_scheduled_in_context` property in response\'s `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). <br /> <br /> ***Starting from 30.09.2024, activity attendees will receive updates only if the activity owner has an active calendar sync***
          * @summary Update an activity
          * @param {number} id The ID of the activity
          * @param {UpdateActivityRequest} [UpdateActivityRequest] 
 
          * @throws {RequiredError}
          */
-        async updateActivity(id: number, UpdateActivityRequest?: UpdateActivityRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateActivityResponse200>> {
+        async updateActivity(id: number, UpdateActivityRequest?: UpdateActivityRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateActivityResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateActivity(id, UpdateActivityRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -525,13 +525,13 @@ export const ActivitiesApiFactory = function (configuration?: Configuration, bas
     const localVarFp = ActivitiesApiFp(configuration)
     return {
         /**
-         * Adds a new activity. Includes `more_activities_scheduled_in_context` property in response\'s `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">adding an activity</a>.
+         * Adds a new activity. Includes `more_activities_scheduled_in_context` property in response\'s `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">adding an activity</a>. <br /> <br /> ***Starting from 30.09.2024, activity attendees will receive updates only if the activity owner has an active calendar sync***
          * @summary Add an activity
          * @param {ActivitiesApiAddActivityRequest} requestParameters Request parameters.
 
          * @throws {RequiredError}
          */
-        addActivity(requestParameters: ActivitiesApiAddActivityRequest = {}, ): Promise<AddActivityResponse200> {
+        addActivity(requestParameters: ActivitiesApiAddActivityRequest = {}, ): Promise<AddActivityResponse> {
             return localVarFp.addActivity(requestParameters.AddActivityRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -541,7 +541,7 @@ export const ActivitiesApiFactory = function (configuration?: Configuration, bas
 
          * @throws {RequiredError}
          */
-        deleteActivities(requestParameters: ActivitiesApiDeleteActivitiesRequest, ): Promise<DeleteActivitiesResponse200> {
+        deleteActivities(requestParameters: ActivitiesApiDeleteActivitiesRequest, ): Promise<DeleteActivitiesResponse> {
             return localVarFp.deleteActivities(requestParameters.ids, ).then((request) => request(axios, basePath));
         },
         /**
@@ -551,7 +551,7 @@ export const ActivitiesApiFactory = function (configuration?: Configuration, bas
 
          * @throws {RequiredError}
          */
-        deleteActivity(requestParameters: ActivitiesApiDeleteActivityRequest, ): Promise<DeleteActivityResponse200> {
+        deleteActivity(requestParameters: ActivitiesApiDeleteActivityRequest, ): Promise<DeleteActivityResponse> {
             return localVarFp.deleteActivity(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -561,7 +561,7 @@ export const ActivitiesApiFactory = function (configuration?: Configuration, bas
 
          * @throws {RequiredError}
          */
-        getActivities(requestParameters: ActivitiesApiGetActivitiesRequest = {}, ): Promise<GetActivitiesResponse200> {
+        getActivities(requestParameters: ActivitiesApiGetActivitiesRequest = {}, ): Promise<GetActivitiesResponse> {
             return localVarFp.getActivities(requestParameters.user_id, requestParameters.filter_id, requestParameters.type, requestParameters.limit, requestParameters.start, requestParameters.start_date, requestParameters.end_date, requestParameters.done, ).then((request) => request(axios, basePath));
         },
         /**
@@ -571,7 +571,7 @@ export const ActivitiesApiFactory = function (configuration?: Configuration, bas
 
          * @throws {RequiredError}
          */
-        getActivitiesCollection(requestParameters: ActivitiesApiGetActivitiesCollectionRequest = {}, ): Promise<GetActivitiesCollectionResponse200> {
+        getActivitiesCollection(requestParameters: ActivitiesApiGetActivitiesCollectionRequest = {}, ): Promise<GetActivitiesCollectionResponse> {
             return localVarFp.getActivitiesCollection(requestParameters.cursor, requestParameters.limit, requestParameters.since, requestParameters.until, requestParameters.user_id, requestParameters.done, requestParameters.type, ).then((request) => request(axios, basePath));
         },
         /**
@@ -581,17 +581,17 @@ export const ActivitiesApiFactory = function (configuration?: Configuration, bas
 
          * @throws {RequiredError}
          */
-        getActivity(requestParameters: ActivitiesApiGetActivityRequest, ): Promise<GetActivityResponse200> {
+        getActivity(requestParameters: ActivitiesApiGetActivityRequest, ): Promise<GetActivityResponse> {
             return localVarFp.getActivity(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
-         * Updates an activity. Includes `more_activities_scheduled_in_context` property in response\'s `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data).
+         * Updates an activity. Includes `more_activities_scheduled_in_context` property in response\'s `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). <br /> <br /> ***Starting from 30.09.2024, activity attendees will receive updates only if the activity owner has an active calendar sync***
          * @summary Update an activity
          * @param {ActivitiesApiUpdateActivityRequest} requestParameters Request parameters.
 
          * @throws {RequiredError}
          */
-        updateActivity(requestParameters: ActivitiesApiUpdateActivityRequest, ): Promise<UpdateActivityResponse200> {
+        updateActivity(requestParameters: ActivitiesApiUpdateActivityRequest, ): Promise<UpdateActivityResponse> {
             return localVarFp.updateActivity(requestParameters.id, requestParameters.UpdateActivityRequest, ).then((request) => request(axios, basePath));
         },
     };
@@ -801,7 +801,7 @@ export interface ActivitiesApiUpdateActivityRequest {
  */
 export class ActivitiesApi extends BaseAPI {
     /**
-     * Adds a new activity. Includes `more_activities_scheduled_in_context` property in response\'s `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">adding an activity</a>.
+     * Adds a new activity. Includes `more_activities_scheduled_in_context` property in response\'s `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">adding an activity</a>. <br /> <br /> ***Starting from 30.09.2024, activity attendees will receive updates only if the activity owner has an active calendar sync***
      * @summary Add an activity
      * @param {ActivitiesApiAddActivityRequest} requestParameters Request parameters.
 
@@ -873,7 +873,7 @@ export class ActivitiesApi extends BaseAPI {
     }
 
     /**
-     * Updates an activity. Includes `more_activities_scheduled_in_context` property in response\'s `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data).
+     * Updates an activity. Includes `more_activities_scheduled_in_context` property in response\'s `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). <br /> <br /> ***Starting from 30.09.2024, activity attendees will receive updates only if the activity owner has an active calendar sync***
      * @summary Update an activity
      * @param {ActivitiesApiUpdateActivityRequest} requestParameters Request parameters.
 

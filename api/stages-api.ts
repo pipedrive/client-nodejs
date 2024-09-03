@@ -24,19 +24,19 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { AddStageRequest } from '../models';
 // @ts-ignore
-import { DeleteStageResponse200 } from '../models';
+import { DeleteStageResponse } from '../models';
 // @ts-ignore
-import { DeleteStagesResponse200 } from '../models';
+import { DeleteStagesResponse } from '../models';
 // @ts-ignore
-import { GetStageDealsResponse200 } from '../models';
+import { GetStageDealsResponse } from '../models';
 // @ts-ignore
-import { GetStageResponse200 } from '../models';
+import { GetStageResponse } from '../models';
 // @ts-ignore
-import { GetStagesResponse200 } from '../models';
-// @ts-ignore
-import { StageResponse200 } from '../models';
+import { GetStagesResponse } from '../models';
 // @ts-ignore
 import { UpdateStageRequest } from '../models';
+// @ts-ignore
+import { UpsertStageResponse } from '../models';
 /**
  * StagesApi - axios parameter creator
  * @export
@@ -216,7 +216,7 @@ export const StagesApiAxiosParamCreator = function (configuration?: Configuratio
             };
         },
         /**
-         * Lists deals in a specific stage.
+         * Lists deals in a specific stage. If no parameters are provided open deals owned by the authorized user will be returned.
          * @summary Get deals in a stage
          * @param {number} id The ID of the stage
          * @param {number} [filter_id] If supplied, only deals matching the given filter will be returned
@@ -396,7 +396,7 @@ export const StagesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async addStage(AddStageRequest?: AddStageRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<StageResponse200>> {
+        async addStage(AddStageRequest?: AddStageRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertStageResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addStage(AddStageRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -407,7 +407,7 @@ export const StagesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deleteStage(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteStageResponse200>> {
+        async deleteStage(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteStageResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteStage(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -418,7 +418,7 @@ export const StagesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deleteStages(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteStagesResponse200>> {
+        async deleteStages(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteStagesResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteStages(ids, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -430,12 +430,12 @@ export const StagesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getStage(id: number, everyone?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetStageResponse200>> {
+        async getStage(id: number, everyone?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetStageResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getStage(id, everyone, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Lists deals in a specific stage.
+         * Lists deals in a specific stage. If no parameters are provided open deals owned by the authorized user will be returned.
          * @summary Get deals in a stage
          * @param {number} id The ID of the stage
          * @param {number} [filter_id] If supplied, only deals matching the given filter will be returned
@@ -446,7 +446,7 @@ export const StagesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getStageDeals(id: number, filter_id?: number, user_id?: number, everyone?: 0 | 1, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetStageDealsResponse200>> {
+        async getStageDeals(id: number, filter_id?: number, user_id?: number, everyone?: 0 | 1, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetStageDealsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getStageDeals(id, filter_id, user_id, everyone, start, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -459,7 +459,7 @@ export const StagesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getStages(pipeline_id?: number, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetStagesResponse200>> {
+        async getStages(pipeline_id?: number, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetStagesResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getStages(pipeline_id, start, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -471,7 +471,7 @@ export const StagesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async updateStage(id: number, UpdateStageRequest?: UpdateStageRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<StageResponse200>> {
+        async updateStage(id: number, UpdateStageRequest?: UpdateStageRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertStageResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateStage(id, UpdateStageRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -492,7 +492,7 @@ export const StagesApiFactory = function (configuration?: Configuration, basePat
 
          * @throws {RequiredError}
          */
-        addStage(requestParameters: StagesApiAddStageRequest = {}, ): Promise<StageResponse200> {
+        addStage(requestParameters: StagesApiAddStageRequest = {}, ): Promise<UpsertStageResponse> {
             return localVarFp.addStage(requestParameters.AddStageRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -502,7 +502,7 @@ export const StagesApiFactory = function (configuration?: Configuration, basePat
 
          * @throws {RequiredError}
          */
-        deleteStage(requestParameters: StagesApiDeleteStageRequest, ): Promise<DeleteStageResponse200> {
+        deleteStage(requestParameters: StagesApiDeleteStageRequest, ): Promise<DeleteStageResponse> {
             return localVarFp.deleteStage(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -512,7 +512,7 @@ export const StagesApiFactory = function (configuration?: Configuration, basePat
 
          * @throws {RequiredError}
          */
-        deleteStages(requestParameters: StagesApiDeleteStagesRequest, ): Promise<DeleteStagesResponse200> {
+        deleteStages(requestParameters: StagesApiDeleteStagesRequest, ): Promise<DeleteStagesResponse> {
             return localVarFp.deleteStages(requestParameters.ids, ).then((request) => request(axios, basePath));
         },
         /**
@@ -522,17 +522,17 @@ export const StagesApiFactory = function (configuration?: Configuration, basePat
 
          * @throws {RequiredError}
          */
-        getStage(requestParameters: StagesApiGetStageRequest, ): Promise<GetStageResponse200> {
+        getStage(requestParameters: StagesApiGetStageRequest, ): Promise<GetStageResponse> {
             return localVarFp.getStage(requestParameters.id, requestParameters.everyone, ).then((request) => request(axios, basePath));
         },
         /**
-         * Lists deals in a specific stage.
+         * Lists deals in a specific stage. If no parameters are provided open deals owned by the authorized user will be returned.
          * @summary Get deals in a stage
          * @param {StagesApiGetStageDealsRequest} requestParameters Request parameters.
 
          * @throws {RequiredError}
          */
-        getStageDeals(requestParameters: StagesApiGetStageDealsRequest, ): Promise<GetStageDealsResponse200> {
+        getStageDeals(requestParameters: StagesApiGetStageDealsRequest, ): Promise<GetStageDealsResponse> {
             return localVarFp.getStageDeals(requestParameters.id, requestParameters.filter_id, requestParameters.user_id, requestParameters.everyone, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
         /**
@@ -542,7 +542,7 @@ export const StagesApiFactory = function (configuration?: Configuration, basePat
 
          * @throws {RequiredError}
          */
-        getStages(requestParameters: StagesApiGetStagesRequest = {}, ): Promise<GetStagesResponse200> {
+        getStages(requestParameters: StagesApiGetStagesRequest = {}, ): Promise<GetStagesResponse> {
             return localVarFp.getStages(requestParameters.pipeline_id, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
         /**
@@ -552,7 +552,7 @@ export const StagesApiFactory = function (configuration?: Configuration, basePat
 
          * @throws {RequiredError}
          */
-        updateStage(requestParameters: StagesApiUpdateStageRequest, ): Promise<StageResponse200> {
+        updateStage(requestParameters: StagesApiUpdateStageRequest, ): Promise<UpsertStageResponse> {
             return localVarFp.updateStage(requestParameters.id, requestParameters.UpdateStageRequest, ).then((request) => request(axios, basePath));
         },
     };
@@ -775,7 +775,7 @@ export class StagesApi extends BaseAPI {
     }
 
     /**
-     * Lists deals in a specific stage.
+     * Lists deals in a specific stage. If no parameters are provided open deals owned by the authorized user will be returned.
      * @summary Get deals in a stage
      * @param {StagesApiGetStageDealsRequest} requestParameters Request parameters.
 

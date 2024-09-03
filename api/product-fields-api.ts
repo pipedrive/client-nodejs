@@ -22,19 +22,19 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
-import { DeleteProductFieldResponse200 } from '../models';
+import { DeleteProductFieldResponse } from '../models';
 // @ts-ignore
-import { DeleteProductFieldsResponse200 } from '../models';
+import { DeleteProductFieldsResponse } from '../models';
 // @ts-ignore
 import { FailResponse } from '../models';
 // @ts-ignore
-import { GetProductFieldResponse200 } from '../models';
+import { GetProductFieldResponse } from '../models';
 // @ts-ignore
-import { GetProductFieldsResponse200 } from '../models';
+import { GetProductFieldsResponse } from '../models';
 // @ts-ignore
 import { ProductFieldAllOf } from '../models';
 // @ts-ignore
-import { UpdateProductFieldResponse200 } from '../models';
+import { UpdateProductFieldResponse } from '../models';
 /**
  * ProductFieldsApi - axios parameter creator
  * @export
@@ -259,11 +259,11 @@ export const ProductFieldsApiAxiosParamCreator = function (configuration?: Confi
          * Updates a product field. For more information, see the tutorial for <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields\' values</a>.
          * @summary Update a product field
          * @param {number} id The ID of the product field
-         * @param {UpdateProductFieldResponse200} [UpdateProductFieldResponse200] 
+         * @param {UpdateProductFieldResponse} [UpdateProductFieldResponse] 
 
          * @throws {RequiredError}
          */
-        updateProductField: async (id: number, UpdateProductFieldResponse200?: UpdateProductFieldResponse200, ): Promise<RequestArgs> => {
+        updateProductField: async (id: number, UpdateProductFieldResponse?: UpdateProductFieldResponse, ): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateProductField', 'id', id)
             const localVarPath = `/productFields/{id}`
@@ -293,7 +293,7 @@ export const ProductFieldsApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-            localVarRequestOptions.data = serializeDataIfNeeded(UpdateProductFieldResponse200, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(UpdateProductFieldResponse, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -318,7 +318,7 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async addProductField(ProductFieldAllOf?: ProductFieldAllOf, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductFieldResponse200>> {
+        async addProductField(ProductFieldAllOf?: ProductFieldAllOf, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductFieldResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addProductField(ProductFieldAllOf, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -329,7 +329,7 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deleteProductField(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteProductFieldResponse200>> {
+        async deleteProductField(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteProductFieldResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProductField(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -340,7 +340,7 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deleteProductFields(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteProductFieldsResponse200>> {
+        async deleteProductFields(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteProductFieldsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProductFields(ids, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -351,7 +351,7 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getProductField(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductFieldResponse200>> {
+        async getProductField(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductFieldResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProductField(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -363,7 +363,7 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getProductFields(start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductFieldsResponse200>> {
+        async getProductFields(start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductFieldsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProductFields(start, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -371,12 +371,12 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
          * Updates a product field. For more information, see the tutorial for <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields\' values</a>.
          * @summary Update a product field
          * @param {number} id The ID of the product field
-         * @param {UpdateProductFieldResponse200} [UpdateProductFieldResponse200] 
+         * @param {UpdateProductFieldResponse} [UpdateProductFieldResponse] 
 
          * @throws {RequiredError}
          */
-        async updateProductField(id: number, UpdateProductFieldResponse200?: UpdateProductFieldResponse200, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductFieldResponse200>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProductField(id, UpdateProductFieldResponse200, );
+        async updateProductField(id: number, UpdateProductFieldResponse?: UpdateProductFieldResponse, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductFieldResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProductField(id, UpdateProductFieldResponse, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -396,7 +396,7 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
 
          * @throws {RequiredError}
          */
-        addProductField(requestParameters: ProductFieldsApiAddProductFieldRequest = {}, ): Promise<GetProductFieldResponse200> {
+        addProductField(requestParameters: ProductFieldsApiAddProductFieldRequest = {}, ): Promise<GetProductFieldResponse> {
             return localVarFp.addProductField(requestParameters.ProductFieldAllOf, ).then((request) => request(axios, basePath));
         },
         /**
@@ -406,7 +406,7 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
 
          * @throws {RequiredError}
          */
-        deleteProductField(requestParameters: ProductFieldsApiDeleteProductFieldRequest, ): Promise<DeleteProductFieldResponse200> {
+        deleteProductField(requestParameters: ProductFieldsApiDeleteProductFieldRequest, ): Promise<DeleteProductFieldResponse> {
             return localVarFp.deleteProductField(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -416,7 +416,7 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
 
          * @throws {RequiredError}
          */
-        deleteProductFields(requestParameters: ProductFieldsApiDeleteProductFieldsRequest, ): Promise<DeleteProductFieldsResponse200> {
+        deleteProductFields(requestParameters: ProductFieldsApiDeleteProductFieldsRequest, ): Promise<DeleteProductFieldsResponse> {
             return localVarFp.deleteProductFields(requestParameters.ids, ).then((request) => request(axios, basePath));
         },
         /**
@@ -426,7 +426,7 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
 
          * @throws {RequiredError}
          */
-        getProductField(requestParameters: ProductFieldsApiGetProductFieldRequest, ): Promise<GetProductFieldResponse200> {
+        getProductField(requestParameters: ProductFieldsApiGetProductFieldRequest, ): Promise<GetProductFieldResponse> {
             return localVarFp.getProductField(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -436,7 +436,7 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
 
          * @throws {RequiredError}
          */
-        getProductFields(requestParameters: ProductFieldsApiGetProductFieldsRequest = {}, ): Promise<GetProductFieldsResponse200> {
+        getProductFields(requestParameters: ProductFieldsApiGetProductFieldsRequest = {}, ): Promise<GetProductFieldsResponse> {
             return localVarFp.getProductFields(requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
         /**
@@ -446,8 +446,8 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
 
          * @throws {RequiredError}
          */
-        updateProductField(requestParameters: ProductFieldsApiUpdateProductFieldRequest, ): Promise<GetProductFieldResponse200> {
-            return localVarFp.updateProductField(requestParameters.id, requestParameters.UpdateProductFieldResponse200, ).then((request) => request(axios, basePath));
+        updateProductField(requestParameters: ProductFieldsApiUpdateProductFieldRequest, ): Promise<GetProductFieldResponse> {
+            return localVarFp.updateProductField(requestParameters.id, requestParameters.UpdateProductFieldResponse, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -544,10 +544,10 @@ export interface ProductFieldsApiUpdateProductFieldRequest {
 
     /**
      * 
-     * @type {UpdateProductFieldResponse200}
+     * @type {UpdateProductFieldResponse}
      * @memberof ProductFieldsApiUpdateProductField
      */
-    readonly UpdateProductFieldResponse200?: UpdateProductFieldResponse200
+    readonly UpdateProductFieldResponse?: UpdateProductFieldResponse
 }
 
 /**
@@ -626,6 +626,6 @@ export class ProductFieldsApi extends BaseAPI {
      * @memberof ProductFieldsApi
      */
     public updateProductField(requestParameters: ProductFieldsApiUpdateProductFieldRequest, ) {
-        return ProductFieldsApiFp(this.configuration).updateProductField(requestParameters.id, requestParameters.UpdateProductFieldResponse200, ).then((request) => request(this.axios, this.basePath));
+        return ProductFieldsApiFp(this.configuration).updateProductField(requestParameters.id, requestParameters.UpdateProductFieldResponse, ).then((request) => request(this.axios, this.basePath));
     }
 }

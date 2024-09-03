@@ -24,13 +24,13 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { AddActivityTypeRequest } from '../models';
 // @ts-ignore
-import { CreateUpdateDeleteActivityTypeResponse200 } from '../models';
+import { DeleteActivityTypesResponse } from '../models';
 // @ts-ignore
-import { DeleteActivityTypesResponse200 } from '../models';
-// @ts-ignore
-import { GetActivityTypesResponse200 } from '../models';
+import { GetActivityTypesResponse } from '../models';
 // @ts-ignore
 import { UpdateActivityTypeRequest } from '../models';
+// @ts-ignore
+import { UpsertActivityTypeResponse } from '../models';
 /**
  * ActivityTypesApi - axios parameter creator
  * @export
@@ -263,7 +263,7 @@ export const ActivityTypesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async addActivityType(AddActivityTypeRequest?: AddActivityTypeRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<CreateUpdateDeleteActivityTypeResponse200>> {
+        async addActivityType(AddActivityTypeRequest?: AddActivityTypeRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertActivityTypeResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addActivityType(AddActivityTypeRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -274,7 +274,7 @@ export const ActivityTypesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deleteActivityType(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<CreateUpdateDeleteActivityTypeResponse200>> {
+        async deleteActivityType(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertActivityTypeResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteActivityType(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -285,7 +285,7 @@ export const ActivityTypesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async deleteActivityTypes(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteActivityTypesResponse200>> {
+        async deleteActivityTypes(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteActivityTypesResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteActivityTypes(ids, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -295,7 +295,7 @@ export const ActivityTypesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getActivityTypes(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivityTypesResponse200>> {
+        async getActivityTypes(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivityTypesResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getActivityTypes();
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -307,7 +307,7 @@ export const ActivityTypesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async updateActivityType(id: number, UpdateActivityTypeRequest?: UpdateActivityTypeRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<CreateUpdateDeleteActivityTypeResponse200>> {
+        async updateActivityType(id: number, UpdateActivityTypeRequest?: UpdateActivityTypeRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertActivityTypeResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateActivityType(id, UpdateActivityTypeRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -328,7 +328,7 @@ export const ActivityTypesApiFactory = function (configuration?: Configuration, 
 
          * @throws {RequiredError}
          */
-        addActivityType(requestParameters: ActivityTypesApiAddActivityTypeRequest = {}, ): Promise<CreateUpdateDeleteActivityTypeResponse200> {
+        addActivityType(requestParameters: ActivityTypesApiAddActivityTypeRequest = {}, ): Promise<UpsertActivityTypeResponse> {
             return localVarFp.addActivityType(requestParameters.AddActivityTypeRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -338,7 +338,7 @@ export const ActivityTypesApiFactory = function (configuration?: Configuration, 
 
          * @throws {RequiredError}
          */
-        deleteActivityType(requestParameters: ActivityTypesApiDeleteActivityTypeRequest, ): Promise<CreateUpdateDeleteActivityTypeResponse200> {
+        deleteActivityType(requestParameters: ActivityTypesApiDeleteActivityTypeRequest, ): Promise<UpsertActivityTypeResponse> {
             return localVarFp.deleteActivityType(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
@@ -348,7 +348,7 @@ export const ActivityTypesApiFactory = function (configuration?: Configuration, 
 
          * @throws {RequiredError}
          */
-        deleteActivityTypes(requestParameters: ActivityTypesApiDeleteActivityTypesRequest, ): Promise<DeleteActivityTypesResponse200> {
+        deleteActivityTypes(requestParameters: ActivityTypesApiDeleteActivityTypesRequest, ): Promise<DeleteActivityTypesResponse> {
             return localVarFp.deleteActivityTypes(requestParameters.ids, ).then((request) => request(axios, basePath));
         },
         /**
@@ -357,7 +357,7 @@ export const ActivityTypesApiFactory = function (configuration?: Configuration, 
 
          * @throws {RequiredError}
          */
-        getActivityTypes(): Promise<GetActivityTypesResponse200> {
+        getActivityTypes(): Promise<GetActivityTypesResponse> {
             return localVarFp.getActivityTypes().then((request) => request(axios, basePath));
         },
         /**
@@ -367,7 +367,7 @@ export const ActivityTypesApiFactory = function (configuration?: Configuration, 
 
          * @throws {RequiredError}
          */
-        updateActivityType(requestParameters: ActivityTypesApiUpdateActivityTypeRequest, ): Promise<CreateUpdateDeleteActivityTypeResponse200> {
+        updateActivityType(requestParameters: ActivityTypesApiUpdateActivityTypeRequest, ): Promise<UpsertActivityTypeResponse> {
             return localVarFp.updateActivityType(requestParameters.id, requestParameters.UpdateActivityTypeRequest, ).then((request) => request(axios, basePath));
         },
     };
