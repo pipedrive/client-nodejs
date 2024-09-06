@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [23.2.6] - 2024-09-06
+### Fixed
+- Deleted unused file with long name
+
 ## [23.2.5] - 2024-08-27
 ### Fixed
 - Updated default values for "billing_frequency_cycles", "billing_start_date" fields
