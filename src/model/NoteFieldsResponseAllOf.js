@@ -13,7 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import AdditionalData from './AdditionalData';
-import NoteField from './NoteField';
+import GetNoteField from './GetNoteField';
 
 /**
  * The NoteFieldsResponseAllOf model module.
@@ -50,7 +50,7 @@ class NoteFieldsResponseAllOf {
             obj = obj || new NoteFieldsResponseAllOf();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [NoteField]);
+                obj['data'] = ApiClient.convertToType(data['data'], [GetNoteField]);
 
                 delete data['data'];
             }
@@ -72,7 +72,7 @@ class NoteFieldsResponseAllOf {
 }
 
 /**
- * @member {Array.<module:model/NoteField>} data
+ * @member {Array.<module:model/GetNoteField>} data
  */
 NoteFieldsResponseAllOf.prototype['data'] = undefined;
 

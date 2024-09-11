@@ -357,6 +357,8 @@ import GetDealsTimeline from './model/GetDealsTimeline';
 import GetDealsTimelineData from './model/GetDealsTimelineData';
 import GetDealsTimelineDataTotals from './model/GetDealsTimelineDataTotals';
 import GetDuplicatedDeal from './model/GetDuplicatedDeal';
+import GetField from './model/GetField';
+import GetFieldAllOf from './model/GetFieldAllOf';
 import GetGoalResultResponse from './model/GetGoalResultResponse';
 import GetGoalsResponse from './model/GetGoalsResponse';
 import GetLeadIdResponse from './model/GetLeadIdResponse';
@@ -367,6 +369,7 @@ import GetLeadsResponse from './model/GetLeadsResponse';
 import GetLeadsSourceResponse from './model/GetLeadsSourceResponse';
 import GetLeadsSourceResponseData from './model/GetLeadsSourceResponseData';
 import GetMergedDeal from './model/GetMergedDeal';
+import GetNoteField from './model/GetNoteField';
 import GetNotes from './model/GetNotes';
 import GetOneFile from './model/GetOneFile';
 import GetOnePipeline from './model/GetOnePipeline';
@@ -376,6 +379,7 @@ import GetPersonDetailsResponse from './model/GetPersonDetailsResponse';
 import GetPersonDetailsResponseAllOf from './model/GetPersonDetailsResponseAllOf';
 import GetPersonDetailsResponseAllOfAdditionalData from './model/GetPersonDetailsResponseAllOfAdditionalData';
 import GetProductAttachmentDetails from './model/GetProductAttachmentDetails';
+import GetProductField from './model/GetProductField';
 import GetProductFieldResponse from './model/GetProductFieldResponse';
 import GetProjectBoardResponse from './model/GetProjectBoardResponse';
 import GetProjectBoardsResponse from './model/GetProjectBoardsResponse';
@@ -422,6 +426,7 @@ import InlineResponse4031AdditionalData from './model/InlineResponse4031Addition
 import InlineResponse403AdditionalData from './model/InlineResponse403AdditionalData';
 import InlineResponse404 from './model/InlineResponse404';
 import InlineResponse404AdditionalData from './model/InlineResponse404AdditionalData';
+import InternalFieldType from './model/InternalFieldType';
 import ItemSearchAdditionalData from './model/ItemSearchAdditionalData';
 import ItemSearchAdditionalDataPagination from './model/ItemSearchAdditionalDataPagination';
 import ItemSearchFieldResponse from './model/ItemSearchFieldResponse';
@@ -752,7 +757,7 @@ import TeamsAllOf from './model/TeamsAllOf';
 import TemplateObject from './model/TemplateObject';
 import TemplateResponseObject from './model/TemplateResponseObject';
 import Unauthorized from './model/Unauthorized';
-import UpdateActivityPlanItem from './model/UpdateActivityPlanItem';
+import UpdateActivityPlanItemResponse from './model/UpdateActivityPlanItemResponse';
 import UpdateActivityResponse from './model/UpdateActivityResponse';
 import UpdateDealParameters from './model/UpdateDealParameters';
 import UpdateDealProduct from './model/UpdateDealProduct';
@@ -772,7 +777,7 @@ import UpdateProductResponse from './model/UpdateProductResponse';
 import UpdateProjectResponse from './model/UpdateProjectResponse';
 import UpdateStageRequest from './model/UpdateStageRequest';
 import UpdateStageRequestAllOf from './model/UpdateStageRequestAllOf';
-import UpdateTaskPlanItem from './model/UpdateTaskPlanItem';
+import UpdateTaskPlanItemResponse from './model/UpdateTaskPlanItemResponse';
 import UpdateTaskResponse from './model/UpdateTaskResponse';
 import UpdateTeam from './model/UpdateTeam';
 import UpdateTeamAllOf from './model/UpdateTeamAllOf';
@@ -2962,6 +2967,18 @@ export {
     GetDuplicatedDeal,
 
     /**
+     * The GetField model constructor.
+     * @property {module:model/GetField}
+     */
+    GetField,
+
+    /**
+     * The GetFieldAllOf model constructor.
+     * @property {module:model/GetFieldAllOf}
+     */
+    GetFieldAllOf,
+
+    /**
      * The GetGoalResultResponse model constructor.
      * @property {module:model/GetGoalResultResponse}
      */
@@ -3022,6 +3039,12 @@ export {
     GetMergedDeal,
 
     /**
+     * The GetNoteField model constructor.
+     * @property {module:model/GetNoteField}
+     */
+    GetNoteField,
+
+    /**
      * The GetNotes model constructor.
      * @property {module:model/GetNotes}
      */
@@ -3074,6 +3097,12 @@ export {
      * @property {module:model/GetProductAttachmentDetails}
      */
     GetProductAttachmentDetails,
+
+    /**
+     * The GetProductField model constructor.
+     * @property {module:model/GetProductField}
+     */
+    GetProductField,
 
     /**
      * The GetProductFieldResponse model constructor.
@@ -3350,6 +3379,12 @@ export {
      * @property {module:model/InlineResponse404AdditionalData}
      */
     InlineResponse404AdditionalData,
+
+    /**
+     * The InternalFieldType model constructor.
+     * @property {module:model/InternalFieldType}
+     */
+    InternalFieldType,
 
     /**
      * The ItemSearchAdditionalData model constructor.
@@ -5332,10 +5367,10 @@ export {
     Unauthorized,
 
     /**
-     * The UpdateActivityPlanItem model constructor.
-     * @property {module:model/UpdateActivityPlanItem}
+     * The UpdateActivityPlanItemResponse model constructor.
+     * @property {module:model/UpdateActivityPlanItemResponse}
      */
-    UpdateActivityPlanItem,
+    UpdateActivityPlanItemResponse,
 
     /**
      * The UpdateActivityResponse model constructor.
@@ -5452,10 +5487,10 @@ export {
     UpdateStageRequestAllOf,
 
     /**
-     * The UpdateTaskPlanItem model constructor.
-     * @property {module:model/UpdateTaskPlanItem}
+     * The UpdateTaskPlanItemResponse model constructor.
+     * @property {module:model/UpdateTaskPlanItemResponse}
      */
-    UpdateTaskPlanItem,
+    UpdateTaskPlanItemResponse,
 
     /**
      * The UpdateTaskResponse model constructor.
