@@ -13,7 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import AdditionalData from './AdditionalData';
-import Field from './Field';
+import GetField from './GetField';
 
 /**
  * The FieldsResponseAllOf model module.
@@ -50,7 +50,7 @@ class FieldsResponseAllOf {
             obj = obj || new FieldsResponseAllOf();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [Field]);
+                obj['data'] = ApiClient.convertToType(data['data'], [GetField]);
 
                 delete data['data'];
             }
@@ -72,7 +72,7 @@ class FieldsResponseAllOf {
 }
 
 /**
- * @member {Array.<module:model/Field>} data
+ * @member {Array.<module:model/GetField>} data
  */
 FieldsResponseAllOf.prototype['data'] = undefined;
 

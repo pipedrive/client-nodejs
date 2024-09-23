@@ -12,21 +12,21 @@
  */
 
 import ApiClient from '../ApiClient';
-import GetProductField from './GetProductField';
+import ProjectPlanItemObject from './ProjectPlanItemObject';
 
 /**
- * The GetAllProductFieldsResponse model module.
- * @module model/GetAllProductFieldsResponse
+ * The UpdateTaskPlanItemResponse model module.
+ * @module model/UpdateTaskPlanItemResponse
  * @version 1.0.0
  */
-class GetAllProductFieldsResponse {
+class UpdateTaskPlanItemResponse {
     /**
-     * Constructs a new <code>GetAllProductFieldsResponse</code>.
-     * @alias module:model/GetAllProductFieldsResponse
+     * Constructs a new <code>UpdateTaskPlanItemResponse</code>.
+     * @alias module:model/UpdateTaskPlanItemResponse
      */
     constructor() { 
         
-        GetAllProductFieldsResponse.initialize(this);
+        UpdateTaskPlanItemResponse.initialize(this);
     }
 
     /**
@@ -38,15 +38,15 @@ class GetAllProductFieldsResponse {
     }
 
     /**
-     * Constructs a <code>GetAllProductFieldsResponse</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>UpdateTaskPlanItemResponse</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/GetAllProductFieldsResponse} obj Optional instance to populate.
-     * @return {module:model/GetAllProductFieldsResponse} The populated <code>GetAllProductFieldsResponse</code> instance.
+     * @param {module:model/UpdateTaskPlanItemResponse} obj Optional instance to populate.
+     * @return {module:model/UpdateTaskPlanItemResponse} The populated <code>UpdateTaskPlanItemResponse</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new GetAllProductFieldsResponse();
+            obj = obj || new UpdateTaskPlanItemResponse();
 
             if (data.hasOwnProperty('success')) {
                 obj['success'] = ApiClient.convertToType(data['success'], 'Boolean');
@@ -54,7 +54,7 @@ class GetAllProductFieldsResponse {
                 delete data['success'];
             }
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [GetProductField]);
+                obj['data'] = ProjectPlanItemObject.constructFromObject(data['data']);
 
                 delete data['data'];
             }
@@ -76,27 +76,24 @@ class GetAllProductFieldsResponse {
 }
 
 /**
- * If the response is successful or not
  * @member {Boolean} success
  */
-GetAllProductFieldsResponse.prototype['success'] = undefined;
+UpdateTaskPlanItemResponse.prototype['success'] = undefined;
 
 /**
- * Array containing data for all product fields
- * @member {Array.<module:model/GetProductField>} data
+ * @member {module:model/ProjectPlanItemObject} data
  */
-GetAllProductFieldsResponse.prototype['data'] = undefined;
+UpdateTaskPlanItemResponse.prototype['data'] = undefined;
 
 /**
- * Additional data for the product field, such as pagination
  * @member {Object} additional_data
  */
-GetAllProductFieldsResponse.prototype['additional_data'] = undefined;
+UpdateTaskPlanItemResponse.prototype['additional_data'] = undefined;
 
 
 
 
 
 
-export default GetAllProductFieldsResponse;
+export default UpdateTaskPlanItemResponse;
 

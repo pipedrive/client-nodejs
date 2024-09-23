@@ -14,8 +14,8 @@
 import ApiClient from '../ApiClient';
 import AdditionalData from './AdditionalData';
 import BaseResponse from './BaseResponse';
-import Field from './Field';
 import FieldsResponseAllOf from './FieldsResponseAllOf';
+import GetField from './GetField';
 
 /**
  * The FieldsResponse model module.
@@ -61,7 +61,7 @@ class FieldsResponse {
                 delete data['success'];
             }
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [Field]);
+                obj['data'] = ApiClient.convertToType(data['data'], [GetField]);
 
                 delete data['data'];
             }
@@ -89,7 +89,7 @@ class FieldsResponse {
 FieldsResponse.prototype['success'] = undefined;
 
 /**
- * @member {Array.<module:model/Field>} data
+ * @member {Array.<module:model/GetField>} data
  */
 FieldsResponse.prototype['data'] = undefined;
 
@@ -107,7 +107,7 @@ FieldsResponse.prototype['additional_data'] = undefined;
 BaseResponse.prototype['success'] = undefined;
 // Implement FieldsResponseAllOf interface:
 /**
- * @member {Array.<module:model/Field>} data
+ * @member {Array.<module:model/GetField>} data
  */
 FieldsResponseAllOf.prototype['data'] = undefined;
 /**

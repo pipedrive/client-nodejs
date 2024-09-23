@@ -7,6 +7,14 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Added
+- Add documentation for installments functionality:
+  - `POST` `/v1/deals/{id}/products` endpoint
+  - `PUT` `/v1/deals/{id}/products/{product_attachment_id}` endpoint
+  - `DELETE` `/v1/deals/{id}/products/{product_attachment_id}` endpoint
+  - `POST` `/v2/deals/{id}/products` endpoint
+  - `PATCH` `/v2/deals/{id}/products/{product_attachment_id}` endpoint
+  - `DELETE` `/v2/deals/{id}/products/{product_attachment_id}` endpoint
 
 ## [23.2.6] - 2024-09-06
 ### Fixed
