@@ -617,7 +617,7 @@ Name | Type | Description  | Notes
 
 ## putProjectPlanActivity
 
-> UpdateActivityPlanItem putProjectPlanActivity(id, activityId, opts)
+> UpdateActivityPlanItemResponse putProjectPlanActivity(id, activityId, opts)
 
 Update activity in project plan
 
@@ -662,7 +662,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateActivityPlanItem**](UpdateActivityPlanItem.md)
+[**UpdateActivityPlanItemResponse**](UpdateActivityPlanItemResponse.md)
 
 ### Authorization
 
@@ -676,7 +676,7 @@ Name | Type | Description  | Notes
 
 ## putProjectPlanTask
 
-> UpdateTaskPlanItem putProjectPlanTask(id, taskId, opts)
+> UpdateTaskPlanItemResponse putProjectPlanTask(id, taskId, opts)
 
 Update task in project plan
 
@@ -721,7 +721,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateTaskPlanItem**](UpdateTaskPlanItem.md)
+[**UpdateTaskPlanItemResponse**](UpdateTaskPlanItemResponse.md)
 
 ### Authorization
 

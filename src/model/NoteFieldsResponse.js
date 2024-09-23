@@ -14,7 +14,7 @@
 import ApiClient from '../ApiClient';
 import AdditionalData from './AdditionalData';
 import BaseResponse from './BaseResponse';
-import NoteField from './NoteField';
+import GetNoteField from './GetNoteField';
 import NoteFieldsResponseAllOf from './NoteFieldsResponseAllOf';
 
 /**
@@ -61,7 +61,7 @@ class NoteFieldsResponse {
                 delete data['success'];
             }
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [NoteField]);
+                obj['data'] = ApiClient.convertToType(data['data'], [GetNoteField]);
 
                 delete data['data'];
             }
@@ -89,7 +89,7 @@ class NoteFieldsResponse {
 NoteFieldsResponse.prototype['success'] = undefined;
 
 /**
- * @member {Array.<module:model/NoteField>} data
+ * @member {Array.<module:model/GetNoteField>} data
  */
 NoteFieldsResponse.prototype['data'] = undefined;
 
@@ -107,7 +107,7 @@ NoteFieldsResponse.prototype['additional_data'] = undefined;
 BaseResponse.prototype['success'] = undefined;
 // Implement NoteFieldsResponseAllOf interface:
 /**
- * @member {Array.<module:model/NoteField>} data
+ * @member {Array.<module:model/GetNoteField>} data
  */
 NoteFieldsResponseAllOf.prototype['data'] = undefined;
 /**

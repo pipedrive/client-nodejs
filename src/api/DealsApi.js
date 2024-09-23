@@ -570,7 +570,7 @@ export default class DealsApi {
 
     /**
      * Delete an attached product from a deal
-     * Deletes a product attachment from a deal, using the `product_attachment_id`.
+     * Deletes a product attachment from a deal, using the `product_attachment_id`  Not possible to delete the attached product if the deal has installments associated and the product is the last one enabled 
      * @param {Number} id The ID of the deal
      * @param {Number} productAttachmentId The product attachment ID
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DeleteDealProduct} and HTTP response
@@ -629,7 +629,7 @@ export default class DealsApi {
 
     /**
      * Delete an attached product from a deal
-     * Deletes a product attachment from a deal, using the `product_attachment_id`.
+     * Deletes a product attachment from a deal, using the `product_attachment_id`  Not possible to delete the attached product if the deal has installments associated and the product is the last one enabled 
      * @param {Number} id The ID of the deal
      * @param {Number} productAttachmentId The product attachment ID
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DeleteDealProduct}

@@ -8,6 +8,16 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [23.3.0] - 2024-09-23
+### Added
+- Add documentation for installments functionality:
+  - `POST` `/v1/deals/{id}/products` endpoint
+  - `PUT` `/v1/deals/{id}/products/{product_attachment_id}` endpoint
+  - `DELETE` `/v1/deals/{id}/products/{product_attachment_id}` endpoint
+  - `POST` `/v2/deals/{id}/products` endpoint
+  - `PATCH` `/v2/deals/{id}/products/{product_attachment_id}` endpoint
+  - `DELETE` `/v2/deals/{id}/products/{product_attachment_id}` endpoint
+
 ## [23.2.6] - 2024-09-06
 ### Fixed
 - Deleted unused file with long name
@@ -681,7 +691,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v23.2.5...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v23.3.0...HEAD
+[23.3.0]: https://github.com/pipedrive/api-docs/compare/v23.2.5...v23.3.0
 [23.2.5]: https://github.com/pipedrive/api-docs/compare/v23.2.4...v23.2.5
 [23.2.4]: https://github.com/pipedrive/api-docs/compare/v23.2.3...v23.2.4
 [23.2.3]: https://github.com/pipedrive/api-docs/compare/v23.2.2...v23.2.3

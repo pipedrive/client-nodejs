@@ -26,9 +26,9 @@ import GetTasksResponse from '../model/GetTasksResponse';
 import ProjectPostObject from '../model/ProjectPostObject';
 import ProjectPutObject from '../model/ProjectPutObject';
 import ProjectPutPlanItemBodyObject from '../model/ProjectPutPlanItemBodyObject';
-import UpdateActivityPlanItem from '../model/UpdateActivityPlanItem';
+import UpdateActivityPlanItemResponse from '../model/UpdateActivityPlanItemResponse';
 import UpdateProjectResponse from '../model/UpdateProjectResponse';
-import UpdateTaskPlanItem from '../model/UpdateTaskPlanItem';
+import UpdateTaskPlanItemResponse from '../model/UpdateTaskPlanItemResponse';
 
 /**
 * Projects service.
@@ -790,7 +790,7 @@ export default class ProjectsApi {
      * @param {Number} activityId The ID of the activity
      * @param {Object} opts Optional parameters
      * @param {module:model/ProjectPutPlanItemBodyObject} opts.projectPutPlanItemBodyObject 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UpdateActivityPlanItem} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UpdateActivityPlanItemResponse} and HTTP response
      */
     putProjectPlanActivityWithHttpInfo(id, activityId, opts) {
       opts = opts || {};
@@ -837,7 +837,7 @@ export default class ProjectsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = UpdateActivityPlanItem;
+      let returnType = UpdateActivityPlanItemResponse;
       return this.apiClient.callApi(
         '/projects/{id}/plan/activities/{activityId}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -852,7 +852,7 @@ export default class ProjectsApi {
      * @param {Number} activityId The ID of the activity
      * @param {Object} opts Optional parameters
      * @param {module:model/ProjectPutPlanItemBodyObject} opts.projectPutPlanItemBodyObject 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UpdateActivityPlanItem}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UpdateActivityPlanItemResponse}
      */
     putProjectPlanActivity(id, activityId, opts) {
       return this.putProjectPlanActivityWithHttpInfo(id, activityId, opts)
@@ -869,7 +869,7 @@ export default class ProjectsApi {
      * @param {Number} taskId The ID of the task
      * @param {Object} opts Optional parameters
      * @param {module:model/ProjectPutPlanItemBodyObject} opts.projectPutPlanItemBodyObject 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UpdateTaskPlanItem} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UpdateTaskPlanItemResponse} and HTTP response
      */
     putProjectPlanTaskWithHttpInfo(id, taskId, opts) {
       opts = opts || {};
@@ -916,7 +916,7 @@ export default class ProjectsApi {
 
       let authNames = ['api_key', 'oauth2', ];
       let accepts = ['application/json', ];
-      let returnType = UpdateTaskPlanItem;
+      let returnType = UpdateTaskPlanItemResponse;
       return this.apiClient.callApi(
         '/projects/{id}/plan/tasks/{taskId}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -931,7 +931,7 @@ export default class ProjectsApi {
      * @param {Number} taskId The ID of the task
      * @param {Object} opts Optional parameters
      * @param {module:model/ProjectPutPlanItemBodyObject} opts.projectPutPlanItemBodyObject 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UpdateTaskPlanItem}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UpdateTaskPlanItemResponse}
      */
     putProjectPlanTask(id, taskId, opts) {
       return this.putProjectPlanTaskWithHttpInfo(id, taskId, opts)
