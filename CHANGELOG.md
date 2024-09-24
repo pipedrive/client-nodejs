@@ -7,6 +7,10 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Changed
+- Added the field "notes" to product prices in the body and response for v1 and v2
+- Added the field "overhead_cost" to the product variation prices in the response for v1
+- Added the field "direct_cost" to the product variation prices in the response and body for v2
 
 ## [23.3.0] - 2024-09-23
 ### Added
