@@ -10,7 +10,7 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ### Changed
 - Migrate publish flow from Jenkins to GitHub Actions
-- Fix Owner name
+- Add devops-tooling as owner for .github/workflows/cicd_*
 
 ## [23.4.0] - 2024-09-24
 ### Changed
