@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+### Changed
+- Migrate publish flow from Jenkins to GitHub Actions
+- Fix Owner name
+
 ## [23.4.0] - 2024-09-24
 ### Changed
 - Added the field "notes" to product prices in the body and response for v1 and v2

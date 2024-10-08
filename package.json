@@ -83,5 +83,8 @@
     "lint-staged",
     "test",
     "build"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }
