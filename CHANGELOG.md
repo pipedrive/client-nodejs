@@ -8,6 +8,8 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [23.4.1] - 2024-10-09
+
 ### Changed
 - Migrate publish flow from Jenkins to GitHub Actions
 - Add devops-tooling as owner for .github/workflows/cicd_*
@@ -701,7 +703,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v23.4.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v23.4.1...HEAD
+[23.4.1]: https://github.com/pipedrive/api-docs/compare/v23.4.0...v23.4.1
 [23.4.0]: https://github.com/pipedrive/api-docs/compare/v23.3.0...v23.4.0
 [23.3.0]: https://github.com/pipedrive/api-docs/compare/v23.2.5...v23.3.0
 [23.2.5]: https://github.com/pipedrive/api-docs/compare/v23.2.4...v23.2.5
