@@ -65,7 +65,7 @@
     "lint-staged": "^13.0.3",
     "minimist": "^1.2.5",
     "mocha": "^10.2.0",
-    "msw": "^0.48.2",
+    "msw": "^2.6.4",
     "pre-commit": "^1.2.2",
     "regenerator-runtime": "^0.13.7",
     "shelljs": "^0.8.4",
