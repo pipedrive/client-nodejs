@@ -6,7 +6,7 @@ See www.pipedrive.com for details.
 This is the official Pipedrive API wrapper-client for NodeJS based apps, distributed by Pipedrive Inc freely under the MIT licence.
 It provides convenient access to the Pipedrive API, allowing you to operate with objects such as Deals, Persons, Organizations, Products and much more.
 
-## Table of Contents 
+## Table of Contents
 - [Installation](#installation)
 
 - [API Reference](#api-reference)
@@ -56,22 +56,31 @@ const pipedrive = require('pipedrive');
 
 const PORT = 1800;
 
-const defaultClient = new pipedrive.ApiClient();
-
-// Configure API key authorization: apiToken
-let apiToken = defaultClient.authentications.api_key;
-apiToken.apiKey = 'YOUR_API_TOKEN_HERE';
-
 app.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}`);
+  console.log(`Listening on port ${PORT}`);
 });
 
 app.get('/', async (req, res) => {
-    const api = new pipedrive.DealsApi(defaultClient);
+  try {
+    const apiClient = new pipedrive.ApiClient();
+
+    // Configure API key authorization: apiToken
+    let apiToken = apiClient.authentications.api_key;
+    apiToken.apiKey = 'YOUR_API_TOKEN_HERE';
+
+    const api = new pipedrive.DealsApi(apiClient);
     const deals = await api.getDeals();
 
-    res.send(deals);
+    return res.send(deals);
+  } catch (error) {
+    console.error('Error:', error);
+
+    res.status(500).json({
+      error: error.message,
+    });
+  }
 });
+
 
 ```
 
@@ -238,52 +247,62 @@ const cookieParser = require('cookie-parser');
 const cookieSession = require('cookie-session');
 
 app.use(cookieParser());
-app.use(cookieSession({
+app.use(
+  cookieSession({
     name: 'session',
-    keys: ['key1']
-}));
+    keys: ['key1'],
+  }),
+);
 const PORT = 1800;
 
 const pipedrive = require('pipedrive');
 
-const apiClient = new pipedrive.ApiClient();
-
-let oauth2 = apiClient.authentications.oauth2;
-oauth2.clientId = 'clientId'; // OAuth 2 Client ID
-oauth2.clientSecret = 'clientSecret'; // OAuth 2 Client Secret
-oauth2.redirectUri = 'http://localhost:1800/callback'; // OAuth 2 Redirection endpoint or Callback Uri
-
 app.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}`);
+  console.log(`Listening on port ${PORT}`);
 });
 
 app.get('/', async (req, res) => {
-    if (req.session.accessToken !== null && req.session.accessToken !== undefined) {
-        // token is already set in the session
-        // now make API calls as required
-        // client will automatically refresh the token when it expires and call the token update callback
-        const api = new pipedrive.DealsApi(apiClient);
-        const deals = await api.getDeals();
+  const apiClient = new pipedrive.ApiClient();
 
-        res.send(deals);
-    } else {
-        const authUrl = apiClient.buildAuthorizationUrl();;
+  let oauth2 = apiClient.authentications.oauth2;
+  oauth2.clientId = 'clientId'; // OAuth 2 Client ID
+  oauth2.clientSecret = 'clientSecret'; // OAuth 2 Client Secret
+  oauth2.redirectUri = 'http://localhost:1800/callback'; // OAuth 2 Redirection endpoint or Callback Uri
 
-        res.redirect(authUrl);
-    }
+  if (
+    req.session.accessToken !== null &&
+    req.session.accessToken !== undefined
+  ) {
+    // token is already set in the session
+    // now make API calls as required
+    // client will automatically refresh the token when it expires and call the token update callback
+    const api = new pipedrive.DealsApi(apiClient);
+    const deals = await api.getDeals();
+
+    res.send(deals);
+  } else {
+    const authUrl = apiClient.buildAuthorizationUrl();
+
+    res.redirect(authUrl);
+  }
 });
 
 app.get('/callback', (req, res) => {
-    const authCode = req.query.code;
-    const promise = apiClient.authorize(authCode);
+  const authCode = req.query.code;
+  const promise = apiClient.authorize(authCode);
 
-    promise.then(() => {
-        req.session.accessToken = apiClient.authentications.oauth2.accessToken;
-        res.redirect('/');
-    }, (exception) => {
-        // error occurred, exception will be of type src/exceptions/OAuthProviderException
-    });
+  promise.then(
+    () => {
+      req.session.accessToken = apiClient.authentications.oauth2.accessToken;
+      res.redirect('/');
+    },
+    (exception) => {
+      // error occurred, exception will be of type src/exceptions/OAuthProviderException
+    },
+  );
 });
+
+
 
 ```
 
@@ -312,7 +331,7 @@ app.get('/callback', (req, res) => {
 - **Type**: OAuth
 - **Flow**: accessCode
 - **Authorization URL**: https://oauth.pipedrive.com/oauth/authorize
-- **Scopes**: 
+- **Scopes**:
   - base: Read settings of the authorized user and currencies in an account
   - deals:read: Read most of the data about deals and related entities - deal fields, products, followers, participants; all notes, files, filters, pipelines, stages, and statistics. Does not include access to activities (except the last and next activity related to a deal)
   - deals:full: Create, read, update and delete deals, its participants and followers; all files, notes, and filters. It also includes read access to deal fields, pipelines, stages, and statistics. Does not include access to activities (except the last and next activity related to a deal)
@@ -344,7 +363,7 @@ app.get('/callback', (req, res) => {
 
 All URIs are relative to *https://api.pipedrive.com/v1*
 
-Code examples are available through the links in the list below or on the 
+Code examples are available through the links in the list below or on the
 [Pipedrive Developers Tutorials](https://pipedrive.readme.io/docs/tutorials) page
 
 Class | Method | HTTP request | Description
