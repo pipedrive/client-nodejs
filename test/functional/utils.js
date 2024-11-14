@@ -8,7 +8,7 @@ export const getMockServer = (oauth2) => {
 	const base64ClientIdAndSecret = Buffer.from(`${oauth2.clientId}:${oauth2.clientSecret}`).toString('base64');
 
 	return setupServer(
-		rest.post('http://localhost/oauth/token', async (req, res, ctx) => {
+		rest.post('/oauth/token', async (req, res, ctx) => {
 			const body = await req.text();
 			const auth = req.headers.get('authorization');
 			const ua = req.headers.get('User-Agent');
