@@ -14,6 +14,11 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 ### Added
 - Add "custom_fields" query paremeter to GET /api/v2/products
 
+
+## [23.2.5-rc.3] - 2024-09-02
+### Updated
+- Fix optional fields in the TypeScript interfaces
+
 ## [23.4.3] - 2024-11-22
 ### Added
 - Add "additionalProperties" to entities with custom fields
@@ -53,6 +58,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 ## [23.2.6] - 2024-09-06
 ### Fixed
 - Deleted unused file with long name
+
+## [23.2.5-rc.1] - 2024-09-02
+### Updated
+-  Updated TypeScript interfaces
 
 ## [23.2.5] - 2024-08-27
 ### Fixed
@@ -237,7 +246,7 @@ Based on this [Changelog post](https://developers.pipedrive.com/changelog/post/r
 ## [19.0.1] - 2023-04-27
 ### Changed
 - Updated `label` field data type in response examples from number -> string for Deals related endpoints
-Changed `active_flag`, `enabled_flag`, and `selectable` body parameters and response examples data type from number -> boolean for all Products related endpoints
+  Changed `active_flag`, `enabled_flag`, and `selectable` body parameters and response examples data type from number -> boolean for all Products related endpoints
 
 ## [19.0.0] - 2023-04-04
 ### Removed
@@ -309,12 +318,12 @@ Based on this [Changelog post](https://developers.pipedrive.com/changelog/post/b
 
 ## [18.0.3] - 2023-01-11
 ### Updated dependencies
-  - Updated `json5` from 2.2.1 to 2.2.3
-  - Updated `qs` from 6.9.3 to 6.11.0
-  - Updated `formidable` from 2.0.1 to 2.1.1
-  - Updated `decode-uri-component` from 0.2.0 to 0.2.2
-  - Updated `minimatch` from 3.0.4 to 3.1.2
-  - Updated `mocha` from 8.4.0 to 10.1.0
+- Updated `json5` from 2.2.1 to 2.2.3
+- Updated `qs` from 6.9.3 to 6.11.0
+- Updated `formidable` from 2.0.1 to 2.1.1
+- Updated `decode-uri-component` from 0.2.0 to 0.2.2
+- Updated `minimatch` from 3.0.4 to 3.1.2
+- Updated `mocha` from 8.4.0 to 10.1.0
 
 ## [18.0.2] - 2022-12-22
 ### Fixed
@@ -327,7 +336,7 @@ Based on this [Changelog post](https://developers.pipedrive.com/changelog/post/b
 ## 18.0.0
 ### Security
 - Removed `.instance` static property from sdk client to prevent race conditions when using it as a singleton
-See the updated examples in the readme to get an overview of the necessary code changes.
+  See the updated examples in the readme to get an overview of the necessary code changes.
 
 ## 17.5.2
 ### Changed
@@ -476,9 +485,9 @@ See the updated examples in the readme to get an overview of the necessary code 
 - Renamed file with long name and it's class.
 
 Old name:
-  AnyOfRecentsActivityRecentsActivityTypeRecentsDealRecentsFileRecentsFilterRecentsNoteRecentsPersonRecentsOrganizationRecentsPipelineRecentsProductRecentsStageRecentsUser
+AnyOfRecentsActivityRecentsActivityTypeRecentsDealRecentsFileRecentsFilterRecentsNoteRecentsPersonRecentsOrganizationRecentsPipelineRecentsProductRecentsStageRecentsUser
 New name:
-  AnyOfRecents
+AnyOfRecents
 
 ## 14.0.1
 ### Fixed
@@ -653,7 +662,7 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 ## 12.2.0
 ### Changed
 - Changed notes and comments endpoints additional_data to match the correct pagination response
-structure
+  structure
 * GET /notes
 * GET /notes/:id/comments
 
@@ -723,7 +732,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v23.4.3...HEAD
+
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v23.2.5-rc.2...HEAD
 [23.4.3]: https://github.com/pipedrive/api-docs/compare/v23.4.2...v23.4.3
 [23.4.2]: https://github.com/pipedrive/api-docs/compare/v23.4.1...v23.4.2
 [23.4.1]: https://github.com/pipedrive/api-docs/compare/v23.4.0...v23.4.1
