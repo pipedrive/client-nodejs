@@ -318,12 +318,12 @@ Based on this [Changelog post](https://developers.pipedrive.com/changelog/post/b
 
 ## [18.0.3] - 2023-01-11
 ### Updated dependencies
-- Updated `json5` from 2.2.1 to 2.2.3
-- Updated `qs` from 6.9.3 to 6.11.0
-- Updated `formidable` from 2.0.1 to 2.1.1
-- Updated `decode-uri-component` from 0.2.0 to 0.2.2
-- Updated `minimatch` from 3.0.4 to 3.1.2
-- Updated `mocha` from 8.4.0 to 10.1.0
+  - Updated `json5` from 2.2.1 to 2.2.3
+  - Updated `qs` from 6.9.3 to 6.11.0
+  - Updated `formidable` from 2.0.1 to 2.1.1
+  - Updated `decode-uri-component` from 0.2.0 to 0.2.2
+  - Updated `minimatch` from 3.0.4 to 3.1.2
+  - Updated `mocha` from 8.4.0 to 10.1.0
 
 ## [18.0.2] - 2022-12-22
 ### Fixed
@@ -336,7 +336,7 @@ Based on this [Changelog post](https://developers.pipedrive.com/changelog/post/b
 ## 18.0.0
 ### Security
 - Removed `.instance` static property from sdk client to prevent race conditions when using it as a singleton
-  See the updated examples in the readme to get an overview of the necessary code changes.
+See the updated examples in the readme to get an overview of the necessary code changes.
 
 ## 17.5.2
 ### Changed
@@ -485,9 +485,9 @@ Based on this [Changelog post](https://developers.pipedrive.com/changelog/post/b
 - Renamed file with long name and it's class.
 
 Old name:
-AnyOfRecentsActivityRecentsActivityTypeRecentsDealRecentsFileRecentsFilterRecentsNoteRecentsPersonRecentsOrganizationRecentsPipelineRecentsProductRecentsStageRecentsUser
+  AnyOfRecentsActivityRecentsActivityTypeRecentsDealRecentsFileRecentsFilterRecentsNoteRecentsPersonRecentsOrganizationRecentsPipelineRecentsProductRecentsStageRecentsUser
 New name:
-AnyOfRecents
+  AnyOfRecents
 
 ## 14.0.1
 ### Fixed
@@ -662,7 +662,7 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 ## 12.2.0
 ### Changed
 - Changed notes and comments endpoints additional_data to match the correct pagination response
-  structure
+structure
 * GET /notes
 * GET /notes/:id/comments
 
