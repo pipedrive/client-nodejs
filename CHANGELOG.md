@@ -8,13 +8,45 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
-## [23.2.5-rc.2] - 2024-09-03
-### Fixed
-- Updated default values for "billing_frequency_cycles", "billing_start_date" fields
+## [23.4.3] - 2024-11-22
+### Added
+- Add "additionalProperties" to entities with custom fields
+### Changed
+- Updated the code examples in the README for the JavaScript SDK
+### Added
+- Add "custom_fields" query paremeter to GET /api/v2/products
 
-## [23.2.5-rc.1] - 2024-09-02
-### Updated
--  Updated TypeScript interfaces
+## [23.4.2] - 2024-10-31
+### Changed
+- Updated the code examples in the README for the JavaScript SDK
+### Added
+- Add "custom_fields" query paremeter to GET /api/v2/products
+
+## [23.4.1] - 2024-10-09
+
+### Changed
+- Migrate publish flow from Jenkins to GitHub Actions
+- Add devops-tooling as owner for .github/workflows/cicd_*
+
+## [23.4.0] - 2024-09-24
+### Changed
+- Added the field "notes" to product prices in the body and response for v1 and v2
+- Added the field "overhead_cost" to the product variation prices in the response for v1
+- Added the field "direct_cost" to the product variation prices in the response and body for v2
+
+## [23.3.0] - 2024-09-23
+### Added
+- Add documentation for installments functionality:
+  - `POST` `/v1/deals/{id}/products` endpoint
+  - `PUT` `/v1/deals/{id}/products/{product_attachment_id}` endpoint
+  - `DELETE` `/v1/deals/{id}/products/{product_attachment_id}` endpoint
+  - `POST` `/v2/deals/{id}/products` endpoint
+  - `PATCH` `/v2/deals/{id}/products/{product_attachment_id}` endpoint
+  - `DELETE` `/v2/deals/{id}/products/{product_attachment_id}` endpoint
+
+## [23.2.6] - 2024-09-06
+### Fixed
+- Deleted unused file with long name
 
 ## [23.2.5] - 2024-08-27
 ### Fixed
@@ -687,6 +719,11 @@ structure
 
 [Unreleased]: https://github.com/pipedrive/api-docs/compare/v23.2.5-rc.2...HEAD
 [23.2.5-rc.2]: https://github.com/pipedrive/api-docs/compare/v23.2.5...v23.2.5-rc.2
+[23.4.3]: https://github.com/pipedrive/api-docs/compare/v23.4.2...v23.4.3
+[23.4.2]: https://github.com/pipedrive/api-docs/compare/v23.4.1...v23.4.2
+[23.4.1]: https://github.com/pipedrive/api-docs/compare/v23.4.0...v23.4.1
+[23.4.0]: https://github.com/pipedrive/api-docs/compare/v23.3.0...v23.4.0
+[23.3.0]: https://github.com/pipedrive/api-docs/compare/v23.2.5...v23.3.0
 [23.2.5]: https://github.com/pipedrive/api-docs/compare/v23.2.4...v23.2.5
 [23.2.4]: https://github.com/pipedrive/api-docs/compare/v23.2.3...v23.2.4
 [23.2.3]: https://github.com/pipedrive/api-docs/compare/v23.2.2...v23.2.3

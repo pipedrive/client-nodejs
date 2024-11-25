@@ -432,7 +432,7 @@ Name | Type | Description  | Notes
 
 Delete an attached product from a deal
 
-Deletes a product attachment from a deal, using the &#x60;product_attachment_id&#x60;.
+Deletes a product attachment from a deal, using the &#x60;product_attachment_id&#x60;  Not possible to delete the attached product if the deal has installments associated and the product is the last one enabled 
 
 ### Example
 
