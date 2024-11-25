@@ -1,0 +1,14 @@
+name: Publish NPM Packages
+
+on:
+  pull_request:
+    types:
+      - labeled
+
+jobs:
+  publish:
+    if: ${{ github.event.label.name == 'npm-ready-for-publish' }}
+    uses: pipedrive-actions/github-actions-workflows/.github/workflows/reusable_cicd-npm-publish.yml@master
+    with:
+      revision: ${{ github.event.pull_request.head.ref }}
+    secrets: inherit

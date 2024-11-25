@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[Field]**](Field.md) |  | [optional] 
+**data** | [**[GetField]**](GetField.md) |  | [optional] 
 **additional_data** | [**AdditionalData**](AdditionalData.md) |  | [optional] 
 
 
