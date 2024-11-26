@@ -36,19 +36,19 @@ export interface Parameters {
 export type ParamKey = keyof Parameters;
 
 export class OAuth2Configuration {
+  public host: string;
+  public clientId: string;
+  public clientSecret: string;
+  public basePath = "";
+  public onTokenUpdate?: (token: TokenResponse) => void;
+
   private axios = axios.create();
-  private host: string;
   private accessToken: string | null = null;
   private refreshToken: string | null = null;
   private scope: string | null = null;
   private expiresIn = 0; // expiration value in seconds sent by the OAuth server.
   private expiresAt = 0; // expiration time as number of milliseconds elapsed since January 1, 1970 00:00:00 UTC.
-
-  public onTokenUpdate?: (token: TokenResponse) => void;
-  private clientId: string;
-  private clientSecret: string;
   private redirectUri: string;
-  public basePath = "";
 
   constructor(params: Parameters) {
     this.clientId = this.validateParam(params, 'clientId');
@@ -76,6 +76,10 @@ export class OAuth2Configuration {
 
     return this.accessToken!;
   };
+
+  public shouldRefreshToken = (): boolean => {
+    return this.expiresAt && Date.now() > this.expiresAt;
+  }
 
   /**
    * Authorizes the authorization code sent by the server and returns OAuth 2 token.

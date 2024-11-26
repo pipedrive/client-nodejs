@@ -25,6 +25,6 @@ export interface GetSubscriptionAddonsResponseAllOf {
      * @type {Array<object>}
      * @memberof GetSubscriptionAddonsResponseAllOf
      */
-    'data'?: Array<object>;
+    'data': Array<object>;
 }
 

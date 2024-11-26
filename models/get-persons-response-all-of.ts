@@ -34,18 +34,18 @@ export interface GetPersonsResponseAllOf {
      * @type {Array<PersonItem>}
      * @memberof GetPersonsResponseAllOf
      */
-    'data'?: Array<PersonItem>;
+    'data': Array<PersonItem>;
     /**
      * 
      * @type {GetFieldsResponseAllOfAdditionalData}
      * @memberof GetPersonsResponseAllOf
      */
-    'additional_data'?: GetFieldsResponseAllOfAdditionalData;
+    'additional_data': GetFieldsResponseAllOfAdditionalData;
     /**
      * 
      * @type {GetPersonsResponseAllOfRelatedObjects}
      * @memberof GetPersonsResponseAllOf
      */
-    'related_objects'?: GetPersonsResponseAllOfRelatedObjects;
+    'related_objects': GetPersonsResponseAllOfRelatedObjects;
 }
 

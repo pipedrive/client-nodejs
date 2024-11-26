@@ -21,7 +21,7 @@ import { BaseResponse } from './base-response';
 import { GetFieldResponseAllOf } from './get-field-response-all-of';
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetFieldsResponseAllOfDataInner } from './get-fields-response-all-of-data-inner';
+import { GetFieldsResponseAllOfDataInnerAllOf } from './get-fields-response-all-of-data-inner-all-of';
 
 /**
  * @type GetFieldResponse

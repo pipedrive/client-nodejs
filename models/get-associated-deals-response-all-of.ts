@@ -34,18 +34,18 @@ export interface GetAssociatedDealsResponseAllOf {
      * @type {Array<DealNonStrict>}
      * @memberof GetAssociatedDealsResponseAllOf
      */
-    'data'?: Array<DealNonStrict>;
+    'data': Array<DealNonStrict>;
     /**
      * 
      * @type {GetFieldsResponseAllOfAdditionalData}
      * @memberof GetAssociatedDealsResponseAllOf
      */
-    'additional_data'?: GetFieldsResponseAllOfAdditionalData;
+    'additional_data': GetFieldsResponseAllOfAdditionalData;
     /**
      * 
      * @type {GetAssociatedDealsResponseAllOfRelatedObjects}
      * @memberof GetAssociatedDealsResponseAllOf
      */
-    'related_objects'?: GetAssociatedDealsResponseAllOfRelatedObjects;
+    'related_objects': GetAssociatedDealsResponseAllOfRelatedObjects;
 }
 

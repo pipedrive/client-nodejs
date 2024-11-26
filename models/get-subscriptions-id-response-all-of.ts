@@ -28,6 +28,6 @@ export interface GetSubscriptionsIdResponseAllOf {
      * @type {GetSubscriptionsIdResponseAllOfData}
      * @memberof GetSubscriptionsIdResponseAllOf
      */
-    'data'?: GetSubscriptionsIdResponseAllOfData;
+    'data': GetSubscriptionsIdResponseAllOfData;
 }
 

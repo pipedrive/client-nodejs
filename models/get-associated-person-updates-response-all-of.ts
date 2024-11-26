@@ -34,18 +34,18 @@ export interface GetAssociatedPersonUpdatesResponseAllOf {
      * @type {Array<GetAssociatedPersonUpdatesResponseAllOfDataInner>}
      * @memberof GetAssociatedPersonUpdatesResponseAllOf
      */
-    'data'?: Array<GetAssociatedPersonUpdatesResponseAllOfDataInner>;
+    'data': Array<GetAssociatedPersonUpdatesResponseAllOfDataInner>;
     /**
      * 
      * @type {GetFieldsResponseAllOfAdditionalData}
      * @memberof GetAssociatedPersonUpdatesResponseAllOf
      */
-    'additional_data'?: GetFieldsResponseAllOfAdditionalData;
+    'additional_data': GetFieldsResponseAllOfAdditionalData;
     /**
      * 
      * @type {GetDealUpdatesResponseAllOfRelatedObjects}
      * @memberof GetAssociatedPersonUpdatesResponseAllOf
      */
-    'related_objects'?: GetDealUpdatesResponseAllOfRelatedObjects;
+    'related_objects': GetDealUpdatesResponseAllOfRelatedObjects;
 }
 

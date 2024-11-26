@@ -31,18 +31,18 @@ export interface UpdateProductResponse {
      * @type {boolean}
      * @memberof UpdateProductResponse
      */
-    'success'?: boolean;
+    'success': boolean;
     /**
      * 
      * @type {GetProductsResponseAllOfDataInnerProduct}
      * @memberof UpdateProductResponse
      */
-    'data'?: GetProductsResponseAllOfDataInnerProduct;
+    'data': GetProductsResponseAllOfDataInnerProduct;
     /**
      * 
      * @type {GetActivitiesResponseRelatedObjects}
      * @memberof UpdateProductResponse
      */
-    'related_objects'?: GetActivitiesResponseRelatedObjects;
+    'related_objects': GetActivitiesResponseRelatedObjects;
 }
 

@@ -28,6 +28,6 @@ export interface DeleteOrganizationRelationshipResponseAllOf {
      * @type {DeleteOrganizationRelationshipResponseAllOfData}
      * @memberof DeleteOrganizationRelationshipResponseAllOf
      */
-    'data'?: DeleteOrganizationRelationshipResponseAllOfData;
+    'data': DeleteOrganizationRelationshipResponseAllOfData;
 }
 

@@ -28,6 +28,6 @@ export interface AddFiltersResponseAllOf {
      * @type {AddFiltersResponseAllOfData}
      * @memberof AddFiltersResponseAllOf
      */
-    'data'?: AddFiltersResponseAllOfData;
+    'data': AddFiltersResponseAllOfData;
 }
 

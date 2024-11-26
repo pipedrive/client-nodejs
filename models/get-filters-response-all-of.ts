@@ -28,6 +28,6 @@ export interface GetFiltersResponseAllOf {
      * @type {Array<GetFiltersResponseAllOfDataInner>}
      * @memberof GetFiltersResponseAllOf
      */
-    'data'?: Array<GetFiltersResponseAllOfDataInner>;
+    'data': Array<GetFiltersResponseAllOfDataInner>;
 }
 

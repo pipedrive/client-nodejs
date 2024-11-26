@@ -37,60 +37,60 @@ export interface UpsertGoalResponseDataGoal {
      * @type {string}
      * @memberof UpsertGoalResponseDataGoal
      */
-    'id'?: string;
+    'id': string;
     /**
      * The ID of the creator of the goal
      * @type {number}
      * @memberof UpsertGoalResponseDataGoal
      */
-    'owner_id'?: number;
+    'owner_id': number;
     /**
      * The title of the goal
      * @type {string}
      * @memberof UpsertGoalResponseDataGoal
      */
-    'title'?: string;
+    'title': string;
     /**
      * 
      * @type {UpsertGoalResponseDataGoalType}
      * @memberof UpsertGoalResponseDataGoal
      */
-    'type'?: UpsertGoalResponseDataGoalType;
+    'type': UpsertGoalResponseDataGoalType;
     /**
      * 
      * @type {UpsertGoalResponseDataGoalAssignee}
      * @memberof UpsertGoalResponseDataGoal
      */
-    'assignee'?: UpsertGoalResponseDataGoalAssignee;
+    'assignee': UpsertGoalResponseDataGoalAssignee;
     /**
      * The interval of the goal
      * @type {string}
      * @memberof UpsertGoalResponseDataGoal
      */
-    'interval'?: string;
+    'interval': string;
     /**
      * 
      * @type {UpsertGoalResponseDataGoalDuration}
      * @memberof UpsertGoalResponseDataGoal
      */
-    'duration'?: UpsertGoalResponseDataGoalDuration;
+    'duration': UpsertGoalResponseDataGoalDuration;
     /**
      * 
      * @type {UpsertGoalResponseDataGoalExpectedOutcome}
      * @memberof UpsertGoalResponseDataGoal
      */
-    'expected_outcome'?: UpsertGoalResponseDataGoalExpectedOutcome;
+    'expected_outcome': UpsertGoalResponseDataGoalExpectedOutcome;
     /**
      * Whether the goal is currently active or not
      * @type {boolean}
      * @memberof UpsertGoalResponseDataGoal
      */
-    'is_active'?: boolean;
+    'is_active': boolean;
     /**
      * The IDs of the reports that belong to the goal
      * @type {Array<string>}
      * @memberof UpsertGoalResponseDataGoal
      */
-    'report_ids'?: Array<string>;
+    'report_ids': Array<string>;
 }
 

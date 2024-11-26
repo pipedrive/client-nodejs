@@ -25,66 +25,66 @@ export interface GetOrganizationsCollectionResponseObjectAllOf {
      * @type {number}
      * @memberof GetOrganizationsCollectionResponseObjectAllOf
      */
-    'id'?: number;
+    'id': number;
     /**
      * Whether the organization is active or not
      * @type {boolean}
      * @memberof GetOrganizationsCollectionResponseObjectAllOf
      */
-    'active_flag'?: boolean;
+    'active_flag': boolean;
     /**
      * The ID of the owner
      * @type {number}
      * @memberof GetOrganizationsCollectionResponseObjectAllOf
      */
-    'owner_id'?: number;
+    'owner_id': number;
     /**
      * The name of the organization
      * @type {string}
      * @memberof GetOrganizationsCollectionResponseObjectAllOf
      */
-    'name'?: string;
+    'name': string;
     /**
      * The last updated date and time of the organization. Format: YYYY-MM-DD HH:MM:SS
      * @type {string}
      * @memberof GetOrganizationsCollectionResponseObjectAllOf
      */
-    'update_time'?: string;
+    'update_time': string;
     /**
      * The date and time this organization was deleted. Format: YYYY-MM-DD HH:MM:SS
      * @type {string}
      * @memberof GetOrganizationsCollectionResponseObjectAllOf
      */
-    'delete_time'?: string | null;
+    'delete_time': string | null;
     /**
      * The date and time when the organization was added/created. Format: YYYY-MM-DD HH:MM:SS
      * @type {string}
      * @memberof GetOrganizationsCollectionResponseObjectAllOf
      */
-    'add_time'?: string;
+    'add_time': string;
     /**
      * The visibility group ID of who can see the organization
      * @type {string}
      * @memberof GetOrganizationsCollectionResponseObjectAllOf
      */
-    'visible_to'?: string;
+    'visible_to': string;
     /**
      * The label assigned to the organization. When the `label` field is updated, the `label_ids` field value will be overwritten by the `label` field value.
      * @type {number}
      * @memberof GetOrganizationsCollectionResponseObjectAllOf
      */
-    'label'?: number | null;
+    'label': number | null;
     /**
      * The IDs of labels assigned to the organization. When the `label_ids` field is updated, the `label` field value will be set to the first value of the `label_ids` field.
      * @type {Array<number>}
      * @memberof GetOrganizationsCollectionResponseObjectAllOf
      */
-    'label_ids'?: Array<number>;
+    'label_ids': Array<number>;
     /**
      * The BCC email associated with the organization
      * @type {string}
      * @memberof GetOrganizationsCollectionResponseObjectAllOf
      */
-    'cc_email'?: string;
+    'cc_email': string;
 }
 

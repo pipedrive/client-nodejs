@@ -28,12 +28,12 @@ export interface DeleteOrganizationFollowerResponse {
      * @type {boolean}
      * @memberof DeleteOrganizationFollowerResponse
      */
-    'success'?: boolean;
+    'success': boolean;
     /**
      * 
      * @type {DeleteOrganizationFollowerResponseData}
      * @memberof DeleteOrganizationFollowerResponse
      */
-    'data'?: DeleteOrganizationFollowerResponseData;
+    'data': DeleteOrganizationFollowerResponseData;
 }
 

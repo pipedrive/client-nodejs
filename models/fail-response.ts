@@ -25,12 +25,12 @@ export interface FailResponse {
      * @type {boolean}
      * @memberof FailResponse
      */
-    'success'?: boolean;
+    'success': boolean;
     /**
      * The error message
      * @type {string}
      * @memberof FailResponse
      */
-    'error'?: string;
+    'error': string;
 }
 

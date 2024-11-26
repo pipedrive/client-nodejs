@@ -28,12 +28,12 @@ export interface DeleteOrganizationsResponse {
      * @type {boolean}
      * @memberof DeleteOrganizationsResponse
      */
-    'success'?: boolean;
+    'success': boolean;
     /**
      * 
      * @type {DeleteOrganizationsResponseData}
      * @memberof DeleteOrganizationsResponse
      */
-    'data'?: DeleteOrganizationsResponseData;
+    'data': DeleteOrganizationsResponseData;
 }
 

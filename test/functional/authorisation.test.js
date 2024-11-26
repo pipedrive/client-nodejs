@@ -40,12 +40,11 @@ describe('oauth2 authorization', () => {
 
 	it('should throw if clientId is not set', async () => {
 		try {
-		 	new lib.OAuth2Configuration({
+			new lib.OAuth2Configuration({
 				host: 'localhost',
 				clientSecret: 'fakeClientSecret',
 				redirectUri: 'https://example.org',
 			});
-
 		} catch (error) {
 			expect(error).toEqual(new Error('OAuth 2 property clientId is not set.'));
 		}

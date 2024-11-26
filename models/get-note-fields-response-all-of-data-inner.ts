@@ -15,90 +15,18 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetNoteFieldsResponseAllOfDataInnerOptionsInner } from './get-note-fields-response-all-of-data-inner-options-inner';
+import { GetFieldsResponseAllOfDataInnerAllOf1 } from './get-fields-response-all-of-data-inner-all-of1';
+// May contain unused imports in some cases
+// @ts-ignore
+import { GetNoteFieldsResponseAllOfDataInnerAllOf } from './get-note-fields-response-all-of-data-inner-all-of';
+// May contain unused imports in some cases
+// @ts-ignore
+import { GetNoteFieldsResponseAllOfDataInnerAllOfOptionsInner } from './get-note-fields-response-all-of-data-inner-all-of-options-inner';
 
 /**
- * 
+ * @type GetNoteFieldsResponseAllOfDataInner
  * @export
- * @interface GetNoteFieldsResponseAllOfDataInner
  */
-export interface GetNoteFieldsResponseAllOfDataInner {
-    /**
-     * The ID of the field
-     * @type {number}
-     * @memberof GetNoteFieldsResponseAllOfDataInner
-     */
-    'id'?: number;
-    /**
-     * The key of the field
-     * @type {string}
-     * @memberof GetNoteFieldsResponseAllOfDataInner
-     */
-    'key'?: string;
-    /**
-     * The name of the field
-     * @type {string}
-     * @memberof GetNoteFieldsResponseAllOfDataInner
-     */
-    'name'?: string;
-    /**
-     * The type of the field<table><tr><th>Value</th><th>Description</th></tr><tr><td>`address`</td><td>Address field</td></tr><tr><td>`date`</td><td>Date (format YYYY-MM-DD)</td></tr><tr><td>`daterange`</td><td>Date-range field (has a start date and end date value, both YYYY-MM-DD)</td></tr><tr><td>`double`</td><td>Numeric value</td></tr><tr><td>`enum`</td><td>Options field with a single possible chosen option</td></tr><tr></tr><tr><td>`monetary`</td><td>Monetary field (has a numeric value and a currency value)</td></tr><tr><td>`org`</td><td>Organization field (contains an organization ID which is stored on the same account)</td></tr><tr><td>`people`</td><td>Person field (contains a person ID which is stored on the same account)</td></tr><tr><td>`phone`</td><td>Phone field (up to 255 numbers and/or characters)</td></tr><tr><td>`set`</td><td>Options field with a possibility of having multiple chosen options</td></tr><tr><td>`text`</td><td>Long text (up to 65k characters)</td></tr><tr><td>`time`</td><td>Time field (format HH:MM:SS)</td></tr><tr><td>`timerange`</td><td>Time-range field (has a start time and end time value, both HH:MM:SS)</td></tr><tr><td>`user`</td><td>User field (contains a user ID of another Pipedrive user)</td></tr><tr><td>`varchar`</td><td>Text (up to 255 characters)</td></tr><tr><td>`varchar_auto`</td><td>Autocomplete text (up to 255 characters)</td></tr><tr><td>`visible_to`</td><td>System field that keeps item\'s visibility setting</td></tr></table>
-     * @type {string}
-     * @memberof GetNoteFieldsResponseAllOfDataInner
-     */
-    'field_type'?: GetNoteFieldsResponseAllOfDataInnerFieldTypeConst;
-    /**
-     * The active flag of the field
-     * @type {boolean}
-     * @memberof GetNoteFieldsResponseAllOfDataInner
-     */
-    'active_flag'?: boolean;
-    /**
-     * The edit flag of the field
-     * @type {boolean}
-     * @memberof GetNoteFieldsResponseAllOfDataInner
-     */
-    'edit_flag'?: boolean;
-    /**
-     * Not used
-     * @type {boolean}
-     * @memberof GetNoteFieldsResponseAllOfDataInner
-     */
-    'bulk_edit_allowed'?: boolean;
-    /**
-     * Whether or not the field is mandatory
-     * @type {boolean}
-     * @memberof GetNoteFieldsResponseAllOfDataInner
-     */
-    'mandatory_flag'?: boolean;
-    /**
-     * The options of the field. When there are no options, `null` is returned.
-     * @type {Array<GetNoteFieldsResponseAllOfDataInnerOptionsInner>}
-     * @memberof GetNoteFieldsResponseAllOfDataInner
-     */
-    'options'?: Array<GetNoteFieldsResponseAllOfDataInnerOptionsInner>;
-}
-
-export const GetNoteFieldsResponseAllOfDataInnerFieldTypeConst = {
-    address: 'address',
-    date: 'date',
-    daterange: 'daterange',
-    double: 'double',
-    enum: 'enum',
-    monetary: 'monetary',
-    org: 'org',
-    people: 'people',
-    phone: 'phone',
-    set: 'set',
-    text: 'text',
-    time: 'time',
-    timerange: 'timerange',
-    user: 'user',
-    varchar: 'varchar',
-    varchar_auto: 'varchar_auto',
-    visible_to: 'visible_to'
-} as const;
-
-export type GetNoteFieldsResponseAllOfDataInnerFieldTypeConst = typeof GetNoteFieldsResponseAllOfDataInnerFieldTypeConst[keyof typeof GetNoteFieldsResponseAllOfDataInnerFieldTypeConst];
+export type GetNoteFieldsResponseAllOfDataInner = GetFieldsResponseAllOfDataInnerAllOf1 & GetNoteFieldsResponseAllOfDataInnerAllOf;
 
 

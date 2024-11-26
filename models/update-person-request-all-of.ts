@@ -20,6 +20,8 @@
  * @interface UpdatePersonRequestAllOf
  */
 export interface UpdatePersonRequestAllOf {
+    [key: string]: any;
+
     /**
      * The name of the person
      * @type {string}

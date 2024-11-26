@@ -28,12 +28,12 @@ export interface GetUserProviderLinkSuccessResponse {
      * @type {boolean}
      * @memberof GetUserProviderLinkSuccessResponse
      */
-    'success'?: boolean;
+    'success': boolean;
     /**
      * 
      * @type {GetUserProviderLinkSuccessResponseData}
      * @memberof GetUserProviderLinkSuccessResponse
      */
-    'data'?: GetUserProviderLinkSuccessResponseData;
+    'data': GetUserProviderLinkSuccessResponseData;
 }
 

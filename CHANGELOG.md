@@ -8,6 +8,19 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [23.3.0-rc.4] - 2024-11-26
+### Added
+- Add "additionalProperties" to entities with custom fields
+### Changed
+- Updated the code examples in the README for the JavaScript SDK
+### Added
+- Add "custom_fields" query paremeter to GET /api/v2/products
+
+
+## [23.2.5-rc.3] - 2024-09-02
+### Updated
+- Fix optional fields in the TypeScript interfaces
+
 ## [23.4.3] - 2024-11-22
 ### Added
 - Add "additionalProperties" to entities with custom fields
@@ -47,6 +60,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 ## [23.2.6] - 2024-09-06
 ### Fixed
 - Deleted unused file with long name
+
+## [23.2.5-rc.1] - 2024-09-02
+### Updated
+-  Updated TypeScript interfaces
 
 ## [23.2.5] - 2024-08-27
 ### Fixed
@@ -231,7 +248,7 @@ Based on this [Changelog post](https://developers.pipedrive.com/changelog/post/r
 ## [19.0.1] - 2023-04-27
 ### Changed
 - Updated `label` field data type in response examples from number -> string for Deals related endpoints
-Changed `active_flag`, `enabled_flag`, and `selectable` body parameters and response examples data type from number -> boolean for all Products related endpoints
+  Changed `active_flag`, `enabled_flag`, and `selectable` body parameters and response examples data type from number -> boolean for all Products related endpoints
 
 ## [19.0.0] - 2023-04-04
 ### Removed
@@ -717,8 +734,9 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v23.2.5-rc.2...HEAD
-[23.2.5-rc.2]: https://github.com/pipedrive/api-docs/compare/v23.2.5...v23.2.5-rc.2
+
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v23.3.0-rc.4...HEAD
+[23.3.0-rc.4]: https://github.com/pipedrive/api-docs/compare/v23.2.5-rc.2...v23.3.0-rc.4
 [23.4.3]: https://github.com/pipedrive/api-docs/compare/v23.4.2...v23.4.3
 [23.4.2]: https://github.com/pipedrive/api-docs/compare/v23.4.1...v23.4.2
 [23.4.1]: https://github.com/pipedrive/api-docs/compare/v23.4.0...v23.4.1

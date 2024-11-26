@@ -31,12 +31,12 @@ export interface GetOrganizationRelationshipResponseAllOf {
      * @type {OrganizationRelationshipWithCalculatedFields}
      * @memberof GetOrganizationRelationshipResponseAllOf
      */
-    'data'?: OrganizationRelationshipWithCalculatedFields;
+    'data': OrganizationRelationshipWithCalculatedFields;
     /**
      * 
      * @type {GetOrganizationRelationshipsResponseAllOfRelatedObjects}
      * @memberof GetOrganizationRelationshipResponseAllOf
      */
-    'related_objects'?: GetOrganizationRelationshipsResponseAllOfRelatedObjects;
+    'related_objects': GetOrganizationRelationshipsResponseAllOfRelatedObjects;
 }
 

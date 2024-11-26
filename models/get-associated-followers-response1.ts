@@ -31,18 +31,18 @@ export interface GetAssociatedFollowersResponse1 {
      * @type {boolean}
      * @memberof GetAssociatedFollowersResponse1
      */
-    'success'?: boolean;
+    'success': boolean;
     /**
      * The array of followers
      * @type {Array<GetAssociatedFollowersResponse1DataInner>}
      * @memberof GetAssociatedFollowersResponse1
      */
-    'data'?: Array<GetAssociatedFollowersResponse1DataInner>;
+    'data': Array<GetAssociatedFollowersResponse1DataInner>;
     /**
      * 
      * @type {GetActivitiesResponseAdditionalData}
      * @memberof GetAssociatedFollowersResponse1
      */
-    'additional_data'?: GetActivitiesResponseAdditionalData;
+    'additional_data': GetActivitiesResponseAdditionalData;
 }
 

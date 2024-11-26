@@ -31,12 +31,12 @@ export interface GetAssociatedMailMessagesResponseAllOf {
      * @type {Array<GetAssociatedMailMessagesResponseAllOfDataInner>}
      * @memberof GetAssociatedMailMessagesResponseAllOf
      */
-    'data'?: Array<GetAssociatedMailMessagesResponseAllOfDataInner>;
+    'data': Array<GetAssociatedMailMessagesResponseAllOfDataInner>;
     /**
      * 
      * @type {GetFieldsResponseAllOfAdditionalData}
      * @memberof GetAssociatedMailMessagesResponseAllOf
      */
-    'additional_data'?: GetFieldsResponseAllOfAdditionalData;
+    'additional_data': GetFieldsResponseAllOfAdditionalData;
 }
 

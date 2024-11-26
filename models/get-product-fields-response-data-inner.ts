@@ -15,19 +15,15 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetFiltersResponseAllOfDataInner } from './get-filters-response-all-of-data-inner';
+import { GetFieldsResponseAllOfDataInnerAllOf1 } from './get-fields-response-all-of-data-inner-all-of1';
+// May contain unused imports in some cases
+// @ts-ignore
+import { ProductField } from './product-field';
 
 /**
- * 
+ * @type GetProductFieldsResponseDataInner
  * @export
- * @interface GetFiltersResponse1AllOf
  */
-export interface GetFiltersResponse1AllOf {
-    /**
-     * 
-     * @type {GetFiltersResponseAllOfDataInner}
-     * @memberof GetFiltersResponse1AllOf
-     */
-    'data': GetFiltersResponseAllOfDataInner;
-}
+export type GetProductFieldsResponseDataInner = GetFieldsResponseAllOfDataInnerAllOf1 & ProductField;
+
 

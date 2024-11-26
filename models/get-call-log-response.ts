@@ -28,12 +28,12 @@ export interface GetCallLogResponse {
      * @type {boolean}
      * @memberof GetCallLogResponse
      */
-    'success'?: boolean;
+    'success': boolean;
     /**
      * 
      * @type {ResponseCallLogObject}
      * @memberof GetCallLogResponse
      */
-    'data'?: ResponseCallLogObject;
+    'data': ResponseCallLogObject;
 }
 

@@ -31,12 +31,12 @@ export interface GetOrganizationSearchResponseAllOf {
      * @type {GetOrganizationSearchResponseAllOfData}
      * @memberof GetOrganizationSearchResponseAllOf
      */
-    'data'?: GetOrganizationSearchResponseAllOfData;
+    'data': GetOrganizationSearchResponseAllOfData;
     /**
      * 
      * @type {GetActivitiesResponseAdditionalData}
      * @memberof GetOrganizationSearchResponseAllOf
      */
-    'additional_data'?: GetActivitiesResponseAdditionalData;
+    'additional_data': GetActivitiesResponseAdditionalData;
 }
 

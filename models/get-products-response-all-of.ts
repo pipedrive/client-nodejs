@@ -34,18 +34,18 @@ export interface GetProductsResponseAllOf {
      * @type {Array<GetProductsResponseAllOfDataInner>}
      * @memberof GetProductsResponseAllOf
      */
-    'data'?: Array<GetProductsResponseAllOfDataInner>;
+    'data': Array<GetProductsResponseAllOfDataInner>;
     /**
      * 
      * @type {GetProductsResponseAllOfAdditionalData}
      * @memberof GetProductsResponseAllOf
      */
-    'additional_data'?: GetProductsResponseAllOfAdditionalData;
+    'additional_data': GetProductsResponseAllOfAdditionalData;
     /**
      * 
      * @type {GetProductsResponseAllOfRelatedObjects}
      * @memberof GetProductsResponseAllOf
      */
-    'related_objects'?: GetProductsResponseAllOfRelatedObjects;
+    'related_objects': GetProductsResponseAllOfRelatedObjects;
 }
 

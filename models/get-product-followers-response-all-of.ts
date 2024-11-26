@@ -31,12 +31,12 @@ export interface GetProductFollowersResponseAllOf {
      * @type {Array<GetProductFollowersResponseAllOfDataInner>}
      * @memberof GetProductFollowersResponseAllOf
      */
-    'data'?: Array<GetProductFollowersResponseAllOfDataInner>;
+    'data': Array<GetProductFollowersResponseAllOfDataInner>;
     /**
      * 
      * @type {GetFieldsResponseAllOfAdditionalData}
      * @memberof GetProductFollowersResponseAllOf
      */
-    'additional_data'?: GetFieldsResponseAllOfAdditionalData;
+    'additional_data': GetFieldsResponseAllOfAdditionalData;
 }
 

@@ -31,12 +31,12 @@ export interface GetFieldsResponseAllOf {
      * @type {Array<GetFieldsResponseAllOfDataInner>}
      * @memberof GetFieldsResponseAllOf
      */
-    'data'?: Array<GetFieldsResponseAllOfDataInner>;
+    'data': Array<GetFieldsResponseAllOfDataInner>;
     /**
      * 
      * @type {GetFieldsResponseAllOfAdditionalData}
      * @memberof GetFieldsResponseAllOf
      */
-    'additional_data'?: GetFieldsResponseAllOfAdditionalData;
+    'additional_data': GetFieldsResponseAllOfAdditionalData;
 }
 

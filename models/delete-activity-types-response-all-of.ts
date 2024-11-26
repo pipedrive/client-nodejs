@@ -28,6 +28,6 @@ export interface DeleteActivityTypesResponseAllOf {
      * @type {DeleteActivityTypesResponseAllOfData}
      * @memberof DeleteActivityTypesResponseAllOf
      */
-    'data'?: DeleteActivityTypesResponseAllOfData;
+    'data': DeleteActivityTypesResponseAllOfData;
 }
 

@@ -31,90 +31,90 @@ export interface PersonsCollectionResponseObject {
      * @type {number}
      * @memberof PersonsCollectionResponseObject
      */
-    'id'?: number;
+    'id': number;
     /**
      * Whether the person is active or not
      * @type {boolean}
      * @memberof PersonsCollectionResponseObject
      */
-    'active_flag'?: boolean;
+    'active_flag': boolean;
     /**
      * The ID of the owner related to the person
      * @type {number}
      * @memberof PersonsCollectionResponseObject
      */
-    'owner_id'?: number;
+    'owner_id': number;
     /**
      * The ID of the organization related to the person
      * @type {number}
      * @memberof PersonsCollectionResponseObject
      */
-    'org_id'?: number;
+    'org_id': number;
     /**
      * The name of the person
      * @type {string}
      * @memberof PersonsCollectionResponseObject
      */
-    'name'?: string;
+    'name': string;
     /**
      * An email address as a string or an array of email objects related to the person. The structure of the array is as follows: `[{ \"value\": \"mail@example.com\", \"primary\": \"true\", \"label\": \"main\" }]`. Please note that only `value` is required.
      * @type {Array<BasicPersonRequestEmailInner>}
      * @memberof PersonsCollectionResponseObject
      */
-    'email'?: Array<BasicPersonRequestEmailInner>;
+    'email': Array<BasicPersonRequestEmailInner>;
     /**
      * A phone number supplied as a string or an array of phone objects related to the person. The structure of the array is as follows: `[{ \"value\": \"12345\", \"primary\": \"true\", \"label\": \"mobile\" }]`. Please note that only `value` is required.
      * @type {Array<PersonItemAllOfPhoneInner>}
      * @memberof PersonsCollectionResponseObject
      */
-    'phone'?: Array<PersonItemAllOfPhoneInner>;
+    'phone': Array<PersonItemAllOfPhoneInner>;
     /**
      * The last updated date and time of the person. Format: YYYY-MM-DD HH:MM:SS
      * @type {string}
      * @memberof PersonsCollectionResponseObject
      */
-    'update_time'?: string;
+    'update_time': string;
     /**
      * The date and time this person was deleted. Format: YYYY-MM-DD HH:MM:SS
      * @type {string}
      * @memberof PersonsCollectionResponseObject
      */
-    'delete_time'?: string | null;
+    'delete_time': string | null;
     /**
      * The date and time when the person was added/created. Format: YYYY-MM-DD HH:MM:SS
      * @type {string}
      * @memberof PersonsCollectionResponseObject
      */
-    'add_time'?: string;
+    'add_time': string;
     /**
      * The visibility group ID of who can see the person
      * @type {string}
      * @memberof PersonsCollectionResponseObject
      */
-    'visible_to'?: string;
+    'visible_to': string;
     /**
      * The ID of the picture associated with the item
      * @type {number}
      * @memberof PersonsCollectionResponseObject
      */
-    'picture_id'?: number | null;
+    'picture_id': number | null;
     /**
      * The label assigned to the person. When the `label` field is updated, the `label_ids` field value will be overwritten by the `label` field value.
      * @type {number}
      * @memberof PersonsCollectionResponseObject
      */
-    'label'?: number | null;
+    'label': number | null;
     /**
      * The IDs of labels assigned to the person. When the `label_ids` field is updated, the `label` field value will be set to the first value of the `label_ids` field.
      * @type {Array<number>}
      * @memberof PersonsCollectionResponseObject
      */
-    'label_ids'?: Array<number>;
+    'label_ids': Array<number>;
     /**
      * The BCC email associated with the person
      * @type {string}
      * @memberof PersonsCollectionResponseObject
      */
-    'cc_email'?: string;
+    'cc_email': string;
 }
 

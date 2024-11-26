@@ -25,126 +25,126 @@ export interface DealCollectionResponseObject {
      * @type {number}
      * @memberof DealCollectionResponseObject
      */
-    'id'?: number;
+    'id': number;
     /**
      * The ID of the deal creator
      * @type {number}
      * @memberof DealCollectionResponseObject
      */
-    'creator_user_id'?: number;
+    'creator_user_id': number;
     /**
      * The ID of the user
      * @type {number}
      * @memberof DealCollectionResponseObject
      */
-    'user_id'?: number;
+    'user_id': number;
     /**
      * The ID of the person associated with the deal
      * @type {number}
      * @memberof DealCollectionResponseObject
      */
-    'person_id'?: number;
+    'person_id': number;
     /**
      * The ID of the organization associated with the deal
      * @type {number}
      * @memberof DealCollectionResponseObject
      */
-    'org_id'?: number;
+    'org_id': number;
     /**
      * The ID of the deal stage
      * @type {number}
      * @memberof DealCollectionResponseObject
      */
-    'stage_id'?: number;
+    'stage_id': number;
     /**
      * The title of the deal
      * @type {string}
      * @memberof DealCollectionResponseObject
      */
-    'title'?: string;
+    'title': string;
     /**
      * The value of the deal
      * @type {number}
      * @memberof DealCollectionResponseObject
      */
-    'value'?: number;
+    'value': number;
     /**
      * The currency associated with the deal
      * @type {string}
      * @memberof DealCollectionResponseObject
      */
-    'currency'?: string;
+    'currency': string;
     /**
      * The creation date and time of the deal in UTC. Format: YYYY-MM-DD HH:MM:SS.
      * @type {string}
      * @memberof DealCollectionResponseObject
      */
-    'add_time'?: string;
+    'add_time': string;
     /**
      * The last update date and time of the deal in UTC. Format: YYYY-MM-DD HH:MM:SS.
      * @type {string}
      * @memberof DealCollectionResponseObject
      */
-    'update_time'?: string;
+    'update_time': string;
     /**
      * The status of the deal
      * @type {string}
      * @memberof DealCollectionResponseObject
      */
-    'status'?: string;
+    'status': string;
     /**
      * The success probability percentage of the deal
      * @type {number}
      * @memberof DealCollectionResponseObject
      */
-    'probability'?: number | null;
+    'probability': number | null;
     /**
      * The reason for losing the deal
      * @type {string}
      * @memberof DealCollectionResponseObject
      */
-    'lost_reason'?: string | null;
+    'lost_reason': string | null;
     /**
      * The visibility of the deal
      * @type {string}
      * @memberof DealCollectionResponseObject
      */
-    'visible_to'?: string;
+    'visible_to': string;
     /**
      * The date and time of closing the deal in UTC. Format: YYYY-MM-DD HH:MM:SS.
      * @type {string}
      * @memberof DealCollectionResponseObject
      */
-    'close_time'?: string | null;
+    'close_time': string | null;
     /**
      * The ID of the pipeline associated with the deal
      * @type {number}
      * @memberof DealCollectionResponseObject
      */
-    'pipeline_id'?: number;
+    'pipeline_id': number;
     /**
      * The date and time of changing the deal status to won in UTC. Format: YYYY-MM-DD HH:MM:SS.
      * @type {string}
      * @memberof DealCollectionResponseObject
      */
-    'won_time'?: string;
+    'won_time': string;
     /**
      * The date and time of changing the deal status to lost in UTC. Format: YYYY-MM-DD HH:MM:SS.
      * @type {string}
      * @memberof DealCollectionResponseObject
      */
-    'lost_time'?: string;
+    'lost_time': string;
     /**
      * The expected close date of the deal
      * @type {string}
      * @memberof DealCollectionResponseObject
      */
-    'expected_close_date'?: string;
+    'expected_close_date': string;
     /**
      * The label or multiple labels assigned to the deal
      * @type {string}
      * @memberof DealCollectionResponseObject
      */
-    'label'?: string;
+    'label': string;
 }
 

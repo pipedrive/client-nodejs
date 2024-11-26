@@ -28,6 +28,6 @@ export interface AddPersonFollowerResponseAllOf {
      * @type {AddPersonFollowerResponseAllOfData}
      * @memberof AddPersonFollowerResponseAllOf
      */
-    'data'?: AddPersonFollowerResponseAllOfData;
+    'data': AddPersonFollowerResponseAllOfData;
 }
 

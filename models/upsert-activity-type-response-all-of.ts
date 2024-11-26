@@ -28,6 +28,6 @@ export interface UpsertActivityTypeResponseAllOf {
      * @type {GetActivityTypesResponseAllOfDataInner}
      * @memberof UpsertActivityTypeResponseAllOf
      */
-    'data'?: GetActivityTypesResponseAllOfDataInner;
+    'data': GetActivityTypesResponseAllOfDataInner;
 }
 

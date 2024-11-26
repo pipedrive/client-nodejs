@@ -28,6 +28,6 @@ export interface MergePersonsResponseAllOf {
      * @type {MergePersonItem}
      * @memberof MergePersonsResponseAllOf
      */
-    'data'?: MergePersonItem;
+    'data': MergePersonItem;
 }
 

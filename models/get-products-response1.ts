@@ -34,24 +34,24 @@ export interface GetProductsResponse1 {
      * @type {boolean}
      * @memberof GetProductsResponse1
      */
-    'success'?: boolean;
+    'success': boolean;
     /**
      * Array containing data for all products
      * @type {Array<GetProductResponse>}
      * @memberof GetProductsResponse1
      */
-    'data'?: Array<GetProductResponse>;
+    'data': Array<GetProductResponse>;
     /**
      * 
      * @type {GetProductsResponse1AdditionalData}
      * @memberof GetProductsResponse1
      */
-    'additional_data'?: GetProductsResponse1AdditionalData;
+    'additional_data': GetProductsResponse1AdditionalData;
     /**
      * 
      * @type {GetActivitiesResponseRelatedObjects}
      * @memberof GetProductsResponse1
      */
-    'related_objects'?: GetActivitiesResponseRelatedObjects;
+    'related_objects': GetActivitiesResponseRelatedObjects;
 }
 

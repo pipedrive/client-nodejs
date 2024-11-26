@@ -31,18 +31,18 @@ export interface GetCallLogsResponse {
      * @type {boolean}
      * @memberof GetCallLogsResponse
      */
-    'success'?: boolean;
+    'success': boolean;
     /**
      * 
      * @type {Array<ResponseCallLogObject>}
      * @memberof GetCallLogsResponse
      */
-    'data'?: Array<ResponseCallLogObject>;
+    'data': Array<ResponseCallLogObject>;
     /**
      * 
      * @type {GetCallLogsResponseAdditionalData}
      * @memberof GetCallLogsResponse
      */
-    'additional_data'?: GetCallLogsResponseAdditionalData;
+    'additional_data': GetCallLogsResponseAdditionalData;
 }
 

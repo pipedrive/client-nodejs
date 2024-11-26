@@ -34,18 +34,18 @@ export interface GetPersonDetailsResponseAllOf {
      * @type {PersonItem}
      * @memberof GetPersonDetailsResponseAllOf
      */
-    'data'?: PersonItem;
+    'data': PersonItem;
     /**
      * 
      * @type {GetPersonDetailsResponseAllOfAdditionalData}
      * @memberof GetPersonDetailsResponseAllOf
      */
-    'additional_data'?: GetPersonDetailsResponseAllOfAdditionalData;
+    'additional_data': GetPersonDetailsResponseAllOfAdditionalData;
     /**
      * 
      * @type {GetOrganizationsResponseAllOfRelatedObjects}
      * @memberof GetPersonDetailsResponseAllOf
      */
-    'related_objects'?: GetOrganizationsResponseAllOfRelatedObjects;
+    'related_objects': GetOrganizationsResponseAllOfRelatedObjects;
 }
 

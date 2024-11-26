@@ -28,6 +28,6 @@ export interface GetPaymentsResponseAllOf {
      * @type {Array<GetPaymentsResponseAllOfDataInner>}
      * @memberof GetPaymentsResponseAllOf
      */
-    'data'?: Array<GetPaymentsResponseAllOfDataInner>;
+    'data': Array<GetPaymentsResponseAllOfDataInner>;
 }
 

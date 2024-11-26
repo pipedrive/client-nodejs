@@ -25,12 +25,12 @@ export interface UserProviderLinkErrorResponse {
      * @type {boolean}
      * @memberof UserProviderLinkErrorResponse
      */
-    'success'?: boolean;
+    'success': boolean;
     /**
      * The error message of the request
      * @type {string}
      * @memberof UserProviderLinkErrorResponse
      */
-    'message'?: string;
+    'message': string;
 }
 

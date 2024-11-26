@@ -13,21 +13,24 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import { GetFiltersResponseAllOfDataInner } from './get-filters-response-all-of-data-inner';
 
 /**
  * 
  * @export
- * @interface GetFiltersResponse1AllOf
+ * @interface GetNoteFieldsResponseAllOfDataInnerAllOfOptionsInner
  */
-export interface GetFiltersResponse1AllOf {
+export interface GetNoteFieldsResponseAllOfDataInnerAllOfOptionsInner {
     /**
      * 
-     * @type {GetFiltersResponseAllOfDataInner}
-     * @memberof GetFiltersResponse1AllOf
+     * @type {number}
+     * @memberof GetNoteFieldsResponseAllOfDataInnerAllOfOptionsInner
      */
-    'data': GetFiltersResponseAllOfDataInner;
+    'id'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetNoteFieldsResponseAllOfDataInnerAllOfOptionsInner
+     */
+    'label'?: string;
 }
 

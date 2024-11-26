@@ -28,12 +28,12 @@ export interface MergeOrganizationsResponse {
      * @type {boolean}
      * @memberof MergeOrganizationsResponse
      */
-    'success'?: boolean;
+    'success': boolean;
     /**
      * 
      * @type {MergeOrganizationsResponseData}
      * @memberof MergeOrganizationsResponse
      */
-    'data'?: MergeOrganizationsResponseData;
+    'data': MergeOrganizationsResponseData;
 }
 

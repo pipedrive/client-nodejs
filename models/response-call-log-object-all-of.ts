@@ -25,18 +25,18 @@ export interface ResponseCallLogObjectAllOf {
      * @type {string}
      * @memberof ResponseCallLogObjectAllOf
      */
-    'id'?: string;
+    'id': string;
     /**
      * If the call log has an audio recording attached, the value should be true
      * @type {boolean}
      * @memberof ResponseCallLogObjectAllOf
      */
-    'has_recording'?: boolean;
+    'has_recording': boolean;
     /**
      * The company ID of the owner of the call log
      * @type {number}
      * @memberof ResponseCallLogObjectAllOf
      */
-    'company_id'?: number;
+    'company_id': number;
 }
 

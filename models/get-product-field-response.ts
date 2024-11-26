@@ -28,12 +28,12 @@ export interface GetProductFieldResponse {
      * @type {boolean}
      * @memberof GetProductFieldResponse
      */
-    'success'?: boolean;
+    'success': boolean;
     /**
      * 
      * @type {GetProductFieldResponseData}
      * @memberof GetProductFieldResponse
      */
-    'data'?: GetProductFieldResponseData;
+    'data': GetProductFieldResponseData;
 }
 

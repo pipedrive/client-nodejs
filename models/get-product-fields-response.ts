@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { ProductField } from './product-field';
+import { GetProductFieldsResponseDataInner } from './get-product-fields-response-data-inner';
 
 /**
  * 
@@ -28,18 +28,18 @@ export interface GetProductFieldsResponse {
      * @type {boolean}
      * @memberof GetProductFieldsResponse
      */
-    'success'?: boolean;
+    'success': boolean;
     /**
      * Array containing data for all product fields
-     * @type {Array<ProductField>}
+     * @type {Array<GetProductFieldsResponseDataInner>}
      * @memberof GetProductFieldsResponse
      */
-    'data'?: Array<ProductField>;
+    'data': Array<GetProductFieldsResponseDataInner>;
     /**
      * Additional data for the product field, such as pagination
      * @type {object}
      * @memberof GetProductFieldsResponse
      */
-    'additional_data'?: object;
+    'additional_data': object;
 }
 

@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { BasicDeal } from './basic-deal';
+import { BasicDeal1 } from './basic-deal1';
 // May contain unused imports in some cases
 // @ts-ignore
 import { DealTitleParam } from './deal-title-param';
@@ -27,6 +27,6 @@ import { UpdateDealParameters } from './update-deal-parameters';
  * @type UpdateDealRequest
  * @export
  */
-export type UpdateDealRequest = BasicDeal & DealTitleParam & UpdateDealParameters;
+export type UpdateDealRequest = BasicDeal1 & DealTitleParam & UpdateDealParameters;
 
 

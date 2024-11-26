@@ -31,12 +31,12 @@ export interface AddOrganizationResponseAllOf {
      * @type {BaseOrganizationItemWithEditNameFlag}
      * @memberof AddOrganizationResponseAllOf
      */
-    'data'?: BaseOrganizationItemWithEditNameFlag;
+    'data': BaseOrganizationItemWithEditNameFlag;
     /**
      * 
      * @type {GetOrganizationsResponseAllOfRelatedObjects}
      * @memberof AddOrganizationResponseAllOf
      */
-    'related_objects'?: GetOrganizationsResponseAllOfRelatedObjects;
+    'related_objects': GetOrganizationsResponseAllOfRelatedObjects;
 }
 

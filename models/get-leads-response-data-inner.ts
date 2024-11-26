@@ -28,127 +28,127 @@ export interface GetLeadsResponseDataInner {
      * @type {string}
      * @memberof GetLeadsResponseDataInner
      */
-    'id'?: string;
+    'id': string;
     /**
      * The title of the lead
      * @type {string}
      * @memberof GetLeadsResponseDataInner
      */
-    'title'?: string;
+    'title': string;
     /**
      * The ID of the user who owns the lead
      * @type {number}
      * @memberof GetLeadsResponseDataInner
      */
-    'owner_id'?: number;
+    'owner_id': number;
     /**
      * The ID of the user who created the lead
      * @type {number}
      * @memberof GetLeadsResponseDataInner
      */
-    'creator_id'?: number;
+    'creator_id': number;
     /**
      * The IDs of the lead labels which are associated with the lead
      * @type {Array<string>}
      * @memberof GetLeadsResponseDataInner
      */
-    'label_ids'?: Array<string>;
+    'label_ids': Array<string>;
     /**
      * The ID of a person which this lead is linked to
      * @type {number}
      * @memberof GetLeadsResponseDataInner
      */
-    'person_id'?: number | null;
+    'person_id': number | null;
     /**
      * The ID of an organization which this lead is linked to
      * @type {number}
      * @memberof GetLeadsResponseDataInner
      */
-    'organization_id'?: number | null;
+    'organization_id': number | null;
     /**
      * Defines where the lead comes from. Will be `API` if the lead was created through the Public API and will be `Manually created` if the lead was created manually through the UI. 
      * @type {string}
      * @memberof GetLeadsResponseDataInner
      */
-    'source_name'?: string;
+    'source_name': string;
     /**
      * The way this Lead was created. `origin` field is set by Pipedrive when Lead is created and cannot be changed.
      * @type {string}
      * @memberof GetLeadsResponseDataInner
      */
-    'origin'?: string;
+    'origin': string;
     /**
      * The optional ID to further distinguish the origin of the lead - e.g. Which API integration created this Lead.
      * @type {string}
      * @memberof GetLeadsResponseDataInner
      */
-    'origin_id'?: string | null;
+    'origin_id': string | null;
     /**
      * The ID of your Marketing channel this Lead was created from. Recognized Marketing channels can be configured in your <a href=\"https://app.pipedrive.com/settings/fields\" target=\"_blank\" rel=\"noopener noreferrer\">Company settings</a>.
      * @type {number}
      * @memberof GetLeadsResponseDataInner
      */
-    'channel'?: number | null;
+    'channel': number | null;
     /**
      * The optional ID to further distinguish the Marketing channel.
      * @type {string}
      * @memberof GetLeadsResponseDataInner
      */
-    'channel_id'?: string | null;
+    'channel_id': string | null;
     /**
      * A flag indicating whether the lead is archived or not
      * @type {boolean}
      * @memberof GetLeadsResponseDataInner
      */
-    'is_archived'?: boolean;
+    'is_archived': boolean;
     /**
      * A flag indicating whether the lead was seen by someone in the Pipedrive UI
      * @type {boolean}
      * @memberof GetLeadsResponseDataInner
      */
-    'was_seen'?: boolean;
+    'was_seen': boolean;
     /**
      * 
      * @type {GetLeadsResponseDataInnerValue}
      * @memberof GetLeadsResponseDataInner
      */
-    'value'?: GetLeadsResponseDataInnerValue | null;
+    'value': GetLeadsResponseDataInnerValue | null;
     /**
      * The date of when the deal which will be created from the lead is expected to be closed. In ISO 8601 format: YYYY-MM-DD.
      * @type {string}
      * @memberof GetLeadsResponseDataInner
      */
-    'expected_close_date'?: string | null;
+    'expected_close_date': string | null;
     /**
      * The ID of the next activity associated with the lead
      * @type {number}
      * @memberof GetLeadsResponseDataInner
      */
-    'next_activity_id'?: number | null;
+    'next_activity_id': number | null;
     /**
      * The date and time of when the lead was created. In ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
      * @type {string}
      * @memberof GetLeadsResponseDataInner
      */
-    'add_time'?: string;
+    'add_time': string;
     /**
      * The date and time of when the lead was last updated. In ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
      * @type {string}
      * @memberof GetLeadsResponseDataInner
      */
-    'update_time'?: string;
+    'update_time': string;
     /**
      * 
      * @type {string}
      * @memberof GetLeadsResponseDataInner
      */
-    'visible_to'?: GetLeadsResponseDataInnerVisibleToConst;
+    'visible_to': GetLeadsResponseDataInnerVisibleToConst;
     /**
      * The BCC email of the lead
      * @type {string}
      * @memberof GetLeadsResponseDataInner
      */
-    'cc_email'?: string;
+    'cc_email': string;
 }
 
 export const GetLeadsResponseDataInnerVisibleToConst = {

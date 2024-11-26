@@ -21,7 +21,7 @@
  */
 export interface UpdateDealProductRequestAllOf {
     /**
-     * Only available in Advanced and above plans  How often a customer is billed for access to a service or product  A deal can have up to 20 products attached with `billing_frequency` different than `one-time` 
+     * Only available in Advanced and above plans  How often a customer is billed for access to a service or product  To set `billing_frequency` different than `one-time`, the deal must not have installments associated  A deal can have up to 20 products attached with `billing_frequency` different than `one-time` 
      * @type {string}
      * @memberof UpdateDealProductRequestAllOf
      */

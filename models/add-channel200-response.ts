@@ -28,12 +28,12 @@ export interface AddChannel200Response {
      * @type {boolean}
      * @memberof AddChannel200Response
      */
-    'success'?: boolean;
+    'success': boolean;
     /**
      * 
      * @type {AddChannel200ResponseData}
      * @memberof AddChannel200Response
      */
-    'data'?: AddChannel200ResponseData;
+    'data': AddChannel200ResponseData;
 }
 

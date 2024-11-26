@@ -28,12 +28,12 @@ export interface AddOrganizationFollowerResponse {
      * @type {boolean}
      * @memberof AddOrganizationFollowerResponse
      */
-    'success'?: boolean;
+    'success': boolean;
     /**
      * 
      * @type {GetAssociatedFollowersResponse1DataInner}
      * @memberof AddOrganizationFollowerResponse
      */
-    'data'?: GetAssociatedFollowersResponse1DataInner;
+    'data': GetAssociatedFollowersResponse1DataInner;
 }
 

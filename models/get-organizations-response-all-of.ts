@@ -34,18 +34,18 @@ export interface GetOrganizationsResponseAllOf {
      * @type {Array<BaseOrganizationItem>}
      * @memberof GetOrganizationsResponseAllOf
      */
-    'data'?: Array<BaseOrganizationItem>;
+    'data': Array<BaseOrganizationItem>;
     /**
      * 
      * @type {GetActivitiesResponseAdditionalData}
      * @memberof GetOrganizationsResponseAllOf
      */
-    'additional_data'?: GetActivitiesResponseAdditionalData;
+    'additional_data': GetActivitiesResponseAdditionalData;
     /**
      * 
      * @type {GetOrganizationsResponseAllOfRelatedObjects}
      * @memberof GetOrganizationsResponseAllOf
      */
-    'related_objects'?: GetOrganizationsResponseAllOfRelatedObjects;
+    'related_objects': GetOrganizationsResponseAllOfRelatedObjects;
 }
 

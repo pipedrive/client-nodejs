@@ -28,12 +28,12 @@ export interface DeleteProductFieldsResponse {
      * @type {boolean}
      * @memberof DeleteProductFieldsResponse
      */
-    'success'?: boolean;
+    'success': boolean;
     /**
      * 
      * @type {DeleteProductFieldsResponseData}
      * @memberof DeleteProductFieldsResponse
      */
-    'data'?: DeleteProductFieldsResponseData;
+    'data': DeleteProductFieldsResponseData;
 }
 

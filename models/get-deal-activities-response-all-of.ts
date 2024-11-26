@@ -34,18 +34,18 @@ export interface GetDealActivitiesResponseAllOf {
      * @type {Array<ActivityResponseObject>}
      * @memberof GetDealActivitiesResponseAllOf
      */
-    'data'?: Array<ActivityResponseObject>;
+    'data': Array<ActivityResponseObject>;
     /**
      * 
      * @type {ActivityDistributionDataWithAdditionalData}
      * @memberof GetDealActivitiesResponseAllOf
      */
-    'additional_data'?: ActivityDistributionDataWithAdditionalData;
+    'additional_data': ActivityDistributionDataWithAdditionalData;
     /**
      * 
      * @type {GetDealActivitiesResponseAllOfRelatedObjects}
      * @memberof GetDealActivitiesResponseAllOf
      */
-    'related_objects'?: GetDealActivitiesResponseAllOfRelatedObjects;
+    'related_objects': GetDealActivitiesResponseAllOfRelatedObjects;
 }
 

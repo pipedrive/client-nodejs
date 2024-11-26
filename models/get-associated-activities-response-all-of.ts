@@ -31,12 +31,12 @@ export interface GetAssociatedActivitiesResponseAllOf {
      * @type {Array<ActivityResponseObject>}
      * @memberof GetAssociatedActivitiesResponseAllOf
      */
-    'data'?: Array<ActivityResponseObject>;
+    'data': Array<ActivityResponseObject>;
     /**
      * 
      * @type {ActivityDistributionDataWithAdditionalData}
      * @memberof GetAssociatedActivitiesResponseAllOf
      */
-    'additional_data'?: ActivityDistributionDataWithAdditionalData;
+    'additional_data': ActivityDistributionDataWithAdditionalData;
 }
 

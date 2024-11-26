@@ -181,8 +181,10 @@ models/base-team.ts
 models/basic-deal-product-request-all-of.ts
 models/basic-deal-product-request.ts
 models/basic-deal.ts
+models/basic-deal1.ts
 models/basic-goal-request.ts
 models/basic-organization.ts
+models/basic-organization1.ts
 models/basic-person-request-email-inner.ts
 models/basic-person-request.ts
 models/call-log-bad-request-response.ts
@@ -422,6 +424,8 @@ models/get-duplicated-deal-response.ts
 models/get-field-response-all-of.ts
 models/get-field-response.ts
 models/get-fields-response-all-of-additional-data.ts
+models/get-fields-response-all-of-data-inner-all-of.ts
+models/get-fields-response-all-of-data-inner-all-of1.ts
 models/get-fields-response-all-of-data-inner.ts
 models/get-fields-response-all-of.ts
 models/get-fields-response.ts
@@ -479,7 +483,8 @@ models/get-mail-thread-response1.ts
 models/get-merged-deal-response-data-all-of.ts
 models/get-merged-deal-response-data.ts
 models/get-merged-deal-response.ts
-models/get-note-fields-response-all-of-data-inner-options-inner.ts
+models/get-note-fields-response-all-of-data-inner-all-of-options-inner.ts
+models/get-note-fields-response-all-of-data-inner-all-of.ts
 models/get-note-fields-response-all-of-data-inner.ts
 models/get-note-fields-response-all-of.ts
 models/get-note-fields-response.ts
@@ -574,6 +579,7 @@ models/get-product-attachment-details-response-data.ts
 models/get-product-attachment-details-response.ts
 models/get-product-field-response-data.ts
 models/get-product-field-response.ts
+models/get-product-fields-response-data-inner.ts
 models/get-product-fields-response.ts
 models/get-product-followers-response-all-of-data-inner.ts
 models/get-product-followers-response-all-of.ts
@@ -752,6 +758,7 @@ models/product-field-all-of.ts
 models/product-field-all-of1.ts
 models/product-field.ts
 models/product-request.ts
+models/product-request1.ts
 models/project-put-plan-item-body-object.ts
 models/project-response-object-all-of.ts
 models/project-response-object.ts

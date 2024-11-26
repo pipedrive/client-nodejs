@@ -28,6 +28,6 @@ export interface GetActivityTypesResponseAllOf {
      * @type {Array<GetActivityTypesResponseAllOfDataInner>}
      * @memberof GetActivityTypesResponseAllOf
      */
-    'data'?: Array<GetActivityTypesResponseAllOfDataInner>;
+    'data': Array<GetActivityTypesResponseAllOfDataInner>;
 }
 

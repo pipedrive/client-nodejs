@@ -25,24 +25,24 @@ export interface GetMailMessageResponseAllOf {
      * @type {boolean}
      * @memberof GetMailMessageResponseAllOf
      */
-    'success'?: boolean;
+    'success': boolean;
     /**
      * The email service specific status code and it is returned through the response body.
      * @type {number}
      * @memberof GetMailMessageResponseAllOf
      */
-    'statusCode'?: number;
+    'statusCode': number;
     /**
      * The status text of the response.
      * @type {string}
      * @memberof GetMailMessageResponseAllOf
      */
-    'statusText'?: string;
+    'statusText': string;
     /**
      * The service name of the response.
      * @type {string}
      * @memberof GetMailMessageResponseAllOf
      */
-    'service'?: string;
+    'service': string;
 }
 

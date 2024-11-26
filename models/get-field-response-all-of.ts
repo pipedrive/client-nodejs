@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetFieldsResponseAllOfDataInner } from './get-fields-response-all-of-data-inner';
+import { GetFieldsResponseAllOfDataInnerAllOf } from './get-fields-response-all-of-data-inner-all-of';
 
 /**
  * 
@@ -25,9 +25,9 @@ import { GetFieldsResponseAllOfDataInner } from './get-fields-response-all-of-da
 export interface GetFieldResponseAllOf {
     /**
      * 
-     * @type {GetFieldsResponseAllOfDataInner}
+     * @type {GetFieldsResponseAllOfDataInnerAllOf}
      * @memberof GetFieldResponseAllOf
      */
-    'data'?: GetFieldsResponseAllOfDataInner;
+    'data': GetFieldsResponseAllOfDataInnerAllOf;
 }
 

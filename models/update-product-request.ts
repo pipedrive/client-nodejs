@@ -18,7 +18,7 @@
 import { AddDealProductRequestAllOf1 } from './add-deal-product-request-all-of1';
 // May contain unused imports in some cases
 // @ts-ignore
-import { ProductRequest } from './product-request';
+import { ProductRequest1 } from './product-request1';
 // May contain unused imports in some cases
 // @ts-ignore
 import { UpdateProductRequestAllOf } from './update-product-request-all-of';
@@ -30,6 +30,6 @@ import { UpdateProductRequestAllOf1 } from './update-product-request-all-of1';
  * @type UpdateProductRequest
  * @export
  */
-export type UpdateProductRequest = AddDealProductRequestAllOf1 & ProductRequest & UpdateProductRequestAllOf & UpdateProductRequestAllOf1;
+export type UpdateProductRequest = AddDealProductRequestAllOf1 & ProductRequest1 & UpdateProductRequestAllOf & UpdateProductRequestAllOf1;
 
 

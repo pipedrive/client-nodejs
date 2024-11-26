@@ -49,7 +49,6 @@ describe('automatic token refresh in api calls', () => {
 		const oauthClient =	new lib.OAuth2Configuration(oauthConfig);
 		oauthClient.refreshToken = 'fakeRefreshToken';
 
-
 		const apiConfig = new lib.Configuration({
 			accessToken: oauthClient.getAccessToken,
 			basePath: oauthClient.basePath,

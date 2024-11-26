@@ -31,12 +31,12 @@ export interface GetPersonProductsResponseAllOf {
      * @type {Array<GetPersonProductsResponseAllOfDataInner>}
      * @memberof GetPersonProductsResponseAllOf
      */
-    'data'?: Array<GetPersonProductsResponseAllOfDataInner>;
+    'data': Array<GetPersonProductsResponseAllOfDataInner>;
     /**
      * 
      * @type {GetActivitiesResponseAdditionalData}
      * @memberof GetPersonProductsResponseAllOf
      */
-    'additional_data'?: GetActivitiesResponseAdditionalData;
+    'additional_data': GetActivitiesResponseAdditionalData;
 }
 

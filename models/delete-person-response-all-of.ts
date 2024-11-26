@@ -28,6 +28,6 @@ export interface DeletePersonResponseAllOf {
      * @type {DeletePersonResponseAllOfData}
      * @memberof DeletePersonResponseAllOf
      */
-    'data'?: DeletePersonResponseAllOfData;
+    'data': DeletePersonResponseAllOfData;
 }
 

@@ -28,6 +28,6 @@ export interface AddPersonPictureResponseAllOf {
      * @type {GetOrganizationsResponseAllOfRelatedObjectsPicture}
      * @memberof AddPersonPictureResponseAllOf
      */
-    'data'?: GetOrganizationsResponseAllOfRelatedObjectsPicture;
+    'data': GetOrganizationsResponseAllOfRelatedObjectsPicture;
 }
 

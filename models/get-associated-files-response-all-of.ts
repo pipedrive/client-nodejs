@@ -31,12 +31,12 @@ export interface GetAssociatedFilesResponseAllOf {
      * @type {Array<GetAssociatedFilesResponseAllOfDataInner>}
      * @memberof GetAssociatedFilesResponseAllOf
      */
-    'data'?: Array<GetAssociatedFilesResponseAllOfDataInner>;
+    'data': Array<GetAssociatedFilesResponseAllOfDataInner>;
     /**
      * 
      * @type {GetFieldsResponseAllOfAdditionalData}
      * @memberof GetAssociatedFilesResponseAllOf
      */
-    'additional_data'?: GetFieldsResponseAllOfAdditionalData;
+    'additional_data': GetFieldsResponseAllOfAdditionalData;
 }
 

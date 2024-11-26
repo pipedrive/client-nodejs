@@ -31,12 +31,12 @@ export interface GetChangelogResponseAllOf {
      * @type {Array<GetChangelogResponseAllOfDataInner>}
      * @memberof GetChangelogResponseAllOf
      */
-    'data'?: Array<GetChangelogResponseAllOfDataInner>;
+    'data': Array<GetChangelogResponseAllOfDataInner>;
     /**
      * 
      * @type {GetActivitiesCollectionResponseAdditionalData}
      * @memberof GetChangelogResponseAllOf
      */
-    'additional_data'?: GetActivitiesCollectionResponseAdditionalData;
+    'additional_data': GetActivitiesCollectionResponseAdditionalData;
 }
 

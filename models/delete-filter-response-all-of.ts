@@ -28,6 +28,6 @@ export interface DeleteFilterResponseAllOf {
      * @type {DeleteFilterResponseAllOfData}
      * @memberof DeleteFilterResponseAllOf
      */
-    'data'?: DeleteFilterResponseAllOfData;
+    'data': DeleteFilterResponseAllOfData;
 }
 

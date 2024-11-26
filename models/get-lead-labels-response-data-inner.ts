@@ -25,31 +25,31 @@ export interface GetLeadLabelsResponseDataInner {
      * @type {string}
      * @memberof GetLeadLabelsResponseDataInner
      */
-    'id'?: string;
+    'id': string;
     /**
      * The name of the lead label
      * @type {string}
      * @memberof GetLeadLabelsResponseDataInner
      */
-    'name'?: string;
+    'name': string;
     /**
      * The color of the label. Only a subset of colors can be used.
      * @type {string}
      * @memberof GetLeadLabelsResponseDataInner
      */
-    'color'?: GetLeadLabelsResponseDataInnerColorConst;
+    'color': GetLeadLabelsResponseDataInnerColorConst;
     /**
      * The date and time of when the lead label was created. In ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
      * @type {string}
      * @memberof GetLeadLabelsResponseDataInner
      */
-    'add_time'?: string;
+    'add_time': string;
     /**
      * The date and time of when the lead label was last updated. In ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
      * @type {string}
      * @memberof GetLeadLabelsResponseDataInner
      */
-    'update_time'?: string;
+    'update_time': string;
 }
 
 export const GetLeadLabelsResponseDataInnerColorConst = {

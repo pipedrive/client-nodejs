@@ -31,12 +31,12 @@ export interface UpdateOrganizationResponseAllOf {
      * @type {BaseOrganizationItem}
      * @memberof UpdateOrganizationResponseAllOf
      */
-    'data'?: BaseOrganizationItem;
+    'data': BaseOrganizationItem;
     /**
      * 
      * @type {GetOrganizationsResponseAllOfRelatedObjects}
      * @memberof UpdateOrganizationResponseAllOf
      */
-    'related_objects'?: GetOrganizationsResponseAllOfRelatedObjects;
+    'related_objects': GetOrganizationsResponseAllOfRelatedObjects;
 }
 

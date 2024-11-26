@@ -34,18 +34,18 @@ export interface GetAssociatedOrganizationUpdatesResponseAllOf {
      * @type {Array<GetAssociatedOrganizationUpdatesResponseAllOfDataInner>}
      * @memberof GetAssociatedOrganizationUpdatesResponseAllOf
      */
-    'data'?: Array<GetAssociatedOrganizationUpdatesResponseAllOfDataInner>;
+    'data': Array<GetAssociatedOrganizationUpdatesResponseAllOfDataInner>;
     /**
      * 
      * @type {GetFieldsResponseAllOfAdditionalData}
      * @memberof GetAssociatedOrganizationUpdatesResponseAllOf
      */
-    'additional_data'?: GetFieldsResponseAllOfAdditionalData;
+    'additional_data': GetFieldsResponseAllOfAdditionalData;
     /**
      * 
      * @type {GetAssociatedOrganizationUpdatesResponseAllOfRelatedObjects}
      * @memberof GetAssociatedOrganizationUpdatesResponseAllOf
      */
-    'related_objects'?: GetAssociatedOrganizationUpdatesResponseAllOfRelatedObjects;
+    'related_objects': GetAssociatedOrganizationUpdatesResponseAllOfRelatedObjects;
 }
 

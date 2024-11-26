@@ -28,6 +28,6 @@ export interface GetGoalsResponseData {
      * @type {Array<UpsertGoalResponseDataGoal>}
      * @memberof GetGoalsResponseData
      */
-    'goals'?: Array<UpsertGoalResponseDataGoal>;
+    'goals': Array<UpsertGoalResponseDataGoal>;
 }
 

@@ -25,6 +25,6 @@ export interface GetPermittedUsersResponse1AllOf {
      * @type {Array<number>}
      * @memberof GetPermittedUsersResponse1AllOf
      */
-    'data'?: Array<number>;
+    'data': Array<number>;
 }
 

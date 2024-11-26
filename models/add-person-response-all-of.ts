@@ -31,12 +31,12 @@ export interface AddPersonResponseAllOf {
      * @type {PersonItem}
      * @memberof AddPersonResponseAllOf
      */
-    'data'?: PersonItem;
+    'data': PersonItem;
     /**
      * 
      * @type {GetProductsResponseAllOfRelatedObjects}
      * @memberof AddPersonResponseAllOf
      */
-    'related_objects'?: GetProductsResponseAllOfRelatedObjects;
+    'related_objects': GetProductsResponseAllOfRelatedObjects;
 }
 

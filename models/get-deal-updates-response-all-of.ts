@@ -34,18 +34,18 @@ export interface GetDealUpdatesResponseAllOf {
      * @type {Array<GetDealUpdatesResponseAllOfDataInner>}
      * @memberof GetDealUpdatesResponseAllOf
      */
-    'data'?: Array<GetDealUpdatesResponseAllOfDataInner>;
+    'data': Array<GetDealUpdatesResponseAllOfDataInner>;
     /**
      * 
      * @type {GetFieldsResponseAllOfAdditionalData}
      * @memberof GetDealUpdatesResponseAllOf
      */
-    'additional_data'?: GetFieldsResponseAllOfAdditionalData;
+    'additional_data': GetFieldsResponseAllOfAdditionalData;
     /**
      * 
      * @type {GetDealUpdatesResponseAllOfRelatedObjects}
      * @memberof GetDealUpdatesResponseAllOf
      */
-    'related_objects'?: GetDealUpdatesResponseAllOfRelatedObjects;
+    'related_objects': GetDealUpdatesResponseAllOfRelatedObjects;
 }
 
