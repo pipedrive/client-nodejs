@@ -1,28 +1,34 @@
-import { getLib, getMockServer } from './utils';
+import { getLib } from './utils';
+import { OauthApiMock } from './stubs';
+import nock from 'nock';
 
 const oauth2 = {
-	host: 'localhost',
+	host: 'https://api.pipedrive.com',
 	clientId: 'fakeClientId',
 	clientSecret: 'fakeClientSecret',
 	redirectUri: 'https://example.org',
 };
-
-const server = getMockServer(oauth2);
 
 describe('oauth2 accessToken', () => {
 	let lib;
 
 	beforeAll(async () => {
 		lib = await getLib();
-		server.listen();
 	});
 
-	afterEach(() => server.resetHandlers());
-	afterAll(() => server.close());
+	afterEach(() => nock.cleanAll());
 
 	it('should refresh accessToken with valid refreshToken', async () => {
 		const configuration = new lib.OAuth2Configuration(oauth2);
 		configuration.refreshToken = 'fakeRefreshToken';
+		OauthApiMock.refresh({
+			access_token: 'freshAccessToken',
+			api_domain: 'localhost',
+			expires_in: '3600',
+			refresh_token: 'freshRefreshToken',
+			scope: 'deals:full,users:full,1337',
+			token_type: 'bearer',
+		}, 200);
 
 		const auth = await configuration.tokenRefresh();
 
@@ -42,6 +48,11 @@ describe('oauth2 accessToken', () => {
 	it('should throw if refreshToken is not set', async () => {
 		const configuration = new lib.OAuth2Configuration(oauth2);
 
+		OauthApiMock.refresh({
+			success: 'false',
+			message: 'Invalid grant: refresh token is invalid',
+			error: 'invalid_grant',
+		}, 400);
 		try {
 			expect(await configuration.tokenRefresh()).toThrow();
 		} catch (error) {
@@ -52,6 +63,12 @@ describe('oauth2 accessToken', () => {
 	it('should throw if wrong refresh token', async () => {
 		const configuration = new lib.OAuth2Configuration(oauth2);
 		configuration.refreshToken = 'wrongRefreshToken';
+
+		OauthApiMock.refresh({
+			success: 'false',
+			message: 'Invalid grant: refresh token is invalid',
+			error: 'invalid_grant',
+		}, 400);
 
 		try {
 			expect(await configuration.tokenRefresh()).toThrow();
