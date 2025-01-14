@@ -1,6 +1,6 @@
 const nock = require('nock');
 
-const api = nock('https://api.pipedrive.com');
+const api = nock('http://localhost');
 
 const DealsApiMock = {
 	getDeals(resolves, status = 200) {

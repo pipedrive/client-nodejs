@@ -3,7 +3,7 @@ import { OauthApiMock } from './stubs';
 import nock from 'nock';
 
 const oauth2 = {
-	host: 'https://api.pipedrive.com',
+	host: 'http://localhost',
 	clientId: 'fakeClientId',
 	clientSecret: 'fakeClientSecret',
 	redirectUri: 'https://example.org',
