@@ -29,8 +29,17 @@ const OauthApiMock = {
 		return api.post('/oauth/token').reply(status, resolves);
 	},
 };
+
+const UsersApiMock = {
+	getUsers(resolves, status) {
+		return api.get('/v1/users')
+			.reply(status, resolves);
+	},
+};
+
 module.exports = {
 	DealsApiMock,
 	LeadsApiMock,
 	OauthApiMock,
+	UsersApiMock,
 };
