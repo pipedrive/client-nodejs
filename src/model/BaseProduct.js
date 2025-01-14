@@ -180,7 +180,7 @@ BaseProduct.prototype['owner_id'] = undefined;
 BaseProduct.prototype['billing_frequency'] = 'one-time';
 
 /**
- * Only available in Advanced and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field is always `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 312 
+ * Only available in Advanced and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field is always `null`  When `billing_frequency` is set to `weekly`, this field cannot be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 208 
  * @member {Number} billing_frequency_cycles
  */
 BaseProduct.prototype['billing_frequency_cycles'] = undefined;

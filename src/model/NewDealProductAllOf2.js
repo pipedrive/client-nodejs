@@ -65,7 +65,7 @@ class NewDealProductAllOf2 {
 }
 
 /**
- * Only available in Advanced and above plans  The billing start date. Must be between 15 years in the past and 15 years in the future 
+ * Only available in Advanced and above plans  The billing start date. Must be between 10 years in the past and 10 years in the future 
  * @member {String} billing_start_date
  */
 NewDealProductAllOf2.prototype['billing_start_date'] = undefined;

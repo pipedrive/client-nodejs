@@ -723,8 +723,8 @@ export default class OrganizationsApi {
      * @param {Number} id The ID of the organization
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
-     * @param {Number} opts.limit Items shown per page
-     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `product_id`, `add_time`, `update_time`, `file_name`, `file_type`, `file_size`, `comment`.
+     * @param {Number} opts.limit Items shown per page. Please note that a maximum value of 100 is allowed.
+     * @param {String} opts.sort Supported fields: `id`, `update_time`
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListFilesResponse} and HTTP response
      */
     getOrganizationFilesWithHttpInfo(id, opts) {
@@ -785,8 +785,8 @@ export default class OrganizationsApi {
      * @param {Number} id The ID of the organization
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
-     * @param {Number} opts.limit Items shown per page
-     * @param {String} opts.sort The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `product_id`, `add_time`, `update_time`, `file_name`, `file_type`, `file_size`, `comment`.
+     * @param {Number} opts.limit Items shown per page. Please note that a maximum value of 100 is allowed.
+     * @param {String} opts.sort Supported fields: `id`, `update_time`
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListFilesResponse}
      */
     getOrganizationFiles(id, opts) {

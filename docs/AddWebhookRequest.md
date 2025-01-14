@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **user_id** | **Number** | The ID of the user that this webhook will be authorized with. You have the option to use a different user&#39;s &#x60;user_id&#x60;. If it is not set, the current user&#39;s &#x60;user_id&#x60; will be used. As each webhook event is checked against a user&#39;s permissions, the webhook will only be sent if the user has access to the specified object(s). If you want to receive notifications for all events, please use a top-level admin user’s &#x60;user_id&#x60;. | [optional] 
 **http_auth_user** | **String** | The HTTP basic auth username of the subscription URL endpoint (if required) | [optional] 
 **http_auth_password** | **String** | The HTTP basic auth password of the subscription URL endpoint (if required) | [optional] 
-**version** | **String** | The webhook&#39;s version | [optional] [default to &#39;1.0&#39;]
+**version** | **String** | The webhook&#39;s version. NB! Webhooks v2 will become the default from March 17th, 2025. See &lt;a href&#x3D;\&quot;https://developers.pipedrive.com/changelog/post/breaking-change-webhooks-v2-will-become-the-new-default-version\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;this Changelog post&lt;/a&gt; for more details. | [optional] [default to &#39;1.0&#39;]
 
 
 

@@ -207,13 +207,13 @@ UpdateDealProduct.prototype['enabled_flag'] = true;
 UpdateDealProduct.prototype['billing_frequency'] = undefined;
 
 /**
- * Only available in Advanced and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 312 
+ * Only available in Advanced and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  When `billing_frequency` is set to `weekly`, this field cannot be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 208 
  * @member {Number} billing_frequency_cycles
  */
 UpdateDealProduct.prototype['billing_frequency_cycles'] = undefined;
 
 /**
- * Only available in Advanced and above plans  The billing start date. Must be between 15 years in the past and 15 years in the future 
+ * Only available in Advanced and above plans  The billing start date. Must be between 10 years in the past and 10 years in the future 
  * @member {String} billing_start_date
  */
 UpdateDealProduct.prototype['billing_start_date'] = undefined;
@@ -281,13 +281,13 @@ DealProductRequestBody.prototype['enabled_flag'] = true;
 NewDealProductAllOf.prototype['billing_frequency'] = undefined;
 // Implement NewDealProductAllOf1 interface:
 /**
- * Only available in Advanced and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 312 
+ * Only available in Advanced and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  When `billing_frequency` is set to `weekly`, this field cannot be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 208 
  * @member {Number} billing_frequency_cycles
  */
 NewDealProductAllOf1.prototype['billing_frequency_cycles'] = undefined;
 // Implement NewDealProductAllOf2 interface:
 /**
- * Only available in Advanced and above plans  The billing start date. Must be between 15 years in the past and 15 years in the future 
+ * Only available in Advanced and above plans  The billing start date. Must be between 10 years in the past and 10 years in the future 
  * @member {String} billing_start_date
  */
 NewDealProductAllOf2.prototype['billing_start_date'] = undefined;

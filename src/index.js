@@ -67,6 +67,7 @@ import AddProductAttachmentDetailsAllOf from './model/AddProductAttachmentDetail
 import AddProductFollowerRequest from './model/AddProductFollowerRequest';
 import AddProductRequestBody from './model/AddProductRequestBody';
 import AddProductRequestBodyAllOf from './model/AddProductRequestBodyAllOf';
+import AddProductRequestBodyAllOf1 from './model/AddProductRequestBodyAllOf1';
 import AddProjectResponse from './model/AddProjectResponse';
 import AddRole from './model/AddRole';
 import AddRoleAssignmentRequest from './model/AddRoleAssignmentRequest';
@@ -1225,6 +1226,12 @@ export {
      * @property {module:model/AddProductRequestBodyAllOf}
      */
     AddProductRequestBodyAllOf,
+
+    /**
+     * The AddProductRequestBodyAllOf1 model constructor.
+     * @property {module:model/AddProductRequestBodyAllOf1}
+     */
+    AddProductRequestBodyAllOf1,
 
     /**
      * The AddProjectResponse model constructor.

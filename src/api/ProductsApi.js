@@ -477,8 +477,8 @@ export default class ProductsApi {
      * @param {Number} id The ID of the product
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
-     * @param {Number} opts.limit Items shown per page
-     * @param {String} opts.sort The field name and sorting mode (`field_name_1 ASC` or `field_name_1 DESC`). Supported fields: `update_time`, `id`.
+     * @param {Number} opts.limit Items shown per page. Please note that a maximum value of 100 is allowed.
+     * @param {String} opts.sort Supported fields: `id`, `update_time`
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListProductFilesResponse} and HTTP response
      */
     getProductFilesWithHttpInfo(id, opts) {
@@ -539,8 +539,8 @@ export default class ProductsApi {
      * @param {Number} id The ID of the product
      * @param {Object} opts Optional parameters
      * @param {Number} opts.start Pagination start (default to 0)
-     * @param {Number} opts.limit Items shown per page
-     * @param {String} opts.sort The field name and sorting mode (`field_name_1 ASC` or `field_name_1 DESC`). Supported fields: `update_time`, `id`.
+     * @param {Number} opts.limit Items shown per page. Please note that a maximum value of 100 is allowed.
+     * @param {String} opts.sort Supported fields: `id`, `update_time`
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ListProductFilesResponse}
      */
     getProductFiles(id, opts) {

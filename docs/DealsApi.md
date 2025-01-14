@@ -791,8 +791,8 @@ let id = 56; // Number | The ID of the deal
 // snake_case as well as camelCase is supported for naming opts properties
 let opts = {
   'start': 0, // Number | Pagination start
-  'limit': 56, // Number | Items shown per page
-  'sort': "sort_example" // String | The field names and sorting mode separated by a comma (`field_name_1 ASC`, `field_name_2 DESC`). Only first-level field keys are supported (no nested keys). Supported fields: `id`, `user_id`, `deal_id`, `person_id`, `org_id`, `product_id`, `add_time`, `update_time`, `file_name`, `file_type`, `file_size`, `comment`.
+  'limit': 56, // Number | Items shown per page. Please note that a maximum value of 100 is allowed.
+  'sort': "sort_example" // String | Supported fields: `id`, `update_time`
 };
 apiInstance.getDealFiles(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -809,8 +809,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| The ID of the deal | 
  **start** | **Number**| Pagination start | [optional] [default to 0]
- **limit** | **Number**| Items shown per page | [optional] 
- **sort** | **String**| The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: &#x60;id&#x60;, &#x60;user_id&#x60;, &#x60;deal_id&#x60;, &#x60;person_id&#x60;, &#x60;org_id&#x60;, &#x60;product_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;file_name&#x60;, &#x60;file_type&#x60;, &#x60;file_size&#x60;, &#x60;comment&#x60;. | [optional] 
+ **limit** | **Number**| Items shown per page. Please note that a maximum value of 100 is allowed. | [optional] 
+ **sort** | **String**| Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60; | [optional] 
 
 ### Return type
 

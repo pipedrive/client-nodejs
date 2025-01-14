@@ -14,18 +14,18 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The NewDealProductAllOf1 model module.
- * @module model/NewDealProductAllOf1
+ * The AddProductRequestBodyAllOf1 model module.
+ * @module model/AddProductRequestBodyAllOf1
  * @version 1.0.0
  */
-class NewDealProductAllOf1 {
+class AddProductRequestBodyAllOf1 {
     /**
-     * Constructs a new <code>NewDealProductAllOf1</code>.
-     * @alias module:model/NewDealProductAllOf1
+     * Constructs a new <code>AddProductRequestBodyAllOf1</code>.
+     * @alias module:model/AddProductRequestBodyAllOf1
      */
     constructor() { 
         
-        NewDealProductAllOf1.initialize(this);
+        AddProductRequestBodyAllOf1.initialize(this);
     }
 
     /**
@@ -37,15 +37,15 @@ class NewDealProductAllOf1 {
     }
 
     /**
-     * Constructs a <code>NewDealProductAllOf1</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>AddProductRequestBodyAllOf1</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/NewDealProductAllOf1} obj Optional instance to populate.
-     * @return {module:model/NewDealProductAllOf1} The populated <code>NewDealProductAllOf1</code> instance.
+     * @param {module:model/AddProductRequestBodyAllOf1} obj Optional instance to populate.
+     * @return {module:model/AddProductRequestBodyAllOf1} The populated <code>AddProductRequestBodyAllOf1</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new NewDealProductAllOf1();
+            obj = obj || new AddProductRequestBodyAllOf1();
 
             if (data.hasOwnProperty('billing_frequency_cycles')) {
                 obj['billing_frequency_cycles'] = ApiClient.convertToType(data['billing_frequency_cycles'], 'Number');
@@ -65,15 +65,15 @@ class NewDealProductAllOf1 {
 }
 
 /**
- * Only available in Advanced and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  When `billing_frequency` is set to `weekly`, this field cannot be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 208 
+ * Only available in Advanced and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 208 
  * @member {Number} billing_frequency_cycles
  */
-NewDealProductAllOf1.prototype['billing_frequency_cycles'] = undefined;
+AddProductRequestBodyAllOf1.prototype['billing_frequency_cycles'] = undefined;
 
 
 
 
 
 
-export default NewDealProductAllOf1;
+export default AddProductRequestBodyAllOf1;
 

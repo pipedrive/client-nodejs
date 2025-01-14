@@ -7,6 +7,13 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Changed
+- Reduce maximum `limit` query param to 100 for the following endpoints
+  - GET v1/files
+  - GET v1/deals/{id}/files
+  - GET v1/organizations/{id}/files
+  - GET v1/persons/{id}/files
+  - GET /v1/products/{id}/files
 
 ## [23.4.3] - 2024-11-22
 ### Added
