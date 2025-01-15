@@ -1,7 +1,7 @@
-import { getLib } from './utils';
+
 import { OauthApiMock } from './stubs';
 import nock from 'nock';
-
+import { OAuth2Configuration } from '../../dist/versions/v1';
 const oauth2 = {
 	host: 'http://localhost',
 	clientId: 'fakeClientId',
@@ -10,16 +10,10 @@ const oauth2 = {
 };
 
 describe('oauth2 authorization', () => {
-	let lib;
-
-	beforeAll(async () => {
-		lib = await getLib();
-	});
-
 	afterEach(() => nock.cleanAll());
 
 	it('should authorize and save access and refresh tokens', async () => {
-		const oauthClient = new lib.OAuth2Configuration(oauth2);
+		const oauthClient = new OAuth2Configuration(oauth2);
 		oauthClient.refreshToken = 'fakeRefreshToken';
 		OauthApiMock.refresh({
 			access_token: 'freshAccessToken',
@@ -47,7 +41,7 @@ describe('oauth2 authorization', () => {
 
 	it('should throw if clientId is not set', async () => {
 		try {
-			new lib.OAuth2Configuration({
+			new OAuth2Configuration({
 				host: 'localhost',
 				clientSecret: 'fakeClientSecret',
 				redirectUri: 'https://example.org',
@@ -59,7 +53,7 @@ describe('oauth2 authorization', () => {
 
 	it('should throw if clientSecret is not set', async () => {
 		try {
-			new lib.OAuth2Configuration({
+			new OAuth2Configuration({
 				...oauth2,
 				clientSecret: undefined,
 			});
@@ -70,7 +64,7 @@ describe('oauth2 authorization', () => {
 
 	it('should throw if redirectUri is not set', async () => {
 		try {
-			new lib.OAuth2Configuration({
+			new OAuth2Configuration({
 				...oauth2,
 				redirectUri: undefined,
 
@@ -81,7 +75,7 @@ describe('oauth2 authorization', () => {
 	});
 
 	it('should throw if wrong auth_code', async () => {
-		const oauthClient = new lib.OAuth2Configuration(oauth2);
+		const oauthClient = new OAuth2Configuration(oauth2);
 
 		oauthClient.refreshToken = 'fakeRefreshToken';
 
