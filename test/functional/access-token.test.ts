@@ -1,6 +1,7 @@
 import { OauthApiMock } from './stubs';
 import nock from 'nock';
 import { OAuth2Configuration } from '../../dist/versions/v1';
+import { TokenResponse } from '../../configuration';
 
 const oauth2 = {
 	host: 'http://localhost',
@@ -10,13 +11,12 @@ const oauth2 = {
 };
 
 describe('oauth2 accessToken', () => {
-
 	afterEach(() => nock.cleanAll());
 
 	it('should refresh accessToken with valid refreshToken', async () => {
 		const configuration = new OAuth2Configuration(oauth2);
+		configuration.updateToken({ refresh_token: 'fakeRefreshToken' } as TokenResponse);
 
-		configuration.refreshToken = 'fakeRefreshToken';
 		OauthApiMock.refresh({
 			access_token: 'freshAccessToken',
 			api_domain: 'localhost',
@@ -37,8 +37,8 @@ describe('oauth2 accessToken', () => {
 			api_domain: 'localhost',
 		});
 
-		expect(configuration.accessToken).toBe(auth.access_token);
-		expect(configuration.refreshToken).toBe(auth.refresh_token);
+		const accessToken = await configuration.getAccessToken();
+		expect(accessToken).toBe(auth.access_token);
 	});
 
 	it('should throw if refreshToken is not set', async () => {
@@ -58,7 +58,7 @@ describe('oauth2 accessToken', () => {
 
 	it('should throw if wrong refresh token', async () => {
 		const configuration = new OAuth2Configuration(oauth2);
-		configuration.refreshToken = 'wrongRefreshToken';
+		configuration.updateToken({ refresh_token: 'wrongRefreshToken' } as TokenResponse);
 
 		OauthApiMock.refresh({
 			success: 'false',

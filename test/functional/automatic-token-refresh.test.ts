@@ -1,23 +1,29 @@
 
 import nock from 'nock';
 import { OauthApiMock, UsersApiMock } from './stubs';
-import { OAuth2Configuration, Configuration, UsersApi } from '../../dist/versions/v1';
+import { OAuth2Configuration, Configuration, UsersApi, Parameters } from '../../dist/versions/v1';
 
-const oauthConfig = {
+const oauthConfig : Parameters = {
 	host: 'http://localhost',
 	clientId: 'fakeClientId',
 	clientSecret: 'fakeClientSecret',
 	redirectUri: 'https://example.org',
-	basePath: 'http://localhost',
 };
 
 describe('automatic token refresh in api calls', () => {
-
 	afterEach(() => nock.cleanAll());
 
 	it('should refresh expired access token before making api call', async () => {
-		const oauthClient = new OAuth2Configuration({ ...oauthConfig, expiresAt: 100 });
-		oauthClient.refreshToken = 'freshAccessToken';
+		const oauthClient = new OAuth2Configuration(oauthConfig);
+
+		oauthClient.updateToken({
+			refresh_token: 'freshAccessToken',
+			expires_in: 100,
+			token_type: 'bearer',
+			scope: 'deals:full,users:full,1337',
+			api_domain: 'localhost',
+			access_token: 'freshAccessToken',
+		});
 
 		OauthApiMock.refresh({
 			access_token: 'freshAccessToken',
@@ -44,8 +50,9 @@ describe('automatic token refresh in api calls', () => {
 		});
 
 		const users = await new UsersApi(apiConfig).getUsers();
+		const accessToken = await oauthClient.getAccessToken();
 
-		expect(oauthClient.accessToken).toEqual('freshAccessToken');
+		expect(accessToken).toEqual('freshAccessToken');
 
 		expect(users).toEqual({
 			success: true,
