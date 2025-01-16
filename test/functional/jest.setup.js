@@ -1,3 +1,3 @@
-require("regenerator-runtime");
+require('regenerator-runtime');
 
 jest.setTimeout(100000);
