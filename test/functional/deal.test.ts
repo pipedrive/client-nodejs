@@ -6,9 +6,12 @@ import {
 import { DealsApiMock } from './stubs';
 import { oauth2Config } from './constants';
 import nock from 'nock';
-import { GetDealsResponse } from '../../models';
+import { GetAddedDealResponse, GetDealsResponse } from '../../models';
 
 describe('DealsApi', () => {
+	let oauthClient: OAuth2Configuration;
+	let dealsApi: DealsApi;
+
 	beforeAll(async () => {
 		nock.cleanAll();
 	});
@@ -17,8 +20,9 @@ describe('DealsApi', () => {
 		nock.restore();
 	});
 
-	test('should get deals', async () => {
-		const oauthClient = new OAuth2Configuration(oauth2Config);
+	beforeEach(async () => {
+		nock.cleanAll();
+		oauthClient = new OAuth2Configuration(oauth2Config);
 
 		oauthClient.updateToken({
 			refresh_token: 'freshAccessToken',
@@ -29,6 +33,14 @@ describe('DealsApi', () => {
 			access_token: 'freshAccessToken',
 		});
 
+		const apiConfig = new Configuration({
+			accessToken: oauthClient.getAccessToken,
+			basePath: oauthClient.basePath,
+		});
+		dealsApi = new DealsApi(apiConfig);
+	});
+
+	test('should get deals', async () => {
 		const response: GetDealsResponse = {
 			success: true,
 			data: [
@@ -42,13 +54,36 @@ describe('DealsApi', () => {
 
 		DealsApiMock.getDeals(response, 200);
 
+		const deals = await dealsApi.getDeals();
+
+		expect(deals).toEqual(response);
+	});
+
+	test('should create a deal', async () => {
+		const response: GetAddedDealResponse = {
+			success: true,
+			data: {
+				id: 2,
+				title: 'New Deal',
+				value: 2000,
+			},
+		};
+
+		DealsApiMock.createDeal<GetAddedDealResponse>(response, 201);
+
 		const apiConfig = new Configuration({
 			accessToken: oauthClient.getAccessToken,
 			basePath: oauthClient.basePath,
 		});
+		const dealsApi = new DealsApi(apiConfig);
 
-		const deals = await new DealsApi(apiConfig).getDeals();
+		const createdDeal = await dealsApi.addDeal({
+			AddDealRequest: {
+				title: 'New Deal',
+				value: '2000',
+			},
+		});
 
-		expect(deals).toEqual(response);
+		expect(createdDeal).toEqual(response);
 	});
 });
