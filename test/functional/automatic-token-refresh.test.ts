@@ -10,7 +10,7 @@ const oauthConfig : Parameters = {
 	redirectUri: 'https://example.org',
 };
 
-describe('automatic token refresh in api calls', () => {
+describe('Automatic token refresh in api calls', () => {
 	afterEach(() => nock.cleanAll());
 
 	it('should refresh expired access token before making api call', async () => {

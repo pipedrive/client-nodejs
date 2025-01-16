@@ -10,7 +10,7 @@ const oauth2 = {
 	redirectUri: 'https://example.org',
 };
 
-describe('oauth2 accessToken', () => {
+describe('OAuth2 accessToken', () => {
 	afterEach(() => nock.cleanAll());
 
 	it('should refresh accessToken with valid refreshToken', async () => {
@@ -45,10 +45,11 @@ describe('oauth2 accessToken', () => {
 		const configuration = new OAuth2Configuration(oauth2);
 
 		OauthApiMock.refresh({
-			success: 'false',
+			success: false,
 			message: 'Invalid grant: refresh token is invalid',
 			error: 'invalid_grant',
 		}, 400);
+
 		try {
 			expect(await configuration.tokenRefresh()).toThrow();
 		} catch (error) {
@@ -61,7 +62,7 @@ describe('oauth2 accessToken', () => {
 		configuration.updateToken({ refresh_token: 'wrongRefreshToken' } as TokenResponse);
 
 		OauthApiMock.refresh({
-			success: 'false',
+			success: false,
 			message: 'Invalid grant: refresh token is invalid',
 			error: 'invalid_grant',
 		}, 400);
@@ -70,7 +71,7 @@ describe('oauth2 accessToken', () => {
 			expect(await configuration.tokenRefresh()).toThrow();
 		} catch (error) {
 			expect(error).toEqual(
-				{ success: 'false', message: 'Invalid grant: refresh token is invalid', error: 'invalid_grant' },
+				{ success: false, message: 'Invalid grant: refresh token is invalid', error: 'invalid_grant' },
 			);
 		}
 	});
