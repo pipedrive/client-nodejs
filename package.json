@@ -25,7 +25,7 @@
     "test": "npm run test:functional",
     "test:functional:start": "npm run test:functional -- --start-environment",
     "test:functional:stop": "npm run test:functional -- --stop-environment",
-    "test:functional": "node ./test/functional/environment.js",
+    "test:functional": "node test/config/environment.js",
     "test:coverage": "npm run test:functional -- --collectCoverage",
     "sonar": "pipedrive-sonar-scanner",
     "lint-staged": "lint-staged",
