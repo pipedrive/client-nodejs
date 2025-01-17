@@ -1,7 +1,7 @@
-import { OauthApiMock } from './stubs';
+import { OauthApiMock } from '../stubs';
 import nock from 'nock';
-import { OAuth2Configuration } from '../../dist/versions/v1';
-import { TokenResponse } from '../../configuration';
+import { OAuth2Configuration } from '../../../dist/versions/v1';
+import { TokenResponse } from '../../../configuration';
 
 const oauth2 = {
 	host: 'http://localhost',
