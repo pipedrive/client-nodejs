@@ -1,7 +1,7 @@
 
 import nock from 'nock';
-import { OauthApiMock, UsersApiMock } from './stubs';
-import { OAuth2Configuration, Configuration, UsersApi, Parameters } from '../../dist/versions/v1';
+import { OauthApiMock, UsersApiMock } from '../stubs';
+import { OAuth2Configuration, Configuration, UsersApi, Parameters } from '../../../dist/versions/v1';
 
 const oauthConfig : Parameters = {
 	host: 'http://localhost',

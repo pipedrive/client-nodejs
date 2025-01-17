@@ -2,11 +2,11 @@ import {
 	Configuration,
 	DealsApi,
 	OAuth2Configuration,
-} from '../../dist/versions/v1';
-import { DealsApiMock } from './stubs';
-import { oauth2Config } from './constants';
+} from '../../../dist/versions/v1';
+import { DealsApiMock } from '../stubs';
+import { oauth2Config } from '../constants';
 import nock from 'nock';
-import { GetAddedDealResponse, GetDealResponse, GetDealsResponse, UpdateDealRequest } from '../../models';
+import { GetAddedDealResponse, GetDealResponse, GetDealsResponse, UpdateDealRequest } from '../../../models';
 
 describe('DealsApi', () => {
 	let oauthClient: OAuth2Configuration;
@@ -29,7 +29,7 @@ describe('DealsApi', () => {
 			expires_in: 100,
 			token_type: 'bearer',
 			scope: 'deals:full,users:full,1337',
-			api_domain: null,
+			api_domain: null, // todo fox tjos
 			access_token: 'freshAccessToken',
 		});
 

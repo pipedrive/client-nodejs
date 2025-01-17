@@ -7,3 +7,6 @@ export const oauth2Config = {
 };
 
 export type Resolves<T> = T | Record<string, unknown>;
+export type DeepPartial<T> = {
+	[P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
+};
