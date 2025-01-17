@@ -2,11 +2,11 @@ import {
 	Configuration,
 	DealsApi,
 	OAuth2Configuration,
+	GetAddedDealResponse, GetDealResponse, GetDealsResponse, UpdateDealRequest,
 } from '../../../dist/versions/v1';
 import { DealsApiMock } from '../stubs';
 import { oauth2Config } from '../constants';
 import nock from 'nock';
-import { GetAddedDealResponse, GetDealResponse, GetDealsResponse, UpdateDealRequest } from '../../../models';
 
 describe('DealsApi', () => {
 	let oauthClient: OAuth2Configuration;
