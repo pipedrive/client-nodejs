@@ -2,15 +2,13 @@ import {
 	Configuration,
 	LeadsApi,
 	OAuth2Configuration,
+	GetLeadResponse,
+	GetLeadsResponse,
+	UpdateLeadRequest,
 } from '../../../dist/versions/v1';
 import { LeadsApiMock } from '../stubs';
 import { DeepPartial, oauth2Config } from '../constants';
 import nock from 'nock';
-import {
-	GetLeadResponse,
-	GetLeadsResponse,
-	UpdateLeadRequest,
-} from '../../../models';
 
 describe('LeadsApi', () => {
 	let oauthClient: OAuth2Configuration;
