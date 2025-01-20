@@ -6,24 +6,27 @@ import {
 	GetLeadsResponse,
 	UpdateLeadRequest,
 } from '../../../dist/versions/v1';
-import { LeadsApiMock } from '../stubs';
 import { DeepPartial, oauth2Config } from '../constants';
-import nock from 'nock';
+import { ApiMock } from '../stubs';
 
-describe('LeadsApi', () => {
+describe('v1/leads', () => {
 	let oauthClient: OAuth2Configuration;
 	let leadsApi: LeadsApi;
 
+	let mock: ApiMock;
+
 	beforeAll(async () => {
-		nock.cleanAll();
+		mock = new ApiMock({
+			basePath: '/v1/leads',
+		});
 	});
 
 	afterAll(async () => {
-		nock.restore();
+		mock.restore();
 	});
 
 	beforeEach(async () => {
-		nock.cleanAll();
+		mock.cleanAll();
 		oauthClient = new OAuth2Configuration(oauth2Config);
 
 		oauthClient.updateToken({
@@ -57,7 +60,11 @@ describe('LeadsApi', () => {
 			],
 		};
 
-		LeadsApiMock.getLeads(response, 200);
+		mock.get({
+			url: '',
+			response,
+			status: 200,
+		});
 
 		const leads = await leadsApi.getLeads();
 
@@ -74,7 +81,11 @@ describe('LeadsApi', () => {
 			},
 		};
 
-		LeadsApiMock.createLead<GetLeadResponse>(response, 201);
+		mock.post({
+			url: '',
+			response,
+			status: 201,
+		});
 
 		const createdLead = await leadsApi.addLead({
 			AddLeadRequest: {
@@ -102,7 +113,11 @@ describe('LeadsApi', () => {
 			},
 		};
 
-		LeadsApiMock.getLead<GetLeadResponse>(2, response, 200);
+		mock.get({
+			url: '/2',
+			response,
+			status: 200,
+		});
 
 		const lead = await leadsApi.getLead({
 			id: '2',
@@ -127,7 +142,11 @@ describe('LeadsApi', () => {
 			title: 'Updated Lead',
 		};
 
-		LeadsApiMock.updateLead<GetLeadResponse>(2, response, 200);
+		mock.patch({
+			url: '/2',
+			status: 200,
+			response,
+		});
 
 		const updatedLead = await leadsApi.updateLead({
 			id: '2',
@@ -140,7 +159,11 @@ describe('LeadsApi', () => {
 	test('should delete a lead', async () => {
 		const response = { success: true };
 
-		LeadsApiMock.deleteLead(2, response, 200);
+		mock.delete({
+			url: '/2',
+			response,
+			status: 200,
+		});
 
 		const deleteResponse = await leadsApi.deleteLead({ id: '2' });
 

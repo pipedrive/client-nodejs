@@ -1,6 +1,4 @@
-
-import nock from 'nock';
-import { OauthApiMock, UsersApiMock } from '../stubs';
+import { OauthApiMock, ApiMock } from '../stubs';
 import { OAuth2Configuration, Configuration, UsersApi, Parameters } from '../../../dist/versions/v1';
 
 const oauthConfig : Parameters = {
@@ -11,7 +9,17 @@ const oauthConfig : Parameters = {
 };
 
 describe('Automatic token refresh in api calls', () => {
-	afterEach(() => nock.cleanAll());
+	let oauth2Mock: OauthApiMock;
+	let usersMock: ApiMock;
+	beforeAll(() => {
+		oauth2Mock = new OauthApiMock();
+		usersMock = new ApiMock({
+			basePath: '/v1/users',
+
+		});
+	});
+
+	afterEach(() => oauth2Mock.cleanAll());
 
 	it('should refresh expired access token before making api call', async () => {
 		const oauthClient = new OAuth2Configuration(oauthConfig);
@@ -25,7 +33,7 @@ describe('Automatic token refresh in api calls', () => {
 			access_token: 'freshAccessToken',
 		});
 
-		OauthApiMock.refresh({
+		oauth2Mock.refresh({
 			access_token: 'freshAccessToken',
 			api_domain: 'localhost',
 			expires_in: '3600',
@@ -34,15 +42,19 @@ describe('Automatic token refresh in api calls', () => {
 			token_type: 'bearer',
 		}, 200);
 
-		UsersApiMock.getUsers({
-			success: true,
-			data: [
-				{
-					id: 1,
-					name: 'John Doe',
-				},
-			],
-		}, 200);
+		usersMock.get({
+			url: '',
+			response: {
+				success: true,
+				data: [
+					{
+						id: 1,
+						name: 'John Doe',
+					},
+				],
+			},
+			status: 200,
+		});
 
 		const apiConfig = new Configuration({
 			accessToken: oauthClient.getAccessToken,
