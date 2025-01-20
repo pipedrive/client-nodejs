@@ -15,7 +15,6 @@ describe('Automatic token refresh in api calls', () => {
 		oauth2Mock = new OauthApiMock();
 		usersMock = new ApiMock({
 			basePath: '/v1/users',
-
 		});
 	});
 
