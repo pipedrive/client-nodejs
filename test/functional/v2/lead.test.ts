@@ -16,6 +16,7 @@ describe('v2/leads', () => {
 	beforeAll(async () => {
 		mock = new ApiMock({
 			basePath: '/v2/leads',
+			host: 'http://localhost/api',
 		});
 	});
 

@@ -4,7 +4,7 @@ type Params<T> = { url: string, response: T, status: number, query? : boolean | 
 
 export class ApiMock {
 	public api: nock.Scope;
-	private basePath: string;
+	private readonly basePath: string;
 
 	constructor(config: { basePath :string, host?: string }) {
 		const host = config.host || 'http://localhost';
