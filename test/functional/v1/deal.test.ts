@@ -15,6 +15,7 @@ describe('v1/deals', () => {
 	beforeAll(async () => {
 		mock = new ApiMock({
 			basePath: '/v1/deals',
+			host: 'http://localhost/api',
 		});
 		mock.cleanAll();
 	});
@@ -33,7 +34,7 @@ describe('v1/deals', () => {
 			expires_in: 100,
 			token_type: 'bearer',
 			scope: 'deals:full,users:full,1337',
-			api_domain: null, // todo fox tjos
+			api_domain: 'http://localhost',
 			access_token: 'freshAccessToken',
 		});
 

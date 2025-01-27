@@ -14,7 +14,7 @@ describe('Automatic token refresh in api calls', () => {
 	beforeAll(() => {
 		oauth2Mock = new OauthApiMock();
 		usersMock = new ApiMock({
-			basePath: '/v1/users',
+			basePath: '/api/v1/users',
 		});
 	});
 
@@ -28,13 +28,13 @@ describe('Automatic token refresh in api calls', () => {
 			expires_in: 100,
 			token_type: 'bearer',
 			scope: 'deals:full,users:full,1337',
-			api_domain: 'localhost',
+			api_domain: 'http://localhost',
 			access_token: 'freshAccessToken',
 		});
 
 		oauth2Mock.refresh({
 			access_token: 'freshAccessToken',
-			api_domain: 'localhost',
+			api_domain: 'http://localhost',
 			expires_in: '3600',
 			refresh_token: 'freshRefreshToken',
 			scope: 'deals:full,users:full,1337',
