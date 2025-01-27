@@ -16,6 +16,7 @@ describe('v2/deals', () => {
 	beforeAll(() => {
 		mock = new ApiMock({
 			basePath: '/v2/deals',
+			host: 'http://localhost/api',
 		});
 	});
 
