@@ -1,4 +1,7 @@
-import { getLib, getMockServer } from './utils';
+
+import nock from 'nock';
+import { OauthApiMock, UsersApiMock } from './stubs';
+import { OAuth2Configuration, Configuration, UsersApi } from '../../dist/versions/v1';
 
 const oauth2 = {
 	type: 'oauth2',
@@ -6,34 +9,31 @@ const oauth2 = {
 	clientId: 'fakeClientId',
 	clientSecret: 'fakeClientSecret',
 	redirectUri: 'https://example.org',
-	basePath: 'http://localhost/v1',
+	basePath: 'http://localhost',
 };
 
 const server = getMockServer(oauth2);
 
 describe('automatic token refresh in api calls', () => {
-	let lib;
-	let ApiClient;
-	let UsersApi;
 
-	beforeAll(async () => {
-		lib = await getLib();
-		ApiClient = lib.ApiClient;
-		UsersApi = lib.UsersApi;
-		server.listen();
-	});
-
-	afterEach(() => server.resetHandlers());
-	afterAll(() => server.close());
+	afterEach(() => nock.cleanAll());
 
 	it('should refresh expired access token before making api call', async () => {
-		const pdClient = new ApiClient();
-		pdClient.basePath = 'localhost/v1';
-		pdClient.authentications.oauth2 = { ...oauth2, expiresAt: 100 };
+		const oauthClient = new OAuth2Configuration({ ...oauthConfig, expiresAt: 100 });
+		oauthClient.refreshToken = 'freshAccessToken';
 
 		const users = await new UsersApi(pdClient).getUsers();
 
 		expect(pdClient.authentications.oauth2.accessToken).toEqual('freshAccessToken');
+
+		const apiConfig = new Configuration({
+			accessToken: oauthClient.getAccessToken,
+			basePath: oauthClient.basePath,
+		});
+
+		const users = await new UsersApi(apiConfig).getUsers();
+
+		expect(oauthClient.accessToken).toEqual('freshAccessToken');
 
 		expect(users).toEqual({
 			success: true,

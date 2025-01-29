@@ -1,6 +1,6 @@
-import { getLib } from './utils';
 import { OauthApiMock } from './stubs';
 import nock from 'nock';
+import { OAuth2Configuration } from '../../dist/versions/v1';
 
 const oauth2 = {
 	host: 'https://api.pipedrive.com',
@@ -10,21 +10,12 @@ const oauth2 = {
 };
 
 describe('oauth2 accessToken', () => {
-	let ApiClient;
-
-	beforeAll(async () => {
-		const lib = await getLib();
-		ApiClient = lib.ApiClient;
-		server.listen();
-		lib = await getLib();
-	});
 
 	afterEach(() => nock.cleanAll());
 
 	it('should refresh accessToken with valid refreshToken', async () => {
-		const pdClient = new ApiClient();
-		pdClient.authentications.oauth2 = { ...oauth2, refreshToken: 'fakeRefreshToken' };
-		const configuration = new lib.OAuth2Configuration(oauth2);
+		const configuration = new OAuth2Configuration(oauth2);
+
 		configuration.refreshToken = 'fakeRefreshToken';
 		OauthApiMock.refresh({
 			access_token: 'freshAccessToken',
@@ -51,8 +42,7 @@ describe('oauth2 accessToken', () => {
 	});
 
 	it('should throw if refreshToken is not set', async () => {
-		const pdClient = new ApiClient();
-		pdClient.authentications.oauth2 = { ...oauth2 };
+		const configuration = new OAuth2Configuration(oauth2);
 
 		OauthApiMock.refresh({
 			success: 'false',
@@ -67,8 +57,8 @@ describe('oauth2 accessToken', () => {
 	});
 
 	it('should throw if wrong refresh token', async () => {
-		const pdClient = new ApiClient();
-		pdClient.authentications.oauth2 = { ...oauth2, refreshToken: 'wrongRefreshToken' };
+		const configuration = new OAuth2Configuration(oauth2);
+		configuration.refreshToken = 'wrongRefreshToken';
 
 		OauthApiMock.refresh({
 			success: 'false',
