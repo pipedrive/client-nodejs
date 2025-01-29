@@ -77,7 +77,6 @@
     "lint-staged": "^13.0.3",
     "minimist": "^1.2.5",
     "mocha": "^10.2.0",
-    "msw": "^2.0.10",
     "nock": "^13.5.6",
     "pre-commit": "^1.2.2",
     "regenerator-runtime": "^0.13.7",
