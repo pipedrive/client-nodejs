@@ -6,24 +6,27 @@ import {
 	UpdateActivityRequest,
 	OAuth2Configuration,
 } from '../../../dist/versions/v1';
-import { ActivitiesApiMock } from '../stubs';
 import { DeepPartial, oauth2Config } from '../constants';
-import nock from 'nock';
+import { ApiMock } from '../stubs';
 
-describe('ActivitiesApi', () => {
+describe('v1/activities', () => {
 	let oauthClient: OAuth2Configuration;
 	let activitiesApi: ActivitiesApi;
 
+	let mock: ApiMock;
+
 	beforeAll(async () => {
-		nock.cleanAll();
+		mock = new ApiMock({
+			basePath: '/v1/activities',
+		});
 	});
 
 	afterAll(async () => {
-		nock.restore();
+		mock.restore();
 	});
 
 	beforeEach(async () => {
-		nock.cleanAll();
+		mock.cleanAll();
 		oauthClient = new OAuth2Configuration(oauth2Config);
 
 		oauthClient.updateToken({
@@ -58,7 +61,11 @@ describe('ActivitiesApi', () => {
 			],
 		};
 
-		ActivitiesApiMock.getActivities(response, 200);
+		mock.get({
+			url: '',
+			response,
+			status: 200,
+		});
 
 		const activities = await activitiesApi.getActivities();
 
@@ -74,7 +81,12 @@ describe('ActivitiesApi', () => {
 			},
 		};
 
-		ActivitiesApiMock.createActivity<GetActivityResponse>(response, 201);
+		mock.post({
+			url: '',
+			response,
+			status: 201,
+
+		});
 
 		const createdActivity = await activitiesApi.addActivity({
 			AddActivityRequest: {
@@ -95,8 +107,11 @@ describe('ActivitiesApi', () => {
 				person_id: 1,
 			},
 		};
-
-		ActivitiesApiMock.getActivity<GetActivityResponse>(2, response, 200);
+		mock.get({
+			url: '/2',
+			response,
+			status: 200,
+		});
 
 		const activity = await activitiesApi.getActivity({
 			id: 2,
@@ -117,7 +132,11 @@ describe('ActivitiesApi', () => {
 			note: 'Updated Activity',
 		};
 
-		ActivitiesApiMock.updateActivity<GetActivityResponse>(2, response, 200);
+		mock.put({
+			url: '/2',
+			response,
+			status: 200,
+		});
 
 		const updatedActivity = await activitiesApi.updateActivity({
 			id: 2,
@@ -130,7 +149,11 @@ describe('ActivitiesApi', () => {
 	test('should delete an activity', async () => {
 		const response = { success: true };
 
-		ActivitiesApiMock.deleteActivity(2, response, 200);
+		mock.delete({
+			url: '/2',
+			response,
+			status: 200,
+		});
 
 		const deleteResponse = await activitiesApi.deleteActivity({ id: 2 });
 

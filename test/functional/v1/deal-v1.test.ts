@@ -4,24 +4,28 @@ import {
 	OAuth2Configuration,
 	GetAddedDealResponse, GetDealResponse, GetDealsResponse, UpdateDealRequest,
 } from '../../../dist/versions/v1';
-import { DealsApiMock } from '../stubs';
 import { oauth2Config } from '../constants';
-import nock from 'nock';
+import { ApiMock } from '../stubs';
 
-describe('DealsApi', () => {
+describe('v1/deals', () => {
 	let oauthClient: OAuth2Configuration;
 	let dealsApi: DealsApi;
+	let mock : ApiMock;
 
 	beforeAll(async () => {
-		nock.cleanAll();
+		mock = new ApiMock({
+			basePath: '/v1/deals',
+		});
+		mock.cleanAll();
 	});
 
 	afterAll(async () => {
-		nock.restore();
+		mock.restore();
 	});
 
 	beforeEach(async () => {
-		nock.cleanAll();
+		mock.cleanAll();
+
 		oauthClient = new OAuth2Configuration(oauth2Config);
 
 		oauthClient.updateToken({
@@ -52,7 +56,11 @@ describe('DealsApi', () => {
 			],
 		};
 
-		DealsApiMock.getDeals(response, 200);
+		mock.get({
+			url: '',
+			response,
+			status: 200,
+		});
 
 		const deals = await dealsApi.getDeals();
 
@@ -69,7 +77,11 @@ describe('DealsApi', () => {
 			},
 		};
 
-		DealsApiMock.createDeal<GetAddedDealResponse>(response, 201);
+		mock.post({
+			url: '',
+			response,
+			status: 201,
+		});
 
 		const apiConfig = new Configuration({
 			accessToken: oauthClient.getAccessToken,
@@ -97,7 +109,11 @@ describe('DealsApi', () => {
 			},
 		};
 
-		DealsApiMock.getDeal<GetDealResponse>(2, response, 200);
+		mock.get({
+			url: '/2',
+			response,
+			status: 200,
+		});
 
 		const apiConfig = new Configuration({
 			accessToken: oauthClient.getAccessToken,
@@ -126,7 +142,11 @@ describe('DealsApi', () => {
 			value: '3000',
 		};
 
-		DealsApiMock.updateDeal<GetDealResponse>(2, response, 200);
+		mock.put({
+			url: '/2',
+			response,
+			status: 200,
+		});
 
 		const apiConfig = new Configuration({
 			accessToken: oauthClient.getAccessToken,
@@ -145,7 +165,11 @@ describe('DealsApi', () => {
 	test('should delete a deal', async () => {
 		const response = { success: true };
 
-		DealsApiMock.deleteDeal(2, response, 200);
+		mock.delete({
+			url: '/2',
+			response,
+			status: 200,
+		});
 
 		const deleteResponse = await dealsApi.deleteDeal({ id: 2 });
 

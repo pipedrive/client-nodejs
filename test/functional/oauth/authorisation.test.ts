@@ -1,6 +1,4 @@
-
 import { OauthApiMock } from '../stubs';
-import nock from 'nock';
 
 import { OAuth2Configuration } from '../../../dist/versions/v1';
 import { TokenResponse } from '../../../configuration';
@@ -13,7 +11,13 @@ const oauth2 = {
 };
 
 describe('OAuth2 Authorization', () => {
-	afterEach(() => nock.cleanAll());
+	let oauth2Mock: OauthApiMock;
+
+	beforeAll(() => {
+		oauth2Mock = new OauthApiMock();
+	});
+
+	afterEach(() => oauth2Mock.cleanAll());
 
 	it('should authorize and save access and refresh tokens', async () => {
 		const oauthClient = new OAuth2Configuration(oauth2);
@@ -22,7 +26,7 @@ describe('OAuth2 Authorization', () => {
 			refresh_token: 'fakeRefreshToken',
 		} as TokenResponse);
 
-		OauthApiMock.refresh({
+		oauth2Mock.refresh({
 			access_token: 'freshAccessToken',
 			api_domain: 'localhost',
 			expires_in: '3600',
@@ -93,7 +97,7 @@ describe('OAuth2 Authorization', () => {
 			refresh_token: 'fakeRefreshToken',
 		} as TokenResponse);
 
-		OauthApiMock.refresh({
+		oauth2Mock.refresh({
 			success: false, message: 'Invalid grant: refresh token is invalid', error: 'invalid_grant',
 		}, 400);
 		try {
