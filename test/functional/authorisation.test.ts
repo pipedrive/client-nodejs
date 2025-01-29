@@ -1,7 +1,10 @@
 
 import { OauthApiMock } from './stubs';
 import nock from 'nock';
+
 import { OAuth2Configuration } from '../../dist/versions/v1';
+import { TokenResponse } from '../../configuration';
+
 const oauth2 = {
 	host: 'localhost',
 	clientId: 'fakeClientId',
@@ -9,14 +12,16 @@ const oauth2 = {
 	redirectUri: 'https://example.org',
 };
 
-const server = getMockServer(oauth2);
-
-describe('oauth2 authorization', () => {
+describe('OAuth2 Authorization', () => {
 	afterEach(() => nock.cleanAll());
 
 	it('should authorize and save access and refresh tokens', async () => {
 		const oauthClient = new OAuth2Configuration(oauth2);
-		oauthClient.refreshToken = 'fakeRefreshToken';
+
+		oauthClient.updateToken({
+			refresh_token: 'fakeRefreshToken',
+		} as TokenResponse);
+
 		OauthApiMock.refresh({
 			access_token: 'freshAccessToken',
 			api_domain: 'localhost',
@@ -34,9 +39,8 @@ describe('oauth2 authorization', () => {
 			expires_in: '3600',
 			api_domain: 'localhost',
 		});
-
-		expect(pdClient.authentications.oauth2.accessToken).toBe(auth.access_token);
-		expect(pdClient.authentications.oauth2.refreshToken).toBe(auth.refresh_token);
+		const accessToken = await oauthClient.getAccessToken();
+		expect(accessToken).toEqual(auth.access_token);
 	});
 
 	it('should throw if clientId is not set', async () => {
@@ -48,6 +52,7 @@ describe('oauth2 authorization', () => {
 				host: 'localhost',
 				clientSecret: 'fakeClientSecret',
 				redirectUri: 'https://example.org',
+				clientId: undefined,
 			});
 		} catch (error) {
 			expect(error.message).toBe('OAuth 2 property clientId is not set.');
@@ -84,6 +89,13 @@ describe('oauth2 authorization', () => {
 	it('should throw if wrong auth_code', async () => {
 		const oauthClient = new OAuth2Configuration(oauth2);
 
+		oauthClient.updateToken({
+			refresh_token: 'fakeRefreshToken',
+		} as TokenResponse);
+
+		OauthApiMock.refresh({
+			success: false, message: 'Invalid grant: refresh token is invalid', error: 'invalid_grant',
+		}, 400);
 		try {
 			expect(await pdClient.authorize('wrongAuthCode')).toThrow();
 		} catch (error) {
