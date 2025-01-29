@@ -554,12 +554,6 @@ WebhooksApi | getWebhooks | **GET** /webhooks | Get all Webhooks
 
 
 
-### basic_authentication
-
-- **Type**: HTTP basic authentication
-
-
-
 ### oauth2
 
 
