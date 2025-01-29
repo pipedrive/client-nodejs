@@ -1,9 +1,8 @@
 import { OauthApiMock } from '../stubs';
-import { OAuth2Configuration } from '../../../dist/versions/v1';
-import { TokenResponse } from '../../../configuration';
+import { OAuth2Configuration ,TokenResponse} from '../../../dist/versions/v1';
 
 const oauth2 = {
-	host: 'https://api.pipedrive.com',
+	host: 'http://localhost',
 	clientId: 'fakeClientId',
 	clientSecret: 'fakeClientSecret',
 	redirectUri: 'https://example.org',
@@ -30,7 +29,7 @@ describe('OAuth2 accessToken', () => {
 			token_type: 'bearer',
 		}, 200);
 
-		const auth = await pdClient.refreshToken();
+		const auth = await configuration.tokenRefresh();
 
 		expect(auth).toMatchObject({
 			access_token: 'freshAccessToken',
@@ -55,9 +54,9 @@ describe('OAuth2 accessToken', () => {
 		}, 400);
 
 		try {
-			expect(await pdClient.refreshToken()).toThrow();
+			expect(await configuration.tokenRefresh()).toThrow();
 		} catch (error) {
-			expect(error.message).toBe('OAuth 2 property refreshToken is not set.');
+			expect(error.message).toBe('Invalid grant: refresh token is invalid');
 		}
 	});
 
@@ -72,7 +71,7 @@ describe('OAuth2 accessToken', () => {
 		}, 400);
 
 		try {
-			expect(await pdClient.refreshToken()).toThrow();
+			expect(await configuration.tokenRefresh()).toThrow();
 		} catch (error) {
 			expect(error).toEqual(
 				{ success: false, message: 'Invalid grant: refresh token is invalid', error: 'invalid_grant' },

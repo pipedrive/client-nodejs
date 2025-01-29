@@ -1,7 +1,7 @@
 {
   "root": true,
   "parser": "@babel/eslint-parser",
-  "extends": ["pipedrive"],
+  "extends": ["pipedrive", "plugin:@typescript-eslint/recommended"],
   "env": {
     "node": true,
     "jest": true
