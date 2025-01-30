@@ -68,7 +68,7 @@ You can retrieve the api_token from your existing Pipedrive account’s settings
 
 ```typescript
 import express from "express";
-import { Configuration, DealsApi } from "pipedrive";
+import { Configuration, DealsApi } from "pipedrive/v1";
 
 const app = express();
 
