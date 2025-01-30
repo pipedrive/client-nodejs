@@ -8,6 +8,11 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [24.0.0] - 2025-01-30
+### Added
+- Introduced a new client-nodejs library with full TypeScript support
+- Added compatibility for both API v1 and v2 endpoints. See migration guide for more details
+
 ## [23.4.3] - 2024-11-22
 ### Added
 - Add "additionalProperties" to entities with custom fields
@@ -717,7 +722,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v23.4.3...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v24.0.0...HEAD
+[24.0.0]: https://github.com/pipedrive/api-docs/compare/v23.4.3...v24.0.0
 [23.4.3]: https://github.com/pipedrive/api-docs/compare/v23.4.2...v23.4.3
 [23.4.2]: https://github.com/pipedrive/api-docs/compare/v23.4.1...v23.4.2
 [23.4.1]: https://github.com/pipedrive/api-docs/compare/v23.4.0...v23.4.1
