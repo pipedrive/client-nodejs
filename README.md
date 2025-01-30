@@ -27,7 +27,7 @@ You can retrieve the api_token from your existing Pipedrive account’s settings
 
 ```typescript
 import express from "express";
-import { Configuration, DealsApi } from "pipedrive";
+import { Configuration, DealsApi } from "pipedrive/v1";
 
 const app = express();
 
@@ -66,7 +66,7 @@ To set up authentication in the API client, you need the following information. 
 Next, initialize the API client as follows:
 
 ```typescript
-import { OAuth2Configuration, Configuration } from 'pipedrive';
+import { OAuth2Configuration, Configuration } from 'pipedrive/v1';
 
 // Configuration parameters and credentials
 const oauth2 = new OAuth2Configuration({
@@ -143,7 +143,7 @@ This code snippet stores the access token in a session for an express applicatio
 import express from "express";
 import cookieParse from "cookie-parser";
 import cookeSession from "cookie-session";
-import { Configuration, DealsApi, OAuth2Configuration } from "pipedrive";
+import { Configuration, DealsApi, OAuth2Configuration } from "pipedrive/v1";
 
 const app = express();
 
@@ -209,11 +209,11 @@ const oauth2 = new OAuth2Configuration({
 });
 
 app.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}`);
+  console.log(`Listening on port ${PORT}`);
 });
 
 app.get('/', async (req, res) => {
-try {
+  try {
     // method will handle return null if token is not available in the session
     const token = oauth2.updateToken(req.session?.accessToken);
 
@@ -237,10 +237,10 @@ try {
     const { data: deals } = response;
 
     return res.send(deals);
-} catch (error){
-    console.error(error)
-    return res.status(500).send(error)
-}
+  } catch (error){
+      console.error(error)
+      return res.status(500).send(error)
+  }
 });
 
 app.get('/callback', async (req, res) => {
