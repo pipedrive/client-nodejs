@@ -1305,11 +1305,12 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {'open' | 'won' | 'lost'} [status] Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost.
          * @param {number} [filter_id] &lt;code&gt;user_id&lt;/code&gt; will not be considered. Only deals matching the given filter will be returned.
          * @param {number} [user_id] Only deals matching the given user will be returned. &#x60;user_id&#x60; will not be considered if you use &#x60;filter_id&#x60;.
+         * @param {number} [pipeline_id] Only deals within the given pipeline will be returned
          * @param {number} [stage_id] Only deals within the given stage will be returned
 
          * @throws {RequiredError}
          */
-        getDealsSummary: async (status?: 'open' | 'won' | 'lost', filter_id?: number, user_id?: number, stage_id?: number, ): Promise<RequestArgs> => {
+        getDealsSummary: async (status?: 'open' | 'won' | 'lost', filter_id?: number, user_id?: number, pipeline_id?: number, stage_id?: number, ): Promise<RequestArgs> => {
             const localVarPath = `/deals/summary`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1339,6 +1340,10 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
 
             if (user_id !== undefined) {
                 localVarQueryParameter['user_id'] = user_id;
+            }
+
+            if (pipeline_id !== undefined) {
+                localVarQueryParameter['pipeline_id'] = pipeline_id;
             }
 
             if (stage_id !== undefined) {
@@ -1995,12 +2000,13 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * @param {'open' | 'won' | 'lost'} [status] Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost.
          * @param {number} [filter_id] &lt;code&gt;user_id&lt;/code&gt; will not be considered. Only deals matching the given filter will be returned.
          * @param {number} [user_id] Only deals matching the given user will be returned. &#x60;user_id&#x60; will not be considered if you use &#x60;filter_id&#x60;.
+         * @param {number} [pipeline_id] Only deals within the given pipeline will be returned
          * @param {number} [stage_id] Only deals within the given stage will be returned
 
          * @throws {RequiredError}
          */
-        async getDealsSummary(status?: 'open' | 'won' | 'lost', filter_id?: number, user_id?: number, stage_id?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealsSummaryResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealsSummary(status, filter_id, user_id, stage_id, );
+        async getDealsSummary(status?: 'open' | 'won' | 'lost', filter_id?: number, user_id?: number, pipeline_id?: number, stage_id?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealsSummaryResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealsSummary(status, filter_id, user_id, pipeline_id, stage_id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -2336,7 +2342,7 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          * @throws {RequiredError}
          */
         getDealsSummary(requestParameters: DealsApiGetDealsSummaryRequest = {}, ): Promise<GetDealsSummaryResponse> {
-            return localVarFp.getDealsSummary(requestParameters.status, requestParameters.filter_id, requestParameters.user_id, requestParameters.stage_id, ).then((request) => request(axios, basePath));
+            return localVarFp.getDealsSummary(requestParameters.status, requestParameters.filter_id, requestParameters.user_id, requestParameters.pipeline_id, requestParameters.stage_id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns open and won deals, grouped by a defined interval of time set in a date-type dealField (`field_key`) — e.g. when month is the chosen interval, and 3 months are asked starting from January 1st, 2012, deals are returned grouped into 3 groups — January, February and March — based on the value of the given `field_key`.
@@ -3056,6 +3062,13 @@ export interface DealsApiGetDealsSummaryRequest {
     readonly user_id?: number
 
     /**
+     * Only deals within the given pipeline will be returned
+     * @type {number}
+     * @memberof DealsApiGetDealsSummary
+     */
+    readonly pipeline_id?: number
+
+    /**
      * Only deals within the given stage will be returned
      * @type {number}
      * @memberof DealsApiGetDealsSummary
@@ -3577,7 +3590,7 @@ export class DealsApi extends BaseAPI {
      * @memberof DealsApi
      */
     public getDealsSummary(requestParameters: DealsApiGetDealsSummaryRequest = {}, ) {
-        return DealsApiFp(this.configuration).getDealsSummary(requestParameters.status, requestParameters.filter_id, requestParameters.user_id, requestParameters.stage_id, ).then((request) => request(this.axios, this.basePath));
+        return DealsApiFp(this.configuration).getDealsSummary(requestParameters.status, requestParameters.filter_id, requestParameters.user_id, requestParameters.pipeline_id, requestParameters.stage_id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**

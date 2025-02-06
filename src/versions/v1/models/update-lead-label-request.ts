@@ -33,12 +33,16 @@ export interface UpdateLeadLabelRequest {
 }
 
                 export const UpdateLeadLabelRequestColorConst = {
-                        green: 'green',
                         blue: 'blue',
-                        red: 'red',
-                        yellow: 'yellow',
+                        brown: 'brown',
+                        dark_gray: 'dark-gray',
+                        gray: 'gray',
+                        green: 'green',
+                        orange: 'orange',
+                        pink: 'pink',
                         purple: 'purple',
-                        gray: 'gray'
+                        red: 'red',
+                        yellow: 'yellow'
                 } as const;
 
                 export type UpdateLeadLabelRequestColorConst = typeof UpdateLeadLabelRequestColorConst[keyof typeof UpdateLeadLabelRequestColorConst];
