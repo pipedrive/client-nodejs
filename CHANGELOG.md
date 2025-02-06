@@ -7,13 +7,39 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Added
+
+- Added “pipeline_id” query parameter to GET /api/v1/deals/summary endpoint
+
 ### Changed
+
 - Updated list of lead label colors to include 'brown', 'dark-gray', 'orange', 'pink'
 
 ## [24.0.0] - 2025-01-30
 ### Added
+
 - Introduced a new client-nodejs library with full TypeScript support
 - Added compatibility for both API v1 and v2 endpoints. See migration guide for more details
+- Add documentation for installments functionality:
+  - `POST` `/v1/deals/{id}/products` endpoint
+  - `PUT` `/v1/deals/{id}/products/{product_attachment_id}` endpoint
+  - `DELETE` `/v1/deals/{id}/products/{product_attachment_id}` endpoint
+  - `POST` `/v2/deals/{id}/products` endpoint
+  - `PATCH` `/v2/deals/{id}/products/{product_attachment_id}` endpoint
+  - `DELETE` `/v2/deals/{id}/products/{product_attachment_id}` endpoint
+- Added the field “notes” to product prices in the body and response for v1 and v2
+- Added the field “overhead_cost” to the product variation prices in the response for v1
+- Added the field “direct_cost” to the product variation prices in the response and body for v2
+- Add “custom_fields” query paremeter to GET /api/v2/products
+
+### Changed
+
+- Reduce maximum `limit` query param to 100 for the following endpoints
+  - GET v1/files
+  - GET v1/deals/{id}/files
+  - GET v1/organizations/{id}/files
+  - GET v1/persons/{id}/files
+  - GET /v1/products/{id}/files
 
 ## [23.4.3] - 2024-11-22
 ### Added
