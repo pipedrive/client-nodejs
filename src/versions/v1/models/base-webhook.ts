@@ -120,7 +120,8 @@ export interface BaseWebhook {
                 export type BaseWebhookIsActiveConst = typeof BaseWebhookIsActiveConst[keyof typeof BaseWebhookIsActiveConst];
                 export const BaseWebhookTypeConst = {
                         general: 'general',
-                        app: 'app'
+                        application: 'application',
+                        automation: 'automation'
                 } as const;
 
                 export type BaseWebhookTypeConst = typeof BaseWebhookTypeConst[keyof typeof BaseWebhookTypeConst];
