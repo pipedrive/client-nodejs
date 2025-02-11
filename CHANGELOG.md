@@ -7,6 +7,8 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+
+## [24.1.1] - 2025-02-11
 ### Fixed
 - Updated supported enum values for webhook types in the `GET /webhooks` endpoint
 
@@ -754,7 +756,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v24.1.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v24.1.1...HEAD
+[24.1.1]: https://github.com/pipedrive/api-docs/compare/v24.1.0...v24.1.1
 [24.1.0]: https://github.com/pipedrive/api-docs/compare/v24.0.0...v24.1.0
 [24.0.0]: https://github.com/pipedrive/api-docs/compare/v23.4.3...v24.0.0
 [23.4.3]: https://github.com/pipedrive/api-docs/compare/v23.4.2...v23.4.3
