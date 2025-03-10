@@ -21,6 +21,9 @@ import { BaseResponse } from './base-response';
 import { GetOrganizationsResponseAllOf } from './get-organizations-response-all-of';
 // May contain unused imports in some cases
 // @ts-ignore
+import { GetPersonsResponseAllOfAdditionalData } from './get-persons-response-all-of-additional-data';
+// May contain unused imports in some cases
+// @ts-ignore
 import { OrganizationItem } from './organization-item';
 
 /**

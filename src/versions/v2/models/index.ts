@@ -92,6 +92,7 @@ export * from './get-person-search-response-all-of-data-items-inner-item-organiz
 export * from './get-person-search-response-all-of-data-items-inner-item-owner';
 export * from './get-persons-response';
 export * from './get-persons-response-all-of';
+export * from './get-persons-response-all-of-additional-data';
 export * from './get-persons-response-all-of-data-inner';
 export * from './get-persons-response-all-of-data-inner-emails-inner';
 export * from './get-persons-response-all-of-data-inner-im-inner';

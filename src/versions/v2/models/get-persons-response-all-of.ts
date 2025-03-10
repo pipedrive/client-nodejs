@@ -15,6 +15,9 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
+import { GetPersonsResponseAllOfAdditionalData } from './get-persons-response-all-of-additional-data';
+// May contain unused imports in some cases
+// @ts-ignore
 import { GetPersonsResponseAllOfDataInner } from './get-persons-response-all-of-data-inner';
 
 /**
@@ -28,5 +31,10 @@ export interface GetPersonsResponseAllOf {
     * @type {Array<GetPersonsResponseAllOfDataInner>}
     */
     'data'?: Array<GetPersonsResponseAllOfDataInner>;
+    /**
+    * 
+    * @type {GetPersonsResponseAllOfAdditionalData}
+    */
+    'additional_data'?: GetPersonsResponseAllOfAdditionalData;
 }
 
