@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetNotesResponseAdditionalDataPagination } from './get-notes-response-additional-data-pagination';
+import { AdditionalData } from './additional-data';
 
 /**
 * 
@@ -25,8 +25,8 @@ import { GetNotesResponseAdditionalDataPagination } from './get-notes-response-a
 export interface GetNotesResponseAdditionalData {
     /**
     * 
-    * @type {GetNotesResponseAdditionalDataPagination}
+    * @type {AdditionalData}
     */
-    'pagination'?: GetNotesResponseAdditionalDataPagination;
+    'pagination'?: AdditionalData;
 }
 

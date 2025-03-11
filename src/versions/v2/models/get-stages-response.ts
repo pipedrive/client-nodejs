@@ -15,6 +15,9 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
+import { GetActivitiesResponseAllOfAdditionalData } from './get-activities-response-all-of-additional-data';
+// May contain unused imports in some cases
+// @ts-ignore
 import { StageItem } from './stage-item';
 
 /**
@@ -33,5 +36,10 @@ export interface GetStagesResponse {
     * @type {Array<StageItem>}
     */
     'data'?: Array<StageItem>;
+    /**
+    * 
+    * @type {GetActivitiesResponseAllOfAdditionalData}
+    */
+    'additional_data'?: GetActivitiesResponseAllOfAdditionalData;
 }
 

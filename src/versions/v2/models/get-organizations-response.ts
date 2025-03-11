@@ -18,6 +18,9 @@
 import { BaseResponse } from './base-response';
 // May contain unused imports in some cases
 // @ts-ignore
+import { GetActivitiesResponseAllOfAdditionalData } from './get-activities-response-all-of-additional-data';
+// May contain unused imports in some cases
+// @ts-ignore
 import { GetOrganizationsResponseAllOf } from './get-organizations-response-all-of';
 // May contain unused imports in some cases
 // @ts-ignore
