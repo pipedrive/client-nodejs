@@ -48,6 +48,7 @@ export * from './delete-stage-response';
 export * from './delete-stage-response-data';
 export * from './get-activities-response';
 export * from './get-activities-response-all-of';
+export * from './get-activities-response-all-of-additional-data';
 export * from './get-additional-discounts-response';
 export * from './get-additional-discounts-response-data-inner';
 export * from './get-deal-search-response';

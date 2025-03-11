@@ -123,6 +123,10 @@ export const ActivitiesApiAxiosParamCreator = function (configuration?: Configur
          * @param {number} [filter_id] If supplied, only activities matching the specified filter are returned
          * @param {string} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
          * @param {number} [owner_id] If supplied, only activities owned by the specified user are returned. If filter_id is provided, this is ignored.
+         * @param {number} [deal_id] If supplied, only activities linked to the specified deal are returned. If filter_id is provided, this is ignored.
+         * @param {string} [lead_id] If supplied, only activities linked to the specified lead are returned. If filter_id is provided, this is ignored.
+         * @param {number} [person_id] If supplied, only activities whose primary participant is the given person are returned. If filter_id is provided, this is ignored.
+         * @param {number} [org_id] If supplied, only activities linked to the specified organization are returned. If filter_id is provided, this is ignored.
          * @param {string} [updated_since] If set, only activities with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {string} [updated_until] If set, only activities with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {'id' | 'update_time' | 'add_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
@@ -133,7 +137,7 @@ export const ActivitiesApiAxiosParamCreator = function (configuration?: Configur
 
          * @throws {RequiredError}
          */
-        getActivities: async (filter_id?: number, ids?: string, owner_id?: number, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: 'attendees', limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+        getActivities: async (filter_id?: number, ids?: string, owner_id?: number, deal_id?: number, lead_id?: string, person_id?: number, org_id?: number, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: 'attendees', limit?: number, cursor?: string, ): Promise<RequestArgs> => {
             const localVarPath = `/activities`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -163,6 +167,22 @@ export const ActivitiesApiAxiosParamCreator = function (configuration?: Configur
 
             if (owner_id !== undefined) {
                 localVarQueryParameter['owner_id'] = owner_id;
+            }
+
+            if (deal_id !== undefined) {
+                localVarQueryParameter['deal_id'] = deal_id;
+            }
+
+            if (lead_id !== undefined) {
+                localVarQueryParameter['lead_id'] = lead_id;
+            }
+
+            if (person_id !== undefined) {
+                localVarQueryParameter['person_id'] = person_id;
+            }
+
+            if (org_id !== undefined) {
+                localVarQueryParameter['org_id'] = org_id;
             }
 
             if (updated_since !== undefined) {
@@ -334,6 +354,10 @@ export const ActivitiesApiFp = function(configuration?: Configuration) {
          * @param {number} [filter_id] If supplied, only activities matching the specified filter are returned
          * @param {string} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
          * @param {number} [owner_id] If supplied, only activities owned by the specified user are returned. If filter_id is provided, this is ignored.
+         * @param {number} [deal_id] If supplied, only activities linked to the specified deal are returned. If filter_id is provided, this is ignored.
+         * @param {string} [lead_id] If supplied, only activities linked to the specified lead are returned. If filter_id is provided, this is ignored.
+         * @param {number} [person_id] If supplied, only activities whose primary participant is the given person are returned. If filter_id is provided, this is ignored.
+         * @param {number} [org_id] If supplied, only activities linked to the specified organization are returned. If filter_id is provided, this is ignored.
          * @param {string} [updated_since] If set, only activities with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {string} [updated_until] If set, only activities with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {'id' | 'update_time' | 'add_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
@@ -344,8 +368,8 @@ export const ActivitiesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getActivities(filter_id?: number, ids?: string, owner_id?: number, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: 'attendees', limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivitiesResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getActivities(filter_id, ids, owner_id, updated_since, updated_until, sort_by, sort_direction, include_fields, limit, cursor, );
+        async getActivities(filter_id?: number, ids?: string, owner_id?: number, deal_id?: number, lead_id?: string, person_id?: number, org_id?: number, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: 'attendees', limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivitiesResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getActivities(filter_id, ids, owner_id, deal_id, lead_id, person_id, org_id, updated_since, updated_until, sort_by, sort_direction, include_fields, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -410,7 +434,7 @@ export const ActivitiesApiFactory = function (configuration?: Configuration, bas
          * @throws {RequiredError}
          */
         getActivities(requestParameters: ActivitiesApiGetActivitiesRequest = {}, ): Promise<GetActivitiesResponse> {
-            return localVarFp.getActivities(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+            return localVarFp.getActivities(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.deal_id, requestParameters.lead_id, requestParameters.person_id, requestParameters.org_id, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns the details of a specific activity.
@@ -489,6 +513,34 @@ export interface ActivitiesApiGetActivitiesRequest {
      * @memberof ActivitiesApiGetActivities
      */
     readonly owner_id?: number
+
+    /**
+     * If supplied, only activities linked to the specified deal are returned. If filter_id is provided, this is ignored.
+     * @type {number}
+     * @memberof ActivitiesApiGetActivities
+     */
+    readonly deal_id?: number
+
+    /**
+     * If supplied, only activities linked to the specified lead are returned. If filter_id is provided, this is ignored.
+     * @type {string}
+     * @memberof ActivitiesApiGetActivities
+     */
+    readonly lead_id?: string
+
+    /**
+     * If supplied, only activities whose primary participant is the given person are returned. If filter_id is provided, this is ignored.
+     * @type {number}
+     * @memberof ActivitiesApiGetActivities
+     */
+    readonly person_id?: number
+
+    /**
+     * If supplied, only activities linked to the specified organization are returned. If filter_id is provided, this is ignored.
+     * @type {number}
+     * @memberof ActivitiesApiGetActivities
+     */
+    readonly org_id?: number
 
     /**
      * If set, only activities with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
@@ -622,7 +674,7 @@ export class ActivitiesApi extends BaseAPI {
      * @memberof ActivitiesApi
      */
     public getActivities(requestParameters: ActivitiesApiGetActivitiesRequest = {}, ) {
-        return ActivitiesApiFp(this.configuration).getActivities(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+        return ActivitiesApiFp(this.configuration).getActivities(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.deal_id, requestParameters.lead_id, requestParameters.person_id, requestParameters.org_id, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
