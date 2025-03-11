@@ -13,6 +13,7 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
     - GetOrganizations
     - GetPersons
     - GetNotes
+    - GetActivities
 
 ## [24.1.1] - 2025-02-11
 ### Fixed
