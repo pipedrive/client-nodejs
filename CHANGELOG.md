@@ -12,6 +12,7 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 - Added `POST /v2/deals/{id}/installments` endpoint to add an installment to a deal
 - Added `PATCH /v2/deals/{id}/installments/{installment_id}` endpoint to edit an installment
 - Added `DELETE /v2/deals/{id}/installments/{installment_id}` endpoint to delete an installment
+- Added AdditionalData to v2 modals
 
 ## [24.1.1] - 2025-02-11
 ### Fixed
