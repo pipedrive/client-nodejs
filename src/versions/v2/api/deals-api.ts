@@ -22,6 +22,8 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
+import { AddAInstallmentResponse } from '../models';
+// @ts-ignore
 import { AddAdditionalDiscountRequestBody } from '../models';
 // @ts-ignore
 import { AddAdditionalDiscountResponse } from '../models';
@@ -32,11 +34,15 @@ import { AddDealProductResponse } from '../models';
 // @ts-ignore
 import { AddDealRequest } from '../models';
 // @ts-ignore
+import { AddInstallmentRequestBody } from '../models';
+// @ts-ignore
 import { DeleteAdditionalDiscountResponse } from '../models';
 // @ts-ignore
 import { DeleteDealProductResponse } from '../models';
 // @ts-ignore
 import { DeleteDealResponse } from '../models';
+// @ts-ignore
+import { DeleteInstallmentResponse } from '../models';
 // @ts-ignore
 import { GetAdditionalDiscountsResponse } from '../models';
 // @ts-ignore
@@ -46,6 +52,8 @@ import { GetDealsProductsResponse } from '../models';
 // @ts-ignore
 import { GetDealsResponse } from '../models';
 // @ts-ignore
+import { GetInstallmentsResponse } from '../models';
+// @ts-ignore
 import { UpdateAdditionalDiscountRequestBody } from '../models';
 // @ts-ignore
 import { UpdateAdditionalDiscountResponse } from '../models';
@@ -53,6 +61,10 @@ import { UpdateAdditionalDiscountResponse } from '../models';
 import { UpdateDealProductRequest } from '../models';
 // @ts-ignore
 import { UpdateDealRequest } from '../models';
+// @ts-ignore
+import { UpdateInstallmentRequestBody } from '../models';
+// @ts-ignore
+import { UpdateInstallmentResponse } from '../models';
 // @ts-ignore
 import { UpsertDealResponse } from '../models';
 /**
@@ -266,6 +278,51 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             // authentication oauth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "products:full"], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Removes an installment from a deal.  Only available in Advanced and above plans. 
+         * @summary Delete an installment from a deal
+         * @param {number} id The ID of the deal
+         * @param {number} installment_id The ID of the installment
+
+         * @throws {RequiredError}
+         */
+        deleteInstallment: async (id: number, installment_id: number, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteInstallment', 'id', id)
+            // verify required parameter 'installment_id' is not null or undefined
+            assertParamExists('deleteInstallment', 'installment_id', installment_id)
+            const localVarPath = `/deals/{id}/installments/{installment_id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)))
+                .replace(`{${"installment_id"}}`, encodeURIComponent(String(installment_id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
 
 
     
@@ -613,6 +670,70 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Lists installments attached to a list of deals.  Only available in Advanced and above plans. 
+         * @summary List installments added to a list of deals
+         * @param {Array<number>} deal_ids An array of integers with the IDs of the deals for which the attached installments will be returned. A maximum of 100 deal IDs can be provided.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {'id' | 'billing_date' | 'deal_id'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;billing_date&#x60;, &#x60;deal_id&#x60;.
+         * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
+
+         * @throws {RequiredError}
+         */
+        getInstallments: async (deal_ids: Array<number>, cursor?: string, limit?: number, sort_by?: 'id' | 'billing_date' | 'deal_id', sort_direction?: 'asc' | 'desc', ): Promise<RequestArgs> => {
+            // verify required parameter 'deal_ids' is not null or undefined
+            assertParamExists('getInstallments', 'deal_ids', deal_ids)
+            const localVarPath = `/deals/installments`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
+
+            if (deal_ids) {
+                localVarQueryParameter['deal_ids'] = deal_ids;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (sort_by !== undefined) {
+                localVarQueryParameter['sort_by'] = sort_by;
+            }
+
+            if (sort_direction !== undefined) {
+                localVarQueryParameter['sort_direction'] = sort_direction;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Adds a discount to a deal changing, the deal value if the deal has one-time products attached.
          * @summary Add a discount to a deal
          * @param {number} id The ID of the deal
@@ -651,6 +772,51 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
             localVarRequestOptions.data = serializeDataIfNeeded(AddAdditionalDiscountRequestBody, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Advanced and above plans. 
+         * @summary Add an installment to a deal
+         * @param {number} id The ID of the deal
+         * @param {AddInstallmentRequestBody} [AddInstallmentRequestBody] 
+
+         * @throws {RequiredError}
+         */
+        postInstallment: async (id: number, AddInstallmentRequestBody?: AddInstallmentRequestBody, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('postInstallment', 'id', id)
+            const localVarPath = `/deals/{id}/installments`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+            localVarRequestOptions.data = serializeDataIfNeeded(AddInstallmentRequestBody, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -884,6 +1050,55 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * Edits an installment added to a deal.  Only available in Advanced and above plans. 
+         * @summary Update an installment added to a deal
+         * @param {number} id The ID of the deal
+         * @param {number} installment_id The ID of the installment
+         * @param {UpdateInstallmentRequestBody} [UpdateInstallmentRequestBody] 
+
+         * @throws {RequiredError}
+         */
+        updateInstallment: async (id: number, installment_id: number, UpdateInstallmentRequestBody?: UpdateInstallmentRequestBody, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateInstallment', 'id', id)
+            // verify required parameter 'installment_id' is not null or undefined
+            assertParamExists('updateInstallment', 'installment_id', installment_id)
+            const localVarPath = `/deals/{id}/installments/{installment_id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)))
+                .replace(`{${"installment_id"}}`, encodeURIComponent(String(installment_id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+            localVarRequestOptions.data = serializeDataIfNeeded(UpdateInstallmentRequestBody, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -951,6 +1166,18 @@ export const DealsApiFp = function(configuration?: Configuration) {
          */
         async deleteDealProduct(id: number, product_attachment_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteDealProductResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDealProduct(id, product_attachment_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Removes an installment from a deal.  Only available in Advanced and above plans. 
+         * @summary Delete an installment from a deal
+         * @param {number} id The ID of the deal
+         * @param {number} installment_id The ID of the installment
+
+         * @throws {RequiredError}
+         */
+        async deleteInstallment(id: number, installment_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteInstallmentResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteInstallment(id, installment_id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -1034,6 +1261,21 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Lists installments attached to a list of deals.  Only available in Advanced and above plans. 
+         * @summary List installments added to a list of deals
+         * @param {Array<number>} deal_ids An array of integers with the IDs of the deals for which the attached installments will be returned. A maximum of 100 deal IDs can be provided.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {'id' | 'billing_date' | 'deal_id'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;billing_date&#x60;, &#x60;deal_id&#x60;.
+         * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
+
+         * @throws {RequiredError}
+         */
+        async getInstallments(deal_ids: Array<number>, cursor?: string, limit?: number, sort_by?: 'id' | 'billing_date' | 'deal_id', sort_direction?: 'asc' | 'desc', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetInstallmentsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getInstallments(deal_ids, cursor, limit, sort_by, sort_direction, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Adds a discount to a deal changing, the deal value if the deal has one-time products attached.
          * @summary Add a discount to a deal
          * @param {number} id The ID of the deal
@@ -1043,6 +1285,18 @@ export const DealsApiFp = function(configuration?: Configuration) {
          */
         async postAdditionalDiscount(id: number, AddAdditionalDiscountRequestBody?: AddAdditionalDiscountRequestBody, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddAdditionalDiscountResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.postAdditionalDiscount(id, AddAdditionalDiscountRequestBody, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Advanced and above plans. 
+         * @summary Add an installment to a deal
+         * @param {number} id The ID of the deal
+         * @param {AddInstallmentRequestBody} [AddInstallmentRequestBody] 
+
+         * @throws {RequiredError}
+         */
+        async postInstallment(id: number, AddInstallmentRequestBody?: AddInstallmentRequestBody, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddAInstallmentResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.postInstallment(id, AddInstallmentRequestBody, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -1100,6 +1354,19 @@ export const DealsApiFp = function(configuration?: Configuration) {
          */
         async updateDealProduct(id: number, product_attachment_id: number, UpdateDealProductRequest?: UpdateDealProductRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddDealProductResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateDealProduct(id, product_attachment_id, UpdateDealProductRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Edits an installment added to a deal.  Only available in Advanced and above plans. 
+         * @summary Update an installment added to a deal
+         * @param {number} id The ID of the deal
+         * @param {number} installment_id The ID of the installment
+         * @param {UpdateInstallmentRequestBody} [UpdateInstallmentRequestBody] 
+
+         * @throws {RequiredError}
+         */
+        async updateInstallment(id: number, installment_id: number, UpdateInstallmentRequestBody?: UpdateInstallmentRequestBody, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateInstallmentResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateInstallment(id, installment_id, UpdateInstallmentRequestBody, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -1163,6 +1430,16 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.deleteDealProduct(requestParameters.id, requestParameters.product_attachment_id, ).then((request) => request(axios, basePath));
         },
         /**
+         * Removes an installment from a deal.  Only available in Advanced and above plans. 
+         * @summary Delete an installment from a deal
+         * @param {DealsApiDeleteInstallmentRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        deleteInstallment(requestParameters: DealsApiDeleteInstallmentRequest, ): Promise<DeleteInstallmentResponse> {
+            return localVarFp.deleteInstallment(requestParameters.id, requestParameters.installment_id, ).then((request) => request(axios, basePath));
+        },
+        /**
          * Lists discounts attached to a deal.
          * @summary List discounts added to a deal
          * @param {DealsApiGetAdditionalDiscountsRequest} requestParameters Request parameters.
@@ -1213,6 +1490,16 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.getDealsProducts(requestParameters.deal_ids, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, ).then((request) => request(axios, basePath));
         },
         /**
+         * Lists installments attached to a list of deals.  Only available in Advanced and above plans. 
+         * @summary List installments added to a list of deals
+         * @param {DealsApiGetInstallmentsRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        getInstallments(requestParameters: DealsApiGetInstallmentsRequest, ): Promise<GetInstallmentsResponse> {
+            return localVarFp.getInstallments(requestParameters.deal_ids, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, ).then((request) => request(axios, basePath));
+        },
+        /**
          * Adds a discount to a deal changing, the deal value if the deal has one-time products attached.
          * @summary Add a discount to a deal
          * @param {DealsApiPostAdditionalDiscountRequest} requestParameters Request parameters.
@@ -1221,6 +1508,16 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          */
         postAdditionalDiscount(requestParameters: DealsApiPostAdditionalDiscountRequest, ): Promise<AddAdditionalDiscountResponse> {
             return localVarFp.postAdditionalDiscount(requestParameters.id, requestParameters.AddAdditionalDiscountRequestBody, ).then((request) => request(axios, basePath));
+        },
+        /**
+         * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Advanced and above plans. 
+         * @summary Add an installment to a deal
+         * @param {DealsApiPostInstallmentRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        postInstallment(requestParameters: DealsApiPostInstallmentRequest, ): Promise<AddAInstallmentResponse> {
+            return localVarFp.postInstallment(requestParameters.id, requestParameters.AddInstallmentRequestBody, ).then((request) => request(axios, basePath));
         },
         /**
          * Searches all deals by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found deals can be filtered by the person ID and the organization ID.
@@ -1261,6 +1558,16 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          */
         updateDealProduct(requestParameters: DealsApiUpdateDealProductRequest, ): Promise<AddDealProductResponse> {
             return localVarFp.updateDealProduct(requestParameters.id, requestParameters.product_attachment_id, requestParameters.UpdateDealProductRequest, ).then((request) => request(axios, basePath));
+        },
+        /**
+         * Edits an installment added to a deal.  Only available in Advanced and above plans. 
+         * @summary Update an installment added to a deal
+         * @param {DealsApiUpdateInstallmentRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        updateInstallment(requestParameters: DealsApiUpdateInstallmentRequest, ): Promise<UpdateInstallmentResponse> {
+            return localVarFp.updateInstallment(requestParameters.id, requestParameters.installment_id, requestParameters.UpdateInstallmentRequestBody, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1354,6 +1661,27 @@ export interface DealsApiDeleteDealProductRequest {
      * @memberof DealsApiDeleteDealProduct
      */
     readonly product_attachment_id: number
+}
+
+/**
+ * Request parameters for deleteInstallment operation in DealsApi.
+ * @export
+ * @interface DealsApiDeleteInstallmentRequest
+ */
+export interface DealsApiDeleteInstallmentRequest {
+    /**
+     * The ID of the deal
+     * @type {number}
+     * @memberof DealsApiDeleteInstallment
+     */
+    readonly id: number
+
+    /**
+     * The ID of the installment
+     * @type {number}
+     * @memberof DealsApiDeleteInstallment
+     */
+    readonly installment_id: number
 }
 
 /**
@@ -1602,6 +1930,48 @@ export interface DealsApiGetDealsProductsRequest {
 }
 
 /**
+ * Request parameters for getInstallments operation in DealsApi.
+ * @export
+ * @interface DealsApiGetInstallmentsRequest
+ */
+export interface DealsApiGetInstallmentsRequest {
+    /**
+     * An array of integers with the IDs of the deals for which the attached installments will be returned. A maximum of 100 deal IDs can be provided.
+     * @type {Array<number>}
+     * @memberof DealsApiGetInstallments
+     */
+    readonly deal_ids: Array<number>
+
+    /**
+     * For pagination, the marker (an opaque string value) representing the first item on the next page
+     * @type {string}
+     * @memberof DealsApiGetInstallments
+     */
+    readonly cursor?: string
+
+    /**
+     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+     * @type {number}
+     * @memberof DealsApiGetInstallments
+     */
+    readonly limit?: number
+
+    /**
+     * The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;billing_date&#x60;, &#x60;deal_id&#x60;.
+     * @type {'id' | 'billing_date' | 'deal_id'}
+     * @memberof DealsApiGetInstallments
+     */
+    readonly sort_by?: 'id' | 'billing_date' | 'deal_id'
+
+    /**
+     * The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
+     * @type {'asc' | 'desc'}
+     * @memberof DealsApiGetInstallments
+     */
+    readonly sort_direction?: 'asc' | 'desc'
+}
+
+/**
  * Request parameters for postAdditionalDiscount operation in DealsApi.
  * @export
  * @interface DealsApiPostAdditionalDiscountRequest
@@ -1620,6 +1990,27 @@ export interface DealsApiPostAdditionalDiscountRequest {
      * @memberof DealsApiPostAdditionalDiscount
      */
     readonly AddAdditionalDiscountRequestBody?: AddAdditionalDiscountRequestBody
+}
+
+/**
+ * Request parameters for postInstallment operation in DealsApi.
+ * @export
+ * @interface DealsApiPostInstallmentRequest
+ */
+export interface DealsApiPostInstallmentRequest {
+    /**
+     * The ID of the deal
+     * @type {number}
+     * @memberof DealsApiPostInstallment
+     */
+    readonly id: number
+
+    /**
+     * 
+     * @type {AddInstallmentRequestBody}
+     * @memberof DealsApiPostInstallment
+     */
+    readonly AddInstallmentRequestBody?: AddInstallmentRequestBody
 }
 
 /**
@@ -1770,6 +2161,34 @@ export interface DealsApiUpdateDealProductRequest {
 }
 
 /**
+ * Request parameters for updateInstallment operation in DealsApi.
+ * @export
+ * @interface DealsApiUpdateInstallmentRequest
+ */
+export interface DealsApiUpdateInstallmentRequest {
+    /**
+     * The ID of the deal
+     * @type {number}
+     * @memberof DealsApiUpdateInstallment
+     */
+    readonly id: number
+
+    /**
+     * The ID of the installment
+     * @type {number}
+     * @memberof DealsApiUpdateInstallment
+     */
+    readonly installment_id: number
+
+    /**
+     * 
+     * @type {UpdateInstallmentRequestBody}
+     * @memberof DealsApiUpdateInstallment
+     */
+    readonly UpdateInstallmentRequestBody?: UpdateInstallmentRequestBody
+}
+
+/**
  * DealsApi - object-oriented interface
  * @export
  * @class DealsApi
@@ -1837,6 +2256,18 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
+     * Removes an installment from a deal.  Only available in Advanced and above plans. 
+     * @summary Delete an installment from a deal
+     * @param {DealsApiDeleteInstallmentRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public deleteInstallment(requestParameters: DealsApiDeleteInstallmentRequest, ) {
+        return DealsApiFp(this.configuration).deleteInstallment(requestParameters.id, requestParameters.installment_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Lists discounts attached to a deal.
      * @summary List discounts added to a deal
      * @param {DealsApiGetAdditionalDiscountsRequest} requestParameters Request parameters.
@@ -1897,6 +2328,18 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
+     * Lists installments attached to a list of deals.  Only available in Advanced and above plans. 
+     * @summary List installments added to a list of deals
+     * @param {DealsApiGetInstallmentsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public getInstallments(requestParameters: DealsApiGetInstallmentsRequest, ) {
+        return DealsApiFp(this.configuration).getInstallments(requestParameters.deal_ids, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Adds a discount to a deal changing, the deal value if the deal has one-time products attached.
      * @summary Add a discount to a deal
      * @param {DealsApiPostAdditionalDiscountRequest} requestParameters Request parameters.
@@ -1906,6 +2349,18 @@ export class DealsApi extends BaseAPI {
      */
     public postAdditionalDiscount(requestParameters: DealsApiPostAdditionalDiscountRequest, ) {
         return DealsApiFp(this.configuration).postAdditionalDiscount(requestParameters.id, requestParameters.AddAdditionalDiscountRequestBody, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Advanced and above plans. 
+     * @summary Add an installment to a deal
+     * @param {DealsApiPostInstallmentRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public postInstallment(requestParameters: DealsApiPostInstallmentRequest, ) {
+        return DealsApiFp(this.configuration).postInstallment(requestParameters.id, requestParameters.AddInstallmentRequestBody, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1954,5 +2409,17 @@ export class DealsApi extends BaseAPI {
      */
     public updateDealProduct(requestParameters: DealsApiUpdateDealProductRequest, ) {
         return DealsApiFp(this.configuration).updateDealProduct(requestParameters.id, requestParameters.product_attachment_id, requestParameters.UpdateDealProductRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Edits an installment added to a deal.  Only available in Advanced and above plans. 
+     * @summary Update an installment added to a deal
+     * @param {DealsApiUpdateInstallmentRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public updateInstallment(requestParameters: DealsApiUpdateInstallmentRequest, ) {
+        return DealsApiFp(this.configuration).updateInstallment(requestParameters.id, requestParameters.installment_id, requestParameters.UpdateInstallmentRequestBody, ).then((request) => request(this.axios, this.basePath));
     }
 }

@@ -15,26 +15,23 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { DealItem } from './deal-item';
-// May contain unused imports in some cases
-// @ts-ignore
-import { GetActivitiesResponseAllOfAdditionalData } from './get-activities-response-all-of-additional-data';
+import { GetInstallmentsResponseDataInner } from './get-installments-response-data-inner';
 
 /**
 * 
 * @export
-* @interface GetDealsResponseAllOf
+* @interface GetInstallmentsResponse
 */
-export interface GetDealsResponseAllOf {
+export interface GetInstallmentsResponse {
     /**
-    * Deals array
-    * @type {Array<DealItem>}
+    * If the response is successful or not
+    * @type {boolean}
     */
-    'data'?: Array<DealItem>;
+    'success'?: boolean;
     /**
-    * 
-    * @type {GetActivitiesResponseAllOfAdditionalData}
+    * Array containing data for all installments added to a deal
+    * @type {Array<GetInstallmentsResponseDataInner>}
     */
-    'additional_data'?: GetActivitiesResponseAllOfAdditionalData;
+    'data'?: Array<GetInstallmentsResponseDataInner>;
 }
 

@@ -22,6 +22,8 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
+import { AddAInstallmentResponse } from '../models';
+// @ts-ignore
 import { AddActivityRequest } from '../models';
 // @ts-ignore
 import { AddAdditionalDiscountRequestBody } from '../models';
@@ -34,6 +36,8 @@ import { AddDealProductResponse } from '../models';
 // @ts-ignore
 import { AddDealRequest } from '../models';
 // @ts-ignore
+import { AddInstallmentRequestBody } from '../models';
+// @ts-ignore
 import { AddOrganizationRequest } from '../models';
 // @ts-ignore
 import { AddPersonRequest } from '../models';
@@ -45,6 +49,8 @@ import { DeleteAdditionalDiscountResponse } from '../models';
 import { DeleteDealProductResponse } from '../models';
 // @ts-ignore
 import { DeleteDealResponse } from '../models';
+// @ts-ignore
+import { DeleteInstallmentResponse } from '../models';
 // @ts-ignore
 import { DeleteOrganizationResponse } from '../models';
 // @ts-ignore
@@ -59,6 +65,8 @@ import { GetDealSearchResponse } from '../models';
 import { GetDealsProductsResponse } from '../models';
 // @ts-ignore
 import { GetDealsResponse } from '../models';
+// @ts-ignore
+import { GetInstallmentsResponse } from '../models';
 // @ts-ignore
 import { GetItemSearchFieldResponse } from '../models';
 // @ts-ignore
@@ -81,6 +89,10 @@ import { UpdateAdditionalDiscountResponse } from '../models';
 import { UpdateDealProductRequest } from '../models';
 // @ts-ignore
 import { UpdateDealRequest } from '../models';
+// @ts-ignore
+import { UpdateInstallmentRequestBody } from '../models';
+// @ts-ignore
+import { UpdateInstallmentResponse } from '../models';
 // @ts-ignore
 import { UpdateOrganizationRequest } from '../models';
 // @ts-ignore
@@ -481,6 +493,51 @@ export const BetaApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
+         * Removes an installment from a deal.  Only available in Advanced and above plans. 
+         * @summary Delete an installment from a deal
+         * @param {number} id The ID of the deal
+         * @param {number} installment_id The ID of the installment
+
+         * @throws {RequiredError}
+         */
+        deleteInstallment: async (id: number, installment_id: number, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteInstallment', 'id', id)
+            // verify required parameter 'installment_id' is not null or undefined
+            assertParamExists('deleteInstallment', 'installment_id', installment_id)
+            const localVarPath = `/deals/{id}/installments/{installment_id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)))
+                .replace(`{${"installment_id"}}`, encodeURIComponent(String(installment_id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Marks a organization as deleted. After 30 days, the organization will be permanently deleted.
          * @summary Delete a organization
          * @param {number} id The ID of the organization
@@ -568,6 +625,10 @@ export const BetaApiAxiosParamCreator = function (configuration?: Configuration)
          * @param {number} [filter_id] If supplied, only activities matching the specified filter are returned
          * @param {string} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
          * @param {number} [owner_id] If supplied, only activities owned by the specified user are returned. If filter_id is provided, this is ignored.
+         * @param {number} [deal_id] If supplied, only activities linked to the specified deal are returned. If filter_id is provided, this is ignored.
+         * @param {string} [lead_id] If supplied, only activities linked to the specified lead are returned. If filter_id is provided, this is ignored.
+         * @param {number} [person_id] If supplied, only activities whose primary participant is the given person are returned. If filter_id is provided, this is ignored.
+         * @param {number} [org_id] If supplied, only activities linked to the specified organization are returned. If filter_id is provided, this is ignored.
          * @param {string} [updated_since] If set, only activities with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {string} [updated_until] If set, only activities with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {'id' | 'update_time' | 'add_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
@@ -578,7 +639,7 @@ export const BetaApiAxiosParamCreator = function (configuration?: Configuration)
 
          * @throws {RequiredError}
          */
-        getActivities: async (filter_id?: number, ids?: string, owner_id?: number, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: 'attendees', limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+        getActivities: async (filter_id?: number, ids?: string, owner_id?: number, deal_id?: number, lead_id?: string, person_id?: number, org_id?: number, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: 'attendees', limit?: number, cursor?: string, ): Promise<RequestArgs> => {
             const localVarPath = `/activities`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -608,6 +669,22 @@ export const BetaApiAxiosParamCreator = function (configuration?: Configuration)
 
             if (owner_id !== undefined) {
                 localVarQueryParameter['owner_id'] = owner_id;
+            }
+
+            if (deal_id !== undefined) {
+                localVarQueryParameter['deal_id'] = deal_id;
+            }
+
+            if (lead_id !== undefined) {
+                localVarQueryParameter['lead_id'] = lead_id;
+            }
+
+            if (person_id !== undefined) {
+                localVarQueryParameter['person_id'] = person_id;
+            }
+
+            if (org_id !== undefined) {
+                localVarQueryParameter['org_id'] = org_id;
             }
 
             if (updated_since !== undefined) {
@@ -1030,6 +1107,70 @@ export const BetaApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
+         * Lists installments attached to a list of deals.  Only available in Advanced and above plans. 
+         * @summary List installments added to a list of deals
+         * @param {Array<number>} deal_ids An array of integers with the IDs of the deals for which the attached installments will be returned. A maximum of 100 deal IDs can be provided.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {'id' | 'billing_date' | 'deal_id'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;billing_date&#x60;, &#x60;deal_id&#x60;.
+         * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
+
+         * @throws {RequiredError}
+         */
+        getInstallments: async (deal_ids: Array<number>, cursor?: string, limit?: number, sort_by?: 'id' | 'billing_date' | 'deal_id', sort_direction?: 'asc' | 'desc', ): Promise<RequestArgs> => {
+            // verify required parameter 'deal_ids' is not null or undefined
+            assertParamExists('getInstallments', 'deal_ids', deal_ids)
+            const localVarPath = `/deals/installments`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
+
+            if (deal_ids) {
+                localVarQueryParameter['deal_ids'] = deal_ids;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (sort_by !== undefined) {
+                localVarQueryParameter['sort_by'] = sort_by;
+            }
+
+            if (sort_direction !== undefined) {
+                localVarQueryParameter['sort_direction'] = sort_direction;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Returns the details of a specific organization.
          * @summary Get details of a organization
          * @param {number} id The ID of the organization
@@ -1359,6 +1500,51 @@ export const BetaApiAxiosParamCreator = function (configuration?: Configuration)
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
             localVarRequestOptions.data = serializeDataIfNeeded(AddAdditionalDiscountRequestBody, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Advanced and above plans. 
+         * @summary Add an installment to a deal
+         * @param {number} id The ID of the deal
+         * @param {AddInstallmentRequestBody} [AddInstallmentRequestBody] 
+
+         * @throws {RequiredError}
+         */
+        postInstallment: async (id: number, AddInstallmentRequestBody?: AddInstallmentRequestBody, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('postInstallment', 'id', id)
+            const localVarPath = `/deals/{id}/installments`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+            localVarRequestOptions.data = serializeDataIfNeeded(AddInstallmentRequestBody, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2007,6 +2193,55 @@ export const BetaApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
+         * Edits an installment added to a deal.  Only available in Advanced and above plans. 
+         * @summary Update an installment added to a deal
+         * @param {number} id The ID of the deal
+         * @param {number} installment_id The ID of the installment
+         * @param {UpdateInstallmentRequestBody} [UpdateInstallmentRequestBody] 
+
+         * @throws {RequiredError}
+         */
+        updateInstallment: async (id: number, installment_id: number, UpdateInstallmentRequestBody?: UpdateInstallmentRequestBody, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateInstallment', 'id', id)
+            // verify required parameter 'installment_id' is not null or undefined
+            assertParamExists('updateInstallment', 'installment_id', installment_id)
+            const localVarPath = `/deals/{id}/installments/{installment_id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)))
+                .replace(`{${"installment_id"}}`, encodeURIComponent(String(installment_id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+            localVarRequestOptions.data = serializeDataIfNeeded(UpdateInstallmentRequestBody, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Updates the properties of a organization.
          * @summary Update a organization
          * @param {number} id The ID of the organization
@@ -2210,6 +2445,18 @@ export const BetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Removes an installment from a deal.  Only available in Advanced and above plans. 
+         * @summary Delete an installment from a deal
+         * @param {number} id The ID of the deal
+         * @param {number} installment_id The ID of the installment
+
+         * @throws {RequiredError}
+         */
+        async deleteInstallment(id: number, installment_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteInstallmentResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteInstallment(id, installment_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Marks a organization as deleted. After 30 days, the organization will be permanently deleted.
          * @summary Delete a organization
          * @param {number} id The ID of the organization
@@ -2237,6 +2484,10 @@ export const BetaApiFp = function(configuration?: Configuration) {
          * @param {number} [filter_id] If supplied, only activities matching the specified filter are returned
          * @param {string} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
          * @param {number} [owner_id] If supplied, only activities owned by the specified user are returned. If filter_id is provided, this is ignored.
+         * @param {number} [deal_id] If supplied, only activities linked to the specified deal are returned. If filter_id is provided, this is ignored.
+         * @param {string} [lead_id] If supplied, only activities linked to the specified lead are returned. If filter_id is provided, this is ignored.
+         * @param {number} [person_id] If supplied, only activities whose primary participant is the given person are returned. If filter_id is provided, this is ignored.
+         * @param {number} [org_id] If supplied, only activities linked to the specified organization are returned. If filter_id is provided, this is ignored.
          * @param {string} [updated_since] If set, only activities with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {string} [updated_until] If set, only activities with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {'id' | 'update_time' | 'add_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
@@ -2247,8 +2498,8 @@ export const BetaApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getActivities(filter_id?: number, ids?: string, owner_id?: number, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: 'attendees', limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivitiesResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getActivities(filter_id, ids, owner_id, updated_since, updated_until, sort_by, sort_direction, include_fields, limit, cursor, );
+        async getActivities(filter_id?: number, ids?: string, owner_id?: number, deal_id?: number, lead_id?: string, person_id?: number, org_id?: number, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: 'attendees', limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivitiesResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getActivities(filter_id, ids, owner_id, deal_id, lead_id, person_id, org_id, updated_since, updated_until, sort_by, sort_direction, include_fields, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -2344,6 +2595,21 @@ export const BetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Lists installments attached to a list of deals.  Only available in Advanced and above plans. 
+         * @summary List installments added to a list of deals
+         * @param {Array<number>} deal_ids An array of integers with the IDs of the deals for which the attached installments will be returned. A maximum of 100 deal IDs can be provided.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {'id' | 'billing_date' | 'deal_id'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;billing_date&#x60;, &#x60;deal_id&#x60;.
+         * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
+
+         * @throws {RequiredError}
+         */
+        async getInstallments(deal_ids: Array<number>, cursor?: string, limit?: number, sort_by?: 'id' | 'billing_date' | 'deal_id', sort_direction?: 'asc' | 'desc', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetInstallmentsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getInstallments(deal_ids, cursor, limit, sort_by, sort_direction, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Returns the details of a specific organization.
          * @summary Get details of a organization
          * @param {number} id The ID of the organization
@@ -2422,6 +2688,18 @@ export const BetaApiFp = function(configuration?: Configuration) {
          */
         async postAdditionalDiscount(id: number, AddAdditionalDiscountRequestBody?: AddAdditionalDiscountRequestBody, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddAdditionalDiscountResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.postAdditionalDiscount(id, AddAdditionalDiscountRequestBody, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Advanced and above plans. 
+         * @summary Add an installment to a deal
+         * @param {number} id The ID of the deal
+         * @param {AddInstallmentRequestBody} [AddInstallmentRequestBody] 
+
+         * @throws {RequiredError}
+         */
+        async postInstallment(id: number, AddInstallmentRequestBody?: AddInstallmentRequestBody, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddAInstallmentResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.postInstallment(id, AddInstallmentRequestBody, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -2578,6 +2856,19 @@ export const BetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Edits an installment added to a deal.  Only available in Advanced and above plans. 
+         * @summary Update an installment added to a deal
+         * @param {number} id The ID of the deal
+         * @param {number} installment_id The ID of the installment
+         * @param {UpdateInstallmentRequestBody} [UpdateInstallmentRequestBody] 
+
+         * @throws {RequiredError}
+         */
+        async updateInstallment(id: number, installment_id: number, UpdateInstallmentRequestBody?: UpdateInstallmentRequestBody, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateInstallmentResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateInstallment(id, installment_id, UpdateInstallmentRequestBody, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Updates the properties of a organization.
          * @summary Update a organization
          * @param {number} id The ID of the organization
@@ -2702,6 +2993,16 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.deleteDealProduct(requestParameters.id, requestParameters.product_attachment_id, ).then((request) => request(axios, basePath));
         },
         /**
+         * Removes an installment from a deal.  Only available in Advanced and above plans. 
+         * @summary Delete an installment from a deal
+         * @param {BetaApiDeleteInstallmentRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        deleteInstallment(requestParameters: BetaApiDeleteInstallmentRequest, ): Promise<DeleteInstallmentResponse> {
+            return localVarFp.deleteInstallment(requestParameters.id, requestParameters.installment_id, ).then((request) => request(axios, basePath));
+        },
+        /**
          * Marks a organization as deleted. After 30 days, the organization will be permanently deleted.
          * @summary Delete a organization
          * @param {BetaApiDeleteOrganizationRequest} requestParameters Request parameters.
@@ -2729,7 +3030,7 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
          * @throws {RequiredError}
          */
         getActivities(requestParameters: BetaApiGetActivitiesRequest = {}, ): Promise<GetActivitiesResponse> {
-            return localVarFp.getActivities(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+            return localVarFp.getActivities(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.deal_id, requestParameters.lead_id, requestParameters.person_id, requestParameters.org_id, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns the details of a specific activity.
@@ -2792,6 +3093,16 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.getDealsProducts(requestParameters.deal_ids, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, ).then((request) => request(axios, basePath));
         },
         /**
+         * Lists installments attached to a list of deals.  Only available in Advanced and above plans. 
+         * @summary List installments added to a list of deals
+         * @param {BetaApiGetInstallmentsRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        getInstallments(requestParameters: BetaApiGetInstallmentsRequest, ): Promise<GetInstallmentsResponse> {
+            return localVarFp.getInstallments(requestParameters.deal_ids, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, ).then((request) => request(axios, basePath));
+        },
+        /**
          * Returns the details of a specific organization.
          * @summary Get details of a organization
          * @param {BetaApiGetOrganizationRequest} requestParameters Request parameters.
@@ -2840,6 +3151,16 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
          */
         postAdditionalDiscount(requestParameters: BetaApiPostAdditionalDiscountRequest, ): Promise<AddAdditionalDiscountResponse> {
             return localVarFp.postAdditionalDiscount(requestParameters.id, requestParameters.AddAdditionalDiscountRequestBody, ).then((request) => request(axios, basePath));
+        },
+        /**
+         * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Advanced and above plans. 
+         * @summary Add an installment to a deal
+         * @param {BetaApiPostInstallmentRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        postInstallment(requestParameters: BetaApiPostInstallmentRequest, ): Promise<AddAInstallmentResponse> {
+            return localVarFp.postInstallment(requestParameters.id, requestParameters.AddInstallmentRequestBody, ).then((request) => request(axios, basePath));
         },
         /**
          * Searches all deals by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found deals can be filtered by the person ID and the organization ID.
@@ -2940,6 +3261,16 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
          */
         updateDealProduct(requestParameters: BetaApiUpdateDealProductRequest, ): Promise<AddDealProductResponse> {
             return localVarFp.updateDealProduct(requestParameters.id, requestParameters.product_attachment_id, requestParameters.UpdateDealProductRequest, ).then((request) => request(axios, basePath));
+        },
+        /**
+         * Edits an installment added to a deal.  Only available in Advanced and above plans. 
+         * @summary Update an installment added to a deal
+         * @param {BetaApiUpdateInstallmentRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        updateInstallment(requestParameters: BetaApiUpdateInstallmentRequest, ): Promise<UpdateInstallmentResponse> {
+            return localVarFp.updateInstallment(requestParameters.id, requestParameters.installment_id, requestParameters.UpdateInstallmentRequestBody, ).then((request) => request(axios, basePath));
         },
         /**
          * Updates the properties of a organization.
@@ -3112,6 +3443,27 @@ export interface BetaApiDeleteDealProductRequest {
 }
 
 /**
+ * Request parameters for deleteInstallment operation in BetaApi.
+ * @export
+ * @interface BetaApiDeleteInstallmentRequest
+ */
+export interface BetaApiDeleteInstallmentRequest {
+    /**
+     * The ID of the deal
+     * @type {number}
+     * @memberof BetaApiDeleteInstallment
+     */
+    readonly id: number
+
+    /**
+     * The ID of the installment
+     * @type {number}
+     * @memberof BetaApiDeleteInstallment
+     */
+    readonly installment_id: number
+}
+
+/**
  * Request parameters for deleteOrganization operation in BetaApi.
  * @export
  * @interface BetaApiDeleteOrganizationRequest
@@ -3165,6 +3517,34 @@ export interface BetaApiGetActivitiesRequest {
      * @memberof BetaApiGetActivities
      */
     readonly owner_id?: number
+
+    /**
+     * If supplied, only activities linked to the specified deal are returned. If filter_id is provided, this is ignored.
+     * @type {number}
+     * @memberof BetaApiGetActivities
+     */
+    readonly deal_id?: number
+
+    /**
+     * If supplied, only activities linked to the specified lead are returned. If filter_id is provided, this is ignored.
+     * @type {string}
+     * @memberof BetaApiGetActivities
+     */
+    readonly lead_id?: string
+
+    /**
+     * If supplied, only activities whose primary participant is the given person are returned. If filter_id is provided, this is ignored.
+     * @type {number}
+     * @memberof BetaApiGetActivities
+     */
+    readonly person_id?: number
+
+    /**
+     * If supplied, only activities linked to the specified organization are returned. If filter_id is provided, this is ignored.
+     * @type {number}
+     * @memberof BetaApiGetActivities
+     */
+    readonly org_id?: number
 
     /**
      * If set, only activities with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
@@ -3483,6 +3863,48 @@ export interface BetaApiGetDealsProductsRequest {
 }
 
 /**
+ * Request parameters for getInstallments operation in BetaApi.
+ * @export
+ * @interface BetaApiGetInstallmentsRequest
+ */
+export interface BetaApiGetInstallmentsRequest {
+    /**
+     * An array of integers with the IDs of the deals for which the attached installments will be returned. A maximum of 100 deal IDs can be provided.
+     * @type {Array<number>}
+     * @memberof BetaApiGetInstallments
+     */
+    readonly deal_ids: Array<number>
+
+    /**
+     * For pagination, the marker (an opaque string value) representing the first item on the next page
+     * @type {string}
+     * @memberof BetaApiGetInstallments
+     */
+    readonly cursor?: string
+
+    /**
+     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+     * @type {number}
+     * @memberof BetaApiGetInstallments
+     */
+    readonly limit?: number
+
+    /**
+     * The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;billing_date&#x60;, &#x60;deal_id&#x60;.
+     * @type {'id' | 'billing_date' | 'deal_id'}
+     * @memberof BetaApiGetInstallments
+     */
+    readonly sort_by?: 'id' | 'billing_date' | 'deal_id'
+
+    /**
+     * The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
+     * @type {'asc' | 'desc'}
+     * @memberof BetaApiGetInstallments
+     */
+    readonly sort_direction?: 'asc' | 'desc'
+}
+
+/**
  * Request parameters for getOrganization operation in BetaApi.
  * @export
  * @interface BetaApiGetOrganizationRequest
@@ -3732,6 +4154,27 @@ export interface BetaApiPostAdditionalDiscountRequest {
      * @memberof BetaApiPostAdditionalDiscount
      */
     readonly AddAdditionalDiscountRequestBody?: AddAdditionalDiscountRequestBody
+}
+
+/**
+ * Request parameters for postInstallment operation in BetaApi.
+ * @export
+ * @interface BetaApiPostInstallmentRequest
+ */
+export interface BetaApiPostInstallmentRequest {
+    /**
+     * The ID of the deal
+     * @type {number}
+     * @memberof BetaApiPostInstallment
+     */
+    readonly id: number
+
+    /**
+     * 
+     * @type {AddInstallmentRequestBody}
+     * @memberof BetaApiPostInstallment
+     */
+    readonly AddInstallmentRequestBody?: AddInstallmentRequestBody
 }
 
 /**
@@ -4176,6 +4619,34 @@ export interface BetaApiUpdateDealProductRequest {
 }
 
 /**
+ * Request parameters for updateInstallment operation in BetaApi.
+ * @export
+ * @interface BetaApiUpdateInstallmentRequest
+ */
+export interface BetaApiUpdateInstallmentRequest {
+    /**
+     * The ID of the deal
+     * @type {number}
+     * @memberof BetaApiUpdateInstallment
+     */
+    readonly id: number
+
+    /**
+     * The ID of the installment
+     * @type {number}
+     * @memberof BetaApiUpdateInstallment
+     */
+    readonly installment_id: number
+
+    /**
+     * 
+     * @type {UpdateInstallmentRequestBody}
+     * @memberof BetaApiUpdateInstallment
+     */
+    readonly UpdateInstallmentRequestBody?: UpdateInstallmentRequestBody
+}
+
+/**
  * Request parameters for updateOrganization operation in BetaApi.
  * @export
  * @interface BetaApiUpdateOrganizationRequest
@@ -4333,6 +4804,18 @@ export class BetaApi extends BaseAPI {
     }
 
     /**
+     * Removes an installment from a deal.  Only available in Advanced and above plans. 
+     * @summary Delete an installment from a deal
+     * @param {BetaApiDeleteInstallmentRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public deleteInstallment(requestParameters: BetaApiDeleteInstallmentRequest, ) {
+        return BetaApiFp(this.configuration).deleteInstallment(requestParameters.id, requestParameters.installment_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Marks a organization as deleted. After 30 days, the organization will be permanently deleted.
      * @summary Delete a organization
      * @param {BetaApiDeleteOrganizationRequest} requestParameters Request parameters.
@@ -4365,7 +4848,7 @@ export class BetaApi extends BaseAPI {
      * @memberof BetaApi
      */
     public getActivities(requestParameters: BetaApiGetActivitiesRequest = {}, ) {
-        return BetaApiFp(this.configuration).getActivities(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+        return BetaApiFp(this.configuration).getActivities(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.deal_id, requestParameters.lead_id, requestParameters.person_id, requestParameters.org_id, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -4441,6 +4924,18 @@ export class BetaApi extends BaseAPI {
     }
 
     /**
+     * Lists installments attached to a list of deals.  Only available in Advanced and above plans. 
+     * @summary List installments added to a list of deals
+     * @param {BetaApiGetInstallmentsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public getInstallments(requestParameters: BetaApiGetInstallmentsRequest, ) {
+        return BetaApiFp(this.configuration).getInstallments(requestParameters.deal_ids, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns the details of a specific organization.
      * @summary Get details of a organization
      * @param {BetaApiGetOrganizationRequest} requestParameters Request parameters.
@@ -4498,6 +4993,18 @@ export class BetaApi extends BaseAPI {
      */
     public postAdditionalDiscount(requestParameters: BetaApiPostAdditionalDiscountRequest, ) {
         return BetaApiFp(this.configuration).postAdditionalDiscount(requestParameters.id, requestParameters.AddAdditionalDiscountRequestBody, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Advanced and above plans. 
+     * @summary Add an installment to a deal
+     * @param {BetaApiPostInstallmentRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public postInstallment(requestParameters: BetaApiPostInstallmentRequest, ) {
+        return BetaApiFp(this.configuration).postInstallment(requestParameters.id, requestParameters.AddInstallmentRequestBody, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -4618,6 +5125,18 @@ export class BetaApi extends BaseAPI {
      */
     public updateDealProduct(requestParameters: BetaApiUpdateDealProductRequest, ) {
         return BetaApiFp(this.configuration).updateDealProduct(requestParameters.id, requestParameters.product_attachment_id, requestParameters.UpdateDealProductRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Edits an installment added to a deal.  Only available in Advanced and above plans. 
+     * @summary Update an installment added to a deal
+     * @param {BetaApiUpdateInstallmentRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public updateInstallment(requestParameters: BetaApiUpdateInstallmentRequest, ) {
+        return BetaApiFp(this.configuration).updateInstallment(requestParameters.id, requestParameters.installment_id, requestParameters.UpdateInstallmentRequestBody, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
