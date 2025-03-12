@@ -15,26 +15,23 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { ActivityItem } from './activity-item';
-// May contain unused imports in some cases
-// @ts-ignore
-import { GetActivitiesResponseAllOfAdditionalData } from './get-activities-response-all-of-additional-data';
+import { DeleteInstallmentResponseData } from './delete-installment-response-data';
 
 /**
 * 
 * @export
-* @interface GetActivitiesResponseAllOf
+* @interface DeleteInstallmentResponse
 */
-export interface GetActivitiesResponseAllOf {
+export interface DeleteInstallmentResponse {
     /**
-    * Activities array
-    * @type {Array<ActivityItem>}
+    * If the response is successful or not
+    * @type {boolean}
     */
-    'data'?: Array<ActivityItem>;
+    'success'?: boolean;
     /**
     * 
-    * @type {GetActivitiesResponseAllOfAdditionalData}
+    * @type {DeleteInstallmentResponseData}
     */
-    'additional_data'?: GetActivitiesResponseAllOfAdditionalData;
+    'data'?: DeleteInstallmentResponseData;
 }
 

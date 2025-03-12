@@ -15,6 +15,9 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
+import { GetActivitiesResponseAllOfAdditionalData } from './get-activities-response-all-of-additional-data';
+// May contain unused imports in some cases
+// @ts-ignore
 import { GetPipelinesResponseAllOfDataInner } from './get-pipelines-response-all-of-data-inner';
 
 /**
@@ -28,5 +31,10 @@ export interface GetPipelinesResponseAllOf {
     * @type {Array<GetPipelinesResponseAllOfDataInner>}
     */
     'data'?: Array<GetPipelinesResponseAllOfDataInner>;
+    /**
+    * 
+    * @type {GetActivitiesResponseAllOfAdditionalData}
+    */
+    'additional_data'?: GetActivitiesResponseAllOfAdditionalData;
 }
 

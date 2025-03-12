@@ -21,6 +21,9 @@ import { BaseResponse } from './base-response';
 import { DealItem } from './deal-item';
 // May contain unused imports in some cases
 // @ts-ignore
+import { GetActivitiesResponseAllOfAdditionalData } from './get-activities-response-all-of-additional-data';
+// May contain unused imports in some cases
+// @ts-ignore
 import { GetDealsResponseAllOf } from './get-deals-response-all-of';
 
 /**
