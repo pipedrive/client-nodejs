@@ -45,7 +45,7 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
          * Adds a new recurring subscription.
          * @summary Add a recurring subscription
          * @param {AddRecurringSubscriptionRequest} [AddRecurringSubscriptionRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         addRecurringSubscription: async (AddRecurringSubscriptionRequest?: AddRecurringSubscriptionRequest, ): Promise<RequestArgs> => {
@@ -86,7 +86,7 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
          * Adds a new installment subscription.
          * @summary Add an installment subscription
          * @param {AddSubscriptionInstallmentRequest} [AddSubscriptionInstallmentRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         addSubscriptionInstallment: async (AddSubscriptionInstallmentRequest?: AddSubscriptionInstallmentRequest, ): Promise<RequestArgs> => {
@@ -128,7 +128,7 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
          * @summary Cancel a recurring subscription
          * @param {number} id The ID of the subscription
          * @param {CancelRecurringSubscriptionRequest} [CancelRecurringSubscriptionRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         cancelRecurringSubscription: async (id: number, CancelRecurringSubscriptionRequest?: CancelRecurringSubscriptionRequest, ): Promise<RequestArgs> => {
@@ -172,7 +172,7 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
          * Marks an installment or a recurring subscription as deleted.
          * @summary Delete a subscription
          * @param {number} id The ID of the subscription
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteSubscription: async (id: number, ): Promise<RequestArgs> => {
@@ -213,7 +213,7 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
          * Returns details of an installment or a recurring subscription by the deal ID.
          * @summary Find subscription by deal
          * @param {number} dealId The ID of the deal
-
+         * @deprecated
          * @throws {RequiredError}
          */
         findSubscriptionByDeal: async (dealId: number, ): Promise<RequestArgs> => {
@@ -254,7 +254,7 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
          * Returns details of an installment or a recurring subscription.
          * @summary Get details of a subscription
          * @param {number} id The ID of the subscription
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getSubscription: async (id: number, ): Promise<RequestArgs> => {
@@ -295,7 +295,7 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
          * Returns all payments of an installment or recurring subscription.
          * @summary Get all payments of a subscription
          * @param {number} id The ID of the subscription
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getSubscriptionPayments: async (id: number, ): Promise<RequestArgs> => {
@@ -337,7 +337,7 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
          * @summary Update a recurring subscription
          * @param {number} id The ID of the subscription
          * @param {UpdateRecurringSubscriptionRequest} [UpdateRecurringSubscriptionRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         updateRecurringSubscription: async (id: number, UpdateRecurringSubscriptionRequest?: UpdateRecurringSubscriptionRequest, ): Promise<RequestArgs> => {
@@ -382,7 +382,7 @@ export const SubscriptionsApiAxiosParamCreator = function (configuration?: Confi
          * @summary Update an installment subscription
          * @param {number} id The ID of the subscription
          * @param {UpdateSubscriptionInstallmentRequest} [UpdateSubscriptionInstallmentRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         updateSubscriptionInstallment: async (id: number, UpdateSubscriptionInstallmentRequest?: UpdateSubscriptionInstallmentRequest, ): Promise<RequestArgs> => {
@@ -437,7 +437,7 @@ export const SubscriptionsApiFp = function(configuration?: Configuration) {
          * Adds a new recurring subscription.
          * @summary Add a recurring subscription
          * @param {AddRecurringSubscriptionRequest} [AddRecurringSubscriptionRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async addRecurringSubscription(AddRecurringSubscriptionRequest?: AddRecurringSubscriptionRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetSubscriptionsIdResponse>> {
@@ -448,7 +448,7 @@ export const SubscriptionsApiFp = function(configuration?: Configuration) {
          * Adds a new installment subscription.
          * @summary Add an installment subscription
          * @param {AddSubscriptionInstallmentRequest} [AddSubscriptionInstallmentRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async addSubscriptionInstallment(AddSubscriptionInstallmentRequest?: AddSubscriptionInstallmentRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetSubscriptionsIdResponse>> {
@@ -460,7 +460,7 @@ export const SubscriptionsApiFp = function(configuration?: Configuration) {
          * @summary Cancel a recurring subscription
          * @param {number} id The ID of the subscription
          * @param {CancelRecurringSubscriptionRequest} [CancelRecurringSubscriptionRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async cancelRecurringSubscription(id: number, CancelRecurringSubscriptionRequest?: CancelRecurringSubscriptionRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetSubscriptionsIdResponse>> {
@@ -471,7 +471,7 @@ export const SubscriptionsApiFp = function(configuration?: Configuration) {
          * Marks an installment or a recurring subscription as deleted.
          * @summary Delete a subscription
          * @param {number} id The ID of the subscription
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async deleteSubscription(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetSubscriptionsIdResponse>> {
@@ -482,7 +482,7 @@ export const SubscriptionsApiFp = function(configuration?: Configuration) {
          * Returns details of an installment or a recurring subscription by the deal ID.
          * @summary Find subscription by deal
          * @param {number} dealId The ID of the deal
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async findSubscriptionByDeal(dealId: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetSubscriptionsIdResponse>> {
@@ -493,7 +493,7 @@ export const SubscriptionsApiFp = function(configuration?: Configuration) {
          * Returns details of an installment or a recurring subscription.
          * @summary Get details of a subscription
          * @param {number} id The ID of the subscription
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getSubscription(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetSubscriptionsIdResponse>> {
@@ -504,7 +504,7 @@ export const SubscriptionsApiFp = function(configuration?: Configuration) {
          * Returns all payments of an installment or recurring subscription.
          * @summary Get all payments of a subscription
          * @param {number} id The ID of the subscription
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getSubscriptionPayments(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPaymentsResponse>> {
@@ -516,7 +516,7 @@ export const SubscriptionsApiFp = function(configuration?: Configuration) {
          * @summary Update a recurring subscription
          * @param {number} id The ID of the subscription
          * @param {UpdateRecurringSubscriptionRequest} [UpdateRecurringSubscriptionRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async updateRecurringSubscription(id: number, UpdateRecurringSubscriptionRequest?: UpdateRecurringSubscriptionRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetSubscriptionsIdResponse>> {
@@ -528,7 +528,7 @@ export const SubscriptionsApiFp = function(configuration?: Configuration) {
          * @summary Update an installment subscription
          * @param {number} id The ID of the subscription
          * @param {UpdateSubscriptionInstallmentRequest} [UpdateSubscriptionInstallmentRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async updateSubscriptionInstallment(id: number, UpdateSubscriptionInstallmentRequest?: UpdateSubscriptionInstallmentRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetSubscriptionsIdResponse>> {
@@ -549,7 +549,7 @@ export const SubscriptionsApiFactory = function (configuration?: Configuration, 
          * Adds a new recurring subscription.
          * @summary Add a recurring subscription
          * @param {SubscriptionsApiAddRecurringSubscriptionRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         addRecurringSubscription(requestParameters: SubscriptionsApiAddRecurringSubscriptionRequest = {}, ): Promise<GetSubscriptionsIdResponse> {
@@ -559,7 +559,7 @@ export const SubscriptionsApiFactory = function (configuration?: Configuration, 
          * Adds a new installment subscription.
          * @summary Add an installment subscription
          * @param {SubscriptionsApiAddSubscriptionInstallmentRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         addSubscriptionInstallment(requestParameters: SubscriptionsApiAddSubscriptionInstallmentRequest = {}, ): Promise<GetSubscriptionsIdResponse> {
@@ -569,7 +569,7 @@ export const SubscriptionsApiFactory = function (configuration?: Configuration, 
          * Cancels a recurring subscription.
          * @summary Cancel a recurring subscription
          * @param {SubscriptionsApiCancelRecurringSubscriptionRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         cancelRecurringSubscription(requestParameters: SubscriptionsApiCancelRecurringSubscriptionRequest, ): Promise<GetSubscriptionsIdResponse> {
@@ -579,7 +579,7 @@ export const SubscriptionsApiFactory = function (configuration?: Configuration, 
          * Marks an installment or a recurring subscription as deleted.
          * @summary Delete a subscription
          * @param {SubscriptionsApiDeleteSubscriptionRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteSubscription(requestParameters: SubscriptionsApiDeleteSubscriptionRequest, ): Promise<GetSubscriptionsIdResponse> {
@@ -589,7 +589,7 @@ export const SubscriptionsApiFactory = function (configuration?: Configuration, 
          * Returns details of an installment or a recurring subscription by the deal ID.
          * @summary Find subscription by deal
          * @param {SubscriptionsApiFindSubscriptionByDealRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         findSubscriptionByDeal(requestParameters: SubscriptionsApiFindSubscriptionByDealRequest, ): Promise<GetSubscriptionsIdResponse> {
@@ -599,7 +599,7 @@ export const SubscriptionsApiFactory = function (configuration?: Configuration, 
          * Returns details of an installment or a recurring subscription.
          * @summary Get details of a subscription
          * @param {SubscriptionsApiGetSubscriptionRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getSubscription(requestParameters: SubscriptionsApiGetSubscriptionRequest, ): Promise<GetSubscriptionsIdResponse> {
@@ -609,7 +609,7 @@ export const SubscriptionsApiFactory = function (configuration?: Configuration, 
          * Returns all payments of an installment or recurring subscription.
          * @summary Get all payments of a subscription
          * @param {SubscriptionsApiGetSubscriptionPaymentsRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getSubscriptionPayments(requestParameters: SubscriptionsApiGetSubscriptionPaymentsRequest, ): Promise<GetPaymentsResponse> {
@@ -619,7 +619,7 @@ export const SubscriptionsApiFactory = function (configuration?: Configuration, 
          * Updates a recurring subscription.
          * @summary Update a recurring subscription
          * @param {SubscriptionsApiUpdateRecurringSubscriptionRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         updateRecurringSubscription(requestParameters: SubscriptionsApiUpdateRecurringSubscriptionRequest, ): Promise<GetSubscriptionsIdResponse> {
@@ -629,7 +629,7 @@ export const SubscriptionsApiFactory = function (configuration?: Configuration, 
          * Updates an installment subscription.
          * @summary Update an installment subscription
          * @param {SubscriptionsApiUpdateSubscriptionInstallmentRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         updateSubscriptionInstallment(requestParameters: SubscriptionsApiUpdateSubscriptionInstallmentRequest, ): Promise<GetSubscriptionsIdResponse> {
@@ -796,7 +796,7 @@ export class SubscriptionsApi extends BaseAPI {
      * Adds a new recurring subscription.
      * @summary Add a recurring subscription
      * @param {SubscriptionsApiAddRecurringSubscriptionRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof SubscriptionsApi
      */
@@ -808,7 +808,7 @@ export class SubscriptionsApi extends BaseAPI {
      * Adds a new installment subscription.
      * @summary Add an installment subscription
      * @param {SubscriptionsApiAddSubscriptionInstallmentRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof SubscriptionsApi
      */
@@ -820,7 +820,7 @@ export class SubscriptionsApi extends BaseAPI {
      * Cancels a recurring subscription.
      * @summary Cancel a recurring subscription
      * @param {SubscriptionsApiCancelRecurringSubscriptionRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof SubscriptionsApi
      */
@@ -832,7 +832,7 @@ export class SubscriptionsApi extends BaseAPI {
      * Marks an installment or a recurring subscription as deleted.
      * @summary Delete a subscription
      * @param {SubscriptionsApiDeleteSubscriptionRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof SubscriptionsApi
      */
@@ -844,7 +844,7 @@ export class SubscriptionsApi extends BaseAPI {
      * Returns details of an installment or a recurring subscription by the deal ID.
      * @summary Find subscription by deal
      * @param {SubscriptionsApiFindSubscriptionByDealRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof SubscriptionsApi
      */
@@ -856,7 +856,7 @@ export class SubscriptionsApi extends BaseAPI {
      * Returns details of an installment or a recurring subscription.
      * @summary Get details of a subscription
      * @param {SubscriptionsApiGetSubscriptionRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof SubscriptionsApi
      */
@@ -868,7 +868,7 @@ export class SubscriptionsApi extends BaseAPI {
      * Returns all payments of an installment or recurring subscription.
      * @summary Get all payments of a subscription
      * @param {SubscriptionsApiGetSubscriptionPaymentsRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof SubscriptionsApi
      */
@@ -880,7 +880,7 @@ export class SubscriptionsApi extends BaseAPI {
      * Updates a recurring subscription.
      * @summary Update a recurring subscription
      * @param {SubscriptionsApiUpdateRecurringSubscriptionRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof SubscriptionsApi
      */
@@ -892,7 +892,7 @@ export class SubscriptionsApi extends BaseAPI {
      * Updates an installment subscription.
      * @summary Update an installment subscription
      * @param {SubscriptionsApiUpdateSubscriptionInstallmentRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof SubscriptionsApi
      */
