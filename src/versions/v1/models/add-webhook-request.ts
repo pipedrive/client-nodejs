@@ -51,25 +51,24 @@ export interface AddWebhookRequest {
     */
     'http_auth_password'?: string;
     /**
-    * The webhook\'s version. NB! Webhooks v2 will become the default from March 17th, 2025. See <a href=\"https://developers.pipedrive.com/changelog/post/breaking-change-webhooks-v2-will-become-the-new-default-version\" target=\"_blank\" rel=\"noopener noreferrer\">this Changelog post</a> for more details.
+    * The webhook\'s version. NB! Webhooks v2 is the default from March 17th, 2025. See <a href=\"https://developers.pipedrive.com/changelog/post/breaking-change-webhooks-v2-will-become-the-new-default-version\" target=\"_blank\" rel=\"noopener noreferrer\">this Changelog post</a> for more details.
     * @type {string}
     */
     'version'?: AddWebhookRequestVersionConst;
 }
 
                 export const AddWebhookRequestEventActionConst = {
-                        added: 'added',
-                        updated: 'updated',
-                        merged: 'merged',
-                        deleted: 'deleted',
+                        create: 'create',
+                        change: 'change',
+                        delete: 'delete',
                         Star: '*'
                 } as const;
 
                 export type AddWebhookRequestEventActionConst = typeof AddWebhookRequestEventActionConst[keyof typeof AddWebhookRequestEventActionConst];
                 export const AddWebhookRequestEventObjectConst = {
                         activity: 'activity',
-                        activityType: 'activityType',
                         deal: 'deal',
+                        lead: 'lead',
                         note: 'note',
                         organization: 'organization',
                         person: 'person',

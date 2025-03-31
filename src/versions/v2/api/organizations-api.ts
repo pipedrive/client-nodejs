@@ -22,9 +22,19 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
+import { AddDealFollowerRequest } from '../models';
+// @ts-ignore
+import { AddFollowerResponse } from '../models';
+// @ts-ignore
 import { AddOrganizationRequest } from '../models';
 // @ts-ignore
+import { DeleteFollowerResponse } from '../models';
+// @ts-ignore
 import { DeleteOrganizationResponse } from '../models';
+// @ts-ignore
+import { GetFollowerChangelogsResponse } from '../models';
+// @ts-ignore
+import { GetFollowersResponse } from '../models';
 // @ts-ignore
 import { GetOrganizationSearchResponse } from '../models';
 // @ts-ignore
@@ -81,6 +91,51 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
+         * Adds a user as a follower to the organization.
+         * @summary Add a follower to an organization
+         * @param {number} id The ID of the organization
+         * @param {AddDealFollowerRequest} [AddDealFollowerRequest] 
+
+         * @throws {RequiredError}
+         */
+        addOrganizationFollower: async (id: number, AddDealFollowerRequest?: AddDealFollowerRequest, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('addOrganizationFollower', 'id', id)
+            const localVarPath = `/organizations/{id}/followers`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+            localVarRequestOptions.data = serializeDataIfNeeded(AddDealFollowerRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Marks a organization as deleted. After 30 days, the organization will be permanently deleted.
          * @summary Delete a organization
          * @param {number} id The ID of the organization
@@ -92,6 +147,51 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             assertParamExists('deleteOrganization', 'id', id)
             const localVarPath = `/organizations/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Deletes a user follower from the organization.
+         * @summary Delete a follower from an organization
+         * @param {number} id The ID of the organization
+         * @param {number} follower_id The ID of the following user
+
+         * @throws {RequiredError}
+         */
+        deleteOrganizationFollower: async (id: number, follower_id: number, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteOrganizationFollower', 'id', id)
+            // verify required parameter 'follower_id' is not null or undefined
+            assertParamExists('deleteOrganizationFollower', 'follower_id', follower_id)
+            const localVarPath = `/organizations/{id}/followers/{follower_id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)))
+                .replace(`{${"follower_id"}}`, encodeURIComponent(String(follower_id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -159,6 +259,108 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
 
             if (custom_fields !== undefined) {
                 localVarQueryParameter['custom_fields'] = custom_fields;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Lists users who are following the organization.
+         * @summary List followers of an organization
+         * @param {number} id The ID of the organization
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        getOrganizationFollowers: async (id: number, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getOrganizationFollowers', 'id', id)
+            const localVarPath = `/organizations/{id}/followers`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full"], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Lists changelogs about users have followed the organization.
+         * @summary List followers changelog of an organization
+         * @param {number} id The ID of the organization
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        getOrganizationFollowersChangelog: async (id: number, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getOrganizationFollowersChangelog', 'id', id)
+            const localVarPath = `/organizations/{id}/followers/changelog`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full"], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
             }
 
 
@@ -396,6 +598,18 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Adds a user as a follower to the organization.
+         * @summary Add a follower to an organization
+         * @param {number} id The ID of the organization
+         * @param {AddDealFollowerRequest} [AddDealFollowerRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addOrganizationFollower(id: number, AddDealFollowerRequest?: AddDealFollowerRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddFollowerResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addOrganizationFollower(id, AddDealFollowerRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Marks a organization as deleted. After 30 days, the organization will be permanently deleted.
          * @summary Delete a organization
          * @param {number} id The ID of the organization
@@ -404,6 +618,18 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
          */
         async deleteOrganization(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteOrganizationResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteOrganization(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Deletes a user follower from the organization.
+         * @summary Delete a follower from an organization
+         * @param {number} id The ID of the organization
+         * @param {number} follower_id The ID of the following user
+
+         * @throws {RequiredError}
+         */
+        async deleteOrganizationFollower(id: number, follower_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteFollowerResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteOrganizationFollower(id, follower_id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -417,6 +643,32 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
          */
         async getOrganization(id: number, include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'email_messages_count' | 'people_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count', custom_fields?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertOrganizationResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganization(id, include_fields, custom_fields, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Lists users who are following the organization.
+         * @summary List followers of an organization
+         * @param {number} id The ID of the organization
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getOrganizationFollowers(id: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFollowersResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationFollowers(id, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Lists changelogs about users have followed the organization.
+         * @summary List followers changelog of an organization
+         * @param {number} id The ID of the organization
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getOrganizationFollowersChangelog(id: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFollowerChangelogsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationFollowersChangelog(id, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -488,6 +740,16 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
             return localVarFp.addOrganization(requestParameters.AddOrganizationRequest, ).then((request) => request(axios, basePath));
         },
         /**
+         * Adds a user as a follower to the organization.
+         * @summary Add a follower to an organization
+         * @param {OrganizationsApiAddOrganizationFollowerRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        addOrganizationFollower(requestParameters: OrganizationsApiAddOrganizationFollowerRequest, ): Promise<AddFollowerResponse> {
+            return localVarFp.addOrganizationFollower(requestParameters.id, requestParameters.AddDealFollowerRequest, ).then((request) => request(axios, basePath));
+        },
+        /**
          * Marks a organization as deleted. After 30 days, the organization will be permanently deleted.
          * @summary Delete a organization
          * @param {OrganizationsApiDeleteOrganizationRequest} requestParameters Request parameters.
@@ -498,6 +760,16 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
             return localVarFp.deleteOrganization(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
+         * Deletes a user follower from the organization.
+         * @summary Delete a follower from an organization
+         * @param {OrganizationsApiDeleteOrganizationFollowerRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        deleteOrganizationFollower(requestParameters: OrganizationsApiDeleteOrganizationFollowerRequest, ): Promise<DeleteFollowerResponse> {
+            return localVarFp.deleteOrganizationFollower(requestParameters.id, requestParameters.follower_id, ).then((request) => request(axios, basePath));
+        },
+        /**
          * Returns the details of a specific organization.
          * @summary Get details of a organization
          * @param {OrganizationsApiGetOrganizationRequest} requestParameters Request parameters.
@@ -506,6 +778,26 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
          */
         getOrganization(requestParameters: OrganizationsApiGetOrganizationRequest, ): Promise<UpsertOrganizationResponse> {
             return localVarFp.getOrganization(requestParameters.id, requestParameters.include_fields, requestParameters.custom_fields, ).then((request) => request(axios, basePath));
+        },
+        /**
+         * Lists users who are following the organization.
+         * @summary List followers of an organization
+         * @param {OrganizationsApiGetOrganizationFollowersRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        getOrganizationFollowers(requestParameters: OrganizationsApiGetOrganizationFollowersRequest, ): Promise<GetFollowersResponse> {
+            return localVarFp.getOrganizationFollowers(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
+        /**
+         * Lists changelogs about users have followed the organization.
+         * @summary List followers changelog of an organization
+         * @param {OrganizationsApiGetOrganizationFollowersChangelogRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        getOrganizationFollowersChangelog(requestParameters: OrganizationsApiGetOrganizationFollowersChangelogRequest, ): Promise<GetFollowerChangelogsResponse> {
+            return localVarFp.getOrganizationFollowersChangelog(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns data about all organizations.
@@ -555,6 +847,27 @@ export interface OrganizationsApiAddOrganizationRequest {
 }
 
 /**
+ * Request parameters for addOrganizationFollower operation in OrganizationsApi.
+ * @export
+ * @interface OrganizationsApiAddOrganizationFollowerRequest
+ */
+export interface OrganizationsApiAddOrganizationFollowerRequest {
+    /**
+     * The ID of the organization
+     * @type {number}
+     * @memberof OrganizationsApiAddOrganizationFollower
+     */
+    readonly id: number
+
+    /**
+     * 
+     * @type {AddDealFollowerRequest}
+     * @memberof OrganizationsApiAddOrganizationFollower
+     */
+    readonly AddDealFollowerRequest?: AddDealFollowerRequest
+}
+
+/**
  * Request parameters for deleteOrganization operation in OrganizationsApi.
  * @export
  * @interface OrganizationsApiDeleteOrganizationRequest
@@ -566,6 +879,27 @@ export interface OrganizationsApiDeleteOrganizationRequest {
      * @memberof OrganizationsApiDeleteOrganization
      */
     readonly id: number
+}
+
+/**
+ * Request parameters for deleteOrganizationFollower operation in OrganizationsApi.
+ * @export
+ * @interface OrganizationsApiDeleteOrganizationFollowerRequest
+ */
+export interface OrganizationsApiDeleteOrganizationFollowerRequest {
+    /**
+     * The ID of the organization
+     * @type {number}
+     * @memberof OrganizationsApiDeleteOrganizationFollower
+     */
+    readonly id: number
+
+    /**
+     * The ID of the following user
+     * @type {number}
+     * @memberof OrganizationsApiDeleteOrganizationFollower
+     */
+    readonly follower_id: number
 }
 
 /**
@@ -594,6 +928,62 @@ export interface OrganizationsApiGetOrganizationRequest {
      * @memberof OrganizationsApiGetOrganization
      */
     readonly custom_fields?: string
+}
+
+/**
+ * Request parameters for getOrganizationFollowers operation in OrganizationsApi.
+ * @export
+ * @interface OrganizationsApiGetOrganizationFollowersRequest
+ */
+export interface OrganizationsApiGetOrganizationFollowersRequest {
+    /**
+     * The ID of the organization
+     * @type {number}
+     * @memberof OrganizationsApiGetOrganizationFollowers
+     */
+    readonly id: number
+
+    /**
+     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+     * @type {number}
+     * @memberof OrganizationsApiGetOrganizationFollowers
+     */
+    readonly limit?: number
+
+    /**
+     * For pagination, the marker (an opaque string value) representing the first item on the next page
+     * @type {string}
+     * @memberof OrganizationsApiGetOrganizationFollowers
+     */
+    readonly cursor?: string
+}
+
+/**
+ * Request parameters for getOrganizationFollowersChangelog operation in OrganizationsApi.
+ * @export
+ * @interface OrganizationsApiGetOrganizationFollowersChangelogRequest
+ */
+export interface OrganizationsApiGetOrganizationFollowersChangelogRequest {
+    /**
+     * The ID of the organization
+     * @type {number}
+     * @memberof OrganizationsApiGetOrganizationFollowersChangelog
+     */
+    readonly id: number
+
+    /**
+     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+     * @type {number}
+     * @memberof OrganizationsApiGetOrganizationFollowersChangelog
+     */
+    readonly limit?: number
+
+    /**
+     * For pagination, the marker (an opaque string value) representing the first item on the next page
+     * @type {string}
+     * @memberof OrganizationsApiGetOrganizationFollowersChangelog
+     */
+    readonly cursor?: string
 }
 
 /**
@@ -763,6 +1153,18 @@ export class OrganizationsApi extends BaseAPI {
     }
 
     /**
+     * Adds a user as a follower to the organization.
+     * @summary Add a follower to an organization
+     * @param {OrganizationsApiAddOrganizationFollowerRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationsApi
+     */
+    public addOrganizationFollower(requestParameters: OrganizationsApiAddOrganizationFollowerRequest, ) {
+        return OrganizationsApiFp(this.configuration).addOrganizationFollower(requestParameters.id, requestParameters.AddDealFollowerRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Marks a organization as deleted. After 30 days, the organization will be permanently deleted.
      * @summary Delete a organization
      * @param {OrganizationsApiDeleteOrganizationRequest} requestParameters Request parameters.
@@ -775,6 +1177,18 @@ export class OrganizationsApi extends BaseAPI {
     }
 
     /**
+     * Deletes a user follower from the organization.
+     * @summary Delete a follower from an organization
+     * @param {OrganizationsApiDeleteOrganizationFollowerRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationsApi
+     */
+    public deleteOrganizationFollower(requestParameters: OrganizationsApiDeleteOrganizationFollowerRequest, ) {
+        return OrganizationsApiFp(this.configuration).deleteOrganizationFollower(requestParameters.id, requestParameters.follower_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns the details of a specific organization.
      * @summary Get details of a organization
      * @param {OrganizationsApiGetOrganizationRequest} requestParameters Request parameters.
@@ -784,6 +1198,30 @@ export class OrganizationsApi extends BaseAPI {
      */
     public getOrganization(requestParameters: OrganizationsApiGetOrganizationRequest, ) {
         return OrganizationsApiFp(this.configuration).getOrganization(requestParameters.id, requestParameters.include_fields, requestParameters.custom_fields, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Lists users who are following the organization.
+     * @summary List followers of an organization
+     * @param {OrganizationsApiGetOrganizationFollowersRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationsApi
+     */
+    public getOrganizationFollowers(requestParameters: OrganizationsApiGetOrganizationFollowersRequest, ) {
+        return OrganizationsApiFp(this.configuration).getOrganizationFollowers(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Lists changelogs about users have followed the organization.
+     * @summary List followers changelog of an organization
+     * @param {OrganizationsApiGetOrganizationFollowersChangelogRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationsApi
+     */
+    public getOrganizationFollowersChangelog(requestParameters: OrganizationsApiGetOrganizationFollowersChangelogRequest, ) {
+        return OrganizationsApiFp(this.configuration).getOrganizationFollowersChangelog(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**

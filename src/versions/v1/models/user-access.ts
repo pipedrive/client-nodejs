@@ -38,11 +38,12 @@ export interface UserAccess {
 }
 
                 export const UserAccessAppConst = {
-                        sales: 'sales',
-                        projects: 'projects',
-                        campaigns: 'campaigns',
                         global: 'global',
-                        account_settings: 'account_settings'
+                        sales: 'sales',
+                        campaigns: 'campaigns',
+                        projects: 'projects',
+                        account_settings: 'account_settings',
+                        partnership: 'partnership'
                 } as const;
 
                 export type UserAccessAppConst = typeof UserAccessAppConst[keyof typeof UserAccessAppConst];

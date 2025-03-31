@@ -14,15 +14,21 @@
 
 
 
-export * from './api/activities-api';
-export * from './api/beta-api';
-export * from './api/deals-api';
-export * from './api/item-search-api';
-export * from './api/leads-api';
-export * from './api/organizations-api';
-export * from './api/persons-api';
-export * from './api/pipelines-api';
-export * from './api/products-api';
-export * from './api/stages-api';
-export * from './api/users-api';
+/**
+* 
+* @export
+* @interface FollowerItem
+*/
+export interface FollowerItem {
+    /**
+    * The ID of the user following the entity
+    * @type {number}
+    */
+    'user_id'?: number;
+    /**
+    * The add time of the following
+    * @type {string}
+    */
+    'add_time'?: string;
+}
 

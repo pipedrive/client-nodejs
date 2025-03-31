@@ -22,9 +22,19 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
+import { AddDealFollowerRequest } from '../models';
+// @ts-ignore
+import { AddFollowerResponse } from '../models';
+// @ts-ignore
 import { AddPersonRequest } from '../models';
 // @ts-ignore
+import { DeleteFollowerResponse } from '../models';
+// @ts-ignore
 import { DeletePersonResponse } from '../models';
+// @ts-ignore
+import { GetFollowerChangelogsResponse } from '../models';
+// @ts-ignore
+import { GetFollowersResponse } from '../models';
 // @ts-ignore
 import { GetPersonSearchResponse } from '../models';
 // @ts-ignore
@@ -81,6 +91,51 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         * Adds a user as a follower to the person.
+         * @summary Add a follower to a person
+         * @param {number} id The ID of the person
+         * @param {AddDealFollowerRequest} [AddDealFollowerRequest] 
+
+         * @throws {RequiredError}
+         */
+        addPersonFollower: async (id: number, AddDealFollowerRequest?: AddDealFollowerRequest, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('addPersonFollower', 'id', id)
+            const localVarPath = `/persons/{id}/followers`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+            localVarRequestOptions.data = serializeDataIfNeeded(AddDealFollowerRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Marks a person as deleted. After 30 days, the person will be permanently deleted.
          * @summary Delete a person
          * @param {number} id The ID of the person
@@ -92,6 +147,51 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             assertParamExists('deletePerson', 'id', id)
             const localVarPath = `/persons/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Deletes a user follower from the person.
+         * @summary Delete a follower from a person
+         * @param {number} id The ID of the person
+         * @param {number} follower_id The ID of the following user
+
+         * @throws {RequiredError}
+         */
+        deletePersonFollower: async (id: number, follower_id: number, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deletePersonFollower', 'id', id)
+            // verify required parameter 'follower_id' is not null or undefined
+            assertParamExists('deletePersonFollower', 'follower_id', follower_id)
+            const localVarPath = `/persons/{id}/followers/{follower_id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)))
+                .replace(`{${"follower_id"}}`, encodeURIComponent(String(follower_id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -159,6 +259,108 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
 
             if (custom_fields !== undefined) {
                 localVarQueryParameter['custom_fields'] = custom_fields;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Lists users who are following the person.
+         * @summary List followers of a person
+         * @param {number} id The ID of the person
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        getPersonFollowers: async (id: number, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getPersonFollowers', 'id', id)
+            const localVarPath = `/persons/{id}/followers`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full"], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Lists changelogs about users have followed the person.
+         * @summary List followers changelog of a person
+         * @param {number} id The ID of the person
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        getPersonFollowersChangelog: async (id: number, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getPersonFollowersChangelog', 'id', id)
+            const localVarPath = `/persons/{id}/followers/changelog`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full"], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
             }
 
 
@@ -411,6 +613,18 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Adds a user as a follower to the person.
+         * @summary Add a follower to a person
+         * @param {number} id The ID of the person
+         * @param {AddDealFollowerRequest} [AddDealFollowerRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addPersonFollower(id: number, AddDealFollowerRequest?: AddDealFollowerRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddFollowerResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addPersonFollower(id, AddDealFollowerRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Marks a person as deleted. After 30 days, the person will be permanently deleted.
          * @summary Delete a person
          * @param {number} id The ID of the person
@@ -419,6 +633,18 @@ export const PersonsApiFp = function(configuration?: Configuration) {
          */
         async deletePerson(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeletePersonResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deletePerson(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Deletes a user follower from the person.
+         * @summary Delete a follower from a person
+         * @param {number} id The ID of the person
+         * @param {number} follower_id The ID of the following user
+
+         * @throws {RequiredError}
+         */
+        async deletePersonFollower(id: number, follower_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteFollowerResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deletePersonFollower(id, follower_id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -432,6 +658,32 @@ export const PersonsApiFp = function(configuration?: Configuration) {
          */
         async getPerson(id: number, include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status', custom_fields?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertPersonResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPerson(id, include_fields, custom_fields, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Lists users who are following the person.
+         * @summary List followers of a person
+         * @param {number} id The ID of the person
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getPersonFollowers(id: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFollowersResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonFollowers(id, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Lists changelogs about users have followed the person.
+         * @summary List followers changelog of a person
+         * @param {number} id The ID of the person
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getPersonFollowersChangelog(id: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFollowerChangelogsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonFollowersChangelog(id, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -506,6 +758,16 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.addPerson(requestParameters.AddPersonRequest, ).then((request) => request(axios, basePath));
         },
         /**
+         * Adds a user as a follower to the person.
+         * @summary Add a follower to a person
+         * @param {PersonsApiAddPersonFollowerRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        addPersonFollower(requestParameters: PersonsApiAddPersonFollowerRequest, ): Promise<AddFollowerResponse> {
+            return localVarFp.addPersonFollower(requestParameters.id, requestParameters.AddDealFollowerRequest, ).then((request) => request(axios, basePath));
+        },
+        /**
          * Marks a person as deleted. After 30 days, the person will be permanently deleted.
          * @summary Delete a person
          * @param {PersonsApiDeletePersonRequest} requestParameters Request parameters.
@@ -516,6 +778,16 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.deletePerson(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
+         * Deletes a user follower from the person.
+         * @summary Delete a follower from a person
+         * @param {PersonsApiDeletePersonFollowerRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        deletePersonFollower(requestParameters: PersonsApiDeletePersonFollowerRequest, ): Promise<DeleteFollowerResponse> {
+            return localVarFp.deletePersonFollower(requestParameters.id, requestParameters.follower_id, ).then((request) => request(axios, basePath));
+        },
+        /**
          * Returns the details of a specific person. Fields `ims`, `postal_address`, `notes`, `birthday`, and `job_title` are only included if contact sync is enabled for the company.
          * @summary Get details of a person
          * @param {PersonsApiGetPersonRequest} requestParameters Request parameters.
@@ -524,6 +796,26 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
          */
         getPerson(requestParameters: PersonsApiGetPersonRequest, ): Promise<UpsertPersonResponse> {
             return localVarFp.getPerson(requestParameters.id, requestParameters.include_fields, requestParameters.custom_fields, ).then((request) => request(axios, basePath));
+        },
+        /**
+         * Lists users who are following the person.
+         * @summary List followers of a person
+         * @param {PersonsApiGetPersonFollowersRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        getPersonFollowers(requestParameters: PersonsApiGetPersonFollowersRequest, ): Promise<GetFollowersResponse> {
+            return localVarFp.getPersonFollowers(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
+        /**
+         * Lists changelogs about users have followed the person.
+         * @summary List followers changelog of a person
+         * @param {PersonsApiGetPersonFollowersChangelogRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        getPersonFollowersChangelog(requestParameters: PersonsApiGetPersonFollowersChangelogRequest, ): Promise<GetFollowerChangelogsResponse> {
+            return localVarFp.getPersonFollowersChangelog(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns data about all persons. Fields `ims`, `postal_address`, `notes`, `birthday`, and `job_title` are only included if contact sync is enabled for the company.
@@ -573,6 +865,27 @@ export interface PersonsApiAddPersonRequest {
 }
 
 /**
+ * Request parameters for addPersonFollower operation in PersonsApi.
+ * @export
+ * @interface PersonsApiAddPersonFollowerRequest
+ */
+export interface PersonsApiAddPersonFollowerRequest {
+    /**
+     * The ID of the person
+     * @type {number}
+     * @memberof PersonsApiAddPersonFollower
+     */
+    readonly id: number
+
+    /**
+     * 
+     * @type {AddDealFollowerRequest}
+     * @memberof PersonsApiAddPersonFollower
+     */
+    readonly AddDealFollowerRequest?: AddDealFollowerRequest
+}
+
+/**
  * Request parameters for deletePerson operation in PersonsApi.
  * @export
  * @interface PersonsApiDeletePersonRequest
@@ -584,6 +897,27 @@ export interface PersonsApiDeletePersonRequest {
      * @memberof PersonsApiDeletePerson
      */
     readonly id: number
+}
+
+/**
+ * Request parameters for deletePersonFollower operation in PersonsApi.
+ * @export
+ * @interface PersonsApiDeletePersonFollowerRequest
+ */
+export interface PersonsApiDeletePersonFollowerRequest {
+    /**
+     * The ID of the person
+     * @type {number}
+     * @memberof PersonsApiDeletePersonFollower
+     */
+    readonly id: number
+
+    /**
+     * The ID of the following user
+     * @type {number}
+     * @memberof PersonsApiDeletePersonFollower
+     */
+    readonly follower_id: number
 }
 
 /**
@@ -612,6 +946,62 @@ export interface PersonsApiGetPersonRequest {
      * @memberof PersonsApiGetPerson
      */
     readonly custom_fields?: string
+}
+
+/**
+ * Request parameters for getPersonFollowers operation in PersonsApi.
+ * @export
+ * @interface PersonsApiGetPersonFollowersRequest
+ */
+export interface PersonsApiGetPersonFollowersRequest {
+    /**
+     * The ID of the person
+     * @type {number}
+     * @memberof PersonsApiGetPersonFollowers
+     */
+    readonly id: number
+
+    /**
+     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+     * @type {number}
+     * @memberof PersonsApiGetPersonFollowers
+     */
+    readonly limit?: number
+
+    /**
+     * For pagination, the marker (an opaque string value) representing the first item on the next page
+     * @type {string}
+     * @memberof PersonsApiGetPersonFollowers
+     */
+    readonly cursor?: string
+}
+
+/**
+ * Request parameters for getPersonFollowersChangelog operation in PersonsApi.
+ * @export
+ * @interface PersonsApiGetPersonFollowersChangelogRequest
+ */
+export interface PersonsApiGetPersonFollowersChangelogRequest {
+    /**
+     * The ID of the person
+     * @type {number}
+     * @memberof PersonsApiGetPersonFollowersChangelog
+     */
+    readonly id: number
+
+    /**
+     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+     * @type {number}
+     * @memberof PersonsApiGetPersonFollowersChangelog
+     */
+    readonly limit?: number
+
+    /**
+     * For pagination, the marker (an opaque string value) representing the first item on the next page
+     * @type {string}
+     * @memberof PersonsApiGetPersonFollowersChangelog
+     */
+    readonly cursor?: string
 }
 
 /**
@@ -802,6 +1192,18 @@ export class PersonsApi extends BaseAPI {
     }
 
     /**
+     * Adds a user as a follower to the person.
+     * @summary Add a follower to a person
+     * @param {PersonsApiAddPersonFollowerRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public addPersonFollower(requestParameters: PersonsApiAddPersonFollowerRequest, ) {
+        return PersonsApiFp(this.configuration).addPersonFollower(requestParameters.id, requestParameters.AddDealFollowerRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Marks a person as deleted. After 30 days, the person will be permanently deleted.
      * @summary Delete a person
      * @param {PersonsApiDeletePersonRequest} requestParameters Request parameters.
@@ -814,6 +1216,18 @@ export class PersonsApi extends BaseAPI {
     }
 
     /**
+     * Deletes a user follower from the person.
+     * @summary Delete a follower from a person
+     * @param {PersonsApiDeletePersonFollowerRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public deletePersonFollower(requestParameters: PersonsApiDeletePersonFollowerRequest, ) {
+        return PersonsApiFp(this.configuration).deletePersonFollower(requestParameters.id, requestParameters.follower_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns the details of a specific person. Fields `ims`, `postal_address`, `notes`, `birthday`, and `job_title` are only included if contact sync is enabled for the company.
      * @summary Get details of a person
      * @param {PersonsApiGetPersonRequest} requestParameters Request parameters.
@@ -823,6 +1237,30 @@ export class PersonsApi extends BaseAPI {
      */
     public getPerson(requestParameters: PersonsApiGetPersonRequest, ) {
         return PersonsApiFp(this.configuration).getPerson(requestParameters.id, requestParameters.include_fields, requestParameters.custom_fields, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Lists users who are following the person.
+     * @summary List followers of a person
+     * @param {PersonsApiGetPersonFollowersRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public getPersonFollowers(requestParameters: PersonsApiGetPersonFollowersRequest, ) {
+        return PersonsApiFp(this.configuration).getPersonFollowers(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Lists changelogs about users have followed the person.
+     * @summary List followers changelog of a person
+     * @param {PersonsApiGetPersonFollowersChangelogRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public getPersonFollowersChangelog(requestParameters: PersonsApiGetPersonFollowersChangelogRequest, ) {
+        return PersonsApiFp(this.configuration).getPersonFollowersChangelog(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**

@@ -8,6 +8,27 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [25.0.0] - 2025-03-31
+### Changed
+- Updated `item_price` field data type in products from integer -> number for products and deal products
+### Fixed
+- Added missing `partnership` value for user access apps list
+
+### Added
+- Notice informing the users of the upcoming Subscriptions API deprecation:
+  - `GET /v1/subscriptions/{id}`
+  - `GET /v1/subscriptions/find/{dealId}`
+  - `GET /v1/subscriptions/{id}/payments`
+  - `POST /v1/subscriptions/recurring`
+  - `POST /v1/subscriptions/installment`
+  - `PUT /v1/subscriptions/recurring/{id}`
+  - `PUT /v1/subscriptions/installment/{id}`
+  - `PUT /v1/subscriptions/recurring/{id}/cancel`
+  - `DELETE /v1/subscriptions/{id}`
+
+### Changed
+- Updated Webhooks endpoints to v2, including available event_action and event_object properties
+
 ## [24.2.0] - 2025-03-12
 ### Added
 - Added `GET /v2/deals/installments` endpoint to fetch all installments added to a list of deals with cursor pagination
@@ -764,7 +785,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v24.2.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v25.0.0...HEAD
+[25.0.0]: https://github.com/pipedrive/api-docs/compare/v24.2.0...v25.0.0
 [24.2.0]: https://github.com/pipedrive/api-docs/compare/v24.1.1...v24.2.0
 [24.1.1]: https://github.com/pipedrive/api-docs/compare/v24.1.0...v24.1.1
 [24.1.0]: https://github.com/pipedrive/api-docs/compare/v24.0.0...v24.1.0
