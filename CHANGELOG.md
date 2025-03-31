@@ -7,6 +7,10 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Changed
+- Updated `item_price` field data type in products from integer -> number for products and deal products
+### Fixed
+- Added missing `partnership` value for user access apps list
 
 ## [24.2.0] - 2025-03-12
 ### Added

@@ -14,15 +14,16 @@
 
 
 
-export * from './api/activities-api';
-export * from './api/beta-api';
-export * from './api/deals-api';
-export * from './api/item-search-api';
-export * from './api/leads-api';
-export * from './api/organizations-api';
-export * from './api/persons-api';
-export * from './api/pipelines-api';
-export * from './api/products-api';
-export * from './api/stages-api';
-export * from './api/users-api';
+/**
+* 
+* @export
+* @interface AddDealFollowerRequest
+*/
+export interface AddDealFollowerRequest {
+    /**
+    * The ID of the user to add as a follower
+    * @type {number}
+    */
+    'user_id': number;
+}
 

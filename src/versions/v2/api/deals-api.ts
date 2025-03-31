@@ -28,11 +28,15 @@ import { AddAdditionalDiscountRequestBody } from '../models';
 // @ts-ignore
 import { AddAdditionalDiscountResponse } from '../models';
 // @ts-ignore
+import { AddDealFollowerRequest } from '../models';
+// @ts-ignore
 import { AddDealProductRequest } from '../models';
 // @ts-ignore
 import { AddDealProductResponse } from '../models';
 // @ts-ignore
 import { AddDealRequest } from '../models';
+// @ts-ignore
+import { AddFollowerResponse } from '../models';
 // @ts-ignore
 import { AddInstallmentRequestBody } from '../models';
 // @ts-ignore
@@ -41,6 +45,8 @@ import { DeleteAdditionalDiscountResponse } from '../models';
 import { DeleteDealProductResponse } from '../models';
 // @ts-ignore
 import { DeleteDealResponse } from '../models';
+// @ts-ignore
+import { DeleteFollowerResponse } from '../models';
 // @ts-ignore
 import { DeleteInstallmentResponse } from '../models';
 // @ts-ignore
@@ -51,6 +57,10 @@ import { GetDealSearchResponse } from '../models';
 import { GetDealsProductsResponse } from '../models';
 // @ts-ignore
 import { GetDealsResponse } from '../models';
+// @ts-ignore
+import { GetFollowerChangelogsResponse } from '../models';
+// @ts-ignore
+import { GetFollowersResponse } from '../models';
 // @ts-ignore
 import { GetInstallmentsResponse } from '../models';
 // @ts-ignore
@@ -108,6 +118,51 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
             localVarRequestOptions.data = serializeDataIfNeeded(AddDealRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Adds a user as a follower to the deal.
+         * @summary Add a follower to a deal
+         * @param {number} id The ID of the deal
+         * @param {AddDealFollowerRequest} [AddDealFollowerRequest] 
+
+         * @throws {RequiredError}
+         */
+        addDealFollower: async (id: number, AddDealFollowerRequest?: AddDealFollowerRequest, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('addDealFollower', 'id', id)
+            const localVarPath = `/deals/{id}/followers`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full"], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+            localVarRequestOptions.data = serializeDataIfNeeded(AddDealFollowerRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -216,6 +271,51 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             assertParamExists('deleteDeal', 'id', id)
             const localVarPath = `/deals/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full"], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Deletes a user follower from the deal.
+         * @summary Delete a follower from a deal
+         * @param {number} id The ID of the deal
+         * @param {number} follower_id The ID of the following user
+
+         * @throws {RequiredError}
+         */
+        deleteDealFollower: async (id: number, follower_id: number, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteDealFollower', 'id', id)
+            // verify required parameter 'follower_id' is not null or undefined
+            assertParamExists('deleteDealFollower', 'follower_id', follower_id)
+            const localVarPath = `/deals/{id}/followers/{follower_id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)))
+                .replace(`{${"follower_id"}}`, encodeURIComponent(String(follower_id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -414,6 +514,108 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
 
             if (custom_fields !== undefined) {
                 localVarQueryParameter['custom_fields'] = custom_fields;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Lists users who are following the deal.
+         * @summary List followers of a deal
+         * @param {number} id The ID of the deal
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        getDealFollowers: async (id: number, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getDealFollowers', 'id', id)
+            const localVarPath = `/deals/{id}/followers`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Lists changelogs about users have followed the deal.
+         * @summary List followers changelog of a deal
+         * @param {number} id The ID of the deal
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        getDealFollowersChangelog: async (id: number, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getDealFollowersChangelog', 'id', id)
+            const localVarPath = `/deals/{id}/followers/changelog`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
             }
 
 
@@ -1122,6 +1324,18 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Adds a user as a follower to the deal.
+         * @summary Add a follower to a deal
+         * @param {number} id The ID of the deal
+         * @param {AddDealFollowerRequest} [AddDealFollowerRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addDealFollower(id: number, AddDealFollowerRequest?: AddDealFollowerRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddFollowerResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addDealFollower(id, AddDealFollowerRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Adds a product to a deal, creating a new item called a deal-product.
          * @summary Add a product to a deal
          * @param {number} id The ID of the deal
@@ -1154,6 +1368,18 @@ export const DealsApiFp = function(configuration?: Configuration) {
          */
         async deleteDeal(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteDealResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDeal(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Deletes a user follower from the deal.
+         * @summary Delete a follower from a deal
+         * @param {number} id The ID of the deal
+         * @param {number} follower_id The ID of the following user
+
+         * @throws {RequiredError}
+         */
+        async deleteDealFollower(id: number, follower_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteFollowerResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDealFollower(id, follower_id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -1202,6 +1428,32 @@ export const DealsApiFp = function(configuration?: Configuration) {
          */
         async getDeal(id: number, include_fields?: 'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time', custom_fields?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertDealResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDeal(id, include_fields, custom_fields, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Lists users who are following the deal.
+         * @summary List followers of a deal
+         * @param {number} id The ID of the deal
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getDealFollowers(id: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFollowersResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealFollowers(id, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Lists changelogs about users have followed the deal.
+         * @summary List followers changelog of a deal
+         * @param {number} id The ID of the deal
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getDealFollowersChangelog(id: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFollowerChangelogsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealFollowersChangelog(id, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -1390,6 +1642,16 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.addDeal(requestParameters.AddDealRequest, ).then((request) => request(axios, basePath));
         },
         /**
+         * Adds a user as a follower to the deal.
+         * @summary Add a follower to a deal
+         * @param {DealsApiAddDealFollowerRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        addDealFollower(requestParameters: DealsApiAddDealFollowerRequest, ): Promise<AddFollowerResponse> {
+            return localVarFp.addDealFollower(requestParameters.id, requestParameters.AddDealFollowerRequest, ).then((request) => request(axios, basePath));
+        },
+        /**
          * Adds a product to a deal, creating a new item called a deal-product.
          * @summary Add a product to a deal
          * @param {DealsApiAddDealProductRequest} requestParameters Request parameters.
@@ -1418,6 +1680,16 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          */
         deleteDeal(requestParameters: DealsApiDeleteDealRequest, ): Promise<DeleteDealResponse> {
             return localVarFp.deleteDeal(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        /**
+         * Deletes a user follower from the deal.
+         * @summary Delete a follower from a deal
+         * @param {DealsApiDeleteDealFollowerRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        deleteDealFollower(requestParameters: DealsApiDeleteDealFollowerRequest, ): Promise<DeleteFollowerResponse> {
+            return localVarFp.deleteDealFollower(requestParameters.id, requestParameters.follower_id, ).then((request) => request(axios, basePath));
         },
         /**
          * Deletes a product attachment from a deal, using the `product_attachment_id`.
@@ -1458,6 +1730,26 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          */
         getDeal(requestParameters: DealsApiGetDealRequest, ): Promise<UpsertDealResponse> {
             return localVarFp.getDeal(requestParameters.id, requestParameters.include_fields, requestParameters.custom_fields, ).then((request) => request(axios, basePath));
+        },
+        /**
+         * Lists users who are following the deal.
+         * @summary List followers of a deal
+         * @param {DealsApiGetDealFollowersRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        getDealFollowers(requestParameters: DealsApiGetDealFollowersRequest, ): Promise<GetFollowersResponse> {
+            return localVarFp.getDealFollowers(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
+        /**
+         * Lists changelogs about users have followed the deal.
+         * @summary List followers changelog of a deal
+         * @param {DealsApiGetDealFollowersChangelogRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        getDealFollowersChangelog(requestParameters: DealsApiGetDealFollowersChangelogRequest, ): Promise<GetFollowerChangelogsResponse> {
+            return localVarFp.getDealFollowersChangelog(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
          * Lists products attached to a deal.
@@ -1587,6 +1879,27 @@ export interface DealsApiAddDealRequest {
 }
 
 /**
+ * Request parameters for addDealFollower operation in DealsApi.
+ * @export
+ * @interface DealsApiAddDealFollowerRequest
+ */
+export interface DealsApiAddDealFollowerRequest {
+    /**
+     * The ID of the deal
+     * @type {number}
+     * @memberof DealsApiAddDealFollower
+     */
+    readonly id: number
+
+    /**
+     * 
+     * @type {AddDealFollowerRequest}
+     * @memberof DealsApiAddDealFollower
+     */
+    readonly AddDealFollowerRequest?: AddDealFollowerRequest
+}
+
+/**
  * Request parameters for addDealProduct operation in DealsApi.
  * @export
  * @interface DealsApiAddDealProductRequest
@@ -1640,6 +1953,27 @@ export interface DealsApiDeleteDealRequest {
      * @memberof DealsApiDeleteDeal
      */
     readonly id: number
+}
+
+/**
+ * Request parameters for deleteDealFollower operation in DealsApi.
+ * @export
+ * @interface DealsApiDeleteDealFollowerRequest
+ */
+export interface DealsApiDeleteDealFollowerRequest {
+    /**
+     * The ID of the deal
+     * @type {number}
+     * @memberof DealsApiDeleteDealFollower
+     */
+    readonly id: number
+
+    /**
+     * The ID of the following user
+     * @type {number}
+     * @memberof DealsApiDeleteDealFollower
+     */
+    readonly follower_id: number
 }
 
 /**
@@ -1724,6 +2058,62 @@ export interface DealsApiGetDealRequest {
      * @memberof DealsApiGetDeal
      */
     readonly custom_fields?: string
+}
+
+/**
+ * Request parameters for getDealFollowers operation in DealsApi.
+ * @export
+ * @interface DealsApiGetDealFollowersRequest
+ */
+export interface DealsApiGetDealFollowersRequest {
+    /**
+     * The ID of the deal
+     * @type {number}
+     * @memberof DealsApiGetDealFollowers
+     */
+    readonly id: number
+
+    /**
+     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+     * @type {number}
+     * @memberof DealsApiGetDealFollowers
+     */
+    readonly limit?: number
+
+    /**
+     * For pagination, the marker (an opaque string value) representing the first item on the next page
+     * @type {string}
+     * @memberof DealsApiGetDealFollowers
+     */
+    readonly cursor?: string
+}
+
+/**
+ * Request parameters for getDealFollowersChangelog operation in DealsApi.
+ * @export
+ * @interface DealsApiGetDealFollowersChangelogRequest
+ */
+export interface DealsApiGetDealFollowersChangelogRequest {
+    /**
+     * The ID of the deal
+     * @type {number}
+     * @memberof DealsApiGetDealFollowersChangelog
+     */
+    readonly id: number
+
+    /**
+     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+     * @type {number}
+     * @memberof DealsApiGetDealFollowersChangelog
+     */
+    readonly limit?: number
+
+    /**
+     * For pagination, the marker (an opaque string value) representing the first item on the next page
+     * @type {string}
+     * @memberof DealsApiGetDealFollowersChangelog
+     */
+    readonly cursor?: string
 }
 
 /**
@@ -2208,6 +2598,18 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
+     * Adds a user as a follower to the deal.
+     * @summary Add a follower to a deal
+     * @param {DealsApiAddDealFollowerRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public addDealFollower(requestParameters: DealsApiAddDealFollowerRequest, ) {
+        return DealsApiFp(this.configuration).addDealFollower(requestParameters.id, requestParameters.AddDealFollowerRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Adds a product to a deal, creating a new item called a deal-product.
      * @summary Add a product to a deal
      * @param {DealsApiAddDealProductRequest} requestParameters Request parameters.
@@ -2241,6 +2643,18 @@ export class DealsApi extends BaseAPI {
      */
     public deleteDeal(requestParameters: DealsApiDeleteDealRequest, ) {
         return DealsApiFp(this.configuration).deleteDeal(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Deletes a user follower from the deal.
+     * @summary Delete a follower from a deal
+     * @param {DealsApiDeleteDealFollowerRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public deleteDealFollower(requestParameters: DealsApiDeleteDealFollowerRequest, ) {
+        return DealsApiFp(this.configuration).deleteDealFollower(requestParameters.id, requestParameters.follower_id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2289,6 +2703,30 @@ export class DealsApi extends BaseAPI {
      */
     public getDeal(requestParameters: DealsApiGetDealRequest, ) {
         return DealsApiFp(this.configuration).getDeal(requestParameters.id, requestParameters.include_fields, requestParameters.custom_fields, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Lists users who are following the deal.
+     * @summary List followers of a deal
+     * @param {DealsApiGetDealFollowersRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public getDealFollowers(requestParameters: DealsApiGetDealFollowersRequest, ) {
+        return DealsApiFp(this.configuration).getDealFollowers(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Lists changelogs about users have followed the deal.
+     * @summary List followers changelog of a deal
+     * @param {DealsApiGetDealFollowersChangelogRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public getDealFollowersChangelog(requestParameters: DealsApiGetDealFollowersChangelogRequest, ) {
+        return DealsApiFp(this.configuration).getDealFollowersChangelog(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**

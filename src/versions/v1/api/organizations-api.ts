@@ -208,7 +208,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
          * Deletes a follower from an organization. You can retrieve the `follower_id` from the <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#getOrganizationFollowers\">List followers of an organization</a> endpoint.
          * @summary Delete a follower from an organization
          * @param {number} id The ID of the organization
-         * @param {number} follower_id The ID of the follower
+         * @param {number} follower_id The ID of the relationship between the follower and the organization
 
          * @throws {RequiredError}
          */
@@ -1150,7 +1150,7 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
          * Deletes a follower from an organization. You can retrieve the `follower_id` from the <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#getOrganizationFollowers\">List followers of an organization</a> endpoint.
          * @summary Delete a follower from an organization
          * @param {number} id The ID of the organization
-         * @param {number} follower_id The ID of the follower
+         * @param {number} follower_id The ID of the relationship between the follower and the organization
 
          * @throws {RequiredError}
          */
@@ -1648,7 +1648,7 @@ export interface OrganizationsApiDeleteOrganizationFollowerRequest {
     readonly id: number
 
     /**
-     * The ID of the follower
+     * The ID of the relationship between the follower and the organization
      * @type {number}
      * @memberof OrganizationsApiDeleteOrganizationFollower
      */

@@ -22,13 +22,23 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
+import { AddDealFollowerRequest } from '../models';
+// @ts-ignore
+import { AddFollowerResponse } from '../models';
+// @ts-ignore
 import { AddProductRequest } from '../models';
 // @ts-ignore
 import { AddProductVariationRequest } from '../models';
 // @ts-ignore
+import { DeleteFollowerResponse } from '../models';
+// @ts-ignore
 import { DeleteProductResponse } from '../models';
 // @ts-ignore
 import { DeleteProductVariationResponse } from '../models';
+// @ts-ignore
+import { GetFollowerChangelogsResponse } from '../models';
+// @ts-ignore
+import { GetFollowersResponse } from '../models';
 // @ts-ignore
 import { GetProductResponse } from '../models';
 // @ts-ignore
@@ -93,6 +103,51 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
+         * Adds a user as a follower to the product.
+         * @summary Add a follower to a product
+         * @param {number} id The ID of the product
+         * @param {AddDealFollowerRequest} [AddDealFollowerRequest] 
+
+         * @throws {RequiredError}
+         */
+        addProductFollower: async (id: number, AddDealFollowerRequest?: AddDealFollowerRequest, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('addProductFollower', 'id', id)
+            const localVarPath = `/products/{id}/followers`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+            localVarRequestOptions.data = serializeDataIfNeeded(AddDealFollowerRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Adds a new product variation.
          * @summary Add a product variation
          * @param {number} id The ID of the product
@@ -149,6 +204,51 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             assertParamExists('deleteProduct', 'id', id)
             const localVarPath = `/products/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full"], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Deletes a user follower from the product.
+         * @summary Delete a follower from a product
+         * @param {number} id The ID of the product
+         * @param {number} follower_id The ID of the following user
+
+         * @throws {RequiredError}
+         */
+        deleteProductFollower: async (id: number, follower_id: number, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteProductFollower', 'id', id)
+            // verify required parameter 'follower_id' is not null or undefined
+            assertParamExists('deleteProductFollower', 'follower_id', follower_id)
+            const localVarPath = `/products/{id}/followers/{follower_id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)))
+                .replace(`{${"follower_id"}}`, encodeURIComponent(String(follower_id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -252,6 +352,108 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication oauth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:read", "products:full"], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Lists users who are following the product.
+         * @summary List followers of a product
+         * @param {number} id The ID of the product
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        getProductFollowers: async (id: number, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getProductFollowers', 'id', id)
+            const localVarPath = `/products/{id}/followers`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:read", "products:full"], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Lists changelogs about users have followed the product.
+         * @summary List followers changelog of a product
+         * @param {number} id The ID of the product
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        getProductFollowersChangelog: async (id: number, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getProductFollowersChangelog', 'id', id)
+            const localVarPath = `/products/{id}/followers/changelog`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:read", "products:full"], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
 
 
     
@@ -578,6 +780,18 @@ export const ProductsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Adds a user as a follower to the product.
+         * @summary Add a follower to a product
+         * @param {number} id The ID of the product
+         * @param {AddDealFollowerRequest} [AddDealFollowerRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addProductFollower(id: number, AddDealFollowerRequest?: AddDealFollowerRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddFollowerResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addProductFollower(id, AddDealFollowerRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Adds a new product variation.
          * @summary Add a product variation
          * @param {number} id The ID of the product
@@ -601,6 +815,18 @@ export const ProductsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Deletes a user follower from the product.
+         * @summary Delete a follower from a product
+         * @param {number} id The ID of the product
+         * @param {number} follower_id The ID of the following user
+
+         * @throws {RequiredError}
+         */
+        async deleteProductFollower(id: number, follower_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteFollowerResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProductFollower(id, follower_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Deletes a product variation.
          * @summary Delete a product variation
          * @param {number} id The ID of the product
@@ -621,6 +847,32 @@ export const ProductsApiFp = function(configuration?: Configuration) {
          */
         async getProduct(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProduct(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Lists users who are following the product.
+         * @summary List followers of a product
+         * @param {number} id The ID of the product
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getProductFollowers(id: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFollowersResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProductFollowers(id, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Lists changelogs about users have followed the product.
+         * @summary List followers changelog of a product
+         * @param {number} id The ID of the product
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getProductFollowersChangelog(id: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFollowerChangelogsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProductFollowersChangelog(id, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -716,6 +968,16 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.addProduct(requestParameters.AddProductRequest, ).then((request) => request(axios, basePath));
         },
         /**
+         * Adds a user as a follower to the product.
+         * @summary Add a follower to a product
+         * @param {ProductsApiAddProductFollowerRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        addProductFollower(requestParameters: ProductsApiAddProductFollowerRequest, ): Promise<AddFollowerResponse> {
+            return localVarFp.addProductFollower(requestParameters.id, requestParameters.AddDealFollowerRequest, ).then((request) => request(axios, basePath));
+        },
+        /**
          * Adds a new product variation.
          * @summary Add a product variation
          * @param {ProductsApiAddProductVariationRequest} requestParameters Request parameters.
@@ -736,6 +998,16 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.deleteProduct(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
+         * Deletes a user follower from the product.
+         * @summary Delete a follower from a product
+         * @param {ProductsApiDeleteProductFollowerRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        deleteProductFollower(requestParameters: ProductsApiDeleteProductFollowerRequest, ): Promise<DeleteFollowerResponse> {
+            return localVarFp.deleteProductFollower(requestParameters.id, requestParameters.follower_id, ).then((request) => request(axios, basePath));
+        },
+        /**
          * Deletes a product variation.
          * @summary Delete a product variation
          * @param {ProductsApiDeleteProductVariationRequest} requestParameters Request parameters.
@@ -754,6 +1026,26 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
          */
         getProduct(requestParameters: ProductsApiGetProductRequest, ): Promise<GetProductResponse> {
             return localVarFp.getProduct(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        /**
+         * Lists users who are following the product.
+         * @summary List followers of a product
+         * @param {ProductsApiGetProductFollowersRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        getProductFollowers(requestParameters: ProductsApiGetProductFollowersRequest, ): Promise<GetFollowersResponse> {
+            return localVarFp.getProductFollowers(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
+        /**
+         * Lists changelogs about users have followed the product.
+         * @summary List followers changelog of a product
+         * @param {ProductsApiGetProductFollowersChangelogRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        getProductFollowersChangelog(requestParameters: ProductsApiGetProductFollowersChangelogRequest, ): Promise<GetFollowerChangelogsResponse> {
+            return localVarFp.getProductFollowersChangelog(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns data about all product variations.
@@ -823,6 +1115,27 @@ export interface ProductsApiAddProductRequest {
 }
 
 /**
+ * Request parameters for addProductFollower operation in ProductsApi.
+ * @export
+ * @interface ProductsApiAddProductFollowerRequest
+ */
+export interface ProductsApiAddProductFollowerRequest {
+    /**
+     * The ID of the product
+     * @type {number}
+     * @memberof ProductsApiAddProductFollower
+     */
+    readonly id: number
+
+    /**
+     * 
+     * @type {AddDealFollowerRequest}
+     * @memberof ProductsApiAddProductFollower
+     */
+    readonly AddDealFollowerRequest?: AddDealFollowerRequest
+}
+
+/**
  * Request parameters for addProductVariation operation in ProductsApi.
  * @export
  * @interface ProductsApiAddProductVariationRequest
@@ -858,6 +1171,27 @@ export interface ProductsApiDeleteProductRequest {
 }
 
 /**
+ * Request parameters for deleteProductFollower operation in ProductsApi.
+ * @export
+ * @interface ProductsApiDeleteProductFollowerRequest
+ */
+export interface ProductsApiDeleteProductFollowerRequest {
+    /**
+     * The ID of the product
+     * @type {number}
+     * @memberof ProductsApiDeleteProductFollower
+     */
+    readonly id: number
+
+    /**
+     * The ID of the following user
+     * @type {number}
+     * @memberof ProductsApiDeleteProductFollower
+     */
+    readonly follower_id: number
+}
+
+/**
  * Request parameters for deleteProductVariation operation in ProductsApi.
  * @export
  * @interface ProductsApiDeleteProductVariationRequest
@@ -890,6 +1224,62 @@ export interface ProductsApiGetProductRequest {
      * @memberof ProductsApiGetProduct
      */
     readonly id: number
+}
+
+/**
+ * Request parameters for getProductFollowers operation in ProductsApi.
+ * @export
+ * @interface ProductsApiGetProductFollowersRequest
+ */
+export interface ProductsApiGetProductFollowersRequest {
+    /**
+     * The ID of the product
+     * @type {number}
+     * @memberof ProductsApiGetProductFollowers
+     */
+    readonly id: number
+
+    /**
+     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+     * @type {number}
+     * @memberof ProductsApiGetProductFollowers
+     */
+    readonly limit?: number
+
+    /**
+     * For pagination, the marker (an opaque string value) representing the first item on the next page
+     * @type {string}
+     * @memberof ProductsApiGetProductFollowers
+     */
+    readonly cursor?: string
+}
+
+/**
+ * Request parameters for getProductFollowersChangelog operation in ProductsApi.
+ * @export
+ * @interface ProductsApiGetProductFollowersChangelogRequest
+ */
+export interface ProductsApiGetProductFollowersChangelogRequest {
+    /**
+     * The ID of the product
+     * @type {number}
+     * @memberof ProductsApiGetProductFollowersChangelog
+     */
+    readonly id: number
+
+    /**
+     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+     * @type {number}
+     * @memberof ProductsApiGetProductFollowersChangelog
+     */
+    readonly limit?: number
+
+    /**
+     * For pagination, the marker (an opaque string value) representing the first item on the next page
+     * @type {string}
+     * @memberof ProductsApiGetProductFollowersChangelog
+     */
+    readonly cursor?: string
 }
 
 /**
@@ -1101,6 +1491,18 @@ export class ProductsApi extends BaseAPI {
     }
 
     /**
+     * Adds a user as a follower to the product.
+     * @summary Add a follower to a product
+     * @param {ProductsApiAddProductFollowerRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public addProductFollower(requestParameters: ProductsApiAddProductFollowerRequest, ) {
+        return ProductsApiFp(this.configuration).addProductFollower(requestParameters.id, requestParameters.AddDealFollowerRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Adds a new product variation.
      * @summary Add a product variation
      * @param {ProductsApiAddProductVariationRequest} requestParameters Request parameters.
@@ -1125,6 +1527,18 @@ export class ProductsApi extends BaseAPI {
     }
 
     /**
+     * Deletes a user follower from the product.
+     * @summary Delete a follower from a product
+     * @param {ProductsApiDeleteProductFollowerRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public deleteProductFollower(requestParameters: ProductsApiDeleteProductFollowerRequest, ) {
+        return ProductsApiFp(this.configuration).deleteProductFollower(requestParameters.id, requestParameters.follower_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Deletes a product variation.
      * @summary Delete a product variation
      * @param {ProductsApiDeleteProductVariationRequest} requestParameters Request parameters.
@@ -1146,6 +1560,30 @@ export class ProductsApi extends BaseAPI {
      */
     public getProduct(requestParameters: ProductsApiGetProductRequest, ) {
         return ProductsApiFp(this.configuration).getProduct(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Lists users who are following the product.
+     * @summary List followers of a product
+     * @param {ProductsApiGetProductFollowersRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public getProductFollowers(requestParameters: ProductsApiGetProductFollowersRequest, ) {
+        return ProductsApiFp(this.configuration).getProductFollowers(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Lists changelogs about users have followed the product.
+     * @summary List followers changelog of a product
+     * @param {ProductsApiGetProductFollowersChangelogRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public getProductFollowersChangelog(requestParameters: ProductsApiGetProductFollowersChangelogRequest, ) {
+        return ProductsApiFp(this.configuration).getProductFollowersChangelog(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**

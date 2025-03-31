@@ -322,7 +322,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * Deletes a follower from a deal.
          * @summary Delete a follower from a deal
          * @param {number} id The ID of the deal
-         * @param {number} follower_id The ID of the follower
+         * @param {number} follower_id The ID of the relationship between the follower and the deal
 
          * @throws {RequiredError}
          */
@@ -1749,7 +1749,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * Deletes a follower from a deal.
          * @summary Delete a follower from a deal
          * @param {number} id The ID of the deal
-         * @param {number} follower_id The ID of the follower
+         * @param {number} follower_id The ID of the relationship between the follower and the deal
 
          * @throws {RequiredError}
          */
@@ -2502,7 +2502,7 @@ export interface DealsApiDeleteDealFollowerRequest {
     readonly id: number
 
     /**
-     * The ID of the follower
+     * The ID of the relationship between the follower and the deal
      * @type {number}
      * @memberof DealsApiDeleteDealFollower
      */

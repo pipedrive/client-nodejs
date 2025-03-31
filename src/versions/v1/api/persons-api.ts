@@ -280,7 +280,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
          * Deletes a follower from a person.
          * @summary Delete a follower from a person
          * @param {number} id The ID of the person
-         * @param {number} follower_id The ID of the follower
+         * @param {number} follower_id The ID of the relationship between the follower and the person
 
          * @throws {RequiredError}
          */
@@ -1284,7 +1284,7 @@ export const PersonsApiFp = function(configuration?: Configuration) {
          * Deletes a follower from a person.
          * @summary Delete a follower from a person
          * @param {number} id The ID of the person
-         * @param {number} follower_id The ID of the follower
+         * @param {number} follower_id The ID of the relationship between the follower and the person
 
          * @throws {RequiredError}
          */
@@ -1863,7 +1863,7 @@ export interface PersonsApiDeletePersonFollowerRequest {
     readonly id: number
 
     /**
-     * The ID of the follower
+     * The ID of the relationship between the follower and the person
      * @type {number}
      * @memberof PersonsApiDeletePersonFollower
      */
