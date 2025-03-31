@@ -7,6 +7,8 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+
+## [25.0.0] - 2025-03-31
 ### Changed
 - Updated `item_price` field data type in products from integer -> number for products and deal products
 ### Fixed
@@ -783,7 +785,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v24.2.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v25.0.0...HEAD
+[25.0.0]: https://github.com/pipedrive/api-docs/compare/v24.2.0...v25.0.0
 [24.2.0]: https://github.com/pipedrive/api-docs/compare/v24.1.1...v24.2.0
 [24.1.1]: https://github.com/pipedrive/api-docs/compare/v24.1.0...v24.1.1
 [24.1.0]: https://github.com/pipedrive/api-docs/compare/v24.0.0...v24.1.0
