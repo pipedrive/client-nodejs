@@ -12,6 +12,21 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 ### Fixed
 - Added missing `partnership` value for user access apps list
 
+### Added
+- Notice informing the users of the upcoming Subscriptions API deprecation:
+  - `GET /v1/subscriptions/{id}`
+  - `GET /v1/subscriptions/find/{dealId}`
+  - `GET /v1/subscriptions/{id}/payments`
+  - `POST /v1/subscriptions/recurring`
+  - `POST /v1/subscriptions/installment`
+  - `PUT /v1/subscriptions/recurring/{id}`
+  - `PUT /v1/subscriptions/installment/{id}`
+  - `PUT /v1/subscriptions/recurring/{id}/cancel`
+  - `DELETE /v1/subscriptions/{id}`
+
+### Changed
+- Updated Webhooks endpoints to v2, including available event_action and event_object properties
+
 ## [24.2.0] - 2025-03-12
 ### Added
 - Added `GET /v2/deals/installments` endpoint to fetch all installments added to a list of deals with cursor pagination
