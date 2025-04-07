@@ -7,6 +7,8 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Fixed
+- Fixed the OAuth scope of "Add a follower to a product" endpoint in API v2
 
 ## [25.0.0] - 2025-03-31
 ### Changed
