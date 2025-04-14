@@ -81,7 +81,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
          * Adds a new person. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the personFields and look for `key` values.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `data.marketing_status` field.
          * @summary Add a person
          * @param {AddPersonRequest} [AddPersonRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         addPerson: async (AddPersonRequest?: AddPersonRequest, ): Promise<RequestArgs> => {
@@ -239,7 +239,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
          * Marks a person as deleted. After 30 days, the person will be permanently deleted.
          * @summary Delete a person
          * @param {number} id The ID of the person
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deletePerson: async (id: number, ): Promise<RequestArgs> => {
@@ -363,10 +363,10 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Marks multiple persons as deleted. After 30 days, the persons will be permanently deleted.
+         * Marks multiple persons as deleted. After 30 days, the persons will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#deletePerson\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/persons/{id}</a> instead.
          * @summary Delete multiple persons in bulk
          * @param {string} ids The comma-separated IDs that will be deleted
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deletePersons: async (ids: string, ): Promise<RequestArgs> => {
@@ -410,7 +410,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
          * Returns the details of a person. Note that this also returns some additional fields which are not present when asking for all persons. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of personFields.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
          * @summary Get details of a person
          * @param {number} id The ID of the person
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getPerson: async (id: number, ): Promise<RequestArgs> => {
@@ -448,14 +448,14 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Lists activities associated with a person.
+         * Lists activities associated with a person. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities?person_id={id}</a> instead.
          * @summary List activities associated with a person
          * @param {number} id The ID of the person
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
          * @param {0 | 1} [done] Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted, returns both Done and Not done activities.
          * @param {string} [exclude] A comma-separated string of activity IDs to exclude from result
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getPersonActivities: async (id: number, start?: number, limit?: number, done?: 0 | 1, exclude?: string, ): Promise<RequestArgs> => {
@@ -560,14 +560,14 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Lists deals associated with a person.
+         * Lists deals associated with a person. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?person_id={id}</a> instead.
          * @summary List deals associated with a person
          * @param {number} id The ID of the person
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
          * @param {'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted'} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included.
          * @param {string} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getPersonDeals: async (id: number, start?: number, limit?: number, status?: 'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted', sort?: string, ): Promise<RequestArgs> => {
@@ -930,7 +930,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
          * @param {string} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getPersons: async (user_id?: number, filter_id?: number, first_char?: string, start?: number, limit?: number, sort?: string, ): Promise<RequestArgs> => {
@@ -989,15 +989,15 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Returns all persons. This is a cursor-paginated endpoint that is currently in BETA. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>. Please note that only global admins (those with global permissions) can access these endpoints. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
-         * @summary Get all persons (BETA)
+         * Returns all persons. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#getPersons\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/persons</a> instead.
+         * @summary Get all persons collection
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [since] The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
          * @param {string} [until] The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
          * @param {number} [owner_id] If supplied, only persons owned by the given user will be returned
          * @param {string} [first_char] If supplied, only persons whose name starts with the specified letter will be returned (case-insensitive)
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getPersonsCollection: async (cursor?: string, limit?: number, since?: string, until?: string, owner_id?: number, first_char?: string, ): Promise<RequestArgs> => {
@@ -1110,7 +1110,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
          * @param {'person.picture'} [include_fields] Supports including optional fields in the results which are not provided by default
          * @param {number} [start] Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter.
          * @param {number} [limit] Items shown per page
-
+         * @deprecated
          * @throws {RequiredError}
          */
         searchPersons: async (term: string, fields?: 'custom_fields' | 'email' | 'notes' | 'phone' | 'name', exact_match?: boolean, organization_id?: number, include_fields?: 'person.picture', start?: number, limit?: number, ): Promise<RequestArgs> => {
@@ -1234,7 +1234,7 @@ export const PersonsApiFp = function(configuration?: Configuration) {
          * Adds a new person. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the personFields and look for `key` values.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `data.marketing_status` field.
          * @summary Add a person
          * @param {AddPersonRequest} [AddPersonRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async addPerson(AddPersonRequest?: AddPersonRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddPersonResponse>> {
@@ -1273,7 +1273,7 @@ export const PersonsApiFp = function(configuration?: Configuration) {
          * Marks a person as deleted. After 30 days, the person will be permanently deleted.
          * @summary Delete a person
          * @param {number} id The ID of the person
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async deletePerson(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeletePersonResponse>> {
@@ -1304,10 +1304,10 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Marks multiple persons as deleted. After 30 days, the persons will be permanently deleted.
+         * Marks multiple persons as deleted. After 30 days, the persons will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#deletePerson\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/persons/{id}</a> instead.
          * @summary Delete multiple persons in bulk
          * @param {string} ids The comma-separated IDs that will be deleted
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async deletePersons(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeletePersonsResponse>> {
@@ -1318,7 +1318,7 @@ export const PersonsApiFp = function(configuration?: Configuration) {
          * Returns the details of a person. Note that this also returns some additional fields which are not present when asking for all persons. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of personFields.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
          * @summary Get details of a person
          * @param {number} id The ID of the person
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getPerson(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPersonDetailsResponse>> {
@@ -1326,14 +1326,14 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Lists activities associated with a person.
+         * Lists activities associated with a person. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities?person_id={id}</a> instead.
          * @summary List activities associated with a person
          * @param {number} id The ID of the person
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
          * @param {0 | 1} [done] Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted, returns both Done and Not done activities.
          * @param {string} [exclude] A comma-separated string of activity IDs to exclude from result
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getPersonActivities(id: number, start?: number, limit?: number, done?: 0 | 1, exclude?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetAssociatedActivitiesResponse>> {
@@ -1354,14 +1354,14 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Lists deals associated with a person.
+         * Lists deals associated with a person. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?person_id={id}</a> instead.
          * @summary List deals associated with a person
          * @param {number} id The ID of the person
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
          * @param {'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted'} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included.
          * @param {string} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getPersonDeals(id: number, start?: number, limit?: number, status?: 'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted', sort?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetAssociatedDealsResponse>> {
@@ -1454,7 +1454,7 @@ export const PersonsApiFp = function(configuration?: Configuration) {
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
          * @param {string} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getPersons(user_id?: number, filter_id?: number, first_char?: string, start?: number, limit?: number, sort?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPersonsResponse1>> {
@@ -1462,15 +1462,15 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns all persons. This is a cursor-paginated endpoint that is currently in BETA. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>. Please note that only global admins (those with global permissions) can access these endpoints. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
-         * @summary Get all persons (BETA)
+         * Returns all persons. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#getPersons\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/persons</a> instead.
+         * @summary Get all persons collection
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [since] The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
          * @param {string} [until] The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
          * @param {number} [owner_id] If supplied, only persons owned by the given user will be returned
          * @param {string} [first_char] If supplied, only persons whose name starts with the specified letter will be returned (case-insensitive)
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getPersonsCollection(cursor?: string, limit?: number, since?: string, until?: string, owner_id?: number, first_char?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPersonsCollection200Response>> {
@@ -1499,7 +1499,7 @@ export const PersonsApiFp = function(configuration?: Configuration) {
          * @param {'person.picture'} [include_fields] Supports including optional fields in the results which are not provided by default
          * @param {number} [start] Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter.
          * @param {number} [limit] Items shown per page
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async searchPersons(term: string, fields?: 'custom_fields' | 'email' | 'notes' | 'phone' | 'name', exact_match?: boolean, organization_id?: number, include_fields?: 'person.picture', start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPersonSearchResponse>> {
@@ -1532,7 +1532,7 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
          * Adds a new person. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the personFields and look for `key` values.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `data.marketing_status` field.
          * @summary Add a person
          * @param {PersonsApiAddPersonRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         addPerson(requestParameters: PersonsApiAddPersonRequest = {}, ): Promise<AddPersonResponse> {
@@ -1562,7 +1562,7 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
          * Marks a person as deleted. After 30 days, the person will be permanently deleted.
          * @summary Delete a person
          * @param {PersonsApiDeletePersonRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deletePerson(requestParameters: PersonsApiDeletePersonRequest, ): Promise<DeletePersonResponse> {
@@ -1589,10 +1589,10 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.deletePersonPicture(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
-         * Marks multiple persons as deleted. After 30 days, the persons will be permanently deleted.
+         * Marks multiple persons as deleted. After 30 days, the persons will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#deletePerson\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/persons/{id}</a> instead.
          * @summary Delete multiple persons in bulk
          * @param {PersonsApiDeletePersonsRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deletePersons(requestParameters: PersonsApiDeletePersonsRequest, ): Promise<DeletePersonsResponse> {
@@ -1602,17 +1602,17 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
          * Returns the details of a person. Note that this also returns some additional fields which are not present when asking for all persons. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of personFields.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
          * @summary Get details of a person
          * @param {PersonsApiGetPersonRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getPerson(requestParameters: PersonsApiGetPersonRequest, ): Promise<GetPersonDetailsResponse> {
             return localVarFp.getPerson(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
-         * Lists activities associated with a person.
+         * Lists activities associated with a person. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities?person_id={id}</a> instead.
          * @summary List activities associated with a person
          * @param {PersonsApiGetPersonActivitiesRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getPersonActivities(requestParameters: PersonsApiGetPersonActivitiesRequest, ): Promise<GetAssociatedActivitiesResponse> {
@@ -1629,10 +1629,10 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getPersonChangelog(requestParameters.id, requestParameters.cursor, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
         /**
-         * Lists deals associated with a person.
+         * Lists deals associated with a person. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?person_id={id}</a> instead.
          * @summary List deals associated with a person
          * @param {PersonsApiGetPersonDealsRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getPersonDeals(requestParameters: PersonsApiGetPersonDealsRequest, ): Promise<GetAssociatedDealsResponse> {
@@ -1702,17 +1702,17 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
          * Returns all persons.
          * @summary Get all persons
          * @param {PersonsApiGetPersonsRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getPersons(requestParameters: PersonsApiGetPersonsRequest = {}, ): Promise<GetPersonsResponse1> {
             return localVarFp.getPersons(requestParameters.user_id, requestParameters.filter_id, requestParameters.first_char, requestParameters.start, requestParameters.limit, requestParameters.sort, ).then((request) => request(axios, basePath));
         },
         /**
-         * Returns all persons. This is a cursor-paginated endpoint that is currently in BETA. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>. Please note that only global admins (those with global permissions) can access these endpoints. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
-         * @summary Get all persons (BETA)
+         * Returns all persons. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#getPersons\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/persons</a> instead.
+         * @summary Get all persons collection
          * @param {PersonsApiGetPersonsCollectionRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getPersonsCollection(requestParameters: PersonsApiGetPersonsCollectionRequest = {}, ): Promise<GetPersonsCollection200Response> {
@@ -1732,7 +1732,7 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
          * Searches all persons by name, email, phone, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found persons can be filtered by organization ID.
          * @summary Search persons
          * @param {PersonsApiSearchPersonsRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         searchPersons(requestParameters: PersonsApiSearchPersonsRequest, ): Promise<GetPersonSearchResponse> {
@@ -2392,7 +2392,7 @@ export class PersonsApi extends BaseAPI {
      * Adds a new person. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the personFields and look for `key` values.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `data.marketing_status` field.
      * @summary Add a person
      * @param {PersonsApiAddPersonRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof PersonsApi
      */
@@ -2428,7 +2428,7 @@ export class PersonsApi extends BaseAPI {
      * Marks a person as deleted. After 30 days, the person will be permanently deleted.
      * @summary Delete a person
      * @param {PersonsApiDeletePersonRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof PersonsApi
      */
@@ -2461,10 +2461,10 @@ export class PersonsApi extends BaseAPI {
     }
 
     /**
-     * Marks multiple persons as deleted. After 30 days, the persons will be permanently deleted.
+     * Marks multiple persons as deleted. After 30 days, the persons will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#deletePerson\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/persons/{id}</a> instead.
      * @summary Delete multiple persons in bulk
      * @param {PersonsApiDeletePersonsRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof PersonsApi
      */
@@ -2476,7 +2476,7 @@ export class PersonsApi extends BaseAPI {
      * Returns the details of a person. Note that this also returns some additional fields which are not present when asking for all persons. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of personFields.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
      * @summary Get details of a person
      * @param {PersonsApiGetPersonRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof PersonsApi
      */
@@ -2485,10 +2485,10 @@ export class PersonsApi extends BaseAPI {
     }
 
     /**
-     * Lists activities associated with a person.
+     * Lists activities associated with a person. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities?person_id={id}</a> instead.
      * @summary List activities associated with a person
      * @param {PersonsApiGetPersonActivitiesRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof PersonsApi
      */
@@ -2509,10 +2509,10 @@ export class PersonsApi extends BaseAPI {
     }
 
     /**
-     * Lists deals associated with a person.
+     * Lists deals associated with a person. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?person_id={id}</a> instead.
      * @summary List deals associated with a person
      * @param {PersonsApiGetPersonDealsRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof PersonsApi
      */
@@ -2596,7 +2596,7 @@ export class PersonsApi extends BaseAPI {
      * Returns all persons.
      * @summary Get all persons
      * @param {PersonsApiGetPersonsRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof PersonsApi
      */
@@ -2605,10 +2605,10 @@ export class PersonsApi extends BaseAPI {
     }
 
     /**
-     * Returns all persons. This is a cursor-paginated endpoint that is currently in BETA. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>. Please note that only global admins (those with global permissions) can access these endpoints. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
-     * @summary Get all persons (BETA)
+     * Returns all persons. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#getPersons\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/persons</a> instead.
+     * @summary Get all persons collection
      * @param {PersonsApiGetPersonsCollectionRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof PersonsApi
      */
@@ -2632,7 +2632,7 @@ export class PersonsApi extends BaseAPI {
      * Searches all persons by name, email, phone, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found persons can be filtered by organization ID.
      * @summary Search persons
      * @param {PersonsApiSearchPersonsRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof PersonsApi
      */

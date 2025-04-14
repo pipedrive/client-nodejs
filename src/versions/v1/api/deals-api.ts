@@ -105,7 +105,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * Adds a new deal. All deals created through the Pipedrive API will have a `origin` set to `API`. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the dealFields and look for `key` values. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/creating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">adding a deal</a>.
          * @summary Add a deal
          * @param {AddDealRequest} [AddDealRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         addDeal: async (AddDealRequest?: AddDealRequest, ): Promise<RequestArgs> => {
@@ -237,7 +237,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * @summary Add a product to a deal
          * @param {number} id The ID of the deal
          * @param {AddDealProductRequest} [AddDealProductRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         addDealProduct: async (id: number, AddDealProductRequest?: AddDealProductRequest, ): Promise<RequestArgs> => {
@@ -281,7 +281,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * Marks a deal as deleted. After 30 days, the deal will be permanently deleted.
          * @summary Delete a deal
          * @param {number} id The ID of the deal
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteDeal: async (id: number, ): Promise<RequestArgs> => {
@@ -413,7 +413,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * @summary Delete an attached product from a deal
          * @param {number} id The ID of the deal
          * @param {number} product_attachment_id The product attachment ID
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteDealProduct: async (id: number, product_attachment_id: number, ): Promise<RequestArgs> => {
@@ -454,10 +454,10 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Marks multiple deals as deleted. After 30 days, the deals will be permanently deleted.
+         * Marks multiple deals as deleted. After 30 days, the deals will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#deleteDeal\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/deals/{id}</a> instead.
          * @summary Delete multiple deals in bulk
          * @param {string} ids The comma-separated IDs that will be deleted
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteDeals: async (ids: string, ): Promise<RequestArgs> => {
@@ -542,7 +542,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * Returns the details of a specific deal. Note that this also returns some additional fields which are not present when asking for all deals – such as deal age and stay in pipeline stages. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of dealFields. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/getting-details-of-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">getting details of a deal</a>.
          * @summary Get details of a deal
          * @param {number} id The ID of the deal
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getDeal: async (id: number, ): Promise<RequestArgs> => {
@@ -580,14 +580,14 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Lists activities associated with a deal.
+         * Lists activities associated with a deal. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities?deal_id={id}</a> instead.
          * @summary List activities associated with a deal
          * @param {number} id The ID of the deal
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
          * @param {0 | 1} [done] Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted, returns both Done and Not done activities.
          * @param {string} [exclude] A comma-separated string of activity IDs to exclude from result
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getDealActivities: async (id: number, start?: number, limit?: number, done?: 0 | 1, exclude?: string, ): Promise<RequestArgs> => {
@@ -942,12 +942,12 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Lists all persons associated with a deal, regardless of whether the person is the primary contact of the deal, or added as a participant.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
+         * Lists all persons associated with a deal, regardless of whether the person is the primary contact of the deal, or added as a participant.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#getPersons\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/persons?deal_id={id}</a> instead.
          * @summary List all persons associated with a deal
          * @param {number} id The ID of the deal
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getDealPersons: async (id: number, start?: number, limit?: number, ): Promise<RequestArgs> => {
@@ -999,7 +999,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
          * @param {0 | 1} [include_product_data] Whether to fetch product data along with each attached product (1) or not (0, default)
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getDealProducts: async (id: number, start?: number, limit?: number, include_product_data?: 0 | 1, ): Promise<RequestArgs> => {
@@ -1161,7 +1161,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {number} [limit] Items shown per page
          * @param {string} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
          * @param {0 | 1} [owned_by_you] When supplied, only deals owned by you are returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owned_by_you&#x60; when both are supplied.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getDeals: async (user_id?: number, filter_id?: number, stage_id?: number, status?: 'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted', start?: number, limit?: number, sort?: string, owned_by_you?: 0 | 1, ): Promise<RequestArgs> => {
@@ -1228,8 +1228,8 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Returns all deals. This is a cursor-paginated endpoint that is currently in BETA. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>. Please note that only global admins (those with global permissions) can access these endpoints. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
-         * @summary Get all deals (BETA)
+         * Returns all deals. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals</a> instead.
+         * @summary Get all deals collection
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [since] The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
@@ -1237,7 +1237,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {number} [user_id] If supplied, only deals matching the given user will be returned
          * @param {number} [stage_id] If supplied, only deals within the given stage will be returned
          * @param {'open' | 'won' | 'lost' | 'deleted'} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getDealsCollection: async (cursor?: string, limit?: number, since?: string, until?: string, user_id?: number, stage_id?: number, status?: 'open' | 'won' | 'lost' | 'deleted', ): Promise<RequestArgs> => {
@@ -1510,7 +1510,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {'deal.cc_email'} [include_fields] Supports including optional fields in the results which are not provided by default
          * @param {number} [start] Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter.
          * @param {number} [limit] Items shown per page
-
+         * @deprecated
          * @throws {RequiredError}
          */
         searchDeals: async (term: string, fields?: 'custom_fields' | 'notes' | 'title', exact_match?: boolean, person_id?: number, organization_id?: number, status?: 'open' | 'won' | 'lost', include_fields?: 'deal.cc_email', start?: number, limit?: number, ): Promise<RequestArgs> => {
@@ -1587,7 +1587,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * @summary Update a deal
          * @param {number} id The ID of the deal
          * @param {UpdateDealRequest} [UpdateDealRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         updateDeal: async (id: number, UpdateDealRequest?: UpdateDealRequest, ): Promise<RequestArgs> => {
@@ -1633,7 +1633,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {number} id The ID of the deal
          * @param {number} product_attachment_id The ID of the deal-product (the ID of the product attached to the deal)
          * @param {UpdateDealProductRequest} [UpdateDealProductRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         updateDealProduct: async (id: number, product_attachment_id: number, UpdateDealProductRequest?: UpdateDealProductRequest, ): Promise<RequestArgs> => {
@@ -1691,7 +1691,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * Adds a new deal. All deals created through the Pipedrive API will have a `origin` set to `API`. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the dealFields and look for `key` values. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/creating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">adding a deal</a>.
          * @summary Add a deal
          * @param {AddDealRequest} [AddDealRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async addDeal(AddDealRequest?: AddDealRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetAddedDealResponse>> {
@@ -1727,7 +1727,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * @summary Add a product to a deal
          * @param {number} id The ID of the deal
          * @param {AddDealProductRequest} [AddDealProductRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async addDealProduct(id: number, AddDealProductRequest?: AddDealProductRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetAddProductAttachmentDetailsResponse>> {
@@ -1738,7 +1738,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * Marks a deal as deleted. After 30 days, the deal will be permanently deleted.
          * @summary Delete a deal
          * @param {number} id The ID of the deal
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async deleteDeal(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteDealResponse>> {
@@ -1774,7 +1774,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * @summary Delete an attached product from a deal
          * @param {number} id The ID of the deal
          * @param {number} product_attachment_id The product attachment ID
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async deleteDealProduct(id: number, product_attachment_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteDealProductResponse>> {
@@ -1782,10 +1782,10 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Marks multiple deals as deleted. After 30 days, the deals will be permanently deleted.
+         * Marks multiple deals as deleted. After 30 days, the deals will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#deleteDeal\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/deals/{id}</a> instead.
          * @summary Delete multiple deals in bulk
          * @param {string} ids The comma-separated IDs that will be deleted
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async deleteDeals(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteDealsResponse>> {
@@ -1807,7 +1807,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * Returns the details of a specific deal. Note that this also returns some additional fields which are not present when asking for all deals – such as deal age and stay in pipeline stages. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of dealFields. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/getting-details-of-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">getting details of a deal</a>.
          * @summary Get details of a deal
          * @param {number} id The ID of the deal
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getDeal(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealResponse>> {
@@ -1815,14 +1815,14 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Lists activities associated with a deal.
+         * Lists activities associated with a deal. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities?deal_id={id}</a> instead.
          * @summary List activities associated with a deal
          * @param {number} id The ID of the deal
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
          * @param {0 | 1} [done] Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted, returns both Done and Not done activities.
          * @param {string} [exclude] A comma-separated string of activity IDs to exclude from result
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getDealActivities(id: number, start?: number, limit?: number, done?: 0 | 1, exclude?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealActivitiesResponse>> {
@@ -1907,12 +1907,12 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Lists all persons associated with a deal, regardless of whether the person is the primary contact of the deal, or added as a participant.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
+         * Lists all persons associated with a deal, regardless of whether the person is the primary contact of the deal, or added as a participant.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#getPersons\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/persons?deal_id={id}</a> instead.
          * @summary List all persons associated with a deal
          * @param {number} id The ID of the deal
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getDealPersons(id: number, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPersonsResponse>> {
@@ -1926,7 +1926,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
          * @param {0 | 1} [include_product_data] Whether to fetch product data along with each attached product (1) or not (0, default)
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getDealProducts(id: number, start?: number, limit?: number, include_product_data?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductsResponse>> {
@@ -1970,7 +1970,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * @param {number} [limit] Items shown per page
          * @param {string} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
          * @param {0 | 1} [owned_by_you] When supplied, only deals owned by you are returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owned_by_you&#x60; when both are supplied.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getDeals(user_id?: number, filter_id?: number, stage_id?: number, status?: 'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted', start?: number, limit?: number, sort?: string, owned_by_you?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealsResponse>> {
@@ -1978,8 +1978,8 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns all deals. This is a cursor-paginated endpoint that is currently in BETA. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>. Please note that only global admins (those with global permissions) can access these endpoints. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
-         * @summary Get all deals (BETA)
+         * Returns all deals. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals</a> instead.
+         * @summary Get all deals collection
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [since] The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
@@ -1987,7 +1987,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * @param {number} [user_id] If supplied, only deals matching the given user will be returned
          * @param {number} [stage_id] If supplied, only deals within the given stage will be returned
          * @param {'open' | 'won' | 'lost' | 'deleted'} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getDealsCollection(cursor?: string, limit?: number, since?: string, until?: string, user_id?: number, stage_id?: number, status?: 'open' | 'won' | 'lost' | 'deleted', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealsCollectionResponse>> {
@@ -2052,7 +2052,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * @param {'deal.cc_email'} [include_fields] Supports including optional fields in the results which are not provided by default
          * @param {number} [start] Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter.
          * @param {number} [limit] Items shown per page
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async searchDeals(term: string, fields?: 'custom_fields' | 'notes' | 'title', exact_match?: boolean, person_id?: number, organization_id?: number, status?: 'open' | 'won' | 'lost', include_fields?: 'deal.cc_email', start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealSearchResponse>> {
@@ -2064,7 +2064,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * @summary Update a deal
          * @param {number} id The ID of the deal
          * @param {UpdateDealRequest} [UpdateDealRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async updateDeal(id: number, UpdateDealRequest?: UpdateDealRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetAddedDealResponse>> {
@@ -2077,7 +2077,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * @param {number} id The ID of the deal
          * @param {number} product_attachment_id The ID of the deal-product (the ID of the product attached to the deal)
          * @param {UpdateDealProductRequest} [UpdateDealProductRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async updateDealProduct(id: number, product_attachment_id: number, UpdateDealProductRequest?: UpdateDealProductRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductAttachmentDetailsResponse>> {
@@ -2098,7 +2098,7 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          * Adds a new deal. All deals created through the Pipedrive API will have a `origin` set to `API`. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the dealFields and look for `key` values. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/creating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">adding a deal</a>.
          * @summary Add a deal
          * @param {DealsApiAddDealRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         addDeal(requestParameters: DealsApiAddDealRequest = {}, ): Promise<GetAddedDealResponse> {
@@ -2128,7 +2128,7 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          * Adds a product to a deal, creating a new item called a deal-product.
          * @summary Add a product to a deal
          * @param {DealsApiAddDealProductRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         addDealProduct(requestParameters: DealsApiAddDealProductRequest, ): Promise<GetAddProductAttachmentDetailsResponse> {
@@ -2138,7 +2138,7 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          * Marks a deal as deleted. After 30 days, the deal will be permanently deleted.
          * @summary Delete a deal
          * @param {DealsApiDeleteDealRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteDeal(requestParameters: DealsApiDeleteDealRequest, ): Promise<DeleteDealResponse> {
@@ -2168,17 +2168,17 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          * Deletes a product attachment from a deal, using the `product_attachment_id`  Not possible to delete the attached product if the deal has installments associated and the product is the last one enabled 
          * @summary Delete an attached product from a deal
          * @param {DealsApiDeleteDealProductRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteDealProduct(requestParameters: DealsApiDeleteDealProductRequest, ): Promise<DeleteDealProductResponse> {
             return localVarFp.deleteDealProduct(requestParameters.id, requestParameters.product_attachment_id, ).then((request) => request(axios, basePath));
         },
         /**
-         * Marks multiple deals as deleted. After 30 days, the deals will be permanently deleted.
+         * Marks multiple deals as deleted. After 30 days, the deals will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#deleteDeal\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/deals/{id}</a> instead.
          * @summary Delete multiple deals in bulk
          * @param {DealsApiDeleteDealsRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteDeals(requestParameters: DealsApiDeleteDealsRequest, ): Promise<DeleteDealsResponse> {
@@ -2198,17 +2198,17 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          * Returns the details of a specific deal. Note that this also returns some additional fields which are not present when asking for all deals – such as deal age and stay in pipeline stages. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of dealFields. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/getting-details-of-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">getting details of a deal</a>.
          * @summary Get details of a deal
          * @param {DealsApiGetDealRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getDeal(requestParameters: DealsApiGetDealRequest, ): Promise<GetDealResponse> {
             return localVarFp.getDeal(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
-         * Lists activities associated with a deal.
+         * Lists activities associated with a deal. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities?deal_id={id}</a> instead.
          * @summary List activities associated with a deal
          * @param {DealsApiGetDealActivitiesRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getDealActivities(requestParameters: DealsApiGetDealActivitiesRequest, ): Promise<GetDealActivitiesResponse> {
@@ -2275,10 +2275,10 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.getDealParticipantsChangelog(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
-         * Lists all persons associated with a deal, regardless of whether the person is the primary contact of the deal, or added as a participant.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
+         * Lists all persons associated with a deal, regardless of whether the person is the primary contact of the deal, or added as a participant.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#getPersons\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/persons?deal_id={id}</a> instead.
          * @summary List all persons associated with a deal
          * @param {DealsApiGetDealPersonsRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getDealPersons(requestParameters: DealsApiGetDealPersonsRequest, ): Promise<GetPersonsResponse> {
@@ -2288,7 +2288,7 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          * Lists products attached to a deal.
          * @summary List products attached to a deal
          * @param {DealsApiGetDealProductsRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getDealProducts(requestParameters: DealsApiGetDealProductsRequest, ): Promise<GetProductsResponse> {
@@ -2318,17 +2318,17 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          * Returns all deals. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/getting-all-deals\" target=\"_blank\" rel=\"noopener noreferrer\">getting all deals</a>.
          * @summary Get all deals
          * @param {DealsApiGetDealsRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getDeals(requestParameters: DealsApiGetDealsRequest = {}, ): Promise<GetDealsResponse> {
             return localVarFp.getDeals(requestParameters.user_id, requestParameters.filter_id, requestParameters.stage_id, requestParameters.status, requestParameters.start, requestParameters.limit, requestParameters.sort, requestParameters.owned_by_you, ).then((request) => request(axios, basePath));
         },
         /**
-         * Returns all deals. This is a cursor-paginated endpoint that is currently in BETA. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>. Please note that only global admins (those with global permissions) can access these endpoints. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
-         * @summary Get all deals (BETA)
+         * Returns all deals. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals</a> instead.
+         * @summary Get all deals collection
          * @param {DealsApiGetDealsCollectionRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getDealsCollection(requestParameters: DealsApiGetDealsCollectionRequest = {}, ): Promise<GetDealsCollectionResponse> {
@@ -2368,7 +2368,7 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          * Searches all deals by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found deals can be filtered by the person ID and the organization ID.
          * @summary Search deals
          * @param {DealsApiSearchDealsRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         searchDeals(requestParameters: DealsApiSearchDealsRequest, ): Promise<GetDealSearchResponse> {
@@ -2378,7 +2378,7 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          * Updates the properties of a deal. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/updating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">updating a deal</a>.
          * @summary Update a deal
          * @param {DealsApiUpdateDealRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         updateDeal(requestParameters: DealsApiUpdateDealRequest, ): Promise<GetAddedDealResponse> {
@@ -2388,7 +2388,7 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          * Updates the details of the product that has been attached to a deal.
          * @summary Update the product attached to a deal
          * @param {DealsApiUpdateDealProductRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         updateDealProduct(requestParameters: DealsApiUpdateDealProductRequest, ): Promise<GetProductAttachmentDetailsResponse> {
@@ -3297,7 +3297,7 @@ export class DealsApi extends BaseAPI {
      * Adds a new deal. All deals created through the Pipedrive API will have a `origin` set to `API`. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the dealFields and look for `key` values. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/creating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">adding a deal</a>.
      * @summary Add a deal
      * @param {DealsApiAddDealRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof DealsApi
      */
@@ -3333,7 +3333,7 @@ export class DealsApi extends BaseAPI {
      * Adds a product to a deal, creating a new item called a deal-product.
      * @summary Add a product to a deal
      * @param {DealsApiAddDealProductRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof DealsApi
      */
@@ -3345,7 +3345,7 @@ export class DealsApi extends BaseAPI {
      * Marks a deal as deleted. After 30 days, the deal will be permanently deleted.
      * @summary Delete a deal
      * @param {DealsApiDeleteDealRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof DealsApi
      */
@@ -3381,7 +3381,7 @@ export class DealsApi extends BaseAPI {
      * Deletes a product attachment from a deal, using the `product_attachment_id`  Not possible to delete the attached product if the deal has installments associated and the product is the last one enabled 
      * @summary Delete an attached product from a deal
      * @param {DealsApiDeleteDealProductRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof DealsApi
      */
@@ -3390,10 +3390,10 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
-     * Marks multiple deals as deleted. After 30 days, the deals will be permanently deleted.
+     * Marks multiple deals as deleted. After 30 days, the deals will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#deleteDeal\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/deals/{id}</a> instead.
      * @summary Delete multiple deals in bulk
      * @param {DealsApiDeleteDealsRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof DealsApi
      */
@@ -3417,7 +3417,7 @@ export class DealsApi extends BaseAPI {
      * Returns the details of a specific deal. Note that this also returns some additional fields which are not present when asking for all deals – such as deal age and stay in pipeline stages. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of dealFields. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/getting-details-of-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">getting details of a deal</a>.
      * @summary Get details of a deal
      * @param {DealsApiGetDealRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof DealsApi
      */
@@ -3426,10 +3426,10 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
-     * Lists activities associated with a deal.
+     * Lists activities associated with a deal. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities?deal_id={id}</a> instead.
      * @summary List activities associated with a deal
      * @param {DealsApiGetDealActivitiesRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof DealsApi
      */
@@ -3510,10 +3510,10 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
-     * Lists all persons associated with a deal, regardless of whether the person is the primary contact of the deal, or added as a participant.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
+     * Lists all persons associated with a deal, regardless of whether the person is the primary contact of the deal, or added as a participant.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#getPersons\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/persons?deal_id={id}</a> instead.
      * @summary List all persons associated with a deal
      * @param {DealsApiGetDealPersonsRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof DealsApi
      */
@@ -3525,7 +3525,7 @@ export class DealsApi extends BaseAPI {
      * Lists products attached to a deal.
      * @summary List products attached to a deal
      * @param {DealsApiGetDealProductsRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof DealsApi
      */
@@ -3561,7 +3561,7 @@ export class DealsApi extends BaseAPI {
      * Returns all deals. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/getting-all-deals\" target=\"_blank\" rel=\"noopener noreferrer\">getting all deals</a>.
      * @summary Get all deals
      * @param {DealsApiGetDealsRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof DealsApi
      */
@@ -3570,10 +3570,10 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
-     * Returns all deals. This is a cursor-paginated endpoint that is currently in BETA. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>. Please note that only global admins (those with global permissions) can access these endpoints. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
-     * @summary Get all deals (BETA)
+     * Returns all deals. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals</a> instead.
+     * @summary Get all deals collection
      * @param {DealsApiGetDealsCollectionRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof DealsApi
      */
@@ -3621,7 +3621,7 @@ export class DealsApi extends BaseAPI {
      * Searches all deals by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found deals can be filtered by the person ID and the organization ID.
      * @summary Search deals
      * @param {DealsApiSearchDealsRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof DealsApi
      */
@@ -3633,7 +3633,7 @@ export class DealsApi extends BaseAPI {
      * Updates the properties of a deal. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/updating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">updating a deal</a>.
      * @summary Update a deal
      * @param {DealsApiUpdateDealRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof DealsApi
      */
@@ -3645,7 +3645,7 @@ export class DealsApi extends BaseAPI {
      * Updates the details of the product that has been attached to a deal.
      * @summary Update the product attached to a deal
      * @param {DealsApiUpdateDealProductRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof DealsApi
      */

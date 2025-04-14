@@ -7,6 +7,64 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Changed
+- Deprecated `GET /v1/activities` in favor of `GET /api/v2/activities`
+- Deprecated `GET /v1/activities/collection` in favor of `GET /api/v2/activities`
+- Deprecated `GET /v1/activities/{id}` in favor of `GET /api/v2/activities/{id}`
+- Deprecated `POST /v1/activities` in favor of `POST /api/v2/activities`
+- Deprecated `PUT /v1/activities/{id}` in favor of `PATCH /api/v2/activities/{id}`
+- Deprecated `DELETE /v1/activities/{id}` in favor of `DELETE /api/v2/activities/{id}`
+- Deprecated `DELETE /v1/activities` in favor of `DELETE /api/v2/activities/{id}`
+- Deprecated `GET /v1/deals` in favor of `GET /api/v2/deals`
+- Deprecated `GET /v1/deals/collection` in favor of `GET /api/v2/deals`
+- Deprecated `GET /v1/deals/{id}` in favor of `GET /api/v2/deals/{id}`
+- Deprecated `GET /v1/deals/search` in favor of `GET /api/v2/deals/search`
+- Deprecated `POST /v1/deals` in favor of `POST /api/v2/deals`
+- Deprecated `PUT /v1/deals/{id}` in favor of `PATCH /api/v2/deals`
+- Deprecated `DELETE /v1/deals/{id}` in favor of `DELETE /api/v2/deals/{id}`
+- Deprecated `DELETE /v1/deals` in favor of `DELETE /api/v2/deals/{id}`
+- Deprecated `GET /v1/deals/{id}/activities` in favor of `GET /api/v2/activities?deal_id={id}`
+- Deprecated `GET /v1/deals/{id}/persons` in favor of `GET /api/v2/persons?deal_id={id}`
+- Deprecated `GET /v1/persons` in favor of `GET /api/v2/persons`
+- Deprecated `GET /v1/persons/collection` in favor of `GET /api/v2/persons`
+- Deprecated `GET /v1/persons/{id}` in favor of `GET /api/v2/persons/{id}`
+- Deprecated `GET /v1/persons/search` in favor of `GET /api/v2/persons/search`
+- Deprecated `POST /v1/persons` in favor of `POST /api/v2/persons`
+- Deprecated `PUT /v1/persons/{id}` in favor of `PATCH /api/v2/persons/{id}`
+- Deprecated `DELETE /v1/persons/{id}` in favor of `DELETE /api/v2/persons/{id}`
+- Deprecated `DELETE /v1/persons` in favor of `DELETE /api/v2/persons/{id}`
+- Deprecated `GET /v1/persons/{id}/deals` in favor of `GET /api/v2/deals?person_id={id}`
+- Deprecated `GET /v1/persons/{id}/activities` in favor of `GET /api/v2/activities?person_id={id}`
+- Deprecated `GET /v1/organizations` in favor of `GET /api/v2/organizations`
+- Deprecated `GET /v1/organizations/collection` in favor of `GET /api/v2/organizations`
+- Deprecated `GET /v1/organizations/{id}` in favor of `GET /api/v2/organizations/{id}`
+- Deprecated `GET /v1/organizations/search` in favor of `GET /api/v2/organizations/search`
+- Deprecated `POST /v1/organizations` in favor of `POST /api/v2/organizations`
+- Deprecated `PUT /v1/organizations/{id}` in favor of `PATCH /api/v2/organizations/{id}`
+- Deprecated `DELETE /v1/organizations/{id}` in favor of `DELETE /api/v2/organizations/{id}`
+- Deprecated `DELETE /v1/organizations` in favor of `DELETE /api/v2/organizations/{id}`
+- Deprecated `GET /v1/organizations/{id}/deals` in favor of `GET /api/v2/deals?org_id={id}`
+- Deprecated `GET /v1/organizations/{id}/activities` in favor of `GET /api/v2/activities?org_id={id}`
+- Deprecated `GET /v1/organizations/{id}/persons` in favor of `GET /api/v2/persons?org_id={id}`
+- Deprecated `GET /v1/products` in favor of `GET /api/v2/products`
+- Deprecated `GET /v1/products/{id}` in favor of `GET /api/v2/products/{id}`
+- Deprecated `GET /v1/products/search` in favor of `GET /api/v2/products/search`
+- Deprecated `POST /v1/products` in favor of `POST /api/v2/products`
+- Deprecated `PUT /v1/products/{id}` in favor of `PATCH /api/v2/products/{id}`
+- Deprecated `DELETE /v1/products/{id}` in favor of `DELETE /api/v2/products/{id}`
+- Deprecated `GET /v1/pipelines` in favor of `GET /api/v2/pipelines`
+- Deprecated `GET /v1/pipelines/{id}` in favor of `GET /api/v2/pipelines/{id}`
+- Deprecated `POST /v1/pipelines` in favor of `POST /api/v2/pipelines`
+- Deprecated `PUT /v1/pipelines/{id}` in favor of `PATCH /api/v2/pipelines/{id}`
+- Deprecated `DELETE /v1/pipelines/{id}` in favor of `DELETE /api/v2/pipelines/{id}`
+- Deprecated `GET /v1/stages` in favor of `GET /api/v2/stages`
+- Deprecated `GET /v1/stages/{id}` in favor of `GET /api/v2/stages/{id}`
+- Deprecated `POST /v1/stages` in favor of `POST /api/v2/stages`
+- Deprecated `PUT /v1/stages/{id}` in favor of `PATCH /api/v2/stages/{id}`
+- Deprecated `DELETE /v1/stages/{id}` in favor of `DELETE /api/v2/stages/{id}`
+- Deprecated `DELETE /v1/stages` in favor of `DELETE /api/v2/stages/{id}`
+- Deprecated `GET /v1/itemSearch` in favor of `GET /api/v2/itemSearch`
+- Deprecated `GET /v1/itemSearch/field` in favor of `GET /api/v2/itemSearch/field`
 
 ## [25.0.0] - 2025-03-31
 ### Changed

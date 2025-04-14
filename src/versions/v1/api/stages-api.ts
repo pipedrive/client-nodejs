@@ -47,7 +47,7 @@ export const StagesApiAxiosParamCreator = function (configuration?: Configuratio
          * Adds a new stage, returns the ID upon success.
          * @summary Add a new stage
          * @param {AddStageRequest} [AddStageRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         addStage: async (AddStageRequest?: AddStageRequest, ): Promise<RequestArgs> => {
@@ -88,7 +88,7 @@ export const StagesApiAxiosParamCreator = function (configuration?: Configuratio
          * Marks a stage as deleted.
          * @summary Delete a stage
          * @param {number} id The ID of the stage
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteStage: async (id: number, ): Promise<RequestArgs> => {
@@ -126,10 +126,10 @@ export const StagesApiAxiosParamCreator = function (configuration?: Configuratio
             };
         },
         /**
-         * Marks multiple stages as deleted.
+         * Marks multiple stages as deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Stages#deleteStage\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/stages/{id}</a> instead.
          * @summary Delete multiple stages in bulk
          * @param {string} ids The comma-separated stage IDs to delete
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteStages: async (ids: string, ): Promise<RequestArgs> => {
@@ -174,7 +174,7 @@ export const StagesApiAxiosParamCreator = function (configuration?: Configuratio
          * @summary Get one stage
          * @param {number} id The ID of the stage
          * @param {0 | 1} [everyone] If &#x60;everyone&#x3D;1&#x60; is provided, deals summary will return deals owned by every user
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getStage: async (id: number, everyone?: 0 | 1, ): Promise<RequestArgs> => {
@@ -216,7 +216,7 @@ export const StagesApiAxiosParamCreator = function (configuration?: Configuratio
             };
         },
         /**
-         * Lists deals in a specific stage. If no parameters are provided open deals owned by the authorized user will be returned.
+         * Lists deals in a specific stage. If no parameters are provided open deals owned by the authorized user will be returned. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?stage_id={id}</a> instead.
          * @summary Get deals in a stage
          * @param {number} id The ID of the stage
          * @param {number} [filter_id] If supplied, only deals matching the given filter will be returned
@@ -224,7 +224,7 @@ export const StagesApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {0 | 1} [everyone] If supplied, &#x60;filter_id&#x60; and &#x60;user_id&#x60; will not be considered – instead, deals owned by everyone will be returned
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getStageDeals: async (id: number, filter_id?: number, user_id?: number, everyone?: 0 | 1, start?: number, limit?: number, ): Promise<RequestArgs> => {
@@ -287,7 +287,7 @@ export const StagesApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {number} [pipeline_id] The ID of the pipeline to fetch stages for. If omitted, stages for all pipelines will be fetched.
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getStages: async (pipeline_id?: number, start?: number, limit?: number, ): Promise<RequestArgs> => {
@@ -338,7 +338,7 @@ export const StagesApiAxiosParamCreator = function (configuration?: Configuratio
          * @summary Update stage details
          * @param {number} id The ID of the stage
          * @param {UpdateStageRequest} [UpdateStageRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         updateStage: async (id: number, UpdateStageRequest?: UpdateStageRequest, ): Promise<RequestArgs> => {
@@ -393,7 +393,7 @@ export const StagesApiFp = function(configuration?: Configuration) {
          * Adds a new stage, returns the ID upon success.
          * @summary Add a new stage
          * @param {AddStageRequest} [AddStageRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async addStage(AddStageRequest?: AddStageRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertStageResponse>> {
@@ -404,7 +404,7 @@ export const StagesApiFp = function(configuration?: Configuration) {
          * Marks a stage as deleted.
          * @summary Delete a stage
          * @param {number} id The ID of the stage
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async deleteStage(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteStageResponse>> {
@@ -412,10 +412,10 @@ export const StagesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Marks multiple stages as deleted.
+         * Marks multiple stages as deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Stages#deleteStage\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/stages/{id}</a> instead.
          * @summary Delete multiple stages in bulk
          * @param {string} ids The comma-separated stage IDs to delete
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async deleteStages(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteStagesResponse>> {
@@ -427,7 +427,7 @@ export const StagesApiFp = function(configuration?: Configuration) {
          * @summary Get one stage
          * @param {number} id The ID of the stage
          * @param {0 | 1} [everyone] If &#x60;everyone&#x3D;1&#x60; is provided, deals summary will return deals owned by every user
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getStage(id: number, everyone?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetStageResponse>> {
@@ -435,7 +435,7 @@ export const StagesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Lists deals in a specific stage. If no parameters are provided open deals owned by the authorized user will be returned.
+         * Lists deals in a specific stage. If no parameters are provided open deals owned by the authorized user will be returned. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?stage_id={id}</a> instead.
          * @summary Get deals in a stage
          * @param {number} id The ID of the stage
          * @param {number} [filter_id] If supplied, only deals matching the given filter will be returned
@@ -443,7 +443,7 @@ export const StagesApiFp = function(configuration?: Configuration) {
          * @param {0 | 1} [everyone] If supplied, &#x60;filter_id&#x60; and &#x60;user_id&#x60; will not be considered – instead, deals owned by everyone will be returned
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getStageDeals(id: number, filter_id?: number, user_id?: number, everyone?: 0 | 1, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetStageDealsResponse>> {
@@ -456,7 +456,7 @@ export const StagesApiFp = function(configuration?: Configuration) {
          * @param {number} [pipeline_id] The ID of the pipeline to fetch stages for. If omitted, stages for all pipelines will be fetched.
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getStages(pipeline_id?: number, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetStagesResponse>> {
@@ -468,7 +468,7 @@ export const StagesApiFp = function(configuration?: Configuration) {
          * @summary Update stage details
          * @param {number} id The ID of the stage
          * @param {UpdateStageRequest} [UpdateStageRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async updateStage(id: number, UpdateStageRequest?: UpdateStageRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertStageResponse>> {
@@ -489,7 +489,7 @@ export const StagesApiFactory = function (configuration?: Configuration, basePat
          * Adds a new stage, returns the ID upon success.
          * @summary Add a new stage
          * @param {StagesApiAddStageRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         addStage(requestParameters: StagesApiAddStageRequest = {}, ): Promise<UpsertStageResponse> {
@@ -499,17 +499,17 @@ export const StagesApiFactory = function (configuration?: Configuration, basePat
          * Marks a stage as deleted.
          * @summary Delete a stage
          * @param {StagesApiDeleteStageRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteStage(requestParameters: StagesApiDeleteStageRequest, ): Promise<DeleteStageResponse> {
             return localVarFp.deleteStage(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
-         * Marks multiple stages as deleted.
+         * Marks multiple stages as deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Stages#deleteStage\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/stages/{id}</a> instead.
          * @summary Delete multiple stages in bulk
          * @param {StagesApiDeleteStagesRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteStages(requestParameters: StagesApiDeleteStagesRequest, ): Promise<DeleteStagesResponse> {
@@ -519,17 +519,17 @@ export const StagesApiFactory = function (configuration?: Configuration, basePat
          * Returns data about a specific stage.
          * @summary Get one stage
          * @param {StagesApiGetStageRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getStage(requestParameters: StagesApiGetStageRequest, ): Promise<GetStageResponse> {
             return localVarFp.getStage(requestParameters.id, requestParameters.everyone, ).then((request) => request(axios, basePath));
         },
         /**
-         * Lists deals in a specific stage. If no parameters are provided open deals owned by the authorized user will be returned.
+         * Lists deals in a specific stage. If no parameters are provided open deals owned by the authorized user will be returned. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?stage_id={id}</a> instead.
          * @summary Get deals in a stage
          * @param {StagesApiGetStageDealsRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getStageDeals(requestParameters: StagesApiGetStageDealsRequest, ): Promise<GetStageDealsResponse> {
@@ -539,7 +539,7 @@ export const StagesApiFactory = function (configuration?: Configuration, basePat
          * Returns data about all stages.
          * @summary Get all stages
          * @param {StagesApiGetStagesRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getStages(requestParameters: StagesApiGetStagesRequest = {}, ): Promise<GetStagesResponse> {
@@ -549,7 +549,7 @@ export const StagesApiFactory = function (configuration?: Configuration, basePat
          * Updates the properties of a stage.
          * @summary Update stage details
          * @param {StagesApiUpdateStageRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         updateStage(requestParameters: StagesApiUpdateStageRequest, ): Promise<UpsertStageResponse> {
@@ -730,7 +730,7 @@ export class StagesApi extends BaseAPI {
      * Adds a new stage, returns the ID upon success.
      * @summary Add a new stage
      * @param {StagesApiAddStageRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof StagesApi
      */
@@ -742,7 +742,7 @@ export class StagesApi extends BaseAPI {
      * Marks a stage as deleted.
      * @summary Delete a stage
      * @param {StagesApiDeleteStageRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof StagesApi
      */
@@ -751,10 +751,10 @@ export class StagesApi extends BaseAPI {
     }
 
     /**
-     * Marks multiple stages as deleted.
+     * Marks multiple stages as deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Stages#deleteStage\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/stages/{id}</a> instead.
      * @summary Delete multiple stages in bulk
      * @param {StagesApiDeleteStagesRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof StagesApi
      */
@@ -766,7 +766,7 @@ export class StagesApi extends BaseAPI {
      * Returns data about a specific stage.
      * @summary Get one stage
      * @param {StagesApiGetStageRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof StagesApi
      */
@@ -775,10 +775,10 @@ export class StagesApi extends BaseAPI {
     }
 
     /**
-     * Lists deals in a specific stage. If no parameters are provided open deals owned by the authorized user will be returned.
+     * Lists deals in a specific stage. If no parameters are provided open deals owned by the authorized user will be returned. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?stage_id={id}</a> instead.
      * @summary Get deals in a stage
      * @param {StagesApiGetStageDealsRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof StagesApi
      */
@@ -790,7 +790,7 @@ export class StagesApi extends BaseAPI {
      * Returns data about all stages.
      * @summary Get all stages
      * @param {StagesApiGetStagesRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof StagesApi
      */
@@ -802,7 +802,7 @@ export class StagesApi extends BaseAPI {
      * Updates the properties of a stage.
      * @summary Update stage details
      * @param {StagesApiUpdateStageRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof StagesApi
      */
