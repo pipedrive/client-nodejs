@@ -7,6 +7,22 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Added
+- Added archived deals/leads endpoints:
+  - `GET /v1/deals/archived`
+  - `GET /v2/deals/archived`
+  - `GET /v1/deals/timeline/archived`
+  - `GET /v1/deals/summary/archived`
+  - `GET /v1/leads/archived`
+- Added `is_archived` and `archive_time` properties to deals endpoints response
+### Changed
+- Updated non archived deals/leads endpoint description to specify that following endpoints do not return archived items:
+  - `GET /v1/deals`
+  - `GET /v2/deals`
+  - `GET /v1/deals/timeline`
+  - `GET /v1/deals/summary`
+  - `GET /v1/leads`
+- Removed deprecated `archived_status` query parameter from leads endpoints
 
 ## [25.0.0] - 2025-03-31
 ### Changed

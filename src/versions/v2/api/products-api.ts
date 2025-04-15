@@ -131,7 +131,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full"], configuration)
 
 
     
