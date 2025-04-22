@@ -81,6 +81,11 @@ export interface DealItem {
     */
     'stage_change_time'?: string;
     /**
+    * Whether the deal is archived or not
+    * @type {boolean}
+    */
+    'is_archived'?: boolean;
+    /**
     * Whether the deal is deleted or not
     * @type {boolean}
     */

@@ -477,6 +477,123 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Returns data about all archived deals.
+         * @summary Get all archived deals
+         * @param {number} [filter_id] If supplied, only deals matching the specified filter are returned
+         * @param {string} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+         * @param {number} [owner_id] If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored.
+         * @param {number} [person_id] If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored.
+         * @param {number} [org_id] If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored.
+         * @param {number} [pipeline_id] If supplied, only deals in the specified pipeline are returned. If filter_id is provided, this is ignored.
+         * @param {number} [stage_id] If supplied, only deals in the specified stage are returned. If filter_id is provided, this is ignored.
+         * @param {'open' | 'won' | 'lost' | 'deleted'} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. Multiple statuses can be included as a comma separated array. If filter_id is provided, this is ignored.
+         * @param {string} [updated_since] If set, only deals with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
+         * @param {string} [updated_until] If set, only deals with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
+         * @param {'id' | 'update_time' | 'add_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
+         * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
+         * @param {'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time'} [include_fields] Optional comma separated string array of additional fields to include
+         * @param {string} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        getArchivedDeals: async (filter_id?: number, ids?: string, owner_id?: number, person_id?: number, org_id?: number, pipeline_id?: number, stage_id?: number, status?: 'open' | 'won' | 'lost' | 'deleted', updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: 'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time', custom_fields?: string, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+            const localVarPath = `/deals/archived`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
+
+            if (filter_id !== undefined) {
+                localVarQueryParameter['filter_id'] = filter_id;
+            }
+
+            if (ids !== undefined) {
+                localVarQueryParameter['ids'] = ids;
+            }
+
+            if (owner_id !== undefined) {
+                localVarQueryParameter['owner_id'] = owner_id;
+            }
+
+            if (person_id !== undefined) {
+                localVarQueryParameter['person_id'] = person_id;
+            }
+
+            if (org_id !== undefined) {
+                localVarQueryParameter['org_id'] = org_id;
+            }
+
+            if (pipeline_id !== undefined) {
+                localVarQueryParameter['pipeline_id'] = pipeline_id;
+            }
+
+            if (stage_id !== undefined) {
+                localVarQueryParameter['stage_id'] = stage_id;
+            }
+
+            if (status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            if (updated_since !== undefined) {
+                localVarQueryParameter['updated_since'] = updated_since;
+            }
+
+            if (updated_until !== undefined) {
+                localVarQueryParameter['updated_until'] = updated_until;
+            }
+
+            if (sort_by !== undefined) {
+                localVarQueryParameter['sort_by'] = sort_by;
+            }
+
+            if (sort_direction !== undefined) {
+                localVarQueryParameter['sort_direction'] = sort_direction;
+            }
+
+            if (include_fields !== undefined) {
+                localVarQueryParameter['include_fields'] = include_fields;
+            }
+
+            if (custom_fields !== undefined) {
+                localVarQueryParameter['custom_fields'] = custom_fields;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Returns the details of a specific deal.
          * @summary Get details of a deal
          * @param {number} id The ID of the deal
@@ -691,7 +808,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Returns data about all deals.
+         * Returns data about all not archived deals.
          * @summary Get all deals
          * @param {number} [filter_id] If supplied, only deals matching the specified filter are returned
          * @param {string} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
@@ -1418,6 +1535,32 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Returns data about all archived deals.
+         * @summary Get all archived deals
+         * @param {number} [filter_id] If supplied, only deals matching the specified filter are returned
+         * @param {string} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+         * @param {number} [owner_id] If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored.
+         * @param {number} [person_id] If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored.
+         * @param {number} [org_id] If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored.
+         * @param {number} [pipeline_id] If supplied, only deals in the specified pipeline are returned. If filter_id is provided, this is ignored.
+         * @param {number} [stage_id] If supplied, only deals in the specified stage are returned. If filter_id is provided, this is ignored.
+         * @param {'open' | 'won' | 'lost' | 'deleted'} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. Multiple statuses can be included as a comma separated array. If filter_id is provided, this is ignored.
+         * @param {string} [updated_since] If set, only deals with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
+         * @param {string} [updated_until] If set, only deals with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
+         * @param {'id' | 'update_time' | 'add_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
+         * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
+         * @param {'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time'} [include_fields] Optional comma separated string array of additional fields to include
+         * @param {string} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getArchivedDeals(filter_id?: number, ids?: string, owner_id?: number, person_id?: number, org_id?: number, pipeline_id?: number, stage_id?: number, status?: 'open' | 'won' | 'lost' | 'deleted', updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: 'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time', custom_fields?: string, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getArchivedDeals(filter_id, ids, owner_id, person_id, org_id, pipeline_id, stage_id, status, updated_since, updated_until, sort_by, sort_direction, include_fields, custom_fields, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Returns the details of a specific deal.
          * @summary Get details of a deal
          * @param {number} id The ID of the deal
@@ -1472,7 +1615,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns data about all deals.
+         * Returns data about all not archived deals.
          * @summary Get all deals
          * @param {number} [filter_id] If supplied, only deals matching the specified filter are returned
          * @param {string} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
@@ -1722,6 +1865,16 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.getAdditionalDiscounts(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
+         * Returns data about all archived deals.
+         * @summary Get all archived deals
+         * @param {DealsApiGetArchivedDealsRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        getArchivedDeals(requestParameters: DealsApiGetArchivedDealsRequest = {}, ): Promise<GetDealsResponse> {
+            return localVarFp.getArchivedDeals(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.person_id, requestParameters.org_id, requestParameters.pipeline_id, requestParameters.stage_id, requestParameters.status, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
+        /**
          * Returns the details of a specific deal.
          * @summary Get details of a deal
          * @param {DealsApiGetDealRequest} requestParameters Request parameters.
@@ -1762,7 +1915,7 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.getDealProducts(requestParameters.id, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, ).then((request) => request(axios, basePath));
         },
         /**
-         * Returns data about all deals.
+         * Returns data about all not archived deals.
          * @summary Get all deals
          * @param {DealsApiGetDealsRequest} requestParameters Request parameters.
 
@@ -2030,6 +2183,125 @@ export interface DealsApiGetAdditionalDiscountsRequest {
      * @memberof DealsApiGetAdditionalDiscounts
      */
     readonly id: number
+}
+
+/**
+ * Request parameters for getArchivedDeals operation in DealsApi.
+ * @export
+ * @interface DealsApiGetArchivedDealsRequest
+ */
+export interface DealsApiGetArchivedDealsRequest {
+    /**
+     * If supplied, only deals matching the specified filter are returned
+     * @type {number}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly filter_id?: number
+
+    /**
+     * Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+     * @type {string}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly ids?: string
+
+    /**
+     * If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored.
+     * @type {number}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly owner_id?: number
+
+    /**
+     * If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored.
+     * @type {number}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly person_id?: number
+
+    /**
+     * If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored.
+     * @type {number}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly org_id?: number
+
+    /**
+     * If supplied, only deals in the specified pipeline are returned. If filter_id is provided, this is ignored.
+     * @type {number}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly pipeline_id?: number
+
+    /**
+     * If supplied, only deals in the specified stage are returned. If filter_id is provided, this is ignored.
+     * @type {number}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly stage_id?: number
+
+    /**
+     * Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. Multiple statuses can be included as a comma separated array. If filter_id is provided, this is ignored.
+     * @type {'open' | 'won' | 'lost' | 'deleted'}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly status?: 'open' | 'won' | 'lost' | 'deleted'
+
+    /**
+     * If set, only deals with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
+     * @type {string}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly updated_since?: string
+
+    /**
+     * If set, only deals with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
+     * @type {string}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly updated_until?: string
+
+    /**
+     * The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
+     * @type {'id' | 'update_time' | 'add_time'}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly sort_by?: 'id' | 'update_time' | 'add_time'
+
+    /**
+     * The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
+     * @type {'asc' | 'desc'}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly sort_direction?: 'asc' | 'desc'
+
+    /**
+     * Optional comma separated string array of additional fields to include
+     * @type {'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time'}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly include_fields?: 'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time'
+
+    /**
+     * Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+     * @type {string}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly custom_fields?: string
+
+    /**
+     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+     * @type {number}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly limit?: number
+
+    /**
+     * For pagination, the marker (an opaque string value) representing the first item on the next page
+     * @type {string}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly cursor?: string
 }
 
 /**
@@ -2694,6 +2966,18 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
+     * Returns data about all archived deals.
+     * @summary Get all archived deals
+     * @param {DealsApiGetArchivedDealsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public getArchivedDeals(requestParameters: DealsApiGetArchivedDealsRequest = {}, ) {
+        return DealsApiFp(this.configuration).getArchivedDeals(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.person_id, requestParameters.org_id, requestParameters.pipeline_id, requestParameters.stage_id, requestParameters.status, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns the details of a specific deal.
      * @summary Get details of a deal
      * @param {DealsApiGetDealRequest} requestParameters Request parameters.
@@ -2742,7 +3026,7 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
-     * Returns data about all deals.
+     * Returns data about all not archived deals.
      * @summary Get all deals
      * @param {DealsApiGetDealsRequest} requestParameters Request parameters.
 

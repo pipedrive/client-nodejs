@@ -7,6 +7,10 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Added
+- Added option to use `sort_by=due_date` sorting for `GET /api/v2/activities`
+- Added option to use `done=true/false` quick filter for `GET /api/v2/activities`
+### Changed
 
 ## [25.0.0] - 2025-03-31
 ### Changed
