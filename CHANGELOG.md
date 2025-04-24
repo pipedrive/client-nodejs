@@ -7,6 +7,10 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Added
+- Added `project_id` and `pinned_to_project_flag` query parameter to the GET `/notes` endpoint
+- Added `project_id` and `pinned_to_project_flag` request bodies to the POST/PUT `/notes` endpoint
+- Added `project_id` and `pinned_to_project_flag` to success responses of GET/POST/PUT
 
 ## [25.0.0] - 2025-03-31
 ### Changed

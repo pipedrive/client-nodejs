@@ -22,6 +22,14 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
+import { AddConvertLeadToDealResponse } from '../models';
+// @ts-ignore
+import { ConvertLeadToDealRequest } from '../models';
+// @ts-ignore
+import { GetConvertResponse } from '../models';
+// @ts-ignore
+import { GetConvertResponse1 } from '../models';
+// @ts-ignore
 import { GetLeadSearchResponse } from '../models';
 /**
  * LeadsApi - axios parameter creator
@@ -29,6 +37,96 @@ import { GetLeadSearchResponse } from '../models';
  */
 export const LeadsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
+        /**
+         * Initiates a conversion of a lead to a deal. The return value is an ID of a job that was assigned to perform the conversion. Related entities (notes, files, emails, activities, ...) are transferred during the process to the target entity. If the conversion is successful, the lead is marked as deleted. To retrieve the created entity ID and the result of the conversion, call the <a href=\"https://developers.pipedrive.com/docs/api/v1/Leads#getLeadConversionStatus\">/api/v2/leads/{lead_id}/convert/status/{conversion_id}</a> endpoint.
+         * @summary Convert a lead to a deal (BETA)
+         * @param {string} id The ID of the lead to convert
+         * @param {ConvertLeadToDealRequest} [ConvertLeadToDealRequest] 
+
+         * @throws {RequiredError}
+         */
+        convertLeadToDeal: async (id: string, ConvertLeadToDealRequest?: ConvertLeadToDealRequest, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('convertLeadToDeal', 'id', id)
+            const localVarPath = `/leads/{id}/convert/deal`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "leads:full"], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+            localVarRequestOptions.data = serializeDataIfNeeded(ConvertLeadToDealRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Returns data about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Deal ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
+         * @summary Get Lead conversion status (BETA)
+         * @param {string} id The ID of a lead
+         * @param {string} conversion_id The ID of the conversion
+
+         * @throws {RequiredError}
+         */
+        getLeadConversionStatus: async (id: string, conversion_id: string, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getLeadConversionStatus', 'id', id)
+            // verify required parameter 'conversion_id' is not null or undefined
+            assertParamExists('getLeadConversionStatus', 'conversion_id', conversion_id)
+            const localVarPath = `/leads/{id}/convert/status/{conversion_id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)))
+                .replace(`{${"conversion_id"}}`, encodeURIComponent(String(conversion_id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["leads:read"], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
         /**
          * Searches all leads by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found leads can be filtered by the person ID and the organization ID.
          * @summary Search leads
@@ -120,6 +218,30 @@ export const LeadsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = LeadsApiAxiosParamCreator(configuration)
     return {
         /**
+         * Initiates a conversion of a lead to a deal. The return value is an ID of a job that was assigned to perform the conversion. Related entities (notes, files, emails, activities, ...) are transferred during the process to the target entity. If the conversion is successful, the lead is marked as deleted. To retrieve the created entity ID and the result of the conversion, call the <a href=\"https://developers.pipedrive.com/docs/api/v1/Leads#getLeadConversionStatus\">/api/v2/leads/{lead_id}/convert/status/{conversion_id}</a> endpoint.
+         * @summary Convert a lead to a deal (BETA)
+         * @param {string} id The ID of the lead to convert
+         * @param {ConvertLeadToDealRequest} [ConvertLeadToDealRequest] 
+
+         * @throws {RequiredError}
+         */
+        async convertLeadToDeal(id: string, ConvertLeadToDealRequest?: ConvertLeadToDealRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddConvertLeadToDealResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.convertLeadToDeal(id, ConvertLeadToDealRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Returns data about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Deal ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
+         * @summary Get Lead conversion status (BETA)
+         * @param {string} id The ID of a lead
+         * @param {string} conversion_id The ID of the conversion
+
+         * @throws {RequiredError}
+         */
+        async getLeadConversionStatus(id: string, conversion_id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetConvertResponse1>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getLeadConversionStatus(id, conversion_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Searches all leads by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found leads can be filtered by the person ID and the organization ID.
          * @summary Search leads
          * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
@@ -148,6 +270,26 @@ export const LeadsApiFactory = function (configuration?: Configuration, basePath
     const localVarFp = LeadsApiFp(configuration)
     return {
         /**
+         * Initiates a conversion of a lead to a deal. The return value is an ID of a job that was assigned to perform the conversion. Related entities (notes, files, emails, activities, ...) are transferred during the process to the target entity. If the conversion is successful, the lead is marked as deleted. To retrieve the created entity ID and the result of the conversion, call the <a href=\"https://developers.pipedrive.com/docs/api/v1/Leads#getLeadConversionStatus\">/api/v2/leads/{lead_id}/convert/status/{conversion_id}</a> endpoint.
+         * @summary Convert a lead to a deal (BETA)
+         * @param {LeadsApiConvertLeadToDealRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        convertLeadToDeal(requestParameters: LeadsApiConvertLeadToDealRequest, ): Promise<AddConvertLeadToDealResponse> {
+            return localVarFp.convertLeadToDeal(requestParameters.id, requestParameters.ConvertLeadToDealRequest, ).then((request) => request(axios, basePath));
+        },
+        /**
+         * Returns data about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Deal ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
+         * @summary Get Lead conversion status (BETA)
+         * @param {LeadsApiGetLeadConversionStatusRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        getLeadConversionStatus(requestParameters: LeadsApiGetLeadConversionStatusRequest, ): Promise<GetConvertResponse1> {
+            return localVarFp.getLeadConversionStatus(requestParameters.id, requestParameters.conversion_id, ).then((request) => request(axios, basePath));
+        },
+        /**
          * Searches all leads by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found leads can be filtered by the person ID and the organization ID.
          * @summary Search leads
          * @param {LeadsApiSearchLeadsRequest} requestParameters Request parameters.
@@ -159,6 +301,48 @@ export const LeadsApiFactory = function (configuration?: Configuration, basePath
         },
     };
 };
+
+/**
+ * Request parameters for convertLeadToDeal operation in LeadsApi.
+ * @export
+ * @interface LeadsApiConvertLeadToDealRequest
+ */
+export interface LeadsApiConvertLeadToDealRequest {
+    /**
+     * The ID of the lead to convert
+     * @type {string}
+     * @memberof LeadsApiConvertLeadToDeal
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {ConvertLeadToDealRequest}
+     * @memberof LeadsApiConvertLeadToDeal
+     */
+    readonly ConvertLeadToDealRequest?: ConvertLeadToDealRequest
+}
+
+/**
+ * Request parameters for getLeadConversionStatus operation in LeadsApi.
+ * @export
+ * @interface LeadsApiGetLeadConversionStatusRequest
+ */
+export interface LeadsApiGetLeadConversionStatusRequest {
+    /**
+     * The ID of a lead
+     * @type {string}
+     * @memberof LeadsApiGetLeadConversionStatus
+     */
+    readonly id: string
+
+    /**
+     * The ID of the conversion
+     * @type {string}
+     * @memberof LeadsApiGetLeadConversionStatus
+     */
+    readonly conversion_id: string
+}
 
 /**
  * Request parameters for searchLeads operation in LeadsApi.
@@ -230,6 +414,30 @@ export interface LeadsApiSearchLeadsRequest {
  * @extends {BaseAPI}
  */
 export class LeadsApi extends BaseAPI {
+    /**
+     * Initiates a conversion of a lead to a deal. The return value is an ID of a job that was assigned to perform the conversion. Related entities (notes, files, emails, activities, ...) are transferred during the process to the target entity. If the conversion is successful, the lead is marked as deleted. To retrieve the created entity ID and the result of the conversion, call the <a href=\"https://developers.pipedrive.com/docs/api/v1/Leads#getLeadConversionStatus\">/api/v2/leads/{lead_id}/convert/status/{conversion_id}</a> endpoint.
+     * @summary Convert a lead to a deal (BETA)
+     * @param {LeadsApiConvertLeadToDealRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof LeadsApi
+     */
+    public convertLeadToDeal(requestParameters: LeadsApiConvertLeadToDealRequest, ) {
+        return LeadsApiFp(this.configuration).convertLeadToDeal(requestParameters.id, requestParameters.ConvertLeadToDealRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Returns data about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Deal ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
+     * @summary Get Lead conversion status (BETA)
+     * @param {LeadsApiGetLeadConversionStatusRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof LeadsApi
+     */
+    public getLeadConversionStatus(requestParameters: LeadsApiGetLeadConversionStatusRequest, ) {
+        return LeadsApiFp(this.configuration).getLeadConversionStatus(requestParameters.id, requestParameters.conversion_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * Searches all leads by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found leads can be filtered by the person ID and the organization ID.
      * @summary Search leads

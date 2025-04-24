@@ -42,7 +42,7 @@ export const ItemSearchApiAxiosParamCreator = function (configuration?: Configur
          * @param {'deal.cc_email' | 'person.picture' | 'product.price'} [include_fields] A comma-separated string array. Supports including optional fields in the results which are not provided by default.
          * @param {number} [start] Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter.
          * @param {number} [limit] Items shown per page
-
+         * @deprecated
          * @throws {RequiredError}
          */
         searchItem: async (term: string, item_types?: 'deal' | 'person' | 'organization' | 'product' | 'lead' | 'file' | 'mail_attachment' | 'project', fields?: 'address' | 'code' | 'custom_fields' | 'email' | 'name' | 'notes' | 'organization_name' | 'person_name' | 'phone' | 'title' | 'description', search_for_related_items?: boolean, exact_match?: boolean, include_fields?: 'deal.cc_email' | 'person.picture' | 'product.price', start?: number, limit?: number, ): Promise<RequestArgs> => {
@@ -120,7 +120,7 @@ export const ItemSearchApiAxiosParamCreator = function (configuration?: Configur
          * @param {boolean} [return_item_ids] Whether to return the IDs of the matching items or not. When not set or set to &#x60;0&#x60; or &#x60;false&#x60;, only distinct values of the searched field are returned. When set to &#x60;1&#x60; or &#x60;true&#x60;, the ID of each found item is returned.
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
-
+         * @deprecated
          * @throws {RequiredError}
          */
         searchItemByField: async (term: string, field_type: 'dealField' | 'leadField' | 'personField' | 'organizationField' | 'productField' | 'projectField', field_key: string, exact_match?: boolean, return_item_ids?: boolean, start?: number, limit?: number, ): Promise<RequestArgs> => {
@@ -210,7 +210,7 @@ export const ItemSearchApiFp = function(configuration?: Configuration) {
          * @param {'deal.cc_email' | 'person.picture' | 'product.price'} [include_fields] A comma-separated string array. Supports including optional fields in the results which are not provided by default.
          * @param {number} [start] Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter.
          * @param {number} [limit] Items shown per page
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async searchItem(term: string, item_types?: 'deal' | 'person' | 'organization' | 'product' | 'lead' | 'file' | 'mail_attachment' | 'project', fields?: 'address' | 'code' | 'custom_fields' | 'email' | 'name' | 'notes' | 'organization_name' | 'person_name' | 'phone' | 'title' | 'description', search_for_related_items?: boolean, exact_match?: boolean, include_fields?: 'deal.cc_email' | 'person.picture' | 'product.price', start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetItemSearchResponse>> {
@@ -227,7 +227,7 @@ export const ItemSearchApiFp = function(configuration?: Configuration) {
          * @param {boolean} [return_item_ids] Whether to return the IDs of the matching items or not. When not set or set to &#x60;0&#x60; or &#x60;false&#x60;, only distinct values of the searched field are returned. When set to &#x60;1&#x60; or &#x60;true&#x60;, the ID of each found item is returned.
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async searchItemByField(term: string, field_type: 'dealField' | 'leadField' | 'personField' | 'organizationField' | 'productField' | 'projectField', field_key: string, exact_match?: boolean, return_item_ids?: boolean, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetItemSearchFieldResponse>> {
@@ -248,7 +248,7 @@ export const ItemSearchApiFactory = function (configuration?: Configuration, bas
          * Performs a search from your choice of item types and fields.
          * @summary Perform a search from multiple item types
          * @param {ItemSearchApiSearchItemRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         searchItem(requestParameters: ItemSearchApiSearchItemRequest, ): Promise<GetItemSearchResponse> {
@@ -258,7 +258,7 @@ export const ItemSearchApiFactory = function (configuration?: Configuration, bas
          * Performs a search from the values of a specific field. Results can either be the distinct values of the field (useful for searching autocomplete field values), or the IDs of actual items (deals, leads, persons, organizations or products).
          * @summary Perform a search using a specific field from an item type
          * @param {ItemSearchApiSearchItemByFieldRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         searchItemByField(requestParameters: ItemSearchApiSearchItemByFieldRequest, ): Promise<GetItemSearchFieldResponse> {
@@ -397,7 +397,7 @@ export class ItemSearchApi extends BaseAPI {
      * Performs a search from your choice of item types and fields.
      * @summary Perform a search from multiple item types
      * @param {ItemSearchApiSearchItemRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof ItemSearchApi
      */
@@ -409,7 +409,7 @@ export class ItemSearchApi extends BaseAPI {
      * Performs a search from the values of a specific field. Results can either be the distinct values of the field (useful for searching autocomplete field values), or the IDs of actual items (deals, leads, persons, organizations or products).
      * @summary Perform a search using a specific field from an item type
      * @param {ItemSearchApiSearchItemByFieldRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof ItemSearchApi
      */

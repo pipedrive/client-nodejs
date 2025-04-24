@@ -59,7 +59,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
          * Adds a new product to the Products inventory. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-product\" target=\"_blank\" rel=\"noopener noreferrer\">adding a product</a>.
          * @summary Add a product
          * @param {AddProductRequest} [AddProductRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         addProduct: async (AddProductRequest?: AddProductRequest, ): Promise<RequestArgs> => {
@@ -145,7 +145,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
          * Marks a product as deleted. After 30 days, the product will be permanently deleted.
          * @summary Delete a product
          * @param {number} id The ID of the product
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteProduct: async (id: number, ): Promise<RequestArgs> => {
@@ -231,7 +231,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
          * Returns data about a specific product.
          * @summary Get one product
          * @param {number} id The ID of the product
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getProduct: async (id: number, ): Promise<RequestArgs> => {
@@ -482,7 +482,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {boolean} [get_summary] If supplied, the response will return the total numbers of products in the &#x60;additional_data.summary.total_count&#x60; property
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getProducts: async (user_id?: number, filter_id?: number, ids?: Array<number>, first_char?: string, get_summary?: boolean, start?: number, limit?: number, ): Promise<RequestArgs> => {
@@ -553,7 +553,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {'product.price'} [include_fields] Supports including optional fields in the results which are not provided by default
          * @param {number} [start] Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter.
          * @param {number} [limit] Items shown per page
-
+         * @deprecated
          * @throws {RequiredError}
          */
         searchProducts: async (term: string, fields?: 'code' | 'custom_fields' | 'name', exact_match?: boolean, include_fields?: 'product.price', start?: number, limit?: number, ): Promise<RequestArgs> => {
@@ -618,7 +618,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
          * @summary Update a product
          * @param {number} id The ID of the product
          * @param {UpdateProductRequest} [UpdateProductRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         updateProduct: async (id: number, UpdateProductRequest?: UpdateProductRequest, ): Promise<RequestArgs> => {
@@ -673,7 +673,7 @@ export const ProductsApiFp = function(configuration?: Configuration) {
          * Adds a new product to the Products inventory. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-product\" target=\"_blank\" rel=\"noopener noreferrer\">adding a product</a>.
          * @summary Add a product
          * @param {AddProductRequest} [AddProductRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async addProduct(AddProductRequest?: AddProductRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductResponse>> {
@@ -696,7 +696,7 @@ export const ProductsApiFp = function(configuration?: Configuration) {
          * Marks a product as deleted. After 30 days, the product will be permanently deleted.
          * @summary Delete a product
          * @param {number} id The ID of the product
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async deleteProduct(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteProductResponse>> {
@@ -719,7 +719,7 @@ export const ProductsApiFp = function(configuration?: Configuration) {
          * Returns data about a specific product.
          * @summary Get one product
          * @param {number} id The ID of the product
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getProduct(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductResponse>> {
@@ -788,7 +788,7 @@ export const ProductsApiFp = function(configuration?: Configuration) {
          * @param {boolean} [get_summary] If supplied, the response will return the total numbers of products in the &#x60;additional_data.summary.total_count&#x60; property
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getProducts(user_id?: number, filter_id?: number, ids?: Array<number>, first_char?: string, get_summary?: boolean, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductsResponse1>> {
@@ -804,7 +804,7 @@ export const ProductsApiFp = function(configuration?: Configuration) {
          * @param {'product.price'} [include_fields] Supports including optional fields in the results which are not provided by default
          * @param {number} [start] Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter.
          * @param {number} [limit] Items shown per page
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async searchProducts(term: string, fields?: 'code' | 'custom_fields' | 'name', exact_match?: boolean, include_fields?: 'product.price', start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductSearchResponse>> {
@@ -816,7 +816,7 @@ export const ProductsApiFp = function(configuration?: Configuration) {
          * @summary Update a product
          * @param {number} id The ID of the product
          * @param {UpdateProductRequest} [UpdateProductRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async updateProduct(id: number, UpdateProductRequest?: UpdateProductRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateProductResponse>> {
@@ -837,7 +837,7 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
          * Adds a new product to the Products inventory. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-product\" target=\"_blank\" rel=\"noopener noreferrer\">adding a product</a>.
          * @summary Add a product
          * @param {ProductsApiAddProductRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         addProduct(requestParameters: ProductsApiAddProductRequest = {}, ): Promise<GetProductResponse> {
@@ -857,7 +857,7 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
          * Marks a product as deleted. After 30 days, the product will be permanently deleted.
          * @summary Delete a product
          * @param {ProductsApiDeleteProductRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteProduct(requestParameters: ProductsApiDeleteProductRequest, ): Promise<DeleteProductResponse> {
@@ -877,7 +877,7 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
          * Returns data about a specific product.
          * @summary Get one product
          * @param {ProductsApiGetProductRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getProduct(requestParameters: ProductsApiGetProductRequest, ): Promise<GetProductResponse> {
@@ -927,7 +927,7 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
          * Returns data about all products.
          * @summary Get all products
          * @param {ProductsApiGetProductsRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getProducts(requestParameters: ProductsApiGetProductsRequest = {}, ): Promise<GetProductsResponse1> {
@@ -937,7 +937,7 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
          * Searches all products by name, code and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope.
          * @summary Search products
          * @param {ProductsApiSearchProductsRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         searchProducts(requestParameters: ProductsApiSearchProductsRequest, ): Promise<GetProductSearchResponse> {
@@ -947,7 +947,7 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
          * Updates product data.
          * @summary Update a product
          * @param {ProductsApiUpdateProductRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         updateProduct(requestParameters: ProductsApiUpdateProductRequest, ): Promise<UpdateProductResponse> {
@@ -1289,7 +1289,7 @@ export class ProductsApi extends BaseAPI {
      * Adds a new product to the Products inventory. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-product\" target=\"_blank\" rel=\"noopener noreferrer\">adding a product</a>.
      * @summary Add a product
      * @param {ProductsApiAddProductRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof ProductsApi
      */
@@ -1313,7 +1313,7 @@ export class ProductsApi extends BaseAPI {
      * Marks a product as deleted. After 30 days, the product will be permanently deleted.
      * @summary Delete a product
      * @param {ProductsApiDeleteProductRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof ProductsApi
      */
@@ -1337,7 +1337,7 @@ export class ProductsApi extends BaseAPI {
      * Returns data about a specific product.
      * @summary Get one product
      * @param {ProductsApiGetProductRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof ProductsApi
      */
@@ -1397,7 +1397,7 @@ export class ProductsApi extends BaseAPI {
      * Returns data about all products.
      * @summary Get all products
      * @param {ProductsApiGetProductsRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof ProductsApi
      */
@@ -1409,7 +1409,7 @@ export class ProductsApi extends BaseAPI {
      * Searches all products by name, code and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope.
      * @summary Search products
      * @param {ProductsApiSearchProductsRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof ProductsApi
      */
@@ -1421,7 +1421,7 @@ export class ProductsApi extends BaseAPI {
      * Updates product data.
      * @summary Update a product
      * @param {ProductsApiUpdateProductRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof ProductsApi
      */

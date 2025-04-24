@@ -26,24 +26,29 @@ export interface AddNoteRequestAllOf {
     */
     'content': string;
     /**
-    * The ID of the lead the note will be attached to. This property is required unless one of (`deal_id/person_id/org_id`) is specified.
+    * The ID of the lead the note will be attached to. This property is required unless one of (`deal_id/person_id/org_id/project_id`) is specified.
     * @type {string}
     */
     'lead_id'?: string;
     /**
-    * The ID of the deal the note will be attached to. This property is required unless one of (`lead_id/person_id/org_id`) is specified.
+    * The ID of the deal the note will be attached to. This property is required unless one of (`lead_id/person_id/org_id/project_id`) is specified.
     * @type {number}
     */
     'deal_id'?: number;
     /**
-    * The ID of the person this note will be attached to. This property is required unless one of (`deal_id/lead_id/org_id`) is specified.
+    * The ID of the person this note will be attached to. This property is required unless one of (`deal_id/lead_id/org_id/project_id`) is specified.
     * @type {number}
     */
     'person_id'?: number;
     /**
-    * The ID of the organization this note will be attached to. This property is required unless one of (`deal_id/lead_id/person_id`) is specified.
+    * The ID of the organization this note will be attached to. This property is required unless one of (`deal_id/lead_id/person_id/project_id`) is specified.
     * @type {number}
     */
     'org_id'?: number;
+    /**
+    * The ID of the project the note will be attached to. This property is required unless one of (`deal_id/lead_id/person_id/org_id`) is specified.
+    * @type {number}
+    */
+    'project_id'?: number;
 }
 

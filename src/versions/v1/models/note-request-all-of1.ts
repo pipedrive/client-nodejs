@@ -40,5 +40,10 @@ export interface NoteRequestAllOf1 {
     * @type {number}
     */
     'org_id'?: number;
+    /**
+    * The ID of the project the note will be attached to
+    * @type {number}
+    */
+    'project_id'?: number;
 }
 

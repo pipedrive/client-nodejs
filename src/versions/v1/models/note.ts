@@ -24,6 +24,9 @@ import { NoteOrganization } from './note-organization';
 import { NotePerson } from './note-person';
 // May contain unused imports in some cases
 // @ts-ignore
+import { NoteProject } from './note-project';
+// May contain unused imports in some cases
+// @ts-ignore
 import { NoteUser } from './note-user';
 
 /**
@@ -93,6 +96,16 @@ export interface Note {
     */
     'person_id'?: number;
     /**
+    * The ID of the project the note is attached to
+    * @type {number}
+    */
+    'project_id'?: number;
+    /**
+    * 
+    * @type {NoteProject}
+    */
+    'project'?: NoteProject;
+    /**
     * If true, the results are filtered by note to deal pinning state
     * @type {boolean}
     */
@@ -107,6 +120,11 @@ export interface Note {
     * @type {boolean}
     */
     'pinned_to_person_flag'?: boolean;
+    /**
+    * If true, the results are filtered by note to project pinning state
+    * @type {boolean}
+    */
+    'pinned_to_project_flag'?: boolean;
     /**
     * The last updated date and time of the note
     * @type {string}
