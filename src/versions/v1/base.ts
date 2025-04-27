@@ -16,7 +16,7 @@
 import type { Configuration } from './configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import type { AxiosError, AxiosResponse, AxiosRequestConfig , InternalAxiosRequestConfig } from 'axios';
+import type { AxiosError, AxiosResponse, AxiosRequestConfig , InternalAxiosRequestConfig, AxiosInstance } from 'axios';
 import axios from 'axios';
 import { join, dirname } from 'path';
 import { existsSync } from 'fs';
@@ -95,7 +95,7 @@ export const errorInterceptor = (error: AxiosError) => {
 export class BaseAPI {
     protected configuration: Configuration | undefined;
     protected basePath: string = BASE_PATH;
-    protected axios = axios.create();
+    protected axios: AxiosInstance = axios.create();
     constructor(configuration: Configuration) {
         if (configuration) {
             this.configuration = configuration;
