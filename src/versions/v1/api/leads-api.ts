@@ -126,6 +126,78 @@ export const LeadsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Returns multiple archived leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields\' structure from deals. 
+         * @summary Get all archived leads
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned.
+         * @param {number} [start] For pagination, the position that represents the first result for the page
+         * @param {number} [owner_id] If supplied, only leads matching the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owner_id&#x60; when supplied.
+         * @param {number} [person_id] If supplied, only leads matching the given person will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;person_id&#x60; when supplied.
+         * @param {number} [organization_id] If supplied, only leads matching the given organization will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;organization_id&#x60; when supplied.
+         * @param {number} [filter_id] The ID of the filter to use
+         * @param {'id' | 'title' | 'owner_id' | 'creator_id' | 'was_seen' | 'expected_close_date' | 'next_activity_id' | 'add_time' | 'update_time'} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
+
+         * @throws {RequiredError}
+         */
+        getArchivedLeads: async (limit?: number, start?: number, owner_id?: number, person_id?: number, organization_id?: number, filter_id?: number, sort?: 'id' | 'title' | 'owner_id' | 'creator_id' | 'was_seen' | 'expected_close_date' | 'next_activity_id' | 'add_time' | 'update_time', ): Promise<RequestArgs> => {
+            const localVarPath = `/leads/archived`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["leads:read", "leads:full"], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (start !== undefined) {
+                localVarQueryParameter['start'] = start;
+            }
+
+            if (owner_id !== undefined) {
+                localVarQueryParameter['owner_id'] = owner_id;
+            }
+
+            if (person_id !== undefined) {
+                localVarQueryParameter['person_id'] = person_id;
+            }
+
+            if (organization_id !== undefined) {
+                localVarQueryParameter['organization_id'] = organization_id;
+            }
+
+            if (filter_id !== undefined) {
+                localVarQueryParameter['filter_id'] = filter_id;
+            }
+
+            if (sort !== undefined) {
+                localVarQueryParameter['sort'] = sort;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Returns details of a specific lead. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from deals.
          * @summary Get one lead
          * @param {string} id The ID of the lead
@@ -208,11 +280,10 @@ export const LeadsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Returns multiple leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields\' structure from deals. 
+         * Returns multiple not archived leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields\' structure from deals. 
          * @summary Get all leads
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned.
          * @param {number} [start] For pagination, the position that represents the first result for the page
-         * @param {'archived' | 'not_archived' | 'all'} [archived_status] Filtering based on the archived status of a lead. If not provided, &#x60;All&#x60; is used.
          * @param {number} [owner_id] If supplied, only leads matching the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owner_id&#x60; when supplied.
          * @param {number} [person_id] If supplied, only leads matching the given person will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;person_id&#x60; when supplied.
          * @param {number} [organization_id] If supplied, only leads matching the given organization will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;organization_id&#x60; when supplied.
@@ -221,7 +292,7 @@ export const LeadsApiAxiosParamCreator = function (configuration?: Configuration
 
          * @throws {RequiredError}
          */
-        getLeads: async (limit?: number, start?: number, archived_status?: 'archived' | 'not_archived' | 'all', owner_id?: number, person_id?: number, organization_id?: number, filter_id?: number, sort?: 'id' | 'title' | 'owner_id' | 'creator_id' | 'was_seen' | 'expected_close_date' | 'next_activity_id' | 'add_time' | 'update_time', ): Promise<RequestArgs> => {
+        getLeads: async (limit?: number, start?: number, owner_id?: number, person_id?: number, organization_id?: number, filter_id?: number, sort?: 'id' | 'title' | 'owner_id' | 'creator_id' | 'was_seen' | 'expected_close_date' | 'next_activity_id' | 'add_time' | 'update_time', ): Promise<RequestArgs> => {
             const localVarPath = `/leads`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -247,10 +318,6 @@ export const LeadsApiAxiosParamCreator = function (configuration?: Configuration
 
             if (start !== undefined) {
                 localVarQueryParameter['start'] = start;
-            }
-
-            if (archived_status !== undefined) {
-                localVarQueryParameter['archived_status'] = archived_status;
             }
 
             if (owner_id !== undefined) {
@@ -442,6 +509,23 @@ export const LeadsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Returns multiple archived leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields\' structure from deals. 
+         * @summary Get all archived leads
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned.
+         * @param {number} [start] For pagination, the position that represents the first result for the page
+         * @param {number} [owner_id] If supplied, only leads matching the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owner_id&#x60; when supplied.
+         * @param {number} [person_id] If supplied, only leads matching the given person will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;person_id&#x60; when supplied.
+         * @param {number} [organization_id] If supplied, only leads matching the given organization will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;organization_id&#x60; when supplied.
+         * @param {number} [filter_id] The ID of the filter to use
+         * @param {'id' | 'title' | 'owner_id' | 'creator_id' | 'was_seen' | 'expected_close_date' | 'next_activity_id' | 'add_time' | 'update_time'} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
+
+         * @throws {RequiredError}
+         */
+        async getArchivedLeads(limit?: number, start?: number, owner_id?: number, person_id?: number, organization_id?: number, filter_id?: number, sort?: 'id' | 'title' | 'owner_id' | 'creator_id' | 'was_seen' | 'expected_close_date' | 'next_activity_id' | 'add_time' | 'update_time', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetLeadsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getArchivedLeads(limit, start, owner_id, person_id, organization_id, filter_id, sort, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Returns details of a specific lead. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from deals.
          * @summary Get one lead
          * @param {string} id The ID of the lead
@@ -464,11 +548,10 @@ export const LeadsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns multiple leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields\' structure from deals. 
+         * Returns multiple not archived leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields\' structure from deals. 
          * @summary Get all leads
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned.
          * @param {number} [start] For pagination, the position that represents the first result for the page
-         * @param {'archived' | 'not_archived' | 'all'} [archived_status] Filtering based on the archived status of a lead. If not provided, &#x60;All&#x60; is used.
          * @param {number} [owner_id] If supplied, only leads matching the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owner_id&#x60; when supplied.
          * @param {number} [person_id] If supplied, only leads matching the given person will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;person_id&#x60; when supplied.
          * @param {number} [organization_id] If supplied, only leads matching the given organization will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;organization_id&#x60; when supplied.
@@ -477,8 +560,8 @@ export const LeadsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getLeads(limit?: number, start?: number, archived_status?: 'archived' | 'not_archived' | 'all', owner_id?: number, person_id?: number, organization_id?: number, filter_id?: number, sort?: 'id' | 'title' | 'owner_id' | 'creator_id' | 'was_seen' | 'expected_close_date' | 'next_activity_id' | 'add_time' | 'update_time', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetLeadsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getLeads(limit, start, archived_status, owner_id, person_id, organization_id, filter_id, sort, );
+        async getLeads(limit?: number, start?: number, owner_id?: number, person_id?: number, organization_id?: number, filter_id?: number, sort?: 'id' | 'title' | 'owner_id' | 'creator_id' | 'was_seen' | 'expected_close_date' | 'next_activity_id' | 'add_time' | 'update_time', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetLeadsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getLeads(limit, start, owner_id, person_id, organization_id, filter_id, sort, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -542,6 +625,16 @@ export const LeadsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.deleteLead(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
+         * Returns multiple archived leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields\' structure from deals. 
+         * @summary Get all archived leads
+         * @param {LeadsApiGetArchivedLeadsRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        getArchivedLeads(requestParameters: LeadsApiGetArchivedLeadsRequest = {}, ): Promise<GetLeadsResponse> {
+            return localVarFp.getArchivedLeads(requestParameters.limit, requestParameters.start, requestParameters.owner_id, requestParameters.person_id, requestParameters.organization_id, requestParameters.filter_id, requestParameters.sort, ).then((request) => request(axios, basePath));
+        },
+        /**
          * Returns details of a specific lead. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from deals.
          * @summary Get one lead
          * @param {LeadsApiGetLeadRequest} requestParameters Request parameters.
@@ -562,14 +655,14 @@ export const LeadsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.getLeadUsers(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
-         * Returns multiple leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields\' structure from deals. 
+         * Returns multiple not archived leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields\' structure from deals. 
          * @summary Get all leads
          * @param {LeadsApiGetLeadsRequest} requestParameters Request parameters.
 
          * @throws {RequiredError}
          */
         getLeads(requestParameters: LeadsApiGetLeadsRequest = {}, ): Promise<GetLeadsResponse> {
-            return localVarFp.getLeads(requestParameters.limit, requestParameters.start, requestParameters.archived_status, requestParameters.owner_id, requestParameters.person_id, requestParameters.organization_id, requestParameters.filter_id, requestParameters.sort, ).then((request) => request(axios, basePath));
+            return localVarFp.getLeads(requestParameters.limit, requestParameters.start, requestParameters.owner_id, requestParameters.person_id, requestParameters.organization_id, requestParameters.filter_id, requestParameters.sort, ).then((request) => request(axios, basePath));
         },
         /**
          * Searches all leads by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found leads can be filtered by the person ID and the organization ID.
@@ -623,6 +716,62 @@ export interface LeadsApiDeleteLeadRequest {
 }
 
 /**
+ * Request parameters for getArchivedLeads operation in LeadsApi.
+ * @export
+ * @interface LeadsApiGetArchivedLeadsRequest
+ */
+export interface LeadsApiGetArchivedLeadsRequest {
+    /**
+     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned.
+     * @type {number}
+     * @memberof LeadsApiGetArchivedLeads
+     */
+    readonly limit?: number
+
+    /**
+     * For pagination, the position that represents the first result for the page
+     * @type {number}
+     * @memberof LeadsApiGetArchivedLeads
+     */
+    readonly start?: number
+
+    /**
+     * If supplied, only leads matching the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owner_id&#x60; when supplied.
+     * @type {number}
+     * @memberof LeadsApiGetArchivedLeads
+     */
+    readonly owner_id?: number
+
+    /**
+     * If supplied, only leads matching the given person will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;person_id&#x60; when supplied.
+     * @type {number}
+     * @memberof LeadsApiGetArchivedLeads
+     */
+    readonly person_id?: number
+
+    /**
+     * If supplied, only leads matching the given organization will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;organization_id&#x60; when supplied.
+     * @type {number}
+     * @memberof LeadsApiGetArchivedLeads
+     */
+    readonly organization_id?: number
+
+    /**
+     * The ID of the filter to use
+     * @type {number}
+     * @memberof LeadsApiGetArchivedLeads
+     */
+    readonly filter_id?: number
+
+    /**
+     * The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
+     * @type {'id' | 'title' | 'owner_id' | 'creator_id' | 'was_seen' | 'expected_close_date' | 'next_activity_id' | 'add_time' | 'update_time'}
+     * @memberof LeadsApiGetArchivedLeads
+     */
+    readonly sort?: 'id' | 'title' | 'owner_id' | 'creator_id' | 'was_seen' | 'expected_close_date' | 'next_activity_id' | 'add_time' | 'update_time'
+}
+
+/**
  * Request parameters for getLead operation in LeadsApi.
  * @export
  * @interface LeadsApiGetLeadRequest
@@ -669,13 +818,6 @@ export interface LeadsApiGetLeadsRequest {
      * @memberof LeadsApiGetLeads
      */
     readonly start?: number
-
-    /**
-     * Filtering based on the archived status of a lead. If not provided, &#x60;All&#x60; is used.
-     * @type {'archived' | 'not_archived' | 'all'}
-     * @memberof LeadsApiGetLeads
-     */
-    readonly archived_status?: 'archived' | 'not_archived' | 'all'
 
     /**
      * If supplied, only leads matching the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owner_id&#x60; when supplied.
@@ -829,6 +971,18 @@ export class LeadsApi extends BaseAPI {
     }
 
     /**
+     * Returns multiple archived leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields\' structure from deals. 
+     * @summary Get all archived leads
+     * @param {LeadsApiGetArchivedLeadsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof LeadsApi
+     */
+    public getArchivedLeads(requestParameters: LeadsApiGetArchivedLeadsRequest = {}, ) {
+        return LeadsApiFp(this.configuration).getArchivedLeads(requestParameters.limit, requestParameters.start, requestParameters.owner_id, requestParameters.person_id, requestParameters.organization_id, requestParameters.filter_id, requestParameters.sort, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns details of a specific lead. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from deals.
      * @summary Get one lead
      * @param {LeadsApiGetLeadRequest} requestParameters Request parameters.
@@ -853,7 +1007,7 @@ export class LeadsApi extends BaseAPI {
     }
 
     /**
-     * Returns multiple leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields\' structure from deals. 
+     * Returns multiple not archived leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields\' structure from deals. 
      * @summary Get all leads
      * @param {LeadsApiGetLeadsRequest} requestParameters Request parameters.
 
@@ -861,7 +1015,7 @@ export class LeadsApi extends BaseAPI {
      * @memberof LeadsApi
      */
     public getLeads(requestParameters: LeadsApiGetLeadsRequest = {}, ) {
-        return LeadsApiFp(this.configuration).getLeads(requestParameters.limit, requestParameters.start, requestParameters.archived_status, requestParameters.owner_id, requestParameters.person_id, requestParameters.organization_id, requestParameters.filter_id, requestParameters.sort, ).then((request) => request(this.axios, this.basePath));
+        return LeadsApiFp(this.configuration).getLeads(requestParameters.limit, requestParameters.start, requestParameters.owner_id, requestParameters.person_id, requestParameters.organization_id, requestParameters.filter_id, requestParameters.sort, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**

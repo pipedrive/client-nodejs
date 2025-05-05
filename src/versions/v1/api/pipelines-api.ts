@@ -51,7 +51,7 @@ export const PipelinesApiAxiosParamCreator = function (configuration?: Configura
          * Adds a new pipeline.
          * @summary Add a new pipeline
          * @param {PipelineRequest} [PipelineRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         addPipeline: async (PipelineRequest?: PipelineRequest, ): Promise<RequestArgs> => {
@@ -92,7 +92,7 @@ export const PipelinesApiAxiosParamCreator = function (configuration?: Configura
          * Marks a pipeline as deleted.
          * @summary Delete a pipeline
          * @param {number} id The ID of the pipeline
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deletePipeline: async (id: number, ): Promise<RequestArgs> => {
@@ -134,7 +134,7 @@ export const PipelinesApiAxiosParamCreator = function (configuration?: Configura
          * @summary Get one pipeline
          * @param {number} id The ID of the pipeline
          * @param {string} [totals_convert_currency] The 3-letter currency code of any of the supported currencies. When supplied, &#x60;per_stages_converted&#x60; is returned in &#x60;deals_summary&#x60; which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to &#x60;default_currency&#x60; in which case users default currency is used.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getPipeline: async (id: number, totals_convert_currency?: string, ): Promise<RequestArgs> => {
@@ -240,7 +240,7 @@ export const PipelinesApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         * Lists deals in a specific pipeline across all its stages. If no parameters are provided open deals owned by the authorized user will be returned.
+         * Lists deals in a specific pipeline across all its stages. If no parameters are provided open deals owned by the authorized user will be returned. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?pipeline_id={id}</a> instead.
          * @summary Get deals in a pipeline
          * @param {number} id The ID of the pipeline
          * @param {number} [filter_id] If supplied, only deals matching the given filter will be returned
@@ -251,7 +251,7 @@ export const PipelinesApiAxiosParamCreator = function (configuration?: Configura
          * @param {number} [limit] Items shown per page
          * @param {0 | 1} [get_summary] Whether to include a summary of the pipeline in the &#x60;additional_data&#x60; or not
          * @param {string} [totals_convert_currency] The 3-letter currency code of any of the supported currencies. When supplied, &#x60;per_stages_converted&#x60; is returned inside &#x60;deals_summary&#x60; inside &#x60;additional_data&#x60; which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to &#x60;default_currency&#x60; in which case users default currency is used. Only works when &#x60;get_summary&#x60; parameter flag is enabled.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getPipelineDeals: async (id: number, filter_id?: number, user_id?: number, everyone?: 0 | 1, stage_id?: number, start?: number, limit?: number, get_summary?: 0 | 1, totals_convert_currency?: string, ): Promise<RequestArgs> => {
@@ -387,7 +387,7 @@ export const PipelinesApiAxiosParamCreator = function (configuration?: Configura
         /**
          * Returns data about all pipelines.
          * @summary Get all pipelines
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getPipelines: async (): Promise<RequestArgs> => {
@@ -426,7 +426,7 @@ export const PipelinesApiAxiosParamCreator = function (configuration?: Configura
          * @summary Update a pipeline
          * @param {number} id The ID of the pipeline
          * @param {PipelineRequest1} [PipelineRequest1] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         updatePipeline: async (id: number, PipelineRequest1?: PipelineRequest1, ): Promise<RequestArgs> => {
@@ -481,7 +481,7 @@ export const PipelinesApiFp = function(configuration?: Configuration) {
          * Adds a new pipeline.
          * @summary Add a new pipeline
          * @param {PipelineRequest} [PipelineRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async addPipeline(PipelineRequest?: PipelineRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddPipelineResponse>> {
@@ -492,7 +492,7 @@ export const PipelinesApiFp = function(configuration?: Configuration) {
          * Marks a pipeline as deleted.
          * @summary Delete a pipeline
          * @param {number} id The ID of the pipeline
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async deletePipeline(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeletePipelineResponse>> {
@@ -504,7 +504,7 @@ export const PipelinesApiFp = function(configuration?: Configuration) {
          * @summary Get one pipeline
          * @param {number} id The ID of the pipeline
          * @param {string} [totals_convert_currency] The 3-letter currency code of any of the supported currencies. When supplied, &#x60;per_stages_converted&#x60; is returned in &#x60;deals_summary&#x60; which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to &#x60;default_currency&#x60; in which case users default currency is used.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getPipeline(id: number, totals_convert_currency?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPipelineResponse>> {
@@ -526,7 +526,7 @@ export const PipelinesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Lists deals in a specific pipeline across all its stages. If no parameters are provided open deals owned by the authorized user will be returned.
+         * Lists deals in a specific pipeline across all its stages. If no parameters are provided open deals owned by the authorized user will be returned. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?pipeline_id={id}</a> instead.
          * @summary Get deals in a pipeline
          * @param {number} id The ID of the pipeline
          * @param {number} [filter_id] If supplied, only deals matching the given filter will be returned
@@ -537,7 +537,7 @@ export const PipelinesApiFp = function(configuration?: Configuration) {
          * @param {number} [limit] Items shown per page
          * @param {0 | 1} [get_summary] Whether to include a summary of the pipeline in the &#x60;additional_data&#x60; or not
          * @param {string} [totals_convert_currency] The 3-letter currency code of any of the supported currencies. When supplied, &#x60;per_stages_converted&#x60; is returned inside &#x60;deals_summary&#x60; inside &#x60;additional_data&#x60; which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to &#x60;default_currency&#x60; in which case users default currency is used. Only works when &#x60;get_summary&#x60; parameter flag is enabled.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getPipelineDeals(id: number, filter_id?: number, user_id?: number, everyone?: 0 | 1, stage_id?: number, start?: number, limit?: number, get_summary?: 0 | 1, totals_convert_currency?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetStageDealsResponse>> {
@@ -561,7 +561,7 @@ export const PipelinesApiFp = function(configuration?: Configuration) {
         /**
          * Returns data about all pipelines.
          * @summary Get all pipelines
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getPipelines(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPipelinesResponse>> {
@@ -573,7 +573,7 @@ export const PipelinesApiFp = function(configuration?: Configuration) {
          * @summary Update a pipeline
          * @param {number} id The ID of the pipeline
          * @param {PipelineRequest1} [PipelineRequest1] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async updatePipeline(id: number, PipelineRequest1?: PipelineRequest1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdatePipelineResponse>> {
@@ -594,7 +594,7 @@ export const PipelinesApiFactory = function (configuration?: Configuration, base
          * Adds a new pipeline.
          * @summary Add a new pipeline
          * @param {PipelinesApiAddPipelineRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         addPipeline(requestParameters: PipelinesApiAddPipelineRequest = {}, ): Promise<AddPipelineResponse> {
@@ -604,7 +604,7 @@ export const PipelinesApiFactory = function (configuration?: Configuration, base
          * Marks a pipeline as deleted.
          * @summary Delete a pipeline
          * @param {PipelinesApiDeletePipelineRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deletePipeline(requestParameters: PipelinesApiDeletePipelineRequest, ): Promise<DeletePipelineResponse> {
@@ -614,7 +614,7 @@ export const PipelinesApiFactory = function (configuration?: Configuration, base
          * Returns data about a specific pipeline. Also returns the summary of the deals in this pipeline across its stages.
          * @summary Get one pipeline
          * @param {PipelinesApiGetPipelineRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getPipeline(requestParameters: PipelinesApiGetPipelineRequest, ): Promise<GetPipelineResponse> {
@@ -631,10 +631,10 @@ export const PipelinesApiFactory = function (configuration?: Configuration, base
             return localVarFp.getPipelineConversionStatistics(requestParameters.id, requestParameters.start_date, requestParameters.end_date, requestParameters.user_id, ).then((request) => request(axios, basePath));
         },
         /**
-         * Lists deals in a specific pipeline across all its stages. If no parameters are provided open deals owned by the authorized user will be returned.
+         * Lists deals in a specific pipeline across all its stages. If no parameters are provided open deals owned by the authorized user will be returned. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?pipeline_id={id}</a> instead.
          * @summary Get deals in a pipeline
          * @param {PipelinesApiGetPipelineDealsRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getPipelineDeals(requestParameters: PipelinesApiGetPipelineDealsRequest, ): Promise<GetStageDealsResponse> {
@@ -653,7 +653,7 @@ export const PipelinesApiFactory = function (configuration?: Configuration, base
         /**
          * Returns data about all pipelines.
          * @summary Get all pipelines
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getPipelines(): Promise<GetPipelinesResponse> {
@@ -663,7 +663,7 @@ export const PipelinesApiFactory = function (configuration?: Configuration, base
          * Updates the properties of a pipeline.
          * @summary Update a pipeline
          * @param {PipelinesApiUpdatePipelineRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         updatePipeline(requestParameters: PipelinesApiUpdatePipelineRequest, ): Promise<UpdatePipelineResponse> {
@@ -893,7 +893,7 @@ export class PipelinesApi extends BaseAPI {
      * Adds a new pipeline.
      * @summary Add a new pipeline
      * @param {PipelinesApiAddPipelineRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof PipelinesApi
      */
@@ -905,7 +905,7 @@ export class PipelinesApi extends BaseAPI {
      * Marks a pipeline as deleted.
      * @summary Delete a pipeline
      * @param {PipelinesApiDeletePipelineRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof PipelinesApi
      */
@@ -917,7 +917,7 @@ export class PipelinesApi extends BaseAPI {
      * Returns data about a specific pipeline. Also returns the summary of the deals in this pipeline across its stages.
      * @summary Get one pipeline
      * @param {PipelinesApiGetPipelineRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof PipelinesApi
      */
@@ -938,10 +938,10 @@ export class PipelinesApi extends BaseAPI {
     }
 
     /**
-     * Lists deals in a specific pipeline across all its stages. If no parameters are provided open deals owned by the authorized user will be returned.
+     * Lists deals in a specific pipeline across all its stages. If no parameters are provided open deals owned by the authorized user will be returned. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?pipeline_id={id}</a> instead.
      * @summary Get deals in a pipeline
      * @param {PipelinesApiGetPipelineDealsRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof PipelinesApi
      */
@@ -964,7 +964,7 @@ export class PipelinesApi extends BaseAPI {
     /**
      * Returns data about all pipelines.
      * @summary Get all pipelines
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof PipelinesApi
      */
@@ -976,7 +976,7 @@ export class PipelinesApi extends BaseAPI {
      * Updates the properties of a pipeline.
      * @summary Update a pipeline
      * @param {PipelinesApiUpdatePipelineRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof PipelinesApi
      */

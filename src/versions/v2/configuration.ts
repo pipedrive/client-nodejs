@@ -13,7 +13,7 @@
  */
 
 
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { stringify } from "qs";
 import { errorInterceptor, responseInterceptor, versionInterceptor } from './base';
 
@@ -186,7 +186,7 @@ export class OAuth2Configuration {
     * Revoke Refresh Token aka marking an app uninstalled or revoke the Access Token.
     * @param {String} tokenTypeHint values can be: 'access_token' or 'refresh_token'.
 */
-  public async revokeToken(tokenTypeHint?: 'access_token' | 'refresh_token') {
+  public async revokeToken(tokenTypeHint?: 'access_token' | 'refresh_token'): Promise<AxiosResponse<any, any>> {
 
     const token = tokenTypeHint === 'refresh_token'
         ? this.refreshToken : encodeURIComponent(this.accessToken);

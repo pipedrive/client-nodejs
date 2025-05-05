@@ -51,7 +51,7 @@ export const ActivitiesApiAxiosParamCreator = function (configuration?: Configur
          * Adds a new activity. Includes `more_activities_scheduled_in_context` property in response\'s `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">adding an activity</a>. <br /> <br /> ***Starting from 30.09.2024, activity attendees will receive updates only if the activity owner has an active calendar sync***
          * @summary Add an activity
          * @param {AddActivityRequest} [AddActivityRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         addActivity: async (AddActivityRequest?: AddActivityRequest, ): Promise<RequestArgs> => {
@@ -89,10 +89,10 @@ export const ActivitiesApiAxiosParamCreator = function (configuration?: Configur
             };
         },
         /**
-         * Marks multiple activities as deleted. After 30 days, the activities will be permanently deleted.
+         * Marks multiple activities as deleted. After 30 days, the activities will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#deleteActivity\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/activities/{id}</a> instead.
          * @summary Delete multiple activities in bulk
          * @param {string} ids The comma-separated IDs of activities that will be deleted
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteActivities: async (ids: string, ): Promise<RequestArgs> => {
@@ -136,7 +136,7 @@ export const ActivitiesApiAxiosParamCreator = function (configuration?: Configur
          * Marks an activity as deleted. After 30 days, the activity will be permanently deleted.
          * @summary Delete an activity
          * @param {number} id The ID of the activity
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteActivity: async (id: number, ): Promise<RequestArgs> => {
@@ -184,7 +184,7 @@ export const ActivitiesApiAxiosParamCreator = function (configuration?: Configur
          * @param {string} [start_date] Use the activity due date where you wish to begin fetching activities from. Insert due date in YYYY-MM-DD format.
          * @param {string} [end_date] Use the activity due date where you wish to stop fetching activities from. Insert due date in YYYY-MM-DD format.
          * @param {0 | 1} [done] Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted returns both done and not done activities.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getActivities: async (user_id?: number, filter_id?: number, type?: string, limit?: number, start?: number, start_date?: string, end_date?: string, done?: 0 | 1, ): Promise<RequestArgs> => {
@@ -255,8 +255,8 @@ export const ActivitiesApiAxiosParamCreator = function (configuration?: Configur
             };
         },
         /**
-         * Returns all activities. This is a cursor-paginated endpoint that is currently in BETA. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>. Please note that only global admins (those with global permissions) can access these endpoints. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
-         * @summary Get all activities (BETA)
+         * Returns all activities. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities</a> instead.
+         * @summary Get all activities collection
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [since] The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
@@ -264,7 +264,7 @@ export const ActivitiesApiAxiosParamCreator = function (configuration?: Configur
          * @param {number} [user_id] The ID of the user whose activities will be fetched. If omitted, all activities are returned.
          * @param {boolean} [done] Whether the activity is done or not. &#x60;false&#x60; &#x3D; Not done, &#x60;true&#x60; &#x3D; Done. If omitted, returns both done and not done activities.
          * @param {string} [type] The type of the activity, can be one type or multiple types separated by a comma. This is in correlation with the &#x60;key_string&#x60; parameter of ActivityTypes.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getActivitiesCollection: async (cursor?: string, limit?: number, since?: string, until?: string, user_id?: number, done?: boolean, type?: string, ): Promise<RequestArgs> => {
@@ -330,7 +330,7 @@ export const ActivitiesApiAxiosParamCreator = function (configuration?: Configur
          * Returns the details of a specific activity.
          * @summary Get details of an activity
          * @param {number} id The ID of the activity
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getActivity: async (id: number, ): Promise<RequestArgs> => {
@@ -372,7 +372,7 @@ export const ActivitiesApiAxiosParamCreator = function (configuration?: Configur
          * @summary Update an activity
          * @param {number} id The ID of the activity
          * @param {UpdateActivityRequest} [UpdateActivityRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         updateActivity: async (id: number, UpdateActivityRequest?: UpdateActivityRequest, ): Promise<RequestArgs> => {
@@ -427,7 +427,7 @@ export const ActivitiesApiFp = function(configuration?: Configuration) {
          * Adds a new activity. Includes `more_activities_scheduled_in_context` property in response\'s `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">adding an activity</a>. <br /> <br /> ***Starting from 30.09.2024, activity attendees will receive updates only if the activity owner has an active calendar sync***
          * @summary Add an activity
          * @param {AddActivityRequest} [AddActivityRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async addActivity(AddActivityRequest?: AddActivityRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddActivityResponse>> {
@@ -435,10 +435,10 @@ export const ActivitiesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Marks multiple activities as deleted. After 30 days, the activities will be permanently deleted.
+         * Marks multiple activities as deleted. After 30 days, the activities will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#deleteActivity\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/activities/{id}</a> instead.
          * @summary Delete multiple activities in bulk
          * @param {string} ids The comma-separated IDs of activities that will be deleted
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async deleteActivities(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteActivitiesResponse>> {
@@ -449,7 +449,7 @@ export const ActivitiesApiFp = function(configuration?: Configuration) {
          * Marks an activity as deleted. After 30 days, the activity will be permanently deleted.
          * @summary Delete an activity
          * @param {number} id The ID of the activity
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async deleteActivity(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteActivityResponse>> {
@@ -467,7 +467,7 @@ export const ActivitiesApiFp = function(configuration?: Configuration) {
          * @param {string} [start_date] Use the activity due date where you wish to begin fetching activities from. Insert due date in YYYY-MM-DD format.
          * @param {string} [end_date] Use the activity due date where you wish to stop fetching activities from. Insert due date in YYYY-MM-DD format.
          * @param {0 | 1} [done] Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted returns both done and not done activities.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getActivities(user_id?: number, filter_id?: number, type?: string, limit?: number, start?: number, start_date?: string, end_date?: string, done?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivitiesResponse>> {
@@ -475,8 +475,8 @@ export const ActivitiesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns all activities. This is a cursor-paginated endpoint that is currently in BETA. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>. Please note that only global admins (those with global permissions) can access these endpoints. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
-         * @summary Get all activities (BETA)
+         * Returns all activities. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities</a> instead.
+         * @summary Get all activities collection
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [since] The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
@@ -484,7 +484,7 @@ export const ActivitiesApiFp = function(configuration?: Configuration) {
          * @param {number} [user_id] The ID of the user whose activities will be fetched. If omitted, all activities are returned.
          * @param {boolean} [done] Whether the activity is done or not. &#x60;false&#x60; &#x3D; Not done, &#x60;true&#x60; &#x3D; Done. If omitted, returns both done and not done activities.
          * @param {string} [type] The type of the activity, can be one type or multiple types separated by a comma. This is in correlation with the &#x60;key_string&#x60; parameter of ActivityTypes.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getActivitiesCollection(cursor?: string, limit?: number, since?: string, until?: string, user_id?: number, done?: boolean, type?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivitiesCollectionResponse>> {
@@ -495,7 +495,7 @@ export const ActivitiesApiFp = function(configuration?: Configuration) {
          * Returns the details of a specific activity.
          * @summary Get details of an activity
          * @param {number} id The ID of the activity
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getActivity(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivityResponse>> {
@@ -507,7 +507,7 @@ export const ActivitiesApiFp = function(configuration?: Configuration) {
          * @summary Update an activity
          * @param {number} id The ID of the activity
          * @param {UpdateActivityRequest} [UpdateActivityRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async updateActivity(id: number, UpdateActivityRequest?: UpdateActivityRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateActivityResponse>> {
@@ -528,17 +528,17 @@ export const ActivitiesApiFactory = function (configuration?: Configuration, bas
          * Adds a new activity. Includes `more_activities_scheduled_in_context` property in response\'s `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">adding an activity</a>. <br /> <br /> ***Starting from 30.09.2024, activity attendees will receive updates only if the activity owner has an active calendar sync***
          * @summary Add an activity
          * @param {ActivitiesApiAddActivityRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         addActivity(requestParameters: ActivitiesApiAddActivityRequest = {}, ): Promise<AddActivityResponse> {
             return localVarFp.addActivity(requestParameters.AddActivityRequest, ).then((request) => request(axios, basePath));
         },
         /**
-         * Marks multiple activities as deleted. After 30 days, the activities will be permanently deleted.
+         * Marks multiple activities as deleted. After 30 days, the activities will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#deleteActivity\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/activities/{id}</a> instead.
          * @summary Delete multiple activities in bulk
          * @param {ActivitiesApiDeleteActivitiesRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteActivities(requestParameters: ActivitiesApiDeleteActivitiesRequest, ): Promise<DeleteActivitiesResponse> {
@@ -548,7 +548,7 @@ export const ActivitiesApiFactory = function (configuration?: Configuration, bas
          * Marks an activity as deleted. After 30 days, the activity will be permanently deleted.
          * @summary Delete an activity
          * @param {ActivitiesApiDeleteActivityRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteActivity(requestParameters: ActivitiesApiDeleteActivityRequest, ): Promise<DeleteActivityResponse> {
@@ -558,17 +558,17 @@ export const ActivitiesApiFactory = function (configuration?: Configuration, bas
          * Returns all activities assigned to a particular user.
          * @summary Get all activities assigned to a particular user
          * @param {ActivitiesApiGetActivitiesRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getActivities(requestParameters: ActivitiesApiGetActivitiesRequest = {}, ): Promise<GetActivitiesResponse> {
             return localVarFp.getActivities(requestParameters.user_id, requestParameters.filter_id, requestParameters.type, requestParameters.limit, requestParameters.start, requestParameters.start_date, requestParameters.end_date, requestParameters.done, ).then((request) => request(axios, basePath));
         },
         /**
-         * Returns all activities. This is a cursor-paginated endpoint that is currently in BETA. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>. Please note that only global admins (those with global permissions) can access these endpoints. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
-         * @summary Get all activities (BETA)
+         * Returns all activities. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities</a> instead.
+         * @summary Get all activities collection
          * @param {ActivitiesApiGetActivitiesCollectionRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getActivitiesCollection(requestParameters: ActivitiesApiGetActivitiesCollectionRequest = {}, ): Promise<GetActivitiesCollectionResponse> {
@@ -578,7 +578,7 @@ export const ActivitiesApiFactory = function (configuration?: Configuration, bas
          * Returns the details of a specific activity.
          * @summary Get details of an activity
          * @param {ActivitiesApiGetActivityRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getActivity(requestParameters: ActivitiesApiGetActivityRequest, ): Promise<GetActivityResponse> {
@@ -588,7 +588,7 @@ export const ActivitiesApiFactory = function (configuration?: Configuration, bas
          * Updates an activity. Includes `more_activities_scheduled_in_context` property in response\'s `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). <br /> <br /> ***Starting from 30.09.2024, activity attendees will receive updates only if the activity owner has an active calendar sync***
          * @summary Update an activity
          * @param {ActivitiesApiUpdateActivityRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         updateActivity(requestParameters: ActivitiesApiUpdateActivityRequest, ): Promise<UpdateActivityResponse> {
@@ -804,7 +804,7 @@ export class ActivitiesApi extends BaseAPI {
      * Adds a new activity. Includes `more_activities_scheduled_in_context` property in response\'s `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-activity\" target=\"_blank\" rel=\"noopener noreferrer\">adding an activity</a>. <br /> <br /> ***Starting from 30.09.2024, activity attendees will receive updates only if the activity owner has an active calendar sync***
      * @summary Add an activity
      * @param {ActivitiesApiAddActivityRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof ActivitiesApi
      */
@@ -813,10 +813,10 @@ export class ActivitiesApi extends BaseAPI {
     }
 
     /**
-     * Marks multiple activities as deleted. After 30 days, the activities will be permanently deleted.
+     * Marks multiple activities as deleted. After 30 days, the activities will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#deleteActivity\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/activities/{id}</a> instead.
      * @summary Delete multiple activities in bulk
      * @param {ActivitiesApiDeleteActivitiesRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof ActivitiesApi
      */
@@ -828,7 +828,7 @@ export class ActivitiesApi extends BaseAPI {
      * Marks an activity as deleted. After 30 days, the activity will be permanently deleted.
      * @summary Delete an activity
      * @param {ActivitiesApiDeleteActivityRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof ActivitiesApi
      */
@@ -840,7 +840,7 @@ export class ActivitiesApi extends BaseAPI {
      * Returns all activities assigned to a particular user.
      * @summary Get all activities assigned to a particular user
      * @param {ActivitiesApiGetActivitiesRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof ActivitiesApi
      */
@@ -849,10 +849,10 @@ export class ActivitiesApi extends BaseAPI {
     }
 
     /**
-     * Returns all activities. This is a cursor-paginated endpoint that is currently in BETA. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>. Please note that only global admins (those with global permissions) can access these endpoints. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
-     * @summary Get all activities (BETA)
+     * Returns all activities. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities</a> instead.
+     * @summary Get all activities collection
      * @param {ActivitiesApiGetActivitiesCollectionRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof ActivitiesApi
      */
@@ -864,7 +864,7 @@ export class ActivitiesApi extends BaseAPI {
      * Returns the details of a specific activity.
      * @summary Get details of an activity
      * @param {ActivitiesApiGetActivityRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof ActivitiesApi
      */
@@ -876,7 +876,7 @@ export class ActivitiesApi extends BaseAPI {
      * Updates an activity. Includes `more_activities_scheduled_in_context` property in response\'s `additional_data` which indicates whether there are more undone activities scheduled with the same deal, person or organization (depending on the supplied data). <br /> <br /> ***Starting from 30.09.2024, activity attendees will receive updates only if the activity owner has an active calendar sync***
      * @summary Update an activity
      * @param {ActivitiesApiUpdateActivityRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof ActivitiesApi
      */
