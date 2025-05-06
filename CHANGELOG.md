@@ -24,8 +24,6 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 - Added `project_id` and `pinned_to_project_flag` query parameter to the GET `/notes` endpoint
 - Added `project_id` and `pinned_to_project_flag` request bodies to the POST/PUT `/notes` endpoint
 - Added `project_id` and `pinned_to_project_flag` to success responses of GET/POST/PUT
-- Added `creator_user_id` to responses of Activities v2 endpoints
-- Added `marketing_status` documentation to Persons v2 endpoints
 ### Changed
 - Deprecated `GET /v1/activities` in favor of `GET /api/v2/activities`
 - Deprecated `GET /v1/activities/collection` in favor of `GET /api/v2/activities`
