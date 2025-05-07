@@ -24,9 +24,19 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { AddAInstallmentResponse } from '../models';
 // @ts-ignore
+import { AddConvertDealToLeadResponse } from '../models';
+// @ts-ignore
+import { AddConvertLeadToDealResponse } from '../models';
+// @ts-ignore
 import { AddInstallmentRequestBody } from '../models';
 // @ts-ignore
+import { ConvertLeadToDealRequest } from '../models';
+// @ts-ignore
 import { DeleteInstallmentResponse } from '../models';
+// @ts-ignore
+import { GetConvertResponse } from '../models';
+// @ts-ignore
+import { GetConvertResponse1 } from '../models';
 // @ts-ignore
 import { GetInstallmentsResponse } from '../models';
 // @ts-ignore
@@ -39,6 +49,92 @@ import { UpdateInstallmentResponse } from '../models';
  */
 export const BetaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
+        /**
+         * Initiates a conversion of a deal to a lead. The return value is an ID of a job that was assigned to perform the conversion. Related entities (notes, files, emails, activities, ...) are transferred during the process to the target entity. There are exceptions for entities like invoices or history that are not transferred and remain linked to the original deal. If the conversion is successful, the deal is marked as deleted. To retrieve the created entity ID and the result of the conversion, call the <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDealConversionStatus\">/api/v2/deals/{deal_id}/convert/status/{conversion_id}</a> endpoint.
+         * @summary Convert a deal to a lead (BETA)
+         * @param {number} id The ID of the deal to convert
+
+         * @throws {RequiredError}
+         */
+        convertDealToLead: async (id: number, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('convertDealToLead', 'id', id)
+            const localVarPath = `/deals/{id}/convert/lead`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "leads:full"], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Initiates a conversion of a lead to a deal. The return value is an ID of a job that was assigned to perform the conversion. Related entities (notes, files, emails, activities, ...) are transferred during the process to the target entity. If the conversion is successful, the lead is marked as deleted. To retrieve the created entity ID and the result of the conversion, call the <a href=\"https://developers.pipedrive.com/docs/api/v1/Leads#getLeadConversionStatus\">/api/v2/leads/{lead_id}/convert/status/{conversion_id}</a> endpoint.
+         * @summary Convert a lead to a deal (BETA)
+         * @param {string} id The ID of the lead to convert
+         * @param {ConvertLeadToDealRequest} [ConvertLeadToDealRequest] 
+
+         * @throws {RequiredError}
+         */
+        convertLeadToDeal: async (id: string, ConvertLeadToDealRequest?: ConvertLeadToDealRequest, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('convertLeadToDeal', 'id', id)
+            const localVarPath = `/leads/{id}/convert/deal`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "leads:full"], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+            localVarRequestOptions.data = serializeDataIfNeeded(ConvertLeadToDealRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
         /**
          * Removes an installment from a deal.  Only available in Advanced and above plans. 
          * @summary Delete an installment from a deal
@@ -72,6 +168,51 @@ export const BetaApiAxiosParamCreator = function (configuration?: Configuration)
             // authentication oauth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Returns information about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Lead ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
+         * @summary Get Deal conversion status (BETA)
+         * @param {number} id The ID of a deal
+         * @param {string} conversion_id The ID of the conversion
+
+         * @throws {RequiredError}
+         */
+        getDealConversionStatus: async (id: number, conversion_id: string, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getDealConversionStatus', 'id', id)
+            // verify required parameter 'conversion_id' is not null or undefined
+            assertParamExists('getDealConversionStatus', 'conversion_id', conversion_id)
+            const localVarPath = `/deals/{id}/convert/status/{conversion_id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)))
+                .replace(`{${"conversion_id"}}`, encodeURIComponent(String(conversion_id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read"], configuration)
 
 
     
@@ -136,6 +277,51 @@ export const BetaApiAxiosParamCreator = function (configuration?: Configuration)
             if (sort_direction !== undefined) {
                 localVarQueryParameter['sort_direction'] = sort_direction;
             }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Returns data about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Deal ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
+         * @summary Get Lead conversion status (BETA)
+         * @param {string} id The ID of a lead
+         * @param {string} conversion_id The ID of the conversion
+
+         * @throws {RequiredError}
+         */
+        getLeadConversionStatus: async (id: string, conversion_id: string, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getLeadConversionStatus', 'id', id)
+            // verify required parameter 'conversion_id' is not null or undefined
+            assertParamExists('getLeadConversionStatus', 'conversion_id', conversion_id)
+            const localVarPath = `/leads/{id}/convert/status/{conversion_id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)))
+                .replace(`{${"conversion_id"}}`, encodeURIComponent(String(conversion_id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["leads:read"], configuration)
 
 
     
@@ -254,6 +440,29 @@ export const BetaApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = BetaApiAxiosParamCreator(configuration)
     return {
         /**
+         * Initiates a conversion of a deal to a lead. The return value is an ID of a job that was assigned to perform the conversion. Related entities (notes, files, emails, activities, ...) are transferred during the process to the target entity. There are exceptions for entities like invoices or history that are not transferred and remain linked to the original deal. If the conversion is successful, the deal is marked as deleted. To retrieve the created entity ID and the result of the conversion, call the <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDealConversionStatus\">/api/v2/deals/{deal_id}/convert/status/{conversion_id}</a> endpoint.
+         * @summary Convert a deal to a lead (BETA)
+         * @param {number} id The ID of the deal to convert
+
+         * @throws {RequiredError}
+         */
+        async convertDealToLead(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddConvertDealToLeadResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.convertDealToLead(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Initiates a conversion of a lead to a deal. The return value is an ID of a job that was assigned to perform the conversion. Related entities (notes, files, emails, activities, ...) are transferred during the process to the target entity. If the conversion is successful, the lead is marked as deleted. To retrieve the created entity ID and the result of the conversion, call the <a href=\"https://developers.pipedrive.com/docs/api/v1/Leads#getLeadConversionStatus\">/api/v2/leads/{lead_id}/convert/status/{conversion_id}</a> endpoint.
+         * @summary Convert a lead to a deal (BETA)
+         * @param {string} id The ID of the lead to convert
+         * @param {ConvertLeadToDealRequest} [ConvertLeadToDealRequest] 
+
+         * @throws {RequiredError}
+         */
+        async convertLeadToDeal(id: string, ConvertLeadToDealRequest?: ConvertLeadToDealRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddConvertLeadToDealResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.convertLeadToDeal(id, ConvertLeadToDealRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Removes an installment from a deal.  Only available in Advanced and above plans. 
          * @summary Delete an installment from a deal
          * @param {number} id The ID of the deal
@@ -263,6 +472,18 @@ export const BetaApiFp = function(configuration?: Configuration) {
          */
         async deleteInstallment(id: number, installment_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteInstallmentResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteInstallment(id, installment_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Returns information about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Lead ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
+         * @summary Get Deal conversion status (BETA)
+         * @param {number} id The ID of a deal
+         * @param {string} conversion_id The ID of the conversion
+
+         * @throws {RequiredError}
+         */
+        async getDealConversionStatus(id: number, conversion_id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetConvertResponse1>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealConversionStatus(id, conversion_id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -278,6 +499,18 @@ export const BetaApiFp = function(configuration?: Configuration) {
          */
         async getInstallments(deal_ids: Array<number>, cursor?: string, limit?: number, sort_by?: 'id' | 'billing_date' | 'deal_id', sort_direction?: 'asc' | 'desc', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetInstallmentsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getInstallments(deal_ids, cursor, limit, sort_by, sort_direction, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Returns data about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Deal ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
+         * @summary Get Lead conversion status (BETA)
+         * @param {string} id The ID of a lead
+         * @param {string} conversion_id The ID of the conversion
+
+         * @throws {RequiredError}
+         */
+        async getLeadConversionStatus(id: string, conversion_id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetConvertResponse1>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getLeadConversionStatus(id, conversion_id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -316,6 +549,26 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
     const localVarFp = BetaApiFp(configuration)
     return {
         /**
+         * Initiates a conversion of a deal to a lead. The return value is an ID of a job that was assigned to perform the conversion. Related entities (notes, files, emails, activities, ...) are transferred during the process to the target entity. There are exceptions for entities like invoices or history that are not transferred and remain linked to the original deal. If the conversion is successful, the deal is marked as deleted. To retrieve the created entity ID and the result of the conversion, call the <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDealConversionStatus\">/api/v2/deals/{deal_id}/convert/status/{conversion_id}</a> endpoint.
+         * @summary Convert a deal to a lead (BETA)
+         * @param {BetaApiConvertDealToLeadRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        convertDealToLead(requestParameters: BetaApiConvertDealToLeadRequest, ): Promise<AddConvertDealToLeadResponse> {
+            return localVarFp.convertDealToLead(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        /**
+         * Initiates a conversion of a lead to a deal. The return value is an ID of a job that was assigned to perform the conversion. Related entities (notes, files, emails, activities, ...) are transferred during the process to the target entity. If the conversion is successful, the lead is marked as deleted. To retrieve the created entity ID and the result of the conversion, call the <a href=\"https://developers.pipedrive.com/docs/api/v1/Leads#getLeadConversionStatus\">/api/v2/leads/{lead_id}/convert/status/{conversion_id}</a> endpoint.
+         * @summary Convert a lead to a deal (BETA)
+         * @param {BetaApiConvertLeadToDealRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        convertLeadToDeal(requestParameters: BetaApiConvertLeadToDealRequest, ): Promise<AddConvertLeadToDealResponse> {
+            return localVarFp.convertLeadToDeal(requestParameters.id, requestParameters.ConvertLeadToDealRequest, ).then((request) => request(axios, basePath));
+        },
+        /**
          * Removes an installment from a deal.  Only available in Advanced and above plans. 
          * @summary Delete an installment from a deal
          * @param {BetaApiDeleteInstallmentRequest} requestParameters Request parameters.
@@ -326,6 +579,16 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.deleteInstallment(requestParameters.id, requestParameters.installment_id, ).then((request) => request(axios, basePath));
         },
         /**
+         * Returns information about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Lead ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
+         * @summary Get Deal conversion status (BETA)
+         * @param {BetaApiGetDealConversionStatusRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        getDealConversionStatus(requestParameters: BetaApiGetDealConversionStatusRequest, ): Promise<GetConvertResponse1> {
+            return localVarFp.getDealConversionStatus(requestParameters.id, requestParameters.conversion_id, ).then((request) => request(axios, basePath));
+        },
+        /**
          * Lists installments attached to a list of deals.  Only available in Advanced and above plans. 
          * @summary List installments added to a list of deals
          * @param {BetaApiGetInstallmentsRequest} requestParameters Request parameters.
@@ -334,6 +597,16 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
          */
         getInstallments(requestParameters: BetaApiGetInstallmentsRequest, ): Promise<GetInstallmentsResponse> {
             return localVarFp.getInstallments(requestParameters.deal_ids, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, ).then((request) => request(axios, basePath));
+        },
+        /**
+         * Returns data about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Deal ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
+         * @summary Get Lead conversion status (BETA)
+         * @param {BetaApiGetLeadConversionStatusRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        getLeadConversionStatus(requestParameters: BetaApiGetLeadConversionStatusRequest, ): Promise<GetConvertResponse1> {
+            return localVarFp.getLeadConversionStatus(requestParameters.id, requestParameters.conversion_id, ).then((request) => request(axios, basePath));
         },
         /**
          * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Advanced and above plans. 
@@ -359,6 +632,41 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
 };
 
 /**
+ * Request parameters for convertDealToLead operation in BetaApi.
+ * @export
+ * @interface BetaApiConvertDealToLeadRequest
+ */
+export interface BetaApiConvertDealToLeadRequest {
+    /**
+     * The ID of the deal to convert
+     * @type {number}
+     * @memberof BetaApiConvertDealToLead
+     */
+    readonly id: number
+}
+
+/**
+ * Request parameters for convertLeadToDeal operation in BetaApi.
+ * @export
+ * @interface BetaApiConvertLeadToDealRequest
+ */
+export interface BetaApiConvertLeadToDealRequest {
+    /**
+     * The ID of the lead to convert
+     * @type {string}
+     * @memberof BetaApiConvertLeadToDeal
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {ConvertLeadToDealRequest}
+     * @memberof BetaApiConvertLeadToDeal
+     */
+    readonly ConvertLeadToDealRequest?: ConvertLeadToDealRequest
+}
+
+/**
  * Request parameters for deleteInstallment operation in BetaApi.
  * @export
  * @interface BetaApiDeleteInstallmentRequest
@@ -377,6 +685,27 @@ export interface BetaApiDeleteInstallmentRequest {
      * @memberof BetaApiDeleteInstallment
      */
     readonly installment_id: number
+}
+
+/**
+ * Request parameters for getDealConversionStatus operation in BetaApi.
+ * @export
+ * @interface BetaApiGetDealConversionStatusRequest
+ */
+export interface BetaApiGetDealConversionStatusRequest {
+    /**
+     * The ID of a deal
+     * @type {number}
+     * @memberof BetaApiGetDealConversionStatus
+     */
+    readonly id: number
+
+    /**
+     * The ID of the conversion
+     * @type {string}
+     * @memberof BetaApiGetDealConversionStatus
+     */
+    readonly conversion_id: string
 }
 
 /**
@@ -419,6 +748,27 @@ export interface BetaApiGetInstallmentsRequest {
      * @memberof BetaApiGetInstallments
      */
     readonly sort_direction?: 'asc' | 'desc'
+}
+
+/**
+ * Request parameters for getLeadConversionStatus operation in BetaApi.
+ * @export
+ * @interface BetaApiGetLeadConversionStatusRequest
+ */
+export interface BetaApiGetLeadConversionStatusRequest {
+    /**
+     * The ID of a lead
+     * @type {string}
+     * @memberof BetaApiGetLeadConversionStatus
+     */
+    readonly id: string
+
+    /**
+     * The ID of the conversion
+     * @type {string}
+     * @memberof BetaApiGetLeadConversionStatus
+     */
+    readonly conversion_id: string
 }
 
 /**
@@ -478,6 +828,30 @@ export interface BetaApiUpdateInstallmentRequest {
  */
 export class BetaApi extends BaseAPI {
     /**
+     * Initiates a conversion of a deal to a lead. The return value is an ID of a job that was assigned to perform the conversion. Related entities (notes, files, emails, activities, ...) are transferred during the process to the target entity. There are exceptions for entities like invoices or history that are not transferred and remain linked to the original deal. If the conversion is successful, the deal is marked as deleted. To retrieve the created entity ID and the result of the conversion, call the <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDealConversionStatus\">/api/v2/deals/{deal_id}/convert/status/{conversion_id}</a> endpoint.
+     * @summary Convert a deal to a lead (BETA)
+     * @param {BetaApiConvertDealToLeadRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public convertDealToLead(requestParameters: BetaApiConvertDealToLeadRequest, ) {
+        return BetaApiFp(this.configuration).convertDealToLead(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Initiates a conversion of a lead to a deal. The return value is an ID of a job that was assigned to perform the conversion. Related entities (notes, files, emails, activities, ...) are transferred during the process to the target entity. If the conversion is successful, the lead is marked as deleted. To retrieve the created entity ID and the result of the conversion, call the <a href=\"https://developers.pipedrive.com/docs/api/v1/Leads#getLeadConversionStatus\">/api/v2/leads/{lead_id}/convert/status/{conversion_id}</a> endpoint.
+     * @summary Convert a lead to a deal (BETA)
+     * @param {BetaApiConvertLeadToDealRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public convertLeadToDeal(requestParameters: BetaApiConvertLeadToDealRequest, ) {
+        return BetaApiFp(this.configuration).convertLeadToDeal(requestParameters.id, requestParameters.ConvertLeadToDealRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Removes an installment from a deal.  Only available in Advanced and above plans. 
      * @summary Delete an installment from a deal
      * @param {BetaApiDeleteInstallmentRequest} requestParameters Request parameters.
@@ -490,6 +864,18 @@ export class BetaApi extends BaseAPI {
     }
 
     /**
+     * Returns information about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Lead ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
+     * @summary Get Deal conversion status (BETA)
+     * @param {BetaApiGetDealConversionStatusRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public getDealConversionStatus(requestParameters: BetaApiGetDealConversionStatusRequest, ) {
+        return BetaApiFp(this.configuration).getDealConversionStatus(requestParameters.id, requestParameters.conversion_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Lists installments attached to a list of deals.  Only available in Advanced and above plans. 
      * @summary List installments added to a list of deals
      * @param {BetaApiGetInstallmentsRequest} requestParameters Request parameters.
@@ -499,6 +885,18 @@ export class BetaApi extends BaseAPI {
      */
     public getInstallments(requestParameters: BetaApiGetInstallmentsRequest, ) {
         return BetaApiFp(this.configuration).getInstallments(requestParameters.deal_ids, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Returns data about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Deal ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
+     * @summary Get Lead conversion status (BETA)
+     * @param {BetaApiGetLeadConversionStatusRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public getLeadConversionStatus(requestParameters: BetaApiGetLeadConversionStatusRequest, ) {
+        return BetaApiFp(this.configuration).getLeadConversionStatus(requestParameters.id, requestParameters.conversion_id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**

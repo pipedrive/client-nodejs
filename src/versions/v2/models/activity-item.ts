@@ -50,6 +50,11 @@ export interface ActivityItem {
     */
     'owner_id'?: number;
     /**
+    * The ID of the user who created the activity
+    * @type {number}
+    */
+    'creator_user_id'?: number;
+    /**
     * Whether the activity is deleted or not
     * @type {boolean}
     */

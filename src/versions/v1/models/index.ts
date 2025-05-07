@@ -619,6 +619,7 @@ export * from './note';
 export * from './note-deal';
 export * from './note-organization';
 export * from './note-person';
+export * from './note-project';
 export * from './note-request';
 export * from './note-request-all-of';
 export * from './note-request-all-of1';

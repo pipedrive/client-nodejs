@@ -50,6 +50,11 @@ export interface AddNoteRequestAllOf1 {
     * @type {number}
     */
     'pinned_to_person_flag'?: AddNoteRequestAllOf1PinnedToPersonFlagConst;
+    /**
+    * 
+    * @type {number}
+    */
+    'pinned_to_project_flag'?: AddNoteRequestAllOf1PinnedToProjectFlagConst;
 }
 
                 export const AddNoteRequestAllOf1PinnedToLeadFlagConst = {
@@ -76,5 +81,11 @@ export interface AddNoteRequestAllOf1 {
                 } as const;
 
                 export type AddNoteRequestAllOf1PinnedToPersonFlagConst = typeof AddNoteRequestAllOf1PinnedToPersonFlagConst[keyof typeof AddNoteRequestAllOf1PinnedToPersonFlagConst];
+                export const AddNoteRequestAllOf1PinnedToProjectFlagConst = {
+                        NUMBER_0: 0,
+                        NUMBER_1: 1
+                } as const;
+
+                export type AddNoteRequestAllOf1PinnedToProjectFlagConst = typeof AddNoteRequestAllOf1PinnedToProjectFlagConst[keyof typeof AddNoteRequestAllOf1PinnedToProjectFlagConst];
 
 

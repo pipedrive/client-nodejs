@@ -81,7 +81,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
          * Adds a new organization. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the organizationFields and look for `key` values. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-organization\" target=\"_blank\" rel=\"noopener noreferrer\">adding an organization</a>.
          * @summary Add an organization
          * @param {AddOrganizationRequest} [AddOrganizationRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         addOrganization: async (AddOrganizationRequest?: AddOrganizationRequest, ): Promise<RequestArgs> => {
@@ -167,7 +167,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
          * Marks an organization as deleted. After 30 days, the organization will be permanently deleted.
          * @summary Delete an organization
          * @param {number} id The ID of the organization
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteOrganization: async (id: number, ): Promise<RequestArgs> => {
@@ -250,10 +250,10 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * Marks multiple organizations as deleted. After 30 days, the organizations will be permanently deleted.
+         * Marks multiple organizations as deleted. After 30 days, the organizations will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#deleteOrganization\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/organizations/{id}</a> instead.
          * @summary Delete multiple organizations in bulk
          * @param {string} ids The comma-separated IDs that will be deleted
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteOrganizations: async (ids: string, ): Promise<RequestArgs> => {
@@ -297,7 +297,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
          * Returns the details of an organization. Note that this also returns some additional fields which are not present when asking for all organizations. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of organizationFields.
          * @summary Get details of an organization
          * @param {number} id The ID of the organization
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getOrganization: async (id: number, ): Promise<RequestArgs> => {
@@ -335,14 +335,14 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * Lists activities associated with an organization.
+         * Lists activities associated with an organization. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities?org_id={id}</a> instead.
          * @summary List activities associated with an organization
          * @param {number} id The ID of the organization
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
          * @param {0 | 1} [done] Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted returns both Done and Not done activities.
          * @param {string} [exclude] A comma-separated string of activity IDs to exclude from result
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getOrganizationActivities: async (id: number, start?: number, limit?: number, done?: 0 | 1, exclude?: string, ): Promise<RequestArgs> => {
@@ -447,7 +447,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * Lists deals associated with an organization.
+         * Lists deals associated with an organization. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?org_id={id}</a> instead.
          * @summary List deals associated with an organization
          * @param {number} id The ID of the organization
          * @param {number} [start] Pagination start
@@ -455,7 +455,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
          * @param {'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted'} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included.
          * @param {string} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
          * @param {0 | 1} [only_primary_association] If set, only deals that are directly associated to the organization are fetched. If not set (default), all deals are fetched that are either directly or indirectly related to the organization. Indirect relations include relations through custom, organization-type fields and through persons of the given organization.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getOrganizationDeals: async (id: number, start?: number, limit?: number, status?: 'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted', sort?: string, only_primary_association?: 0 | 1, ): Promise<RequestArgs> => {
@@ -661,12 +661,12 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * Lists persons associated with an organization.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
+         * Lists persons associated with an organization.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#getPersons\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/persons?org_id={id}</a> instead.
          * @summary List persons of an organization
          * @param {number} id The ID of the organization
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getOrganizationPersons: async (id: number, start?: number, limit?: number, ): Promise<RequestArgs> => {
@@ -822,7 +822,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
          * @param {string} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getOrganizations: async (user_id?: number, filter_id?: number, first_char?: string, start?: number, limit?: number, sort?: string, ): Promise<RequestArgs> => {
@@ -881,15 +881,15 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * Returns all organizations. This is a cursor-paginated endpoint that is currently in BETA. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>. Please note that only global admins (those with global permissions) can access these endpoints. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
-         * @summary Get all organizations (BETA)
+         * Returns all organizations. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#getOrganizations\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/organizations</a> instead.
+         * @summary Get all organizations collection
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [since] The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
          * @param {string} [until] The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
          * @param {number} [owner_id] If supplied, only organizations owned by the given user will be returned
          * @param {string} [first_char] If supplied, only organizations whose name starts with the specified letter will be returned (case-insensitive)
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getOrganizationsCollection: async (cursor?: string, limit?: number, since?: string, until?: string, owner_id?: number, first_char?: string, ): Promise<RequestArgs> => {
@@ -1000,7 +1000,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
          * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
          * @param {number} [start] Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter.
          * @param {number} [limit] Items shown per page
-
+         * @deprecated
          * @throws {RequiredError}
          */
         searchOrganization: async (term: string, fields?: 'address' | 'custom_fields' | 'notes' | 'name', exact_match?: boolean, start?: number, limit?: number, ): Promise<RequestArgs> => {
@@ -1061,7 +1061,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
          * @summary Update an organization
          * @param {number} id The ID of the organization
          * @param {UpdateOrganizationRequest} [UpdateOrganizationRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         updateOrganization: async (id: number, UpdateOrganizationRequest?: UpdateOrganizationRequest, ): Promise<RequestArgs> => {
@@ -1116,7 +1116,7 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
          * Adds a new organization. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the organizationFields and look for `key` values. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-organization\" target=\"_blank\" rel=\"noopener noreferrer\">adding an organization</a>.
          * @summary Add an organization
          * @param {AddOrganizationRequest} [AddOrganizationRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async addOrganization(AddOrganizationRequest?: AddOrganizationRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddOrganizationResponse>> {
@@ -1139,7 +1139,7 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
          * Marks an organization as deleted. After 30 days, the organization will be permanently deleted.
          * @summary Delete an organization
          * @param {number} id The ID of the organization
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async deleteOrganization(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteOrganizationResponse>> {
@@ -1159,10 +1159,10 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Marks multiple organizations as deleted. After 30 days, the organizations will be permanently deleted.
+         * Marks multiple organizations as deleted. After 30 days, the organizations will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#deleteOrganization\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/organizations/{id}</a> instead.
          * @summary Delete multiple organizations in bulk
          * @param {string} ids The comma-separated IDs that will be deleted
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async deleteOrganizations(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteOrganizationsResponse>> {
@@ -1173,7 +1173,7 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
          * Returns the details of an organization. Note that this also returns some additional fields which are not present when asking for all organizations. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of organizationFields.
          * @summary Get details of an organization
          * @param {number} id The ID of the organization
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getOrganization(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetOrganizationResponse>> {
@@ -1181,14 +1181,14 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Lists activities associated with an organization.
+         * Lists activities associated with an organization. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities?org_id={id}</a> instead.
          * @summary List activities associated with an organization
          * @param {number} id The ID of the organization
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
          * @param {0 | 1} [done] Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted returns both Done and Not done activities.
          * @param {string} [exclude] A comma-separated string of activity IDs to exclude from result
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getOrganizationActivities(id: number, start?: number, limit?: number, done?: 0 | 1, exclude?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetAssociatedActivitiesResponse>> {
@@ -1209,7 +1209,7 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Lists deals associated with an organization.
+         * Lists deals associated with an organization. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?org_id={id}</a> instead.
          * @summary List deals associated with an organization
          * @param {number} id The ID of the organization
          * @param {number} [start] Pagination start
@@ -1217,7 +1217,7 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
          * @param {'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted'} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included.
          * @param {string} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
          * @param {0 | 1} [only_primary_association] If set, only deals that are directly associated to the organization are fetched. If not set (default), all deals are fetched that are either directly or indirectly related to the organization. Indirect relations include relations through custom, organization-type fields and through persons of the given organization.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getOrganizationDeals(id: number, start?: number, limit?: number, status?: 'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted', sort?: string, only_primary_association?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetAssociatedDealsResponse>> {
@@ -1263,12 +1263,12 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Lists persons associated with an organization.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
+         * Lists persons associated with an organization.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#getPersons\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/persons?org_id={id}</a> instead.
          * @summary List persons of an organization
          * @param {number} id The ID of the organization
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getOrganizationPersons(id: number, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPersonsResponse>> {
@@ -1310,7 +1310,7 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
          * @param {string} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getOrganizations(user_id?: number, filter_id?: number, first_char?: string, start?: number, limit?: number, sort?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetOrganizationsResponse>> {
@@ -1318,15 +1318,15 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns all organizations. This is a cursor-paginated endpoint that is currently in BETA. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>. Please note that only global admins (those with global permissions) can access these endpoints. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
-         * @summary Get all organizations (BETA)
+         * Returns all organizations. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#getOrganizations\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/organizations</a> instead.
+         * @summary Get all organizations collection
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [since] The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
          * @param {string} [until] The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
          * @param {number} [owner_id] If supplied, only organizations owned by the given user will be returned
          * @param {string} [first_char] If supplied, only organizations whose name starts with the specified letter will be returned (case-insensitive)
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async getOrganizationsCollection(cursor?: string, limit?: number, since?: string, until?: string, owner_id?: number, first_char?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetOrganizationsCollection200Response>> {
@@ -1353,7 +1353,7 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
          * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
          * @param {number} [start] Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter.
          * @param {number} [limit] Items shown per page
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async searchOrganization(term: string, fields?: 'address' | 'custom_fields' | 'notes' | 'name', exact_match?: boolean, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetOrganizationSearchResponse>> {
@@ -1365,7 +1365,7 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
          * @summary Update an organization
          * @param {number} id The ID of the organization
          * @param {UpdateOrganizationRequest} [UpdateOrganizationRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async updateOrganization(id: number, UpdateOrganizationRequest?: UpdateOrganizationRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateOrganizationResponse>> {
@@ -1386,7 +1386,7 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
          * Adds a new organization. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the organizationFields and look for `key` values. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-organization\" target=\"_blank\" rel=\"noopener noreferrer\">adding an organization</a>.
          * @summary Add an organization
          * @param {OrganizationsApiAddOrganizationRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         addOrganization(requestParameters: OrganizationsApiAddOrganizationRequest = {}, ): Promise<AddOrganizationResponse> {
@@ -1406,7 +1406,7 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
          * Marks an organization as deleted. After 30 days, the organization will be permanently deleted.
          * @summary Delete an organization
          * @param {OrganizationsApiDeleteOrganizationRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteOrganization(requestParameters: OrganizationsApiDeleteOrganizationRequest, ): Promise<DeleteOrganizationResponse> {
@@ -1423,10 +1423,10 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
             return localVarFp.deleteOrganizationFollower(requestParameters.id, requestParameters.follower_id, ).then((request) => request(axios, basePath));
         },
         /**
-         * Marks multiple organizations as deleted. After 30 days, the organizations will be permanently deleted.
+         * Marks multiple organizations as deleted. After 30 days, the organizations will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#deleteOrganization\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/organizations/{id}</a> instead.
          * @summary Delete multiple organizations in bulk
          * @param {OrganizationsApiDeleteOrganizationsRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteOrganizations(requestParameters: OrganizationsApiDeleteOrganizationsRequest, ): Promise<DeleteOrganizationsResponse> {
@@ -1436,17 +1436,17 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
          * Returns the details of an organization. Note that this also returns some additional fields which are not present when asking for all organizations. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of organizationFields.
          * @summary Get details of an organization
          * @param {OrganizationsApiGetOrganizationRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getOrganization(requestParameters: OrganizationsApiGetOrganizationRequest, ): Promise<GetOrganizationResponse> {
             return localVarFp.getOrganization(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
-         * Lists activities associated with an organization.
+         * Lists activities associated with an organization. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities?org_id={id}</a> instead.
          * @summary List activities associated with an organization
          * @param {OrganizationsApiGetOrganizationActivitiesRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getOrganizationActivities(requestParameters: OrganizationsApiGetOrganizationActivitiesRequest, ): Promise<GetAssociatedActivitiesResponse> {
@@ -1463,10 +1463,10 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
             return localVarFp.getOrganizationChangelog(requestParameters.id, requestParameters.cursor, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
         /**
-         * Lists deals associated with an organization.
+         * Lists deals associated with an organization. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?org_id={id}</a> instead.
          * @summary List deals associated with an organization
          * @param {OrganizationsApiGetOrganizationDealsRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getOrganizationDeals(requestParameters: OrganizationsApiGetOrganizationDealsRequest, ): Promise<GetAssociatedDealsResponse> {
@@ -1503,10 +1503,10 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
             return localVarFp.getOrganizationMailMessages(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
         /**
-         * Lists persons associated with an organization.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
+         * Lists persons associated with an organization.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#getPersons\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/persons?org_id={id}</a> instead.
          * @summary List persons of an organization
          * @param {OrganizationsApiGetOrganizationPersonsRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getOrganizationPersons(requestParameters: OrganizationsApiGetOrganizationPersonsRequest, ): Promise<GetPersonsResponse> {
@@ -1536,17 +1536,17 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
          * Returns all organizations.
          * @summary Get all organizations
          * @param {OrganizationsApiGetOrganizationsRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getOrganizations(requestParameters: OrganizationsApiGetOrganizationsRequest = {}, ): Promise<GetOrganizationsResponse> {
             return localVarFp.getOrganizations(requestParameters.user_id, requestParameters.filter_id, requestParameters.first_char, requestParameters.start, requestParameters.limit, requestParameters.sort, ).then((request) => request(axios, basePath));
         },
         /**
-         * Returns all organizations. This is a cursor-paginated endpoint that is currently in BETA. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>. Please note that only global admins (those with global permissions) can access these endpoints. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
-         * @summary Get all organizations (BETA)
+         * Returns all organizations. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#getOrganizations\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/organizations</a> instead.
+         * @summary Get all organizations collection
          * @param {OrganizationsApiGetOrganizationsCollectionRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         getOrganizationsCollection(requestParameters: OrganizationsApiGetOrganizationsCollectionRequest = {}, ): Promise<GetOrganizationsCollection200Response> {
@@ -1566,7 +1566,7 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
          * Searches all organizations by name, address, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope.
          * @summary Search organizations
          * @param {OrganizationsApiSearchOrganizationRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         searchOrganization(requestParameters: OrganizationsApiSearchOrganizationRequest, ): Promise<GetOrganizationSearchResponse> {
@@ -1576,7 +1576,7 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
          * Updates the properties of an organization.
          * @summary Update an organization
          * @param {OrganizationsApiUpdateOrganizationRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         updateOrganization(requestParameters: OrganizationsApiUpdateOrganizationRequest, ): Promise<UpdateOrganizationResponse> {
@@ -2156,7 +2156,7 @@ export class OrganizationsApi extends BaseAPI {
      * Adds a new organization. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the organizationFields and look for `key` values. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-organization\" target=\"_blank\" rel=\"noopener noreferrer\">adding an organization</a>.
      * @summary Add an organization
      * @param {OrganizationsApiAddOrganizationRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof OrganizationsApi
      */
@@ -2180,7 +2180,7 @@ export class OrganizationsApi extends BaseAPI {
      * Marks an organization as deleted. After 30 days, the organization will be permanently deleted.
      * @summary Delete an organization
      * @param {OrganizationsApiDeleteOrganizationRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof OrganizationsApi
      */
@@ -2201,10 +2201,10 @@ export class OrganizationsApi extends BaseAPI {
     }
 
     /**
-     * Marks multiple organizations as deleted. After 30 days, the organizations will be permanently deleted.
+     * Marks multiple organizations as deleted. After 30 days, the organizations will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#deleteOrganization\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/organizations/{id}</a> instead.
      * @summary Delete multiple organizations in bulk
      * @param {OrganizationsApiDeleteOrganizationsRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof OrganizationsApi
      */
@@ -2216,7 +2216,7 @@ export class OrganizationsApi extends BaseAPI {
      * Returns the details of an organization. Note that this also returns some additional fields which are not present when asking for all organizations. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of organizationFields.
      * @summary Get details of an organization
      * @param {OrganizationsApiGetOrganizationRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof OrganizationsApi
      */
@@ -2225,10 +2225,10 @@ export class OrganizationsApi extends BaseAPI {
     }
 
     /**
-     * Lists activities associated with an organization.
+     * Lists activities associated with an organization. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities?org_id={id}</a> instead.
      * @summary List activities associated with an organization
      * @param {OrganizationsApiGetOrganizationActivitiesRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof OrganizationsApi
      */
@@ -2249,10 +2249,10 @@ export class OrganizationsApi extends BaseAPI {
     }
 
     /**
-     * Lists deals associated with an organization.
+     * Lists deals associated with an organization. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?org_id={id}</a> instead.
      * @summary List deals associated with an organization
      * @param {OrganizationsApiGetOrganizationDealsRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof OrganizationsApi
      */
@@ -2297,10 +2297,10 @@ export class OrganizationsApi extends BaseAPI {
     }
 
     /**
-     * Lists persons associated with an organization.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
+     * Lists persons associated with an organization.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#getPersons\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/persons?org_id={id}</a> instead.
      * @summary List persons of an organization
      * @param {OrganizationsApiGetOrganizationPersonsRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof OrganizationsApi
      */
@@ -2336,7 +2336,7 @@ export class OrganizationsApi extends BaseAPI {
      * Returns all organizations.
      * @summary Get all organizations
      * @param {OrganizationsApiGetOrganizationsRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof OrganizationsApi
      */
@@ -2345,10 +2345,10 @@ export class OrganizationsApi extends BaseAPI {
     }
 
     /**
-     * Returns all organizations. This is a cursor-paginated endpoint that is currently in BETA. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>. Please note that only global admins (those with global permissions) can access these endpoints. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.
-     * @summary Get all organizations (BETA)
+     * Returns all organizations. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#getOrganizations\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/organizations</a> instead.
+     * @summary Get all organizations collection
      * @param {OrganizationsApiGetOrganizationsCollectionRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof OrganizationsApi
      */
@@ -2372,7 +2372,7 @@ export class OrganizationsApi extends BaseAPI {
      * Searches all organizations by name, address, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope.
      * @summary Search organizations
      * @param {OrganizationsApiSearchOrganizationRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof OrganizationsApi
      */
@@ -2384,7 +2384,7 @@ export class OrganizationsApi extends BaseAPI {
      * Updates the properties of an organization.
      * @summary Update an organization
      * @param {OrganizationsApiUpdateOrganizationRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof OrganizationsApi
      */

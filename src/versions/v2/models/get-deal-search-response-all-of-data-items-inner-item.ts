@@ -97,5 +97,10 @@ export interface GetDealSearchResponseAllOfDataItemsInnerItem {
     * @type {Array<string>}
     */
     'notes'?: Array<string>;
+    /**
+    * A flag indicating whether the deal is archived or not
+    * @type {boolean}
+    */
+    'is_archived'?: boolean;
 }
 

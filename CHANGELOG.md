@@ -8,6 +8,90 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [26.0.0] - 2025-05-07
+### Fixed
+- Fixed the OAuth scope of "Add a follower to a product" endpoint in API v2
+### Added
+- Added `creator_user_id` to responses of Activities v2 endpoints
+- Added `marketing_status` documentation to Persons v2 endpoints
+- Added archived deals/leads endpoints:
+  - `GET /v1/deals/archived`
+  - `GET /v2/deals/archived`
+  - `GET /v1/deals/timeline/archived`
+  - `GET /v1/deals/summary/archived`
+  - `GET /v1/leads/archived`
+- Added `is_archived` and `archive_time` properties to deals endpoints response
+- Added option to use `sort_by=due_date` sorting for `GET /api/v2/activities`
+- Added option to use `done=true/false` quick filter for `GET /api/v2/activities`
+- Added `project_id` and `pinned_to_project_flag` query parameter to the GET `/notes` endpoint
+- Added `project_id` and `pinned_to_project_flag` request bodies to the POST/PUT `/notes` endpoint
+- Added `project_id` and `pinned_to_project_flag` to success responses of GET/POST/PUT
+### Changed
+- Deprecated `GET /v1/activities` in favor of `GET /api/v2/activities`
+- Deprecated `GET /v1/activities/collection` in favor of `GET /api/v2/activities`
+- Deprecated `GET /v1/activities/{id}` in favor of `GET /api/v2/activities/{id}`
+- Deprecated `POST /v1/activities` in favor of `POST /api/v2/activities`
+- Deprecated `PUT /v1/activities/{id}` in favor of `PATCH /api/v2/activities/{id}`
+- Deprecated `DELETE /v1/activities/{id}` in favor of `DELETE /api/v2/activities/{id}`
+- Deprecated `DELETE /v1/activities` in favor of `DELETE /api/v2/activities/{id}`
+- Deprecated `GET /v1/deals` in favor of `GET /api/v2/deals`
+- Deprecated `GET /v1/deals/collection` in favor of `GET /api/v2/deals`
+- Deprecated `GET /v1/deals/{id}` in favor of `GET /api/v2/deals/{id}`
+- Deprecated `GET /v1/deals/search` in favor of `GET /api/v2/deals/search`
+- Deprecated `POST /v1/deals` in favor of `POST /api/v2/deals`
+- Deprecated `PUT /v1/deals/{id}` in favor of `PATCH /api/v2/deals`
+- Deprecated `DELETE /v1/deals/{id}` in favor of `DELETE /api/v2/deals/{id}`
+- Deprecated `DELETE /v1/deals` in favor of `DELETE /api/v2/deals/{id}`
+- Deprecated `GET /v1/deals/{id}/activities` in favor of `GET /api/v2/activities?deal_id={id}`
+- Deprecated `GET /v1/deals/{id}/persons` in favor of `GET /api/v2/persons?deal_id={id}`
+- Deprecated `GET /v1/persons` in favor of `GET /api/v2/persons`
+- Deprecated `GET /v1/persons/collection` in favor of `GET /api/v2/persons`
+- Deprecated `GET /v1/persons/{id}` in favor of `GET /api/v2/persons/{id}`
+- Deprecated `GET /v1/persons/search` in favor of `GET /api/v2/persons/search`
+- Deprecated `POST /v1/persons` in favor of `POST /api/v2/persons`
+- Deprecated `PUT /v1/persons/{id}` in favor of `PATCH /api/v2/persons/{id}`
+- Deprecated `DELETE /v1/persons/{id}` in favor of `DELETE /api/v2/persons/{id}`
+- Deprecated `DELETE /v1/persons` in favor of `DELETE /api/v2/persons/{id}`
+- Deprecated `GET /v1/persons/{id}/deals` in favor of `GET /api/v2/deals?person_id={id}`
+- Deprecated `GET /v1/persons/{id}/activities` in favor of `GET /api/v2/activities?person_id={id}`
+- Deprecated `GET /v1/organizations` in favor of `GET /api/v2/organizations`
+- Deprecated `GET /v1/organizations/collection` in favor of `GET /api/v2/organizations`
+- Deprecated `GET /v1/organizations/{id}` in favor of `GET /api/v2/organizations/{id}`
+- Deprecated `GET /v1/organizations/search` in favor of `GET /api/v2/organizations/search`
+- Deprecated `POST /v1/organizations` in favor of `POST /api/v2/organizations`
+- Deprecated `PUT /v1/organizations/{id}` in favor of `PATCH /api/v2/organizations/{id}`
+- Deprecated `DELETE /v1/organizations/{id}` in favor of `DELETE /api/v2/organizations/{id}`
+- Deprecated `DELETE /v1/organizations` in favor of `DELETE /api/v2/organizations/{id}`
+- Deprecated `GET /v1/organizations/{id}/deals` in favor of `GET /api/v2/deals?org_id={id}`
+- Deprecated `GET /v1/organizations/{id}/activities` in favor of `GET /api/v2/activities?org_id={id}`
+- Deprecated `GET /v1/organizations/{id}/persons` in favor of `GET /api/v2/persons?org_id={id}`
+- Deprecated `GET /v1/products` in favor of `GET /api/v2/products`
+- Deprecated `GET /v1/products/{id}` in favor of `GET /api/v2/products/{id}`
+- Deprecated `GET /v1/products/search` in favor of `GET /api/v2/products/search`
+- Deprecated `POST /v1/products` in favor of `POST /api/v2/products`
+- Deprecated `PUT /v1/products/{id}` in favor of `PATCH /api/v2/products/{id}`
+- Deprecated `DELETE /v1/products/{id}` in favor of `DELETE /api/v2/products/{id}`
+- Deprecated `GET /v1/pipelines` in favor of `GET /api/v2/pipelines`
+- Deprecated `GET /v1/pipelines/{id}` in favor of `GET /api/v2/pipelines/{id}`
+- Deprecated `POST /v1/pipelines` in favor of `POST /api/v2/pipelines`
+- Deprecated `PUT /v1/pipelines/{id}` in favor of `PATCH /api/v2/pipelines/{id}`
+- Deprecated `DELETE /v1/pipelines/{id}` in favor of `DELETE /api/v2/pipelines/{id}`
+- Deprecated `GET /v1/stages` in favor of `GET /api/v2/stages`
+- Deprecated `GET /v1/stages/{id}` in favor of `GET /api/v2/stages/{id}`
+- Deprecated `POST /v1/stages` in favor of `POST /api/v2/stages`
+- Deprecated `PUT /v1/stages/{id}` in favor of `PATCH /api/v2/stages/{id}`
+- Deprecated `DELETE /v1/stages/{id}` in favor of `DELETE /api/v2/stages/{id}`
+- Deprecated `DELETE /v1/stages` in favor of `DELETE /api/v2/stages/{id}`
+- Deprecated `GET /v1/itemSearch` in favor of `GET /api/v2/itemSearch`
+- Deprecated `GET /v1/itemSearch/field` in favor of `GET /api/v2/itemSearch/field`
+- Updated non archived deals/leads endpoint description to specify that following endpoints do not return archived items:
+  - `GET /v1/deals`
+  - `GET /v2/deals`
+  - `GET /v1/deals/timeline`
+  - `GET /v1/deals/summary`
+  - `GET /v1/leads`
+- Removed deprecated `archived_status` query parameter from leads endpoints
+
 ## [25.0.0] - 2025-03-31
 ### Changed
 - Updated `item_price` field data type in products from integer -> number for products and deal products
@@ -785,7 +869,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v25.0.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v26.0.0...HEAD
+[26.0.0]: https://github.com/pipedrive/api-docs/compare/v25.0.0...v26.0.0
 [25.0.0]: https://github.com/pipedrive/api-docs/compare/v24.2.0...v25.0.0
 [24.2.0]: https://github.com/pipedrive/api-docs/compare/v24.1.1...v24.2.0
 [24.1.1]: https://github.com/pipedrive/api-docs/compare/v24.1.0...v24.1.1

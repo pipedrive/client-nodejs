@@ -28,6 +28,8 @@ import { AddAdditionalDiscountRequestBody } from '../models';
 // @ts-ignore
 import { AddAdditionalDiscountResponse } from '../models';
 // @ts-ignore
+import { AddConvertDealToLeadResponse } from '../models';
+// @ts-ignore
 import { AddDealFollowerRequest } from '../models';
 // @ts-ignore
 import { AddDealProductRequest } from '../models';
@@ -51,6 +53,10 @@ import { DeleteFollowerResponse } from '../models';
 import { DeleteInstallmentResponse } from '../models';
 // @ts-ignore
 import { GetAdditionalDiscountsResponse } from '../models';
+// @ts-ignore
+import { GetConvertResponse } from '../models';
+// @ts-ignore
+import { GetConvertResponse1 } from '../models';
 // @ts-ignore
 import { GetDealSearchResponse } from '../models';
 // @ts-ignore
@@ -208,6 +214,47 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
             localVarRequestOptions.data = serializeDataIfNeeded(AddDealProductRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Initiates a conversion of a deal to a lead. The return value is an ID of a job that was assigned to perform the conversion. Related entities (notes, files, emails, activities, ...) are transferred during the process to the target entity. There are exceptions for entities like invoices or history that are not transferred and remain linked to the original deal. If the conversion is successful, the deal is marked as deleted. To retrieve the created entity ID and the result of the conversion, call the <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDealConversionStatus\">/api/v2/deals/{deal_id}/convert/status/{conversion_id}</a> endpoint.
+         * @summary Convert a deal to a lead (BETA)
+         * @param {number} id The ID of the deal to convert
+
+         * @throws {RequiredError}
+         */
+        convertDealToLead: async (id: number, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('convertDealToLead', 'id', id)
+            const localVarPath = `/deals/{id}/convert/lead`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "leads:full"], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -477,6 +524,123 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Returns data about all archived deals.
+         * @summary Get all archived deals
+         * @param {number} [filter_id] If supplied, only deals matching the specified filter are returned
+         * @param {string} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+         * @param {number} [owner_id] If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored.
+         * @param {number} [person_id] If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored.
+         * @param {number} [org_id] If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored.
+         * @param {number} [pipeline_id] If supplied, only deals in the specified pipeline are returned. If filter_id is provided, this is ignored.
+         * @param {number} [stage_id] If supplied, only deals in the specified stage are returned. If filter_id is provided, this is ignored.
+         * @param {'open' | 'won' | 'lost' | 'deleted'} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. Multiple statuses can be included as a comma separated array. If filter_id is provided, this is ignored.
+         * @param {string} [updated_since] If set, only deals with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
+         * @param {string} [updated_until] If set, only deals with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
+         * @param {'id' | 'update_time' | 'add_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
+         * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
+         * @param {'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time'} [include_fields] Optional comma separated string array of additional fields to include
+         * @param {string} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        getArchivedDeals: async (filter_id?: number, ids?: string, owner_id?: number, person_id?: number, org_id?: number, pipeline_id?: number, stage_id?: number, status?: 'open' | 'won' | 'lost' | 'deleted', updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: 'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time', custom_fields?: string, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+            const localVarPath = `/deals/archived`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
+
+            if (filter_id !== undefined) {
+                localVarQueryParameter['filter_id'] = filter_id;
+            }
+
+            if (ids !== undefined) {
+                localVarQueryParameter['ids'] = ids;
+            }
+
+            if (owner_id !== undefined) {
+                localVarQueryParameter['owner_id'] = owner_id;
+            }
+
+            if (person_id !== undefined) {
+                localVarQueryParameter['person_id'] = person_id;
+            }
+
+            if (org_id !== undefined) {
+                localVarQueryParameter['org_id'] = org_id;
+            }
+
+            if (pipeline_id !== undefined) {
+                localVarQueryParameter['pipeline_id'] = pipeline_id;
+            }
+
+            if (stage_id !== undefined) {
+                localVarQueryParameter['stage_id'] = stage_id;
+            }
+
+            if (status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            if (updated_since !== undefined) {
+                localVarQueryParameter['updated_since'] = updated_since;
+            }
+
+            if (updated_until !== undefined) {
+                localVarQueryParameter['updated_until'] = updated_until;
+            }
+
+            if (sort_by !== undefined) {
+                localVarQueryParameter['sort_by'] = sort_by;
+            }
+
+            if (sort_direction !== undefined) {
+                localVarQueryParameter['sort_direction'] = sort_direction;
+            }
+
+            if (include_fields !== undefined) {
+                localVarQueryParameter['include_fields'] = include_fields;
+            }
+
+            if (custom_fields !== undefined) {
+                localVarQueryParameter['custom_fields'] = custom_fields;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Returns the details of a specific deal.
          * @summary Get details of a deal
          * @param {number} id The ID of the deal
@@ -515,6 +679,51 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             if (custom_fields !== undefined) {
                 localVarQueryParameter['custom_fields'] = custom_fields;
             }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Returns information about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Lead ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
+         * @summary Get Deal conversion status (BETA)
+         * @param {number} id The ID of a deal
+         * @param {string} conversion_id The ID of the conversion
+
+         * @throws {RequiredError}
+         */
+        getDealConversionStatus: async (id: number, conversion_id: string, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getDealConversionStatus', 'id', id)
+            // verify required parameter 'conversion_id' is not null or undefined
+            assertParamExists('getDealConversionStatus', 'conversion_id', conversion_id)
+            const localVarPath = `/deals/{id}/convert/status/{conversion_id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)))
+                .replace(`{${"conversion_id"}}`, encodeURIComponent(String(conversion_id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read"], configuration)
 
 
     
@@ -691,7 +900,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Returns data about all deals.
+         * Returns data about all not archived deals.
          * @summary Get all deals
          * @param {number} [filter_id] If supplied, only deals matching the specified filter are returned
          * @param {string} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
@@ -1348,6 +1557,17 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Initiates a conversion of a deal to a lead. The return value is an ID of a job that was assigned to perform the conversion. Related entities (notes, files, emails, activities, ...) are transferred during the process to the target entity. There are exceptions for entities like invoices or history that are not transferred and remain linked to the original deal. If the conversion is successful, the deal is marked as deleted. To retrieve the created entity ID and the result of the conversion, call the <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDealConversionStatus\">/api/v2/deals/{deal_id}/convert/status/{conversion_id}</a> endpoint.
+         * @summary Convert a deal to a lead (BETA)
+         * @param {number} id The ID of the deal to convert
+
+         * @throws {RequiredError}
+         */
+        async convertDealToLead(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddConvertDealToLeadResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.convertDealToLead(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Removes a discount from a deal, changing the deal value if the deal has one-time products attached.
          * @summary Delete a discount from a deal
          * @param {number} id The ID of the deal
@@ -1418,6 +1638,32 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Returns data about all archived deals.
+         * @summary Get all archived deals
+         * @param {number} [filter_id] If supplied, only deals matching the specified filter are returned
+         * @param {string} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+         * @param {number} [owner_id] If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored.
+         * @param {number} [person_id] If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored.
+         * @param {number} [org_id] If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored.
+         * @param {number} [pipeline_id] If supplied, only deals in the specified pipeline are returned. If filter_id is provided, this is ignored.
+         * @param {number} [stage_id] If supplied, only deals in the specified stage are returned. If filter_id is provided, this is ignored.
+         * @param {'open' | 'won' | 'lost' | 'deleted'} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. Multiple statuses can be included as a comma separated array. If filter_id is provided, this is ignored.
+         * @param {string} [updated_since] If set, only deals with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
+         * @param {string} [updated_until] If set, only deals with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
+         * @param {'id' | 'update_time' | 'add_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
+         * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
+         * @param {'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time'} [include_fields] Optional comma separated string array of additional fields to include
+         * @param {string} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getArchivedDeals(filter_id?: number, ids?: string, owner_id?: number, person_id?: number, org_id?: number, pipeline_id?: number, stage_id?: number, status?: 'open' | 'won' | 'lost' | 'deleted', updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: 'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time', custom_fields?: string, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getArchivedDeals(filter_id, ids, owner_id, person_id, org_id, pipeline_id, stage_id, status, updated_since, updated_until, sort_by, sort_direction, include_fields, custom_fields, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Returns the details of a specific deal.
          * @summary Get details of a deal
          * @param {number} id The ID of the deal
@@ -1428,6 +1674,18 @@ export const DealsApiFp = function(configuration?: Configuration) {
          */
         async getDeal(id: number, include_fields?: 'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time', custom_fields?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertDealResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDeal(id, include_fields, custom_fields, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Returns information about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Lead ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
+         * @summary Get Deal conversion status (BETA)
+         * @param {number} id The ID of a deal
+         * @param {string} conversion_id The ID of the conversion
+
+         * @throws {RequiredError}
+         */
+        async getDealConversionStatus(id: number, conversion_id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetConvertResponse1>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealConversionStatus(id, conversion_id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -1472,7 +1730,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns data about all deals.
+         * Returns data about all not archived deals.
          * @summary Get all deals
          * @param {number} [filter_id] If supplied, only deals matching the specified filter are returned
          * @param {string} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
@@ -1662,6 +1920,16 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.addDealProduct(requestParameters.id, requestParameters.AddDealProductRequest, ).then((request) => request(axios, basePath));
         },
         /**
+         * Initiates a conversion of a deal to a lead. The return value is an ID of a job that was assigned to perform the conversion. Related entities (notes, files, emails, activities, ...) are transferred during the process to the target entity. There are exceptions for entities like invoices or history that are not transferred and remain linked to the original deal. If the conversion is successful, the deal is marked as deleted. To retrieve the created entity ID and the result of the conversion, call the <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDealConversionStatus\">/api/v2/deals/{deal_id}/convert/status/{conversion_id}</a> endpoint.
+         * @summary Convert a deal to a lead (BETA)
+         * @param {DealsApiConvertDealToLeadRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        convertDealToLead(requestParameters: DealsApiConvertDealToLeadRequest, ): Promise<AddConvertDealToLeadResponse> {
+            return localVarFp.convertDealToLead(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        /**
          * Removes a discount from a deal, changing the deal value if the deal has one-time products attached.
          * @summary Delete a discount from a deal
          * @param {DealsApiDeleteAdditionalDiscountRequest} requestParameters Request parameters.
@@ -1722,6 +1990,16 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.getAdditionalDiscounts(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
+         * Returns data about all archived deals.
+         * @summary Get all archived deals
+         * @param {DealsApiGetArchivedDealsRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        getArchivedDeals(requestParameters: DealsApiGetArchivedDealsRequest = {}, ): Promise<GetDealsResponse> {
+            return localVarFp.getArchivedDeals(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.person_id, requestParameters.org_id, requestParameters.pipeline_id, requestParameters.stage_id, requestParameters.status, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
+        /**
          * Returns the details of a specific deal.
          * @summary Get details of a deal
          * @param {DealsApiGetDealRequest} requestParameters Request parameters.
@@ -1730,6 +2008,16 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          */
         getDeal(requestParameters: DealsApiGetDealRequest, ): Promise<UpsertDealResponse> {
             return localVarFp.getDeal(requestParameters.id, requestParameters.include_fields, requestParameters.custom_fields, ).then((request) => request(axios, basePath));
+        },
+        /**
+         * Returns information about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Lead ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
+         * @summary Get Deal conversion status (BETA)
+         * @param {DealsApiGetDealConversionStatusRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        getDealConversionStatus(requestParameters: DealsApiGetDealConversionStatusRequest, ): Promise<GetConvertResponse1> {
+            return localVarFp.getDealConversionStatus(requestParameters.id, requestParameters.conversion_id, ).then((request) => request(axios, basePath));
         },
         /**
          * Lists users who are following the deal.
@@ -1762,7 +2050,7 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.getDealProducts(requestParameters.id, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, ).then((request) => request(axios, basePath));
         },
         /**
-         * Returns data about all deals.
+         * Returns data about all not archived deals.
          * @summary Get all deals
          * @param {DealsApiGetDealsRequest} requestParameters Request parameters.
 
@@ -1921,6 +2209,20 @@ export interface DealsApiAddDealProductRequest {
 }
 
 /**
+ * Request parameters for convertDealToLead operation in DealsApi.
+ * @export
+ * @interface DealsApiConvertDealToLeadRequest
+ */
+export interface DealsApiConvertDealToLeadRequest {
+    /**
+     * The ID of the deal to convert
+     * @type {number}
+     * @memberof DealsApiConvertDealToLead
+     */
+    readonly id: number
+}
+
+/**
  * Request parameters for deleteAdditionalDiscount operation in DealsApi.
  * @export
  * @interface DealsApiDeleteAdditionalDiscountRequest
@@ -2033,6 +2335,125 @@ export interface DealsApiGetAdditionalDiscountsRequest {
 }
 
 /**
+ * Request parameters for getArchivedDeals operation in DealsApi.
+ * @export
+ * @interface DealsApiGetArchivedDealsRequest
+ */
+export interface DealsApiGetArchivedDealsRequest {
+    /**
+     * If supplied, only deals matching the specified filter are returned
+     * @type {number}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly filter_id?: number
+
+    /**
+     * Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+     * @type {string}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly ids?: string
+
+    /**
+     * If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored.
+     * @type {number}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly owner_id?: number
+
+    /**
+     * If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored.
+     * @type {number}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly person_id?: number
+
+    /**
+     * If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored.
+     * @type {number}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly org_id?: number
+
+    /**
+     * If supplied, only deals in the specified pipeline are returned. If filter_id is provided, this is ignored.
+     * @type {number}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly pipeline_id?: number
+
+    /**
+     * If supplied, only deals in the specified stage are returned. If filter_id is provided, this is ignored.
+     * @type {number}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly stage_id?: number
+
+    /**
+     * Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. Multiple statuses can be included as a comma separated array. If filter_id is provided, this is ignored.
+     * @type {'open' | 'won' | 'lost' | 'deleted'}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly status?: 'open' | 'won' | 'lost' | 'deleted'
+
+    /**
+     * If set, only deals with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
+     * @type {string}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly updated_since?: string
+
+    /**
+     * If set, only deals with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
+     * @type {string}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly updated_until?: string
+
+    /**
+     * The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
+     * @type {'id' | 'update_time' | 'add_time'}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly sort_by?: 'id' | 'update_time' | 'add_time'
+
+    /**
+     * The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
+     * @type {'asc' | 'desc'}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly sort_direction?: 'asc' | 'desc'
+
+    /**
+     * Optional comma separated string array of additional fields to include
+     * @type {'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time'}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly include_fields?: 'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time'
+
+    /**
+     * Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+     * @type {string}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly custom_fields?: string
+
+    /**
+     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+     * @type {number}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly limit?: number
+
+    /**
+     * For pagination, the marker (an opaque string value) representing the first item on the next page
+     * @type {string}
+     * @memberof DealsApiGetArchivedDeals
+     */
+    readonly cursor?: string
+}
+
+/**
  * Request parameters for getDeal operation in DealsApi.
  * @export
  * @interface DealsApiGetDealRequest
@@ -2058,6 +2479,27 @@ export interface DealsApiGetDealRequest {
      * @memberof DealsApiGetDeal
      */
     readonly custom_fields?: string
+}
+
+/**
+ * Request parameters for getDealConversionStatus operation in DealsApi.
+ * @export
+ * @interface DealsApiGetDealConversionStatusRequest
+ */
+export interface DealsApiGetDealConversionStatusRequest {
+    /**
+     * The ID of a deal
+     * @type {number}
+     * @memberof DealsApiGetDealConversionStatus
+     */
+    readonly id: number
+
+    /**
+     * The ID of the conversion
+     * @type {string}
+     * @memberof DealsApiGetDealConversionStatus
+     */
+    readonly conversion_id: string
 }
 
 /**
@@ -2622,6 +3064,18 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
+     * Initiates a conversion of a deal to a lead. The return value is an ID of a job that was assigned to perform the conversion. Related entities (notes, files, emails, activities, ...) are transferred during the process to the target entity. There are exceptions for entities like invoices or history that are not transferred and remain linked to the original deal. If the conversion is successful, the deal is marked as deleted. To retrieve the created entity ID and the result of the conversion, call the <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDealConversionStatus\">/api/v2/deals/{deal_id}/convert/status/{conversion_id}</a> endpoint.
+     * @summary Convert a deal to a lead (BETA)
+     * @param {DealsApiConvertDealToLeadRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public convertDealToLead(requestParameters: DealsApiConvertDealToLeadRequest, ) {
+        return DealsApiFp(this.configuration).convertDealToLead(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Removes a discount from a deal, changing the deal value if the deal has one-time products attached.
      * @summary Delete a discount from a deal
      * @param {DealsApiDeleteAdditionalDiscountRequest} requestParameters Request parameters.
@@ -2694,6 +3148,18 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
+     * Returns data about all archived deals.
+     * @summary Get all archived deals
+     * @param {DealsApiGetArchivedDealsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public getArchivedDeals(requestParameters: DealsApiGetArchivedDealsRequest = {}, ) {
+        return DealsApiFp(this.configuration).getArchivedDeals(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.person_id, requestParameters.org_id, requestParameters.pipeline_id, requestParameters.stage_id, requestParameters.status, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns the details of a specific deal.
      * @summary Get details of a deal
      * @param {DealsApiGetDealRequest} requestParameters Request parameters.
@@ -2703,6 +3169,18 @@ export class DealsApi extends BaseAPI {
      */
     public getDeal(requestParameters: DealsApiGetDealRequest, ) {
         return DealsApiFp(this.configuration).getDeal(requestParameters.id, requestParameters.include_fields, requestParameters.custom_fields, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Returns information about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Lead ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
+     * @summary Get Deal conversion status (BETA)
+     * @param {DealsApiGetDealConversionStatusRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public getDealConversionStatus(requestParameters: DealsApiGetDealConversionStatusRequest, ) {
+        return DealsApiFp(this.configuration).getDealConversionStatus(requestParameters.id, requestParameters.conversion_id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2742,7 +3220,7 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
-     * Returns data about all deals.
+     * Returns data about all not archived deals.
      * @summary Get all deals
      * @param {DealsApiGetDealsRequest} requestParameters Request parameters.
 
