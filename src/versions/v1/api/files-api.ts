@@ -71,7 +71,7 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
             const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
 
             // authentication api_key required
-            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
 
             // authentication oauth2 required
             // oauth required
@@ -155,7 +155,7 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
             const localVarFormParams = new URLSearchParams();
 
             // authentication api_key required
-            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
 
             // authentication oauth2 required
             // oauth required
@@ -219,7 +219,7 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
             const localVarQueryParameter = {} as any;
 
             // authentication api_key required
-            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
 
             // authentication oauth2 required
             // oauth required
@@ -260,7 +260,7 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
             const localVarQueryParameter = {} as any;
 
             // authentication api_key required
-            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
 
             // authentication oauth2 required
             // oauth required
@@ -301,7 +301,7 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
             const localVarQueryParameter = {} as any;
 
             // authentication api_key required
-            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
 
             // authentication oauth2 required
             // oauth required
@@ -341,7 +341,7 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
             const localVarQueryParameter = {} as any;
 
             // authentication api_key required
-            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
 
             // authentication oauth2 required
             // oauth required
@@ -403,7 +403,7 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
             const localVarFormParams = new URLSearchParams();
 
             // authentication api_key required
-            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
 
             // authentication oauth2 required
             // oauth required
@@ -466,7 +466,7 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
             const localVarFormParams = new URLSearchParams();
 
             // authentication api_key required
-            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
 
             // authentication oauth2 required
             // oauth required

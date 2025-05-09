@@ -62,7 +62,7 @@ export const LeadsApiAxiosParamCreator = function (configuration?: Configuration
             const localVarQueryParameter = {} as any;
 
             // authentication api_key required
-            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
 
             // authentication oauth2 required
             // oauth required
@@ -110,7 +110,7 @@ export const LeadsApiAxiosParamCreator = function (configuration?: Configuration
             const localVarQueryParameter = {} as any;
 
             // authentication api_key required
-            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
 
             // authentication oauth2 required
             // oauth required
@@ -157,7 +157,7 @@ export const LeadsApiAxiosParamCreator = function (configuration?: Configuration
             const localVarQueryParameter = {} as any;
 
             // authentication api_key required
-            await setApiKeyToObject(localVarQueryParameter, "api_token", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
 
             // authentication oauth2 required
             // oauth required
