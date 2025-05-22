@@ -61,6 +61,16 @@ export interface NewDealParameters {
     */
     'stage_id'?: number;
     /**
+    * Whether the deal is archived or not. If omitted, is_archived will be set to false.
+    * @type {boolean}
+    */
+    'is_archived'?: boolean;
+    /**
+    * The optional date and time of archiving the deal in UTC. Format: YYYY-MM-DD HH:MM:SS. If omitted and `is_archived` is true, it will be set to the current date and time.
+    * @type {string}
+    */
+    'archive_time'?: string;
+    /**
     * open = Open, won = Won, lost = Lost, deleted = Deleted. If omitted, status will be set to open.
     * @type {string}
     */

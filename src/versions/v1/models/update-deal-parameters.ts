@@ -61,6 +61,11 @@ export interface UpdateDealParameters {
     */
     'stage_id'?: number;
     /**
+    * Whether the deal is archived or not
+    * @type {boolean}
+    */
+    'is_archived'?: boolean;
+    /**
     * open = Open, won = Won, lost = Lost, deleted = Deleted.
     * @type {string}
     */
