@@ -66,7 +66,7 @@ export const LeadsApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "leads:full"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["leads:full"], configuration)
 
 
     
@@ -114,7 +114,7 @@ export const LeadsApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["leads:read"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["leads:full", "leads:read"], configuration)
 
 
     

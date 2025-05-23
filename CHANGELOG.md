@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [27.1.1] - 2025-05-23
+### Fixed
+- Fixed the OAuth scopes of Deal to Lead conversion and Lead to Deal conversion endpoints
+
 ## [27.1.0] - 2025-05-23
 ### Added
 - Added `smart_bcc_email` to optional `include_fields` in Deals API v2
@@ -396,7 +400,7 @@ Based on this [Changelog post](https://developers.pipedrive.com/changelog/post/r
 ## [19.0.1] - 2023-04-27
 ### Changed
 - Updated `label` field data type in response examples from number -> string for Deals related endpoints
-Changed `active_flag`, `enabled_flag`, and `selectable` body parameters and response examples data type from number -> boolean for all Products related endpoints
+- Changed `active_flag`, `enabled_flag`, and `selectable` body parameters and response examples data type from number -> boolean for all Products related endpoints
 
 ## [19.0.0] - 2023-04-04
 ### Removed
@@ -485,7 +489,7 @@ Based on this [Changelog post](https://developers.pipedrive.com/changelog/post/b
 
 ## 18.0.0
 ### Security
-- Removed `.instance` static property from sdk client to prevent race conditions when using it as a singleton
+- Removed `.instance` static property from sdk client to prevent race conditions when using it as a singleton.
 See the updated examples in the readme to get an overview of the necessary code changes.
 
 ## 17.5.2
@@ -635,9 +639,12 @@ See the updated examples in the readme to get an overview of the necessary code 
 - Renamed file with long name and it's class.
 
 Old name:
-  AnyOfRecentsActivityRecentsActivityTypeRecentsDealRecentsFileRecentsFilterRecentsNoteRecentsPersonRecentsOrganizationRecentsPipelineRecentsProductRecentsStageRecentsUser
+
+AnyOfRecentsActivityRecentsActivityTypeRecentsDealRecentsFileRecentsFilterRecentsNoteRecentsPersonRecentsOrganizationRecentsPipelineRecentsProductRecentsStageRecentsUser
+
 New name:
-  AnyOfRecents
+
+AnyOfRecents
 
 ## 14.0.1
 ### Fixed
@@ -812,7 +819,7 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 ## 12.2.0
 ### Changed
 - Changed notes and comments endpoints additional_data to match the correct pagination response
-structure
+  structure
 * GET /notes
 * GET /notes/:id/comments
 
@@ -882,7 +889,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v27.1.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v27.1.1...HEAD
+[27.1.1]: https://github.com/pipedrive/api-docs/compare/v27.1.0...v27.1.1
 [27.1.0]: https://github.com/pipedrive/api-docs/compare/v27.0.1...v27.1.0
 [27.0.1]: https://github.com/pipedrive/api-docs/compare/v27.0.0...v27.0.1
 [27.0.0]: https://github.com/pipedrive/api-docs/compare/v26.0.0...v27.0.0
