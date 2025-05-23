@@ -66,11 +66,6 @@ export interface BaseDeal {
     */
     'deleted'?: boolean;
     /**
-    * Whether the deal is archived or not
-    * @type {boolean}
-    */
-    'is_archived'?: boolean;
-    /**
     * The status of the deal
     * @type {string}
     */
