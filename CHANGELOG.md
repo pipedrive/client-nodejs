@@ -7,6 +7,8 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+
+## [27.1.0] - 2025-05-23
 ### Added
 - Added `smart_bcc_email` to optional `include_fields` in Deals API v2
 
@@ -880,7 +882,8 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v27.0.1...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v27.1.0...HEAD
+[27.1.0]: https://github.com/pipedrive/api-docs/compare/v27.0.1...v27.1.0
 [27.0.1]: https://github.com/pipedrive/api-docs/compare/v27.0.0...v27.0.1
 [27.0.0]: https://github.com/pipedrive/api-docs/compare/v26.0.0...v27.0.0
 [26.0.0]: https://github.com/pipedrive/api-docs/compare/v25.0.0...v26.0.0
