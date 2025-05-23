@@ -81,6 +81,16 @@ export interface UpdateDealRequest {
     */
     'is_deleted'?: boolean;
     /**
+    * Whether the deal is archived or not
+    * @type {boolean}
+    */
+    'is_archived'?: boolean;
+    /**
+    * The optional date and time of archiving the deal in UTC. Format: YYYY-MM-DD HH:MM:SS. If omitted and `is_archived` is true, it will be set to the current date and time.
+    * @type {string}
+    */
+    'archive_time'?: string;
+    /**
     * The status of the deal
     * @type {string}
     */
