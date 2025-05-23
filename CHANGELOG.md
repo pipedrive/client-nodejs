@@ -629,6 +629,15 @@ AnyOfRecents
 ### Changed
 - Changed the changelog file to test the SDK generation automation
 
+## [27.1.0] - 2025-05-23
+### Added
+- Added `smart_bcc_email` to optional `include_fields` in Deals API v2
+
+## [27.0.1] - 2025-05-23
+### Added
+- Added `is_archived` to request bodies of POST `deals` endpoints and PUT/PATCH `/deals/:id` endpoints
+- Added `archive_time` to request bodies of POST `deals` endpoints
+
 ## [27.0.0] - 2025-05-09
 ### Changed
 - Send token in the `x-api-token` header instead of `api_token` query parameter
@@ -1494,7 +1503,9 @@ structure
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v27.0.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v27.1.0...HEAD
+[27.1.0]: https://github.com/pipedrive/api-docs/compare/v27.0.1...v27.1.0
+[27.0.1]: https://github.com/pipedrive/api-docs/compare/v27.0.0...v27.0.1
 [27.0.0]: https://github.com/pipedrive/api-docs/compare/v26.0.0...v27.0.0
 [26.0.0]: https://github.com/pipedrive/api-docs/compare/v25.0.0...v26.0.0
 [25.0.0]: https://github.com/pipedrive/api-docs/compare/v24.2.0...v25.0.0
