@@ -1,4 +1,3 @@
-
 ## Related Tickets & Documents
 
 <!--
