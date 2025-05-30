@@ -49,10 +49,12 @@ app.listen(PORT, () => {
 
 app.get("/", async (req, res) => {
   const dealsApi = new DealsApi(apiConfig);
-  const response = await dealsApi.getDeals();
-  const { data: deals } = response;
+  const responseAllDeals = await dealsApi.getDeals();
+  const { data: deals } = responseAllDeals;
+  const responseOneDeal = await dealsApi.getDeal({ id: 1 });
+  const { data: deal } = responseOneDeal;
 
-  res.send(deals);
+  res.send({ deals, deal });
 });
 ```
 
