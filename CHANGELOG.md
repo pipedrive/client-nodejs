@@ -8,6 +8,11 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [27.2.0] - 2025-06-02
+### Changed
+- Bump `axios` from `1.3.3` to `1.9.0`
+- Update README with an example of fetching deal details
+
 ## [27.1.1] - 2025-05-23
 ### Fixed
 - Fixed the OAuth scopes of Deal to Lead conversion and Lead to Deal conversion endpoints
@@ -889,7 +894,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v27.1.1...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v27.2.0...HEAD
+[27.2.0]: https://github.com/pipedrive/api-docs/compare/v27.1.1...v27.2.0
 [27.1.1]: https://github.com/pipedrive/api-docs/compare/v27.1.0...v27.1.1
 [27.1.0]: https://github.com/pipedrive/api-docs/compare/v27.0.1...v27.1.0
 [27.0.1]: https://github.com/pipedrive/api-docs/compare/v27.0.0...v27.0.1
