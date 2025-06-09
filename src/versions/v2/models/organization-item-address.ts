@@ -15,7 +15,7 @@
 
 
 /**
-* 
+* The address of the organization
 * @export
 * @interface OrganizationItemAddress
 */
