@@ -13,6 +13,9 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { OrganizationItemAddress } from './organization-item-address';
 
 /**
 * 
@@ -50,5 +53,10 @@ export interface UpdateOrganizationRequest {
     * @type {Array<number>}
     */
     'label_ids'?: Array<number>;
+    /**
+    * 
+    * @type {OrganizationItemAddress}
+    */
+    'address'?: OrganizationItemAddress;
 }
 
