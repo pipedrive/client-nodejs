@@ -173,11 +173,10 @@ export const StagesApiAxiosParamCreator = function (configuration?: Configuratio
          * Returns data about a specific stage.
          * @summary Get one stage
          * @param {number} id The ID of the stage
-         * @param {0 | 1} [everyone] If &#x60;everyone&#x3D;1&#x60; is provided, deals summary will return deals owned by every user
          * @deprecated
          * @throws {RequiredError}
          */
-        getStage: async (id: number, everyone?: 0 | 1, ): Promise<RequestArgs> => {
+        getStage: async (id: number, ): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getStage', 'id', id)
             const localVarPath = `/stages/{id}`
@@ -199,10 +198,6 @@ export const StagesApiAxiosParamCreator = function (configuration?: Configuratio
             // authentication oauth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full", "admin"], configuration)
-
-            if (everyone !== undefined) {
-                localVarQueryParameter['everyone'] = everyone;
-            }
 
 
     
@@ -426,12 +421,11 @@ export const StagesApiFp = function(configuration?: Configuration) {
          * Returns data about a specific stage.
          * @summary Get one stage
          * @param {number} id The ID of the stage
-         * @param {0 | 1} [everyone] If &#x60;everyone&#x3D;1&#x60; is provided, deals summary will return deals owned by every user
          * @deprecated
          * @throws {RequiredError}
          */
-        async getStage(id: number, everyone?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetStageResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getStage(id, everyone, );
+        async getStage(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetStageResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getStage(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -523,7 +517,7 @@ export const StagesApiFactory = function (configuration?: Configuration, basePat
          * @throws {RequiredError}
          */
         getStage(requestParameters: StagesApiGetStageRequest, ): Promise<GetStageResponse> {
-            return localVarFp.getStage(requestParameters.id, requestParameters.everyone, ).then((request) => request(axios, basePath));
+            return localVarFp.getStage(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Lists deals in a specific stage. If no parameters are provided open deals owned by the authorized user will be returned. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?stage_id={id}</a> instead.
@@ -612,13 +606,6 @@ export interface StagesApiGetStageRequest {
      * @memberof StagesApiGetStage
      */
     readonly id: number
-
-    /**
-     * If &#x60;everyone&#x3D;1&#x60; is provided, deals summary will return deals owned by every user
-     * @type {0 | 1}
-     * @memberof StagesApiGetStage
-     */
-    readonly everyone?: 0 | 1
 }
 
 /**
@@ -771,7 +758,7 @@ export class StagesApi extends BaseAPI {
      * @memberof StagesApi
      */
     public getStage(requestParameters: StagesApiGetStageRequest, ) {
-        return StagesApiFp(this.configuration).getStage(requestParameters.id, requestParameters.everyone, ).then((request) => request(this.axios, this.basePath));
+        return StagesApiFp(this.configuration).getStage(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**

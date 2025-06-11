@@ -130,14 +130,13 @@ export const PipelinesApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         * Returns data about a specific pipeline. Also returns the summary of the deals in this pipeline across its stages.
+         * Returns data about a specific pipeline.
          * @summary Get one pipeline
          * @param {number} id The ID of the pipeline
-         * @param {string} [totals_convert_currency] The 3-letter currency code of any of the supported currencies. When supplied, &#x60;per_stages_converted&#x60; is returned in &#x60;deals_summary&#x60; which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to &#x60;default_currency&#x60; in which case users default currency is used.
          * @deprecated
          * @throws {RequiredError}
          */
-        getPipeline: async (id: number, totals_convert_currency?: string, ): Promise<RequestArgs> => {
+        getPipeline: async (id: number, ): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getPipeline', 'id', id)
             const localVarPath = `/pipelines/{id}`
@@ -159,10 +158,6 @@ export const PipelinesApiAxiosParamCreator = function (configuration?: Configura
             // authentication oauth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full", "admin"], configuration)
-
-            if (totals_convert_currency !== undefined) {
-                localVarQueryParameter['totals_convert_currency'] = totals_convert_currency;
-            }
 
 
     
@@ -500,15 +495,14 @@ export const PipelinesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns data about a specific pipeline. Also returns the summary of the deals in this pipeline across its stages.
+         * Returns data about a specific pipeline.
          * @summary Get one pipeline
          * @param {number} id The ID of the pipeline
-         * @param {string} [totals_convert_currency] The 3-letter currency code of any of the supported currencies. When supplied, &#x60;per_stages_converted&#x60; is returned in &#x60;deals_summary&#x60; which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to &#x60;default_currency&#x60; in which case users default currency is used.
          * @deprecated
          * @throws {RequiredError}
          */
-        async getPipeline(id: number, totals_convert_currency?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPipelineResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPipeline(id, totals_convert_currency, );
+        async getPipeline(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPipelineResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPipeline(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -611,14 +605,14 @@ export const PipelinesApiFactory = function (configuration?: Configuration, base
             return localVarFp.deletePipeline(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
-         * Returns data about a specific pipeline. Also returns the summary of the deals in this pipeline across its stages.
+         * Returns data about a specific pipeline.
          * @summary Get one pipeline
          * @param {PipelinesApiGetPipelineRequest} requestParameters Request parameters.
          * @deprecated
          * @throws {RequiredError}
          */
         getPipeline(requestParameters: PipelinesApiGetPipelineRequest, ): Promise<GetPipelineResponse> {
-            return localVarFp.getPipeline(requestParameters.id, requestParameters.totals_convert_currency, ).then((request) => request(axios, basePath));
+            return localVarFp.getPipeline(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns all stage-to-stage conversion and pipeline-to-close rates for the given time period.
@@ -712,13 +706,6 @@ export interface PipelinesApiGetPipelineRequest {
      * @memberof PipelinesApiGetPipeline
      */
     readonly id: number
-
-    /**
-     * The 3-letter currency code of any of the supported currencies. When supplied, &#x60;per_stages_converted&#x60; is returned in &#x60;deals_summary&#x60; which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to &#x60;default_currency&#x60; in which case users default currency is used.
-     * @type {string}
-     * @memberof PipelinesApiGetPipeline
-     */
-    readonly totals_convert_currency?: string
 }
 
 /**
@@ -914,7 +901,7 @@ export class PipelinesApi extends BaseAPI {
     }
 
     /**
-     * Returns data about a specific pipeline. Also returns the summary of the deals in this pipeline across its stages.
+     * Returns data about a specific pipeline.
      * @summary Get one pipeline
      * @param {PipelinesApiGetPipelineRequest} requestParameters Request parameters.
      * @deprecated
@@ -922,7 +909,7 @@ export class PipelinesApi extends BaseAPI {
      * @memberof PipelinesApi
      */
     public getPipeline(requestParameters: PipelinesApiGetPipelineRequest, ) {
-        return PipelinesApiFp(this.configuration).getPipeline(requestParameters.id, requestParameters.totals_convert_currency, ).then((request) => request(this.axios, this.basePath));
+        return PipelinesApiFp(this.configuration).getPipeline(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
