@@ -7,6 +7,10 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Removed
+- Removed `deals_summary` from `GET /v1/stages/:id` and `GET /v1/pipelines/:id`
+- Removed `totals_convert_currency` query parameter from `GET /v1/pipelines/:id`
+- Removed `everyone` query parameter from `GET /v1/stages/:id`
 
 ## [27.2.1] - 2025-06-09
 ### Added
