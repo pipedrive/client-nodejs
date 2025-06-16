@@ -16,18 +16,12 @@
 // May contain unused imports in some cases
 // @ts-ignore
 import { BaseStage } from './base-stage';
-// May contain unused imports in some cases
-// @ts-ignore
-import { PipelineDetailsAllOfDealsSummary } from './pipeline-details-all-of-deals-summary';
-// May contain unused imports in some cases
-// @ts-ignore
-import { StageDetailsData } from './stage-details-data';
 
 /**
  * @type GetStageResponseData
  * The stage object
  * @export
  */
-export type GetStageResponseData = BaseStage & StageDetailsData;
+export type GetStageResponseData = BaseStage;
 
 

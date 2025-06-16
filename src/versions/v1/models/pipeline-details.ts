@@ -16,18 +16,12 @@
 // May contain unused imports in some cases
 // @ts-ignore
 import { BasePipelineWithSelectedFlag } from './base-pipeline-with-selected-flag';
-// May contain unused imports in some cases
-// @ts-ignore
-import { PipelineDetailsAllOf } from './pipeline-details-all-of';
-// May contain unused imports in some cases
-// @ts-ignore
-import { PipelineDetailsAllOfDealsSummary } from './pipeline-details-all-of-deals-summary';
 
 /**
  * @type PipelineDetails
  * The pipeline object
  * @export
  */
-export type PipelineDetails = BasePipelineWithSelectedFlag & PipelineDetailsAllOf;
+export type PipelineDetails = BasePipelineWithSelectedFlag;
 
 
