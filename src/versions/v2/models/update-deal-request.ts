@@ -61,21 +61,6 @@ export interface UpdateDealRequest {
     */
     'currency'?: string;
     /**
-    * The creation date and time of the deal
-    * @type {string}
-    */
-    'add_time'?: string;
-    /**
-    * The last updated date and time of the deal
-    * @type {string}
-    */
-    'update_time'?: string;
-    /**
-    * The last updated date and time of the deal stage
-    * @type {string}
-    */
-    'stage_change_time'?: string;
-    /**
     * Whether the deal is deleted or not
     * @type {boolean}
     */
