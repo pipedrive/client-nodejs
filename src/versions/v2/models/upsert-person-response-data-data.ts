@@ -15,6 +15,9 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
+import { DealItemCustomFieldsValue } from './deal-item-custom-fields-value';
+// May contain unused imports in some cases
+// @ts-ignore
 import { GetPersonsResponseAllOfDataInnerEmailsInner } from './get-persons-response-all-of-data-inner-emails-inner';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -127,5 +130,10 @@ export interface UpsertPersonResponseDataData {
     * @type {string}
     */
     'job_title'?: string;
+    /**
+    * A map of custom fields with hash-based keys
+    * @type {{ [key: string]: DealItemCustomFieldsValue | undefined; }}
+    */
+    'custom_fields'?: { [key: string]: DealItemCustomFieldsValue | undefined; };
 }
 
