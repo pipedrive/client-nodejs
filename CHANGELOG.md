@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [28.0.2] - 2025-07-07
+### Added
+- Added `custom_fields` type to `deal`, `person`, `organization`, `product` schemas
+
 ## [28.0.1] - 2025-06-25
 ### Fixed
 - Removed not supported `add_time`, `update_time` and `stage_change_time` from `PATCH /v2/deals/:id` request body
@@ -910,7 +914,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v28.0.1...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v28.0.2...HEAD
+[28.0.2]: https://github.com/pipedrive/api-docs/compare/v28.0.1...v28.0.2
 [28.0.1]: https://github.com/pipedrive/api-docs/compare/v28.0.0...v28.0.1
 [28.0.0]: https://github.com/pipedrive/api-docs/compare/v27.2.1...v28.0.0
 [27.2.1]: https://github.com/pipedrive/api-docs/compare/v27.2.0...v27.2.1
