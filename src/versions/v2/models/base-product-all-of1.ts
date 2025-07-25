@@ -21,7 +21,7 @@
 */
 export interface BaseProductAllOf1 {
     /**
-    * Only available in Advanced and above plans  How often a customer is billed for access to a service or product 
+    * Only available in Growth and above plans  How often a customer is billed for access to a service or product 
     * @type {string}
     */
     'billing_frequency'?: BaseProductAllOf1BillingFrequencyConst;

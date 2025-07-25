@@ -26,11 +26,15 @@ import { AddDealFollowerRequest } from '../models';
 // @ts-ignore
 import { AddFollowerResponse } from '../models';
 // @ts-ignore
+import { AddProductImageResponse } from '../models';
+// @ts-ignore
 import { AddProductRequest } from '../models';
 // @ts-ignore
 import { AddProductVariationRequest } from '../models';
 // @ts-ignore
 import { DeleteFollowerResponse } from '../models';
+// @ts-ignore
+import { DeleteProductImageResponse } from '../models';
 // @ts-ignore
 import { DeleteProductResponse } from '../models';
 // @ts-ignore
@@ -39,6 +43,8 @@ import { DeleteProductVariationResponse } from '../models';
 import { GetFollowerChangelogsResponse } from '../models';
 // @ts-ignore
 import { GetFollowersResponse } from '../models';
+// @ts-ignore
+import { GetProductImageResponse } from '../models';
 // @ts-ignore
 import { GetProductResponse } from '../models';
 // @ts-ignore
@@ -49,6 +55,8 @@ import { GetProductVariationResponse } from '../models';
 import { GetProductVariationsResponse } from '../models';
 // @ts-ignore
 import { GetProductsResponse } from '../models';
+// @ts-ignore
+import { UpdateProductImageResponse } from '../models';
 // @ts-ignore
 import { UpdateProductRequest } from '../models';
 // @ts-ignore
@@ -279,6 +287,47 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
+         * Deletes the image of a product.
+         * @summary Delete an image of a product
+         * @param {number} id The ID of the product
+
+         * @throws {RequiredError}
+         */
+        deleteProductImage: async (id: number, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteProductImage', 'id', id)
+            const localVarPath = `/products/{id}/images`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full"], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Deletes a product variation.
          * @summary Delete a product variation
          * @param {number} id The ID of the product
@@ -454,6 +503,47 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             if (cursor !== undefined) {
                 localVarQueryParameter['cursor'] = cursor;
             }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieves the image of a product. The public URL has a limited lifetime of 7 days.
+         * @summary Get image of a product
+         * @param {number} id The ID of the product
+
+         * @throws {RequiredError}
+         */
+        getProductImage: async (id: number, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getProductImage', 'id', id)
+            const localVarPath = `/products/{id}/images`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:read", "products:full"], configuration)
 
 
     
@@ -709,6 +799,58 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
+         * Updates the image of a product.
+         * @summary Update an image for a product
+         * @param {number} id The ID of the product
+         * @param {File} data One image supplied in the multipart/form-data encoding
+
+         * @throws {RequiredError}
+         */
+        updateProductImage: async (id: number, data: File, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateProductImage', 'id', id)
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('updateProductImage', 'data', data)
+            const localVarPath = `/products/{id}/images`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full"], configuration)
+
+
+            if (data !== undefined) { 
+                localVarFormParams.append('data', data as any);
+            }
+    
+    
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+            localVarRequestOptions.data = localVarFormParams;
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Updates product variation data.
          * @summary Update a product variation
          * @param {number} id The ID of the product
@@ -751,6 +893,58 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
             localVarRequestOptions.data = serializeDataIfNeeded(UpdateProductVariationRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Uploads an image for a product.
+         * @summary Upload an image for a product
+         * @param {number} id The ID of the product
+         * @param {File} data One image supplied in the multipart/form-data encoding
+
+         * @throws {RequiredError}
+         */
+        uploadProductImage: async (id: number, data: File, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('uploadProductImage', 'id', id)
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('uploadProductImage', 'data', data)
+            const localVarPath = `/products/{id}/images`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full"], configuration)
+
+
+            if (data !== undefined) { 
+                localVarFormParams.append('data', data as any);
+            }
+    
+    
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+            localVarRequestOptions.data = localVarFormParams;
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -827,6 +1021,17 @@ export const ProductsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Deletes the image of a product.
+         * @summary Delete an image of a product
+         * @param {number} id The ID of the product
+
+         * @throws {RequiredError}
+         */
+        async deleteProductImage(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteProductImageResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProductImage(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Deletes a product variation.
          * @summary Delete a product variation
          * @param {number} id The ID of the product
@@ -873,6 +1078,17 @@ export const ProductsApiFp = function(configuration?: Configuration) {
          */
         async getProductFollowersChangelog(id: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFollowerChangelogsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProductFollowersChangelog(id, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Retrieves the image of a product. The public URL has a limited lifetime of 7 days.
+         * @summary Get image of a product
+         * @param {number} id The ID of the product
+
+         * @throws {RequiredError}
+         */
+        async getProductImage(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductImageResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProductImage(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -935,6 +1151,18 @@ export const ProductsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Updates the image of a product.
+         * @summary Update an image for a product
+         * @param {number} id The ID of the product
+         * @param {File} data One image supplied in the multipart/form-data encoding
+
+         * @throws {RequiredError}
+         */
+        async updateProductImage(id: number, data: File, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateProductImageResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProductImage(id, data, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Updates product variation data.
          * @summary Update a product variation
          * @param {number} id The ID of the product
@@ -945,6 +1173,18 @@ export const ProductsApiFp = function(configuration?: Configuration) {
          */
         async updateProductVariation(id: number, product_variation_id: number, UpdateProductVariationRequest?: UpdateProductVariationRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductVariationResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateProductVariation(id, product_variation_id, UpdateProductVariationRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Uploads an image for a product.
+         * @summary Upload an image for a product
+         * @param {number} id The ID of the product
+         * @param {File} data One image supplied in the multipart/form-data encoding
+
+         * @throws {RequiredError}
+         */
+        async uploadProductImage(id: number, data: File, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddProductImageResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.uploadProductImage(id, data, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -1008,6 +1248,16 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.deleteProductFollower(requestParameters.id, requestParameters.follower_id, ).then((request) => request(axios, basePath));
         },
         /**
+         * Deletes the image of a product.
+         * @summary Delete an image of a product
+         * @param {ProductsApiDeleteProductImageRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        deleteProductImage(requestParameters: ProductsApiDeleteProductImageRequest, ): Promise<DeleteProductImageResponse> {
+            return localVarFp.deleteProductImage(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        /**
          * Deletes a product variation.
          * @summary Delete a product variation
          * @param {ProductsApiDeleteProductVariationRequest} requestParameters Request parameters.
@@ -1046,6 +1296,16 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
          */
         getProductFollowersChangelog(requestParameters: ProductsApiGetProductFollowersChangelogRequest, ): Promise<GetFollowerChangelogsResponse> {
             return localVarFp.getProductFollowersChangelog(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieves the image of a product. The public URL has a limited lifetime of 7 days.
+         * @summary Get image of a product
+         * @param {ProductsApiGetProductImageRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        getProductImage(requestParameters: ProductsApiGetProductImageRequest, ): Promise<GetProductImageResponse> {
+            return localVarFp.getProductImage(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns data about all product variations.
@@ -1088,6 +1348,16 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.updateProduct(requestParameters.id, requestParameters.UpdateProductRequest, ).then((request) => request(axios, basePath));
         },
         /**
+         * Updates the image of a product.
+         * @summary Update an image for a product
+         * @param {ProductsApiUpdateProductImageRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        updateProductImage(requestParameters: ProductsApiUpdateProductImageRequest, ): Promise<UpdateProductImageResponse> {
+            return localVarFp.updateProductImage(requestParameters.id, requestParameters.data, ).then((request) => request(axios, basePath));
+        },
+        /**
          * Updates product variation data.
          * @summary Update a product variation
          * @param {ProductsApiUpdateProductVariationRequest} requestParameters Request parameters.
@@ -1096,6 +1366,16 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
          */
         updateProductVariation(requestParameters: ProductsApiUpdateProductVariationRequest, ): Promise<GetProductVariationResponse> {
             return localVarFp.updateProductVariation(requestParameters.id, requestParameters.product_variation_id, requestParameters.UpdateProductVariationRequest, ).then((request) => request(axios, basePath));
+        },
+        /**
+         * Uploads an image for a product.
+         * @summary Upload an image for a product
+         * @param {ProductsApiUploadProductImageRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        uploadProductImage(requestParameters: ProductsApiUploadProductImageRequest, ): Promise<AddProductImageResponse> {
+            return localVarFp.uploadProductImage(requestParameters.id, requestParameters.data, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1192,6 +1472,20 @@ export interface ProductsApiDeleteProductFollowerRequest {
 }
 
 /**
+ * Request parameters for deleteProductImage operation in ProductsApi.
+ * @export
+ * @interface ProductsApiDeleteProductImageRequest
+ */
+export interface ProductsApiDeleteProductImageRequest {
+    /**
+     * The ID of the product
+     * @type {number}
+     * @memberof ProductsApiDeleteProductImage
+     */
+    readonly id: number
+}
+
+/**
  * Request parameters for deleteProductVariation operation in ProductsApi.
  * @export
  * @interface ProductsApiDeleteProductVariationRequest
@@ -1280,6 +1574,20 @@ export interface ProductsApiGetProductFollowersChangelogRequest {
      * @memberof ProductsApiGetProductFollowersChangelog
      */
     readonly cursor?: string
+}
+
+/**
+ * Request parameters for getProductImage operation in ProductsApi.
+ * @export
+ * @interface ProductsApiGetProductImageRequest
+ */
+export interface ProductsApiGetProductImageRequest {
+    /**
+     * The ID of the product
+     * @type {number}
+     * @memberof ProductsApiGetProductImage
+     */
+    readonly id: number
 }
 
 /**
@@ -1444,6 +1752,27 @@ export interface ProductsApiUpdateProductRequest {
 }
 
 /**
+ * Request parameters for updateProductImage operation in ProductsApi.
+ * @export
+ * @interface ProductsApiUpdateProductImageRequest
+ */
+export interface ProductsApiUpdateProductImageRequest {
+    /**
+     * The ID of the product
+     * @type {number}
+     * @memberof ProductsApiUpdateProductImage
+     */
+    readonly id: number
+
+    /**
+     * One image supplied in the multipart/form-data encoding
+     * @type {File}
+     * @memberof ProductsApiUpdateProductImage
+     */
+    readonly data: File
+}
+
+/**
  * Request parameters for updateProductVariation operation in ProductsApi.
  * @export
  * @interface ProductsApiUpdateProductVariationRequest
@@ -1469,6 +1798,27 @@ export interface ProductsApiUpdateProductVariationRequest {
      * @memberof ProductsApiUpdateProductVariation
      */
     readonly UpdateProductVariationRequest?: UpdateProductVariationRequest
+}
+
+/**
+ * Request parameters for uploadProductImage operation in ProductsApi.
+ * @export
+ * @interface ProductsApiUploadProductImageRequest
+ */
+export interface ProductsApiUploadProductImageRequest {
+    /**
+     * The ID of the product
+     * @type {number}
+     * @memberof ProductsApiUploadProductImage
+     */
+    readonly id: number
+
+    /**
+     * One image supplied in the multipart/form-data encoding
+     * @type {File}
+     * @memberof ProductsApiUploadProductImage
+     */
+    readonly data: File
 }
 
 /**
@@ -1539,6 +1889,18 @@ export class ProductsApi extends BaseAPI {
     }
 
     /**
+     * Deletes the image of a product.
+     * @summary Delete an image of a product
+     * @param {ProductsApiDeleteProductImageRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public deleteProductImage(requestParameters: ProductsApiDeleteProductImageRequest, ) {
+        return ProductsApiFp(this.configuration).deleteProductImage(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Deletes a product variation.
      * @summary Delete a product variation
      * @param {ProductsApiDeleteProductVariationRequest} requestParameters Request parameters.
@@ -1584,6 +1946,18 @@ export class ProductsApi extends BaseAPI {
      */
     public getProductFollowersChangelog(requestParameters: ProductsApiGetProductFollowersChangelogRequest, ) {
         return ProductsApiFp(this.configuration).getProductFollowersChangelog(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieves the image of a product. The public URL has a limited lifetime of 7 days.
+     * @summary Get image of a product
+     * @param {ProductsApiGetProductImageRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public getProductImage(requestParameters: ProductsApiGetProductImageRequest, ) {
+        return ProductsApiFp(this.configuration).getProductImage(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1635,6 +2009,18 @@ export class ProductsApi extends BaseAPI {
     }
 
     /**
+     * Updates the image of a product.
+     * @summary Update an image for a product
+     * @param {ProductsApiUpdateProductImageRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public updateProductImage(requestParameters: ProductsApiUpdateProductImageRequest, ) {
+        return ProductsApiFp(this.configuration).updateProductImage(requestParameters.id, requestParameters.data, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates product variation data.
      * @summary Update a product variation
      * @param {ProductsApiUpdateProductVariationRequest} requestParameters Request parameters.
@@ -1644,5 +2030,17 @@ export class ProductsApi extends BaseAPI {
      */
     public updateProductVariation(requestParameters: ProductsApiUpdateProductVariationRequest, ) {
         return ProductsApiFp(this.configuration).updateProductVariation(requestParameters.id, requestParameters.product_variation_id, requestParameters.UpdateProductVariationRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Uploads an image for a product.
+     * @summary Upload an image for a product
+     * @param {ProductsApiUploadProductImageRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public uploadProductImage(requestParameters: ProductsApiUploadProductImageRequest, ) {
+        return ProductsApiFp(this.configuration).uploadProductImage(requestParameters.id, requestParameters.data, ).then((request) => request(this.axios, this.basePath));
     }
 }
