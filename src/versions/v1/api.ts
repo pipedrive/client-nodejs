@@ -49,7 +49,6 @@ export * from './api/projects-api';
 export * from './api/recents-api';
 export * from './api/roles-api';
 export * from './api/stages-api';
-export * from './api/subscriptions-api';
 export * from './api/tasks-api';
 export * from './api/user-connections-api';
 export * from './api/user-settings-api';

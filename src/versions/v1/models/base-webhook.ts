@@ -56,6 +56,11 @@ export interface BaseWebhook {
     */
     'subscription_url'?: string;
     /**
+    * The Webhook version
+    * @type {string}
+    */
+    'version'?: string;
+    /**
     * 
     * @type {number}
     */
@@ -86,11 +91,6 @@ export interface BaseWebhook {
     */
     'http_auth_password'?: string | null;
     /**
-    * Any additional data related to the Webhook
-    * @type {object}
-    */
-    'additional_data'?: object;
-    /**
     * The removal reason of the Webhook (if removed)
     * @type {string}
     */
@@ -110,6 +110,11 @@ export interface BaseWebhook {
     * @type {number}
     */
     'admin_id'?: number;
+    /**
+    * The Webhook name
+    * @type {string}
+    */
+    'name'?: string;
 }
 
                 export const BaseWebhookIsActiveConst = {

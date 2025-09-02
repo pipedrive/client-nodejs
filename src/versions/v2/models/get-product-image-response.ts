@@ -13,17 +13,25 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { GetProductImageResponseData } from './get-product-image-response-data';
 
 /**
 * 
 * @export
-* @interface GetDealsProductsResponseDataInnerAllOf3
+* @interface GetProductImageResponse
 */
-export interface GetDealsProductsResponseDataInnerAllOf3 {
+export interface GetProductImageResponse {
     /**
-    * Only available in Growth and above plans  The billing start date. Must be between 10 years in the past and 10 years in the future 
-    * @type {string}
+    * If the response is successful or not
+    * @type {boolean}
     */
-    'billing_start_date'?: string | null;
+    'success'?: boolean;
+    /**
+    * 
+    * @type {GetProductImageResponseData}
+    */
+    'data'?: GetProductImageResponseData;
 }
 

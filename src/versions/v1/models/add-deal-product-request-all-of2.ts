@@ -21,7 +21,7 @@
 */
 export interface AddDealProductRequestAllOf2 {
     /**
-    * Only available in Advanced and above plans  The billing start date. Must be between 10 years in the past and 10 years in the future 
+    * Only available in Growth and above plans  The billing start date. Must be between 10 years in the past and 10 years in the future 
     * @type {string}
     */
     'billing_start_date'?: string | null;

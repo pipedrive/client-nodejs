@@ -17,13 +17,13 @@
 /**
 * 
 * @export
-* @interface GetDealsProductsResponseDataInnerAllOf3
+* @interface DeleteProductImageResponseData
 */
-export interface GetDealsProductsResponseDataInnerAllOf3 {
+export interface DeleteProductImageResponseData {
     /**
-    * Only available in Growth and above plans  The billing start date. Must be between 10 years in the past and 10 years in the future 
-    * @type {string}
+    * The ID of the image that was deleted from the product.
+    * @type {number}
     */
-    'billing_start_date'?: string | null;
+    'id'?: number;
 }
 

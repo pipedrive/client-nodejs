@@ -438,7 +438,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Removes an installment from a deal.  Only available in Advanced and above plans. 
+         * Removes an installment from a deal.  Only available in Growth and above plans. 
          * @summary Delete an installment from a deal
          * @param {number} id The ID of the deal
          * @param {number} installment_id The ID of the installment
@@ -1081,7 +1081,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Lists installments attached to a list of deals.  Only available in Advanced and above plans. 
+         * Lists installments attached to a list of deals.  Only available in Growth and above plans. 
          * @summary List installments added to a list of deals
          * @param {Array<number>} deal_ids An array of integers with the IDs of the deals for which the attached installments will be returned. A maximum of 100 deal IDs can be provided.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
@@ -1190,7 +1190,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Advanced and above plans. 
+         * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Growth and above plans. 
          * @summary Add an installment to a deal
          * @param {number} id The ID of the deal
          * @param {AddInstallmentRequestBody} [AddInstallmentRequestBody] 
@@ -1462,7 +1462,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Edits an installment added to a deal.  Only available in Advanced and above plans. 
+         * Edits an installment added to a deal.  Only available in Growth and above plans. 
          * @summary Update an installment added to a deal
          * @param {number} id The ID of the deal
          * @param {number} installment_id The ID of the installment
@@ -1615,7 +1615,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Removes an installment from a deal.  Only available in Advanced and above plans. 
+         * Removes an installment from a deal.  Only available in Growth and above plans. 
          * @summary Delete an installment from a deal
          * @param {number} id The ID of the deal
          * @param {number} installment_id The ID of the installment
@@ -1771,7 +1771,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Lists installments attached to a list of deals.  Only available in Advanced and above plans. 
+         * Lists installments attached to a list of deals.  Only available in Growth and above plans. 
          * @summary List installments added to a list of deals
          * @param {Array<number>} deal_ids An array of integers with the IDs of the deals for which the attached installments will be returned. A maximum of 100 deal IDs can be provided.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
@@ -1798,7 +1798,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Advanced and above plans. 
+         * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Growth and above plans. 
          * @summary Add an installment to a deal
          * @param {number} id The ID of the deal
          * @param {AddInstallmentRequestBody} [AddInstallmentRequestBody] 
@@ -1867,7 +1867,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Edits an installment added to a deal.  Only available in Advanced and above plans. 
+         * Edits an installment added to a deal.  Only available in Growth and above plans. 
          * @summary Update an installment added to a deal
          * @param {number} id The ID of the deal
          * @param {number} installment_id The ID of the installment
@@ -1970,7 +1970,7 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.deleteDealProduct(requestParameters.id, requestParameters.product_attachment_id, ).then((request) => request(axios, basePath));
         },
         /**
-         * Removes an installment from a deal.  Only available in Advanced and above plans. 
+         * Removes an installment from a deal.  Only available in Growth and above plans. 
          * @summary Delete an installment from a deal
          * @param {DealsApiDeleteInstallmentRequest} requestParameters Request parameters.
 
@@ -2070,7 +2070,7 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.getDealsProducts(requestParameters.deal_ids, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, ).then((request) => request(axios, basePath));
         },
         /**
-         * Lists installments attached to a list of deals.  Only available in Advanced and above plans. 
+         * Lists installments attached to a list of deals.  Only available in Growth and above plans. 
          * @summary List installments added to a list of deals
          * @param {DealsApiGetInstallmentsRequest} requestParameters Request parameters.
 
@@ -2090,7 +2090,7 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.postAdditionalDiscount(requestParameters.id, requestParameters.AddAdditionalDiscountRequestBody, ).then((request) => request(axios, basePath));
         },
         /**
-         * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Advanced and above plans. 
+         * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Growth and above plans. 
          * @summary Add an installment to a deal
          * @param {DealsApiPostInstallmentRequest} requestParameters Request parameters.
 
@@ -2140,7 +2140,7 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.updateDealProduct(requestParameters.id, requestParameters.product_attachment_id, requestParameters.UpdateDealProductRequest, ).then((request) => request(axios, basePath));
         },
         /**
-         * Edits an installment added to a deal.  Only available in Advanced and above plans. 
+         * Edits an installment added to a deal.  Only available in Growth and above plans. 
          * @summary Update an installment added to a deal
          * @param {DealsApiUpdateInstallmentRequest} requestParameters Request parameters.
 
@@ -3124,7 +3124,7 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
-     * Removes an installment from a deal.  Only available in Advanced and above plans. 
+     * Removes an installment from a deal.  Only available in Growth and above plans. 
      * @summary Delete an installment from a deal
      * @param {DealsApiDeleteInstallmentRequest} requestParameters Request parameters.
 
@@ -3244,7 +3244,7 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
-     * Lists installments attached to a list of deals.  Only available in Advanced and above plans. 
+     * Lists installments attached to a list of deals.  Only available in Growth and above plans. 
      * @summary List installments added to a list of deals
      * @param {DealsApiGetInstallmentsRequest} requestParameters Request parameters.
 
@@ -3268,7 +3268,7 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
-     * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Advanced and above plans. 
+     * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Growth and above plans. 
      * @summary Add an installment to a deal
      * @param {DealsApiPostInstallmentRequest} requestParameters Request parameters.
 
@@ -3328,7 +3328,7 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
-     * Edits an installment added to a deal.  Only available in Advanced and above plans. 
+     * Edits an installment added to a deal.  Only available in Growth and above plans. 
      * @summary Update an installment added to a deal
      * @param {DealsApiUpdateInstallmentRequest} requestParameters Request parameters.
 
