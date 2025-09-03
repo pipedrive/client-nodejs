@@ -7,6 +7,8 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+
+## [29.0.0] - 2025-09-03
 ### Removed
 - Removed all endpoints of the Subscriptions feature
   - GET /v1/subscriptions/{id} 
@@ -925,7 +927,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v28.0.2...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v29.0.0...HEAD
+[29.0.0]: https://github.com/pipedrive/api-docs/compare/v28.0.2...v29.0.0
 [28.0.2]: https://github.com/pipedrive/api-docs/compare/v28.0.1...v28.0.2
 [28.0.1]: https://github.com/pipedrive/api-docs/compare/v28.0.0...v28.0.1
 [28.0.0]: https://github.com/pipedrive/api-docs/compare/v27.2.1...v28.0.0
