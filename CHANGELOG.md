@@ -8,6 +8,14 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [29.1.0] - 2025-09-03
+### Added
+- Add documentation for product images functionality:
+  - `GET` `/api/v2/products/{id}/images` endpoint
+  - `POST` `/api/v2/products/{id}/images` endpoint
+  - `PUT` `/api/v2/products/{id}/images` endpoint
+  - `DELETE` `/api/v2/products/{id}/images` endpoint
+
 ## [29.0.0] - 2025-09-03
 ### Removed
 - Removed all endpoints of the Subscriptions feature
@@ -927,7 +935,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v29.0.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v29.1.0...HEAD
+[29.1.0]: https://github.com/pipedrive/api-docs/compare/v29.0.0...v29.1.0
 [29.0.0]: https://github.com/pipedrive/api-docs/compare/v28.0.2...v29.0.0
 [28.0.2]: https://github.com/pipedrive/api-docs/compare/v28.0.1...v28.0.2
 [28.0.1]: https://github.com/pipedrive/api-docs/compare/v28.0.0...v28.0.1

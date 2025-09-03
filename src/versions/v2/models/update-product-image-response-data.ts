@@ -17,13 +17,28 @@
 /**
 * 
 * @export
-* @interface GetDealsProductsResponseDataInnerAllOf3
+* @interface UpdateProductImageResponseData
 */
-export interface GetDealsProductsResponseDataInnerAllOf3 {
+export interface UpdateProductImageResponseData {
     /**
-    * Only available in Growth and above plans  The billing start date. Must be between 10 years in the past and 10 years in the future 
+    * The ID of the product image
+    * @type {number}
+    */
+    'id'?: number;
+    /**
+    * The ID of the product associated
+    * @type {number}
+    */
+    'product_id'?: number;
+    /**
+    * The ID of the company
     * @type {string}
     */
-    'billing_start_date'?: string | null;
+    'company_id'?: string;
+    /**
+    * The date of image upload.
+    * @type {string}
+    */
+    'add_time'?: string;
 }
 
