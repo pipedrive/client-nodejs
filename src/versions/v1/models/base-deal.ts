@@ -306,32 +306,32 @@ export interface BaseDeal {
     */
     'channel_id'?: string | null;
     /**
-    * Only available in Advanced and above plans  The Annual Recurring Revenue of the deal  Null if there are no products attached to the deal 
+    * Only available in Growth and above plans  The Annual Recurring Revenue of the deal  Null if there are no products attached to the deal 
     * @type {number}
     */
     'arr'?: number | null;
     /**
-    * Only available in Advanced and above plans  The Monthly Recurring Revenue of the deal  Null if there are no products attached to the deal 
+    * Only available in Growth and above plans  The Monthly Recurring Revenue of the deal  Null if there are no products attached to the deal 
     * @type {number}
     */
     'mrr'?: number | null;
     /**
-    * Only available in Advanced and above plans  The Annual Contract Value of the deal  Null if there are no products attached to the deal 
+    * Only available in Growth and above plans  The Annual Contract Value of the deal  Null if there are no products attached to the deal 
     * @type {number}
     */
     'acv'?: number | null;
     /**
-    * Only available in Advanced and above plans  The Currency for Annual Recurring Revenue of the deal  If the `arr` is null, this will also be null 
+    * Only available in Growth and above plans  The Currency for Annual Recurring Revenue of the deal  If the `arr` is null, this will also be null 
     * @type {string}
     */
     'arr_currency'?: string | null;
     /**
-    * Only available in Advanced and above plans  The Currency for Monthly Recurring Revenue of the deal  If the `mrr` is null, this will also be null 
+    * Only available in Growth and above plans  The Currency for Monthly Recurring Revenue of the deal  If the `mrr` is null, this will also be null 
     * @type {string}
     */
     'mrr_currency'?: string | null;
     /**
-    * Only available in Advanced and above plans  The Currency for Annual Contract Value of the deal  If the `acv` is null, this will also be null 
+    * Only available in Growth and above plans  The Currency for Annual Contract Value of the deal  If the `acv` is null, this will also be null 
     * @type {string}
     */
     'acv_currency'?: string | null;

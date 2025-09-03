@@ -30,9 +30,13 @@ import { AddConvertLeadToDealResponse } from '../models';
 // @ts-ignore
 import { AddInstallmentRequestBody } from '../models';
 // @ts-ignore
+import { AddProductImageResponse } from '../models';
+// @ts-ignore
 import { ConvertLeadToDealRequest } from '../models';
 // @ts-ignore
 import { DeleteInstallmentResponse } from '../models';
+// @ts-ignore
+import { DeleteProductImageResponse } from '../models';
 // @ts-ignore
 import { GetConvertResponse } from '../models';
 // @ts-ignore
@@ -40,9 +44,13 @@ import { GetConvertResponse1 } from '../models';
 // @ts-ignore
 import { GetInstallmentsResponse } from '../models';
 // @ts-ignore
+import { GetProductImageResponse } from '../models';
+// @ts-ignore
 import { UpdateInstallmentRequestBody } from '../models';
 // @ts-ignore
 import { UpdateInstallmentResponse } from '../models';
+// @ts-ignore
+import { UpdateProductImageResponse } from '../models';
 /**
  * BetaApi - axios parameter creator
  * @export
@@ -136,7 +144,7 @@ export const BetaApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Removes an installment from a deal.  Only available in Advanced and above plans. 
+         * Removes an installment from a deal.  Only available in Growth and above plans. 
          * @summary Delete an installment from a deal
          * @param {number} id The ID of the deal
          * @param {number} installment_id The ID of the installment
@@ -168,6 +176,47 @@ export const BetaApiAxiosParamCreator = function (configuration?: Configuration)
             // authentication oauth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Deletes the image of a product.
+         * @summary Delete an image of a product
+         * @param {number} id The ID of the product
+
+         * @throws {RequiredError}
+         */
+        deleteProductImage: async (id: number, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteProductImage', 'id', id)
+            const localVarPath = `/products/{id}/images`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full"], configuration)
 
 
     
@@ -226,7 +275,7 @@ export const BetaApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Lists installments attached to a list of deals.  Only available in Advanced and above plans. 
+         * Lists installments attached to a list of deals.  Only available in Growth and above plans. 
          * @summary List installments added to a list of deals
          * @param {Array<number>} deal_ids An array of integers with the IDs of the deals for which the attached installments will be returned. A maximum of 100 deal IDs can be provided.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
@@ -335,7 +384,48 @@ export const BetaApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Advanced and above plans. 
+         * Retrieves the image of a product. The public URL has a limited lifetime of 7 days.
+         * @summary Get image of a product
+         * @param {number} id The ID of the product
+
+         * @throws {RequiredError}
+         */
+        getProductImage: async (id: number, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getProductImage', 'id', id)
+            const localVarPath = `/products/{id}/images`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:read", "products:full"], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Growth and above plans. 
          * @summary Add an installment to a deal
          * @param {number} id The ID of the deal
          * @param {AddInstallmentRequestBody} [AddInstallmentRequestBody] 
@@ -380,7 +470,7 @@ export const BetaApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Edits an installment added to a deal.  Only available in Advanced and above plans. 
+         * Edits an installment added to a deal.  Only available in Growth and above plans. 
          * @summary Update an installment added to a deal
          * @param {number} id The ID of the deal
          * @param {number} installment_id The ID of the installment
@@ -428,6 +518,110 @@ export const BetaApiAxiosParamCreator = function (configuration?: Configuration)
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * Updates the image of a product.
+         * @summary Update an image for a product
+         * @param {number} id The ID of the product
+         * @param {File} data One image supplied in the multipart/form-data encoding
+
+         * @throws {RequiredError}
+         */
+        updateProductImage: async (id: number, data: File, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateProductImage', 'id', id)
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('updateProductImage', 'data', data)
+            const localVarPath = `/products/{id}/images`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full"], configuration)
+
+
+            if (data !== undefined) { 
+                localVarFormParams.append('data', data as any);
+            }
+    
+    
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+            localVarRequestOptions.data = localVarFormParams;
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Uploads an image for a product.
+         * @summary Upload an image for a product
+         * @param {number} id The ID of the product
+         * @param {File} data One image supplied in the multipart/form-data encoding
+
+         * @throws {RequiredError}
+         */
+        uploadProductImage: async (id: number, data: File, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('uploadProductImage', 'id', id)
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('uploadProductImage', 'data', data)
+            const localVarPath = `/products/{id}/images`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full"], configuration)
+
+
+            if (data !== undefined) { 
+                localVarFormParams.append('data', data as any);
+            }
+    
+    
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+            localVarRequestOptions.data = localVarFormParams;
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -463,7 +657,7 @@ export const BetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Removes an installment from a deal.  Only available in Advanced and above plans. 
+         * Removes an installment from a deal.  Only available in Growth and above plans. 
          * @summary Delete an installment from a deal
          * @param {number} id The ID of the deal
          * @param {number} installment_id The ID of the installment
@@ -472,6 +666,17 @@ export const BetaApiFp = function(configuration?: Configuration) {
          */
         async deleteInstallment(id: number, installment_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteInstallmentResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteInstallment(id, installment_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Deletes the image of a product.
+         * @summary Delete an image of a product
+         * @param {number} id The ID of the product
+
+         * @throws {RequiredError}
+         */
+        async deleteProductImage(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteProductImageResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProductImage(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -487,7 +692,7 @@ export const BetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Lists installments attached to a list of deals.  Only available in Advanced and above plans. 
+         * Lists installments attached to a list of deals.  Only available in Growth and above plans. 
          * @summary List installments added to a list of deals
          * @param {Array<number>} deal_ids An array of integers with the IDs of the deals for which the attached installments will be returned. A maximum of 100 deal IDs can be provided.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
@@ -514,7 +719,18 @@ export const BetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Advanced and above plans. 
+         * Retrieves the image of a product. The public URL has a limited lifetime of 7 days.
+         * @summary Get image of a product
+         * @param {number} id The ID of the product
+
+         * @throws {RequiredError}
+         */
+        async getProductImage(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductImageResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProductImage(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Growth and above plans. 
          * @summary Add an installment to a deal
          * @param {number} id The ID of the deal
          * @param {AddInstallmentRequestBody} [AddInstallmentRequestBody] 
@@ -526,7 +742,7 @@ export const BetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Edits an installment added to a deal.  Only available in Advanced and above plans. 
+         * Edits an installment added to a deal.  Only available in Growth and above plans. 
          * @summary Update an installment added to a deal
          * @param {number} id The ID of the deal
          * @param {number} installment_id The ID of the installment
@@ -536,6 +752,30 @@ export const BetaApiFp = function(configuration?: Configuration) {
          */
         async updateInstallment(id: number, installment_id: number, UpdateInstallmentRequestBody?: UpdateInstallmentRequestBody, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateInstallmentResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateInstallment(id, installment_id, UpdateInstallmentRequestBody, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Updates the image of a product.
+         * @summary Update an image for a product
+         * @param {number} id The ID of the product
+         * @param {File} data One image supplied in the multipart/form-data encoding
+
+         * @throws {RequiredError}
+         */
+        async updateProductImage(id: number, data: File, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateProductImageResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProductImage(id, data, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Uploads an image for a product.
+         * @summary Upload an image for a product
+         * @param {number} id The ID of the product
+         * @param {File} data One image supplied in the multipart/form-data encoding
+
+         * @throws {RequiredError}
+         */
+        async uploadProductImage(id: number, data: File, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddProductImageResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.uploadProductImage(id, data, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -569,7 +809,7 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.convertLeadToDeal(requestParameters.id, requestParameters.ConvertLeadToDealRequest, ).then((request) => request(axios, basePath));
         },
         /**
-         * Removes an installment from a deal.  Only available in Advanced and above plans. 
+         * Removes an installment from a deal.  Only available in Growth and above plans. 
          * @summary Delete an installment from a deal
          * @param {BetaApiDeleteInstallmentRequest} requestParameters Request parameters.
 
@@ -577,6 +817,16 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
          */
         deleteInstallment(requestParameters: BetaApiDeleteInstallmentRequest, ): Promise<DeleteInstallmentResponse> {
             return localVarFp.deleteInstallment(requestParameters.id, requestParameters.installment_id, ).then((request) => request(axios, basePath));
+        },
+        /**
+         * Deletes the image of a product.
+         * @summary Delete an image of a product
+         * @param {BetaApiDeleteProductImageRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        deleteProductImage(requestParameters: BetaApiDeleteProductImageRequest, ): Promise<DeleteProductImageResponse> {
+            return localVarFp.deleteProductImage(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns information about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Lead ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
@@ -589,7 +839,7 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.getDealConversionStatus(requestParameters.id, requestParameters.conversion_id, ).then((request) => request(axios, basePath));
         },
         /**
-         * Lists installments attached to a list of deals.  Only available in Advanced and above plans. 
+         * Lists installments attached to a list of deals.  Only available in Growth and above plans. 
          * @summary List installments added to a list of deals
          * @param {BetaApiGetInstallmentsRequest} requestParameters Request parameters.
 
@@ -609,7 +859,17 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.getLeadConversionStatus(requestParameters.id, requestParameters.conversion_id, ).then((request) => request(axios, basePath));
         },
         /**
-         * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Advanced and above plans. 
+         * Retrieves the image of a product. The public URL has a limited lifetime of 7 days.
+         * @summary Get image of a product
+         * @param {BetaApiGetProductImageRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        getProductImage(requestParameters: BetaApiGetProductImageRequest, ): Promise<GetProductImageResponse> {
+            return localVarFp.getProductImage(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        /**
+         * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Growth and above plans. 
          * @summary Add an installment to a deal
          * @param {BetaApiPostInstallmentRequest} requestParameters Request parameters.
 
@@ -619,7 +879,7 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.postInstallment(requestParameters.id, requestParameters.AddInstallmentRequestBody, ).then((request) => request(axios, basePath));
         },
         /**
-         * Edits an installment added to a deal.  Only available in Advanced and above plans. 
+         * Edits an installment added to a deal.  Only available in Growth and above plans. 
          * @summary Update an installment added to a deal
          * @param {BetaApiUpdateInstallmentRequest} requestParameters Request parameters.
 
@@ -627,6 +887,26 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
          */
         updateInstallment(requestParameters: BetaApiUpdateInstallmentRequest, ): Promise<UpdateInstallmentResponse> {
             return localVarFp.updateInstallment(requestParameters.id, requestParameters.installment_id, requestParameters.UpdateInstallmentRequestBody, ).then((request) => request(axios, basePath));
+        },
+        /**
+         * Updates the image of a product.
+         * @summary Update an image for a product
+         * @param {BetaApiUpdateProductImageRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        updateProductImage(requestParameters: BetaApiUpdateProductImageRequest, ): Promise<UpdateProductImageResponse> {
+            return localVarFp.updateProductImage(requestParameters.id, requestParameters.data, ).then((request) => request(axios, basePath));
+        },
+        /**
+         * Uploads an image for a product.
+         * @summary Upload an image for a product
+         * @param {BetaApiUploadProductImageRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        uploadProductImage(requestParameters: BetaApiUploadProductImageRequest, ): Promise<AddProductImageResponse> {
+            return localVarFp.uploadProductImage(requestParameters.id, requestParameters.data, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -685,6 +965,20 @@ export interface BetaApiDeleteInstallmentRequest {
      * @memberof BetaApiDeleteInstallment
      */
     readonly installment_id: number
+}
+
+/**
+ * Request parameters for deleteProductImage operation in BetaApi.
+ * @export
+ * @interface BetaApiDeleteProductImageRequest
+ */
+export interface BetaApiDeleteProductImageRequest {
+    /**
+     * The ID of the product
+     * @type {number}
+     * @memberof BetaApiDeleteProductImage
+     */
+    readonly id: number
 }
 
 /**
@@ -772,6 +1066,20 @@ export interface BetaApiGetLeadConversionStatusRequest {
 }
 
 /**
+ * Request parameters for getProductImage operation in BetaApi.
+ * @export
+ * @interface BetaApiGetProductImageRequest
+ */
+export interface BetaApiGetProductImageRequest {
+    /**
+     * The ID of the product
+     * @type {number}
+     * @memberof BetaApiGetProductImage
+     */
+    readonly id: number
+}
+
+/**
  * Request parameters for postInstallment operation in BetaApi.
  * @export
  * @interface BetaApiPostInstallmentRequest
@@ -821,6 +1129,48 @@ export interface BetaApiUpdateInstallmentRequest {
 }
 
 /**
+ * Request parameters for updateProductImage operation in BetaApi.
+ * @export
+ * @interface BetaApiUpdateProductImageRequest
+ */
+export interface BetaApiUpdateProductImageRequest {
+    /**
+     * The ID of the product
+     * @type {number}
+     * @memberof BetaApiUpdateProductImage
+     */
+    readonly id: number
+
+    /**
+     * One image supplied in the multipart/form-data encoding
+     * @type {File}
+     * @memberof BetaApiUpdateProductImage
+     */
+    readonly data: File
+}
+
+/**
+ * Request parameters for uploadProductImage operation in BetaApi.
+ * @export
+ * @interface BetaApiUploadProductImageRequest
+ */
+export interface BetaApiUploadProductImageRequest {
+    /**
+     * The ID of the product
+     * @type {number}
+     * @memberof BetaApiUploadProductImage
+     */
+    readonly id: number
+
+    /**
+     * One image supplied in the multipart/form-data encoding
+     * @type {File}
+     * @memberof BetaApiUploadProductImage
+     */
+    readonly data: File
+}
+
+/**
  * BetaApi - object-oriented interface
  * @export
  * @class BetaApi
@@ -852,7 +1202,7 @@ export class BetaApi extends BaseAPI {
     }
 
     /**
-     * Removes an installment from a deal.  Only available in Advanced and above plans. 
+     * Removes an installment from a deal.  Only available in Growth and above plans. 
      * @summary Delete an installment from a deal
      * @param {BetaApiDeleteInstallmentRequest} requestParameters Request parameters.
 
@@ -861,6 +1211,18 @@ export class BetaApi extends BaseAPI {
      */
     public deleteInstallment(requestParameters: BetaApiDeleteInstallmentRequest, ) {
         return BetaApiFp(this.configuration).deleteInstallment(requestParameters.id, requestParameters.installment_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Deletes the image of a product.
+     * @summary Delete an image of a product
+     * @param {BetaApiDeleteProductImageRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public deleteProductImage(requestParameters: BetaApiDeleteProductImageRequest, ) {
+        return BetaApiFp(this.configuration).deleteProductImage(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -876,7 +1238,7 @@ export class BetaApi extends BaseAPI {
     }
 
     /**
-     * Lists installments attached to a list of deals.  Only available in Advanced and above plans. 
+     * Lists installments attached to a list of deals.  Only available in Growth and above plans. 
      * @summary List installments added to a list of deals
      * @param {BetaApiGetInstallmentsRequest} requestParameters Request parameters.
 
@@ -900,7 +1262,19 @@ export class BetaApi extends BaseAPI {
     }
 
     /**
-     * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Advanced and above plans. 
+     * Retrieves the image of a product. The public URL has a limited lifetime of 7 days.
+     * @summary Get image of a product
+     * @param {BetaApiGetProductImageRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public getProductImage(requestParameters: BetaApiGetProductImageRequest, ) {
+        return BetaApiFp(this.configuration).getProductImage(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Growth and above plans. 
      * @summary Add an installment to a deal
      * @param {BetaApiPostInstallmentRequest} requestParameters Request parameters.
 
@@ -912,7 +1286,7 @@ export class BetaApi extends BaseAPI {
     }
 
     /**
-     * Edits an installment added to a deal.  Only available in Advanced and above plans. 
+     * Edits an installment added to a deal.  Only available in Growth and above plans. 
      * @summary Update an installment added to a deal
      * @param {BetaApiUpdateInstallmentRequest} requestParameters Request parameters.
 
@@ -921,5 +1295,29 @@ export class BetaApi extends BaseAPI {
      */
     public updateInstallment(requestParameters: BetaApiUpdateInstallmentRequest, ) {
         return BetaApiFp(this.configuration).updateInstallment(requestParameters.id, requestParameters.installment_id, requestParameters.UpdateInstallmentRequestBody, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Updates the image of a product.
+     * @summary Update an image for a product
+     * @param {BetaApiUpdateProductImageRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public updateProductImage(requestParameters: BetaApiUpdateProductImageRequest, ) {
+        return BetaApiFp(this.configuration).updateProductImage(requestParameters.id, requestParameters.data, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Uploads an image for a product.
+     * @summary Upload an image for a product
+     * @param {BetaApiUploadProductImageRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public uploadProductImage(requestParameters: BetaApiUploadProductImageRequest, ) {
+        return BetaApiFp(this.configuration).uploadProductImage(requestParameters.id, requestParameters.data, ).then((request) => request(this.axios, this.basePath));
     }
 }

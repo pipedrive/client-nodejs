@@ -36,6 +36,11 @@ export interface AddWebhookRequest {
     */
     'event_object': AddWebhookRequestEventObjectConst;
     /**
+    * The webhook\'s name
+    * @type {string}
+    */
+    'name': string;
+    /**
     * The ID of the user that this webhook will be authorized with. You have the option to use a different user\'s `user_id`. If it is not set, the current user\'s `user_id` will be used. As each webhook event is checked against a user\'s permissions, the webhook will only be sent if the user has access to the specified object(s). If you want to receive notifications for all events, please use a top-level admin user’s `user_id`.
     * @type {number}
     */
@@ -44,12 +49,12 @@ export interface AddWebhookRequest {
     * The HTTP basic auth username of the subscription URL endpoint (if required)
     * @type {string}
     */
-    'http_auth_user'?: string;
+    'http_auth_user'?: string | null;
     /**
     * The HTTP basic auth password of the subscription URL endpoint (if required)
     * @type {string}
     */
-    'http_auth_password'?: string;
+    'http_auth_password'?: string | null;
     /**
     * The webhook\'s version. NB! Webhooks v2 is the default from March 17th, 2025. See <a href=\"https://developers.pipedrive.com/changelog/post/breaking-change-webhooks-v2-will-become-the-new-default-version\" target=\"_blank\" rel=\"noopener noreferrer\">this Changelog post</a> for more details.
     * @type {string}
