@@ -14,6 +14,19 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
   - `PUT` `/api/v2/products/{id}/images` endpoint
   - `DELETE` `/api/v2/products/{id}/images` endpoint
 
+## [29.0.0] - 2025-09-03
+### Removed
+- Removed all endpoints of the Subscriptions feature
+  - GET /v1/subscriptions/{id} 
+  - GET /v1/subscriptions/find/{dealId}
+  - GET /v1/subscriptions/{id}/payments
+  - POST /v1/subscriptions/recurring
+  - POST /v1/subscriptions/installment
+  - PUT /v1/subscriptions/recurring/{id}
+  - PUT /v1/subscriptions/installment/{id}
+  - PUT /v1/subscriptions/recurring/{id}/cancel
+  - DELETE /v1/subscriptions/{id}
+
 ## [28.0.2] - 2025-07-07
 ### Added
 - Added `custom_fields` type to `deal`, `person`, `organization`, `product` schemas
@@ -920,7 +933,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v28.0.2...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v29.0.0...HEAD
+[29.0.0]: https://github.com/pipedrive/api-docs/compare/v28.0.2...v29.0.0
 [28.0.2]: https://github.com/pipedrive/api-docs/compare/v28.0.1...v28.0.2
 [28.0.1]: https://github.com/pipedrive/api-docs/compare/v28.0.0...v28.0.1
 [28.0.0]: https://github.com/pipedrive/api-docs/compare/v27.2.1...v28.0.0
