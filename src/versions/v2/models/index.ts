@@ -34,7 +34,6 @@ export * from './base-response';
 export * from './convert-lead-to-deal-request';
 export * from './deal-item';
 export * from './deal-item1';
-export * from './deal-item-custom-fields-value';
 export * from './deal-product-request-body';
 export * from './deal-product-request-body1';
 export * from './delete-activity-response';
