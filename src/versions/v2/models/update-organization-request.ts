@@ -15,9 +15,6 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { DealItemCustomFieldsValue } from './deal-item-custom-fields-value';
-// May contain unused imports in some cases
-// @ts-ignore
 import { OrganizationItemAddress } from './organization-item-address';
 
 /**
@@ -62,9 +59,9 @@ export interface UpdateOrganizationRequest {
     */
     'address'?: OrganizationItemAddress;
     /**
-    * A map of custom fields with hash-based keys
-    * @type {{ [key: string]: DealItemCustomFieldsValue | undefined; }}
+    * An object where each key represents a custom field. All custom fields are referenced as randomly generated 40-character hashes
+    * @type {{ [key: string]: any | undefined; }}
     */
-    'custom_fields'?: { [key: string]: DealItemCustomFieldsValue | undefined; };
+    'custom_fields'?: { [key: string]: any | undefined; };
 }
 
