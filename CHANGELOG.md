@@ -7,6 +7,9 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Changed
+- Upgraded from Node 18 to Node 22
+- Updated dependencies to latest
 
 ## [29.2.2] - 2025-09-08
 ### Fixed
@@ -37,7 +40,7 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 ## [29.0.0] - 2025-09-03
 ### Removed
 - Removed all endpoints of the Subscriptions feature
-  - GET /v1/subscriptions/{id} 
+  - GET /v1/subscriptions/{id}
   - GET /v1/subscriptions/find/{dealId}
   - GET /v1/subscriptions/{id}/payments
   - POST /v1/subscriptions/recurring

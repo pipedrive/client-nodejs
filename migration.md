@@ -1,6 +1,6 @@
 ### Breaking changes
 
-- Suggested nodejs version is 18
+- Suggested nodejs version is 22
 - SDK imports are now versioned under `pipedrive/v1` and `pipedrive/v2` with added support for v2 endpoints
 - Function signatures have changed from the previous version of the sdk. Now each function takes a strongly typed root object that contains all the parameters needed such as id and request payload, where in the previous version those were separate function params
 
@@ -52,7 +52,7 @@ await dealsApi.deleteDeal({
 ## Installation
 
 ```
-npm i pipedrive@24.0.0
+npm i pipedrive@30.0.0
 ```
 
 ## API Reference
