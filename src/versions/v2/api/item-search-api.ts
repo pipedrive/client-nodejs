@@ -40,7 +40,7 @@ export const ItemSearchApiAxiosParamCreator = function (configuration?: Configur
          * @param {boolean} [search_for_related_items] When enabled, the response will include up to 100 newest related leads and 100 newest related deals for each found person and organization and up to 100 newest related persons for each found organization
          * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
          * @param {'deal.cc_email' | 'person.picture' | 'product.price'} [include_fields] A comma-separated string array. Supports including optional fields in the results which are not provided by default.
-         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
@@ -203,7 +203,7 @@ export const ItemSearchApiFp = function(configuration?: Configuration) {
          * @param {boolean} [search_for_related_items] When enabled, the response will include up to 100 newest related leads and 100 newest related deals for each found person and organization and up to 100 newest related persons for each found organization
          * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
          * @param {'deal.cc_email' | 'person.picture' | 'product.price'} [include_fields] A comma-separated string array. Supports including optional fields in the results which are not provided by default.
-         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
@@ -310,7 +310,7 @@ export interface ItemSearchApiSearchItemRequest {
     readonly include_fields?: 'deal.cc_email' | 'person.picture' | 'product.price'
 
     /**
-     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
      * @type {number}
      * @memberof ItemSearchApiSearchItem
      */
