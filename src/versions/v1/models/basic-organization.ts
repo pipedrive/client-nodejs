@@ -20,6 +20,8 @@
 * @interface BasicOrganization
 */
 export interface BasicOrganization {
+    [key: string]: any | any;
+
     /**
     * The ID of the user who will be marked as the owner of this organization. When omitted, the authorized user ID will be used.
     * @type {number}

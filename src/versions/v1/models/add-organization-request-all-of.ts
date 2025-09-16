@@ -20,6 +20,8 @@
 * @interface AddOrganizationRequestAllOf
 */
 export interface AddOrganizationRequestAllOf {
+    [key: string]: any | any;
+
     /**
     * The name of the organization
     * @type {string}

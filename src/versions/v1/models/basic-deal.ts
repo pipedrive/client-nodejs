@@ -20,6 +20,8 @@
 * @interface BasicDeal
 */
 export interface BasicDeal {
+    [key: string]: any | any;
+
     /**
     * The optional date and time of changing the deal status as won in UTC. Format: YYYY-MM-DD HH:MM:SS. Can be set only when deal `status` is already Won. Can not be used together with `lost_time`.
     * @type {string}

@@ -20,6 +20,8 @@
 * @interface UpdateActivityRequestAllOf
 */
 export interface UpdateActivityRequestAllOf {
+    [key: string]: any | any;
+
     /**
     * The note of the activity (HTML format)
     * @type {string}

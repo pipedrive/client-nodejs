@@ -20,6 +20,8 @@
 * @interface AddNoteRequestAllOf
 */
 export interface AddNoteRequestAllOf {
+    [key: string]: any | any;
+
     /**
     * The content of the note in HTML format. Subject to sanitization on the back-end.
     * @type {string}
