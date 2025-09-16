@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { BasicOrganization1 } from './basic-organization1';
+import { BasicOrganization } from './basic-organization';
 // May contain unused imports in some cases
 // @ts-ignore
 import { UpdateOrganizationRequestAllOf } from './update-organization-request-all-of';
@@ -24,6 +24,6 @@ import { UpdateOrganizationRequestAllOf } from './update-organization-request-al
  * @type UpdateOrganizationRequest
  * @export
  */
-export type UpdateOrganizationRequest = BasicOrganization1 & UpdateOrganizationRequestAllOf;
+export type UpdateOrganizationRequest = BasicOrganization & UpdateOrganizationRequestAllOf;
 
 

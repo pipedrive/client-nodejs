@@ -20,6 +20,8 @@
 * @interface AddProductRequestAllOf1
 */
 export interface AddProductRequestAllOf1 {
+    [key: string]: any | any;
+
     /**
     * Only available in Growth and above plans  How often a customer is billed for access to a service or product 
     * @type {string}
