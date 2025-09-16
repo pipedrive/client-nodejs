@@ -7,6 +7,8 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+
+## [29.2.3] - 2025-09-16
 ### Fixed
 - Fixed incorrect `custom_fields` schema implementations by using the proper shared definition from `custom-fields.yaml`
 
@@ -955,7 +957,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v29.2.2...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v29.2.3...HEAD
+[29.2.3]: https://github.com/pipedrive/api-docs/compare/v29.2.2...v29.2.3
 [29.2.2]: https://github.com/pipedrive/api-docs/compare/v29.2.1...v29.2.2
 [29.2.1]: https://github.com/pipedrive/api-docs/compare/v29.2.0...v29.2.1
 [29.2.0]: https://github.com/pipedrive/api-docs/compare/v29.1.0...v29.2.0
