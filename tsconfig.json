@@ -6,7 +6,8 @@
     "target": "ES6",
     "declaration": true,
     "esModuleInterop": true,
-    "moduleResolution": "node16"
+    "moduleResolution": "node16",
+    "skipLibCheck": true
   },
   "include": ["src/**/*"]
 }
