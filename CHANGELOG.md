@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [29.2.4] - 2025-09-26
+### Fixed
+- Fixed incorrect description for max `limit` parameter in itemSearch v2 endpoint
+
 ## [29.2.3] - 2025-09-16
 ### Fixed
 - Fixed incorrect `custom_fields` schema implementations by using the proper shared definition from `custom-fields.yaml`
@@ -957,7 +961,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v29.2.3...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v29.2.4...HEAD
+[29.2.4]: https://github.com/pipedrive/api-docs/compare/v29.2.3...v29.2.4
 [29.2.3]: https://github.com/pipedrive/api-docs/compare/v29.2.2...v29.2.3
 [29.2.2]: https://github.com/pipedrive/api-docs/compare/v29.2.1...v29.2.2
 [29.2.1]: https://github.com/pipedrive/api-docs/compare/v29.2.0...v29.2.1
