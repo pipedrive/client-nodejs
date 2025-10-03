@@ -15,23 +15,23 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { StageItem1 } from './stage-item1';
+import { GetDealsProductsResponseDataInner } from './get-deals-products-response-data-inner';
 
 /**
 * 
 * @export
-* @interface UpsertStageResponse
+* @interface AddManyDealProductResponse
 */
-export interface UpsertStageResponse {
+export interface AddManyDealProductResponse {
     /**
     * If the response is successful or not
     * @type {boolean}
     */
     'success'?: boolean;
     /**
-    * 
-    * @type {StageItem1}
+    * Array of created deal products
+    * @type {Array<GetDealsProductsResponseDataInner>}
     */
-    'data'?: StageItem1;
+    'data'?: Array<GetDealsProductsResponseDataInner>;
 }
 

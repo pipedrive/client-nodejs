@@ -36,7 +36,7 @@ export interface AddTeamRequest1 {
     */
     'description'?: string;
     /**
-    * The IDs of the users that belong to the team
+    * The list of user IDs
     * @type {Array<number>}
     */
     'users'?: Array<number>;

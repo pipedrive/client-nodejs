@@ -56,6 +56,11 @@ export interface GetDealsProductsResponseDataInnerAllOf {
     */
     'product_variation_id'?: number | null;
     /**
+    * The order number of the product within the deal
+    * @type {number}
+    */
+    'order_nr'?: number | null;
+    /**
     * The date and time when the product was added to the deal
     * @type {string}
     */

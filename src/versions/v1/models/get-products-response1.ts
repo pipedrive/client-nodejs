@@ -18,10 +18,10 @@
 import { GetActivitiesResponseRelatedObjects } from './get-activities-response-related-objects';
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetProductResponse } from './get-product-response';
+import { GetFieldsResponseAllOfAdditionalData } from './get-fields-response-all-of-additional-data';
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetProductsResponse1AdditionalData } from './get-products-response1-additional-data';
+import { GetProductResponse } from './get-product-response';
 
 /**
 * 
@@ -41,9 +41,9 @@ export interface GetProductsResponse1 {
     'data': Array<GetProductResponse>;
     /**
     * 
-    * @type {GetProductsResponse1AdditionalData}
+    * @type {GetFieldsResponseAllOfAdditionalData}
     */
-    'additional_data': GetProductsResponse1AdditionalData;
+    'additional_data': GetFieldsResponseAllOfAdditionalData;
     /**
     * 
     * @type {GetActivitiesResponseRelatedObjects}
