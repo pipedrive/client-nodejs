@@ -13,25 +13,17 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import { StageItem1 } from './stage-item1';
 
 /**
 * 
 * @export
-* @interface UpsertStageResponse
+* @interface DeleteManyDealProductResponseAdditionalData
 */
-export interface UpsertStageResponse {
+export interface DeleteManyDealProductResponseAdditionalData {
     /**
-    * If the response is successful or not
+    * Whether there are more products to delete (when the deal has more than 100 products)
     * @type {boolean}
     */
-    'success'?: boolean;
-    /**
-    * 
-    * @type {StageItem1}
-    */
-    'data'?: StageItem1;
+    'more_items_in_collection'?: boolean;
 }
 

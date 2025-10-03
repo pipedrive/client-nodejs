@@ -15,23 +15,18 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { StageItem1 } from './stage-item1';
+import { AddDealProductRequest } from './add-deal-product-request';
 
 /**
 * 
 * @export
-* @interface UpsertStageResponse
+* @interface CreateManyDealProductRequest
 */
-export interface UpsertStageResponse {
+export interface CreateManyDealProductRequest {
     /**
-    * If the response is successful or not
-    * @type {boolean}
+    * Array of products to attach to the deal. See the single product endpoint (https://developers.pipedrive.com/docs/api/v1/Deals#addDealProduct) for the expected format of array items.
+    * @type {Array<AddDealProductRequest>}
     */
-    'success'?: boolean;
-    /**
-    * 
-    * @type {StageItem1}
-    */
-    'data'?: StageItem1;
+    'data': Array<AddDealProductRequest>;
 }
 
