@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { Stage } from './stage';
+import { StageItem1 } from './stage-item1';
 
 /**
 * 
@@ -30,8 +30,8 @@ export interface UpsertStageResponse {
     'success'?: boolean;
     /**
     * 
-    * @type {Stage}
+    * @type {StageItem1}
     */
-    'data'?: Stage;
+    'data'?: StageItem1;
 }
 

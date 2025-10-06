@@ -941,12 +941,12 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {number} id The ID of the deal
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-         * @param {'id' | 'add_time' | 'update_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;.
+         * @param {'id' | 'add_time' | 'update_time' | 'order_nr'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;order_nr&#x60;.
          * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
 
          * @throws {RequiredError}
          */
-        getDealProducts: async (id: number, cursor?: string, limit?: number, sort_by?: 'id' | 'add_time' | 'update_time', sort_direction?: 'asc' | 'desc', ): Promise<RequestArgs> => {
+        getDealProducts: async (id: number, cursor?: string, limit?: number, sort_by?: 'id' | 'add_time' | 'update_time' | 'order_nr', sort_direction?: 'asc' | 'desc', ): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getDealProducts', 'id', id)
             const localVarPath = `/deals/{id}/products`
@@ -1119,12 +1119,12 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {Array<number>} deal_ids An array of integers with the IDs of the deals for which the attached products will be returned. A maximum of 100 deal IDs can be provided.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-         * @param {'id' | 'deal_id' | 'add_time' | 'update_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;deal_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;.
+         * @param {'id' | 'deal_id' | 'add_time' | 'update_time' | 'order_nr'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;deal_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;order_nr&#x60;.
          * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
 
          * @throws {RequiredError}
          */
-        getDealsProducts: async (deal_ids: Array<number>, cursor?: string, limit?: number, sort_by?: 'id' | 'deal_id' | 'add_time' | 'update_time', sort_direction?: 'asc' | 'desc', ): Promise<RequestArgs> => {
+        getDealsProducts: async (deal_ids: Array<number>, cursor?: string, limit?: number, sort_by?: 'id' | 'deal_id' | 'add_time' | 'update_time' | 'order_nr', sort_direction?: 'asc' | 'desc', ): Promise<RequestArgs> => {
             // verify required parameter 'deal_ids' is not null or undefined
             assertParamExists('getDealsProducts', 'deal_ids', deal_ids)
             const localVarPath = `/deals/products`;
@@ -1841,12 +1841,12 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * @param {number} id The ID of the deal
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-         * @param {'id' | 'add_time' | 'update_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;.
+         * @param {'id' | 'add_time' | 'update_time' | 'order_nr'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;order_nr&#x60;.
          * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
 
          * @throws {RequiredError}
          */
-        async getDealProducts(id: number, cursor?: string, limit?: number, sort_by?: 'id' | 'add_time' | 'update_time', sort_direction?: 'asc' | 'desc', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealsProductsResponse>> {
+        async getDealProducts(id: number, cursor?: string, limit?: number, sort_by?: 'id' | 'add_time' | 'update_time' | 'order_nr', sort_direction?: 'asc' | 'desc', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealsProductsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDealProducts(id, cursor, limit, sort_by, sort_direction, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1882,12 +1882,12 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * @param {Array<number>} deal_ids An array of integers with the IDs of the deals for which the attached products will be returned. A maximum of 100 deal IDs can be provided.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-         * @param {'id' | 'deal_id' | 'add_time' | 'update_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;deal_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;.
+         * @param {'id' | 'deal_id' | 'add_time' | 'update_time' | 'order_nr'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;deal_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;order_nr&#x60;.
          * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
 
          * @throws {RequiredError}
          */
-        async getDealsProducts(deal_ids: Array<number>, cursor?: string, limit?: number, sort_by?: 'id' | 'deal_id' | 'add_time' | 'update_time', sort_direction?: 'asc' | 'desc', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealsProductsResponse>> {
+        async getDealsProducts(deal_ids: Array<number>, cursor?: string, limit?: number, sort_by?: 'id' | 'deal_id' | 'add_time' | 'update_time' | 'order_nr', sort_direction?: 'asc' | 'desc', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealsProductsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDealsProducts(deal_ids, cursor, limit, sort_by, sort_direction, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -2769,11 +2769,11 @@ export interface DealsApiGetDealProductsRequest {
     readonly limit?: number
 
     /**
-     * The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;.
-     * @type {'id' | 'add_time' | 'update_time'}
+     * The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;order_nr&#x60;.
+     * @type {'id' | 'add_time' | 'update_time' | 'order_nr'}
      * @memberof DealsApiGetDealProducts
      */
-    readonly sort_by?: 'id' | 'add_time' | 'update_time'
+    readonly sort_by?: 'id' | 'add_time' | 'update_time' | 'order_nr'
 
     /**
      * The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
@@ -2930,11 +2930,11 @@ export interface DealsApiGetDealsProductsRequest {
     readonly limit?: number
 
     /**
-     * The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;deal_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;.
-     * @type {'id' | 'deal_id' | 'add_time' | 'update_time'}
+     * The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;deal_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;order_nr&#x60;.
+     * @type {'id' | 'deal_id' | 'add_time' | 'update_time' | 'order_nr'}
      * @memberof DealsApiGetDealsProducts
      */
-    readonly sort_by?: 'id' | 'deal_id' | 'add_time' | 'update_time'
+    readonly sort_by?: 'id' | 'deal_id' | 'add_time' | 'update_time' | 'order_nr'
 
     /**
      * The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
