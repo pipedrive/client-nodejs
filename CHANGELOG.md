@@ -7,6 +7,8 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+
+## [30.3.0] - 2025-10-06
 ## Added
 - Added `is_archived` field in search response schemas for deals and leads
 
@@ -983,7 +985,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v30.2.1...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v30.3.0...HEAD
+[30.3.0]: https://github.com/pipedrive/api-docs/compare/v30.2.1...v30.3.0
 [30.2.1]: https://github.com/pipedrive/api-docs/compare/v30.2.0...v30.2.1
 [30.2.0]: https://github.com/pipedrive/api-docs/compare/v30.1.0...v30.2.0
 [30.1.0]: https://github.com/pipedrive/api-docs/compare/v30.0.0...v30.1.0
