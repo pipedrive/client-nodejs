@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [30.2.1] - 2025-10-06
+### Fixed
+-   Fixed PHP SDK v2 Configuration to use correct `/v2` API endpoints after OAuth token refresh instead of defaulting to `/v1`
+
 ## [30.2.0] - 2025-10-06
 ### Added
 -   Added `POST /deals/{id}/products/bulk` endpoint for creating multiple deal products at once (max 100 per request)
@@ -977,7 +981,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v30.2.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v30.2.1...HEAD
+[30.2.1]: https://github.com/pipedrive/api-docs/compare/v30.2.0...v30.2.1
 [30.2.0]: https://github.com/pipedrive/api-docs/compare/v30.1.0...v30.2.0
 [30.1.0]: https://github.com/pipedrive/api-docs/compare/v30.0.0...v30.1.0
 [30.0.0]: https://github.com/pipedrive/api-docs/compare/v29.2.5...v30.0.0

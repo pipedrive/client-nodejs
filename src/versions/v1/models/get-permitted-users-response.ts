@@ -15,12 +15,12 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { BaseResponse1 } from './base-response1';
+import { BaseResponse } from './base-response';
 
 /**
  * @type GetPermittedUsersResponse
  * @export
  */
-export type GetPermittedUsersResponse = BaseResponse1;
+export type GetPermittedUsersResponse = BaseResponse;
 
 
