@@ -51,7 +51,7 @@ export const ChannelsApiAxiosParamCreator = function (configuration?: Configurat
          * Adds a new messaging channel, only admins are able to register new channels. It will use the getConversations endpoint to fetch conversations, participants and messages afterward. To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
          * @summary Add a channel
          * @param {AddChannelRequest} [AddChannelRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         addChannel: async (AddChannelRequest?: AddChannelRequest, ): Promise<RequestArgs> => {
@@ -92,7 +92,7 @@ export const ChannelsApiAxiosParamCreator = function (configuration?: Configurat
          * Deletes an existing messenger’s channel and all related entities (conversations and messages). To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
          * @summary Delete a channel
          * @param {string} id The ID of the channel provided by the integration
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteChannel: async (id: string, ): Promise<RequestArgs> => {
@@ -134,7 +134,7 @@ export const ChannelsApiAxiosParamCreator = function (configuration?: Configurat
          * @summary Delete a conversation
          * @param {string} channel_id The ID of the channel provided by the integration
          * @param {string} conversation_id The ID of the conversation provided by the integration
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteConversation: async (channel_id: string, conversation_id: string, ): Promise<RequestArgs> => {
@@ -178,7 +178,7 @@ export const ChannelsApiAxiosParamCreator = function (configuration?: Configurat
          * Adds a message to a conversation. To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
          * @summary Receives an incoming message
          * @param {ReceiveMessageRequest} [ReceiveMessageRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         receiveMessage: async (ReceiveMessageRequest?: ReceiveMessageRequest, ): Promise<RequestArgs> => {
@@ -230,7 +230,7 @@ export const ChannelsApiFp = function(configuration?: Configuration) {
          * Adds a new messaging channel, only admins are able to register new channels. It will use the getConversations endpoint to fetch conversations, participants and messages afterward. To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
          * @summary Add a channel
          * @param {AddChannelRequest} [AddChannelRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async addChannel(AddChannelRequest?: AddChannelRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddChannelResponse>> {
@@ -241,7 +241,7 @@ export const ChannelsApiFp = function(configuration?: Configuration) {
          * Deletes an existing messenger’s channel and all related entities (conversations and messages). To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
          * @summary Delete a channel
          * @param {string} id The ID of the channel provided by the integration
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async deleteChannel(id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteChannel200Response>> {
@@ -253,7 +253,7 @@ export const ChannelsApiFp = function(configuration?: Configuration) {
          * @summary Delete a conversation
          * @param {string} channel_id The ID of the channel provided by the integration
          * @param {string} conversation_id The ID of the conversation provided by the integration
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async deleteConversation(channel_id: string, conversation_id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteChannel200Response>> {
@@ -264,7 +264,7 @@ export const ChannelsApiFp = function(configuration?: Configuration) {
          * Adds a message to a conversation. To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
          * @summary Receives an incoming message
          * @param {ReceiveMessageRequest} [ReceiveMessageRequest] 
-
+         * @deprecated
          * @throws {RequiredError}
          */
         async receiveMessage(ReceiveMessageRequest?: ReceiveMessageRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetReceiveMessageSuccessResponse>> {
@@ -285,7 +285,7 @@ export const ChannelsApiFactory = function (configuration?: Configuration, baseP
          * Adds a new messaging channel, only admins are able to register new channels. It will use the getConversations endpoint to fetch conversations, participants and messages afterward. To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
          * @summary Add a channel
          * @param {ChannelsApiAddChannelRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         addChannel(requestParameters: ChannelsApiAddChannelRequest = {}, ): Promise<AddChannelResponse> {
@@ -295,7 +295,7 @@ export const ChannelsApiFactory = function (configuration?: Configuration, baseP
          * Deletes an existing messenger’s channel and all related entities (conversations and messages). To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
          * @summary Delete a channel
          * @param {ChannelsApiDeleteChannelRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteChannel(requestParameters: ChannelsApiDeleteChannelRequest, ): Promise<DeleteChannel200Response> {
@@ -305,7 +305,7 @@ export const ChannelsApiFactory = function (configuration?: Configuration, baseP
          * Deletes an existing conversation. To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
          * @summary Delete a conversation
          * @param {ChannelsApiDeleteConversationRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteConversation(requestParameters: ChannelsApiDeleteConversationRequest, ): Promise<DeleteChannel200Response> {
@@ -315,7 +315,7 @@ export const ChannelsApiFactory = function (configuration?: Configuration, baseP
          * Adds a message to a conversation. To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
          * @summary Receives an incoming message
          * @param {ChannelsApiReceiveMessageRequest} requestParameters Request parameters.
-
+         * @deprecated
          * @throws {RequiredError}
          */
         receiveMessage(requestParameters: ChannelsApiReceiveMessageRequest = {}, ): Promise<GetReceiveMessageSuccessResponse> {
@@ -398,7 +398,7 @@ export class ChannelsApi extends BaseAPI {
      * Adds a new messaging channel, only admins are able to register new channels. It will use the getConversations endpoint to fetch conversations, participants and messages afterward. To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
      * @summary Add a channel
      * @param {ChannelsApiAddChannelRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof ChannelsApi
      */
@@ -410,7 +410,7 @@ export class ChannelsApi extends BaseAPI {
      * Deletes an existing messenger’s channel and all related entities (conversations and messages). To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
      * @summary Delete a channel
      * @param {ChannelsApiDeleteChannelRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof ChannelsApi
      */
@@ -422,7 +422,7 @@ export class ChannelsApi extends BaseAPI {
      * Deletes an existing conversation. To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
      * @summary Delete a conversation
      * @param {ChannelsApiDeleteConversationRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof ChannelsApi
      */
@@ -434,7 +434,7 @@ export class ChannelsApi extends BaseAPI {
      * Adds a message to a conversation. To use the endpoint, you need to have **Messengers integration** OAuth scope enabled and the Messaging manifest ready for the [Messaging app extension](https://pipedrive.readme.io/docs/messaging-app-extension).
      * @summary Receives an incoming message
      * @param {ChannelsApiReceiveMessageRequest} requestParameters Request parameters.
-
+     * @deprecated
      * @throws {RequiredError}
      * @memberof ChannelsApi
      */
