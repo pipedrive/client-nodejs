@@ -18,7 +18,7 @@
 import { BaseResponse } from './base-response';
 // May contain unused imports in some cases
 // @ts-ignore
-import { Field } from './field';
+import { GetField } from './get-field';
 // May contain unused imports in some cases
 // @ts-ignore
 import { GetFieldResponseAllOf } from './get-field-response-all-of';

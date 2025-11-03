@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { Field } from './field';
+import { GetField } from './get-field';
 
 /**
 * 
@@ -25,8 +25,8 @@ import { Field } from './field';
 export interface GetFieldResponseAllOf {
     /**
     * 
-    * @type {Field}
+    * @type {GetField}
     */
-    'data': Field;
+    'data': GetField;
 }
 
