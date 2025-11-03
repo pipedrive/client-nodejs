@@ -255,7 +255,7 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
                 baseOptions = configuration.baseOptions;
             }
 
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
+            const localVarRequestOptions = { method: 'GET', responseType: 'arraybuffer' as const, ...baseOptions };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
