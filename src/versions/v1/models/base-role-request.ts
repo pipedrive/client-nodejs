@@ -24,7 +24,7 @@ export interface BaseRoleRequest {
     * The ID of the parent role
     * @type {number}
     */
-    'parent_role_id'?: number;
+    'parent_role_id'?: number | null;
     /**
     * The name of the role
     * @type {string}

@@ -29,6 +29,6 @@ export interface AddRoleRequest {
     * The ID of the parent role
     * @type {number}
     */
-    'parent_role_id'?: number;
+    'parent_role_id'?: number | null;
 }
 

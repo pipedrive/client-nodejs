@@ -24,7 +24,7 @@ export interface Field {
     * The ID of the field. Value is `null` in case of subfields.
     * @type {number}
     */
-    'id'?: number;
+    'id'?: number | null;
     /**
     * The key of the field. For custom fields this is generated upon creation.
     * @type {string}
@@ -54,17 +54,17 @@ export interface Field {
     * The update time of the field
     * @type {string}
     */
-    'update_time'?: string;
+    'update_time'?: string | null;
     /**
     * The ID of the user who created or most recently updated the field, only applicable for custom fields
     * @type {number}
     */
-    'last_updated_by_user_id'?: number;
+    'last_updated_by_user_id'?: number | null;
     /**
     * The ID of the user who created the field
     * @type {number}
     */
-    'created_by_user_id'?: number;
+    'created_by_user_id'?: number | null;
     /**
     * The active flag of the field
     * @type {boolean}
