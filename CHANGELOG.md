@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [30.3.3] - 2025-11-18
+### Fixed
+- Prepared `nullable: true` to fields that can return null values in schemas for Field and Roles schemas
+
 ## [30.3.2] - 2025-11-03
 ### Fixed
 - Fixed return type for `filesApi.downloadFile` function
@@ -993,7 +997,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v30.3.2...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v30.3.3...HEAD
+[30.3.3]: https://github.com/pipedrive/api-docs/compare/v30.3.2...v30.3.3
 [30.3.2]: https://github.com/pipedrive/api-docs/compare/v30.3.1...v30.3.2
 [30.3.1]: https://github.com/pipedrive/api-docs/compare/v30.3.0...v30.3.1
 [30.3.0]: https://github.com/pipedrive/api-docs/compare/v30.2.1...v30.3.0
