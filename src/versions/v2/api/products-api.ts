@@ -373,6 +373,47 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
+         * Creates a duplicate of an existing product including all variations, prices, and custom fields.
+         * @summary Duplicate a product
+         * @param {number} id The ID of the product
+
+         * @throws {RequiredError}
+         */
+        duplicateProduct: async (id: number, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('duplicateProduct', 'id', id)
+            const localVarPath = `/products/{id}/duplicate`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full"], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Returns data about a specific product.
          * @summary Get one product
          * @param {number} id The ID of the product
@@ -1044,6 +1085,17 @@ export const ProductsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Creates a duplicate of an existing product including all variations, prices, and custom fields.
+         * @summary Duplicate a product
+         * @param {number} id The ID of the product
+
+         * @throws {RequiredError}
+         */
+        async duplicateProduct(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.duplicateProduct(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Returns data about a specific product.
          * @summary Get one product
          * @param {number} id The ID of the product
@@ -1266,6 +1318,16 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
          */
         deleteProductVariation(requestParameters: ProductsApiDeleteProductVariationRequest, ): Promise<DeleteProductVariationResponse> {
             return localVarFp.deleteProductVariation(requestParameters.id, requestParameters.product_variation_id, ).then((request) => request(axios, basePath));
+        },
+        /**
+         * Creates a duplicate of an existing product including all variations, prices, and custom fields.
+         * @summary Duplicate a product
+         * @param {ProductsApiDuplicateProductRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        duplicateProduct(requestParameters: ProductsApiDuplicateProductRequest, ): Promise<GetProductResponse> {
+            return localVarFp.duplicateProduct(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns data about a specific product.
@@ -1504,6 +1566,20 @@ export interface ProductsApiDeleteProductVariationRequest {
      * @memberof ProductsApiDeleteProductVariation
      */
     readonly product_variation_id: number
+}
+
+/**
+ * Request parameters for duplicateProduct operation in ProductsApi.
+ * @export
+ * @interface ProductsApiDuplicateProductRequest
+ */
+export interface ProductsApiDuplicateProductRequest {
+    /**
+     * The ID of the product
+     * @type {number}
+     * @memberof ProductsApiDuplicateProduct
+     */
+    readonly id: number
 }
 
 /**
@@ -1910,6 +1986,18 @@ export class ProductsApi extends BaseAPI {
      */
     public deleteProductVariation(requestParameters: ProductsApiDeleteProductVariationRequest, ) {
         return ProductsApiFp(this.configuration).deleteProductVariation(requestParameters.id, requestParameters.product_variation_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Creates a duplicate of an existing product including all variations, prices, and custom fields.
+     * @summary Duplicate a product
+     * @param {ProductsApiDuplicateProductRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public duplicateProduct(requestParameters: ProductsApiDuplicateProductRequest, ) {
+        return ProductsApiFp(this.configuration).duplicateProduct(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
