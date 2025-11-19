@@ -381,6 +381,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
          * @param {string} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
          * @param {number} [owner_id] If supplied, only persons owned by the specified user are returned. If filter_id is provided, this is ignored.
          * @param {number} [org_id] If supplied, only persons linked to the specified organization are returned. If filter_id is provided, this is ignored.
+         * @param {number} [deal_id] If supplied, only persons linked to the specified deal are returned. If filter_id is provided, this is ignored.
          * @param {string} [updated_since] If set, only persons with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {string} [updated_until] If set, only persons with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {'id' | 'update_time' | 'add_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
@@ -392,7 +393,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
 
          * @throws {RequiredError}
          */
-        getPersons: async (filter_id?: number, ids?: string, owner_id?: number, org_id?: number, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status', custom_fields?: string, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+        getPersons: async (filter_id?: number, ids?: string, owner_id?: number, org_id?: number, deal_id?: number, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status', custom_fields?: string, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
             const localVarPath = `/persons`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -426,6 +427,10 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
 
             if (org_id !== undefined) {
                 localVarQueryParameter['org_id'] = org_id;
+            }
+
+            if (deal_id !== undefined) {
+                localVarQueryParameter['deal_id'] = deal_id;
             }
 
             if (updated_since !== undefined) {
@@ -693,6 +698,7 @@ export const PersonsApiFp = function(configuration?: Configuration) {
          * @param {string} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
          * @param {number} [owner_id] If supplied, only persons owned by the specified user are returned. If filter_id is provided, this is ignored.
          * @param {number} [org_id] If supplied, only persons linked to the specified organization are returned. If filter_id is provided, this is ignored.
+         * @param {number} [deal_id] If supplied, only persons linked to the specified deal are returned. If filter_id is provided, this is ignored.
          * @param {string} [updated_since] If set, only persons with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {string} [updated_until] If set, only persons with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {'id' | 'update_time' | 'add_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
@@ -704,8 +710,8 @@ export const PersonsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getPersons(filter_id?: number, ids?: string, owner_id?: number, org_id?: number, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status', custom_fields?: string, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPersonsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPersons(filter_id, ids, owner_id, org_id, updated_since, updated_until, sort_by, sort_direction, include_fields, custom_fields, limit, cursor, );
+        async getPersons(filter_id?: number, ids?: string, owner_id?: number, org_id?: number, deal_id?: number, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status', custom_fields?: string, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPersonsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPersons(filter_id, ids, owner_id, org_id, deal_id, updated_since, updated_until, sort_by, sort_direction, include_fields, custom_fields, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -825,7 +831,7 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         getPersons(requestParameters: PersonsApiGetPersonsRequest = {}, ): Promise<GetPersonsResponse> {
-            return localVarFp.getPersons(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.org_id, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+            return localVarFp.getPersons(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.org_id, requestParameters.deal_id, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
          * Searches all persons by name, email, phone, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found persons can be filtered by organization ID.
@@ -1037,6 +1043,13 @@ export interface PersonsApiGetPersonsRequest {
      * @memberof PersonsApiGetPersons
      */
     readonly org_id?: number
+
+    /**
+     * If supplied, only persons linked to the specified deal are returned. If filter_id is provided, this is ignored.
+     * @type {number}
+     * @memberof PersonsApiGetPersons
+     */
+    readonly deal_id?: number
 
     /**
      * If set, only persons with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
@@ -1272,7 +1285,7 @@ export class PersonsApi extends BaseAPI {
      * @memberof PersonsApi
      */
     public getPersons(requestParameters: PersonsApiGetPersonsRequest = {}, ) {
-        return PersonsApiFp(this.configuration).getPersons(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.org_id, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+        return PersonsApiFp(this.configuration).getPersons(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.org_id, requestParameters.deal_id, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
