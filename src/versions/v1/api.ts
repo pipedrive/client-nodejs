@@ -27,6 +27,7 @@ export * from './api/files-api';
 export * from './api/filters-api';
 export * from './api/goals-api';
 export * from './api/item-search-api';
+export * from './api/lead-fields-api';
 export * from './api/lead-labels-api';
 export * from './api/lead-sources-api';
 export * from './api/leads-api';
