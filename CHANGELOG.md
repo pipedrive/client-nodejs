@@ -7,6 +7,38 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Added
+- Documented the following new v2 endpoints:
+  - `GET /api/v2/activityFields`
+  - `GET /api/v2/dealFields`
+  - `GET /api/v2/organizationFields`
+  - `GET /api/v2/personFields`
+  - `GET /api/v2/productFields`
+  - `GET /api/v2/activityFields/{field_code}`
+  - `GET /api/v2/dealFields/{field_code}`
+  - `GET /api/v2/organizationFields/{field_code}`
+  - `GET /api/v2/personFields/{field_code}`
+  - `GET /api/v2/productFields/{field_code}`
+  - `POST /api/v2/dealFields`
+  - `POST /api/v2/organizationFields`
+  - `POST /api/v2/personFields`
+  - `POST /api/v2/productFields`
+  - `DELETE /api/v2/dealFields/{field_code}`
+  - `DELETE /api/v2/organizationFields/{field_code}`
+  - `DELETE /api/v2/personFields/{field_code}`
+  - `DELETE /api/v2/productFields/{field_code}`
+  - `POST /api/v2/dealFields/{field_code}/options`
+  - `POST /api/v2/organizationFields/{field_code}/options`
+  - `POST /api/v2/personFields/{field_code}/options`
+  - `POST /api/v2/productFields/{field_code}/options`
+  - `PATCH /api/v2/dealFields/{field_code}/options`
+  - `PATCH /api/v2/organizationFields/{field_code}/options`
+  - `PATCH /api/v2/personFields/{field_code}/options`
+  - `PATCH /api/v2/productFields/{field_code}/options`
+  - `DELETE /api/v2/dealFields/{field_code}/options`
+  - `DELETE /api/v2/organizationFields/{field_code}/options`
+  - `DELETE /api/v2/personFields/{field_code}/options`
+  - `DELETE /api/v2/productFields/{field_code}/options`
 
 ## [30.4.0] - 2025-11-18
 ### Added

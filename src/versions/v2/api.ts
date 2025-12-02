@@ -15,13 +15,18 @@
 
 
 export * from './api/activities-api';
+export * from './api/activity-fields-api';
 export * from './api/beta-api';
+export * from './api/deal-fields-api';
 export * from './api/deals-api';
 export * from './api/item-search-api';
 export * from './api/leads-api';
+export * from './api/organization-fields-api';
 export * from './api/organizations-api';
+export * from './api/person-fields-api';
 export * from './api/persons-api';
 export * from './api/pipelines-api';
+export * from './api/product-fields-api';
 export * from './api/products-api';
 export * from './api/stages-api';
 export * from './api/users-api';
