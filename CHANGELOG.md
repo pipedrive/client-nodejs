@@ -7,6 +7,11 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Added
+- Added three new OAuth2 scopes for field management:
+  - `deal-fields:full` - Allows applications to create, read, update and delete deal fields (applied to 6 endpoints: GET/POST/DELETE /dealFields and GET/PUT/DELETE /dealFields/{id})
+  - `product-fields:full` - Allows applications to create, read, update and delete product fields (applied to 6 endpoints: GET/POST/DELETE /productFields and GET/PUT/DELETE /productFields/{id})
+  - `contact-fields:full` - Allows applications to create, read, update and delete person and organization fields (applied to 12 endpoints: GET/POST/DELETE /personFields, GET/PUT/DELETE /personFields/{id}, GET/POST/DELETE /organizationFields, and GET/PUT/DELETE /organizationFields/{id})
 
 ## [30.7.0] - 2025-12-03
 ### Added
