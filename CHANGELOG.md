@@ -40,6 +40,14 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
   - `DELETE /api/v2/personFields/{field_code}/options`
   - `DELETE /api/v2/productFields/{field_code}/options`
 
+## [30.6.0] - 2025-12-03
+### Added
+- Added `GET /v1/leadFields` endpoint for fetching all lead fields
+
+## [30.5.0] - 2025-12-02
+### Added
+- Added `deal_id` query parameter to the GET `/v2/persons` endpoint
+
 ## [30.4.0] - 2025-11-18
 ### Added
 - Added `POST /products/{id}/duplicate` endpoint for duplicating an existing product
@@ -1033,7 +1041,9 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v30.4.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v30.6.0...HEAD
+[30.6.0]: https://github.com/pipedrive/api-docs/compare/v30.5.0...v30.6.0
+[30.5.0]: https://github.com/pipedrive/api-docs/compare/v30.4.0...v30.5.0
 [30.4.0]: https://github.com/pipedrive/api-docs/compare/v30.3.3...v30.4.0
 [30.3.3]: https://github.com/pipedrive/api-docs/compare/v30.3.2...v30.3.3
 [30.3.2]: https://github.com/pipedrive/api-docs/compare/v30.3.1...v30.3.2
