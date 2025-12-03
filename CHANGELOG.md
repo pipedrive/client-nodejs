@@ -8,6 +8,40 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [30.7.0] - 2025-12-03
+### Added
+- Documented the following new v2 endpoints:
+  - `GET /api/v2/activityFields`
+  - `GET /api/v2/dealFields`
+  - `GET /api/v2/organizationFields`
+  - `GET /api/v2/personFields`
+  - `GET /api/v2/productFields`
+  - `GET /api/v2/activityFields/{field_code}`
+  - `GET /api/v2/dealFields/{field_code}`
+  - `GET /api/v2/organizationFields/{field_code}`
+  - `GET /api/v2/personFields/{field_code}`
+  - `GET /api/v2/productFields/{field_code}`
+  - `POST /api/v2/dealFields`
+  - `POST /api/v2/organizationFields`
+  - `POST /api/v2/personFields`
+  - `POST /api/v2/productFields`
+  - `DELETE /api/v2/dealFields/{field_code}`
+  - `DELETE /api/v2/organizationFields/{field_code}`
+  - `DELETE /api/v2/personFields/{field_code}`
+  - `DELETE /api/v2/productFields/{field_code}`
+  - `POST /api/v2/dealFields/{field_code}/options`
+  - `POST /api/v2/organizationFields/{field_code}/options`
+  - `POST /api/v2/personFields/{field_code}/options`
+  - `POST /api/v2/productFields/{field_code}/options`
+  - `PATCH /api/v2/dealFields/{field_code}/options`
+  - `PATCH /api/v2/organizationFields/{field_code}/options`
+  - `PATCH /api/v2/personFields/{field_code}/options`
+  - `PATCH /api/v2/productFields/{field_code}/options`
+  - `DELETE /api/v2/dealFields/{field_code}/options`
+  - `DELETE /api/v2/organizationFields/{field_code}/options`
+  - `DELETE /api/v2/personFields/{field_code}/options`
+  - `DELETE /api/v2/productFields/{field_code}/options`
+
 ## [30.6.0] - 2025-12-03
 ### Added
 - Added `GET /v1/leadFields` endpoint for fetching all lead fields
@@ -1009,7 +1043,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v30.6.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v30.7.0...HEAD
+[30.7.0]: https://github.com/pipedrive/api-docs/compare/v30.6.0...v30.7.0
 [30.6.0]: https://github.com/pipedrive/api-docs/compare/v30.5.0...v30.6.0
 [30.5.0]: https://github.com/pipedrive/api-docs/compare/v30.4.0...v30.5.0
 [30.4.0]: https://github.com/pipedrive/api-docs/compare/v30.3.3...v30.4.0
