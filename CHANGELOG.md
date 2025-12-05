@@ -8,6 +8,13 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [30.8.0] - 2025-12-05
+### Added
+- Added three new OAuth2 scopes for field management:
+  - `deal-fields:full` - Allows applications to create, read, update and delete deal fields
+  - `product-fields:full` - Allows applications to create, read, update and delete product fields
+  - `contact-fields:full` - Allows applications to create, read, update and delete person and organization fields
+
 ## [30.7.0] - 2025-12-03
 ### Added
 - Documented the following new v2 endpoints:
@@ -127,7 +134,7 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 ## [29.0.0] - 2025-09-03
 ### Removed
 - Removed all endpoints of the Subscriptions feature
-  - GET /v1/subscriptions/{id} 
+  - GET /v1/subscriptions/{id}
   - GET /v1/subscriptions/find/{dealId}
   - GET /v1/subscriptions/{id}/payments
   - POST /v1/subscriptions/recurring
@@ -1043,7 +1050,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v30.7.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v30.8.0...HEAD
+[30.8.0]: https://github.com/pipedrive/api-docs/compare/v30.7.0...v30.8.0
 [30.7.0]: https://github.com/pipedrive/api-docs/compare/v30.6.0...v30.7.0
 [30.6.0]: https://github.com/pipedrive/api-docs/compare/v30.5.0...v30.6.0
 [30.5.0]: https://github.com/pipedrive/api-docs/compare/v30.4.0...v30.5.0

@@ -72,7 +72,7 @@ export const DealFieldsApiAxiosParamCreator = function (configuration?: Configur
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin", "deal-fields:full"], configuration)
 
 
     
@@ -119,7 +119,7 @@ export const DealFieldsApiAxiosParamCreator = function (configuration?: Configur
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "admin"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "admin", "deal-fields:full"], configuration)
 
 
     
@@ -163,7 +163,7 @@ export const DealFieldsApiAxiosParamCreator = function (configuration?: Configur
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin", "deal-fields:full"], configuration)
 
 
     
@@ -207,7 +207,7 @@ export const DealFieldsApiAxiosParamCreator = function (configuration?: Configur
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "admin"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "admin", "deal-fields:full"], configuration)
 
 
     
@@ -252,7 +252,7 @@ export const DealFieldsApiAxiosParamCreator = function (configuration?: Configur
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full", "admin"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full", "admin", "deal-fields:full"], configuration)
 
             if (include_fields !== undefined) {
                 localVarQueryParameter['include_fields'] = include_fields;
@@ -296,7 +296,7 @@ export const DealFieldsApiAxiosParamCreator = function (configuration?: Configur
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full", "admin"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full", "admin", "deal-fields:full"], configuration)
 
             if (include_fields !== undefined) {
                 localVarQueryParameter['include_fields'] = include_fields;
@@ -352,7 +352,7 @@ export const DealFieldsApiAxiosParamCreator = function (configuration?: Configur
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "admin"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "admin", "deal-fields:full"], configuration)
 
 
     
@@ -399,7 +399,7 @@ export const DealFieldsApiAxiosParamCreator = function (configuration?: Configur
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "admin"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "admin", "deal-fields:full"], configuration)
 
 
     

@@ -66,7 +66,7 @@ export const ProductFieldsApiAxiosParamCreator = function (configuration?: Confi
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["product-fields:full", "products:full"], configuration)
 
 
     
@@ -110,7 +110,7 @@ export const ProductFieldsApiAxiosParamCreator = function (configuration?: Confi
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["product-fields:full", "products:full"], configuration)
 
 
     
@@ -150,7 +150,7 @@ export const ProductFieldsApiAxiosParamCreator = function (configuration?: Confi
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["product-fields:full", "products:full"], configuration)
 
             if (ids !== undefined) {
                 localVarQueryParameter['ids'] = ids;
@@ -195,7 +195,7 @@ export const ProductFieldsApiAxiosParamCreator = function (configuration?: Confi
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:read", "products:full"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:read", "product-fields:full", "products:full"], configuration)
 
 
     
@@ -234,7 +234,7 @@ export const ProductFieldsApiAxiosParamCreator = function (configuration?: Confi
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:read", "products:full"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:read", "product-fields:full", "products:full"], configuration)
 
             if (start !== undefined) {
                 localVarQueryParameter['start'] = start;
@@ -284,7 +284,7 @@ export const ProductFieldsApiAxiosParamCreator = function (configuration?: Confi
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["product-fields:full", "products:full"], configuration)
 
 
     

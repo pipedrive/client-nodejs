@@ -64,7 +64,7 @@ export const OrganizationFieldsApiAxiosParamCreator = function (configuration?: 
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contact-fields:full", "admin"], configuration)
 
 
     
@@ -108,7 +108,7 @@ export const OrganizationFieldsApiAxiosParamCreator = function (configuration?: 
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contact-fields:full", "admin"], configuration)
 
 
     
@@ -148,7 +148,7 @@ export const OrganizationFieldsApiAxiosParamCreator = function (configuration?: 
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contact-fields:full", "admin"], configuration)
 
             if (ids !== undefined) {
                 localVarQueryParameter['ids'] = ids;
@@ -193,7 +193,7 @@ export const OrganizationFieldsApiAxiosParamCreator = function (configuration?: 
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full", "admin"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full", "contact-fields:full", "admin"], configuration)
 
 
     
@@ -232,7 +232,7 @@ export const OrganizationFieldsApiAxiosParamCreator = function (configuration?: 
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full", "admin"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full", "contact-fields:full", "admin"], configuration)
 
             if (start !== undefined) {
                 localVarQueryParameter['start'] = start;
@@ -282,7 +282,7 @@ export const OrganizationFieldsApiAxiosParamCreator = function (configuration?: 
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contact-fields:full", "admin"], configuration)
 
 
     
