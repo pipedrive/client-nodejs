@@ -9,9 +9,9 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 ## [Unreleased]
 ### Added
 - Added three new OAuth2 scopes for field management:
-  - `deal-fields:full` - Allows applications to create, read, update and delete deal fields (applied to 6 endpoints: GET/POST/DELETE /dealFields and GET/PUT/DELETE /dealFields/{id})
-  - `product-fields:full` - Allows applications to create, read, update and delete product fields (applied to 6 endpoints: GET/POST/DELETE /productFields and GET/PUT/DELETE /productFields/{id})
-  - `contact-fields:full` - Allows applications to create, read, update and delete person and organization fields (applied to 12 endpoints: GET/POST/DELETE /personFields, GET/PUT/DELETE /personFields/{id}, GET/POST/DELETE /organizationFields, and GET/PUT/DELETE /organizationFields/{id})
+  - `deal-fields:full` - Allows applications to create, read, update and delete deal fields
+  - `product-fields:full` - Allows applications to create, read, update and delete product fields
+  - `contact-fields:full` - Allows applications to create, read, update and delete person and organization fields
 
 ## [30.7.0] - 2025-12-03
 ### Added
@@ -132,7 +132,7 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 ## [29.0.0] - 2025-09-03
 ### Removed
 - Removed all endpoints of the Subscriptions feature
-  - GET /v1/subscriptions/{id} 
+  - GET /v1/subscriptions/{id}
   - GET /v1/subscriptions/find/{dealId}
   - GET /v1/subscriptions/{id}/payments
   - POST /v1/subscriptions/recurring
