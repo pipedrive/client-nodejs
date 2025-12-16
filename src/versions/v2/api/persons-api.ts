@@ -36,6 +36,8 @@ import { GetFollowerChangelogsResponse } from '../models';
 // @ts-ignore
 import { GetFollowersResponse } from '../models';
 // @ts-ignore
+import { GetPersonPictureResponse } from '../models';
+// @ts-ignore
 import { GetPersonSearchResponse } from '../models';
 // @ts-ignore
 import { GetPersonsResponse } from '../models';
@@ -375,6 +377,47 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         * Returns the picture associated with a person. The picture URLs include both 128x128 and 512x512 pixel versions.
+         * @summary Get picture of a person
+         * @param {number} id The ID of the person
+
+         * @throws {RequiredError}
+         */
+        getPersonPicture: async (id: number, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getPersonPicture', 'id', id)
+            const localVarPath = `/persons/{id}/picture`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full"], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Returns data about all persons. Fields `ims`, `postal_address`, `notes`, `birthday`, and `job_title` are only included if contact sync is enabled for the company.
          * @summary Get all persons
          * @param {number} [filter_id] If supplied, only persons matching the specified filter are returned
@@ -692,6 +735,17 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Returns the picture associated with a person. The picture URLs include both 128x128 and 512x512 pixel versions.
+         * @summary Get picture of a person
+         * @param {number} id The ID of the person
+
+         * @throws {RequiredError}
+         */
+        async getPersonPicture(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPersonPictureResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonPicture(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Returns data about all persons. Fields `ims`, `postal_address`, `notes`, `birthday`, and `job_title` are only included if contact sync is enabled for the company.
          * @summary Get all persons
          * @param {number} [filter_id] If supplied, only persons matching the specified filter are returned
@@ -822,6 +876,16 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
          */
         getPersonFollowersChangelog(requestParameters: PersonsApiGetPersonFollowersChangelogRequest, ): Promise<GetFollowerChangelogsResponse> {
             return localVarFp.getPersonFollowersChangelog(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
+        /**
+         * Returns the picture associated with a person. The picture URLs include both 128x128 and 512x512 pixel versions.
+         * @summary Get picture of a person
+         * @param {PersonsApiGetPersonPictureRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        getPersonPicture(requestParameters: PersonsApiGetPersonPictureRequest, ): Promise<GetPersonPictureResponse> {
+            return localVarFp.getPersonPicture(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns data about all persons. Fields `ims`, `postal_address`, `notes`, `birthday`, and `job_title` are only included if contact sync is enabled for the company.
@@ -1008,6 +1072,20 @@ export interface PersonsApiGetPersonFollowersChangelogRequest {
      * @memberof PersonsApiGetPersonFollowersChangelog
      */
     readonly cursor?: string
+}
+
+/**
+ * Request parameters for getPersonPicture operation in PersonsApi.
+ * @export
+ * @interface PersonsApiGetPersonPictureRequest
+ */
+export interface PersonsApiGetPersonPictureRequest {
+    /**
+     * The ID of the person
+     * @type {number}
+     * @memberof PersonsApiGetPersonPicture
+     */
+    readonly id: number
 }
 
 /**
@@ -1274,6 +1352,18 @@ export class PersonsApi extends BaseAPI {
      */
     public getPersonFollowersChangelog(requestParameters: PersonsApiGetPersonFollowersChangelogRequest, ) {
         return PersonsApiFp(this.configuration).getPersonFollowersChangelog(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Returns the picture associated with a person. The picture URLs include both 128x128 and 512x512 pixel versions.
+     * @summary Get picture of a person
+     * @param {PersonsApiGetPersonPictureRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public getPersonPicture(requestParameters: PersonsApiGetPersonPictureRequest, ) {
+        return PersonsApiFp(this.configuration).getPersonPicture(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
