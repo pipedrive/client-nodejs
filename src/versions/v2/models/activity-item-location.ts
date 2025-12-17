@@ -61,6 +61,11 @@ export interface ActivityItemLocation {
     */
     'street_number'?: string;
     /**
+    * Subpremise (e.g. apartment/suite number) of the activity
+    * @type {string}
+    */
+    'subpremise'?: string;
+    /**
     * Postal code of the activity
     * @type {string}
     */

@@ -61,6 +61,11 @@ export interface OrganizationItemAddress {
     */
     'street_number'?: string;
     /**
+    * Subpremise (e.g. apartment/suite number) of the organization
+    * @type {string}
+    */
+    'subpremise'?: string;
+    /**
     * Postal code of the organization
     * @type {string}
     */
