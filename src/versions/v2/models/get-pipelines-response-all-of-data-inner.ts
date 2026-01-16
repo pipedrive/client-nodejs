@@ -36,11 +36,6 @@ export interface GetPipelinesResponseAllOfDataInner {
     */
     'order_nr'?: number;
     /**
-    * Whether this pipeline is selected or not
-    * @type {boolean}
-    */
-    'is_selected'?: boolean;
-    /**
     * Whether this pipeline is marked as deleted or not
     * @type {boolean}
     */
