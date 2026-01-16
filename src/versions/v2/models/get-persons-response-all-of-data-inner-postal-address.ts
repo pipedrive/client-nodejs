@@ -61,6 +61,11 @@ export interface GetPersonsResponseAllOfDataInnerPostalAddress {
     */
     'street_number'?: string;
     /**
+    * Subpremise (e.g. apartment/suite number) of the person
+    * @type {string}
+    */
+    'subpremise'?: string;
+    /**
     * Postal code of the person
     * @type {string}
     */
