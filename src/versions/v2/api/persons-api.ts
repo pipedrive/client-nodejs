@@ -36,6 +36,8 @@ import { GetFollowerChangelogsResponse } from '../models';
 // @ts-ignore
 import { GetFollowersResponse } from '../models';
 // @ts-ignore
+import { GetPersonPictureResponse } from '../models';
+// @ts-ignore
 import { GetPersonSearchResponse } from '../models';
 // @ts-ignore
 import { GetPersonsResponse } from '../models';
@@ -225,12 +227,12 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
          * Returns the details of a specific person. Fields `ims`, `postal_address`, `notes`, `birthday`, and `job_title` are only included if contact sync is enabled for the company.
          * @summary Get details of a person
          * @param {number} id The ID of the person
-         * @param {'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status'} [include_fields] Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled.
+         * @param {'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'} [include_fields] Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled.
          * @param {string} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
 
          * @throws {RequiredError}
          */
-        getPerson: async (id: number, include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status', custom_fields?: string, ): Promise<RequestArgs> => {
+        getPerson: async (id: number, include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email', custom_fields?: string, ): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getPerson', 'id', id)
             const localVarPath = `/persons/{id}`
@@ -375,6 +377,47 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         * Returns the picture associated with a person. The picture URLs include both 128x128 and 512x512 pixel versions.
+         * @summary Get picture of a person
+         * @param {number} id The ID of the person
+
+         * @throws {RequiredError}
+         */
+        getPersonPicture: async (id: number, ): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getPersonPicture', 'id', id)
+            const localVarPath = `/persons/{id}/picture`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication api_key required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full"], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Returns data about all persons. Fields `ims`, `postal_address`, `notes`, `birthday`, and `job_title` are only included if contact sync is enabled for the company.
          * @summary Get all persons
          * @param {number} [filter_id] If supplied, only persons matching the specified filter are returned
@@ -386,14 +429,14 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
          * @param {string} [updated_until] If set, only persons with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {'id' | 'update_time' | 'add_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
          * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
-         * @param {'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status'} [include_fields] Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled.
+         * @param {'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'} [include_fields] Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled.
          * @param {string} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        getPersons: async (filter_id?: number, ids?: string, owner_id?: number, org_id?: number, deal_id?: number, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status', custom_fields?: string, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+        getPersons: async (filter_id?: number, ids?: string, owner_id?: number, org_id?: number, deal_id?: number, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email', custom_fields?: string, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
             const localVarPath = `/persons`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -656,12 +699,12 @@ export const PersonsApiFp = function(configuration?: Configuration) {
          * Returns the details of a specific person. Fields `ims`, `postal_address`, `notes`, `birthday`, and `job_title` are only included if contact sync is enabled for the company.
          * @summary Get details of a person
          * @param {number} id The ID of the person
-         * @param {'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status'} [include_fields] Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled.
+         * @param {'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'} [include_fields] Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled.
          * @param {string} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
 
          * @throws {RequiredError}
          */
-        async getPerson(id: number, include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status', custom_fields?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertPersonResponse>> {
+        async getPerson(id: number, include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email', custom_fields?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertPersonResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPerson(id, include_fields, custom_fields, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -692,6 +735,17 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Returns the picture associated with a person. The picture URLs include both 128x128 and 512x512 pixel versions.
+         * @summary Get picture of a person
+         * @param {number} id The ID of the person
+
+         * @throws {RequiredError}
+         */
+        async getPersonPicture(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPersonPictureResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonPicture(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Returns data about all persons. Fields `ims`, `postal_address`, `notes`, `birthday`, and `job_title` are only included if contact sync is enabled for the company.
          * @summary Get all persons
          * @param {number} [filter_id] If supplied, only persons matching the specified filter are returned
@@ -703,14 +757,14 @@ export const PersonsApiFp = function(configuration?: Configuration) {
          * @param {string} [updated_until] If set, only persons with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {'id' | 'update_time' | 'add_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
          * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
-         * @param {'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status'} [include_fields] Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled.
+         * @param {'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'} [include_fields] Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled.
          * @param {string} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        async getPersons(filter_id?: number, ids?: string, owner_id?: number, org_id?: number, deal_id?: number, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status', custom_fields?: string, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPersonsResponse>> {
+        async getPersons(filter_id?: number, ids?: string, owner_id?: number, org_id?: number, deal_id?: number, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email', custom_fields?: string, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPersonsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPersons(filter_id, ids, owner_id, org_id, deal_id, updated_since, updated_until, sort_by, sort_direction, include_fields, custom_fields, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -822,6 +876,16 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
          */
         getPersonFollowersChangelog(requestParameters: PersonsApiGetPersonFollowersChangelogRequest, ): Promise<GetFollowerChangelogsResponse> {
             return localVarFp.getPersonFollowersChangelog(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
+        /**
+         * Returns the picture associated with a person. The picture URLs include both 128x128 and 512x512 pixel versions.
+         * @summary Get picture of a person
+         * @param {PersonsApiGetPersonPictureRequest} requestParameters Request parameters.
+
+         * @throws {RequiredError}
+         */
+        getPersonPicture(requestParameters: PersonsApiGetPersonPictureRequest, ): Promise<GetPersonPictureResponse> {
+            return localVarFp.getPersonPicture(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns data about all persons. Fields `ims`, `postal_address`, `notes`, `birthday`, and `job_title` are only included if contact sync is enabled for the company.
@@ -941,10 +1005,10 @@ export interface PersonsApiGetPersonRequest {
 
     /**
      * Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled.
-     * @type {'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status'}
+     * @type {'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'}
      * @memberof PersonsApiGetPerson
      */
-    readonly include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status'
+    readonly include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'
 
     /**
      * Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
@@ -1008,6 +1072,20 @@ export interface PersonsApiGetPersonFollowersChangelogRequest {
      * @memberof PersonsApiGetPersonFollowersChangelog
      */
     readonly cursor?: string
+}
+
+/**
+ * Request parameters for getPersonPicture operation in PersonsApi.
+ * @export
+ * @interface PersonsApiGetPersonPictureRequest
+ */
+export interface PersonsApiGetPersonPictureRequest {
+    /**
+     * The ID of the person
+     * @type {number}
+     * @memberof PersonsApiGetPersonPicture
+     */
+    readonly id: number
 }
 
 /**
@@ -1081,10 +1159,10 @@ export interface PersonsApiGetPersonsRequest {
 
     /**
      * Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled.
-     * @type {'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status'}
+     * @type {'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'}
      * @memberof PersonsApiGetPersons
      */
-    readonly include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status'
+    readonly include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'
 
     /**
      * Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
@@ -1274,6 +1352,18 @@ export class PersonsApi extends BaseAPI {
      */
     public getPersonFollowersChangelog(requestParameters: PersonsApiGetPersonFollowersChangelogRequest, ) {
         return PersonsApiFp(this.configuration).getPersonFollowersChangelog(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Returns the picture associated with a person. The picture URLs include both 128x128 and 512x512 pixel versions.
+     * @summary Get picture of a person
+     * @param {PersonsApiGetPersonPictureRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public getPersonPicture(requestParameters: PersonsApiGetPersonPictureRequest, ) {
+        return PersonsApiFp(this.configuration).getPersonPicture(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
