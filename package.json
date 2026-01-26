@@ -79,7 +79,7 @@
     "minimist": "^1.2.5",
     "mocha": "^10.2.0",
     "nock": "^13.5.6",
-    "pre-commit": "^1.2.2",
+    "pre-commit": "1.2.2",
     "regenerator-runtime": "^0.13.7",
     "shelljs": "^0.8.4",
     "sinon": "^7.2.0",

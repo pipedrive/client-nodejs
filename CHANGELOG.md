@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+### Fixed
+
+- upgraded qs 6.11.0 -> 6.14.1 by npm audit fix
+
 ## [30.8.0] - 2025-12-05
 ### Added
 - Added three new OAuth2 scopes for field management:
