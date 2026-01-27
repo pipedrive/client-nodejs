@@ -42,8 +42,6 @@ import { DeleteDealProductResponse } from '../models';
 // @ts-ignore
 import { DeleteDealResponse } from '../models';
 // @ts-ignore
-import { DeleteDealsResponse } from '../models';
-// @ts-ignore
 import { FailResponse } from '../models';
 // @ts-ignore
 import { GetAddProductAttachmentDetailsResponse } from '../models';
@@ -441,50 +439,6 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             // authentication oauth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "products:full"], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Marks multiple deals as deleted. After 30 days, the deals will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#deleteDeal\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/deals/{id}</a> instead.
-         * @summary Delete multiple deals in bulk
-         * @param {string} ids The comma-separated IDs that will be deleted
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        deleteDeals: async (ids: string, ): Promise<RequestArgs> => {
-            // verify required parameter 'ids' is not null or undefined
-            assertParamExists('deleteDeals', 'ids', ids)
-            const localVarPath = `/deals`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full"], configuration)
-
-            if (ids !== undefined) {
-                localVarQueryParameter['ids'] = ids;
-            }
 
 
     
@@ -2033,17 +1987,6 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Marks multiple deals as deleted. After 30 days, the deals will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#deleteDeal\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/deals/{id}</a> instead.
-         * @summary Delete multiple deals in bulk
-         * @param {string} ids The comma-separated IDs that will be deleted
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async deleteDeals(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteDealsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDeals(ids, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Duplicates a deal.
          * @summary Duplicate deal
          * @param {number} id The ID of the deal
@@ -2482,16 +2425,6 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.deleteDealProduct(requestParameters.id, requestParameters.product_attachment_id, ).then((request) => request(axios, basePath));
         },
         /**
-         * Marks multiple deals as deleted. After 30 days, the deals will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#deleteDeal\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/deals/{id}</a> instead.
-         * @summary Delete multiple deals in bulk
-         * @param {DealsApiDeleteDealsRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        deleteDeals(requestParameters: DealsApiDeleteDealsRequest, ): Promise<DeleteDealsResponse> {
-            return localVarFp.deleteDeals(requestParameters.ids, ).then((request) => request(axios, basePath));
-        },
-        /**
          * Duplicates a deal.
          * @summary Duplicate deal
          * @param {DealsApiDuplicateDealRequest} requestParameters Request parameters.
@@ -2886,20 +2819,6 @@ export interface DealsApiDeleteDealProductRequest {
      * @memberof DealsApiDeleteDealProduct
      */
     readonly product_attachment_id: number
-}
-
-/**
- * Request parameters for deleteDeals operation in DealsApi.
- * @export
- * @interface DealsApiDeleteDealsRequest
- */
-export interface DealsApiDeleteDealsRequest {
-    /**
-     * The comma-separated IDs that will be deleted
-     * @type {string}
-     * @memberof DealsApiDeleteDeals
-     */
-    readonly ids: string
 }
 
 /**
@@ -3927,18 +3846,6 @@ export class DealsApi extends BaseAPI {
      */
     public deleteDealProduct(requestParameters: DealsApiDeleteDealProductRequest, ) {
         return DealsApiFp(this.configuration).deleteDealProduct(requestParameters.id, requestParameters.product_attachment_id, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Marks multiple deals as deleted. After 30 days, the deals will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#deleteDeal\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/deals/{id}</a> instead.
-     * @summary Delete multiple deals in bulk
-     * @param {DealsApiDeleteDealsRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof DealsApi
-     */
-    public deleteDeals(requestParameters: DealsApiDeleteDealsRequest, ) {
-        return DealsApiFp(this.configuration).deleteDeals(requestParameters.ids, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**

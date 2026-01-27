@@ -8,6 +8,17 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [31.0.0] - 2026-01-27
+### Removed
+- Removed deprecated bulk delete endpoints:
+  - `DELETE /v1/activities`
+  - `DELETE /v1/activityTypes`
+  - `DELETE /v1/deals`
+  - `DELETE /v1/organizations`
+  - `DELETE /v1/persons`
+  - `DELETE /v1/stages`
+Please use the single delete endpoints instead, for example `DELETE /api/v2/activities/{id}`.
+
 ## [30.11.0] - 2026-01-27
 ### Added
 - Added `smart_bcc_email` to optional `include_fields` in Persons and Organizations API v2
@@ -1070,7 +1081,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v30.11.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v31.0.0...HEAD
+[31.0.0]: https://github.com/pipedrive/api-docs/compare/v30.11.0...v31.0.0
 [30.11.0]: https://github.com/pipedrive/api-docs/compare/v30.10.0...v30.11.0
 [30.10.0]: https://github.com/pipedrive/api-docs/compare/v30.9.1...v30.10.0
 [30.9.1]: https://github.com/pipedrive/api-docs/compare/v30.9.0...v30.9.1

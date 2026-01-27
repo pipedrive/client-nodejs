@@ -34,8 +34,6 @@ import { AddPersonResponse } from '../models';
 // @ts-ignore
 import { DeletePersonResponse } from '../models';
 // @ts-ignore
-import { DeletePersonsResponse } from '../models';
-// @ts-ignore
 import { FailResponse } from '../models';
 // @ts-ignore
 import { GetAssociatedActivitiesResponse } from '../models';
@@ -350,50 +348,6 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             // authentication oauth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Marks multiple persons as deleted. After 30 days, the persons will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#deletePerson\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/persons/{id}</a> instead.
-         * @summary Delete multiple persons in bulk
-         * @param {string} ids The comma-separated IDs that will be deleted
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        deletePersons: async (ids: string, ): Promise<RequestArgs> => {
-            // verify required parameter 'ids' is not null or undefined
-            assertParamExists('deletePersons', 'ids', ids)
-            const localVarPath = `/persons`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
-
-            if (ids !== undefined) {
-                localVarQueryParameter['ids'] = ids;
-            }
 
 
     
@@ -1304,17 +1258,6 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Marks multiple persons as deleted. After 30 days, the persons will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#deletePerson\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/persons/{id}</a> instead.
-         * @summary Delete multiple persons in bulk
-         * @param {string} ids The comma-separated IDs that will be deleted
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async deletePersons(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeletePersonsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deletePersons(ids, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Returns the details of a person. Note that this also returns some additional fields which are not present when asking for all persons. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of personFields.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
          * @summary Get details of a person
          * @param {number} id The ID of the person
@@ -1587,16 +1530,6 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
          */
         deletePersonPicture(requestParameters: PersonsApiDeletePersonPictureRequest, ): Promise<DeletePersonResponse> {
             return localVarFp.deletePersonPicture(requestParameters.id, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Marks multiple persons as deleted. After 30 days, the persons will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#deletePerson\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/persons/{id}</a> instead.
-         * @summary Delete multiple persons in bulk
-         * @param {PersonsApiDeletePersonsRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        deletePersons(requestParameters: PersonsApiDeletePersonsRequest, ): Promise<DeletePersonsResponse> {
-            return localVarFp.deletePersons(requestParameters.ids, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns the details of a person. Note that this also returns some additional fields which are not present when asking for all persons. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of personFields.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
@@ -1882,20 +1815,6 @@ export interface PersonsApiDeletePersonPictureRequest {
      * @memberof PersonsApiDeletePersonPicture
      */
     readonly id: number
-}
-
-/**
- * Request parameters for deletePersons operation in PersonsApi.
- * @export
- * @interface PersonsApiDeletePersonsRequest
- */
-export interface PersonsApiDeletePersonsRequest {
-    /**
-     * The comma-separated IDs that will be deleted
-     * @type {string}
-     * @memberof PersonsApiDeletePersons
-     */
-    readonly ids: string
 }
 
 /**
@@ -2458,18 +2377,6 @@ export class PersonsApi extends BaseAPI {
      */
     public deletePersonPicture(requestParameters: PersonsApiDeletePersonPictureRequest, ) {
         return PersonsApiFp(this.configuration).deletePersonPicture(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Marks multiple persons as deleted. After 30 days, the persons will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#deletePerson\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/persons/{id}</a> instead.
-     * @summary Delete multiple persons in bulk
-     * @param {PersonsApiDeletePersonsRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof PersonsApi
-     */
-    public deletePersons(requestParameters: PersonsApiDeletePersonsRequest, ) {
-        return PersonsApiFp(this.configuration).deletePersons(requestParameters.ids, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**

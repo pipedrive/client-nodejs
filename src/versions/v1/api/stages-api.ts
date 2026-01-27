@@ -26,8 +26,6 @@ import { AddStageRequest } from '../models';
 // @ts-ignore
 import { DeleteStageResponse } from '../models';
 // @ts-ignore
-import { DeleteStagesResponse } from '../models';
-// @ts-ignore
 import { GetStageDealsResponse } from '../models';
 // @ts-ignore
 import { GetStageResponse } from '../models';
@@ -113,50 +111,6 @@ export const StagesApiAxiosParamCreator = function (configuration?: Configuratio
             // authentication oauth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Marks multiple stages as deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Stages#deleteStage\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/stages/{id}</a> instead.
-         * @summary Delete multiple stages in bulk
-         * @param {string} ids The comma-separated stage IDs to delete
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        deleteStages: async (ids: string, ): Promise<RequestArgs> => {
-            // verify required parameter 'ids' is not null or undefined
-            assertParamExists('deleteStages', 'ids', ids)
-            const localVarPath = `/stages`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
-
-            if (ids !== undefined) {
-                localVarQueryParameter['ids'] = ids;
-            }
 
 
     
@@ -407,17 +361,6 @@ export const StagesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Marks multiple stages as deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Stages#deleteStage\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/stages/{id}</a> instead.
-         * @summary Delete multiple stages in bulk
-         * @param {string} ids The comma-separated stage IDs to delete
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async deleteStages(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteStagesResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteStages(ids, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Returns data about a specific stage.
          * @summary Get one stage
          * @param {number} id The ID of the stage
@@ -500,16 +443,6 @@ export const StagesApiFactory = function (configuration?: Configuration, basePat
             return localVarFp.deleteStage(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
-         * Marks multiple stages as deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Stages#deleteStage\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/stages/{id}</a> instead.
-         * @summary Delete multiple stages in bulk
-         * @param {StagesApiDeleteStagesRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        deleteStages(requestParameters: StagesApiDeleteStagesRequest, ): Promise<DeleteStagesResponse> {
-            return localVarFp.deleteStages(requestParameters.ids, ).then((request) => request(axios, basePath));
-        },
-        /**
          * Returns data about a specific stage.
          * @summary Get one stage
          * @param {StagesApiGetStageRequest} requestParameters Request parameters.
@@ -578,20 +511,6 @@ export interface StagesApiDeleteStageRequest {
      * @memberof StagesApiDeleteStage
      */
     readonly id: number
-}
-
-/**
- * Request parameters for deleteStages operation in StagesApi.
- * @export
- * @interface StagesApiDeleteStagesRequest
- */
-export interface StagesApiDeleteStagesRequest {
-    /**
-     * The comma-separated stage IDs to delete
-     * @type {string}
-     * @memberof StagesApiDeleteStages
-     */
-    readonly ids: string
 }
 
 /**
@@ -735,18 +654,6 @@ export class StagesApi extends BaseAPI {
      */
     public deleteStage(requestParameters: StagesApiDeleteStageRequest, ) {
         return StagesApiFp(this.configuration).deleteStage(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Marks multiple stages as deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Stages#deleteStage\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/stages/{id}</a> instead.
-     * @summary Delete multiple stages in bulk
-     * @param {StagesApiDeleteStagesRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof StagesApi
-     */
-    public deleteStages(requestParameters: StagesApiDeleteStagesRequest, ) {
-        return StagesApiFp(this.configuration).deleteStages(requestParameters.ids, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**

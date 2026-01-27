@@ -26,8 +26,6 @@ import { AddActivityRequest } from '../models';
 // @ts-ignore
 import { AddActivityResponse } from '../models';
 // @ts-ignore
-import { DeleteActivitiesResponse } from '../models';
-// @ts-ignore
 import { DeleteActivityResponse } from '../models';
 // @ts-ignore
 import { FailResponse } from '../models';
@@ -82,50 +80,6 @@ export const ActivitiesApiAxiosParamCreator = function (configuration?: Configur
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
             localVarRequestOptions.data = serializeDataIfNeeded(AddActivityRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Marks multiple activities as deleted. After 30 days, the activities will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#deleteActivity\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/activities/{id}</a> instead.
-         * @summary Delete multiple activities in bulk
-         * @param {string} ids The comma-separated IDs of activities that will be deleted
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        deleteActivities: async (ids: string, ): Promise<RequestArgs> => {
-            // verify required parameter 'ids' is not null or undefined
-            assertParamExists('deleteActivities', 'ids', ids)
-            const localVarPath = `/activities`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["activities:full"], configuration)
-
-            if (ids !== undefined) {
-                localVarQueryParameter['ids'] = ids;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -435,17 +389,6 @@ export const ActivitiesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Marks multiple activities as deleted. After 30 days, the activities will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#deleteActivity\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/activities/{id}</a> instead.
-         * @summary Delete multiple activities in bulk
-         * @param {string} ids The comma-separated IDs of activities that will be deleted
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async deleteActivities(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteActivitiesResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteActivities(ids, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Marks an activity as deleted. After 30 days, the activity will be permanently deleted.
          * @summary Delete an activity
          * @param {number} id The ID of the activity
@@ -535,16 +478,6 @@ export const ActivitiesApiFactory = function (configuration?: Configuration, bas
             return localVarFp.addActivity(requestParameters.AddActivityRequest, ).then((request) => request(axios, basePath));
         },
         /**
-         * Marks multiple activities as deleted. After 30 days, the activities will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#deleteActivity\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/activities/{id}</a> instead.
-         * @summary Delete multiple activities in bulk
-         * @param {ActivitiesApiDeleteActivitiesRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        deleteActivities(requestParameters: ActivitiesApiDeleteActivitiesRequest, ): Promise<DeleteActivitiesResponse> {
-            return localVarFp.deleteActivities(requestParameters.ids, ).then((request) => request(axios, basePath));
-        },
-        /**
          * Marks an activity as deleted. After 30 days, the activity will be permanently deleted.
          * @summary Delete an activity
          * @param {ActivitiesApiDeleteActivityRequest} requestParameters Request parameters.
@@ -609,20 +542,6 @@ export interface ActivitiesApiAddActivityRequest {
      * @memberof ActivitiesApiAddActivity
      */
     readonly AddActivityRequest?: AddActivityRequest
-}
-
-/**
- * Request parameters for deleteActivities operation in ActivitiesApi.
- * @export
- * @interface ActivitiesApiDeleteActivitiesRequest
- */
-export interface ActivitiesApiDeleteActivitiesRequest {
-    /**
-     * The comma-separated IDs of activities that will be deleted
-     * @type {string}
-     * @memberof ActivitiesApiDeleteActivities
-     */
-    readonly ids: string
 }
 
 /**
@@ -810,18 +729,6 @@ export class ActivitiesApi extends BaseAPI {
      */
     public addActivity(requestParameters: ActivitiesApiAddActivityRequest = {}, ) {
         return ActivitiesApiFp(this.configuration).addActivity(requestParameters.AddActivityRequest, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Marks multiple activities as deleted. After 30 days, the activities will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#deleteActivity\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/activities/{id}</a> instead.
-     * @summary Delete multiple activities in bulk
-     * @param {ActivitiesApiDeleteActivitiesRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof ActivitiesApi
-     */
-    public deleteActivities(requestParameters: ActivitiesApiDeleteActivitiesRequest, ) {
-        return ActivitiesApiFp(this.configuration).deleteActivities(requestParameters.ids, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
