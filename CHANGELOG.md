@@ -7,6 +7,9 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Added
+- Added `updated_since` query parameter to `GET /v1/leads` endpoint to filter leads by their `update_time`
+- Added `updated_since` query parameter to `GET /v1/notes` endpoint to filter notes by their `update_time`
 
 ## [31.0.0] - 2026-01-27
 ### Removed
