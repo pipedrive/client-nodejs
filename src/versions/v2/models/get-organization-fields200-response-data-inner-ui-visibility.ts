@@ -37,6 +37,21 @@ export interface GetOrganizationFields200ResponseDataInnerUiVisibility {
     */
     'details_visible_flag'?: boolean;
     /**
+    * Whether the field is shown in the organization details view
+    * @type {boolean}
+    */
+    'org_detail_visible_flag'?: boolean;
+    /**
+    * Whether the field is shown in the person details view
+    * @type {boolean}
+    */
+    'person_detail_visible_flag'?: boolean;
+    /**
+    * Whether the field is shown in the deal details view
+    * @type {boolean}
+    */
+    'deal_detail_visible_flag'?: boolean;
+    /**
     * 
     * @type {GetPersonFields200ResponseDataInnerUiVisibilityShowInAddDealDialog}
     */

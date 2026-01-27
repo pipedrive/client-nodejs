@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { RequiedPostProjectParameters } from './requied-post-project-parameters';
+import { RequiredPostProjectParameters1 } from './required-post-project-parameters1';
 // May contain unused imports in some cases
 // @ts-ignore
 import { UpdateProjectRequest1AllOf1 } from './update-project-request1-all-of1';
@@ -24,6 +24,6 @@ import { UpdateProjectRequest1AllOf1 } from './update-project-request1-all-of1';
  * @type AddTaskRequest
  * @export
  */
-export type AddTaskRequest = RequiedPostProjectParameters & UpdateProjectRequest1AllOf1;
+export type AddTaskRequest = RequiredPostProjectParameters1 & UpdateProjectRequest1AllOf1;
 
 

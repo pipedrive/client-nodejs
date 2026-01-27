@@ -34,8 +34,6 @@ import { DeleteOrganizationFollowerResponse } from '../models';
 // @ts-ignore
 import { DeleteOrganizationResponse } from '../models';
 // @ts-ignore
-import { DeleteOrganizationsResponse } from '../models';
-// @ts-ignore
 import { FailResponse } from '../models';
 // @ts-ignore
 import { GetAssociatedActivitiesResponse } from '../models';
@@ -237,50 +235,6 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             // authentication oauth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Marks multiple organizations as deleted. After 30 days, the organizations will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#deleteOrganization\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/organizations/{id}</a> instead.
-         * @summary Delete multiple organizations in bulk
-         * @param {string} ids The comma-separated IDs that will be deleted
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        deleteOrganizations: async (ids: string, ): Promise<RequestArgs> => {
-            // verify required parameter 'ids' is not null or undefined
-            assertParamExists('deleteOrganizations', 'ids', ids)
-            const localVarPath = `/organizations`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
-
-            if (ids !== undefined) {
-                localVarQueryParameter['ids'] = ids;
-            }
 
 
     
@@ -1159,17 +1113,6 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Marks multiple organizations as deleted. After 30 days, the organizations will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#deleteOrganization\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/organizations/{id}</a> instead.
-         * @summary Delete multiple organizations in bulk
-         * @param {string} ids The comma-separated IDs that will be deleted
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async deleteOrganizations(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteOrganizationsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteOrganizations(ids, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Returns the details of an organization. Note that this also returns some additional fields which are not present when asking for all organizations. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of organizationFields.
          * @summary Get details of an organization
          * @param {number} id The ID of the organization
@@ -1423,16 +1366,6 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
             return localVarFp.deleteOrganizationFollower(requestParameters.id, requestParameters.follower_id, ).then((request) => request(axios, basePath));
         },
         /**
-         * Marks multiple organizations as deleted. After 30 days, the organizations will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#deleteOrganization\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/organizations/{id}</a> instead.
-         * @summary Delete multiple organizations in bulk
-         * @param {OrganizationsApiDeleteOrganizationsRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        deleteOrganizations(requestParameters: OrganizationsApiDeleteOrganizationsRequest, ): Promise<DeleteOrganizationsResponse> {
-            return localVarFp.deleteOrganizations(requestParameters.ids, ).then((request) => request(axios, basePath));
-        },
-        /**
          * Returns the details of an organization. Note that this also returns some additional fields which are not present when asking for all organizations. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of organizationFields.
          * @summary Get details of an organization
          * @param {OrganizationsApiGetOrganizationRequest} requestParameters Request parameters.
@@ -1653,20 +1586,6 @@ export interface OrganizationsApiDeleteOrganizationFollowerRequest {
      * @memberof OrganizationsApiDeleteOrganizationFollower
      */
     readonly follower_id: number
-}
-
-/**
- * Request parameters for deleteOrganizations operation in OrganizationsApi.
- * @export
- * @interface OrganizationsApiDeleteOrganizationsRequest
- */
-export interface OrganizationsApiDeleteOrganizationsRequest {
-    /**
-     * The comma-separated IDs that will be deleted
-     * @type {string}
-     * @memberof OrganizationsApiDeleteOrganizations
-     */
-    readonly ids: string
 }
 
 /**
@@ -2198,18 +2117,6 @@ export class OrganizationsApi extends BaseAPI {
      */
     public deleteOrganizationFollower(requestParameters: OrganizationsApiDeleteOrganizationFollowerRequest, ) {
         return OrganizationsApiFp(this.configuration).deleteOrganizationFollower(requestParameters.id, requestParameters.follower_id, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Marks multiple organizations as deleted. After 30 days, the organizations will be permanently deleted. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#deleteOrganization\" target=\"_blank\" rel=\"noopener noreferrer\">DELETE /api/v2/organizations/{id}</a> instead.
-     * @summary Delete multiple organizations in bulk
-     * @param {OrganizationsApiDeleteOrganizationsRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof OrganizationsApi
-     */
-    public deleteOrganizations(requestParameters: OrganizationsApiDeleteOrganizationsRequest, ) {
-        return OrganizationsApiFp(this.configuration).deleteOrganizations(requestParameters.ids, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**

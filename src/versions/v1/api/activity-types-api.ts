@@ -24,8 +24,6 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { AddActivityTypeRequest } from '../models';
 // @ts-ignore
-import { DeleteActivityTypesResponse } from '../models';
-// @ts-ignore
 import { GetActivityTypesResponse } from '../models';
 // @ts-ignore
 import { UpdateActivityTypeRequest } from '../models';
@@ -107,50 +105,6 @@ export const ActivityTypesApiAxiosParamCreator = function (configuration?: Confi
             // authentication oauth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Marks multiple activity types as deleted.
-         * @summary Delete multiple activity types in bulk
-         * @param {string} ids The comma-separated activity type IDs
-
-         * @throws {RequiredError}
-         */
-        deleteActivityTypes: async (ids: string, ): Promise<RequestArgs> => {
-            // verify required parameter 'ids' is not null or undefined
-            assertParamExists('deleteActivityTypes', 'ids', ids)
-            const localVarPath = `/activityTypes`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
-
-            if (ids !== undefined) {
-                localVarQueryParameter['ids'] = ids;
-            }
 
 
     
@@ -279,17 +233,6 @@ export const ActivityTypesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Marks multiple activity types as deleted.
-         * @summary Delete multiple activity types in bulk
-         * @param {string} ids The comma-separated activity type IDs
-
-         * @throws {RequiredError}
-         */
-        async deleteActivityTypes(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteActivityTypesResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteActivityTypes(ids, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Returns all activity types.
          * @summary Get all activity types
 
@@ -342,16 +285,6 @@ export const ActivityTypesApiFactory = function (configuration?: Configuration, 
             return localVarFp.deleteActivityType(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
-         * Marks multiple activity types as deleted.
-         * @summary Delete multiple activity types in bulk
-         * @param {ActivityTypesApiDeleteActivityTypesRequest} requestParameters Request parameters.
-
-         * @throws {RequiredError}
-         */
-        deleteActivityTypes(requestParameters: ActivityTypesApiDeleteActivityTypesRequest, ): Promise<DeleteActivityTypesResponse> {
-            return localVarFp.deleteActivityTypes(requestParameters.ids, ).then((request) => request(axios, basePath));
-        },
-        /**
          * Returns all activity types.
          * @summary Get all activity types
 
@@ -399,20 +332,6 @@ export interface ActivityTypesApiDeleteActivityTypeRequest {
      * @memberof ActivityTypesApiDeleteActivityType
      */
     readonly id: number
-}
-
-/**
- * Request parameters for deleteActivityTypes operation in ActivityTypesApi.
- * @export
- * @interface ActivityTypesApiDeleteActivityTypesRequest
- */
-export interface ActivityTypesApiDeleteActivityTypesRequest {
-    /**
-     * The comma-separated activity type IDs
-     * @type {string}
-     * @memberof ActivityTypesApiDeleteActivityTypes
-     */
-    readonly ids: string
 }
 
 /**
@@ -465,18 +384,6 @@ export class ActivityTypesApi extends BaseAPI {
      */
     public deleteActivityType(requestParameters: ActivityTypesApiDeleteActivityTypeRequest, ) {
         return ActivityTypesApiFp(this.configuration).deleteActivityType(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Marks multiple activity types as deleted.
-     * @summary Delete multiple activity types in bulk
-     * @param {ActivityTypesApiDeleteActivityTypesRequest} requestParameters Request parameters.
-
-     * @throws {RequiredError}
-     * @memberof ActivityTypesApi
-     */
-    public deleteActivityTypes(requestParameters: ActivityTypesApiDeleteActivityTypesRequest, ) {
-        return ActivityTypesApiFp(this.configuration).deleteActivityTypes(requestParameters.ids, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**

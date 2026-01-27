@@ -21,12 +21,12 @@ import { BasicDeal } from './basic-deal';
 import { NewDealParameters } from './new-deal-parameters';
 // May contain unused imports in some cases
 // @ts-ignore
-import { RequredTitleParameter } from './requred-title-parameter';
+import { RequiredTitleParameter } from './required-title-parameter';
 
 /**
  * @type AddDealRequest
  * @export
  */
-export type AddDealRequest = BasicDeal & NewDealParameters & RequredTitleParameter;
+export type AddDealRequest = BasicDeal & NewDealParameters & RequiredTitleParameter;
 
 
