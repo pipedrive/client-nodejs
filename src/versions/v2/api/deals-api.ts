@@ -273,7 +273,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
         },
         /**
          * Initiates a conversion of a deal to a lead. The return value is an ID of a job that was assigned to perform the conversion. Related entities (notes, files, emails, activities, ...) are transferred during the process to the target entity. There are exceptions for entities like invoices or history that are not transferred and remain linked to the original deal. If the conversion is successful, the deal is marked as deleted. To retrieve the created entity ID and the result of the conversion, call the <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDealConversionStatus\">/api/v2/deals/{deal_id}/convert/status/{conversion_id}</a> endpoint.
-         * @summary Convert a deal to a lead (BETA)
+         * @summary Convert a deal to a lead
          * @param {number} id The ID of the deal to convert
 
          * @throws {RequiredError}
@@ -790,7 +790,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
         },
         /**
          * Returns information about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Lead ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
-         * @summary Get Deal conversion status (BETA)
+         * @summary Get Deal conversion status
          * @param {number} id The ID of a deal
          * @param {string} conversion_id The ID of the conversion
 
@@ -1667,7 +1667,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
         },
         /**
          * Initiates a conversion of a deal to a lead. The return value is an ID of a job that was assigned to perform the conversion. Related entities (notes, files, emails, activities, ...) are transferred during the process to the target entity. There are exceptions for entities like invoices or history that are not transferred and remain linked to the original deal. If the conversion is successful, the deal is marked as deleted. To retrieve the created entity ID and the result of the conversion, call the <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDealConversionStatus\">/api/v2/deals/{deal_id}/convert/status/{conversion_id}</a> endpoint.
-         * @summary Convert a deal to a lead (BETA)
+         * @summary Convert a deal to a lead
          * @param {number} id The ID of the deal to convert
 
          * @throws {RequiredError}
@@ -1799,7 +1799,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
         },
         /**
          * Returns information about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Lead ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
-         * @summary Get Deal conversion status (BETA)
+         * @summary Get Deal conversion status
          * @param {number} id The ID of a deal
          * @param {string} conversion_id The ID of the conversion
 
@@ -2052,7 +2052,7 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
         },
         /**
          * Initiates a conversion of a deal to a lead. The return value is an ID of a job that was assigned to perform the conversion. Related entities (notes, files, emails, activities, ...) are transferred during the process to the target entity. There are exceptions for entities like invoices or history that are not transferred and remain linked to the original deal. If the conversion is successful, the deal is marked as deleted. To retrieve the created entity ID and the result of the conversion, call the <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDealConversionStatus\">/api/v2/deals/{deal_id}/convert/status/{conversion_id}</a> endpoint.
-         * @summary Convert a deal to a lead (BETA)
+         * @summary Convert a deal to a lead
          * @param {DealsApiConvertDealToLeadRequest} requestParameters Request parameters.
 
          * @throws {RequiredError}
@@ -2152,7 +2152,7 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
         },
         /**
          * Returns information about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Lead ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
-         * @summary Get Deal conversion status (BETA)
+         * @summary Get Deal conversion status
          * @param {DealsApiGetDealConversionStatusRequest} requestParameters Request parameters.
 
          * @throws {RequiredError}
@@ -3260,7 +3260,7 @@ export class DealsApi extends BaseAPI {
 
     /**
      * Initiates a conversion of a deal to a lead. The return value is an ID of a job that was assigned to perform the conversion. Related entities (notes, files, emails, activities, ...) are transferred during the process to the target entity. There are exceptions for entities like invoices or history that are not transferred and remain linked to the original deal. If the conversion is successful, the deal is marked as deleted. To retrieve the created entity ID and the result of the conversion, call the <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDealConversionStatus\">/api/v2/deals/{deal_id}/convert/status/{conversion_id}</a> endpoint.
-     * @summary Convert a deal to a lead (BETA)
+     * @summary Convert a deal to a lead
      * @param {DealsApiConvertDealToLeadRequest} requestParameters Request parameters.
 
      * @throws {RequiredError}
@@ -3380,7 +3380,7 @@ export class DealsApi extends BaseAPI {
 
     /**
      * Returns information about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Lead ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
-     * @summary Get Deal conversion status (BETA)
+     * @summary Get Deal conversion status
      * @param {DealsApiGetDealConversionStatusRequest} requestParameters Request parameters.
 
      * @throws {RequiredError}

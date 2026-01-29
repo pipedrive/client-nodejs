@@ -368,6 +368,7 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
          * @param {string} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: &#x60;id&#x60;, &#x60;user_id&#x60;, &#x60;deal_id&#x60;, &#x60;person_id&#x60;, &#x60;org_id&#x60;, &#x60;content&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;.
          * @param {string} [start_date] The date in format of YYYY-MM-DD from which notes to fetch
          * @param {string} [end_date] The date in format of YYYY-MM-DD until which notes to fetch to
+         * @param {string} [updated_since] If set, only notes with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {0 | 1} [pinned_to_lead_flag] If set, the results are filtered by note to lead pinning state
          * @param {0 | 1} [pinned_to_deal_flag] If set, the results are filtered by note to deal pinning state
          * @param {0 | 1} [pinned_to_organization_flag] If set, the results are filtered by note to organization pinning state
@@ -376,7 +377,7 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
 
          * @throws {RequiredError}
          */
-        getNotes: async (user_id?: number, lead_id?: string, deal_id?: number, person_id?: number, org_id?: number, project_id?: number, start?: number, limit?: number, sort?: string, start_date?: string, end_date?: string, pinned_to_lead_flag?: 0 | 1, pinned_to_deal_flag?: 0 | 1, pinned_to_organization_flag?: 0 | 1, pinned_to_person_flag?: 0 | 1, pinned_to_project_flag?: 0 | 1, ): Promise<RequestArgs> => {
+        getNotes: async (user_id?: number, lead_id?: string, deal_id?: number, person_id?: number, org_id?: number, project_id?: number, start?: number, limit?: number, sort?: string, start_date?: string, end_date?: string, updated_since?: string, pinned_to_lead_flag?: 0 | 1, pinned_to_deal_flag?: 0 | 1, pinned_to_organization_flag?: 0 | 1, pinned_to_person_flag?: 0 | 1, pinned_to_project_flag?: 0 | 1, ): Promise<RequestArgs> => {
             const localVarPath = `/notes`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -442,6 +443,12 @@ export const NotesApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['end_date'] = (end_date as any instanceof Date) ?
                     (end_date as any).toISOString().substr(0,10) :
                     end_date;
+            }
+
+            if (updated_since !== undefined) {
+                localVarQueryParameter['updated_since'] = (updated_since as any instanceof Date) ?
+                    (updated_since as any).toISOString() :
+                    updated_since;
             }
 
             if (pinned_to_lead_flag !== undefined) {
@@ -676,6 +683,7 @@ export const NotesApiFp = function(configuration?: Configuration) {
          * @param {string} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: &#x60;id&#x60;, &#x60;user_id&#x60;, &#x60;deal_id&#x60;, &#x60;person_id&#x60;, &#x60;org_id&#x60;, &#x60;content&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;.
          * @param {string} [start_date] The date in format of YYYY-MM-DD from which notes to fetch
          * @param {string} [end_date] The date in format of YYYY-MM-DD until which notes to fetch to
+         * @param {string} [updated_since] If set, only notes with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {0 | 1} [pinned_to_lead_flag] If set, the results are filtered by note to lead pinning state
          * @param {0 | 1} [pinned_to_deal_flag] If set, the results are filtered by note to deal pinning state
          * @param {0 | 1} [pinned_to_organization_flag] If set, the results are filtered by note to organization pinning state
@@ -684,8 +692,8 @@ export const NotesApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getNotes(user_id?: number, lead_id?: string, deal_id?: number, person_id?: number, org_id?: number, project_id?: number, start?: number, limit?: number, sort?: string, start_date?: string, end_date?: string, pinned_to_lead_flag?: 0 | 1, pinned_to_deal_flag?: 0 | 1, pinned_to_organization_flag?: 0 | 1, pinned_to_person_flag?: 0 | 1, pinned_to_project_flag?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetNotesResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNotes(user_id, lead_id, deal_id, person_id, org_id, project_id, start, limit, sort, start_date, end_date, pinned_to_lead_flag, pinned_to_deal_flag, pinned_to_organization_flag, pinned_to_person_flag, pinned_to_project_flag, );
+        async getNotes(user_id?: number, lead_id?: string, deal_id?: number, person_id?: number, org_id?: number, project_id?: number, start?: number, limit?: number, sort?: string, start_date?: string, end_date?: string, updated_since?: string, pinned_to_lead_flag?: 0 | 1, pinned_to_deal_flag?: 0 | 1, pinned_to_organization_flag?: 0 | 1, pinned_to_person_flag?: 0 | 1, pinned_to_project_flag?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetNotesResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNotes(user_id, lead_id, deal_id, person_id, org_id, project_id, start, limit, sort, start_date, end_date, updated_since, pinned_to_lead_flag, pinned_to_deal_flag, pinned_to_organization_flag, pinned_to_person_flag, pinned_to_project_flag, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -801,7 +809,7 @@ export const NotesApiFactory = function (configuration?: Configuration, basePath
          * @throws {RequiredError}
          */
         getNotes(requestParameters: NotesApiGetNotesRequest = {}, ): Promise<GetNotesResponse> {
-            return localVarFp.getNotes(requestParameters.user_id, requestParameters.lead_id, requestParameters.deal_id, requestParameters.person_id, requestParameters.org_id, requestParameters.project_id, requestParameters.start, requestParameters.limit, requestParameters.sort, requestParameters.start_date, requestParameters.end_date, requestParameters.pinned_to_lead_flag, requestParameters.pinned_to_deal_flag, requestParameters.pinned_to_organization_flag, requestParameters.pinned_to_person_flag, requestParameters.pinned_to_project_flag, ).then((request) => request(axios, basePath));
+            return localVarFp.getNotes(requestParameters.user_id, requestParameters.lead_id, requestParameters.deal_id, requestParameters.person_id, requestParameters.org_id, requestParameters.project_id, requestParameters.start, requestParameters.limit, requestParameters.sort, requestParameters.start_date, requestParameters.end_date, requestParameters.updated_since, requestParameters.pinned_to_lead_flag, requestParameters.pinned_to_deal_flag, requestParameters.pinned_to_organization_flag, requestParameters.pinned_to_person_flag, requestParameters.pinned_to_project_flag, ).then((request) => request(axios, basePath));
         },
         /**
          * Updates a comment related to a note.
@@ -1043,6 +1051,13 @@ export interface NotesApiGetNotesRequest {
     readonly end_date?: string
 
     /**
+     * If set, only notes with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
+     * @type {string}
+     * @memberof NotesApiGetNotes
+     */
+    readonly updated_since?: string
+
+    /**
      * If set, the results are filtered by note to lead pinning state
      * @type {0 | 1}
      * @memberof NotesApiGetNotes
@@ -1227,7 +1242,7 @@ export class NotesApi extends BaseAPI {
      * @memberof NotesApi
      */
     public getNotes(requestParameters: NotesApiGetNotesRequest = {}, ) {
-        return NotesApiFp(this.configuration).getNotes(requestParameters.user_id, requestParameters.lead_id, requestParameters.deal_id, requestParameters.person_id, requestParameters.org_id, requestParameters.project_id, requestParameters.start, requestParameters.limit, requestParameters.sort, requestParameters.start_date, requestParameters.end_date, requestParameters.pinned_to_lead_flag, requestParameters.pinned_to_deal_flag, requestParameters.pinned_to_organization_flag, requestParameters.pinned_to_person_flag, requestParameters.pinned_to_project_flag, ).then((request) => request(this.axios, this.basePath));
+        return NotesApiFp(this.configuration).getNotes(requestParameters.user_id, requestParameters.lead_id, requestParameters.deal_id, requestParameters.person_id, requestParameters.org_id, requestParameters.project_id, requestParameters.start, requestParameters.limit, requestParameters.sort, requestParameters.start_date, requestParameters.end_date, requestParameters.updated_since, requestParameters.pinned_to_lead_flag, requestParameters.pinned_to_deal_flag, requestParameters.pinned_to_organization_flag, requestParameters.pinned_to_person_flag, requestParameters.pinned_to_project_flag, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
