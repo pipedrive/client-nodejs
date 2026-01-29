@@ -39,7 +39,7 @@ export const LeadsApiAxiosParamCreator = function (configuration?: Configuration
     return {
         /**
          * Initiates a conversion of a lead to a deal. The return value is an ID of a job that was assigned to perform the conversion. Related entities (notes, files, emails, activities, ...) are transferred during the process to the target entity. If the conversion is successful, the lead is marked as deleted. To retrieve the created entity ID and the result of the conversion, call the <a href=\"https://developers.pipedrive.com/docs/api/v1/Leads#getLeadConversionStatus\">/api/v2/leads/{lead_id}/convert/status/{conversion_id}</a> endpoint.
-         * @summary Convert a lead to a deal (BETA)
+         * @summary Convert a lead to a deal
          * @param {string} id The ID of the lead to convert
          * @param {ConvertLeadToDealRequest} [ConvertLeadToDealRequest] 
 
@@ -84,7 +84,7 @@ export const LeadsApiAxiosParamCreator = function (configuration?: Configuration
         },
         /**
          * Returns data about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Deal ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
-         * @summary Get Lead conversion status (BETA)
+         * @summary Get Lead conversion status
          * @param {string} id The ID of a lead
          * @param {string} conversion_id The ID of the conversion
 
@@ -219,7 +219,7 @@ export const LeadsApiFp = function(configuration?: Configuration) {
     return {
         /**
          * Initiates a conversion of a lead to a deal. The return value is an ID of a job that was assigned to perform the conversion. Related entities (notes, files, emails, activities, ...) are transferred during the process to the target entity. If the conversion is successful, the lead is marked as deleted. To retrieve the created entity ID and the result of the conversion, call the <a href=\"https://developers.pipedrive.com/docs/api/v1/Leads#getLeadConversionStatus\">/api/v2/leads/{lead_id}/convert/status/{conversion_id}</a> endpoint.
-         * @summary Convert a lead to a deal (BETA)
+         * @summary Convert a lead to a deal
          * @param {string} id The ID of the lead to convert
          * @param {ConvertLeadToDealRequest} [ConvertLeadToDealRequest] 
 
@@ -231,7 +231,7 @@ export const LeadsApiFp = function(configuration?: Configuration) {
         },
         /**
          * Returns data about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Deal ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
-         * @summary Get Lead conversion status (BETA)
+         * @summary Get Lead conversion status
          * @param {string} id The ID of a lead
          * @param {string} conversion_id The ID of the conversion
 
@@ -271,7 +271,7 @@ export const LeadsApiFactory = function (configuration?: Configuration, basePath
     return {
         /**
          * Initiates a conversion of a lead to a deal. The return value is an ID of a job that was assigned to perform the conversion. Related entities (notes, files, emails, activities, ...) are transferred during the process to the target entity. If the conversion is successful, the lead is marked as deleted. To retrieve the created entity ID and the result of the conversion, call the <a href=\"https://developers.pipedrive.com/docs/api/v1/Leads#getLeadConversionStatus\">/api/v2/leads/{lead_id}/convert/status/{conversion_id}</a> endpoint.
-         * @summary Convert a lead to a deal (BETA)
+         * @summary Convert a lead to a deal
          * @param {LeadsApiConvertLeadToDealRequest} requestParameters Request parameters.
 
          * @throws {RequiredError}
@@ -281,7 +281,7 @@ export const LeadsApiFactory = function (configuration?: Configuration, basePath
         },
         /**
          * Returns data about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Deal ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
-         * @summary Get Lead conversion status (BETA)
+         * @summary Get Lead conversion status
          * @param {LeadsApiGetLeadConversionStatusRequest} requestParameters Request parameters.
 
          * @throws {RequiredError}
@@ -416,7 +416,7 @@ export interface LeadsApiSearchLeadsRequest {
 export class LeadsApi extends BaseAPI {
     /**
      * Initiates a conversion of a lead to a deal. The return value is an ID of a job that was assigned to perform the conversion. Related entities (notes, files, emails, activities, ...) are transferred during the process to the target entity. If the conversion is successful, the lead is marked as deleted. To retrieve the created entity ID and the result of the conversion, call the <a href=\"https://developers.pipedrive.com/docs/api/v1/Leads#getLeadConversionStatus\">/api/v2/leads/{lead_id}/convert/status/{conversion_id}</a> endpoint.
-     * @summary Convert a lead to a deal (BETA)
+     * @summary Convert a lead to a deal
      * @param {LeadsApiConvertLeadToDealRequest} requestParameters Request parameters.
 
      * @throws {RequiredError}
@@ -428,7 +428,7 @@ export class LeadsApi extends BaseAPI {
 
     /**
      * Returns data about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Deal ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
-     * @summary Get Lead conversion status (BETA)
+     * @summary Get Lead conversion status
      * @param {LeadsApiGetLeadConversionStatusRequest} requestParameters Request parameters.
 
      * @throws {RequiredError}

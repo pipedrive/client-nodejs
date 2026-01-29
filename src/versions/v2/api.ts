@@ -16,7 +16,6 @@
 
 export * from './api/activities-api';
 export * from './api/activity-fields-api';
-export * from './api/beta-api';
 export * from './api/deal-fields-api';
 export * from './api/deals-api';
 export * from './api/item-search-api';

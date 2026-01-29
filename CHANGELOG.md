@@ -7,6 +7,22 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Changed
+- Removed beta labels from v2 lead/deal conversion endpoints:
+  - `GET /api/v2/leads/{id}/convert/status/{conversion_id}`
+  - `POST /api/v2/leads/{id}/convert`
+  - `GET /api/v2/deals/{id}/convert/status/{conversion_id}`
+  - `POST /api/v2/deals/{id}/convert`
+- Removed beta labels from v2 deal installments endpoints:
+  - `GET /api/v2/deals/installments`
+  - `POST /api/v2/deals/{id}/installments`
+  - `PATCH /api/v2/deals/{id}/installments/{installment_id}`
+  - `DELETE /api/v2/deals/{id}/installments/{installment_id}`
+- Removed beta labels from v2 product images endpoints:
+  - `GET /api/v2/products/{id}/images`
+  - `POST /api/v2/products/{id}/images`
+  - `PUT /api/v2/products/{id}/images`
+  - `DELETE /api/v2/products/{id}/images`
 
 ## [31.0.0] - 2026-01-27
 ### Removed
