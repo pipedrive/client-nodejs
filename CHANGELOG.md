@@ -8,6 +8,24 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [31.2.0] - 2026-01-30
+### Changed
+- Removed beta labels from v2 lead/deal conversion endpoints:
+  - `GET /api/v2/leads/{id}/convert/status/{conversion_id}`
+  - `POST /api/v2/leads/{id}/convert`
+  - `GET /api/v2/deals/{id}/convert/status/{conversion_id}`
+  - `POST /api/v2/deals/{id}/convert`
+- Removed beta labels from v2 deal installments endpoints:
+  - `GET /api/v2/deals/installments`
+  - `POST /api/v2/deals/{id}/installments`
+  - `PATCH /api/v2/deals/{id}/installments/{installment_id}`
+  - `DELETE /api/v2/deals/{id}/installments/{installment_id}`
+- Removed beta labels from v2 product images endpoints:
+  - `GET /api/v2/products/{id}/images`
+  - `POST /api/v2/products/{id}/images`
+  - `PUT /api/v2/products/{id}/images`
+  - `DELETE /api/v2/products/{id}/images`
+
 ## [31.1.0] - 2026-01-30
 ### Added
 - Added `updated_since` query parameter to `GET /v1/leads` endpoint to filter leads by their `update_time`
@@ -1086,7 +1104,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v31.1.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v31.2.0...HEAD
+[31.2.0]: https://github.com/pipedrive/api-docs/compare/v31.1.0...v31.2.0
 [31.1.0]: https://github.com/pipedrive/api-docs/compare/v31.0.0...v31.1.0
 [31.0.0]: https://github.com/pipedrive/api-docs/compare/v30.11.0...v31.0.0
 [30.11.0]: https://github.com/pipedrive/api-docs/compare/v30.10.0...v30.11.0
