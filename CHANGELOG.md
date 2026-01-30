@@ -24,6 +24,11 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
   - `PUT /api/v2/products/{id}/images`
   - `DELETE /api/v2/products/{id}/images`
 
+## [31.1.0] - 2026-01-30
+### Added
+- Added `updated_since` query parameter to `GET /v1/leads` endpoint to filter leads by their `update_time`
+- Added `updated_since` query parameter to `GET /v1/notes` endpoint to filter notes by their `update_time`
+
 ## [31.0.0] - 2026-01-27
 ### Removed
 - Removed deprecated bulk delete endpoints:
@@ -1097,7 +1102,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v31.0.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v31.1.0...HEAD
+[31.1.0]: https://github.com/pipedrive/api-docs/compare/v31.0.0...v31.1.0
 [31.0.0]: https://github.com/pipedrive/api-docs/compare/v30.11.0...v31.0.0
 [30.11.0]: https://github.com/pipedrive/api-docs/compare/v30.10.0...v30.11.0
 [30.10.0]: https://github.com/pipedrive/api-docs/compare/v30.9.1...v30.10.0
