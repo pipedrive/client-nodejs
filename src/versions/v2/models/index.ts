@@ -43,8 +43,6 @@ export * from './add-person-field-request-required-fields';
 export * from './add-person-field-request-ui-visibility';
 export * from './add-person-field-request-ui-visibility-show-in-add-deal-dialog';
 export * from './add-person-request';
-export * from './add-person-request-emails-inner';
-export * from './add-person-request-phones-inner';
 export * from './add-pipeline-request';
 export * from './add-product-field-request';
 export * from './add-product-field-request-ui-visibility';
