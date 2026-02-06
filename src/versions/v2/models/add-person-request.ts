@@ -76,6 +76,11 @@ export interface AddPersonRequest {
     * @type {string}
     */
     'marketing_status'?: AddPersonRequestMarketingStatusConst;
+    /**
+    * An object where each key represents a custom field. All custom fields are referenced as randomly generated 40-character hashes
+    * @type {{ [key: string]: any | undefined; }}
+    */
+    'custom_fields'?: { [key: string]: any | undefined; };
 }
 
                 export const AddPersonRequestMarketingStatusConst = {

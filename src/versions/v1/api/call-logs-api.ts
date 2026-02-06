@@ -124,7 +124,7 @@ export const CallLogsApiAxiosParamCreator = function (configuration?: Configurat
 
 
             if (file !== undefined) { 
-                localVarFormParams.append('file', file as any);
+                localVarFormParams.append('file', file);
             }
     
     

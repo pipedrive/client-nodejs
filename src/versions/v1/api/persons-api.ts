@@ -201,7 +201,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
 
 
             if (file !== undefined) { 
-                localVarFormParams.append('file', file as any);
+                localVarFormParams.append('file', file);
             }
     
             if (crop_x !== undefined) { 

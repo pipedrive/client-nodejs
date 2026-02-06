@@ -875,7 +875,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
 
 
             if (data !== undefined) { 
-                localVarFormParams.append('data', data as any);
+                localVarFormParams.append('data', data);
             }
     
     
@@ -976,7 +976,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
 
 
             if (data !== undefined) { 
-                localVarFormParams.append('data', data as any);
+                localVarFormParams.append('data', data);
             }
     
     
