@@ -7,6 +7,13 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Added
+- Added `custom_fields` property to the Person entity request schema in v2 endpoints that will fix types in endpoints:
+	- `POST /api/v2/persons`
+	- `PATCH /api/v2/persons/{id}`
+- Added `custom_fields` property to the Product entity request schema in v2 endpoints that will fix types in endpoints:
+	- `POST /api/v2/products`
+	- `PATCH /api/v2/products/{id}`
 
 ## [31.2.1] - 2026-01-30
 ### Fixed

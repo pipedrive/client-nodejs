@@ -79,7 +79,7 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
 
 
             if (file !== undefined) { 
-                localVarFormParams.append('file', file as any);
+                localVarFormParams.append('file', file);
             }
     
             if (deal_id !== undefined) { 
