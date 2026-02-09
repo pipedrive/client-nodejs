@@ -677,10 +677,11 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
          * @param {number} id The ID of the person
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
+         * @param {0 | 1} [include_body] Whether to include the mail message body content in response. Yes. If omitted, defaults to 0.
 
          * @throws {RequiredError}
          */
-        getPersonMailMessages: async (id: number, start?: number, limit?: number, ): Promise<RequestArgs> => {
+        getPersonMailMessages: async (id: number, start?: number, limit?: number, include_body?: 0 | 1): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getPersonMailMessages', 'id', id)
             const localVarPath = `/persons/{id}/mailMessages`
@@ -711,7 +712,9 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
                 localVarQueryParameter['limit'] = limit;
             }
 
-
+            if (include_body !== undefined) {
+                localVarQueryParameter['include_body'] = include_body;
+            }
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -2018,6 +2021,13 @@ export interface PersonsApiGetPersonMailMessagesRequest {
      * @memberof PersonsApiGetPersonMailMessages
      */
     readonly limit?: number
+
+    /**
+     * Whether to include the mail message body content in response. 0 &#x3D; No, 1 &#x3D; Yes. If omitted, defaults to 0.
+     * @type {0 | 1}
+     * @memberof PersonsApiGetPersonMailMessages
+     */
+    readonly include_body?: 0 | 1
 }
 
 /**
