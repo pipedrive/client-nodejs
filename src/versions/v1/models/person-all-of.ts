@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { PersonAllOfEmailInner } from './person-all-of-email-inner';
+import { DealParticipantItemPersonIdPhoneInner } from './deal-participant-item-person-id-phone-inner';
 // May contain unused imports in some cases
 // @ts-ignore
-import { PersonAllOfPhoneInner } from './person-all-of-phone-inner';
+import { PersonAllOfEmailInner } from './person-all-of-email-inner';
 // May contain unused imports in some cases
 // @ts-ignore
 import { PersonAllOfPictureId } from './person-all-of-picture-id';
@@ -46,9 +46,9 @@ export interface PersonAllOf {
     'active_flag'?: boolean;
     /**
     * A phone number supplied as a string or an array of phone objects related to the person. The structure of the array is as follows: `[{ \"value\": \"12345\", \"primary\": \"true\", \"label\": \"mobile\" }]`. Please note that only `value` is required.
-    * @type {Array<PersonAllOfPhoneInner>}
+    * @type {Array<DealParticipantItemPersonIdPhoneInner>}
     */
-    'phone'?: Array<PersonAllOfPhoneInner>;
+    'phone'?: Array<DealParticipantItemPersonIdPhoneInner>;
     /**
     * An email address as a string or an array of email objects related to the person. The structure of the array is as follows: `[{ \"value\": \"mail@example.com\", \"primary\": \"true\", \"label\": \"main\" } ]`. Please note that only `value` is required.
     * @type {Array<PersonAllOfEmailInner>}

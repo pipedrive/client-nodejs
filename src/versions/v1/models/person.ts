@@ -18,6 +18,9 @@
 import { AdditionalPersonInfo } from './additional-person-info';
 // May contain unused imports in some cases
 // @ts-ignore
+import { DealParticipantItemPersonIdPhoneInner } from './deal-participant-item-person-id-phone-inner';
+// May contain unused imports in some cases
+// @ts-ignore
 import { Owner } from './owner';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -25,9 +28,6 @@ import { PersonAllOf } from './person-all-of';
 // May contain unused imports in some cases
 // @ts-ignore
 import { PersonAllOfEmailInner } from './person-all-of-email-inner';
-// May contain unused imports in some cases
-// @ts-ignore
-import { PersonAllOfPhoneInner } from './person-all-of-phone-inner';
 // May contain unused imports in some cases
 // @ts-ignore
 import { PersonAllOfPictureId } from './person-all-of-picture-id';

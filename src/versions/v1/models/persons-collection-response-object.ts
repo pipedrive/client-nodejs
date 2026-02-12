@@ -18,7 +18,7 @@
 import { BasicPersonRequestEmailInner } from './basic-person-request-email-inner';
 // May contain unused imports in some cases
 // @ts-ignore
-import { PersonAllOfPhoneInner } from './person-all-of-phone-inner';
+import { DealParticipantItemPersonIdPhoneInner } from './deal-participant-item-person-id-phone-inner';
 
 /**
 * 
@@ -58,9 +58,9 @@ export interface PersonsCollectionResponseObject {
     'email': Array<BasicPersonRequestEmailInner>;
     /**
     * A phone number supplied as a string or an array of phone objects related to the person. The structure of the array is as follows: `[{ \"value\": \"12345\", \"primary\": \"true\", \"label\": \"mobile\" }]`. Please note that only `value` is required.
-    * @type {Array<PersonAllOfPhoneInner>}
+    * @type {Array<DealParticipantItemPersonIdPhoneInner>}
     */
-    'phone': Array<PersonAllOfPhoneInner>;
+    'phone': Array<DealParticipantItemPersonIdPhoneInner>;
     /**
     * The last updated date and time of the person. Format: YYYY-MM-DD HH:MM:SS
     * @type {string}

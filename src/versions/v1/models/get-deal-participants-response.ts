@@ -15,13 +15,13 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
+import { DealParticipantItem } from './deal-participant-item';
+// May contain unused imports in some cases
+// @ts-ignore
 import { GetDealsResponseRelatedObjects } from './get-deals-response-related-objects';
 // May contain unused imports in some cases
 // @ts-ignore
 import { GetFieldsResponseAllOfAdditionalData } from './get-fields-response-all-of-additional-data';
-// May contain unused imports in some cases
-// @ts-ignore
-import { Person } from './person';
 
 /**
 * 
@@ -36,9 +36,9 @@ export interface GetDealParticipantsResponse {
     'success'?: boolean;
     /**
     * The array of participants
-    * @type {Array<Person>}
+    * @type {Array<DealParticipantItem>}
     */
-    'data'?: Array<Person>;
+    'data'?: Array<DealParticipantItem>;
     /**
     * 
     * @type {GetFieldsResponseAllOfAdditionalData}
