@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { AddParticipantsResponseData } from './add-participants-response-data';
+import { AddParticipantsResponseRelatedObjects } from './add-participants-response-related-objects';
 // May contain unused imports in some cases
 // @ts-ignore
-import { AddParticipantsResponseRelatedObjects } from './add-participants-response-related-objects';
+import { DealParticipantItem } from './deal-participant-item';
 
 /**
 * 
@@ -33,9 +33,9 @@ export interface AddParticipantsResponse {
     'success'?: boolean;
     /**
     * 
-    * @type {AddParticipantsResponseData}
+    * @type {DealParticipantItem}
     */
-    'data'?: AddParticipantsResponseData;
+    'data'?: DealParticipantItem;
     /**
     * 
     * @type {AddParticipantsResponseRelatedObjects}
