@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+### Fixed
+
+- upgraded axios 1.12.2 -> 1.13.5 by npm audit fix
+
 ## [31.3.0] - 2026-02-06
 ### Added
 - Added `custom_fields` property to the Person entity request schema in v2 endpoints that will fix types in endpoints:
