@@ -54,6 +54,11 @@ export interface MailMessageData {
     */
     'body_url'?: string;
     /**
+    * The mail message body content
+    * @type {string}
+    */
+    'body'?: string;
+    /**
     * The connection account ID
     * @type {string}
     */
