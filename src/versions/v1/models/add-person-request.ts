@@ -24,7 +24,7 @@ import { BasicPersonRequest } from './basic-person-request';
 import { BasicPersonRequestEmailInner } from './basic-person-request-email-inner';
 // May contain unused imports in some cases
 // @ts-ignore
-import { PersonAllOfPhoneInner } from './person-all-of-phone-inner';
+import { DealParticipantItemPersonIdPhoneInner } from './deal-participant-item-person-id-phone-inner';
 
 /**
  * @type AddPersonRequest
