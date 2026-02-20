@@ -156,6 +156,11 @@ export interface DealItem {
     */
     'channel_id'?: string | null;
     /**
+    * The ID of the lead if the deal was converted from a lead. Only included when requested via include_fields parameter.
+    * @type {string}
+    */
+    'source_lead_id'?: string | null;
+    /**
     * Only available in Growth and above plans  The Annual Recurring Revenue of the deal  Null if there are no products attached to the deal 
     * @type {number}
     */
