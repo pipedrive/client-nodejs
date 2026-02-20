@@ -7,6 +7,9 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Added
+- Added `source_deal_id` field to Lead schema to track the deal ID when a lead is converted from a deal
+- Added `source_lead_id` field to v2 Deal schema to track the lead ID when a deal is converted from a lead
 
 ## [31.4.0] - 2026-02-16
 ### Fixed
