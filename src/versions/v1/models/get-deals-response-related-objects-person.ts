@@ -13,27 +13,20 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { PersonDataWithActiveFlag } from './person-data-with-active-flag';
 
 /**
 * 
 * @export
-* @interface PersonNameInfoWithOrgAndOwnerIdAllOf1
+* @interface GetDealsResponseRelatedObjectsPerson
 */
-export interface PersonNameInfoWithOrgAndOwnerIdAllOf1 {
+export interface GetDealsResponseRelatedObjectsPerson {
     /**
-    * The name of the person
-    * @type {string}
+    * 
+    * @type {PersonDataWithActiveFlag}
     */
-    'name'?: string;
-    /**
-    * The first name of the person
-    * @type {string}
-    */
-    'first_name'?: string;
-    /**
-    * The last name of the person
-    * @type {string}
-    */
-    'last_name'?: string | null;
+    'PERSON_ID'?: PersonDataWithActiveFlag;
 }
 

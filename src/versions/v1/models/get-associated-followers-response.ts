@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetActivitiesResponseAdditionalData } from './get-activities-response-additional-data';
+import { GetAssociatedFollowersResponseDataInner } from './get-associated-followers-response-data-inner';
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetAssociatedFollowersResponseDataInner } from './get-associated-followers-response-data-inner';
+import { GetLeadSearchResponseAllOfAdditionalData } from './get-lead-search-response-all-of-additional-data';
 
 /**
 * 
@@ -38,8 +38,8 @@ export interface GetAssociatedFollowersResponse {
     'data': Array<GetAssociatedFollowersResponseDataInner>;
     /**
     * 
-    * @type {GetActivitiesResponseAdditionalData}
+    * @type {GetLeadSearchResponseAllOfAdditionalData}
     */
-    'additional_data': GetActivitiesResponseAdditionalData;
+    'additional_data': GetLeadSearchResponseAllOfAdditionalData;
 }
 

@@ -13,27 +13,20 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { UserDataWithId } from './user-data-with-id';
 
 /**
 * 
 * @export
-* @interface PersonNameInfoWithOrgAndOwnerIdAllOf1
+* @interface GetDealsResponseRelatedObjectsUser
 */
-export interface PersonNameInfoWithOrgAndOwnerIdAllOf1 {
+export interface GetDealsResponseRelatedObjectsUser {
     /**
-    * The name of the person
-    * @type {string}
+    * 
+    * @type {UserDataWithId}
     */
-    'name'?: string;
-    /**
-    * The first name of the person
-    * @type {string}
-    */
-    'first_name'?: string;
-    /**
-    * The last name of the person
-    * @type {string}
-    */
-    'last_name'?: string | null;
+    'USER_ID'?: UserDataWithId;
 }
 

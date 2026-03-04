@@ -21,6 +21,16 @@
 */
 export interface ProjectAllOf1 {
     /**
+    * The ID of the board this project is associated with
+    * @type {number}
+    */
+    'board_id'?: number;
+    /**
+    * The ID of the phase this project is associated with
+    * @type {number}
+    */
+    'phase_id'?: number;
+    /**
     * The description of the project
     * @type {string}
     */

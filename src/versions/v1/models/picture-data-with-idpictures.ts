@@ -17,23 +17,18 @@
 /**
 * 
 * @export
-* @interface PersonNameInfoWithOrgAndOwnerIdAllOf1
+* @interface PictureDataWithIDPictures
 */
-export interface PersonNameInfoWithOrgAndOwnerIdAllOf1 {
+export interface PictureDataWithIDPictures {
     /**
-    * The name of the person
+    * The URL of the 128*128 picture
     * @type {string}
     */
-    'name'?: string;
+    '128'?: string;
     /**
-    * The first name of the person
+    * The URL of the 512*512 picture
     * @type {string}
     */
-    'first_name'?: string;
-    /**
-    * The last name of the person
-    * @type {string}
-    */
-    'last_name'?: string | null;
+    '512'?: string;
 }
 

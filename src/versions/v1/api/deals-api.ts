@@ -28,25 +28,11 @@ import { AddDealFollowerResponse } from '../models';
 // @ts-ignore
 import { AddDealParticipantRequest } from '../models';
 // @ts-ignore
-import { AddDealProductRequest } from '../models';
-// @ts-ignore
-import { AddDealRequest } from '../models';
-// @ts-ignore
 import { AddParticipantsResponse } from '../models';
 // @ts-ignore
 import { DeleteDealFollowerResponse } from '../models';
 // @ts-ignore
 import { DeleteDealParticipantResponse } from '../models';
-// @ts-ignore
-import { DeleteDealProductResponse } from '../models';
-// @ts-ignore
-import { DeleteDealResponse } from '../models';
-// @ts-ignore
-import { FailResponse } from '../models';
-// @ts-ignore
-import { GetAddProductAttachmentDetailsResponse } from '../models';
-// @ts-ignore
-import { GetAddedDealResponse } from '../models';
 // @ts-ignore
 import { GetAssociatedFilesResponse } from '../models';
 // @ts-ignore
@@ -54,17 +40,9 @@ import { GetAssociatedMailMessagesResponse } from '../models';
 // @ts-ignore
 import { GetChangelogResponse } from '../models';
 // @ts-ignore
-import { GetDealActivitiesResponse } from '../models';
-// @ts-ignore
 import { GetDealParticipantsResponse } from '../models';
 // @ts-ignore
-import { GetDealResponse } from '../models';
-// @ts-ignore
-import { GetDealSearchResponse } from '../models';
-// @ts-ignore
 import { GetDealUpdatesResponse } from '../models';
-// @ts-ignore
-import { GetDealsCollectionResponse } from '../models';
 // @ts-ignore
 import { GetDealsResponse } from '../models';
 // @ts-ignore
@@ -82,64 +60,13 @@ import { GetParticipantsChangelogResponse } from '../models';
 // @ts-ignore
 import { GetPermittedUsersResponse } from '../models';
 // @ts-ignore
-import { GetPersonsResponse } from '../models';
-// @ts-ignore
-import { GetProductAttachmentDetailsResponse } from '../models';
-// @ts-ignore
-import { GetProductsResponse } from '../models';
-// @ts-ignore
 import { MergeDealsRequest } from '../models';
-// @ts-ignore
-import { UpdateDealProductRequest } from '../models';
-// @ts-ignore
-import { UpdateDealRequest } from '../models';
 /**
  * DealsApi - axios parameter creator
  * @export
  */
 export const DealsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
-        /**
-         * Adds a new deal. All deals created through the Pipedrive API will have a `origin` set to `API`. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the dealFields and look for `key` values. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/creating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">adding a deal</a>.
-         * @summary Add a deal
-         * @param {AddDealRequest} [AddDealRequest] 
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        addDeal: async (AddDealRequest?: AddDealRequest, ): Promise<RequestArgs> => {
-            const localVarPath = `/deals`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full"], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-            localVarRequestOptions.data = serializeDataIfNeeded(AddDealRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
         /**
          * Adds a follower to a deal.
          * @summary Add a follower to a deal
@@ -231,92 +158,6 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Adds a product to a deal, creating a new item called a deal-product.
-         * @summary Add a product to a deal
-         * @param {number} id The ID of the deal
-         * @param {AddDealProductRequest} [AddDealProductRequest] 
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        addDealProduct: async (id: number, AddDealProductRequest?: AddDealProductRequest, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('addDealProduct', 'id', id)
-            const localVarPath = `/deals/{id}/products`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "products:full"], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-            localVarRequestOptions.data = serializeDataIfNeeded(AddDealProductRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Marks a deal as deleted. After 30 days, the deal will be permanently deleted.
-         * @summary Delete a deal
-         * @param {number} id The ID of the deal
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        deleteDeal: async (id: number, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('deleteDeal', 'id', id)
-            const localVarPath = `/deals/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full"], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Deletes a follower from a deal.
          * @summary Delete a follower from a deal
          * @param {number} id The ID of the deal
@@ -394,51 +235,6 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             // authentication oauth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full"], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Deletes a product attachment from a deal, using the `product_attachment_id`  Not possible to delete the attached product if the deal has installments associated and the product is the last one enabled 
-         * @summary Delete an attached product from a deal
-         * @param {number} id The ID of the deal
-         * @param {number} product_attachment_id The product attachment ID
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        deleteDealProduct: async (id: number, product_attachment_id: number, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('deleteDealProduct', 'id', id)
-            // verify required parameter 'product_attachment_id' is not null or undefined
-            assertParamExists('deleteDealProduct', 'product_attachment_id', product_attachment_id)
-            const localVarPath = `/deals/{id}/products/{product_attachment_id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)))
-                .replace(`{${"product_attachment_id"}}`, encodeURIComponent(String(product_attachment_id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "products:full"], configuration)
 
 
     
@@ -730,108 +526,6 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
 
             if (totals_convert_currency !== undefined) {
                 localVarQueryParameter['totals_convert_currency'] = totals_convert_currency;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Returns the details of a specific deal. Note that this also returns some additional fields which are not present when asking for all deals – such as deal age and stay in pipeline stages. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of dealFields. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/getting-details-of-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">getting details of a deal</a>.
-         * @summary Get details of a deal
-         * @param {number} id The ID of the deal
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getDeal: async (id: number, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('getDeal', 'id', id)
-            const localVarPath = `/deals/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Lists activities associated with a deal. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities?deal_id={id}</a> instead.
-         * @summary List activities associated with a deal
-         * @param {number} id The ID of the deal
-         * @param {number} [start] Pagination start
-         * @param {number} [limit] Items shown per page
-         * @param {0 | 1} [done] Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted, returns both Done and Not done activities.
-         * @param {string} [exclude] A comma-separated string of activity IDs to exclude from result
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getDealActivities: async (id: number, start?: number, limit?: number, done?: 0 | 1, exclude?: string, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('getDealActivities', 'id', id)
-            const localVarPath = `/deals/{id}/activities`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["activities:read", "activities:full"], configuration)
-
-            if (start !== undefined) {
-                localVarQueryParameter['start'] = start;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (done !== undefined) {
-                localVarQueryParameter['done'] = done;
-            }
-
-            if (exclude !== undefined) {
-                localVarQueryParameter['exclude'] = exclude;
             }
 
 
@@ -1147,113 +841,6 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Lists all persons associated with a deal, regardless of whether the person is the primary contact of the deal, or added as a participant.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#getPersons\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/persons?deal_id={id}</a> instead.
-         * @summary List all persons associated with a deal
-         * @param {number} id The ID of the deal
-         * @param {number} [start] Pagination start
-         * @param {number} [limit] Items shown per page
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getDealPersons: async (id: number, start?: number, limit?: number, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('getDealPersons', 'id', id)
-            const localVarPath = `/deals/{id}/persons`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full"], configuration)
-
-            if (start !== undefined) {
-                localVarQueryParameter['start'] = start;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Lists products attached to a deal.
-         * @summary List products attached to a deal
-         * @param {number} id The ID of the deal
-         * @param {number} [start] Pagination start
-         * @param {number} [limit] Items shown per page
-         * @param {0 | 1} [include_product_data] Whether to fetch product data along with each attached product (1) or not (0, default)
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getDealProducts: async (id: number, start?: number, limit?: number, include_product_data?: 0 | 1, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('getDealProducts', 'id', id)
-            const localVarPath = `/deals/{id}/products`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:read", "products:full"], configuration)
-
-            if (start !== undefined) {
-                localVarQueryParameter['start'] = start;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (include_product_data !== undefined) {
-                localVarQueryParameter['include_product_data'] = include_product_data;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Lists updates about a deal.
          * @summary List updates about a deal
          * @param {number} id The ID of the deal
@@ -1343,155 +930,6 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             // authentication oauth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Returns all not archived deals. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/getting-all-deals\" target=\"_blank\" rel=\"noopener noreferrer\">getting all deals</a>.
-         * @summary Get all deals
-         * @param {number} [user_id] If supplied, only deals matching the given user will be returned. However, &#x60;filter_id&#x60; and &#x60;owned_by_you&#x60; takes precedence over &#x60;user_id&#x60; when supplied.
-         * @param {number} [filter_id] The ID of the filter to use
-         * @param {number} [stage_id] If supplied, only deals within the given stage will be returned
-         * @param {'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted'} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included.
-         * @param {number} [start] Pagination start
-         * @param {number} [limit] Items shown per page
-         * @param {string} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
-         * @param {0 | 1} [owned_by_you] When supplied, only deals owned by you are returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owned_by_you&#x60; when both are supplied.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getDeals: async (user_id?: number, filter_id?: number, stage_id?: number, status?: 'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted', start?: number, limit?: number, sort?: string, owned_by_you?: 0 | 1, ): Promise<RequestArgs> => {
-            const localVarPath = `/deals`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
-
-            if (user_id !== undefined) {
-                localVarQueryParameter['user_id'] = user_id;
-            }
-
-            if (filter_id !== undefined) {
-                localVarQueryParameter['filter_id'] = filter_id;
-            }
-
-            if (stage_id !== undefined) {
-                localVarQueryParameter['stage_id'] = stage_id;
-            }
-
-            if (status !== undefined) {
-                localVarQueryParameter['status'] = status;
-            }
-
-            if (start !== undefined) {
-                localVarQueryParameter['start'] = start;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (sort !== undefined) {
-                localVarQueryParameter['sort'] = sort;
-            }
-
-            if (owned_by_you !== undefined) {
-                localVarQueryParameter['owned_by_you'] = owned_by_you;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Returns all deals. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals</a> instead.
-         * @summary Get all deals collection
-         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
-         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-         * @param {string} [since] The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
-         * @param {string} [until] The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
-         * @param {number} [user_id] If supplied, only deals matching the given user will be returned
-         * @param {number} [stage_id] If supplied, only deals within the given stage will be returned
-         * @param {'open' | 'won' | 'lost' | 'deleted'} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getDealsCollection: async (cursor?: string, limit?: number, since?: string, until?: string, user_id?: number, stage_id?: number, status?: 'open' | 'won' | 'lost' | 'deleted', ): Promise<RequestArgs> => {
-            const localVarPath = `/deals/collection`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
-
-            if (cursor !== undefined) {
-                localVarQueryParameter['cursor'] = cursor;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (since !== undefined) {
-                localVarQueryParameter['since'] = since;
-            }
-
-            if (until !== undefined) {
-                localVarQueryParameter['until'] = until;
-            }
-
-            if (user_id !== undefined) {
-                localVarQueryParameter['user_id'] = user_id;
-            }
-
-            if (stage_id !== undefined) {
-                localVarQueryParameter['stage_id'] = stage_id;
-            }
-
-            if (status !== undefined) {
-                localVarQueryParameter['status'] = status;
-            }
 
 
     
@@ -1703,184 +1141,6 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
                 options: localVarRequestOptions,
             };
         },
-        /**
-         * Searches all deals by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found deals can be filtered by the person ID and the organization ID.
-         * @summary Search deals
-         * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-         * @param {'custom_fields' | 'notes' | 'title'} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
-         * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
-         * @param {number} [person_id] Will filter deals by the provided person ID. The upper limit of found deals associated with the person is 2000.
-         * @param {number} [organization_id] Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000.
-         * @param {'open' | 'won' | 'lost'} [status] Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000.
-         * @param {'deal.cc_email'} [include_fields] Supports including optional fields in the results which are not provided by default
-         * @param {number} [start] Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter.
-         * @param {number} [limit] Items shown per page
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        searchDeals: async (term: string, fields?: 'custom_fields' | 'notes' | 'title', exact_match?: boolean, person_id?: number, organization_id?: number, status?: 'open' | 'won' | 'lost', include_fields?: 'deal.cc_email', start?: number, limit?: number, ): Promise<RequestArgs> => {
-            // verify required parameter 'term' is not null or undefined
-            assertParamExists('searchDeals', 'term', term)
-            const localVarPath = `/deals/search`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full", "search:read"], configuration)
-
-            if (term !== undefined) {
-                localVarQueryParameter['term'] = term;
-            }
-
-            if (fields !== undefined) {
-                localVarQueryParameter['fields'] = fields;
-            }
-
-            if (exact_match !== undefined) {
-                localVarQueryParameter['exact_match'] = exact_match;
-            }
-
-            if (person_id !== undefined) {
-                localVarQueryParameter['person_id'] = person_id;
-            }
-
-            if (organization_id !== undefined) {
-                localVarQueryParameter['organization_id'] = organization_id;
-            }
-
-            if (status !== undefined) {
-                localVarQueryParameter['status'] = status;
-            }
-
-            if (include_fields !== undefined) {
-                localVarQueryParameter['include_fields'] = include_fields;
-            }
-
-            if (start !== undefined) {
-                localVarQueryParameter['start'] = start;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Updates the properties of a deal. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/updating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">updating a deal</a>.
-         * @summary Update a deal
-         * @param {number} id The ID of the deal
-         * @param {UpdateDealRequest} [UpdateDealRequest] 
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        updateDeal: async (id: number, UpdateDealRequest?: UpdateDealRequest, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('updateDeal', 'id', id)
-            const localVarPath = `/deals/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full"], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-            localVarRequestOptions.data = serializeDataIfNeeded(UpdateDealRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Updates the details of the product that has been attached to a deal.
-         * @summary Update the product attached to a deal
-         * @param {number} id The ID of the deal
-         * @param {number} product_attachment_id The ID of the deal-product (the ID of the product attached to the deal)
-         * @param {UpdateDealProductRequest} [UpdateDealProductRequest] 
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        updateDealProduct: async (id: number, product_attachment_id: number, UpdateDealProductRequest?: UpdateDealProductRequest, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('updateDealProduct', 'id', id)
-            // verify required parameter 'product_attachment_id' is not null or undefined
-            assertParamExists('updateDealProduct', 'product_attachment_id', product_attachment_id)
-            const localVarPath = `/deals/{id}/products/{product_attachment_id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)))
-                .replace(`{${"product_attachment_id"}}`, encodeURIComponent(String(product_attachment_id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full"], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-            localVarRequestOptions.data = serializeDataIfNeeded(UpdateDealProductRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
     }
 };
 
@@ -1892,17 +1152,6 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
 export const DealsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = DealsApiAxiosParamCreator(configuration)
     return {
-        /**
-         * Adds a new deal. All deals created through the Pipedrive API will have a `origin` set to `API`. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the dealFields and look for `key` values. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/creating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">adding a deal</a>.
-         * @summary Add a deal
-         * @param {AddDealRequest} [AddDealRequest] 
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async addDeal(AddDealRequest?: AddDealRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetAddedDealResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addDeal(AddDealRequest, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
         /**
          * Adds a follower to a deal.
          * @summary Add a follower to a deal
@@ -1928,29 +1177,6 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Adds a product to a deal, creating a new item called a deal-product.
-         * @summary Add a product to a deal
-         * @param {number} id The ID of the deal
-         * @param {AddDealProductRequest} [AddDealProductRequest] 
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async addDealProduct(id: number, AddDealProductRequest?: AddDealProductRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetAddProductAttachmentDetailsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addDealProduct(id, AddDealProductRequest, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Marks a deal as deleted. After 30 days, the deal will be permanently deleted.
-         * @summary Delete a deal
-         * @param {number} id The ID of the deal
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async deleteDeal(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteDealResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDeal(id, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Deletes a follower from a deal.
          * @summary Delete a follower from a deal
          * @param {number} id The ID of the deal
@@ -1972,18 +1198,6 @@ export const DealsApiFp = function(configuration?: Configuration) {
          */
         async deleteDealParticipant(id: number, deal_participant_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteDealParticipantResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDealParticipant(id, deal_participant_id, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Deletes a product attachment from a deal, using the `product_attachment_id`  Not possible to delete the attached product if the deal has installments associated and the product is the last one enabled 
-         * @summary Delete an attached product from a deal
-         * @param {number} id The ID of the deal
-         * @param {number} product_attachment_id The product attachment ID
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async deleteDealProduct(id: number, product_attachment_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteDealProductResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDealProduct(id, product_attachment_id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -2051,32 +1265,6 @@ export const DealsApiFp = function(configuration?: Configuration) {
          */
         async getArchivedDealsTimeline(start_date: string, interval: 'day' | 'week' | 'month' | 'quarter', amount: number, field_key: string, user_id?: number, pipeline_id?: number, filter_id?: number, exclude_deals?: 0 | 1, totals_convert_currency?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealsTimelineResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getArchivedDealsTimeline(start_date, interval, amount, field_key, user_id, pipeline_id, filter_id, exclude_deals, totals_convert_currency, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Returns the details of a specific deal. Note that this also returns some additional fields which are not present when asking for all deals – such as deal age and stay in pipeline stages. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of dealFields. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/getting-details-of-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">getting details of a deal</a>.
-         * @summary Get details of a deal
-         * @param {number} id The ID of the deal
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async getDeal(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getDeal(id, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Lists activities associated with a deal. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities?deal_id={id}</a> instead.
-         * @summary List activities associated with a deal
-         * @param {number} id The ID of the deal
-         * @param {number} [start] Pagination start
-         * @param {number} [limit] Items shown per page
-         * @param {0 | 1} [done] Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted, returns both Done and Not done activities.
-         * @param {string} [exclude] A comma-separated string of activity IDs to exclude from result
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async getDealActivities(id: number, start?: number, limit?: number, done?: 0 | 1, exclude?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealActivitiesResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealActivities(id, start, limit, done, exclude, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -2157,33 +1345,6 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Lists all persons associated with a deal, regardless of whether the person is the primary contact of the deal, or added as a participant.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#getPersons\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/persons?deal_id={id}</a> instead.
-         * @summary List all persons associated with a deal
-         * @param {number} id The ID of the deal
-         * @param {number} [start] Pagination start
-         * @param {number} [limit] Items shown per page
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async getDealPersons(id: number, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPersonsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealPersons(id, start, limit, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Lists products attached to a deal.
-         * @summary List products attached to a deal
-         * @param {number} id The ID of the deal
-         * @param {number} [start] Pagination start
-         * @param {number} [limit] Items shown per page
-         * @param {0 | 1} [include_product_data] Whether to fetch product data along with each attached product (1) or not (0, default)
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async getDealProducts(id: number, start?: number, limit?: number, include_product_data?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealProducts(id, start, limit, include_product_data, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Lists updates about a deal.
          * @summary List updates about a deal
          * @param {number} id The ID of the deal
@@ -2207,41 +1368,6 @@ export const DealsApiFp = function(configuration?: Configuration) {
          */
         async getDealUsers(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPermittedUsersResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDealUsers(id, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Returns all not archived deals. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/getting-all-deals\" target=\"_blank\" rel=\"noopener noreferrer\">getting all deals</a>.
-         * @summary Get all deals
-         * @param {number} [user_id] If supplied, only deals matching the given user will be returned. However, &#x60;filter_id&#x60; and &#x60;owned_by_you&#x60; takes precedence over &#x60;user_id&#x60; when supplied.
-         * @param {number} [filter_id] The ID of the filter to use
-         * @param {number} [stage_id] If supplied, only deals within the given stage will be returned
-         * @param {'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted'} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included.
-         * @param {number} [start] Pagination start
-         * @param {number} [limit] Items shown per page
-         * @param {string} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
-         * @param {0 | 1} [owned_by_you] When supplied, only deals owned by you are returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owned_by_you&#x60; when both are supplied.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async getDeals(user_id?: number, filter_id?: number, stage_id?: number, status?: 'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted', start?: number, limit?: number, sort?: string, owned_by_you?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getDeals(user_id, filter_id, stage_id, status, start, limit, sort, owned_by_you, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Returns all deals. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals</a> instead.
-         * @summary Get all deals collection
-         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
-         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-         * @param {string} [since] The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
-         * @param {string} [until] The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
-         * @param {number} [user_id] If supplied, only deals matching the given user will be returned
-         * @param {number} [stage_id] If supplied, only deals within the given stage will be returned
-         * @param {'open' | 'won' | 'lost' | 'deleted'} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async getDealsCollection(cursor?: string, limit?: number, since?: string, until?: string, user_id?: number, stage_id?: number, status?: 'open' | 'won' | 'lost' | 'deleted', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealsCollectionResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealsCollection(cursor, limit, since, until, user_id, stage_id, status, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -2290,50 +1416,6 @@ export const DealsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.mergeDeals(id, MergeDealsRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
-        /**
-         * Searches all deals by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found deals can be filtered by the person ID and the organization ID.
-         * @summary Search deals
-         * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-         * @param {'custom_fields' | 'notes' | 'title'} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
-         * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
-         * @param {number} [person_id] Will filter deals by the provided person ID. The upper limit of found deals associated with the person is 2000.
-         * @param {number} [organization_id] Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000.
-         * @param {'open' | 'won' | 'lost'} [status] Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000.
-         * @param {'deal.cc_email'} [include_fields] Supports including optional fields in the results which are not provided by default
-         * @param {number} [start] Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter.
-         * @param {number} [limit] Items shown per page
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async searchDeals(term: string, fields?: 'custom_fields' | 'notes' | 'title', exact_match?: boolean, person_id?: number, organization_id?: number, status?: 'open' | 'won' | 'lost', include_fields?: 'deal.cc_email', start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealSearchResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.searchDeals(term, fields, exact_match, person_id, organization_id, status, include_fields, start, limit, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Updates the properties of a deal. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/updating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">updating a deal</a>.
-         * @summary Update a deal
-         * @param {number} id The ID of the deal
-         * @param {UpdateDealRequest} [UpdateDealRequest] 
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async updateDeal(id: number, UpdateDealRequest?: UpdateDealRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetAddedDealResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateDeal(id, UpdateDealRequest, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Updates the details of the product that has been attached to a deal.
-         * @summary Update the product attached to a deal
-         * @param {number} id The ID of the deal
-         * @param {number} product_attachment_id The ID of the deal-product (the ID of the product attached to the deal)
-         * @param {UpdateDealProductRequest} [UpdateDealProductRequest] 
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async updateDealProduct(id: number, product_attachment_id: number, UpdateDealProductRequest?: UpdateDealProductRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductAttachmentDetailsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateDealProduct(id, product_attachment_id, UpdateDealProductRequest, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
     }
 };
 
@@ -2344,16 +1426,6 @@ export const DealsApiFp = function(configuration?: Configuration) {
 export const DealsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = DealsApiFp(configuration)
     return {
-        /**
-         * Adds a new deal. All deals created through the Pipedrive API will have a `origin` set to `API`. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the dealFields and look for `key` values. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/creating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">adding a deal</a>.
-         * @summary Add a deal
-         * @param {DealsApiAddDealRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        addDeal(requestParameters: DealsApiAddDealRequest = {}, ): Promise<GetAddedDealResponse> {
-            return localVarFp.addDeal(requestParameters.AddDealRequest, ).then((request) => request(axios, basePath));
-        },
         /**
          * Adds a follower to a deal.
          * @summary Add a follower to a deal
@@ -2375,26 +1447,6 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.addDealParticipant(requestParameters.id, requestParameters.AddDealParticipantRequest, ).then((request) => request(axios, basePath));
         },
         /**
-         * Adds a product to a deal, creating a new item called a deal-product.
-         * @summary Add a product to a deal
-         * @param {DealsApiAddDealProductRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        addDealProduct(requestParameters: DealsApiAddDealProductRequest, ): Promise<GetAddProductAttachmentDetailsResponse> {
-            return localVarFp.addDealProduct(requestParameters.id, requestParameters.AddDealProductRequest, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Marks a deal as deleted. After 30 days, the deal will be permanently deleted.
-         * @summary Delete a deal
-         * @param {DealsApiDeleteDealRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        deleteDeal(requestParameters: DealsApiDeleteDealRequest, ): Promise<DeleteDealResponse> {
-            return localVarFp.deleteDeal(requestParameters.id, ).then((request) => request(axios, basePath));
-        },
-        /**
          * Deletes a follower from a deal.
          * @summary Delete a follower from a deal
          * @param {DealsApiDeleteDealFollowerRequest} requestParameters Request parameters.
@@ -2413,16 +1465,6 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          */
         deleteDealParticipant(requestParameters: DealsApiDeleteDealParticipantRequest, ): Promise<DeleteDealParticipantResponse> {
             return localVarFp.deleteDealParticipant(requestParameters.id, requestParameters.deal_participant_id, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Deletes a product attachment from a deal, using the `product_attachment_id`  Not possible to delete the attached product if the deal has installments associated and the product is the last one enabled 
-         * @summary Delete an attached product from a deal
-         * @param {DealsApiDeleteDealProductRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        deleteDealProduct(requestParameters: DealsApiDeleteDealProductRequest, ): Promise<DeleteDealProductResponse> {
-            return localVarFp.deleteDealProduct(requestParameters.id, requestParameters.product_attachment_id, ).then((request) => request(axios, basePath));
         },
         /**
          * Duplicates a deal.
@@ -2463,26 +1505,6 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          */
         getArchivedDealsTimeline(requestParameters: DealsApiGetArchivedDealsTimelineRequest, ): Promise<GetDealsTimelineResponse> {
             return localVarFp.getArchivedDealsTimeline(requestParameters.start_date, requestParameters.interval, requestParameters.amount, requestParameters.field_key, requestParameters.user_id, requestParameters.pipeline_id, requestParameters.filter_id, requestParameters.exclude_deals, requestParameters.totals_convert_currency, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Returns the details of a specific deal. Note that this also returns some additional fields which are not present when asking for all deals – such as deal age and stay in pipeline stages. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of dealFields. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/getting-details-of-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">getting details of a deal</a>.
-         * @summary Get details of a deal
-         * @param {DealsApiGetDealRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getDeal(requestParameters: DealsApiGetDealRequest, ): Promise<GetDealResponse> {
-            return localVarFp.getDeal(requestParameters.id, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Lists activities associated with a deal. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities?deal_id={id}</a> instead.
-         * @summary List activities associated with a deal
-         * @param {DealsApiGetDealActivitiesRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getDealActivities(requestParameters: DealsApiGetDealActivitiesRequest, ): Promise<GetDealActivitiesResponse> {
-            return localVarFp.getDealActivities(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.done, requestParameters.exclude, ).then((request) => request(axios, basePath));
         },
         /**
          * Lists updates about field values of a deal.
@@ -2545,26 +1567,6 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.getDealParticipantsChangelog(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
-         * Lists all persons associated with a deal, regardless of whether the person is the primary contact of the deal, or added as a participant.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#getPersons\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/persons?deal_id={id}</a> instead.
-         * @summary List all persons associated with a deal
-         * @param {DealsApiGetDealPersonsRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getDealPersons(requestParameters: DealsApiGetDealPersonsRequest, ): Promise<GetPersonsResponse> {
-            return localVarFp.getDealPersons(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Lists products attached to a deal.
-         * @summary List products attached to a deal
-         * @param {DealsApiGetDealProductsRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getDealProducts(requestParameters: DealsApiGetDealProductsRequest, ): Promise<GetProductsResponse> {
-            return localVarFp.getDealProducts(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.include_product_data, ).then((request) => request(axios, basePath));
-        },
-        /**
          * Lists updates about a deal.
          * @summary List updates about a deal
          * @param {DealsApiGetDealUpdatesRequest} requestParameters Request parameters.
@@ -2583,26 +1585,6 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          */
         getDealUsers(requestParameters: DealsApiGetDealUsersRequest, ): Promise<GetPermittedUsersResponse> {
             return localVarFp.getDealUsers(requestParameters.id, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Returns all not archived deals. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/getting-all-deals\" target=\"_blank\" rel=\"noopener noreferrer\">getting all deals</a>.
-         * @summary Get all deals
-         * @param {DealsApiGetDealsRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getDeals(requestParameters: DealsApiGetDealsRequest = {}, ): Promise<GetDealsResponse> {
-            return localVarFp.getDeals(requestParameters.user_id, requestParameters.filter_id, requestParameters.stage_id, requestParameters.status, requestParameters.start, requestParameters.limit, requestParameters.sort, requestParameters.owned_by_you, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Returns all deals. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals</a> instead.
-         * @summary Get all deals collection
-         * @param {DealsApiGetDealsCollectionRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getDealsCollection(requestParameters: DealsApiGetDealsCollectionRequest = {}, ): Promise<GetDealsCollectionResponse> {
-            return localVarFp.getDealsCollection(requestParameters.cursor, requestParameters.limit, requestParameters.since, requestParameters.until, requestParameters.user_id, requestParameters.stage_id, requestParameters.status, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns a summary of all not archived deals.
@@ -2634,52 +1616,8 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
         mergeDeals(requestParameters: DealsApiMergeDealsRequest, ): Promise<GetMergedDealResponse> {
             return localVarFp.mergeDeals(requestParameters.id, requestParameters.MergeDealsRequest, ).then((request) => request(axios, basePath));
         },
-        /**
-         * Searches all deals by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found deals can be filtered by the person ID and the organization ID.
-         * @summary Search deals
-         * @param {DealsApiSearchDealsRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        searchDeals(requestParameters: DealsApiSearchDealsRequest, ): Promise<GetDealSearchResponse> {
-            return localVarFp.searchDeals(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.person_id, requestParameters.organization_id, requestParameters.status, requestParameters.include_fields, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Updates the properties of a deal. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/updating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">updating a deal</a>.
-         * @summary Update a deal
-         * @param {DealsApiUpdateDealRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        updateDeal(requestParameters: DealsApiUpdateDealRequest, ): Promise<GetAddedDealResponse> {
-            return localVarFp.updateDeal(requestParameters.id, requestParameters.UpdateDealRequest, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Updates the details of the product that has been attached to a deal.
-         * @summary Update the product attached to a deal
-         * @param {DealsApiUpdateDealProductRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        updateDealProduct(requestParameters: DealsApiUpdateDealProductRequest, ): Promise<GetProductAttachmentDetailsResponse> {
-            return localVarFp.updateDealProduct(requestParameters.id, requestParameters.product_attachment_id, requestParameters.UpdateDealProductRequest, ).then((request) => request(axios, basePath));
-        },
     };
 };
-
-/**
- * Request parameters for addDeal operation in DealsApi.
- * @export
- * @interface DealsApiAddDealRequest
- */
-export interface DealsApiAddDealRequest {
-    /**
-     * 
-     * @type {AddDealRequest}
-     * @memberof DealsApiAddDeal
-     */
-    readonly AddDealRequest?: AddDealRequest
-}
 
 /**
  * Request parameters for addDealFollower operation in DealsApi.
@@ -2724,41 +1662,6 @@ export interface DealsApiAddDealParticipantRequest {
 }
 
 /**
- * Request parameters for addDealProduct operation in DealsApi.
- * @export
- * @interface DealsApiAddDealProductRequest
- */
-export interface DealsApiAddDealProductRequest {
-    /**
-     * The ID of the deal
-     * @type {number}
-     * @memberof DealsApiAddDealProduct
-     */
-    readonly id: number
-
-    /**
-     * 
-     * @type {AddDealProductRequest}
-     * @memberof DealsApiAddDealProduct
-     */
-    readonly AddDealProductRequest?: AddDealProductRequest
-}
-
-/**
- * Request parameters for deleteDeal operation in DealsApi.
- * @export
- * @interface DealsApiDeleteDealRequest
- */
-export interface DealsApiDeleteDealRequest {
-    /**
-     * The ID of the deal
-     * @type {number}
-     * @memberof DealsApiDeleteDeal
-     */
-    readonly id: number
-}
-
-/**
  * Request parameters for deleteDealFollower operation in DealsApi.
  * @export
  * @interface DealsApiDeleteDealFollowerRequest
@@ -2798,27 +1701,6 @@ export interface DealsApiDeleteDealParticipantRequest {
      * @memberof DealsApiDeleteDealParticipant
      */
     readonly deal_participant_id: number
-}
-
-/**
- * Request parameters for deleteDealProduct operation in DealsApi.
- * @export
- * @interface DealsApiDeleteDealProductRequest
- */
-export interface DealsApiDeleteDealProductRequest {
-    /**
-     * The ID of the deal
-     * @type {number}
-     * @memberof DealsApiDeleteDealProduct
-     */
-    readonly id: number
-
-    /**
-     * The product attachment ID
-     * @type {number}
-     * @memberof DealsApiDeleteDealProduct
-     */
-    readonly product_attachment_id: number
 }
 
 /**
@@ -3039,62 +1921,6 @@ export interface DealsApiGetArchivedDealsTimelineRequest {
 }
 
 /**
- * Request parameters for getDeal operation in DealsApi.
- * @export
- * @interface DealsApiGetDealRequest
- */
-export interface DealsApiGetDealRequest {
-    /**
-     * The ID of the deal
-     * @type {number}
-     * @memberof DealsApiGetDeal
-     */
-    readonly id: number
-}
-
-/**
- * Request parameters for getDealActivities operation in DealsApi.
- * @export
- * @interface DealsApiGetDealActivitiesRequest
- */
-export interface DealsApiGetDealActivitiesRequest {
-    /**
-     * The ID of the deal
-     * @type {number}
-     * @memberof DealsApiGetDealActivities
-     */
-    readonly id: number
-
-    /**
-     * Pagination start
-     * @type {number}
-     * @memberof DealsApiGetDealActivities
-     */
-    readonly start?: number
-
-    /**
-     * Items shown per page
-     * @type {number}
-     * @memberof DealsApiGetDealActivities
-     */
-    readonly limit?: number
-
-    /**
-     * Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted, returns both Done and Not done activities.
-     * @type {0 | 1}
-     * @memberof DealsApiGetDealActivities
-     */
-    readonly done?: 0 | 1
-
-    /**
-     * A comma-separated string of activity IDs to exclude from result
-     * @type {string}
-     * @memberof DealsApiGetDealActivities
-     */
-    readonly exclude?: string
-}
-
-/**
  * Request parameters for getDealChangelog operation in DealsApi.
  * @export
  * @interface DealsApiGetDealChangelogRequest
@@ -3256,69 +2082,6 @@ export interface DealsApiGetDealParticipantsChangelogRequest {
 }
 
 /**
- * Request parameters for getDealPersons operation in DealsApi.
- * @export
- * @interface DealsApiGetDealPersonsRequest
- */
-export interface DealsApiGetDealPersonsRequest {
-    /**
-     * The ID of the deal
-     * @type {number}
-     * @memberof DealsApiGetDealPersons
-     */
-    readonly id: number
-
-    /**
-     * Pagination start
-     * @type {number}
-     * @memberof DealsApiGetDealPersons
-     */
-    readonly start?: number
-
-    /**
-     * Items shown per page
-     * @type {number}
-     * @memberof DealsApiGetDealPersons
-     */
-    readonly limit?: number
-}
-
-/**
- * Request parameters for getDealProducts operation in DealsApi.
- * @export
- * @interface DealsApiGetDealProductsRequest
- */
-export interface DealsApiGetDealProductsRequest {
-    /**
-     * The ID of the deal
-     * @type {number}
-     * @memberof DealsApiGetDealProducts
-     */
-    readonly id: number
-
-    /**
-     * Pagination start
-     * @type {number}
-     * @memberof DealsApiGetDealProducts
-     */
-    readonly start?: number
-
-    /**
-     * Items shown per page
-     * @type {number}
-     * @memberof DealsApiGetDealProducts
-     */
-    readonly limit?: number
-
-    /**
-     * Whether to fetch product data along with each attached product (1) or not (0, default)
-     * @type {0 | 1}
-     * @memberof DealsApiGetDealProducts
-     */
-    readonly include_product_data?: 0 | 1
-}
-
-/**
  * Request parameters for getDealUpdates operation in DealsApi.
  * @export
  * @interface DealsApiGetDealUpdatesRequest
@@ -3372,125 +2135,6 @@ export interface DealsApiGetDealUsersRequest {
      * @memberof DealsApiGetDealUsers
      */
     readonly id: number
-}
-
-/**
- * Request parameters for getDeals operation in DealsApi.
- * @export
- * @interface DealsApiGetDealsRequest
- */
-export interface DealsApiGetDealsRequest {
-    /**
-     * If supplied, only deals matching the given user will be returned. However, &#x60;filter_id&#x60; and &#x60;owned_by_you&#x60; takes precedence over &#x60;user_id&#x60; when supplied.
-     * @type {number}
-     * @memberof DealsApiGetDeals
-     */
-    readonly user_id?: number
-
-    /**
-     * The ID of the filter to use
-     * @type {number}
-     * @memberof DealsApiGetDeals
-     */
-    readonly filter_id?: number
-
-    /**
-     * If supplied, only deals within the given stage will be returned
-     * @type {number}
-     * @memberof DealsApiGetDeals
-     */
-    readonly stage_id?: number
-
-    /**
-     * Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included.
-     * @type {'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted'}
-     * @memberof DealsApiGetDeals
-     */
-    readonly status?: 'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted'
-
-    /**
-     * Pagination start
-     * @type {number}
-     * @memberof DealsApiGetDeals
-     */
-    readonly start?: number
-
-    /**
-     * Items shown per page
-     * @type {number}
-     * @memberof DealsApiGetDeals
-     */
-    readonly limit?: number
-
-    /**
-     * The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
-     * @type {string}
-     * @memberof DealsApiGetDeals
-     */
-    readonly sort?: string
-
-    /**
-     * When supplied, only deals owned by you are returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owned_by_you&#x60; when both are supplied.
-     * @type {0 | 1}
-     * @memberof DealsApiGetDeals
-     */
-    readonly owned_by_you?: 0 | 1
-}
-
-/**
- * Request parameters for getDealsCollection operation in DealsApi.
- * @export
- * @interface DealsApiGetDealsCollectionRequest
- */
-export interface DealsApiGetDealsCollectionRequest {
-    /**
-     * For pagination, the marker (an opaque string value) representing the first item on the next page
-     * @type {string}
-     * @memberof DealsApiGetDealsCollection
-     */
-    readonly cursor?: string
-
-    /**
-     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-     * @type {number}
-     * @memberof DealsApiGetDealsCollection
-     */
-    readonly limit?: number
-
-    /**
-     * The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
-     * @type {string}
-     * @memberof DealsApiGetDealsCollection
-     */
-    readonly since?: string
-
-    /**
-     * The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
-     * @type {string}
-     * @memberof DealsApiGetDealsCollection
-     */
-    readonly until?: string
-
-    /**
-     * If supplied, only deals matching the given user will be returned
-     * @type {number}
-     * @memberof DealsApiGetDealsCollection
-     */
-    readonly user_id?: number
-
-    /**
-     * If supplied, only deals within the given stage will be returned
-     * @type {number}
-     * @memberof DealsApiGetDealsCollection
-     */
-    readonly stage_id?: number
-
-    /**
-     * Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included.
-     * @type {'open' | 'won' | 'lost' | 'deleted'}
-     * @memberof DealsApiGetDealsCollection
-     */
-    readonly status?: 'open' | 'won' | 'lost' | 'deleted'
 }
 
 /**
@@ -3627,143 +2271,12 @@ export interface DealsApiMergeDealsRequest {
 }
 
 /**
- * Request parameters for searchDeals operation in DealsApi.
- * @export
- * @interface DealsApiSearchDealsRequest
- */
-export interface DealsApiSearchDealsRequest {
-    /**
-     * The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-     * @type {string}
-     * @memberof DealsApiSearchDeals
-     */
-    readonly term: string
-
-    /**
-     * A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
-     * @type {'custom_fields' | 'notes' | 'title'}
-     * @memberof DealsApiSearchDeals
-     */
-    readonly fields?: 'custom_fields' | 'notes' | 'title'
-
-    /**
-     * When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
-     * @type {boolean}
-     * @memberof DealsApiSearchDeals
-     */
-    readonly exact_match?: boolean
-
-    /**
-     * Will filter deals by the provided person ID. The upper limit of found deals associated with the person is 2000.
-     * @type {number}
-     * @memberof DealsApiSearchDeals
-     */
-    readonly person_id?: number
-
-    /**
-     * Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000.
-     * @type {number}
-     * @memberof DealsApiSearchDeals
-     */
-    readonly organization_id?: number
-
-    /**
-     * Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000.
-     * @type {'open' | 'won' | 'lost'}
-     * @memberof DealsApiSearchDeals
-     */
-    readonly status?: 'open' | 'won' | 'lost'
-
-    /**
-     * Supports including optional fields in the results which are not provided by default
-     * @type {'deal.cc_email'}
-     * @memberof DealsApiSearchDeals
-     */
-    readonly include_fields?: 'deal.cc_email'
-
-    /**
-     * Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter.
-     * @type {number}
-     * @memberof DealsApiSearchDeals
-     */
-    readonly start?: number
-
-    /**
-     * Items shown per page
-     * @type {number}
-     * @memberof DealsApiSearchDeals
-     */
-    readonly limit?: number
-}
-
-/**
- * Request parameters for updateDeal operation in DealsApi.
- * @export
- * @interface DealsApiUpdateDealRequest
- */
-export interface DealsApiUpdateDealRequest {
-    /**
-     * The ID of the deal
-     * @type {number}
-     * @memberof DealsApiUpdateDeal
-     */
-    readonly id: number
-
-    /**
-     * 
-     * @type {UpdateDealRequest}
-     * @memberof DealsApiUpdateDeal
-     */
-    readonly UpdateDealRequest?: UpdateDealRequest
-}
-
-/**
- * Request parameters for updateDealProduct operation in DealsApi.
- * @export
- * @interface DealsApiUpdateDealProductRequest
- */
-export interface DealsApiUpdateDealProductRequest {
-    /**
-     * The ID of the deal
-     * @type {number}
-     * @memberof DealsApiUpdateDealProduct
-     */
-    readonly id: number
-
-    /**
-     * The ID of the deal-product (the ID of the product attached to the deal)
-     * @type {number}
-     * @memberof DealsApiUpdateDealProduct
-     */
-    readonly product_attachment_id: number
-
-    /**
-     * 
-     * @type {UpdateDealProductRequest}
-     * @memberof DealsApiUpdateDealProduct
-     */
-    readonly UpdateDealProductRequest?: UpdateDealProductRequest
-}
-
-/**
  * DealsApi - object-oriented interface
  * @export
  * @class DealsApi
  * @extends {BaseAPI}
  */
 export class DealsApi extends BaseAPI {
-    /**
-     * Adds a new deal. All deals created through the Pipedrive API will have a `origin` set to `API`. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the dealFields and look for `key` values. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/creating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">adding a deal</a>.
-     * @summary Add a deal
-     * @param {DealsApiAddDealRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof DealsApi
-     */
-    public addDeal(requestParameters: DealsApiAddDealRequest = {}, ) {
-        return DealsApiFp(this.configuration).addDeal(requestParameters.AddDealRequest, ).then((request) => request(this.axios, this.basePath));
-    }
-
     /**
      * Adds a follower to a deal.
      * @summary Add a follower to a deal
@@ -3789,30 +2302,6 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
-     * Adds a product to a deal, creating a new item called a deal-product.
-     * @summary Add a product to a deal
-     * @param {DealsApiAddDealProductRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof DealsApi
-     */
-    public addDealProduct(requestParameters: DealsApiAddDealProductRequest, ) {
-        return DealsApiFp(this.configuration).addDealProduct(requestParameters.id, requestParameters.AddDealProductRequest, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Marks a deal as deleted. After 30 days, the deal will be permanently deleted.
-     * @summary Delete a deal
-     * @param {DealsApiDeleteDealRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof DealsApi
-     */
-    public deleteDeal(requestParameters: DealsApiDeleteDealRequest, ) {
-        return DealsApiFp(this.configuration).deleteDeal(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Deletes a follower from a deal.
      * @summary Delete a follower from a deal
      * @param {DealsApiDeleteDealFollowerRequest} requestParameters Request parameters.
@@ -3834,18 +2323,6 @@ export class DealsApi extends BaseAPI {
      */
     public deleteDealParticipant(requestParameters: DealsApiDeleteDealParticipantRequest, ) {
         return DealsApiFp(this.configuration).deleteDealParticipant(requestParameters.id, requestParameters.deal_participant_id, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Deletes a product attachment from a deal, using the `product_attachment_id`  Not possible to delete the attached product if the deal has installments associated and the product is the last one enabled 
-     * @summary Delete an attached product from a deal
-     * @param {DealsApiDeleteDealProductRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof DealsApi
-     */
-    public deleteDealProduct(requestParameters: DealsApiDeleteDealProductRequest, ) {
-        return DealsApiFp(this.configuration).deleteDealProduct(requestParameters.id, requestParameters.product_attachment_id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3894,30 +2371,6 @@ export class DealsApi extends BaseAPI {
      */
     public getArchivedDealsTimeline(requestParameters: DealsApiGetArchivedDealsTimelineRequest, ) {
         return DealsApiFp(this.configuration).getArchivedDealsTimeline(requestParameters.start_date, requestParameters.interval, requestParameters.amount, requestParameters.field_key, requestParameters.user_id, requestParameters.pipeline_id, requestParameters.filter_id, requestParameters.exclude_deals, requestParameters.totals_convert_currency, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Returns the details of a specific deal. Note that this also returns some additional fields which are not present when asking for all deals – such as deal age and stay in pipeline stages. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of dealFields. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/getting-details-of-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">getting details of a deal</a>.
-     * @summary Get details of a deal
-     * @param {DealsApiGetDealRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof DealsApi
-     */
-    public getDeal(requestParameters: DealsApiGetDealRequest, ) {
-        return DealsApiFp(this.configuration).getDeal(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Lists activities associated with a deal. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities?deal_id={id}</a> instead.
-     * @summary List activities associated with a deal
-     * @param {DealsApiGetDealActivitiesRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof DealsApi
-     */
-    public getDealActivities(requestParameters: DealsApiGetDealActivitiesRequest, ) {
-        return DealsApiFp(this.configuration).getDealActivities(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.done, requestParameters.exclude, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3993,30 +2446,6 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
-     * Lists all persons associated with a deal, regardless of whether the person is the primary contact of the deal, or added as a participant.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#getPersons\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/persons?deal_id={id}</a> instead.
-     * @summary List all persons associated with a deal
-     * @param {DealsApiGetDealPersonsRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof DealsApi
-     */
-    public getDealPersons(requestParameters: DealsApiGetDealPersonsRequest, ) {
-        return DealsApiFp(this.configuration).getDealPersons(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Lists products attached to a deal.
-     * @summary List products attached to a deal
-     * @param {DealsApiGetDealProductsRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof DealsApi
-     */
-    public getDealProducts(requestParameters: DealsApiGetDealProductsRequest, ) {
-        return DealsApiFp(this.configuration).getDealProducts(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.include_product_data, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Lists updates about a deal.
      * @summary List updates about a deal
      * @param {DealsApiGetDealUpdatesRequest} requestParameters Request parameters.
@@ -4038,30 +2467,6 @@ export class DealsApi extends BaseAPI {
      */
     public getDealUsers(requestParameters: DealsApiGetDealUsersRequest, ) {
         return DealsApiFp(this.configuration).getDealUsers(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Returns all not archived deals. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/getting-all-deals\" target=\"_blank\" rel=\"noopener noreferrer\">getting all deals</a>.
-     * @summary Get all deals
-     * @param {DealsApiGetDealsRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof DealsApi
-     */
-    public getDeals(requestParameters: DealsApiGetDealsRequest = {}, ) {
-        return DealsApiFp(this.configuration).getDeals(requestParameters.user_id, requestParameters.filter_id, requestParameters.stage_id, requestParameters.status, requestParameters.start, requestParameters.limit, requestParameters.sort, requestParameters.owned_by_you, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Returns all deals. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals</a> instead.
-     * @summary Get all deals collection
-     * @param {DealsApiGetDealsCollectionRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof DealsApi
-     */
-    public getDealsCollection(requestParameters: DealsApiGetDealsCollectionRequest = {}, ) {
-        return DealsApiFp(this.configuration).getDealsCollection(requestParameters.cursor, requestParameters.limit, requestParameters.since, requestParameters.until, requestParameters.user_id, requestParameters.stage_id, requestParameters.status, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -4098,41 +2503,5 @@ export class DealsApi extends BaseAPI {
      */
     public mergeDeals(requestParameters: DealsApiMergeDealsRequest, ) {
         return DealsApiFp(this.configuration).mergeDeals(requestParameters.id, requestParameters.MergeDealsRequest, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Searches all deals by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found deals can be filtered by the person ID and the organization ID.
-     * @summary Search deals
-     * @param {DealsApiSearchDealsRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof DealsApi
-     */
-    public searchDeals(requestParameters: DealsApiSearchDealsRequest, ) {
-        return DealsApiFp(this.configuration).searchDeals(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.person_id, requestParameters.organization_id, requestParameters.status, requestParameters.include_fields, requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Updates the properties of a deal. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/updating-a-deal\" target=\"_blank\" rel=\"noopener noreferrer\">updating a deal</a>.
-     * @summary Update a deal
-     * @param {DealsApiUpdateDealRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof DealsApi
-     */
-    public updateDeal(requestParameters: DealsApiUpdateDealRequest, ) {
-        return DealsApiFp(this.configuration).updateDeal(requestParameters.id, requestParameters.UpdateDealRequest, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Updates the details of the product that has been attached to a deal.
-     * @summary Update the product attached to a deal
-     * @param {DealsApiUpdateDealProductRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof DealsApi
-     */
-    public updateDealProduct(requestParameters: DealsApiUpdateDealProductRequest, ) {
-        return DealsApiFp(this.configuration).updateDealProduct(requestParameters.id, requestParameters.product_attachment_id, requestParameters.UpdateDealProductRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

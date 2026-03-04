@@ -13,17 +13,52 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import { RelationshipOrganizationInfoItem } from './relationship-organization-info-item';
-// May contain unused imports in some cases
-// @ts-ignore
-import { RelationshipOrganizationInfoItemWithActiveFlagAllOf } from './relationship-organization-info-item-with-active-flag-all-of';
 
 /**
- * @type RelationshipOrganizationInfoItemWithActiveFlag
- * @export
- */
-export type RelationshipOrganizationInfoItemWithActiveFlag = RelationshipOrganizationInfoItem & RelationshipOrganizationInfoItemWithActiveFlagAllOf;
-
+* 
+* @export
+* @interface RelationshipOrganizationInfoItemWithActiveFlag
+*/
+export interface RelationshipOrganizationInfoItemWithActiveFlag {
+    /**
+    * The name of the organization associated with the item
+    * @type {string}
+    */
+    'name'?: string;
+    /**
+    * The number of people connected with the organization that is associated with the item
+    * @type {number}
+    */
+    'people_count'?: number;
+    /**
+    * The ID of the owner of the organization that is associated with the item
+    * @type {number}
+    */
+    'owner_id'?: number;
+    /**
+    * The address of the organization
+    * @type {string}
+    */
+    'address'?: string | null;
+    /**
+    * The BCC email of the organization associated with the item
+    * @type {string}
+    */
+    'cc_email'?: string | null;
+    /**
+    * The IDs of labels assigned to the organization
+    * @type {Array<number>}
+    */
+    'label_ids'?: Array<number>;
+    /**
+    * The ID of the organization
+    * @type {number}
+    */
+    'value'?: number;
+    /**
+    * Whether the associated organization is active or not
+    * @type {boolean}
+    */
+    'active_flag'?: boolean;
+}
 

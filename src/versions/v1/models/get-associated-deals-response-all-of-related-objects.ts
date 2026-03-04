@@ -15,16 +15,16 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { AddActivityResponseRelatedObjectsPerson } from './add-activity-response-related-objects-person';
-// May contain unused imports in some cases
-// @ts-ignore
 import { BasePipeline } from './base-pipeline';
 // May contain unused imports in some cases
 // @ts-ignore
 import { BaseStage } from './base-stage';
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetActivitiesResponseRelatedObjectsUser } from './get-activities-response-related-objects-user';
+import { GetDealsResponseRelatedObjectsPerson } from './get-deals-response-related-objects-person';
+// May contain unused imports in some cases
+// @ts-ignore
+import { GetDealsResponseRelatedObjectsUser } from './get-deals-response-related-objects-user';
 // May contain unused imports in some cases
 // @ts-ignore
 import { RelatedOrganizationDataWithActiveFlag } from './related-organization-data-with-active-flag';
@@ -42,14 +42,14 @@ export interface GetAssociatedDealsResponseAllOfRelatedObjects {
     'organization'?: RelatedOrganizationDataWithActiveFlag;
     /**
     * 
-    * @type {AddActivityResponseRelatedObjectsPerson}
+    * @type {GetDealsResponseRelatedObjectsPerson}
     */
-    'person'?: AddActivityResponseRelatedObjectsPerson;
+    'person'?: GetDealsResponseRelatedObjectsPerson;
     /**
     * 
-    * @type {GetActivitiesResponseRelatedObjectsUser}
+    * @type {GetDealsResponseRelatedObjectsUser}
     */
-    'user'?: GetActivitiesResponseRelatedObjectsUser;
+    'user'?: GetDealsResponseRelatedObjectsUser;
     /**
     * 
     * @type {BaseStage}

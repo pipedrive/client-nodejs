@@ -15,15 +15,18 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { ActivityAllOf } from './activity-all-of';
-// May contain unused imports in some cases
-// @ts-ignore
-import { ActivityCollectionResponseObjectAllOf } from './activity-collection-response-object-all-of';
+import { GetLeadSearchResponseAllOfAdditionalDataPagination } from './get-lead-search-response-all-of-additional-data-pagination';
 
 /**
- * @type Activity
- * @export
- */
-export type Activity = ActivityAllOf & ActivityCollectionResponseObjectAllOf;
-
+* 
+* @export
+* @interface GetLeadSearchResponseAllOfAdditionalData
+*/
+export interface GetLeadSearchResponseAllOfAdditionalData {
+    /**
+    * 
+    * @type {GetLeadSearchResponseAllOfAdditionalDataPagination}
+    */
+    'pagination'?: GetLeadSearchResponseAllOfAdditionalDataPagination;
+}
 

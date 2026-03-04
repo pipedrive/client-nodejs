@@ -84,6 +84,11 @@ export interface Lead {
     */
     'channel_id': string | null;
     /**
+    * The ID of the deal if the lead was converted from a deal.
+    * @type {number}
+    */
+    'source_deal_id': number | null;
+    /**
     * A flag indicating whether the lead is archived or not
     * @type {boolean}
     */

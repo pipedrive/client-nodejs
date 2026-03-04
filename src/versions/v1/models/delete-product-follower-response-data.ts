@@ -17,23 +17,13 @@
 /**
 * 
 * @export
-* @interface PersonNameInfoWithOrgAndOwnerIdAllOf1
+* @interface DeleteProductFollowerResponseData
 */
-export interface PersonNameInfoWithOrgAndOwnerIdAllOf1 {
+export interface DeleteProductFollowerResponseData {
     /**
-    * The name of the person
-    * @type {string}
+    * 
+    * @type {number}
     */
-    'name'?: string;
-    /**
-    * The first name of the person
-    * @type {string}
-    */
-    'first_name'?: string;
-    /**
-    * The last name of the person
-    * @type {string}
-    */
-    'last_name'?: string | null;
+    'id'?: number;
 }
 

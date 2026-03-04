@@ -15,22 +15,18 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { PersonDataWithActiveFlagAllOf } from './person-data-with-active-flag-all-of';
+import { PictureData } from './picture-data';
 // May contain unused imports in some cases
 // @ts-ignore
-import { PersonDataWithActiveFlagAllOf1 } from './person-data-with-active-flag-all-of1';
+import { PictureDataWithID1 } from './picture-data-with-id1';
 // May contain unused imports in some cases
 // @ts-ignore
-import { PersonDataWithActiveFlagAllOf1EmailInner } from './person-data-with-active-flag-all-of1-email-inner';
-// May contain unused imports in some cases
-// @ts-ignore
-import { PhoneData } from './phone-data';
+import { PictureDataWithIDPictures } from './picture-data-with-idpictures';
 
 /**
- * @type PersonDataWithActiveFlag
- * The ID of the person associated with the item
+ * @type RelatedPictureDataPICTUREIDAllOf
  * @export
  */
-export type PersonDataWithActiveFlag = PersonDataWithActiveFlagAllOf & PersonDataWithActiveFlagAllOf1;
+export type RelatedPictureDataPICTUREIDAllOf = PictureData & PictureDataWithID1;
 
 

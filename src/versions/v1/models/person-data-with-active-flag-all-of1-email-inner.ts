@@ -17,23 +17,23 @@
 /**
 * 
 * @export
-* @interface PersonNameInfoWithOrgAndOwnerIdAllOf1
+* @interface PersonDataWithActiveFlagAllOf1EmailInner
 */
-export interface PersonNameInfoWithOrgAndOwnerIdAllOf1 {
+export interface PersonDataWithActiveFlagAllOf1EmailInner {
     /**
-    * The name of the person
+    * The type of the email
     * @type {string}
     */
-    'name'?: string;
+    'label'?: string;
     /**
-    * The first name of the person
+    * The email of the associated person
     * @type {string}
     */
-    'first_name'?: string;
+    'value'?: string;
     /**
-    * The last name of the person
-    * @type {string}
+    * Whether this is the primary email or not
+    * @type {boolean}
     */
-    'last_name'?: string | null;
+    'primary'?: boolean;
 }
 

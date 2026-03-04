@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetActivitiesCollectionResponseAdditionalData } from './get-activities-collection-response-additional-data';
+import { GetChangelogResponseAllOfAdditionalData } from './get-changelog-response-all-of-additional-data';
 // May contain unused imports in some cases
 // @ts-ignore
 import { TaskResponseObject } from './task-response-object';
@@ -38,8 +38,8 @@ export interface GetTasksResponse {
     'data'?: Array<TaskResponseObject>;
     /**
     * 
-    * @type {GetActivitiesCollectionResponseAdditionalData}
+    * @type {GetChangelogResponseAllOfAdditionalData}
     */
-    'additional_data'?: GetActivitiesCollectionResponseAdditionalData;
+    'additional_data'?: GetChangelogResponseAllOfAdditionalData;
 }
 

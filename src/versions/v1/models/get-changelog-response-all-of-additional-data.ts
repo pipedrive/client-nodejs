@@ -15,25 +15,15 @@
 
 
 /**
-* 
+* The additional data of the list
 * @export
-* @interface PersonNameInfoWithOrgAndOwnerIdAllOf1
+* @interface GetChangelogResponseAllOfAdditionalData
 */
-export interface PersonNameInfoWithOrgAndOwnerIdAllOf1 {
+export interface GetChangelogResponseAllOfAdditionalData {
     /**
-    * The name of the person
+    * The first item on the next page. The value of the `next_cursor` field will be `null` if you have reached the end of the dataset and there’s no more pages to be returned.
     * @type {string}
     */
-    'name'?: string;
-    /**
-    * The first name of the person
-    * @type {string}
-    */
-    'first_name'?: string;
-    /**
-    * The last name of the person
-    * @type {string}
-    */
-    'last_name'?: string | null;
+    'next_cursor'?: string;
 }
 
