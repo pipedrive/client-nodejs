@@ -25,15 +25,5 @@ export interface RequiredPostProjectParameters {
     * @type {string}
     */
     'title': string;
-    /**
-    * The ID of a project board
-    * @type {number}
-    */
-    'board_id': number;
-    /**
-    * The ID of a phase on a project board
-    * @type {number}
-    */
-    'phase_id': number;
 }
 
