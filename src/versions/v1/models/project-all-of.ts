@@ -25,15 +25,5 @@ export interface ProjectAllOf {
     * @type {string}
     */
     'title'?: string;
-    /**
-    * The ID of the board this project is associated with
-    * @type {number}
-    */
-    'board_id'?: number;
-    /**
-    * The ID of the phase this project is associated with
-    * @type {number}
-    */
-    'phase_id'?: number;
 }
 
