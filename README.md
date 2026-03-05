@@ -32,7 +32,7 @@ You can retrieve the api_token from your existing Pipedrive account’s settings
 
 ```typescript
 import express from "express";
-import { Configuration, DealsApi } from "pipedrive/v1";
+import { Configuration, DealsApi } from "pipedrive/v2";
 
 const app = express();
 
@@ -73,7 +73,7 @@ To set up authentication in the API client, you need the following information. 
 Next, initialize the API client as follows:
 
 ```typescript
-import { OAuth2Configuration, Configuration } from 'pipedrive/v1';
+import { OAuth2Configuration, Configuration } from 'pipedrive/v2';
 
 // Configuration parameters and credentials
 const oauth2 = new OAuth2Configuration({
@@ -150,7 +150,7 @@ This code snippet stores the access token in a session for an express applicatio
 import express from "express";
 import cookieParse from "cookie-parser";
 import cookeSession from "cookie-session";
-import { Configuration, DealsApi, OAuth2Configuration } from "pipedrive/v1";
+import { Configuration, DealsApi, OAuth2Configuration } from "pipedrive/v2";
 
 const app = express();
 
@@ -194,7 +194,7 @@ It then redirects back to the base endpoint for calling endpoints from the SDK.
 ```typescript
 
 import express from "express";
-import { Configuration, DealsApi, OAuth2Configuration } from "pipedrive/v1";
+import { Configuration, DealsApi, OAuth2Configuration } from "pipedrive/v2";
 import cookieParser from "cookie-parser";
 import cookieSession from "cookie-session";
 
