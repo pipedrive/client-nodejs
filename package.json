@@ -78,7 +78,7 @@
     "jest-environment-node": "^27.4.4",
     "lint-staged": "^13.0.3",
     "minimist": "^1.2.5",
-    "mocha": "^10.2.0",
+    "mocha": "^10.8.2",
     "nock": "^13.5.6",
     "regenerator-runtime": "^0.13.7",
     "shelljs": "^0.8.4",
