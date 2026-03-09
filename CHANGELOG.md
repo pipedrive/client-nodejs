@@ -8,6 +8,13 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+### Fixed
+
+- upgraded minimatch 5.1.6 -> 5.1.8 by npm audit fix
+- upgraded minimatch 5.1.6 -> 5.1.8 by npm audit fix
+- upgraded minimatch 9.0.5 -> 9.0.7 by npm audit fix
+- upgraded minimatch 9.0.5 -> 9.0.7 by npm audit fix
+
 ## [31.6.0] - 2026-03-05
 ### Changed
 - Changed `board_id` and `phase_id` to be optional in `POST /api/v1/projects`
