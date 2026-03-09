@@ -15,16 +15,16 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { PersonAllOfPictureId } from './person-all-of-picture-id';
+import { PictureDataWithIDPictures } from './picture-data-with-idpictures';
 // May contain unused imports in some cases
 // @ts-ignore
-import { PictureDataPictures } from './picture-data-pictures';
+import { RelatedPictureDataPICTUREIDAllOf } from './related-picture-data-pictureidall-of';
 
 /**
  * @type RelatedPictureDataPICTUREID
  * The ID of the picture
  * @export
  */
-export type RelatedPictureDataPICTUREID = PersonAllOfPictureId;
+export type RelatedPictureDataPICTUREID = RelatedPictureDataPICTUREIDAllOf;
 
 

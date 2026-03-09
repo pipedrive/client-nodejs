@@ -22,154 +22,17 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
-import { AddPipelineResponse } from '../models';
-// @ts-ignore
-import { DeletePipelineResponse } from '../models';
-// @ts-ignore
 import { GetPipelineDealsConversionRatesInResponse } from '../models';
 // @ts-ignore
 import { GetPipelineDealsMovementsStatisticsResponse } from '../models';
 // @ts-ignore
-import { GetPipelineResponse } from '../models';
-// @ts-ignore
-import { GetPipelinesResponse } from '../models';
-// @ts-ignore
 import { GetStageDealsResponse } from '../models';
-// @ts-ignore
-import { PipelineRequest } from '../models';
-// @ts-ignore
-import { PipelineRequest1 } from '../models';
-// @ts-ignore
-import { UpdatePipelineResponse } from '../models';
 /**
  * PipelinesApi - axios parameter creator
  * @export
  */
 export const PipelinesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
-        /**
-         * Adds a new pipeline.
-         * @summary Add a new pipeline
-         * @param {PipelineRequest} [PipelineRequest] 
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        addPipeline: async (PipelineRequest?: PipelineRequest, ): Promise<RequestArgs> => {
-            const localVarPath = `/pipelines`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-            localVarRequestOptions.data = serializeDataIfNeeded(PipelineRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Marks a pipeline as deleted.
-         * @summary Delete a pipeline
-         * @param {number} id The ID of the pipeline
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        deletePipeline: async (id: number, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('deletePipeline', 'id', id)
-            const localVarPath = `/pipelines/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Returns data about a specific pipeline.
-         * @summary Get one pipeline
-         * @param {number} id The ID of the pipeline
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getPipeline: async (id: number, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('getPipeline', 'id', id)
-            const localVarPath = `/pipelines/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full", "admin"], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
         /**
          * Returns all stage-to-stage conversion and pipeline-to-close rates for the given time period.
          * @summary Get deals conversion rates in pipeline
@@ -379,88 +242,6 @@ export const PipelinesApiAxiosParamCreator = function (configuration?: Configura
                 options: localVarRequestOptions,
             };
         },
-        /**
-         * Returns data about all pipelines.
-         * @summary Get all pipelines
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getPipelines: async (): Promise<RequestArgs> => {
-            const localVarPath = `/pipelines`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full", "admin"], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Updates the properties of a pipeline.
-         * @summary Update a pipeline
-         * @param {number} id The ID of the pipeline
-         * @param {PipelineRequest1} [PipelineRequest1] 
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        updatePipeline: async (id: number, PipelineRequest1?: PipelineRequest1, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('updatePipeline', 'id', id)
-            const localVarPath = `/pipelines/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-            localVarRequestOptions.data = serializeDataIfNeeded(PipelineRequest1, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
     }
 };
 
@@ -472,39 +253,6 @@ export const PipelinesApiAxiosParamCreator = function (configuration?: Configura
 export const PipelinesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = PipelinesApiAxiosParamCreator(configuration)
     return {
-        /**
-         * Adds a new pipeline.
-         * @summary Add a new pipeline
-         * @param {PipelineRequest} [PipelineRequest] 
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async addPipeline(PipelineRequest?: PipelineRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddPipelineResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addPipeline(PipelineRequest, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Marks a pipeline as deleted.
-         * @summary Delete a pipeline
-         * @param {number} id The ID of the pipeline
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async deletePipeline(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeletePipelineResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deletePipeline(id, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Returns data about a specific pipeline.
-         * @summary Get one pipeline
-         * @param {number} id The ID of the pipeline
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async getPipeline(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPipelineResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPipeline(id, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
         /**
          * Returns all stage-to-stage conversion and pipeline-to-close rates for the given time period.
          * @summary Get deals conversion rates in pipeline
@@ -552,28 +300,6 @@ export const PipelinesApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPipelineMovementStatistics(id, start_date, end_date, user_id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
-        /**
-         * Returns data about all pipelines.
-         * @summary Get all pipelines
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async getPipelines(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPipelinesResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPipelines();
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Updates the properties of a pipeline.
-         * @summary Update a pipeline
-         * @param {number} id The ID of the pipeline
-         * @param {PipelineRequest1} [PipelineRequest1] 
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async updatePipeline(id: number, PipelineRequest1?: PipelineRequest1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdatePipelineResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePipeline(id, PipelineRequest1, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
     }
 };
 
@@ -584,36 +310,6 @@ export const PipelinesApiFp = function(configuration?: Configuration) {
 export const PipelinesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = PipelinesApiFp(configuration)
     return {
-        /**
-         * Adds a new pipeline.
-         * @summary Add a new pipeline
-         * @param {PipelinesApiAddPipelineRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        addPipeline(requestParameters: PipelinesApiAddPipelineRequest = {}, ): Promise<AddPipelineResponse> {
-            return localVarFp.addPipeline(requestParameters.PipelineRequest, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Marks a pipeline as deleted.
-         * @summary Delete a pipeline
-         * @param {PipelinesApiDeletePipelineRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        deletePipeline(requestParameters: PipelinesApiDeletePipelineRequest, ): Promise<DeletePipelineResponse> {
-            return localVarFp.deletePipeline(requestParameters.id, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Returns data about a specific pipeline.
-         * @summary Get one pipeline
-         * @param {PipelinesApiGetPipelineRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getPipeline(requestParameters: PipelinesApiGetPipelineRequest, ): Promise<GetPipelineResponse> {
-            return localVarFp.getPipeline(requestParameters.id, ).then((request) => request(axios, basePath));
-        },
         /**
          * Returns all stage-to-stage conversion and pipeline-to-close rates for the given time period.
          * @summary Get deals conversion rates in pipeline
@@ -644,69 +340,8 @@ export const PipelinesApiFactory = function (configuration?: Configuration, base
         getPipelineMovementStatistics(requestParameters: PipelinesApiGetPipelineMovementStatisticsRequest, ): Promise<GetPipelineDealsMovementsStatisticsResponse> {
             return localVarFp.getPipelineMovementStatistics(requestParameters.id, requestParameters.start_date, requestParameters.end_date, requestParameters.user_id, ).then((request) => request(axios, basePath));
         },
-        /**
-         * Returns data about all pipelines.
-         * @summary Get all pipelines
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getPipelines(): Promise<GetPipelinesResponse> {
-            return localVarFp.getPipelines().then((request) => request(axios, basePath));
-        },
-        /**
-         * Updates the properties of a pipeline.
-         * @summary Update a pipeline
-         * @param {PipelinesApiUpdatePipelineRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        updatePipeline(requestParameters: PipelinesApiUpdatePipelineRequest, ): Promise<UpdatePipelineResponse> {
-            return localVarFp.updatePipeline(requestParameters.id, requestParameters.PipelineRequest1, ).then((request) => request(axios, basePath));
-        },
     };
 };
-
-/**
- * Request parameters for addPipeline operation in PipelinesApi.
- * @export
- * @interface PipelinesApiAddPipelineRequest
- */
-export interface PipelinesApiAddPipelineRequest {
-    /**
-     * 
-     * @type {PipelineRequest}
-     * @memberof PipelinesApiAddPipeline
-     */
-    readonly PipelineRequest?: PipelineRequest
-}
-
-/**
- * Request parameters for deletePipeline operation in PipelinesApi.
- * @export
- * @interface PipelinesApiDeletePipelineRequest
- */
-export interface PipelinesApiDeletePipelineRequest {
-    /**
-     * The ID of the pipeline
-     * @type {number}
-     * @memberof PipelinesApiDeletePipeline
-     */
-    readonly id: number
-}
-
-/**
- * Request parameters for getPipeline operation in PipelinesApi.
- * @export
- * @interface PipelinesApiGetPipelineRequest
- */
-export interface PipelinesApiGetPipelineRequest {
-    /**
-     * The ID of the pipeline
-     * @type {number}
-     * @memberof PipelinesApiGetPipeline
-     */
-    readonly id: number
-}
 
 /**
  * Request parameters for getPipelineConversionStatistics operation in PipelinesApi.
@@ -849,69 +484,12 @@ export interface PipelinesApiGetPipelineMovementStatisticsRequest {
 }
 
 /**
- * Request parameters for updatePipeline operation in PipelinesApi.
- * @export
- * @interface PipelinesApiUpdatePipelineRequest
- */
-export interface PipelinesApiUpdatePipelineRequest {
-    /**
-     * The ID of the pipeline
-     * @type {number}
-     * @memberof PipelinesApiUpdatePipeline
-     */
-    readonly id: number
-
-    /**
-     * 
-     * @type {PipelineRequest1}
-     * @memberof PipelinesApiUpdatePipeline
-     */
-    readonly PipelineRequest1?: PipelineRequest1
-}
-
-/**
  * PipelinesApi - object-oriented interface
  * @export
  * @class PipelinesApi
  * @extends {BaseAPI}
  */
 export class PipelinesApi extends BaseAPI {
-    /**
-     * Adds a new pipeline.
-     * @summary Add a new pipeline
-     * @param {PipelinesApiAddPipelineRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof PipelinesApi
-     */
-    public addPipeline(requestParameters: PipelinesApiAddPipelineRequest = {}, ) {
-        return PipelinesApiFp(this.configuration).addPipeline(requestParameters.PipelineRequest, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Marks a pipeline as deleted.
-     * @summary Delete a pipeline
-     * @param {PipelinesApiDeletePipelineRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof PipelinesApi
-     */
-    public deletePipeline(requestParameters: PipelinesApiDeletePipelineRequest, ) {
-        return PipelinesApiFp(this.configuration).deletePipeline(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Returns data about a specific pipeline.
-     * @summary Get one pipeline
-     * @param {PipelinesApiGetPipelineRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof PipelinesApi
-     */
-    public getPipeline(requestParameters: PipelinesApiGetPipelineRequest, ) {
-        return PipelinesApiFp(this.configuration).getPipeline(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
-    }
-
     /**
      * Returns all stage-to-stage conversion and pipeline-to-close rates for the given time period.
      * @summary Get deals conversion rates in pipeline
@@ -946,28 +524,5 @@ export class PipelinesApi extends BaseAPI {
      */
     public getPipelineMovementStatistics(requestParameters: PipelinesApiGetPipelineMovementStatisticsRequest, ) {
         return PipelinesApiFp(this.configuration).getPipelineMovementStatistics(requestParameters.id, requestParameters.start_date, requestParameters.end_date, requestParameters.user_id, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Returns data about all pipelines.
-     * @summary Get all pipelines
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof PipelinesApi
-     */
-    public getPipelines() {
-        return PipelinesApiFp(this.configuration).getPipelines().then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Updates the properties of a pipeline.
-     * @summary Update a pipeline
-     * @param {PipelinesApiUpdatePipelineRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof PipelinesApi
-     */
-    public updatePipeline(requestParameters: PipelinesApiUpdatePipelineRequest, ) {
-        return PipelinesApiFp(this.configuration).updatePipeline(requestParameters.id, requestParameters.PipelineRequest1, ).then((request) => request(this.axios, this.basePath));
     }
 }

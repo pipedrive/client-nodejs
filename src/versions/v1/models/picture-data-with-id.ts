@@ -13,6 +13,9 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { PictureDataWithIDPictures } from './picture-data-with-idpictures';
 
 /**
 * 
@@ -25,5 +28,40 @@ export interface PictureDataWithID {
     * @type {number}
     */
     'id'?: number;
+    /**
+    * The type of item the picture is related to
+    * @type {string}
+    */
+    'item_type'?: string;
+    /**
+    * The ID of related item
+    * @type {number}
+    */
+    'item_id'?: number;
+    /**
+    * Whether the associated picture is active or not
+    * @type {boolean}
+    */
+    'active_flag'?: boolean;
+    /**
+    * The add time of the picture
+    * @type {string}
+    */
+    'add_time'?: string;
+    /**
+    * The update time of the picture
+    * @type {string}
+    */
+    'update_time'?: string;
+    /**
+    * The ID of the user who added the picture
+    * @type {number}
+    */
+    'added_by_user_id'?: number;
+    /**
+    * 
+    * @type {PictureDataWithIDPictures}
+    */
+    'pictures'?: PictureDataWithIDPictures;
 }
 

@@ -14,7 +14,6 @@
 
 
 
-export * from './api/activities-api';
 export * from './api/activity-fields-api';
 export * from './api/activity-types-api';
 export * from './api/billing-api';
@@ -26,7 +25,6 @@ export * from './api/deals-api';
 export * from './api/files-api';
 export * from './api/filters-api';
 export * from './api/goals-api';
-export * from './api/item-search-api';
 export * from './api/lead-fields-api';
 export * from './api/lead-labels-api';
 export * from './api/lead-sources-api';

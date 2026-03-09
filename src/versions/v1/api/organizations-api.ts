@@ -26,19 +26,7 @@ import { AddOrganizationFollowerRequest } from '../models';
 // @ts-ignore
 import { AddOrganizationFollowerResponse } from '../models';
 // @ts-ignore
-import { AddOrganizationRequest } from '../models';
-// @ts-ignore
-import { AddOrganizationResponse } from '../models';
-// @ts-ignore
 import { DeleteOrganizationFollowerResponse } from '../models';
-// @ts-ignore
-import { DeleteOrganizationResponse } from '../models';
-// @ts-ignore
-import { FailResponse } from '../models';
-// @ts-ignore
-import { GetAssociatedActivitiesResponse } from '../models';
-// @ts-ignore
-import { GetAssociatedDealsResponse } from '../models';
 // @ts-ignore
 import { GetAssociatedFilesResponse } from '../models';
 // @ts-ignore
@@ -50,72 +38,17 @@ import { GetAssociatedOrganizationUpdatesResponse } from '../models';
 // @ts-ignore
 import { GetChangelogResponse } from '../models';
 // @ts-ignore
-import { GetOrganizationResponse } from '../models';
-// @ts-ignore
-import { GetOrganizationSearchResponse } from '../models';
-// @ts-ignore
-import { GetOrganizationsCollection200Response } from '../models';
-// @ts-ignore
-import { GetOrganizationsResponse } from '../models';
-// @ts-ignore
 import { GetPermittedUsersResponse1 } from '../models';
-// @ts-ignore
-import { GetPersonsResponse } from '../models';
 // @ts-ignore
 import { MergeOrganizationsRequest } from '../models';
 // @ts-ignore
 import { MergeOrganizationsResponse } from '../models';
-// @ts-ignore
-import { UpdateOrganizationRequest } from '../models';
-// @ts-ignore
-import { UpdateOrganizationResponse } from '../models';
 /**
  * OrganizationsApi - axios parameter creator
  * @export
  */
 export const OrganizationsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
-        /**
-         * Adds a new organization. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the organizationFields and look for `key` values. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-organization\" target=\"_blank\" rel=\"noopener noreferrer\">adding an organization</a>.
-         * @summary Add an organization
-         * @param {AddOrganizationRequest} [AddOrganizationRequest] 
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        addOrganization: async (AddOrganizationRequest?: AddOrganizationRequest, ): Promise<RequestArgs> => {
-            const localVarPath = `/organizations`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-            localVarRequestOptions.data = serializeDataIfNeeded(AddOrganizationRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
         /**
          * Adds a follower to an organization.
          * @summary Add a follower to an organization
@@ -155,47 +88,6 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
             localVarRequestOptions.data = serializeDataIfNeeded(AddOrganizationFollowerRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Marks an organization as deleted. After 30 days, the organization will be permanently deleted.
-         * @summary Delete an organization
-         * @param {number} id The ID of the organization
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        deleteOrganization: async (id: number, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('deleteOrganization', 'id', id)
-            const localVarPath = `/organizations/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -248,108 +140,6 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * Returns the details of an organization. Note that this also returns some additional fields which are not present when asking for all organizations. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of organizationFields.
-         * @summary Get details of an organization
-         * @param {number} id The ID of the organization
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getOrganization: async (id: number, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('getOrganization', 'id', id)
-            const localVarPath = `/organizations/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full"], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Lists activities associated with an organization. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities?org_id={id}</a> instead.
-         * @summary List activities associated with an organization
-         * @param {number} id The ID of the organization
-         * @param {number} [start] Pagination start
-         * @param {number} [limit] Items shown per page
-         * @param {0 | 1} [done] Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted returns both Done and Not done activities.
-         * @param {string} [exclude] A comma-separated string of activity IDs to exclude from result
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getOrganizationActivities: async (id: number, start?: number, limit?: number, done?: 0 | 1, exclude?: string, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('getOrganizationActivities', 'id', id)
-            const localVarPath = `/organizations/{id}/activities`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["activities:read", "activities:full"], configuration)
-
-            if (start !== undefined) {
-                localVarQueryParameter['start'] = start;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (done !== undefined) {
-                localVarQueryParameter['done'] = done;
-            }
-
-            if (exclude !== undefined) {
-                localVarQueryParameter['exclude'] = exclude;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Lists updates about field values of an organization.
          * @summary List updates about organization field values
          * @param {number} id The ID of the organization
@@ -387,72 +177,6 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Lists deals associated with an organization. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?org_id={id}</a> instead.
-         * @summary List deals associated with an organization
-         * @param {number} id The ID of the organization
-         * @param {number} [start] Pagination start
-         * @param {number} [limit] Items shown per page
-         * @param {'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted'} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included.
-         * @param {string} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
-         * @param {0 | 1} [only_primary_association] If set, only deals that are directly associated to the organization are fetched. If not set (default), all deals are fetched that are either directly or indirectly related to the organization. Indirect relations include relations through custom, organization-type fields and through persons of the given organization.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getOrganizationDeals: async (id: number, start?: number, limit?: number, status?: 'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted', sort?: string, only_primary_association?: 0 | 1, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('getOrganizationDeals', 'id', id)
-            const localVarPath = `/organizations/{id}/deals`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
-
-            if (start !== undefined) {
-                localVarQueryParameter['start'] = start;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (status !== undefined) {
-                localVarQueryParameter['status'] = status;
-            }
-
-            if (sort !== undefined) {
-                localVarQueryParameter['sort'] = sort;
-            }
-
-            if (only_primary_association !== undefined) {
-                localVarQueryParameter['only_primary_association'] = only_primary_association;
             }
 
 
@@ -615,57 +339,6 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * Lists persons associated with an organization.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#getPersons\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/persons?org_id={id}</a> instead.
-         * @summary List persons of an organization
-         * @param {number} id The ID of the organization
-         * @param {number} [start] Pagination start
-         * @param {number} [limit] Items shown per page
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getOrganizationPersons: async (id: number, start?: number, limit?: number, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('getOrganizationPersons', 'id', id)
-            const localVarPath = `/organizations/{id}/persons`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full"], configuration)
-
-            if (start !== undefined) {
-                localVarQueryParameter['start'] = start;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Lists updates about an organization.
          * @summary List updates about an organization
          * @param {number} id The ID of the organization
@@ -768,140 +441,6 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * Returns all organizations.
-         * @summary Get all organizations
-         * @param {number} [user_id] If supplied, only organizations owned by the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;user_id&#x60; when both are supplied.
-         * @param {number} [filter_id] The ID of the filter to use
-         * @param {string} [first_char] If supplied, only organizations whose name starts with the specified letter will be returned (case-insensitive)
-         * @param {number} [start] Pagination start
-         * @param {number} [limit] Items shown per page
-         * @param {string} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getOrganizations: async (user_id?: number, filter_id?: number, first_char?: string, start?: number, limit?: number, sort?: string, ): Promise<RequestArgs> => {
-            const localVarPath = `/organizations`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full"], configuration)
-
-            if (user_id !== undefined) {
-                localVarQueryParameter['user_id'] = user_id;
-            }
-
-            if (filter_id !== undefined) {
-                localVarQueryParameter['filter_id'] = filter_id;
-            }
-
-            if (first_char !== undefined) {
-                localVarQueryParameter['first_char'] = first_char;
-            }
-
-            if (start !== undefined) {
-                localVarQueryParameter['start'] = start;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (sort !== undefined) {
-                localVarQueryParameter['sort'] = sort;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Returns all organizations. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#getOrganizations\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/organizations</a> instead.
-         * @summary Get all organizations collection
-         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
-         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-         * @param {string} [since] The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
-         * @param {string} [until] The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
-         * @param {number} [owner_id] If supplied, only organizations owned by the given user will be returned
-         * @param {string} [first_char] If supplied, only organizations whose name starts with the specified letter will be returned (case-insensitive)
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getOrganizationsCollection: async (cursor?: string, limit?: number, since?: string, until?: string, owner_id?: number, first_char?: string, ): Promise<RequestArgs> => {
-            const localVarPath = `/organizations/collection`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full"], configuration)
-
-            if (cursor !== undefined) {
-                localVarQueryParameter['cursor'] = cursor;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (since !== undefined) {
-                localVarQueryParameter['since'] = since;
-            }
-
-            if (until !== undefined) {
-                localVarQueryParameter['until'] = until;
-            }
-
-            if (owner_id !== undefined) {
-                localVarQueryParameter['owner_id'] = owner_id;
-            }
-
-            if (first_char !== undefined) {
-                localVarQueryParameter['first_char'] = first_char;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Merges an organization with another organization. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/merging-two-organizations\" target=\"_blank\" rel=\"noopener noreferrer\">merging two organizations</a>.
          * @summary Merge two organizations
          * @param {number} id The ID of the organization
@@ -946,115 +485,6 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
                 options: localVarRequestOptions,
             };
         },
-        /**
-         * Searches all organizations by name, address, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope.
-         * @summary Search organizations
-         * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-         * @param {'address' | 'custom_fields' | 'notes' | 'name'} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
-         * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
-         * @param {number} [start] Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter.
-         * @param {number} [limit] Items shown per page
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        searchOrganization: async (term: string, fields?: 'address' | 'custom_fields' | 'notes' | 'name', exact_match?: boolean, start?: number, limit?: number, ): Promise<RequestArgs> => {
-            // verify required parameter 'term' is not null or undefined
-            assertParamExists('searchOrganization', 'term', term)
-            const localVarPath = `/organizations/search`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full", "search:read"], configuration)
-
-            if (term !== undefined) {
-                localVarQueryParameter['term'] = term;
-            }
-
-            if (fields !== undefined) {
-                localVarQueryParameter['fields'] = fields;
-            }
-
-            if (exact_match !== undefined) {
-                localVarQueryParameter['exact_match'] = exact_match;
-            }
-
-            if (start !== undefined) {
-                localVarQueryParameter['start'] = start;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Updates the properties of an organization.
-         * @summary Update an organization
-         * @param {number} id The ID of the organization
-         * @param {UpdateOrganizationRequest} [UpdateOrganizationRequest] 
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        updateOrganization: async (id: number, UpdateOrganizationRequest?: UpdateOrganizationRequest, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('updateOrganization', 'id', id)
-            const localVarPath = `/organizations/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-            localVarRequestOptions.data = serializeDataIfNeeded(UpdateOrganizationRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
     }
 };
 
@@ -1067,17 +497,6 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = OrganizationsApiAxiosParamCreator(configuration)
     return {
         /**
-         * Adds a new organization. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the organizationFields and look for `key` values. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-organization\" target=\"_blank\" rel=\"noopener noreferrer\">adding an organization</a>.
-         * @summary Add an organization
-         * @param {AddOrganizationRequest} [AddOrganizationRequest] 
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async addOrganization(AddOrganizationRequest?: AddOrganizationRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddOrganizationResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addOrganization(AddOrganizationRequest, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Adds a follower to an organization.
          * @summary Add a follower to an organization
          * @param {number} id The ID of the organization
@@ -1087,17 +506,6 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
          */
         async addOrganizationFollower(id: number, AddOrganizationFollowerRequest?: AddOrganizationFollowerRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddOrganizationFollowerResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addOrganizationFollower(id, AddOrganizationFollowerRequest, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Marks an organization as deleted. After 30 days, the organization will be permanently deleted.
-         * @summary Delete an organization
-         * @param {number} id The ID of the organization
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async deleteOrganization(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteOrganizationResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteOrganization(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -1113,32 +521,6 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns the details of an organization. Note that this also returns some additional fields which are not present when asking for all organizations. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of organizationFields.
-         * @summary Get details of an organization
-         * @param {number} id The ID of the organization
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async getOrganization(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetOrganizationResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganization(id, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Lists activities associated with an organization. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities?org_id={id}</a> instead.
-         * @summary List activities associated with an organization
-         * @param {number} id The ID of the organization
-         * @param {number} [start] Pagination start
-         * @param {number} [limit] Items shown per page
-         * @param {0 | 1} [done] Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted returns both Done and Not done activities.
-         * @param {string} [exclude] A comma-separated string of activity IDs to exclude from result
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async getOrganizationActivities(id: number, start?: number, limit?: number, done?: 0 | 1, exclude?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetAssociatedActivitiesResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationActivities(id, start, limit, done, exclude, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Lists updates about field values of an organization.
          * @summary List updates about organization field values
          * @param {number} id The ID of the organization
@@ -1149,22 +531,6 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
          */
         async getOrganizationChangelog(id: number, cursor?: string, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetChangelogResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationChangelog(id, cursor, limit, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Lists deals associated with an organization. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?org_id={id}</a> instead.
-         * @summary List deals associated with an organization
-         * @param {number} id The ID of the organization
-         * @param {number} [start] Pagination start
-         * @param {number} [limit] Items shown per page
-         * @param {'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted'} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included.
-         * @param {string} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
-         * @param {0 | 1} [only_primary_association] If set, only deals that are directly associated to the organization are fetched. If not set (default), all deals are fetched that are either directly or indirectly related to the organization. Indirect relations include relations through custom, organization-type fields and through persons of the given organization.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async getOrganizationDeals(id: number, start?: number, limit?: number, status?: 'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted', sort?: string, only_primary_association?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetAssociatedDealsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationDeals(id, start, limit, status, sort, only_primary_association, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -1206,19 +572,6 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Lists persons associated with an organization.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#getPersons\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/persons?org_id={id}</a> instead.
-         * @summary List persons of an organization
-         * @param {number} id The ID of the organization
-         * @param {number} [start] Pagination start
-         * @param {number} [limit] Items shown per page
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async getOrganizationPersons(id: number, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPersonsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationPersons(id, start, limit, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Lists updates about an organization.
          * @summary List updates about an organization
          * @param {number} id The ID of the organization
@@ -1245,38 +598,6 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns all organizations.
-         * @summary Get all organizations
-         * @param {number} [user_id] If supplied, only organizations owned by the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;user_id&#x60; when both are supplied.
-         * @param {number} [filter_id] The ID of the filter to use
-         * @param {string} [first_char] If supplied, only organizations whose name starts with the specified letter will be returned (case-insensitive)
-         * @param {number} [start] Pagination start
-         * @param {number} [limit] Items shown per page
-         * @param {string} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async getOrganizations(user_id?: number, filter_id?: number, first_char?: string, start?: number, limit?: number, sort?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetOrganizationsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizations(user_id, filter_id, first_char, start, limit, sort, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Returns all organizations. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#getOrganizations\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/organizations</a> instead.
-         * @summary Get all organizations collection
-         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
-         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-         * @param {string} [since] The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
-         * @param {string} [until] The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
-         * @param {number} [owner_id] If supplied, only organizations owned by the given user will be returned
-         * @param {string} [first_char] If supplied, only organizations whose name starts with the specified letter will be returned (case-insensitive)
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async getOrganizationsCollection(cursor?: string, limit?: number, since?: string, until?: string, owner_id?: number, first_char?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetOrganizationsCollection200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationsCollection(cursor, limit, since, until, owner_id, first_char, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Merges an organization with another organization. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/merging-two-organizations\" target=\"_blank\" rel=\"noopener noreferrer\">merging two organizations</a>.
          * @summary Merge two organizations
          * @param {number} id The ID of the organization
@@ -1286,33 +607,6 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
          */
         async mergeOrganizations(id: number, MergeOrganizationsRequest?: MergeOrganizationsRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<MergeOrganizationsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.mergeOrganizations(id, MergeOrganizationsRequest, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Searches all organizations by name, address, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope.
-         * @summary Search organizations
-         * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-         * @param {'address' | 'custom_fields' | 'notes' | 'name'} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
-         * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
-         * @param {number} [start] Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter.
-         * @param {number} [limit] Items shown per page
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async searchOrganization(term: string, fields?: 'address' | 'custom_fields' | 'notes' | 'name', exact_match?: boolean, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetOrganizationSearchResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.searchOrganization(term, fields, exact_match, start, limit, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Updates the properties of an organization.
-         * @summary Update an organization
-         * @param {number} id The ID of the organization
-         * @param {UpdateOrganizationRequest} [UpdateOrganizationRequest] 
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async updateOrganization(id: number, UpdateOrganizationRequest?: UpdateOrganizationRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateOrganizationResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateOrganization(id, UpdateOrganizationRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -1326,16 +620,6 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
     const localVarFp = OrganizationsApiFp(configuration)
     return {
         /**
-         * Adds a new organization. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the organizationFields and look for `key` values. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-organization\" target=\"_blank\" rel=\"noopener noreferrer\">adding an organization</a>.
-         * @summary Add an organization
-         * @param {OrganizationsApiAddOrganizationRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        addOrganization(requestParameters: OrganizationsApiAddOrganizationRequest = {}, ): Promise<AddOrganizationResponse> {
-            return localVarFp.addOrganization(requestParameters.AddOrganizationRequest, ).then((request) => request(axios, basePath));
-        },
-        /**
          * Adds a follower to an organization.
          * @summary Add a follower to an organization
          * @param {OrganizationsApiAddOrganizationFollowerRequest} requestParameters Request parameters.
@@ -1344,16 +628,6 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
          */
         addOrganizationFollower(requestParameters: OrganizationsApiAddOrganizationFollowerRequest, ): Promise<AddOrganizationFollowerResponse> {
             return localVarFp.addOrganizationFollower(requestParameters.id, requestParameters.AddOrganizationFollowerRequest, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Marks an organization as deleted. After 30 days, the organization will be permanently deleted.
-         * @summary Delete an organization
-         * @param {OrganizationsApiDeleteOrganizationRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        deleteOrganization(requestParameters: OrganizationsApiDeleteOrganizationRequest, ): Promise<DeleteOrganizationResponse> {
-            return localVarFp.deleteOrganization(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Deletes a follower from an organization. You can retrieve the `follower_id` from the <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#getOrganizationFollowers\">List followers of an organization</a> endpoint.
@@ -1366,26 +640,6 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
             return localVarFp.deleteOrganizationFollower(requestParameters.id, requestParameters.follower_id, ).then((request) => request(axios, basePath));
         },
         /**
-         * Returns the details of an organization. Note that this also returns some additional fields which are not present when asking for all organizations. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of organizationFields.
-         * @summary Get details of an organization
-         * @param {OrganizationsApiGetOrganizationRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getOrganization(requestParameters: OrganizationsApiGetOrganizationRequest, ): Promise<GetOrganizationResponse> {
-            return localVarFp.getOrganization(requestParameters.id, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Lists activities associated with an organization. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities?org_id={id}</a> instead.
-         * @summary List activities associated with an organization
-         * @param {OrganizationsApiGetOrganizationActivitiesRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getOrganizationActivities(requestParameters: OrganizationsApiGetOrganizationActivitiesRequest, ): Promise<GetAssociatedActivitiesResponse> {
-            return localVarFp.getOrganizationActivities(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.done, requestParameters.exclude, ).then((request) => request(axios, basePath));
-        },
-        /**
          * Lists updates about field values of an organization.
          * @summary List updates about organization field values
          * @param {OrganizationsApiGetOrganizationChangelogRequest} requestParameters Request parameters.
@@ -1394,16 +648,6 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
          */
         getOrganizationChangelog(requestParameters: OrganizationsApiGetOrganizationChangelogRequest, ): Promise<GetChangelogResponse> {
             return localVarFp.getOrganizationChangelog(requestParameters.id, requestParameters.cursor, requestParameters.limit, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Lists deals associated with an organization. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?org_id={id}</a> instead.
-         * @summary List deals associated with an organization
-         * @param {OrganizationsApiGetOrganizationDealsRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getOrganizationDeals(requestParameters: OrganizationsApiGetOrganizationDealsRequest, ): Promise<GetAssociatedDealsResponse> {
-            return localVarFp.getOrganizationDeals(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.status, requestParameters.sort, requestParameters.only_primary_association, ).then((request) => request(axios, basePath));
         },
         /**
          * Lists files associated with an organization.
@@ -1436,16 +680,6 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
             return localVarFp.getOrganizationMailMessages(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
         /**
-         * Lists persons associated with an organization.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#getPersons\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/persons?org_id={id}</a> instead.
-         * @summary List persons of an organization
-         * @param {OrganizationsApiGetOrganizationPersonsRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getOrganizationPersons(requestParameters: OrganizationsApiGetOrganizationPersonsRequest, ): Promise<GetPersonsResponse> {
-            return localVarFp.getOrganizationPersons(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
-        },
-        /**
          * Lists updates about an organization.
          * @summary List updates about an organization
          * @param {OrganizationsApiGetOrganizationUpdatesRequest} requestParameters Request parameters.
@@ -1466,26 +700,6 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
             return localVarFp.getOrganizationUsers(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
-         * Returns all organizations.
-         * @summary Get all organizations
-         * @param {OrganizationsApiGetOrganizationsRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getOrganizations(requestParameters: OrganizationsApiGetOrganizationsRequest = {}, ): Promise<GetOrganizationsResponse> {
-            return localVarFp.getOrganizations(requestParameters.user_id, requestParameters.filter_id, requestParameters.first_char, requestParameters.start, requestParameters.limit, requestParameters.sort, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Returns all organizations. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#getOrganizations\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/organizations</a> instead.
-         * @summary Get all organizations collection
-         * @param {OrganizationsApiGetOrganizationsCollectionRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getOrganizationsCollection(requestParameters: OrganizationsApiGetOrganizationsCollectionRequest = {}, ): Promise<GetOrganizationsCollection200Response> {
-            return localVarFp.getOrganizationsCollection(requestParameters.cursor, requestParameters.limit, requestParameters.since, requestParameters.until, requestParameters.owner_id, requestParameters.first_char, ).then((request) => request(axios, basePath));
-        },
-        /**
          * Merges an organization with another organization. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/merging-two-organizations\" target=\"_blank\" rel=\"noopener noreferrer\">merging two organizations</a>.
          * @summary Merge two organizations
          * @param {OrganizationsApiMergeOrganizationsRequest} requestParameters Request parameters.
@@ -1495,42 +709,8 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
         mergeOrganizations(requestParameters: OrganizationsApiMergeOrganizationsRequest, ): Promise<MergeOrganizationsResponse> {
             return localVarFp.mergeOrganizations(requestParameters.id, requestParameters.MergeOrganizationsRequest, ).then((request) => request(axios, basePath));
         },
-        /**
-         * Searches all organizations by name, address, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope.
-         * @summary Search organizations
-         * @param {OrganizationsApiSearchOrganizationRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        searchOrganization(requestParameters: OrganizationsApiSearchOrganizationRequest, ): Promise<GetOrganizationSearchResponse> {
-            return localVarFp.searchOrganization(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Updates the properties of an organization.
-         * @summary Update an organization
-         * @param {OrganizationsApiUpdateOrganizationRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        updateOrganization(requestParameters: OrganizationsApiUpdateOrganizationRequest, ): Promise<UpdateOrganizationResponse> {
-            return localVarFp.updateOrganization(requestParameters.id, requestParameters.UpdateOrganizationRequest, ).then((request) => request(axios, basePath));
-        },
     };
 };
-
-/**
- * Request parameters for addOrganization operation in OrganizationsApi.
- * @export
- * @interface OrganizationsApiAddOrganizationRequest
- */
-export interface OrganizationsApiAddOrganizationRequest {
-    /**
-     * 
-     * @type {AddOrganizationRequest}
-     * @memberof OrganizationsApiAddOrganization
-     */
-    readonly AddOrganizationRequest?: AddOrganizationRequest
-}
 
 /**
  * Request parameters for addOrganizationFollower operation in OrganizationsApi.
@@ -1554,20 +734,6 @@ export interface OrganizationsApiAddOrganizationFollowerRequest {
 }
 
 /**
- * Request parameters for deleteOrganization operation in OrganizationsApi.
- * @export
- * @interface OrganizationsApiDeleteOrganizationRequest
- */
-export interface OrganizationsApiDeleteOrganizationRequest {
-    /**
-     * The ID of the organization
-     * @type {number}
-     * @memberof OrganizationsApiDeleteOrganization
-     */
-    readonly id: number
-}
-
-/**
  * Request parameters for deleteOrganizationFollower operation in OrganizationsApi.
  * @export
  * @interface OrganizationsApiDeleteOrganizationFollowerRequest
@@ -1586,62 +752,6 @@ export interface OrganizationsApiDeleteOrganizationFollowerRequest {
      * @memberof OrganizationsApiDeleteOrganizationFollower
      */
     readonly follower_id: number
-}
-
-/**
- * Request parameters for getOrganization operation in OrganizationsApi.
- * @export
- * @interface OrganizationsApiGetOrganizationRequest
- */
-export interface OrganizationsApiGetOrganizationRequest {
-    /**
-     * The ID of the organization
-     * @type {number}
-     * @memberof OrganizationsApiGetOrganization
-     */
-    readonly id: number
-}
-
-/**
- * Request parameters for getOrganizationActivities operation in OrganizationsApi.
- * @export
- * @interface OrganizationsApiGetOrganizationActivitiesRequest
- */
-export interface OrganizationsApiGetOrganizationActivitiesRequest {
-    /**
-     * The ID of the organization
-     * @type {number}
-     * @memberof OrganizationsApiGetOrganizationActivities
-     */
-    readonly id: number
-
-    /**
-     * Pagination start
-     * @type {number}
-     * @memberof OrganizationsApiGetOrganizationActivities
-     */
-    readonly start?: number
-
-    /**
-     * Items shown per page
-     * @type {number}
-     * @memberof OrganizationsApiGetOrganizationActivities
-     */
-    readonly limit?: number
-
-    /**
-     * Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted returns both Done and Not done activities.
-     * @type {0 | 1}
-     * @memberof OrganizationsApiGetOrganizationActivities
-     */
-    readonly done?: 0 | 1
-
-    /**
-     * A comma-separated string of activity IDs to exclude from result
-     * @type {string}
-     * @memberof OrganizationsApiGetOrganizationActivities
-     */
-    readonly exclude?: string
 }
 
 /**
@@ -1670,55 +780,6 @@ export interface OrganizationsApiGetOrganizationChangelogRequest {
      * @memberof OrganizationsApiGetOrganizationChangelog
      */
     readonly limit?: number
-}
-
-/**
- * Request parameters for getOrganizationDeals operation in OrganizationsApi.
- * @export
- * @interface OrganizationsApiGetOrganizationDealsRequest
- */
-export interface OrganizationsApiGetOrganizationDealsRequest {
-    /**
-     * The ID of the organization
-     * @type {number}
-     * @memberof OrganizationsApiGetOrganizationDeals
-     */
-    readonly id: number
-
-    /**
-     * Pagination start
-     * @type {number}
-     * @memberof OrganizationsApiGetOrganizationDeals
-     */
-    readonly start?: number
-
-    /**
-     * Items shown per page
-     * @type {number}
-     * @memberof OrganizationsApiGetOrganizationDeals
-     */
-    readonly limit?: number
-
-    /**
-     * Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included.
-     * @type {'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted'}
-     * @memberof OrganizationsApiGetOrganizationDeals
-     */
-    readonly status?: 'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted'
-
-    /**
-     * The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
-     * @type {string}
-     * @memberof OrganizationsApiGetOrganizationDeals
-     */
-    readonly sort?: string
-
-    /**
-     * If set, only deals that are directly associated to the organization are fetched. If not set (default), all deals are fetched that are either directly or indirectly related to the organization. Indirect relations include relations through custom, organization-type fields and through persons of the given organization.
-     * @type {0 | 1}
-     * @memberof OrganizationsApiGetOrganizationDeals
-     */
-    readonly only_primary_association?: 0 | 1
 }
 
 /**
@@ -1799,34 +860,6 @@ export interface OrganizationsApiGetOrganizationMailMessagesRequest {
 }
 
 /**
- * Request parameters for getOrganizationPersons operation in OrganizationsApi.
- * @export
- * @interface OrganizationsApiGetOrganizationPersonsRequest
- */
-export interface OrganizationsApiGetOrganizationPersonsRequest {
-    /**
-     * The ID of the organization
-     * @type {number}
-     * @memberof OrganizationsApiGetOrganizationPersons
-     */
-    readonly id: number
-
-    /**
-     * Pagination start
-     * @type {number}
-     * @memberof OrganizationsApiGetOrganizationPersons
-     */
-    readonly start?: number
-
-    /**
-     * Items shown per page
-     * @type {number}
-     * @memberof OrganizationsApiGetOrganizationPersons
-     */
-    readonly limit?: number
-}
-
-/**
  * Request parameters for getOrganizationUpdates operation in OrganizationsApi.
  * @export
  * @interface OrganizationsApiGetOrganizationUpdatesRequest
@@ -1883,104 +916,6 @@ export interface OrganizationsApiGetOrganizationUsersRequest {
 }
 
 /**
- * Request parameters for getOrganizations operation in OrganizationsApi.
- * @export
- * @interface OrganizationsApiGetOrganizationsRequest
- */
-export interface OrganizationsApiGetOrganizationsRequest {
-    /**
-     * If supplied, only organizations owned by the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;user_id&#x60; when both are supplied.
-     * @type {number}
-     * @memberof OrganizationsApiGetOrganizations
-     */
-    readonly user_id?: number
-
-    /**
-     * The ID of the filter to use
-     * @type {number}
-     * @memberof OrganizationsApiGetOrganizations
-     */
-    readonly filter_id?: number
-
-    /**
-     * If supplied, only organizations whose name starts with the specified letter will be returned (case-insensitive)
-     * @type {string}
-     * @memberof OrganizationsApiGetOrganizations
-     */
-    readonly first_char?: string
-
-    /**
-     * Pagination start
-     * @type {number}
-     * @memberof OrganizationsApiGetOrganizations
-     */
-    readonly start?: number
-
-    /**
-     * Items shown per page
-     * @type {number}
-     * @memberof OrganizationsApiGetOrganizations
-     */
-    readonly limit?: number
-
-    /**
-     * The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
-     * @type {string}
-     * @memberof OrganizationsApiGetOrganizations
-     */
-    readonly sort?: string
-}
-
-/**
- * Request parameters for getOrganizationsCollection operation in OrganizationsApi.
- * @export
- * @interface OrganizationsApiGetOrganizationsCollectionRequest
- */
-export interface OrganizationsApiGetOrganizationsCollectionRequest {
-    /**
-     * For pagination, the marker (an opaque string value) representing the first item on the next page
-     * @type {string}
-     * @memberof OrganizationsApiGetOrganizationsCollection
-     */
-    readonly cursor?: string
-
-    /**
-     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-     * @type {number}
-     * @memberof OrganizationsApiGetOrganizationsCollection
-     */
-    readonly limit?: number
-
-    /**
-     * The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
-     * @type {string}
-     * @memberof OrganizationsApiGetOrganizationsCollection
-     */
-    readonly since?: string
-
-    /**
-     * The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
-     * @type {string}
-     * @memberof OrganizationsApiGetOrganizationsCollection
-     */
-    readonly until?: string
-
-    /**
-     * If supplied, only organizations owned by the given user will be returned
-     * @type {number}
-     * @memberof OrganizationsApiGetOrganizationsCollection
-     */
-    readonly owner_id?: number
-
-    /**
-     * If supplied, only organizations whose name starts with the specified letter will be returned (case-insensitive)
-     * @type {string}
-     * @memberof OrganizationsApiGetOrganizationsCollection
-     */
-    readonly first_char?: string
-}
-
-/**
  * Request parameters for mergeOrganizations operation in OrganizationsApi.
  * @export
  * @interface OrganizationsApiMergeOrganizationsRequest
@@ -2002,87 +937,12 @@ export interface OrganizationsApiMergeOrganizationsRequest {
 }
 
 /**
- * Request parameters for searchOrganization operation in OrganizationsApi.
- * @export
- * @interface OrganizationsApiSearchOrganizationRequest
- */
-export interface OrganizationsApiSearchOrganizationRequest {
-    /**
-     * The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-     * @type {string}
-     * @memberof OrganizationsApiSearchOrganization
-     */
-    readonly term: string
-
-    /**
-     * A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
-     * @type {'address' | 'custom_fields' | 'notes' | 'name'}
-     * @memberof OrganizationsApiSearchOrganization
-     */
-    readonly fields?: 'address' | 'custom_fields' | 'notes' | 'name'
-
-    /**
-     * When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
-     * @type {boolean}
-     * @memberof OrganizationsApiSearchOrganization
-     */
-    readonly exact_match?: boolean
-
-    /**
-     * Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter.
-     * @type {number}
-     * @memberof OrganizationsApiSearchOrganization
-     */
-    readonly start?: number
-
-    /**
-     * Items shown per page
-     * @type {number}
-     * @memberof OrganizationsApiSearchOrganization
-     */
-    readonly limit?: number
-}
-
-/**
- * Request parameters for updateOrganization operation in OrganizationsApi.
- * @export
- * @interface OrganizationsApiUpdateOrganizationRequest
- */
-export interface OrganizationsApiUpdateOrganizationRequest {
-    /**
-     * The ID of the organization
-     * @type {number}
-     * @memberof OrganizationsApiUpdateOrganization
-     */
-    readonly id: number
-
-    /**
-     * 
-     * @type {UpdateOrganizationRequest}
-     * @memberof OrganizationsApiUpdateOrganization
-     */
-    readonly UpdateOrganizationRequest?: UpdateOrganizationRequest
-}
-
-/**
  * OrganizationsApi - object-oriented interface
  * @export
  * @class OrganizationsApi
  * @extends {BaseAPI}
  */
 export class OrganizationsApi extends BaseAPI {
-    /**
-     * Adds a new organization. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the organizationFields and look for `key` values. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-an-organization\" target=\"_blank\" rel=\"noopener noreferrer\">adding an organization</a>.
-     * @summary Add an organization
-     * @param {OrganizationsApiAddOrganizationRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof OrganizationsApi
-     */
-    public addOrganization(requestParameters: OrganizationsApiAddOrganizationRequest = {}, ) {
-        return OrganizationsApiFp(this.configuration).addOrganization(requestParameters.AddOrganizationRequest, ).then((request) => request(this.axios, this.basePath));
-    }
-
     /**
      * Adds a follower to an organization.
      * @summary Add a follower to an organization
@@ -2093,18 +953,6 @@ export class OrganizationsApi extends BaseAPI {
      */
     public addOrganizationFollower(requestParameters: OrganizationsApiAddOrganizationFollowerRequest, ) {
         return OrganizationsApiFp(this.configuration).addOrganizationFollower(requestParameters.id, requestParameters.AddOrganizationFollowerRequest, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Marks an organization as deleted. After 30 days, the organization will be permanently deleted.
-     * @summary Delete an organization
-     * @param {OrganizationsApiDeleteOrganizationRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof OrganizationsApi
-     */
-    public deleteOrganization(requestParameters: OrganizationsApiDeleteOrganizationRequest, ) {
-        return OrganizationsApiFp(this.configuration).deleteOrganization(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2120,30 +968,6 @@ export class OrganizationsApi extends BaseAPI {
     }
 
     /**
-     * Returns the details of an organization. Note that this also returns some additional fields which are not present when asking for all organizations. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of organizationFields.
-     * @summary Get details of an organization
-     * @param {OrganizationsApiGetOrganizationRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof OrganizationsApi
-     */
-    public getOrganization(requestParameters: OrganizationsApiGetOrganizationRequest, ) {
-        return OrganizationsApiFp(this.configuration).getOrganization(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Lists activities associated with an organization. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities?org_id={id}</a> instead.
-     * @summary List activities associated with an organization
-     * @param {OrganizationsApiGetOrganizationActivitiesRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof OrganizationsApi
-     */
-    public getOrganizationActivities(requestParameters: OrganizationsApiGetOrganizationActivitiesRequest, ) {
-        return OrganizationsApiFp(this.configuration).getOrganizationActivities(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.done, requestParameters.exclude, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Lists updates about field values of an organization.
      * @summary List updates about organization field values
      * @param {OrganizationsApiGetOrganizationChangelogRequest} requestParameters Request parameters.
@@ -2153,18 +977,6 @@ export class OrganizationsApi extends BaseAPI {
      */
     public getOrganizationChangelog(requestParameters: OrganizationsApiGetOrganizationChangelogRequest, ) {
         return OrganizationsApiFp(this.configuration).getOrganizationChangelog(requestParameters.id, requestParameters.cursor, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Lists deals associated with an organization. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?org_id={id}</a> instead.
-     * @summary List deals associated with an organization
-     * @param {OrganizationsApiGetOrganizationDealsRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof OrganizationsApi
-     */
-    public getOrganizationDeals(requestParameters: OrganizationsApiGetOrganizationDealsRequest, ) {
-        return OrganizationsApiFp(this.configuration).getOrganizationDeals(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.status, requestParameters.sort, requestParameters.only_primary_association, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2204,18 +1016,6 @@ export class OrganizationsApi extends BaseAPI {
     }
 
     /**
-     * Lists persons associated with an organization.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#getPersons\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/persons?org_id={id}</a> instead.
-     * @summary List persons of an organization
-     * @param {OrganizationsApiGetOrganizationPersonsRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof OrganizationsApi
-     */
-    public getOrganizationPersons(requestParameters: OrganizationsApiGetOrganizationPersonsRequest, ) {
-        return OrganizationsApiFp(this.configuration).getOrganizationPersons(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Lists updates about an organization.
      * @summary List updates about an organization
      * @param {OrganizationsApiGetOrganizationUpdatesRequest} requestParameters Request parameters.
@@ -2240,30 +1040,6 @@ export class OrganizationsApi extends BaseAPI {
     }
 
     /**
-     * Returns all organizations.
-     * @summary Get all organizations
-     * @param {OrganizationsApiGetOrganizationsRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof OrganizationsApi
-     */
-    public getOrganizations(requestParameters: OrganizationsApiGetOrganizationsRequest = {}, ) {
-        return OrganizationsApiFp(this.configuration).getOrganizations(requestParameters.user_id, requestParameters.filter_id, requestParameters.first_char, requestParameters.start, requestParameters.limit, requestParameters.sort, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Returns all organizations. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#getOrganizations\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/organizations</a> instead.
-     * @summary Get all organizations collection
-     * @param {OrganizationsApiGetOrganizationsCollectionRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof OrganizationsApi
-     */
-    public getOrganizationsCollection(requestParameters: OrganizationsApiGetOrganizationsCollectionRequest = {}, ) {
-        return OrganizationsApiFp(this.configuration).getOrganizationsCollection(requestParameters.cursor, requestParameters.limit, requestParameters.since, requestParameters.until, requestParameters.owner_id, requestParameters.first_char, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Merges an organization with another organization. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/merging-two-organizations\" target=\"_blank\" rel=\"noopener noreferrer\">merging two organizations</a>.
      * @summary Merge two organizations
      * @param {OrganizationsApiMergeOrganizationsRequest} requestParameters Request parameters.
@@ -2273,29 +1049,5 @@ export class OrganizationsApi extends BaseAPI {
      */
     public mergeOrganizations(requestParameters: OrganizationsApiMergeOrganizationsRequest, ) {
         return OrganizationsApiFp(this.configuration).mergeOrganizations(requestParameters.id, requestParameters.MergeOrganizationsRequest, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Searches all organizations by name, address, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope.
-     * @summary Search organizations
-     * @param {OrganizationsApiSearchOrganizationRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof OrganizationsApi
-     */
-    public searchOrganization(requestParameters: OrganizationsApiSearchOrganizationRequest, ) {
-        return OrganizationsApiFp(this.configuration).searchOrganization(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Updates the properties of an organization.
-     * @summary Update an organization
-     * @param {OrganizationsApiUpdateOrganizationRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof OrganizationsApi
-     */
-    public updateOrganization(requestParameters: OrganizationsApiUpdateOrganizationRequest, ) {
-        return OrganizationsApiFp(this.configuration).updateOrganization(requestParameters.id, requestParameters.UpdateOrganizationRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

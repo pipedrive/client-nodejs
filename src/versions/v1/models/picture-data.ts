@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { PictureDataPictures } from './picture-data-pictures';
+import { PictureDataWithIDPictures } from './picture-data-with-idpictures';
 
 /**
 * 
@@ -55,8 +55,8 @@ export interface PictureData {
     'added_by_user_id'?: number;
     /**
     * 
-    * @type {PictureDataPictures}
+    * @type {PictureDataWithIDPictures}
     */
-    'pictures'?: PictureDataPictures;
+    'pictures'?: PictureDataWithIDPictures;
 }
 

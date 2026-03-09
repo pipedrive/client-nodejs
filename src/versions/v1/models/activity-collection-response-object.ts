@@ -15,15 +15,15 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { ActivityAllOf } from './activity-all-of';
+import { ActivityCollectionResponseObjectAllOf } from './activity-collection-response-object-all-of';
 // May contain unused imports in some cases
 // @ts-ignore
-import { ActivityCollectionResponseObjectAllOf } from './activity-collection-response-object-all-of';
+import { ActivityCollectionResponseObjectAllOf1 } from './activity-collection-response-object-all-of1';
 
 /**
  * @type ActivityCollectionResponseObject
  * @export
  */
-export type ActivityCollectionResponseObject = ActivityAllOf & ActivityCollectionResponseObjectAllOf;
+export type ActivityCollectionResponseObject = ActivityCollectionResponseObjectAllOf & ActivityCollectionResponseObjectAllOf1;
 
 
