@@ -13,20 +13,27 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import { Deal1 } from './deal1';
 
 /**
 * 
 * @export
-* @interface UpsertDealResponseData
+* @interface PersonImInner
 */
-export interface UpsertDealResponseData {
+export interface PersonImInner {
     /**
-    * 
-    * @type {Deal1}
+    * The instant messaging account of the person
+    * @type {string}
     */
-    'data'?: Deal1;
+    'value'?: string;
+    /**
+    * Whether the instant messaging account is primary or not
+    * @type {boolean}
+    */
+    'primary'?: boolean;
+    /**
+    * The instant messaging account classification label
+    * @type {string}
+    */
+    'label'?: string;
 }
 

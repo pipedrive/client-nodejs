@@ -18,7 +18,7 @@
 import { BaseResponse } from './base-response';
 // May contain unused imports in some cases
 // @ts-ignore
-import { DealItem1 } from './deal-item1';
+import { Deal1 } from './deal1';
 // May contain unused imports in some cases
 // @ts-ignore
 import { UpsertDealResponseData } from './upsert-deal-response-data';

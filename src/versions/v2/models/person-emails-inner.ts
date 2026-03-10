@@ -13,20 +13,27 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import { Deal1 } from './deal1';
 
 /**
 * 
 * @export
-* @interface UpsertDealResponseData
+* @interface PersonEmailsInner
 */
-export interface UpsertDealResponseData {
+export interface PersonEmailsInner {
     /**
-    * 
-    * @type {Deal1}
+    * The email address of the person
+    * @type {string}
     */
-    'data'?: Deal1;
+    'value'?: string;
+    /**
+    * Whether the email is primary or not
+    * @type {boolean}
+    */
+    'primary'?: boolean;
+    /**
+    * The email address classification label
+    * @type {string}
+    */
+    'label'?: string;
 }
 

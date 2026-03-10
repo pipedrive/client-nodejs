@@ -13,20 +13,27 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import { Deal1 } from './deal1';
 
 /**
 * 
 * @export
-* @interface UpsertDealResponseData
+* @interface PersonPhonesInner
 */
-export interface UpsertDealResponseData {
+export interface PersonPhonesInner {
     /**
-    * 
-    * @type {Deal1}
+    * The phone number of the person
+    * @type {string}
     */
-    'data'?: Deal1;
+    'value'?: string;
+    /**
+    * Whether the phone number is primary or not
+    * @type {boolean}
+    */
+    'primary'?: boolean;
+    /**
+    * The phone number classification label
+    * @type {string}
+    */
+    'label'?: string;
 }
 
