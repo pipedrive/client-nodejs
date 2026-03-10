@@ -3197,6 +3197,13 @@ export interface DealsApiGetDealMailMessagesRequest {
      * @memberof DealsApiGetDealMailMessages
      */
     readonly limit?: number
+
+    /**
+     * Whether to include the mail message body content in response. 0 &#x3D; No, 1 &#x3D; Yes. If omitted, defaults to 0.
+     * @type {0 | 1}
+     * @memberof DealsApiGetDealMailMessages
+     */
+    readonly include_body?: 0 | 1
 }
 
 /**
