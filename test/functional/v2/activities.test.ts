@@ -1,15 +1,15 @@
 import {
 	Configuration,
 	ActivitiesApi,
-	GetActivityResponse,
+	UpsertActivityResponse,
 	GetActivitiesResponse,
-	UpdateActivityRequest,
+	AddActivityRequest,
 	OAuth2Configuration,
-} from '../../../dist/versions/v1';
+} from '../../../dist/versions/v2';
 import { DeepPartial, oauth2Config } from '../constants';
 import { ApiMock } from '../stubs';
 
-describe('v1/activities', () => {
+describe('v2/activities', () => {
 	let oauthClient: OAuth2Configuration;
 	let activitiesApi: ActivitiesApi;
 
@@ -17,7 +17,7 @@ describe('v1/activities', () => {
 
 	beforeAll(async () => {
 		mock = new ApiMock({
-			basePath: '/v1/activities',
+			basePath: '/v2/activities',
 			host: 'http://localhost/api',
 		});
 	});
@@ -74,7 +74,7 @@ describe('v1/activities', () => {
 	});
 
 	test('should create an activity', async () => {
-		const response: DeepPartial<GetActivityResponse> = {
+		const response: DeepPartial<UpsertActivityResponse> = {
 			success: true,
 			data: {
 				id: 2,
@@ -100,7 +100,7 @@ describe('v1/activities', () => {
 	});
 
 	test('should get an activity by id', async () => {
-		const response: DeepPartial<GetActivityResponse> = {
+		const response: DeepPartial<UpsertActivityResponse> = {
 			success: true,
 			data: {
 				id: 2,
@@ -122,18 +122,18 @@ describe('v1/activities', () => {
 	});
 
 	test('should update an activity', async () => {
-		const response: DeepPartial<GetActivityResponse> = {
+		const response: DeepPartial<UpsertActivityResponse> = {
 			success: true,
 			data: {
 				id: 2,
 				note: 'Updated Activity',
 			},
 		};
-		const payload: UpdateActivityRequest = {
+		const payload: AddActivityRequest = {
 			note: 'Updated Activity',
 		};
 
-		mock.put({
+		mock.patch({
 			url: '/2',
 			response,
 			status: 200,
@@ -141,7 +141,7 @@ describe('v1/activities', () => {
 
 		const updatedActivity = await activitiesApi.updateActivity({
 			id: 2,
-			UpdateActivityRequest: payload,
+			AddActivityRequest: payload,
 		});
 
 		expect(updatedActivity).toEqual(response);
