@@ -18,10 +18,10 @@
 import { PersonDataWithActiveFlagAllOf } from './person-data-with-active-flag-all-of';
 // May contain unused imports in some cases
 // @ts-ignore
-import { PersonDataWithIDAllOf } from './person-data-with-idall-of';
+import { PersonDataWithActiveFlagAllOf1 } from './person-data-with-active-flag-all-of1';
 // May contain unused imports in some cases
 // @ts-ignore
-import { PersonDataWithIDAllOfEmailInner } from './person-data-with-idall-of-email-inner';
+import { PersonDataWithActiveFlagAllOf1EmailInner } from './person-data-with-active-flag-all-of1-email-inner';
 // May contain unused imports in some cases
 // @ts-ignore
 import { PhoneData } from './phone-data';
@@ -31,6 +31,6 @@ import { PhoneData } from './phone-data';
  * The ID of the person associated with the item
  * @export
  */
-export type PersonDataWithActiveFlag = PersonDataWithActiveFlagAllOf & PersonDataWithIDAllOf;
+export type PersonDataWithActiveFlag = PersonDataWithActiveFlagAllOf & PersonDataWithActiveFlagAllOf1;
 
 

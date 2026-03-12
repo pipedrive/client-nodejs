@@ -18,13 +18,13 @@
 import { BaseResponse } from './base-response';
 // May contain unused imports in some cases
 // @ts-ignore
-import { FollowerItem } from './follower-item';
-// May contain unused imports in some cases
-// @ts-ignore
 import { GetActivitiesResponseAllOfAdditionalData } from './get-activities-response-all-of-additional-data';
 // May contain unused imports in some cases
 // @ts-ignore
 import { GetFollowersResponseAllOf } from './get-followers-response-all-of';
+// May contain unused imports in some cases
+// @ts-ignore
+import { GetFollowersResponseAllOfDataInner } from './get-followers-response-all-of-data-inner';
 
 /**
  * @type GetFollowersResponse

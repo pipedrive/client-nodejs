@@ -21,7 +21,7 @@ import { AddFollowerResponseAllOf } from './add-follower-response-all-of';
 import { BaseResponse } from './base-response';
 // May contain unused imports in some cases
 // @ts-ignore
-import { FollowerItem1 } from './follower-item1';
+import { GetFollowersResponseAllOfDataInner } from './get-followers-response-all-of-data-inner';
 
 /**
  * @type AddFollowerResponse

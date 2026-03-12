@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetActivitiesResponseAdditionalData } from './get-activities-response-additional-data';
+import { GetLeadSearchResponseAllOfAdditionalData } from './get-lead-search-response-all-of-additional-data';
 // May contain unused imports in some cases
 // @ts-ignore
 import { GetLeadSearchResponseAllOfData } from './get-lead-search-response-all-of-data';
@@ -33,8 +33,8 @@ export interface GetLeadSearchResponseAllOf {
     'data': GetLeadSearchResponseAllOfData;
     /**
     * 
-    * @type {GetActivitiesResponseAdditionalData}
+    * @type {GetLeadSearchResponseAllOfAdditionalData}
     */
-    'additional_data': GetActivitiesResponseAdditionalData;
+    'additional_data': GetLeadSearchResponseAllOfAdditionalData;
 }
 

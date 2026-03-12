@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { UpsertPersonResponseDataData } from './upsert-person-response-data-data';
+import { GetPersonsResponseAllOfDataInner } from './get-persons-response-all-of-data-inner';
 
 /**
 * 
@@ -25,8 +25,8 @@ import { UpsertPersonResponseDataData } from './upsert-person-response-data-data
 export interface UpsertPersonResponseData {
     /**
     * 
-    * @type {UpsertPersonResponseDataData}
+    * @type {GetPersonsResponseAllOfDataInner}
     */
-    'data'?: UpsertPersonResponseDataData;
+    'data'?: GetPersonsResponseAllOfDataInner;
 }
 

@@ -18,12 +18,12 @@
 import { ActivityAllOf } from './activity-all-of';
 // May contain unused imports in some cases
 // @ts-ignore
-import { ActivityAllOf1 } from './activity-all-of1';
+import { ActivityCollectionResponseObjectAllOf } from './activity-collection-response-object-all-of';
 
 /**
  * @type Activity
  * @export
  */
-export type Activity = ActivityAllOf & ActivityAllOf1;
+export type Activity = ActivityAllOf & ActivityCollectionResponseObjectAllOf;
 
 

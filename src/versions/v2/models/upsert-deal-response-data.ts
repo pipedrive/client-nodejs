@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { DealItem1 } from './deal-item1';
+import { GetDealsResponseAllOfDataInner } from './get-deals-response-all-of-data-inner';
 
 /**
 * 
@@ -25,8 +25,8 @@ import { DealItem1 } from './deal-item1';
 export interface UpsertDealResponseData {
     /**
     * 
-    * @type {DealItem1}
+    * @type {GetDealsResponseAllOfDataInner}
     */
-    'data'?: DealItem1;
+    'data'?: GetDealsResponseAllOfDataInner;
 }
 

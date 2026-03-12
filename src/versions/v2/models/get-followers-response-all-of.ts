@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { FollowerItem } from './follower-item';
+import { GetActivitiesResponseAllOfAdditionalData } from './get-activities-response-all-of-additional-data';
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetActivitiesResponseAllOfAdditionalData } from './get-activities-response-all-of-additional-data';
+import { GetFollowersResponseAllOfDataInner } from './get-followers-response-all-of-data-inner';
 
 /**
 * 
@@ -28,9 +28,9 @@ import { GetActivitiesResponseAllOfAdditionalData } from './get-activities-respo
 export interface GetFollowersResponseAllOf {
     /**
     * Followers array
-    * @type {Array<FollowerItem>}
+    * @type {Array<GetFollowersResponseAllOfDataInner>}
     */
-    'data'?: Array<FollowerItem>;
+    'data'?: Array<GetFollowersResponseAllOfDataInner>;
     /**
     * 
     * @type {GetActivitiesResponseAllOfAdditionalData}

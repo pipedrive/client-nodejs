@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { DealItem } from './deal-item';
+import { GetActivitiesResponseAllOfAdditionalData } from './get-activities-response-all-of-additional-data';
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetActivitiesResponseAllOfAdditionalData } from './get-activities-response-all-of-additional-data';
+import { GetDealsResponseAllOfDataInner } from './get-deals-response-all-of-data-inner';
 
 /**
 * 
@@ -28,9 +28,9 @@ import { GetActivitiesResponseAllOfAdditionalData } from './get-activities-respo
 export interface GetDealsResponseAllOf {
     /**
     * Deals array
-    * @type {Array<DealItem>}
+    * @type {Array<GetDealsResponseAllOfDataInner>}
     */
-    'data'?: Array<DealItem>;
+    'data'?: Array<GetDealsResponseAllOfDataInner>;
     /**
     * 
     * @type {GetActivitiesResponseAllOfAdditionalData}

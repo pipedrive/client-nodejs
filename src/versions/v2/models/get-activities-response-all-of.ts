@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { ActivityItem } from './activity-item';
+import { GetActivitiesResponseAllOfAdditionalData } from './get-activities-response-all-of-additional-data';
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetActivitiesResponseAllOfAdditionalData } from './get-activities-response-all-of-additional-data';
+import { GetActivitiesResponseAllOfDataInner } from './get-activities-response-all-of-data-inner';
 
 /**
 * 
@@ -28,9 +28,9 @@ import { GetActivitiesResponseAllOfAdditionalData } from './get-activities-respo
 export interface GetActivitiesResponseAllOf {
     /**
     * Activities array
-    * @type {Array<ActivityItem>}
+    * @type {Array<GetActivitiesResponseAllOfDataInner>}
     */
-    'data'?: Array<ActivityItem>;
+    'data'?: Array<GetActivitiesResponseAllOfDataInner>;
     /**
     * 
     * @type {GetActivitiesResponseAllOfAdditionalData}

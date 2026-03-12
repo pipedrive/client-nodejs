@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { ActivityItem1 } from './activity-item1';
+import { BaseResponse } from './base-response';
 // May contain unused imports in some cases
 // @ts-ignore
-import { BaseResponse } from './base-response';
+import { GetActivitiesResponseAllOfDataInner } from './get-activities-response-all-of-data-inner';
 // May contain unused imports in some cases
 // @ts-ignore
 import { UpsertActivityResponseData } from './upsert-activity-response-data';

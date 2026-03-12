@@ -22,148 +22,13 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
-import { AddStageRequest } from '../models';
-// @ts-ignore
-import { DeleteStageResponse } from '../models';
-// @ts-ignore
 import { GetStageDealsResponse } from '../models';
-// @ts-ignore
-import { GetStageResponse } from '../models';
-// @ts-ignore
-import { GetStagesResponse } from '../models';
-// @ts-ignore
-import { UpdateStageRequest } from '../models';
-// @ts-ignore
-import { UpsertStageResponse } from '../models';
 /**
  * StagesApi - axios parameter creator
  * @export
  */
 export const StagesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
-        /**
-         * Adds a new stage, returns the ID upon success.
-         * @summary Add a new stage
-         * @param {AddStageRequest} [AddStageRequest] 
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        addStage: async (AddStageRequest?: AddStageRequest, ): Promise<RequestArgs> => {
-            const localVarPath = `/stages`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-            localVarRequestOptions.data = serializeDataIfNeeded(AddStageRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Marks a stage as deleted.
-         * @summary Delete a stage
-         * @param {number} id The ID of the stage
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        deleteStage: async (id: number, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('deleteStage', 'id', id)
-            const localVarPath = `/stages/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Returns data about a specific stage.
-         * @summary Get one stage
-         * @param {number} id The ID of the stage
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getStage: async (id: number, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('getStage', 'id', id)
-            const localVarPath = `/stages/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full", "admin"], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
         /**
          * Lists deals in a specific stage. If no parameters are provided open deals owned by the authorized user will be returned. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?stage_id={id}</a> instead.
          * @summary Get deals in a stage
@@ -230,103 +95,6 @@ export const StagesApiAxiosParamCreator = function (configuration?: Configuratio
                 options: localVarRequestOptions,
             };
         },
-        /**
-         * Returns data about all stages.
-         * @summary Get all stages
-         * @param {number} [pipeline_id] The ID of the pipeline to fetch stages for. If omitted, stages for all pipelines will be fetched.
-         * @param {number} [start] Pagination start
-         * @param {number} [limit] Items shown per page
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getStages: async (pipeline_id?: number, start?: number, limit?: number, ): Promise<RequestArgs> => {
-            const localVarPath = `/stages`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full", "admin"], configuration)
-
-            if (pipeline_id !== undefined) {
-                localVarQueryParameter['pipeline_id'] = pipeline_id;
-            }
-
-            if (start !== undefined) {
-                localVarQueryParameter['start'] = start;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Updates the properties of a stage.
-         * @summary Update stage details
-         * @param {number} id The ID of the stage
-         * @param {UpdateStageRequest} [UpdateStageRequest] 
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        updateStage: async (id: number, UpdateStageRequest?: UpdateStageRequest, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('updateStage', 'id', id)
-            const localVarPath = `/stages/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["admin"], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-            localVarRequestOptions.data = serializeDataIfNeeded(UpdateStageRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
     }
 };
 
@@ -338,39 +106,6 @@ export const StagesApiAxiosParamCreator = function (configuration?: Configuratio
 export const StagesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = StagesApiAxiosParamCreator(configuration)
     return {
-        /**
-         * Adds a new stage, returns the ID upon success.
-         * @summary Add a new stage
-         * @param {AddStageRequest} [AddStageRequest] 
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async addStage(AddStageRequest?: AddStageRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertStageResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addStage(AddStageRequest, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Marks a stage as deleted.
-         * @summary Delete a stage
-         * @param {number} id The ID of the stage
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async deleteStage(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteStageResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteStage(id, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Returns data about a specific stage.
-         * @summary Get one stage
-         * @param {number} id The ID of the stage
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async getStage(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetStageResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getStage(id, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
         /**
          * Lists deals in a specific stage. If no parameters are provided open deals owned by the authorized user will be returned. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?stage_id={id}</a> instead.
          * @summary Get deals in a stage
@@ -387,31 +122,6 @@ export const StagesApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getStageDeals(id, filter_id, user_id, everyone, start, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
-        /**
-         * Returns data about all stages.
-         * @summary Get all stages
-         * @param {number} [pipeline_id] The ID of the pipeline to fetch stages for. If omitted, stages for all pipelines will be fetched.
-         * @param {number} [start] Pagination start
-         * @param {number} [limit] Items shown per page
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async getStages(pipeline_id?: number, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetStagesResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getStages(pipeline_id, start, limit, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Updates the properties of a stage.
-         * @summary Update stage details
-         * @param {number} id The ID of the stage
-         * @param {UpdateStageRequest} [UpdateStageRequest] 
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async updateStage(id: number, UpdateStageRequest?: UpdateStageRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertStageResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateStage(id, UpdateStageRequest, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
     }
 };
 
@@ -423,36 +133,6 @@ export const StagesApiFactory = function (configuration?: Configuration, basePat
     const localVarFp = StagesApiFp(configuration)
     return {
         /**
-         * Adds a new stage, returns the ID upon success.
-         * @summary Add a new stage
-         * @param {StagesApiAddStageRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        addStage(requestParameters: StagesApiAddStageRequest = {}, ): Promise<UpsertStageResponse> {
-            return localVarFp.addStage(requestParameters.AddStageRequest, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Marks a stage as deleted.
-         * @summary Delete a stage
-         * @param {StagesApiDeleteStageRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        deleteStage(requestParameters: StagesApiDeleteStageRequest, ): Promise<DeleteStageResponse> {
-            return localVarFp.deleteStage(requestParameters.id, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Returns data about a specific stage.
-         * @summary Get one stage
-         * @param {StagesApiGetStageRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getStage(requestParameters: StagesApiGetStageRequest, ): Promise<GetStageResponse> {
-            return localVarFp.getStage(requestParameters.id, ).then((request) => request(axios, basePath));
-        },
-        /**
          * Lists deals in a specific stage. If no parameters are provided open deals owned by the authorized user will be returned. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?stage_id={id}</a> instead.
          * @summary Get deals in a stage
          * @param {StagesApiGetStageDealsRequest} requestParameters Request parameters.
@@ -462,70 +142,8 @@ export const StagesApiFactory = function (configuration?: Configuration, basePat
         getStageDeals(requestParameters: StagesApiGetStageDealsRequest, ): Promise<GetStageDealsResponse> {
             return localVarFp.getStageDeals(requestParameters.id, requestParameters.filter_id, requestParameters.user_id, requestParameters.everyone, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
-        /**
-         * Returns data about all stages.
-         * @summary Get all stages
-         * @param {StagesApiGetStagesRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getStages(requestParameters: StagesApiGetStagesRequest = {}, ): Promise<GetStagesResponse> {
-            return localVarFp.getStages(requestParameters.pipeline_id, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Updates the properties of a stage.
-         * @summary Update stage details
-         * @param {StagesApiUpdateStageRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        updateStage(requestParameters: StagesApiUpdateStageRequest, ): Promise<UpsertStageResponse> {
-            return localVarFp.updateStage(requestParameters.id, requestParameters.UpdateStageRequest, ).then((request) => request(axios, basePath));
-        },
     };
 };
-
-/**
- * Request parameters for addStage operation in StagesApi.
- * @export
- * @interface StagesApiAddStageRequest
- */
-export interface StagesApiAddStageRequest {
-    /**
-     * 
-     * @type {AddStageRequest}
-     * @memberof StagesApiAddStage
-     */
-    readonly AddStageRequest?: AddStageRequest
-}
-
-/**
- * Request parameters for deleteStage operation in StagesApi.
- * @export
- * @interface StagesApiDeleteStageRequest
- */
-export interface StagesApiDeleteStageRequest {
-    /**
-     * The ID of the stage
-     * @type {number}
-     * @memberof StagesApiDeleteStage
-     */
-    readonly id: number
-}
-
-/**
- * Request parameters for getStage operation in StagesApi.
- * @export
- * @interface StagesApiGetStageRequest
- */
-export interface StagesApiGetStageRequest {
-    /**
-     * The ID of the stage
-     * @type {number}
-     * @memberof StagesApiGetStage
-     */
-    readonly id: number
-}
 
 /**
  * Request parameters for getStageDeals operation in StagesApi.
@@ -577,97 +195,12 @@ export interface StagesApiGetStageDealsRequest {
 }
 
 /**
- * Request parameters for getStages operation in StagesApi.
- * @export
- * @interface StagesApiGetStagesRequest
- */
-export interface StagesApiGetStagesRequest {
-    /**
-     * The ID of the pipeline to fetch stages for. If omitted, stages for all pipelines will be fetched.
-     * @type {number}
-     * @memberof StagesApiGetStages
-     */
-    readonly pipeline_id?: number
-
-    /**
-     * Pagination start
-     * @type {number}
-     * @memberof StagesApiGetStages
-     */
-    readonly start?: number
-
-    /**
-     * Items shown per page
-     * @type {number}
-     * @memberof StagesApiGetStages
-     */
-    readonly limit?: number
-}
-
-/**
- * Request parameters for updateStage operation in StagesApi.
- * @export
- * @interface StagesApiUpdateStageRequest
- */
-export interface StagesApiUpdateStageRequest {
-    /**
-     * The ID of the stage
-     * @type {number}
-     * @memberof StagesApiUpdateStage
-     */
-    readonly id: number
-
-    /**
-     * 
-     * @type {UpdateStageRequest}
-     * @memberof StagesApiUpdateStage
-     */
-    readonly UpdateStageRequest?: UpdateStageRequest
-}
-
-/**
  * StagesApi - object-oriented interface
  * @export
  * @class StagesApi
  * @extends {BaseAPI}
  */
 export class StagesApi extends BaseAPI {
-    /**
-     * Adds a new stage, returns the ID upon success.
-     * @summary Add a new stage
-     * @param {StagesApiAddStageRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof StagesApi
-     */
-    public addStage(requestParameters: StagesApiAddStageRequest = {}, ) {
-        return StagesApiFp(this.configuration).addStage(requestParameters.AddStageRequest, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Marks a stage as deleted.
-     * @summary Delete a stage
-     * @param {StagesApiDeleteStageRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof StagesApi
-     */
-    public deleteStage(requestParameters: StagesApiDeleteStageRequest, ) {
-        return StagesApiFp(this.configuration).deleteStage(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Returns data about a specific stage.
-     * @summary Get one stage
-     * @param {StagesApiGetStageRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof StagesApi
-     */
-    public getStage(requestParameters: StagesApiGetStageRequest, ) {
-        return StagesApiFp(this.configuration).getStage(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
-    }
-
     /**
      * Lists deals in a specific stage. If no parameters are provided open deals owned by the authorized user will be returned. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?stage_id={id}</a> instead.
      * @summary Get deals in a stage
@@ -678,29 +211,5 @@ export class StagesApi extends BaseAPI {
      */
     public getStageDeals(requestParameters: StagesApiGetStageDealsRequest, ) {
         return StagesApiFp(this.configuration).getStageDeals(requestParameters.id, requestParameters.filter_id, requestParameters.user_id, requestParameters.everyone, requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Returns data about all stages.
-     * @summary Get all stages
-     * @param {StagesApiGetStagesRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof StagesApi
-     */
-    public getStages(requestParameters: StagesApiGetStagesRequest = {}, ) {
-        return StagesApiFp(this.configuration).getStages(requestParameters.pipeline_id, requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Updates the properties of a stage.
-     * @summary Update stage details
-     * @param {StagesApiUpdateStageRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof StagesApi
-     */
-    public updateStage(requestParameters: StagesApiUpdateStageRequest, ) {
-        return StagesApiFp(this.configuration).updateStage(requestParameters.id, requestParameters.UpdateStageRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { DeleteProductResponseData } from './delete-product-response-data';
+import { DeleteProductFollowerResponseData } from './delete-product-follower-response-data';
 
 /**
 * 
@@ -30,8 +30,8 @@ export interface DeleteProductFieldResponse {
     'success': boolean;
     /**
     * 
-    * @type {DeleteProductResponseData}
+    * @type {DeleteProductFollowerResponseData}
     */
-    'data': DeleteProductResponseData;
+    'data': DeleteProductFollowerResponseData;
 }
 

@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { AddActivityResponseRelatedObjectsPerson } from './add-activity-response-related-objects-person';
+import { GetDealsResponseRelatedObjectsPerson } from './get-deals-response-related-objects-person';
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetActivitiesResponseRelatedObjectsUser } from './get-activities-response-related-objects-user';
+import { GetDealsResponseRelatedObjectsUser } from './get-deals-response-related-objects-user';
 // May contain unused imports in some cases
 // @ts-ignore
 import { RelatedOrganizationDataWithActiveFlag } from './related-organization-data-with-active-flag';
@@ -31,9 +31,9 @@ import { RelatedOrganizationDataWithActiveFlag } from './related-organization-da
 export interface GetDealsResponseRelatedObjects {
     /**
     * 
-    * @type {GetActivitiesResponseRelatedObjectsUser}
+    * @type {GetDealsResponseRelatedObjectsUser}
     */
-    'user'?: GetActivitiesResponseRelatedObjectsUser;
+    'user'?: GetDealsResponseRelatedObjectsUser;
     /**
     * 
     * @type {RelatedOrganizationDataWithActiveFlag}
@@ -41,8 +41,8 @@ export interface GetDealsResponseRelatedObjects {
     'organization'?: RelatedOrganizationDataWithActiveFlag;
     /**
     * 
-    * @type {AddActivityResponseRelatedObjectsPerson}
+    * @type {GetDealsResponseRelatedObjectsPerson}
     */
-    'person'?: AddActivityResponseRelatedObjectsPerson;
+    'person'?: GetDealsResponseRelatedObjectsPerson;
 }
 

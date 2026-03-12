@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { OrganizationItem1 } from './organization-item1';
+import { GetOrganizationsResponseAllOfDataInner } from './get-organizations-response-all-of-data-inner';
 
 /**
 * 
@@ -25,8 +25,8 @@ import { OrganizationItem1 } from './organization-item1';
 export interface UpsertOrganizationResponseData {
     /**
     * 
-    * @type {OrganizationItem1}
+    * @type {GetOrganizationsResponseAllOfDataInner}
     */
-    'data'?: OrganizationItem1;
+    'data'?: GetOrganizationsResponseAllOfDataInner;
 }
 

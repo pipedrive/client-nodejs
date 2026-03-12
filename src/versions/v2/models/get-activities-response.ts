@@ -15,9 +15,6 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { ActivityItem } from './activity-item';
-// May contain unused imports in some cases
-// @ts-ignore
 import { BaseResponse } from './base-response';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -25,6 +22,9 @@ import { GetActivitiesResponseAllOf } from './get-activities-response-all-of';
 // May contain unused imports in some cases
 // @ts-ignore
 import { GetActivitiesResponseAllOfAdditionalData } from './get-activities-response-all-of-additional-data';
+// May contain unused imports in some cases
+// @ts-ignore
+import { GetActivitiesResponseAllOfDataInner } from './get-activities-response-all-of-data-inner';
 
 /**
  * @type GetActivitiesResponse

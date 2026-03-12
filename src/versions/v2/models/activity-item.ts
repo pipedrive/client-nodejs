@@ -15,13 +15,13 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { ActivityItemAttendeesInner } from './activity-item-attendees-inner';
+import { GetActivitiesResponseAllOfDataInnerAttendeesInner } from './get-activities-response-all-of-data-inner-attendees-inner';
 // May contain unused imports in some cases
 // @ts-ignore
-import { ActivityItemLocation } from './activity-item-location';
+import { GetActivitiesResponseAllOfDataInnerLocation } from './get-activities-response-all-of-data-inner-location';
 // May contain unused imports in some cases
 // @ts-ignore
-import { ActivityItemParticipantsInner } from './activity-item-participants-inner';
+import { GetActivitiesResponseAllOfDataInnerParticipantsInner } from './get-activities-response-all-of-data-inner-participants-inner';
 
 /**
 * 
@@ -126,19 +126,19 @@ export interface ActivityItem {
     'marked_as_done_time'?: string;
     /**
     * 
-    * @type {ActivityItemLocation}
+    * @type {GetActivitiesResponseAllOfDataInnerLocation}
     */
-    'location'?: ActivityItemLocation;
+    'location'?: GetActivitiesResponseAllOfDataInnerLocation;
     /**
     * The participants of the activity
-    * @type {Array<ActivityItemParticipantsInner>}
+    * @type {Array<GetActivitiesResponseAllOfDataInnerParticipantsInner>}
     */
-    'participants'?: Array<ActivityItemParticipantsInner>;
+    'participants'?: Array<GetActivitiesResponseAllOfDataInnerParticipantsInner>;
     /**
     * The attendees of the activity
-    * @type {Array<ActivityItemAttendeesInner>}
+    * @type {Array<GetActivitiesResponseAllOfDataInnerAttendeesInner>}
     */
-    'attendees'?: Array<ActivityItemAttendeesInner>;
+    'attendees'?: Array<GetActivitiesResponseAllOfDataInnerAttendeesInner>;
     /**
     * The client used for the conference meeting
     * @type {string}
