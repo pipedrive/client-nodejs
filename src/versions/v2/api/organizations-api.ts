@@ -379,7 +379,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
          * @summary Get all organizations
          * @param {number} [filter_id] If supplied, only organizations matching the specified filter are returned
          * @param {string} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
-         * @param {number} [owner_id] If supplied, only organization owned by the specified user are returned. If filter_id is provided, this is ignored.
+         * @param {number} [owner_id] If supplied, only organizations owned by the specified user are returned. If filter_id is provided, this is ignored.
          * @param {string} [updated_since] If set, only organizations with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {string} [updated_until] If set, only organizations with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {'id' | 'update_time' | 'add_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
@@ -676,7 +676,7 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
          * @summary Get all organizations
          * @param {number} [filter_id] If supplied, only organizations matching the specified filter are returned
          * @param {string} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
-         * @param {number} [owner_id] If supplied, only organization owned by the specified user are returned. If filter_id is provided, this is ignored.
+         * @param {number} [owner_id] If supplied, only organizations owned by the specified user are returned. If filter_id is provided, this is ignored.
          * @param {string} [updated_since] If set, only organizations with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {string} [updated_until] If set, only organizations with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {'id' | 'update_time' | 'add_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
@@ -1007,7 +1007,7 @@ export interface OrganizationsApiGetOrganizationsRequest {
     readonly ids?: string
 
     /**
-     * If supplied, only organization owned by the specified user are returned. If filter_id is provided, this is ignored.
+     * If supplied, only organizations owned by the specified user are returned. If filter_id is provided, this is ignored.
      * @type {number}
      * @memberof OrganizationsApiGetOrganizations
      */

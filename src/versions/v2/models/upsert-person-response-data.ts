@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { UpsertPersonResponseDataData } from './upsert-person-response-data-data';
+import { OrganizationItem } from './organization-item';
 
 /**
 * 
@@ -25,8 +25,8 @@ import { UpsertPersonResponseDataData } from './upsert-person-response-data-data
 export interface UpsertPersonResponseData {
     /**
     * 
-    * @type {UpsertPersonResponseDataData}
+    * @type {OrganizationItem}
     */
-    'data'?: UpsertPersonResponseDataData;
+    'data'?: OrganizationItem;
 }
 

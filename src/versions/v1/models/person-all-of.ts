@@ -21,7 +21,7 @@ import { DealParticipantItemPersonIdPhoneInner } from './deal-participant-item-p
 import { PersonAllOfEmailInner } from './person-all-of-email-inner';
 // May contain unused imports in some cases
 // @ts-ignore
-import { PersonAllOfPictureId } from './person-all-of-picture-id';
+import { PictureDataWithID } from './picture-data-with-id';
 
 /**
 * 
@@ -76,14 +76,14 @@ export interface PersonAllOf {
     'visible_to'?: string;
     /**
     * 
-    * @type {PersonAllOfPictureId}
+    * @type {PictureDataWithID}
     */
-    'picture_id'?: PersonAllOfPictureId;
+    'picture_id'?: PictureDataWithID | null;
     /**
     * The label assigned to the person. When the `label` field is updated, the `label_ids` field value will be overwritten by the `label` field value.
     * @type {number}
     */
-    'label'?: number;
+    'label'?: number | null;
     /**
     * The IDs of labels assigned to the person. When the `label_ids` field is updated, the `label` field value will be set to the first value of the `label_ids` field.
     * @type {Array<number>}
@@ -93,7 +93,7 @@ export interface PersonAllOf {
     * The name of the organization associated with the person
     * @type {string}
     */
-    'org_name'?: string;
+    'org_name'?: string | null;
     /**
     * The name of the owner associated with the person
     * @type {string}
@@ -103,6 +103,6 @@ export interface PersonAllOf {
     * The BCC email associated with the person
     * @type {string}
     */
-    'cc_email'?: string;
+    'cc_email'?: string | null;
 }
 

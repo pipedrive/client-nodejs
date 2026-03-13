@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { DealItem1 } from './deal-item1';
+import { Deal } from './deal';
 
 /**
 * 
@@ -25,8 +25,8 @@ import { DealItem1 } from './deal-item1';
 export interface UpsertDealResponseData {
     /**
     * 
-    * @type {DealItem1}
+    * @type {Deal}
     */
-    'data'?: DealItem1;
+    'data'?: Deal;
 }
 

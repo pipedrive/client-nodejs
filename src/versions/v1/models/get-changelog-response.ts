@@ -18,10 +18,10 @@
 import { BaseResponse } from './base-response';
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetActivitiesCollectionResponseAdditionalData } from './get-activities-collection-response-additional-data';
+import { GetChangelogResponseAllOf } from './get-changelog-response-all-of';
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetChangelogResponseAllOf } from './get-changelog-response-all-of';
+import { GetChangelogResponseAllOfAdditionalData } from './get-changelog-response-all-of-additional-data';
 // May contain unused imports in some cases
 // @ts-ignore
 import { GetChangelogResponseAllOfDataInner } from './get-changelog-response-all-of-data-inner';

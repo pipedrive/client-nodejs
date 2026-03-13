@@ -18,10 +18,10 @@
 import { BaseResponse } from './base-response';
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetActivitiesResponseAdditionalData } from './get-activities-response-additional-data';
+import { GetLeadSearchResponseAllOf } from './get-lead-search-response-all-of';
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetLeadSearchResponseAllOf } from './get-lead-search-response-all-of';
+import { GetLeadSearchResponseAllOfAdditionalData } from './get-lead-search-response-all-of-additional-data';
 // May contain unused imports in some cases
 // @ts-ignore
 import { GetLeadSearchResponseAllOfData } from './get-lead-search-response-all-of-data';

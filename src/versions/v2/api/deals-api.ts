@@ -1242,7 +1242,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Adds a discount to a deal changing, the deal value if the deal has one-time products attached.
+         * Adds a discount to a deal, changing the deal value if the deal has one-time products attached.
          * @summary Add a discount to a deal
          * @param {number} id The ID of the deal
          * @param {AddAdditionalDiscountRequestBody} [AddAdditionalDiscountRequestBody] 
@@ -1907,7 +1907,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Adds a discount to a deal changing, the deal value if the deal has one-time products attached.
+         * Adds a discount to a deal, changing the deal value if the deal has one-time products attached.
          * @summary Add a discount to a deal
          * @param {number} id The ID of the deal
          * @param {AddAdditionalDiscountRequestBody} [AddAdditionalDiscountRequestBody] 
@@ -2221,7 +2221,7 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.getInstallments(requestParameters.deal_ids, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, ).then((request) => request(axios, basePath));
         },
         /**
-         * Adds a discount to a deal changing, the deal value if the deal has one-time products attached.
+         * Adds a discount to a deal, changing the deal value if the deal has one-time products attached.
          * @summary Add a discount to a deal
          * @param {DealsApiPostAdditionalDiscountRequest} requestParameters Request parameters.
 
@@ -3463,7 +3463,7 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
-     * Adds a discount to a deal changing, the deal value if the deal has one-time products attached.
+     * Adds a discount to a deal, changing the deal value if the deal has one-time products attached.
      * @summary Add a discount to a deal
      * @param {DealsApiPostAdditionalDiscountRequest} requestParameters Request parameters.
 

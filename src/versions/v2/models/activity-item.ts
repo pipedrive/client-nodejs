@@ -15,13 +15,13 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { ActivityItemAttendeesInner } from './activity-item-attendees-inner';
+import { AddActivityRequestAttendeesInner } from './add-activity-request-attendees-inner';
 // May contain unused imports in some cases
 // @ts-ignore
-import { ActivityItemLocation } from './activity-item-location';
+import { AddActivityRequestLocation } from './add-activity-request-location';
 // May contain unused imports in some cases
 // @ts-ignore
-import { ActivityItemParticipantsInner } from './activity-item-participants-inner';
+import { AddActivityRequestParticipantsInner } from './add-activity-request-participants-inner';
 
 /**
 * 
@@ -126,19 +126,19 @@ export interface ActivityItem {
     'marked_as_done_time'?: string;
     /**
     * 
-    * @type {ActivityItemLocation}
+    * @type {AddActivityRequestLocation}
     */
-    'location'?: ActivityItemLocation;
+    'location'?: AddActivityRequestLocation;
     /**
     * The participants of the activity
-    * @type {Array<ActivityItemParticipantsInner>}
+    * @type {Array<AddActivityRequestParticipantsInner>}
     */
-    'participants'?: Array<ActivityItemParticipantsInner>;
+    'participants'?: Array<AddActivityRequestParticipantsInner>;
     /**
     * The attendees of the activity
-    * @type {Array<ActivityItemAttendeesInner>}
+    * @type {Array<AddActivityRequestAttendeesInner>}
     */
-    'attendees'?: Array<ActivityItemAttendeesInner>;
+    'attendees'?: Array<AddActivityRequestAttendeesInner>;
     /**
     * The client used for the conference meeting
     * @type {string}

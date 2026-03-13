@@ -18,7 +18,7 @@
 import { PictureData } from './picture-data';
 // May contain unused imports in some cases
 // @ts-ignore
-import { PictureDataPictures } from './picture-data-pictures';
+import { PictureDataWithIDPictures } from './picture-data-with-idpictures';
 // May contain unused imports in some cases
 // @ts-ignore
 import { PictureDataWithValue } from './picture-data-with-value';

@@ -18,7 +18,7 @@
 import { BaseResponse } from './base-response';
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetActivitiesResponseAdditionalData } from './get-activities-response-additional-data';
+import { GetLeadSearchResponseAllOfAdditionalData } from './get-lead-search-response-all-of-additional-data';
 // May contain unused imports in some cases
 // @ts-ignore
 import { GetPersonProductsResponseAllOf } from './get-person-products-response-all-of';

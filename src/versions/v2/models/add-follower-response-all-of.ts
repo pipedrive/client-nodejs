@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { FollowerItem1 } from './follower-item1';
+import { FollowerItem } from './follower-item';
 
 /**
 * 
@@ -25,8 +25,8 @@ import { FollowerItem1 } from './follower-item1';
 export interface AddFollowerResponseAllOf {
     /**
     * 
-    * @type {FollowerItem1}
+    * @type {FollowerItem}
     */
-    'data'?: FollowerItem1;
+    'data'?: FollowerItem;
 }
 

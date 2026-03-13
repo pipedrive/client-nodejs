@@ -30,7 +30,7 @@ import { PersonAllOf } from './person-all-of';
 import { PersonAllOfEmailInner } from './person-all-of-email-inner';
 // May contain unused imports in some cases
 // @ts-ignore
-import { PersonAllOfPictureId } from './person-all-of-picture-id';
+import { PictureDataWithID } from './picture-data-with-id';
 // May contain unused imports in some cases
 // @ts-ignore
 import { RelationshipOrganizationInfoItemWithActiveFlag } from './relationship-organization-info-item-with-active-flag';

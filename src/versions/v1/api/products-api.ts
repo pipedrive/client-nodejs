@@ -26,27 +26,13 @@ import { AddNewFollowerResponse } from '../models';
 // @ts-ignore
 import { AddProductFollowerRequest } from '../models';
 // @ts-ignore
-import { AddProductRequest } from '../models';
-// @ts-ignore
 import { DeleteProductFollowerResponse } from '../models';
-// @ts-ignore
-import { DeleteProductResponse } from '../models';
 // @ts-ignore
 import { GetAssociatedDealsResponse } from '../models';
 // @ts-ignore
 import { GetAssociatedProductFilesResponse } from '../models';
 // @ts-ignore
 import { GetProductFollowersResponse } from '../models';
-// @ts-ignore
-import { GetProductResponse } from '../models';
-// @ts-ignore
-import { GetProductSearchResponse } from '../models';
-// @ts-ignore
-import { GetProductsResponse1 } from '../models';
-// @ts-ignore
-import { UpdateProductRequest } from '../models';
-// @ts-ignore
-import { UpdateProductResponse } from '../models';
 // @ts-ignore
 import { UserIds } from '../models';
 /**
@@ -55,47 +41,6 @@ import { UserIds } from '../models';
  */
 export const ProductsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
-        /**
-         * Adds a new product to the Products inventory. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-product\" target=\"_blank\" rel=\"noopener noreferrer\">adding a product</a>.
-         * @summary Add a product
-         * @param {AddProductRequest} [AddProductRequest] 
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        addProduct: async (AddProductRequest?: AddProductRequest, ): Promise<RequestArgs> => {
-            const localVarPath = `/products`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full"], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-            localVarRequestOptions.data = serializeDataIfNeeded(AddProductRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
         /**
          * Adds a follower to a product.
          * @summary Add a follower to a product
@@ -142,47 +87,6 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Marks a product as deleted. After 30 days, the product will be permanently deleted.
-         * @summary Delete a product
-         * @param {number} id The ID of the product
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        deleteProduct: async (id: number, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('deleteProduct', 'id', id)
-            const localVarPath = `/products/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full"], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Deletes a follower from a product.
          * @summary Delete a follower from a product
          * @param {number} id The ID of the product
@@ -215,47 +119,6 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication oauth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full"], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Returns data about a specific product.
-         * @summary Get one product
-         * @param {number} id The ID of the product
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getProduct: async (id: number, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('getProduct', 'id', id)
-            const localVarPath = `/products/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:read", "products:full"], configuration)
 
 
     
@@ -472,192 +335,6 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
                 options: localVarRequestOptions,
             };
         },
-        /**
-         * Returns data about all products.
-         * @summary Get all products
-         * @param {number} [user_id] If supplied, only products owned by the given user will be returned
-         * @param {number} [filter_id] The ID of the filter to use
-         * @param {Array<number>} [ids] An array of integers with the IDs of the products that should be returned in the response
-         * @param {string} [first_char] If supplied, only products whose name starts with the specified letter will be returned (case-insensitive)
-         * @param {boolean} [get_summary] If supplied, the response will return the total numbers of products in the &#x60;additional_data.summary.total_count&#x60; property
-         * @param {number} [start] Pagination start
-         * @param {number} [limit] Items shown per page
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getProducts: async (user_id?: number, filter_id?: number, ids?: Array<number>, first_char?: string, get_summary?: boolean, start?: number, limit?: number, ): Promise<RequestArgs> => {
-            const localVarPath = `/products`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:read", "products:full"], configuration)
-
-            if (user_id !== undefined) {
-                localVarQueryParameter['user_id'] = user_id;
-            }
-
-            if (filter_id !== undefined) {
-                localVarQueryParameter['filter_id'] = filter_id;
-            }
-
-            if (ids) {
-                localVarQueryParameter['ids'] = ids;
-            }
-
-            if (first_char !== undefined) {
-                localVarQueryParameter['first_char'] = first_char;
-            }
-
-            if (get_summary !== undefined) {
-                localVarQueryParameter['get_summary'] = get_summary;
-            }
-
-            if (start !== undefined) {
-                localVarQueryParameter['start'] = start;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Searches all products by name, code and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope.
-         * @summary Search products
-         * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-         * @param {'code' | 'custom_fields' | 'name'} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
-         * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
-         * @param {'product.price'} [include_fields] Supports including optional fields in the results which are not provided by default
-         * @param {number} [start] Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter.
-         * @param {number} [limit] Items shown per page
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        searchProducts: async (term: string, fields?: 'code' | 'custom_fields' | 'name', exact_match?: boolean, include_fields?: 'product.price', start?: number, limit?: number, ): Promise<RequestArgs> => {
-            // verify required parameter 'term' is not null or undefined
-            assertParamExists('searchProducts', 'term', term)
-            const localVarPath = `/products/search`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:read", "products:full", "search:read"], configuration)
-
-            if (term !== undefined) {
-                localVarQueryParameter['term'] = term;
-            }
-
-            if (fields !== undefined) {
-                localVarQueryParameter['fields'] = fields;
-            }
-
-            if (exact_match !== undefined) {
-                localVarQueryParameter['exact_match'] = exact_match;
-            }
-
-            if (include_fields !== undefined) {
-                localVarQueryParameter['include_fields'] = include_fields;
-            }
-
-            if (start !== undefined) {
-                localVarQueryParameter['start'] = start;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Updates product data.
-         * @summary Update a product
-         * @param {number} id The ID of the product
-         * @param {UpdateProductRequest} [UpdateProductRequest] 
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        updateProduct: async (id: number, UpdateProductRequest?: UpdateProductRequest, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('updateProduct', 'id', id)
-            const localVarPath = `/products/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full"], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-            localVarRequestOptions.data = serializeDataIfNeeded(UpdateProductRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
     }
 };
 
@@ -669,17 +346,6 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
 export const ProductsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ProductsApiAxiosParamCreator(configuration)
     return {
-        /**
-         * Adds a new product to the Products inventory. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-product\" target=\"_blank\" rel=\"noopener noreferrer\">adding a product</a>.
-         * @summary Add a product
-         * @param {AddProductRequest} [AddProductRequest] 
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async addProduct(AddProductRequest?: AddProductRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addProduct(AddProductRequest, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
         /**
          * Adds a follower to a product.
          * @summary Add a follower to a product
@@ -693,17 +359,6 @@ export const ProductsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Marks a product as deleted. After 30 days, the product will be permanently deleted.
-         * @summary Delete a product
-         * @param {number} id The ID of the product
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async deleteProduct(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteProductResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProduct(id, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Deletes a follower from a product.
          * @summary Delete a follower from a product
          * @param {number} id The ID of the product
@@ -713,17 +368,6 @@ export const ProductsApiFp = function(configuration?: Configuration) {
          */
         async deleteProductFollower(id: number, follower_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteProductFollowerResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProductFollower(id, follower_id, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Returns data about a specific product.
-         * @summary Get one product
-         * @param {number} id The ID of the product
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async getProduct(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getProduct(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -778,51 +422,6 @@ export const ProductsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProductUsers(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
-        /**
-         * Returns data about all products.
-         * @summary Get all products
-         * @param {number} [user_id] If supplied, only products owned by the given user will be returned
-         * @param {number} [filter_id] The ID of the filter to use
-         * @param {Array<number>} [ids] An array of integers with the IDs of the products that should be returned in the response
-         * @param {string} [first_char] If supplied, only products whose name starts with the specified letter will be returned (case-insensitive)
-         * @param {boolean} [get_summary] If supplied, the response will return the total numbers of products in the &#x60;additional_data.summary.total_count&#x60; property
-         * @param {number} [start] Pagination start
-         * @param {number} [limit] Items shown per page
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async getProducts(user_id?: number, filter_id?: number, ids?: Array<number>, first_char?: string, get_summary?: boolean, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductsResponse1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getProducts(user_id, filter_id, ids, first_char, get_summary, start, limit, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Searches all products by name, code and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope.
-         * @summary Search products
-         * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-         * @param {'code' | 'custom_fields' | 'name'} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
-         * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
-         * @param {'product.price'} [include_fields] Supports including optional fields in the results which are not provided by default
-         * @param {number} [start] Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter.
-         * @param {number} [limit] Items shown per page
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async searchProducts(term: string, fields?: 'code' | 'custom_fields' | 'name', exact_match?: boolean, include_fields?: 'product.price', start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductSearchResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.searchProducts(term, fields, exact_match, include_fields, start, limit, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Updates product data.
-         * @summary Update a product
-         * @param {number} id The ID of the product
-         * @param {UpdateProductRequest} [UpdateProductRequest] 
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async updateProduct(id: number, UpdateProductRequest?: UpdateProductRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateProductResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProduct(id, UpdateProductRequest, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
     }
 };
 
@@ -834,16 +433,6 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
     const localVarFp = ProductsApiFp(configuration)
     return {
         /**
-         * Adds a new product to the Products inventory. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-product\" target=\"_blank\" rel=\"noopener noreferrer\">adding a product</a>.
-         * @summary Add a product
-         * @param {ProductsApiAddProductRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        addProduct(requestParameters: ProductsApiAddProductRequest = {}, ): Promise<GetProductResponse> {
-            return localVarFp.addProduct(requestParameters.AddProductRequest, ).then((request) => request(axios, basePath));
-        },
-        /**
          * Adds a follower to a product.
          * @summary Add a follower to a product
          * @param {ProductsApiAddProductFollowerRequest} requestParameters Request parameters.
@@ -854,16 +443,6 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.addProductFollower(requestParameters.id, requestParameters.AddProductFollowerRequest, ).then((request) => request(axios, basePath));
         },
         /**
-         * Marks a product as deleted. After 30 days, the product will be permanently deleted.
-         * @summary Delete a product
-         * @param {ProductsApiDeleteProductRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        deleteProduct(requestParameters: ProductsApiDeleteProductRequest, ): Promise<DeleteProductResponse> {
-            return localVarFp.deleteProduct(requestParameters.id, ).then((request) => request(axios, basePath));
-        },
-        /**
          * Deletes a follower from a product.
          * @summary Delete a follower from a product
          * @param {ProductsApiDeleteProductFollowerRequest} requestParameters Request parameters.
@@ -872,16 +451,6 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
          */
         deleteProductFollower(requestParameters: ProductsApiDeleteProductFollowerRequest, ): Promise<DeleteProductFollowerResponse> {
             return localVarFp.deleteProductFollower(requestParameters.id, requestParameters.follower_id, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Returns data about a specific product.
-         * @summary Get one product
-         * @param {ProductsApiGetProductRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getProduct(requestParameters: ProductsApiGetProductRequest, ): Promise<GetProductResponse> {
-            return localVarFp.getProduct(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns data about deals that have a product attached to it.
@@ -923,52 +492,8 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
         getProductUsers(requestParameters: ProductsApiGetProductUsersRequest, ): Promise<UserIds> {
             return localVarFp.getProductUsers(requestParameters.id, ).then((request) => request(axios, basePath));
         },
-        /**
-         * Returns data about all products.
-         * @summary Get all products
-         * @param {ProductsApiGetProductsRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getProducts(requestParameters: ProductsApiGetProductsRequest = {}, ): Promise<GetProductsResponse1> {
-            return localVarFp.getProducts(requestParameters.user_id, requestParameters.filter_id, requestParameters.ids, requestParameters.first_char, requestParameters.get_summary, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Searches all products by name, code and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope.
-         * @summary Search products
-         * @param {ProductsApiSearchProductsRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        searchProducts(requestParameters: ProductsApiSearchProductsRequest, ): Promise<GetProductSearchResponse> {
-            return localVarFp.searchProducts(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.include_fields, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Updates product data.
-         * @summary Update a product
-         * @param {ProductsApiUpdateProductRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        updateProduct(requestParameters: ProductsApiUpdateProductRequest, ): Promise<UpdateProductResponse> {
-            return localVarFp.updateProduct(requestParameters.id, requestParameters.UpdateProductRequest, ).then((request) => request(axios, basePath));
-        },
     };
 };
-
-/**
- * Request parameters for addProduct operation in ProductsApi.
- * @export
- * @interface ProductsApiAddProductRequest
- */
-export interface ProductsApiAddProductRequest {
-    /**
-     * 
-     * @type {AddProductRequest}
-     * @memberof ProductsApiAddProduct
-     */
-    readonly AddProductRequest?: AddProductRequest
-}
 
 /**
  * Request parameters for addProductFollower operation in ProductsApi.
@@ -992,20 +517,6 @@ export interface ProductsApiAddProductFollowerRequest {
 }
 
 /**
- * Request parameters for deleteProduct operation in ProductsApi.
- * @export
- * @interface ProductsApiDeleteProductRequest
- */
-export interface ProductsApiDeleteProductRequest {
-    /**
-     * The ID of the product
-     * @type {number}
-     * @memberof ProductsApiDeleteProduct
-     */
-    readonly id: number
-}
-
-/**
  * Request parameters for deleteProductFollower operation in ProductsApi.
  * @export
  * @interface ProductsApiDeleteProductFollowerRequest
@@ -1024,20 +535,6 @@ export interface ProductsApiDeleteProductFollowerRequest {
      * @memberof ProductsApiDeleteProductFollower
      */
     readonly follower_id: number
-}
-
-/**
- * Request parameters for getProduct operation in ProductsApi.
- * @export
- * @interface ProductsApiGetProductRequest
- */
-export interface ProductsApiGetProductRequest {
-    /**
-     * The ID of the product
-     * @type {number}
-     * @memberof ProductsApiGetProduct
-     */
-    readonly id: number
 }
 
 /**
@@ -1153,150 +650,12 @@ export interface ProductsApiGetProductUsersRequest {
 }
 
 /**
- * Request parameters for getProducts operation in ProductsApi.
- * @export
- * @interface ProductsApiGetProductsRequest
- */
-export interface ProductsApiGetProductsRequest {
-    /**
-     * If supplied, only products owned by the given user will be returned
-     * @type {number}
-     * @memberof ProductsApiGetProducts
-     */
-    readonly user_id?: number
-
-    /**
-     * The ID of the filter to use
-     * @type {number}
-     * @memberof ProductsApiGetProducts
-     */
-    readonly filter_id?: number
-
-    /**
-     * An array of integers with the IDs of the products that should be returned in the response
-     * @type {Array<number>}
-     * @memberof ProductsApiGetProducts
-     */
-    readonly ids?: Array<number>
-
-    /**
-     * If supplied, only products whose name starts with the specified letter will be returned (case-insensitive)
-     * @type {string}
-     * @memberof ProductsApiGetProducts
-     */
-    readonly first_char?: string
-
-    /**
-     * If supplied, the response will return the total numbers of products in the &#x60;additional_data.summary.total_count&#x60; property
-     * @type {boolean}
-     * @memberof ProductsApiGetProducts
-     */
-    readonly get_summary?: boolean
-
-    /**
-     * Pagination start
-     * @type {number}
-     * @memberof ProductsApiGetProducts
-     */
-    readonly start?: number
-
-    /**
-     * Items shown per page
-     * @type {number}
-     * @memberof ProductsApiGetProducts
-     */
-    readonly limit?: number
-}
-
-/**
- * Request parameters for searchProducts operation in ProductsApi.
- * @export
- * @interface ProductsApiSearchProductsRequest
- */
-export interface ProductsApiSearchProductsRequest {
-    /**
-     * The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-     * @type {string}
-     * @memberof ProductsApiSearchProducts
-     */
-    readonly term: string
-
-    /**
-     * A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
-     * @type {'code' | 'custom_fields' | 'name'}
-     * @memberof ProductsApiSearchProducts
-     */
-    readonly fields?: 'code' | 'custom_fields' | 'name'
-
-    /**
-     * When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
-     * @type {boolean}
-     * @memberof ProductsApiSearchProducts
-     */
-    readonly exact_match?: boolean
-
-    /**
-     * Supports including optional fields in the results which are not provided by default
-     * @type {'product.price'}
-     * @memberof ProductsApiSearchProducts
-     */
-    readonly include_fields?: 'product.price'
-
-    /**
-     * Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter.
-     * @type {number}
-     * @memberof ProductsApiSearchProducts
-     */
-    readonly start?: number
-
-    /**
-     * Items shown per page
-     * @type {number}
-     * @memberof ProductsApiSearchProducts
-     */
-    readonly limit?: number
-}
-
-/**
- * Request parameters for updateProduct operation in ProductsApi.
- * @export
- * @interface ProductsApiUpdateProductRequest
- */
-export interface ProductsApiUpdateProductRequest {
-    /**
-     * The ID of the product
-     * @type {number}
-     * @memberof ProductsApiUpdateProduct
-     */
-    readonly id: number
-
-    /**
-     * 
-     * @type {UpdateProductRequest}
-     * @memberof ProductsApiUpdateProduct
-     */
-    readonly UpdateProductRequest?: UpdateProductRequest
-}
-
-/**
  * ProductsApi - object-oriented interface
  * @export
  * @class ProductsApi
  * @extends {BaseAPI}
  */
 export class ProductsApi extends BaseAPI {
-    /**
-     * Adds a new product to the Products inventory. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-product\" target=\"_blank\" rel=\"noopener noreferrer\">adding a product</a>.
-     * @summary Add a product
-     * @param {ProductsApiAddProductRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof ProductsApi
-     */
-    public addProduct(requestParameters: ProductsApiAddProductRequest = {}, ) {
-        return ProductsApiFp(this.configuration).addProduct(requestParameters.AddProductRequest, ).then((request) => request(this.axios, this.basePath));
-    }
-
     /**
      * Adds a follower to a product.
      * @summary Add a follower to a product
@@ -1310,18 +669,6 @@ export class ProductsApi extends BaseAPI {
     }
 
     /**
-     * Marks a product as deleted. After 30 days, the product will be permanently deleted.
-     * @summary Delete a product
-     * @param {ProductsApiDeleteProductRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof ProductsApi
-     */
-    public deleteProduct(requestParameters: ProductsApiDeleteProductRequest, ) {
-        return ProductsApiFp(this.configuration).deleteProduct(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Deletes a follower from a product.
      * @summary Delete a follower from a product
      * @param {ProductsApiDeleteProductFollowerRequest} requestParameters Request parameters.
@@ -1331,18 +678,6 @@ export class ProductsApi extends BaseAPI {
      */
     public deleteProductFollower(requestParameters: ProductsApiDeleteProductFollowerRequest, ) {
         return ProductsApiFp(this.configuration).deleteProductFollower(requestParameters.id, requestParameters.follower_id, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Returns data about a specific product.
-     * @summary Get one product
-     * @param {ProductsApiGetProductRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof ProductsApi
-     */
-    public getProduct(requestParameters: ProductsApiGetProductRequest, ) {
-        return ProductsApiFp(this.configuration).getProduct(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1391,41 +726,5 @@ export class ProductsApi extends BaseAPI {
      */
     public getProductUsers(requestParameters: ProductsApiGetProductUsersRequest, ) {
         return ProductsApiFp(this.configuration).getProductUsers(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Returns data about all products.
-     * @summary Get all products
-     * @param {ProductsApiGetProductsRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof ProductsApi
-     */
-    public getProducts(requestParameters: ProductsApiGetProductsRequest = {}, ) {
-        return ProductsApiFp(this.configuration).getProducts(requestParameters.user_id, requestParameters.filter_id, requestParameters.ids, requestParameters.first_char, requestParameters.get_summary, requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Searches all products by name, code and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope.
-     * @summary Search products
-     * @param {ProductsApiSearchProductsRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof ProductsApi
-     */
-    public searchProducts(requestParameters: ProductsApiSearchProductsRequest, ) {
-        return ProductsApiFp(this.configuration).searchProducts(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.include_fields, requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Updates product data.
-     * @summary Update a product
-     * @param {ProductsApiUpdateProductRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof ProductsApi
-     */
-    public updateProduct(requestParameters: ProductsApiUpdateProductRequest, ) {
-        return ProductsApiFp(this.configuration).updateProduct(requestParameters.id, requestParameters.UpdateProductRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

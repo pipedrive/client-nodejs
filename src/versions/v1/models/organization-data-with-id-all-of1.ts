@@ -39,11 +39,11 @@ export interface OrganizationDataWithIdAllOf1 {
     * The address of the organization
     * @type {string}
     */
-    'address'?: string;
+    'address'?: string | null;
     /**
     * The BCC email of the organization associated with the item
     * @type {string}
     */
-    'cc_email'?: string;
+    'cc_email'?: string | null;
 }
 

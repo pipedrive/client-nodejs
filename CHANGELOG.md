@@ -8,6 +8,84 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [32.0.0] - 2026-03-13
+### Removed
+- Removed deprecated v1 endpoints that have v2 equivalents. See the [deprecation announcement](https://developers.pipedrive.com/changelog/post/deprecation-of-selected-api-v1-endpoints) for details. Migrate by switching imports from `versions/v1` to `versions/v2` and using the corresponding SDK methods listed below.
+
+  **ActivitiesApi** (`import { ActivitiesApi } from 'pipedrive/versions/v2'`):
+  - `v1.ActivitiesApi.getActivities()` → `v2.ActivitiesApi.getActivities()` (`GET /v1/activities` → `GET /api/v2/activities`)
+  - `v1.ActivitiesApi.getActivitiesCollection()` → `v2.ActivitiesApi.getActivities()` (`GET /v1/activities/collection` → `GET /api/v2/activities`)
+  - `v1.ActivitiesApi.getActivity()` → `v2.ActivitiesApi.getActivity()` (`GET /v1/activities/{id}` → `GET /api/v2/activities/{id}`)
+  - `v1.ActivitiesApi.addActivity()` → `v2.ActivitiesApi.addActivity()` (`POST /v1/activities` → `POST /api/v2/activities`)
+  - `v1.ActivitiesApi.updateActivity()` → `v2.ActivitiesApi.updateActivity()` (`PUT /v1/activities/{id}` → `PATCH /api/v2/activities/{id}`)
+  - `v1.ActivitiesApi.deleteActivity()` → `v2.ActivitiesApi.deleteActivity()` (`DELETE /v1/activities/{id}` → `DELETE /api/v2/activities/{id}`)
+
+  **DealsApi** (`import { DealsApi } from 'pipedrive/versions/v2'`):
+  - `v1.DealsApi.getDeals()` → `v2.DealsApi.getDeals()` (`GET /v1/deals` → `GET /api/v2/deals`)
+  - `v1.DealsApi.getDealsCollection()` → `v2.DealsApi.getDeals()` (`GET /v1/deals/collection` → `GET /api/v2/deals`)
+  - `v1.DealsApi.getDeal()` → `v2.DealsApi.getDeal()` (`GET /v1/deals/{id}` → `GET /api/v2/deals/{id}`)
+  - `v1.DealsApi.searchDeals()` → `v2.DealsApi.searchDeals()` (`GET /v1/deals/search` → `GET /api/v2/deals/search`)
+  - `v1.DealsApi.addDeal()` → `v2.DealsApi.addDeal()` (`POST /v1/deals` → `POST /api/v2/deals`)
+  - `v1.DealsApi.updateDeal()` → `v2.DealsApi.updateDeal()` (`PUT /v1/deals/{id}` → `PATCH /api/v2/deals/{id}`)
+  - `v1.DealsApi.deleteDeal()` → `v2.DealsApi.deleteDeal()` (`DELETE /v1/deals/{id}` → `DELETE /api/v2/deals/{id}`)
+  - `v1.DealsApi.getDealActivities()` → `v2.ActivitiesApi.getActivities({ deal_id })` (`GET /v1/deals/{id}/activities` → `GET /api/v2/activities?deal_id={id}`)
+  - `v1.DealsApi.getDealPersons()` → `v2.PersonsApi.getPersons({ deal_id })` (`GET /v1/deals/{id}/persons` → `GET /api/v2/persons?deal_id={id}`)
+  - `v1.DealsApi.getDealProducts()` → `v2.DealsApi.getDealProducts()` (`GET /v1/deals/{id}/products` → `GET /api/v2/deals/{id}/products`)
+  - `v1.DealsApi.addDealProduct()` → `v2.DealsApi.addDealProduct()` (`POST /v1/deals/{id}/products` → `POST /api/v2/deals/{id}/products`)
+  - `v1.DealsApi.updateDealProduct()` → `v2.DealsApi.updateDealProduct()` (`PUT /v1/deals/{id}/products/{product_attachment_id}` → `PATCH /api/v2/deals/{id}/products/{product_attachment_id}`)
+  - `v1.DealsApi.deleteDealProduct()` → `v2.DealsApi.deleteDealProduct()` (`DELETE /v1/deals/{id}/products/{product_attachment_id}` → `DELETE /api/v2/deals/{id}/products/{product_attachment_id}`)
+
+  **ItemSearchApi** (`import { ItemSearchApi } from 'pipedrive/versions/v2'`):
+  - `v1.ItemSearchApi.searchItem()` → `v2.ItemSearchApi.searchItem()` (`GET /v1/itemSearch` → `GET /api/v2/itemSearch`)
+  - `v1.ItemSearchApi.searchItemByField()` → `v2.ItemSearchApi.searchItemByField()` (`GET /v1/itemSearch/field` → `GET /api/v2/itemSearch/field`)
+
+  **OrganizationsApi** (`import { OrganizationsApi } from 'pipedrive/versions/v2'`):
+  - `v1.OrganizationsApi.getOrganizations()` → `v2.OrganizationsApi.getOrganizations()` (`GET /v1/organizations` → `GET /api/v2/organizations`)
+  - `v1.OrganizationsApi.getOrganizationsCollection()` → `v2.OrganizationsApi.getOrganizations()` (`GET /v1/organizations/collection` → `GET /api/v2/organizations`)
+  - `v1.OrganizationsApi.getOrganization()` → `v2.OrganizationsApi.getOrganization()` (`GET /v1/organizations/{id}` → `GET /api/v2/organizations/{id}`)
+  - `v1.OrganizationsApi.searchOrganization()` → `v2.OrganizationsApi.searchOrganization()` (`GET /v1/organizations/search` → `GET /api/v2/organizations/search`)
+  - `v1.OrganizationsApi.addOrganization()` → `v2.OrganizationsApi.addOrganization()` (`POST /v1/organizations` → `POST /api/v2/organizations`)
+  - `v1.OrganizationsApi.updateOrganization()` → `v2.OrganizationsApi.updateOrganization()` (`PUT /v1/organizations/{id}` → `PATCH /api/v2/organizations/{id}`)
+  - `v1.OrganizationsApi.deleteOrganization()` → `v2.OrganizationsApi.deleteOrganization()` (`DELETE /v1/organizations/{id}` → `DELETE /api/v2/organizations/{id}`)
+  - `v1.OrganizationsApi.getOrganizationDeals()` → `v2.DealsApi.getDeals({ org_id })` (`GET /v1/organizations/{id}/deals` → `GET /api/v2/deals?org_id={id}`)
+  - `v1.OrganizationsApi.getOrganizationActivities()` → `v2.ActivitiesApi.getActivities({ org_id })` (`GET /v1/organizations/{id}/activities` → `GET /api/v2/activities?org_id={id}`)
+  - `v1.OrganizationsApi.getOrganizationPersons()` → `v2.PersonsApi.getPersons({ org_id })` (`GET /v1/organizations/{id}/persons` → `GET /api/v2/persons?org_id={id}`)
+
+  **PersonsApi** (`import { PersonsApi } from 'pipedrive/versions/v2'`):
+  - `v1.PersonsApi.getPersons()` → `v2.PersonsApi.getPersons()` (`GET /v1/persons` → `GET /api/v2/persons`)
+  - `v1.PersonsApi.getPersonsCollection()` → `v2.PersonsApi.getPersons()` (`GET /v1/persons/collection` → `GET /api/v2/persons`)
+  - `v1.PersonsApi.getPerson()` → `v2.PersonsApi.getPerson()` (`GET /v1/persons/{id}` → `GET /api/v2/persons/{id}`)
+  - `v1.PersonsApi.searchPersons()` → `v2.PersonsApi.searchPersons()` (`GET /v1/persons/search` → `GET /api/v2/persons/search`)
+  - `v1.PersonsApi.addPerson()` → `v2.PersonsApi.addPerson()` (`POST /v1/persons` → `POST /api/v2/persons`)
+  - `v1.PersonsApi.updatePerson()` → `v2.PersonsApi.updatePerson()` (`PUT /v1/persons/{id}` → `PATCH /api/v2/persons/{id}`)
+  - `v1.PersonsApi.deletePerson()` → `v2.PersonsApi.deletePerson()` (`DELETE /v1/persons/{id}` → `DELETE /api/v2/persons/{id}`)
+  - `v1.PersonsApi.getPersonDeals()` → `v2.DealsApi.getDeals({ person_id })` (`GET /v1/persons/{id}/deals` → `GET /api/v2/deals?person_id={id}`)
+  - `v1.PersonsApi.getPersonActivities()` → `v2.ActivitiesApi.getActivities({ person_id })` (`GET /v1/persons/{id}/activities` → `GET /api/v2/activities?person_id={id}`)
+
+  **PipelinesApi** (`import { PipelinesApi } from 'pipedrive/versions/v2'`):
+  - `v1.PipelinesApi.getPipelines()` → `v2.PipelinesApi.getPipelines()` (`GET /v1/pipelines` → `GET /api/v2/pipelines`)
+  - `v1.PipelinesApi.getPipeline()` → `v2.PipelinesApi.getPipeline()` (`GET /v1/pipelines/{id}` → `GET /api/v2/pipelines/{id}`)
+  - `v1.PipelinesApi.addPipeline()` → `v2.PipelinesApi.addPipeline()` (`POST /v1/pipelines` → `POST /api/v2/pipelines`)
+  - `v1.PipelinesApi.updatePipeline()` → `v2.PipelinesApi.updatePipeline()` (`PUT /v1/pipelines/{id}` → `PATCH /api/v2/pipelines/{id}`)
+  - `v1.PipelinesApi.deletePipeline()` → `v2.PipelinesApi.deletePipeline()` (`DELETE /v1/pipelines/{id}` → `DELETE /api/v2/pipelines/{id}`)
+
+  **ProductsApi** (`import { ProductsApi } from 'pipedrive/versions/v2'`):
+  - `v1.ProductsApi.getProducts()` → `v2.ProductsApi.getProducts()` (`GET /v1/products` → `GET /api/v2/products`)
+  - `v1.ProductsApi.getProduct()` → `v2.ProductsApi.getProduct()` (`GET /v1/products/{id}` → `GET /api/v2/products/{id}`)
+  - `v1.ProductsApi.searchProducts()` → `v2.ProductsApi.searchProducts()` (`GET /v1/products/search` → `GET /api/v2/products/search`)
+  - `v1.ProductsApi.addProduct()` → `v2.ProductsApi.addProduct()` (`POST /v1/products` → `POST /api/v2/products`)
+  - `v1.ProductsApi.updateProduct()` → `v2.ProductsApi.updateProduct()` (`PUT /v1/products/{id}` → `PATCH /api/v2/products/{id}`)
+  - `v1.ProductsApi.deleteProduct()` → `v2.ProductsApi.deleteProduct()` (`DELETE /v1/products/{id}` → `DELETE /api/v2/products/{id}`)
+
+  **StagesApi** (`import { StagesApi } from 'pipedrive/versions/v2'`):
+  - `v1.StagesApi.getStages()` → `v2.StagesApi.getStages()` (`GET /v1/stages` → `GET /api/v2/stages`)
+  - `v1.StagesApi.getStage()` → `v2.StagesApi.getStage()` (`GET /v1/stages/{id}` → `GET /api/v2/stages/{id}`)
+  - `v1.StagesApi.addStage()` → `v2.StagesApi.addStage()` (`POST /v1/stages` → `POST /api/v2/stages`)
+  - `v1.StagesApi.updateStage()` → `v2.StagesApi.updateStage()` (`PUT /v1/stages/{id}` → `PATCH /api/v2/stages/{id}`)
+  - `v1.StagesApi.deleteStage()` → `v2.StagesApi.deleteStage()` (`DELETE /v1/stages/{id}` → `DELETE /api/v2/stages/{id}`)
+### Fixed
+- Made `picture_id`, `org_id`, `label`, `last_name`, `cc_email`, `last_incoming_mail_time`, and `last_outgoing_mail_time` nullable in person and organization schemas to match real API behavior
+
 ## [31.6.0] - 2026-03-05
 ### Changed
 - Changed `board_id` and `phase_id` to be optional in `POST /api/v1/projects`
@@ -1130,7 +1208,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v31.6.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v32.0.0...HEAD
+[32.0.0]: https://github.com/pipedrive/api-docs/compare/v31.6.0...v32.0.0
 [31.6.0]: https://github.com/pipedrive/api-docs/compare/v31.5.0...v31.6.0
 [31.5.0]: https://github.com/pipedrive/api-docs/compare/v31.4.0...v31.5.0
 [31.4.0]: https://github.com/pipedrive/api-docs/compare/v31.3.0...v31.4.0

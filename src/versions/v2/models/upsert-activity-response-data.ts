@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { ActivityItem1 } from './activity-item1';
+import { ActivityItem } from './activity-item';
 
 /**
 * 
@@ -25,8 +25,8 @@ import { ActivityItem1 } from './activity-item1';
 export interface UpsertActivityResponseData {
     /**
     * 
-    * @type {ActivityItem1}
+    * @type {ActivityItem}
     */
-    'data'?: ActivityItem1;
+    'data'?: ActivityItem;
 }
 

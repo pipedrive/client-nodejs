@@ -21,134 +21,54 @@
 */
 export interface ActivityCollectionResponseObjectAllOf {
     /**
-    * The ID of the activity, generated when the activity was created
+    * The due date of the activity. Format: YYYY-MM-DD
+    * @type {string}
+    */
+    'due_date'?: string;
+    /**
+    * The due time of the activity in UTC. Format: HH:MM
+    * @type {string}
+    */
+    'due_time'?: string;
+    /**
+    * The duration of the activity. Format: HH:MM
+    * @type {string}
+    */
+    'duration'?: string;
+    /**
+    * The ID of the deal this activity is associated with
     * @type {number}
     */
-    'id': number;
+    'deal_id'?: number;
     /**
-    * Whether the activity is done or not
-    * @type {boolean}
-    */
-    'done': boolean;
-    /**
-    * The subject of the activity
+    * The ID of the lead in the UUID format this activity is associated with
     * @type {string}
     */
-    'subject': string;
+    'lead_id'?: string | null;
     /**
-    * The type of the activity. This is in correlation with the `key_string` parameter of ActivityTypes.
-    * @type {string}
-    */
-    'type': string;
-    /**
-    * The ID of the user whom the activity is assigned to
+    * The ID of the person this activity is associated with
     * @type {number}
     */
-    'user_id': number;
+    'person_id'?: number;
     /**
-    * Marks if the activity is set as \'Busy\' or \'Free\'. If the flag is set to `true`, your customers will not be able to book that time slot through any Scheduler links. The flag can also be unset. When the value of the flag is unset (`null`), the flag defaults to \'Busy\' if it has a time set, and \'Free\' if it is an all-day event without specified time.
-    * @type {boolean}
-    */
-    'busy_flag': boolean;
-    /**
-    * The user\'s company ID
+    * The ID of the project this activity is associated with
     * @type {number}
     */
-    'company_id': number;
+    'project_id'?: number | null;
     /**
-    * The ID of the Marketplace app, which is connected to this activity
-    * @type {string}
-    */
-    'conference_meeting_client': string;
-    /**
-    * The link to join the meeting which is associated with this activity
-    * @type {string}
-    */
-    'conference_meeting_url': string;
-    /**
-    * The meeting ID of the meeting provider (Zoom, MS Teams etc.) that is associated with this activity
-    * @type {string}
-    */
-    'conference_meeting_id': string;
-    /**
-    * The creation date and time of the activity in UTC. Format: YYYY-MM-DD HH:MM:SS.
-    * @type {string}
-    */
-    'add_time': string;
-    /**
-    * The date and time this activity was marked as done. Format: YYYY-MM-DD HH:MM:SS.
-    * @type {string}
-    */
-    'marked_as_done_time': string;
-    /**
-    * Whether the activity is active or not
-    * @type {boolean}
-    */
-    'active_flag': boolean;
-    /**
-    * The last update date and time of the activity. Format: YYYY-MM-DD HH:MM:SS.
-    * @type {string}
-    */
-    'update_time': string;
-    /**
-    * The ID of the user who was the last to update this activity
+    * The ID of the organization this activity is associated with
     * @type {number}
     */
-    'update_user_id': number;
+    'org_id'?: number;
     /**
-    * The timezone the activity was created in an external calendar
+    * The address of the activity.
     * @type {string}
     */
-    'source_timezone': string;
+    'location'?: string;
     /**
-    * A subfield of the location field. Indicates apartment/suite number.
+    * Additional details about the activity that is synced to your external calendar. Unlike the note added to the activity, the description is publicly visible to any guests added to the activity.
     * @type {string}
     */
-    'location_subpremise': string;
-    /**
-    * A subfield of the location field. Indicates house number.
-    * @type {string}
-    */
-    'location_street_number': string;
-    /**
-    * A subfield of the location field. Indicates street name.
-    * @type {string}
-    */
-    'location_route': string;
-    /**
-    * A subfield of the location field. Indicates district/sublocality.
-    * @type {string}
-    */
-    'location_sublocality': string;
-    /**
-    * A subfield of the location field. Indicates city/town/village/locality.
-    * @type {string}
-    */
-    'location_locality': string;
-    /**
-    * A subfield of the location field. Indicates state/county.
-    * @type {string}
-    */
-    'location_admin_area_level_1': string;
-    /**
-    * A subfield of the location field. Indicates region.
-    * @type {string}
-    */
-    'location_admin_area_level_2': string;
-    /**
-    * A subfield of the location field. Indicates country.
-    * @type {string}
-    */
-    'location_country': string;
-    /**
-    * A subfield of the location field. Indicates ZIP/postal code.
-    * @type {string}
-    */
-    'location_postal_code': string;
-    /**
-    * A subfield of the location field. Indicates full/combined address.
-    * @type {string}
-    */
-    'location_formatted_address': string;
+    'public_description'?: string;
 }
 

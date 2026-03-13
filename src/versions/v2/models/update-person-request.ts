@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetPersonsResponseAllOfDataInnerEmailsInner } from './get-persons-response-all-of-data-inner-emails-inner';
+import { AddPersonRequestEmailsInner } from './add-person-request-emails-inner';
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetPersonsResponseAllOfDataInnerPhonesInner } from './get-persons-response-all-of-data-inner-phones-inner';
+import { AddPersonRequestPhonesInner } from './add-person-request-phones-inner';
 
 /**
 * 
@@ -53,14 +53,14 @@ export interface UpdatePersonRequest {
     'update_time'?: string;
     /**
     * The emails of the person
-    * @type {Array<GetPersonsResponseAllOfDataInnerEmailsInner>}
+    * @type {Array<AddPersonRequestEmailsInner>}
     */
-    'emails'?: Array<GetPersonsResponseAllOfDataInnerEmailsInner>;
+    'emails'?: Array<AddPersonRequestEmailsInner>;
     /**
     * The phones of the person
-    * @type {Array<GetPersonsResponseAllOfDataInnerPhonesInner>}
+    * @type {Array<AddPersonRequestPhonesInner>}
     */
-    'phones'?: Array<GetPersonsResponseAllOfDataInnerPhonesInner>;
+    'phones'?: Array<AddPersonRequestPhonesInner>;
     /**
     * The visibility of the person
     * @type {number}
