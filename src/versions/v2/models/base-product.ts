@@ -18,15 +18,18 @@
 import { BaseProductAllOf } from './base-product-all-of';
 // May contain unused imports in some cases
 // @ts-ignore
-import { BaseProductAllOf1 } from './base-product-all-of1';
+import { GetDealsProductsResponseDataInnerAllOf2 } from './get-deals-products-response-data-inner-all-of2';
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetDealsProductsResponseDataInnerAllOf2 } from './get-deals-products-response-data-inner-all-of2';
+import { OrganizationItem } from './organization-item';
+// May contain unused imports in some cases
+// @ts-ignore
+import { OrganizationItemAddress } from './organization-item-address';
 
 /**
  * @type BaseProduct
  * @export
  */
-export type BaseProduct = BaseProductAllOf & BaseProductAllOf1 & GetDealsProductsResponseDataInnerAllOf2;
+export type BaseProduct = BaseProductAllOf & GetDealsProductsResponseDataInnerAllOf2 & OrganizationItem;
 
 

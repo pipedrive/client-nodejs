@@ -31,7 +31,7 @@ export interface AddInstallmentRequestBody {
     */
     'amount': number;
     /**
-    * The date which the installment will be charged. Must be in the format YYYY-MM-DD.
+    * The date on which the installment will be charged. Must be in the format YYYY-MM-DD.
     * @type {string}
     */
     'billing_date': string;

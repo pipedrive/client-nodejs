@@ -18,7 +18,7 @@
 import { GetActivitiesResponseAllOfAdditionalData } from './get-activities-response-all-of-additional-data';
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetPersonsResponseAllOfDataInner } from './get-persons-response-all-of-data-inner';
+import { OrganizationItem } from './organization-item';
 
 /**
 * 
@@ -28,9 +28,9 @@ import { GetPersonsResponseAllOfDataInner } from './get-persons-response-all-of-
 export interface GetPersonsResponseAllOf {
     /**
     * Persons array
-    * @type {Array<GetPersonsResponseAllOfDataInner>}
+    * @type {Array<OrganizationItem>}
     */
-    'data'?: Array<GetPersonsResponseAllOfDataInner>;
+    'data'?: Array<OrganizationItem>;
     /**
     * 
     * @type {GetActivitiesResponseAllOfAdditionalData}

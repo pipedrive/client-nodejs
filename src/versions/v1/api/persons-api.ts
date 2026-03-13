@@ -28,17 +28,7 @@ import { AddPersonFollowerResponse } from '../models';
 // @ts-ignore
 import { AddPersonPictureResponse } from '../models';
 // @ts-ignore
-import { AddPersonRequest } from '../models';
-// @ts-ignore
-import { AddPersonResponse } from '../models';
-// @ts-ignore
 import { DeletePersonResponse } from '../models';
-// @ts-ignore
-import { FailResponse } from '../models';
-// @ts-ignore
-import { GetAssociatedActivitiesResponse } from '../models';
-// @ts-ignore
-import { GetAssociatedDealsResponse } from '../models';
 // @ts-ignore
 import { GetAssociatedFilesResponse } from '../models';
 // @ts-ignore
@@ -52,70 +42,17 @@ import { GetListFollowersResponse } from '../models';
 // @ts-ignore
 import { GetPermittedUsersResponse1 } from '../models';
 // @ts-ignore
-import { GetPersonDetailsResponse } from '../models';
-// @ts-ignore
 import { GetPersonProductsResponse } from '../models';
-// @ts-ignore
-import { GetPersonSearchResponse } from '../models';
-// @ts-ignore
-import { GetPersonsCollection200Response } from '../models';
-// @ts-ignore
-import { GetPersonsResponse1 } from '../models';
 // @ts-ignore
 import { MergePersonsRequest } from '../models';
 // @ts-ignore
 import { MergePersonsResponse } from '../models';
-// @ts-ignore
-import { UpdatePersonRequest } from '../models';
-// @ts-ignore
-import { UpdatePersonResponse } from '../models';
 /**
  * PersonsApi - axios parameter creator
  * @export
  */
 export const PersonsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
-        /**
-         * Adds a new person. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the personFields and look for `key` values.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `data.marketing_status` field.
-         * @summary Add a person
-         * @param {AddPersonRequest} [AddPersonRequest] 
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        addPerson: async (AddPersonRequest?: AddPersonRequest, ): Promise<RequestArgs> => {
-            const localVarPath = `/persons`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-            localVarRequestOptions.data = serializeDataIfNeeded(AddPersonRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
         /**
          * Adds a follower to a person.
          * @summary Add a follower to a person
@@ -234,47 +171,6 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Marks a person as deleted. After 30 days, the person will be permanently deleted.
-         * @summary Delete a person
-         * @param {number} id The ID of the person
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        deletePerson: async (id: number, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('deletePerson', 'id', id)
-            const localVarPath = `/persons/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Deletes a follower from a person.
          * @summary Delete a follower from a person
          * @param {number} id The ID of the person
@@ -361,108 +257,6 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Returns the details of a person. Note that this also returns some additional fields which are not present when asking for all persons. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of personFields.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
-         * @summary Get details of a person
-         * @param {number} id The ID of the person
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getPerson: async (id: number, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('getPerson', 'id', id)
-            const localVarPath = `/persons/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full"], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Lists activities associated with a person. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities?person_id={id}</a> instead.
-         * @summary List activities associated with a person
-         * @param {number} id The ID of the person
-         * @param {number} [start] Pagination start
-         * @param {number} [limit] Items shown per page
-         * @param {0 | 1} [done] Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted, returns both Done and Not done activities.
-         * @param {string} [exclude] A comma-separated string of activity IDs to exclude from result
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getPersonActivities: async (id: number, start?: number, limit?: number, done?: 0 | 1, exclude?: string, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('getPersonActivities', 'id', id)
-            const localVarPath = `/persons/{id}/activities`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["activities:read", "activities:full"], configuration)
-
-            if (start !== undefined) {
-                localVarQueryParameter['start'] = start;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (done !== undefined) {
-                localVarQueryParameter['done'] = done;
-            }
-
-            if (exclude !== undefined) {
-                localVarQueryParameter['exclude'] = exclude;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Lists updates about field values of a person.
          * @summary List updates about person field values
          * @param {number} id The ID of the person
@@ -500,67 +294,6 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Lists deals associated with a person. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?person_id={id}</a> instead.
-         * @summary List deals associated with a person
-         * @param {number} id The ID of the person
-         * @param {number} [start] Pagination start
-         * @param {number} [limit] Items shown per page
-         * @param {'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted'} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included.
-         * @param {string} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getPersonDeals: async (id: number, start?: number, limit?: number, status?: 'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted', sort?: string, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('getPersonDeals', 'id', id)
-            const localVarPath = `/persons/{id}/deals`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
-
-            if (start !== undefined) {
-                localVarQueryParameter['start'] = start;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (status !== undefined) {
-                localVarQueryParameter['status'] = status;
-            }
-
-            if (sort !== undefined) {
-                localVarQueryParameter['sort'] = sort;
             }
 
 
@@ -876,140 +609,6 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Returns all persons.
-         * @summary Get all persons
-         * @param {number} [user_id] If supplied, only persons owned by the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;user_id&#x60; when both are supplied.
-         * @param {number} [filter_id] The ID of the filter to use
-         * @param {string} [first_char] If supplied, only persons whose name starts with the specified letter will be returned (case-insensitive)
-         * @param {number} [start] Pagination start
-         * @param {number} [limit] Items shown per page
-         * @param {string} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getPersons: async (user_id?: number, filter_id?: number, first_char?: string, start?: number, limit?: number, sort?: string, ): Promise<RequestArgs> => {
-            const localVarPath = `/persons`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full"], configuration)
-
-            if (user_id !== undefined) {
-                localVarQueryParameter['user_id'] = user_id;
-            }
-
-            if (filter_id !== undefined) {
-                localVarQueryParameter['filter_id'] = filter_id;
-            }
-
-            if (first_char !== undefined) {
-                localVarQueryParameter['first_char'] = first_char;
-            }
-
-            if (start !== undefined) {
-                localVarQueryParameter['start'] = start;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (sort !== undefined) {
-                localVarQueryParameter['sort'] = sort;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Returns all persons. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#getPersons\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/persons</a> instead.
-         * @summary Get all persons collection
-         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
-         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-         * @param {string} [since] The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
-         * @param {string} [until] The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
-         * @param {number} [owner_id] If supplied, only persons owned by the given user will be returned
-         * @param {string} [first_char] If supplied, only persons whose name starts with the specified letter will be returned (case-insensitive)
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getPersonsCollection: async (cursor?: string, limit?: number, since?: string, until?: string, owner_id?: number, first_char?: string, ): Promise<RequestArgs> => {
-            const localVarPath = `/persons/collection`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full"], configuration)
-
-            if (cursor !== undefined) {
-                localVarQueryParameter['cursor'] = cursor;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (since !== undefined) {
-                localVarQueryParameter['since'] = since;
-            }
-
-            if (until !== undefined) {
-                localVarQueryParameter['until'] = until;
-            }
-
-            if (owner_id !== undefined) {
-                localVarQueryParameter['owner_id'] = owner_id;
-            }
-
-            if (first_char !== undefined) {
-                localVarQueryParameter['first_char'] = first_char;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Merges a person with another person. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/merging-two-persons\" target=\"_blank\" rel=\"noopener noreferrer\">merging two persons</a>.
          * @summary Merge two persons
          * @param {number} id The ID of the person
@@ -1054,125 +653,6 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
                 options: localVarRequestOptions,
             };
         },
-        /**
-         * Searches all persons by name, email, phone, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found persons can be filtered by organization ID.
-         * @summary Search persons
-         * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-         * @param {'custom_fields' | 'email' | 'notes' | 'phone' | 'name'} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
-         * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
-         * @param {number} [organization_id] Will filter persons by the provided organization ID. The upper limit of found persons associated with the organization is 2000.
-         * @param {'person.picture'} [include_fields] Supports including optional fields in the results which are not provided by default
-         * @param {number} [start] Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter.
-         * @param {number} [limit] Items shown per page
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        searchPersons: async (term: string, fields?: 'custom_fields' | 'email' | 'notes' | 'phone' | 'name', exact_match?: boolean, organization_id?: number, include_fields?: 'person.picture', start?: number, limit?: number, ): Promise<RequestArgs> => {
-            // verify required parameter 'term' is not null or undefined
-            assertParamExists('searchPersons', 'term', term)
-            const localVarPath = `/persons/search`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full", "search:read"], configuration)
-
-            if (term !== undefined) {
-                localVarQueryParameter['term'] = term;
-            }
-
-            if (fields !== undefined) {
-                localVarQueryParameter['fields'] = fields;
-            }
-
-            if (exact_match !== undefined) {
-                localVarQueryParameter['exact_match'] = exact_match;
-            }
-
-            if (organization_id !== undefined) {
-                localVarQueryParameter['organization_id'] = organization_id;
-            }
-
-            if (include_fields !== undefined) {
-                localVarQueryParameter['include_fields'] = include_fields;
-            }
-
-            if (start !== undefined) {
-                localVarQueryParameter['start'] = start;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Updates the properties of a person. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/updating-a-person\" target=\"_blank\" rel=\"noopener noreferrer\">updating a person</a>.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `data.marketing_status` field.
-         * @summary Update a person
-         * @param {number} id The ID of the person
-         * @param {UpdatePersonRequest} [UpdatePersonRequest] 
-
-         * @throws {RequiredError}
-         */
-        updatePerson: async (id: number, UpdatePersonRequest?: UpdatePersonRequest, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('updatePerson', 'id', id)
-            const localVarPath = `/persons/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:full"], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-            localVarRequestOptions.data = serializeDataIfNeeded(UpdatePersonRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
     }
 };
 
@@ -1184,17 +664,6 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
 export const PersonsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = PersonsApiAxiosParamCreator(configuration)
     return {
-        /**
-         * Adds a new person. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the personFields and look for `key` values.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `data.marketing_status` field.
-         * @summary Add a person
-         * @param {AddPersonRequest} [AddPersonRequest] 
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async addPerson(AddPersonRequest?: AddPersonRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddPersonResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addPerson(AddPersonRequest, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
         /**
          * Adds a follower to a person.
          * @summary Add a follower to a person
@@ -1224,17 +693,6 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Marks a person as deleted. After 30 days, the person will be permanently deleted.
-         * @summary Delete a person
-         * @param {number} id The ID of the person
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async deletePerson(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeletePersonResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deletePerson(id, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Deletes a follower from a person.
          * @summary Delete a follower from a person
          * @param {number} id The ID of the person
@@ -1258,32 +716,6 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns the details of a person. Note that this also returns some additional fields which are not present when asking for all persons. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of personFields.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
-         * @summary Get details of a person
-         * @param {number} id The ID of the person
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async getPerson(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPersonDetailsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPerson(id, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Lists activities associated with a person. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities?person_id={id}</a> instead.
-         * @summary List activities associated with a person
-         * @param {number} id The ID of the person
-         * @param {number} [start] Pagination start
-         * @param {number} [limit] Items shown per page
-         * @param {0 | 1} [done] Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted, returns both Done and Not done activities.
-         * @param {string} [exclude] A comma-separated string of activity IDs to exclude from result
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async getPersonActivities(id: number, start?: number, limit?: number, done?: 0 | 1, exclude?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetAssociatedActivitiesResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonActivities(id, start, limit, done, exclude, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Lists updates about field values of a person.
          * @summary List updates about person field values
          * @param {number} id The ID of the person
@@ -1294,21 +726,6 @@ export const PersonsApiFp = function(configuration?: Configuration) {
          */
         async getPersonChangelog(id: number, cursor?: string, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetChangelogResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonChangelog(id, cursor, limit, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Lists deals associated with a person. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?person_id={id}</a> instead.
-         * @summary List deals associated with a person
-         * @param {number} id The ID of the person
-         * @param {number} [start] Pagination start
-         * @param {number} [limit] Items shown per page
-         * @param {'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted'} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included.
-         * @param {string} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async getPersonDeals(id: number, start?: number, limit?: number, status?: 'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted', sort?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetAssociatedDealsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonDeals(id, start, limit, status, sort, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -1389,38 +806,6 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns all persons.
-         * @summary Get all persons
-         * @param {number} [user_id] If supplied, only persons owned by the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;user_id&#x60; when both are supplied.
-         * @param {number} [filter_id] The ID of the filter to use
-         * @param {string} [first_char] If supplied, only persons whose name starts with the specified letter will be returned (case-insensitive)
-         * @param {number} [start] Pagination start
-         * @param {number} [limit] Items shown per page
-         * @param {string} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async getPersons(user_id?: number, filter_id?: number, first_char?: string, start?: number, limit?: number, sort?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPersonsResponse1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPersons(user_id, filter_id, first_char, start, limit, sort, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Returns all persons. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#getPersons\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/persons</a> instead.
-         * @summary Get all persons collection
-         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
-         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-         * @param {string} [since] The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
-         * @param {string} [until] The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
-         * @param {number} [owner_id] If supplied, only persons owned by the given user will be returned
-         * @param {string} [first_char] If supplied, only persons whose name starts with the specified letter will be returned (case-insensitive)
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async getPersonsCollection(cursor?: string, limit?: number, since?: string, until?: string, owner_id?: number, first_char?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPersonsCollection200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonsCollection(cursor, limit, since, until, owner_id, first_char, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Merges a person with another person. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/merging-two-persons\" target=\"_blank\" rel=\"noopener noreferrer\">merging two persons</a>.
          * @summary Merge two persons
          * @param {number} id The ID of the person
@@ -1430,35 +815,6 @@ export const PersonsApiFp = function(configuration?: Configuration) {
          */
         async mergePersons(id: number, MergePersonsRequest?: MergePersonsRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<MergePersonsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.mergePersons(id, MergePersonsRequest, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Searches all persons by name, email, phone, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found persons can be filtered by organization ID.
-         * @summary Search persons
-         * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-         * @param {'custom_fields' | 'email' | 'notes' | 'phone' | 'name'} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
-         * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
-         * @param {number} [organization_id] Will filter persons by the provided organization ID. The upper limit of found persons associated with the organization is 2000.
-         * @param {'person.picture'} [include_fields] Supports including optional fields in the results which are not provided by default
-         * @param {number} [start] Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter.
-         * @param {number} [limit] Items shown per page
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async searchPersons(term: string, fields?: 'custom_fields' | 'email' | 'notes' | 'phone' | 'name', exact_match?: boolean, organization_id?: number, include_fields?: 'person.picture', start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPersonSearchResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.searchPersons(term, fields, exact_match, organization_id, include_fields, start, limit, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Updates the properties of a person. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/updating-a-person\" target=\"_blank\" rel=\"noopener noreferrer\">updating a person</a>.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `data.marketing_status` field.
-         * @summary Update a person
-         * @param {number} id The ID of the person
-         * @param {UpdatePersonRequest} [UpdatePersonRequest] 
-
-         * @throws {RequiredError}
-         */
-        async updatePerson(id: number, UpdatePersonRequest?: UpdatePersonRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdatePersonResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePerson(id, UpdatePersonRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -1471,16 +827,6 @@ export const PersonsApiFp = function(configuration?: Configuration) {
 export const PersonsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = PersonsApiFp(configuration)
     return {
-        /**
-         * Adds a new person. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the personFields and look for `key` values.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `data.marketing_status` field.
-         * @summary Add a person
-         * @param {PersonsApiAddPersonRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        addPerson(requestParameters: PersonsApiAddPersonRequest = {}, ): Promise<AddPersonResponse> {
-            return localVarFp.addPerson(requestParameters.AddPersonRequest, ).then((request) => request(axios, basePath));
-        },
         /**
          * Adds a follower to a person.
          * @summary Add a follower to a person
@@ -1500,16 +846,6 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
          */
         addPersonPicture(requestParameters: PersonsApiAddPersonPictureRequest, ): Promise<AddPersonPictureResponse> {
             return localVarFp.addPersonPicture(requestParameters.id, requestParameters.file, requestParameters.crop_x, requestParameters.crop_y, requestParameters.crop_width, requestParameters.crop_height, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Marks a person as deleted. After 30 days, the person will be permanently deleted.
-         * @summary Delete a person
-         * @param {PersonsApiDeletePersonRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        deletePerson(requestParameters: PersonsApiDeletePersonRequest, ): Promise<DeletePersonResponse> {
-            return localVarFp.deletePerson(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Deletes a follower from a person.
@@ -1532,26 +868,6 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.deletePersonPicture(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
-         * Returns the details of a person. Note that this also returns some additional fields which are not present when asking for all persons. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of personFields.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
-         * @summary Get details of a person
-         * @param {PersonsApiGetPersonRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getPerson(requestParameters: PersonsApiGetPersonRequest, ): Promise<GetPersonDetailsResponse> {
-            return localVarFp.getPerson(requestParameters.id, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Lists activities associated with a person. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities?person_id={id}</a> instead.
-         * @summary List activities associated with a person
-         * @param {PersonsApiGetPersonActivitiesRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getPersonActivities(requestParameters: PersonsApiGetPersonActivitiesRequest, ): Promise<GetAssociatedActivitiesResponse> {
-            return localVarFp.getPersonActivities(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.done, requestParameters.exclude, ).then((request) => request(axios, basePath));
-        },
-        /**
          * Lists updates about field values of a person.
          * @summary List updates about person field values
          * @param {PersonsApiGetPersonChangelogRequest} requestParameters Request parameters.
@@ -1560,16 +876,6 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
          */
         getPersonChangelog(requestParameters: PersonsApiGetPersonChangelogRequest, ): Promise<GetChangelogResponse> {
             return localVarFp.getPersonChangelog(requestParameters.id, requestParameters.cursor, requestParameters.limit, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Lists deals associated with a person. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?person_id={id}</a> instead.
-         * @summary List deals associated with a person
-         * @param {PersonsApiGetPersonDealsRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getPersonDeals(requestParameters: PersonsApiGetPersonDealsRequest, ): Promise<GetAssociatedDealsResponse> {
-            return localVarFp.getPersonDeals(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.status, requestParameters.sort, ).then((request) => request(axios, basePath));
         },
         /**
          * Lists files associated with a person.
@@ -1632,26 +938,6 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getPersonUsers(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
-         * Returns all persons.
-         * @summary Get all persons
-         * @param {PersonsApiGetPersonsRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getPersons(requestParameters: PersonsApiGetPersonsRequest = {}, ): Promise<GetPersonsResponse1> {
-            return localVarFp.getPersons(requestParameters.user_id, requestParameters.filter_id, requestParameters.first_char, requestParameters.start, requestParameters.limit, requestParameters.sort, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Returns all persons. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#getPersons\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/persons</a> instead.
-         * @summary Get all persons collection
-         * @param {PersonsApiGetPersonsCollectionRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        getPersonsCollection(requestParameters: PersonsApiGetPersonsCollectionRequest = {}, ): Promise<GetPersonsCollection200Response> {
-            return localVarFp.getPersonsCollection(requestParameters.cursor, requestParameters.limit, requestParameters.since, requestParameters.until, requestParameters.owner_id, requestParameters.first_char, ).then((request) => request(axios, basePath));
-        },
-        /**
          * Merges a person with another person. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/merging-two-persons\" target=\"_blank\" rel=\"noopener noreferrer\">merging two persons</a>.
          * @summary Merge two persons
          * @param {PersonsApiMergePersonsRequest} requestParameters Request parameters.
@@ -1661,42 +947,8 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
         mergePersons(requestParameters: PersonsApiMergePersonsRequest, ): Promise<MergePersonsResponse> {
             return localVarFp.mergePersons(requestParameters.id, requestParameters.MergePersonsRequest, ).then((request) => request(axios, basePath));
         },
-        /**
-         * Searches all persons by name, email, phone, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found persons can be filtered by organization ID.
-         * @summary Search persons
-         * @param {PersonsApiSearchPersonsRequest} requestParameters Request parameters.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        searchPersons(requestParameters: PersonsApiSearchPersonsRequest, ): Promise<GetPersonSearchResponse> {
-            return localVarFp.searchPersons(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.organization_id, requestParameters.include_fields, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Updates the properties of a person. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/updating-a-person\" target=\"_blank\" rel=\"noopener noreferrer\">updating a person</a>.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `data.marketing_status` field.
-         * @summary Update a person
-         * @param {PersonsApiUpdatePersonRequest} requestParameters Request parameters.
-
-         * @throws {RequiredError}
-         */
-        updatePerson(requestParameters: PersonsApiUpdatePersonRequest, ): Promise<UpdatePersonResponse> {
-            return localVarFp.updatePerson(requestParameters.id, requestParameters.UpdatePersonRequest, ).then((request) => request(axios, basePath));
-        },
     };
 };
-
-/**
- * Request parameters for addPerson operation in PersonsApi.
- * @export
- * @interface PersonsApiAddPersonRequest
- */
-export interface PersonsApiAddPersonRequest {
-    /**
-     * 
-     * @type {AddPersonRequest}
-     * @memberof PersonsApiAddPerson
-     */
-    readonly AddPersonRequest?: AddPersonRequest
-}
 
 /**
  * Request parameters for addPersonFollower operation in PersonsApi.
@@ -1769,20 +1021,6 @@ export interface PersonsApiAddPersonPictureRequest {
 }
 
 /**
- * Request parameters for deletePerson operation in PersonsApi.
- * @export
- * @interface PersonsApiDeletePersonRequest
- */
-export interface PersonsApiDeletePersonRequest {
-    /**
-     * The ID of the person
-     * @type {number}
-     * @memberof PersonsApiDeletePerson
-     */
-    readonly id: number
-}
-
-/**
  * Request parameters for deletePersonFollower operation in PersonsApi.
  * @export
  * @interface PersonsApiDeletePersonFollowerRequest
@@ -1818,62 +1056,6 @@ export interface PersonsApiDeletePersonPictureRequest {
 }
 
 /**
- * Request parameters for getPerson operation in PersonsApi.
- * @export
- * @interface PersonsApiGetPersonRequest
- */
-export interface PersonsApiGetPersonRequest {
-    /**
-     * The ID of the person
-     * @type {number}
-     * @memberof PersonsApiGetPerson
-     */
-    readonly id: number
-}
-
-/**
- * Request parameters for getPersonActivities operation in PersonsApi.
- * @export
- * @interface PersonsApiGetPersonActivitiesRequest
- */
-export interface PersonsApiGetPersonActivitiesRequest {
-    /**
-     * The ID of the person
-     * @type {number}
-     * @memberof PersonsApiGetPersonActivities
-     */
-    readonly id: number
-
-    /**
-     * Pagination start
-     * @type {number}
-     * @memberof PersonsApiGetPersonActivities
-     */
-    readonly start?: number
-
-    /**
-     * Items shown per page
-     * @type {number}
-     * @memberof PersonsApiGetPersonActivities
-     */
-    readonly limit?: number
-
-    /**
-     * Whether the activity is done or not. 0 &#x3D; Not done, 1 &#x3D; Done. If omitted, returns both Done and Not done activities.
-     * @type {0 | 1}
-     * @memberof PersonsApiGetPersonActivities
-     */
-    readonly done?: 0 | 1
-
-    /**
-     * A comma-separated string of activity IDs to exclude from result
-     * @type {string}
-     * @memberof PersonsApiGetPersonActivities
-     */
-    readonly exclude?: string
-}
-
-/**
  * Request parameters for getPersonChangelog operation in PersonsApi.
  * @export
  * @interface PersonsApiGetPersonChangelogRequest
@@ -1899,48 +1081,6 @@ export interface PersonsApiGetPersonChangelogRequest {
      * @memberof PersonsApiGetPersonChangelog
      */
     readonly limit?: number
-}
-
-/**
- * Request parameters for getPersonDeals operation in PersonsApi.
- * @export
- * @interface PersonsApiGetPersonDealsRequest
- */
-export interface PersonsApiGetPersonDealsRequest {
-    /**
-     * The ID of the person
-     * @type {number}
-     * @memberof PersonsApiGetPersonDeals
-     */
-    readonly id: number
-
-    /**
-     * Pagination start
-     * @type {number}
-     * @memberof PersonsApiGetPersonDeals
-     */
-    readonly start?: number
-
-    /**
-     * Items shown per page
-     * @type {number}
-     * @memberof PersonsApiGetPersonDeals
-     */
-    readonly limit?: number
-
-    /**
-     * Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included.
-     * @type {'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted'}
-     * @memberof PersonsApiGetPersonDeals
-     */
-    readonly status?: 'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted'
-
-    /**
-     * The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
-     * @type {string}
-     * @memberof PersonsApiGetPersonDeals
-     */
-    readonly sort?: string
 }
 
 /**
@@ -2105,104 +1245,6 @@ export interface PersonsApiGetPersonUsersRequest {
 }
 
 /**
- * Request parameters for getPersons operation in PersonsApi.
- * @export
- * @interface PersonsApiGetPersonsRequest
- */
-export interface PersonsApiGetPersonsRequest {
-    /**
-     * If supplied, only persons owned by the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;user_id&#x60; when both are supplied.
-     * @type {number}
-     * @memberof PersonsApiGetPersons
-     */
-    readonly user_id?: number
-
-    /**
-     * The ID of the filter to use
-     * @type {number}
-     * @memberof PersonsApiGetPersons
-     */
-    readonly filter_id?: number
-
-    /**
-     * If supplied, only persons whose name starts with the specified letter will be returned (case-insensitive)
-     * @type {string}
-     * @memberof PersonsApiGetPersons
-     */
-    readonly first_char?: string
-
-    /**
-     * Pagination start
-     * @type {number}
-     * @memberof PersonsApiGetPersons
-     */
-    readonly start?: number
-
-    /**
-     * Items shown per page
-     * @type {number}
-     * @memberof PersonsApiGetPersons
-     */
-    readonly limit?: number
-
-    /**
-     * The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
-     * @type {string}
-     * @memberof PersonsApiGetPersons
-     */
-    readonly sort?: string
-}
-
-/**
- * Request parameters for getPersonsCollection operation in PersonsApi.
- * @export
- * @interface PersonsApiGetPersonsCollectionRequest
- */
-export interface PersonsApiGetPersonsCollectionRequest {
-    /**
-     * For pagination, the marker (an opaque string value) representing the first item on the next page
-     * @type {string}
-     * @memberof PersonsApiGetPersonsCollection
-     */
-    readonly cursor?: string
-
-    /**
-     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-     * @type {number}
-     * @memberof PersonsApiGetPersonsCollection
-     */
-    readonly limit?: number
-
-    /**
-     * The time boundary that points to the start of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
-     * @type {string}
-     * @memberof PersonsApiGetPersonsCollection
-     */
-    readonly since?: string
-
-    /**
-     * The time boundary that points to the end of the range of data. Datetime in ISO 8601 format. E.g. 2022-11-01 08:55:59. Operates on the &#x60;update_time&#x60; field.
-     * @type {string}
-     * @memberof PersonsApiGetPersonsCollection
-     */
-    readonly until?: string
-
-    /**
-     * If supplied, only persons owned by the given user will be returned
-     * @type {number}
-     * @memberof PersonsApiGetPersonsCollection
-     */
-    readonly owner_id?: number
-
-    /**
-     * If supplied, only persons whose name starts with the specified letter will be returned (case-insensitive)
-     * @type {string}
-     * @memberof PersonsApiGetPersonsCollection
-     */
-    readonly first_char?: string
-}
-
-/**
  * Request parameters for mergePersons operation in PersonsApi.
  * @export
  * @interface PersonsApiMergePersonsRequest
@@ -2224,101 +1266,12 @@ export interface PersonsApiMergePersonsRequest {
 }
 
 /**
- * Request parameters for searchPersons operation in PersonsApi.
- * @export
- * @interface PersonsApiSearchPersonsRequest
- */
-export interface PersonsApiSearchPersonsRequest {
-    /**
-     * The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-     * @type {string}
-     * @memberof PersonsApiSearchPersons
-     */
-    readonly term: string
-
-    /**
-     * A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
-     * @type {'custom_fields' | 'email' | 'notes' | 'phone' | 'name'}
-     * @memberof PersonsApiSearchPersons
-     */
-    readonly fields?: 'custom_fields' | 'email' | 'notes' | 'phone' | 'name'
-
-    /**
-     * When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
-     * @type {boolean}
-     * @memberof PersonsApiSearchPersons
-     */
-    readonly exact_match?: boolean
-
-    /**
-     * Will filter persons by the provided organization ID. The upper limit of found persons associated with the organization is 2000.
-     * @type {number}
-     * @memberof PersonsApiSearchPersons
-     */
-    readonly organization_id?: number
-
-    /**
-     * Supports including optional fields in the results which are not provided by default
-     * @type {'person.picture'}
-     * @memberof PersonsApiSearchPersons
-     */
-    readonly include_fields?: 'person.picture'
-
-    /**
-     * Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter.
-     * @type {number}
-     * @memberof PersonsApiSearchPersons
-     */
-    readonly start?: number
-
-    /**
-     * Items shown per page
-     * @type {number}
-     * @memberof PersonsApiSearchPersons
-     */
-    readonly limit?: number
-}
-
-/**
- * Request parameters for updatePerson operation in PersonsApi.
- * @export
- * @interface PersonsApiUpdatePersonRequest
- */
-export interface PersonsApiUpdatePersonRequest {
-    /**
-     * The ID of the person
-     * @type {number}
-     * @memberof PersonsApiUpdatePerson
-     */
-    readonly id: number
-
-    /**
-     * 
-     * @type {UpdatePersonRequest}
-     * @memberof PersonsApiUpdatePerson
-     */
-    readonly UpdatePersonRequest?: UpdatePersonRequest
-}
-
-/**
  * PersonsApi - object-oriented interface
  * @export
  * @class PersonsApi
  * @extends {BaseAPI}
  */
 export class PersonsApi extends BaseAPI {
-    /**
-     * Adds a new person. Note that you can supply additional custom fields along with the request that are not described here. These custom fields are different for each Pipedrive account and can be recognized by long hashes as keys. To determine which custom fields exists, fetch the personFields and look for `key` values.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `data.marketing_status` field.
-     * @summary Add a person
-     * @param {PersonsApiAddPersonRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof PersonsApi
-     */
-    public addPerson(requestParameters: PersonsApiAddPersonRequest = {}, ) {
-        return PersonsApiFp(this.configuration).addPerson(requestParameters.AddPersonRequest, ).then((request) => request(this.axios, this.basePath));
-    }
-
     /**
      * Adds a follower to a person.
      * @summary Add a follower to a person
@@ -2341,18 +1294,6 @@ export class PersonsApi extends BaseAPI {
      */
     public addPersonPicture(requestParameters: PersonsApiAddPersonPictureRequest, ) {
         return PersonsApiFp(this.configuration).addPersonPicture(requestParameters.id, requestParameters.file, requestParameters.crop_x, requestParameters.crop_y, requestParameters.crop_width, requestParameters.crop_height, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Marks a person as deleted. After 30 days, the person will be permanently deleted.
-     * @summary Delete a person
-     * @param {PersonsApiDeletePersonRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof PersonsApi
-     */
-    public deletePerson(requestParameters: PersonsApiDeletePersonRequest, ) {
-        return PersonsApiFp(this.configuration).deletePerson(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2380,30 +1321,6 @@ export class PersonsApi extends BaseAPI {
     }
 
     /**
-     * Returns the details of a person. Note that this also returns some additional fields which are not present when asking for all persons. Also note that custom fields appear as long hashes in the resulting data. These hashes can be mapped against the `key` value of personFields.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
-     * @summary Get details of a person
-     * @param {PersonsApiGetPersonRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof PersonsApi
-     */
-    public getPerson(requestParameters: PersonsApiGetPersonRequest, ) {
-        return PersonsApiFp(this.configuration).getPerson(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Lists activities associated with a person. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Activities#getActivities\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/activities?person_id={id}</a> instead.
-     * @summary List activities associated with a person
-     * @param {PersonsApiGetPersonActivitiesRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof PersonsApi
-     */
-    public getPersonActivities(requestParameters: PersonsApiGetPersonActivitiesRequest, ) {
-        return PersonsApiFp(this.configuration).getPersonActivities(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.done, requestParameters.exclude, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Lists updates about field values of a person.
      * @summary List updates about person field values
      * @param {PersonsApiGetPersonChangelogRequest} requestParameters Request parameters.
@@ -2413,18 +1330,6 @@ export class PersonsApi extends BaseAPI {
      */
     public getPersonChangelog(requestParameters: PersonsApiGetPersonChangelogRequest, ) {
         return PersonsApiFp(this.configuration).getPersonChangelog(requestParameters.id, requestParameters.cursor, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Lists deals associated with a person. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?person_id={id}</a> instead.
-     * @summary List deals associated with a person
-     * @param {PersonsApiGetPersonDealsRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof PersonsApi
-     */
-    public getPersonDeals(requestParameters: PersonsApiGetPersonDealsRequest, ) {
-        return PersonsApiFp(this.configuration).getPersonDeals(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.status, requestParameters.sort, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2500,30 +1405,6 @@ export class PersonsApi extends BaseAPI {
     }
 
     /**
-     * Returns all persons.
-     * @summary Get all persons
-     * @param {PersonsApiGetPersonsRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof PersonsApi
-     */
-    public getPersons(requestParameters: PersonsApiGetPersonsRequest = {}, ) {
-        return PersonsApiFp(this.configuration).getPersons(requestParameters.user_id, requestParameters.filter_id, requestParameters.first_char, requestParameters.start, requestParameters.limit, requestParameters.sort, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Returns all persons. Please note that only global admins (those with global permissions) can access this endpoint. Users with regular permissions will receive a 403 response. Read more about global permissions <a href=\"https://support.pipedrive.com/en/article/global-user-management\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Persons#getPersons\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/persons</a> instead.
-     * @summary Get all persons collection
-     * @param {PersonsApiGetPersonsCollectionRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof PersonsApi
-     */
-    public getPersonsCollection(requestParameters: PersonsApiGetPersonsCollectionRequest = {}, ) {
-        return PersonsApiFp(this.configuration).getPersonsCollection(requestParameters.cursor, requestParameters.limit, requestParameters.since, requestParameters.until, requestParameters.owner_id, requestParameters.first_char, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Merges a person with another person. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/merging-two-persons\" target=\"_blank\" rel=\"noopener noreferrer\">merging two persons</a>.
      * @summary Merge two persons
      * @param {PersonsApiMergePersonsRequest} requestParameters Request parameters.
@@ -2533,29 +1414,5 @@ export class PersonsApi extends BaseAPI {
      */
     public mergePersons(requestParameters: PersonsApiMergePersonsRequest, ) {
         return PersonsApiFp(this.configuration).mergePersons(requestParameters.id, requestParameters.MergePersonsRequest, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Searches all persons by name, email, phone, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found persons can be filtered by organization ID.
-     * @summary Search persons
-     * @param {PersonsApiSearchPersonsRequest} requestParameters Request parameters.
-     * @deprecated
-     * @throws {RequiredError}
-     * @memberof PersonsApi
-     */
-    public searchPersons(requestParameters: PersonsApiSearchPersonsRequest, ) {
-        return PersonsApiFp(this.configuration).searchPersons(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.organization_id, requestParameters.include_fields, requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Updates the properties of a person. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/updating-a-person\" target=\"_blank\" rel=\"noopener noreferrer\">updating a person</a>.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `data.marketing_status` field.
-     * @summary Update a person
-     * @param {PersonsApiUpdatePersonRequest} requestParameters Request parameters.
-
-     * @throws {RequiredError}
-     * @memberof PersonsApi
-     */
-    public updatePerson(requestParameters: PersonsApiUpdatePersonRequest, ) {
-        return PersonsApiFp(this.configuration).updatePerson(requestParameters.id, requestParameters.UpdatePersonRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

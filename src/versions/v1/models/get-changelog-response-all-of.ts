@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetActivitiesCollectionResponseAdditionalData } from './get-activities-collection-response-additional-data';
+import { GetChangelogResponseAllOfAdditionalData } from './get-changelog-response-all-of-additional-data';
 // May contain unused imports in some cases
 // @ts-ignore
 import { GetChangelogResponseAllOfDataInner } from './get-changelog-response-all-of-data-inner';
@@ -33,8 +33,8 @@ export interface GetChangelogResponseAllOf {
     'data': Array<GetChangelogResponseAllOfDataInner>;
     /**
     * 
-    * @type {GetActivitiesCollectionResponseAdditionalData}
+    * @type {GetChangelogResponseAllOfAdditionalData}
     */
-    'additional_data': GetActivitiesCollectionResponseAdditionalData;
+    'additional_data': GetChangelogResponseAllOfAdditionalData;
 }
 

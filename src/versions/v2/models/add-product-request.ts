@@ -18,7 +18,7 @@
 import { AddProductRequestAllOf } from './add-product-request-all-of';
 // May contain unused imports in some cases
 // @ts-ignore
-import { BaseProductAllOf1 } from './base-product-all-of1';
+import { BaseProductAllOf } from './base-product-all-of';
 // May contain unused imports in some cases
 // @ts-ignore
 import { GetDealsProductsResponseDataInnerAllOf2 } from './get-deals-products-response-data-inner-all-of2';
@@ -30,6 +30,6 @@ import { ProductRequest } from './product-request';
  * @type AddProductRequest
  * @export
  */
-export type AddProductRequest = AddProductRequestAllOf & BaseProductAllOf1 & GetDealsProductsResponseDataInnerAllOf2 & ProductRequest;
+export type AddProductRequest = AddProductRequestAllOf & BaseProductAllOf & GetDealsProductsResponseDataInnerAllOf2 & ProductRequest;
 
 

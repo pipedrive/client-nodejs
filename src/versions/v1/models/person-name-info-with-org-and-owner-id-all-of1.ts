@@ -34,6 +34,6 @@ export interface PersonNameInfoWithOrgAndOwnerIdAllOf1 {
     * The last name of the person
     * @type {string}
     */
-    'last_name'?: string;
+    'last_name'?: string | null;
 }
 

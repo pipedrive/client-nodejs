@@ -18,6 +18,9 @@
 import { BaseProduct } from './base-product';
 // May contain unused imports in some cases
 // @ts-ignore
+import { OrganizationItemAddress } from './organization-item-address';
+// May contain unused imports in some cases
+// @ts-ignore
 import { PricesArray } from './prices-array';
 
 /**

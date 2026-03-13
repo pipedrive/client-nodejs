@@ -31,7 +31,7 @@ export interface GetInstallmentsResponseDataInner {
     */
     'amount'?: number;
     /**
-    * The date which the installment will be charged.
+    * The date on which the installment will be charged.
     * @type {string}
     */
     'billing_date'?: string;

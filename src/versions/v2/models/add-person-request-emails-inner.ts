@@ -32,8 +32,8 @@ export interface AddPersonRequestEmailsInner {
     'primary'?: boolean;
     /**
     * The email address classification label
-    * @type {boolean}
+    * @type {string}
     */
-    'label'?: boolean;
+    'label'?: string;
 }
 

@@ -24,11 +24,11 @@ export interface PersonCountAndEmailInfoAllOf1 {
     * The date and time of the last incoming email associated with the person
     * @type {string}
     */
-    'last_incoming_mail_time'?: string;
+    'last_incoming_mail_time'?: string | null;
     /**
     * The date and time of the last outgoing email associated with the person
     * @type {string}
     */
-    'last_outgoing_mail_time'?: string;
+    'last_outgoing_mail_time'?: string | null;
 }
 

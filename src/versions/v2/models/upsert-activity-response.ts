@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { ActivityItem1 } from './activity-item1';
+import { ActivityItem } from './activity-item';
 // May contain unused imports in some cases
 // @ts-ignore
 import { BaseResponse } from './base-response';

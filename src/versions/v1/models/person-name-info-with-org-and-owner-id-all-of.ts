@@ -35,6 +35,6 @@ export interface PersonNameInfoWithOrgAndOwnerIdAllOf {
     * 
     * @type {RelationshipOrganizationInfoItemWithActiveFlag}
     */
-    'org_id'?: RelationshipOrganizationInfoItemWithActiveFlag;
+    'org_id'?: RelationshipOrganizationInfoItemWithActiveFlag | null;
 }
 

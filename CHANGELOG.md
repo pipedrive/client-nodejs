@@ -7,6 +7,66 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Removed
+- Removed deprecated v1 endpoints that have v2 equivalents. See the [deprecation announcement](https://developers.pipedrive.com/changelog/post/deprecation-of-selected-api-v1-endpoints) for details. Please migrate to the corresponding v2 endpoints listed below:
+  - `GET /v1/activities` → `GET /api/v2/activities`
+  - `GET /v1/activities/collection` → `GET /api/v2/activities`
+  - `GET /v1/activities/{id}` → `GET /api/v2/activities/{id}`
+  - `POST /v1/activities` → `POST /api/v2/activities`
+  - `PUT /v1/activities/{id}` → `PATCH /api/v2/activities/{id}`
+  - `DELETE /v1/activities/{id}` → `DELETE /api/v2/activities/{id}`
+  - `GET /v1/deals` → `GET /api/v2/deals`
+  - `GET /v1/deals/collection` → `GET /api/v2/deals`
+  - `GET /v1/deals/{id}` → `GET /api/v2/deals/{id}`
+  - `GET /v1/deals/search` → `GET /api/v2/deals/search`
+  - `POST /v1/deals` → `POST /api/v2/deals`
+  - `PUT /v1/deals/{id}` → `PATCH /api/v2/deals/{id}`
+  - `DELETE /v1/deals/{id}` → `DELETE /api/v2/deals/{id}`
+  - `GET /v1/deals/{id}/activities` → `GET /api/v2/activities?deal_id={id}`
+  - `GET /v1/deals/{id}/persons` → `GET /api/v2/persons?deal_id={id}`
+  - `GET /v1/deals/{id}/products` → `GET /api/v2/deals/{id}/products`
+  - `POST /v1/deals/{id}/products` → `POST /api/v2/deals/{id}/products`
+  - `PUT /v1/deals/{id}/products/{product_attachment_id}` → `PATCH /api/v2/deals/{id}/products/{product_attachment_id}`
+  - `DELETE /v1/deals/{id}/products/{product_attachment_id}` → `DELETE /api/v2/deals/{id}/products/{product_attachment_id}`
+  - `GET /v1/itemSearch` → `GET /api/v2/itemSearch`
+  - `GET /v1/itemSearch/field` → `GET /api/v2/itemSearch/field`
+  - `GET /v1/organizations` → `GET /api/v2/organizations`
+  - `GET /v1/organizations/collection` → `GET /api/v2/organizations`
+  - `GET /v1/organizations/{id}` → `GET /api/v2/organizations/{id}`
+  - `GET /v1/organizations/search` → `GET /api/v2/organizations/search`
+  - `POST /v1/organizations` → `POST /api/v2/organizations`
+  - `PUT /v1/organizations/{id}` → `PATCH /api/v2/organizations/{id}`
+  - `DELETE /v1/organizations/{id}` → `DELETE /api/v2/organizations/{id}`
+  - `GET /v1/organizations/{id}/deals` → `GET /api/v2/deals?org_id={id}`
+  - `GET /v1/organizations/{id}/activities` → `GET /api/v2/activities?org_id={id}`
+  - `GET /v1/organizations/{id}/persons` → `GET /api/v2/persons?org_id={id}`
+  - `GET /v1/persons` → `GET /api/v2/persons`
+  - `GET /v1/persons/collection` → `GET /api/v2/persons`
+  - `GET /v1/persons/{id}` → `GET /api/v2/persons/{id}`
+  - `GET /v1/persons/search` → `GET /api/v2/persons/search`
+  - `POST /v1/persons` → `POST /api/v2/persons`
+  - `PUT /v1/persons/{id}` → `PATCH /api/v2/persons/{id}`
+  - `DELETE /v1/persons/{id}` → `DELETE /api/v2/persons/{id}`
+  - `GET /v1/persons/{id}/deals` → `GET /api/v2/deals?person_id={id}`
+  - `GET /v1/persons/{id}/activities` → `GET /api/v2/activities?person_id={id}`
+  - `GET /v1/pipelines` → `GET /api/v2/pipelines`
+  - `GET /v1/pipelines/{id}` → `GET /api/v2/pipelines/{id}`
+  - `POST /v1/pipelines` → `POST /api/v2/pipelines`
+  - `PUT /v1/pipelines/{id}` → `PATCH /api/v2/pipelines/{id}`
+  - `DELETE /v1/pipelines/{id}` → `DELETE /api/v2/pipelines/{id}`
+  - `GET /v1/products` → `GET /api/v2/products`
+  - `GET /v1/products/{id}` → `GET /api/v2/products/{id}`
+  - `GET /v1/products/search` → `GET /api/v2/products/search`
+  - `POST /v1/products` → `POST /api/v2/products`
+  - `PUT /v1/products/{id}` → `PATCH /api/v2/products/{id}`
+  - `DELETE /v1/products/{id}` → `DELETE /api/v2/products/{id}`
+  - `GET /v1/stages` → `GET /api/v2/stages`
+  - `GET /v1/stages/{id}` → `GET /api/v2/stages/{id}`
+  - `POST /v1/stages` → `POST /api/v2/stages`
+  - `PUT /v1/stages/{id}` → `PATCH /api/v2/stages/{id}`
+  - `DELETE /v1/stages/{id}` → `DELETE /api/v2/stages/{id}`
+### Fixed
+- Made `picture_id`, `org_id`, `label`, `last_name`, `cc_email`, `last_incoming_mail_time`, and `last_outgoing_mail_time` nullable in person and organization schemas to match real API behavior
 
 ## [31.6.0] - 2026-03-05
 ### Changed

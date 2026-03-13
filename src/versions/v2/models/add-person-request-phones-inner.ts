@@ -32,8 +32,8 @@ export interface AddPersonRequestPhonesInner {
     'primary'?: boolean;
     /**
     * The phone number classification label
-    * @type {boolean}
+    * @type {string}
     */
-    'label'?: boolean;
+    'label'?: string;
 }
 
