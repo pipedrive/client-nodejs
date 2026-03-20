@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+### Fixed
+
+- upgraded flatted 3.2.7 -> 3.4.0 by npm audit fix
+
 ## [32.0.0] - 2026-03-13
 ### Removed
 - Removed deprecated v1 endpoints that have v2 equivalents. See the [deprecation announcement](https://developers.pipedrive.com/changelog/post/deprecation-of-selected-api-v1-endpoints) for details. Migrate by switching imports from `versions/v1` to `versions/v2` and using the corresponding SDK methods listed below.
