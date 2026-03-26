@@ -31,10 +31,15 @@ export interface UpdateProjectRequest1AllOf1 {
     */
     'parent_task_id'?: number;
     /**
-    * The ID of the user who will be the assignee of the task
+    * The ID of the user assigned to the task. When the `assignee_id` field is updated, the `assignee_ids` field value will be overwritten by the `assignee_id` field value.
     * @type {number}
     */
     'assignee_id'?: number;
+    /**
+    * The IDs of users assigned to the task. When the `assignee_ids` field is updated, the `assignee_id` field value will be set to the first value of the `assignee_ids` field, or `null` if the list is empty.
+    * @type {Set<number>}
+    */
+    'assignee_ids'?: Set<number>;
     /**
     * 
     * @type {number}

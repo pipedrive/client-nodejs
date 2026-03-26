@@ -31,8 +31,8 @@ This SDK supports two API versions, each with its own namespace:
 You can retrieve the api_token from your existing Pipedrive account’s settings page. A step-by-step guide is available [here](https://pipedrive.readme.io/docs/how-to-find-the-api-token).
 
 ```typescript
-import express from "express";
-import { Configuration, DealsApi } from "pipedrive/v1";
+import express from 'express';
+import { Configuration, DealsApi } from 'pipedrive/v2';
 
 const app = express();
 
@@ -40,14 +40,14 @@ const PORT = 3000;
 
 // Configure Client with API key authorization
 const apiConfig = new Configuration({
-  apiKey: "YOUR_API_TOKEN_HERE",
+  apiKey: 'YOUR_API_TOKEN_HERE',
 });
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });
 
-app.get("/", async (req, res) => {
+app.get('/', async (req, res) => {
   const dealsApi = new DealsApi(apiConfig);
   const responseAllDeals = await dealsApi.getDeals();
   const { data: deals } = responseAllDeals;
@@ -73,12 +73,12 @@ To set up authentication in the API client, you need the following information. 
 Next, initialize the API client as follows:
 
 ```typescript
-import { OAuth2Configuration, Configuration } from 'pipedrive/v1';
+import { OAuth2Configuration, Configuration } from 'pipedrive/v2';
 
 // Configuration parameters and credentials
 const oauth2 = new OAuth2Configuration({
-  clientId: "clientId", // OAuth 2 Client ID
-  clientSecret: "clientSecret",  // OAuth 2 Client Secret
+  clientId: 'clientId', // OAuth 2 Client ID
+  clientSecret: 'clientSecret',  // OAuth 2 Client Secret
   redirectUri: 'redirectUri' // OAuth 2 Redirection endpoint or Callback Uri
 });
 
@@ -147,17 +147,17 @@ It is recommended that you store the access token for reuse.
 This code snippet stores the access token in a session for an express application. It uses the [cookie-parser](https://www.npmjs.com/package/cookie-parser) and [cookie-session](https://www.npmjs.com/package/cookie-session) npm packages for storing the access token.
 
 ```typescript
-import express from "express";
-import cookieParse from "cookie-parser";
-import cookeSession from "cookie-session";
-import { Configuration, DealsApi, OAuth2Configuration } from "pipedrive/v1";
+import express from 'express';
+import cookieParser from 'cookie-parser';
+import cookieSession from 'cookie-session';
+import { Configuration, DealsApi, OAuth2Configuration } from 'pipedrive/v2';
 
 const app = express();
 
 app.use(cookieParser());
 app.use(cookieSession({
-    name: "session",
-    keys: ["key1"]
+    name: 'session',
+    keys: ['key1']
 }));
 
 ...
@@ -193,25 +193,25 @@ It then redirects back to the base endpoint for calling endpoints from the SDK.
 
 ```typescript
 
-import express from "express";
-import { Configuration, DealsApi, OAuth2Configuration } from "pipedrive/v1";
-import cookieParser from "cookie-parser";
-import cookieSession from "cookie-session";
+import express from 'express';
+import { Configuration, DealsApi, OAuth2Configuration } from 'pipedrive/v2';
+import cookieParser from 'cookie-parser';
+import cookieSession from 'cookie-session';
 
 const app = express();
 
 app.use(cookieParser());
 app.use(cookieSession({
-    name: "session",
-    keys: ["key1"]
+    name: 'session',
+    keys: ['key1']
 }));
 
 const PORT = 3000;
 
 
 const oauth2 = new OAuth2Configuration({
-    clientId: "clientId", // OAuth 2 Client ID
-    clientSecret: "clientSecret",  // OAuth 2 Client Secret
+    clientId: 'clientId', // OAuth 2 Client ID
+    clientSecret: 'clientSecret',  // OAuth 2 Client Secret
     redirectUri: 'redirectUri' // OAuth 2 Redirection endpoint or Callback Uri
 });
 
@@ -256,7 +256,7 @@ app.get('/callback', async (req, res) => {
         const newAccessToken = await oauth2.authorize(authCode);
 
         req.session.accessToken = newAccessToken;
-        return res.redirect("/");
+        return res.redirect('/');
     }catch (error) {
         console.error(error)
         return res.status(500).send(error)
