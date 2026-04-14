@@ -88,7 +88,8 @@
     "typescript-eslint": "^8.56.1"
   },
   "overrides": {
-    "serialize-javascript": "^7.0.4"
+    "serialize-javascript": "^7.0.4",
+    "flatted": ">=3.4.0"
   },
   "lint-staged": {
     "*.{ts,js}": [
