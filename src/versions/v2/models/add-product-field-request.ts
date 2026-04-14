@@ -46,11 +46,6 @@ export interface AddProductFieldRequest {
     * @type {AddProductFieldRequestUiVisibility}
     */
     'ui_visibility'?: AddProductFieldRequestUiVisibility;
-    /**
-    * Field description
-    * @type {string}
-    */
-    'description'?: string | null;
 }
 
                 export const AddProductFieldRequestFieldTypeConst = {

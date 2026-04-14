@@ -7,6 +7,12 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Added
+- Added `include_field_code` query parameter to Filters endpoints:
+  - `GET /v1/filters/{id}`
+  - `PUT /v1/filters/{id}`
+  - `POST /v1/filters`
+  - When set to `true`, each condition in the response includes a `field_code` field identifying the field by its code name. The value is `null` if the field code cannot be resolved.
 
 ## [32.1.0] - 2026-03-26
 ### Added

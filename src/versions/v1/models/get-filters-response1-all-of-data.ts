@@ -13,13 +13,16 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { FilterConditions } from './filter-conditions';
 
 /**
-* The filter object
+* The filter object including conditions
 * @export
-* @interface GetFiltersResponseAllOfDataInner
+* @interface GetFiltersResponse1AllOfData
 */
-export interface GetFiltersResponseAllOfDataInner {
+export interface GetFiltersResponse1AllOfData {
     /**
     * The ID of the filter
     * @type {number}
@@ -49,7 +52,7 @@ export interface GetFiltersResponseAllOfDataInner {
     * 
     * @type {string}
     */
-    'type'?: GetFiltersResponseAllOfDataInnerTypeConst;
+    'type'?: GetFiltersResponse1AllOfDataTypeConst;
     /**
     * Whether the filter is temporary
     * @type {boolean}
@@ -74,7 +77,7 @@ export interface GetFiltersResponseAllOfDataInner {
     * 
     * @type {string}
     */
-    'visible_to'?: GetFiltersResponseAllOfDataInnerVisibleToConst;
+    'visible_to'?: GetFiltersResponse1AllOfDataVisibleToConst;
     /**
     * The date and time when the filter was last used
     * @type {string}
@@ -85,9 +88,14 @@ export interface GetFiltersResponseAllOfDataInner {
     * @type {number}
     */
     'custom_view_id'?: number | null;
+    /**
+    * 
+    * @type {FilterConditions}
+    */
+    'conditions'?: FilterConditions;
 }
 
-                export const GetFiltersResponseAllOfDataInnerTypeConst = {
+                export const GetFiltersResponse1AllOfDataTypeConst = {
                         deals: 'deals',
                         leads: 'leads',
                         org: 'org',
@@ -97,14 +105,14 @@ export interface GetFiltersResponseAllOfDataInner {
                         projects: 'projects'
                 } as const;
 
-                export type GetFiltersResponseAllOfDataInnerTypeConst = typeof GetFiltersResponseAllOfDataInnerTypeConst[keyof typeof GetFiltersResponseAllOfDataInnerTypeConst];
-                export const GetFiltersResponseAllOfDataInnerVisibleToConst = {
+                export type GetFiltersResponse1AllOfDataTypeConst = typeof GetFiltersResponse1AllOfDataTypeConst[keyof typeof GetFiltersResponse1AllOfDataTypeConst];
+                export const GetFiltersResponse1AllOfDataVisibleToConst = {
                         _1: '1',
                         _3: '3',
                         _5: '5',
                         _7: '7'
                 } as const;
 
-                export type GetFiltersResponseAllOfDataInnerVisibleToConst = typeof GetFiltersResponseAllOfDataInnerVisibleToConst[keyof typeof GetFiltersResponseAllOfDataInnerVisibleToConst];
+                export type GetFiltersResponse1AllOfDataVisibleToConst = typeof GetFiltersResponse1AllOfDataVisibleToConst[keyof typeof GetFiltersResponse1AllOfDataVisibleToConst];
 
 

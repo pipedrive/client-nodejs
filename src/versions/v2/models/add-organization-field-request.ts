@@ -62,11 +62,6 @@ export interface AddOrganizationFieldRequest {
     * @type {AddOrganizationFieldRequestRequiredFields}
     */
     'required_fields'?: AddOrganizationFieldRequestRequiredFields;
-    /**
-    * Field description
-    * @type {string}
-    */
-    'description'?: string | null;
 }
 
                 export const AddOrganizationFieldRequestFieldTypeConst = {
