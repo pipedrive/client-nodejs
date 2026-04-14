@@ -13,6 +13,9 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { FilterConditions } from './filter-conditions';
 
 /**
 * 
@@ -21,17 +24,27 @@
 */
 export interface Filter {
     /**
-    * The ID of the created filter
+    * The ID of the filter
     * @type {number}
     */
     'id'?: number;
     /**
-    * The name of the created filter
+    * The name of the filter
     * @type {string}
     */
     'name'?: string;
     /**
-    * The activity flag of the created filter
+    * The system code of the filter
+    * @type {string}
+    */
+    'filter_code'?: string | null;
+    /**
+    * Whether the filter can be edited by the requesting user
+    * @type {boolean}
+    */
+    'is_editable'?: boolean;
+    /**
+    * The activity flag of the filter
     * @type {boolean}
     */
     'active_flag'?: boolean;
@@ -41,40 +54,45 @@ export interface Filter {
     */
     'type'?: FilterTypeConst;
     /**
-    * If the created filter is temporary or not
+    * Whether the filter is temporary
     * @type {boolean}
     */
-    'temporary_flag'?: boolean;
+    'temporary_flag'?: boolean | null;
     /**
-    * The user ID of the created filter
+    * The user ID of the filter owner
     * @type {number}
     */
     'user_id'?: number;
     /**
-    * The add time of the created filter
+    * The date and time when the filter was added
     * @type {string}
     */
     'add_time'?: string;
     /**
-    * The update time of the created filter
+    * The date and time when the filter was last updated
     * @type {string}
     */
-    'update_time'?: string;
+    'update_time'?: string | null;
     /**
-    * The visibility group ID of the created filter
+    * 
+    * @type {string}
+    */
+    'visible_to'?: FilterVisibleToConst;
+    /**
+    * The date and time when the filter was last used
+    * @type {string}
+    */
+    'last_used_time'?: string | null;
+    /**
+    * The custom view ID linked to the filter
     * @type {number}
     */
-    'visible_to'?: number;
+    'custom_view_id'?: number | null;
     /**
-    * The custom view ID of the created filter
-    * @type {number}
+    * 
+    * @type {FilterConditions}
     */
-    'custom_view_id'?: number;
-    /**
-    * The created filter conditions object
-    * @type {object}
-    */
-    'conditions'?: object;
+    'conditions'?: FilterConditions;
 }
 
                 export const FilterTypeConst = {
@@ -88,5 +106,13 @@ export interface Filter {
                 } as const;
 
                 export type FilterTypeConst = typeof FilterTypeConst[keyof typeof FilterTypeConst];
+                export const FilterVisibleToConst = {
+                        _1: '1',
+                        _3: '3',
+                        _5: '5',
+                        _7: '7'
+                } as const;
+
+                export type FilterVisibleToConst = typeof FilterVisibleToConst[keyof typeof FilterVisibleToConst];
 
 

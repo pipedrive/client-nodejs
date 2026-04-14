@@ -33,10 +33,5 @@ export interface UpdateProductFieldRequest {
     * @type {AddProductFieldRequestUiVisibility}
     */
     'ui_visibility'?: AddProductFieldRequestUiVisibility;
-    /**
-    * Field description
-    * @type {string}
-    */
-    'description'?: string | null;
 }
 

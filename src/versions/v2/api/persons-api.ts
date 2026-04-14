@@ -42,8 +42,6 @@ import { GetPersonSearchResponse } from '../models';
 // @ts-ignore
 import { GetPersonsResponse } from '../models';
 // @ts-ignore
-import { UpdatePersonRequest } from '../models';
-// @ts-ignore
 import { UpsertPersonResponse } from '../models';
 /**
  * PersonsApi - axios parameter creator
@@ -597,11 +595,11 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
          * Updates the properties of a person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field.
          * @summary Update a person
          * @param {number} id The ID of the person
-         * @param {UpdatePersonRequest} [UpdatePersonRequest] 
+         * @param {AddPersonRequest} [AddPersonRequest] 
 
          * @throws {RequiredError}
          */
-        updatePerson: async (id: number, UpdatePersonRequest?: UpdatePersonRequest, ): Promise<RequestArgs> => {
+        updatePerson: async (id: number, AddPersonRequest?: AddPersonRequest, ): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updatePerson', 'id', id)
             const localVarPath = `/persons/{id}`
@@ -631,7 +629,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-            localVarRequestOptions.data = serializeDataIfNeeded(UpdatePersonRequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(AddPersonRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -789,12 +787,12 @@ export const PersonsApiFp = function(configuration?: Configuration) {
          * Updates the properties of a person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field.
          * @summary Update a person
          * @param {number} id The ID of the person
-         * @param {UpdatePersonRequest} [UpdatePersonRequest] 
+         * @param {AddPersonRequest} [AddPersonRequest] 
 
          * @throws {RequiredError}
          */
-        async updatePerson(id: number, UpdatePersonRequest?: UpdatePersonRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertPersonResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePerson(id, UpdatePersonRequest, );
+        async updatePerson(id: number, AddPersonRequest?: AddPersonRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertPersonResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePerson(id, AddPersonRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -915,7 +913,7 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         updatePerson(requestParameters: PersonsApiUpdatePersonRequest, ): Promise<UpsertPersonResponse> {
-            return localVarFp.updatePerson(requestParameters.id, requestParameters.UpdatePersonRequest, ).then((request) => request(axios, basePath));
+            return localVarFp.updatePerson(requestParameters.id, requestParameters.AddPersonRequest, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1257,10 +1255,10 @@ export interface PersonsApiUpdatePersonRequest {
 
     /**
      * 
-     * @type {UpdatePersonRequest}
+     * @type {AddPersonRequest}
      * @memberof PersonsApiUpdatePerson
      */
-    readonly UpdatePersonRequest?: UpdatePersonRequest
+    readonly AddPersonRequest?: AddPersonRequest
 }
 
 /**
@@ -1399,6 +1397,6 @@ export class PersonsApi extends BaseAPI {
      * @memberof PersonsApi
      */
     public updatePerson(requestParameters: PersonsApiUpdatePersonRequest, ) {
-        return PersonsApiFp(this.configuration).updatePerson(requestParameters.id, requestParameters.UpdatePersonRequest, ).then((request) => request(this.axios, this.basePath));
+        return PersonsApiFp(this.configuration).updatePerson(requestParameters.id, requestParameters.AddPersonRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

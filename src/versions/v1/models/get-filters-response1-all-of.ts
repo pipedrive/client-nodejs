@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetFiltersResponseAllOfDataInner } from './get-filters-response-all-of-data-inner';
+import { GetFiltersResponse1AllOfData } from './get-filters-response1-all-of-data';
 
 /**
 * 
@@ -25,8 +25,8 @@ import { GetFiltersResponseAllOfDataInner } from './get-filters-response-all-of-
 export interface GetFiltersResponse1AllOf {
     /**
     * 
-    * @type {GetFiltersResponseAllOfDataInner}
+    * @type {GetFiltersResponse1AllOfData}
     */
-    'data': GetFiltersResponseAllOfDataInner;
+    'data': GetFiltersResponse1AllOfData;
 }
 

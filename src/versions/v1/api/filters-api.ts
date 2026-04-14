@@ -44,11 +44,12 @@ export const FiltersApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * Adds a new filter, returns the ID upon success. Note that in the conditions JSON object only one first-level condition group is supported, and it must be glued with \'AND\', and only two second level condition groups are supported of which one must be glued with \'AND\' and the second with \'OR\'. Other combinations do not work (yet) but the syntax supports introducing them in future. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-filter\" target=\"_blank\" rel=\"noopener noreferrer\">adding a filter</a>.
          * @summary Add a new filter
+         * @param {boolean} [include_field_code] If set to &#x60;true&#x60;, each condition in the response includes a &#x60;field_code&#x60; field identifying the field by its code name
          * @param {AddFilterRequest} [AddFilterRequest] 
 
          * @throws {RequiredError}
          */
-        addFilter: async (AddFilterRequest?: AddFilterRequest, ): Promise<RequestArgs> => {
+        addFilter: async (include_field_code?: boolean, AddFilterRequest?: AddFilterRequest, ): Promise<RequestArgs> => {
             const localVarPath = `/filters`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -67,6 +68,10 @@ export const FiltersApiAxiosParamCreator = function (configuration?: Configurati
             // authentication oauth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "activities:full", "contacts:full"], configuration)
+
+            if (include_field_code !== undefined) {
+                localVarQueryParameter['include_field_code'] = include_field_code;
+            }
 
 
     
@@ -171,10 +176,11 @@ export const FiltersApiAxiosParamCreator = function (configuration?: Configurati
          * Returns data about a specific filter. Note that this also returns the condition lines of the filter.
          * @summary Get one filter
          * @param {number} id The ID of the filter
+         * @param {boolean} [include_field_code] If set to &#x60;true&#x60;, each condition in the response includes a &#x60;field_code&#x60; field identifying the field by its code name
 
          * @throws {RequiredError}
          */
-        getFilter: async (id: number, ): Promise<RequestArgs> => {
+        getFilter: async (id: number, include_field_code?: boolean, ): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getFilter', 'id', id)
             const localVarPath = `/filters/{id}`
@@ -196,6 +202,10 @@ export const FiltersApiAxiosParamCreator = function (configuration?: Configurati
             // authentication oauth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full", "activities:read", "activities:full", "contacts:read", "contacts:full"], configuration)
+
+            if (include_field_code !== undefined) {
+                localVarQueryParameter['include_field_code'] = include_field_code;
+            }
 
 
     
@@ -291,11 +301,12 @@ export const FiltersApiAxiosParamCreator = function (configuration?: Configurati
          * Updates an existing filter.
          * @summary Update filter
          * @param {number} id The ID of the filter
+         * @param {boolean} [include_field_code] If set to &#x60;true&#x60;, each condition in the response includes a &#x60;field_code&#x60; field identifying the field by its code name
          * @param {UpdateFilterRequest} [UpdateFilterRequest] 
 
          * @throws {RequiredError}
          */
-        updateFilter: async (id: number, UpdateFilterRequest?: UpdateFilterRequest, ): Promise<RequestArgs> => {
+        updateFilter: async (id: number, include_field_code?: boolean, UpdateFilterRequest?: UpdateFilterRequest, ): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateFilter', 'id', id)
             const localVarPath = `/filters/{id}`
@@ -317,6 +328,10 @@ export const FiltersApiAxiosParamCreator = function (configuration?: Configurati
             // authentication oauth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "activities:full", "contacts:full"], configuration)
+
+            if (include_field_code !== undefined) {
+                localVarQueryParameter['include_field_code'] = include_field_code;
+            }
 
 
     
@@ -346,12 +361,13 @@ export const FiltersApiFp = function(configuration?: Configuration) {
         /**
          * Adds a new filter, returns the ID upon success. Note that in the conditions JSON object only one first-level condition group is supported, and it must be glued with \'AND\', and only two second level condition groups are supported of which one must be glued with \'AND\' and the second with \'OR\'. Other combinations do not work (yet) but the syntax supports introducing them in future. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-filter\" target=\"_blank\" rel=\"noopener noreferrer\">adding a filter</a>.
          * @summary Add a new filter
+         * @param {boolean} [include_field_code] If set to &#x60;true&#x60;, each condition in the response includes a &#x60;field_code&#x60; field identifying the field by its code name
          * @param {AddFilterRequest} [AddFilterRequest] 
 
          * @throws {RequiredError}
          */
-        async addFilter(AddFilterRequest?: AddFilterRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddFiltersResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addFilter(AddFilterRequest, );
+        async addFilter(include_field_code?: boolean, AddFilterRequest?: AddFilterRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddFiltersResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addFilter(include_field_code, AddFilterRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -380,11 +396,12 @@ export const FiltersApiFp = function(configuration?: Configuration) {
          * Returns data about a specific filter. Note that this also returns the condition lines of the filter.
          * @summary Get one filter
          * @param {number} id The ID of the filter
+         * @param {boolean} [include_field_code] If set to &#x60;true&#x60;, each condition in the response includes a &#x60;field_code&#x60; field identifying the field by its code name
 
          * @throws {RequiredError}
          */
-        async getFilter(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFiltersResponse1>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getFilter(id, );
+        async getFilter(id: number, include_field_code?: boolean, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFiltersResponse1>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getFilter(id, include_field_code, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -412,12 +429,13 @@ export const FiltersApiFp = function(configuration?: Configuration) {
          * Updates an existing filter.
          * @summary Update filter
          * @param {number} id The ID of the filter
+         * @param {boolean} [include_field_code] If set to &#x60;true&#x60;, each condition in the response includes a &#x60;field_code&#x60; field identifying the field by its code name
          * @param {UpdateFilterRequest} [UpdateFilterRequest] 
 
          * @throws {RequiredError}
          */
-        async updateFilter(id: number, UpdateFilterRequest?: UpdateFilterRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddFiltersResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateFilter(id, UpdateFilterRequest, );
+        async updateFilter(id: number, include_field_code?: boolean, UpdateFilterRequest?: UpdateFilterRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddFiltersResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateFilter(id, include_field_code, UpdateFilterRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -438,7 +456,7 @@ export const FiltersApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         addFilter(requestParameters: FiltersApiAddFilterRequest = {}, ): Promise<AddFiltersResponse> {
-            return localVarFp.addFilter(requestParameters.AddFilterRequest, ).then((request) => request(axios, basePath));
+            return localVarFp.addFilter(requestParameters.include_field_code, requestParameters.AddFilterRequest, ).then((request) => request(axios, basePath));
         },
         /**
          * Marks a filter as deleted.
@@ -468,7 +486,7 @@ export const FiltersApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         getFilter(requestParameters: FiltersApiGetFilterRequest, ): Promise<GetFiltersResponse1> {
-            return localVarFp.getFilter(requestParameters.id, ).then((request) => request(axios, basePath));
+            return localVarFp.getFilter(requestParameters.id, requestParameters.include_field_code, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns all supported filter helpers. It helps to know what conditions and helpers are available when you want to <a href=\"/docs/api/v1/Filters#addFilter\">add</a> or <a href=\"/docs/api/v1/Filters#updateFilter\">update</a> filters. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-filter\" target=\"_blank\" rel=\"noopener noreferrer\">adding a filter</a>.
@@ -497,7 +515,7 @@ export const FiltersApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         updateFilter(requestParameters: FiltersApiUpdateFilterRequest, ): Promise<AddFiltersResponse> {
-            return localVarFp.updateFilter(requestParameters.id, requestParameters.UpdateFilterRequest, ).then((request) => request(axios, basePath));
+            return localVarFp.updateFilter(requestParameters.id, requestParameters.include_field_code, requestParameters.UpdateFilterRequest, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -508,6 +526,13 @@ export const FiltersApiFactory = function (configuration?: Configuration, basePa
  * @interface FiltersApiAddFilterRequest
  */
 export interface FiltersApiAddFilterRequest {
+    /**
+     * If set to &#x60;true&#x60;, each condition in the response includes a &#x60;field_code&#x60; field identifying the field by its code name
+     * @type {boolean}
+     * @memberof FiltersApiAddFilter
+     */
+    readonly include_field_code?: boolean
+
     /**
      * 
      * @type {AddFilterRequest}
@@ -556,6 +581,13 @@ export interface FiltersApiGetFilterRequest {
      * @memberof FiltersApiGetFilter
      */
     readonly id: number
+
+    /**
+     * If set to &#x60;true&#x60;, each condition in the response includes a &#x60;field_code&#x60; field identifying the field by its code name
+     * @type {boolean}
+     * @memberof FiltersApiGetFilter
+     */
+    readonly include_field_code?: boolean
 }
 
 /**
@@ -586,6 +618,13 @@ export interface FiltersApiUpdateFilterRequest {
     readonly id: number
 
     /**
+     * If set to &#x60;true&#x60;, each condition in the response includes a &#x60;field_code&#x60; field identifying the field by its code name
+     * @type {boolean}
+     * @memberof FiltersApiUpdateFilter
+     */
+    readonly include_field_code?: boolean
+
+    /**
      * 
      * @type {UpdateFilterRequest}
      * @memberof FiltersApiUpdateFilter
@@ -609,7 +648,7 @@ export class FiltersApi extends BaseAPI {
      * @memberof FiltersApi
      */
     public addFilter(requestParameters: FiltersApiAddFilterRequest = {}, ) {
-        return FiltersApiFp(this.configuration).addFilter(requestParameters.AddFilterRequest, ).then((request) => request(this.axios, this.basePath));
+        return FiltersApiFp(this.configuration).addFilter(requestParameters.include_field_code, requestParameters.AddFilterRequest, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -645,7 +684,7 @@ export class FiltersApi extends BaseAPI {
      * @memberof FiltersApi
      */
     public getFilter(requestParameters: FiltersApiGetFilterRequest, ) {
-        return FiltersApiFp(this.configuration).getFilter(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+        return FiltersApiFp(this.configuration).getFilter(requestParameters.id, requestParameters.include_field_code, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -680,6 +719,6 @@ export class FiltersApi extends BaseAPI {
      * @memberof FiltersApi
      */
     public updateFilter(requestParameters: FiltersApiUpdateFilterRequest, ) {
-        return FiltersApiFp(this.configuration).updateFilter(requestParameters.id, requestParameters.UpdateFilterRequest, ).then((request) => request(this.axios, this.basePath));
+        return FiltersApiFp(this.configuration).updateFilter(requestParameters.id, requestParameters.include_field_code, requestParameters.UpdateFilterRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }
