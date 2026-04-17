@@ -220,7 +220,6 @@ export * from './update-installment-response';
 export * from './update-organization-field-request';
 export * from './update-organization-request';
 export * from './update-person-field-request';
-export * from './update-person-request';
 export * from './update-pipeline-request';
 export * from './update-product-field-request';
 export * from './update-product-image-response';

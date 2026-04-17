@@ -62,11 +62,6 @@ export interface AddPersonFieldRequest {
     * @type {AddPersonFieldRequestRequiredFields}
     */
     'required_fields'?: AddPersonFieldRequestRequiredFields;
-    /**
-    * Field description
-    * @type {string}
-    */
-    'description'?: string | null;
 }
 
                 export const AddPersonFieldRequestFieldTypeConst = {

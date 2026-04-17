@@ -21,7 +21,7 @@ import { BaseResponse } from './base-response';
 import { GetFiltersResponse1AllOf } from './get-filters-response1-all-of';
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetFiltersResponseAllOfDataInner } from './get-filters-response-all-of-data-inner';
+import { GetFiltersResponse1AllOfData } from './get-filters-response1-all-of-data';
 
 /**
  * @type GetFiltersResponse1

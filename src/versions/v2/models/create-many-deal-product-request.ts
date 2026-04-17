@@ -24,7 +24,7 @@ import { AddDealProductRequest } from './add-deal-product-request';
 */
 export interface CreateManyDealProductRequest {
     /**
-    * Array of products to attach to the deal. See the single product endpoint (https://developers.pipedrive.com/docs/api/v1/Deals#addDealProduct) for the expected format of array items.
+    * Array of products to attach to the deal. Each product object may have the following properties.
     * @type {Array<AddDealProductRequest>}
     */
     'data': Array<AddDealProductRequest>;

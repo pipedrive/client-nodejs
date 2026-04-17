@@ -21,17 +21,17 @@
 */
 export interface UserAccess1 {
     /**
-    * 
+    * The granular app access level
     * @type {string}
     */
     'app': UserAccess1AppConst;
     /**
-    * 
+    * Whether the user has admin access or not
     * @type {boolean}
     */
     'admin'?: boolean;
     /**
-    * 
+    * The ID of the permission set
     * @type {string}
     */
     'permission_set_id'?: string;

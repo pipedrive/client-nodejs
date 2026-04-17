@@ -49,10 +49,5 @@ export interface UpdatePersonFieldRequest {
     * @type {AddPersonFieldRequestRequiredFields}
     */
     'required_fields'?: AddPersonFieldRequestRequiredFields;
-    /**
-    * Field description
-    * @type {string}
-    */
-    'description'?: string | null;
 }
 
