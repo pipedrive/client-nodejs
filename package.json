@@ -1,6 +1,6 @@
 {
   "name": "pipedrive",
-  "version": "32.2.0",
+  "version": "32.2.1",
   "description": "Pipedrive REST client for NodeJS",
   "license": "MIT",
   "homepage": "https://developers.pipedrive.com",
@@ -88,7 +88,8 @@
     "typescript-eslint": "^8.56.1"
   },
   "overrides": {
-    "serialize-javascript": "^7.0.4"
+    "serialize-javascript": "^7.0.4",
+    "flatted": ">=3.4.0"
   },
   "lint-staged": {
     "*.{ts,js}": [
