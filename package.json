@@ -1,6 +1,6 @@
 {
   "name": "pipedrive",
-  "version": "32.2.1",
+  "version": "32.2.2",
   "description": "Pipedrive REST client for NodeJS",
   "license": "MIT",
   "homepage": "https://developers.pipedrive.com",
