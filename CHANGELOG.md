@@ -8,6 +8,11 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+### Fixed
+
+- upgraded picomatch 2.3.1 -> 2.3.2 by npm audit fix
+- upgraded lodash 4.17.21 -> 4.18.0 by npm audit fix
+
 ## [32.2.1] - 2026-04-20
 ### Changed
 - Updated `flatted` dependency to version 3.4.2
