@@ -24,7 +24,7 @@ import { GetActivitiesResponseAllOfAdditionalData } from './get-activities-respo
 import { GetPersonsResponseAllOf } from './get-persons-response-all-of';
 // May contain unused imports in some cases
 // @ts-ignore
-import { OrganizationItem } from './organization-item';
+import { Person } from './person';
 
 /**
  * @type GetPersonsResponse

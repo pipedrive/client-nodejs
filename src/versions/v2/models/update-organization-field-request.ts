@@ -49,10 +49,5 @@ export interface UpdateOrganizationFieldRequest {
     * @type {AddOrganizationFieldRequestRequiredFields}
     */
     'required_fields'?: AddOrganizationFieldRequestRequiredFields;
-    /**
-    * Field description
-    * @type {string}
-    */
-    'description'?: string | null;
 }
 

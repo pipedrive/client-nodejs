@@ -22,10 +22,6 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
-import { GetProjectBoardResponse } from '../models';
-// @ts-ignore
-import { GetProjectPhaseResponse } from '../models';
-// @ts-ignore
 import { GetProjectTemplateResponse } from '../models';
 // @ts-ignore
 import { GetProjectTemplatesResponse } from '../models';
@@ -123,88 +119,6 @@ export const ProjectTemplatesApiAxiosParamCreator = function (configuration?: Co
                 options: localVarRequestOptions,
             };
         },
-        /**
-         * Returns the details of a specific project board.
-         * @summary Get details of a board
-         * @param {number} id The ID of the project board
-
-         * @throws {RequiredError}
-         */
-        getProjectsBoard: async (id: number, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('getProjectsBoard', 'id', id)
-            const localVarPath = `/projects/boards/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:read", "projects:full"], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Returns the details of a specific project phase.
-         * @summary Get details of a phase
-         * @param {number} id The ID of the project phase
-
-         * @throws {RequiredError}
-         */
-        getProjectsPhase: async (id: number, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('getProjectsPhase', 'id', id)
-            const localVarPath = `/projects/phases/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:read"], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
     }
 };
 
@@ -239,28 +153,6 @@ export const ProjectTemplatesApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectTemplates(cursor, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
-        /**
-         * Returns the details of a specific project board.
-         * @summary Get details of a board
-         * @param {number} id The ID of the project board
-
-         * @throws {RequiredError}
-         */
-        async getProjectsBoard(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectBoardResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectsBoard(id, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Returns the details of a specific project phase.
-         * @summary Get details of a phase
-         * @param {number} id The ID of the project phase
-
-         * @throws {RequiredError}
-         */
-        async getProjectsPhase(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectPhaseResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectsPhase(id, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
     }
 };
 
@@ -290,26 +182,6 @@ export const ProjectTemplatesApiFactory = function (configuration?: Configuratio
          */
         getProjectTemplates(requestParameters: ProjectTemplatesApiGetProjectTemplatesRequest = {}, ): Promise<GetProjectTemplatesResponse> {
             return localVarFp.getProjectTemplates(requestParameters.cursor, requestParameters.limit, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Returns the details of a specific project board.
-         * @summary Get details of a board
-         * @param {ProjectTemplatesApiGetProjectsBoardRequest} requestParameters Request parameters.
-
-         * @throws {RequiredError}
-         */
-        getProjectsBoard(requestParameters: ProjectTemplatesApiGetProjectsBoardRequest, ): Promise<GetProjectBoardResponse> {
-            return localVarFp.getProjectsBoard(requestParameters.id, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Returns the details of a specific project phase.
-         * @summary Get details of a phase
-         * @param {ProjectTemplatesApiGetProjectsPhaseRequest} requestParameters Request parameters.
-
-         * @throws {RequiredError}
-         */
-        getProjectsPhase(requestParameters: ProjectTemplatesApiGetProjectsPhaseRequest, ): Promise<GetProjectPhaseResponse> {
-            return localVarFp.getProjectsPhase(requestParameters.id, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -350,34 +222,6 @@ export interface ProjectTemplatesApiGetProjectTemplatesRequest {
 }
 
 /**
- * Request parameters for getProjectsBoard operation in ProjectTemplatesApi.
- * @export
- * @interface ProjectTemplatesApiGetProjectsBoardRequest
- */
-export interface ProjectTemplatesApiGetProjectsBoardRequest {
-    /**
-     * The ID of the project board
-     * @type {number}
-     * @memberof ProjectTemplatesApiGetProjectsBoard
-     */
-    readonly id: number
-}
-
-/**
- * Request parameters for getProjectsPhase operation in ProjectTemplatesApi.
- * @export
- * @interface ProjectTemplatesApiGetProjectsPhaseRequest
- */
-export interface ProjectTemplatesApiGetProjectsPhaseRequest {
-    /**
-     * The ID of the project phase
-     * @type {number}
-     * @memberof ProjectTemplatesApiGetProjectsPhase
-     */
-    readonly id: number
-}
-
-/**
  * ProjectTemplatesApi - object-oriented interface
  * @export
  * @class ProjectTemplatesApi
@@ -406,29 +250,5 @@ export class ProjectTemplatesApi extends BaseAPI {
      */
     public getProjectTemplates(requestParameters: ProjectTemplatesApiGetProjectTemplatesRequest = {}, ) {
         return ProjectTemplatesApiFp(this.configuration).getProjectTemplates(requestParameters.cursor, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Returns the details of a specific project board.
-     * @summary Get details of a board
-     * @param {ProjectTemplatesApiGetProjectsBoardRequest} requestParameters Request parameters.
-
-     * @throws {RequiredError}
-     * @memberof ProjectTemplatesApi
-     */
-    public getProjectsBoard(requestParameters: ProjectTemplatesApiGetProjectsBoardRequest, ) {
-        return ProjectTemplatesApiFp(this.configuration).getProjectsBoard(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Returns the details of a specific project phase.
-     * @summary Get details of a phase
-     * @param {ProjectTemplatesApiGetProjectsPhaseRequest} requestParameters Request parameters.
-
-     * @throws {RequiredError}
-     * @memberof ProjectTemplatesApi
-     */
-    public getProjectsPhase(requestParameters: ProjectTemplatesApiGetProjectsPhaseRequest, ) {
-        return ProjectTemplatesApiFp(this.configuration).getProjectsPhase(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 }

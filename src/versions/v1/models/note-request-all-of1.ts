@@ -45,5 +45,10 @@ export interface NoteRequestAllOf1 {
     * @type {number}
     */
     'project_id'?: number;
+    /**
+    * The ID of the task the note will be attached to
+    * @type {number}
+    */
+    'task_id'?: number;
 }
 

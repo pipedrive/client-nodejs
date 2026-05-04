@@ -7,6 +7,16 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Added
+- Added projects v2 API
+- Added project boards v2 API
+- Added project phases v2 API
+- Added project tasks v2 API
+- Added project search v2 API
+- Added project templates v2 API
+- Added project fields v2 API
+- Added `include_option_labels` parameter for v2 GET deal, person and organization endpoints
+- Added `include_labels` parameter to v2 GET deal, person, and organization endpoints
 
 ## [32.2.1] - 2026-04-20
 ### Changed

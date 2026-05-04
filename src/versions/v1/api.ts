@@ -43,6 +43,8 @@ export * from './api/persons-api';
 export * from './api/pipelines-api';
 export * from './api/product-fields-api';
 export * from './api/products-api';
+export * from './api/project-boards-api';
+export * from './api/project-phases-api';
 export * from './api/project-templates-api';
 export * from './api/projects-api';
 export * from './api/recents-api';

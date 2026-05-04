@@ -176,7 +176,7 @@ export interface Deal {
     */
     'acv'?: number | null;
     /**
-    * An object where each key represents a custom field. All custom fields are referenced as randomly generated 40-character hashes
+    * An object where each key represents a custom field. All custom fields are referenced as randomly generated 40-character hashes. To clear a custom field value, set it to `null`. For multi-option fields (field type `set`), use `null` to clear the selection — sending an empty array `[]` is not supported and will result in a validation error.
     * @type {{ [key: string]: any | undefined; }}
     */
     'custom_fields'?: { [key: string]: any | undefined; };
