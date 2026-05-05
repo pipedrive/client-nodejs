@@ -27,6 +27,9 @@ import { NotePerson } from './note-person';
 import { NoteProject } from './note-project';
 // May contain unused imports in some cases
 // @ts-ignore
+import { NoteTask } from './note-task';
+// May contain unused imports in some cases
+// @ts-ignore
 import { NoteUser } from './note-user';
 
 /**
@@ -106,6 +109,16 @@ export interface Note {
     */
     'project'?: NoteProject;
     /**
+    * The ID of the task the note is attached to
+    * @type {number}
+    */
+    'task_id'?: number;
+    /**
+    * 
+    * @type {NoteTask}
+    */
+    'task'?: NoteTask;
+    /**
     * If true, the results are filtered by note to deal pinning state
     * @type {boolean}
     */
@@ -125,6 +138,11 @@ export interface Note {
     * @type {boolean}
     */
     'pinned_to_project_flag'?: boolean;
+    /**
+    * If true, the results are filtered by note to task pinning state
+    * @type {boolean}
+    */
+    'pinned_to_task_flag'?: boolean;
     /**
     * The last updated date and time of the note
     * @type {string}

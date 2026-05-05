@@ -18,7 +18,7 @@
 import { BaseResponse } from './base-response';
 // May contain unused imports in some cases
 // @ts-ignore
-import { OrganizationItem } from './organization-item';
+import { Person } from './person';
 // May contain unused imports in some cases
 // @ts-ignore
 import { UpsertPersonResponseData } from './upsert-person-response-data';

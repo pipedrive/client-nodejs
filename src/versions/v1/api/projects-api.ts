@@ -30,11 +30,7 @@ import { DeleteProjectResponse } from '../models';
 // @ts-ignore
 import { GetActivitiesCollectionResponse } from '../models';
 // @ts-ignore
-import { GetProjectBoardsResponse } from '../models';
-// @ts-ignore
 import { GetProjectGroupsResponse } from '../models';
-// @ts-ignore
-import { GetProjectPhasesResponse } from '../models';
 // @ts-ignore
 import { GetProjectPlanResponse } from '../models';
 // @ts-ignore
@@ -455,87 +451,6 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Returns all projects boards that are not deleted.
-         * @summary Get all project boards
-
-         * @throws {RequiredError}
-         */
-        getProjectsBoards: async (): Promise<RequestArgs> => {
-            const localVarPath = `/projects/boards`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:read", "projects:full"], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Returns all active project phases under a specific board.
-         * @summary Get project phases
-         * @param {number} board_id ID of the board for which phases are requested
-
-         * @throws {RequiredError}
-         */
-        getProjectsPhases: async (board_id: number, ): Promise<RequestArgs> => {
-            // verify required parameter 'board_id' is not null or undefined
-            assertParamExists('getProjectsPhases', 'board_id', board_id)
-            const localVarPath = `/projects/phases`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["projects:read", "projects:full"], configuration)
-
-            if (board_id !== undefined) {
-                localVarQueryParameter['board_id'] = board_id;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Updates an activity phase or group in a project.
          * @summary Update activity in project plan
          * @param {number} id The ID of the project
@@ -794,27 +709,6 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns all projects boards that are not deleted.
-         * @summary Get all project boards
-
-         * @throws {RequiredError}
-         */
-        async getProjectsBoards(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectBoardsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectsBoards();
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Returns all active project phases under a specific board.
-         * @summary Get project phases
-         * @param {number} board_id ID of the board for which phases are requested
-
-         * @throws {RequiredError}
-         */
-        async getProjectsPhases(board_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectPhasesResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectsPhases(board_id, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Updates an activity phase or group in a project.
          * @summary Update activity in project plan
          * @param {number} id The ID of the project
@@ -951,25 +845,6 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
          */
         getProjects(requestParameters: ProjectsApiGetProjectsRequest = {}, ): Promise<GetProjectsResponse> {
             return localVarFp.getProjects(requestParameters.cursor, requestParameters.limit, requestParameters.filter_id, requestParameters.status, requestParameters.phase_id, requestParameters.include_archived, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Returns all projects boards that are not deleted.
-         * @summary Get all project boards
-
-         * @throws {RequiredError}
-         */
-        getProjectsBoards(): Promise<GetProjectBoardsResponse> {
-            return localVarFp.getProjectsBoards().then((request) => request(axios, basePath));
-        },
-        /**
-         * Returns all active project phases under a specific board.
-         * @summary Get project phases
-         * @param {ProjectsApiGetProjectsPhasesRequest} requestParameters Request parameters.
-
-         * @throws {RequiredError}
-         */
-        getProjectsPhases(requestParameters: ProjectsApiGetProjectsPhasesRequest, ): Promise<GetProjectPhasesResponse> {
-            return localVarFp.getProjectsPhases(requestParameters.board_id, ).then((request) => request(axios, basePath));
         },
         /**
          * Updates an activity phase or group in a project.
@@ -1166,20 +1041,6 @@ export interface ProjectsApiGetProjectsRequest {
 }
 
 /**
- * Request parameters for getProjectsPhases operation in ProjectsApi.
- * @export
- * @interface ProjectsApiGetProjectsPhasesRequest
- */
-export interface ProjectsApiGetProjectsPhasesRequest {
-    /**
-     * ID of the board for which phases are requested
-     * @type {number}
-     * @memberof ProjectsApiGetProjectsPhases
-     */
-    readonly board_id: number
-}
-
-/**
  * Request parameters for putProjectPlanActivity operation in ProjectsApi.
  * @export
  * @interface ProjectsApiPutProjectPlanActivityRequest
@@ -1369,29 +1230,6 @@ export class ProjectsApi extends BaseAPI {
      */
     public getProjects(requestParameters: ProjectsApiGetProjectsRequest = {}, ) {
         return ProjectsApiFp(this.configuration).getProjects(requestParameters.cursor, requestParameters.limit, requestParameters.filter_id, requestParameters.status, requestParameters.phase_id, requestParameters.include_archived, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Returns all projects boards that are not deleted.
-     * @summary Get all project boards
-
-     * @throws {RequiredError}
-     * @memberof ProjectsApi
-     */
-    public getProjectsBoards() {
-        return ProjectsApiFp(this.configuration).getProjectsBoards().then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Returns all active project phases under a specific board.
-     * @summary Get project phases
-     * @param {ProjectsApiGetProjectsPhasesRequest} requestParameters Request parameters.
-
-     * @throws {RequiredError}
-     * @memberof ProjectsApi
-     */
-    public getProjectsPhases(requestParameters: ProjectsApiGetProjectsPhasesRequest, ) {
-        return ProjectsApiFp(this.configuration).getProjectsPhases(requestParameters.board_id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**

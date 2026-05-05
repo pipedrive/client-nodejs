@@ -444,6 +444,7 @@ export * from './note-project';
 export * from './note-request';
 export * from './note-request-all-of';
 export * from './note-request-all-of1';
+export * from './note-task';
 export * from './note-user';
 export * from './organization-count-and-address-info';
 export * from './organization-count-and-address-info-all-of';

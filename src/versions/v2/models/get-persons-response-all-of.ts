@@ -18,7 +18,7 @@
 import { GetActivitiesResponseAllOfAdditionalData } from './get-activities-response-all-of-additional-data';
 // May contain unused imports in some cases
 // @ts-ignore
-import { OrganizationItem } from './organization-item';
+import { Person } from './person';
 
 /**
 * 
@@ -28,9 +28,9 @@ import { OrganizationItem } from './organization-item';
 export interface GetPersonsResponseAllOf {
     /**
     * Persons array
-    * @type {Array<OrganizationItem>}
+    * @type {Array<Person>}
     */
-    'data'?: Array<OrganizationItem>;
+    'data'?: Array<Person>;
     /**
     * 
     * @type {GetActivitiesResponseAllOfAdditionalData}

@@ -22,8 +22,6 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
-import { AddAInstallmentResponse } from '../models';
-// @ts-ignore
 import { AddAdditionalDiscountRequestBody } from '../models';
 // @ts-ignore
 import { AddAdditionalDiscountResponse } from '../models';
@@ -32,31 +30,15 @@ import { AddConvertDealToLeadResponse } from '../models';
 // @ts-ignore
 import { AddDealFollowerRequest } from '../models';
 // @ts-ignore
-import { AddDealProductRequest } from '../models';
-// @ts-ignore
-import { AddDealProductResponse } from '../models';
-// @ts-ignore
 import { AddDealRequest } from '../models';
 // @ts-ignore
 import { AddFollowerResponse } from '../models';
 // @ts-ignore
-import { AddInstallmentRequestBody } from '../models';
-// @ts-ignore
-import { AddManyDealProductResponse } from '../models';
-// @ts-ignore
-import { CreateManyDealProductRequest } from '../models';
-// @ts-ignore
 import { DeleteAdditionalDiscountResponse } from '../models';
-// @ts-ignore
-import { DeleteDealProductResponse } from '../models';
 // @ts-ignore
 import { DeleteDealResponse } from '../models';
 // @ts-ignore
 import { DeleteFollowerResponse } from '../models';
-// @ts-ignore
-import { DeleteInstallmentResponse } from '../models';
-// @ts-ignore
-import { DeleteManyDealProductResponse } from '../models';
 // @ts-ignore
 import { GetAdditionalDiscountsResponse } from '../models';
 // @ts-ignore
@@ -66,27 +48,17 @@ import { GetConvertResponse1 } from '../models';
 // @ts-ignore
 import { GetDealSearchResponse } from '../models';
 // @ts-ignore
-import { GetDealsProductsResponse } from '../models';
-// @ts-ignore
 import { GetDealsResponse } from '../models';
 // @ts-ignore
 import { GetFollowerChangelogsResponse } from '../models';
 // @ts-ignore
 import { GetFollowersResponse } from '../models';
 // @ts-ignore
-import { GetInstallmentsResponse } from '../models';
-// @ts-ignore
 import { UpdateAdditionalDiscountRequestBody } from '../models';
 // @ts-ignore
 import { UpdateAdditionalDiscountResponse } from '../models';
 // @ts-ignore
-import { UpdateDealProductRequest } from '../models';
-// @ts-ignore
 import { UpdateDealRequest } from '../models';
-// @ts-ignore
-import { UpdateInstallmentRequestBody } from '../models';
-// @ts-ignore
-import { UpdateInstallmentResponse } from '../models';
 // @ts-ignore
 import { UpsertDealResponse } from '../models';
 /**
@@ -175,96 +147,6 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
             localVarRequestOptions.data = serializeDataIfNeeded(AddDealFollowerRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Adds a product to a deal, creating a new item called a deal-product.
-         * @summary Add a product to a deal
-         * @param {number} id The ID of the deal
-         * @param {AddDealProductRequest} [AddDealProductRequest] 
-
-         * @throws {RequiredError}
-         */
-        addDealProduct: async (id: number, AddDealProductRequest?: AddDealProductRequest, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('addDealProduct', 'id', id)
-            const localVarPath = `/deals/{id}/products`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full", "deals:full"], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-            localVarRequestOptions.data = serializeDataIfNeeded(AddDealProductRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Adds multiple products to a deal in a single request. Maximum of 100 products allowed per request.
-         * @summary Add multiple products to a deal
-         * @param {number} id The ID of the deal
-         * @param {CreateManyDealProductRequest} [CreateManyDealProductRequest] 
-
-         * @throws {RequiredError}
-         */
-        addManyDealProducts: async (id: number, CreateManyDealProductRequest?: CreateManyDealProductRequest, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('addManyDealProducts', 'id', id)
-            const localVarPath = `/deals/{id}/products/bulk`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full", "deals:full"], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-            localVarRequestOptions.data = serializeDataIfNeeded(CreateManyDealProductRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -444,142 +326,6 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Deletes a product attachment from a deal, using the `product_attachment_id`.
-         * @summary Delete an attached product from a deal
-         * @param {number} id The ID of the deal
-         * @param {number} product_attachment_id The product attachment ID
-
-         * @throws {RequiredError}
-         */
-        deleteDealProduct: async (id: number, product_attachment_id: number, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('deleteDealProduct', 'id', id)
-            // verify required parameter 'product_attachment_id' is not null or undefined
-            assertParamExists('deleteDealProduct', 'product_attachment_id', product_attachment_id)
-            const localVarPath = `/deals/{id}/products/{product_attachment_id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)))
-                .replace(`{${"product_attachment_id"}}`, encodeURIComponent(String(product_attachment_id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "products:full"], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Removes an installment from a deal.  Only available in Growth and above plans. 
-         * @summary Delete an installment from a deal
-         * @param {number} id The ID of the deal
-         * @param {number} installment_id The ID of the installment
-
-         * @throws {RequiredError}
-         */
-        deleteInstallment: async (id: number, installment_id: number, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('deleteInstallment', 'id', id)
-            // verify required parameter 'installment_id' is not null or undefined
-            assertParamExists('deleteInstallment', 'installment_id', installment_id)
-            const localVarPath = `/deals/{id}/installments/{installment_id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)))
-                .replace(`{${"installment_id"}}`, encodeURIComponent(String(installment_id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Deletes multiple products from a deal. If no product IDs are specified, up to 100 products will be removed from the deal. A maximum of 100 product IDs can be provided per request.
-         * @summary Delete many products from a deal
-         * @param {number} id The ID of the deal
-         * @param {string} [ids] Comma-separated list of deal product IDs to delete. If not provided, all deal products will be deleted up to 100 items. Maximum 100 IDs allowed.
-
-         * @throws {RequiredError}
-         */
-        deleteManyDealProducts: async (id: number, ids?: string, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('deleteManyDealProducts', 'id', id)
-            const localVarPath = `/deals/{id}/products`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full", "deals:full"], configuration)
-
-            if (ids !== undefined) {
-                localVarQueryParameter['ids'] = ids;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Lists discounts attached to a deal.
          * @summary List discounts added to a deal
          * @param {number} id The ID of the deal
@@ -743,10 +489,12 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {number} id The ID of the deal
          * @param {'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id'} [include_fields] Optional comma separated string array of additional fields to include
          * @param {string} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+         * @param {boolean} [include_option_labels] When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
+         * @param {boolean} [include_labels] When provided with \&#39;true\&#39; value, response will include an array of label objects in the form of \&#39;{ id: number, label: string }\&#39;
 
          * @throws {RequiredError}
          */
-        getDeal: async (id: number, include_fields?: 'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id', custom_fields?: string, ): Promise<RequestArgs> => {
+        getDeal: async (id: number, include_fields?: 'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id', custom_fields?: string, include_option_labels?: boolean, include_labels?: boolean, ): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getDeal', 'id', id)
             const localVarPath = `/deals/{id}`
@@ -775,6 +523,14 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
 
             if (custom_fields !== undefined) {
                 localVarQueryParameter['custom_fields'] = custom_fields;
+            }
+
+            if (include_option_labels !== undefined) {
+                localVarQueryParameter['include_option_labels'] = include_option_labels;
+            }
+
+            if (include_labels !== undefined) {
+                localVarQueryParameter['include_labels'] = include_labels;
             }
 
 
@@ -936,67 +692,6 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Lists products attached to a deal.
-         * @summary List products attached to a deal
-         * @param {number} id The ID of the deal
-         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
-         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-         * @param {'id' | 'add_time' | 'update_time' | 'order_nr'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;order_nr&#x60;.
-         * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
-
-         * @throws {RequiredError}
-         */
-        getDealProducts: async (id: number, cursor?: string, limit?: number, sort_by?: 'id' | 'add_time' | 'update_time' | 'order_nr', sort_direction?: 'asc' | 'desc', ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('getDealProducts', 'id', id)
-            const localVarPath = `/deals/{id}/products`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:read", "products:full", "deals:read", "deals:full"], configuration)
-
-            if (cursor !== undefined) {
-                localVarQueryParameter['cursor'] = cursor;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (sort_by !== undefined) {
-                localVarQueryParameter['sort_by'] = sort_by;
-            }
-
-            if (sort_direction !== undefined) {
-                localVarQueryParameter['sort_direction'] = sort_direction;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Returns data about all not archived deals.
          * @summary Get all deals
          * @param {number} [filter_id] If supplied, only deals matching the specified filter are returned
@@ -1013,12 +708,14 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
          * @param {'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id'} [include_fields] Optional comma separated string array of additional fields to include
          * @param {string} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+         * @param {boolean} [include_option_labels] When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
+         * @param {boolean} [include_labels] When provided with \&#39;true\&#39; value, response will include an array of label objects in the form of \&#39;{ id: number, label: string }\&#39;
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        getDeals: async (filter_id?: number, ids?: string, owner_id?: number, person_id?: number, org_id?: number, pipeline_id?: number, stage_id?: number, status?: 'open' | 'won' | 'lost' | 'deleted', updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: 'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id', custom_fields?: string, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+        getDeals: async (filter_id?: number, ids?: string, owner_id?: number, person_id?: number, org_id?: number, pipeline_id?: number, stage_id?: number, status?: 'open' | 'won' | 'lost' | 'deleted', updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: 'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id', custom_fields?: string, include_option_labels?: boolean, include_labels?: boolean, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
             const localVarPath = `/deals`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1094,140 +791,20 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['custom_fields'] = custom_fields;
             }
 
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
+            if (include_option_labels !== undefined) {
+                localVarQueryParameter['include_option_labels'] = include_option_labels;
             }
 
-            if (cursor !== undefined) {
-                localVarQueryParameter['cursor'] = cursor;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Returns data about products attached to deals
-         * @summary Get deal products of several deals
-         * @param {Array<number>} deal_ids An array of integers with the IDs of the deals for which the attached products will be returned. A maximum of 100 deal IDs can be provided.
-         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
-         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-         * @param {'id' | 'deal_id' | 'add_time' | 'update_time' | 'order_nr'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;deal_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;order_nr&#x60;.
-         * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
-
-         * @throws {RequiredError}
-         */
-        getDealsProducts: async (deal_ids: Array<number>, cursor?: string, limit?: number, sort_by?: 'id' | 'deal_id' | 'add_time' | 'update_time' | 'order_nr', sort_direction?: 'asc' | 'desc', ): Promise<RequestArgs> => {
-            // verify required parameter 'deal_ids' is not null or undefined
-            assertParamExists('getDealsProducts', 'deal_ids', deal_ids)
-            const localVarPath = `/deals/products`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:read", "products:full", "deals:read", "deals:full"], configuration)
-
-            if (deal_ids) {
-                localVarQueryParameter['deal_ids'] = deal_ids;
-            }
-
-            if (cursor !== undefined) {
-                localVarQueryParameter['cursor'] = cursor;
+            if (include_labels !== undefined) {
+                localVarQueryParameter['include_labels'] = include_labels;
             }
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
 
-            if (sort_by !== undefined) {
-                localVarQueryParameter['sort_by'] = sort_by;
-            }
-
-            if (sort_direction !== undefined) {
-                localVarQueryParameter['sort_direction'] = sort_direction;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Lists installments attached to a list of deals.  Only available in Growth and above plans. 
-         * @summary List installments added to a list of deals
-         * @param {Array<number>} deal_ids An array of integers with the IDs of the deals for which the attached installments will be returned. A maximum of 100 deal IDs can be provided.
-         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
-         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-         * @param {'id' | 'billing_date' | 'deal_id'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;billing_date&#x60;, &#x60;deal_id&#x60;.
-         * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
-
-         * @throws {RequiredError}
-         */
-        getInstallments: async (deal_ids: Array<number>, cursor?: string, limit?: number, sort_by?: 'id' | 'billing_date' | 'deal_id', sort_direction?: 'asc' | 'desc', ): Promise<RequestArgs> => {
-            // verify required parameter 'deal_ids' is not null or undefined
-            assertParamExists('getInstallments', 'deal_ids', deal_ids)
-            const localVarPath = `/deals/installments`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
-
-            if (deal_ids) {
-                localVarQueryParameter['deal_ids'] = deal_ids;
-            }
-
             if (cursor !== undefined) {
                 localVarQueryParameter['cursor'] = cursor;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (sort_by !== undefined) {
-                localVarQueryParameter['sort_by'] = sort_by;
-            }
-
-            if (sort_direction !== undefined) {
-                localVarQueryParameter['sort_direction'] = sort_direction;
             }
 
 
@@ -1280,51 +857,6 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
             localVarRequestOptions.data = serializeDataIfNeeded(AddAdditionalDiscountRequestBody, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Growth and above plans. 
-         * @summary Add an installment to a deal
-         * @param {number} id The ID of the deal
-         * @param {AddInstallmentRequestBody} [AddInstallmentRequestBody] 
-
-         * @throws {RequiredError}
-         */
-        postInstallment: async (id: number, AddInstallmentRequestBody?: AddInstallmentRequestBody, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('postInstallment', 'id', id)
-            const localVarPath = `/deals/{id}/installments`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-            localVarRequestOptions.data = serializeDataIfNeeded(AddInstallmentRequestBody, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1509,104 +1041,6 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
                 options: localVarRequestOptions,
             };
         },
-        /**
-         * Updates the details of the product that has been attached to a deal.
-         * @summary Update the product attached to a deal
-         * @param {number} id The ID of the deal
-         * @param {number} product_attachment_id The ID of the deal-product (the ID of the product attached to the deal)
-         * @param {UpdateDealProductRequest} [UpdateDealProductRequest] 
-
-         * @throws {RequiredError}
-         */
-        updateDealProduct: async (id: number, product_attachment_id: number, UpdateDealProductRequest?: UpdateDealProductRequest, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('updateDealProduct', 'id', id)
-            // verify required parameter 'product_attachment_id' is not null or undefined
-            assertParamExists('updateDealProduct', 'product_attachment_id', product_attachment_id)
-            const localVarPath = `/deals/{id}/products/{product_attachment_id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)))
-                .replace(`{${"product_attachment_id"}}`, encodeURIComponent(String(product_attachment_id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PATCH', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full", "deals:full"], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-            localVarRequestOptions.data = serializeDataIfNeeded(UpdateDealProductRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Edits an installment added to a deal.  Only available in Growth and above plans. 
-         * @summary Update an installment added to a deal
-         * @param {number} id The ID of the deal
-         * @param {number} installment_id The ID of the installment
-         * @param {UpdateInstallmentRequestBody} [UpdateInstallmentRequestBody] 
-
-         * @throws {RequiredError}
-         */
-        updateInstallment: async (id: number, installment_id: number, UpdateInstallmentRequestBody?: UpdateInstallmentRequestBody, ): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('updateInstallment', 'id', id)
-            // verify required parameter 'installment_id' is not null or undefined
-            assertParamExists('updateInstallment', 'installment_id', installment_id)
-            const localVarPath = `/deals/{id}/installments/{installment_id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)))
-                .replace(`{${"installment_id"}}`, encodeURIComponent(String(installment_id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PATCH', ...baseOptions };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication api_key required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-token", configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-            localVarRequestOptions.data = serializeDataIfNeeded(UpdateInstallmentRequestBody, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
     }
 };
 
@@ -1639,30 +1073,6 @@ export const DealsApiFp = function(configuration?: Configuration) {
          */
         async addDealFollower(id: number, AddDealFollowerRequest?: AddDealFollowerRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddFollowerResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addDealFollower(id, AddDealFollowerRequest, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Adds a product to a deal, creating a new item called a deal-product.
-         * @summary Add a product to a deal
-         * @param {number} id The ID of the deal
-         * @param {AddDealProductRequest} [AddDealProductRequest] 
-
-         * @throws {RequiredError}
-         */
-        async addDealProduct(id: number, AddDealProductRequest?: AddDealProductRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddDealProductResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addDealProduct(id, AddDealProductRequest, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Adds multiple products to a deal in a single request. Maximum of 100 products allowed per request.
-         * @summary Add multiple products to a deal
-         * @param {number} id The ID of the deal
-         * @param {CreateManyDealProductRequest} [CreateManyDealProductRequest] 
-
-         * @throws {RequiredError}
-         */
-        async addManyDealProducts(id: number, CreateManyDealProductRequest?: CreateManyDealProductRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddManyDealProductResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addManyDealProducts(id, CreateManyDealProductRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -1712,42 +1122,6 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Deletes a product attachment from a deal, using the `product_attachment_id`.
-         * @summary Delete an attached product from a deal
-         * @param {number} id The ID of the deal
-         * @param {number} product_attachment_id The product attachment ID
-
-         * @throws {RequiredError}
-         */
-        async deleteDealProduct(id: number, product_attachment_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteDealProductResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDealProduct(id, product_attachment_id, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Removes an installment from a deal.  Only available in Growth and above plans. 
-         * @summary Delete an installment from a deal
-         * @param {number} id The ID of the deal
-         * @param {number} installment_id The ID of the installment
-
-         * @throws {RequiredError}
-         */
-        async deleteInstallment(id: number, installment_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteInstallmentResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteInstallment(id, installment_id, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Deletes multiple products from a deal. If no product IDs are specified, up to 100 products will be removed from the deal. A maximum of 100 product IDs can be provided per request.
-         * @summary Delete many products from a deal
-         * @param {number} id The ID of the deal
-         * @param {string} [ids] Comma-separated list of deal product IDs to delete. If not provided, all deal products will be deleted up to 100 items. Maximum 100 IDs allowed.
-
-         * @throws {RequiredError}
-         */
-        async deleteManyDealProducts(id: number, ids?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteManyDealProductResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteManyDealProducts(id, ids, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Lists discounts attached to a deal.
          * @summary List discounts added to a deal
          * @param {number} id The ID of the deal
@@ -1790,11 +1164,13 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * @param {number} id The ID of the deal
          * @param {'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id'} [include_fields] Optional comma separated string array of additional fields to include
          * @param {string} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+         * @param {boolean} [include_option_labels] When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
+         * @param {boolean} [include_labels] When provided with \&#39;true\&#39; value, response will include an array of label objects in the form of \&#39;{ id: number, label: string }\&#39;
 
          * @throws {RequiredError}
          */
-        async getDeal(id: number, include_fields?: 'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id', custom_fields?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertDealResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getDeal(id, include_fields, custom_fields, );
+        async getDeal(id: number, include_fields?: 'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id', custom_fields?: string, include_option_labels?: boolean, include_labels?: boolean, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertDealResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDeal(id, include_fields, custom_fields, include_option_labels, include_labels, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -1836,21 +1212,6 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Lists products attached to a deal.
-         * @summary List products attached to a deal
-         * @param {number} id The ID of the deal
-         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
-         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-         * @param {'id' | 'add_time' | 'update_time' | 'order_nr'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;order_nr&#x60;.
-         * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
-
-         * @throws {RequiredError}
-         */
-        async getDealProducts(id: number, cursor?: string, limit?: number, sort_by?: 'id' | 'add_time' | 'update_time' | 'order_nr', sort_direction?: 'asc' | 'desc', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealsProductsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealProducts(id, cursor, limit, sort_by, sort_direction, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Returns data about all not archived deals.
          * @summary Get all deals
          * @param {number} [filter_id] If supplied, only deals matching the specified filter are returned
@@ -1867,43 +1228,15 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
          * @param {'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id'} [include_fields] Optional comma separated string array of additional fields to include
          * @param {string} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+         * @param {boolean} [include_option_labels] When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
+         * @param {boolean} [include_labels] When provided with \&#39;true\&#39; value, response will include an array of label objects in the form of \&#39;{ id: number, label: string }\&#39;
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        async getDeals(filter_id?: number, ids?: string, owner_id?: number, person_id?: number, org_id?: number, pipeline_id?: number, stage_id?: number, status?: 'open' | 'won' | 'lost' | 'deleted', updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: 'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id', custom_fields?: string, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getDeals(filter_id, ids, owner_id, person_id, org_id, pipeline_id, stage_id, status, updated_since, updated_until, sort_by, sort_direction, include_fields, custom_fields, limit, cursor, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Returns data about products attached to deals
-         * @summary Get deal products of several deals
-         * @param {Array<number>} deal_ids An array of integers with the IDs of the deals for which the attached products will be returned. A maximum of 100 deal IDs can be provided.
-         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
-         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-         * @param {'id' | 'deal_id' | 'add_time' | 'update_time' | 'order_nr'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;deal_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;order_nr&#x60;.
-         * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
-
-         * @throws {RequiredError}
-         */
-        async getDealsProducts(deal_ids: Array<number>, cursor?: string, limit?: number, sort_by?: 'id' | 'deal_id' | 'add_time' | 'update_time' | 'order_nr', sort_direction?: 'asc' | 'desc', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealsProductsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealsProducts(deal_ids, cursor, limit, sort_by, sort_direction, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Lists installments attached to a list of deals.  Only available in Growth and above plans. 
-         * @summary List installments added to a list of deals
-         * @param {Array<number>} deal_ids An array of integers with the IDs of the deals for which the attached installments will be returned. A maximum of 100 deal IDs can be provided.
-         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
-         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-         * @param {'id' | 'billing_date' | 'deal_id'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;billing_date&#x60;, &#x60;deal_id&#x60;.
-         * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
-
-         * @throws {RequiredError}
-         */
-        async getInstallments(deal_ids: Array<number>, cursor?: string, limit?: number, sort_by?: 'id' | 'billing_date' | 'deal_id', sort_direction?: 'asc' | 'desc', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetInstallmentsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getInstallments(deal_ids, cursor, limit, sort_by, sort_direction, );
+        async getDeals(filter_id?: number, ids?: string, owner_id?: number, person_id?: number, org_id?: number, pipeline_id?: number, stage_id?: number, status?: 'open' | 'won' | 'lost' | 'deleted', updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: 'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id', custom_fields?: string, include_option_labels?: boolean, include_labels?: boolean, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDeals(filter_id, ids, owner_id, person_id, org_id, pipeline_id, stage_id, status, updated_since, updated_until, sort_by, sort_direction, include_fields, custom_fields, include_option_labels, include_labels, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -1916,18 +1249,6 @@ export const DealsApiFp = function(configuration?: Configuration) {
          */
         async postAdditionalDiscount(id: number, AddAdditionalDiscountRequestBody?: AddAdditionalDiscountRequestBody, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddAdditionalDiscountResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.postAdditionalDiscount(id, AddAdditionalDiscountRequestBody, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Growth and above plans. 
-         * @summary Add an installment to a deal
-         * @param {number} id The ID of the deal
-         * @param {AddInstallmentRequestBody} [AddInstallmentRequestBody] 
-
-         * @throws {RequiredError}
-         */
-        async postInstallment(id: number, AddInstallmentRequestBody?: AddInstallmentRequestBody, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddAInstallmentResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.postInstallment(id, AddInstallmentRequestBody, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -1974,32 +1295,6 @@ export const DealsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateDeal(id, UpdateDealRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
-        /**
-         * Updates the details of the product that has been attached to a deal.
-         * @summary Update the product attached to a deal
-         * @param {number} id The ID of the deal
-         * @param {number} product_attachment_id The ID of the deal-product (the ID of the product attached to the deal)
-         * @param {UpdateDealProductRequest} [UpdateDealProductRequest] 
-
-         * @throws {RequiredError}
-         */
-        async updateDealProduct(id: number, product_attachment_id: number, UpdateDealProductRequest?: UpdateDealProductRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddDealProductResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateDealProduct(id, product_attachment_id, UpdateDealProductRequest, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Edits an installment added to a deal.  Only available in Growth and above plans. 
-         * @summary Update an installment added to a deal
-         * @param {number} id The ID of the deal
-         * @param {number} installment_id The ID of the installment
-         * @param {UpdateInstallmentRequestBody} [UpdateInstallmentRequestBody] 
-
-         * @throws {RequiredError}
-         */
-        async updateInstallment(id: number, installment_id: number, UpdateInstallmentRequestBody?: UpdateInstallmentRequestBody, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateInstallmentResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateInstallment(id, installment_id, UpdateInstallmentRequestBody, );
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
     }
 };
 
@@ -2029,26 +1324,6 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          */
         addDealFollower(requestParameters: DealsApiAddDealFollowerRequest, ): Promise<AddFollowerResponse> {
             return localVarFp.addDealFollower(requestParameters.id, requestParameters.AddDealFollowerRequest, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Adds a product to a deal, creating a new item called a deal-product.
-         * @summary Add a product to a deal
-         * @param {DealsApiAddDealProductRequest} requestParameters Request parameters.
-
-         * @throws {RequiredError}
-         */
-        addDealProduct(requestParameters: DealsApiAddDealProductRequest, ): Promise<AddDealProductResponse> {
-            return localVarFp.addDealProduct(requestParameters.id, requestParameters.AddDealProductRequest, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Adds multiple products to a deal in a single request. Maximum of 100 products allowed per request.
-         * @summary Add multiple products to a deal
-         * @param {DealsApiAddManyDealProductsRequest} requestParameters Request parameters.
-
-         * @throws {RequiredError}
-         */
-        addManyDealProducts(requestParameters: DealsApiAddManyDealProductsRequest, ): Promise<AddManyDealProductResponse> {
-            return localVarFp.addManyDealProducts(requestParameters.id, requestParameters.CreateManyDealProductRequest, ).then((request) => request(axios, basePath));
         },
         /**
          * Initiates a conversion of a deal to a lead. The return value is an ID of a job that was assigned to perform the conversion. Related entities (notes, files, emails, activities, ...) are transferred during the process to the target entity. There are exceptions for entities like invoices or history that are not transferred and remain linked to the original deal. If the conversion is successful, the deal is marked as deleted. To retrieve the created entity ID and the result of the conversion, call the <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDealConversionStatus\">/api/v2/deals/{deal_id}/convert/status/{conversion_id}</a> endpoint.
@@ -2091,36 +1366,6 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.deleteDealFollower(requestParameters.id, requestParameters.follower_id, ).then((request) => request(axios, basePath));
         },
         /**
-         * Deletes a product attachment from a deal, using the `product_attachment_id`.
-         * @summary Delete an attached product from a deal
-         * @param {DealsApiDeleteDealProductRequest} requestParameters Request parameters.
-
-         * @throws {RequiredError}
-         */
-        deleteDealProduct(requestParameters: DealsApiDeleteDealProductRequest, ): Promise<DeleteDealProductResponse> {
-            return localVarFp.deleteDealProduct(requestParameters.id, requestParameters.product_attachment_id, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Removes an installment from a deal.  Only available in Growth and above plans. 
-         * @summary Delete an installment from a deal
-         * @param {DealsApiDeleteInstallmentRequest} requestParameters Request parameters.
-
-         * @throws {RequiredError}
-         */
-        deleteInstallment(requestParameters: DealsApiDeleteInstallmentRequest, ): Promise<DeleteInstallmentResponse> {
-            return localVarFp.deleteInstallment(requestParameters.id, requestParameters.installment_id, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Deletes multiple products from a deal. If no product IDs are specified, up to 100 products will be removed from the deal. A maximum of 100 product IDs can be provided per request.
-         * @summary Delete many products from a deal
-         * @param {DealsApiDeleteManyDealProductsRequest} requestParameters Request parameters.
-
-         * @throws {RequiredError}
-         */
-        deleteManyDealProducts(requestParameters: DealsApiDeleteManyDealProductsRequest, ): Promise<DeleteManyDealProductResponse> {
-            return localVarFp.deleteManyDealProducts(requestParameters.id, requestParameters.ids, ).then((request) => request(axios, basePath));
-        },
-        /**
          * Lists discounts attached to a deal.
          * @summary List discounts added to a deal
          * @param {DealsApiGetAdditionalDiscountsRequest} requestParameters Request parameters.
@@ -2148,7 +1393,7 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          * @throws {RequiredError}
          */
         getDeal(requestParameters: DealsApiGetDealRequest, ): Promise<UpsertDealResponse> {
-            return localVarFp.getDeal(requestParameters.id, requestParameters.include_fields, requestParameters.custom_fields, ).then((request) => request(axios, basePath));
+            return localVarFp.getDeal(requestParameters.id, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.include_option_labels, requestParameters.include_labels, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns information about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Lead ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
@@ -2181,16 +1426,6 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.getDealFollowersChangelog(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
-         * Lists products attached to a deal.
-         * @summary List products attached to a deal
-         * @param {DealsApiGetDealProductsRequest} requestParameters Request parameters.
-
-         * @throws {RequiredError}
-         */
-        getDealProducts(requestParameters: DealsApiGetDealProductsRequest, ): Promise<GetDealsProductsResponse> {
-            return localVarFp.getDealProducts(requestParameters.id, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, ).then((request) => request(axios, basePath));
-        },
-        /**
          * Returns data about all not archived deals.
          * @summary Get all deals
          * @param {DealsApiGetDealsRequest} requestParameters Request parameters.
@@ -2198,27 +1433,7 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          * @throws {RequiredError}
          */
         getDeals(requestParameters: DealsApiGetDealsRequest = {}, ): Promise<GetDealsResponse> {
-            return localVarFp.getDeals(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.person_id, requestParameters.org_id, requestParameters.pipeline_id, requestParameters.stage_id, requestParameters.status, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Returns data about products attached to deals
-         * @summary Get deal products of several deals
-         * @param {DealsApiGetDealsProductsRequest} requestParameters Request parameters.
-
-         * @throws {RequiredError}
-         */
-        getDealsProducts(requestParameters: DealsApiGetDealsProductsRequest, ): Promise<GetDealsProductsResponse> {
-            return localVarFp.getDealsProducts(requestParameters.deal_ids, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Lists installments attached to a list of deals.  Only available in Growth and above plans. 
-         * @summary List installments added to a list of deals
-         * @param {DealsApiGetInstallmentsRequest} requestParameters Request parameters.
-
-         * @throws {RequiredError}
-         */
-        getInstallments(requestParameters: DealsApiGetInstallmentsRequest, ): Promise<GetInstallmentsResponse> {
-            return localVarFp.getInstallments(requestParameters.deal_ids, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, ).then((request) => request(axios, basePath));
+            return localVarFp.getDeals(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.person_id, requestParameters.org_id, requestParameters.pipeline_id, requestParameters.stage_id, requestParameters.status, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.include_option_labels, requestParameters.include_labels, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
          * Adds a discount to a deal, changing the deal value if the deal has one-time products attached.
@@ -2229,16 +1444,6 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          */
         postAdditionalDiscount(requestParameters: DealsApiPostAdditionalDiscountRequest, ): Promise<AddAdditionalDiscountResponse> {
             return localVarFp.postAdditionalDiscount(requestParameters.id, requestParameters.AddAdditionalDiscountRequestBody, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Growth and above plans. 
-         * @summary Add an installment to a deal
-         * @param {DealsApiPostInstallmentRequest} requestParameters Request parameters.
-
-         * @throws {RequiredError}
-         */
-        postInstallment(requestParameters: DealsApiPostInstallmentRequest, ): Promise<AddAInstallmentResponse> {
-            return localVarFp.postInstallment(requestParameters.id, requestParameters.AddInstallmentRequestBody, ).then((request) => request(axios, basePath));
         },
         /**
          * Searches all deals by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found deals can be filtered by the person ID and the organization ID.
@@ -2269,26 +1474,6 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          */
         updateDeal(requestParameters: DealsApiUpdateDealRequest, ): Promise<UpsertDealResponse> {
             return localVarFp.updateDeal(requestParameters.id, requestParameters.UpdateDealRequest, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Updates the details of the product that has been attached to a deal.
-         * @summary Update the product attached to a deal
-         * @param {DealsApiUpdateDealProductRequest} requestParameters Request parameters.
-
-         * @throws {RequiredError}
-         */
-        updateDealProduct(requestParameters: DealsApiUpdateDealProductRequest, ): Promise<AddDealProductResponse> {
-            return localVarFp.updateDealProduct(requestParameters.id, requestParameters.product_attachment_id, requestParameters.UpdateDealProductRequest, ).then((request) => request(axios, basePath));
-        },
-        /**
-         * Edits an installment added to a deal.  Only available in Growth and above plans. 
-         * @summary Update an installment added to a deal
-         * @param {DealsApiUpdateInstallmentRequest} requestParameters Request parameters.
-
-         * @throws {RequiredError}
-         */
-        updateInstallment(requestParameters: DealsApiUpdateInstallmentRequest, ): Promise<UpdateInstallmentResponse> {
-            return localVarFp.updateInstallment(requestParameters.id, requestParameters.installment_id, requestParameters.UpdateInstallmentRequestBody, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -2326,48 +1511,6 @@ export interface DealsApiAddDealFollowerRequest {
      * @memberof DealsApiAddDealFollower
      */
     readonly AddDealFollowerRequest?: AddDealFollowerRequest
-}
-
-/**
- * Request parameters for addDealProduct operation in DealsApi.
- * @export
- * @interface DealsApiAddDealProductRequest
- */
-export interface DealsApiAddDealProductRequest {
-    /**
-     * The ID of the deal
-     * @type {number}
-     * @memberof DealsApiAddDealProduct
-     */
-    readonly id: number
-
-    /**
-     * 
-     * @type {AddDealProductRequest}
-     * @memberof DealsApiAddDealProduct
-     */
-    readonly AddDealProductRequest?: AddDealProductRequest
-}
-
-/**
- * Request parameters for addManyDealProducts operation in DealsApi.
- * @export
- * @interface DealsApiAddManyDealProductsRequest
- */
-export interface DealsApiAddManyDealProductsRequest {
-    /**
-     * The ID of the deal
-     * @type {number}
-     * @memberof DealsApiAddManyDealProducts
-     */
-    readonly id: number
-
-    /**
-     * 
-     * @type {CreateManyDealProductRequest}
-     * @memberof DealsApiAddManyDealProducts
-     */
-    readonly CreateManyDealProductRequest?: CreateManyDealProductRequest
 }
 
 /**
@@ -2438,69 +1581,6 @@ export interface DealsApiDeleteDealFollowerRequest {
      * @memberof DealsApiDeleteDealFollower
      */
     readonly follower_id: number
-}
-
-/**
- * Request parameters for deleteDealProduct operation in DealsApi.
- * @export
- * @interface DealsApiDeleteDealProductRequest
- */
-export interface DealsApiDeleteDealProductRequest {
-    /**
-     * The ID of the deal
-     * @type {number}
-     * @memberof DealsApiDeleteDealProduct
-     */
-    readonly id: number
-
-    /**
-     * The product attachment ID
-     * @type {number}
-     * @memberof DealsApiDeleteDealProduct
-     */
-    readonly product_attachment_id: number
-}
-
-/**
- * Request parameters for deleteInstallment operation in DealsApi.
- * @export
- * @interface DealsApiDeleteInstallmentRequest
- */
-export interface DealsApiDeleteInstallmentRequest {
-    /**
-     * The ID of the deal
-     * @type {number}
-     * @memberof DealsApiDeleteInstallment
-     */
-    readonly id: number
-
-    /**
-     * The ID of the installment
-     * @type {number}
-     * @memberof DealsApiDeleteInstallment
-     */
-    readonly installment_id: number
-}
-
-/**
- * Request parameters for deleteManyDealProducts operation in DealsApi.
- * @export
- * @interface DealsApiDeleteManyDealProductsRequest
- */
-export interface DealsApiDeleteManyDealProductsRequest {
-    /**
-     * The ID of the deal
-     * @type {number}
-     * @memberof DealsApiDeleteManyDealProducts
-     */
-    readonly id: number
-
-    /**
-     * Comma-separated list of deal product IDs to delete. If not provided, all deal products will be deleted up to 100 items. Maximum 100 IDs allowed.
-     * @type {string}
-     * @memberof DealsApiDeleteManyDealProducts
-     */
-    readonly ids?: string
 }
 
 /**
@@ -2662,6 +1742,20 @@ export interface DealsApiGetDealRequest {
      * @memberof DealsApiGetDeal
      */
     readonly custom_fields?: string
+
+    /**
+     * When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
+     * @type {boolean}
+     * @memberof DealsApiGetDeal
+     */
+    readonly include_option_labels?: boolean
+
+    /**
+     * When provided with \&#39;true\&#39; value, response will include an array of label objects in the form of \&#39;{ id: number, label: string }\&#39;
+     * @type {boolean}
+     * @memberof DealsApiGetDeal
+     */
+    readonly include_labels?: boolean
 }
 
 /**
@@ -2739,48 +1833,6 @@ export interface DealsApiGetDealFollowersChangelogRequest {
      * @memberof DealsApiGetDealFollowersChangelog
      */
     readonly cursor?: string
-}
-
-/**
- * Request parameters for getDealProducts operation in DealsApi.
- * @export
- * @interface DealsApiGetDealProductsRequest
- */
-export interface DealsApiGetDealProductsRequest {
-    /**
-     * The ID of the deal
-     * @type {number}
-     * @memberof DealsApiGetDealProducts
-     */
-    readonly id: number
-
-    /**
-     * For pagination, the marker (an opaque string value) representing the first item on the next page
-     * @type {string}
-     * @memberof DealsApiGetDealProducts
-     */
-    readonly cursor?: string
-
-    /**
-     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-     * @type {number}
-     * @memberof DealsApiGetDealProducts
-     */
-    readonly limit?: number
-
-    /**
-     * The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;order_nr&#x60;.
-     * @type {'id' | 'add_time' | 'update_time' | 'order_nr'}
-     * @memberof DealsApiGetDealProducts
-     */
-    readonly sort_by?: 'id' | 'add_time' | 'update_time' | 'order_nr'
-
-    /**
-     * The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
-     * @type {'asc' | 'desc'}
-     * @memberof DealsApiGetDealProducts
-     */
-    readonly sort_direction?: 'asc' | 'desc'
 }
 
 /**
@@ -2888,6 +1940,20 @@ export interface DealsApiGetDealsRequest {
     readonly custom_fields?: string
 
     /**
+     * When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
+     * @type {boolean}
+     * @memberof DealsApiGetDeals
+     */
+    readonly include_option_labels?: boolean
+
+    /**
+     * When provided with \&#39;true\&#39; value, response will include an array of label objects in the form of \&#39;{ id: number, label: string }\&#39;
+     * @type {boolean}
+     * @memberof DealsApiGetDeals
+     */
+    readonly include_labels?: boolean
+
+    /**
      * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
      * @type {number}
      * @memberof DealsApiGetDeals
@@ -2900,90 +1966,6 @@ export interface DealsApiGetDealsRequest {
      * @memberof DealsApiGetDeals
      */
     readonly cursor?: string
-}
-
-/**
- * Request parameters for getDealsProducts operation in DealsApi.
- * @export
- * @interface DealsApiGetDealsProductsRequest
- */
-export interface DealsApiGetDealsProductsRequest {
-    /**
-     * An array of integers with the IDs of the deals for which the attached products will be returned. A maximum of 100 deal IDs can be provided.
-     * @type {Array<number>}
-     * @memberof DealsApiGetDealsProducts
-     */
-    readonly deal_ids: Array<number>
-
-    /**
-     * For pagination, the marker (an opaque string value) representing the first item on the next page
-     * @type {string}
-     * @memberof DealsApiGetDealsProducts
-     */
-    readonly cursor?: string
-
-    /**
-     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-     * @type {number}
-     * @memberof DealsApiGetDealsProducts
-     */
-    readonly limit?: number
-
-    /**
-     * The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;deal_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;order_nr&#x60;.
-     * @type {'id' | 'deal_id' | 'add_time' | 'update_time' | 'order_nr'}
-     * @memberof DealsApiGetDealsProducts
-     */
-    readonly sort_by?: 'id' | 'deal_id' | 'add_time' | 'update_time' | 'order_nr'
-
-    /**
-     * The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
-     * @type {'asc' | 'desc'}
-     * @memberof DealsApiGetDealsProducts
-     */
-    readonly sort_direction?: 'asc' | 'desc'
-}
-
-/**
- * Request parameters for getInstallments operation in DealsApi.
- * @export
- * @interface DealsApiGetInstallmentsRequest
- */
-export interface DealsApiGetInstallmentsRequest {
-    /**
-     * An array of integers with the IDs of the deals for which the attached installments will be returned. A maximum of 100 deal IDs can be provided.
-     * @type {Array<number>}
-     * @memberof DealsApiGetInstallments
-     */
-    readonly deal_ids: Array<number>
-
-    /**
-     * For pagination, the marker (an opaque string value) representing the first item on the next page
-     * @type {string}
-     * @memberof DealsApiGetInstallments
-     */
-    readonly cursor?: string
-
-    /**
-     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-     * @type {number}
-     * @memberof DealsApiGetInstallments
-     */
-    readonly limit?: number
-
-    /**
-     * The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;billing_date&#x60;, &#x60;deal_id&#x60;.
-     * @type {'id' | 'billing_date' | 'deal_id'}
-     * @memberof DealsApiGetInstallments
-     */
-    readonly sort_by?: 'id' | 'billing_date' | 'deal_id'
-
-    /**
-     * The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
-     * @type {'asc' | 'desc'}
-     * @memberof DealsApiGetInstallments
-     */
-    readonly sort_direction?: 'asc' | 'desc'
 }
 
 /**
@@ -3005,27 +1987,6 @@ export interface DealsApiPostAdditionalDiscountRequest {
      * @memberof DealsApiPostAdditionalDiscount
      */
     readonly AddAdditionalDiscountRequestBody?: AddAdditionalDiscountRequestBody
-}
-
-/**
- * Request parameters for postInstallment operation in DealsApi.
- * @export
- * @interface DealsApiPostInstallmentRequest
- */
-export interface DealsApiPostInstallmentRequest {
-    /**
-     * The ID of the deal
-     * @type {number}
-     * @memberof DealsApiPostInstallment
-     */
-    readonly id: number
-
-    /**
-     * 
-     * @type {AddInstallmentRequestBody}
-     * @memberof DealsApiPostInstallment
-     */
-    readonly AddInstallmentRequestBody?: AddInstallmentRequestBody
 }
 
 /**
@@ -3148,62 +2109,6 @@ export interface DealsApiUpdateDealRequest {
 }
 
 /**
- * Request parameters for updateDealProduct operation in DealsApi.
- * @export
- * @interface DealsApiUpdateDealProductRequest
- */
-export interface DealsApiUpdateDealProductRequest {
-    /**
-     * The ID of the deal
-     * @type {number}
-     * @memberof DealsApiUpdateDealProduct
-     */
-    readonly id: number
-
-    /**
-     * The ID of the deal-product (the ID of the product attached to the deal)
-     * @type {number}
-     * @memberof DealsApiUpdateDealProduct
-     */
-    readonly product_attachment_id: number
-
-    /**
-     * 
-     * @type {UpdateDealProductRequest}
-     * @memberof DealsApiUpdateDealProduct
-     */
-    readonly UpdateDealProductRequest?: UpdateDealProductRequest
-}
-
-/**
- * Request parameters for updateInstallment operation in DealsApi.
- * @export
- * @interface DealsApiUpdateInstallmentRequest
- */
-export interface DealsApiUpdateInstallmentRequest {
-    /**
-     * The ID of the deal
-     * @type {number}
-     * @memberof DealsApiUpdateInstallment
-     */
-    readonly id: number
-
-    /**
-     * The ID of the installment
-     * @type {number}
-     * @memberof DealsApiUpdateInstallment
-     */
-    readonly installment_id: number
-
-    /**
-     * 
-     * @type {UpdateInstallmentRequestBody}
-     * @memberof DealsApiUpdateInstallment
-     */
-    readonly UpdateInstallmentRequestBody?: UpdateInstallmentRequestBody
-}
-
-/**
  * DealsApi - object-oriented interface
  * @export
  * @class DealsApi
@@ -3232,30 +2137,6 @@ export class DealsApi extends BaseAPI {
      */
     public addDealFollower(requestParameters: DealsApiAddDealFollowerRequest, ) {
         return DealsApiFp(this.configuration).addDealFollower(requestParameters.id, requestParameters.AddDealFollowerRequest, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Adds a product to a deal, creating a new item called a deal-product.
-     * @summary Add a product to a deal
-     * @param {DealsApiAddDealProductRequest} requestParameters Request parameters.
-
-     * @throws {RequiredError}
-     * @memberof DealsApi
-     */
-    public addDealProduct(requestParameters: DealsApiAddDealProductRequest, ) {
-        return DealsApiFp(this.configuration).addDealProduct(requestParameters.id, requestParameters.AddDealProductRequest, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Adds multiple products to a deal in a single request. Maximum of 100 products allowed per request.
-     * @summary Add multiple products to a deal
-     * @param {DealsApiAddManyDealProductsRequest} requestParameters Request parameters.
-
-     * @throws {RequiredError}
-     * @memberof DealsApi
-     */
-    public addManyDealProducts(requestParameters: DealsApiAddManyDealProductsRequest, ) {
-        return DealsApiFp(this.configuration).addManyDealProducts(requestParameters.id, requestParameters.CreateManyDealProductRequest, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3307,42 +2188,6 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
-     * Deletes a product attachment from a deal, using the `product_attachment_id`.
-     * @summary Delete an attached product from a deal
-     * @param {DealsApiDeleteDealProductRequest} requestParameters Request parameters.
-
-     * @throws {RequiredError}
-     * @memberof DealsApi
-     */
-    public deleteDealProduct(requestParameters: DealsApiDeleteDealProductRequest, ) {
-        return DealsApiFp(this.configuration).deleteDealProduct(requestParameters.id, requestParameters.product_attachment_id, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Removes an installment from a deal.  Only available in Growth and above plans. 
-     * @summary Delete an installment from a deal
-     * @param {DealsApiDeleteInstallmentRequest} requestParameters Request parameters.
-
-     * @throws {RequiredError}
-     * @memberof DealsApi
-     */
-    public deleteInstallment(requestParameters: DealsApiDeleteInstallmentRequest, ) {
-        return DealsApiFp(this.configuration).deleteInstallment(requestParameters.id, requestParameters.installment_id, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Deletes multiple products from a deal. If no product IDs are specified, up to 100 products will be removed from the deal. A maximum of 100 product IDs can be provided per request.
-     * @summary Delete many products from a deal
-     * @param {DealsApiDeleteManyDealProductsRequest} requestParameters Request parameters.
-
-     * @throws {RequiredError}
-     * @memberof DealsApi
-     */
-    public deleteManyDealProducts(requestParameters: DealsApiDeleteManyDealProductsRequest, ) {
-        return DealsApiFp(this.configuration).deleteManyDealProducts(requestParameters.id, requestParameters.ids, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Lists discounts attached to a deal.
      * @summary List discounts added to a deal
      * @param {DealsApiGetAdditionalDiscountsRequest} requestParameters Request parameters.
@@ -3375,7 +2220,7 @@ export class DealsApi extends BaseAPI {
      * @memberof DealsApi
      */
     public getDeal(requestParameters: DealsApiGetDealRequest, ) {
-        return DealsApiFp(this.configuration).getDeal(requestParameters.id, requestParameters.include_fields, requestParameters.custom_fields, ).then((request) => request(this.axios, this.basePath));
+        return DealsApiFp(this.configuration).getDeal(requestParameters.id, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.include_option_labels, requestParameters.include_labels, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3415,18 +2260,6 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
-     * Lists products attached to a deal.
-     * @summary List products attached to a deal
-     * @param {DealsApiGetDealProductsRequest} requestParameters Request parameters.
-
-     * @throws {RequiredError}
-     * @memberof DealsApi
-     */
-    public getDealProducts(requestParameters: DealsApiGetDealProductsRequest, ) {
-        return DealsApiFp(this.configuration).getDealProducts(requestParameters.id, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Returns data about all not archived deals.
      * @summary Get all deals
      * @param {DealsApiGetDealsRequest} requestParameters Request parameters.
@@ -3435,31 +2268,7 @@ export class DealsApi extends BaseAPI {
      * @memberof DealsApi
      */
     public getDeals(requestParameters: DealsApiGetDealsRequest = {}, ) {
-        return DealsApiFp(this.configuration).getDeals(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.person_id, requestParameters.org_id, requestParameters.pipeline_id, requestParameters.stage_id, requestParameters.status, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Returns data about products attached to deals
-     * @summary Get deal products of several deals
-     * @param {DealsApiGetDealsProductsRequest} requestParameters Request parameters.
-
-     * @throws {RequiredError}
-     * @memberof DealsApi
-     */
-    public getDealsProducts(requestParameters: DealsApiGetDealsProductsRequest, ) {
-        return DealsApiFp(this.configuration).getDealsProducts(requestParameters.deal_ids, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Lists installments attached to a list of deals.  Only available in Growth and above plans. 
-     * @summary List installments added to a list of deals
-     * @param {DealsApiGetInstallmentsRequest} requestParameters Request parameters.
-
-     * @throws {RequiredError}
-     * @memberof DealsApi
-     */
-    public getInstallments(requestParameters: DealsApiGetInstallmentsRequest, ) {
-        return DealsApiFp(this.configuration).getInstallments(requestParameters.deal_ids, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, ).then((request) => request(this.axios, this.basePath));
+        return DealsApiFp(this.configuration).getDeals(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.person_id, requestParameters.org_id, requestParameters.pipeline_id, requestParameters.stage_id, requestParameters.status, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.include_option_labels, requestParameters.include_labels, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3472,18 +2281,6 @@ export class DealsApi extends BaseAPI {
      */
     public postAdditionalDiscount(requestParameters: DealsApiPostAdditionalDiscountRequest, ) {
         return DealsApiFp(this.configuration).postAdditionalDiscount(requestParameters.id, requestParameters.AddAdditionalDiscountRequestBody, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Growth and above plans. 
-     * @summary Add an installment to a deal
-     * @param {DealsApiPostInstallmentRequest} requestParameters Request parameters.
-
-     * @throws {RequiredError}
-     * @memberof DealsApi
-     */
-    public postInstallment(requestParameters: DealsApiPostInstallmentRequest, ) {
-        return DealsApiFp(this.configuration).postInstallment(requestParameters.id, requestParameters.AddInstallmentRequestBody, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3520,29 +2317,5 @@ export class DealsApi extends BaseAPI {
      */
     public updateDeal(requestParameters: DealsApiUpdateDealRequest, ) {
         return DealsApiFp(this.configuration).updateDeal(requestParameters.id, requestParameters.UpdateDealRequest, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Updates the details of the product that has been attached to a deal.
-     * @summary Update the product attached to a deal
-     * @param {DealsApiUpdateDealProductRequest} requestParameters Request parameters.
-
-     * @throws {RequiredError}
-     * @memberof DealsApi
-     */
-    public updateDealProduct(requestParameters: DealsApiUpdateDealProductRequest, ) {
-        return DealsApiFp(this.configuration).updateDealProduct(requestParameters.id, requestParameters.product_attachment_id, requestParameters.UpdateDealProductRequest, ).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Edits an installment added to a deal.  Only available in Growth and above plans. 
-     * @summary Update an installment added to a deal
-     * @param {DealsApiUpdateInstallmentRequest} requestParameters Request parameters.
-
-     * @throws {RequiredError}
-     * @memberof DealsApi
-     */
-    public updateInstallment(requestParameters: DealsApiUpdateInstallmentRequest, ) {
-        return DealsApiFp(this.configuration).updateInstallment(requestParameters.id, requestParameters.installment_id, requestParameters.UpdateInstallmentRequestBody, ).then((request) => request(this.axios, this.basePath));
     }
 }
