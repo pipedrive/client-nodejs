@@ -8,6 +8,13 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+### Fixed
+
+- upgraded axios 1.13.6 -> 1.15.1 by npm audit fix
+- upgraded axios 1.13.6 -> 1.15.1 by npm audit fix
+- upgraded axios 1.13.6 -> 1.15.1 by npm audit fix
+- upgraded axios 1.13.6 -> 1.15.2 by npm audit fix
+
 ## [33.0.0] - 2026-05-05
 ### Added
 - Added projects v2 API
