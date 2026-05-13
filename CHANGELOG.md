@@ -8,6 +8,13 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [33.0.1] - 2026-05-13
+
+### Fixed
+- Updated `lodash` dependency from 4.17.21 to 4.18.1
+- Updated `axios` dependency from 1.13.6 to 1.16.0
+- Updated transitive dependencies via `npm audit fix`: `ajv`, `brace-expansion`, `diff`, `follow-redirects`, `js-yaml`, `minimatch`, `picomatch`, `yaml`
+
 ## [33.0.0] - 2026-05-05
 ### Added
 - Added projects v2 API
@@ -1243,7 +1250,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v33.0.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v33.0.1...HEAD
+[33.0.1]: https://github.com/pipedrive/api-docs/compare/v33.0.0...v33.0.1
 [33.0.0]: https://github.com/pipedrive/api-docs/compare/v32.2.1...v33.0.0
 [32.2.1]: https://github.com/pipedrive/api-docs/compare/v32.2.0...v32.2.1
 [32.2.0]: https://github.com/pipedrive/api-docs/compare/v32.1.0...v32.2.0
