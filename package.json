@@ -89,7 +89,7 @@
   },
   "overrides": {
     "serialize-javascript": "^7.0.4",
-    "flatted": ">=3.4.0"
+    "flatted": "^3.4.0"
   },
   "lint-staged": {
     "*.{ts,js}": [
