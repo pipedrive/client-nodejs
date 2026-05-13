@@ -8,6 +8,11 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+### Fixed
+- Updated `lodash` dependency from 4.17.21 to 4.18.1
+- Updated `axios` dependency from 1.13.6 to 1.16.0
+- Updated transitive dependencies via `npm audit fix`: `ajv`, `brace-expansion`, `diff`, `follow-redirects`, `js-yaml`, `minimatch`, `picomatch`, `yaml`
+
 ## [33.0.0] - 2026-05-05
 ### Added
 - Added projects v2 API
