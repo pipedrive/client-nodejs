@@ -8,6 +8,10 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+### Security
+- Synced `package-lock.json` to match `package.json` `axios` specifier (`^1.16.0`), fixing stale lockfile metadata that referenced `^1.13.6`
+- Removed redundant `flatted` override — parent `flat-cache@3.0.4` (`^3.1.0`) already resolves to `3.4.2`
+
 ## [33.0.1] - 2026-05-13
 
 ### Fixed
