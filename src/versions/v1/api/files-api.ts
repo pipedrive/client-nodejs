@@ -51,10 +51,11 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
          * @param {number} [product_id] The ID of the product to associate file(s) with
          * @param {number} [activity_id] The ID of the activity to associate file(s) with
          * @param {string} [lead_id] The ID of the lead to associate file(s) with
+         * @param {number} [project_id] The ID of the project to associate file(s) with
 
          * @throws {RequiredError}
          */
-        addFile: async (file: File, deal_id?: number, person_id?: number, org_id?: number, product_id?: number, activity_id?: number, lead_id?: string, ): Promise<RequestArgs> => {
+        addFile: async (file: File, deal_id?: number, person_id?: number, org_id?: number, product_id?: number, activity_id?: number, lead_id?: string, project_id?: number, ): Promise<RequestArgs> => {
             // verify required parameter 'file' is not null or undefined
             assertParamExists('addFile', 'file', file)
             const localVarPath = `/files`;
@@ -104,6 +105,10 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
     
             if (lead_id !== undefined) { 
                 localVarFormParams.append('lead_id', lead_id as any);
+            }
+    
+            if (project_id !== undefined) { 
+                localVarFormParams.append('project_id', project_id as any);
             }
     
     
@@ -515,11 +520,12 @@ export const FilesApiFp = function(configuration?: Configuration) {
          * @param {number} [product_id] The ID of the product to associate file(s) with
          * @param {number} [activity_id] The ID of the activity to associate file(s) with
          * @param {string} [lead_id] The ID of the lead to associate file(s) with
+         * @param {number} [project_id] The ID of the project to associate file(s) with
 
          * @throws {RequiredError}
          */
-        async addFile(file: File, deal_id?: number, person_id?: number, org_id?: number, product_id?: number, activity_id?: number, lead_id?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddFileResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addFile(file, deal_id, person_id, org_id, product_id, activity_id, lead_id, );
+        async addFile(file: File, deal_id?: number, person_id?: number, org_id?: number, product_id?: number, activity_id?: number, lead_id?: string, project_id?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddFileResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addFile(file, deal_id, person_id, org_id, product_id, activity_id, lead_id, project_id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -628,7 +634,7 @@ export const FilesApiFactory = function (configuration?: Configuration, basePath
          * @throws {RequiredError}
          */
         addFile(requestParameters: FilesApiAddFileRequest, ): Promise<AddFileResponse> {
-            return localVarFp.addFile(requestParameters.file, requestParameters.deal_id, requestParameters.person_id, requestParameters.org_id, requestParameters.product_id, requestParameters.activity_id, requestParameters.lead_id, ).then((request) => request(axios, basePath));
+            return localVarFp.addFile(requestParameters.file, requestParameters.deal_id, requestParameters.person_id, requestParameters.org_id, requestParameters.product_id, requestParameters.activity_id, requestParameters.lead_id, requestParameters.project_id, ).then((request) => request(axios, basePath));
         },
         /**
          * Creates a new empty file in the remote location (`googledrive`) that will be linked to the item you supply. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-remote-file\" target=\"_blank\" rel=\"noopener noreferrer\">adding a remote file</a>.
@@ -757,6 +763,13 @@ export interface FilesApiAddFileRequest {
      * @memberof FilesApiAddFile
      */
     readonly lead_id?: string
+
+    /**
+     * The ID of the project to associate file(s) with
+     * @type {number}
+     * @memberof FilesApiAddFile
+     */
+    readonly project_id?: number
 }
 
 /**
@@ -950,7 +963,7 @@ export class FilesApi extends BaseAPI {
      * @memberof FilesApi
      */
     public addFile(requestParameters: FilesApiAddFileRequest, ) {
-        return FilesApiFp(this.configuration).addFile(requestParameters.file, requestParameters.deal_id, requestParameters.person_id, requestParameters.org_id, requestParameters.product_id, requestParameters.activity_id, requestParameters.lead_id, ).then((request) => request(this.axios, this.basePath));
+        return FilesApiFp(this.configuration).addFile(requestParameters.file, requestParameters.deal_id, requestParameters.person_id, requestParameters.org_id, requestParameters.product_id, requestParameters.activity_id, requestParameters.lead_id, requestParameters.project_id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
