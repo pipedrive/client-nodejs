@@ -61,6 +61,11 @@ export interface GetFilesResponseDataInner {
     */
     'lead_id'?: string;
     /**
+    * The ID of the project to associate the file with
+    * @type {number}
+    */
+    'project_id'?: number;
+    /**
     * The date and time when the file was added/created. Format: YYYY-MM-DD HH:MM:SS
     * @type {string}
     */
@@ -145,6 +150,11 @@ export interface GetFilesResponseDataInner {
     * @type {string}
     */
     'lead_name'?: string;
+    /**
+    * The name of the project associated with the file
+    * @type {string}
+    */
+    'project_name'?: string;
     /**
     * The URL of the download file
     * @type {string}

@@ -369,12 +369,15 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {number} [filter_id] If supplied, only projects matching the specified filter are returned
          * @param {string} [status] If supplied, includes only projects with the specified statuses. Possible values are &#x60;open&#x60;, &#x60;completed&#x60;, &#x60;canceled&#x60; and &#x60;deleted&#x60;. By default &#x60;deleted&#x60; projects are not returned.
          * @param {number} [phase_id] If supplied, only projects in the specified phase are returned
+         * @param {number} [deal_id] If supplied, only projects associated with the specified deal are returned
+         * @param {number} [person_id] If supplied, only projects associated with the specified person are returned
+         * @param {number} [org_id] If supplied, only projects associated with the specified organization are returned
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        getProjects: async (filter_id?: number, status?: string, phase_id?: number, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+        getProjects: async (filter_id?: number, status?: string, phase_id?: number, deal_id?: number, person_id?: number, org_id?: number, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
             const localVarPath = `/projects`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -404,6 +407,18 @@ export const ProjectsApiAxiosParamCreator = function (configuration?: Configurat
 
             if (phase_id !== undefined) {
                 localVarQueryParameter['phase_id'] = phase_id;
+            }
+
+            if (deal_id !== undefined) {
+                localVarQueryParameter['deal_id'] = deal_id;
+            }
+
+            if (person_id !== undefined) {
+                localVarQueryParameter['person_id'] = person_id;
+            }
+
+            if (org_id !== undefined) {
+                localVarQueryParameter['org_id'] = org_id;
             }
 
             if (limit !== undefined) {
@@ -644,13 +659,16 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
          * @param {number} [filter_id] If supplied, only projects matching the specified filter are returned
          * @param {string} [status] If supplied, includes only projects with the specified statuses. Possible values are &#x60;open&#x60;, &#x60;completed&#x60;, &#x60;canceled&#x60; and &#x60;deleted&#x60;. By default &#x60;deleted&#x60; projects are not returned.
          * @param {number} [phase_id] If supplied, only projects in the specified phase are returned
+         * @param {number} [deal_id] If supplied, only projects associated with the specified deal are returned
+         * @param {number} [person_id] If supplied, only projects associated with the specified person are returned
+         * @param {number} [org_id] If supplied, only projects associated with the specified organization are returned
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        async getProjects(filter_id?: number, status?: string, phase_id?: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getProjects(filter_id, status, phase_id, limit, cursor, );
+        async getProjects(filter_id?: number, status?: string, phase_id?: number, deal_id?: number, person_id?: number, org_id?: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProjects(filter_id, status, phase_id, deal_id, person_id, org_id, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -770,7 +788,7 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         getProjects(requestParameters: ProjectsApiGetProjectsRequest = {}, ): Promise<GetProjectsResponse> {
-            return localVarFp.getProjects(requestParameters.filter_id, requestParameters.status, requestParameters.phase_id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+            return localVarFp.getProjects(requestParameters.filter_id, requestParameters.status, requestParameters.phase_id, requestParameters.deal_id, requestParameters.person_id, requestParameters.org_id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
          * Searches all projects by title, description, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found projects can be filtered by person ID or organization ID.
@@ -961,6 +979,27 @@ export interface ProjectsApiGetProjectsRequest {
      * @memberof ProjectsApiGetProjects
      */
     readonly phase_id?: number
+
+    /**
+     * If supplied, only projects associated with the specified deal are returned
+     * @type {number}
+     * @memberof ProjectsApiGetProjects
+     */
+    readonly deal_id?: number
+
+    /**
+     * If supplied, only projects associated with the specified person are returned
+     * @type {number}
+     * @memberof ProjectsApiGetProjects
+     */
+    readonly person_id?: number
+
+    /**
+     * If supplied, only projects associated with the specified organization are returned
+     * @type {number}
+     * @memberof ProjectsApiGetProjects
+     */
+    readonly org_id?: number
 
     /**
      * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
@@ -1154,7 +1193,7 @@ export class ProjectsApi extends BaseAPI {
      * @memberof ProjectsApi
      */
     public getProjects(requestParameters: ProjectsApiGetProjectsRequest = {}, ) {
-        return ProjectsApiFp(this.configuration).getProjects(requestParameters.filter_id, requestParameters.status, requestParameters.phase_id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+        return ProjectsApiFp(this.configuration).getProjects(requestParameters.filter_id, requestParameters.status, requestParameters.phase_id, requestParameters.deal_id, requestParameters.person_id, requestParameters.org_id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**

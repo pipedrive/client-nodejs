@@ -319,7 +319,7 @@ export const DealProductsApiAxiosParamCreator = function (configuration?: Config
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:read", "products:full", "deals:read", "deals:full"], configuration)
 
             if (deal_ids) {
-                localVarQueryParameter['deal_ids'] = deal_ids;
+                localVarQueryParameter['deal_ids'] = deal_ids.join(COLLECTION_FORMATS.csv);
             }
 
             if (cursor !== undefined) {

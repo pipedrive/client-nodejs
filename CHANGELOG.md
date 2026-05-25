@@ -7,6 +7,11 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Added
+- Added `health_status` field to v1 project response schema (`GET /v1/projects`, `GET /v1/projects/{id}`)
+- Added `health_status` as a writable field to v2 project request body (`POST /api/v2/projects`, `PATCH /api/v2/projects/{id}`)
+### Fixed
+- Fixed `health_status` field type from `string` to `integer` in v2 project response schema (`GET /api/v2/projects`, `GET /api/v2/projects/{id}`)
 
 ## [33.1.0] - 2026-05-22
 
