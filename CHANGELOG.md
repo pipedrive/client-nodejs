@@ -8,6 +8,13 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [33.4.0] - 2026-05-29
+### Added
+- Added `health_status` field to v1 project response schema (`GET /v1/projects`, `GET /v1/projects/{id}`)
+- Added `health_status` as a writable field to v2 project request body (`POST /api/v2/projects`, `PATCH /api/v2/projects/{id}`)
+### Fixed
+- Fixed `health_status` field type from `string` to `integer` in v2 project response schema (`GET /api/v2/projects`, `GET /api/v2/projects/{id}`)
+
 ## [33.3.0] - 2026-05-29
 ### Added
 - Added `project_id` parameter to `POST /v1/files` endpoint
@@ -1270,7 +1277,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v33.3.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v33.4.0...HEAD
+[33.4.0]: https://github.com/pipedrive/api-docs/compare/v33.3.0...v33.4.0
 [33.3.0]: https://github.com/pipedrive/api-docs/compare/v33.2.0...v33.3.0
 [33.2.0]: https://github.com/pipedrive/api-docs/compare/v33.1.1...v33.2.0
 [33.1.1]: https://github.com/pipedrive/api-docs/compare/v33.1.0...v33.1.1

@@ -87,9 +87,9 @@ export interface Project {
     'label_ids'?: Array<number>;
     /**
     * The health status of the project
-    * @type {string}
+    * @type {number}
     */
-    'health_status'?: string | null;
+    'health_status'?: number | null;
     /**
     * The creation date and time of the project in ISO 8601 format
     * @type {string}
