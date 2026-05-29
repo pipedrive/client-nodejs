@@ -7,6 +7,13 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Fixed
+- Fixed double-nested response schema in `GET /api/v2/products` — `data` array items were incorrectly typed as a full response wrapper object instead of the product schema
+- Added missing fields to v2 product response schema: `add_time`, `update_time`, `description`, and `category` (nullable)
+- Added typed properties to `prices` array items in v2 product schema: `product_id`, `price`, `currency`, `cost`, `direct_cost` (nullable), `notes`
+- Fixed `BaseProduct.id`, `ProductVariation.id`, and product image `product_id` typed as `number` instead of `integer`
+- Documented the `updated_since` query parameter for `GET /api/v2/products` which was supported by the API but absent from the spec
+- Fixed `quantity` field type from `integer` to `number` in deal product response schema (`GET /api/v2/deals/{id}/products`) — the API supports decimal values such as `5.5`
 
 ## [33.1.1] - 2026-05-28
 

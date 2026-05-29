@@ -75,5 +75,10 @@ export interface ProjectAllOf1 {
     * @type {Array<number>}
     */
     'labels'?: Array<number>;
+    /**
+    * The health status of the project
+    * @type {number}
+    */
+    'health_status'?: number | null;
 }
 

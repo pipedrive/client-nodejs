@@ -18,7 +18,7 @@
 import { GetDealsProductsResponseAdditionalData } from './get-deals-products-response-additional-data';
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetProductResponse } from './get-product-response';
+import { GetProductsResponseDataInner } from './get-products-response-data-inner';
 
 /**
 * 
@@ -33,9 +33,9 @@ export interface GetProductsResponse {
     'success'?: boolean;
     /**
     * Array containing data for all products
-    * @type {Array<GetProductResponse>}
+    * @type {Array<GetProductsResponseDataInner>}
     */
-    'data'?: Array<GetProductResponse>;
+    'data'?: Array<GetProductsResponseDataInner>;
     /**
     * 
     * @type {GetDealsProductsResponseAdditionalData}

@@ -81,6 +81,11 @@ export interface UpdateProjectRequest {
     */
     'label_ids'?: Array<number>;
     /**
+    * The health status of the project
+    * @type {number}
+    */
+    'health_status'?: number;
+    /**
     * The ID of the template the project will be based on. Only used when creating a new project.
     * @type {number}
     */
