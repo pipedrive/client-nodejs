@@ -8,6 +8,15 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [33.4.1] - 2026-05-29
+### Fixed
+- Fixed double-nested response schema in `GET /api/v2/products` — `data` array items were incorrectly typed as a full response wrapper object instead of the product schema
+- Added missing fields to v2 product response schema: `add_time`, `update_time`, `description`, and `category` (nullable)
+- Added typed properties to `prices` array items in v2 product schema: `product_id`, `price`, `currency`, `cost`, `direct_cost` (nullable), `notes`
+- Fixed `BaseProduct.id`, `ProductVariation.id`, and product image `product_id` typed as `number` instead of `integer`
+- Documented the `updated_since` query parameter for `GET /api/v2/products` which was supported by the API but absent from the spec
+- Fixed `quantity` field type from `integer` to `number` in deal product response schema (`GET /api/v2/deals/{id}/products`) — the API supports decimal values such as `5.5`
+
 ## [33.4.0] - 2026-05-29
 ### Added
 - Added `health_status` field to v1 project response schema (`GET /v1/projects`, `GET /v1/projects/{id}`)
@@ -1277,7 +1286,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v33.4.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v33.4.1...HEAD
+[33.4.1]: https://github.com/pipedrive/api-docs/compare/v33.4.0...v33.4.1
 [33.4.0]: https://github.com/pipedrive/api-docs/compare/v33.3.0...v33.4.0
 [33.3.0]: https://github.com/pipedrive/api-docs/compare/v33.2.0...v33.3.0
 [33.2.0]: https://github.com/pipedrive/api-docs/compare/v33.1.1...v33.2.0

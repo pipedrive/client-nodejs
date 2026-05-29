@@ -61,10 +61,30 @@ export interface BaseProductAllOf {
     */
     'visible_to'?: BaseProductAllOfVisibleToConst;
     /**
-    * Information about the Pipedrive user who owns the product
+    * The ID of the Pipedrive user who owns the product
     * @type {number}
     */
     'owner_id'?: number;
+    /**
+    * The date and time when the product was added
+    * @type {string}
+    */
+    'add_time'?: string;
+    /**
+    * The date and time when the product was last updated
+    * @type {string}
+    */
+    'update_time'?: string;
+    /**
+    * The description of the product
+    * @type {string}
+    */
+    'description'?: string;
+    /**
+    * The category of the product
+    * @type {string}
+    */
+    'category'?: string | null;
     /**
     * An object where each key represents a custom field. All custom fields are referenced as randomly generated 40-character hashes. To clear a custom field value, set it to `null`. For multi-option fields (field type `set`), use `null` to clear the selection — sending an empty array `[]` is not supported and will result in a validation error.
     * @type {{ [key: string]: any | undefined; }}

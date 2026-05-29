@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetProductResponseData } from './get-product-response-data';
+import { GetProductsResponseDataInner } from './get-products-response-data-inner';
 
 /**
 * 
@@ -30,8 +30,8 @@ export interface UpdateProductResponse {
     'success'?: boolean;
     /**
     * 
-    * @type {GetProductResponseData}
+    * @type {GetProductsResponseDataInner}
     */
-    'data'?: GetProductResponseData;
+    'data'?: GetProductsResponseDataInner;
 }
 
