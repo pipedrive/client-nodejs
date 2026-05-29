@@ -11,6 +11,21 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 - Added `project_id` parameter to `POST /v1/files` endpoint
 - Added `project_id` & `project_name` properties to responses in `/v1/files/*` endpoints
 
+## [33.2.0] - 2026-05-29
+### Added
+- Added `website`, `linkedin`, `industry`, `annual_revenue`, and `employee_count` fields to v2 organization response schema (`GET /api/v2/organizations`, `GET /api/v2/organizations/{id}`) — all nullable, not included by default
+- Added `deal_id`, `person_id`, and `org_id` as optional query filter parameters to `GET /api/v2/projects`
+### Fixed
+- Fixed `BillingStartDate` format from non-standard `'YYYY-MM-DD'` to correct OAS3 `date` format in both v1 and v2 deal product schemas
+
+## [33.1.1] - 2026-05-28
+
+### Security
+- Synced `package-lock.json` to match `package.json` `axios` specifier (`^1.16.0`), fixing stale lockfile metadata that referenced `^1.13.6`
+- Removed redundant `flatted` override — parent `flat-cache@3.0.4` (`^3.1.0`) already resolves to `3.4.2`
+
+## [33.1.0] - 2026-05-22
+
 ## [33.0.1] - 2026-05-13
 
 ### Fixed
@@ -1253,7 +1268,10 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v33.0.1...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v33.2.0...HEAD
+[33.2.0]: https://github.com/pipedrive/api-docs/compare/v33.1.1...v33.2.0
+[33.1.1]: https://github.com/pipedrive/api-docs/compare/v33.1.0...v33.1.1
+[33.1.0]: https://github.com/pipedrive/api-docs/compare/v33.0.1...v33.1.0
 [33.0.1]: https://github.com/pipedrive/api-docs/compare/v33.0.0...v33.0.1
 [33.0.0]: https://github.com/pipedrive/api-docs/compare/v32.2.1...v33.0.0
 [32.2.1]: https://github.com/pipedrive/api-docs/compare/v32.2.0...v32.2.1
