@@ -13,6 +13,14 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 ### Fixed
 - Fixed `BillingStartDate` format from non-standard `'YYYY-MM-DD'` to correct OAS3 `date` format in both v1 and v2 deal product schemas
 
+## [33.1.1] - 2026-05-28
+
+### Security
+- Synced `package-lock.json` to match `package.json` `axios` specifier (`^1.16.0`), fixing stale lockfile metadata that referenced `^1.13.6`
+- Removed redundant `flatted` override — parent `flat-cache@3.0.4` (`^3.1.0`) already resolves to `3.4.2`
+
+## [33.1.0] - 2026-05-22
+
 ## [33.0.1] - 2026-05-13
 
 ### Fixed
@@ -1255,7 +1263,9 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v33.0.1...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v33.1.1...HEAD
+[33.1.1]: https://github.com/pipedrive/api-docs/compare/v33.1.0...v33.1.1
+[33.1.0]: https://github.com/pipedrive/api-docs/compare/v33.0.1...v33.1.0
 [33.0.1]: https://github.com/pipedrive/api-docs/compare/v33.0.0...v33.0.1
 [33.0.0]: https://github.com/pipedrive/api-docs/compare/v32.2.1...v33.0.0
 [32.2.1]: https://github.com/pipedrive/api-docs/compare/v32.2.0...v32.2.1
