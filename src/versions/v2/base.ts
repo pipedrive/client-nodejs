@@ -18,8 +18,8 @@ import type { Configuration } from './configuration';
 // @ts-ignore
 import type { AxiosError, AxiosResponse, AxiosRequestConfig , InternalAxiosRequestConfig , AxiosInstance } from 'axios';
 import axios from 'axios';
-import { join, dirname } from 'path';
-import { existsSync } from 'fs';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const _pkg = require('../../../package.json') as { version: string };
 
 export const BASE_PATH = "https://api.pipedrive.com/api/v2".replace(/\/+$/, "");
 
@@ -44,35 +44,8 @@ export interface RequestArgs {
     options: AxiosRequestConfig;
 }
 
-const searchForPackageJson = (startPath: string): string | null => {
-    const filePath = join(startPath, 'package.json');
-
-    if (existsSync(filePath)) {
-        return filePath;
-    }
-
-    const parentDir = dirname(startPath);
-
-    // Stop if we've reached the root directory
-    if (parentDir.endsWith('/pipedrive') || parentDir === startPath) {
-        return null;
-    }
-
-    return searchForPackageJson(parentDir);
-};
-
-
 export const versionInterceptor = async (config:InternalAxiosRequestConfig) => {
-    let version:string;
-    try {
-        const path = searchForPackageJson(__dirname);
-
-        version = path ? require(path).version : '22.x';
-    } catch (error) {
-        version = '22.x';
-    }
-
-    config.headers['User-Agent'] = `Pipedrive-SDK-Javascript-${version}`;
+    config.headers['User-Agent'] = `Pipedrive-SDK-Javascript-${_pkg.version}`;
     return config;
 }
 
