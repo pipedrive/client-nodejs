@@ -33,7 +33,7 @@ export interface AddDealFieldRequestRequiredFields {
     */
     'stage_ids'?: Array<number>;
     /**
-    * Pipeline-specific status requirements for when deals are won or lost. Keys are pipeline IDs (as strings), values are arrays of status strings (\'won\', \'lost\'). Example - {\"1\":[\"won\",\"lost\"],\"2\":[\"won\"]} means the field is required when marking deals as won or lost in pipeline 1, and only when won in pipeline 2. Must reference valid, active pipelines.
+    * Pipeline-specific status requirements for when deals are won or lost. Keys are pipeline IDs (as strings), values are arrays of status strings (\'won\', \'lost\'). Example - `{\"1\":[\"won\",\"lost\"],\"2\":[\"won\"]}` means the field is required when marking deals as won or lost in pipeline 1, and only when won in pipeline 2. Must reference valid, active pipelines.
     * @type {{ [key: string]: Array<string> | undefined; }}
     */
     'statuses'?: { [key: string]: Array<string> | undefined; };

@@ -46,11 +46,6 @@ export interface GetDealFields200ResponseDataInner {
     */
     'field_code': string;
     /**
-    * The description of the field
-    * @type {string}
-    */
-    'description': string;
-    /**
     * The type of the field
     * @type {string}
     */
@@ -65,6 +60,11 @@ export interface GetDealFields200ResponseDataInner {
     * @type {boolean}
     */
     'is_optional_response_field': boolean;
+    /**
+    * The description of the field
+    * @type {string}
+    */
+    'description'?: string;
     /**
     * Array of available options for enum/set fields, null for other field types
     * @type {Array<GetActivityFields200ResponseDataInnerOptionsInner>}

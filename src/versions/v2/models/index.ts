@@ -125,6 +125,7 @@ export * from './get-activity-fields200-response';
 export * from './get-activity-fields200-response-additional-data';
 export * from './get-activity-fields200-response-data-inner';
 export * from './get-activity-fields200-response-data-inner-options-inner';
+export * from './get-activity-fields200-response-data-inner-options-inner-id';
 export * from './get-activity-fields200-response-data-inner-subfields-inner';
 export * from './get-activity-fields200-response-data-inner-ui-visibility';
 export * from './get-additional-discounts-response';
