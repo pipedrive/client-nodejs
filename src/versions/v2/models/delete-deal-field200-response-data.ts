@@ -31,11 +31,6 @@ export interface DeleteDealField200ResponseData {
     */
     'field_code': string;
     /**
-    * The description of the field
-    * @type {string}
-    */
-    'description': string;
-    /**
     * The type of the field
     * @type {string}
     */
@@ -50,6 +45,11 @@ export interface DeleteDealField200ResponseData {
     * @type {boolean}
     */
     'is_optional_response_field': boolean;
+    /**
+    * The description of the field
+    * @type {string}
+    */
+    'description'?: string;
     /**
     * Array of available options for enum/set fields, null for other field types
     * @type {Array<object>}

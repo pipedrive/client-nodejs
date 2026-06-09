@@ -7,6 +7,9 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Fixed
+- Fixed `option_id` field type in v2 field schemas (`ActivityField`, `DealField`, `OrganizationField`, `PersonField`, `ProductField`, `ProjectField`) — changed from `integer` to `integer | string` to reflect that built-in fields use string IDs
+- Removed `description` from the required fields list in `DealField` and `DealFieldItem` schemas, aligning with the rest of the v2 field schemas
 
 ## [33.4.2] - 2026-06-04
 ### Fixed

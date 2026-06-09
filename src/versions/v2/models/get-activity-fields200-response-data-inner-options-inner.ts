@@ -13,6 +13,9 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { GetActivityFields200ResponseDataInnerOptionsInnerId } from './get-activity-fields200-response-data-inner-options-inner-id';
 
 /**
 * 
@@ -21,10 +24,10 @@
 */
 export interface GetActivityFields200ResponseDataInnerOptionsInner {
     /**
-    * The option ID
-    * @type {number}
+    * 
+    * @type {GetActivityFields200ResponseDataInnerOptionsInnerId}
     */
-    'id'?: number;
+    'id'?: GetActivityFields200ResponseDataInnerOptionsInnerId;
     /**
     * The option display label
     * @type {string}
