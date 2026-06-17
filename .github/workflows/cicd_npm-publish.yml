@@ -14,5 +14,4 @@ jobs:
       contents: write
     with:
       revision: ${{ github.event.pull_request.head.ref }}
-      use_trusted_publisher: true
     secrets: inherit
