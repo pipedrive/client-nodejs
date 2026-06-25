@@ -7,6 +7,9 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Added
+- Added `include_body` query parameter to `GET /v1/deals/{id}/mailMessages`, `GET /v1/persons/{id}/mailMessages`, and `GET /v1/organizations/{id}/mailMessages` — pass `1` to include the mail message body content in the response
+- Added `body` field to `MailMessageData` schema to expose the mail message body content when `include_body=1` is used
 
 ## [33.4.3] - 2026-06-09
 ### Fixed

@@ -293,10 +293,11 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
          * @param {number} id The ID of the organization
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
+         * @param {0 | 1} [include_body] Whether to include the mail message body content in the response. &#x60;0&#x60; &#x3D; Don\&#39;t include, &#x60;1&#x60; &#x3D; Include.
 
          * @throws {RequiredError}
          */
-        getOrganizationMailMessages: async (id: number, start?: number, limit?: number, ): Promise<RequestArgs> => {
+        getOrganizationMailMessages: async (id: number, start?: number, limit?: number, include_body?: 0 | 1, ): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getOrganizationMailMessages', 'id', id)
             const localVarPath = `/organizations/{id}/mailMessages`
@@ -325,6 +326,10 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+
+            if (include_body !== undefined) {
+                localVarQueryParameter['include_body'] = include_body;
             }
 
 
@@ -564,11 +569,12 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
          * @param {number} id The ID of the organization
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
+         * @param {0 | 1} [include_body] Whether to include the mail message body content in the response. &#x60;0&#x60; &#x3D; Don\&#39;t include, &#x60;1&#x60; &#x3D; Include.
 
          * @throws {RequiredError}
          */
-        async getOrganizationMailMessages(id: number, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetAssociatedMailMessagesResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationMailMessages(id, start, limit, );
+        async getOrganizationMailMessages(id: number, start?: number, limit?: number, include_body?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetAssociatedMailMessagesResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationMailMessages(id, start, limit, include_body, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -677,7 +683,7 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
          * @throws {RequiredError}
          */
         getOrganizationMailMessages(requestParameters: OrganizationsApiGetOrganizationMailMessagesRequest, ): Promise<GetAssociatedMailMessagesResponse> {
-            return localVarFp.getOrganizationMailMessages(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
+            return localVarFp.getOrganizationMailMessages(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.include_body, ).then((request) => request(axios, basePath));
         },
         /**
          * Lists updates about an organization.
@@ -857,6 +863,13 @@ export interface OrganizationsApiGetOrganizationMailMessagesRequest {
      * @memberof OrganizationsApiGetOrganizationMailMessages
      */
     readonly limit?: number
+
+    /**
+     * Whether to include the mail message body content in the response. &#x60;0&#x60; &#x3D; Don\&#39;t include, &#x60;1&#x60; &#x3D; Include.
+     * @type {0 | 1}
+     * @memberof OrganizationsApiGetOrganizationMailMessages
+     */
+    readonly include_body?: 0 | 1
 }
 
 /**
@@ -1012,7 +1025,7 @@ export class OrganizationsApi extends BaseAPI {
      * @memberof OrganizationsApi
      */
     public getOrganizationMailMessages(requestParameters: OrganizationsApiGetOrganizationMailMessagesRequest, ) {
-        return OrganizationsApiFp(this.configuration).getOrganizationMailMessages(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
+        return OrganizationsApiFp(this.configuration).getOrganizationMailMessages(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.include_body, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
