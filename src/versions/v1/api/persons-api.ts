@@ -410,10 +410,11 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
          * @param {number} id The ID of the person
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
+         * @param {0 | 1} [include_body] Whether to include the mail message body content in the response. &#x60;0&#x60; &#x3D; Don\&#39;t include, &#x60;1&#x60; &#x3D; Include.
 
          * @throws {RequiredError}
          */
-        getPersonMailMessages: async (id: number, start?: number, limit?: number, ): Promise<RequestArgs> => {
+        getPersonMailMessages: async (id: number, start?: number, limit?: number, include_body?: 0 | 1, ): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getPersonMailMessages', 'id', id)
             const localVarPath = `/persons/{id}/mailMessages`
@@ -442,6 +443,10 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+
+            if (include_body !== undefined) {
+                localVarQueryParameter['include_body'] = include_body;
             }
 
 
@@ -759,11 +764,12 @@ export const PersonsApiFp = function(configuration?: Configuration) {
          * @param {number} id The ID of the person
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
+         * @param {0 | 1} [include_body] Whether to include the mail message body content in the response. &#x60;0&#x60; &#x3D; Don\&#39;t include, &#x60;1&#x60; &#x3D; Include.
 
          * @throws {RequiredError}
          */
-        async getPersonMailMessages(id: number, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetAssociatedMailMessagesResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonMailMessages(id, start, limit, );
+        async getPersonMailMessages(id: number, start?: number, limit?: number, include_body?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetAssociatedMailMessagesResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonMailMessages(id, start, limit, include_body, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -905,7 +911,7 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         getPersonMailMessages(requestParameters: PersonsApiGetPersonMailMessagesRequest, ): Promise<GetAssociatedMailMessagesResponse> {
-            return localVarFp.getPersonMailMessages(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
+            return localVarFp.getPersonMailMessages(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.include_body, ).then((request) => request(axios, basePath));
         },
         /**
          * Lists products associated with a person.
@@ -1158,6 +1164,13 @@ export interface PersonsApiGetPersonMailMessagesRequest {
      * @memberof PersonsApiGetPersonMailMessages
      */
     readonly limit?: number
+
+    /**
+     * Whether to include the mail message body content in the response. &#x60;0&#x60; &#x3D; Don\&#39;t include, &#x60;1&#x60; &#x3D; Include.
+     * @type {0 | 1}
+     * @memberof PersonsApiGetPersonMailMessages
+     */
+    readonly include_body?: 0 | 1
 }
 
 /**
@@ -1365,7 +1378,7 @@ export class PersonsApi extends BaseAPI {
      * @memberof PersonsApi
      */
     public getPersonMailMessages(requestParameters: PersonsApiGetPersonMailMessagesRequest, ) {
-        return PersonsApiFp(this.configuration).getPersonMailMessages(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
+        return PersonsApiFp(this.configuration).getPersonMailMessages(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.include_body, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**

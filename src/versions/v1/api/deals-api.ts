@@ -693,10 +693,11 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {number} id The ID of the deal
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
+         * @param {0 | 1} [include_body] Whether to include the mail message body content in the response. &#x60;0&#x60; &#x3D; Don\&#39;t include, &#x60;1&#x60; &#x3D; Include.
 
          * @throws {RequiredError}
          */
-        getDealMailMessages: async (id: number, start?: number, limit?: number, ): Promise<RequestArgs> => {
+        getDealMailMessages: async (id: number, start?: number, limit?: number, include_body?: 0 | 1, ): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getDealMailMessages', 'id', id)
             const localVarPath = `/deals/{id}/mailMessages`
@@ -725,6 +726,10 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+
+            if (include_body !== undefined) {
+                localVarQueryParameter['include_body'] = include_body;
             }
 
 
@@ -1311,11 +1316,12 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * @param {number} id The ID of the deal
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
+         * @param {0 | 1} [include_body] Whether to include the mail message body content in the response. &#x60;0&#x60; &#x3D; Don\&#39;t include, &#x60;1&#x60; &#x3D; Include.
 
          * @throws {RequiredError}
          */
-        async getDealMailMessages(id: number, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetAssociatedMailMessagesResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealMailMessages(id, start, limit, );
+        async getDealMailMessages(id: number, start?: number, limit?: number, include_body?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetAssociatedMailMessagesResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealMailMessages(id, start, limit, include_body, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -1544,7 +1550,7 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          * @throws {RequiredError}
          */
         getDealMailMessages(requestParameters: DealsApiGetDealMailMessagesRequest, ): Promise<GetAssociatedMailMessagesResponse> {
-            return localVarFp.getDealMailMessages(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
+            return localVarFp.getDealMailMessages(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.include_body, ).then((request) => request(axios, basePath));
         },
         /**
          * Lists the participants associated with a deal.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
@@ -2023,6 +2029,13 @@ export interface DealsApiGetDealMailMessagesRequest {
      * @memberof DealsApiGetDealMailMessages
      */
     readonly limit?: number
+
+    /**
+     * Whether to include the mail message body content in the response. &#x60;0&#x60; &#x3D; Don\&#39;t include, &#x60;1&#x60; &#x3D; Include.
+     * @type {0 | 1}
+     * @memberof DealsApiGetDealMailMessages
+     */
+    readonly include_body?: 0 | 1
 }
 
 /**
@@ -2418,7 +2431,7 @@ export class DealsApi extends BaseAPI {
      * @memberof DealsApi
      */
     public getDealMailMessages(requestParameters: DealsApiGetDealMailMessagesRequest, ) {
-        return DealsApiFp(this.configuration).getDealMailMessages(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
+        return DealsApiFp(this.configuration).getDealMailMessages(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.include_body, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
