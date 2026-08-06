@@ -34,16 +34,6 @@ export interface UpdateOrganizationRequest {
     */
     'owner_id'?: number;
     /**
-    * The creation date and time of the organization
-    * @type {string}
-    */
-    'add_time'?: string;
-    /**
-    * The last updated date and time of the organization
-    * @type {string}
-    */
-    'update_time'?: string;
-    /**
     * The visibility of the organization
     * @type {number}
     */
@@ -58,6 +48,31 @@ export interface UpdateOrganizationRequest {
     * @type {OrganizationItemAddress}
     */
     'address'?: OrganizationItemAddress;
+    /**
+    * The website of the organization
+    * @type {string}
+    */
+    'website'?: string | null;
+    /**
+    * The LinkedIn profile URL of the organization
+    * @type {string}
+    */
+    'linkedin'?: string | null;
+    /**
+    * The industry the organization belongs to
+    * @type {number}
+    */
+    'industry'?: number | null;
+    /**
+    * The annual revenue of the organization
+    * @type {number}
+    */
+    'annual_revenue'?: number | null;
+    /**
+    * The number of employees in the organization
+    * @type {number}
+    */
+    'employee_count'?: number | null;
     /**
     * An object where each key represents a custom field. All custom fields are referenced as randomly generated 40-character hashes. To clear a custom field value, set it to `null`. For multi-option fields (field type `set`), use `null` to clear the selection — sending an empty array `[]` is not supported and will result in a validation error.
     * @type {{ [key: string]: any | undefined; }}

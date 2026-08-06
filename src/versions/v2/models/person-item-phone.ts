@@ -17,9 +17,9 @@
 /**
 * 
 * @export
-* @interface AddPersonRequestPhonesInner
+* @interface PersonItemPhone
 */
-export interface AddPersonRequestPhonesInner {
+export interface PersonItemPhone {
     /**
     * The phone number of the person
     * @type {string}

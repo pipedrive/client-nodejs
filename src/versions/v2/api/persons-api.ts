@@ -42,6 +42,8 @@ import { GetPersonSearchResponse } from '../models';
 // @ts-ignore
 import { GetPersonsResponse } from '../models';
 // @ts-ignore
+import { UpdatePersonRequest } from '../models';
+// @ts-ignore
 import { UpsertPersonResponse } from '../models';
 /**
  * PersonsApi - axios parameter creator
@@ -50,7 +52,7 @@ import { UpsertPersonResponse } from '../models';
 export const PersonsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Adds a new person. If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field.
+         * Adds a new person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don’t exist by default in Pipedrive and are only created when you set up your contact sync.
          * @summary Add a new person
          * @param {AddPersonRequest} [AddPersonRequest] 
 
@@ -612,14 +614,14 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Updates the properties of a person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field.
+         * Updates the properties of a person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don’t exist by default in Pipedrive and are only created when you set up your contact sync.
          * @summary Update a person
          * @param {number} id The ID of the person
-         * @param {AddPersonRequest} [AddPersonRequest] 
+         * @param {UpdatePersonRequest} [UpdatePersonRequest] 
 
          * @throws {RequiredError}
          */
-        updatePerson: async (id: number, AddPersonRequest?: AddPersonRequest, ): Promise<RequestArgs> => {
+        updatePerson: async (id: number, UpdatePersonRequest?: UpdatePersonRequest, ): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updatePerson', 'id', id)
             const localVarPath = `/persons/{id}`
@@ -649,7 +651,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, };
-            localVarRequestOptions.data = serializeDataIfNeeded(AddPersonRequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(UpdatePersonRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -668,7 +670,7 @@ export const PersonsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = PersonsApiAxiosParamCreator(configuration)
     return {
         /**
-         * Adds a new person. If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field.
+         * Adds a new person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don’t exist by default in Pipedrive and are only created when you set up your contact sync.
          * @summary Add a new person
          * @param {AddPersonRequest} [AddPersonRequest] 
 
@@ -808,15 +810,15 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Updates the properties of a person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field.
+         * Updates the properties of a person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don’t exist by default in Pipedrive and are only created when you set up your contact sync.
          * @summary Update a person
          * @param {number} id The ID of the person
-         * @param {AddPersonRequest} [AddPersonRequest] 
+         * @param {UpdatePersonRequest} [UpdatePersonRequest] 
 
          * @throws {RequiredError}
          */
-        async updatePerson(id: number, AddPersonRequest?: AddPersonRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertPersonResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePerson(id, AddPersonRequest, );
+        async updatePerson(id: number, UpdatePersonRequest?: UpdatePersonRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertPersonResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePerson(id, UpdatePersonRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -830,7 +832,7 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
     const localVarFp = PersonsApiFp(configuration)
     return {
         /**
-         * Adds a new person. If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field.
+         * Adds a new person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don’t exist by default in Pipedrive and are only created when you set up your contact sync.
          * @summary Add a new person
          * @param {PersonsApiAddPersonRequest} requestParameters Request parameters.
 
@@ -930,14 +932,14 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.searchPersons(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.organization_id, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
-         * Updates the properties of a person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field.
+         * Updates the properties of a person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don’t exist by default in Pipedrive and are only created when you set up your contact sync.
          * @summary Update a person
          * @param {PersonsApiUpdatePersonRequest} requestParameters Request parameters.
 
          * @throws {RequiredError}
          */
         updatePerson(requestParameters: PersonsApiUpdatePersonRequest, ): Promise<UpsertPersonResponse> {
-            return localVarFp.updatePerson(requestParameters.id, requestParameters.AddPersonRequest, ).then((request) => request(axios, basePath));
+            return localVarFp.updatePerson(requestParameters.id, requestParameters.UpdatePersonRequest, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1307,10 +1309,10 @@ export interface PersonsApiUpdatePersonRequest {
 
     /**
      * 
-     * @type {AddPersonRequest}
+     * @type {UpdatePersonRequest}
      * @memberof PersonsApiUpdatePerson
      */
-    readonly AddPersonRequest?: AddPersonRequest
+    readonly UpdatePersonRequest?: UpdatePersonRequest
 }
 
 /**
@@ -1321,7 +1323,7 @@ export interface PersonsApiUpdatePersonRequest {
  */
 export class PersonsApi extends BaseAPI {
     /**
-     * Adds a new person. If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field.
+     * Adds a new person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don’t exist by default in Pipedrive and are only created when you set up your contact sync.
      * @summary Add a new person
      * @param {PersonsApiAddPersonRequest} requestParameters Request parameters.
 
@@ -1441,7 +1443,7 @@ export class PersonsApi extends BaseAPI {
     }
 
     /**
-     * Updates the properties of a person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field.
+     * Updates the properties of a person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don’t exist by default in Pipedrive and are only created when you set up your contact sync.
      * @summary Update a person
      * @param {PersonsApiUpdatePersonRequest} requestParameters Request parameters.
 
@@ -1449,6 +1451,6 @@ export class PersonsApi extends BaseAPI {
      * @memberof PersonsApi
      */
     public updatePerson(requestParameters: PersonsApiUpdatePersonRequest, ) {
-        return PersonsApiFp(this.configuration).updatePerson(requestParameters.id, requestParameters.AddPersonRequest, ).then((request) => request(this.axios, this.basePath));
+        return PersonsApiFp(this.configuration).updatePerson(requestParameters.id, requestParameters.UpdatePersonRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

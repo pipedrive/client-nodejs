@@ -15,10 +15,16 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { AddPersonRequestEmailsInner } from './add-person-request-emails-inner';
+import { PersonItemAddress } from './person-item-address';
 // May contain unused imports in some cases
 // @ts-ignore
-import { AddPersonRequestPhonesInner } from './add-person-request-phones-inner';
+import { PersonItemEmail } from './person-item-email';
+// May contain unused imports in some cases
+// @ts-ignore
+import { PersonItemIm } from './person-item-im';
+// May contain unused imports in some cases
+// @ts-ignore
+import { PersonItemPhone } from './person-item-phone';
 
 /**
 * 
@@ -47,20 +53,15 @@ export interface AddPersonRequest {
     */
     'add_time'?: string;
     /**
-    * The last updated date and time of the person
-    * @type {string}
-    */
-    'update_time'?: string;
-    /**
     * The emails of the person
-    * @type {Array<AddPersonRequestEmailsInner>}
+    * @type {Array<PersonItemEmail>}
     */
-    'emails'?: Array<AddPersonRequestEmailsInner>;
+    'emails'?: Array<PersonItemEmail>;
     /**
     * The phones of the person
-    * @type {Array<AddPersonRequestPhonesInner>}
+    * @type {Array<PersonItemPhone>}
     */
-    'phones'?: Array<AddPersonRequestPhonesInner>;
+    'phones'?: Array<PersonItemPhone>;
     /**
     * The visibility of the person
     * @type {number}
@@ -71,6 +72,31 @@ export interface AddPersonRequest {
     * @type {Array<number>}
     */
     'label_ids'?: Array<number>;
+    /**
+    * 
+    * @type {PersonItemAddress}
+    */
+    'postal_address'?: PersonItemAddress;
+    /**
+    * Contact sync notes of the person, maximum 10 000 characters, included if contact sync is enabled for the company
+    * @type {string}
+    */
+    'notes'?: string;
+    /**
+    * The instant messaging accounts of the person, included if contact sync is enabled for the company
+    * @type {Array<PersonItemIm>}
+    */
+    'im'?: Array<PersonItemIm>;
+    /**
+    * The birthday of the person, included if contact sync is enabled for the company
+    * @type {string}
+    */
+    'birthday'?: string;
+    /**
+    * The job title of the person, included if contact sync is enabled for the company
+    * @type {string}
+    */
+    'job_title'?: string;
     /**
     * If the person does not have a valid email address, then the marketing status is **not set** and `no_consent` is returned for the `marketing_status` value when the new person is created. If the change is forbidden, the status will remain unchanged for every call that tries to modify the marketing status. Please be aware that it is only allowed **once** to change the marketing status from an old status to a new one.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`no_consent`</td><td>The customer has not given consent to receive any marketing communications</td></tr><tr><td>`unsubscribed`</td><td>The customers have unsubscribed from ALL marketing communications</td></tr><tr><td>`subscribed`</td><td>The customers are subscribed and are counted towards marketing caps</td></tr><tr><td>`archived`</td><td>The customers with `subscribed` status can be moved to `archived` to save consent, but they are not paid for</td></tr></table>
     * @type {string}

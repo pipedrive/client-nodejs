@@ -29,29 +29,14 @@ import { PersonItemPhone } from './person-item-phone';
 /**
 * 
 * @export
-* @interface Person
+* @interface UpdatePersonRequest
 */
-export interface Person {
-    /**
-    * The ID of the person
-    * @type {number}
-    */
-    'id'?: number;
+export interface UpdatePersonRequest {
     /**
     * The name of the person
     * @type {string}
     */
     'name'?: string;
-    /**
-    * The first name of the person
-    * @type {string}
-    */
-    'first_name'?: string;
-    /**
-    * The last name of the person
-    * @type {string}
-    */
-    'last_name'?: string;
     /**
     * The ID of the user who owns the person
     * @type {number}
@@ -63,16 +48,6 @@ export interface Person {
     */
     'org_id'?: number;
     /**
-    * The creation date and time of the person
-    * @type {string}
-    */
-    'add_time'?: string;
-    /**
-    * The last updated date and time of the person
-    * @type {string}
-    */
-    'update_time'?: string;
-    /**
     * The emails of the person
     * @type {Array<PersonItemEmail>}
     */
@@ -83,11 +58,6 @@ export interface Person {
     */
     'phones'?: Array<PersonItemPhone>;
     /**
-    * Whether the person is deleted or not
-    * @type {boolean}
-    */
-    'is_deleted'?: boolean;
-    /**
     * The visibility of the person
     * @type {number}
     */
@@ -97,11 +67,6 @@ export interface Person {
     * @type {Array<number>}
     */
     'label_ids'?: Array<number>;
-    /**
-    * The ID of the picture associated with the person
-    * @type {number}
-    */
-    'picture_id'?: number;
     /**
     * 
     * @type {PersonItemAddress}
@@ -128,9 +93,24 @@ export interface Person {
     */
     'job_title'?: string;
     /**
+    * If the person does not have a valid email address, then the marketing status is **not set** and `no_consent` is returned for the `marketing_status` value when the new person is created. If the change is forbidden, the status will remain unchanged for every call that tries to modify the marketing status. Please be aware that it is only allowed **once** to change the marketing status from an old status to a new one.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`no_consent`</td><td>The customer has not given consent to receive any marketing communications</td></tr><tr><td>`unsubscribed`</td><td>The customers have unsubscribed from ALL marketing communications</td></tr><tr><td>`subscribed`</td><td>The customers are subscribed and are counted towards marketing caps</td></tr><tr><td>`archived`</td><td>The customers with `subscribed` status can be moved to `archived` to save consent, but they are not paid for</td></tr></table>
+    * @type {string}
+    */
+    'marketing_status'?: UpdatePersonRequestMarketingStatusConst;
+    /**
     * An object where each key represents a custom field. All custom fields are referenced as randomly generated 40-character hashes. To clear a custom field value, set it to `null`. For multi-option fields (field type `set`), use `null` to clear the selection — sending an empty array `[]` is not supported and will result in a validation error.
     * @type {{ [key: string]: any | undefined; }}
     */
     'custom_fields'?: { [key: string]: any | undefined; };
 }
+
+                export const UpdatePersonRequestMarketingStatusConst = {
+                        no_consent: 'no_consent',
+                        unsubscribed: 'unsubscribed',
+                        subscribed: 'subscribed',
+                        archived: 'archived'
+                } as const;
+
+                export type UpdatePersonRequestMarketingStatusConst = typeof UpdatePersonRequestMarketingStatusConst[keyof typeof UpdatePersonRequestMarketingStatusConst];
+
 
