@@ -17,21 +17,21 @@
 /**
 * 
 * @export
-* @interface AddPersonRequestEmailsInner
+* @interface PersonItemIm
 */
-export interface AddPersonRequestEmailsInner {
+export interface PersonItemIm {
     /**
-    * The email address of the person
+    * The instant messaging account of the person
     * @type {string}
     */
     'value'?: string;
     /**
-    * Whether the email is primary or not
+    * Whether the instant messaging account is primary or not
     * @type {boolean}
     */
     'primary'?: boolean;
     /**
-    * The email address classification label
+    * The instant messaging account classification label
     * @type {string}
     */
     'label'?: string;

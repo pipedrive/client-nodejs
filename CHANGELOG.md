@@ -7,6 +7,13 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Added
+- Added `website`, `linkedin`, `industry`, `annual_revenue`, and `employee_count` as writable fields to v2 organization request body (`POST /api/v2/organizations`, `PATCH /api/v2/organizations/{id}`)
+- Added `postal_address`, `notes`, `im`, `birthday`, and `job_title` as writable fields to v2 person request body (`POST /api/v2/persons`, `PATCH /api/v2/persons/{id}`) — these fields don't exist by default and are only created when contact sync is set up for the company
+- Updated `POST /api/v2/persons` and `PATCH /api/v2/persons/{id}` descriptions to clarify that the `im`, `postal_address`, `notes`, `birthday`, and `job_title` fields require contact sync to be set up
+### Fixed
+- Removed `update_time` from `POST /api/v2/organizations` and `POST /api/v2/persons` request body schemas, and removed `add_time`/`update_time` from `PATCH /api/v2/organizations/{id}` and `PATCH /api/v2/persons/{id}` request body schemas — these are server-generated fields that were never meant to be accepted as input
+- Added missing example values for `website`, `linkedin`, `industry`, `annual_revenue`, and `employee_count` to the v2 organization response example
 
 ## [33.5.0] - 2026-07-23
 ### Added

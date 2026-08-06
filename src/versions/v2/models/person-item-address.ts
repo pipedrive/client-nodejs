@@ -17,9 +17,9 @@
 /**
 * Postal address of the person, included if contact sync is enabled for the company
 * @export
-* @interface PersonPostalAddress
+* @interface PersonItemAddress
 */
-export interface PersonPostalAddress {
+export interface PersonItemAddress {
     /**
     * The full address of the person
     * @type {string}

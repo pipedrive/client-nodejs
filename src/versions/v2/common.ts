@@ -15,7 +15,7 @@
 
 import { Configuration } from "./configuration";
 import { RequiredError, RequestArgs } from "./base";
-import { AxiosInstance, AxiosResponse } from 'axios';
+import type { AxiosInstance, AxiosResponse } from 'axios';
 
 /**
  *
@@ -87,17 +87,17 @@ function setFlattenedQueryParams(urlSearchParams: URLSearchParams, parameter: an
     if (typeof parameter === "object") {
         if (Array.isArray(parameter)) {
             (parameter as any[]).forEach(item => setFlattenedQueryParams(urlSearchParams, item, key));
-        } 
+        }
         else {
-            Object.keys(parameter).forEach(currentKey => 
+            Object.keys(parameter).forEach(currentKey =>
                 setFlattenedQueryParams(urlSearchParams, parameter[currentKey], `${key}${key !== '' ? '.' : ''}${currentKey}`)
             );
         }
-    } 
+    }
     else {
         if (urlSearchParams.has(key)) {
             urlSearchParams.append(key, parameter);
-        } 
+        }
         else {
             urlSearchParams.set(key, parameter);
         }
@@ -141,8 +141,10 @@ export const toPathString = function (url: URL) {
  * @export
  */
 export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxios: AxiosInstance, BASE_PATH: string, configuration?: Configuration) {
-    return <T = unknown, R = AxiosResponse<T>>(axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+    // Explicit return type + cast avoid inferring axios's internal AxiosResponseResult type,
+    // which references a module-private `unique symbol` and breaks `tsc --declaration` (TS2742).
+    return <T = unknown, R = AxiosResponse<T>>(axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH): Promise<R> => {
         const axiosRequestArgs = {...axiosArgs.options, url: (configuration?.basePath || basePath) + axiosArgs.url};
-        return axios.request<T, R>(axiosRequestArgs);
+        return axios.request<T, R>(axiosRequestArgs) as Promise<R>;
     };
 }
