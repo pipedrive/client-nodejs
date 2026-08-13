@@ -8,6 +8,11 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [33.6.1] - 2026-08-13
+### Fixed
+- Added missing `nova` value to the `app` enum returned by `GET /v1/users` in the `user_access` array — accounts with Nova enabled were returning `"app": "nova"`, a value the generated type definitions didn't account for
+- Added missing `partnership` and `nova` values to the `app` field on each permission set and to the `app` query parameter (`GET /permissionSets`) — same gap for accounts with a permission set for those apps
+
 ## [33.6.0] - 2026-08-06
 ### Added
 - Added `website`, `linkedin`, `industry`, `annual_revenue`, and `employee_count` as writable fields to v2 organization request body (`POST /api/v2/organizations`, `PATCH /api/v2/organizations/{id}`)
@@ -1309,7 +1314,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v33.6.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v33.6.1...HEAD
+[33.6.1]: https://github.com/pipedrive/api-docs/compare/v33.6.0...v33.6.1
 [33.6.0]: https://github.com/pipedrive/api-docs/compare/v33.5.0...v33.6.0
 [33.5.0]: https://github.com/pipedrive/api-docs/compare/v33.4.3...v33.5.0
 [33.4.3]: https://github.com/pipedrive/api-docs/compare/v33.4.2...v33.4.3

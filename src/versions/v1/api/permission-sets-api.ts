@@ -128,11 +128,11 @@ export const PermissionSetsApiAxiosParamCreator = function (configuration?: Conf
         /**
          * Returns data about all permission sets.
          * @summary Get all permission sets
-         * @param {'sales' | 'projects' | 'campaigns' | 'global' | 'account_settings'} [app] The app to filter the permission sets by
+         * @param {'sales' | 'projects' | 'campaigns' | 'global' | 'account_settings' | 'partnership' | 'nova'} [app] The app to filter the permission sets by
 
          * @throws {RequiredError}
          */
-        getPermissionSets: async (app?: 'sales' | 'projects' | 'campaigns' | 'global' | 'account_settings', ): Promise<RequestArgs> => {
+        getPermissionSets: async (app?: 'sales' | 'projects' | 'campaigns' | 'global' | 'account_settings' | 'partnership' | 'nova', ): Promise<RequestArgs> => {
             const localVarPath = `/permissionSets`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -205,11 +205,11 @@ export const PermissionSetsApiFp = function(configuration?: Configuration) {
         /**
          * Returns data about all permission sets.
          * @summary Get all permission sets
-         * @param {'sales' | 'projects' | 'campaigns' | 'global' | 'account_settings'} [app] The app to filter the permission sets by
+         * @param {'sales' | 'projects' | 'campaigns' | 'global' | 'account_settings' | 'partnership' | 'nova'} [app] The app to filter the permission sets by
 
          * @throws {RequiredError}
          */
-        async getPermissionSets(app?: 'sales' | 'projects' | 'campaigns' | 'global' | 'account_settings', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPermissionSetsResponse>> {
+        async getPermissionSets(app?: 'sales' | 'projects' | 'campaigns' | 'global' | 'account_settings' | 'partnership' | 'nova', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPermissionSetsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPermissionSets(app, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -306,10 +306,10 @@ export interface PermissionSetsApiGetPermissionSetAssignmentsRequest {
 export interface PermissionSetsApiGetPermissionSetsRequest {
     /**
      * The app to filter the permission sets by
-     * @type {'sales' | 'projects' | 'campaigns' | 'global' | 'account_settings'}
+     * @type {'sales' | 'projects' | 'campaigns' | 'global' | 'account_settings' | 'partnership' | 'nova'}
      * @memberof PermissionSetsApiGetPermissionSets
      */
-    readonly app?: 'sales' | 'projects' | 'campaigns' | 'global' | 'account_settings'
+    readonly app?: 'sales' | 'projects' | 'campaigns' | 'global' | 'account_settings' | 'partnership' | 'nova'
 }
 
 /**

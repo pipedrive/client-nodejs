@@ -43,7 +43,8 @@ export interface UserAccess {
                         campaigns: 'campaigns',
                         projects: 'projects',
                         account_settings: 'account_settings',
-                        partnership: 'partnership'
+                        partnership: 'partnership',
+                        nova: 'nova'
                 } as const;
 
                 export type UserAccessAppConst = typeof UserAccessAppConst[keyof typeof UserAccessAppConst];
