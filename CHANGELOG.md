@@ -7,6 +7,9 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Fixed
+- Added missing `nova` value to the `UserAccess.app` enum (`GET /v1/users`) — accounts with Nova enabled were returning `"app": "nova"` in `user_access` entries, causing generated SDKs to throw an error during response deserialization
+- Added missing `partnership` and `nova` values to the `PermissionSetsItem.app` enum and the `app` query parameter enum (`GET /permissionSets`) — same class of error for accounts with a permission set for those apps
 
 ## [33.6.0] - 2026-08-06
 ### Added

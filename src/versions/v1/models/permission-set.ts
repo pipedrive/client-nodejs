@@ -57,7 +57,9 @@ export interface PermissionSet {
                         projects: 'projects',
                         campaigns: 'campaigns',
                         global: 'global',
-                        account_settings: 'account_settings'
+                        account_settings: 'account_settings',
+                        partnership: 'partnership',
+                        nova: 'nova'
                 } as const;
 
                 export type PermissionSetAppConst = typeof PermissionSetAppConst[keyof typeof PermissionSetAppConst];
