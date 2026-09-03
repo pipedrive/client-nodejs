@@ -13,17 +13,22 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import { PricesArrayPricesInnerAllOf } from './prices-array-prices-inner-all-of';
-// May contain unused imports in some cases
-// @ts-ignore
-import { ProductPriceBase } from './product-price-base';
 
 /**
- * @type PricesArrayPricesInner
- * @export
- */
-export type PricesArrayPricesInner = PricesArrayPricesInnerAllOf & ProductPriceBase;
-
+* 
+* @export
+* @interface ProductPriceBase
+*/
+export interface ProductPriceBase {
+    /**
+    * The price of the product
+    * @type {number}
+    */
+    'price'?: number;
+    /**
+    * The cost of the product
+    * @type {number}
+    */
+    'cost'?: number;
+}
 

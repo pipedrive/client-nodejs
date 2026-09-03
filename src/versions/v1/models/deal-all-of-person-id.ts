@@ -15,27 +15,18 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { BaseDeal } from './base-deal';
+import { DealPersonDataWithId } from './deal-person-data-with-id';
 // May contain unused imports in some cases
 // @ts-ignore
-import { DealAllOf } from './deal-all-of';
+import { DealPersonDataWithIdAllOfEmailInner } from './deal-person-data-with-id-all-of-email-inner';
 // May contain unused imports in some cases
 // @ts-ignore
-import { DealAllOfCreatorUserId } from './deal-all-of-creator-user-id';
-// May contain unused imports in some cases
-// @ts-ignore
-import { DealAllOfOrgId } from './deal-all-of-org-id';
-// May contain unused imports in some cases
-// @ts-ignore
-import { DealAllOfPersonId } from './deal-all-of-person-id';
-// May contain unused imports in some cases
-// @ts-ignore
-import { DealUserDataWithId } from './deal-user-data-with-id';
+import { DealPersonDataWithIdAllOfPhoneInner } from './deal-person-data-with-id-all-of-phone-inner';
 
 /**
- * @type Deal
+ * @type DealAllOfPersonId
  * @export
  */
-export type Deal = BaseDeal & DealAllOf;
+export type DealAllOfPersonId = DealPersonDataWithId;
 
 

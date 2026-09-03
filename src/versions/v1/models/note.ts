@@ -62,62 +62,62 @@ export interface Note {
     * 
     * @type {NoteDeal}
     */
-    'deal'?: NoteDeal;
+    'deal'?: NoteDeal | null;
     /**
     * The ID of the lead the note is attached to
     * @type {string}
     */
-    'lead_id'?: string;
+    'lead_id'?: string | null;
     /**
     * The ID of the deal the note is attached to
     * @type {number}
     */
-    'deal_id'?: number;
+    'deal_id'?: number | null;
     /**
     * The ID of the user who last updated the note
     * @type {number}
     */
-    'last_update_user_id'?: number;
+    'last_update_user_id'?: number | null;
     /**
     * The ID of the organization the note is attached to
     * @type {number}
     */
-    'org_id'?: number;
+    'org_id'?: number | null;
     /**
     * 
     * @type {NoteOrganization}
     */
-    'organization'?: NoteOrganization;
+    'organization'?: NoteOrganization | null;
     /**
     * 
     * @type {NotePerson}
     */
-    'person'?: NotePerson;
+    'person'?: NotePerson | null;
     /**
     * The ID of the person the note is attached to
     * @type {number}
     */
-    'person_id'?: number;
+    'person_id'?: number | null;
     /**
     * The ID of the project the note is attached to
     * @type {number}
     */
-    'project_id'?: number;
+    'project_id'?: number | null;
     /**
     * 
     * @type {NoteProject}
     */
-    'project'?: NoteProject;
+    'project'?: NoteProject | null;
     /**
     * The ID of the task the note is attached to
     * @type {number}
     */
-    'task_id'?: number;
+    'task_id'?: number | null;
     /**
     * 
     * @type {NoteTask}
     */
-    'task'?: NoteTask;
+    'task'?: NoteTask | null;
     /**
     * If true, the results are filtered by note to deal pinning state
     * @type {boolean}

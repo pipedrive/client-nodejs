@@ -15,15 +15,15 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { PricesArrayPricesInnerAllOf } from './prices-array-prices-inner-all-of';
+import { ProductPriceBase } from './product-price-base';
 // May contain unused imports in some cases
 // @ts-ignore
-import { ProductPriceBase } from './product-price-base';
+import { ProductRequestPricesInnerAllOf } from './product-request-prices-inner-all-of';
 
 /**
- * @type PricesArrayPricesInner
+ * @type ProductRequestPricesInner
  * @export
  */
-export type PricesArrayPricesInner = PricesArrayPricesInnerAllOf & ProductPriceBase;
+export type ProductRequestPricesInner = ProductPriceBase & ProductRequestPricesInnerAllOf;
 
 

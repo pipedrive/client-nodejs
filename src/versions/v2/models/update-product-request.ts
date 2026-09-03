@@ -21,6 +21,9 @@ import { GetDealsProductsResponseDataInnerAllOf2 } from './get-deals-products-re
 import { ProductRequest } from './product-request';
 // May contain unused imports in some cases
 // @ts-ignore
+import { ProductRequestPricesInner } from './product-request-prices-inner';
+// May contain unused imports in some cases
+// @ts-ignore
 import { UpdateProductRequestAllOf } from './update-product-request-all-of';
 // May contain unused imports in some cases
 // @ts-ignore
