@@ -44,12 +44,12 @@ export interface GetPersonProductsResponseAllOfDataInnerDEALIDDeal {
     * The ID of the person associated with the deal
     * @type {number}
     */
-    'person_id'?: number;
+    'person_id'?: number | null;
     /**
     * The ID of the organization associated with the deal
     * @type {number}
     */
-    'org_id'?: number;
+    'org_id'?: number | null;
     /**
     * The ID of the deal stage
     * @type {number}
@@ -84,12 +84,12 @@ export interface GetPersonProductsResponseAllOfDataInnerDEALIDDeal {
     * The last updated date and time of the deal
     * @type {string}
     */
-    'update_time'?: string;
+    'update_time'?: string | null;
     /**
     * The last updated date and time of the deal stage
     * @type {string}
     */
-    'stage_change_time'?: string;
+    'stage_change_time'?: string | null;
     /**
     * Whether the deal is active or not
     * @type {boolean}
@@ -114,12 +114,12 @@ export interface GetPersonProductsResponseAllOfDataInnerDEALIDDeal {
     * The date of the next activity associated with the deal
     * @type {string}
     */
-    'next_activity_date'?: string;
+    'next_activity_date'?: string | null;
     /**
     * The time of the next activity associated with the deal
     * @type {string}
     */
-    'next_activity_time'?: string;
+    'next_activity_time'?: string | null;
     /**
     * The ID of the next activity associated with the deal
     * @type {number}
@@ -159,17 +159,17 @@ export interface GetPersonProductsResponseAllOfDataInnerDEALIDDeal {
     * The date and time of changing the deal status as won
     * @type {string}
     */
-    'won_time'?: string;
+    'won_time'?: string | null;
     /**
     * The date and time of the first time changing the deal status as won
     * @type {string}
     */
-    'first_won_time'?: string;
+    'first_won_time'?: string | null;
     /**
     * The date and time of changing the deal status as lost
     * @type {string}
     */
-    'lost_time'?: string;
+    'lost_time'?: string | null;
     /**
     * The number of products associated with the deal
     * @type {number}
@@ -219,21 +219,21 @@ export interface GetPersonProductsResponseAllOfDataInnerDEALIDDeal {
     * The expected close date of the deal
     * @type {string}
     */
-    'expected_close_date'?: string;
+    'expected_close_date'?: string | null;
     /**
     * The date and time of the last incoming email associated with the deal
     * @type {string}
     */
-    'last_incoming_mail_time'?: string;
+    'last_incoming_mail_time'?: string | null;
     /**
     * The date and time of the last outgoing email associated with the deal
     * @type {string}
     */
-    'last_outgoing_mail_time'?: string;
+    'last_outgoing_mail_time'?: string | null;
     /**
     * The label or multiple labels assigned to the deal
     * @type {string}
     */
-    'label'?: string;
+    'label'?: string | null;
 }
 

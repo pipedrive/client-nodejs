@@ -39,12 +39,12 @@ export interface Deal {
     * The ID of the person linked to the deal
     * @type {number}
     */
-    'person_id'?: number;
+    'person_id'?: number | null;
     /**
     * The ID of the organization linked to the deal
     * @type {number}
     */
-    'org_id'?: number;
+    'org_id'?: number | null;
     /**
     * The ID of the pipeline associated with the deal
     * @type {number}
@@ -79,7 +79,7 @@ export interface Deal {
     * The last updated date and time of the deal stage
     * @type {string}
     */
-    'stage_change_time'?: string;
+    'stage_change_time'?: string | null;
     /**
     * Whether the deal is deleted or not
     * @type {boolean}
@@ -119,17 +119,17 @@ export interface Deal {
     * The date and time of changing the deal status as won
     * @type {string}
     */
-    'won_time'?: string;
+    'won_time'?: string | null;
     /**
     * The date and time of changing the deal status as lost
     * @type {string}
     */
-    'lost_time'?: string;
+    'lost_time'?: string | null;
     /**
     * The expected close date of the deal
     * @type {string}
     */
-    'expected_close_date'?: string;
+    'expected_close_date'?: string | null;
     /**
     * The IDs of labels assigned to the deal
     * @type {Array<number>}

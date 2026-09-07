@@ -13,14 +13,17 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import { NoteDealAllOf } from './note-deal-all-of';
 
 /**
- * @type NoteDeal
- * @export
- */
-export type NoteDeal = NoteDealAllOf;
-
+* The deal this note is attached to
+* @export
+* @interface NoteDealAllOf
+*/
+export interface NoteDealAllOf {
+    /**
+    * The title of the deal this note is attached to
+    * @type {string}
+    */
+    'title'?: string;
+}
 

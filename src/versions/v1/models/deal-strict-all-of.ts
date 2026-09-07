@@ -39,11 +39,11 @@ export interface DealStrictAllOf {
     * The ID of the person associated with the deal
     * @type {number}
     */
-    'person_id'?: number;
+    'person_id'?: number | null;
     /**
     * The ID of the organization associated with the deal
     * @type {number}
     */
-    'org_id'?: number;
+    'org_id'?: number | null;
 }
 

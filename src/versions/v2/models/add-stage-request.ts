@@ -44,6 +44,6 @@ export interface AddStageRequest {
     * The number of days the deals not updated in this stage would become rotten. Applies only if the `is_deal_rot_enabled` is set.
     * @type {number}
     */
-    'days_to_rotten'?: number;
+    'days_to_rotten'?: number | null;
 }
 

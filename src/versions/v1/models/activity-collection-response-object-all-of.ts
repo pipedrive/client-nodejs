@@ -70,5 +70,10 @@ export interface ActivityCollectionResponseObjectAllOf {
     * @type {string}
     */
     'public_description'?: string;
+    /**
+    * The ID of the Outcome for the activity. The available Outcome values depend on the activity type and can be retrieved using the Activity Fields API. Set to `null` to clear the Outcome.
+    * @type {number}
+    */
+    'outcome'?: number | null;
 }
 

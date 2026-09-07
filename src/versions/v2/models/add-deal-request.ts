@@ -34,12 +34,12 @@ export interface AddDealRequest {
     * The ID of the person linked to the deal
     * @type {number}
     */
-    'person_id'?: number;
+    'person_id'?: number | null;
     /**
     * The ID of the organization linked to the deal
     * @type {number}
     */
-    'org_id'?: number;
+    'org_id'?: number | null;
     /**
     * The ID of the pipeline associated with the deal
     * @type {number}
@@ -74,7 +74,7 @@ export interface AddDealRequest {
     * The optional date and time of archiving the deal in UTC. Format: YYYY-MM-DD HH:MM:SS. If omitted and `is_archived` is true, it will be set to the current date and time.
     * @type {string}
     */
-    'archive_time'?: string;
+    'archive_time'?: string | null;
     /**
     * The status of the deal
     * @type {string}
@@ -84,12 +84,12 @@ export interface AddDealRequest {
     * The success probability percentage of the deal
     * @type {number}
     */
-    'probability'?: number | null;
+    'probability'?: number;
     /**
     * The reason for losing the deal. Can only be set if deal status is lost.
     * @type {string}
     */
-    'lost_reason'?: string | null;
+    'lost_reason'?: string;
     /**
     * The visibility of the deal
     * @type {number}
@@ -99,7 +99,7 @@ export interface AddDealRequest {
     * The date and time of closing the deal. Can only be set if deal status is won or lost.
     * @type {string}
     */
-    'close_time'?: string | null;
+    'close_time'?: string;
     /**
     * The date and time of changing the deal status as won. Can only be set if deal status is won.
     * @type {string}
