@@ -226,7 +226,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full"], configuration)
 
 
     
@@ -847,7 +847,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full"], configuration)
 
 
     
@@ -980,7 +980,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication oauth2 required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:read", "deals:full"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full"], configuration)
 
 
     
