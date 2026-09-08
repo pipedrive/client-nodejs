@@ -13,17 +13,27 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import { PricesArrayPricesInnerAllOf } from './prices-array-prices-inner-all-of';
-// May contain unused imports in some cases
-// @ts-ignore
-import { ProductPriceBase } from './product-price-base';
 
 /**
- * @type PricesArrayPricesInner
- * @export
- */
-export type PricesArrayPricesInner = PricesArrayPricesInnerAllOf & ProductPriceBase;
-
+* 
+* @export
+* @interface ProductRequestPricesInnerAllOf
+*/
+export interface ProductRequestPricesInnerAllOf {
+    /**
+    * The currency of the price
+    * @type {string}
+    */
+    'currency': string;
+    /**
+    * The direct cost of the product
+    * @type {number}
+    */
+    'direct_cost'?: number;
+    /**
+    * The notes about the price
+    * @type {string}
+    */
+    'notes'?: string;
+}
 

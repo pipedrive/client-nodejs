@@ -59,7 +59,7 @@ export interface BaseStage {
     * The number of days the deals not updated in this stage would become rotten. Applies only if the `rotten_flag` is set.
     * @type {number}
     */
-    'rotten_days'?: number;
+    'rotten_days'?: number | null;
     /**
     * The stage creation time. Format: YYYY-MM-DD HH:MM:SS.
     * @type {string}

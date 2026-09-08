@@ -29,7 +29,7 @@ export interface NoteUser {
     * The URL of the note creator avatar picture
     * @type {string}
     */
-    'icon_url'?: string;
+    'icon_url'?: string | null;
     /**
     * Whether the note is created by you or not
     * @type {boolean}
