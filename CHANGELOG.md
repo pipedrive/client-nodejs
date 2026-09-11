@@ -7,6 +7,10 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Fixed
+- Removed `person_id` from the v2 activity request body (`POST /api/v2/activities`, `PATCH /api/v2/activities/{id}`) — the API has always rejected it as read-only, and the schema advertised it as writable; use `participants: [{ "person_id": 123, "primary": true }]` instead. `org_id` is unaffected.
+- Added `required: [name]` to the v2 person create request body (`POST /api/v2/persons`) — a bare call previously reached the API instead of failing client-side.
+- Reworded the `im`, `notes`, `birthday`, and `job_title` field descriptions and the `addPerson`/`updatePerson` operation descriptions (which also cover `postal_address`) to disclose that these fields 403 when contact sync isn't enabled, rather than only describing when they're present on read.
 
 ## [33.7.0] - 2026-09-08
 ### Added
