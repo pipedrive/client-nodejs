@@ -7,6 +7,16 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Fixed
+- Fixed `has_pic` field type in v1 deal creator schema (`DealNonStrictModeFields`, used by `GET`/`POST /v1/deals` and related endpoints) — changed from `boolean` to `integer` since the API returns `0`/`1`, not `true`/`false`
+- Fixed `code` field type in v2 product search results (`GET /api/v2/products/search`) — changed from `integer` to `string` and made nullable to match actual API responses
+- Fixed `value` field type in v2 deal search results (`DealSearchItem`, used by `GET /api/v2/deals/search`) — changed from `integer` to `number` and made nullable to match actual API responses
+- Marked `data` nullable in `ListProductFilesResponse` (`GET /v1/products/{id}/files`)
+- Marked `update_time` nullable in v2 deal, organization, person, and stage schemas (`DealItem`, `OrganizationItem`, `PersonItem`, `StageItem`)
+- Marked `next_cursor` nullable in v2 cursor pagination schema, used across all v2 cursor-paginated list endpoints
+- Marked several v2 activity fields nullable (`ActivityItem`): `deal_id`, `lead_id`, `person_id`, `org_id`, `project_id`, `due_time`, `duration`, `marked_as_done_time`, `location`, and all `location` address subfields (`country`, `admin_area_level_1`, `admin_area_level_2`, `locality`, `sublocality`, `route`, `street_number`, `subpremise`, `postal_code`)
+- Marked v2 `OrganizationItemAddress` and `PersonItemAddress` objects and all their subfields nullable, and marked `PersonItem.picture_id` nullable
+- Marked `person` nullable in v2 lead search results (`LeadSearchItem`) and `address` nullable in v2 organization search results (`OrganizationSearchItem`)
 
 ## [33.7.0] - 2026-09-08
 ### Added
