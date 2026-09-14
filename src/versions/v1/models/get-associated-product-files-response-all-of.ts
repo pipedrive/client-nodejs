@@ -30,7 +30,7 @@ export interface GetAssociatedProductFilesResponseAllOf {
     * The array of files
     * @type {Array<GetAssociatedProductFilesResponseAllOfDataInner>}
     */
-    'data': Array<GetAssociatedProductFilesResponseAllOfDataInner>;
+    'data': Array<GetAssociatedProductFilesResponseAllOfDataInner> | null;
     /**
     * 
     * @type {GetFieldsResponseAllOfAdditionalData}
