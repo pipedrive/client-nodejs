@@ -1,4 +1,5 @@
 export * from './activity-item';
+export * from './activity-item-location';
 export * from './add-ainstallment-response';
 export * from './add-activity-request';
 export * from './add-activity-request-attendees-inner';

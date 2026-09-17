@@ -36,7 +36,7 @@ export interface AddPersonRequest {
     * The name of the person
     * @type {string}
     */
-    'name'?: string;
+    'name': string;
     /**
     * The ID of the user who owns the person
     * @type {number}
@@ -76,24 +76,24 @@ export interface AddPersonRequest {
     * 
     * @type {PersonItemAddress}
     */
-    'postal_address'?: PersonItemAddress;
+    'postal_address'?: PersonItemAddress | null;
     /**
-    * Contact sync notes of the person, maximum 10 000 characters, included if contact sync is enabled for the company
+    * Contact sync notes of the person, maximum 10 000 characters. Only accepted when contact sync is enabled for the company; otherwise the request returns 403.
     * @type {string}
     */
     'notes'?: string;
     /**
-    * The instant messaging accounts of the person, included if contact sync is enabled for the company
+    * The instant messaging accounts of the person. Only accepted when contact sync is enabled for the company; otherwise the request returns 403.
     * @type {Array<PersonItemIm>}
     */
     'im'?: Array<PersonItemIm>;
     /**
-    * The birthday of the person, included if contact sync is enabled for the company
+    * The birthday of the person. Only accepted when contact sync is enabled for the company; otherwise the request returns 403.
     * @type {string}
     */
     'birthday'?: string;
     /**
-    * The job title of the person, included if contact sync is enabled for the company
+    * The job title of the person. Only accepted when contact sync is enabled for the company; otherwise the request returns 403.
     * @type {string}
     */
     'job_title'?: string;

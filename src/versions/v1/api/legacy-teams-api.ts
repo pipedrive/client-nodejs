@@ -47,7 +47,7 @@ export const LegacyTeamsApiAxiosParamCreator = function (configuration?: Configu
          * Adds a new team to the company and returns the created object.
          * @summary Add a new team
          * @param {AddTeamRequest1} [AddTeamRequest1] 
-         * @deprecated
+
          * @throws {RequiredError}
          */
         addTeam: async (AddTeamRequest1?: AddTeamRequest1, ): Promise<RequestArgs> => {
@@ -89,7 +89,7 @@ export const LegacyTeamsApiAxiosParamCreator = function (configuration?: Configu
          * @summary Add users to a team
          * @param {number} id The ID of the team
          * @param {AddTeamUserRequest} [AddTeamUserRequest] 
-         * @deprecated
+
          * @throws {RequiredError}
          */
         addTeamUser: async (id: number, AddTeamUserRequest?: AddTeamUserRequest, ): Promise<RequestArgs> => {
@@ -134,7 +134,7 @@ export const LegacyTeamsApiAxiosParamCreator = function (configuration?: Configu
          * @summary Delete users from a team
          * @param {number} id The ID of the team
          * @param {DeleteTeamUserRequest} [DeleteTeamUserRequest] 
-         * @deprecated
+
          * @throws {RequiredError}
          */
         deleteTeamUser: async (id: number, DeleteTeamUserRequest?: DeleteTeamUserRequest, ): Promise<RequestArgs> => {
@@ -179,7 +179,7 @@ export const LegacyTeamsApiAxiosParamCreator = function (configuration?: Configu
          * @summary Get a single team
          * @param {number} id The ID of the team
          * @param {0 | 1} [skip_users] When enabled, the teams will not include IDs of member users
-         * @deprecated
+
          * @throws {RequiredError}
          */
         getTeam: async (id: number, skip_users?: 0 | 1, ): Promise<RequestArgs> => {
@@ -224,7 +224,7 @@ export const LegacyTeamsApiAxiosParamCreator = function (configuration?: Configu
          * Returns a list of all user IDs within a team.
          * @summary Get all users in a team
          * @param {number} id The ID of the team
-         * @deprecated
+
          * @throws {RequiredError}
          */
         getTeamUsers: async (id: number, ): Promise<RequestArgs> => {
@@ -266,7 +266,7 @@ export const LegacyTeamsApiAxiosParamCreator = function (configuration?: Configu
          * @summary Get all teams
          * @param {'id' | 'name' | 'manager_id' | 'active_flag'} [order_by] The field name to sort returned teams by
          * @param {0 | 1} [skip_users] When enabled, the teams will not include IDs of member users
-         * @deprecated
+
          * @throws {RequiredError}
          */
         getTeams: async (order_by?: 'id' | 'name' | 'manager_id' | 'active_flag', skip_users?: 0 | 1, ): Promise<RequestArgs> => {
@@ -314,7 +314,7 @@ export const LegacyTeamsApiAxiosParamCreator = function (configuration?: Configu
          * @param {number} id The ID of the user
          * @param {'id' | 'name' | 'manager_id' | 'active_flag'} [order_by] The field name to sort returned teams by
          * @param {0 | 1} [skip_users] When enabled, the teams will not include IDs of member users
-         * @deprecated
+
          * @throws {RequiredError}
          */
         getUserTeams: async (id: number, order_by?: 'id' | 'name' | 'manager_id' | 'active_flag', skip_users?: 0 | 1, ): Promise<RequestArgs> => {
@@ -364,7 +364,7 @@ export const LegacyTeamsApiAxiosParamCreator = function (configuration?: Configu
          * @summary Update a team
          * @param {number} id The ID of the team
          * @param {UpdateTeamRequest} [UpdateTeamRequest] 
-         * @deprecated
+
          * @throws {RequiredError}
          */
         updateTeam: async (id: number, UpdateTeamRequest?: UpdateTeamRequest, ): Promise<RequestArgs> => {
@@ -419,7 +419,7 @@ export const LegacyTeamsApiFp = function(configuration?: Configuration) {
          * Adds a new team to the company and returns the created object.
          * @summary Add a new team
          * @param {AddTeamRequest1} [AddTeamRequest1] 
-         * @deprecated
+
          * @throws {RequiredError}
          */
         async addTeam(AddTeamRequest1?: AddTeamRequest1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetTeamResponse>> {
@@ -431,7 +431,7 @@ export const LegacyTeamsApiFp = function(configuration?: Configuration) {
          * @summary Add users to a team
          * @param {number} id The ID of the team
          * @param {AddTeamUserRequest} [AddTeamUserRequest] 
-         * @deprecated
+
          * @throws {RequiredError}
          */
         async addTeamUser(id: number, AddTeamUserRequest?: AddTeamUserRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UserIds>> {
@@ -443,7 +443,7 @@ export const LegacyTeamsApiFp = function(configuration?: Configuration) {
          * @summary Delete users from a team
          * @param {number} id The ID of the team
          * @param {DeleteTeamUserRequest} [DeleteTeamUserRequest] 
-         * @deprecated
+
          * @throws {RequiredError}
          */
         async deleteTeamUser(id: number, DeleteTeamUserRequest?: DeleteTeamUserRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UserIds>> {
@@ -455,7 +455,7 @@ export const LegacyTeamsApiFp = function(configuration?: Configuration) {
          * @summary Get a single team
          * @param {number} id The ID of the team
          * @param {0 | 1} [skip_users] When enabled, the teams will not include IDs of member users
-         * @deprecated
+
          * @throws {RequiredError}
          */
         async getTeam(id: number, skip_users?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetTeamResponse>> {
@@ -466,7 +466,7 @@ export const LegacyTeamsApiFp = function(configuration?: Configuration) {
          * Returns a list of all user IDs within a team.
          * @summary Get all users in a team
          * @param {number} id The ID of the team
-         * @deprecated
+
          * @throws {RequiredError}
          */
         async getTeamUsers(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UserIds>> {
@@ -478,7 +478,7 @@ export const LegacyTeamsApiFp = function(configuration?: Configuration) {
          * @summary Get all teams
          * @param {'id' | 'name' | 'manager_id' | 'active_flag'} [order_by] The field name to sort returned teams by
          * @param {0 | 1} [skip_users] When enabled, the teams will not include IDs of member users
-         * @deprecated
+
          * @throws {RequiredError}
          */
         async getTeams(order_by?: 'id' | 'name' | 'manager_id' | 'active_flag', skip_users?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetTeamsResponse>> {
@@ -491,7 +491,7 @@ export const LegacyTeamsApiFp = function(configuration?: Configuration) {
          * @param {number} id The ID of the user
          * @param {'id' | 'name' | 'manager_id' | 'active_flag'} [order_by] The field name to sort returned teams by
          * @param {0 | 1} [skip_users] When enabled, the teams will not include IDs of member users
-         * @deprecated
+
          * @throws {RequiredError}
          */
         async getUserTeams(id: number, order_by?: 'id' | 'name' | 'manager_id' | 'active_flag', skip_users?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetTeamsResponse>> {
@@ -503,7 +503,7 @@ export const LegacyTeamsApiFp = function(configuration?: Configuration) {
          * @summary Update a team
          * @param {number} id The ID of the team
          * @param {UpdateTeamRequest} [UpdateTeamRequest] 
-         * @deprecated
+
          * @throws {RequiredError}
          */
         async updateTeam(id: number, UpdateTeamRequest?: UpdateTeamRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetTeamResponse>> {
@@ -524,7 +524,7 @@ export const LegacyTeamsApiFactory = function (configuration?: Configuration, ba
          * Adds a new team to the company and returns the created object.
          * @summary Add a new team
          * @param {LegacyTeamsApiAddTeamRequest} requestParameters Request parameters.
-         * @deprecated
+
          * @throws {RequiredError}
          */
         addTeam(requestParameters: LegacyTeamsApiAddTeamRequest = {}, ): Promise<GetTeamResponse> {
@@ -534,7 +534,7 @@ export const LegacyTeamsApiFactory = function (configuration?: Configuration, ba
          * Adds users to an existing team.
          * @summary Add users to a team
          * @param {LegacyTeamsApiAddTeamUserRequest} requestParameters Request parameters.
-         * @deprecated
+
          * @throws {RequiredError}
          */
         addTeamUser(requestParameters: LegacyTeamsApiAddTeamUserRequest, ): Promise<UserIds> {
@@ -544,7 +544,7 @@ export const LegacyTeamsApiFactory = function (configuration?: Configuration, ba
          * Deletes users from an existing team.
          * @summary Delete users from a team
          * @param {LegacyTeamsApiDeleteTeamUserRequest} requestParameters Request parameters.
-         * @deprecated
+
          * @throws {RequiredError}
          */
         deleteTeamUser(requestParameters: LegacyTeamsApiDeleteTeamUserRequest, ): Promise<UserIds> {
@@ -554,7 +554,7 @@ export const LegacyTeamsApiFactory = function (configuration?: Configuration, ba
          * Returns data about a specific team.
          * @summary Get a single team
          * @param {LegacyTeamsApiGetTeamRequest} requestParameters Request parameters.
-         * @deprecated
+
          * @throws {RequiredError}
          */
         getTeam(requestParameters: LegacyTeamsApiGetTeamRequest, ): Promise<GetTeamResponse> {
@@ -564,7 +564,7 @@ export const LegacyTeamsApiFactory = function (configuration?: Configuration, ba
          * Returns a list of all user IDs within a team.
          * @summary Get all users in a team
          * @param {LegacyTeamsApiGetTeamUsersRequest} requestParameters Request parameters.
-         * @deprecated
+
          * @throws {RequiredError}
          */
         getTeamUsers(requestParameters: LegacyTeamsApiGetTeamUsersRequest, ): Promise<UserIds> {
@@ -574,7 +574,7 @@ export const LegacyTeamsApiFactory = function (configuration?: Configuration, ba
          * Returns data about teams within the company.
          * @summary Get all teams
          * @param {LegacyTeamsApiGetTeamsRequest} requestParameters Request parameters.
-         * @deprecated
+
          * @throws {RequiredError}
          */
         getTeams(requestParameters: LegacyTeamsApiGetTeamsRequest = {}, ): Promise<GetTeamsResponse> {
@@ -584,7 +584,7 @@ export const LegacyTeamsApiFactory = function (configuration?: Configuration, ba
          * Returns data about all teams which have the specified user as a member.
          * @summary Get all teams of a user
          * @param {LegacyTeamsApiGetUserTeamsRequest} requestParameters Request parameters.
-         * @deprecated
+
          * @throws {RequiredError}
          */
         getUserTeams(requestParameters: LegacyTeamsApiGetUserTeamsRequest, ): Promise<GetTeamsResponse> {
@@ -594,7 +594,7 @@ export const LegacyTeamsApiFactory = function (configuration?: Configuration, ba
          * Updates an existing team and returns the updated object.
          * @summary Update a team
          * @param {LegacyTeamsApiUpdateTeamRequest} requestParameters Request parameters.
-         * @deprecated
+
          * @throws {RequiredError}
          */
         updateTeam(requestParameters: LegacyTeamsApiUpdateTeamRequest, ): Promise<GetTeamResponse> {
@@ -775,7 +775,7 @@ export class LegacyTeamsApi extends BaseAPI {
      * Adds a new team to the company and returns the created object.
      * @summary Add a new team
      * @param {LegacyTeamsApiAddTeamRequest} requestParameters Request parameters.
-     * @deprecated
+
      * @throws {RequiredError}
      * @memberof LegacyTeamsApi
      */
@@ -787,7 +787,7 @@ export class LegacyTeamsApi extends BaseAPI {
      * Adds users to an existing team.
      * @summary Add users to a team
      * @param {LegacyTeamsApiAddTeamUserRequest} requestParameters Request parameters.
-     * @deprecated
+
      * @throws {RequiredError}
      * @memberof LegacyTeamsApi
      */
@@ -799,7 +799,7 @@ export class LegacyTeamsApi extends BaseAPI {
      * Deletes users from an existing team.
      * @summary Delete users from a team
      * @param {LegacyTeamsApiDeleteTeamUserRequest} requestParameters Request parameters.
-     * @deprecated
+
      * @throws {RequiredError}
      * @memberof LegacyTeamsApi
      */
@@ -811,7 +811,7 @@ export class LegacyTeamsApi extends BaseAPI {
      * Returns data about a specific team.
      * @summary Get a single team
      * @param {LegacyTeamsApiGetTeamRequest} requestParameters Request parameters.
-     * @deprecated
+
      * @throws {RequiredError}
      * @memberof LegacyTeamsApi
      */
@@ -823,7 +823,7 @@ export class LegacyTeamsApi extends BaseAPI {
      * Returns a list of all user IDs within a team.
      * @summary Get all users in a team
      * @param {LegacyTeamsApiGetTeamUsersRequest} requestParameters Request parameters.
-     * @deprecated
+
      * @throws {RequiredError}
      * @memberof LegacyTeamsApi
      */
@@ -835,7 +835,7 @@ export class LegacyTeamsApi extends BaseAPI {
      * Returns data about teams within the company.
      * @summary Get all teams
      * @param {LegacyTeamsApiGetTeamsRequest} requestParameters Request parameters.
-     * @deprecated
+
      * @throws {RequiredError}
      * @memberof LegacyTeamsApi
      */
@@ -847,7 +847,7 @@ export class LegacyTeamsApi extends BaseAPI {
      * Returns data about all teams which have the specified user as a member.
      * @summary Get all teams of a user
      * @param {LegacyTeamsApiGetUserTeamsRequest} requestParameters Request parameters.
-     * @deprecated
+
      * @throws {RequiredError}
      * @memberof LegacyTeamsApi
      */
@@ -859,7 +859,7 @@ export class LegacyTeamsApi extends BaseAPI {
      * Updates an existing team and returns the updated object.
      * @summary Update a team
      * @param {LegacyTeamsApiUpdateTeamRequest} requestParameters Request parameters.
-     * @deprecated
+
      * @throws {RequiredError}
      * @memberof LegacyTeamsApi
      */
