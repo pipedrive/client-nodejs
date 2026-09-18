@@ -29,46 +29,46 @@ export interface PersonItemAddress {
     * Country of the person
     * @type {string}
     */
-    'country'?: string;
+    'country'?: string | null;
     /**
     * Admin area level 1 (e.g. state) of the person
     * @type {string}
     */
-    'admin_area_level_1'?: string;
+    'admin_area_level_1'?: string | null;
     /**
     * Admin area level 2 (e.g. county) of the person
     * @type {string}
     */
-    'admin_area_level_2'?: string;
+    'admin_area_level_2'?: string | null;
     /**
     * Locality (e.g. city) of the person
     * @type {string}
     */
-    'locality'?: string;
+    'locality'?: string | null;
     /**
     * Sublocality (e.g. neighborhood) of the person
     * @type {string}
     */
-    'sublocality'?: string;
+    'sublocality'?: string | null;
     /**
     * Route (e.g. street) of the person
     * @type {string}
     */
-    'route'?: string;
+    'route'?: string | null;
     /**
     * Street number of the person
     * @type {string}
     */
-    'street_number'?: string;
+    'street_number'?: string | null;
     /**
     * Subpremise (e.g. apartment/suite number) of the person
     * @type {string}
     */
-    'subpremise'?: string;
+    'subpremise'?: string | null;
     /**
     * Postal code of the person
     * @type {string}
     */
-    'postal_code'?: string;
+    'postal_code'?: string | null;
 }
 

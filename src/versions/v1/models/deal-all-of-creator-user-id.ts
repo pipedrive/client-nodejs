@@ -37,9 +37,9 @@ export interface DealAllOfCreatorUserId {
     'email'?: string;
     /**
     * If the creator has a picture or not
-    * @type {boolean}
+    * @type {number}
     */
-    'has_pic'?: boolean;
+    'has_pic'?: number;
     /**
     * The creator picture hash
     * @type {string}

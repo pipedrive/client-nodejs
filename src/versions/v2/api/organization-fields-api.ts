@@ -227,11 +227,11 @@ export const OrganizationFieldsApiAxiosParamCreator = function (configuration?: 
          * Returns metadata about a specific organization field.
          * @summary Get one organization field
          * @param {string} field_code The unique code identifying the field
-         * @param {'ui_visibility' | 'important_fields' | 'required_fields' | 'ui_visibility,important_fields' | 'ui_visibility,required_fields' | 'important_fields,required_fields' | 'ui_visibility,important_fields,required_fields'} [include_fields] Optional comma separated string array of additional data namespaces to include in response
+         * @param {Set<'ui_visibility' | 'important_fields' | 'required_fields'>} [include_fields] Optional comma separated string array of additional data namespaces to include in response
 
          * @throws {RequiredError}
          */
-        getOrganizationField: async (field_code: string, include_fields?: 'ui_visibility' | 'important_fields' | 'required_fields' | 'ui_visibility,important_fields' | 'ui_visibility,required_fields' | 'important_fields,required_fields' | 'ui_visibility,important_fields,required_fields', ): Promise<RequestArgs> => {
+        getOrganizationField: async (field_code: string, include_fields?: Set<'ui_visibility' | 'important_fields' | 'required_fields'>, ): Promise<RequestArgs> => {
             // verify required parameter 'field_code' is not null or undefined
             assertParamExists('getOrganizationField', 'field_code', field_code)
             const localVarPath = `/organizationFields/{field_code}`
@@ -254,8 +254,8 @@ export const OrganizationFieldsApiAxiosParamCreator = function (configuration?: 
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full", "admin", "contact-fields:full"], configuration)
 
-            if (include_fields !== undefined) {
-                localVarQueryParameter['include_fields'] = include_fields;
+            if (include_fields) {
+                localVarQueryParameter['include_fields'] = Array.from(include_fields).join(COLLECTION_FORMATS.csv);
             }
 
 
@@ -272,13 +272,13 @@ export const OrganizationFieldsApiAxiosParamCreator = function (configuration?: 
         /**
          * Returns metadata about all organization fields in the company.
          * @summary Get all organization fields
-         * @param {'ui_visibility' | 'important_fields' | 'required_fields' | 'ui_visibility,important_fields' | 'ui_visibility,required_fields' | 'important_fields,required_fields' | 'ui_visibility,important_fields,required_fields'} [include_fields] Optional comma separated string array of additional data namespaces to include in response
+         * @param {Set<'ui_visibility' | 'important_fields' | 'required_fields'>} [include_fields] Optional comma separated string array of additional data namespaces to include in response
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        getOrganizationFields: async (include_fields?: 'ui_visibility' | 'important_fields' | 'required_fields' | 'ui_visibility,important_fields' | 'ui_visibility,required_fields' | 'important_fields,required_fields' | 'ui_visibility,important_fields,required_fields', limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+        getOrganizationFields: async (include_fields?: Set<'ui_visibility' | 'important_fields' | 'required_fields'>, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
             const localVarPath = `/organizationFields`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -298,8 +298,8 @@ export const OrganizationFieldsApiAxiosParamCreator = function (configuration?: 
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full", "admin", "contact-fields:full"], configuration)
 
-            if (include_fields !== undefined) {
-                localVarQueryParameter['include_fields'] = include_fields;
+            if (include_fields) {
+                localVarQueryParameter['include_fields'] = Array.from(include_fields).join(COLLECTION_FORMATS.csv);
             }
 
             if (limit !== undefined) {
@@ -476,24 +476,24 @@ export const OrganizationFieldsApiFp = function(configuration?: Configuration) {
          * Returns metadata about a specific organization field.
          * @summary Get one organization field
          * @param {string} field_code The unique code identifying the field
-         * @param {'ui_visibility' | 'important_fields' | 'required_fields' | 'ui_visibility,important_fields' | 'ui_visibility,required_fields' | 'important_fields,required_fields' | 'ui_visibility,important_fields,required_fields'} [include_fields] Optional comma separated string array of additional data namespaces to include in response
+         * @param {Set<'ui_visibility' | 'important_fields' | 'required_fields'>} [include_fields] Optional comma separated string array of additional data namespaces to include in response
 
          * @throws {RequiredError}
          */
-        async getOrganizationField(field_code: string, include_fields?: 'ui_visibility' | 'important_fields' | 'required_fields' | 'ui_visibility,important_fields' | 'ui_visibility,required_fields' | 'important_fields,required_fields' | 'ui_visibility,important_fields,required_fields', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddOrganizationField200Response>> {
+        async getOrganizationField(field_code: string, include_fields?: Set<'ui_visibility' | 'important_fields' | 'required_fields'>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddOrganizationField200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationField(field_code, include_fields, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Returns metadata about all organization fields in the company.
          * @summary Get all organization fields
-         * @param {'ui_visibility' | 'important_fields' | 'required_fields' | 'ui_visibility,important_fields' | 'ui_visibility,required_fields' | 'important_fields,required_fields' | 'ui_visibility,important_fields,required_fields'} [include_fields] Optional comma separated string array of additional data namespaces to include in response
+         * @param {Set<'ui_visibility' | 'important_fields' | 'required_fields'>} [include_fields] Optional comma separated string array of additional data namespaces to include in response
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        async getOrganizationFields(include_fields?: 'ui_visibility' | 'important_fields' | 'required_fields' | 'ui_visibility,important_fields' | 'ui_visibility,required_fields' | 'important_fields,required_fields' | 'ui_visibility,important_fields,required_fields', limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetOrganizationFields200Response>> {
+        async getOrganizationFields(include_fields?: Set<'ui_visibility' | 'important_fields' | 'required_fields'>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetOrganizationFields200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationFields(include_fields, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -699,10 +699,10 @@ export interface OrganizationFieldsApiGetOrganizationFieldRequest {
 
     /**
      * Optional comma separated string array of additional data namespaces to include in response
-     * @type {'ui_visibility' | 'important_fields' | 'required_fields' | 'ui_visibility,important_fields' | 'ui_visibility,required_fields' | 'important_fields,required_fields' | 'ui_visibility,important_fields,required_fields'}
+     * @type {Set<'ui_visibility' | 'important_fields' | 'required_fields'>}
      * @memberof OrganizationFieldsApiGetOrganizationField
      */
-    readonly include_fields?: 'ui_visibility' | 'important_fields' | 'required_fields' | 'ui_visibility,important_fields' | 'ui_visibility,required_fields' | 'important_fields,required_fields' | 'ui_visibility,important_fields,required_fields'
+    readonly include_fields?: Set<'ui_visibility' | 'important_fields' | 'required_fields'>
 }
 
 /**
@@ -713,10 +713,10 @@ export interface OrganizationFieldsApiGetOrganizationFieldRequest {
 export interface OrganizationFieldsApiGetOrganizationFieldsRequest {
     /**
      * Optional comma separated string array of additional data namespaces to include in response
-     * @type {'ui_visibility' | 'important_fields' | 'required_fields' | 'ui_visibility,important_fields' | 'ui_visibility,required_fields' | 'important_fields,required_fields' | 'ui_visibility,important_fields,required_fields'}
+     * @type {Set<'ui_visibility' | 'important_fields' | 'required_fields'>}
      * @memberof OrganizationFieldsApiGetOrganizationFields
      */
-    readonly include_fields?: 'ui_visibility' | 'important_fields' | 'required_fields' | 'ui_visibility,important_fields' | 'ui_visibility,required_fields' | 'important_fields,required_fields' | 'ui_visibility,important_fields,required_fields'
+    readonly include_fields?: Set<'ui_visibility' | 'important_fields' | 'required_fields'>
 
     /**
      * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
