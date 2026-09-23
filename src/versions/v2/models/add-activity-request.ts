@@ -55,11 +55,6 @@ export interface AddActivityRequest {
     */
     'lead_id'?: string;
     /**
-    * The ID of the person linked to the activity
-    * @type {number}
-    */
-    'person_id'?: number;
-    /**
     * The ID of the organization linked to the activity
     * @type {number}
     */
@@ -100,7 +95,7 @@ export interface AddActivityRequest {
     */
     'location'?: AddActivityRequestLocation;
     /**
-    * The participants of the activity
+    * The participants of the activity. Use this to set the activity\'s person — a primary participant (`primary: true`) sets `person_id` on the activity.
     * @type {Array<AddActivityRequestParticipantsInner>}
     */
     'participants'?: Array<AddActivityRequestParticipantsInner>;

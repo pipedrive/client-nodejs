@@ -15,58 +15,58 @@
 
 
 /**
-* The address of the organization
+* Location of the activity
 * @export
-* @interface OrganizationItemAddress
+* @interface ActivityItemLocation
 */
-export interface OrganizationItemAddress {
+export interface ActivityItemLocation {
     /**
-    * The full address of the organization
+    * The full address of the activity
     * @type {string}
     */
     'value'?: string;
     /**
-    * Country of the organization
+    * Country of the activity
     * @type {string}
     */
     'country'?: string | null;
     /**
-    * Admin area level 1 (e.g. state) of the organization
+    * Admin area level 1 (e.g. state) of the activity
     * @type {string}
     */
     'admin_area_level_1'?: string | null;
     /**
-    * Admin area level 2 (e.g. county) of the organization
+    * Admin area level 2 (e.g. county) of the activity
     * @type {string}
     */
     'admin_area_level_2'?: string | null;
     /**
-    * Locality (e.g. city) of the organization
+    * Locality (e.g. city) of the activity
     * @type {string}
     */
     'locality'?: string | null;
     /**
-    * Sublocality (e.g. neighborhood) of the organization
+    * Sublocality (e.g. neighborhood) of the activity
     * @type {string}
     */
     'sublocality'?: string | null;
     /**
-    * Route (e.g. street) of the organization
+    * Route (e.g. street) of the activity
     * @type {string}
     */
     'route'?: string | null;
     /**
-    * Street number of the organization
+    * Street number of the activity
     * @type {string}
     */
     'street_number'?: string | null;
     /**
-    * Subpremise (e.g. apartment/suite number) of the organization
+    * Subpremise (e.g. apartment/suite number) of the activity
     * @type {string}
     */
     'subpremise'?: string | null;
     /**
-    * Postal code of the organization
+    * Postal code of the activity
     * @type {string}
     */
     'postal_code'?: string | null;
