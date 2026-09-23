@@ -47,7 +47,7 @@ export interface OrganizationItem {
     * The last updated date and time of the organization
     * @type {string}
     */
-    'update_time'?: string;
+    'update_time'?: string | null;
     /**
     * Whether the organization is deleted or not
     * @type {boolean}
@@ -62,7 +62,7 @@ export interface OrganizationItem {
     * 
     * @type {OrganizationItemAddress}
     */
-    'address'?: OrganizationItemAddress;
+    'address'?: OrganizationItemAddress | null;
     /**
     * The IDs of labels assigned to the organization
     * @type {Array<number>}
