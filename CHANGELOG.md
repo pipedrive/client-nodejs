@@ -7,6 +7,15 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Fixed
+- Fixed several comma-separated query parameters that were still typed as `type: string` — changed to `type: array` with `uniqueItems: true`, `style: form`, `explode: false` (integer items unless noted):
+  - `ids` on the v1 delete-many endpoints (`DELETE /v1/dealFields`, `DELETE /v1/organizationFields`, `DELETE /v1/personFields`, `DELETE /v1/filters`, `DELETE /v1/productFields`)
+  - `exclude` on `GET /v1/activities` (`ActivityExclude`); `ActivityTypeIdsParameter`
+  - `items` on v1 activity/flow endpoints (`Items`, string items)
+  - `fields`/`include_fields` on `GET /v1/leads/search` (enumerated string items)
+  - `status` on `GET /api/v2/deals` (`DealStatus`, enumerated string items)
+  - `ids` on `DELETE /api/v2/deals/{id}/products`
+  - `fields`/`status`/`include_fields`/`item_types` parameters on `GET /api/v2/deals/search`, `GET /api/v2/itemSearch`, `GET /api/v2/leads/search`, `GET /api/v2/organizations/search`, `GET /api/v2/persons/search`, `GET /api/v2/products/search`, and `GET /api/v2/projects/search`
 
 ## [33.7.0] - 2026-09-08
 ### Added

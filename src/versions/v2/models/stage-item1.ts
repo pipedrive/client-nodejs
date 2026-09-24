@@ -69,6 +69,6 @@ export interface StageItem1 {
     * The stage update time
     * @type {string}
     */
-    'update_time'?: string;
+    'update_time'?: string | null;
 }
 
