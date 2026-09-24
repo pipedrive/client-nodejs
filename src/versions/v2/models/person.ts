@@ -71,7 +71,7 @@ export interface Person {
     * The last updated date and time of the person
     * @type {string}
     */
-    'update_time'?: string;
+    'update_time'?: string | null;
     /**
     * The emails of the person
     * @type {Array<PersonItemEmail>}
@@ -101,12 +101,12 @@ export interface Person {
     * The ID of the picture associated with the person
     * @type {number}
     */
-    'picture_id'?: number;
+    'picture_id'?: number | null;
     /**
     * 
     * @type {PersonItemAddress}
     */
-    'postal_address'?: PersonItemAddress;
+    'postal_address'?: PersonItemAddress | null;
     /**
     * Contact sync notes of the person, maximum 10 000 characters, included if contact sync is enabled for the company
     * @type {string}

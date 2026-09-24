@@ -74,7 +74,7 @@ export interface Deal {
     * The last updated date and time of the deal
     * @type {string}
     */
-    'update_time'?: string;
+    'update_time'?: string | null;
     /**
     * The last updated date and time of the deal stage
     * @type {string}
