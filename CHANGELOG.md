@@ -7,6 +7,9 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Added
+- Added `archive_reason` field to the Lead schema, returned by `GET /v1/leads`, `GET /v1/leads/{id}`, and `GET /v1/leads/archived` — captures the reason a lead was archived
+- Added `archive_reason` to the request body of `PATCH /v1/leads/{id}` — can only be set while archiving a lead in the same request, or on a lead that's already archived; it's automatically cleared when the lead is unarchived, and archiving without it returns a 400 error if a reason is required for the company
 
 ## [33.7.0] - 2026-09-08
 ### Added

@@ -124,11 +124,11 @@ export const PersonFieldsApiAxiosParamCreator = function (configuration?: Config
         /**
          * Marks multiple fields as deleted.
          * @summary Delete multiple person fields in bulk
-         * @param {string} ids The comma-separated field IDs to delete
+         * @param {Set<number>} ids The comma-separated field IDs to delete
 
          * @throws {RequiredError}
          */
-        deletePersonFields: async (ids: string, ): Promise<RequestArgs> => {
+        deletePersonFields: async (ids: Set<number>, ): Promise<RequestArgs> => {
             // verify required parameter 'ids' is not null or undefined
             assertParamExists('deletePersonFields', 'ids', ids)
             const localVarPath = `/personFields`;
@@ -150,8 +150,8 @@ export const PersonFieldsApiAxiosParamCreator = function (configuration?: Config
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contact-fields:full", "admin"], configuration)
 
-            if (ids !== undefined) {
-                localVarQueryParameter['ids'] = ids;
+            if (ids) {
+                localVarQueryParameter['ids'] = Array.from(ids).join(COLLECTION_FORMATS.csv);
             }
 
 
@@ -334,11 +334,11 @@ export const PersonFieldsApiFp = function(configuration?: Configuration) {
         /**
          * Marks multiple fields as deleted.
          * @summary Delete multiple person fields in bulk
-         * @param {string} ids The comma-separated field IDs to delete
+         * @param {Set<number>} ids The comma-separated field IDs to delete
 
          * @throws {RequiredError}
          */
-        async deletePersonFields(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteFieldsResponse>> {
+        async deletePersonFields(ids: Set<number>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteFieldsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deletePersonFields(ids, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -486,10 +486,10 @@ export interface PersonFieldsApiDeletePersonFieldRequest {
 export interface PersonFieldsApiDeletePersonFieldsRequest {
     /**
      * The comma-separated field IDs to delete
-     * @type {string}
+     * @type {Set<number>}
      * @memberof PersonFieldsApiDeletePersonFields
      */
-    readonly ids: string
+    readonly ids: Set<number>
 }
 
 /**
