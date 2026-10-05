@@ -53,7 +53,7 @@ export interface LeadSearchItemItem {
     * 
     * @type {LeadSearchItemItemPerson}
     */
-    'person'?: LeadSearchItemItemPerson;
+    'person'?: LeadSearchItemItemPerson | null;
     /**
     * 
     * @type {LeadSearchItemItemOrganization}

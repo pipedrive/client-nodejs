@@ -21,20 +21,14 @@ import { GetActivityFields200ResponseDataInnerOptionsInner } from './get-activit
 import { GetActivityFields200ResponseDataInnerSubfieldsInner } from './get-activity-fields200-response-data-inner-subfields-inner';
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetPersonFields200ResponseDataInnerImportantFields } from './get-person-fields200-response-data-inner-important-fields';
-// May contain unused imports in some cases
-// @ts-ignore
-import { GetPersonFields200ResponseDataInnerRequiredFields } from './get-person-fields200-response-data-inner-required-fields';
-// May contain unused imports in some cases
-// @ts-ignore
-import { GetProjectFields200ResponseDataInnerUiVisibility } from './get-project-fields200-response-data-inner-ui-visibility';
+import { GetActivityFields200ResponseDataInnerUiVisibility } from './get-activity-fields200-response-data-inner-ui-visibility';
 
 /**
 * 
 * @export
-* @interface GetProjectFields200ResponseDataInner
+* @interface GetProductFields200ResponseDataInner
 */
-export interface GetProjectFields200ResponseDataInner {
+export interface GetProductFields200ResponseDataInner {
     /**
     * The display name/label of the field
     * @type {string}
@@ -49,7 +43,7 @@ export interface GetProjectFields200ResponseDataInner {
     * The type of the field
     * @type {string}
     */
-    'field_type': GetProjectFields200ResponseDataInnerFieldTypeConst;
+    'field_type': GetProductFields200ResponseDataInnerFieldTypeConst;
     /**
     * Whether this is a user-created custom field
     * @type {boolean}
@@ -72,22 +66,12 @@ export interface GetProjectFields200ResponseDataInner {
     'subfields'?: Array<GetActivityFields200ResponseDataInnerSubfieldsInner> | null;
     /**
     * 
-    * @type {GetProjectFields200ResponseDataInnerUiVisibility}
+    * @type {GetActivityFields200ResponseDataInnerUiVisibility}
     */
-    'ui_visibility'?: GetProjectFields200ResponseDataInnerUiVisibility;
-    /**
-    * 
-    * @type {GetPersonFields200ResponseDataInnerImportantFields}
-    */
-    'important_fields'?: GetPersonFields200ResponseDataInnerImportantFields;
-    /**
-    * 
-    * @type {GetPersonFields200ResponseDataInnerRequiredFields}
-    */
-    'required_fields'?: GetPersonFields200ResponseDataInnerRequiredFields;
+    'ui_visibility'?: GetActivityFields200ResponseDataInnerUiVisibility;
 }
 
-                export const GetProjectFields200ResponseDataInnerFieldTypeConst = {
+                export const GetProductFields200ResponseDataInnerFieldTypeConst = {
                         int: 'int',
                         double: 'double',
                         boolean: 'boolean',
@@ -120,10 +104,9 @@ export interface GetProjectFields200ResponseDataInner {
                         price_list: 'price_list',
                         billing_frequency: 'billing_frequency',
                         projects_board: 'projects_board',
-                        projects_phase: 'projects_phase',
-                        orgs: 'orgs'
+                        projects_phase: 'projects_phase'
                 } as const;
 
-                export type GetProjectFields200ResponseDataInnerFieldTypeConst = typeof GetProjectFields200ResponseDataInnerFieldTypeConst[keyof typeof GetProjectFields200ResponseDataInnerFieldTypeConst];
+                export type GetProductFields200ResponseDataInnerFieldTypeConst = typeof GetProductFields200ResponseDataInnerFieldTypeConst[keyof typeof GetProductFields200ResponseDataInnerFieldTypeConst];
 
 

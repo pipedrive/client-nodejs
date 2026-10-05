@@ -54,6 +54,11 @@ export interface UpdateLeadRequest {
     */
     'is_archived'?: boolean;
     /**
+    * The reason for archiving the lead. Can only be provided when `is_archived` is being set to `true` in the same request, or when updating a lead that\'s already archived — providing it otherwise will return a 400 error. Automatically cleared when the lead is unarchived. If archiving with a reason is required for your company, archiving a lead without providing one will also return a 400 error. 
+    * @type {string}
+    */
+    'archive_reason'?: string | null;
+    /**
     * 
     * @type {LeadValue}
     */
