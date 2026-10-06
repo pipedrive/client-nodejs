@@ -350,11 +350,11 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
          * @param {string} [all_changes] Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted, returns changes without custom field updates.
-         * @param {string} [items] A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document).
+         * @param {Set<string>} [items] A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document).
 
          * @throws {RequiredError}
          */
-        getOrganizationUpdates: async (id: number, start?: number, limit?: number, all_changes?: string, items?: string, ): Promise<RequestArgs> => {
+        getOrganizationUpdates: async (id: number, start?: number, limit?: number, all_changes?: string, items?: Set<string>, ): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getOrganizationUpdates', 'id', id)
             const localVarPath = `/organizations/{id}/flow`
@@ -389,8 +389,8 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['all_changes'] = all_changes;
             }
 
-            if (items !== undefined) {
-                localVarQueryParameter['items'] = items;
+            if (items) {
+                localVarQueryParameter['items'] = Array.from(items).join(COLLECTION_FORMATS.csv);
             }
 
 
@@ -584,11 +584,11 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
          * @param {string} [all_changes] Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted, returns changes without custom field updates.
-         * @param {string} [items] A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document).
+         * @param {Set<string>} [items] A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document).
 
          * @throws {RequiredError}
          */
-        async getOrganizationUpdates(id: number, start?: number, limit?: number, all_changes?: string, items?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetAssociatedOrganizationUpdatesResponse>> {
+        async getOrganizationUpdates(id: number, start?: number, limit?: number, all_changes?: string, items?: Set<string>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetAssociatedOrganizationUpdatesResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationUpdates(id, start, limit, all_changes, items, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -908,10 +908,10 @@ export interface OrganizationsApiGetOrganizationUpdatesRequest {
 
     /**
      * A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document).
-     * @type {string}
+     * @type {Set<string>}
      * @memberof OrganizationsApiGetOrganizationUpdates
      */
-    readonly items?: string
+    readonly items?: Set<string>
 }
 
 /**

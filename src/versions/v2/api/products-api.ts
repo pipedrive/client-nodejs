@@ -652,18 +652,18 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
          * Returns data about all products.
          * @summary Get all products
          * @param {number} [owner_id] If supplied, only products owned by the given user will be returned
-         * @param {string} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+         * @param {Set<string>} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+         * @param {Set<string>} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
          * @param {number} [filter_id] The ID of the filter to use
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {'id' | 'name' | 'add_time' | 'update_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;name&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;.
          * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
          * @param {string} [updated_since] If set, only products with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
-         * @param {string} [custom_fields] Comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for a smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
 
          * @throws {RequiredError}
          */
-        getProducts: async (owner_id?: number, ids?: string, filter_id?: number, cursor?: string, limit?: number, sort_by?: 'id' | 'name' | 'add_time' | 'update_time', sort_direction?: 'asc' | 'desc', updated_since?: string, custom_fields?: string, ): Promise<RequestArgs> => {
+        getProducts: async (owner_id?: number, ids?: Set<string>, custom_fields?: Set<string>, filter_id?: number, cursor?: string, limit?: number, sort_by?: 'id' | 'name' | 'add_time' | 'update_time', sort_direction?: 'asc' | 'desc', updated_since?: string, ): Promise<RequestArgs> => {
             const localVarPath = `/products`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -687,8 +687,12 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['owner_id'] = owner_id;
             }
 
-            if (ids !== undefined) {
-                localVarQueryParameter['ids'] = ids;
+            if (ids) {
+                localVarQueryParameter['ids'] = Array.from(ids).join(COLLECTION_FORMATS.csv);
+            }
+
+            if (custom_fields) {
+                localVarQueryParameter['custom_fields'] = Array.from(custom_fields).join(COLLECTION_FORMATS.csv);
             }
 
             if (filter_id !== undefined) {
@@ -715,10 +719,6 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['updated_since'] = updated_since;
             }
 
-            if (custom_fields !== undefined) {
-                localVarQueryParameter['custom_fields'] = custom_fields;
-            }
-
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -734,15 +734,15 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
          * Searches all products by name, code and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope.
          * @summary Search products
          * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-         * @param {'code' | 'custom_fields' | 'name'} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
+         * @param {Set<'code' | 'custom_fields' | 'name'>} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
          * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
-         * @param {'product.price'} [include_fields] Supports including optional fields in the results which are not provided by default
-         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {Set<'product.price'>} [include_fields] Supports including optional fields in the results which are not provided by default
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        searchProducts: async (term: string, fields?: 'code' | 'custom_fields' | 'name', exact_match?: boolean, include_fields?: 'product.price', limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+        searchProducts: async (term: string, fields?: Set<'code' | 'custom_fields' | 'name'>, exact_match?: boolean, include_fields?: Set<'product.price'>, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
             // verify required parameter 'term' is not null or undefined
             assertParamExists('searchProducts', 'term', term)
             const localVarPath = `/products/search`;
@@ -768,16 +768,16 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['term'] = term;
             }
 
-            if (fields !== undefined) {
-                localVarQueryParameter['fields'] = fields;
+            if (fields) {
+                localVarQueryParameter['fields'] = Array.from(fields).join(COLLECTION_FORMATS.csv);
             }
 
             if (exact_match !== undefined) {
                 localVarQueryParameter['exact_match'] = exact_match;
             }
 
-            if (include_fields !== undefined) {
-                localVarQueryParameter['include_fields'] = include_fields;
+            if (include_fields) {
+                localVarQueryParameter['include_fields'] = Array.from(include_fields).join(COLLECTION_FORMATS.csv);
             }
 
             if (limit !== undefined) {
@@ -1165,34 +1165,34 @@ export const ProductsApiFp = function(configuration?: Configuration) {
          * Returns data about all products.
          * @summary Get all products
          * @param {number} [owner_id] If supplied, only products owned by the given user will be returned
-         * @param {string} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+         * @param {Set<string>} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+         * @param {Set<string>} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
          * @param {number} [filter_id] The ID of the filter to use
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {'id' | 'name' | 'add_time' | 'update_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;name&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;.
          * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
          * @param {string} [updated_since] If set, only products with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
-         * @param {string} [custom_fields] Comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for a smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
 
          * @throws {RequiredError}
          */
-        async getProducts(owner_id?: number, ids?: string, filter_id?: number, cursor?: string, limit?: number, sort_by?: 'id' | 'name' | 'add_time' | 'update_time', sort_direction?: 'asc' | 'desc', updated_since?: string, custom_fields?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getProducts(owner_id, ids, filter_id, cursor, limit, sort_by, sort_direction, updated_since, custom_fields, );
+        async getProducts(owner_id?: number, ids?: Set<string>, custom_fields?: Set<string>, filter_id?: number, cursor?: string, limit?: number, sort_by?: 'id' | 'name' | 'add_time' | 'update_time', sort_direction?: 'asc' | 'desc', updated_since?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProducts(owner_id, ids, custom_fields, filter_id, cursor, limit, sort_by, sort_direction, updated_since, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Searches all products by name, code and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope.
          * @summary Search products
          * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-         * @param {'code' | 'custom_fields' | 'name'} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
+         * @param {Set<'code' | 'custom_fields' | 'name'>} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
          * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
-         * @param {'product.price'} [include_fields] Supports including optional fields in the results which are not provided by default
-         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {Set<'product.price'>} [include_fields] Supports including optional fields in the results which are not provided by default
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        async searchProducts(term: string, fields?: 'code' | 'custom_fields' | 'name', exact_match?: boolean, include_fields?: 'product.price', limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductSearchResponse>> {
+        async searchProducts(term: string, fields?: Set<'code' | 'custom_fields' | 'name'>, exact_match?: boolean, include_fields?: Set<'product.price'>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductSearchResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchProducts(term, fields, exact_match, include_fields, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1393,7 +1393,7 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         getProducts(requestParameters: ProductsApiGetProductsRequest = {}, ): Promise<GetProductsResponse> {
-            return localVarFp.getProducts(requestParameters.owner_id, requestParameters.ids, requestParameters.filter_id, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.updated_since, requestParameters.custom_fields, ).then((request) => request(axios, basePath));
+            return localVarFp.getProducts(requestParameters.owner_id, requestParameters.ids, requestParameters.custom_fields, requestParameters.filter_id, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.updated_since, ).then((request) => request(axios, basePath));
         },
         /**
          * Searches all products by name, code and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope.
@@ -1715,10 +1715,17 @@ export interface ProductsApiGetProductsRequest {
 
     /**
      * Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
-     * @type {string}
+     * @type {Set<string>}
      * @memberof ProductsApiGetProducts
      */
-    readonly ids?: string
+    readonly ids?: Set<string>
+
+    /**
+     * Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+     * @type {Set<string>}
+     * @memberof ProductsApiGetProducts
+     */
+    readonly custom_fields?: Set<string>
 
     /**
      * The ID of the filter to use
@@ -1761,13 +1768,6 @@ export interface ProductsApiGetProductsRequest {
      * @memberof ProductsApiGetProducts
      */
     readonly updated_since?: string
-
-    /**
-     * Comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for a smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
-     * @type {string}
-     * @memberof ProductsApiGetProducts
-     */
-    readonly custom_fields?: string
 }
 
 /**
@@ -1785,10 +1785,10 @@ export interface ProductsApiSearchProductsRequest {
 
     /**
      * A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
-     * @type {'code' | 'custom_fields' | 'name'}
+     * @type {Set<'code' | 'custom_fields' | 'name'>}
      * @memberof ProductsApiSearchProducts
      */
-    readonly fields?: 'code' | 'custom_fields' | 'name'
+    readonly fields?: Set<'code' | 'custom_fields' | 'name'>
 
     /**
      * When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
@@ -1799,13 +1799,13 @@ export interface ProductsApiSearchProductsRequest {
 
     /**
      * Supports including optional fields in the results which are not provided by default
-     * @type {'product.price'}
+     * @type {Set<'product.price'>}
      * @memberof ProductsApiSearchProducts
      */
-    readonly include_fields?: 'product.price'
+    readonly include_fields?: Set<'product.price'>
 
     /**
-     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
      * @type {number}
      * @memberof ProductsApiSearchProducts
      */
@@ -2082,7 +2082,7 @@ export class ProductsApi extends BaseAPI {
      * @memberof ProductsApi
      */
     public getProducts(requestParameters: ProductsApiGetProductsRequest = {}, ) {
-        return ProductsApiFp(this.configuration).getProducts(requestParameters.owner_id, requestParameters.ids, requestParameters.filter_id, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.updated_since, requestParameters.custom_fields, ).then((request) => request(this.axios, this.basePath));
+        return ProductsApiFp(this.configuration).getProducts(requestParameters.owner_id, requestParameters.ids, requestParameters.custom_fields, requestParameters.filter_id, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.updated_since, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**

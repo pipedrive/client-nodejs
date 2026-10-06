@@ -52,7 +52,7 @@ import { UpsertPersonResponse } from '../models';
 export const PersonsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Adds a new person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don’t exist by default in Pipedrive and are only created when you set up your contact sync.
+         * Adds a new person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don\'t exist by default in Pipedrive and are only created when you set up your contact sync — attempting to set any of them without contact sync enabled returns a 403.
          * @summary Add a new person
          * @param {AddPersonRequest} [AddPersonRequest] 
 
@@ -227,14 +227,14 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
          * Returns the details of a specific person. Fields `ims`, `postal_address`, `notes`, `birthday`, and `job_title` are only included if contact sync is enabled for the company.
          * @summary Get details of a person
          * @param {number} id The ID of the person
-         * @param {'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'} [include_fields] Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled.
-         * @param {string} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+         * @param {Set<'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'>} [include_fields] Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled.
+         * @param {Set<string>} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
          * @param {boolean} [include_option_labels] When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
          * @param {boolean} [include_labels] When provided with \&#39;true\&#39; value, response will include an array of label objects in the form of \&#39;{ id: number, label: string }\&#39;
 
          * @throws {RequiredError}
          */
-        getPerson: async (id: number, include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email', custom_fields?: string, include_option_labels?: boolean, include_labels?: boolean, ): Promise<RequestArgs> => {
+        getPerson: async (id: number, include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'>, custom_fields?: Set<string>, include_option_labels?: boolean, include_labels?: boolean, ): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getPerson', 'id', id)
             const localVarPath = `/persons/{id}`
@@ -257,12 +257,12 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full"], configuration)
 
-            if (include_fields !== undefined) {
-                localVarQueryParameter['include_fields'] = include_fields;
+            if (include_fields) {
+                localVarQueryParameter['include_fields'] = Array.from(include_fields).join(COLLECTION_FORMATS.csv);
             }
 
-            if (custom_fields !== undefined) {
-                localVarQueryParameter['custom_fields'] = custom_fields;
+            if (custom_fields) {
+                localVarQueryParameter['custom_fields'] = Array.from(custom_fields).join(COLLECTION_FORMATS.csv);
             }
 
             if (include_option_labels !== undefined) {
@@ -431,7 +431,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
          * Returns data about all persons. Fields `ims`, `postal_address`, `notes`, `birthday`, and `job_title` are only included if contact sync is enabled for the company.
          * @summary Get all persons
          * @param {number} [filter_id] If supplied, only persons matching the specified filter are returned
-         * @param {string} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+         * @param {Set<string>} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
          * @param {number} [owner_id] If supplied, only persons owned by the specified user are returned. If filter_id is provided, this is ignored.
          * @param {number} [org_id] If supplied, only persons linked to the specified organization are returned. If filter_id is provided, this is ignored.
          * @param {number} [deal_id] If supplied, only persons linked to the specified deal are returned. If filter_id is provided, this is ignored.
@@ -439,8 +439,8 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
          * @param {string} [updated_until] If set, only persons with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {'id' | 'update_time' | 'add_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
          * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
-         * @param {'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'} [include_fields] Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled.
-         * @param {string} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+         * @param {Set<'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'>} [include_fields] Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled.
+         * @param {Set<string>} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
          * @param {boolean} [include_option_labels] When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
          * @param {boolean} [include_labels] When provided with \&#39;true\&#39; value, response will include an array of label objects in the form of \&#39;{ id: number, label: string }\&#39;
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
@@ -448,7 +448,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
 
          * @throws {RequiredError}
          */
-        getPersons: async (filter_id?: number, ids?: string, owner_id?: number, org_id?: number, deal_id?: number, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email', custom_fields?: string, include_option_labels?: boolean, include_labels?: boolean, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+        getPersons: async (filter_id?: number, ids?: Set<string>, owner_id?: number, org_id?: number, deal_id?: number, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'>, custom_fields?: Set<string>, include_option_labels?: boolean, include_labels?: boolean, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
             const localVarPath = `/persons`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -472,8 +472,8 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
                 localVarQueryParameter['filter_id'] = filter_id;
             }
 
-            if (ids !== undefined) {
-                localVarQueryParameter['ids'] = ids;
+            if (ids) {
+                localVarQueryParameter['ids'] = Array.from(ids).join(COLLECTION_FORMATS.csv);
             }
 
             if (owner_id !== undefined) {
@@ -504,12 +504,12 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
                 localVarQueryParameter['sort_direction'] = sort_direction;
             }
 
-            if (include_fields !== undefined) {
-                localVarQueryParameter['include_fields'] = include_fields;
+            if (include_fields) {
+                localVarQueryParameter['include_fields'] = Array.from(include_fields).join(COLLECTION_FORMATS.csv);
             }
 
-            if (custom_fields !== undefined) {
-                localVarQueryParameter['custom_fields'] = custom_fields;
+            if (custom_fields) {
+                localVarQueryParameter['custom_fields'] = Array.from(custom_fields).join(COLLECTION_FORMATS.csv);
             }
 
             if (include_option_labels !== undefined) {
@@ -543,16 +543,16 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
          * Searches all persons by name, email, phone, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found persons can be filtered by organization ID.
          * @summary Search persons
          * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-         * @param {'custom_fields' | 'email' | 'notes' | 'phone' | 'name'} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
+         * @param {Set<'custom_fields' | 'email' | 'notes' | 'phone' | 'name'>} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
          * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
          * @param {number} [organization_id] Will filter persons by the provided organization ID. The upper limit of found persons associated with the organization is 2000.
-         * @param {'person.picture'} [include_fields] Supports including optional fields in the results which are not provided by default
-         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {Set<'person.picture'>} [include_fields] Supports including optional fields in the results which are not provided by default
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        searchPersons: async (term: string, fields?: 'custom_fields' | 'email' | 'notes' | 'phone' | 'name', exact_match?: boolean, organization_id?: number, include_fields?: 'person.picture', limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+        searchPersons: async (term: string, fields?: Set<'custom_fields' | 'email' | 'notes' | 'phone' | 'name'>, exact_match?: boolean, organization_id?: number, include_fields?: Set<'person.picture'>, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
             // verify required parameter 'term' is not null or undefined
             assertParamExists('searchPersons', 'term', term)
             const localVarPath = `/persons/search`;
@@ -578,8 +578,8 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
                 localVarQueryParameter['term'] = term;
             }
 
-            if (fields !== undefined) {
-                localVarQueryParameter['fields'] = fields;
+            if (fields) {
+                localVarQueryParameter['fields'] = Array.from(fields).join(COLLECTION_FORMATS.csv);
             }
 
             if (exact_match !== undefined) {
@@ -590,8 +590,8 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
                 localVarQueryParameter['organization_id'] = organization_id;
             }
 
-            if (include_fields !== undefined) {
-                localVarQueryParameter['include_fields'] = include_fields;
+            if (include_fields) {
+                localVarQueryParameter['include_fields'] = Array.from(include_fields).join(COLLECTION_FORMATS.csv);
             }
 
             if (limit !== undefined) {
@@ -614,7 +614,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Updates the properties of a person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don’t exist by default in Pipedrive and are only created when you set up your contact sync.
+         * Updates the properties of a person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don\'t exist by default in Pipedrive and are only created when you set up your contact sync — attempting to set any of them without contact sync enabled returns a 403.
          * @summary Update a person
          * @param {number} id The ID of the person
          * @param {UpdatePersonRequest} [UpdatePersonRequest] 
@@ -670,7 +670,7 @@ export const PersonsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = PersonsApiAxiosParamCreator(configuration)
     return {
         /**
-         * Adds a new person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don’t exist by default in Pipedrive and are only created when you set up your contact sync.
+         * Adds a new person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don\'t exist by default in Pipedrive and are only created when you set up your contact sync — attempting to set any of them without contact sync enabled returns a 403.
          * @summary Add a new person
          * @param {AddPersonRequest} [AddPersonRequest] 
 
@@ -719,14 +719,14 @@ export const PersonsApiFp = function(configuration?: Configuration) {
          * Returns the details of a specific person. Fields `ims`, `postal_address`, `notes`, `birthday`, and `job_title` are only included if contact sync is enabled for the company.
          * @summary Get details of a person
          * @param {number} id The ID of the person
-         * @param {'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'} [include_fields] Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled.
-         * @param {string} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+         * @param {Set<'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'>} [include_fields] Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled.
+         * @param {Set<string>} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
          * @param {boolean} [include_option_labels] When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
          * @param {boolean} [include_labels] When provided with \&#39;true\&#39; value, response will include an array of label objects in the form of \&#39;{ id: number, label: string }\&#39;
 
          * @throws {RequiredError}
          */
-        async getPerson(id: number, include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email', custom_fields?: string, include_option_labels?: boolean, include_labels?: boolean, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertPersonResponse>> {
+        async getPerson(id: number, include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'>, custom_fields?: Set<string>, include_option_labels?: boolean, include_labels?: boolean, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertPersonResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPerson(id, include_fields, custom_fields, include_option_labels, include_labels, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -771,7 +771,7 @@ export const PersonsApiFp = function(configuration?: Configuration) {
          * Returns data about all persons. Fields `ims`, `postal_address`, `notes`, `birthday`, and `job_title` are only included if contact sync is enabled for the company.
          * @summary Get all persons
          * @param {number} [filter_id] If supplied, only persons matching the specified filter are returned
-         * @param {string} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+         * @param {Set<string>} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
          * @param {number} [owner_id] If supplied, only persons owned by the specified user are returned. If filter_id is provided, this is ignored.
          * @param {number} [org_id] If supplied, only persons linked to the specified organization are returned. If filter_id is provided, this is ignored.
          * @param {number} [deal_id] If supplied, only persons linked to the specified deal are returned. If filter_id is provided, this is ignored.
@@ -779,8 +779,8 @@ export const PersonsApiFp = function(configuration?: Configuration) {
          * @param {string} [updated_until] If set, only persons with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {'id' | 'update_time' | 'add_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
          * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
-         * @param {'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'} [include_fields] Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled.
-         * @param {string} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+         * @param {Set<'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'>} [include_fields] Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled.
+         * @param {Set<string>} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
          * @param {boolean} [include_option_labels] When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
          * @param {boolean} [include_labels] When provided with \&#39;true\&#39; value, response will include an array of label objects in the form of \&#39;{ id: number, label: string }\&#39;
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
@@ -788,7 +788,7 @@ export const PersonsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getPersons(filter_id?: number, ids?: string, owner_id?: number, org_id?: number, deal_id?: number, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email', custom_fields?: string, include_option_labels?: boolean, include_labels?: boolean, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPersonsResponse>> {
+        async getPersons(filter_id?: number, ids?: Set<string>, owner_id?: number, org_id?: number, deal_id?: number, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'>, custom_fields?: Set<string>, include_option_labels?: boolean, include_labels?: boolean, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPersonsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPersons(filter_id, ids, owner_id, org_id, deal_id, updated_since, updated_until, sort_by, sort_direction, include_fields, custom_fields, include_option_labels, include_labels, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -796,21 +796,21 @@ export const PersonsApiFp = function(configuration?: Configuration) {
          * Searches all persons by name, email, phone, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found persons can be filtered by organization ID.
          * @summary Search persons
          * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-         * @param {'custom_fields' | 'email' | 'notes' | 'phone' | 'name'} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
+         * @param {Set<'custom_fields' | 'email' | 'notes' | 'phone' | 'name'>} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
          * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
          * @param {number} [organization_id] Will filter persons by the provided organization ID. The upper limit of found persons associated with the organization is 2000.
-         * @param {'person.picture'} [include_fields] Supports including optional fields in the results which are not provided by default
-         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {Set<'person.picture'>} [include_fields] Supports including optional fields in the results which are not provided by default
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        async searchPersons(term: string, fields?: 'custom_fields' | 'email' | 'notes' | 'phone' | 'name', exact_match?: boolean, organization_id?: number, include_fields?: 'person.picture', limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPersonSearchResponse>> {
+        async searchPersons(term: string, fields?: Set<'custom_fields' | 'email' | 'notes' | 'phone' | 'name'>, exact_match?: boolean, organization_id?: number, include_fields?: Set<'person.picture'>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPersonSearchResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchPersons(term, fields, exact_match, organization_id, include_fields, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Updates the properties of a person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don’t exist by default in Pipedrive and are only created when you set up your contact sync.
+         * Updates the properties of a person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don\'t exist by default in Pipedrive and are only created when you set up your contact sync — attempting to set any of them without contact sync enabled returns a 403.
          * @summary Update a person
          * @param {number} id The ID of the person
          * @param {UpdatePersonRequest} [UpdatePersonRequest] 
@@ -832,7 +832,7 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
     const localVarFp = PersonsApiFp(configuration)
     return {
         /**
-         * Adds a new person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don’t exist by default in Pipedrive and are only created when you set up your contact sync.
+         * Adds a new person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don\'t exist by default in Pipedrive and are only created when you set up your contact sync — attempting to set any of them without contact sync enabled returns a 403.
          * @summary Add a new person
          * @param {PersonsApiAddPersonRequest} requestParameters Request parameters.
 
@@ -932,7 +932,7 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.searchPersons(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.organization_id, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
-         * Updates the properties of a person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don’t exist by default in Pipedrive and are only created when you set up your contact sync.
+         * Updates the properties of a person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don\'t exist by default in Pipedrive and are only created when you set up your contact sync — attempting to set any of them without contact sync enabled returns a 403.
          * @summary Update a person
          * @param {PersonsApiUpdatePersonRequest} requestParameters Request parameters.
 
@@ -1029,17 +1029,17 @@ export interface PersonsApiGetPersonRequest {
 
     /**
      * Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled.
-     * @type {'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'}
+     * @type {Set<'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'>}
      * @memberof PersonsApiGetPerson
      */
-    readonly include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'
+    readonly include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'>
 
     /**
      * Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
-     * @type {string}
+     * @type {Set<string>}
      * @memberof PersonsApiGetPerson
      */
-    readonly custom_fields?: string
+    readonly custom_fields?: Set<string>
 
     /**
      * When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
@@ -1141,10 +1141,10 @@ export interface PersonsApiGetPersonsRequest {
 
     /**
      * Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
-     * @type {string}
+     * @type {Set<string>}
      * @memberof PersonsApiGetPersons
      */
-    readonly ids?: string
+    readonly ids?: Set<string>
 
     /**
      * If supplied, only persons owned by the specified user are returned. If filter_id is provided, this is ignored.
@@ -1197,17 +1197,17 @@ export interface PersonsApiGetPersonsRequest {
 
     /**
      * Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled.
-     * @type {'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'}
+     * @type {Set<'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'>}
      * @memberof PersonsApiGetPersons
      */
-    readonly include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'
+    readonly include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'>
 
     /**
      * Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
-     * @type {string}
+     * @type {Set<string>}
      * @memberof PersonsApiGetPersons
      */
-    readonly custom_fields?: string
+    readonly custom_fields?: Set<string>
 
     /**
      * When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
@@ -1253,10 +1253,10 @@ export interface PersonsApiSearchPersonsRequest {
 
     /**
      * A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
-     * @type {'custom_fields' | 'email' | 'notes' | 'phone' | 'name'}
+     * @type {Set<'custom_fields' | 'email' | 'notes' | 'phone' | 'name'>}
      * @memberof PersonsApiSearchPersons
      */
-    readonly fields?: 'custom_fields' | 'email' | 'notes' | 'phone' | 'name'
+    readonly fields?: Set<'custom_fields' | 'email' | 'notes' | 'phone' | 'name'>
 
     /**
      * When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
@@ -1274,13 +1274,13 @@ export interface PersonsApiSearchPersonsRequest {
 
     /**
      * Supports including optional fields in the results which are not provided by default
-     * @type {'person.picture'}
+     * @type {Set<'person.picture'>}
      * @memberof PersonsApiSearchPersons
      */
-    readonly include_fields?: 'person.picture'
+    readonly include_fields?: Set<'person.picture'>
 
     /**
-     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
      * @type {number}
      * @memberof PersonsApiSearchPersons
      */
@@ -1323,7 +1323,7 @@ export interface PersonsApiUpdatePersonRequest {
  */
 export class PersonsApi extends BaseAPI {
     /**
-     * Adds a new person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don’t exist by default in Pipedrive and are only created when you set up your contact sync.
+     * Adds a new person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don\'t exist by default in Pipedrive and are only created when you set up your contact sync — attempting to set any of them without contact sync enabled returns a 403.
      * @summary Add a new person
      * @param {PersonsApiAddPersonRequest} requestParameters Request parameters.
 
@@ -1443,7 +1443,7 @@ export class PersonsApi extends BaseAPI {
     }
 
     /**
-     * Updates the properties of a person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don’t exist by default in Pipedrive and are only created when you set up your contact sync.
+     * Updates the properties of a person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don\'t exist by default in Pipedrive and are only created when you set up your contact sync — attempting to set any of them without contact sync enabled returns a 403.
      * @summary Update a person
      * @param {PersonsApiUpdatePersonRequest} requestParameters Request parameters.
 
