@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { AddActivityRequestAttendeesInner } from './add-activity-request-attendees-inner';
+import { ActivityItemLocation } from './activity-item-location';
 // May contain unused imports in some cases
 // @ts-ignore
-import { AddActivityRequestLocation } from './add-activity-request-location';
+import { AddActivityRequestAttendeesInner } from './add-activity-request-attendees-inner';
 // May contain unused imports in some cases
 // @ts-ignore
 import { AddActivityRequestParticipantsInner } from './add-activity-request-participants-inner';
@@ -73,27 +73,27 @@ export interface ActivityItem {
     * The ID of the deal linked to the activity
     * @type {number}
     */
-    'deal_id'?: number;
+    'deal_id'?: number | null;
     /**
     * The ID of the lead linked to the activity
     * @type {string}
     */
-    'lead_id'?: string;
+    'lead_id'?: string | null;
     /**
     * The ID of the person linked to the activity
     * @type {number}
     */
-    'person_id'?: number;
+    'person_id'?: number | null;
     /**
     * The ID of the organization linked to the activity
     * @type {number}
     */
-    'org_id'?: number;
+    'org_id'?: number | null;
     /**
     * The ID of the project linked to the activity
     * @type {number}
     */
-    'project_id'?: number;
+    'project_id'?: number | null;
     /**
     * The due date of the activity
     * @type {string}
@@ -103,12 +103,12 @@ export interface ActivityItem {
     * The due time of the activity
     * @type {string}
     */
-    'due_time'?: string;
+    'due_time'?: string | null;
     /**
     * The duration of the activity
     * @type {string}
     */
-    'duration'?: string;
+    'duration'?: string | null;
     /**
     * Whether the activity marks the assignee as busy or not in their calendar
     * @type {boolean}
@@ -123,12 +123,12 @@ export interface ActivityItem {
     * The date and time when the activity was marked as done
     * @type {string}
     */
-    'marked_as_done_time'?: string;
+    'marked_as_done_time'?: string | null;
     /**
     * 
-    * @type {AddActivityRequestLocation}
+    * @type {ActivityItemLocation}
     */
-    'location'?: AddActivityRequestLocation;
+    'location'?: ActivityItemLocation | null;
     /**
     * The participants of the activity
     * @type {Array<AddActivityRequestParticipantsInner>}

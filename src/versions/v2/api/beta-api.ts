@@ -879,16 +879,16 @@ export const BetaApiAxiosParamCreator = function (configuration?: Configuration)
          * Searches all projects by title, description, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found projects can be filtered by person ID or organization ID.
          * @summary Search projects
          * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-         * @param {'custom_fields' | 'notes' | 'title' | 'description'} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
+         * @param {Set<'custom_fields' | 'notes' | 'title' | 'description'>} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
          * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
          * @param {number} [person_id] Will filter projects by the provided person ID
          * @param {number} [organization_id] Will filter projects by the provided organization ID
-         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        searchProjects: async (term: string, fields?: 'custom_fields' | 'notes' | 'title' | 'description', exact_match?: boolean, person_id?: number, organization_id?: number, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+        searchProjects: async (term: string, fields?: Set<'custom_fields' | 'notes' | 'title' | 'description'>, exact_match?: boolean, person_id?: number, organization_id?: number, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
             // verify required parameter 'term' is not null or undefined
             assertParamExists('searchProjects', 'term', term)
             const localVarPath = `/projects/search`;
@@ -914,8 +914,8 @@ export const BetaApiAxiosParamCreator = function (configuration?: Configuration)
                 localVarQueryParameter['term'] = term;
             }
 
-            if (fields !== undefined) {
-                localVarQueryParameter['fields'] = fields;
+            if (fields) {
+                localVarQueryParameter['fields'] = Array.from(fields).join(COLLECTION_FORMATS.csv);
             }
 
             if (exact_match !== undefined) {
@@ -1399,16 +1399,16 @@ export const BetaApiFp = function(configuration?: Configuration) {
          * Searches all projects by title, description, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found projects can be filtered by person ID or organization ID.
          * @summary Search projects
          * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-         * @param {'custom_fields' | 'notes' | 'title' | 'description'} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
+         * @param {Set<'custom_fields' | 'notes' | 'title' | 'description'>} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
          * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
          * @param {number} [person_id] Will filter projects by the provided person ID
          * @param {number} [organization_id] Will filter projects by the provided organization ID
-         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        async searchProjects(term: string, fields?: 'custom_fields' | 'notes' | 'title' | 'description', exact_match?: boolean, person_id?: number, organization_id?: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectSearchResponse>> {
+        async searchProjects(term: string, fields?: Set<'custom_fields' | 'notes' | 'title' | 'description'>, exact_match?: boolean, person_id?: number, organization_id?: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectSearchResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchProjects(term, fields, exact_match, person_id, organization_id, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -2040,10 +2040,10 @@ export interface BetaApiSearchProjectsRequest {
 
     /**
      * A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
-     * @type {'custom_fields' | 'notes' | 'title' | 'description'}
+     * @type {Set<'custom_fields' | 'notes' | 'title' | 'description'>}
      * @memberof BetaApiSearchProjects
      */
-    readonly fields?: 'custom_fields' | 'notes' | 'title' | 'description'
+    readonly fields?: Set<'custom_fields' | 'notes' | 'title' | 'description'>
 
     /**
      * When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
@@ -2067,7 +2067,7 @@ export interface BetaApiSearchProjectsRequest {
     readonly organization_id?: number
 
     /**
-     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
      * @type {number}
      * @memberof BetaApiSearchProjects
      */
