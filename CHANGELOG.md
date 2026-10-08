@@ -7,6 +7,9 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Fixed
+- Fixed the `sort` query parameter on `GET /v1/leads` — removed the restrictive `enum` since custom fields and sort direction are accepted
+- Fixed the shared `ids` query parameter used by v2 collection endpoints — array items are now typed as `integer` instead of `string`
 
 ## [33.7.0] - 2026-09-08
 ### Added

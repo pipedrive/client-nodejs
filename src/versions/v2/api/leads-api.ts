@@ -131,17 +131,17 @@ export const LeadsApiAxiosParamCreator = function (configuration?: Configuration
          * Searches all leads by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found leads can be filtered by the person ID and the organization ID.
          * @summary Search leads
          * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-         * @param {'custom_fields' | 'notes' | 'title'} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them.
+         * @param {Set<'custom_fields' | 'notes' | 'title'>} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them.
          * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
          * @param {number} [person_id] Will filter leads by the provided person ID. The upper limit of found leads associated with the person is 2000.
          * @param {number} [organization_id] Will filter leads by the provided organization ID. The upper limit of found leads associated with the organization is 2000.
-         * @param {'lead.was_seen'} [include_fields] Supports including optional fields in the results which are not provided by default
-         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {Set<'lead.was_seen'>} [include_fields] Supports including optional fields in the results which are not provided by default
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        searchLeads: async (term: string, fields?: 'custom_fields' | 'notes' | 'title', exact_match?: boolean, person_id?: number, organization_id?: number, include_fields?: 'lead.was_seen', limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+        searchLeads: async (term: string, fields?: Set<'custom_fields' | 'notes' | 'title'>, exact_match?: boolean, person_id?: number, organization_id?: number, include_fields?: Set<'lead.was_seen'>, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
             // verify required parameter 'term' is not null or undefined
             assertParamExists('searchLeads', 'term', term)
             const localVarPath = `/leads/search`;
@@ -167,8 +167,8 @@ export const LeadsApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['term'] = term;
             }
 
-            if (fields !== undefined) {
-                localVarQueryParameter['fields'] = fields;
+            if (fields) {
+                localVarQueryParameter['fields'] = Array.from(fields).join(COLLECTION_FORMATS.csv);
             }
 
             if (exact_match !== undefined) {
@@ -183,8 +183,8 @@ export const LeadsApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['organization_id'] = organization_id;
             }
 
-            if (include_fields !== undefined) {
-                localVarQueryParameter['include_fields'] = include_fields;
+            if (include_fields) {
+                localVarQueryParameter['include_fields'] = Array.from(include_fields).join(COLLECTION_FORMATS.csv);
             }
 
             if (limit !== undefined) {
@@ -245,17 +245,17 @@ export const LeadsApiFp = function(configuration?: Configuration) {
          * Searches all leads by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found leads can be filtered by the person ID and the organization ID.
          * @summary Search leads
          * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-         * @param {'custom_fields' | 'notes' | 'title'} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them.
+         * @param {Set<'custom_fields' | 'notes' | 'title'>} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them.
          * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
          * @param {number} [person_id] Will filter leads by the provided person ID. The upper limit of found leads associated with the person is 2000.
          * @param {number} [organization_id] Will filter leads by the provided organization ID. The upper limit of found leads associated with the organization is 2000.
-         * @param {'lead.was_seen'} [include_fields] Supports including optional fields in the results which are not provided by default
-         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {Set<'lead.was_seen'>} [include_fields] Supports including optional fields in the results which are not provided by default
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        async searchLeads(term: string, fields?: 'custom_fields' | 'notes' | 'title', exact_match?: boolean, person_id?: number, organization_id?: number, include_fields?: 'lead.was_seen', limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetLeadSearchResponse>> {
+        async searchLeads(term: string, fields?: Set<'custom_fields' | 'notes' | 'title'>, exact_match?: boolean, person_id?: number, organization_id?: number, include_fields?: Set<'lead.was_seen'>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetLeadSearchResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchLeads(term, fields, exact_match, person_id, organization_id, include_fields, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -359,10 +359,10 @@ export interface LeadsApiSearchLeadsRequest {
 
     /**
      * A comma-separated string array. The fields to perform the search from. Defaults to all of them.
-     * @type {'custom_fields' | 'notes' | 'title'}
+     * @type {Set<'custom_fields' | 'notes' | 'title'>}
      * @memberof LeadsApiSearchLeads
      */
-    readonly fields?: 'custom_fields' | 'notes' | 'title'
+    readonly fields?: Set<'custom_fields' | 'notes' | 'title'>
 
     /**
      * When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
@@ -387,13 +387,13 @@ export interface LeadsApiSearchLeadsRequest {
 
     /**
      * Supports including optional fields in the results which are not provided by default
-     * @type {'lead.was_seen'}
+     * @type {Set<'lead.was_seen'>}
      * @memberof LeadsApiSearchLeads
      */
-    readonly include_fields?: 'lead.was_seen'
+    readonly include_fields?: Set<'lead.was_seen'>
 
     /**
-     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
      * @type {number}
      * @memberof LeadsApiSearchLeads
      */

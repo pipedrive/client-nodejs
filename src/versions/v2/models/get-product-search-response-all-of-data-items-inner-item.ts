@@ -40,9 +40,9 @@ export interface GetProductSearchResponseAllOfDataItemsInnerItem {
     'name'?: string;
     /**
     * The code of the product
-    * @type {number}
+    * @type {string}
     */
-    'code'?: number;
+    'code'?: string | null;
     /**
     * The visibility of the product
     * @type {number}
