@@ -17,14 +17,24 @@
 /**
 * 
 * @export
-* @interface ProductRequestPricesInnerAllOf
+* @interface ProductPriceRequest
 */
-export interface ProductRequestPricesInnerAllOf {
+export interface ProductPriceRequest {
+    /**
+    * The price of the product
+    * @type {number}
+    */
+    'price': number;
     /**
     * The currency of the price
     * @type {string}
     */
     'currency': string;
+    /**
+    * The cost of the product
+    * @type {number}
+    */
+    'cost'?: number;
     /**
     * The direct cost of the product
     * @type {number}

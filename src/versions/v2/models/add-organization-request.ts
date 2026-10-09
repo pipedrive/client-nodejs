@@ -52,7 +52,7 @@ export interface AddOrganizationRequest {
     * 
     * @type {OrganizationItemAddress}
     */
-    'address'?: OrganizationItemAddress;
+    'address'?: OrganizationItemAddress | null;
     /**
     * The website of the organization
     * @type {string}

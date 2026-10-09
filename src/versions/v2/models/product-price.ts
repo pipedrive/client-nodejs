@@ -17,9 +17,19 @@
 /**
 * 
 * @export
-* @interface PricesArrayPricesInnerAllOf
+* @interface ProductPrice
 */
-export interface PricesArrayPricesInnerAllOf {
+export interface ProductPrice {
+    /**
+    * The price of the product
+    * @type {number}
+    */
+    'price'?: number;
+    /**
+    * The cost of the product
+    * @type {number}
+    */
+    'cost'?: number;
     /**
     * The ID of the product
     * @type {number}

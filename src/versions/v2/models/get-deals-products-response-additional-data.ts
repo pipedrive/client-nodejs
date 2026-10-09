@@ -24,6 +24,6 @@ export interface GetDealsProductsResponseAdditionalData {
     * The first item on the next page. The value of the `next_cursor` field will be `null` if you have reached the end of the dataset and there’s no more pages to be returned.
     * @type {string}
     */
-    'next_cursor'?: string;
+    'next_cursor'?: string | null;
 }
 

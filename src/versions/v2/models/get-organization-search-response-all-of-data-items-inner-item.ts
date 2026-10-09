@@ -42,7 +42,7 @@ export interface GetOrganizationSearchResponseAllOfDataItemsInnerItem {
     * The address of the organization
     * @type {string}
     */
-    'address'?: string;
+    'address'?: string | null;
     /**
     * The visibility of the organization
     * @type {number}

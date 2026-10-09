@@ -13,22 +13,25 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { GetProductFields200ResponseDataInner } from './get-product-fields200-response-data-inner';
 
 /**
 * 
 * @export
-* @interface ProductPriceBase
+* @interface AddProductField200Response
 */
-export interface ProductPriceBase {
+export interface AddProductField200Response {
     /**
-    * The price of the product
-    * @type {number}
+    * Whether the request was successful
+    * @type {boolean}
     */
-    'price'?: number;
+    'success'?: boolean;
     /**
-    * The cost of the product
-    * @type {number}
+    * 
+    * @type {GetProductFields200ResponseDataInner}
     */
-    'cost'?: number;
+    'data'?: GetProductFields200ResponseDataInner;
 }
 

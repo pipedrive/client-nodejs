@@ -18,10 +18,10 @@
 import { GetDealsProductsResponseDataInnerAllOf2 } from './get-deals-products-response-data-inner-all-of2';
 // May contain unused imports in some cases
 // @ts-ignore
-import { ProductRequest } from './product-request';
+import { ProductPriceRequest } from './product-price-request';
 // May contain unused imports in some cases
 // @ts-ignore
-import { ProductRequestPricesInner } from './product-request-prices-inner';
+import { ProductRequest } from './product-request';
 // May contain unused imports in some cases
 // @ts-ignore
 import { UpdateProductRequestAllOf } from './update-product-request-all-of';
