@@ -8,6 +8,18 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [33.9.0] - 2026-10-09
+### Fixed
+- Fixed `has_pic` field type in v1 deal creator schema (`DealNonStrictModeFields`, used by `GET`/`POST /v1/deals` and related endpoints) — changed from `boolean` to `integer` since the API returns `0`/`1`, not `true`/`false`
+- Fixed `code` field type in v2 product search results (`GET /api/v2/products/search`) — changed from `integer` to `string` and made nullable to match actual API responses
+- Fixed `value` field type in v2 deal search results (`DealSearchItem`, used by `GET /api/v2/deals/search`) — changed from `integer` to `number` and made nullable to match actual API responses
+- Marked `data` nullable in `ListProductFilesResponse` (`GET /v1/products/{id}/files`)
+- Marked `update_time` nullable in v2 deal, organization, person, and stage schemas (`DealItem`, `OrganizationItem`, `PersonItem`, `StageItem`)
+- Marked `next_cursor` nullable in v2 cursor pagination schema, used across all v2 cursor-paginated list endpoints
+- Marked several v2 activity fields nullable (`ActivityItem`): `deal_id`, `lead_id`, `person_id`, `org_id`, `project_id`, `due_time`, `duration`, `marked_as_done_time`, `location`, and all `location` address subfields (`country`, `admin_area_level_1`, `admin_area_level_2`, `locality`, `sublocality`, `route`, `street_number`, `subpremise`, `postal_code`)
+- Marked v2 `OrganizationItemAddress` and `PersonItemAddress` objects and all their subfields nullable, and marked `PersonItem.picture_id` nullable
+- Marked `person` nullable in v2 lead search results (`LeadSearchItem`) and `address` nullable in v2 organization search results (`OrganizationSearchItem`)
+
 ## [33.8.0] - 2026-10-09
 ### Fixed
 - Removed `person_id` from the v2 activity request body (`POST /api/v2/activities`, `PATCH /api/v2/activities/{id}`) — the API has always rejected it as read-only, and the schema advertised it as writable; use `participants: [{ "person_id": 123, "primary": true }]` instead. `org_id` is unaffected.
@@ -1336,7 +1348,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v33.8.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v33.9.0...HEAD
+[33.9.0]: https://github.com/pipedrive/api-docs/compare/v33.8.0...v33.9.0
 [33.8.0]: https://github.com/pipedrive/api-docs/compare/v33.7.2...v33.8.0
 [33.7.2]: https://github.com/pipedrive/api-docs/compare/v33.7.1...v33.7.2
 [33.7.1]: https://github.com/pipedrive/api-docs/compare/v33.7.0...v33.7.1

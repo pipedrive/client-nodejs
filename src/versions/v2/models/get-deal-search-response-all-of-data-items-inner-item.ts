@@ -51,7 +51,7 @@ export interface GetDealSearchResponseAllOfDataItemsInnerItem {
     * The value of the deal
     * @type {number}
     */
-    'value'?: number;
+    'value'?: number | null;
     /**
     * The currency of the deal
     * @type {string}

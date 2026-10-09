@@ -76,7 +76,7 @@ export interface AddPersonRequest {
     * 
     * @type {PersonItemAddress}
     */
-    'postal_address'?: PersonItemAddress;
+    'postal_address'?: PersonItemAddress | null;
     /**
     * Contact sync notes of the person, maximum 10 000 characters. Only accepted when contact sync is enabled for the company; otherwise the request returns 403.
     * @type {string}
