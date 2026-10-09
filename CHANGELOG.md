@@ -7,6 +7,8 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+
+## [33.9.0] - 2026-10-09
 ### Fixed
 - Fixed `has_pic` field type in v1 deal creator schema (`DealNonStrictModeFields`, used by `GET`/`POST /v1/deals` and related endpoints) — changed from `boolean` to `integer` since the API returns `0`/`1`, not `true`/`false`
 - Fixed `code` field type in v2 product search results (`GET /api/v2/products/search`) — changed from `integer` to `string` and made nullable to match actual API responses
@@ -1346,7 +1348,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v33.8.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v33.9.0...HEAD
+[33.9.0]: https://github.com/pipedrive/api-docs/compare/v33.8.0...v33.9.0
 [33.8.0]: https://github.com/pipedrive/api-docs/compare/v33.7.2...v33.8.0
 [33.7.2]: https://github.com/pipedrive/api-docs/compare/v33.7.1...v33.7.2
 [33.7.1]: https://github.com/pipedrive/api-docs/compare/v33.7.0...v33.7.1
