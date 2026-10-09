@@ -8,6 +8,11 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [34.0.0] - 2026-10-09
+### Fixed
+- Fixed the comma-separated `include_fields` query parameter across v2 collection/detail endpoints (`GET /api/v2/activities`, `GET /api/v2/activities/{id}`, `GET /api/v2/activityFields`, `GET /api/v2/activityFields/{field_code}`, `GET /api/v2/deals`, `GET /api/v2/deals/{id}`, `GET /api/v2/dealFields`, `GET /api/v2/dealFields/{field_code}`, `GET /api/v2/organizations`, `GET /api/v2/organizations/{id}`, `GET /api/v2/organizationFields`, `GET /api/v2/organizationFields/{field_code}`, `GET /api/v2/persons`, `GET /api/v2/persons/{id}`, `GET /api/v2/personFields`, `GET /api/v2/personFields/{field_code}`, `GET /api/v2/productFields`, and `GET /api/v2/productFields/{field_code}`) that was typed as `type: string` with an enum of comma-joined value combinations despite accepting comma-separated lists — changed to `type: array` of enumerated strings with `uniqueItems: true`, `style: form`, `explode: false`
+- Fixed the comma-separated `custom_fields` query parameter on v2 collection/detail endpoints (`GET /api/v2/deals`, `GET /api/v2/deals/archived`, `GET /api/v2/deals/{id}`, `GET /api/v2/organizations`, `GET /api/v2/organizations/{id}`, `GET /api/v2/persons`, `GET /api/v2/persons/{id}`, and `GET /api/v2/products`) and the `ids` query parameter on v2 collection endpoints (`GET /api/v2/activities`, `GET /api/v2/deals`, `GET /api/v2/deals/archived`, `GET /api/v2/organizations`, `GET /api/v2/persons`, and `GET /api/v2/products`) that were typed as `type: string` despite accepting comma-separated lists — changed to `type: array` of strings (`custom_fields` capped at 15 items, `ids` at 100) with `uniqueItems: true`, `style: form`, `explode: false`
+
 ## [33.9.0] - 2026-10-09
 ### Fixed
 - Fixed `has_pic` field type in v1 deal creator schema (`DealNonStrictModeFields`, used by `GET`/`POST /v1/deals` and related endpoints) — changed from `boolean` to `integer` since the API returns `0`/`1`, not `true`/`false`
@@ -1348,7 +1353,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v33.9.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v34.0.0...HEAD
+[34.0.0]: https://github.com/pipedrive/api-docs/compare/v33.9.0...v34.0.0
 [33.9.0]: https://github.com/pipedrive/api-docs/compare/v33.8.0...v33.9.0
 [33.8.0]: https://github.com/pipedrive/api-docs/compare/v33.7.2...v33.8.0
 [33.7.2]: https://github.com/pipedrive/api-docs/compare/v33.7.1...v33.7.2

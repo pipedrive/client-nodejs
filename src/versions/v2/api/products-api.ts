@@ -652,18 +652,18 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
          * Returns data about all products.
          * @summary Get all products
          * @param {number} [owner_id] If supplied, only products owned by the given user will be returned
-         * @param {string} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+         * @param {Set<string>} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+         * @param {Set<string>} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
          * @param {number} [filter_id] The ID of the filter to use
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {'id' | 'name' | 'add_time' | 'update_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;name&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;.
          * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
          * @param {string} [updated_since] If set, only products with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
-         * @param {string} [custom_fields] Comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for a smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
 
          * @throws {RequiredError}
          */
-        getProducts: async (owner_id?: number, ids?: string, filter_id?: number, cursor?: string, limit?: number, sort_by?: 'id' | 'name' | 'add_time' | 'update_time', sort_direction?: 'asc' | 'desc', updated_since?: string, custom_fields?: string, ): Promise<RequestArgs> => {
+        getProducts: async (owner_id?: number, ids?: Set<string>, custom_fields?: Set<string>, filter_id?: number, cursor?: string, limit?: number, sort_by?: 'id' | 'name' | 'add_time' | 'update_time', sort_direction?: 'asc' | 'desc', updated_since?: string, ): Promise<RequestArgs> => {
             const localVarPath = `/products`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -687,8 +687,12 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['owner_id'] = owner_id;
             }
 
-            if (ids !== undefined) {
-                localVarQueryParameter['ids'] = ids;
+            if (ids) {
+                localVarQueryParameter['ids'] = Array.from(ids).join(COLLECTION_FORMATS.csv);
+            }
+
+            if (custom_fields) {
+                localVarQueryParameter['custom_fields'] = Array.from(custom_fields).join(COLLECTION_FORMATS.csv);
             }
 
             if (filter_id !== undefined) {
@@ -713,10 +717,6 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
 
             if (updated_since !== undefined) {
                 localVarQueryParameter['updated_since'] = updated_since;
-            }
-
-            if (custom_fields !== undefined) {
-                localVarQueryParameter['custom_fields'] = custom_fields;
             }
 
 
@@ -1165,19 +1165,19 @@ export const ProductsApiFp = function(configuration?: Configuration) {
          * Returns data about all products.
          * @summary Get all products
          * @param {number} [owner_id] If supplied, only products owned by the given user will be returned
-         * @param {string} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+         * @param {Set<string>} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+         * @param {Set<string>} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
          * @param {number} [filter_id] The ID of the filter to use
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {'id' | 'name' | 'add_time' | 'update_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;name&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;.
          * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
          * @param {string} [updated_since] If set, only products with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
-         * @param {string} [custom_fields] Comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for a smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
 
          * @throws {RequiredError}
          */
-        async getProducts(owner_id?: number, ids?: string, filter_id?: number, cursor?: string, limit?: number, sort_by?: 'id' | 'name' | 'add_time' | 'update_time', sort_direction?: 'asc' | 'desc', updated_since?: string, custom_fields?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductsResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getProducts(owner_id, ids, filter_id, cursor, limit, sort_by, sort_direction, updated_since, custom_fields, );
+        async getProducts(owner_id?: number, ids?: Set<string>, custom_fields?: Set<string>, filter_id?: number, cursor?: string, limit?: number, sort_by?: 'id' | 'name' | 'add_time' | 'update_time', sort_direction?: 'asc' | 'desc', updated_since?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProducts(owner_id, ids, custom_fields, filter_id, cursor, limit, sort_by, sort_direction, updated_since, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -1393,7 +1393,7 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         getProducts(requestParameters: ProductsApiGetProductsRequest = {}, ): Promise<GetProductsResponse> {
-            return localVarFp.getProducts(requestParameters.owner_id, requestParameters.ids, requestParameters.filter_id, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.updated_since, requestParameters.custom_fields, ).then((request) => request(axios, basePath));
+            return localVarFp.getProducts(requestParameters.owner_id, requestParameters.ids, requestParameters.custom_fields, requestParameters.filter_id, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.updated_since, ).then((request) => request(axios, basePath));
         },
         /**
          * Searches all products by name, code and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope.
@@ -1715,10 +1715,17 @@ export interface ProductsApiGetProductsRequest {
 
     /**
      * Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
-     * @type {string}
+     * @type {Set<string>}
      * @memberof ProductsApiGetProducts
      */
-    readonly ids?: string
+    readonly ids?: Set<string>
+
+    /**
+     * Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+     * @type {Set<string>}
+     * @memberof ProductsApiGetProducts
+     */
+    readonly custom_fields?: Set<string>
 
     /**
      * The ID of the filter to use
@@ -1761,13 +1768,6 @@ export interface ProductsApiGetProductsRequest {
      * @memberof ProductsApiGetProducts
      */
     readonly updated_since?: string
-
-    /**
-     * Comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for a smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
-     * @type {string}
-     * @memberof ProductsApiGetProducts
-     */
-    readonly custom_fields?: string
 }
 
 /**
@@ -2082,7 +2082,7 @@ export class ProductsApi extends BaseAPI {
      * @memberof ProductsApi
      */
     public getProducts(requestParameters: ProductsApiGetProductsRequest = {}, ) {
-        return ProductsApiFp(this.configuration).getProducts(requestParameters.owner_id, requestParameters.ids, requestParameters.filter_id, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.updated_since, requestParameters.custom_fields, ).then((request) => request(this.axios, this.basePath));
+        return ProductsApiFp(this.configuration).getProducts(requestParameters.owner_id, requestParameters.ids, requestParameters.custom_fields, requestParameters.filter_id, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.updated_since, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**

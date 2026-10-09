@@ -225,14 +225,14 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
          * Returns the details of a specific organization.
          * @summary Get details of a organization
          * @param {number} id The ID of the organization
-         * @param {'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'email_messages_count' | 'people_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'smart_bcc_email'} [include_fields] Optional comma separated string array of additional fields to include
-         * @param {string} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+         * @param {Set<'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'email_messages_count' | 'people_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'smart_bcc_email'>} [include_fields] Optional comma separated string array of additional fields to include
+         * @param {Set<string>} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
          * @param {boolean} [include_option_labels] When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
          * @param {boolean} [include_labels] When provided with \&#39;true\&#39; value, response will include an array of label objects in the form of \&#39;{ id: number, label: string }\&#39;
 
          * @throws {RequiredError}
          */
-        getOrganization: async (id: number, include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'email_messages_count' | 'people_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'smart_bcc_email', custom_fields?: string, include_option_labels?: boolean, include_labels?: boolean, ): Promise<RequestArgs> => {
+        getOrganization: async (id: number, include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'email_messages_count' | 'people_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'smart_bcc_email'>, custom_fields?: Set<string>, include_option_labels?: boolean, include_labels?: boolean, ): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getOrganization', 'id', id)
             const localVarPath = `/organizations/{id}`
@@ -255,12 +255,12 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["contacts:read", "contacts:full"], configuration)
 
-            if (include_fields !== undefined) {
-                localVarQueryParameter['include_fields'] = include_fields;
+            if (include_fields) {
+                localVarQueryParameter['include_fields'] = Array.from(include_fields).join(COLLECTION_FORMATS.csv);
             }
 
-            if (custom_fields !== undefined) {
-                localVarQueryParameter['custom_fields'] = custom_fields;
+            if (custom_fields) {
+                localVarQueryParameter['custom_fields'] = Array.from(custom_fields).join(COLLECTION_FORMATS.csv);
             }
 
             if (include_option_labels !== undefined) {
@@ -388,14 +388,14 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
          * Returns data about all organizations.
          * @summary Get all organizations
          * @param {number} [filter_id] If supplied, only organizations matching the specified filter are returned
-         * @param {string} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+         * @param {Set<string>} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
          * @param {number} [owner_id] If supplied, only organizations owned by the specified user are returned. If filter_id is provided, this is ignored.
          * @param {string} [updated_since] If set, only organizations with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {string} [updated_until] If set, only organizations with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {'id' | 'update_time' | 'add_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
          * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
-         * @param {'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'email_messages_count' | 'people_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'smart_bcc_email'} [include_fields] Optional comma separated string array of additional fields to include
-         * @param {string} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+         * @param {Set<'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'email_messages_count' | 'people_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'smart_bcc_email'>} [include_fields] Optional comma separated string array of additional fields to include
+         * @param {Set<string>} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
          * @param {boolean} [include_option_labels] When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
          * @param {boolean} [include_labels] When provided with \&#39;true\&#39; value, response will include an array of label objects in the form of \&#39;{ id: number, label: string }\&#39;
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
@@ -403,7 +403,7 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
 
          * @throws {RequiredError}
          */
-        getOrganizations: async (filter_id?: number, ids?: string, owner_id?: number, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'email_messages_count' | 'people_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'smart_bcc_email', custom_fields?: string, include_option_labels?: boolean, include_labels?: boolean, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+        getOrganizations: async (filter_id?: number, ids?: Set<string>, owner_id?: number, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'email_messages_count' | 'people_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'smart_bcc_email'>, custom_fields?: Set<string>, include_option_labels?: boolean, include_labels?: boolean, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
             const localVarPath = `/organizations`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -427,8 +427,8 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['filter_id'] = filter_id;
             }
 
-            if (ids !== undefined) {
-                localVarQueryParameter['ids'] = ids;
+            if (ids) {
+                localVarQueryParameter['ids'] = Array.from(ids).join(COLLECTION_FORMATS.csv);
             }
 
             if (owner_id !== undefined) {
@@ -451,12 +451,12 @@ export const OrganizationsApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['sort_direction'] = sort_direction;
             }
 
-            if (include_fields !== undefined) {
-                localVarQueryParameter['include_fields'] = include_fields;
+            if (include_fields) {
+                localVarQueryParameter['include_fields'] = Array.from(include_fields).join(COLLECTION_FORMATS.csv);
             }
 
-            if (custom_fields !== undefined) {
-                localVarQueryParameter['custom_fields'] = custom_fields;
+            if (custom_fields) {
+                localVarQueryParameter['custom_fields'] = Array.from(custom_fields).join(COLLECTION_FORMATS.csv);
             }
 
             if (include_option_labels !== undefined) {
@@ -656,14 +656,14 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
          * Returns the details of a specific organization.
          * @summary Get details of a organization
          * @param {number} id The ID of the organization
-         * @param {'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'email_messages_count' | 'people_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'smart_bcc_email'} [include_fields] Optional comma separated string array of additional fields to include
-         * @param {string} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+         * @param {Set<'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'email_messages_count' | 'people_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'smart_bcc_email'>} [include_fields] Optional comma separated string array of additional fields to include
+         * @param {Set<string>} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
          * @param {boolean} [include_option_labels] When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
          * @param {boolean} [include_labels] When provided with \&#39;true\&#39; value, response will include an array of label objects in the form of \&#39;{ id: number, label: string }\&#39;
 
          * @throws {RequiredError}
          */
-        async getOrganization(id: number, include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'email_messages_count' | 'people_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'smart_bcc_email', custom_fields?: string, include_option_labels?: boolean, include_labels?: boolean, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertOrganizationResponse>> {
+        async getOrganization(id: number, include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'email_messages_count' | 'people_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'smart_bcc_email'>, custom_fields?: Set<string>, include_option_labels?: boolean, include_labels?: boolean, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertOrganizationResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganization(id, include_fields, custom_fields, include_option_labels, include_labels, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -697,14 +697,14 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
          * Returns data about all organizations.
          * @summary Get all organizations
          * @param {number} [filter_id] If supplied, only organizations matching the specified filter are returned
-         * @param {string} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+         * @param {Set<string>} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
          * @param {number} [owner_id] If supplied, only organizations owned by the specified user are returned. If filter_id is provided, this is ignored.
          * @param {string} [updated_since] If set, only organizations with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {string} [updated_until] If set, only organizations with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {'id' | 'update_time' | 'add_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
          * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
-         * @param {'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'email_messages_count' | 'people_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'smart_bcc_email'} [include_fields] Optional comma separated string array of additional fields to include
-         * @param {string} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+         * @param {Set<'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'email_messages_count' | 'people_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'smart_bcc_email'>} [include_fields] Optional comma separated string array of additional fields to include
+         * @param {Set<string>} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
          * @param {boolean} [include_option_labels] When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
          * @param {boolean} [include_labels] When provided with \&#39;true\&#39; value, response will include an array of label objects in the form of \&#39;{ id: number, label: string }\&#39;
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
@@ -712,7 +712,7 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getOrganizations(filter_id?: number, ids?: string, owner_id?: number, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'email_messages_count' | 'people_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'smart_bcc_email', custom_fields?: string, include_option_labels?: boolean, include_labels?: boolean, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetOrganizationsResponse>> {
+        async getOrganizations(filter_id?: number, ids?: Set<string>, owner_id?: number, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'email_messages_count' | 'people_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'smart_bcc_email'>, custom_fields?: Set<string>, include_option_labels?: boolean, include_labels?: boolean, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetOrganizationsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizations(filter_id, ids, owner_id, updated_since, updated_until, sort_by, sort_direction, include_fields, custom_fields, include_option_labels, include_labels, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -941,17 +941,17 @@ export interface OrganizationsApiGetOrganizationRequest {
 
     /**
      * Optional comma separated string array of additional fields to include
-     * @type {'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'email_messages_count' | 'people_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'smart_bcc_email'}
+     * @type {Set<'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'email_messages_count' | 'people_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'smart_bcc_email'>}
      * @memberof OrganizationsApiGetOrganization
      */
-    readonly include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'email_messages_count' | 'people_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'smart_bcc_email'
+    readonly include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'email_messages_count' | 'people_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'smart_bcc_email'>
 
     /**
      * Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
-     * @type {string}
+     * @type {Set<string>}
      * @memberof OrganizationsApiGetOrganization
      */
-    readonly custom_fields?: string
+    readonly custom_fields?: Set<string>
 
     /**
      * When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
@@ -1039,10 +1039,10 @@ export interface OrganizationsApiGetOrganizationsRequest {
 
     /**
      * Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
-     * @type {string}
+     * @type {Set<string>}
      * @memberof OrganizationsApiGetOrganizations
      */
-    readonly ids?: string
+    readonly ids?: Set<string>
 
     /**
      * If supplied, only organizations owned by the specified user are returned. If filter_id is provided, this is ignored.
@@ -1081,17 +1081,17 @@ export interface OrganizationsApiGetOrganizationsRequest {
 
     /**
      * Optional comma separated string array of additional fields to include
-     * @type {'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'email_messages_count' | 'people_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'smart_bcc_email'}
+     * @type {Set<'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'email_messages_count' | 'people_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'smart_bcc_email'>}
      * @memberof OrganizationsApiGetOrganizations
      */
-    readonly include_fields?: 'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'email_messages_count' | 'people_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'smart_bcc_email'
+    readonly include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'email_messages_count' | 'people_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'smart_bcc_email'>
 
     /**
      * Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
-     * @type {string}
+     * @type {Set<string>}
      * @memberof OrganizationsApiGetOrganizations
      */
-    readonly custom_fields?: string
+    readonly custom_fields?: Set<string>
 
     /**
      * When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
