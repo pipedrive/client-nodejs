@@ -21,7 +21,7 @@ import { BaseProduct } from './base-product';
 import { PricesArray } from './prices-array';
 // May contain unused imports in some cases
 // @ts-ignore
-import { PricesArrayPricesInner } from './prices-array-prices-inner';
+import { ProductPrice } from './product-price';
 
 /**
  * @type GetProductsResponseDataInner

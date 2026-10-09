@@ -7,6 +7,9 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Fixed
+- Fixed `nullable: true` handling for `BaseNote.deal` (`BaseNoteDealTitle`, returned by `GET /v1/notes`, `POST /v1/notes`, `GET /v1/notes/{id}`, `PUT /v1/notes/{id}`, and `GET /v1/recents`) and for the `person_id` and `org_id` fields (`DealPersonDataWithId`, `DealOrganizationDataWithId`, returned by `GET /v1/deals/archived` and `GET /v1/products/{id}/deals`)
+- Fixed v2 product `prices` item schemas (`POST /api/v2/products`, `PATCH /api/v2/products/{id}`, and other v2 product endpoints) — replaced `ProductPriceBase` by explicit named schemas `ProductPrice` (responses) and `ProductPriceRequest` (add/update product request bodies) and removed `ProductPriceBase`; fields, nullability, and required properties (`price`, `currency`) are unchanged
 
 ## [33.7.0] - 2026-09-08
 ### Added

@@ -26,15 +26,15 @@ import { AddDealFieldOptions200Response } from '../models';
 // @ts-ignore
 import { AddDealFieldOptionsRequestInner } from '../models';
 // @ts-ignore
+import { AddProductField200Response } from '../models';
+// @ts-ignore
 import { AddProductFieldRequest } from '../models';
 // @ts-ignore
 import { DeleteDealFieldOptionsRequestInner } from '../models';
 // @ts-ignore
 import { DeletePersonField200Response } from '../models';
 // @ts-ignore
-import { GetActivityField200Response } from '../models';
-// @ts-ignore
-import { GetActivityFields200Response } from '../models';
+import { GetProductFields200Response } from '../models';
 // @ts-ignore
 import { UpdateDealFieldOptionsRequestInner } from '../models';
 // @ts-ignore
@@ -227,11 +227,11 @@ export const ProductFieldsApiAxiosParamCreator = function (configuration?: Confi
          * Returns metadata about a specific product field.
          * @summary Get one product field
          * @param {string} field_code The unique code identifying the field
-         * @param {'ui_visibility'} [include_fields] Optional comma separated string array of additional data namespaces to include in response
+         * @param {Set<'ui_visibility'>} [include_fields] Optional comma separated string array of additional data namespaces to include in response
 
          * @throws {RequiredError}
          */
-        getProductField: async (field_code: string, include_fields?: 'ui_visibility', ): Promise<RequestArgs> => {
+        getProductField: async (field_code: string, include_fields?: Set<'ui_visibility'>, ): Promise<RequestArgs> => {
             // verify required parameter 'field_code' is not null or undefined
             assertParamExists('getProductField', 'field_code', field_code)
             const localVarPath = `/productFields/{field_code}`
@@ -254,8 +254,8 @@ export const ProductFieldsApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:read", "products:full", "product-fields:full"], configuration)
 
-            if (include_fields !== undefined) {
-                localVarQueryParameter['include_fields'] = include_fields;
+            if (include_fields) {
+                localVarQueryParameter['include_fields'] = Array.from(include_fields).join(COLLECTION_FORMATS.csv);
             }
 
 
@@ -272,13 +272,13 @@ export const ProductFieldsApiAxiosParamCreator = function (configuration?: Confi
         /**
          * Returns metadata about all product fields in the company.
          * @summary Get all product fields
-         * @param {'ui_visibility'} [include_fields] Optional comma separated string array of additional data namespaces to include in response
+         * @param {Set<'ui_visibility'>} [include_fields] Optional comma separated string array of additional data namespaces to include in response
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        getProductFields: async (include_fields?: 'ui_visibility', limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+        getProductFields: async (include_fields?: Set<'ui_visibility'>, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
             const localVarPath = `/productFields`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -298,8 +298,8 @@ export const ProductFieldsApiAxiosParamCreator = function (configuration?: Confi
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:read", "products:full", "product-fields:full"], configuration)
 
-            if (include_fields !== undefined) {
-                localVarQueryParameter['include_fields'] = include_fields;
+            if (include_fields) {
+                localVarQueryParameter['include_fields'] = Array.from(include_fields).join(COLLECTION_FORMATS.csv);
             }
 
             if (limit !== undefined) {
@@ -433,7 +433,7 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async addProductField(AddProductFieldRequest: AddProductFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivityField200Response>> {
+        async addProductField(AddProductFieldRequest: AddProductFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddProductField200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addProductField(AddProductFieldRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -476,24 +476,24 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
          * Returns metadata about a specific product field.
          * @summary Get one product field
          * @param {string} field_code The unique code identifying the field
-         * @param {'ui_visibility'} [include_fields] Optional comma separated string array of additional data namespaces to include in response
+         * @param {Set<'ui_visibility'>} [include_fields] Optional comma separated string array of additional data namespaces to include in response
 
          * @throws {RequiredError}
          */
-        async getProductField(field_code: string, include_fields?: 'ui_visibility', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivityField200Response>> {
+        async getProductField(field_code: string, include_fields?: Set<'ui_visibility'>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddProductField200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProductField(field_code, include_fields, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Returns metadata about all product fields in the company.
          * @summary Get all product fields
-         * @param {'ui_visibility'} [include_fields] Optional comma separated string array of additional data namespaces to include in response
+         * @param {Set<'ui_visibility'>} [include_fields] Optional comma separated string array of additional data namespaces to include in response
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        async getProductFields(include_fields?: 'ui_visibility', limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivityFields200Response>> {
+        async getProductFields(include_fields?: Set<'ui_visibility'>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductFields200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProductFields(include_fields, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -505,7 +505,7 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async updateProductField(field_code: string, UpdateProductFieldRequest: UpdateProductFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivityField200Response>> {
+        async updateProductField(field_code: string, UpdateProductFieldRequest: UpdateProductFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddProductField200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateProductField(field_code, UpdateProductFieldRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -538,7 +538,7 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
 
          * @throws {RequiredError}
          */
-        addProductField(requestParameters: ProductFieldsApiAddProductFieldRequest, ): Promise<GetActivityField200Response> {
+        addProductField(requestParameters: ProductFieldsApiAddProductFieldRequest, ): Promise<AddProductField200Response> {
             return localVarFp.addProductField(requestParameters.AddProductFieldRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -578,7 +578,7 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
 
          * @throws {RequiredError}
          */
-        getProductField(requestParameters: ProductFieldsApiGetProductFieldRequest, ): Promise<GetActivityField200Response> {
+        getProductField(requestParameters: ProductFieldsApiGetProductFieldRequest, ): Promise<AddProductField200Response> {
             return localVarFp.getProductField(requestParameters.field_code, requestParameters.include_fields, ).then((request) => request(axios, basePath));
         },
         /**
@@ -588,7 +588,7 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
 
          * @throws {RequiredError}
          */
-        getProductFields(requestParameters: ProductFieldsApiGetProductFieldsRequest = {}, ): Promise<GetActivityFields200Response> {
+        getProductFields(requestParameters: ProductFieldsApiGetProductFieldsRequest = {}, ): Promise<GetProductFields200Response> {
             return localVarFp.getProductFields(requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
@@ -598,7 +598,7 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
 
          * @throws {RequiredError}
          */
-        updateProductField(requestParameters: ProductFieldsApiUpdateProductFieldRequest, ): Promise<GetActivityField200Response> {
+        updateProductField(requestParameters: ProductFieldsApiUpdateProductFieldRequest, ): Promise<AddProductField200Response> {
             return localVarFp.updateProductField(requestParameters.field_code, requestParameters.UpdateProductFieldRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -699,10 +699,10 @@ export interface ProductFieldsApiGetProductFieldRequest {
 
     /**
      * Optional comma separated string array of additional data namespaces to include in response
-     * @type {'ui_visibility'}
+     * @type {Set<'ui_visibility'>}
      * @memberof ProductFieldsApiGetProductField
      */
-    readonly include_fields?: 'ui_visibility'
+    readonly include_fields?: Set<'ui_visibility'>
 }
 
 /**
@@ -713,10 +713,10 @@ export interface ProductFieldsApiGetProductFieldRequest {
 export interface ProductFieldsApiGetProductFieldsRequest {
     /**
      * Optional comma separated string array of additional data namespaces to include in response
-     * @type {'ui_visibility'}
+     * @type {Set<'ui_visibility'>}
      * @memberof ProductFieldsApiGetProductFields
      */
-    readonly include_fields?: 'ui_visibility'
+    readonly include_fields?: Set<'ui_visibility'>
 
     /**
      * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.

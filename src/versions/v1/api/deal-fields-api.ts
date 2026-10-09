@@ -124,11 +124,11 @@ export const DealFieldsApiAxiosParamCreator = function (configuration?: Configur
         /**
          * Marks multiple deal fields as deleted.
          * @summary Delete multiple deal fields in bulk
-         * @param {string} ids The comma-separated field IDs to delete
+         * @param {Set<number>} ids The comma-separated field IDs to delete
 
          * @throws {RequiredError}
          */
-        deleteDealFields: async (ids: string, ): Promise<RequestArgs> => {
+        deleteDealFields: async (ids: Set<number>, ): Promise<RequestArgs> => {
             // verify required parameter 'ids' is not null or undefined
             assertParamExists('deleteDealFields', 'ids', ids)
             const localVarPath = `/dealFields`;
@@ -150,8 +150,8 @@ export const DealFieldsApiAxiosParamCreator = function (configuration?: Configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deal-fields:full", "admin"], configuration)
 
-            if (ids !== undefined) {
-                localVarQueryParameter['ids'] = ids;
+            if (ids) {
+                localVarQueryParameter['ids'] = Array.from(ids).join(COLLECTION_FORMATS.csv);
             }
 
 
@@ -334,11 +334,11 @@ export const DealFieldsApiFp = function(configuration?: Configuration) {
         /**
          * Marks multiple deal fields as deleted.
          * @summary Delete multiple deal fields in bulk
-         * @param {string} ids The comma-separated field IDs to delete
+         * @param {Set<number>} ids The comma-separated field IDs to delete
 
          * @throws {RequiredError}
          */
-        async deleteDealFields(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteFieldsResponse>> {
+        async deleteDealFields(ids: Set<number>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteFieldsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDealFields(ids, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -486,10 +486,10 @@ export interface DealFieldsApiDeleteDealFieldRequest {
 export interface DealFieldsApiDeleteDealFieldsRequest {
     /**
      * The comma-separated field IDs to delete
-     * @type {string}
+     * @type {Set<number>}
      * @memberof DealFieldsApiDeleteDealFields
      */
-    readonly ids: string
+    readonly ids: Set<number>
 }
 
 /**

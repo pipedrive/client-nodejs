@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { PricesArrayPricesInner } from './prices-array-prices-inner';
+import { ProductPrice } from './product-price';
 
 /**
 * 
@@ -25,8 +25,8 @@ import { PricesArrayPricesInner } from './prices-array-prices-inner';
 export interface PricesArray {
     /**
     * The prices of the product in different currencies
-    * @type {Array<PricesArrayPricesInner>}
+    * @type {Array<ProductPrice>}
     */
-    'prices'?: Array<PricesArrayPricesInner>;
+    'prices'?: Array<ProductPrice>;
 }
 
