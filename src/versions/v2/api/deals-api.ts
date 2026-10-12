@@ -873,7 +873,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {number} [organization_id] Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000.
          * @param {'open' | 'won' | 'lost'} [status] Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000.
          * @param {Set<'deal.cc_email'>} [include_fields] Supports including optional fields in the results which are not provided by default
-         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
@@ -1261,7 +1261,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * @param {number} [organization_id] Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000.
          * @param {'open' | 'won' | 'lost'} [status] Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000.
          * @param {Set<'deal.cc_email'>} [include_fields] Supports including optional fields in the results which are not provided by default
-         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
@@ -2045,7 +2045,7 @@ export interface DealsApiSearchDealsRequest {
     readonly include_fields?: Set<'deal.cc_email'>
 
     /**
-     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
      * @type {number}
      * @memberof DealsApiSearchDeals
      */

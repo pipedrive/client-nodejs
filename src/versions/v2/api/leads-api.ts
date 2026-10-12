@@ -136,7 +136,7 @@ export const LeadsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {number} [person_id] Will filter leads by the provided person ID. The upper limit of found leads associated with the person is 2000.
          * @param {number} [organization_id] Will filter leads by the provided organization ID. The upper limit of found leads associated with the organization is 2000.
          * @param {Set<'lead.was_seen'>} [include_fields] Supports including optional fields in the results which are not provided by default
-         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
@@ -250,7 +250,7 @@ export const LeadsApiFp = function(configuration?: Configuration) {
          * @param {number} [person_id] Will filter leads by the provided person ID. The upper limit of found leads associated with the person is 2000.
          * @param {number} [organization_id] Will filter leads by the provided organization ID. The upper limit of found leads associated with the organization is 2000.
          * @param {Set<'lead.was_seen'>} [include_fields] Supports including optional fields in the results which are not provided by default
-         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
@@ -393,7 +393,7 @@ export interface LeadsApiSearchLeadsRequest {
     readonly include_fields?: Set<'lead.was_seen'>
 
     /**
-     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+     * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
      * @type {number}
      * @memberof LeadsApiSearchLeads
      */
