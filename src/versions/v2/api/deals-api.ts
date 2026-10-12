@@ -871,14 +871,14 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
          * @param {number} [person_id] Will filter deals by the provided person ID. The upper limit of found deals associated with the person is 2000.
          * @param {number} [organization_id] Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000.
-         * @param {'open' | 'won' | 'lost'} [status] Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000.
+         * @param {Set<'open' | 'won' | 'lost'>} [status] Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000.
          * @param {Set<'deal.cc_email'>} [include_fields] Supports including optional fields in the results which are not provided by default
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        searchDeals: async (term: string, fields?: Set<'custom_fields' | 'notes' | 'title'>, exact_match?: boolean, person_id?: number, organization_id?: number, status?: 'open' | 'won' | 'lost', include_fields?: Set<'deal.cc_email'>, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+        searchDeals: async (term: string, fields?: Set<'custom_fields' | 'notes' | 'title'>, exact_match?: boolean, person_id?: number, organization_id?: number, status?: Set<'open' | 'won' | 'lost'>, include_fields?: Set<'deal.cc_email'>, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
             // verify required parameter 'term' is not null or undefined
             assertParamExists('searchDeals', 'term', term)
             const localVarPath = `/deals/search`;
@@ -920,8 +920,8 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['organization_id'] = organization_id;
             }
 
-            if (status !== undefined) {
-                localVarQueryParameter['status'] = status;
+            if (status) {
+                localVarQueryParameter['status'] = Array.from(status).join(COLLECTION_FORMATS.csv);
             }
 
             if (include_fields) {
@@ -1259,14 +1259,14 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
          * @param {number} [person_id] Will filter deals by the provided person ID. The upper limit of found deals associated with the person is 2000.
          * @param {number} [organization_id] Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000.
-         * @param {'open' | 'won' | 'lost'} [status] Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000.
+         * @param {Set<'open' | 'won' | 'lost'>} [status] Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000.
          * @param {Set<'deal.cc_email'>} [include_fields] Supports including optional fields in the results which are not provided by default
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        async searchDeals(term: string, fields?: Set<'custom_fields' | 'notes' | 'title'>, exact_match?: boolean, person_id?: number, organization_id?: number, status?: 'open' | 'won' | 'lost', include_fields?: Set<'deal.cc_email'>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealSearchResponse>> {
+        async searchDeals(term: string, fields?: Set<'custom_fields' | 'notes' | 'title'>, exact_match?: boolean, person_id?: number, organization_id?: number, status?: Set<'open' | 'won' | 'lost'>, include_fields?: Set<'deal.cc_email'>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealSearchResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchDeals(term, fields, exact_match, person_id, organization_id, status, include_fields, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -2032,10 +2032,10 @@ export interface DealsApiSearchDealsRequest {
 
     /**
      * Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000.
-     * @type {'open' | 'won' | 'lost'}
+     * @type {Set<'open' | 'won' | 'lost'>}
      * @memberof DealsApiSearchDeals
      */
-    readonly status?: 'open' | 'won' | 'lost'
+    readonly status?: Set<'open' | 'won' | 'lost'>
 
     /**
      * Supports including optional fields in the results which are not provided by default
