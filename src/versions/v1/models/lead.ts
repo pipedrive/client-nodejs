@@ -94,6 +94,11 @@ export interface Lead {
     */
     'is_archived': boolean;
     /**
+    * The reason for archiving the lead. Automatically cleared when the lead is unarchived.
+    * @type {string}
+    */
+    'archive_reason': string | null;
+    /**
     * A flag indicating whether the lead was seen by someone in the Pipedrive UI
     * @type {boolean}
     */
