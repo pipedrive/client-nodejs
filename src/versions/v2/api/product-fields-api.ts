@@ -26,15 +26,15 @@ import { AddDealFieldOptions200Response } from '../models';
 // @ts-ignore
 import { AddDealFieldOptionsRequestInner } from '../models';
 // @ts-ignore
+import { AddProductField200Response } from '../models';
+// @ts-ignore
 import { AddProductFieldRequest } from '../models';
 // @ts-ignore
 import { DeleteDealFieldOptionsRequestInner } from '../models';
 // @ts-ignore
 import { DeletePersonField200Response } from '../models';
 // @ts-ignore
-import { GetActivityField200Response } from '../models';
-// @ts-ignore
-import { GetActivityFields200Response } from '../models';
+import { GetProductFields200Response } from '../models';
 // @ts-ignore
 import { UpdateDealFieldOptionsRequestInner } from '../models';
 // @ts-ignore
@@ -433,7 +433,7 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async addProductField(AddProductFieldRequest: AddProductFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivityField200Response>> {
+        async addProductField(AddProductFieldRequest: AddProductFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddProductField200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addProductField(AddProductFieldRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -480,7 +480,7 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getProductField(field_code: string, include_fields?: Set<'ui_visibility'>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivityField200Response>> {
+        async getProductField(field_code: string, include_fields?: Set<'ui_visibility'>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddProductField200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProductField(field_code, include_fields, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -493,7 +493,7 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getProductFields(include_fields?: Set<'ui_visibility'>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivityFields200Response>> {
+        async getProductFields(include_fields?: Set<'ui_visibility'>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductFields200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProductFields(include_fields, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -505,7 +505,7 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async updateProductField(field_code: string, UpdateProductFieldRequest: UpdateProductFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivityField200Response>> {
+        async updateProductField(field_code: string, UpdateProductFieldRequest: UpdateProductFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddProductField200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateProductField(field_code, UpdateProductFieldRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -538,7 +538,7 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
 
          * @throws {RequiredError}
          */
-        addProductField(requestParameters: ProductFieldsApiAddProductFieldRequest, ): Promise<GetActivityField200Response> {
+        addProductField(requestParameters: ProductFieldsApiAddProductFieldRequest, ): Promise<AddProductField200Response> {
             return localVarFp.addProductField(requestParameters.AddProductFieldRequest, ).then((request) => request(axios, basePath));
         },
         /**
@@ -578,7 +578,7 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
 
          * @throws {RequiredError}
          */
-        getProductField(requestParameters: ProductFieldsApiGetProductFieldRequest, ): Promise<GetActivityField200Response> {
+        getProductField(requestParameters: ProductFieldsApiGetProductFieldRequest, ): Promise<AddProductField200Response> {
             return localVarFp.getProductField(requestParameters.field_code, requestParameters.include_fields, ).then((request) => request(axios, basePath));
         },
         /**
@@ -588,7 +588,7 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
 
          * @throws {RequiredError}
          */
-        getProductFields(requestParameters: ProductFieldsApiGetProductFieldsRequest = {}, ): Promise<GetActivityFields200Response> {
+        getProductFields(requestParameters: ProductFieldsApiGetProductFieldsRequest = {}, ): Promise<GetProductFields200Response> {
             return localVarFp.getProductFields(requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
@@ -598,7 +598,7 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
 
          * @throws {RequiredError}
          */
-        updateProductField(requestParameters: ProductFieldsApiUpdateProductFieldRequest, ): Promise<GetActivityField200Response> {
+        updateProductField(requestParameters: ProductFieldsApiUpdateProductFieldRequest, ): Promise<AddProductField200Response> {
             return localVarFp.updateProductField(requestParameters.field_code, requestParameters.UpdateProductFieldRequest, ).then((request) => request(axios, basePath));
         },
         /**

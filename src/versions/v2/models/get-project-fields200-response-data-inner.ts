@@ -120,7 +120,8 @@ export interface GetProjectFields200ResponseDataInner {
                         price_list: 'price_list',
                         billing_frequency: 'billing_frequency',
                         projects_board: 'projects_board',
-                        projects_phase: 'projects_phase'
+                        projects_phase: 'projects_phase',
+                        orgs: 'orgs'
                 } as const;
 
                 export type GetProjectFields200ResponseDataInnerFieldTypeConst = typeof GetProjectFields200ResponseDataInnerFieldTypeConst[keyof typeof GetProjectFields200ResponseDataInnerFieldTypeConst];

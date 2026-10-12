@@ -104,7 +104,9 @@ export interface GetActivityFields200ResponseDataInner {
                         price_list: 'price_list',
                         billing_frequency: 'billing_frequency',
                         projects_board: 'projects_board',
-                        projects_phase: 'projects_phase'
+                        projects_phase: 'projects_phase',
+                        participants: 'participants',
+                        attendees: 'attendees'
                 } as const;
 
                 export type GetActivityFields200ResponseDataInnerFieldTypeConst = typeof GetActivityFields200ResponseDataInnerFieldTypeConst[keyof typeof GetActivityFields200ResponseDataInnerFieldTypeConst];
