@@ -7,6 +7,8 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+
+## [35.0.0] - 2026-10-12
 ### Fixed
 - Fixed several comma-separated query parameters that were still typed as `type: string` — changed to `type: array` with `uniqueItems: true`, `style: form`, `explode: false` (integer items unless noted):
   - `ids` on the v1 delete-many endpoints (`DELETE /v1/dealFields`, `DELETE /v1/organizationFields`, `DELETE /v1/personFields`, `DELETE /v1/filters`, `DELETE /v1/productFields`)
@@ -1366,7 +1368,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v34.0.1...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v35.0.0...HEAD
+[35.0.0]: https://github.com/pipedrive/api-docs/compare/v34.0.1...v35.0.0
 [34.0.1]: https://github.com/pipedrive/api-docs/compare/v34.0.0...v34.0.1
 [34.0.0]: https://github.com/pipedrive/api-docs/compare/v33.9.0...v34.0.0
 [33.9.0]: https://github.com/pipedrive/api-docs/compare/v33.8.0...v33.9.0
