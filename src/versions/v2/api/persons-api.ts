@@ -543,16 +543,16 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
          * Searches all persons by name, email, phone, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found persons can be filtered by organization ID.
          * @summary Search persons
          * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-         * @param {'custom_fields' | 'email' | 'notes' | 'phone' | 'name'} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
+         * @param {Set<'custom_fields' | 'email' | 'notes' | 'phone' | 'name'>} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
          * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
          * @param {number} [organization_id] Will filter persons by the provided organization ID. The upper limit of found persons associated with the organization is 2000.
-         * @param {'person.picture'} [include_fields] Supports including optional fields in the results which are not provided by default
+         * @param {Set<'person.picture'>} [include_fields] Supports including optional fields in the results which are not provided by default
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        searchPersons: async (term: string, fields?: 'custom_fields' | 'email' | 'notes' | 'phone' | 'name', exact_match?: boolean, organization_id?: number, include_fields?: 'person.picture', limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+        searchPersons: async (term: string, fields?: Set<'custom_fields' | 'email' | 'notes' | 'phone' | 'name'>, exact_match?: boolean, organization_id?: number, include_fields?: Set<'person.picture'>, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
             // verify required parameter 'term' is not null or undefined
             assertParamExists('searchPersons', 'term', term)
             const localVarPath = `/persons/search`;
@@ -578,8 +578,8 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
                 localVarQueryParameter['term'] = term;
             }
 
-            if (fields !== undefined) {
-                localVarQueryParameter['fields'] = fields;
+            if (fields) {
+                localVarQueryParameter['fields'] = Array.from(fields).join(COLLECTION_FORMATS.csv);
             }
 
             if (exact_match !== undefined) {
@@ -590,8 +590,8 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
                 localVarQueryParameter['organization_id'] = organization_id;
             }
 
-            if (include_fields !== undefined) {
-                localVarQueryParameter['include_fields'] = include_fields;
+            if (include_fields) {
+                localVarQueryParameter['include_fields'] = Array.from(include_fields).join(COLLECTION_FORMATS.csv);
             }
 
             if (limit !== undefined) {
@@ -796,16 +796,16 @@ export const PersonsApiFp = function(configuration?: Configuration) {
          * Searches all persons by name, email, phone, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found persons can be filtered by organization ID.
          * @summary Search persons
          * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-         * @param {'custom_fields' | 'email' | 'notes' | 'phone' | 'name'} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
+         * @param {Set<'custom_fields' | 'email' | 'notes' | 'phone' | 'name'>} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
          * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
          * @param {number} [organization_id] Will filter persons by the provided organization ID. The upper limit of found persons associated with the organization is 2000.
-         * @param {'person.picture'} [include_fields] Supports including optional fields in the results which are not provided by default
+         * @param {Set<'person.picture'>} [include_fields] Supports including optional fields in the results which are not provided by default
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        async searchPersons(term: string, fields?: 'custom_fields' | 'email' | 'notes' | 'phone' | 'name', exact_match?: boolean, organization_id?: number, include_fields?: 'person.picture', limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPersonSearchResponse>> {
+        async searchPersons(term: string, fields?: Set<'custom_fields' | 'email' | 'notes' | 'phone' | 'name'>, exact_match?: boolean, organization_id?: number, include_fields?: Set<'person.picture'>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPersonSearchResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchPersons(term, fields, exact_match, organization_id, include_fields, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1253,10 +1253,10 @@ export interface PersonsApiSearchPersonsRequest {
 
     /**
      * A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
-     * @type {'custom_fields' | 'email' | 'notes' | 'phone' | 'name'}
+     * @type {Set<'custom_fields' | 'email' | 'notes' | 'phone' | 'name'>}
      * @memberof PersonsApiSearchPersons
      */
-    readonly fields?: 'custom_fields' | 'email' | 'notes' | 'phone' | 'name'
+    readonly fields?: Set<'custom_fields' | 'email' | 'notes' | 'phone' | 'name'>
 
     /**
      * When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
@@ -1274,10 +1274,10 @@ export interface PersonsApiSearchPersonsRequest {
 
     /**
      * Supports including optional fields in the results which are not provided by default
-     * @type {'person.picture'}
+     * @type {Set<'person.picture'>}
      * @memberof PersonsApiSearchPersons
      */
-    readonly include_fields?: 'person.picture'
+    readonly include_fields?: Set<'person.picture'>
 
     /**
      * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.

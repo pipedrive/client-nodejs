@@ -518,11 +518,11 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
          * @param {string} [all_changes] Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates.
-         * @param {string} [items] A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change).
+         * @param {Set<string>} [items] A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change).
 
          * @throws {RequiredError}
          */
-        getPersonUpdates: async (id: number, start?: number, limit?: number, all_changes?: string, items?: string, ): Promise<RequestArgs> => {
+        getPersonUpdates: async (id: number, start?: number, limit?: number, all_changes?: string, items?: Set<string>, ): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getPersonUpdates', 'id', id)
             const localVarPath = `/persons/{id}/flow`
@@ -557,8 +557,8 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
                 localVarQueryParameter['all_changes'] = all_changes;
             }
 
-            if (items !== undefined) {
-                localVarQueryParameter['items'] = items;
+            if (items) {
+                localVarQueryParameter['items'] = Array.from(items).join(COLLECTION_FORMATS.csv);
             }
 
 
@@ -792,11 +792,11 @@ export const PersonsApiFp = function(configuration?: Configuration) {
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
          * @param {string} [all_changes] Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates.
-         * @param {string} [items] A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change).
+         * @param {Set<string>} [items] A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change).
 
          * @throws {RequiredError}
          */
-        async getPersonUpdates(id: number, start?: number, limit?: number, all_changes?: string, items?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetAssociatedPersonUpdatesResponse>> {
+        async getPersonUpdates(id: number, start?: number, limit?: number, all_changes?: string, items?: Set<string>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetAssociatedPersonUpdatesResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonUpdates(id, start, limit, all_changes, items, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1237,10 +1237,10 @@ export interface PersonsApiGetPersonUpdatesRequest {
 
     /**
      * A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change).
-     * @type {string}
+     * @type {Set<string>}
      * @memberof PersonsApiGetPersonUpdates
      */
-    readonly items?: string
+    readonly items?: Set<string>
 }
 
 /**

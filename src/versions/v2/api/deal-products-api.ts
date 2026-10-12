@@ -182,11 +182,11 @@ export const DealProductsApiAxiosParamCreator = function (configuration?: Config
          * Deletes multiple products from a deal. If no product IDs are specified, up to 100 products will be removed from the deal. A maximum of 100 product IDs can be provided per request.
          * @summary Delete many products from a deal
          * @param {number} id The ID of the deal
-         * @param {string} [ids] Comma-separated list of deal product IDs to delete. If not provided, all deal products will be deleted up to 100 items. Maximum 100 IDs allowed.
+         * @param {Set<number>} [ids] Comma-separated list of deal product IDs to delete. If not provided, all deal products will be deleted up to 100 items. Maximum 100 IDs allowed.
 
          * @throws {RequiredError}
          */
-        deleteManyDealProducts: async (id: number, ids?: string, ): Promise<RequestArgs> => {
+        deleteManyDealProducts: async (id: number, ids?: Set<number>, ): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('deleteManyDealProducts', 'id', id)
             const localVarPath = `/deals/{id}/products`
@@ -209,8 +209,8 @@ export const DealProductsApiAxiosParamCreator = function (configuration?: Config
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["products:full", "deals:full"], configuration)
 
-            if (ids !== undefined) {
-                localVarQueryParameter['ids'] = ids;
+            if (ids) {
+                localVarQueryParameter['ids'] = Array.from(ids).join(COLLECTION_FORMATS.csv);
             }
 
 
@@ -449,11 +449,11 @@ export const DealProductsApiFp = function(configuration?: Configuration) {
          * Deletes multiple products from a deal. If no product IDs are specified, up to 100 products will be removed from the deal. A maximum of 100 product IDs can be provided per request.
          * @summary Delete many products from a deal
          * @param {number} id The ID of the deal
-         * @param {string} [ids] Comma-separated list of deal product IDs to delete. If not provided, all deal products will be deleted up to 100 items. Maximum 100 IDs allowed.
+         * @param {Set<number>} [ids] Comma-separated list of deal product IDs to delete. If not provided, all deal products will be deleted up to 100 items. Maximum 100 IDs allowed.
 
          * @throws {RequiredError}
          */
-        async deleteManyDealProducts(id: number, ids?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteManyDealProductResponse>> {
+        async deleteManyDealProducts(id: number, ids?: Set<number>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteManyDealProductResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteManyDealProducts(id, ids, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -661,10 +661,10 @@ export interface DealProductsApiDeleteManyDealProductsRequest {
 
     /**
      * Comma-separated list of deal product IDs to delete. If not provided, all deal products will be deleted up to 100 items. Maximum 100 IDs allowed.
-     * @type {string}
+     * @type {Set<number>}
      * @memberof DealProductsApiDeleteManyDealProducts
      */
-    readonly ids?: string
+    readonly ids?: Set<number>
 }
 
 /**

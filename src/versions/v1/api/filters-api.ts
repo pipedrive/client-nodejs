@@ -131,11 +131,11 @@ export const FiltersApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * Marks multiple filters as deleted.
          * @summary Delete multiple filters in bulk
-         * @param {string} ids The comma-separated filter IDs to delete
+         * @param {Set<number>} ids The comma-separated filter IDs to delete
 
          * @throws {RequiredError}
          */
-        deleteFilters: async (ids: string, ): Promise<RequestArgs> => {
+        deleteFilters: async (ids: Set<number>, ): Promise<RequestArgs> => {
             // verify required parameter 'ids' is not null or undefined
             assertParamExists('deleteFilters', 'ids', ids)
             const localVarPath = `/filters`;
@@ -157,8 +157,8 @@ export const FiltersApiAxiosParamCreator = function (configuration?: Configurati
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", ["deals:full", "activities:full", "contacts:full"], configuration)
 
-            if (ids !== undefined) {
-                localVarQueryParameter['ids'] = ids;
+            if (ids) {
+                localVarQueryParameter['ids'] = Array.from(ids).join(COLLECTION_FORMATS.csv);
             }
 
 
@@ -384,11 +384,11 @@ export const FiltersApiFp = function(configuration?: Configuration) {
         /**
          * Marks multiple filters as deleted.
          * @summary Delete multiple filters in bulk
-         * @param {string} ids The comma-separated filter IDs to delete
+         * @param {Set<number>} ids The comma-separated filter IDs to delete
 
          * @throws {RequiredError}
          */
-        async deleteFilters(ids: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteFiltersResponse>> {
+        async deleteFilters(ids: Set<number>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteFiltersResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteFilters(ids, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -563,10 +563,10 @@ export interface FiltersApiDeleteFilterRequest {
 export interface FiltersApiDeleteFiltersRequest {
     /**
      * The comma-separated filter IDs to delete
-     * @type {string}
+     * @type {Set<number>}
      * @memberof FiltersApiDeleteFilters
      */
-    readonly ids: string
+    readonly ids: Set<number>
 }
 
 /**

@@ -376,7 +376,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {number} [org_id] If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored.
          * @param {number} [pipeline_id] If supplied, only deals in the specified pipeline are returned. If filter_id is provided, this is ignored.
          * @param {number} [stage_id] If supplied, only deals in the specified stage are returned. If filter_id is provided, this is ignored.
-         * @param {'open' | 'won' | 'lost' | 'deleted'} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. Multiple statuses can be included as a comma separated array. If filter_id is provided, this is ignored.
+         * @param {Set<'open' | 'won' | 'lost' | 'deleted'>} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. Multiple statuses can be included as a comma separated array. If filter_id is provided, this is ignored.
          * @param {string} [updated_since] If set, only deals with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {string} [updated_until] If set, only deals with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {'id' | 'update_time' | 'add_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
@@ -388,7 +388,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
 
          * @throws {RequiredError}
          */
-        getArchivedDeals: async (filter_id?: number, ids?: Set<string>, owner_id?: number, person_id?: number, org_id?: number, pipeline_id?: number, stage_id?: number, status?: 'open' | 'won' | 'lost' | 'deleted', updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id'>, custom_fields?: Set<string>, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+        getArchivedDeals: async (filter_id?: number, ids?: Set<string>, owner_id?: number, person_id?: number, org_id?: number, pipeline_id?: number, stage_id?: number, status?: Set<'open' | 'won' | 'lost' | 'deleted'>, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id'>, custom_fields?: Set<string>, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
             const localVarPath = `/deals/archived`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -436,8 +436,8 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['stage_id'] = stage_id;
             }
 
-            if (status !== undefined) {
-                localVarQueryParameter['status'] = status;
+            if (status) {
+                localVarQueryParameter['status'] = Array.from(status).join(COLLECTION_FORMATS.csv);
             }
 
             if (updated_since !== undefined) {
@@ -701,7 +701,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {number} [org_id] If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored.
          * @param {number} [pipeline_id] If supplied, only deals in the specified pipeline are returned. If filter_id is provided, this is ignored.
          * @param {number} [stage_id] If supplied, only deals in the specified stage are returned. If filter_id is provided, this is ignored.
-         * @param {'open' | 'won' | 'lost' | 'deleted'} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. Multiple statuses can be included as a comma separated array. If filter_id is provided, this is ignored.
+         * @param {Set<'open' | 'won' | 'lost' | 'deleted'>} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. Multiple statuses can be included as a comma separated array. If filter_id is provided, this is ignored.
          * @param {string} [updated_since] If set, only deals with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {string} [updated_until] If set, only deals with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {'id' | 'update_time' | 'add_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
@@ -715,7 +715,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
 
          * @throws {RequiredError}
          */
-        getDeals: async (filter_id?: number, ids?: Set<string>, owner_id?: number, person_id?: number, org_id?: number, pipeline_id?: number, stage_id?: number, status?: 'open' | 'won' | 'lost' | 'deleted', updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id'>, custom_fields?: Set<string>, include_option_labels?: boolean, include_labels?: boolean, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+        getDeals: async (filter_id?: number, ids?: Set<string>, owner_id?: number, person_id?: number, org_id?: number, pipeline_id?: number, stage_id?: number, status?: Set<'open' | 'won' | 'lost' | 'deleted'>, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id'>, custom_fields?: Set<string>, include_option_labels?: boolean, include_labels?: boolean, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
             const localVarPath = `/deals`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -763,8 +763,8 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['stage_id'] = stage_id;
             }
 
-            if (status !== undefined) {
-                localVarQueryParameter['status'] = status;
+            if (status) {
+                localVarQueryParameter['status'] = Array.from(status).join(COLLECTION_FORMATS.csv);
             }
 
             if (updated_since !== undefined) {
@@ -867,18 +867,18 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * Searches all deals by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found deals can be filtered by the person ID and the organization ID.
          * @summary Search deals
          * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-         * @param {'custom_fields' | 'notes' | 'title'} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
+         * @param {Set<'custom_fields' | 'notes' | 'title'>} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
          * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
          * @param {number} [person_id] Will filter deals by the provided person ID. The upper limit of found deals associated with the person is 2000.
          * @param {number} [organization_id] Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000.
-         * @param {'open' | 'won' | 'lost'} [status] Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000.
-         * @param {'deal.cc_email'} [include_fields] Supports including optional fields in the results which are not provided by default
+         * @param {Set<'open' | 'won' | 'lost'>} [status] Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000.
+         * @param {Set<'deal.cc_email'>} [include_fields] Supports including optional fields in the results which are not provided by default
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        searchDeals: async (term: string, fields?: 'custom_fields' | 'notes' | 'title', exact_match?: boolean, person_id?: number, organization_id?: number, status?: 'open' | 'won' | 'lost', include_fields?: 'deal.cc_email', limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+        searchDeals: async (term: string, fields?: Set<'custom_fields' | 'notes' | 'title'>, exact_match?: boolean, person_id?: number, organization_id?: number, status?: Set<'open' | 'won' | 'lost'>, include_fields?: Set<'deal.cc_email'>, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
             // verify required parameter 'term' is not null or undefined
             assertParamExists('searchDeals', 'term', term)
             const localVarPath = `/deals/search`;
@@ -904,8 +904,8 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['term'] = term;
             }
 
-            if (fields !== undefined) {
-                localVarQueryParameter['fields'] = fields;
+            if (fields) {
+                localVarQueryParameter['fields'] = Array.from(fields).join(COLLECTION_FORMATS.csv);
             }
 
             if (exact_match !== undefined) {
@@ -920,12 +920,12 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['organization_id'] = organization_id;
             }
 
-            if (status !== undefined) {
-                localVarQueryParameter['status'] = status;
+            if (status) {
+                localVarQueryParameter['status'] = Array.from(status).join(COLLECTION_FORMATS.csv);
             }
 
-            if (include_fields !== undefined) {
-                localVarQueryParameter['include_fields'] = include_fields;
+            if (include_fields) {
+                localVarQueryParameter['include_fields'] = Array.from(include_fields).join(COLLECTION_FORMATS.csv);
             }
 
             if (limit !== undefined) {
@@ -1142,7 +1142,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * @param {number} [org_id] If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored.
          * @param {number} [pipeline_id] If supplied, only deals in the specified pipeline are returned. If filter_id is provided, this is ignored.
          * @param {number} [stage_id] If supplied, only deals in the specified stage are returned. If filter_id is provided, this is ignored.
-         * @param {'open' | 'won' | 'lost' | 'deleted'} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. Multiple statuses can be included as a comma separated array. If filter_id is provided, this is ignored.
+         * @param {Set<'open' | 'won' | 'lost' | 'deleted'>} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. Multiple statuses can be included as a comma separated array. If filter_id is provided, this is ignored.
          * @param {string} [updated_since] If set, only deals with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {string} [updated_until] If set, only deals with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {'id' | 'update_time' | 'add_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
@@ -1154,7 +1154,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getArchivedDeals(filter_id?: number, ids?: Set<string>, owner_id?: number, person_id?: number, org_id?: number, pipeline_id?: number, stage_id?: number, status?: 'open' | 'won' | 'lost' | 'deleted', updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id'>, custom_fields?: Set<string>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealsResponse>> {
+        async getArchivedDeals(filter_id?: number, ids?: Set<string>, owner_id?: number, person_id?: number, org_id?: number, pipeline_id?: number, stage_id?: number, status?: Set<'open' | 'won' | 'lost' | 'deleted'>, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id'>, custom_fields?: Set<string>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getArchivedDeals(filter_id, ids, owner_id, person_id, org_id, pipeline_id, stage_id, status, updated_since, updated_until, sort_by, sort_direction, include_fields, custom_fields, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1221,7 +1221,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * @param {number} [org_id] If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored.
          * @param {number} [pipeline_id] If supplied, only deals in the specified pipeline are returned. If filter_id is provided, this is ignored.
          * @param {number} [stage_id] If supplied, only deals in the specified stage are returned. If filter_id is provided, this is ignored.
-         * @param {'open' | 'won' | 'lost' | 'deleted'} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. Multiple statuses can be included as a comma separated array. If filter_id is provided, this is ignored.
+         * @param {Set<'open' | 'won' | 'lost' | 'deleted'>} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. Multiple statuses can be included as a comma separated array. If filter_id is provided, this is ignored.
          * @param {string} [updated_since] If set, only deals with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {string} [updated_until] If set, only deals with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
          * @param {'id' | 'update_time' | 'add_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
@@ -1235,7 +1235,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getDeals(filter_id?: number, ids?: Set<string>, owner_id?: number, person_id?: number, org_id?: number, pipeline_id?: number, stage_id?: number, status?: 'open' | 'won' | 'lost' | 'deleted', updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id'>, custom_fields?: Set<string>, include_option_labels?: boolean, include_labels?: boolean, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealsResponse>> {
+        async getDeals(filter_id?: number, ids?: Set<string>, owner_id?: number, person_id?: number, org_id?: number, pipeline_id?: number, stage_id?: number, status?: Set<'open' | 'won' | 'lost' | 'deleted'>, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id'>, custom_fields?: Set<string>, include_option_labels?: boolean, include_labels?: boolean, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDeals(filter_id, ids, owner_id, person_id, org_id, pipeline_id, stage_id, status, updated_since, updated_until, sort_by, sort_direction, include_fields, custom_fields, include_option_labels, include_labels, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1255,18 +1255,18 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * Searches all deals by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found deals can be filtered by the person ID and the organization ID.
          * @summary Search deals
          * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-         * @param {'custom_fields' | 'notes' | 'title'} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
+         * @param {Set<'custom_fields' | 'notes' | 'title'>} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
          * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
          * @param {number} [person_id] Will filter deals by the provided person ID. The upper limit of found deals associated with the person is 2000.
          * @param {number} [organization_id] Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000.
-         * @param {'open' | 'won' | 'lost'} [status] Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000.
-         * @param {'deal.cc_email'} [include_fields] Supports including optional fields in the results which are not provided by default
+         * @param {Set<'open' | 'won' | 'lost'>} [status] Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000.
+         * @param {Set<'deal.cc_email'>} [include_fields] Supports including optional fields in the results which are not provided by default
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        async searchDeals(term: string, fields?: 'custom_fields' | 'notes' | 'title', exact_match?: boolean, person_id?: number, organization_id?: number, status?: 'open' | 'won' | 'lost', include_fields?: 'deal.cc_email', limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealSearchResponse>> {
+        async searchDeals(term: string, fields?: Set<'custom_fields' | 'notes' | 'title'>, exact_match?: boolean, person_id?: number, organization_id?: number, status?: Set<'open' | 'won' | 'lost'>, include_fields?: Set<'deal.cc_email'>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealSearchResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchDeals(term, fields, exact_match, person_id, organization_id, status, include_fields, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1654,10 +1654,10 @@ export interface DealsApiGetArchivedDealsRequest {
 
     /**
      * Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. Multiple statuses can be included as a comma separated array. If filter_id is provided, this is ignored.
-     * @type {'open' | 'won' | 'lost' | 'deleted'}
+     * @type {Set<'open' | 'won' | 'lost' | 'deleted'>}
      * @memberof DealsApiGetArchivedDeals
      */
-    readonly status?: 'open' | 'won' | 'lost' | 'deleted'
+    readonly status?: Set<'open' | 'won' | 'lost' | 'deleted'>
 
     /**
      * If set, only deals with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
@@ -1892,10 +1892,10 @@ export interface DealsApiGetDealsRequest {
 
     /**
      * Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. Multiple statuses can be included as a comma separated array. If filter_id is provided, this is ignored.
-     * @type {'open' | 'won' | 'lost' | 'deleted'}
+     * @type {Set<'open' | 'won' | 'lost' | 'deleted'>}
      * @memberof DealsApiGetDeals
      */
-    readonly status?: 'open' | 'won' | 'lost' | 'deleted'
+    readonly status?: Set<'open' | 'won' | 'lost' | 'deleted'>
 
     /**
      * If set, only deals with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
@@ -2004,10 +2004,10 @@ export interface DealsApiSearchDealsRequest {
 
     /**
      * A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
-     * @type {'custom_fields' | 'notes' | 'title'}
+     * @type {Set<'custom_fields' | 'notes' | 'title'>}
      * @memberof DealsApiSearchDeals
      */
-    readonly fields?: 'custom_fields' | 'notes' | 'title'
+    readonly fields?: Set<'custom_fields' | 'notes' | 'title'>
 
     /**
      * When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
@@ -2032,17 +2032,17 @@ export interface DealsApiSearchDealsRequest {
 
     /**
      * Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000.
-     * @type {'open' | 'won' | 'lost'}
+     * @type {Set<'open' | 'won' | 'lost'>}
      * @memberof DealsApiSearchDeals
      */
-    readonly status?: 'open' | 'won' | 'lost'
+    readonly status?: Set<'open' | 'won' | 'lost'>
 
     /**
      * Supports including optional fields in the results which are not provided by default
-     * @type {'deal.cc_email'}
+     * @type {Set<'deal.cc_email'>}
      * @memberof DealsApiSearchDeals
      */
-    readonly include_fields?: 'deal.cc_email'
+    readonly include_fields?: Set<'deal.cc_email'>
 
     /**
      * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
