@@ -370,7 +370,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * Returns data about all archived deals.
          * @summary Get all archived deals
          * @param {number} [filter_id] If supplied, only deals matching the specified filter are returned
-         * @param {Set<string>} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+         * @param {Set<number>} [ids] Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
          * @param {number} [owner_id] If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored.
          * @param {number} [person_id] If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored.
          * @param {number} [org_id] If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored.
@@ -388,7 +388,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
 
          * @throws {RequiredError}
          */
-        getArchivedDeals: async (filter_id?: number, ids?: Set<string>, owner_id?: number, person_id?: number, org_id?: number, pipeline_id?: number, stage_id?: number, status?: Set<'open' | 'won' | 'lost' | 'deleted'>, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id'>, custom_fields?: Set<string>, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+        getArchivedDeals: async (filter_id?: number, ids?: Set<number>, owner_id?: number, person_id?: number, org_id?: number, pipeline_id?: number, stage_id?: number, status?: Set<'open' | 'won' | 'lost' | 'deleted'>, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id'>, custom_fields?: Set<string>, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
             const localVarPath = `/deals/archived`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -695,7 +695,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
          * Returns data about all not archived deals.
          * @summary Get all deals
          * @param {number} [filter_id] If supplied, only deals matching the specified filter are returned
-         * @param {Set<string>} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+         * @param {Set<number>} [ids] Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
          * @param {number} [owner_id] If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored.
          * @param {number} [person_id] If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored.
          * @param {number} [org_id] If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored.
@@ -715,7 +715,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
 
          * @throws {RequiredError}
          */
-        getDeals: async (filter_id?: number, ids?: Set<string>, owner_id?: number, person_id?: number, org_id?: number, pipeline_id?: number, stage_id?: number, status?: Set<'open' | 'won' | 'lost' | 'deleted'>, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id'>, custom_fields?: Set<string>, include_option_labels?: boolean, include_labels?: boolean, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+        getDeals: async (filter_id?: number, ids?: Set<number>, owner_id?: number, person_id?: number, org_id?: number, pipeline_id?: number, stage_id?: number, status?: Set<'open' | 'won' | 'lost' | 'deleted'>, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id'>, custom_fields?: Set<string>, include_option_labels?: boolean, include_labels?: boolean, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
             const localVarPath = `/deals`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1136,7 +1136,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * Returns data about all archived deals.
          * @summary Get all archived deals
          * @param {number} [filter_id] If supplied, only deals matching the specified filter are returned
-         * @param {Set<string>} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+         * @param {Set<number>} [ids] Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
          * @param {number} [owner_id] If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored.
          * @param {number} [person_id] If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored.
          * @param {number} [org_id] If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored.
@@ -1154,7 +1154,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getArchivedDeals(filter_id?: number, ids?: Set<string>, owner_id?: number, person_id?: number, org_id?: number, pipeline_id?: number, stage_id?: number, status?: Set<'open' | 'won' | 'lost' | 'deleted'>, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id'>, custom_fields?: Set<string>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealsResponse>> {
+        async getArchivedDeals(filter_id?: number, ids?: Set<number>, owner_id?: number, person_id?: number, org_id?: number, pipeline_id?: number, stage_id?: number, status?: Set<'open' | 'won' | 'lost' | 'deleted'>, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id'>, custom_fields?: Set<string>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getArchivedDeals(filter_id, ids, owner_id, person_id, org_id, pipeline_id, stage_id, status, updated_since, updated_until, sort_by, sort_direction, include_fields, custom_fields, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1215,7 +1215,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
          * Returns data about all not archived deals.
          * @summary Get all deals
          * @param {number} [filter_id] If supplied, only deals matching the specified filter are returned
-         * @param {Set<string>} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+         * @param {Set<number>} [ids] Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
          * @param {number} [owner_id] If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored.
          * @param {number} [person_id] If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored.
          * @param {number} [org_id] If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored.
@@ -1235,7 +1235,7 @@ export const DealsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getDeals(filter_id?: number, ids?: Set<string>, owner_id?: number, person_id?: number, org_id?: number, pipeline_id?: number, stage_id?: number, status?: Set<'open' | 'won' | 'lost' | 'deleted'>, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id'>, custom_fields?: Set<string>, include_option_labels?: boolean, include_labels?: boolean, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealsResponse>> {
+        async getDeals(filter_id?: number, ids?: Set<number>, owner_id?: number, person_id?: number, org_id?: number, pipeline_id?: number, stage_id?: number, status?: Set<'open' | 'won' | 'lost' | 'deleted'>, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id'>, custom_fields?: Set<string>, include_option_labels?: boolean, include_labels?: boolean, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDeals(filter_id, ids, owner_id, person_id, org_id, pipeline_id, stage_id, status, updated_since, updated_until, sort_by, sort_direction, include_fields, custom_fields, include_option_labels, include_labels, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1611,11 +1611,11 @@ export interface DealsApiGetArchivedDealsRequest {
     readonly filter_id?: number
 
     /**
-     * Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
-     * @type {Set<string>}
+     * Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+     * @type {Set<number>}
      * @memberof DealsApiGetArchivedDeals
      */
-    readonly ids?: Set<string>
+    readonly ids?: Set<number>
 
     /**
      * If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored.
@@ -1849,11 +1849,11 @@ export interface DealsApiGetDealsRequest {
     readonly filter_id?: number
 
     /**
-     * Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
-     * @type {Set<string>}
+     * Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+     * @type {Set<number>}
      * @memberof DealsApiGetDeals
      */
-    readonly ids?: Set<string>
+    readonly ids?: Set<number>
 
     /**
      * If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored.

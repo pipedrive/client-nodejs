@@ -8,6 +8,11 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [36.0.0] - 2026-10-13
+### Fixed
+- Fixed the `sort` query parameter on `GET /v1/leads` — removed the restrictive `enum` since custom fields and sort direction are accepted
+- Fixed the shared `ids` query parameter used by v2 collection endpoints — array items are now typed as `integer` instead of `string`
+
 ## [35.1.2] - 2026-10-12
 ### Fixed
 - Fixed the `limit` query parameter on `GET /api/v2/deals/search`, `GET /api/v2/itemSearch`, `GET /api/v2/leads/search`, `GET /api/v2/organizations/search`, `GET /api/v2/persons/search`, `GET /api/v2/products/search`, and `GET /api/v2/projects/search` — the maximum value is now documented as 100 (previously 500 on most of them) and added `minimum: 1` and `maximum: 100`
@@ -1382,7 +1387,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v35.1.2...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v36.0.0...HEAD
+[36.0.0]: https://github.com/pipedrive/api-docs/compare/v35.1.2...v36.0.0
 [35.1.2]: https://github.com/pipedrive/api-docs/compare/v35.1.1...v35.1.2
 [35.1.1]: https://github.com/pipedrive/api-docs/compare/v35.1.0...v35.1.1
 [35.1.0]: https://github.com/pipedrive/api-docs/compare/v35.0.0...v35.1.0

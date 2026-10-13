@@ -652,7 +652,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
          * Returns data about all products.
          * @summary Get all products
          * @param {number} [owner_id] If supplied, only products owned by the given user will be returned
-         * @param {Set<string>} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+         * @param {Set<number>} [ids] Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
          * @param {Set<string>} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
          * @param {number} [filter_id] The ID of the filter to use
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
@@ -663,7 +663,7 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
 
          * @throws {RequiredError}
          */
-        getProducts: async (owner_id?: number, ids?: Set<string>, custom_fields?: Set<string>, filter_id?: number, cursor?: string, limit?: number, sort_by?: 'id' | 'name' | 'add_time' | 'update_time', sort_direction?: 'asc' | 'desc', updated_since?: string, ): Promise<RequestArgs> => {
+        getProducts: async (owner_id?: number, ids?: Set<number>, custom_fields?: Set<string>, filter_id?: number, cursor?: string, limit?: number, sort_by?: 'id' | 'name' | 'add_time' | 'update_time', sort_direction?: 'asc' | 'desc', updated_since?: string, ): Promise<RequestArgs> => {
             const localVarPath = `/products`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1165,7 +1165,7 @@ export const ProductsApiFp = function(configuration?: Configuration) {
          * Returns data about all products.
          * @summary Get all products
          * @param {number} [owner_id] If supplied, only products owned by the given user will be returned
-         * @param {Set<string>} [ids] Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+         * @param {Set<number>} [ids] Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
          * @param {Set<string>} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
          * @param {number} [filter_id] The ID of the filter to use
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
@@ -1176,7 +1176,7 @@ export const ProductsApiFp = function(configuration?: Configuration) {
 
          * @throws {RequiredError}
          */
-        async getProducts(owner_id?: number, ids?: Set<string>, custom_fields?: Set<string>, filter_id?: number, cursor?: string, limit?: number, sort_by?: 'id' | 'name' | 'add_time' | 'update_time', sort_direction?: 'asc' | 'desc', updated_since?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductsResponse>> {
+        async getProducts(owner_id?: number, ids?: Set<number>, custom_fields?: Set<string>, filter_id?: number, cursor?: string, limit?: number, sort_by?: 'id' | 'name' | 'add_time' | 'update_time', sort_direction?: 'asc' | 'desc', updated_since?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProducts(owner_id, ids, custom_fields, filter_id, cursor, limit, sort_by, sort_direction, updated_since, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1714,11 +1714,11 @@ export interface ProductsApiGetProductsRequest {
     readonly owner_id?: number
 
     /**
-     * Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
-     * @type {Set<string>}
+     * Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+     * @type {Set<number>}
      * @memberof ProductsApiGetProducts
      */
-    readonly ids?: Set<string>
+    readonly ids?: Set<number>
 
     /**
      * Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.

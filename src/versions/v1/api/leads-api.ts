@@ -289,11 +289,11 @@ export const LeadsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {number} [organization_id] If supplied, only leads matching the given organization will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;organization_id&#x60; when supplied.
          * @param {number} [filter_id] The ID of the filter to use
          * @param {string} [updated_since] If set, only leads with an &#x60;update_time&#x60; later than or equal to this time are returned. In ISO 8601 format, e.g. 2025-01-01T10:20:00Z.
-         * @param {'id' | 'title' | 'owner_id' | 'creator_id' | 'was_seen' | 'expected_close_date' | 'next_activity_id' | 'add_time' | 'update_time'} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
+         * @param {string} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: id, title, owner_id, creator_id, label_ids, value, source_name, was_seen, expected_close_date, next_activity_id, add_time, update_time, visible_to, and custom fields.
 
          * @throws {RequiredError}
          */
-        getLeads: async (limit?: number, start?: number, owner_id?: number, person_id?: number, organization_id?: number, filter_id?: number, updated_since?: string, sort?: 'id' | 'title' | 'owner_id' | 'creator_id' | 'was_seen' | 'expected_close_date' | 'next_activity_id' | 'add_time' | 'update_time', ): Promise<RequestArgs> => {
+        getLeads: async (limit?: number, start?: number, owner_id?: number, person_id?: number, organization_id?: number, filter_id?: number, updated_since?: string, sort?: string, ): Promise<RequestArgs> => {
             const localVarPath = `/leads`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -562,11 +562,11 @@ export const LeadsApiFp = function(configuration?: Configuration) {
          * @param {number} [organization_id] If supplied, only leads matching the given organization will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;organization_id&#x60; when supplied.
          * @param {number} [filter_id] The ID of the filter to use
          * @param {string} [updated_since] If set, only leads with an &#x60;update_time&#x60; later than or equal to this time are returned. In ISO 8601 format, e.g. 2025-01-01T10:20:00Z.
-         * @param {'id' | 'title' | 'owner_id' | 'creator_id' | 'was_seen' | 'expected_close_date' | 'next_activity_id' | 'add_time' | 'update_time'} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
+         * @param {string} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: id, title, owner_id, creator_id, label_ids, value, source_name, was_seen, expected_close_date, next_activity_id, add_time, update_time, visible_to, and custom fields.
 
          * @throws {RequiredError}
          */
-        async getLeads(limit?: number, start?: number, owner_id?: number, person_id?: number, organization_id?: number, filter_id?: number, updated_since?: string, sort?: 'id' | 'title' | 'owner_id' | 'creator_id' | 'was_seen' | 'expected_close_date' | 'next_activity_id' | 'add_time' | 'update_time', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetLeadsResponse>> {
+        async getLeads(limit?: number, start?: number, owner_id?: number, person_id?: number, organization_id?: number, filter_id?: number, updated_since?: string, sort?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetLeadsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getLeads(limit, start, owner_id, person_id, organization_id, filter_id, updated_since, sort, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -861,11 +861,11 @@ export interface LeadsApiGetLeadsRequest {
     readonly updated_since?: string
 
     /**
-     * The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
-     * @type {'id' | 'title' | 'owner_id' | 'creator_id' | 'was_seen' | 'expected_close_date' | 'next_activity_id' | 'add_time' | 'update_time'}
+     * The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: id, title, owner_id, creator_id, label_ids, value, source_name, was_seen, expected_close_date, next_activity_id, add_time, update_time, visible_to, and custom fields.
+     * @type {string}
      * @memberof LeadsApiGetLeads
      */
-    readonly sort?: 'id' | 'title' | 'owner_id' | 'creator_id' | 'was_seen' | 'expected_close_date' | 'next_activity_id' | 'add_time' | 'update_time'
+    readonly sort?: string
 }
 
 /**
