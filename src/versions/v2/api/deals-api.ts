@@ -920,7 +920,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['organization_id'] = organization_id;
             }
 
-            if (status !== undefined) {
+            if (status) {
                 localVarQueryParameter['status'] = status;
             }
 

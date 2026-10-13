@@ -11,6 +11,71 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 - Fixed `nullable: true` handling for `BaseNote.deal` (`BaseNoteDealTitle`, returned by `GET /v1/notes`, `POST /v1/notes`, `GET /v1/notes/{id}`, `PUT /v1/notes/{id}`, and `GET /v1/recents`) and for the `person_id` and `org_id` fields (`DealPersonDataWithId`, `DealOrganizationDataWithId`, returned by `GET /v1/deals/archived` and `GET /v1/products/{id}/deals`)
 - Fixed v2 product `prices` item schemas (`POST /api/v2/products`, `PATCH /api/v2/products/{id}`, and other v2 product endpoints) — replaced `ProductPriceBase` by explicit named schemas `ProductPrice` (responses) and `ProductPriceRequest` (add/update product request bodies) and removed `ProductPriceBase`; fields, nullability, and required properties (`price`, `currency`) are unchanged
 
+## [36.0.0] - 2026-10-13
+### Fixed
+- Fixed the `sort` query parameter on `GET /v1/leads` — removed the restrictive `enum` since custom fields and sort direction are accepted
+- Fixed the shared `ids` query parameter used by v2 collection endpoints — array items are now typed as `integer` instead of `string`
+
+## [35.1.2] - 2026-10-12
+### Fixed
+- Fixed the `limit` query parameter on `GET /api/v2/deals/search`, `GET /api/v2/itemSearch`, `GET /api/v2/leads/search`, `GET /api/v2/organizations/search`, `GET /api/v2/persons/search`, `GET /api/v2/products/search`, and `GET /api/v2/projects/search` — the maximum value is now documented as 100 (previously 500 on most of them) and added `minimum: 1` and `maximum: 100`
+- Add `minimum` and `maximum` to the shared `limit` query parameter used by the other v2 cursor-paginated endpoints
+
+## [35.1.1] - 2026-10-12
+### Fixed
+- Fixed type for `status` parameter on `GET /api/v2/deals/search` endpoint
+
+## [35.1.0] - 2026-10-12
+### Added
+- Added `archive_reason` field to the Lead schema, returned by `GET /v1/leads`, `GET /v1/leads/{id}`, and `GET /v1/leads/archived` — captures the reason a lead was archived
+- Added `archive_reason` to the request body of `PATCH /v1/leads/{id}` — can only be set while archiving a lead in the same request, or on a lead that's already archived; it's automatically cleared when the lead is unarchived, and archiving without it returns a 400 error if a reason is required for the company
+
+## [35.0.0] - 2026-10-12
+### Fixed
+- Fixed several comma-separated query parameters that were still typed as `type: string` — changed to `type: array` with `uniqueItems: true`, `style: form`, `explode: false` (integer items unless noted):
+  - `ids` on the v1 delete-many endpoints (`DELETE /v1/dealFields`, `DELETE /v1/organizationFields`, `DELETE /v1/personFields`, `DELETE /v1/filters`, `DELETE /v1/productFields`)
+  - `exclude` on `GET /v1/activities` (`ActivityExclude`); `ActivityTypeIdsParameter`
+  - `items` on v1 activity/flow endpoints (`Items`, string items)
+  - `fields`/`include_fields` on `GET /v1/leads/search` (enumerated string items)
+  - `status` on `GET /api/v2/deals` (`DealStatus`, enumerated string items)
+  - `ids` on `DELETE /api/v2/deals/{id}/products`
+  - `fields`/`status`/`include_fields`/`item_types` parameters on `GET /api/v2/deals/search`, `GET /api/v2/itemSearch`, `GET /api/v2/leads/search`, `GET /api/v2/organizations/search`, `GET /api/v2/persons/search`, `GET /api/v2/products/search`, and `GET /api/v2/projects/search`
+
+## [34.0.1] - 2026-10-12
+### Fixed
+- Added missing v2 `field_type` enum values `participants` and `attendees` for activity fields (`ActivityFieldItem`, used by `GET /api/v2/activityFields` and `GET /api/v2/activityFields/{field_code}`) and `orgs` for project fields (`ProjectFieldItem`, used by `GET /api/v2/projectFields` and `GET /api/v2/projectFields/{field_code}`) — deserializing a field with one of these types previously threw `InvalidArgumentException`
+
+## [34.0.0] - 2026-10-09
+### Fixed
+- Fixed the comma-separated `include_fields` query parameter across v2 collection/detail endpoints (`GET /api/v2/activities`, `GET /api/v2/activities/{id}`, `GET /api/v2/activityFields`, `GET /api/v2/activityFields/{field_code}`, `GET /api/v2/deals`, `GET /api/v2/deals/{id}`, `GET /api/v2/dealFields`, `GET /api/v2/dealFields/{field_code}`, `GET /api/v2/organizations`, `GET /api/v2/organizations/{id}`, `GET /api/v2/organizationFields`, `GET /api/v2/organizationFields/{field_code}`, `GET /api/v2/persons`, `GET /api/v2/persons/{id}`, `GET /api/v2/personFields`, `GET /api/v2/personFields/{field_code}`, `GET /api/v2/productFields`, and `GET /api/v2/productFields/{field_code}`) that was typed as `type: string` with an enum of comma-joined value combinations despite accepting comma-separated lists — changed to `type: array` of enumerated strings with `uniqueItems: true`, `style: form`, `explode: false`
+- Fixed the comma-separated `custom_fields` query parameter on v2 collection/detail endpoints (`GET /api/v2/deals`, `GET /api/v2/deals/archived`, `GET /api/v2/deals/{id}`, `GET /api/v2/organizations`, `GET /api/v2/organizations/{id}`, `GET /api/v2/persons`, `GET /api/v2/persons/{id}`, and `GET /api/v2/products`) and the `ids` query parameter on v2 collection endpoints (`GET /api/v2/activities`, `GET /api/v2/deals`, `GET /api/v2/deals/archived`, `GET /api/v2/organizations`, `GET /api/v2/persons`, and `GET /api/v2/products`) that were typed as `type: string` despite accepting comma-separated lists — changed to `type: array` of strings (`custom_fields` capped at 15 items, `ids` at 100) with `uniqueItems: true`, `style: form`, `explode: false`
+
+## [33.9.0] - 2026-10-09
+### Fixed
+- Fixed `has_pic` field type in v1 deal creator schema (`DealNonStrictModeFields`, used by `GET`/`POST /v1/deals` and related endpoints) — changed from `boolean` to `integer` since the API returns `0`/`1`, not `true`/`false`
+- Fixed `code` field type in v2 product search results (`GET /api/v2/products/search`) — changed from `integer` to `string` and made nullable to match actual API responses
+- Fixed `value` field type in v2 deal search results (`DealSearchItem`, used by `GET /api/v2/deals/search`) — changed from `integer` to `number` and made nullable to match actual API responses
+- Marked `data` nullable in `ListProductFilesResponse` (`GET /v1/products/{id}/files`)
+- Marked `update_time` nullable in v2 deal, organization, person, and stage schemas (`DealItem`, `OrganizationItem`, `PersonItem`, `StageItem`)
+- Marked `next_cursor` nullable in v2 cursor pagination schema, used across all v2 cursor-paginated list endpoints
+- Marked several v2 activity fields nullable (`ActivityItem`): `deal_id`, `lead_id`, `person_id`, `org_id`, `project_id`, `due_time`, `duration`, `marked_as_done_time`, `location`, and all `location` address subfields (`country`, `admin_area_level_1`, `admin_area_level_2`, `locality`, `sublocality`, `route`, `street_number`, `subpremise`, `postal_code`)
+- Marked v2 `OrganizationItemAddress` and `PersonItemAddress` objects and all their subfields nullable, and marked `PersonItem.picture_id` nullable
+- Marked `person` nullable in v2 lead search results (`LeadSearchItem`) and `address` nullable in v2 organization search results (`OrganizationSearchItem`)
+
+## [33.8.0] - 2026-10-09
+### Fixed
+- Removed `person_id` from the v2 activity request body (`POST /api/v2/activities`, `PATCH /api/v2/activities/{id}`) — the API has always rejected it as read-only, and the schema advertised it as writable; use `participants: [{ "person_id": 123, "primary": true }]` instead. `org_id` is unaffected.
+- Added `required: [name]` to the v2 person create request body (`POST /api/v2/persons`) — a bare call previously reached the API instead of failing client-side.
+- Reworded the `im`, `notes`, `birthday`, and `job_title` field descriptions and the `addPerson`/`updatePerson` operation descriptions (which also cover `postal_address`) to disclose that these fields 403 when contact sync isn't enabled, rather than only describing when they're present on read.
+
+## [33.7.2] - 2026-10-09
+### Changed
+- Removed `deprecated: true` from LegacyTeams endpoints (`GET`/`POST /v1/legacyTeams`, `GET`/`PUT /v1/legacyTeams/{id}`, `GET`/`POST`/`DELETE /v1/legacyTeams/{id}/users`, `GET /v1/legacyTeams/user/{id}`) and updated the tag description to remove outdated deprecation notice
+
+## [33.7.1] - 2026-10-09
+### Fixed
+- Fixed OAuth scopes on six v2 deal sub-resource write operations (`POST /api/v2/deals/{id}/discounts`, `PATCH`/`DELETE /api/v2/deals/{id}/discounts/{discount_id}`, `POST /api/v2/deals/{id}/installments`, `PATCH`/`DELETE /api/v2/deals/{id}/installments/{installment_id}`) that incorrectly listed `deals:read` alongside `deals:full`, copied from their sibling GET operations - these are now `deals:full` only, matching their read-write nature
+
 ## [33.7.0] - 2026-09-08
 ### Added
 - Added `outcome` field to v1 activity schema (`ActivityObjectFragment`) and v2 activity schemas (`ActivityItem`, `ActivityRequestBody`) — documents the Activity Outcome value, enabling partner integrations to read and write Outcomes on Activities via the public API
@@ -1325,7 +1390,18 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v33.7.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v36.0.0...HEAD
+[36.0.0]: https://github.com/pipedrive/api-docs/compare/v35.1.2...v36.0.0
+[35.1.2]: https://github.com/pipedrive/api-docs/compare/v35.1.1...v35.1.2
+[35.1.1]: https://github.com/pipedrive/api-docs/compare/v35.1.0...v35.1.1
+[35.1.0]: https://github.com/pipedrive/api-docs/compare/v35.0.0...v35.1.0
+[35.0.0]: https://github.com/pipedrive/api-docs/compare/v34.0.1...v35.0.0
+[34.0.1]: https://github.com/pipedrive/api-docs/compare/v34.0.0...v34.0.1
+[34.0.0]: https://github.com/pipedrive/api-docs/compare/v33.9.0...v34.0.0
+[33.9.0]: https://github.com/pipedrive/api-docs/compare/v33.8.0...v33.9.0
+[33.8.0]: https://github.com/pipedrive/api-docs/compare/v33.7.2...v33.8.0
+[33.7.2]: https://github.com/pipedrive/api-docs/compare/v33.7.1...v33.7.2
+[33.7.1]: https://github.com/pipedrive/api-docs/compare/v33.7.0...v33.7.1
 [33.7.0]: https://github.com/pipedrive/api-docs/compare/v33.6.2...v33.7.0
 [33.6.2]: https://github.com/pipedrive/api-docs/compare/v33.6.1...v33.6.2
 [33.6.1]: https://github.com/pipedrive/api-docs/compare/v33.6.0...v33.6.1
