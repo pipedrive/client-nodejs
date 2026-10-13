@@ -17,9 +17,9 @@
 /**
 * 
 * @export
-* @interface ProductPriceBase
+* @interface ProductPrice
 */
-export interface ProductPriceBase {
+export interface ProductPrice {
     /**
     * The price of the product
     * @type {number}
@@ -30,5 +30,25 @@ export interface ProductPriceBase {
     * @type {number}
     */
     'cost'?: number;
+    /**
+    * The ID of the product
+    * @type {number}
+    */
+    'product_id'?: number | null;
+    /**
+    * The currency of the price
+    * @type {string}
+    */
+    'currency'?: string | null;
+    /**
+    * The direct cost of the product
+    * @type {number}
+    */
+    'direct_cost'?: number | null;
+    /**
+    * The notes about the price
+    * @type {string}
+    */
+    'notes'?: string;
 }
 

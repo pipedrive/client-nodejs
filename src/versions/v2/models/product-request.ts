@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { ProductRequestPricesInner } from './product-request-prices-inner';
+import { ProductPriceRequest } from './product-price-request';
 
 /**
 * 
@@ -65,9 +65,9 @@ export interface ProductRequest {
     'visible_to'?: ProductRequestVisibleToConst;
     /**
     * The prices of the product in different currencies. Note that there can only be one price per product per currency. When `prices` is omitted altogether, a default price of 0 and the user\'s default currency will be assigned.
-    * @type {Array<ProductRequestPricesInner>}
+    * @type {Array<ProductPriceRequest>}
     */
-    'prices'?: Array<ProductRequestPricesInner>;
+    'prices'?: Array<ProductPriceRequest>;
     /**
     * An object where each key represents a custom field. All custom fields are referenced as randomly generated 40-character hashes. To clear a custom field value, set it to `null`. For multi-option fields (field type `set`), use `null` to clear the selection — sending an empty array `[]` is not supported and will result in a validation error.
     * @type {{ [key: string]: any | undefined; }}
