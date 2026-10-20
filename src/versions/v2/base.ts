@@ -49,11 +49,47 @@ export const versionInterceptor = async (config:InternalAxiosRequestConfig) => {
     return config;
 }
 
+/**
+ * Response returned by the `*WithHttpInfo` methods: the parsed body together with the HTTP metadata.
+ *
+ * @export
+ * @interface ApiResponse
+ */
+export interface ApiResponse<T> {
+    data: T;
+    status: number;
+    headers: AxiosResponse['headers'];
+}
+
+// Set by the `*WithHttpInfo` methods to keep status and headers instead of returning only the body.
+const wantsFullResponse = (config?: AxiosRequestConfig) => !!(config as { fullResponse?: boolean } | undefined)?.fullResponse;
+
 export const responseInterceptor = (response: AxiosResponse) => {
+    if (wantsFullResponse(response?.config)) {
+        return { data: response.data, status: response.status, headers: response.headers };
+    }
     return response?.data ? response.data: response;
 };
 
+/**
+ * Turns a raw AxiosError into the rejection used by the `*WithHttpInfo` methods: the error body fields (if any)
+ * plus `$response: { status, headers }`. Values that are not AxiosErrors with a response, including errors that
+ * were already normalized, are returned unchanged.
+ */
+export const toFullResponseError = (error: any) => {
+    if (!error?.isAxiosError || !error.response) {
+        return error;
+    }
+    const { data, status, headers } = error.response;
+    const body = data && typeof data === 'object' ? data : data ? { data } : {};
+    return { ...body, $response: { status, headers } };
+};
+
 export const errorInterceptor = (error: AxiosError) => {
+    if (error.response && wantsFullResponse(error.config)) {
+        // Applies to empty error bodies too, so headers such as Retry-After are not lost.
+        return Promise.reject(toFullResponseError(error));
+    }
     if (error.response && error.response.data) {
         return Promise.reject(error.response.data);
     }

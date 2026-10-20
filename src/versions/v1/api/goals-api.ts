@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddGoalRequest } from '../models';
 // @ts-ignore
@@ -354,6 +354,17 @@ export const GoalsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addGoal`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a new goal
+         * @param {AddGoalRequest} [AddGoalRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addGoalWithHttpInfo(AddGoalRequest?: AddGoalRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertGoalResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addGoal(AddGoalRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Marks a goal as deleted.
          * @summary Delete existing goal
          * @param {string} id The ID of the goal
@@ -363,6 +374,17 @@ export const GoalsApiFp = function(configuration?: Configuration) {
         async deleteGoal(id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteGoalResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteGoal(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deleteGoal`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete existing goal
+         * @param {string} id The ID of the goal
+
+         * @throws {RequiredError}
+         */
+        async deleteGoalWithHttpInfo(id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteGoalResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteGoal(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Gets the progress of a goal for the specified period.
@@ -376,6 +398,19 @@ export const GoalsApiFp = function(configuration?: Configuration) {
         async getGoalResult(id: string, period_start: string, period_end: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetGoalResultResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getGoalResult(id, period_start, period_end, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getGoalResult`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get result of a goal
+         * @param {string} id The ID of the goal that the results are looked for
+         * @param {string} period_start The start date of the period for which to find the goal\&#39;s progress. Format: YYYY-MM-DD. This date must be the same or after the goal duration start date. 
+         * @param {string} period_end The end date of the period for which to find the goal\&#39;s progress. Format: YYYY-MM-DD. This date must be the same or before the goal duration end date. 
+
+         * @throws {RequiredError}
+         */
+        async getGoalResultWithHttpInfo(id: string, period_start: string, period_end: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetGoalResultResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getGoalResult(id, period_start, period_end, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns data about goals based on criteria. For searching, append `{searchField}={searchValue}` to the URL, where `searchField` can be any one of the lowest-level fields in dot-notation (e.g. `type.params.pipeline_id`; `title`). `searchValue` should be the value you are looking for on that field. Additionally, `is_active=<true|false>` can be provided to search for only active/inactive goals. When providing `period.start`, `period.end` must also be provided and vice versa.
@@ -401,6 +436,29 @@ export const GoalsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getGoals`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Find goals
+         * @param {'deals_won' | 'deals_progressed' | 'activities_completed' | 'activities_added' | 'deals_started'} [type_name] The type of the goal. If provided, everyone\&#39;s goals will be returned.
+         * @param {string} [title] The title of the goal
+         * @param {boolean} [is_active] Whether the goal is active or not
+         * @param {number} [assignee_id] The ID of the user who\&#39;s goal to fetch. When omitted, only your goals will be returned.
+         * @param {'person' | 'company' | 'team'} [assignee_type] The type of the goal\&#39;s assignee. If provided, everyone\&#39;s goals will be returned.
+         * @param {number} [expected_outcome_target] The numeric value of the outcome. If provided, everyone\&#39;s goals will be returned.
+         * @param {'quantity' | 'sum'} [expected_outcome_tracking_metric] The tracking metric of the expected outcome of the goal. If provided, everyone\&#39;s goals will be returned.
+         * @param {number} [expected_outcome_currency_id] The numeric ID of the goal\&#39;s currency. Only applicable to goals with &#x60;expected_outcome.tracking_metric&#x60; with value &#x60;sum&#x60;. If provided, everyone\&#39;s goals will be returned.
+         * @param {Array<number>} [type_params_pipeline_id] An array of pipeline IDs or &#x60;null&#x60; for all pipelines. If provided, everyone\&#39;s goals will be returned.
+         * @param {number} [type_params_stage_id] The ID of the stage. Applicable to only &#x60;deals_progressed&#x60; type of goals. If provided, everyone\&#39;s goals will be returned.
+         * @param {Array<number>} [type_params_activity_type_id] An array of IDs or &#x60;null&#x60; for all activity types. Only applicable for &#x60;activities_completed&#x60; and/or &#x60;activities_added&#x60; types of goals. If provided, everyone\&#39;s goals will be returned.
+         * @param {string} [period_start] The start date of the period for which to find goals. Date in format of YYYY-MM-DD. When &#x60;period.start&#x60; is provided, &#x60;period.end&#x60; must be provided too.
+         * @param {string} [period_end] The end date of the period for which to find goals. Date in format of YYYY-MM-DD.
+
+         * @throws {RequiredError}
+         */
+        async getGoalsWithHttpInfo(type_name?: 'deals_won' | 'deals_progressed' | 'activities_completed' | 'activities_added' | 'deals_started', title?: string, is_active?: boolean, assignee_id?: number, assignee_type?: 'person' | 'company' | 'team', expected_outcome_target?: number, expected_outcome_tracking_metric?: 'quantity' | 'sum', expected_outcome_currency_id?: number, type_params_pipeline_id?: Array<number>, type_params_stage_id?: number, type_params_activity_type_id?: Array<number>, period_start?: string, period_end?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetGoalsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getGoals(type_name, title, is_active, assignee_id, assignee_type, expected_outcome_target, expected_outcome_tracking_metric, expected_outcome_currency_id, type_params_pipeline_id, type_params_stage_id, type_params_activity_type_id, period_start, period_end, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates an existing goal.
          * @summary Update existing goal
          * @param {string} id The ID of the goal
@@ -411,6 +469,18 @@ export const GoalsApiFp = function(configuration?: Configuration) {
         async updateGoal(id: string, BasicGoalRequest?: BasicGoalRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertGoalResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateGoal(id, BasicGoalRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateGoal`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update existing goal
+         * @param {string} id The ID of the goal
+         * @param {BasicGoalRequest} [BasicGoalRequest] 
+
+         * @throws {RequiredError}
+         */
+        async updateGoalWithHttpInfo(id: string, BasicGoalRequest?: BasicGoalRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertGoalResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateGoal(id, BasicGoalRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -432,6 +502,9 @@ export const GoalsApiFactory = function (configuration?: Configuration, basePath
         addGoal(requestParameters: GoalsApiAddGoalRequest = {}, ): Promise<UpsertGoalResponse> {
             return localVarFp.addGoal(requestParameters.AddGoalRequest, ).then((request) => request(axios, basePath));
         },
+        addGoalWithHttpInfo(requestParameters: GoalsApiAddGoalRequest = {}, ): Promise<ApiResponse<UpsertGoalResponse>> {
+            return localVarFp.addGoalWithHttpInfo(requestParameters.AddGoalRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Marks a goal as deleted.
          * @summary Delete existing goal
@@ -441,6 +514,9 @@ export const GoalsApiFactory = function (configuration?: Configuration, basePath
          */
         deleteGoal(requestParameters: GoalsApiDeleteGoalRequest, ): Promise<DeleteGoalResponse> {
             return localVarFp.deleteGoal(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        deleteGoalWithHttpInfo(requestParameters: GoalsApiDeleteGoalRequest, ): Promise<ApiResponse<DeleteGoalResponse>> {
+            return localVarFp.deleteGoalWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Gets the progress of a goal for the specified period.
@@ -452,6 +528,9 @@ export const GoalsApiFactory = function (configuration?: Configuration, basePath
         getGoalResult(requestParameters: GoalsApiGetGoalResultRequest, ): Promise<GetGoalResultResponse> {
             return localVarFp.getGoalResult(requestParameters.id, requestParameters.period_start, requestParameters.period_end, ).then((request) => request(axios, basePath));
         },
+        getGoalResultWithHttpInfo(requestParameters: GoalsApiGetGoalResultRequest, ): Promise<ApiResponse<GetGoalResultResponse>> {
+            return localVarFp.getGoalResultWithHttpInfo(requestParameters.id, requestParameters.period_start, requestParameters.period_end, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns data about goals based on criteria. For searching, append `{searchField}={searchValue}` to the URL, where `searchField` can be any one of the lowest-level fields in dot-notation (e.g. `type.params.pipeline_id`; `title`). `searchValue` should be the value you are looking for on that field. Additionally, `is_active=<true|false>` can be provided to search for only active/inactive goals. When providing `period.start`, `period.end` must also be provided and vice versa.
          * @summary Find goals
@@ -462,6 +541,9 @@ export const GoalsApiFactory = function (configuration?: Configuration, basePath
         getGoals(requestParameters: GoalsApiGetGoalsRequest = {}, ): Promise<GetGoalsResponse> {
             return localVarFp.getGoals(requestParameters.type_name, requestParameters.title, requestParameters.is_active, requestParameters.assignee_id, requestParameters.assignee_type, requestParameters.expected_outcome_target, requestParameters.expected_outcome_tracking_metric, requestParameters.expected_outcome_currency_id, requestParameters.type_params_pipeline_id, requestParameters.type_params_stage_id, requestParameters.type_params_activity_type_id, requestParameters.period_start, requestParameters.period_end, ).then((request) => request(axios, basePath));
         },
+        getGoalsWithHttpInfo(requestParameters: GoalsApiGetGoalsRequest = {}, ): Promise<ApiResponse<GetGoalsResponse>> {
+            return localVarFp.getGoalsWithHttpInfo(requestParameters.type_name, requestParameters.title, requestParameters.is_active, requestParameters.assignee_id, requestParameters.assignee_type, requestParameters.expected_outcome_target, requestParameters.expected_outcome_tracking_metric, requestParameters.expected_outcome_currency_id, requestParameters.type_params_pipeline_id, requestParameters.type_params_stage_id, requestParameters.type_params_activity_type_id, requestParameters.period_start, requestParameters.period_end, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates an existing goal.
          * @summary Update existing goal
@@ -471,6 +553,9 @@ export const GoalsApiFactory = function (configuration?: Configuration, basePath
          */
         updateGoal(requestParameters: GoalsApiUpdateGoalRequest, ): Promise<UpsertGoalResponse> {
             return localVarFp.updateGoal(requestParameters.id, requestParameters.BasicGoalRequest, ).then((request) => request(axios, basePath));
+        },
+        updateGoalWithHttpInfo(requestParameters: GoalsApiUpdateGoalRequest, ): Promise<ApiResponse<UpsertGoalResponse>> {
+            return localVarFp.updateGoalWithHttpInfo(requestParameters.id, requestParameters.BasicGoalRequest, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -670,6 +755,18 @@ export class GoalsApi extends BaseAPI {
     }
 
     /**
+     * Same as `addGoal`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {GoalsApiAddGoalRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof GoalsApi
+     */
+    public addGoalWithHttpInfo(requestParameters: GoalsApiAddGoalRequest = {}, ) {
+        return GoalsApiFp(this.configuration).addGoalWithHttpInfo(requestParameters.AddGoalRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Marks a goal as deleted.
      * @summary Delete existing goal
      * @param {GoalsApiDeleteGoalRequest} requestParameters Request parameters.
@@ -679,6 +776,18 @@ export class GoalsApi extends BaseAPI {
      */
     public deleteGoal(requestParameters: GoalsApiDeleteGoalRequest, ) {
         return GoalsApiFp(this.configuration).deleteGoal(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteGoal`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {GoalsApiDeleteGoalRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof GoalsApi
+     */
+    public deleteGoalWithHttpInfo(requestParameters: GoalsApiDeleteGoalRequest, ) {
+        return GoalsApiFp(this.configuration).deleteGoalWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -694,6 +803,18 @@ export class GoalsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getGoalResult`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {GoalsApiGetGoalResultRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof GoalsApi
+     */
+    public getGoalResultWithHttpInfo(requestParameters: GoalsApiGetGoalResultRequest, ) {
+        return GoalsApiFp(this.configuration).getGoalResultWithHttpInfo(requestParameters.id, requestParameters.period_start, requestParameters.period_end, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns data about goals based on criteria. For searching, append `{searchField}={searchValue}` to the URL, where `searchField` can be any one of the lowest-level fields in dot-notation (e.g. `type.params.pipeline_id`; `title`). `searchValue` should be the value you are looking for on that field. Additionally, `is_active=<true|false>` can be provided to search for only active/inactive goals. When providing `period.start`, `period.end` must also be provided and vice versa.
      * @summary Find goals
      * @param {GoalsApiGetGoalsRequest} requestParameters Request parameters.
@@ -706,6 +827,18 @@ export class GoalsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getGoals`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {GoalsApiGetGoalsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof GoalsApi
+     */
+    public getGoalsWithHttpInfo(requestParameters: GoalsApiGetGoalsRequest = {}, ) {
+        return GoalsApiFp(this.configuration).getGoalsWithHttpInfo(requestParameters.type_name, requestParameters.title, requestParameters.is_active, requestParameters.assignee_id, requestParameters.assignee_type, requestParameters.expected_outcome_target, requestParameters.expected_outcome_tracking_metric, requestParameters.expected_outcome_currency_id, requestParameters.type_params_pipeline_id, requestParameters.type_params_stage_id, requestParameters.type_params_activity_type_id, requestParameters.period_start, requestParameters.period_end, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates an existing goal.
      * @summary Update existing goal
      * @param {GoalsApiUpdateGoalRequest} requestParameters Request parameters.
@@ -715,5 +848,17 @@ export class GoalsApi extends BaseAPI {
      */
     public updateGoal(requestParameters: GoalsApiUpdateGoalRequest, ) {
         return GoalsApiFp(this.configuration).updateGoal(requestParameters.id, requestParameters.BasicGoalRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateGoal`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {GoalsApiUpdateGoalRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof GoalsApi
+     */
+    public updateGoalWithHttpInfo(requestParameters: GoalsApiUpdateGoalRequest, ) {
+        return GoalsApiFp(this.configuration).updateGoalWithHttpInfo(requestParameters.id, requestParameters.BasicGoalRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddLeadRequest } from '../models';
 // @ts-ignore
@@ -503,6 +503,17 @@ export const LeadsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addLead`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a lead
+         * @param {AddLeadRequest} [AddLeadRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addLeadWithHttpInfo(AddLeadRequest?: AddLeadRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetLeadResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addLead(AddLeadRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Deletes a specific lead.
          * @summary Delete a lead
          * @param {string} id The ID of the lead
@@ -512,6 +523,17 @@ export const LeadsApiFp = function(configuration?: Configuration) {
         async deleteLead(id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetLeadIdResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteLead(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deleteLead`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a lead
+         * @param {string} id The ID of the lead
+
+         * @throws {RequiredError}
+         */
+        async deleteLeadWithHttpInfo(id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetLeadIdResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteLead(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns multiple archived leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields\' structure from deals. 
@@ -531,6 +553,23 @@ export const LeadsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getArchivedLeads`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all archived leads
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned.
+         * @param {number} [start] For pagination, the position that represents the first result for the page
+         * @param {number} [owner_id] If supplied, only leads matching the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owner_id&#x60; when supplied.
+         * @param {number} [person_id] If supplied, only leads matching the given person will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;person_id&#x60; when supplied.
+         * @param {number} [organization_id] If supplied, only leads matching the given organization will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;organization_id&#x60; when supplied.
+         * @param {number} [filter_id] The ID of the filter to use
+         * @param {'id' | 'title' | 'owner_id' | 'creator_id' | 'was_seen' | 'expected_close_date' | 'next_activity_id' | 'add_time' | 'update_time'} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
+
+         * @throws {RequiredError}
+         */
+        async getArchivedLeadsWithHttpInfo(limit?: number, start?: number, owner_id?: number, person_id?: number, organization_id?: number, filter_id?: number, sort?: 'id' | 'title' | 'owner_id' | 'creator_id' | 'was_seen' | 'expected_close_date' | 'next_activity_id' | 'add_time' | 'update_time', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetLeadsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getArchivedLeads(limit, start, owner_id, person_id, organization_id, filter_id, sort, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns details of a specific lead. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from deals.
          * @summary Get one lead
          * @param {string} id The ID of the lead
@@ -542,6 +581,17 @@ export const LeadsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getLead`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get one lead
+         * @param {string} id The ID of the lead
+
+         * @throws {RequiredError}
+         */
+        async getLeadWithHttpInfo(id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetLeadResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getLead(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Lists the users permitted to access a lead.
          * @summary List permitted users
          * @param {string} id The ID of the lead
@@ -551,6 +601,17 @@ export const LeadsApiFp = function(configuration?: Configuration) {
         async getLeadUsers(id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UserIds>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getLeadUsers(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getLeadUsers`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List permitted users
+         * @param {string} id The ID of the lead
+
+         * @throws {RequiredError}
+         */
+        async getLeadUsersWithHttpInfo(id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UserIds>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getLeadUsers(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns multiple not archived leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields\' structure from deals. 
@@ -571,6 +632,24 @@ export const LeadsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getLeads`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all leads
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned.
+         * @param {number} [start] For pagination, the position that represents the first result for the page
+         * @param {number} [owner_id] If supplied, only leads matching the given user will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owner_id&#x60; when supplied.
+         * @param {number} [person_id] If supplied, only leads matching the given person will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;person_id&#x60; when supplied.
+         * @param {number} [organization_id] If supplied, only leads matching the given organization will be returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;organization_id&#x60; when supplied.
+         * @param {number} [filter_id] The ID of the filter to use
+         * @param {string} [updated_since] If set, only leads with an &#x60;update_time&#x60; later than or equal to this time are returned. In ISO 8601 format, e.g. 2025-01-01T10:20:00Z.
+         * @param {string} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: id, title, owner_id, creator_id, label_ids, value, source_name, was_seen, expected_close_date, next_activity_id, add_time, update_time, visible_to, and custom fields.
+
+         * @throws {RequiredError}
+         */
+        async getLeadsWithHttpInfo(limit?: number, start?: number, owner_id?: number, person_id?: number, organization_id?: number, filter_id?: number, updated_since?: string, sort?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetLeadsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getLeads(limit, start, owner_id, person_id, organization_id, filter_id, updated_since, sort, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Searches all leads by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found leads can be filtered by the person ID and the organization ID.
          * @summary Search leads
          * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
@@ -589,6 +668,24 @@ export const LeadsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `searchLeads`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Search leads
+         * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
+         * @param {Set<'custom_fields' | 'notes' | 'title'>} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them.
+         * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
+         * @param {number} [person_id] Will filter leads by the provided person ID. The upper limit of found leads associated with the person is 2000.
+         * @param {number} [organization_id] Will filter leads by the provided organization ID. The upper limit of found leads associated with the organization is 2000.
+         * @param {Set<'lead.was_seen'>} [include_fields] Supports including optional fields in the results which are not provided by default
+         * @param {number} [start] Pagination start. Note that the pagination is based on main results and does not include related items when using &#x60;search_for_related_items&#x60; parameter.
+         * @param {number} [limit] Items shown per page
+
+         * @throws {RequiredError}
+         */
+        async searchLeadsWithHttpInfo(term: string, fields?: Set<'custom_fields' | 'notes' | 'title'>, exact_match?: boolean, person_id?: number, organization_id?: number, include_fields?: Set<'lead.was_seen'>, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetLeadSearchResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchLeads(term, fields, exact_match, person_id, organization_id, include_fields, start, limit, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates one or more properties of a lead. Only properties included in the request will be updated. Send `null` to unset a property (applicable for example for `value`, `person_id` or `organization_id`). If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from deals. See an example given in the <a href=\"https://pipedrive.readme.io/docs/updating-custom-field-value\" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields’ values tutorial</a>.
          * @summary Update a lead
          * @param {string} id The ID of the lead
@@ -599,6 +696,18 @@ export const LeadsApiFp = function(configuration?: Configuration) {
         async updateLead(id: string, UpdateLeadRequest?: UpdateLeadRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetLeadResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateLead(id, UpdateLeadRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateLead`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update a lead
+         * @param {string} id The ID of the lead
+         * @param {UpdateLeadRequest} [UpdateLeadRequest] 
+
+         * @throws {RequiredError}
+         */
+        async updateLeadWithHttpInfo(id: string, UpdateLeadRequest?: UpdateLeadRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetLeadResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateLead(id, UpdateLeadRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -620,6 +729,9 @@ export const LeadsApiFactory = function (configuration?: Configuration, basePath
         addLead(requestParameters: LeadsApiAddLeadRequest = {}, ): Promise<GetLeadResponse> {
             return localVarFp.addLead(requestParameters.AddLeadRequest, ).then((request) => request(axios, basePath));
         },
+        addLeadWithHttpInfo(requestParameters: LeadsApiAddLeadRequest = {}, ): Promise<ApiResponse<GetLeadResponse>> {
+            return localVarFp.addLeadWithHttpInfo(requestParameters.AddLeadRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Deletes a specific lead.
          * @summary Delete a lead
@@ -629,6 +741,9 @@ export const LeadsApiFactory = function (configuration?: Configuration, basePath
          */
         deleteLead(requestParameters: LeadsApiDeleteLeadRequest, ): Promise<GetLeadIdResponse> {
             return localVarFp.deleteLead(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        deleteLeadWithHttpInfo(requestParameters: LeadsApiDeleteLeadRequest, ): Promise<ApiResponse<GetLeadIdResponse>> {
+            return localVarFp.deleteLeadWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns multiple archived leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields\' structure from deals. 
@@ -640,6 +755,9 @@ export const LeadsApiFactory = function (configuration?: Configuration, basePath
         getArchivedLeads(requestParameters: LeadsApiGetArchivedLeadsRequest = {}, ): Promise<GetLeadsResponse> {
             return localVarFp.getArchivedLeads(requestParameters.limit, requestParameters.start, requestParameters.owner_id, requestParameters.person_id, requestParameters.organization_id, requestParameters.filter_id, requestParameters.sort, ).then((request) => request(axios, basePath));
         },
+        getArchivedLeadsWithHttpInfo(requestParameters: LeadsApiGetArchivedLeadsRequest = {}, ): Promise<ApiResponse<GetLeadsResponse>> {
+            return localVarFp.getArchivedLeadsWithHttpInfo(requestParameters.limit, requestParameters.start, requestParameters.owner_id, requestParameters.person_id, requestParameters.organization_id, requestParameters.filter_id, requestParameters.sort, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns details of a specific lead. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from deals.
          * @summary Get one lead
@@ -649,6 +767,9 @@ export const LeadsApiFactory = function (configuration?: Configuration, basePath
          */
         getLead(requestParameters: LeadsApiGetLeadRequest, ): Promise<GetLeadResponse> {
             return localVarFp.getLead(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        getLeadWithHttpInfo(requestParameters: LeadsApiGetLeadRequest, ): Promise<ApiResponse<GetLeadResponse>> {
+            return localVarFp.getLeadWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Lists the users permitted to access a lead.
@@ -660,6 +781,9 @@ export const LeadsApiFactory = function (configuration?: Configuration, basePath
         getLeadUsers(requestParameters: LeadsApiGetLeadUsersRequest, ): Promise<UserIds> {
             return localVarFp.getLeadUsers(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getLeadUsersWithHttpInfo(requestParameters: LeadsApiGetLeadUsersRequest, ): Promise<ApiResponse<UserIds>> {
+            return localVarFp.getLeadUsersWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns multiple not archived leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields\' structure from deals. 
          * @summary Get all leads
@@ -669,6 +793,9 @@ export const LeadsApiFactory = function (configuration?: Configuration, basePath
          */
         getLeads(requestParameters: LeadsApiGetLeadsRequest = {}, ): Promise<GetLeadsResponse> {
             return localVarFp.getLeads(requestParameters.limit, requestParameters.start, requestParameters.owner_id, requestParameters.person_id, requestParameters.organization_id, requestParameters.filter_id, requestParameters.updated_since, requestParameters.sort, ).then((request) => request(axios, basePath));
+        },
+        getLeadsWithHttpInfo(requestParameters: LeadsApiGetLeadsRequest = {}, ): Promise<ApiResponse<GetLeadsResponse>> {
+            return localVarFp.getLeadsWithHttpInfo(requestParameters.limit, requestParameters.start, requestParameters.owner_id, requestParameters.person_id, requestParameters.organization_id, requestParameters.filter_id, requestParameters.updated_since, requestParameters.sort, ).then((request) => request(axios, basePath));
         },
         /**
          * Searches all leads by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found leads can be filtered by the person ID and the organization ID.
@@ -680,6 +807,9 @@ export const LeadsApiFactory = function (configuration?: Configuration, basePath
         searchLeads(requestParameters: LeadsApiSearchLeadsRequest, ): Promise<GetLeadSearchResponse> {
             return localVarFp.searchLeads(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.person_id, requestParameters.organization_id, requestParameters.include_fields, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
+        searchLeadsWithHttpInfo(requestParameters: LeadsApiSearchLeadsRequest, ): Promise<ApiResponse<GetLeadSearchResponse>> {
+            return localVarFp.searchLeadsWithHttpInfo(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.person_id, requestParameters.organization_id, requestParameters.include_fields, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates one or more properties of a lead. Only properties included in the request will be updated. Send `null` to unset a property (applicable for example for `value`, `person_id` or `organization_id`). If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from deals. See an example given in the <a href=\"https://pipedrive.readme.io/docs/updating-custom-field-value\" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields’ values tutorial</a>.
          * @summary Update a lead
@@ -689,6 +819,9 @@ export const LeadsApiFactory = function (configuration?: Configuration, basePath
          */
         updateLead(requestParameters: LeadsApiUpdateLeadRequest, ): Promise<GetLeadResponse> {
             return localVarFp.updateLead(requestParameters.id, requestParameters.UpdateLeadRequest, ).then((request) => request(axios, basePath));
+        },
+        updateLeadWithHttpInfo(requestParameters: LeadsApiUpdateLeadRequest, ): Promise<ApiResponse<GetLeadResponse>> {
+            return localVarFp.updateLeadWithHttpInfo(requestParameters.id, requestParameters.UpdateLeadRequest, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -972,6 +1105,18 @@ export class LeadsApi extends BaseAPI {
     }
 
     /**
+     * Same as `addLead`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {LeadsApiAddLeadRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof LeadsApi
+     */
+    public addLeadWithHttpInfo(requestParameters: LeadsApiAddLeadRequest = {}, ) {
+        return LeadsApiFp(this.configuration).addLeadWithHttpInfo(requestParameters.AddLeadRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Deletes a specific lead.
      * @summary Delete a lead
      * @param {LeadsApiDeleteLeadRequest} requestParameters Request parameters.
@@ -981,6 +1126,18 @@ export class LeadsApi extends BaseAPI {
      */
     public deleteLead(requestParameters: LeadsApiDeleteLeadRequest, ) {
         return LeadsApiFp(this.configuration).deleteLead(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteLead`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {LeadsApiDeleteLeadRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof LeadsApi
+     */
+    public deleteLeadWithHttpInfo(requestParameters: LeadsApiDeleteLeadRequest, ) {
+        return LeadsApiFp(this.configuration).deleteLeadWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -996,6 +1153,18 @@ export class LeadsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getArchivedLeads`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {LeadsApiGetArchivedLeadsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof LeadsApi
+     */
+    public getArchivedLeadsWithHttpInfo(requestParameters: LeadsApiGetArchivedLeadsRequest = {}, ) {
+        return LeadsApiFp(this.configuration).getArchivedLeadsWithHttpInfo(requestParameters.limit, requestParameters.start, requestParameters.owner_id, requestParameters.person_id, requestParameters.organization_id, requestParameters.filter_id, requestParameters.sort, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns details of a specific lead. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from deals.
      * @summary Get one lead
      * @param {LeadsApiGetLeadRequest} requestParameters Request parameters.
@@ -1005,6 +1174,18 @@ export class LeadsApi extends BaseAPI {
      */
     public getLead(requestParameters: LeadsApiGetLeadRequest, ) {
         return LeadsApiFp(this.configuration).getLead(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getLead`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {LeadsApiGetLeadRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof LeadsApi
+     */
+    public getLeadWithHttpInfo(requestParameters: LeadsApiGetLeadRequest, ) {
+        return LeadsApiFp(this.configuration).getLeadWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1020,6 +1201,18 @@ export class LeadsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getLeadUsers`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {LeadsApiGetLeadUsersRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof LeadsApi
+     */
+    public getLeadUsersWithHttpInfo(requestParameters: LeadsApiGetLeadUsersRequest, ) {
+        return LeadsApiFp(this.configuration).getLeadUsersWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns multiple not archived leads. Leads are sorted by the time they were created, from oldest to newest. Pagination can be controlled using `limit` and `start` query parameters. If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields\' structure from deals. 
      * @summary Get all leads
      * @param {LeadsApiGetLeadsRequest} requestParameters Request parameters.
@@ -1029,6 +1222,18 @@ export class LeadsApi extends BaseAPI {
      */
     public getLeads(requestParameters: LeadsApiGetLeadsRequest = {}, ) {
         return LeadsApiFp(this.configuration).getLeads(requestParameters.limit, requestParameters.start, requestParameters.owner_id, requestParameters.person_id, requestParameters.organization_id, requestParameters.filter_id, requestParameters.updated_since, requestParameters.sort, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getLeads`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {LeadsApiGetLeadsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof LeadsApi
+     */
+    public getLeadsWithHttpInfo(requestParameters: LeadsApiGetLeadsRequest = {}, ) {
+        return LeadsApiFp(this.configuration).getLeadsWithHttpInfo(requestParameters.limit, requestParameters.start, requestParameters.owner_id, requestParameters.person_id, requestParameters.organization_id, requestParameters.filter_id, requestParameters.updated_since, requestParameters.sort, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1044,6 +1249,18 @@ export class LeadsApi extends BaseAPI {
     }
 
     /**
+     * Same as `searchLeads`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {LeadsApiSearchLeadsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof LeadsApi
+     */
+    public searchLeadsWithHttpInfo(requestParameters: LeadsApiSearchLeadsRequest, ) {
+        return LeadsApiFp(this.configuration).searchLeadsWithHttpInfo(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.person_id, requestParameters.organization_id, requestParameters.include_fields, requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates one or more properties of a lead. Only properties included in the request will be updated. Send `null` to unset a property (applicable for example for `value`, `person_id` or `organization_id`). If a lead contains custom fields, the fields\' values will be included in the response in the same format as with the `Deals` endpoints. If a custom field\'s value hasn\'t been set for the lead, it won\'t appear in the response. Please note that leads do not have a separate set of custom fields, instead they inherit the custom fields’ structure from deals. See an example given in the <a href=\"https://pipedrive.readme.io/docs/updating-custom-field-value\" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields’ values tutorial</a>.
      * @summary Update a lead
      * @param {LeadsApiUpdateLeadRequest} requestParameters Request parameters.
@@ -1053,5 +1270,17 @@ export class LeadsApi extends BaseAPI {
      */
     public updateLead(requestParameters: LeadsApiUpdateLeadRequest, ) {
         return LeadsApiFp(this.configuration).updateLead(requestParameters.id, requestParameters.UpdateLeadRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateLead`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {LeadsApiUpdateLeadRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof LeadsApi
+     */
+    public updateLeadWithHttpInfo(requestParameters: LeadsApiUpdateLeadRequest, ) {
+        return LeadsApiFp(this.configuration).updateLeadWithHttpInfo(requestParameters.id, requestParameters.UpdateLeadRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

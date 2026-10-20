@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddTaskRequest } from '../models';
 // @ts-ignore
@@ -299,6 +299,17 @@ export const TasksApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addTask`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a task
+         * @param {AddTaskRequest} [AddTaskRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addTaskWithHttpInfo(AddTaskRequest?: AddTaskRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddTaskResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addTask(AddTaskRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Marks a task as deleted. If the task has subtasks then those will also be deleted.
          * @summary Delete a task
          * @param {number} id The ID of the task
@@ -310,6 +321,17 @@ export const TasksApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deleteTask`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a task
+         * @param {number} id The ID of the task
+
+         * @throws {RequiredError}
+         */
+        async deleteTaskWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteTaskResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTask(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns the details of a specific task.
          * @summary Get details of a task
          * @param {number} id The ID of the task
@@ -319,6 +341,17 @@ export const TasksApiFp = function(configuration?: Configuration) {
         async getTask(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetTaskResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTask(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getTask`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get details of a task
+         * @param {number} id The ID of the task
+
+         * @throws {RequiredError}
+         */
+        async getTaskWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetTaskResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTask(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns all tasks. This is a cursor-paginated endpoint. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>.
@@ -337,6 +370,22 @@ export const TasksApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getTasks`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all tasks
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, up to 500 items will be returned.
+         * @param {number} [assignee_id] If supplied, only tasks that are assigned to this user are returned
+         * @param {number} [project_id] If supplied, only tasks that are assigned to this project are returned
+         * @param {number} [parent_task_id] If &#x60;null&#x60; is supplied then only parent tasks are returned. If integer is supplied then only subtasks of a specific task are returned. By default all tasks are returned.
+         * @param {0 | 1} [done] Whether the task is done or not. &#x60;0&#x60; &#x3D; Not done, &#x60;1&#x60; &#x3D; Done. If not omitted then returns both done and not done tasks.
+
+         * @throws {RequiredError}
+         */
+        async getTasksWithHttpInfo(cursor?: string, limit?: number, assignee_id?: number, project_id?: number, parent_task_id?: number, done?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetTasksResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTasks(cursor, limit, assignee_id, project_id, parent_task_id, done, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates a task.
          * @summary Update a task
          * @param {number} id The ID of the task
@@ -347,6 +396,18 @@ export const TasksApiFp = function(configuration?: Configuration) {
         async updateTask(id: number, UpdateProjectRequest2?: UpdateProjectRequest2, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateTaskResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateTask(id, UpdateProjectRequest2, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateTask`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update a task
+         * @param {number} id The ID of the task
+         * @param {UpdateProjectRequest2} [UpdateProjectRequest2] 
+
+         * @throws {RequiredError}
+         */
+        async updateTaskWithHttpInfo(id: number, UpdateProjectRequest2?: UpdateProjectRequest2, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpdateTaskResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTask(id, UpdateProjectRequest2, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -368,6 +429,9 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
         addTask(requestParameters: TasksApiAddTaskRequest = {}, ): Promise<AddTaskResponse> {
             return localVarFp.addTask(requestParameters.AddTaskRequest, ).then((request) => request(axios, basePath));
         },
+        addTaskWithHttpInfo(requestParameters: TasksApiAddTaskRequest = {}, ): Promise<ApiResponse<AddTaskResponse>> {
+            return localVarFp.addTaskWithHttpInfo(requestParameters.AddTaskRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Marks a task as deleted. If the task has subtasks then those will also be deleted.
          * @summary Delete a task
@@ -377,6 +441,9 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
          */
         deleteTask(requestParameters: TasksApiDeleteTaskRequest, ): Promise<DeleteTaskResponse> {
             return localVarFp.deleteTask(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        deleteTaskWithHttpInfo(requestParameters: TasksApiDeleteTaskRequest, ): Promise<ApiResponse<DeleteTaskResponse>> {
+            return localVarFp.deleteTaskWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns the details of a specific task.
@@ -388,6 +455,9 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
         getTask(requestParameters: TasksApiGetTaskRequest, ): Promise<GetTaskResponse> {
             return localVarFp.getTask(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getTaskWithHttpInfo(requestParameters: TasksApiGetTaskRequest, ): Promise<ApiResponse<GetTaskResponse>> {
+            return localVarFp.getTaskWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns all tasks. This is a cursor-paginated endpoint. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>.
          * @summary Get all tasks
@@ -398,6 +468,9 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
         getTasks(requestParameters: TasksApiGetTasksRequest = {}, ): Promise<GetTasksResponse> {
             return localVarFp.getTasks(requestParameters.cursor, requestParameters.limit, requestParameters.assignee_id, requestParameters.project_id, requestParameters.parent_task_id, requestParameters.done, ).then((request) => request(axios, basePath));
         },
+        getTasksWithHttpInfo(requestParameters: TasksApiGetTasksRequest = {}, ): Promise<ApiResponse<GetTasksResponse>> {
+            return localVarFp.getTasksWithHttpInfo(requestParameters.cursor, requestParameters.limit, requestParameters.assignee_id, requestParameters.project_id, requestParameters.parent_task_id, requestParameters.done, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates a task.
          * @summary Update a task
@@ -407,6 +480,9 @@ export const TasksApiFactory = function (configuration?: Configuration, basePath
          */
         updateTask(requestParameters: TasksApiUpdateTaskRequest, ): Promise<UpdateTaskResponse> {
             return localVarFp.updateTask(requestParameters.id, requestParameters.UpdateProjectRequest2, ).then((request) => request(axios, basePath));
+        },
+        updateTaskWithHttpInfo(requestParameters: TasksApiUpdateTaskRequest, ): Promise<ApiResponse<UpdateTaskResponse>> {
+            return localVarFp.updateTaskWithHttpInfo(requestParameters.id, requestParameters.UpdateProjectRequest2, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -543,6 +619,18 @@ export class TasksApi extends BaseAPI {
     }
 
     /**
+     * Same as `addTask`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {TasksApiAddTaskRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof TasksApi
+     */
+    public addTaskWithHttpInfo(requestParameters: TasksApiAddTaskRequest = {}, ) {
+        return TasksApiFp(this.configuration).addTaskWithHttpInfo(requestParameters.AddTaskRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Marks a task as deleted. If the task has subtasks then those will also be deleted.
      * @summary Delete a task
      * @param {TasksApiDeleteTaskRequest} requestParameters Request parameters.
@@ -552,6 +640,18 @@ export class TasksApi extends BaseAPI {
      */
     public deleteTask(requestParameters: TasksApiDeleteTaskRequest, ) {
         return TasksApiFp(this.configuration).deleteTask(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteTask`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {TasksApiDeleteTaskRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof TasksApi
+     */
+    public deleteTaskWithHttpInfo(requestParameters: TasksApiDeleteTaskRequest, ) {
+        return TasksApiFp(this.configuration).deleteTaskWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -567,6 +667,18 @@ export class TasksApi extends BaseAPI {
     }
 
     /**
+     * Same as `getTask`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {TasksApiGetTaskRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof TasksApi
+     */
+    public getTaskWithHttpInfo(requestParameters: TasksApiGetTaskRequest, ) {
+        return TasksApiFp(this.configuration).getTaskWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns all tasks. This is a cursor-paginated endpoint. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>.
      * @summary Get all tasks
      * @param {TasksApiGetTasksRequest} requestParameters Request parameters.
@@ -579,6 +691,18 @@ export class TasksApi extends BaseAPI {
     }
 
     /**
+     * Same as `getTasks`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {TasksApiGetTasksRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof TasksApi
+     */
+    public getTasksWithHttpInfo(requestParameters: TasksApiGetTasksRequest = {}, ) {
+        return TasksApiFp(this.configuration).getTasksWithHttpInfo(requestParameters.cursor, requestParameters.limit, requestParameters.assignee_id, requestParameters.project_id, requestParameters.parent_task_id, requestParameters.done, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates a task.
      * @summary Update a task
      * @param {TasksApiUpdateTaskRequest} requestParameters Request parameters.
@@ -588,5 +712,17 @@ export class TasksApi extends BaseAPI {
      */
     public updateTask(requestParameters: TasksApiUpdateTaskRequest, ) {
         return TasksApiFp(this.configuration).updateTask(requestParameters.id, requestParameters.UpdateProjectRequest2, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateTask`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {TasksApiUpdateTaskRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof TasksApi
+     */
+    public updateTaskWithHttpInfo(requestParameters: TasksApiUpdateTaskRequest, ) {
+        return TasksApiFp(this.configuration).updateTaskWithHttpInfo(requestParameters.id, requestParameters.UpdateProjectRequest2, ).then((request) => request(this.axios, this.basePath));
     }
 }

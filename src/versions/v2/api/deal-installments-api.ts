@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddAInstallmentResponse } from '../models';
 // @ts-ignore
@@ -266,6 +266,18 @@ export const DealInstallmentsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deleteInstallment`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete an installment from a deal
+         * @param {number} id The ID of the deal
+         * @param {number} installment_id The ID of the installment
+
+         * @throws {RequiredError}
+         */
+        async deleteInstallmentWithHttpInfo(id: number, installment_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteInstallmentResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteInstallment(id, installment_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Lists installments attached to a list of deals.  Only available in Growth and above plans. 
          * @summary List installments added to a list of deals
          * @param {Array<number>} deal_ids An array of integers with the IDs of the deals for which the attached installments will be returned. A maximum of 100 deal IDs can be provided.
@@ -281,6 +293,21 @@ export const DealInstallmentsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getInstallments`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List installments added to a list of deals
+         * @param {Array<number>} deal_ids An array of integers with the IDs of the deals for which the attached installments will be returned. A maximum of 100 deal IDs can be provided.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {'id' | 'billing_date' | 'deal_id'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;billing_date&#x60;, &#x60;deal_id&#x60;.
+         * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
+
+         * @throws {RequiredError}
+         */
+        async getInstallmentsWithHttpInfo(deal_ids: Array<number>, cursor?: string, limit?: number, sort_by?: 'id' | 'billing_date' | 'deal_id', sort_direction?: 'asc' | 'desc', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetInstallmentsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getInstallments(deal_ids, cursor, limit, sort_by, sort_direction, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Growth and above plans. 
          * @summary Add an installment to a deal
          * @param {number} id The ID of the deal
@@ -291,6 +318,18 @@ export const DealInstallmentsApiFp = function(configuration?: Configuration) {
         async postInstallment(id: number, AddInstallmentRequestBody?: AddInstallmentRequestBody, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddAInstallmentResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.postInstallment(id, AddInstallmentRequestBody, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `postInstallment`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add an installment to a deal
+         * @param {number} id The ID of the deal
+         * @param {AddInstallmentRequestBody} [AddInstallmentRequestBody] 
+
+         * @throws {RequiredError}
+         */
+        async postInstallmentWithHttpInfo(id: number, AddInstallmentRequestBody?: AddInstallmentRequestBody, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddAInstallmentResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.postInstallment(id, AddInstallmentRequestBody, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Edits an installment added to a deal.  Only available in Growth and above plans. 
@@ -304,6 +343,19 @@ export const DealInstallmentsApiFp = function(configuration?: Configuration) {
         async updateInstallment(id: number, installment_id: number, UpdateInstallmentRequestBody?: UpdateInstallmentRequestBody, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateInstallmentResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateInstallment(id, installment_id, UpdateInstallmentRequestBody, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateInstallment`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update an installment added to a deal
+         * @param {number} id The ID of the deal
+         * @param {number} installment_id The ID of the installment
+         * @param {UpdateInstallmentRequestBody} [UpdateInstallmentRequestBody] 
+
+         * @throws {RequiredError}
+         */
+        async updateInstallmentWithHttpInfo(id: number, installment_id: number, UpdateInstallmentRequestBody?: UpdateInstallmentRequestBody, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpdateInstallmentResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateInstallment(id, installment_id, UpdateInstallmentRequestBody, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -325,6 +377,9 @@ export const DealInstallmentsApiFactory = function (configuration?: Configuratio
         deleteInstallment(requestParameters: DealInstallmentsApiDeleteInstallmentRequest, ): Promise<DeleteInstallmentResponse> {
             return localVarFp.deleteInstallment(requestParameters.id, requestParameters.installment_id, ).then((request) => request(axios, basePath));
         },
+        deleteInstallmentWithHttpInfo(requestParameters: DealInstallmentsApiDeleteInstallmentRequest, ): Promise<ApiResponse<DeleteInstallmentResponse>> {
+            return localVarFp.deleteInstallmentWithHttpInfo(requestParameters.id, requestParameters.installment_id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Lists installments attached to a list of deals.  Only available in Growth and above plans. 
          * @summary List installments added to a list of deals
@@ -334,6 +389,9 @@ export const DealInstallmentsApiFactory = function (configuration?: Configuratio
          */
         getInstallments(requestParameters: DealInstallmentsApiGetInstallmentsRequest, ): Promise<GetInstallmentsResponse> {
             return localVarFp.getInstallments(requestParameters.deal_ids, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, ).then((request) => request(axios, basePath));
+        },
+        getInstallmentsWithHttpInfo(requestParameters: DealInstallmentsApiGetInstallmentsRequest, ): Promise<ApiResponse<GetInstallmentsResponse>> {
+            return localVarFp.getInstallmentsWithHttpInfo(requestParameters.deal_ids, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, ).then((request) => request(axios, basePath));
         },
         /**
          * Adds an installment to a deal.  An installment can only be added if the deal includes at least one one-time product.  If the deal contains at least one recurring product, adding installments is not allowed.  Only available in Growth and above plans. 
@@ -345,6 +403,9 @@ export const DealInstallmentsApiFactory = function (configuration?: Configuratio
         postInstallment(requestParameters: DealInstallmentsApiPostInstallmentRequest, ): Promise<AddAInstallmentResponse> {
             return localVarFp.postInstallment(requestParameters.id, requestParameters.AddInstallmentRequestBody, ).then((request) => request(axios, basePath));
         },
+        postInstallmentWithHttpInfo(requestParameters: DealInstallmentsApiPostInstallmentRequest, ): Promise<ApiResponse<AddAInstallmentResponse>> {
+            return localVarFp.postInstallmentWithHttpInfo(requestParameters.id, requestParameters.AddInstallmentRequestBody, ).then((request) => request(axios, basePath));
+        },
         /**
          * Edits an installment added to a deal.  Only available in Growth and above plans. 
          * @summary Update an installment added to a deal
@@ -354,6 +415,9 @@ export const DealInstallmentsApiFactory = function (configuration?: Configuratio
          */
         updateInstallment(requestParameters: DealInstallmentsApiUpdateInstallmentRequest, ): Promise<UpdateInstallmentResponse> {
             return localVarFp.updateInstallment(requestParameters.id, requestParameters.installment_id, requestParameters.UpdateInstallmentRequestBody, ).then((request) => request(axios, basePath));
+        },
+        updateInstallmentWithHttpInfo(requestParameters: DealInstallmentsApiUpdateInstallmentRequest, ): Promise<ApiResponse<UpdateInstallmentResponse>> {
+            return localVarFp.updateInstallmentWithHttpInfo(requestParameters.id, requestParameters.installment_id, requestParameters.UpdateInstallmentRequestBody, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -490,6 +554,18 @@ export class DealInstallmentsApi extends BaseAPI {
     }
 
     /**
+     * Same as `deleteInstallment`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealInstallmentsApiDeleteInstallmentRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealInstallmentsApi
+     */
+    public deleteInstallmentWithHttpInfo(requestParameters: DealInstallmentsApiDeleteInstallmentRequest, ) {
+        return DealInstallmentsApiFp(this.configuration).deleteInstallmentWithHttpInfo(requestParameters.id, requestParameters.installment_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Lists installments attached to a list of deals.  Only available in Growth and above plans. 
      * @summary List installments added to a list of deals
      * @param {DealInstallmentsApiGetInstallmentsRequest} requestParameters Request parameters.
@@ -499,6 +575,18 @@ export class DealInstallmentsApi extends BaseAPI {
      */
     public getInstallments(requestParameters: DealInstallmentsApiGetInstallmentsRequest, ) {
         return DealInstallmentsApiFp(this.configuration).getInstallments(requestParameters.deal_ids, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getInstallments`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealInstallmentsApiGetInstallmentsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealInstallmentsApi
+     */
+    public getInstallmentsWithHttpInfo(requestParameters: DealInstallmentsApiGetInstallmentsRequest, ) {
+        return DealInstallmentsApiFp(this.configuration).getInstallmentsWithHttpInfo(requestParameters.deal_ids, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -514,6 +602,18 @@ export class DealInstallmentsApi extends BaseAPI {
     }
 
     /**
+     * Same as `postInstallment`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealInstallmentsApiPostInstallmentRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealInstallmentsApi
+     */
+    public postInstallmentWithHttpInfo(requestParameters: DealInstallmentsApiPostInstallmentRequest, ) {
+        return DealInstallmentsApiFp(this.configuration).postInstallmentWithHttpInfo(requestParameters.id, requestParameters.AddInstallmentRequestBody, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Edits an installment added to a deal.  Only available in Growth and above plans. 
      * @summary Update an installment added to a deal
      * @param {DealInstallmentsApiUpdateInstallmentRequest} requestParameters Request parameters.
@@ -523,5 +623,17 @@ export class DealInstallmentsApi extends BaseAPI {
      */
     public updateInstallment(requestParameters: DealInstallmentsApiUpdateInstallmentRequest, ) {
         return DealInstallmentsApiFp(this.configuration).updateInstallment(requestParameters.id, requestParameters.installment_id, requestParameters.UpdateInstallmentRequestBody, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateInstallment`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealInstallmentsApiUpdateInstallmentRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealInstallmentsApi
+     */
+    public updateInstallmentWithHttpInfo(requestParameters: DealInstallmentsApiUpdateInstallmentRequest, ) {
+        return DealInstallmentsApiFp(this.configuration).updateInstallmentWithHttpInfo(requestParameters.id, requestParameters.installment_id, requestParameters.UpdateInstallmentRequestBody, ).then((request) => request(this.axios, this.basePath));
     }
 }

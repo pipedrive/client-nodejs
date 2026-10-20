@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddUserProviderLinkRequest } from '../models';
 // @ts-ignore
@@ -138,6 +138,17 @@ export const MeetingsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deleteUserProviderLink`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete the link between a user and the installed video call integration
+         * @param {string} id Unique identifier linking a user to the installed integration
+
+         * @throws {RequiredError}
+         */
+        async deleteUserProviderLinkWithHttpInfo(id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetUserProviderLinkSuccessResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteUserProviderLink(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * A video calling provider must call this endpoint after a user has installed the video calling app so that the new user\'s information is sent.
          * @summary Link a user with the installed video call integration
          * @param {AddUserProviderLinkRequest} [AddUserProviderLinkRequest] 
@@ -147,6 +158,17 @@ export const MeetingsApiFp = function(configuration?: Configuration) {
         async saveUserProviderLink(AddUserProviderLinkRequest?: AddUserProviderLinkRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetUserProviderLinkSuccessResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.saveUserProviderLink(AddUserProviderLinkRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `saveUserProviderLink`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Link a user with the installed video call integration
+         * @param {AddUserProviderLinkRequest} [AddUserProviderLinkRequest] 
+
+         * @throws {RequiredError}
+         */
+        async saveUserProviderLinkWithHttpInfo(AddUserProviderLinkRequest?: AddUserProviderLinkRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetUserProviderLinkSuccessResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.saveUserProviderLink(AddUserProviderLinkRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -168,6 +190,9 @@ export const MeetingsApiFactory = function (configuration?: Configuration, baseP
         deleteUserProviderLink(requestParameters: MeetingsApiDeleteUserProviderLinkRequest, ): Promise<GetUserProviderLinkSuccessResponse> {
             return localVarFp.deleteUserProviderLink(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        deleteUserProviderLinkWithHttpInfo(requestParameters: MeetingsApiDeleteUserProviderLinkRequest, ): Promise<ApiResponse<GetUserProviderLinkSuccessResponse>> {
+            return localVarFp.deleteUserProviderLinkWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * A video calling provider must call this endpoint after a user has installed the video calling app so that the new user\'s information is sent.
          * @summary Link a user with the installed video call integration
@@ -177,6 +202,9 @@ export const MeetingsApiFactory = function (configuration?: Configuration, baseP
          */
         saveUserProviderLink(requestParameters: MeetingsApiSaveUserProviderLinkRequest = {}, ): Promise<GetUserProviderLinkSuccessResponse> {
             return localVarFp.saveUserProviderLink(requestParameters.AddUserProviderLinkRequest, ).then((request) => request(axios, basePath));
+        },
+        saveUserProviderLinkWithHttpInfo(requestParameters: MeetingsApiSaveUserProviderLinkRequest = {}, ): Promise<ApiResponse<GetUserProviderLinkSuccessResponse>> {
+            return localVarFp.saveUserProviderLinkWithHttpInfo(requestParameters.AddUserProviderLinkRequest, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -229,6 +257,18 @@ export class MeetingsApi extends BaseAPI {
     }
 
     /**
+     * Same as `deleteUserProviderLink`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {MeetingsApiDeleteUserProviderLinkRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof MeetingsApi
+     */
+    public deleteUserProviderLinkWithHttpInfo(requestParameters: MeetingsApiDeleteUserProviderLinkRequest, ) {
+        return MeetingsApiFp(this.configuration).deleteUserProviderLinkWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * A video calling provider must call this endpoint after a user has installed the video calling app so that the new user\'s information is sent.
      * @summary Link a user with the installed video call integration
      * @param {MeetingsApiSaveUserProviderLinkRequest} requestParameters Request parameters.
@@ -238,5 +278,17 @@ export class MeetingsApi extends BaseAPI {
      */
     public saveUserProviderLink(requestParameters: MeetingsApiSaveUserProviderLinkRequest = {}, ) {
         return MeetingsApiFp(this.configuration).saveUserProviderLink(requestParameters.AddUserProviderLinkRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `saveUserProviderLink`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {MeetingsApiSaveUserProviderLinkRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof MeetingsApi
+     */
+    public saveUserProviderLinkWithHttpInfo(requestParameters: MeetingsApiSaveUserProviderLinkRequest = {}, ) {
+        return MeetingsApiFp(this.configuration).saveUserProviderLinkWithHttpInfo(requestParameters.AddUserProviderLinkRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

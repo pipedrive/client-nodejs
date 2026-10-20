@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddLeadLabelRequest } from '../models';
 // @ts-ignore
@@ -226,6 +226,17 @@ export const LeadLabelsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addLeadLabel`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a lead label
+         * @param {AddLeadLabelRequest} [AddLeadLabelRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addLeadLabelWithHttpInfo(AddLeadLabelRequest?: AddLeadLabelRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertLeadLabelResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addLeadLabel(AddLeadLabelRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Deletes a specific lead label.
          * @summary Delete a lead label
          * @param {string} id The ID of the lead label
@@ -235,6 +246,17 @@ export const LeadLabelsApiFp = function(configuration?: Configuration) {
         async deleteLeadLabel(id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteLeadIdResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteLeadLabel(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deleteLeadLabel`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a lead label
+         * @param {string} id The ID of the lead label
+
+         * @throws {RequiredError}
+         */
+        async deleteLeadLabelWithHttpInfo(id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteLeadIdResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteLeadLabel(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns details of all lead labels. This endpoint does not support pagination and all labels are always returned.
@@ -247,6 +269,16 @@ export const LeadLabelsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getLeadLabels`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all lead labels
+
+         * @throws {RequiredError}
+         */
+        async getLeadLabelsWithHttpInfo(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetLeadLabelsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getLeadLabels();
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates one or more properties of a lead label. Only properties included in the request will be updated. 
          * @summary Update a lead label
          * @param {string} id The ID of the lead label
@@ -257,6 +289,18 @@ export const LeadLabelsApiFp = function(configuration?: Configuration) {
         async updateLeadLabel(id: string, UpdateLeadLabelRequest?: UpdateLeadLabelRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertLeadLabelResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateLeadLabel(id, UpdateLeadLabelRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateLeadLabel`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update a lead label
+         * @param {string} id The ID of the lead label
+         * @param {UpdateLeadLabelRequest} [UpdateLeadLabelRequest] 
+
+         * @throws {RequiredError}
+         */
+        async updateLeadLabelWithHttpInfo(id: string, UpdateLeadLabelRequest?: UpdateLeadLabelRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertLeadLabelResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateLeadLabel(id, UpdateLeadLabelRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -278,6 +322,9 @@ export const LeadLabelsApiFactory = function (configuration?: Configuration, bas
         addLeadLabel(requestParameters: LeadLabelsApiAddLeadLabelRequest = {}, ): Promise<UpsertLeadLabelResponse> {
             return localVarFp.addLeadLabel(requestParameters.AddLeadLabelRequest, ).then((request) => request(axios, basePath));
         },
+        addLeadLabelWithHttpInfo(requestParameters: LeadLabelsApiAddLeadLabelRequest = {}, ): Promise<ApiResponse<UpsertLeadLabelResponse>> {
+            return localVarFp.addLeadLabelWithHttpInfo(requestParameters.AddLeadLabelRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Deletes a specific lead label.
          * @summary Delete a lead label
@@ -288,6 +335,9 @@ export const LeadLabelsApiFactory = function (configuration?: Configuration, bas
         deleteLeadLabel(requestParameters: LeadLabelsApiDeleteLeadLabelRequest, ): Promise<DeleteLeadIdResponse> {
             return localVarFp.deleteLeadLabel(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        deleteLeadLabelWithHttpInfo(requestParameters: LeadLabelsApiDeleteLeadLabelRequest, ): Promise<ApiResponse<DeleteLeadIdResponse>> {
+            return localVarFp.deleteLeadLabelWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns details of all lead labels. This endpoint does not support pagination and all labels are always returned.
          * @summary Get all lead labels
@@ -296,6 +346,9 @@ export const LeadLabelsApiFactory = function (configuration?: Configuration, bas
          */
         getLeadLabels(): Promise<GetLeadLabelsResponse> {
             return localVarFp.getLeadLabels().then((request) => request(axios, basePath));
+        },
+        getLeadLabelsWithHttpInfo(): Promise<ApiResponse<GetLeadLabelsResponse>> {
+            return localVarFp.getLeadLabelsWithHttpInfo().then((request) => request(axios, basePath));
         },
         /**
          * Updates one or more properties of a lead label. Only properties included in the request will be updated. 
@@ -306,6 +359,9 @@ export const LeadLabelsApiFactory = function (configuration?: Configuration, bas
          */
         updateLeadLabel(requestParameters: LeadLabelsApiUpdateLeadLabelRequest, ): Promise<UpsertLeadLabelResponse> {
             return localVarFp.updateLeadLabel(requestParameters.id, requestParameters.UpdateLeadLabelRequest, ).then((request) => request(axios, basePath));
+        },
+        updateLeadLabelWithHttpInfo(requestParameters: LeadLabelsApiUpdateLeadLabelRequest, ): Promise<ApiResponse<UpsertLeadLabelResponse>> {
+            return localVarFp.updateLeadLabelWithHttpInfo(requestParameters.id, requestParameters.UpdateLeadLabelRequest, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -379,6 +435,18 @@ export class LeadLabelsApi extends BaseAPI {
     }
 
     /**
+     * Same as `addLeadLabel`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {LeadLabelsApiAddLeadLabelRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof LeadLabelsApi
+     */
+    public addLeadLabelWithHttpInfo(requestParameters: LeadLabelsApiAddLeadLabelRequest = {}, ) {
+        return LeadLabelsApiFp(this.configuration).addLeadLabelWithHttpInfo(requestParameters.AddLeadLabelRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Deletes a specific lead label.
      * @summary Delete a lead label
      * @param {LeadLabelsApiDeleteLeadLabelRequest} requestParameters Request parameters.
@@ -388,6 +456,18 @@ export class LeadLabelsApi extends BaseAPI {
      */
     public deleteLeadLabel(requestParameters: LeadLabelsApiDeleteLeadLabelRequest, ) {
         return LeadLabelsApiFp(this.configuration).deleteLeadLabel(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteLeadLabel`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {LeadLabelsApiDeleteLeadLabelRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof LeadLabelsApi
+     */
+    public deleteLeadLabelWithHttpInfo(requestParameters: LeadLabelsApiDeleteLeadLabelRequest, ) {
+        return LeadLabelsApiFp(this.configuration).deleteLeadLabelWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -402,6 +482,17 @@ export class LeadLabelsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getLeadLabels`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+
+     * @throws {RequiredError}
+     * @memberof LeadLabelsApi
+     */
+    public getLeadLabelsWithHttpInfo() {
+        return LeadLabelsApiFp(this.configuration).getLeadLabelsWithHttpInfo().then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates one or more properties of a lead label. Only properties included in the request will be updated. 
      * @summary Update a lead label
      * @param {LeadLabelsApiUpdateLeadLabelRequest} requestParameters Request parameters.
@@ -411,5 +502,17 @@ export class LeadLabelsApi extends BaseAPI {
      */
     public updateLeadLabel(requestParameters: LeadLabelsApiUpdateLeadLabelRequest, ) {
         return LeadLabelsApiFp(this.configuration).updateLeadLabel(requestParameters.id, requestParameters.UpdateLeadLabelRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateLeadLabel`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {LeadLabelsApiUpdateLeadLabelRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof LeadLabelsApi
+     */
+    public updateLeadLabelWithHttpInfo(requestParameters: LeadLabelsApiUpdateLeadLabelRequest, ) {
+        return LeadLabelsApiFp(this.configuration).updateLeadLabelWithHttpInfo(requestParameters.id, requestParameters.UpdateLeadLabelRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

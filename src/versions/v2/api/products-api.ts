@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddDealFollowerRequest } from '../models';
 // @ts-ignore
@@ -1020,6 +1020,17 @@ export const ProductsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addProduct`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a product
+         * @param {AddProductRequest} [AddProductRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addProductWithHttpInfo(AddProductRequest?: AddProductRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProductResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addProduct(AddProductRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Adds a user as a follower to the product.
          * @summary Add a follower to a product
          * @param {number} id The ID of the product
@@ -1030,6 +1041,18 @@ export const ProductsApiFp = function(configuration?: Configuration) {
         async addProductFollower(id: number, AddDealFollowerRequest?: AddDealFollowerRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddFollowerResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addProductFollower(id, AddDealFollowerRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `addProductFollower`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a follower to a product
+         * @param {number} id The ID of the product
+         * @param {AddDealFollowerRequest} [AddDealFollowerRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addProductFollowerWithHttpInfo(id: number, AddDealFollowerRequest?: AddDealFollowerRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddFollowerResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addProductFollower(id, AddDealFollowerRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Adds a new product variation.
@@ -1044,6 +1067,18 @@ export const ProductsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addProductVariation`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a product variation
+         * @param {number} id The ID of the product
+         * @param {AddProductVariationRequest} [AddProductVariationRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addProductVariationWithHttpInfo(id: number, AddProductVariationRequest?: AddProductVariationRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProductVariationResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addProductVariation(id, AddProductVariationRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Marks a product as deleted. After 30 days, the product will be permanently deleted.
          * @summary Delete a product
          * @param {number} id The ID of the product
@@ -1053,6 +1088,17 @@ export const ProductsApiFp = function(configuration?: Configuration) {
         async deleteProduct(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteProductResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProduct(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deleteProduct`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a product
+         * @param {number} id The ID of the product
+
+         * @throws {RequiredError}
+         */
+        async deleteProductWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteProductResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProduct(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Deletes a user follower from the product.
@@ -1067,6 +1113,18 @@ export const ProductsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deleteProductFollower`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a follower from a product
+         * @param {number} id The ID of the product
+         * @param {number} follower_id The ID of the following user
+
+         * @throws {RequiredError}
+         */
+        async deleteProductFollowerWithHttpInfo(id: number, follower_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteFollowerResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProductFollower(id, follower_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Deletes the image of a product.
          * @summary Delete an image of a product
          * @param {number} id The ID of the product
@@ -1076,6 +1134,17 @@ export const ProductsApiFp = function(configuration?: Configuration) {
         async deleteProductImage(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteProductImageResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProductImage(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deleteProductImage`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete an image of a product
+         * @param {number} id The ID of the product
+
+         * @throws {RequiredError}
+         */
+        async deleteProductImageWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteProductImageResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProductImage(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Deletes a product variation.
@@ -1090,6 +1159,18 @@ export const ProductsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deleteProductVariation`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a product variation
+         * @param {number} id The ID of the product
+         * @param {number} product_variation_id The ID of the product variation
+
+         * @throws {RequiredError}
+         */
+        async deleteProductVariationWithHttpInfo(id: number, product_variation_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteProductVariationResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProductVariation(id, product_variation_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Creates a duplicate of an existing product including all variations, prices, and custom fields.
          * @summary Duplicate a product
          * @param {number} id The ID of the product
@@ -1101,6 +1182,17 @@ export const ProductsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `duplicateProduct`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Duplicate a product
+         * @param {number} id The ID of the product
+
+         * @throws {RequiredError}
+         */
+        async duplicateProductWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProductResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.duplicateProduct(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns data about a specific product.
          * @summary Get one product
          * @param {number} id The ID of the product
@@ -1110,6 +1202,17 @@ export const ProductsApiFp = function(configuration?: Configuration) {
         async getProduct(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProduct(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getProduct`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get one product
+         * @param {number} id The ID of the product
+
+         * @throws {RequiredError}
+         */
+        async getProductWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProductResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProduct(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Lists users who are following the product.
@@ -1125,6 +1228,19 @@ export const ProductsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getProductFollowers`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List followers of a product
+         * @param {number} id The ID of the product
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getProductFollowersWithHttpInfo(id: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetFollowersResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProductFollowers(id, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Lists changelogs about users have followed the product.
          * @summary List followers changelog of a product
          * @param {number} id The ID of the product
@@ -1138,6 +1254,19 @@ export const ProductsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getProductFollowersChangelog`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List followers changelog of a product
+         * @param {number} id The ID of the product
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getProductFollowersChangelogWithHttpInfo(id: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetFollowerChangelogsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProductFollowersChangelog(id, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Retrieves the image of a product. The public URL has a limited lifetime of 7 days.
          * @summary Get image of a product
          * @param {number} id The ID of the product
@@ -1147,6 +1276,17 @@ export const ProductsApiFp = function(configuration?: Configuration) {
         async getProductImage(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductImageResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProductImage(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getProductImage`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get image of a product
+         * @param {number} id The ID of the product
+
+         * @throws {RequiredError}
+         */
+        async getProductImageWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProductImageResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProductImage(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns data about all product variations.
@@ -1160,6 +1300,19 @@ export const ProductsApiFp = function(configuration?: Configuration) {
         async getProductVariations(id: number, cursor?: string, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductVariationsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProductVariations(id, cursor, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getProductVariations`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all product variations
+         * @param {number} id The ID of the product
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+
+         * @throws {RequiredError}
+         */
+        async getProductVariationsWithHttpInfo(id: number, cursor?: string, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProductVariationsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProductVariations(id, cursor, limit, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns data about all products.
@@ -1181,6 +1334,25 @@ export const ProductsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getProducts`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all products
+         * @param {number} [owner_id] If supplied, only products owned by the given user will be returned
+         * @param {Set<number>} [ids] Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+         * @param {Set<string>} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+         * @param {number} [filter_id] The ID of the filter to use
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {'id' | 'name' | 'add_time' | 'update_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;name&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;.
+         * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
+         * @param {string} [updated_since] If set, only products with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
+
+         * @throws {RequiredError}
+         */
+        async getProductsWithHttpInfo(owner_id?: number, ids?: Set<number>, custom_fields?: Set<string>, filter_id?: number, cursor?: string, limit?: number, sort_by?: 'id' | 'name' | 'add_time' | 'update_time', sort_direction?: 'asc' | 'desc', updated_since?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProductsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProducts(owner_id, ids, custom_fields, filter_id, cursor, limit, sort_by, sort_direction, updated_since, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Searches all products by name, code and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope.
          * @summary Search products
          * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
@@ -1197,6 +1369,22 @@ export const ProductsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `searchProducts`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Search products
+         * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
+         * @param {Set<'code' | 'custom_fields' | 'name'>} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
+         * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
+         * @param {Set<'product.price'>} [include_fields] Supports including optional fields in the results which are not provided by default
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async searchProductsWithHttpInfo(term: string, fields?: Set<'code' | 'custom_fields' | 'name'>, exact_match?: boolean, include_fields?: Set<'product.price'>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProductSearchResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchProducts(term, fields, exact_match, include_fields, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates product data.
          * @summary Update a product
          * @param {number} id The ID of the product
@@ -1209,6 +1397,18 @@ export const ProductsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `updateProduct`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update a product
+         * @param {number} id The ID of the product
+         * @param {UpdateProductRequest} [UpdateProductRequest] 
+
+         * @throws {RequiredError}
+         */
+        async updateProductWithHttpInfo(id: number, UpdateProductRequest?: UpdateProductRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpdateProductResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProduct(id, UpdateProductRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates the image of a product.
          * @summary Update an image for a product
          * @param {number} id The ID of the product
@@ -1219,6 +1419,18 @@ export const ProductsApiFp = function(configuration?: Configuration) {
         async updateProductImage(id: number, data: File, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateProductImageResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateProductImage(id, data, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateProductImage`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update an image for a product
+         * @param {number} id The ID of the product
+         * @param {File} data One image supplied in the multipart/form-data encoding
+
+         * @throws {RequiredError}
+         */
+        async updateProductImageWithHttpInfo(id: number, data: File, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpdateProductImageResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProductImage(id, data, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Updates product variation data.
@@ -1234,6 +1446,19 @@ export const ProductsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `updateProductVariation`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update a product variation
+         * @param {number} id The ID of the product
+         * @param {number} product_variation_id The ID of the product variation
+         * @param {UpdateProductVariationRequest} [UpdateProductVariationRequest] 
+
+         * @throws {RequiredError}
+         */
+        async updateProductVariationWithHttpInfo(id: number, product_variation_id: number, UpdateProductVariationRequest?: UpdateProductVariationRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProductVariationResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProductVariation(id, product_variation_id, UpdateProductVariationRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Uploads an image for a product.
          * @summary Upload an image for a product
          * @param {number} id The ID of the product
@@ -1244,6 +1469,18 @@ export const ProductsApiFp = function(configuration?: Configuration) {
         async uploadProductImage(id: number, data: File, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddProductImageResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.uploadProductImage(id, data, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `uploadProductImage`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Upload an image for a product
+         * @param {number} id The ID of the product
+         * @param {File} data One image supplied in the multipart/form-data encoding
+
+         * @throws {RequiredError}
+         */
+        async uploadProductImageWithHttpInfo(id: number, data: File, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddProductImageResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.uploadProductImage(id, data, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -1265,6 +1502,9 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
         addProduct(requestParameters: ProductsApiAddProductRequest = {}, ): Promise<GetProductResponse> {
             return localVarFp.addProduct(requestParameters.AddProductRequest, ).then((request) => request(axios, basePath));
         },
+        addProductWithHttpInfo(requestParameters: ProductsApiAddProductRequest = {}, ): Promise<ApiResponse<GetProductResponse>> {
+            return localVarFp.addProductWithHttpInfo(requestParameters.AddProductRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Adds a user as a follower to the product.
          * @summary Add a follower to a product
@@ -1274,6 +1514,9 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
          */
         addProductFollower(requestParameters: ProductsApiAddProductFollowerRequest, ): Promise<AddFollowerResponse> {
             return localVarFp.addProductFollower(requestParameters.id, requestParameters.AddDealFollowerRequest, ).then((request) => request(axios, basePath));
+        },
+        addProductFollowerWithHttpInfo(requestParameters: ProductsApiAddProductFollowerRequest, ): Promise<ApiResponse<AddFollowerResponse>> {
+            return localVarFp.addProductFollowerWithHttpInfo(requestParameters.id, requestParameters.AddDealFollowerRequest, ).then((request) => request(axios, basePath));
         },
         /**
          * Adds a new product variation.
@@ -1285,6 +1528,9 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
         addProductVariation(requestParameters: ProductsApiAddProductVariationRequest, ): Promise<GetProductVariationResponse> {
             return localVarFp.addProductVariation(requestParameters.id, requestParameters.AddProductVariationRequest, ).then((request) => request(axios, basePath));
         },
+        addProductVariationWithHttpInfo(requestParameters: ProductsApiAddProductVariationRequest, ): Promise<ApiResponse<GetProductVariationResponse>> {
+            return localVarFp.addProductVariationWithHttpInfo(requestParameters.id, requestParameters.AddProductVariationRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Marks a product as deleted. After 30 days, the product will be permanently deleted.
          * @summary Delete a product
@@ -1294,6 +1540,9 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
          */
         deleteProduct(requestParameters: ProductsApiDeleteProductRequest, ): Promise<DeleteProductResponse> {
             return localVarFp.deleteProduct(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        deleteProductWithHttpInfo(requestParameters: ProductsApiDeleteProductRequest, ): Promise<ApiResponse<DeleteProductResponse>> {
+            return localVarFp.deleteProductWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Deletes a user follower from the product.
@@ -1305,6 +1554,9 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
         deleteProductFollower(requestParameters: ProductsApiDeleteProductFollowerRequest, ): Promise<DeleteFollowerResponse> {
             return localVarFp.deleteProductFollower(requestParameters.id, requestParameters.follower_id, ).then((request) => request(axios, basePath));
         },
+        deleteProductFollowerWithHttpInfo(requestParameters: ProductsApiDeleteProductFollowerRequest, ): Promise<ApiResponse<DeleteFollowerResponse>> {
+            return localVarFp.deleteProductFollowerWithHttpInfo(requestParameters.id, requestParameters.follower_id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Deletes the image of a product.
          * @summary Delete an image of a product
@@ -1314,6 +1566,9 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
          */
         deleteProductImage(requestParameters: ProductsApiDeleteProductImageRequest, ): Promise<DeleteProductImageResponse> {
             return localVarFp.deleteProductImage(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        deleteProductImageWithHttpInfo(requestParameters: ProductsApiDeleteProductImageRequest, ): Promise<ApiResponse<DeleteProductImageResponse>> {
+            return localVarFp.deleteProductImageWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Deletes a product variation.
@@ -1325,6 +1580,9 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
         deleteProductVariation(requestParameters: ProductsApiDeleteProductVariationRequest, ): Promise<DeleteProductVariationResponse> {
             return localVarFp.deleteProductVariation(requestParameters.id, requestParameters.product_variation_id, ).then((request) => request(axios, basePath));
         },
+        deleteProductVariationWithHttpInfo(requestParameters: ProductsApiDeleteProductVariationRequest, ): Promise<ApiResponse<DeleteProductVariationResponse>> {
+            return localVarFp.deleteProductVariationWithHttpInfo(requestParameters.id, requestParameters.product_variation_id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Creates a duplicate of an existing product including all variations, prices, and custom fields.
          * @summary Duplicate a product
@@ -1334,6 +1592,9 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
          */
         duplicateProduct(requestParameters: ProductsApiDuplicateProductRequest, ): Promise<GetProductResponse> {
             return localVarFp.duplicateProduct(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        duplicateProductWithHttpInfo(requestParameters: ProductsApiDuplicateProductRequest, ): Promise<ApiResponse<GetProductResponse>> {
+            return localVarFp.duplicateProductWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns data about a specific product.
@@ -1345,6 +1606,9 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
         getProduct(requestParameters: ProductsApiGetProductRequest, ): Promise<GetProductResponse> {
             return localVarFp.getProduct(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getProductWithHttpInfo(requestParameters: ProductsApiGetProductRequest, ): Promise<ApiResponse<GetProductResponse>> {
+            return localVarFp.getProductWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Lists users who are following the product.
          * @summary List followers of a product
@@ -1354,6 +1618,9 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
          */
         getProductFollowers(requestParameters: ProductsApiGetProductFollowersRequest, ): Promise<GetFollowersResponse> {
             return localVarFp.getProductFollowers(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
+        getProductFollowersWithHttpInfo(requestParameters: ProductsApiGetProductFollowersRequest, ): Promise<ApiResponse<GetFollowersResponse>> {
+            return localVarFp.getProductFollowersWithHttpInfo(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
          * Lists changelogs about users have followed the product.
@@ -1365,6 +1632,9 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
         getProductFollowersChangelog(requestParameters: ProductsApiGetProductFollowersChangelogRequest, ): Promise<GetFollowerChangelogsResponse> {
             return localVarFp.getProductFollowersChangelog(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
+        getProductFollowersChangelogWithHttpInfo(requestParameters: ProductsApiGetProductFollowersChangelogRequest, ): Promise<ApiResponse<GetFollowerChangelogsResponse>> {
+            return localVarFp.getProductFollowersChangelogWithHttpInfo(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
         /**
          * Retrieves the image of a product. The public URL has a limited lifetime of 7 days.
          * @summary Get image of a product
@@ -1374,6 +1644,9 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
          */
         getProductImage(requestParameters: ProductsApiGetProductImageRequest, ): Promise<GetProductImageResponse> {
             return localVarFp.getProductImage(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        getProductImageWithHttpInfo(requestParameters: ProductsApiGetProductImageRequest, ): Promise<ApiResponse<GetProductImageResponse>> {
+            return localVarFp.getProductImageWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns data about all product variations.
@@ -1385,6 +1658,9 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
         getProductVariations(requestParameters: ProductsApiGetProductVariationsRequest, ): Promise<GetProductVariationsResponse> {
             return localVarFp.getProductVariations(requestParameters.id, requestParameters.cursor, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
+        getProductVariationsWithHttpInfo(requestParameters: ProductsApiGetProductVariationsRequest, ): Promise<ApiResponse<GetProductVariationsResponse>> {
+            return localVarFp.getProductVariationsWithHttpInfo(requestParameters.id, requestParameters.cursor, requestParameters.limit, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns data about all products.
          * @summary Get all products
@@ -1394,6 +1670,9 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
          */
         getProducts(requestParameters: ProductsApiGetProductsRequest = {}, ): Promise<GetProductsResponse> {
             return localVarFp.getProducts(requestParameters.owner_id, requestParameters.ids, requestParameters.custom_fields, requestParameters.filter_id, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.updated_since, ).then((request) => request(axios, basePath));
+        },
+        getProductsWithHttpInfo(requestParameters: ProductsApiGetProductsRequest = {}, ): Promise<ApiResponse<GetProductsResponse>> {
+            return localVarFp.getProductsWithHttpInfo(requestParameters.owner_id, requestParameters.ids, requestParameters.custom_fields, requestParameters.filter_id, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.updated_since, ).then((request) => request(axios, basePath));
         },
         /**
          * Searches all products by name, code and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope.
@@ -1405,6 +1684,9 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
         searchProducts(requestParameters: ProductsApiSearchProductsRequest, ): Promise<GetProductSearchResponse> {
             return localVarFp.searchProducts(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
+        searchProductsWithHttpInfo(requestParameters: ProductsApiSearchProductsRequest, ): Promise<ApiResponse<GetProductSearchResponse>> {
+            return localVarFp.searchProductsWithHttpInfo(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates product data.
          * @summary Update a product
@@ -1414,6 +1696,9 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
          */
         updateProduct(requestParameters: ProductsApiUpdateProductRequest, ): Promise<UpdateProductResponse> {
             return localVarFp.updateProduct(requestParameters.id, requestParameters.UpdateProductRequest, ).then((request) => request(axios, basePath));
+        },
+        updateProductWithHttpInfo(requestParameters: ProductsApiUpdateProductRequest, ): Promise<ApiResponse<UpdateProductResponse>> {
+            return localVarFp.updateProductWithHttpInfo(requestParameters.id, requestParameters.UpdateProductRequest, ).then((request) => request(axios, basePath));
         },
         /**
          * Updates the image of a product.
@@ -1425,6 +1710,9 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
         updateProductImage(requestParameters: ProductsApiUpdateProductImageRequest, ): Promise<UpdateProductImageResponse> {
             return localVarFp.updateProductImage(requestParameters.id, requestParameters.data, ).then((request) => request(axios, basePath));
         },
+        updateProductImageWithHttpInfo(requestParameters: ProductsApiUpdateProductImageRequest, ): Promise<ApiResponse<UpdateProductImageResponse>> {
+            return localVarFp.updateProductImageWithHttpInfo(requestParameters.id, requestParameters.data, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates product variation data.
          * @summary Update a product variation
@@ -1435,6 +1723,9 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
         updateProductVariation(requestParameters: ProductsApiUpdateProductVariationRequest, ): Promise<GetProductVariationResponse> {
             return localVarFp.updateProductVariation(requestParameters.id, requestParameters.product_variation_id, requestParameters.UpdateProductVariationRequest, ).then((request) => request(axios, basePath));
         },
+        updateProductVariationWithHttpInfo(requestParameters: ProductsApiUpdateProductVariationRequest, ): Promise<ApiResponse<GetProductVariationResponse>> {
+            return localVarFp.updateProductVariationWithHttpInfo(requestParameters.id, requestParameters.product_variation_id, requestParameters.UpdateProductVariationRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Uploads an image for a product.
          * @summary Upload an image for a product
@@ -1444,6 +1735,9 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
          */
         uploadProductImage(requestParameters: ProductsApiUploadProductImageRequest, ): Promise<AddProductImageResponse> {
             return localVarFp.uploadProductImage(requestParameters.id, requestParameters.data, ).then((request) => request(axios, basePath));
+        },
+        uploadProductImageWithHttpInfo(requestParameters: ProductsApiUploadProductImageRequest, ): Promise<ApiResponse<AddProductImageResponse>> {
+            return localVarFp.uploadProductImageWithHttpInfo(requestParameters.id, requestParameters.data, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1930,6 +2224,18 @@ export class ProductsApi extends BaseAPI {
     }
 
     /**
+     * Same as `addProduct`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductsApiAddProductRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public addProductWithHttpInfo(requestParameters: ProductsApiAddProductRequest = {}, ) {
+        return ProductsApiFp(this.configuration).addProductWithHttpInfo(requestParameters.AddProductRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Adds a user as a follower to the product.
      * @summary Add a follower to a product
      * @param {ProductsApiAddProductFollowerRequest} requestParameters Request parameters.
@@ -1939,6 +2245,18 @@ export class ProductsApi extends BaseAPI {
      */
     public addProductFollower(requestParameters: ProductsApiAddProductFollowerRequest, ) {
         return ProductsApiFp(this.configuration).addProductFollower(requestParameters.id, requestParameters.AddDealFollowerRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `addProductFollower`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductsApiAddProductFollowerRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public addProductFollowerWithHttpInfo(requestParameters: ProductsApiAddProductFollowerRequest, ) {
+        return ProductsApiFp(this.configuration).addProductFollowerWithHttpInfo(requestParameters.id, requestParameters.AddDealFollowerRequest, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1954,6 +2272,18 @@ export class ProductsApi extends BaseAPI {
     }
 
     /**
+     * Same as `addProductVariation`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductsApiAddProductVariationRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public addProductVariationWithHttpInfo(requestParameters: ProductsApiAddProductVariationRequest, ) {
+        return ProductsApiFp(this.configuration).addProductVariationWithHttpInfo(requestParameters.id, requestParameters.AddProductVariationRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Marks a product as deleted. After 30 days, the product will be permanently deleted.
      * @summary Delete a product
      * @param {ProductsApiDeleteProductRequest} requestParameters Request parameters.
@@ -1963,6 +2293,18 @@ export class ProductsApi extends BaseAPI {
      */
     public deleteProduct(requestParameters: ProductsApiDeleteProductRequest, ) {
         return ProductsApiFp(this.configuration).deleteProduct(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteProduct`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductsApiDeleteProductRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public deleteProductWithHttpInfo(requestParameters: ProductsApiDeleteProductRequest, ) {
+        return ProductsApiFp(this.configuration).deleteProductWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1978,6 +2320,18 @@ export class ProductsApi extends BaseAPI {
     }
 
     /**
+     * Same as `deleteProductFollower`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductsApiDeleteProductFollowerRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public deleteProductFollowerWithHttpInfo(requestParameters: ProductsApiDeleteProductFollowerRequest, ) {
+        return ProductsApiFp(this.configuration).deleteProductFollowerWithHttpInfo(requestParameters.id, requestParameters.follower_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Deletes the image of a product.
      * @summary Delete an image of a product
      * @param {ProductsApiDeleteProductImageRequest} requestParameters Request parameters.
@@ -1987,6 +2341,18 @@ export class ProductsApi extends BaseAPI {
      */
     public deleteProductImage(requestParameters: ProductsApiDeleteProductImageRequest, ) {
         return ProductsApiFp(this.configuration).deleteProductImage(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteProductImage`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductsApiDeleteProductImageRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public deleteProductImageWithHttpInfo(requestParameters: ProductsApiDeleteProductImageRequest, ) {
+        return ProductsApiFp(this.configuration).deleteProductImageWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2002,6 +2368,18 @@ export class ProductsApi extends BaseAPI {
     }
 
     /**
+     * Same as `deleteProductVariation`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductsApiDeleteProductVariationRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public deleteProductVariationWithHttpInfo(requestParameters: ProductsApiDeleteProductVariationRequest, ) {
+        return ProductsApiFp(this.configuration).deleteProductVariationWithHttpInfo(requestParameters.id, requestParameters.product_variation_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Creates a duplicate of an existing product including all variations, prices, and custom fields.
      * @summary Duplicate a product
      * @param {ProductsApiDuplicateProductRequest} requestParameters Request parameters.
@@ -2011,6 +2389,18 @@ export class ProductsApi extends BaseAPI {
      */
     public duplicateProduct(requestParameters: ProductsApiDuplicateProductRequest, ) {
         return ProductsApiFp(this.configuration).duplicateProduct(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `duplicateProduct`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductsApiDuplicateProductRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public duplicateProductWithHttpInfo(requestParameters: ProductsApiDuplicateProductRequest, ) {
+        return ProductsApiFp(this.configuration).duplicateProductWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2026,6 +2416,18 @@ export class ProductsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getProduct`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductsApiGetProductRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public getProductWithHttpInfo(requestParameters: ProductsApiGetProductRequest, ) {
+        return ProductsApiFp(this.configuration).getProductWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Lists users who are following the product.
      * @summary List followers of a product
      * @param {ProductsApiGetProductFollowersRequest} requestParameters Request parameters.
@@ -2035,6 +2437,18 @@ export class ProductsApi extends BaseAPI {
      */
     public getProductFollowers(requestParameters: ProductsApiGetProductFollowersRequest, ) {
         return ProductsApiFp(this.configuration).getProductFollowers(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getProductFollowers`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductsApiGetProductFollowersRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public getProductFollowersWithHttpInfo(requestParameters: ProductsApiGetProductFollowersRequest, ) {
+        return ProductsApiFp(this.configuration).getProductFollowersWithHttpInfo(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2050,6 +2464,18 @@ export class ProductsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getProductFollowersChangelog`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductsApiGetProductFollowersChangelogRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public getProductFollowersChangelogWithHttpInfo(requestParameters: ProductsApiGetProductFollowersChangelogRequest, ) {
+        return ProductsApiFp(this.configuration).getProductFollowersChangelogWithHttpInfo(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Retrieves the image of a product. The public URL has a limited lifetime of 7 days.
      * @summary Get image of a product
      * @param {ProductsApiGetProductImageRequest} requestParameters Request parameters.
@@ -2059,6 +2485,18 @@ export class ProductsApi extends BaseAPI {
      */
     public getProductImage(requestParameters: ProductsApiGetProductImageRequest, ) {
         return ProductsApiFp(this.configuration).getProductImage(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getProductImage`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductsApiGetProductImageRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public getProductImageWithHttpInfo(requestParameters: ProductsApiGetProductImageRequest, ) {
+        return ProductsApiFp(this.configuration).getProductImageWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2074,6 +2512,18 @@ export class ProductsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getProductVariations`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductsApiGetProductVariationsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public getProductVariationsWithHttpInfo(requestParameters: ProductsApiGetProductVariationsRequest, ) {
+        return ProductsApiFp(this.configuration).getProductVariationsWithHttpInfo(requestParameters.id, requestParameters.cursor, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns data about all products.
      * @summary Get all products
      * @param {ProductsApiGetProductsRequest} requestParameters Request parameters.
@@ -2083,6 +2533,18 @@ export class ProductsApi extends BaseAPI {
      */
     public getProducts(requestParameters: ProductsApiGetProductsRequest = {}, ) {
         return ProductsApiFp(this.configuration).getProducts(requestParameters.owner_id, requestParameters.ids, requestParameters.custom_fields, requestParameters.filter_id, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.updated_since, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getProducts`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductsApiGetProductsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public getProductsWithHttpInfo(requestParameters: ProductsApiGetProductsRequest = {}, ) {
+        return ProductsApiFp(this.configuration).getProductsWithHttpInfo(requestParameters.owner_id, requestParameters.ids, requestParameters.custom_fields, requestParameters.filter_id, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.updated_since, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2098,6 +2560,18 @@ export class ProductsApi extends BaseAPI {
     }
 
     /**
+     * Same as `searchProducts`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductsApiSearchProductsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public searchProductsWithHttpInfo(requestParameters: ProductsApiSearchProductsRequest, ) {
+        return ProductsApiFp(this.configuration).searchProductsWithHttpInfo(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates product data.
      * @summary Update a product
      * @param {ProductsApiUpdateProductRequest} requestParameters Request parameters.
@@ -2107,6 +2581,18 @@ export class ProductsApi extends BaseAPI {
      */
     public updateProduct(requestParameters: ProductsApiUpdateProductRequest, ) {
         return ProductsApiFp(this.configuration).updateProduct(requestParameters.id, requestParameters.UpdateProductRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateProduct`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductsApiUpdateProductRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public updateProductWithHttpInfo(requestParameters: ProductsApiUpdateProductRequest, ) {
+        return ProductsApiFp(this.configuration).updateProductWithHttpInfo(requestParameters.id, requestParameters.UpdateProductRequest, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2122,6 +2608,18 @@ export class ProductsApi extends BaseAPI {
     }
 
     /**
+     * Same as `updateProductImage`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductsApiUpdateProductImageRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public updateProductImageWithHttpInfo(requestParameters: ProductsApiUpdateProductImageRequest, ) {
+        return ProductsApiFp(this.configuration).updateProductImageWithHttpInfo(requestParameters.id, requestParameters.data, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates product variation data.
      * @summary Update a product variation
      * @param {ProductsApiUpdateProductVariationRequest} requestParameters Request parameters.
@@ -2134,6 +2632,18 @@ export class ProductsApi extends BaseAPI {
     }
 
     /**
+     * Same as `updateProductVariation`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductsApiUpdateProductVariationRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public updateProductVariationWithHttpInfo(requestParameters: ProductsApiUpdateProductVariationRequest, ) {
+        return ProductsApiFp(this.configuration).updateProductVariationWithHttpInfo(requestParameters.id, requestParameters.product_variation_id, requestParameters.UpdateProductVariationRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Uploads an image for a product.
      * @summary Upload an image for a product
      * @param {ProductsApiUploadProductImageRequest} requestParameters Request parameters.
@@ -2143,5 +2653,17 @@ export class ProductsApi extends BaseAPI {
      */
     public uploadProductImage(requestParameters: ProductsApiUploadProductImageRequest, ) {
         return ProductsApiFp(this.configuration).uploadProductImage(requestParameters.id, requestParameters.data, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `uploadProductImage`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductsApiUploadProductImageRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public uploadProductImageWithHttpInfo(requestParameters: ProductsApiUploadProductImageRequest, ) {
+        return ProductsApiFp(this.configuration).uploadProductImageWithHttpInfo(requestParameters.id, requestParameters.data, ).then((request) => request(this.axios, this.basePath));
     }
 }

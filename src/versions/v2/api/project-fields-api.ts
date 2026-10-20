@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddDealFieldOptions200Response } from '../models';
 // @ts-ignore
@@ -428,6 +428,17 @@ export const ProjectFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addProjectField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Create one project field
+         * @param {AddProjectFieldRequest} AddProjectFieldRequest 
+
+         * @throws {RequiredError}
+         */
+        async addProjectFieldWithHttpInfo(AddProjectFieldRequest: AddProjectFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddProjectField200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addProjectField(AddProjectFieldRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Adds new options to a project custom field that supports options (enum or set field types). This operation is atomic - all options are added or none are added. Returns only the newly added options.
          * @summary Add project field options in bulk
          * @param {string} field_code The unique code identifying the field
@@ -440,6 +451,18 @@ export const ProjectFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addProjectFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add project field options in bulk
+         * @param {string} field_code The unique code identifying the field
+         * @param {Array<AddDealFieldOptionsRequestInner>} AddDealFieldOptionsRequestInner 
+
+         * @throws {RequiredError}
+         */
+        async addProjectFieldOptionsWithHttpInfo(field_code: string, AddDealFieldOptionsRequestInner: Array<AddDealFieldOptionsRequestInner>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddDealFieldOptions200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addProjectFieldOptions(field_code, AddDealFieldOptionsRequestInner, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Marks a custom field as deleted.
          * @summary Delete one project field
          * @param {string} field_code The unique code identifying the field
@@ -449,6 +472,17 @@ export const ProjectFieldsApiFp = function(configuration?: Configuration) {
         async deleteProjectField(field_code: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteProjectField200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProjectField(field_code, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deleteProjectField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete one project field
+         * @param {string} field_code The unique code identifying the field
+
+         * @throws {RequiredError}
+         */
+        async deleteProjectFieldWithHttpInfo(field_code: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteProjectField200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProjectField(field_code, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Removes existing options from a project custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the deleted options.
@@ -463,6 +497,18 @@ export const ProjectFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deleteProjectFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete project field options in bulk
+         * @param {string} field_code The unique code identifying the field
+         * @param {Array<DeleteDealFieldOptionsRequestInner>} DeleteDealFieldOptionsRequestInner 
+
+         * @throws {RequiredError}
+         */
+        async deleteProjectFieldOptionsWithHttpInfo(field_code: string, DeleteDealFieldOptionsRequestInner: Array<DeleteDealFieldOptionsRequestInner>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddDealFieldOptions200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProjectFieldOptions(field_code, DeleteDealFieldOptionsRequestInner, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns metadata about a specific project field.
          * @summary Get one project field
          * @param {string} field_code The unique code identifying the field
@@ -472,6 +518,17 @@ export const ProjectFieldsApiFp = function(configuration?: Configuration) {
         async getProjectField(field_code: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddProjectField200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectField(field_code, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getProjectField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get one project field
+         * @param {string} field_code The unique code identifying the field
+
+         * @throws {RequiredError}
+         */
+        async getProjectFieldWithHttpInfo(field_code: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddProjectField200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectField(field_code, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns metadata about all project fields in the company.
@@ -486,6 +543,18 @@ export const ProjectFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getProjectFields`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all project fields
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getProjectFieldsWithHttpInfo(limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProjectFields200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectFields(limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates a project custom field. The field_code and field_type cannot be changed. At least one field must be provided in the request body.
          * @summary Update one project field
          * @param {string} field_code The unique code identifying the field
@@ -498,6 +567,18 @@ export const ProjectFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `updateProjectField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update one project field
+         * @param {string} field_code The unique code identifying the field
+         * @param {UpdateProjectFieldRequest} UpdateProjectFieldRequest 
+
+         * @throws {RequiredError}
+         */
+        async updateProjectFieldWithHttpInfo(field_code: string, UpdateProjectFieldRequest: UpdateProjectFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddProjectField200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProjectField(field_code, UpdateProjectFieldRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates existing options for a project custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the updated options.
          * @summary Update project field options in bulk
          * @param {string} field_code The unique code identifying the field
@@ -508,6 +589,18 @@ export const ProjectFieldsApiFp = function(configuration?: Configuration) {
         async updateProjectFieldOptions(field_code: string, UpdateDealFieldOptionsRequestInner: Array<UpdateDealFieldOptionsRequestInner>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddDealFieldOptions200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateProjectFieldOptions(field_code, UpdateDealFieldOptionsRequestInner, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateProjectFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update project field options in bulk
+         * @param {string} field_code The unique code identifying the field
+         * @param {Array<UpdateDealFieldOptionsRequestInner>} UpdateDealFieldOptionsRequestInner 
+
+         * @throws {RequiredError}
+         */
+        async updateProjectFieldOptionsWithHttpInfo(field_code: string, UpdateDealFieldOptionsRequestInner: Array<UpdateDealFieldOptionsRequestInner>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddDealFieldOptions200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProjectFieldOptions(field_code, UpdateDealFieldOptionsRequestInner, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -529,6 +622,9 @@ export const ProjectFieldsApiFactory = function (configuration?: Configuration, 
         addProjectField(requestParameters: ProjectFieldsApiAddProjectFieldRequest, ): Promise<AddProjectField200Response> {
             return localVarFp.addProjectField(requestParameters.AddProjectFieldRequest, ).then((request) => request(axios, basePath));
         },
+        addProjectFieldWithHttpInfo(requestParameters: ProjectFieldsApiAddProjectFieldRequest, ): Promise<ApiResponse<AddProjectField200Response>> {
+            return localVarFp.addProjectFieldWithHttpInfo(requestParameters.AddProjectFieldRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Adds new options to a project custom field that supports options (enum or set field types). This operation is atomic - all options are added or none are added. Returns only the newly added options.
          * @summary Add project field options in bulk
@@ -538,6 +634,9 @@ export const ProjectFieldsApiFactory = function (configuration?: Configuration, 
          */
         addProjectFieldOptions(requestParameters: ProjectFieldsApiAddProjectFieldOptionsRequest, ): Promise<AddDealFieldOptions200Response> {
             return localVarFp.addProjectFieldOptions(requestParameters.field_code, requestParameters.AddDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
+        },
+        addProjectFieldOptionsWithHttpInfo(requestParameters: ProjectFieldsApiAddProjectFieldOptionsRequest, ): Promise<ApiResponse<AddDealFieldOptions200Response>> {
+            return localVarFp.addProjectFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.AddDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
         },
         /**
          * Marks a custom field as deleted.
@@ -549,6 +648,9 @@ export const ProjectFieldsApiFactory = function (configuration?: Configuration, 
         deleteProjectField(requestParameters: ProjectFieldsApiDeleteProjectFieldRequest, ): Promise<DeleteProjectField200Response> {
             return localVarFp.deleteProjectField(requestParameters.field_code, ).then((request) => request(axios, basePath));
         },
+        deleteProjectFieldWithHttpInfo(requestParameters: ProjectFieldsApiDeleteProjectFieldRequest, ): Promise<ApiResponse<DeleteProjectField200Response>> {
+            return localVarFp.deleteProjectFieldWithHttpInfo(requestParameters.field_code, ).then((request) => request(axios, basePath));
+        },
         /**
          * Removes existing options from a project custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the deleted options.
          * @summary Delete project field options in bulk
@@ -558,6 +660,9 @@ export const ProjectFieldsApiFactory = function (configuration?: Configuration, 
          */
         deleteProjectFieldOptions(requestParameters: ProjectFieldsApiDeleteProjectFieldOptionsRequest, ): Promise<AddDealFieldOptions200Response> {
             return localVarFp.deleteProjectFieldOptions(requestParameters.field_code, requestParameters.DeleteDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
+        },
+        deleteProjectFieldOptionsWithHttpInfo(requestParameters: ProjectFieldsApiDeleteProjectFieldOptionsRequest, ): Promise<ApiResponse<AddDealFieldOptions200Response>> {
+            return localVarFp.deleteProjectFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.DeleteDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns metadata about a specific project field.
@@ -569,6 +674,9 @@ export const ProjectFieldsApiFactory = function (configuration?: Configuration, 
         getProjectField(requestParameters: ProjectFieldsApiGetProjectFieldRequest, ): Promise<AddProjectField200Response> {
             return localVarFp.getProjectField(requestParameters.field_code, ).then((request) => request(axios, basePath));
         },
+        getProjectFieldWithHttpInfo(requestParameters: ProjectFieldsApiGetProjectFieldRequest, ): Promise<ApiResponse<AddProjectField200Response>> {
+            return localVarFp.getProjectFieldWithHttpInfo(requestParameters.field_code, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns metadata about all project fields in the company.
          * @summary Get all project fields
@@ -578,6 +686,9 @@ export const ProjectFieldsApiFactory = function (configuration?: Configuration, 
          */
         getProjectFields(requestParameters: ProjectFieldsApiGetProjectFieldsRequest = {}, ): Promise<GetProjectFields200Response> {
             return localVarFp.getProjectFields(requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
+        getProjectFieldsWithHttpInfo(requestParameters: ProjectFieldsApiGetProjectFieldsRequest = {}, ): Promise<ApiResponse<GetProjectFields200Response>> {
+            return localVarFp.getProjectFieldsWithHttpInfo(requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
          * Updates a project custom field. The field_code and field_type cannot be changed. At least one field must be provided in the request body.
@@ -589,6 +700,9 @@ export const ProjectFieldsApiFactory = function (configuration?: Configuration, 
         updateProjectField(requestParameters: ProjectFieldsApiUpdateProjectFieldRequest, ): Promise<AddProjectField200Response> {
             return localVarFp.updateProjectField(requestParameters.field_code, requestParameters.UpdateProjectFieldRequest, ).then((request) => request(axios, basePath));
         },
+        updateProjectFieldWithHttpInfo(requestParameters: ProjectFieldsApiUpdateProjectFieldRequest, ): Promise<ApiResponse<AddProjectField200Response>> {
+            return localVarFp.updateProjectFieldWithHttpInfo(requestParameters.field_code, requestParameters.UpdateProjectFieldRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates existing options for a project custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the updated options.
          * @summary Update project field options in bulk
@@ -598,6 +712,9 @@ export const ProjectFieldsApiFactory = function (configuration?: Configuration, 
          */
         updateProjectFieldOptions(requestParameters: ProjectFieldsApiUpdateProjectFieldOptionsRequest, ): Promise<AddDealFieldOptions200Response> {
             return localVarFp.updateProjectFieldOptions(requestParameters.field_code, requestParameters.UpdateDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
+        },
+        updateProjectFieldOptionsWithHttpInfo(requestParameters: ProjectFieldsApiUpdateProjectFieldOptionsRequest, ): Promise<ApiResponse<AddDealFieldOptions200Response>> {
+            return localVarFp.updateProjectFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.UpdateDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -769,6 +886,18 @@ export class ProjectFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `addProjectField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProjectFieldsApiAddProjectFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProjectFieldsApi
+     */
+    public addProjectFieldWithHttpInfo(requestParameters: ProjectFieldsApiAddProjectFieldRequest, ) {
+        return ProjectFieldsApiFp(this.configuration).addProjectFieldWithHttpInfo(requestParameters.AddProjectFieldRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Adds new options to a project custom field that supports options (enum or set field types). This operation is atomic - all options are added or none are added. Returns only the newly added options.
      * @summary Add project field options in bulk
      * @param {ProjectFieldsApiAddProjectFieldOptionsRequest} requestParameters Request parameters.
@@ -778,6 +907,18 @@ export class ProjectFieldsApi extends BaseAPI {
      */
     public addProjectFieldOptions(requestParameters: ProjectFieldsApiAddProjectFieldOptionsRequest, ) {
         return ProjectFieldsApiFp(this.configuration).addProjectFieldOptions(requestParameters.field_code, requestParameters.AddDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `addProjectFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProjectFieldsApiAddProjectFieldOptionsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProjectFieldsApi
+     */
+    public addProjectFieldOptionsWithHttpInfo(requestParameters: ProjectFieldsApiAddProjectFieldOptionsRequest, ) {
+        return ProjectFieldsApiFp(this.configuration).addProjectFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.AddDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -793,6 +934,18 @@ export class ProjectFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `deleteProjectField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProjectFieldsApiDeleteProjectFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProjectFieldsApi
+     */
+    public deleteProjectFieldWithHttpInfo(requestParameters: ProjectFieldsApiDeleteProjectFieldRequest, ) {
+        return ProjectFieldsApiFp(this.configuration).deleteProjectFieldWithHttpInfo(requestParameters.field_code, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Removes existing options from a project custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the deleted options.
      * @summary Delete project field options in bulk
      * @param {ProjectFieldsApiDeleteProjectFieldOptionsRequest} requestParameters Request parameters.
@@ -802,6 +955,18 @@ export class ProjectFieldsApi extends BaseAPI {
      */
     public deleteProjectFieldOptions(requestParameters: ProjectFieldsApiDeleteProjectFieldOptionsRequest, ) {
         return ProjectFieldsApiFp(this.configuration).deleteProjectFieldOptions(requestParameters.field_code, requestParameters.DeleteDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteProjectFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProjectFieldsApiDeleteProjectFieldOptionsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProjectFieldsApi
+     */
+    public deleteProjectFieldOptionsWithHttpInfo(requestParameters: ProjectFieldsApiDeleteProjectFieldOptionsRequest, ) {
+        return ProjectFieldsApiFp(this.configuration).deleteProjectFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.DeleteDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -817,6 +982,18 @@ export class ProjectFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getProjectField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProjectFieldsApiGetProjectFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProjectFieldsApi
+     */
+    public getProjectFieldWithHttpInfo(requestParameters: ProjectFieldsApiGetProjectFieldRequest, ) {
+        return ProjectFieldsApiFp(this.configuration).getProjectFieldWithHttpInfo(requestParameters.field_code, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns metadata about all project fields in the company.
      * @summary Get all project fields
      * @param {ProjectFieldsApiGetProjectFieldsRequest} requestParameters Request parameters.
@@ -826,6 +1003,18 @@ export class ProjectFieldsApi extends BaseAPI {
      */
     public getProjectFields(requestParameters: ProjectFieldsApiGetProjectFieldsRequest = {}, ) {
         return ProjectFieldsApiFp(this.configuration).getProjectFields(requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getProjectFields`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProjectFieldsApiGetProjectFieldsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProjectFieldsApi
+     */
+    public getProjectFieldsWithHttpInfo(requestParameters: ProjectFieldsApiGetProjectFieldsRequest = {}, ) {
+        return ProjectFieldsApiFp(this.configuration).getProjectFieldsWithHttpInfo(requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -841,6 +1030,18 @@ export class ProjectFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `updateProjectField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProjectFieldsApiUpdateProjectFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProjectFieldsApi
+     */
+    public updateProjectFieldWithHttpInfo(requestParameters: ProjectFieldsApiUpdateProjectFieldRequest, ) {
+        return ProjectFieldsApiFp(this.configuration).updateProjectFieldWithHttpInfo(requestParameters.field_code, requestParameters.UpdateProjectFieldRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates existing options for a project custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the updated options.
      * @summary Update project field options in bulk
      * @param {ProjectFieldsApiUpdateProjectFieldOptionsRequest} requestParameters Request parameters.
@@ -850,5 +1051,17 @@ export class ProjectFieldsApi extends BaseAPI {
      */
     public updateProjectFieldOptions(requestParameters: ProjectFieldsApiUpdateProjectFieldOptionsRequest, ) {
         return ProjectFieldsApiFp(this.configuration).updateProjectFieldOptions(requestParameters.field_code, requestParameters.UpdateDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateProjectFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProjectFieldsApiUpdateProjectFieldOptionsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProjectFieldsApi
+     */
+    public updateProjectFieldOptionsWithHttpInfo(requestParameters: ProjectFieldsApiUpdateProjectFieldOptionsRequest, ) {
+        return ProjectFieldsApiFp(this.configuration).updateProjectFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.UpdateDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
     }
 }

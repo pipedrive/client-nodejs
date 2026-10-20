@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddDealFollowerRequest } from '../models';
 // @ts-ignore
@@ -681,6 +681,17 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addPerson`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a new person
+         * @param {AddPersonRequest} [AddPersonRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addPersonWithHttpInfo(AddPersonRequest?: AddPersonRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertPersonResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addPerson(AddPersonRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Adds a user as a follower to the person.
          * @summary Add a follower to a person
          * @param {number} id The ID of the person
@@ -691,6 +702,18 @@ export const PersonsApiFp = function(configuration?: Configuration) {
         async addPersonFollower(id: number, AddDealFollowerRequest?: AddDealFollowerRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddFollowerResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addPersonFollower(id, AddDealFollowerRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `addPersonFollower`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a follower to a person
+         * @param {number} id The ID of the person
+         * @param {AddDealFollowerRequest} [AddDealFollowerRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addPersonFollowerWithHttpInfo(id: number, AddDealFollowerRequest?: AddDealFollowerRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddFollowerResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addPersonFollower(id, AddDealFollowerRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Marks a person as deleted. After 30 days, the person will be permanently deleted.
@@ -704,6 +727,17 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deletePerson`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a person
+         * @param {number} id The ID of the person
+
+         * @throws {RequiredError}
+         */
+        async deletePersonWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeletePersonResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deletePerson(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Deletes a user follower from the person.
          * @summary Delete a follower from a person
          * @param {number} id The ID of the person
@@ -714,6 +748,18 @@ export const PersonsApiFp = function(configuration?: Configuration) {
         async deletePersonFollower(id: number, follower_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteFollowerResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deletePersonFollower(id, follower_id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deletePersonFollower`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a follower from a person
+         * @param {number} id The ID of the person
+         * @param {number} follower_id The ID of the following user
+
+         * @throws {RequiredError}
+         */
+        async deletePersonFollowerWithHttpInfo(id: number, follower_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteFollowerResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deletePersonFollower(id, follower_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns the details of a specific person. Fields `ims`, `postal_address`, `notes`, `birthday`, and `job_title` are only included if contact sync is enabled for the company.
@@ -731,6 +777,21 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getPerson`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get details of a person
+         * @param {number} id The ID of the person
+         * @param {Set<'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'>} [include_fields] Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled.
+         * @param {Set<string>} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+         * @param {boolean} [include_option_labels] When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
+         * @param {boolean} [include_labels] When provided with \&#39;true\&#39; value, response will include an array of label objects in the form of \&#39;{ id: number, label: string }\&#39;
+
+         * @throws {RequiredError}
+         */
+        async getPersonWithHttpInfo(id: number, include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'>, custom_fields?: Set<string>, include_option_labels?: boolean, include_labels?: boolean, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertPersonResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPerson(id, include_fields, custom_fields, include_option_labels, include_labels, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Lists users who are following the person.
          * @summary List followers of a person
          * @param {number} id The ID of the person
@@ -742,6 +803,19 @@ export const PersonsApiFp = function(configuration?: Configuration) {
         async getPersonFollowers(id: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFollowersResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonFollowers(id, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getPersonFollowers`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List followers of a person
+         * @param {number} id The ID of the person
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getPersonFollowersWithHttpInfo(id: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetFollowersResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonFollowers(id, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Lists changelogs about users have followed the person.
@@ -757,6 +831,19 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getPersonFollowersChangelog`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List followers changelog of a person
+         * @param {number} id The ID of the person
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getPersonFollowersChangelogWithHttpInfo(id: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetFollowerChangelogsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonFollowersChangelog(id, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns the picture associated with a person. The picture URLs include both 128x128 and 512x512 pixel versions.
          * @summary Get picture of a person
          * @param {number} id The ID of the person
@@ -766,6 +853,17 @@ export const PersonsApiFp = function(configuration?: Configuration) {
         async getPersonPicture(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPersonPictureResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonPicture(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getPersonPicture`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get picture of a person
+         * @param {number} id The ID of the person
+
+         * @throws {RequiredError}
+         */
+        async getPersonPictureWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetPersonPictureResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonPicture(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns data about all persons. Fields `ims`, `postal_address`, `notes`, `birthday`, and `job_title` are only included if contact sync is enabled for the company.
@@ -793,6 +891,31 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getPersons`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all persons
+         * @param {number} [filter_id] If supplied, only persons matching the specified filter are returned
+         * @param {Set<number>} [ids] Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+         * @param {number} [owner_id] If supplied, only persons owned by the specified user are returned. If filter_id is provided, this is ignored.
+         * @param {number} [org_id] If supplied, only persons linked to the specified organization are returned. If filter_id is provided, this is ignored.
+         * @param {number} [deal_id] If supplied, only persons linked to the specified deal are returned. If filter_id is provided, this is ignored.
+         * @param {string} [updated_since] If set, only persons with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
+         * @param {string} [updated_until] If set, only persons with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
+         * @param {'id' | 'update_time' | 'add_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
+         * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
+         * @param {Set<'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'>} [include_fields] Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled.
+         * @param {Set<string>} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+         * @param {boolean} [include_option_labels] When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
+         * @param {boolean} [include_labels] When provided with \&#39;true\&#39; value, response will include an array of label objects in the form of \&#39;{ id: number, label: string }\&#39;
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getPersonsWithHttpInfo(filter_id?: number, ids?: Set<number>, owner_id?: number, org_id?: number, deal_id?: number, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'open_deals_count' | 'related_open_deals_count' | 'closed_deals_count' | 'related_closed_deals_count' | 'participant_open_deals_count' | 'participant_closed_deals_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'files_count' | 'notes_count' | 'followers_count' | 'won_deals_count' | 'related_won_deals_count' | 'lost_deals_count' | 'related_lost_deals_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'marketing_status' | 'doi_status' | 'smart_bcc_email'>, custom_fields?: Set<string>, include_option_labels?: boolean, include_labels?: boolean, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetPersonsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPersons(filter_id, ids, owner_id, org_id, deal_id, updated_since, updated_until, sort_by, sort_direction, include_fields, custom_fields, include_option_labels, include_labels, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Searches all persons by name, email, phone, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found persons can be filtered by organization ID.
          * @summary Search persons
          * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
@@ -810,6 +933,23 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `searchPersons`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Search persons
+         * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
+         * @param {Set<'custom_fields' | 'email' | 'notes' | 'phone' | 'name'>} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
+         * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
+         * @param {number} [organization_id] Will filter persons by the provided organization ID. The upper limit of found persons associated with the organization is 2000.
+         * @param {Set<'person.picture'>} [include_fields] Supports including optional fields in the results which are not provided by default
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async searchPersonsWithHttpInfo(term: string, fields?: Set<'custom_fields' | 'email' | 'notes' | 'phone' | 'name'>, exact_match?: boolean, organization_id?: number, include_fields?: Set<'person.picture'>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetPersonSearchResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchPersons(term, fields, exact_match, organization_id, include_fields, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates the properties of a person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don\'t exist by default in Pipedrive and are only created when you set up your contact sync — attempting to set any of them without contact sync enabled returns a 403.
          * @summary Update a person
          * @param {number} id The ID of the person
@@ -820,6 +960,18 @@ export const PersonsApiFp = function(configuration?: Configuration) {
         async updatePerson(id: number, UpdatePersonRequest?: UpdatePersonRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertPersonResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updatePerson(id, UpdatePersonRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updatePerson`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update a person
+         * @param {number} id The ID of the person
+         * @param {UpdatePersonRequest} [UpdatePersonRequest] 
+
+         * @throws {RequiredError}
+         */
+        async updatePersonWithHttpInfo(id: number, UpdatePersonRequest?: UpdatePersonRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertPersonResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePerson(id, UpdatePersonRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -841,6 +993,9 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
         addPerson(requestParameters: PersonsApiAddPersonRequest = {}, ): Promise<UpsertPersonResponse> {
             return localVarFp.addPerson(requestParameters.AddPersonRequest, ).then((request) => request(axios, basePath));
         },
+        addPersonWithHttpInfo(requestParameters: PersonsApiAddPersonRequest = {}, ): Promise<ApiResponse<UpsertPersonResponse>> {
+            return localVarFp.addPersonWithHttpInfo(requestParameters.AddPersonRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Adds a user as a follower to the person.
          * @summary Add a follower to a person
@@ -850,6 +1005,9 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
          */
         addPersonFollower(requestParameters: PersonsApiAddPersonFollowerRequest, ): Promise<AddFollowerResponse> {
             return localVarFp.addPersonFollower(requestParameters.id, requestParameters.AddDealFollowerRequest, ).then((request) => request(axios, basePath));
+        },
+        addPersonFollowerWithHttpInfo(requestParameters: PersonsApiAddPersonFollowerRequest, ): Promise<ApiResponse<AddFollowerResponse>> {
+            return localVarFp.addPersonFollowerWithHttpInfo(requestParameters.id, requestParameters.AddDealFollowerRequest, ).then((request) => request(axios, basePath));
         },
         /**
          * Marks a person as deleted. After 30 days, the person will be permanently deleted.
@@ -861,6 +1019,9 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
         deletePerson(requestParameters: PersonsApiDeletePersonRequest, ): Promise<DeletePersonResponse> {
             return localVarFp.deletePerson(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        deletePersonWithHttpInfo(requestParameters: PersonsApiDeletePersonRequest, ): Promise<ApiResponse<DeletePersonResponse>> {
+            return localVarFp.deletePersonWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Deletes a user follower from the person.
          * @summary Delete a follower from a person
@@ -870,6 +1031,9 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
          */
         deletePersonFollower(requestParameters: PersonsApiDeletePersonFollowerRequest, ): Promise<DeleteFollowerResponse> {
             return localVarFp.deletePersonFollower(requestParameters.id, requestParameters.follower_id, ).then((request) => request(axios, basePath));
+        },
+        deletePersonFollowerWithHttpInfo(requestParameters: PersonsApiDeletePersonFollowerRequest, ): Promise<ApiResponse<DeleteFollowerResponse>> {
+            return localVarFp.deletePersonFollowerWithHttpInfo(requestParameters.id, requestParameters.follower_id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns the details of a specific person. Fields `ims`, `postal_address`, `notes`, `birthday`, and `job_title` are only included if contact sync is enabled for the company.
@@ -881,6 +1045,9 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
         getPerson(requestParameters: PersonsApiGetPersonRequest, ): Promise<UpsertPersonResponse> {
             return localVarFp.getPerson(requestParameters.id, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.include_option_labels, requestParameters.include_labels, ).then((request) => request(axios, basePath));
         },
+        getPersonWithHttpInfo(requestParameters: PersonsApiGetPersonRequest, ): Promise<ApiResponse<UpsertPersonResponse>> {
+            return localVarFp.getPersonWithHttpInfo(requestParameters.id, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.include_option_labels, requestParameters.include_labels, ).then((request) => request(axios, basePath));
+        },
         /**
          * Lists users who are following the person.
          * @summary List followers of a person
@@ -890,6 +1057,9 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
          */
         getPersonFollowers(requestParameters: PersonsApiGetPersonFollowersRequest, ): Promise<GetFollowersResponse> {
             return localVarFp.getPersonFollowers(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
+        getPersonFollowersWithHttpInfo(requestParameters: PersonsApiGetPersonFollowersRequest, ): Promise<ApiResponse<GetFollowersResponse>> {
+            return localVarFp.getPersonFollowersWithHttpInfo(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
          * Lists changelogs about users have followed the person.
@@ -901,6 +1071,9 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
         getPersonFollowersChangelog(requestParameters: PersonsApiGetPersonFollowersChangelogRequest, ): Promise<GetFollowerChangelogsResponse> {
             return localVarFp.getPersonFollowersChangelog(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
+        getPersonFollowersChangelogWithHttpInfo(requestParameters: PersonsApiGetPersonFollowersChangelogRequest, ): Promise<ApiResponse<GetFollowerChangelogsResponse>> {
+            return localVarFp.getPersonFollowersChangelogWithHttpInfo(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns the picture associated with a person. The picture URLs include both 128x128 and 512x512 pixel versions.
          * @summary Get picture of a person
@@ -910,6 +1083,9 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
          */
         getPersonPicture(requestParameters: PersonsApiGetPersonPictureRequest, ): Promise<GetPersonPictureResponse> {
             return localVarFp.getPersonPicture(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        getPersonPictureWithHttpInfo(requestParameters: PersonsApiGetPersonPictureRequest, ): Promise<ApiResponse<GetPersonPictureResponse>> {
+            return localVarFp.getPersonPictureWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns data about all persons. Fields `ims`, `postal_address`, `notes`, `birthday`, and `job_title` are only included if contact sync is enabled for the company.
@@ -921,6 +1097,9 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
         getPersons(requestParameters: PersonsApiGetPersonsRequest = {}, ): Promise<GetPersonsResponse> {
             return localVarFp.getPersons(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.org_id, requestParameters.deal_id, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.include_option_labels, requestParameters.include_labels, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
+        getPersonsWithHttpInfo(requestParameters: PersonsApiGetPersonsRequest = {}, ): Promise<ApiResponse<GetPersonsResponse>> {
+            return localVarFp.getPersonsWithHttpInfo(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.org_id, requestParameters.deal_id, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.include_option_labels, requestParameters.include_labels, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
         /**
          * Searches all persons by name, email, phone, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found persons can be filtered by organization ID.
          * @summary Search persons
@@ -931,6 +1110,9 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
         searchPersons(requestParameters: PersonsApiSearchPersonsRequest, ): Promise<GetPersonSearchResponse> {
             return localVarFp.searchPersons(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.organization_id, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
+        searchPersonsWithHttpInfo(requestParameters: PersonsApiSearchPersonsRequest, ): Promise<ApiResponse<GetPersonSearchResponse>> {
+            return localVarFp.searchPersonsWithHttpInfo(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.organization_id, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates the properties of a person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don\'t exist by default in Pipedrive and are only created when you set up your contact sync — attempting to set any of them without contact sync enabled returns a 403.
          * @summary Update a person
@@ -940,6 +1122,9 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
          */
         updatePerson(requestParameters: PersonsApiUpdatePersonRequest, ): Promise<UpsertPersonResponse> {
             return localVarFp.updatePerson(requestParameters.id, requestParameters.UpdatePersonRequest, ).then((request) => request(axios, basePath));
+        },
+        updatePersonWithHttpInfo(requestParameters: PersonsApiUpdatePersonRequest, ): Promise<ApiResponse<UpsertPersonResponse>> {
+            return localVarFp.updatePersonWithHttpInfo(requestParameters.id, requestParameters.UpdatePersonRequest, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1335,6 +1520,18 @@ export class PersonsApi extends BaseAPI {
     }
 
     /**
+     * Same as `addPerson`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonsApiAddPersonRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public addPersonWithHttpInfo(requestParameters: PersonsApiAddPersonRequest = {}, ) {
+        return PersonsApiFp(this.configuration).addPersonWithHttpInfo(requestParameters.AddPersonRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Adds a user as a follower to the person.
      * @summary Add a follower to a person
      * @param {PersonsApiAddPersonFollowerRequest} requestParameters Request parameters.
@@ -1344,6 +1541,18 @@ export class PersonsApi extends BaseAPI {
      */
     public addPersonFollower(requestParameters: PersonsApiAddPersonFollowerRequest, ) {
         return PersonsApiFp(this.configuration).addPersonFollower(requestParameters.id, requestParameters.AddDealFollowerRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `addPersonFollower`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonsApiAddPersonFollowerRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public addPersonFollowerWithHttpInfo(requestParameters: PersonsApiAddPersonFollowerRequest, ) {
+        return PersonsApiFp(this.configuration).addPersonFollowerWithHttpInfo(requestParameters.id, requestParameters.AddDealFollowerRequest, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1359,6 +1568,18 @@ export class PersonsApi extends BaseAPI {
     }
 
     /**
+     * Same as `deletePerson`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonsApiDeletePersonRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public deletePersonWithHttpInfo(requestParameters: PersonsApiDeletePersonRequest, ) {
+        return PersonsApiFp(this.configuration).deletePersonWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Deletes a user follower from the person.
      * @summary Delete a follower from a person
      * @param {PersonsApiDeletePersonFollowerRequest} requestParameters Request parameters.
@@ -1368,6 +1589,18 @@ export class PersonsApi extends BaseAPI {
      */
     public deletePersonFollower(requestParameters: PersonsApiDeletePersonFollowerRequest, ) {
         return PersonsApiFp(this.configuration).deletePersonFollower(requestParameters.id, requestParameters.follower_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deletePersonFollower`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonsApiDeletePersonFollowerRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public deletePersonFollowerWithHttpInfo(requestParameters: PersonsApiDeletePersonFollowerRequest, ) {
+        return PersonsApiFp(this.configuration).deletePersonFollowerWithHttpInfo(requestParameters.id, requestParameters.follower_id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1383,6 +1616,18 @@ export class PersonsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getPerson`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonsApiGetPersonRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public getPersonWithHttpInfo(requestParameters: PersonsApiGetPersonRequest, ) {
+        return PersonsApiFp(this.configuration).getPersonWithHttpInfo(requestParameters.id, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.include_option_labels, requestParameters.include_labels, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Lists users who are following the person.
      * @summary List followers of a person
      * @param {PersonsApiGetPersonFollowersRequest} requestParameters Request parameters.
@@ -1392,6 +1637,18 @@ export class PersonsApi extends BaseAPI {
      */
     public getPersonFollowers(requestParameters: PersonsApiGetPersonFollowersRequest, ) {
         return PersonsApiFp(this.configuration).getPersonFollowers(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getPersonFollowers`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonsApiGetPersonFollowersRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public getPersonFollowersWithHttpInfo(requestParameters: PersonsApiGetPersonFollowersRequest, ) {
+        return PersonsApiFp(this.configuration).getPersonFollowersWithHttpInfo(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1407,6 +1664,18 @@ export class PersonsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getPersonFollowersChangelog`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonsApiGetPersonFollowersChangelogRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public getPersonFollowersChangelogWithHttpInfo(requestParameters: PersonsApiGetPersonFollowersChangelogRequest, ) {
+        return PersonsApiFp(this.configuration).getPersonFollowersChangelogWithHttpInfo(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns the picture associated with a person. The picture URLs include both 128x128 and 512x512 pixel versions.
      * @summary Get picture of a person
      * @param {PersonsApiGetPersonPictureRequest} requestParameters Request parameters.
@@ -1416,6 +1685,18 @@ export class PersonsApi extends BaseAPI {
      */
     public getPersonPicture(requestParameters: PersonsApiGetPersonPictureRequest, ) {
         return PersonsApiFp(this.configuration).getPersonPicture(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getPersonPicture`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonsApiGetPersonPictureRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public getPersonPictureWithHttpInfo(requestParameters: PersonsApiGetPersonPictureRequest, ) {
+        return PersonsApiFp(this.configuration).getPersonPictureWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1431,6 +1712,18 @@ export class PersonsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getPersons`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonsApiGetPersonsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public getPersonsWithHttpInfo(requestParameters: PersonsApiGetPersonsRequest = {}, ) {
+        return PersonsApiFp(this.configuration).getPersonsWithHttpInfo(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.org_id, requestParameters.deal_id, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.include_option_labels, requestParameters.include_labels, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Searches all persons by name, email, phone, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found persons can be filtered by organization ID.
      * @summary Search persons
      * @param {PersonsApiSearchPersonsRequest} requestParameters Request parameters.
@@ -1443,6 +1736,18 @@ export class PersonsApi extends BaseAPI {
     }
 
     /**
+     * Same as `searchPersons`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonsApiSearchPersonsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public searchPersonsWithHttpInfo(requestParameters: PersonsApiSearchPersonsRequest, ) {
+        return PersonsApiFp(this.configuration).searchPersonsWithHttpInfo(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.organization_id, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates the properties of a person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field. <br>The `im`, `postal_address`, `notes`, `birthday` and `job_title` fields don\'t exist by default in Pipedrive and are only created when you set up your contact sync — attempting to set any of them without contact sync enabled returns a 403.
      * @summary Update a person
      * @param {PersonsApiUpdatePersonRequest} requestParameters Request parameters.
@@ -1452,5 +1757,17 @@ export class PersonsApi extends BaseAPI {
      */
     public updatePerson(requestParameters: PersonsApiUpdatePersonRequest, ) {
         return PersonsApiFp(this.configuration).updatePerson(requestParameters.id, requestParameters.UpdatePersonRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updatePerson`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonsApiUpdatePersonRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public updatePersonWithHttpInfo(requestParameters: PersonsApiUpdatePersonRequest, ) {
+        return PersonsApiFp(this.configuration).updatePersonWithHttpInfo(requestParameters.id, requestParameters.UpdatePersonRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

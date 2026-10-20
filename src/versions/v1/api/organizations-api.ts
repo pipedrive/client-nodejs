@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddOrganizationFollowerRequest } from '../models';
 // @ts-ignore
@@ -514,6 +514,18 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addOrganizationFollower`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a follower to an organization
+         * @param {number} id The ID of the organization
+         * @param {AddOrganizationFollowerRequest} [AddOrganizationFollowerRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addOrganizationFollowerWithHttpInfo(id: number, AddOrganizationFollowerRequest?: AddOrganizationFollowerRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddOrganizationFollowerResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addOrganizationFollower(id, AddOrganizationFollowerRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Deletes a follower from an organization. You can retrieve the `follower_id` from the <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#getOrganizationFollowers\">List followers of an organization</a> endpoint.
          * @summary Delete a follower from an organization
          * @param {number} id The ID of the organization
@@ -524,6 +536,18 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
         async deleteOrganizationFollower(id: number, follower_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteOrganizationFollowerResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteOrganizationFollower(id, follower_id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deleteOrganizationFollower`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a follower from an organization
+         * @param {number} id The ID of the organization
+         * @param {number} follower_id The ID of the relationship between the follower and the organization
+
+         * @throws {RequiredError}
+         */
+        async deleteOrganizationFollowerWithHttpInfo(id: number, follower_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteOrganizationFollowerResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteOrganizationFollower(id, follower_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Lists updates about field values of an organization.
@@ -537,6 +561,19 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
         async getOrganizationChangelog(id: number, cursor?: string, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetChangelogResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationChangelog(id, cursor, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getOrganizationChangelog`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List updates about organization field values
+         * @param {number} id The ID of the organization
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+         * @param {number} [limit] Items shown per page
+
+         * @throws {RequiredError}
+         */
+        async getOrganizationChangelogWithHttpInfo(id: number, cursor?: string, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetChangelogResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationChangelog(id, cursor, limit, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Lists files associated with an organization.
@@ -553,6 +590,20 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getOrganizationFiles`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List files attached to an organization
+         * @param {number} id The ID of the organization
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] Items shown per page. Please note that a maximum value of 100 is allowed.
+         * @param {string} [sort] Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;
+
+         * @throws {RequiredError}
+         */
+        async getOrganizationFilesWithHttpInfo(id: number, start?: number, limit?: number, sort?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetAssociatedFilesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationFiles(id, start, limit, sort, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Lists the followers of an organization.
          * @summary List followers of an organization
          * @param {number} id The ID of the organization
@@ -562,6 +613,17 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
         async getOrganizationFollowers(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetAssociatedFollowersResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationFollowers(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getOrganizationFollowers`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List followers of an organization
+         * @param {number} id The ID of the organization
+
+         * @throws {RequiredError}
+         */
+        async getOrganizationFollowersWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetAssociatedFollowersResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationFollowers(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Lists mail messages associated with an organization.
@@ -576,6 +638,20 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
         async getOrganizationMailMessages(id: number, start?: number, limit?: number, include_body?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetAssociatedMailMessagesResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationMailMessages(id, start, limit, include_body, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getOrganizationMailMessages`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List mail messages associated with an organization
+         * @param {number} id The ID of the organization
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] Items shown per page
+         * @param {0 | 1} [include_body] Whether to include the mail message body content in the response. &#x60;0&#x60; &#x3D; Don\&#39;t include, &#x60;1&#x60; &#x3D; Include.
+
+         * @throws {RequiredError}
+         */
+        async getOrganizationMailMessagesWithHttpInfo(id: number, start?: number, limit?: number, include_body?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetAssociatedMailMessagesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationMailMessages(id, start, limit, include_body, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Lists updates about an organization.
@@ -593,6 +669,21 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getOrganizationUpdates`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List updates about an organization
+         * @param {number} id The ID of the organization
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] Items shown per page
+         * @param {string} [all_changes] Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted, returns changes without custom field updates.
+         * @param {Set<string>} [items] A comma-separated string for filtering out item specific updates. (Possible values - activity, plannedActivity, note, file, change, deal, follower, participant, mailMessage, mailMessageWithAttachment, invoice, activityFile, document).
+
+         * @throws {RequiredError}
+         */
+        async getOrganizationUpdatesWithHttpInfo(id: number, start?: number, limit?: number, all_changes?: string, items?: Set<string>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetAssociatedOrganizationUpdatesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationUpdates(id, start, limit, all_changes, items, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * List users permitted to access an organization.
          * @summary List permitted users
          * @param {number} id The ID of the organization
@@ -602,6 +693,17 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
         async getOrganizationUsers(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPermittedUsersResponse1>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationUsers(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getOrganizationUsers`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List permitted users
+         * @param {number} id The ID of the organization
+
+         * @throws {RequiredError}
+         */
+        async getOrganizationUsersWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetPermittedUsersResponse1>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationUsers(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Merges an organization with another organization. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/merging-two-organizations\" target=\"_blank\" rel=\"noopener noreferrer\">merging two organizations</a>.
@@ -614,6 +716,18 @@ export const OrganizationsApiFp = function(configuration?: Configuration) {
         async mergeOrganizations(id: number, MergeOrganizationsRequest?: MergeOrganizationsRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<MergeOrganizationsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.mergeOrganizations(id, MergeOrganizationsRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `mergeOrganizations`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Merge two organizations
+         * @param {number} id The ID of the organization
+         * @param {MergeOrganizationsRequest} [MergeOrganizationsRequest] 
+
+         * @throws {RequiredError}
+         */
+        async mergeOrganizationsWithHttpInfo(id: number, MergeOrganizationsRequest?: MergeOrganizationsRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<MergeOrganizationsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.mergeOrganizations(id, MergeOrganizationsRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -635,6 +749,9 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
         addOrganizationFollower(requestParameters: OrganizationsApiAddOrganizationFollowerRequest, ): Promise<AddOrganizationFollowerResponse> {
             return localVarFp.addOrganizationFollower(requestParameters.id, requestParameters.AddOrganizationFollowerRequest, ).then((request) => request(axios, basePath));
         },
+        addOrganizationFollowerWithHttpInfo(requestParameters: OrganizationsApiAddOrganizationFollowerRequest, ): Promise<ApiResponse<AddOrganizationFollowerResponse>> {
+            return localVarFp.addOrganizationFollowerWithHttpInfo(requestParameters.id, requestParameters.AddOrganizationFollowerRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Deletes a follower from an organization. You can retrieve the `follower_id` from the <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#getOrganizationFollowers\">List followers of an organization</a> endpoint.
          * @summary Delete a follower from an organization
@@ -644,6 +761,9 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
          */
         deleteOrganizationFollower(requestParameters: OrganizationsApiDeleteOrganizationFollowerRequest, ): Promise<DeleteOrganizationFollowerResponse> {
             return localVarFp.deleteOrganizationFollower(requestParameters.id, requestParameters.follower_id, ).then((request) => request(axios, basePath));
+        },
+        deleteOrganizationFollowerWithHttpInfo(requestParameters: OrganizationsApiDeleteOrganizationFollowerRequest, ): Promise<ApiResponse<DeleteOrganizationFollowerResponse>> {
+            return localVarFp.deleteOrganizationFollowerWithHttpInfo(requestParameters.id, requestParameters.follower_id, ).then((request) => request(axios, basePath));
         },
         /**
          * Lists updates about field values of an organization.
@@ -655,6 +775,9 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
         getOrganizationChangelog(requestParameters: OrganizationsApiGetOrganizationChangelogRequest, ): Promise<GetChangelogResponse> {
             return localVarFp.getOrganizationChangelog(requestParameters.id, requestParameters.cursor, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
+        getOrganizationChangelogWithHttpInfo(requestParameters: OrganizationsApiGetOrganizationChangelogRequest, ): Promise<ApiResponse<GetChangelogResponse>> {
+            return localVarFp.getOrganizationChangelogWithHttpInfo(requestParameters.id, requestParameters.cursor, requestParameters.limit, ).then((request) => request(axios, basePath));
+        },
         /**
          * Lists files associated with an organization.
          * @summary List files attached to an organization
@@ -664,6 +787,9 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
          */
         getOrganizationFiles(requestParameters: OrganizationsApiGetOrganizationFilesRequest, ): Promise<GetAssociatedFilesResponse> {
             return localVarFp.getOrganizationFiles(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.sort, ).then((request) => request(axios, basePath));
+        },
+        getOrganizationFilesWithHttpInfo(requestParameters: OrganizationsApiGetOrganizationFilesRequest, ): Promise<ApiResponse<GetAssociatedFilesResponse>> {
+            return localVarFp.getOrganizationFilesWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.sort, ).then((request) => request(axios, basePath));
         },
         /**
          * Lists the followers of an organization.
@@ -675,6 +801,9 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
         getOrganizationFollowers(requestParameters: OrganizationsApiGetOrganizationFollowersRequest, ): Promise<GetAssociatedFollowersResponse> {
             return localVarFp.getOrganizationFollowers(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getOrganizationFollowersWithHttpInfo(requestParameters: OrganizationsApiGetOrganizationFollowersRequest, ): Promise<ApiResponse<GetAssociatedFollowersResponse>> {
+            return localVarFp.getOrganizationFollowersWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Lists mail messages associated with an organization.
          * @summary List mail messages associated with an organization
@@ -684,6 +813,9 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
          */
         getOrganizationMailMessages(requestParameters: OrganizationsApiGetOrganizationMailMessagesRequest, ): Promise<GetAssociatedMailMessagesResponse> {
             return localVarFp.getOrganizationMailMessages(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.include_body, ).then((request) => request(axios, basePath));
+        },
+        getOrganizationMailMessagesWithHttpInfo(requestParameters: OrganizationsApiGetOrganizationMailMessagesRequest, ): Promise<ApiResponse<GetAssociatedMailMessagesResponse>> {
+            return localVarFp.getOrganizationMailMessagesWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.include_body, ).then((request) => request(axios, basePath));
         },
         /**
          * Lists updates about an organization.
@@ -695,6 +827,9 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
         getOrganizationUpdates(requestParameters: OrganizationsApiGetOrganizationUpdatesRequest, ): Promise<GetAssociatedOrganizationUpdatesResponse> {
             return localVarFp.getOrganizationUpdates(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.all_changes, requestParameters.items, ).then((request) => request(axios, basePath));
         },
+        getOrganizationUpdatesWithHttpInfo(requestParameters: OrganizationsApiGetOrganizationUpdatesRequest, ): Promise<ApiResponse<GetAssociatedOrganizationUpdatesResponse>> {
+            return localVarFp.getOrganizationUpdatesWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.all_changes, requestParameters.items, ).then((request) => request(axios, basePath));
+        },
         /**
          * List users permitted to access an organization.
          * @summary List permitted users
@@ -705,6 +840,9 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
         getOrganizationUsers(requestParameters: OrganizationsApiGetOrganizationUsersRequest, ): Promise<GetPermittedUsersResponse1> {
             return localVarFp.getOrganizationUsers(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getOrganizationUsersWithHttpInfo(requestParameters: OrganizationsApiGetOrganizationUsersRequest, ): Promise<ApiResponse<GetPermittedUsersResponse1>> {
+            return localVarFp.getOrganizationUsersWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Merges an organization with another organization. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/merging-two-organizations\" target=\"_blank\" rel=\"noopener noreferrer\">merging two organizations</a>.
          * @summary Merge two organizations
@@ -714,6 +852,9 @@ export const OrganizationsApiFactory = function (configuration?: Configuration, 
          */
         mergeOrganizations(requestParameters: OrganizationsApiMergeOrganizationsRequest, ): Promise<MergeOrganizationsResponse> {
             return localVarFp.mergeOrganizations(requestParameters.id, requestParameters.MergeOrganizationsRequest, ).then((request) => request(axios, basePath));
+        },
+        mergeOrganizationsWithHttpInfo(requestParameters: OrganizationsApiMergeOrganizationsRequest, ): Promise<ApiResponse<MergeOrganizationsResponse>> {
+            return localVarFp.mergeOrganizationsWithHttpInfo(requestParameters.id, requestParameters.MergeOrganizationsRequest, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -969,6 +1110,18 @@ export class OrganizationsApi extends BaseAPI {
     }
 
     /**
+     * Same as `addOrganizationFollower`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {OrganizationsApiAddOrganizationFollowerRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationsApi
+     */
+    public addOrganizationFollowerWithHttpInfo(requestParameters: OrganizationsApiAddOrganizationFollowerRequest, ) {
+        return OrganizationsApiFp(this.configuration).addOrganizationFollowerWithHttpInfo(requestParameters.id, requestParameters.AddOrganizationFollowerRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Deletes a follower from an organization. You can retrieve the `follower_id` from the <a href=\"https://developers.pipedrive.com/docs/api/v1/Organizations#getOrganizationFollowers\">List followers of an organization</a> endpoint.
      * @summary Delete a follower from an organization
      * @param {OrganizationsApiDeleteOrganizationFollowerRequest} requestParameters Request parameters.
@@ -978,6 +1131,18 @@ export class OrganizationsApi extends BaseAPI {
      */
     public deleteOrganizationFollower(requestParameters: OrganizationsApiDeleteOrganizationFollowerRequest, ) {
         return OrganizationsApiFp(this.configuration).deleteOrganizationFollower(requestParameters.id, requestParameters.follower_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteOrganizationFollower`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {OrganizationsApiDeleteOrganizationFollowerRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationsApi
+     */
+    public deleteOrganizationFollowerWithHttpInfo(requestParameters: OrganizationsApiDeleteOrganizationFollowerRequest, ) {
+        return OrganizationsApiFp(this.configuration).deleteOrganizationFollowerWithHttpInfo(requestParameters.id, requestParameters.follower_id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -993,6 +1158,18 @@ export class OrganizationsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getOrganizationChangelog`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {OrganizationsApiGetOrganizationChangelogRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationsApi
+     */
+    public getOrganizationChangelogWithHttpInfo(requestParameters: OrganizationsApiGetOrganizationChangelogRequest, ) {
+        return OrganizationsApiFp(this.configuration).getOrganizationChangelogWithHttpInfo(requestParameters.id, requestParameters.cursor, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Lists files associated with an organization.
      * @summary List files attached to an organization
      * @param {OrganizationsApiGetOrganizationFilesRequest} requestParameters Request parameters.
@@ -1002,6 +1179,18 @@ export class OrganizationsApi extends BaseAPI {
      */
     public getOrganizationFiles(requestParameters: OrganizationsApiGetOrganizationFilesRequest, ) {
         return OrganizationsApiFp(this.configuration).getOrganizationFiles(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.sort, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getOrganizationFiles`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {OrganizationsApiGetOrganizationFilesRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationsApi
+     */
+    public getOrganizationFilesWithHttpInfo(requestParameters: OrganizationsApiGetOrganizationFilesRequest, ) {
+        return OrganizationsApiFp(this.configuration).getOrganizationFilesWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.sort, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1017,6 +1206,18 @@ export class OrganizationsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getOrganizationFollowers`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {OrganizationsApiGetOrganizationFollowersRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationsApi
+     */
+    public getOrganizationFollowersWithHttpInfo(requestParameters: OrganizationsApiGetOrganizationFollowersRequest, ) {
+        return OrganizationsApiFp(this.configuration).getOrganizationFollowersWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Lists mail messages associated with an organization.
      * @summary List mail messages associated with an organization
      * @param {OrganizationsApiGetOrganizationMailMessagesRequest} requestParameters Request parameters.
@@ -1026,6 +1227,18 @@ export class OrganizationsApi extends BaseAPI {
      */
     public getOrganizationMailMessages(requestParameters: OrganizationsApiGetOrganizationMailMessagesRequest, ) {
         return OrganizationsApiFp(this.configuration).getOrganizationMailMessages(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.include_body, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getOrganizationMailMessages`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {OrganizationsApiGetOrganizationMailMessagesRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationsApi
+     */
+    public getOrganizationMailMessagesWithHttpInfo(requestParameters: OrganizationsApiGetOrganizationMailMessagesRequest, ) {
+        return OrganizationsApiFp(this.configuration).getOrganizationMailMessagesWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.include_body, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1041,6 +1254,18 @@ export class OrganizationsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getOrganizationUpdates`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {OrganizationsApiGetOrganizationUpdatesRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationsApi
+     */
+    public getOrganizationUpdatesWithHttpInfo(requestParameters: OrganizationsApiGetOrganizationUpdatesRequest, ) {
+        return OrganizationsApiFp(this.configuration).getOrganizationUpdatesWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.all_changes, requestParameters.items, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * List users permitted to access an organization.
      * @summary List permitted users
      * @param {OrganizationsApiGetOrganizationUsersRequest} requestParameters Request parameters.
@@ -1053,6 +1278,18 @@ export class OrganizationsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getOrganizationUsers`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {OrganizationsApiGetOrganizationUsersRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationsApi
+     */
+    public getOrganizationUsersWithHttpInfo(requestParameters: OrganizationsApiGetOrganizationUsersRequest, ) {
+        return OrganizationsApiFp(this.configuration).getOrganizationUsersWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Merges an organization with another organization. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/merging-two-organizations\" target=\"_blank\" rel=\"noopener noreferrer\">merging two organizations</a>.
      * @summary Merge two organizations
      * @param {OrganizationsApiMergeOrganizationsRequest} requestParameters Request parameters.
@@ -1062,5 +1299,17 @@ export class OrganizationsApi extends BaseAPI {
      */
     public mergeOrganizations(requestParameters: OrganizationsApiMergeOrganizationsRequest, ) {
         return OrganizationsApiFp(this.configuration).mergeOrganizations(requestParameters.id, requestParameters.MergeOrganizationsRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `mergeOrganizations`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {OrganizationsApiMergeOrganizationsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationsApi
+     */
+    public mergeOrganizationsWithHttpInfo(requestParameters: OrganizationsApiMergeOrganizationsRequest, ) {
+        return OrganizationsApiFp(this.configuration).mergeOrganizationsWithHttpInfo(requestParameters.id, requestParameters.MergeOrganizationsRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddOrUpdateRoleSettingRequest } from '../models';
 // @ts-ignore
@@ -618,6 +618,18 @@ export const RolesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addOrUpdateRoleSetting`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add or update role setting
+         * @param {number} id The ID of the role
+         * @param {AddOrUpdateRoleSettingRequest} [AddOrUpdateRoleSettingRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addOrUpdateRoleSettingWithHttpInfo(id: number, AddOrUpdateRoleSettingRequest?: AddOrUpdateRoleSettingRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertRoleSettingsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addOrUpdateRoleSetting(id, AddOrUpdateRoleSettingRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Adds a new role.
          * @summary Add a role
          * @param {AddRoleRequest} [AddRoleRequest] 
@@ -627,6 +639,17 @@ export const RolesApiFp = function(configuration?: Configuration) {
         async addRole(AddRoleRequest?: AddRoleRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddRolesResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addRole(AddRoleRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `addRole`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a role
+         * @param {AddRoleRequest} [AddRoleRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addRoleWithHttpInfo(AddRoleRequest?: AddRoleRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddRolesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addRole(AddRoleRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Assigns a user to a role.
@@ -641,6 +664,18 @@ export const RolesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addRoleAssignment`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add role assignment
+         * @param {number} id The ID of the role
+         * @param {AddRoleAssignmentRequest} [AddRoleAssignmentRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addRoleAssignmentWithHttpInfo(id: number, AddRoleAssignmentRequest?: AddRoleAssignmentRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddRoleAssignmentResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addRoleAssignment(id, AddRoleAssignmentRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Marks a role as deleted.
          * @summary Delete a role
          * @param {number} id The ID of the role
@@ -650,6 +685,17 @@ export const RolesApiFp = function(configuration?: Configuration) {
         async deleteRole(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteRoleResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteRole(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deleteRole`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a role
+         * @param {number} id The ID of the role
+
+         * @throws {RequiredError}
+         */
+        async deleteRoleWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteRoleResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteRole(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Removes the assigned user from a role and adds to the default role.
@@ -664,6 +710,18 @@ export const RolesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deleteRoleAssignment`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a role assignment
+         * @param {number} id The ID of the role
+         * @param {DeleteRoleAssignmentRequest} [DeleteRoleAssignmentRequest] 
+
+         * @throws {RequiredError}
+         */
+        async deleteRoleAssignmentWithHttpInfo(id: number, DeleteRoleAssignmentRequest?: DeleteRoleAssignmentRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteRoleAssignmentResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteRoleAssignment(id, DeleteRoleAssignmentRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns the details of a specific role.
          * @summary Get one role
          * @param {number} id The ID of the role
@@ -673,6 +731,17 @@ export const RolesApiFp = function(configuration?: Configuration) {
         async getRole(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetRoleResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRole(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getRole`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get one role
+         * @param {number} id The ID of the role
+
+         * @throws {RequiredError}
+         */
+        async getRoleWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetRoleResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRole(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns all users assigned to a role.
@@ -688,6 +757,19 @@ export const RolesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getRoleAssignments`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List role assignments
+         * @param {number} id The ID of the role
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] Items shown per page
+
+         * @throws {RequiredError}
+         */
+        async getRoleAssignmentsWithHttpInfo(id: number, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetRoleAssignmentsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleAssignments(id, start, limit, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns the list of either visible or hidden pipeline IDs for a specific role. For more information on pipeline visibility, please refer to the <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">Visibility groups article</a>.
          * @summary List pipeline visibility for a role
          * @param {number} id The ID of the role
@@ -700,6 +782,18 @@ export const RolesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getRolePipelines`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List pipeline visibility for a role
+         * @param {number} id The ID of the role
+         * @param {boolean} [visible] Whether to return the visible or hidden pipelines for the role
+
+         * @throws {RequiredError}
+         */
+        async getRolePipelinesWithHttpInfo(id: number, visible?: boolean, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetRolePipelinesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRolePipelines(id, visible, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns the visibility settings of a specific role.
          * @summary List role settings
          * @param {number} id The ID of the role
@@ -709,6 +803,17 @@ export const RolesApiFp = function(configuration?: Configuration) {
         async getRoleSettings(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetRoleSettingsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleSettings(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getRoleSettings`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List role settings
+         * @param {number} id The ID of the role
+
+         * @throws {RequiredError}
+         */
+        async getRoleSettingsWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetRoleSettingsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleSettings(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns all the roles within the company.
@@ -723,6 +828,18 @@ export const RolesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getRoles`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all roles
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] Items shown per page
+
+         * @throws {RequiredError}
+         */
+        async getRolesWithHttpInfo(start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetRolesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoles(start, limit, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates the parent role and/or the name of a specific role.
          * @summary Update role details
          * @param {number} id The ID of the role
@@ -735,6 +852,18 @@ export const RolesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `updateRole`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update role details
+         * @param {number} id The ID of the role
+         * @param {BaseRoleRequest} [BaseRoleRequest] 
+
+         * @throws {RequiredError}
+         */
+        async updateRoleWithHttpInfo(id: number, BaseRoleRequest?: BaseRoleRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpdateRoleResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateRole(id, BaseRoleRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates the specified pipelines to be visible and/or hidden for a specific role. For more information on pipeline visibility, please refer to the <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">Visibility groups article</a>.
          * @summary Update pipeline visibility for a role
          * @param {number} id The ID of the role
@@ -745,6 +874,18 @@ export const RolesApiFp = function(configuration?: Configuration) {
         async updateRolePipelines(id: number, PutRolePipelinesBody?: PutRolePipelinesBody, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetRolePipelinesResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateRolePipelines(id, PutRolePipelinesBody, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateRolePipelines`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update pipeline visibility for a role
+         * @param {number} id The ID of the role
+         * @param {PutRolePipelinesBody} [PutRolePipelinesBody] 
+
+         * @throws {RequiredError}
+         */
+        async updateRolePipelinesWithHttpInfo(id: number, PutRolePipelinesBody?: PutRolePipelinesBody, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetRolePipelinesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateRolePipelines(id, PutRolePipelinesBody, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -766,6 +907,9 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
         addOrUpdateRoleSetting(requestParameters: RolesApiAddOrUpdateRoleSettingRequest, ): Promise<UpsertRoleSettingsResponse> {
             return localVarFp.addOrUpdateRoleSetting(requestParameters.id, requestParameters.AddOrUpdateRoleSettingRequest, ).then((request) => request(axios, basePath));
         },
+        addOrUpdateRoleSettingWithHttpInfo(requestParameters: RolesApiAddOrUpdateRoleSettingRequest, ): Promise<ApiResponse<UpsertRoleSettingsResponse>> {
+            return localVarFp.addOrUpdateRoleSettingWithHttpInfo(requestParameters.id, requestParameters.AddOrUpdateRoleSettingRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Adds a new role.
          * @summary Add a role
@@ -775,6 +919,9 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
          */
         addRole(requestParameters: RolesApiAddRoleRequest = {}, ): Promise<AddRolesResponse> {
             return localVarFp.addRole(requestParameters.AddRoleRequest, ).then((request) => request(axios, basePath));
+        },
+        addRoleWithHttpInfo(requestParameters: RolesApiAddRoleRequest = {}, ): Promise<ApiResponse<AddRolesResponse>> {
+            return localVarFp.addRoleWithHttpInfo(requestParameters.AddRoleRequest, ).then((request) => request(axios, basePath));
         },
         /**
          * Assigns a user to a role.
@@ -786,6 +933,9 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
         addRoleAssignment(requestParameters: RolesApiAddRoleAssignmentRequest, ): Promise<AddRoleAssignmentResponse> {
             return localVarFp.addRoleAssignment(requestParameters.id, requestParameters.AddRoleAssignmentRequest, ).then((request) => request(axios, basePath));
         },
+        addRoleAssignmentWithHttpInfo(requestParameters: RolesApiAddRoleAssignmentRequest, ): Promise<ApiResponse<AddRoleAssignmentResponse>> {
+            return localVarFp.addRoleAssignmentWithHttpInfo(requestParameters.id, requestParameters.AddRoleAssignmentRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Marks a role as deleted.
          * @summary Delete a role
@@ -795,6 +945,9 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
          */
         deleteRole(requestParameters: RolesApiDeleteRoleRequest, ): Promise<DeleteRoleResponse> {
             return localVarFp.deleteRole(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        deleteRoleWithHttpInfo(requestParameters: RolesApiDeleteRoleRequest, ): Promise<ApiResponse<DeleteRoleResponse>> {
+            return localVarFp.deleteRoleWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Removes the assigned user from a role and adds to the default role.
@@ -806,6 +959,9 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
         deleteRoleAssignment(requestParameters: RolesApiDeleteRoleAssignmentRequest, ): Promise<DeleteRoleAssignmentResponse> {
             return localVarFp.deleteRoleAssignment(requestParameters.id, requestParameters.DeleteRoleAssignmentRequest, ).then((request) => request(axios, basePath));
         },
+        deleteRoleAssignmentWithHttpInfo(requestParameters: RolesApiDeleteRoleAssignmentRequest, ): Promise<ApiResponse<DeleteRoleAssignmentResponse>> {
+            return localVarFp.deleteRoleAssignmentWithHttpInfo(requestParameters.id, requestParameters.DeleteRoleAssignmentRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns the details of a specific role.
          * @summary Get one role
@@ -815,6 +971,9 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
          */
         getRole(requestParameters: RolesApiGetRoleRequest, ): Promise<GetRoleResponse> {
             return localVarFp.getRole(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        getRoleWithHttpInfo(requestParameters: RolesApiGetRoleRequest, ): Promise<ApiResponse<GetRoleResponse>> {
+            return localVarFp.getRoleWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns all users assigned to a role.
@@ -826,6 +985,9 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
         getRoleAssignments(requestParameters: RolesApiGetRoleAssignmentsRequest, ): Promise<GetRoleAssignmentsResponse> {
             return localVarFp.getRoleAssignments(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
+        getRoleAssignmentsWithHttpInfo(requestParameters: RolesApiGetRoleAssignmentsRequest, ): Promise<ApiResponse<GetRoleAssignmentsResponse>> {
+            return localVarFp.getRoleAssignmentsWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns the list of either visible or hidden pipeline IDs for a specific role. For more information on pipeline visibility, please refer to the <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">Visibility groups article</a>.
          * @summary List pipeline visibility for a role
@@ -835,6 +997,9 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
          */
         getRolePipelines(requestParameters: RolesApiGetRolePipelinesRequest, ): Promise<GetRolePipelinesResponse> {
             return localVarFp.getRolePipelines(requestParameters.id, requestParameters.visible, ).then((request) => request(axios, basePath));
+        },
+        getRolePipelinesWithHttpInfo(requestParameters: RolesApiGetRolePipelinesRequest, ): Promise<ApiResponse<GetRolePipelinesResponse>> {
+            return localVarFp.getRolePipelinesWithHttpInfo(requestParameters.id, requestParameters.visible, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns the visibility settings of a specific role.
@@ -846,6 +1011,9 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
         getRoleSettings(requestParameters: RolesApiGetRoleSettingsRequest, ): Promise<GetRoleSettingsResponse> {
             return localVarFp.getRoleSettings(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getRoleSettingsWithHttpInfo(requestParameters: RolesApiGetRoleSettingsRequest, ): Promise<ApiResponse<GetRoleSettingsResponse>> {
+            return localVarFp.getRoleSettingsWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns all the roles within the company.
          * @summary Get all roles
@@ -855,6 +1023,9 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
          */
         getRoles(requestParameters: RolesApiGetRolesRequest = {}, ): Promise<GetRolesResponse> {
             return localVarFp.getRoles(requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
+        },
+        getRolesWithHttpInfo(requestParameters: RolesApiGetRolesRequest = {}, ): Promise<ApiResponse<GetRolesResponse>> {
+            return localVarFp.getRolesWithHttpInfo(requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
         /**
          * Updates the parent role and/or the name of a specific role.
@@ -866,6 +1037,9 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
         updateRole(requestParameters: RolesApiUpdateRoleRequest, ): Promise<UpdateRoleResponse> {
             return localVarFp.updateRole(requestParameters.id, requestParameters.BaseRoleRequest, ).then((request) => request(axios, basePath));
         },
+        updateRoleWithHttpInfo(requestParameters: RolesApiUpdateRoleRequest, ): Promise<ApiResponse<UpdateRoleResponse>> {
+            return localVarFp.updateRoleWithHttpInfo(requestParameters.id, requestParameters.BaseRoleRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates the specified pipelines to be visible and/or hidden for a specific role. For more information on pipeline visibility, please refer to the <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">Visibility groups article</a>.
          * @summary Update pipeline visibility for a role
@@ -875,6 +1049,9 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
          */
         updateRolePipelines(requestParameters: RolesApiUpdateRolePipelinesRequest, ): Promise<GetRolePipelinesResponse> {
             return localVarFp.updateRolePipelines(requestParameters.id, requestParameters.PutRolePipelinesBody, ).then((request) => request(axios, basePath));
+        },
+        updateRolePipelinesWithHttpInfo(requestParameters: RolesApiUpdateRolePipelinesRequest, ): Promise<ApiResponse<GetRolePipelinesResponse>> {
+            return localVarFp.updateRolePipelinesWithHttpInfo(requestParameters.id, requestParameters.PutRolePipelinesBody, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1130,6 +1307,18 @@ export class RolesApi extends BaseAPI {
     }
 
     /**
+     * Same as `addOrUpdateRoleSetting`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {RolesApiAddOrUpdateRoleSettingRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof RolesApi
+     */
+    public addOrUpdateRoleSettingWithHttpInfo(requestParameters: RolesApiAddOrUpdateRoleSettingRequest, ) {
+        return RolesApiFp(this.configuration).addOrUpdateRoleSettingWithHttpInfo(requestParameters.id, requestParameters.AddOrUpdateRoleSettingRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Adds a new role.
      * @summary Add a role
      * @param {RolesApiAddRoleRequest} requestParameters Request parameters.
@@ -1139,6 +1328,18 @@ export class RolesApi extends BaseAPI {
      */
     public addRole(requestParameters: RolesApiAddRoleRequest = {}, ) {
         return RolesApiFp(this.configuration).addRole(requestParameters.AddRoleRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `addRole`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {RolesApiAddRoleRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof RolesApi
+     */
+    public addRoleWithHttpInfo(requestParameters: RolesApiAddRoleRequest = {}, ) {
+        return RolesApiFp(this.configuration).addRoleWithHttpInfo(requestParameters.AddRoleRequest, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1154,6 +1355,18 @@ export class RolesApi extends BaseAPI {
     }
 
     /**
+     * Same as `addRoleAssignment`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {RolesApiAddRoleAssignmentRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof RolesApi
+     */
+    public addRoleAssignmentWithHttpInfo(requestParameters: RolesApiAddRoleAssignmentRequest, ) {
+        return RolesApiFp(this.configuration).addRoleAssignmentWithHttpInfo(requestParameters.id, requestParameters.AddRoleAssignmentRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Marks a role as deleted.
      * @summary Delete a role
      * @param {RolesApiDeleteRoleRequest} requestParameters Request parameters.
@@ -1163,6 +1376,18 @@ export class RolesApi extends BaseAPI {
      */
     public deleteRole(requestParameters: RolesApiDeleteRoleRequest, ) {
         return RolesApiFp(this.configuration).deleteRole(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteRole`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {RolesApiDeleteRoleRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof RolesApi
+     */
+    public deleteRoleWithHttpInfo(requestParameters: RolesApiDeleteRoleRequest, ) {
+        return RolesApiFp(this.configuration).deleteRoleWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1178,6 +1403,18 @@ export class RolesApi extends BaseAPI {
     }
 
     /**
+     * Same as `deleteRoleAssignment`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {RolesApiDeleteRoleAssignmentRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof RolesApi
+     */
+    public deleteRoleAssignmentWithHttpInfo(requestParameters: RolesApiDeleteRoleAssignmentRequest, ) {
+        return RolesApiFp(this.configuration).deleteRoleAssignmentWithHttpInfo(requestParameters.id, requestParameters.DeleteRoleAssignmentRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns the details of a specific role.
      * @summary Get one role
      * @param {RolesApiGetRoleRequest} requestParameters Request parameters.
@@ -1187,6 +1424,18 @@ export class RolesApi extends BaseAPI {
      */
     public getRole(requestParameters: RolesApiGetRoleRequest, ) {
         return RolesApiFp(this.configuration).getRole(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getRole`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {RolesApiGetRoleRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof RolesApi
+     */
+    public getRoleWithHttpInfo(requestParameters: RolesApiGetRoleRequest, ) {
+        return RolesApiFp(this.configuration).getRoleWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1202,6 +1451,18 @@ export class RolesApi extends BaseAPI {
     }
 
     /**
+     * Same as `getRoleAssignments`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {RolesApiGetRoleAssignmentsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof RolesApi
+     */
+    public getRoleAssignmentsWithHttpInfo(requestParameters: RolesApiGetRoleAssignmentsRequest, ) {
+        return RolesApiFp(this.configuration).getRoleAssignmentsWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns the list of either visible or hidden pipeline IDs for a specific role. For more information on pipeline visibility, please refer to the <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">Visibility groups article</a>.
      * @summary List pipeline visibility for a role
      * @param {RolesApiGetRolePipelinesRequest} requestParameters Request parameters.
@@ -1211,6 +1472,18 @@ export class RolesApi extends BaseAPI {
      */
     public getRolePipelines(requestParameters: RolesApiGetRolePipelinesRequest, ) {
         return RolesApiFp(this.configuration).getRolePipelines(requestParameters.id, requestParameters.visible, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getRolePipelines`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {RolesApiGetRolePipelinesRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof RolesApi
+     */
+    public getRolePipelinesWithHttpInfo(requestParameters: RolesApiGetRolePipelinesRequest, ) {
+        return RolesApiFp(this.configuration).getRolePipelinesWithHttpInfo(requestParameters.id, requestParameters.visible, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1226,6 +1499,18 @@ export class RolesApi extends BaseAPI {
     }
 
     /**
+     * Same as `getRoleSettings`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {RolesApiGetRoleSettingsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof RolesApi
+     */
+    public getRoleSettingsWithHttpInfo(requestParameters: RolesApiGetRoleSettingsRequest, ) {
+        return RolesApiFp(this.configuration).getRoleSettingsWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns all the roles within the company.
      * @summary Get all roles
      * @param {RolesApiGetRolesRequest} requestParameters Request parameters.
@@ -1235,6 +1520,18 @@ export class RolesApi extends BaseAPI {
      */
     public getRoles(requestParameters: RolesApiGetRolesRequest = {}, ) {
         return RolesApiFp(this.configuration).getRoles(requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getRoles`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {RolesApiGetRolesRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof RolesApi
+     */
+    public getRolesWithHttpInfo(requestParameters: RolesApiGetRolesRequest = {}, ) {
+        return RolesApiFp(this.configuration).getRolesWithHttpInfo(requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1250,6 +1547,18 @@ export class RolesApi extends BaseAPI {
     }
 
     /**
+     * Same as `updateRole`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {RolesApiUpdateRoleRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof RolesApi
+     */
+    public updateRoleWithHttpInfo(requestParameters: RolesApiUpdateRoleRequest, ) {
+        return RolesApiFp(this.configuration).updateRoleWithHttpInfo(requestParameters.id, requestParameters.BaseRoleRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates the specified pipelines to be visible and/or hidden for a specific role. For more information on pipeline visibility, please refer to the <a href=\"https://support.pipedrive.com/en/article/visibility-groups\" target=\"_blank\" rel=\"noopener noreferrer\">Visibility groups article</a>.
      * @summary Update pipeline visibility for a role
      * @param {RolesApiUpdateRolePipelinesRequest} requestParameters Request parameters.
@@ -1259,5 +1568,17 @@ export class RolesApi extends BaseAPI {
      */
     public updateRolePipelines(requestParameters: RolesApiUpdateRolePipelinesRequest, ) {
         return RolesApiFp(this.configuration).updateRolePipelines(requestParameters.id, requestParameters.PutRolePipelinesBody, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateRolePipelines`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {RolesApiUpdateRolePipelinesRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof RolesApi
+     */
+    public updateRolePipelinesWithHttpInfo(requestParameters: RolesApiUpdateRolePipelinesRequest, ) {
+        return RolesApiFp(this.configuration).updateRolePipelinesWithHttpInfo(requestParameters.id, requestParameters.PutRolePipelinesBody, ).then((request) => request(this.axios, this.basePath));
     }
 }

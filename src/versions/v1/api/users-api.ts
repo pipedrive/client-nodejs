@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddUserRequest } from '../models';
 // @ts-ignore
@@ -496,6 +496,17 @@ export const UsersApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addUser`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a new user
+         * @param {AddUserRequest} [AddUserRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addUserWithHttpInfo(AddUserRequest?: AddUserRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetUserResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addUser(AddUserRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Finds users by their name.
          * @summary Find users by name
          * @param {string} term The search term to look for
@@ -508,6 +519,18 @@ export const UsersApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `findUsersByName`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Find users by name
+         * @param {string} term The search term to look for
+         * @param {0 | 1} [search_by_email] When enabled, the term will only be matched against email addresses of users. Default: &#x60;false&#x60;.
+
+         * @throws {RequiredError}
+         */
+        async findUsersByNameWithHttpInfo(term: string, search_by_email?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetUsersResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.findUsersByName(term, search_by_email, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns data about an authorized user within the company with bound company data: company ID, company name, and domain. Note that the `locale` property means \'Date/number format\' in the Pipedrive account settings, not the chosen language.
          * @summary Get current user data
 
@@ -516,6 +539,16 @@ export const UsersApiFp = function(configuration?: Configuration) {
         async getCurrentUser(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetCurrentUserResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCurrentUser();
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getCurrentUser`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get current user data
+
+         * @throws {RequiredError}
+         */
+        async getCurrentUserWithHttpInfo(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetCurrentUserResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCurrentUser();
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns data about a specific user within the company.
@@ -529,6 +562,17 @@ export const UsersApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getUser`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get one user
+         * @param {number} id The ID of the user
+
+         * @throws {RequiredError}
+         */
+        async getUserWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetUserResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUser(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Lists the followers of a specific user.
          * @summary List followers of a user
          * @param {number} id The ID of the user
@@ -540,6 +584,17 @@ export const UsersApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getUserFollowers`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List followers of a user
+         * @param {number} id The ID of the user
+
+         * @throws {RequiredError}
+         */
+        async getUserFollowersWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UserIds>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUserFollowers(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Lists aggregated permissions over all assigned permission sets for a user.
          * @summary List user permissions
          * @param {number} id The ID of the user
@@ -549,6 +604,17 @@ export const UsersApiFp = function(configuration?: Configuration) {
         async getUserPermissions(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetUserPermissionsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUserPermissions(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getUserPermissions`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List user permissions
+         * @param {number} id The ID of the user
+
+         * @throws {RequiredError}
+         */
+        async getUserPermissionsWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetUserPermissionsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUserPermissions(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Lists role assignments for a user.
@@ -564,6 +630,19 @@ export const UsersApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getUserRoleAssignments`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List role assignments
+         * @param {number} id The ID of the user
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] Items shown per page
+
+         * @throws {RequiredError}
+         */
+        async getUserRoleAssignmentsWithHttpInfo(id: number, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetRoleAssignmentsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUserRoleAssignments(id, start, limit, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Lists the settings of user\'s assigned role.
          * @summary List user role settings
          * @param {number} id The ID of the user
@@ -573,6 +652,17 @@ export const UsersApiFp = function(configuration?: Configuration) {
         async getUserRoleSettings(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetRoleSettingsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUserRoleSettings(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getUserRoleSettings`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List user role settings
+         * @param {number} id The ID of the user
+
+         * @throws {RequiredError}
+         */
+        async getUserRoleSettingsWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetRoleSettingsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUserRoleSettings(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns data about all users within the company.
@@ -585,6 +675,16 @@ export const UsersApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getUsers`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all users
+
+         * @throws {RequiredError}
+         */
+        async getUsersWithHttpInfo(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetUsersResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUsers();
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates the properties of a user. Currently, only `active_flag` can be updated.
          * @summary Update user details
          * @param {number} id The ID of the user
@@ -595,6 +695,18 @@ export const UsersApiFp = function(configuration?: Configuration) {
         async updateUser(id: number, UpdateUserRequest?: UpdateUserRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetUserResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateUser(id, UpdateUserRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateUser`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update user details
+         * @param {number} id The ID of the user
+         * @param {UpdateUserRequest} [UpdateUserRequest] 
+
+         * @throws {RequiredError}
+         */
+        async updateUserWithHttpInfo(id: number, UpdateUserRequest?: UpdateUserRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetUserResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateUser(id, UpdateUserRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -616,6 +728,9 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
         addUser(requestParameters: UsersApiAddUserRequest = {}, ): Promise<GetUserResponse> {
             return localVarFp.addUser(requestParameters.AddUserRequest, ).then((request) => request(axios, basePath));
         },
+        addUserWithHttpInfo(requestParameters: UsersApiAddUserRequest = {}, ): Promise<ApiResponse<GetUserResponse>> {
+            return localVarFp.addUserWithHttpInfo(requestParameters.AddUserRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Finds users by their name.
          * @summary Find users by name
@@ -626,6 +741,9 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
         findUsersByName(requestParameters: UsersApiFindUsersByNameRequest, ): Promise<GetUsersResponse> {
             return localVarFp.findUsersByName(requestParameters.term, requestParameters.search_by_email, ).then((request) => request(axios, basePath));
         },
+        findUsersByNameWithHttpInfo(requestParameters: UsersApiFindUsersByNameRequest, ): Promise<ApiResponse<GetUsersResponse>> {
+            return localVarFp.findUsersByNameWithHttpInfo(requestParameters.term, requestParameters.search_by_email, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns data about an authorized user within the company with bound company data: company ID, company name, and domain. Note that the `locale` property means \'Date/number format\' in the Pipedrive account settings, not the chosen language.
          * @summary Get current user data
@@ -634,6 +752,9 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          */
         getCurrentUser(): Promise<GetCurrentUserResponse> {
             return localVarFp.getCurrentUser().then((request) => request(axios, basePath));
+        },
+        getCurrentUserWithHttpInfo(): Promise<ApiResponse<GetCurrentUserResponse>> {
+            return localVarFp.getCurrentUserWithHttpInfo().then((request) => request(axios, basePath));
         },
         /**
          * Returns data about a specific user within the company.
@@ -645,6 +766,9 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
         getUser(requestParameters: UsersApiGetUserRequest, ): Promise<GetUserResponse> {
             return localVarFp.getUser(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getUserWithHttpInfo(requestParameters: UsersApiGetUserRequest, ): Promise<ApiResponse<GetUserResponse>> {
+            return localVarFp.getUserWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Lists the followers of a specific user.
          * @summary List followers of a user
@@ -654,6 +778,9 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          */
         getUserFollowers(requestParameters: UsersApiGetUserFollowersRequest, ): Promise<UserIds> {
             return localVarFp.getUserFollowers(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        getUserFollowersWithHttpInfo(requestParameters: UsersApiGetUserFollowersRequest, ): Promise<ApiResponse<UserIds>> {
+            return localVarFp.getUserFollowersWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Lists aggregated permissions over all assigned permission sets for a user.
@@ -665,6 +792,9 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
         getUserPermissions(requestParameters: UsersApiGetUserPermissionsRequest, ): Promise<GetUserPermissionsResponse> {
             return localVarFp.getUserPermissions(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getUserPermissionsWithHttpInfo(requestParameters: UsersApiGetUserPermissionsRequest, ): Promise<ApiResponse<GetUserPermissionsResponse>> {
+            return localVarFp.getUserPermissionsWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Lists role assignments for a user.
          * @summary List role assignments
@@ -674,6 +804,9 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          */
         getUserRoleAssignments(requestParameters: UsersApiGetUserRoleAssignmentsRequest, ): Promise<GetRoleAssignmentsResponse> {
             return localVarFp.getUserRoleAssignments(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
+        },
+        getUserRoleAssignmentsWithHttpInfo(requestParameters: UsersApiGetUserRoleAssignmentsRequest, ): Promise<ApiResponse<GetRoleAssignmentsResponse>> {
+            return localVarFp.getUserRoleAssignmentsWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
         /**
          * Lists the settings of user\'s assigned role.
@@ -685,6 +818,9 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
         getUserRoleSettings(requestParameters: UsersApiGetUserRoleSettingsRequest, ): Promise<GetRoleSettingsResponse> {
             return localVarFp.getUserRoleSettings(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getUserRoleSettingsWithHttpInfo(requestParameters: UsersApiGetUserRoleSettingsRequest, ): Promise<ApiResponse<GetRoleSettingsResponse>> {
+            return localVarFp.getUserRoleSettingsWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns data about all users within the company.
          * @summary Get all users
@@ -693,6 +829,9 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          */
         getUsers(): Promise<GetUsersResponse> {
             return localVarFp.getUsers().then((request) => request(axios, basePath));
+        },
+        getUsersWithHttpInfo(): Promise<ApiResponse<GetUsersResponse>> {
+            return localVarFp.getUsersWithHttpInfo().then((request) => request(axios, basePath));
         },
         /**
          * Updates the properties of a user. Currently, only `active_flag` can be updated.
@@ -703,6 +842,9 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          */
         updateUser(requestParameters: UsersApiUpdateUserRequest, ): Promise<GetUserResponse> {
             return localVarFp.updateUser(requestParameters.id, requestParameters.UpdateUserRequest, ).then((request) => request(axios, basePath));
+        },
+        updateUserWithHttpInfo(requestParameters: UsersApiUpdateUserRequest, ): Promise<ApiResponse<GetUserResponse>> {
+            return localVarFp.updateUserWithHttpInfo(requestParameters.id, requestParameters.UpdateUserRequest, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -867,6 +1009,18 @@ export class UsersApi extends BaseAPI {
     }
 
     /**
+     * Same as `addUser`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {UsersApiAddUserRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public addUserWithHttpInfo(requestParameters: UsersApiAddUserRequest = {}, ) {
+        return UsersApiFp(this.configuration).addUserWithHttpInfo(requestParameters.AddUserRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Finds users by their name.
      * @summary Find users by name
      * @param {UsersApiFindUsersByNameRequest} requestParameters Request parameters.
@@ -879,6 +1033,18 @@ export class UsersApi extends BaseAPI {
     }
 
     /**
+     * Same as `findUsersByName`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {UsersApiFindUsersByNameRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public findUsersByNameWithHttpInfo(requestParameters: UsersApiFindUsersByNameRequest, ) {
+        return UsersApiFp(this.configuration).findUsersByNameWithHttpInfo(requestParameters.term, requestParameters.search_by_email, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns data about an authorized user within the company with bound company data: company ID, company name, and domain. Note that the `locale` property means \'Date/number format\' in the Pipedrive account settings, not the chosen language.
      * @summary Get current user data
 
@@ -887,6 +1053,17 @@ export class UsersApi extends BaseAPI {
      */
     public getCurrentUser() {
         return UsersApiFp(this.configuration).getCurrentUser().then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getCurrentUser`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public getCurrentUserWithHttpInfo() {
+        return UsersApiFp(this.configuration).getCurrentUserWithHttpInfo().then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -902,6 +1079,18 @@ export class UsersApi extends BaseAPI {
     }
 
     /**
+     * Same as `getUser`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {UsersApiGetUserRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public getUserWithHttpInfo(requestParameters: UsersApiGetUserRequest, ) {
+        return UsersApiFp(this.configuration).getUserWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Lists the followers of a specific user.
      * @summary List followers of a user
      * @param {UsersApiGetUserFollowersRequest} requestParameters Request parameters.
@@ -911,6 +1100,18 @@ export class UsersApi extends BaseAPI {
      */
     public getUserFollowers(requestParameters: UsersApiGetUserFollowersRequest, ) {
         return UsersApiFp(this.configuration).getUserFollowers(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getUserFollowers`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {UsersApiGetUserFollowersRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public getUserFollowersWithHttpInfo(requestParameters: UsersApiGetUserFollowersRequest, ) {
+        return UsersApiFp(this.configuration).getUserFollowersWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -926,6 +1127,18 @@ export class UsersApi extends BaseAPI {
     }
 
     /**
+     * Same as `getUserPermissions`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {UsersApiGetUserPermissionsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public getUserPermissionsWithHttpInfo(requestParameters: UsersApiGetUserPermissionsRequest, ) {
+        return UsersApiFp(this.configuration).getUserPermissionsWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Lists role assignments for a user.
      * @summary List role assignments
      * @param {UsersApiGetUserRoleAssignmentsRequest} requestParameters Request parameters.
@@ -935,6 +1148,18 @@ export class UsersApi extends BaseAPI {
      */
     public getUserRoleAssignments(requestParameters: UsersApiGetUserRoleAssignmentsRequest, ) {
         return UsersApiFp(this.configuration).getUserRoleAssignments(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getUserRoleAssignments`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {UsersApiGetUserRoleAssignmentsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public getUserRoleAssignmentsWithHttpInfo(requestParameters: UsersApiGetUserRoleAssignmentsRequest, ) {
+        return UsersApiFp(this.configuration).getUserRoleAssignmentsWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -950,6 +1175,18 @@ export class UsersApi extends BaseAPI {
     }
 
     /**
+     * Same as `getUserRoleSettings`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {UsersApiGetUserRoleSettingsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public getUserRoleSettingsWithHttpInfo(requestParameters: UsersApiGetUserRoleSettingsRequest, ) {
+        return UsersApiFp(this.configuration).getUserRoleSettingsWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns data about all users within the company.
      * @summary Get all users
 
@@ -958,6 +1195,17 @@ export class UsersApi extends BaseAPI {
      */
     public getUsers() {
         return UsersApiFp(this.configuration).getUsers().then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getUsers`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public getUsersWithHttpInfo() {
+        return UsersApiFp(this.configuration).getUsersWithHttpInfo().then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -970,5 +1218,17 @@ export class UsersApi extends BaseAPI {
      */
     public updateUser(requestParameters: UsersApiUpdateUserRequest, ) {
         return UsersApiFp(this.configuration).updateUser(requestParameters.id, requestParameters.UpdateUserRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateUser`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {UsersApiUpdateUserRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public updateUserWithHttpInfo(requestParameters: UsersApiUpdateUserRequest, ) {
+        return UsersApiFp(this.configuration).updateUserWithHttpInfo(requestParameters.id, requestParameters.UpdateUserRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

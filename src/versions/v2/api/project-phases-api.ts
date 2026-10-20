@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddProjectPhaseRequest } from '../models';
 // @ts-ignore
@@ -274,6 +274,17 @@ export const ProjectPhasesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addProjectPhase`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a project phase
+         * @param {AddProjectPhaseRequest} AddProjectPhaseRequest 
+
+         * @throws {RequiredError}
+         */
+        async addProjectPhaseWithHttpInfo(AddProjectPhaseRequest: AddProjectPhaseRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertProjectPhaseResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addProjectPhase(AddProjectPhaseRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Marks a project phase as deleted.
          * @summary Delete a project phase
          * @param {number} id The ID of the project phase
@@ -283,6 +294,17 @@ export const ProjectPhasesApiFp = function(configuration?: Configuration) {
         async deleteProjectPhase(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteProjectPhaseResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProjectPhase(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deleteProjectPhase`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a project phase
+         * @param {number} id The ID of the project phase
+
+         * @throws {RequiredError}
+         */
+        async deleteProjectPhaseWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteProjectPhaseResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProjectPhase(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns the details of a specific project phase.
@@ -296,6 +318,17 @@ export const ProjectPhasesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getProjectsPhase`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get details of a project phase
+         * @param {number} id The ID of the project phase
+
+         * @throws {RequiredError}
+         */
+        async getProjectsPhaseWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertProjectPhaseResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectsPhase(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns all active project phases under a specific board.
          * @summary Get project phases
          * @param {number} board_id The ID of the board for which phases are requested
@@ -305,6 +338,17 @@ export const ProjectPhasesApiFp = function(configuration?: Configuration) {
         async getProjectsPhases(board_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectPhasesResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectsPhases(board_id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getProjectsPhases`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get project phases
+         * @param {number} board_id The ID of the board for which phases are requested
+
+         * @throws {RequiredError}
+         */
+        async getProjectsPhasesWithHttpInfo(board_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProjectPhasesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectsPhases(board_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Updates the properties of a project phase.
@@ -317,6 +361,18 @@ export const ProjectPhasesApiFp = function(configuration?: Configuration) {
         async updateProjectPhase(id: number, UpdateProjectPhaseRequest?: UpdateProjectPhaseRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertProjectPhaseResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateProjectPhase(id, UpdateProjectPhaseRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateProjectPhase`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update a project phase
+         * @param {number} id The ID of the project phase
+         * @param {UpdateProjectPhaseRequest} [UpdateProjectPhaseRequest] 
+
+         * @throws {RequiredError}
+         */
+        async updateProjectPhaseWithHttpInfo(id: number, UpdateProjectPhaseRequest?: UpdateProjectPhaseRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertProjectPhaseResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProjectPhase(id, UpdateProjectPhaseRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -338,6 +394,9 @@ export const ProjectPhasesApiFactory = function (configuration?: Configuration, 
         addProjectPhase(requestParameters: ProjectPhasesApiAddProjectPhaseRequest, ): Promise<UpsertProjectPhaseResponse> {
             return localVarFp.addProjectPhase(requestParameters.AddProjectPhaseRequest, ).then((request) => request(axios, basePath));
         },
+        addProjectPhaseWithHttpInfo(requestParameters: ProjectPhasesApiAddProjectPhaseRequest, ): Promise<ApiResponse<UpsertProjectPhaseResponse>> {
+            return localVarFp.addProjectPhaseWithHttpInfo(requestParameters.AddProjectPhaseRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Marks a project phase as deleted.
          * @summary Delete a project phase
@@ -347,6 +406,9 @@ export const ProjectPhasesApiFactory = function (configuration?: Configuration, 
          */
         deleteProjectPhase(requestParameters: ProjectPhasesApiDeleteProjectPhaseRequest, ): Promise<DeleteProjectPhaseResponse> {
             return localVarFp.deleteProjectPhase(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        deleteProjectPhaseWithHttpInfo(requestParameters: ProjectPhasesApiDeleteProjectPhaseRequest, ): Promise<ApiResponse<DeleteProjectPhaseResponse>> {
+            return localVarFp.deleteProjectPhaseWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns the details of a specific project phase.
@@ -358,6 +420,9 @@ export const ProjectPhasesApiFactory = function (configuration?: Configuration, 
         getProjectsPhase(requestParameters: ProjectPhasesApiGetProjectsPhaseRequest, ): Promise<UpsertProjectPhaseResponse> {
             return localVarFp.getProjectsPhase(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getProjectsPhaseWithHttpInfo(requestParameters: ProjectPhasesApiGetProjectsPhaseRequest, ): Promise<ApiResponse<UpsertProjectPhaseResponse>> {
+            return localVarFp.getProjectsPhaseWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns all active project phases under a specific board.
          * @summary Get project phases
@@ -368,6 +433,9 @@ export const ProjectPhasesApiFactory = function (configuration?: Configuration, 
         getProjectsPhases(requestParameters: ProjectPhasesApiGetProjectsPhasesRequest, ): Promise<GetProjectPhasesResponse> {
             return localVarFp.getProjectsPhases(requestParameters.board_id, ).then((request) => request(axios, basePath));
         },
+        getProjectsPhasesWithHttpInfo(requestParameters: ProjectPhasesApiGetProjectsPhasesRequest, ): Promise<ApiResponse<GetProjectPhasesResponse>> {
+            return localVarFp.getProjectsPhasesWithHttpInfo(requestParameters.board_id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates the properties of a project phase.
          * @summary Update a project phase
@@ -377,6 +445,9 @@ export const ProjectPhasesApiFactory = function (configuration?: Configuration, 
          */
         updateProjectPhase(requestParameters: ProjectPhasesApiUpdateProjectPhaseRequest, ): Promise<UpsertProjectPhaseResponse> {
             return localVarFp.updateProjectPhase(requestParameters.id, requestParameters.UpdateProjectPhaseRequest, ).then((request) => request(axios, basePath));
+        },
+        updateProjectPhaseWithHttpInfo(requestParameters: ProjectPhasesApiUpdateProjectPhaseRequest, ): Promise<ApiResponse<UpsertProjectPhaseResponse>> {
+            return localVarFp.updateProjectPhaseWithHttpInfo(requestParameters.id, requestParameters.UpdateProjectPhaseRequest, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -478,6 +549,18 @@ export class ProjectPhasesApi extends BaseAPI {
     }
 
     /**
+     * Same as `addProjectPhase`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProjectPhasesApiAddProjectPhaseRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProjectPhasesApi
+     */
+    public addProjectPhaseWithHttpInfo(requestParameters: ProjectPhasesApiAddProjectPhaseRequest, ) {
+        return ProjectPhasesApiFp(this.configuration).addProjectPhaseWithHttpInfo(requestParameters.AddProjectPhaseRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Marks a project phase as deleted.
      * @summary Delete a project phase
      * @param {ProjectPhasesApiDeleteProjectPhaseRequest} requestParameters Request parameters.
@@ -487,6 +570,18 @@ export class ProjectPhasesApi extends BaseAPI {
      */
     public deleteProjectPhase(requestParameters: ProjectPhasesApiDeleteProjectPhaseRequest, ) {
         return ProjectPhasesApiFp(this.configuration).deleteProjectPhase(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteProjectPhase`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProjectPhasesApiDeleteProjectPhaseRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProjectPhasesApi
+     */
+    public deleteProjectPhaseWithHttpInfo(requestParameters: ProjectPhasesApiDeleteProjectPhaseRequest, ) {
+        return ProjectPhasesApiFp(this.configuration).deleteProjectPhaseWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -502,6 +597,18 @@ export class ProjectPhasesApi extends BaseAPI {
     }
 
     /**
+     * Same as `getProjectsPhase`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProjectPhasesApiGetProjectsPhaseRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProjectPhasesApi
+     */
+    public getProjectsPhaseWithHttpInfo(requestParameters: ProjectPhasesApiGetProjectsPhaseRequest, ) {
+        return ProjectPhasesApiFp(this.configuration).getProjectsPhaseWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns all active project phases under a specific board.
      * @summary Get project phases
      * @param {ProjectPhasesApiGetProjectsPhasesRequest} requestParameters Request parameters.
@@ -514,6 +621,18 @@ export class ProjectPhasesApi extends BaseAPI {
     }
 
     /**
+     * Same as `getProjectsPhases`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProjectPhasesApiGetProjectsPhasesRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProjectPhasesApi
+     */
+    public getProjectsPhasesWithHttpInfo(requestParameters: ProjectPhasesApiGetProjectsPhasesRequest, ) {
+        return ProjectPhasesApiFp(this.configuration).getProjectsPhasesWithHttpInfo(requestParameters.board_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates the properties of a project phase.
      * @summary Update a project phase
      * @param {ProjectPhasesApiUpdateProjectPhaseRequest} requestParameters Request parameters.
@@ -523,5 +642,17 @@ export class ProjectPhasesApi extends BaseAPI {
      */
     public updateProjectPhase(requestParameters: ProjectPhasesApiUpdateProjectPhaseRequest, ) {
         return ProjectPhasesApiFp(this.configuration).updateProjectPhase(requestParameters.id, requestParameters.UpdateProjectPhaseRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateProjectPhase`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProjectPhasesApiUpdateProjectPhaseRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProjectPhasesApi
+     */
+    public updateProjectPhaseWithHttpInfo(requestParameters: ProjectPhasesApiUpdateProjectPhaseRequest, ) {
+        return ProjectPhasesApiFp(this.configuration).updateProjectPhaseWithHttpInfo(requestParameters.id, requestParameters.UpdateProjectPhaseRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

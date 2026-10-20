@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { GetSubscriptionAddonsResponse } from '../models';
 /**
@@ -87,6 +87,16 @@ export const BillingApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCompanyAddons();
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * Same as `getCompanyAddons`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all add-ons for a single company
+
+         * @throws {RequiredError}
+         */
+        async getCompanyAddonsWithHttpInfo(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetSubscriptionAddonsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCompanyAddons();
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
     }
 };
 
@@ -105,6 +115,9 @@ export const BillingApiFactory = function (configuration?: Configuration, basePa
          */
         getCompanyAddons(): Promise<GetSubscriptionAddonsResponse> {
             return localVarFp.getCompanyAddons().then((request) => request(axios, basePath));
+        },
+        getCompanyAddonsWithHttpInfo(): Promise<ApiResponse<GetSubscriptionAddonsResponse>> {
+            return localVarFp.getCompanyAddonsWithHttpInfo().then((request) => request(axios, basePath));
         },
     };
 };
@@ -125,5 +138,16 @@ export class BillingApi extends BaseAPI {
      */
     public getCompanyAddons() {
         return BillingApiFp(this.configuration).getCompanyAddons().then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getCompanyAddons`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+
+     * @throws {RequiredError}
+     * @memberof BillingApi
+     */
+    public getCompanyAddonsWithHttpInfo() {
+        return BillingApiFp(this.configuration).getCompanyAddonsWithHttpInfo().then((request) => request(this.axios, this.basePath));
     }
 }

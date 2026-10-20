@@ -14,7 +14,7 @@
 
 
 import { Configuration } from "./configuration";
-import { RequiredError, RequestArgs } from "./base";
+import { RequiredError, RequestArgs, toFullResponseError } from "./base";
 import type { AxiosInstance, AxiosResponse } from 'axios';
 
 /**
@@ -140,11 +140,14 @@ export const toPathString = function (url: URL) {
  *
  * @export
  */
-export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxios: AxiosInstance, BASE_PATH: string, configuration?: Configuration) {
+export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxios: AxiosInstance, BASE_PATH: string, configuration?: Configuration, fullResponse: boolean = false) {
     // Explicit return type + cast avoid inferring axios's internal AxiosResponseResult type,
     // which references a module-private `unique symbol` and breaks `tsc --declaration` (TS2742).
     return <T = unknown, R = AxiosResponse<T>>(axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH): Promise<R> => {
-        const axiosRequestArgs = {...axiosArgs.options, url: (configuration?.basePath || basePath) + axiosArgs.url};
-        return axios.request<T, R>(axiosRequestArgs) as Promise<R>;
+        const axiosRequestArgs = {...axiosArgs.options, url: (configuration?.basePath || basePath) + axiosArgs.url, ...(fullResponse ? { fullResponse } : {})};
+        const request = axios.request<T, R>(axiosRequestArgs) as Promise<R>;
+        // Instances without the SDK's interceptors (e.g. the default global axios used by Fp and Factory calls)
+        // reject with a raw AxiosError, so give full-response errors the same shape as the class API.
+        return fullResponse ? request.catch((error) => Promise.reject(toFullResponseError(error))) : request;
     };
 }

@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { GetRecentsResponse } from '../models';
 /**
@@ -113,6 +113,20 @@ export const RecentsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRecents(since_timestamp, items, start, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * Same as `getRecents`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get recents
+         * @param {string} since_timestamp The timestamp in UTC. Format: YYYY-MM-DD HH:MM:SS.
+         * @param {'activity' | 'activityType' | 'deal' | 'file' | 'filter' | 'note' | 'person' | 'organization' | 'pipeline' | 'product' | 'stage' | 'user'} [items] Multiple selection of item types to include in the query (optional)
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] Items shown per page
+
+         * @throws {RequiredError}
+         */
+        async getRecentsWithHttpInfo(since_timestamp: string, items?: 'activity' | 'activityType' | 'deal' | 'file' | 'filter' | 'note' | 'person' | 'organization' | 'pipeline' | 'product' | 'stage' | 'user', start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetRecentsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRecents(since_timestamp, items, start, limit, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
     }
 };
 
@@ -132,6 +146,9 @@ export const RecentsApiFactory = function (configuration?: Configuration, basePa
          */
         getRecents(requestParameters: RecentsApiGetRecentsRequest, ): Promise<GetRecentsResponse> {
             return localVarFp.getRecents(requestParameters.since_timestamp, requestParameters.items, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
+        },
+        getRecentsWithHttpInfo(requestParameters: RecentsApiGetRecentsRequest, ): Promise<ApiResponse<GetRecentsResponse>> {
+            return localVarFp.getRecentsWithHttpInfo(requestParameters.since_timestamp, requestParameters.items, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -188,5 +205,17 @@ export class RecentsApi extends BaseAPI {
      */
     public getRecents(requestParameters: RecentsApiGetRecentsRequest, ) {
         return RecentsApiFp(this.configuration).getRecents(requestParameters.since_timestamp, requestParameters.items, requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getRecents`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {RecentsApiGetRecentsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof RecentsApi
+     */
+    public getRecentsWithHttpInfo(requestParameters: RecentsApiGetRecentsRequest, ) {
+        return RecentsApiFp(this.configuration).getRecentsWithHttpInfo(requestParameters.since_timestamp, requestParameters.items, requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
     }
 }

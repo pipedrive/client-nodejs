@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddPipelineRequest } from '../models';
 // @ts-ignore
@@ -285,6 +285,17 @@ export const PipelinesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addPipeline`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a new pipeline
+         * @param {AddPipelineRequest} [AddPipelineRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addPipelineWithHttpInfo(AddPipelineRequest?: AddPipelineRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertPipelineResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addPipeline(AddPipelineRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Marks a pipeline as deleted.
          * @summary Delete a pipeline
          * @param {number} id The ID of the pipeline
@@ -296,6 +307,17 @@ export const PipelinesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deletePipeline`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a pipeline
+         * @param {number} id The ID of the pipeline
+
+         * @throws {RequiredError}
+         */
+        async deletePipelineWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeletePipelineResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deletePipeline(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns data about a specific pipeline.
          * @summary Get one pipeline
          * @param {number} id The ID of the pipeline
@@ -305,6 +327,17 @@ export const PipelinesApiFp = function(configuration?: Configuration) {
         async getPipeline(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertPipelineResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPipeline(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getPipeline`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get one pipeline
+         * @param {number} id The ID of the pipeline
+
+         * @throws {RequiredError}
+         */
+        async getPipelineWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertPipelineResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPipeline(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns data about all pipelines.
@@ -321,6 +354,20 @@ export const PipelinesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getPipelines`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all pipelines
+         * @param {'id' | 'update_time' | 'add_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
+         * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getPipelinesWithHttpInfo(sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetPipelinesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPipelines(sort_by, sort_direction, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates the properties of a pipeline.
          * @summary Update a pipeline
          * @param {number} id The ID of the pipeline
@@ -331,6 +378,18 @@ export const PipelinesApiFp = function(configuration?: Configuration) {
         async updatePipeline(id: number, UpdatePipelineRequest?: UpdatePipelineRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertPipelineResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updatePipeline(id, UpdatePipelineRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updatePipeline`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update a pipeline
+         * @param {number} id The ID of the pipeline
+         * @param {UpdatePipelineRequest} [UpdatePipelineRequest] 
+
+         * @throws {RequiredError}
+         */
+        async updatePipelineWithHttpInfo(id: number, UpdatePipelineRequest?: UpdatePipelineRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertPipelineResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePipeline(id, UpdatePipelineRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -352,6 +411,9 @@ export const PipelinesApiFactory = function (configuration?: Configuration, base
         addPipeline(requestParameters: PipelinesApiAddPipelineRequest = {}, ): Promise<UpsertPipelineResponse> {
             return localVarFp.addPipeline(requestParameters.AddPipelineRequest, ).then((request) => request(axios, basePath));
         },
+        addPipelineWithHttpInfo(requestParameters: PipelinesApiAddPipelineRequest = {}, ): Promise<ApiResponse<UpsertPipelineResponse>> {
+            return localVarFp.addPipelineWithHttpInfo(requestParameters.AddPipelineRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Marks a pipeline as deleted.
          * @summary Delete a pipeline
@@ -361,6 +423,9 @@ export const PipelinesApiFactory = function (configuration?: Configuration, base
          */
         deletePipeline(requestParameters: PipelinesApiDeletePipelineRequest, ): Promise<DeletePipelineResponse> {
             return localVarFp.deletePipeline(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        deletePipelineWithHttpInfo(requestParameters: PipelinesApiDeletePipelineRequest, ): Promise<ApiResponse<DeletePipelineResponse>> {
+            return localVarFp.deletePipelineWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns data about a specific pipeline.
@@ -372,6 +437,9 @@ export const PipelinesApiFactory = function (configuration?: Configuration, base
         getPipeline(requestParameters: PipelinesApiGetPipelineRequest, ): Promise<UpsertPipelineResponse> {
             return localVarFp.getPipeline(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getPipelineWithHttpInfo(requestParameters: PipelinesApiGetPipelineRequest, ): Promise<ApiResponse<UpsertPipelineResponse>> {
+            return localVarFp.getPipelineWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns data about all pipelines.
          * @summary Get all pipelines
@@ -382,6 +450,9 @@ export const PipelinesApiFactory = function (configuration?: Configuration, base
         getPipelines(requestParameters: PipelinesApiGetPipelinesRequest = {}, ): Promise<GetPipelinesResponse> {
             return localVarFp.getPipelines(requestParameters.sort_by, requestParameters.sort_direction, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
+        getPipelinesWithHttpInfo(requestParameters: PipelinesApiGetPipelinesRequest = {}, ): Promise<ApiResponse<GetPipelinesResponse>> {
+            return localVarFp.getPipelinesWithHttpInfo(requestParameters.sort_by, requestParameters.sort_direction, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates the properties of a pipeline.
          * @summary Update a pipeline
@@ -391,6 +462,9 @@ export const PipelinesApiFactory = function (configuration?: Configuration, base
          */
         updatePipeline(requestParameters: PipelinesApiUpdatePipelineRequest, ): Promise<UpsertPipelineResponse> {
             return localVarFp.updatePipeline(requestParameters.id, requestParameters.UpdatePipelineRequest, ).then((request) => request(axios, basePath));
+        },
+        updatePipelineWithHttpInfo(requestParameters: PipelinesApiUpdatePipelineRequest, ): Promise<ApiResponse<UpsertPipelineResponse>> {
+            return localVarFp.updatePipelineWithHttpInfo(requestParameters.id, requestParameters.UpdatePipelineRequest, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -513,6 +587,18 @@ export class PipelinesApi extends BaseAPI {
     }
 
     /**
+     * Same as `addPipeline`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PipelinesApiAddPipelineRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PipelinesApi
+     */
+    public addPipelineWithHttpInfo(requestParameters: PipelinesApiAddPipelineRequest = {}, ) {
+        return PipelinesApiFp(this.configuration).addPipelineWithHttpInfo(requestParameters.AddPipelineRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Marks a pipeline as deleted.
      * @summary Delete a pipeline
      * @param {PipelinesApiDeletePipelineRequest} requestParameters Request parameters.
@@ -522,6 +608,18 @@ export class PipelinesApi extends BaseAPI {
      */
     public deletePipeline(requestParameters: PipelinesApiDeletePipelineRequest, ) {
         return PipelinesApiFp(this.configuration).deletePipeline(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deletePipeline`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PipelinesApiDeletePipelineRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PipelinesApi
+     */
+    public deletePipelineWithHttpInfo(requestParameters: PipelinesApiDeletePipelineRequest, ) {
+        return PipelinesApiFp(this.configuration).deletePipelineWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -537,6 +635,18 @@ export class PipelinesApi extends BaseAPI {
     }
 
     /**
+     * Same as `getPipeline`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PipelinesApiGetPipelineRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PipelinesApi
+     */
+    public getPipelineWithHttpInfo(requestParameters: PipelinesApiGetPipelineRequest, ) {
+        return PipelinesApiFp(this.configuration).getPipelineWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns data about all pipelines.
      * @summary Get all pipelines
      * @param {PipelinesApiGetPipelinesRequest} requestParameters Request parameters.
@@ -549,6 +659,18 @@ export class PipelinesApi extends BaseAPI {
     }
 
     /**
+     * Same as `getPipelines`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PipelinesApiGetPipelinesRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PipelinesApi
+     */
+    public getPipelinesWithHttpInfo(requestParameters: PipelinesApiGetPipelinesRequest = {}, ) {
+        return PipelinesApiFp(this.configuration).getPipelinesWithHttpInfo(requestParameters.sort_by, requestParameters.sort_direction, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates the properties of a pipeline.
      * @summary Update a pipeline
      * @param {PipelinesApiUpdatePipelineRequest} requestParameters Request parameters.
@@ -558,5 +680,17 @@ export class PipelinesApi extends BaseAPI {
      */
     public updatePipeline(requestParameters: PipelinesApiUpdatePipelineRequest, ) {
         return PipelinesApiFp(this.configuration).updatePipeline(requestParameters.id, requestParameters.UpdatePipelineRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updatePipeline`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PipelinesApiUpdatePipelineRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PipelinesApi
+     */
+    public updatePipelineWithHttpInfo(requestParameters: PipelinesApiUpdatePipelineRequest, ) {
+        return PipelinesApiFp(this.configuration).updatePipelineWithHttpInfo(requestParameters.id, requestParameters.UpdatePipelineRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

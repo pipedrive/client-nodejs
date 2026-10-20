@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { GetUserSettingsResponse } from '../models';
 // @ts-ignore
@@ -89,6 +89,16 @@ export const UserSettingsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUserSettings();
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * Same as `getUserSettings`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List settings of an authorized user
+
+         * @throws {RequiredError}
+         */
+        async getUserSettingsWithHttpInfo(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetUserSettingsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUserSettings();
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
     }
 };
 
@@ -107,6 +117,9 @@ export const UserSettingsApiFactory = function (configuration?: Configuration, b
          */
         getUserSettings(): Promise<GetUserSettingsResponse> {
             return localVarFp.getUserSettings().then((request) => request(axios, basePath));
+        },
+        getUserSettingsWithHttpInfo(): Promise<ApiResponse<GetUserSettingsResponse>> {
+            return localVarFp.getUserSettingsWithHttpInfo().then((request) => request(axios, basePath));
         },
     };
 };
@@ -127,5 +140,16 @@ export class UserSettingsApi extends BaseAPI {
      */
     public getUserSettings() {
         return UserSettingsApiFp(this.configuration).getUserSettings().then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getUserSettings`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+
+     * @throws {RequiredError}
+     * @memberof UserSettingsApi
+     */
+    public getUserSettingsWithHttpInfo() {
+        return UserSettingsApiFp(this.configuration).getUserSettingsWithHttpInfo().then((request) => request(this.axios, this.basePath));
     }
 }

@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddOrganizationRelationshipRequest } from '../models';
 // @ts-ignore
@@ -281,6 +281,17 @@ export const OrganizationRelationshipsApiFp = function(configuration?: Configura
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addOrganizationRelationship`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Create an organization relationship
+         * @param {AddOrganizationRelationshipRequest} [AddOrganizationRelationshipRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addOrganizationRelationshipWithHttpInfo(AddOrganizationRelationshipRequest?: AddOrganizationRelationshipRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddOrganizationRelationshipResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addOrganizationRelationship(AddOrganizationRelationshipRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Deletes an organization relationship and returns the deleted ID.
          * @summary Delete an organization relationship
          * @param {number} id The ID of the organization relationship
@@ -290,6 +301,17 @@ export const OrganizationRelationshipsApiFp = function(configuration?: Configura
         async deleteOrganizationRelationship(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteOrganizationRelationshipResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteOrganizationRelationship(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deleteOrganizationRelationship`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete an organization relationship
+         * @param {number} id The ID of the organization relationship
+
+         * @throws {RequiredError}
+         */
+        async deleteOrganizationRelationshipWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteOrganizationRelationshipResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteOrganizationRelationship(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Finds and returns an organization relationship from its ID.
@@ -304,6 +326,18 @@ export const OrganizationRelationshipsApiFp = function(configuration?: Configura
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getOrganizationRelationship`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get one organization relationship
+         * @param {number} id The ID of the organization relationship
+         * @param {number} [org_id] The ID of the base organization for the returned calculated values
+
+         * @throws {RequiredError}
+         */
+        async getOrganizationRelationshipWithHttpInfo(id: number, org_id?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetOrganizationRelationshipResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationRelationship(id, org_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Gets all of the relationships for a supplied organization ID.
          * @summary Get all relationships for organization
          * @param {number} org_id The ID of the organization to get relationships for
@@ -313,6 +347,17 @@ export const OrganizationRelationshipsApiFp = function(configuration?: Configura
         async getOrganizationRelationships(org_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetOrganizationRelationshipsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationRelationships(org_id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getOrganizationRelationships`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all relationships for organization
+         * @param {number} org_id The ID of the organization to get relationships for
+
+         * @throws {RequiredError}
+         */
+        async getOrganizationRelationshipsWithHttpInfo(org_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetOrganizationRelationshipsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationRelationships(org_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Updates and returns an organization relationship.
@@ -325,6 +370,18 @@ export const OrganizationRelationshipsApiFp = function(configuration?: Configura
         async updateOrganizationRelationship(id: number, OrganizationRelationship?: OrganizationRelationship, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateOrganizationRelationshipResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateOrganizationRelationship(id, OrganizationRelationship, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateOrganizationRelationship`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update an organization relationship
+         * @param {number} id The ID of the organization relationship
+         * @param {OrganizationRelationship} [OrganizationRelationship] 
+
+         * @throws {RequiredError}
+         */
+        async updateOrganizationRelationshipWithHttpInfo(id: number, OrganizationRelationship?: OrganizationRelationship, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpdateOrganizationRelationshipResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateOrganizationRelationship(id, OrganizationRelationship, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -346,6 +403,9 @@ export const OrganizationRelationshipsApiFactory = function (configuration?: Con
         addOrganizationRelationship(requestParameters: OrganizationRelationshipsApiAddOrganizationRelationshipRequest = {}, ): Promise<AddOrganizationRelationshipResponse> {
             return localVarFp.addOrganizationRelationship(requestParameters.AddOrganizationRelationshipRequest, ).then((request) => request(axios, basePath));
         },
+        addOrganizationRelationshipWithHttpInfo(requestParameters: OrganizationRelationshipsApiAddOrganizationRelationshipRequest = {}, ): Promise<ApiResponse<AddOrganizationRelationshipResponse>> {
+            return localVarFp.addOrganizationRelationshipWithHttpInfo(requestParameters.AddOrganizationRelationshipRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Deletes an organization relationship and returns the deleted ID.
          * @summary Delete an organization relationship
@@ -355,6 +415,9 @@ export const OrganizationRelationshipsApiFactory = function (configuration?: Con
          */
         deleteOrganizationRelationship(requestParameters: OrganizationRelationshipsApiDeleteOrganizationRelationshipRequest, ): Promise<DeleteOrganizationRelationshipResponse> {
             return localVarFp.deleteOrganizationRelationship(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        deleteOrganizationRelationshipWithHttpInfo(requestParameters: OrganizationRelationshipsApiDeleteOrganizationRelationshipRequest, ): Promise<ApiResponse<DeleteOrganizationRelationshipResponse>> {
+            return localVarFp.deleteOrganizationRelationshipWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Finds and returns an organization relationship from its ID.
@@ -366,6 +429,9 @@ export const OrganizationRelationshipsApiFactory = function (configuration?: Con
         getOrganizationRelationship(requestParameters: OrganizationRelationshipsApiGetOrganizationRelationshipRequest, ): Promise<GetOrganizationRelationshipResponse> {
             return localVarFp.getOrganizationRelationship(requestParameters.id, requestParameters.org_id, ).then((request) => request(axios, basePath));
         },
+        getOrganizationRelationshipWithHttpInfo(requestParameters: OrganizationRelationshipsApiGetOrganizationRelationshipRequest, ): Promise<ApiResponse<GetOrganizationRelationshipResponse>> {
+            return localVarFp.getOrganizationRelationshipWithHttpInfo(requestParameters.id, requestParameters.org_id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Gets all of the relationships for a supplied organization ID.
          * @summary Get all relationships for organization
@@ -376,6 +442,9 @@ export const OrganizationRelationshipsApiFactory = function (configuration?: Con
         getOrganizationRelationships(requestParameters: OrganizationRelationshipsApiGetOrganizationRelationshipsRequest, ): Promise<GetOrganizationRelationshipsResponse> {
             return localVarFp.getOrganizationRelationships(requestParameters.org_id, ).then((request) => request(axios, basePath));
         },
+        getOrganizationRelationshipsWithHttpInfo(requestParameters: OrganizationRelationshipsApiGetOrganizationRelationshipsRequest, ): Promise<ApiResponse<GetOrganizationRelationshipsResponse>> {
+            return localVarFp.getOrganizationRelationshipsWithHttpInfo(requestParameters.org_id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates and returns an organization relationship.
          * @summary Update an organization relationship
@@ -385,6 +454,9 @@ export const OrganizationRelationshipsApiFactory = function (configuration?: Con
          */
         updateOrganizationRelationship(requestParameters: OrganizationRelationshipsApiUpdateOrganizationRelationshipRequest, ): Promise<UpdateOrganizationRelationshipResponse> {
             return localVarFp.updateOrganizationRelationship(requestParameters.id, requestParameters.OrganizationRelationship, ).then((request) => request(axios, basePath));
+        },
+        updateOrganizationRelationshipWithHttpInfo(requestParameters: OrganizationRelationshipsApiUpdateOrganizationRelationshipRequest, ): Promise<ApiResponse<UpdateOrganizationRelationshipResponse>> {
+            return localVarFp.updateOrganizationRelationshipWithHttpInfo(requestParameters.id, requestParameters.OrganizationRelationship, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -493,6 +565,18 @@ export class OrganizationRelationshipsApi extends BaseAPI {
     }
 
     /**
+     * Same as `addOrganizationRelationship`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {OrganizationRelationshipsApiAddOrganizationRelationshipRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationRelationshipsApi
+     */
+    public addOrganizationRelationshipWithHttpInfo(requestParameters: OrganizationRelationshipsApiAddOrganizationRelationshipRequest = {}, ) {
+        return OrganizationRelationshipsApiFp(this.configuration).addOrganizationRelationshipWithHttpInfo(requestParameters.AddOrganizationRelationshipRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Deletes an organization relationship and returns the deleted ID.
      * @summary Delete an organization relationship
      * @param {OrganizationRelationshipsApiDeleteOrganizationRelationshipRequest} requestParameters Request parameters.
@@ -502,6 +586,18 @@ export class OrganizationRelationshipsApi extends BaseAPI {
      */
     public deleteOrganizationRelationship(requestParameters: OrganizationRelationshipsApiDeleteOrganizationRelationshipRequest, ) {
         return OrganizationRelationshipsApiFp(this.configuration).deleteOrganizationRelationship(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteOrganizationRelationship`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {OrganizationRelationshipsApiDeleteOrganizationRelationshipRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationRelationshipsApi
+     */
+    public deleteOrganizationRelationshipWithHttpInfo(requestParameters: OrganizationRelationshipsApiDeleteOrganizationRelationshipRequest, ) {
+        return OrganizationRelationshipsApiFp(this.configuration).deleteOrganizationRelationshipWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -517,6 +613,18 @@ export class OrganizationRelationshipsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getOrganizationRelationship`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {OrganizationRelationshipsApiGetOrganizationRelationshipRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationRelationshipsApi
+     */
+    public getOrganizationRelationshipWithHttpInfo(requestParameters: OrganizationRelationshipsApiGetOrganizationRelationshipRequest, ) {
+        return OrganizationRelationshipsApiFp(this.configuration).getOrganizationRelationshipWithHttpInfo(requestParameters.id, requestParameters.org_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Gets all of the relationships for a supplied organization ID.
      * @summary Get all relationships for organization
      * @param {OrganizationRelationshipsApiGetOrganizationRelationshipsRequest} requestParameters Request parameters.
@@ -529,6 +637,18 @@ export class OrganizationRelationshipsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getOrganizationRelationships`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {OrganizationRelationshipsApiGetOrganizationRelationshipsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationRelationshipsApi
+     */
+    public getOrganizationRelationshipsWithHttpInfo(requestParameters: OrganizationRelationshipsApiGetOrganizationRelationshipsRequest, ) {
+        return OrganizationRelationshipsApiFp(this.configuration).getOrganizationRelationshipsWithHttpInfo(requestParameters.org_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates and returns an organization relationship.
      * @summary Update an organization relationship
      * @param {OrganizationRelationshipsApiUpdateOrganizationRelationshipRequest} requestParameters Request parameters.
@@ -538,5 +658,17 @@ export class OrganizationRelationshipsApi extends BaseAPI {
      */
     public updateOrganizationRelationship(requestParameters: OrganizationRelationshipsApiUpdateOrganizationRelationshipRequest, ) {
         return OrganizationRelationshipsApiFp(this.configuration).updateOrganizationRelationship(requestParameters.id, requestParameters.OrganizationRelationship, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateOrganizationRelationship`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {OrganizationRelationshipsApiUpdateOrganizationRelationshipRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationRelationshipsApi
+     */
+    public updateOrganizationRelationshipWithHttpInfo(requestParameters: OrganizationRelationshipsApiUpdateOrganizationRelationshipRequest, ) {
+        return OrganizationRelationshipsApiFp(this.configuration).updateOrganizationRelationshipWithHttpInfo(requestParameters.id, requestParameters.OrganizationRelationship, ).then((request) => request(this.axios, this.basePath));
     }
 }

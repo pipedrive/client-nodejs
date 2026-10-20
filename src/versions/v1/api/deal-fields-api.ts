@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { CreateFieldRequest } from '../models';
 // @ts-ignore
@@ -321,6 +321,17 @@ export const DealFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addDealField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a new deal field
+         * @param {CreateFieldRequest} [CreateFieldRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addDealFieldWithHttpInfo(CreateFieldRequest?: CreateFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetFieldResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addDealField(CreateFieldRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Marks a field as deleted. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/deleting-a-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">deleting a custom field</a>.
          * @summary Delete a deal field
          * @param {number} id The ID of the field
@@ -330,6 +341,17 @@ export const DealFieldsApiFp = function(configuration?: Configuration) {
         async deleteDealField(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDealField(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deleteDealField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a deal field
+         * @param {number} id The ID of the field
+
+         * @throws {RequiredError}
+         */
+        async deleteDealFieldWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDealField(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Marks multiple deal fields as deleted.
@@ -343,6 +365,17 @@ export const DealFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deleteDealFields`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete multiple deal fields in bulk
+         * @param {Set<number>} ids The comma-separated field IDs to delete
+
+         * @throws {RequiredError}
+         */
+        async deleteDealFieldsWithHttpInfo(ids: Set<number>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteFieldsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDealFields(ids, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns data about a specific deal field.
          * @summary Get one deal field
          * @param {number} id The ID of the field
@@ -352,6 +385,17 @@ export const DealFieldsApiFp = function(configuration?: Configuration) {
         async getDealField(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFieldResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDealField(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getDealField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get one deal field
+         * @param {number} id The ID of the field
+
+         * @throws {RequiredError}
+         */
+        async getDealFieldWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetFieldResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealField(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns data about all deal fields.
@@ -366,6 +410,18 @@ export const DealFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getDealFields`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all deal fields
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] Items shown per page
+
+         * @throws {RequiredError}
+         */
+        async getDealFieldsWithHttpInfo(start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetFieldsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealFields(start, limit, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates a deal field. For more information, see the tutorial for <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields\' values</a>.
          * @summary Update a deal field
          * @param {number} id The ID of the field
@@ -376,6 +432,18 @@ export const DealFieldsApiFp = function(configuration?: Configuration) {
         async updateDealField(id: number, UpdateFieldRequest?: UpdateFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFieldResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateDealField(id, UpdateFieldRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateDealField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update a deal field
+         * @param {number} id The ID of the field
+         * @param {UpdateFieldRequest} [UpdateFieldRequest] 
+
+         * @throws {RequiredError}
+         */
+        async updateDealFieldWithHttpInfo(id: number, UpdateFieldRequest?: UpdateFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetFieldResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateDealField(id, UpdateFieldRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -397,6 +465,9 @@ export const DealFieldsApiFactory = function (configuration?: Configuration, bas
         addDealField(requestParameters: DealFieldsApiAddDealFieldRequest = {}, ): Promise<GetFieldResponse> {
             return localVarFp.addDealField(requestParameters.CreateFieldRequest, ).then((request) => request(axios, basePath));
         },
+        addDealFieldWithHttpInfo(requestParameters: DealFieldsApiAddDealFieldRequest = {}, ): Promise<ApiResponse<GetFieldResponse>> {
+            return localVarFp.addDealFieldWithHttpInfo(requestParameters.CreateFieldRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Marks a field as deleted. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/deleting-a-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">deleting a custom field</a>.
          * @summary Delete a deal field
@@ -406,6 +477,9 @@ export const DealFieldsApiFactory = function (configuration?: Configuration, bas
          */
         deleteDealField(requestParameters: DealFieldsApiDeleteDealFieldRequest, ): Promise<DeleteResponse> {
             return localVarFp.deleteDealField(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        deleteDealFieldWithHttpInfo(requestParameters: DealFieldsApiDeleteDealFieldRequest, ): Promise<ApiResponse<DeleteResponse>> {
+            return localVarFp.deleteDealFieldWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Marks multiple deal fields as deleted.
@@ -417,6 +491,9 @@ export const DealFieldsApiFactory = function (configuration?: Configuration, bas
         deleteDealFields(requestParameters: DealFieldsApiDeleteDealFieldsRequest, ): Promise<DeleteFieldsResponse> {
             return localVarFp.deleteDealFields(requestParameters.ids, ).then((request) => request(axios, basePath));
         },
+        deleteDealFieldsWithHttpInfo(requestParameters: DealFieldsApiDeleteDealFieldsRequest, ): Promise<ApiResponse<DeleteFieldsResponse>> {
+            return localVarFp.deleteDealFieldsWithHttpInfo(requestParameters.ids, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns data about a specific deal field.
          * @summary Get one deal field
@@ -426,6 +503,9 @@ export const DealFieldsApiFactory = function (configuration?: Configuration, bas
          */
         getDealField(requestParameters: DealFieldsApiGetDealFieldRequest, ): Promise<GetFieldResponse> {
             return localVarFp.getDealField(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        getDealFieldWithHttpInfo(requestParameters: DealFieldsApiGetDealFieldRequest, ): Promise<ApiResponse<GetFieldResponse>> {
+            return localVarFp.getDealFieldWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns data about all deal fields.
@@ -437,6 +517,9 @@ export const DealFieldsApiFactory = function (configuration?: Configuration, bas
         getDealFields(requestParameters: DealFieldsApiGetDealFieldsRequest = {}, ): Promise<GetFieldsResponse> {
             return localVarFp.getDealFields(requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
+        getDealFieldsWithHttpInfo(requestParameters: DealFieldsApiGetDealFieldsRequest = {}, ): Promise<ApiResponse<GetFieldsResponse>> {
+            return localVarFp.getDealFieldsWithHttpInfo(requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates a deal field. For more information, see the tutorial for <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields\' values</a>.
          * @summary Update a deal field
@@ -446,6 +529,9 @@ export const DealFieldsApiFactory = function (configuration?: Configuration, bas
          */
         updateDealField(requestParameters: DealFieldsApiUpdateDealFieldRequest, ): Promise<GetFieldResponse> {
             return localVarFp.updateDealField(requestParameters.id, requestParameters.UpdateFieldRequest, ).then((request) => request(axios, basePath));
+        },
+        updateDealFieldWithHttpInfo(requestParameters: DealFieldsApiUpdateDealFieldRequest, ): Promise<ApiResponse<GetFieldResponse>> {
+            return localVarFp.updateDealFieldWithHttpInfo(requestParameters.id, requestParameters.UpdateFieldRequest, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -568,6 +654,18 @@ export class DealFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `addDealField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealFieldsApiAddDealFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealFieldsApi
+     */
+    public addDealFieldWithHttpInfo(requestParameters: DealFieldsApiAddDealFieldRequest = {}, ) {
+        return DealFieldsApiFp(this.configuration).addDealFieldWithHttpInfo(requestParameters.CreateFieldRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Marks a field as deleted. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/deleting-a-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">deleting a custom field</a>.
      * @summary Delete a deal field
      * @param {DealFieldsApiDeleteDealFieldRequest} requestParameters Request parameters.
@@ -577,6 +675,18 @@ export class DealFieldsApi extends BaseAPI {
      */
     public deleteDealField(requestParameters: DealFieldsApiDeleteDealFieldRequest, ) {
         return DealFieldsApiFp(this.configuration).deleteDealField(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteDealField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealFieldsApiDeleteDealFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealFieldsApi
+     */
+    public deleteDealFieldWithHttpInfo(requestParameters: DealFieldsApiDeleteDealFieldRequest, ) {
+        return DealFieldsApiFp(this.configuration).deleteDealFieldWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -592,6 +702,18 @@ export class DealFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `deleteDealFields`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealFieldsApiDeleteDealFieldsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealFieldsApi
+     */
+    public deleteDealFieldsWithHttpInfo(requestParameters: DealFieldsApiDeleteDealFieldsRequest, ) {
+        return DealFieldsApiFp(this.configuration).deleteDealFieldsWithHttpInfo(requestParameters.ids, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns data about a specific deal field.
      * @summary Get one deal field
      * @param {DealFieldsApiGetDealFieldRequest} requestParameters Request parameters.
@@ -601,6 +723,18 @@ export class DealFieldsApi extends BaseAPI {
      */
     public getDealField(requestParameters: DealFieldsApiGetDealFieldRequest, ) {
         return DealFieldsApiFp(this.configuration).getDealField(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getDealField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealFieldsApiGetDealFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealFieldsApi
+     */
+    public getDealFieldWithHttpInfo(requestParameters: DealFieldsApiGetDealFieldRequest, ) {
+        return DealFieldsApiFp(this.configuration).getDealFieldWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -616,6 +750,18 @@ export class DealFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getDealFields`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealFieldsApiGetDealFieldsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealFieldsApi
+     */
+    public getDealFieldsWithHttpInfo(requestParameters: DealFieldsApiGetDealFieldsRequest = {}, ) {
+        return DealFieldsApiFp(this.configuration).getDealFieldsWithHttpInfo(requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates a deal field. For more information, see the tutorial for <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields\' values</a>.
      * @summary Update a deal field
      * @param {DealFieldsApiUpdateDealFieldRequest} requestParameters Request parameters.
@@ -625,5 +771,17 @@ export class DealFieldsApi extends BaseAPI {
      */
     public updateDealField(requestParameters: DealFieldsApiUpdateDealFieldRequest, ) {
         return DealFieldsApiFp(this.configuration).updateDealField(requestParameters.id, requestParameters.UpdateFieldRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateDealField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealFieldsApiUpdateDealFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealFieldsApi
+     */
+    public updateDealFieldWithHttpInfo(requestParameters: DealFieldsApiUpdateDealFieldRequest, ) {
+        return DealFieldsApiFp(this.configuration).updateDealFieldWithHttpInfo(requestParameters.id, requestParameters.UpdateFieldRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

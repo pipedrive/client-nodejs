@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddDealFollowerRequest } from '../models';
 // @ts-ignore
@@ -1170,6 +1170,18 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addDealFollower`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a follower to a deal
+         * @param {number} id The ID of the deal
+         * @param {AddDealFollowerRequest} [AddDealFollowerRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addDealFollowerWithHttpInfo(id: number, AddDealFollowerRequest?: AddDealFollowerRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddDealFollowerResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addDealFollower(id, AddDealFollowerRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Adds a participant to a deal.
          * @summary Add a participant to a deal
          * @param {number} id The ID of the deal
@@ -1180,6 +1192,18 @@ export const DealsApiFp = function(configuration?: Configuration) {
         async addDealParticipant(id: number, AddDealParticipantRequest?: AddDealParticipantRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddParticipantsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addDealParticipant(id, AddDealParticipantRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `addDealParticipant`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a participant to a deal
+         * @param {number} id The ID of the deal
+         * @param {AddDealParticipantRequest} [AddDealParticipantRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addDealParticipantWithHttpInfo(id: number, AddDealParticipantRequest?: AddDealParticipantRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddParticipantsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addDealParticipant(id, AddDealParticipantRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Deletes a follower from a deal.
@@ -1194,6 +1218,18 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deleteDealFollower`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a follower from a deal
+         * @param {number} id The ID of the deal
+         * @param {number} follower_id The ID of the relationship between the follower and the deal
+
+         * @throws {RequiredError}
+         */
+        async deleteDealFollowerWithHttpInfo(id: number, follower_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteDealFollowerResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDealFollower(id, follower_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Deletes a participant from a deal.
          * @summary Delete a participant from a deal
          * @param {number} id The ID of the deal
@@ -1206,6 +1242,18 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deleteDealParticipant`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a participant from a deal
+         * @param {number} id The ID of the deal
+         * @param {number} deal_participant_id The ID of the participant of the deal
+
+         * @throws {RequiredError}
+         */
+        async deleteDealParticipantWithHttpInfo(id: number, deal_participant_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteDealParticipantResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDealParticipant(id, deal_participant_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Duplicates a deal.
          * @summary Duplicate deal
          * @param {number} id The ID of the deal
@@ -1215,6 +1263,17 @@ export const DealsApiFp = function(configuration?: Configuration) {
         async duplicateDeal(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDuplicatedDealResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.duplicateDeal(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `duplicateDeal`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Duplicate deal
+         * @param {number} id The ID of the deal
+
+         * @throws {RequiredError}
+         */
+        async duplicateDealWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetDuplicatedDealResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.duplicateDeal(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns all archived deals.
@@ -1239,6 +1298,28 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getArchivedDeals`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all archived deals
+         * @param {number} [user_id] If supplied, only deals matching the given user will be returned. However, &#x60;filter_id&#x60; and &#x60;owned_by_you&#x60; takes precedence over &#x60;user_id&#x60; when supplied.
+         * @param {number} [filter_id] The ID of the filter to use
+         * @param {number} [person_id] If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored.
+         * @param {number} [org_id] If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored.
+         * @param {number} [product_id] If supplied, only deals linked to the specified product are returned. If filter_id is provided, this is ignored.
+         * @param {number} [pipeline_id] If supplied, only deals in the specified pipeline are returned. If filter_id is provided, this is ignored.
+         * @param {number} [stage_id] If supplied, only deals in the specified stage are returned. If filter_id is provided, this is ignored.
+         * @param {'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted'} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included.
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] Items shown per page
+         * @param {string} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys).
+         * @param {0 | 1} [owned_by_you] When supplied, only deals owned by you are returned. However, &#x60;filter_id&#x60; takes precedence over &#x60;owned_by_you&#x60; when both are supplied.
+         * @deprecated
+         * @throws {RequiredError}
+         */
+        async getArchivedDealsWithHttpInfo(user_id?: number, filter_id?: number, person_id?: number, org_id?: number, product_id?: number, pipeline_id?: number, stage_id?: number, status?: 'open' | 'won' | 'lost' | 'deleted' | 'all_not_deleted', start?: number, limit?: number, sort?: string, owned_by_you?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetDealsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getArchivedDeals(user_id, filter_id, person_id, org_id, product_id, pipeline_id, stage_id, status, start, limit, sort, owned_by_you, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns a summary of all archived deals.
          * @summary Get archived deals summary
          * @param {'open' | 'won' | 'lost'} [status] Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost.
@@ -1252,6 +1333,21 @@ export const DealsApiFp = function(configuration?: Configuration) {
         async getArchivedDealsSummary(status?: 'open' | 'won' | 'lost', filter_id?: number, user_id?: number, pipeline_id?: number, stage_id?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealsSummaryResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getArchivedDealsSummary(status, filter_id, user_id, pipeline_id, stage_id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getArchivedDealsSummary`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get archived deals summary
+         * @param {'open' | 'won' | 'lost'} [status] Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost.
+         * @param {number} [filter_id] &lt;code&gt;user_id&lt;/code&gt; will not be considered. Only deals matching the given filter will be returned.
+         * @param {number} [user_id] Only deals matching the given user will be returned. &#x60;user_id&#x60; will not be considered if you use &#x60;filter_id&#x60;.
+         * @param {number} [pipeline_id] Only deals within the given pipeline will be returned
+         * @param {number} [stage_id] Only deals within the given stage will be returned
+         * @deprecated
+         * @throws {RequiredError}
+         */
+        async getArchivedDealsSummaryWithHttpInfo(status?: 'open' | 'won' | 'lost', filter_id?: number, user_id?: number, pipeline_id?: number, stage_id?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetDealsSummaryResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getArchivedDealsSummary(status, filter_id, user_id, pipeline_id, stage_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns archived open and won deals, grouped by a defined interval of time set in a date-type dealField (`field_key`) — e.g. when month is the chosen interval, and 3 months are asked starting from January 1st, 2012, deals are returned grouped into 3 groups — January, February and March — based on the value of the given `field_key`.
@@ -1273,6 +1369,25 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getArchivedDealsTimeline`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get archived deals timeline
+         * @param {string} start_date The date when the first interval starts. Format: YYYY-MM-DD.
+         * @param {'day' | 'week' | 'month' | 'quarter'} interval The type of the interval&lt;table&gt;&lt;tr&gt;&lt;th&gt;Value&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;day&#x60;&lt;/td&gt;&lt;td&gt;Day&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;week&#x60;&lt;/td&gt;&lt;td&gt;A full week (7 days) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;month&#x60;&lt;/td&gt;&lt;td&gt;A full month (depending on the number of days in given month) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;quarter&#x60;&lt;/td&gt;&lt;td&gt;A full quarter (3 months) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+         * @param {number} amount The number of given intervals, starting from &#x60;start_date&#x60;, to fetch. E.g. 3 (months).
+         * @param {string} field_key The date field key which deals will be retrieved from
+         * @param {number} [user_id] If supplied, only deals matching the given user will be returned
+         * @param {number} [pipeline_id] If supplied, only deals matching the given pipeline will be returned
+         * @param {number} [filter_id] If supplied, only deals matching the given filter will be returned
+         * @param {0 | 1} [exclude_deals] Whether to exclude deals list (1) or not (0). Note that when deals are excluded, the timeline summary (counts and values) is still returned.
+         * @param {string} [totals_convert_currency] The 3-letter currency code of any of the supported currencies. When supplied, &#x60;totals_converted&#x60; is returned per each interval which contains the currency-converted total amounts in the given currency. You may also set this parameter to &#x60;default_currency&#x60; in which case the user\&#39;s default currency is used.
+         * @deprecated
+         * @throws {RequiredError}
+         */
+        async getArchivedDealsTimelineWithHttpInfo(start_date: string, interval: 'day' | 'week' | 'month' | 'quarter', amount: number, field_key: string, user_id?: number, pipeline_id?: number, filter_id?: number, exclude_deals?: 0 | 1, totals_convert_currency?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetDealsTimelineResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getArchivedDealsTimeline(start_date, interval, amount, field_key, user_id, pipeline_id, filter_id, exclude_deals, totals_convert_currency, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Lists updates about field values of a deal.
          * @summary List updates about deal field values
          * @param {number} id The ID of the deal
@@ -1284,6 +1399,19 @@ export const DealsApiFp = function(configuration?: Configuration) {
         async getDealChangelog(id: number, cursor?: string, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetChangelogResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDealChangelog(id, cursor, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getDealChangelog`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List updates about deal field values
+         * @param {number} id The ID of the deal
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+         * @param {number} [limit] Items shown per page
+
+         * @throws {RequiredError}
+         */
+        async getDealChangelogWithHttpInfo(id: number, cursor?: string, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetChangelogResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealChangelog(id, cursor, limit, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Lists files associated with a deal.
@@ -1300,6 +1428,20 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getDealFiles`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List files attached to a deal
+         * @param {number} id The ID of the deal
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] Items shown per page. Please note that a maximum value of 100 is allowed.
+         * @param {string} [sort] Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;
+
+         * @throws {RequiredError}
+         */
+        async getDealFilesWithHttpInfo(id: number, start?: number, limit?: number, sort?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetAssociatedFilesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealFiles(id, start, limit, sort, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Lists the followers of a deal.
          * @summary List followers of a deal
          * @param {number} id The ID of the deal
@@ -1309,6 +1451,17 @@ export const DealsApiFp = function(configuration?: Configuration) {
         async getDealFollowers(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetListFollowersResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDealFollowers(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getDealFollowers`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List followers of a deal
+         * @param {number} id The ID of the deal
+
+         * @throws {RequiredError}
+         */
+        async getDealFollowersWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetListFollowersResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealFollowers(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Lists mail messages associated with a deal.
@@ -1325,6 +1478,20 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getDealMailMessages`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List mail messages associated with a deal
+         * @param {number} id The ID of the deal
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] Items shown per page
+         * @param {0 | 1} [include_body] Whether to include the mail message body content in the response. &#x60;0&#x60; &#x3D; Don\&#39;t include, &#x60;1&#x60; &#x3D; Include.
+
+         * @throws {RequiredError}
+         */
+        async getDealMailMessagesWithHttpInfo(id: number, start?: number, limit?: number, include_body?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetAssociatedMailMessagesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealMailMessages(id, start, limit, include_body, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Lists the participants associated with a deal.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
          * @summary List participants of a deal
          * @param {number} id The ID of the deal
@@ -1338,6 +1505,19 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getDealParticipants`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List participants of a deal
+         * @param {number} id The ID of the deal
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] Items shown per page
+
+         * @throws {RequiredError}
+         */
+        async getDealParticipantsWithHttpInfo(id: number, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetDealParticipantsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealParticipants(id, start, limit, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * List updates about participants of a deal. This is a cursor-paginated endpoint. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>.
          * @summary List updates about participants of a deal
          * @param {number} id The ID of the deal
@@ -1349,6 +1529,19 @@ export const DealsApiFp = function(configuration?: Configuration) {
         async getDealParticipantsChangelog(id: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetParticipantsChangelogResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDealParticipantsChangelog(id, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getDealParticipantsChangelog`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List updates about participants of a deal
+         * @param {number} id The ID of the deal
+         * @param {number} [limit] Items shown per page
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getDealParticipantsChangelogWithHttpInfo(id: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetParticipantsChangelogResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealParticipantsChangelog(id, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Lists updates about a deal.
@@ -1366,6 +1559,21 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getDealUpdates`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List updates about a deal
+         * @param {number} id The ID of the deal
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] Items shown per page
+         * @param {string} [all_changes] Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates.
+         * @param {Set<string>} [items] A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change).
+
+         * @throws {RequiredError}
+         */
+        async getDealUpdatesWithHttpInfo(id: number, start?: number, limit?: number, all_changes?: string, items?: Set<string>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetDealUpdatesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealUpdates(id, start, limit, all_changes, items, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Lists the users permitted to access a deal.
          * @summary List permitted users
          * @param {number} id The ID of the deal
@@ -1375,6 +1583,17 @@ export const DealsApiFp = function(configuration?: Configuration) {
         async getDealUsers(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPermittedUsersResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDealUsers(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getDealUsers`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List permitted users
+         * @param {number} id The ID of the deal
+
+         * @throws {RequiredError}
+         */
+        async getDealUsersWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetPermittedUsersResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealUsers(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns a summary of all not archived deals.
@@ -1390,6 +1609,21 @@ export const DealsApiFp = function(configuration?: Configuration) {
         async getDealsSummary(status?: 'open' | 'won' | 'lost', filter_id?: number, user_id?: number, pipeline_id?: number, stage_id?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetDealsSummaryResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDealsSummary(status, filter_id, user_id, pipeline_id, stage_id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getDealsSummary`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get deals summary
+         * @param {'open' | 'won' | 'lost'} [status] Only fetch deals with a specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost.
+         * @param {number} [filter_id] &lt;code&gt;user_id&lt;/code&gt; will not be considered. Only deals matching the given filter will be returned.
+         * @param {number} [user_id] Only deals matching the given user will be returned. &#x60;user_id&#x60; will not be considered if you use &#x60;filter_id&#x60;.
+         * @param {number} [pipeline_id] Only deals within the given pipeline will be returned
+         * @param {number} [stage_id] Only deals within the given stage will be returned
+
+         * @throws {RequiredError}
+         */
+        async getDealsSummaryWithHttpInfo(status?: 'open' | 'won' | 'lost', filter_id?: number, user_id?: number, pipeline_id?: number, stage_id?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetDealsSummaryResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealsSummary(status, filter_id, user_id, pipeline_id, stage_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns not archived open and won deals, grouped by a defined interval of time set in a date-type dealField (`field_key`) — e.g. when month is the chosen interval, and 3 months are asked starting from January 1st, 2012, deals are returned grouped into 3 groups — January, February and March — based on the value of the given `field_key`.
@@ -1411,6 +1645,25 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getDealsTimeline`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get deals timeline
+         * @param {string} start_date The date when the first interval starts. Format: YYYY-MM-DD.
+         * @param {'day' | 'week' | 'month' | 'quarter'} interval The type of the interval&lt;table&gt;&lt;tr&gt;&lt;th&gt;Value&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;day&#x60;&lt;/td&gt;&lt;td&gt;Day&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;week&#x60;&lt;/td&gt;&lt;td&gt;A full week (7 days) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;month&#x60;&lt;/td&gt;&lt;td&gt;A full month (depending on the number of days in given month) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&#x60;quarter&#x60;&lt;/td&gt;&lt;td&gt;A full quarter (3 months) starting from &#x60;start_date&#x60;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+         * @param {number} amount The number of given intervals, starting from &#x60;start_date&#x60;, to fetch. E.g. 3 (months).
+         * @param {string} field_key The date field key which deals will be retrieved from
+         * @param {number} [user_id] If supplied, only deals matching the given user will be returned
+         * @param {number} [pipeline_id] If supplied, only deals matching the given pipeline will be returned
+         * @param {number} [filter_id] If supplied, only deals matching the given filter will be returned
+         * @param {0 | 1} [exclude_deals] Whether to exclude deals list (1) or not (0). Note that when deals are excluded, the timeline summary (counts and values) is still returned.
+         * @param {string} [totals_convert_currency] The 3-letter currency code of any of the supported currencies. When supplied, &#x60;totals_converted&#x60; is returned per each interval which contains the currency-converted total amounts in the given currency. You may also set this parameter to &#x60;default_currency&#x60; in which case the user\&#39;s default currency is used.
+
+         * @throws {RequiredError}
+         */
+        async getDealsTimelineWithHttpInfo(start_date: string, interval: 'day' | 'week' | 'month' | 'quarter', amount: number, field_key: string, user_id?: number, pipeline_id?: number, filter_id?: number, exclude_deals?: 0 | 1, totals_convert_currency?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetDealsTimelineResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealsTimeline(start_date, interval, amount, field_key, user_id, pipeline_id, filter_id, exclude_deals, totals_convert_currency, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Merges a deal with another deal. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/merging-two-deals\" target=\"_blank\" rel=\"noopener noreferrer\">merging two deals</a>.
          * @summary Merge two deals
          * @param {number} id The ID of the deal
@@ -1421,6 +1674,18 @@ export const DealsApiFp = function(configuration?: Configuration) {
         async mergeDeals(id: number, MergeDealsRequest?: MergeDealsRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetMergedDealResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.mergeDeals(id, MergeDealsRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `mergeDeals`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Merge two deals
+         * @param {number} id The ID of the deal
+         * @param {MergeDealsRequest} [MergeDealsRequest] 
+
+         * @throws {RequiredError}
+         */
+        async mergeDealsWithHttpInfo(id: number, MergeDealsRequest?: MergeDealsRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetMergedDealResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.mergeDeals(id, MergeDealsRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -1442,6 +1707,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
         addDealFollower(requestParameters: DealsApiAddDealFollowerRequest, ): Promise<AddDealFollowerResponse> {
             return localVarFp.addDealFollower(requestParameters.id, requestParameters.AddDealFollowerRequest, ).then((request) => request(axios, basePath));
         },
+        addDealFollowerWithHttpInfo(requestParameters: DealsApiAddDealFollowerRequest, ): Promise<ApiResponse<AddDealFollowerResponse>> {
+            return localVarFp.addDealFollowerWithHttpInfo(requestParameters.id, requestParameters.AddDealFollowerRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Adds a participant to a deal.
          * @summary Add a participant to a deal
@@ -1451,6 +1719,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          */
         addDealParticipant(requestParameters: DealsApiAddDealParticipantRequest, ): Promise<AddParticipantsResponse> {
             return localVarFp.addDealParticipant(requestParameters.id, requestParameters.AddDealParticipantRequest, ).then((request) => request(axios, basePath));
+        },
+        addDealParticipantWithHttpInfo(requestParameters: DealsApiAddDealParticipantRequest, ): Promise<ApiResponse<AddParticipantsResponse>> {
+            return localVarFp.addDealParticipantWithHttpInfo(requestParameters.id, requestParameters.AddDealParticipantRequest, ).then((request) => request(axios, basePath));
         },
         /**
          * Deletes a follower from a deal.
@@ -1462,6 +1733,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
         deleteDealFollower(requestParameters: DealsApiDeleteDealFollowerRequest, ): Promise<DeleteDealFollowerResponse> {
             return localVarFp.deleteDealFollower(requestParameters.id, requestParameters.follower_id, ).then((request) => request(axios, basePath));
         },
+        deleteDealFollowerWithHttpInfo(requestParameters: DealsApiDeleteDealFollowerRequest, ): Promise<ApiResponse<DeleteDealFollowerResponse>> {
+            return localVarFp.deleteDealFollowerWithHttpInfo(requestParameters.id, requestParameters.follower_id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Deletes a participant from a deal.
          * @summary Delete a participant from a deal
@@ -1471,6 +1745,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          */
         deleteDealParticipant(requestParameters: DealsApiDeleteDealParticipantRequest, ): Promise<DeleteDealParticipantResponse> {
             return localVarFp.deleteDealParticipant(requestParameters.id, requestParameters.deal_participant_id, ).then((request) => request(axios, basePath));
+        },
+        deleteDealParticipantWithHttpInfo(requestParameters: DealsApiDeleteDealParticipantRequest, ): Promise<ApiResponse<DeleteDealParticipantResponse>> {
+            return localVarFp.deleteDealParticipantWithHttpInfo(requestParameters.id, requestParameters.deal_participant_id, ).then((request) => request(axios, basePath));
         },
         /**
          * Duplicates a deal.
@@ -1482,6 +1759,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
         duplicateDeal(requestParameters: DealsApiDuplicateDealRequest, ): Promise<GetDuplicatedDealResponse> {
             return localVarFp.duplicateDeal(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        duplicateDealWithHttpInfo(requestParameters: DealsApiDuplicateDealRequest, ): Promise<ApiResponse<GetDuplicatedDealResponse>> {
+            return localVarFp.duplicateDealWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns all archived deals.
          * @summary Get all archived deals
@@ -1491,6 +1771,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          */
         getArchivedDeals(requestParameters: DealsApiGetArchivedDealsRequest = {}, ): Promise<GetDealsResponse> {
             return localVarFp.getArchivedDeals(requestParameters.user_id, requestParameters.filter_id, requestParameters.person_id, requestParameters.org_id, requestParameters.product_id, requestParameters.pipeline_id, requestParameters.stage_id, requestParameters.status, requestParameters.start, requestParameters.limit, requestParameters.sort, requestParameters.owned_by_you, ).then((request) => request(axios, basePath));
+        },
+        getArchivedDealsWithHttpInfo(requestParameters: DealsApiGetArchivedDealsRequest = {}, ): Promise<ApiResponse<GetDealsResponse>> {
+            return localVarFp.getArchivedDealsWithHttpInfo(requestParameters.user_id, requestParameters.filter_id, requestParameters.person_id, requestParameters.org_id, requestParameters.product_id, requestParameters.pipeline_id, requestParameters.stage_id, requestParameters.status, requestParameters.start, requestParameters.limit, requestParameters.sort, requestParameters.owned_by_you, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns a summary of all archived deals.
@@ -1502,6 +1785,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
         getArchivedDealsSummary(requestParameters: DealsApiGetArchivedDealsSummaryRequest = {}, ): Promise<GetDealsSummaryResponse> {
             return localVarFp.getArchivedDealsSummary(requestParameters.status, requestParameters.filter_id, requestParameters.user_id, requestParameters.pipeline_id, requestParameters.stage_id, ).then((request) => request(axios, basePath));
         },
+        getArchivedDealsSummaryWithHttpInfo(requestParameters: DealsApiGetArchivedDealsSummaryRequest = {}, ): Promise<ApiResponse<GetDealsSummaryResponse>> {
+            return localVarFp.getArchivedDealsSummaryWithHttpInfo(requestParameters.status, requestParameters.filter_id, requestParameters.user_id, requestParameters.pipeline_id, requestParameters.stage_id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns archived open and won deals, grouped by a defined interval of time set in a date-type dealField (`field_key`) — e.g. when month is the chosen interval, and 3 months are asked starting from January 1st, 2012, deals are returned grouped into 3 groups — January, February and March — based on the value of the given `field_key`.
          * @summary Get archived deals timeline
@@ -1511,6 +1797,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          */
         getArchivedDealsTimeline(requestParameters: DealsApiGetArchivedDealsTimelineRequest, ): Promise<GetDealsTimelineResponse> {
             return localVarFp.getArchivedDealsTimeline(requestParameters.start_date, requestParameters.interval, requestParameters.amount, requestParameters.field_key, requestParameters.user_id, requestParameters.pipeline_id, requestParameters.filter_id, requestParameters.exclude_deals, requestParameters.totals_convert_currency, ).then((request) => request(axios, basePath));
+        },
+        getArchivedDealsTimelineWithHttpInfo(requestParameters: DealsApiGetArchivedDealsTimelineRequest, ): Promise<ApiResponse<GetDealsTimelineResponse>> {
+            return localVarFp.getArchivedDealsTimelineWithHttpInfo(requestParameters.start_date, requestParameters.interval, requestParameters.amount, requestParameters.field_key, requestParameters.user_id, requestParameters.pipeline_id, requestParameters.filter_id, requestParameters.exclude_deals, requestParameters.totals_convert_currency, ).then((request) => request(axios, basePath));
         },
         /**
          * Lists updates about field values of a deal.
@@ -1522,6 +1811,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
         getDealChangelog(requestParameters: DealsApiGetDealChangelogRequest, ): Promise<GetChangelogResponse> {
             return localVarFp.getDealChangelog(requestParameters.id, requestParameters.cursor, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
+        getDealChangelogWithHttpInfo(requestParameters: DealsApiGetDealChangelogRequest, ): Promise<ApiResponse<GetChangelogResponse>> {
+            return localVarFp.getDealChangelogWithHttpInfo(requestParameters.id, requestParameters.cursor, requestParameters.limit, ).then((request) => request(axios, basePath));
+        },
         /**
          * Lists files associated with a deal.
          * @summary List files attached to a deal
@@ -1531,6 +1823,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          */
         getDealFiles(requestParameters: DealsApiGetDealFilesRequest, ): Promise<GetAssociatedFilesResponse> {
             return localVarFp.getDealFiles(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.sort, ).then((request) => request(axios, basePath));
+        },
+        getDealFilesWithHttpInfo(requestParameters: DealsApiGetDealFilesRequest, ): Promise<ApiResponse<GetAssociatedFilesResponse>> {
+            return localVarFp.getDealFilesWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.sort, ).then((request) => request(axios, basePath));
         },
         /**
          * Lists the followers of a deal.
@@ -1542,6 +1837,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
         getDealFollowers(requestParameters: DealsApiGetDealFollowersRequest, ): Promise<GetListFollowersResponse> {
             return localVarFp.getDealFollowers(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getDealFollowersWithHttpInfo(requestParameters: DealsApiGetDealFollowersRequest, ): Promise<ApiResponse<GetListFollowersResponse>> {
+            return localVarFp.getDealFollowersWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Lists mail messages associated with a deal.
          * @summary List mail messages associated with a deal
@@ -1551,6 +1849,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          */
         getDealMailMessages(requestParameters: DealsApiGetDealMailMessagesRequest, ): Promise<GetAssociatedMailMessagesResponse> {
             return localVarFp.getDealMailMessages(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.include_body, ).then((request) => request(axios, basePath));
+        },
+        getDealMailMessagesWithHttpInfo(requestParameters: DealsApiGetDealMailMessagesRequest, ): Promise<ApiResponse<GetAssociatedMailMessagesResponse>> {
+            return localVarFp.getDealMailMessagesWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.include_body, ).then((request) => request(axios, basePath));
         },
         /**
          * Lists the participants associated with a deal.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
@@ -1562,6 +1863,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
         getDealParticipants(requestParameters: DealsApiGetDealParticipantsRequest, ): Promise<GetDealParticipantsResponse> {
             return localVarFp.getDealParticipants(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
+        getDealParticipantsWithHttpInfo(requestParameters: DealsApiGetDealParticipantsRequest, ): Promise<ApiResponse<GetDealParticipantsResponse>> {
+            return localVarFp.getDealParticipantsWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
+        },
         /**
          * List updates about participants of a deal. This is a cursor-paginated endpoint. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>.
          * @summary List updates about participants of a deal
@@ -1571,6 +1875,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          */
         getDealParticipantsChangelog(requestParameters: DealsApiGetDealParticipantsChangelogRequest, ): Promise<GetParticipantsChangelogResponse> {
             return localVarFp.getDealParticipantsChangelog(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
+        getDealParticipantsChangelogWithHttpInfo(requestParameters: DealsApiGetDealParticipantsChangelogRequest, ): Promise<ApiResponse<GetParticipantsChangelogResponse>> {
+            return localVarFp.getDealParticipantsChangelogWithHttpInfo(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
          * Lists updates about a deal.
@@ -1582,6 +1889,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
         getDealUpdates(requestParameters: DealsApiGetDealUpdatesRequest, ): Promise<GetDealUpdatesResponse> {
             return localVarFp.getDealUpdates(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.all_changes, requestParameters.items, ).then((request) => request(axios, basePath));
         },
+        getDealUpdatesWithHttpInfo(requestParameters: DealsApiGetDealUpdatesRequest, ): Promise<ApiResponse<GetDealUpdatesResponse>> {
+            return localVarFp.getDealUpdatesWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.all_changes, requestParameters.items, ).then((request) => request(axios, basePath));
+        },
         /**
          * Lists the users permitted to access a deal.
          * @summary List permitted users
@@ -1591,6 +1901,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          */
         getDealUsers(requestParameters: DealsApiGetDealUsersRequest, ): Promise<GetPermittedUsersResponse> {
             return localVarFp.getDealUsers(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        getDealUsersWithHttpInfo(requestParameters: DealsApiGetDealUsersRequest, ): Promise<ApiResponse<GetPermittedUsersResponse>> {
+            return localVarFp.getDealUsersWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns a summary of all not archived deals.
@@ -1602,6 +1915,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
         getDealsSummary(requestParameters: DealsApiGetDealsSummaryRequest = {}, ): Promise<GetDealsSummaryResponse> {
             return localVarFp.getDealsSummary(requestParameters.status, requestParameters.filter_id, requestParameters.user_id, requestParameters.pipeline_id, requestParameters.stage_id, ).then((request) => request(axios, basePath));
         },
+        getDealsSummaryWithHttpInfo(requestParameters: DealsApiGetDealsSummaryRequest = {}, ): Promise<ApiResponse<GetDealsSummaryResponse>> {
+            return localVarFp.getDealsSummaryWithHttpInfo(requestParameters.status, requestParameters.filter_id, requestParameters.user_id, requestParameters.pipeline_id, requestParameters.stage_id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns not archived open and won deals, grouped by a defined interval of time set in a date-type dealField (`field_key`) — e.g. when month is the chosen interval, and 3 months are asked starting from January 1st, 2012, deals are returned grouped into 3 groups — January, February and March — based on the value of the given `field_key`.
          * @summary Get deals timeline
@@ -1612,6 +1928,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
         getDealsTimeline(requestParameters: DealsApiGetDealsTimelineRequest, ): Promise<GetDealsTimelineResponse> {
             return localVarFp.getDealsTimeline(requestParameters.start_date, requestParameters.interval, requestParameters.amount, requestParameters.field_key, requestParameters.user_id, requestParameters.pipeline_id, requestParameters.filter_id, requestParameters.exclude_deals, requestParameters.totals_convert_currency, ).then((request) => request(axios, basePath));
         },
+        getDealsTimelineWithHttpInfo(requestParameters: DealsApiGetDealsTimelineRequest, ): Promise<ApiResponse<GetDealsTimelineResponse>> {
+            return localVarFp.getDealsTimelineWithHttpInfo(requestParameters.start_date, requestParameters.interval, requestParameters.amount, requestParameters.field_key, requestParameters.user_id, requestParameters.pipeline_id, requestParameters.filter_id, requestParameters.exclude_deals, requestParameters.totals_convert_currency, ).then((request) => request(axios, basePath));
+        },
         /**
          * Merges a deal with another deal. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/merging-two-deals\" target=\"_blank\" rel=\"noopener noreferrer\">merging two deals</a>.
          * @summary Merge two deals
@@ -1621,6 +1940,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          */
         mergeDeals(requestParameters: DealsApiMergeDealsRequest, ): Promise<GetMergedDealResponse> {
             return localVarFp.mergeDeals(requestParameters.id, requestParameters.MergeDealsRequest, ).then((request) => request(axios, basePath));
+        },
+        mergeDealsWithHttpInfo(requestParameters: DealsApiMergeDealsRequest, ): Promise<ApiResponse<GetMergedDealResponse>> {
+            return localVarFp.mergeDealsWithHttpInfo(requestParameters.id, requestParameters.MergeDealsRequest, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -2303,6 +2625,18 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
+     * Same as `addDealFollower`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiAddDealFollowerRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public addDealFollowerWithHttpInfo(requestParameters: DealsApiAddDealFollowerRequest, ) {
+        return DealsApiFp(this.configuration).addDealFollowerWithHttpInfo(requestParameters.id, requestParameters.AddDealFollowerRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Adds a participant to a deal.
      * @summary Add a participant to a deal
      * @param {DealsApiAddDealParticipantRequest} requestParameters Request parameters.
@@ -2312,6 +2646,18 @@ export class DealsApi extends BaseAPI {
      */
     public addDealParticipant(requestParameters: DealsApiAddDealParticipantRequest, ) {
         return DealsApiFp(this.configuration).addDealParticipant(requestParameters.id, requestParameters.AddDealParticipantRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `addDealParticipant`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiAddDealParticipantRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public addDealParticipantWithHttpInfo(requestParameters: DealsApiAddDealParticipantRequest, ) {
+        return DealsApiFp(this.configuration).addDealParticipantWithHttpInfo(requestParameters.id, requestParameters.AddDealParticipantRequest, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2327,6 +2673,18 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
+     * Same as `deleteDealFollower`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiDeleteDealFollowerRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public deleteDealFollowerWithHttpInfo(requestParameters: DealsApiDeleteDealFollowerRequest, ) {
+        return DealsApiFp(this.configuration).deleteDealFollowerWithHttpInfo(requestParameters.id, requestParameters.follower_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Deletes a participant from a deal.
      * @summary Delete a participant from a deal
      * @param {DealsApiDeleteDealParticipantRequest} requestParameters Request parameters.
@@ -2336,6 +2694,18 @@ export class DealsApi extends BaseAPI {
      */
     public deleteDealParticipant(requestParameters: DealsApiDeleteDealParticipantRequest, ) {
         return DealsApiFp(this.configuration).deleteDealParticipant(requestParameters.id, requestParameters.deal_participant_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteDealParticipant`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiDeleteDealParticipantRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public deleteDealParticipantWithHttpInfo(requestParameters: DealsApiDeleteDealParticipantRequest, ) {
+        return DealsApiFp(this.configuration).deleteDealParticipantWithHttpInfo(requestParameters.id, requestParameters.deal_participant_id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2351,6 +2721,18 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
+     * Same as `duplicateDeal`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiDuplicateDealRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public duplicateDealWithHttpInfo(requestParameters: DealsApiDuplicateDealRequest, ) {
+        return DealsApiFp(this.configuration).duplicateDealWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns all archived deals.
      * @summary Get all archived deals
      * @param {DealsApiGetArchivedDealsRequest} requestParameters Request parameters.
@@ -2360,6 +2742,18 @@ export class DealsApi extends BaseAPI {
      */
     public getArchivedDeals(requestParameters: DealsApiGetArchivedDealsRequest = {}, ) {
         return DealsApiFp(this.configuration).getArchivedDeals(requestParameters.user_id, requestParameters.filter_id, requestParameters.person_id, requestParameters.org_id, requestParameters.product_id, requestParameters.pipeline_id, requestParameters.stage_id, requestParameters.status, requestParameters.start, requestParameters.limit, requestParameters.sort, requestParameters.owned_by_you, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getArchivedDeals`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiGetArchivedDealsRequest} requestParameters Request parameters.
+     * @deprecated
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public getArchivedDealsWithHttpInfo(requestParameters: DealsApiGetArchivedDealsRequest = {}, ) {
+        return DealsApiFp(this.configuration).getArchivedDealsWithHttpInfo(requestParameters.user_id, requestParameters.filter_id, requestParameters.person_id, requestParameters.org_id, requestParameters.product_id, requestParameters.pipeline_id, requestParameters.stage_id, requestParameters.status, requestParameters.start, requestParameters.limit, requestParameters.sort, requestParameters.owned_by_you, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2375,6 +2769,18 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getArchivedDealsSummary`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiGetArchivedDealsSummaryRequest} requestParameters Request parameters.
+     * @deprecated
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public getArchivedDealsSummaryWithHttpInfo(requestParameters: DealsApiGetArchivedDealsSummaryRequest = {}, ) {
+        return DealsApiFp(this.configuration).getArchivedDealsSummaryWithHttpInfo(requestParameters.status, requestParameters.filter_id, requestParameters.user_id, requestParameters.pipeline_id, requestParameters.stage_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns archived open and won deals, grouped by a defined interval of time set in a date-type dealField (`field_key`) — e.g. when month is the chosen interval, and 3 months are asked starting from January 1st, 2012, deals are returned grouped into 3 groups — January, February and March — based on the value of the given `field_key`.
      * @summary Get archived deals timeline
      * @param {DealsApiGetArchivedDealsTimelineRequest} requestParameters Request parameters.
@@ -2384,6 +2790,18 @@ export class DealsApi extends BaseAPI {
      */
     public getArchivedDealsTimeline(requestParameters: DealsApiGetArchivedDealsTimelineRequest, ) {
         return DealsApiFp(this.configuration).getArchivedDealsTimeline(requestParameters.start_date, requestParameters.interval, requestParameters.amount, requestParameters.field_key, requestParameters.user_id, requestParameters.pipeline_id, requestParameters.filter_id, requestParameters.exclude_deals, requestParameters.totals_convert_currency, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getArchivedDealsTimeline`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiGetArchivedDealsTimelineRequest} requestParameters Request parameters.
+     * @deprecated
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public getArchivedDealsTimelineWithHttpInfo(requestParameters: DealsApiGetArchivedDealsTimelineRequest, ) {
+        return DealsApiFp(this.configuration).getArchivedDealsTimelineWithHttpInfo(requestParameters.start_date, requestParameters.interval, requestParameters.amount, requestParameters.field_key, requestParameters.user_id, requestParameters.pipeline_id, requestParameters.filter_id, requestParameters.exclude_deals, requestParameters.totals_convert_currency, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2399,6 +2817,18 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getDealChangelog`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiGetDealChangelogRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public getDealChangelogWithHttpInfo(requestParameters: DealsApiGetDealChangelogRequest, ) {
+        return DealsApiFp(this.configuration).getDealChangelogWithHttpInfo(requestParameters.id, requestParameters.cursor, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Lists files associated with a deal.
      * @summary List files attached to a deal
      * @param {DealsApiGetDealFilesRequest} requestParameters Request parameters.
@@ -2408,6 +2838,18 @@ export class DealsApi extends BaseAPI {
      */
     public getDealFiles(requestParameters: DealsApiGetDealFilesRequest, ) {
         return DealsApiFp(this.configuration).getDealFiles(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.sort, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getDealFiles`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiGetDealFilesRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public getDealFilesWithHttpInfo(requestParameters: DealsApiGetDealFilesRequest, ) {
+        return DealsApiFp(this.configuration).getDealFilesWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.sort, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2423,6 +2865,18 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getDealFollowers`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiGetDealFollowersRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public getDealFollowersWithHttpInfo(requestParameters: DealsApiGetDealFollowersRequest, ) {
+        return DealsApiFp(this.configuration).getDealFollowersWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Lists mail messages associated with a deal.
      * @summary List mail messages associated with a deal
      * @param {DealsApiGetDealMailMessagesRequest} requestParameters Request parameters.
@@ -2432,6 +2886,18 @@ export class DealsApi extends BaseAPI {
      */
     public getDealMailMessages(requestParameters: DealsApiGetDealMailMessagesRequest, ) {
         return DealsApiFp(this.configuration).getDealMailMessages(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.include_body, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getDealMailMessages`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiGetDealMailMessagesRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public getDealMailMessagesWithHttpInfo(requestParameters: DealsApiGetDealMailMessagesRequest, ) {
+        return DealsApiFp(this.configuration).getDealMailMessagesWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.include_body, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2447,6 +2913,18 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getDealParticipants`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiGetDealParticipantsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public getDealParticipantsWithHttpInfo(requestParameters: DealsApiGetDealParticipantsRequest, ) {
+        return DealsApiFp(this.configuration).getDealParticipantsWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * List updates about participants of a deal. This is a cursor-paginated endpoint. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>.
      * @summary List updates about participants of a deal
      * @param {DealsApiGetDealParticipantsChangelogRequest} requestParameters Request parameters.
@@ -2456,6 +2934,18 @@ export class DealsApi extends BaseAPI {
      */
     public getDealParticipantsChangelog(requestParameters: DealsApiGetDealParticipantsChangelogRequest, ) {
         return DealsApiFp(this.configuration).getDealParticipantsChangelog(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getDealParticipantsChangelog`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiGetDealParticipantsChangelogRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public getDealParticipantsChangelogWithHttpInfo(requestParameters: DealsApiGetDealParticipantsChangelogRequest, ) {
+        return DealsApiFp(this.configuration).getDealParticipantsChangelogWithHttpInfo(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2471,6 +2961,18 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getDealUpdates`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiGetDealUpdatesRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public getDealUpdatesWithHttpInfo(requestParameters: DealsApiGetDealUpdatesRequest, ) {
+        return DealsApiFp(this.configuration).getDealUpdatesWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.all_changes, requestParameters.items, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Lists the users permitted to access a deal.
      * @summary List permitted users
      * @param {DealsApiGetDealUsersRequest} requestParameters Request parameters.
@@ -2480,6 +2982,18 @@ export class DealsApi extends BaseAPI {
      */
     public getDealUsers(requestParameters: DealsApiGetDealUsersRequest, ) {
         return DealsApiFp(this.configuration).getDealUsers(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getDealUsers`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiGetDealUsersRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public getDealUsersWithHttpInfo(requestParameters: DealsApiGetDealUsersRequest, ) {
+        return DealsApiFp(this.configuration).getDealUsersWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2495,6 +3009,18 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getDealsSummary`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiGetDealsSummaryRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public getDealsSummaryWithHttpInfo(requestParameters: DealsApiGetDealsSummaryRequest = {}, ) {
+        return DealsApiFp(this.configuration).getDealsSummaryWithHttpInfo(requestParameters.status, requestParameters.filter_id, requestParameters.user_id, requestParameters.pipeline_id, requestParameters.stage_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns not archived open and won deals, grouped by a defined interval of time set in a date-type dealField (`field_key`) — e.g. when month is the chosen interval, and 3 months are asked starting from January 1st, 2012, deals are returned grouped into 3 groups — January, February and March — based on the value of the given `field_key`.
      * @summary Get deals timeline
      * @param {DealsApiGetDealsTimelineRequest} requestParameters Request parameters.
@@ -2507,6 +3033,18 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getDealsTimeline`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiGetDealsTimelineRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public getDealsTimelineWithHttpInfo(requestParameters: DealsApiGetDealsTimelineRequest, ) {
+        return DealsApiFp(this.configuration).getDealsTimelineWithHttpInfo(requestParameters.start_date, requestParameters.interval, requestParameters.amount, requestParameters.field_key, requestParameters.user_id, requestParameters.pipeline_id, requestParameters.filter_id, requestParameters.exclude_deals, requestParameters.totals_convert_currency, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Merges a deal with another deal. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/merging-two-deals\" target=\"_blank\" rel=\"noopener noreferrer\">merging two deals</a>.
      * @summary Merge two deals
      * @param {DealsApiMergeDealsRequest} requestParameters Request parameters.
@@ -2516,5 +3054,17 @@ export class DealsApi extends BaseAPI {
      */
     public mergeDeals(requestParameters: DealsApiMergeDealsRequest, ) {
         return DealsApiFp(this.configuration).mergeDeals(requestParameters.id, requestParameters.MergeDealsRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `mergeDeals`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiMergeDealsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public mergeDealsWithHttpInfo(requestParameters: DealsApiMergeDealsRequest, ) {
+        return DealsApiFp(this.configuration).mergeDealsWithHttpInfo(requestParameters.id, requestParameters.MergeDealsRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

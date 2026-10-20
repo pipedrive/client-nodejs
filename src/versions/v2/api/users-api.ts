@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { GetFollowersResponse } from '../models';
 /**
@@ -104,6 +104,19 @@ export const UsersApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUserFollowers(id, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * Same as `getUserFollowers`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List followers of a user
+         * @param {number} id The ID of the user
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getUserFollowersWithHttpInfo(id: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetFollowersResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUserFollowers(id, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
     }
 };
 
@@ -123,6 +136,9 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          */
         getUserFollowers(requestParameters: UsersApiGetUserFollowersRequest, ): Promise<GetFollowersResponse> {
             return localVarFp.getUserFollowers(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
+        getUserFollowersWithHttpInfo(requestParameters: UsersApiGetUserFollowersRequest, ): Promise<ApiResponse<GetFollowersResponse>> {
+            return localVarFp.getUserFollowersWithHttpInfo(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -172,5 +188,17 @@ export class UsersApi extends BaseAPI {
      */
     public getUserFollowers(requestParameters: UsersApiGetUserFollowersRequest, ) {
         return UsersApiFp(this.configuration).getUserFollowers(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getUserFollowers`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {UsersApiGetUserFollowersRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public getUserFollowersWithHttpInfo(requestParameters: UsersApiGetUserFollowersRequest, ) {
+        return UsersApiFp(this.configuration).getUserFollowersWithHttpInfo(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
     }
 }

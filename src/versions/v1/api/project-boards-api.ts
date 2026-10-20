@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { GetProjectBoardResponse } from '../models';
 // @ts-ignore
@@ -132,6 +132,17 @@ export const ProjectBoardsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getProjectsBoard`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get details of a board
+         * @param {number} id The ID of the project board
+
+         * @throws {RequiredError}
+         */
+        async getProjectsBoardWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProjectBoardResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectsBoard(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns all projects boards that are not deleted.
          * @summary Get all project boards
 
@@ -140,6 +151,16 @@ export const ProjectBoardsApiFp = function(configuration?: Configuration) {
         async getProjectsBoards(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectBoardsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectsBoards();
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getProjectsBoards`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all project boards
+
+         * @throws {RequiredError}
+         */
+        async getProjectsBoardsWithHttpInfo(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProjectBoardsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectsBoards();
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -161,6 +182,9 @@ export const ProjectBoardsApiFactory = function (configuration?: Configuration, 
         getProjectsBoard(requestParameters: ProjectBoardsApiGetProjectsBoardRequest, ): Promise<GetProjectBoardResponse> {
             return localVarFp.getProjectsBoard(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getProjectsBoardWithHttpInfo(requestParameters: ProjectBoardsApiGetProjectsBoardRequest, ): Promise<ApiResponse<GetProjectBoardResponse>> {
+            return localVarFp.getProjectsBoardWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns all projects boards that are not deleted.
          * @summary Get all project boards
@@ -169,6 +193,9 @@ export const ProjectBoardsApiFactory = function (configuration?: Configuration, 
          */
         getProjectsBoards(): Promise<GetProjectBoardsResponse> {
             return localVarFp.getProjectsBoards().then((request) => request(axios, basePath));
+        },
+        getProjectsBoardsWithHttpInfo(): Promise<ApiResponse<GetProjectBoardsResponse>> {
+            return localVarFp.getProjectsBoardsWithHttpInfo().then((request) => request(axios, basePath));
         },
     };
 };
@@ -207,6 +234,18 @@ export class ProjectBoardsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getProjectsBoard`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProjectBoardsApiGetProjectsBoardRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProjectBoardsApi
+     */
+    public getProjectsBoardWithHttpInfo(requestParameters: ProjectBoardsApiGetProjectsBoardRequest, ) {
+        return ProjectBoardsApiFp(this.configuration).getProjectsBoardWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns all projects boards that are not deleted.
      * @summary Get all project boards
 
@@ -215,5 +254,16 @@ export class ProjectBoardsApi extends BaseAPI {
      */
     public getProjectsBoards() {
         return ProjectBoardsApiFp(this.configuration).getProjectsBoards().then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getProjectsBoards`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+
+     * @throws {RequiredError}
+     * @memberof ProjectBoardsApi
+     */
+    public getProjectsBoardsWithHttpInfo() {
+        return ProjectBoardsApiFp(this.configuration).getProjectsBoardsWithHttpInfo().then((request) => request(this.axios, this.basePath));
     }
 }

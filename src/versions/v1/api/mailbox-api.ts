@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { DeleteMailThreadResponse } from '../models';
 // @ts-ignore
@@ -355,6 +355,17 @@ export const MailboxApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deleteMailThread`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete mail thread
+         * @param {number} id The ID of the mail thread
+
+         * @throws {RequiredError}
+         */
+        async deleteMailThreadWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteMailThreadResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteMailThread(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns data about a specific mail message.
          * @summary Get one mail message
          * @param {number} id The ID of the mail message to fetch
@@ -365,6 +376,18 @@ export const MailboxApiFp = function(configuration?: Configuration) {
         async getMailMessage(id: number, include_body?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetMailMessageResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMailMessage(id, include_body, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getMailMessage`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get one mail message
+         * @param {number} id The ID of the mail message to fetch
+         * @param {0 | 1} [include_body] Whether to include the full message body or not. &#x60;0&#x60; &#x3D; Don\&#39;t include, &#x60;1&#x60; &#x3D; Include.
+
+         * @throws {RequiredError}
+         */
+        async getMailMessageWithHttpInfo(id: number, include_body?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetMailMessageResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMailMessage(id, include_body, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns a specific mail thread.
@@ -378,6 +401,17 @@ export const MailboxApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getMailThread`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get one mail thread
+         * @param {number} id The ID of the mail thread
+
+         * @throws {RequiredError}
+         */
+        async getMailThreadWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetMailThreadResponse1>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMailThread(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns all the mail messages inside a specified mail thread.
          * @summary Get all mail messages of mail thread
          * @param {number} id The ID of the mail thread
@@ -387,6 +421,17 @@ export const MailboxApiFp = function(configuration?: Configuration) {
         async getMailThreadMessages(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetMailThreadMessagesResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMailThreadMessages(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getMailThreadMessages`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all mail messages of mail thread
+         * @param {number} id The ID of the mail thread
+
+         * @throws {RequiredError}
+         */
+        async getMailThreadMessagesWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetMailThreadMessagesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMailThreadMessages(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns mail threads in a specified folder ordered by the most recent message within.
@@ -400,6 +445,19 @@ export const MailboxApiFp = function(configuration?: Configuration) {
         async getMailThreads(folder: 'inbox' | 'drafts' | 'sent' | 'archive', start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetMailThreadResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMailThreads(folder, start, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getMailThreads`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get mail threads
+         * @param {'inbox' | 'drafts' | 'sent' | 'archive'} folder The type of folder to fetch
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] Items shown per page
+
+         * @throws {RequiredError}
+         */
+        async getMailThreadsWithHttpInfo(folder: 'inbox' | 'drafts' | 'sent' | 'archive', start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetMailThreadResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMailThreads(folder, start, limit, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Updates the properties of a mail thread.
@@ -416,6 +474,22 @@ export const MailboxApiFp = function(configuration?: Configuration) {
         async updateMailThreadDetails(id: number, deal_id?: number, lead_id?: string, shared_flag?: number, read_flag?: number, archived_flag?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateMailThreadResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateMailThreadDetails(id, deal_id, lead_id, shared_flag, read_flag, archived_flag, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateMailThreadDetails`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update mail thread details
+         * @param {number} id The ID of the mail thread
+         * @param {number} [deal_id] The ID of the deal this thread is associated with
+         * @param {string} [lead_id] The ID of the lead this thread is associated with
+         * @param {number} [shared_flag] 
+         * @param {number} [read_flag] 
+         * @param {number} [archived_flag] 
+
+         * @throws {RequiredError}
+         */
+        async updateMailThreadDetailsWithHttpInfo(id: number, deal_id?: number, lead_id?: string, shared_flag?: number, read_flag?: number, archived_flag?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpdateMailThreadResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateMailThreadDetails(id, deal_id, lead_id, shared_flag, read_flag, archived_flag, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -437,6 +511,9 @@ export const MailboxApiFactory = function (configuration?: Configuration, basePa
         deleteMailThread(requestParameters: MailboxApiDeleteMailThreadRequest, ): Promise<DeleteMailThreadResponse> {
             return localVarFp.deleteMailThread(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        deleteMailThreadWithHttpInfo(requestParameters: MailboxApiDeleteMailThreadRequest, ): Promise<ApiResponse<DeleteMailThreadResponse>> {
+            return localVarFp.deleteMailThreadWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns data about a specific mail message.
          * @summary Get one mail message
@@ -446,6 +523,9 @@ export const MailboxApiFactory = function (configuration?: Configuration, basePa
          */
         getMailMessage(requestParameters: MailboxApiGetMailMessageRequest, ): Promise<GetMailMessageResponse> {
             return localVarFp.getMailMessage(requestParameters.id, requestParameters.include_body, ).then((request) => request(axios, basePath));
+        },
+        getMailMessageWithHttpInfo(requestParameters: MailboxApiGetMailMessageRequest, ): Promise<ApiResponse<GetMailMessageResponse>> {
+            return localVarFp.getMailMessageWithHttpInfo(requestParameters.id, requestParameters.include_body, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns a specific mail thread.
@@ -457,6 +537,9 @@ export const MailboxApiFactory = function (configuration?: Configuration, basePa
         getMailThread(requestParameters: MailboxApiGetMailThreadRequest, ): Promise<GetMailThreadResponse1> {
             return localVarFp.getMailThread(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getMailThreadWithHttpInfo(requestParameters: MailboxApiGetMailThreadRequest, ): Promise<ApiResponse<GetMailThreadResponse1>> {
+            return localVarFp.getMailThreadWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns all the mail messages inside a specified mail thread.
          * @summary Get all mail messages of mail thread
@@ -466,6 +549,9 @@ export const MailboxApiFactory = function (configuration?: Configuration, basePa
          */
         getMailThreadMessages(requestParameters: MailboxApiGetMailThreadMessagesRequest, ): Promise<GetMailThreadMessagesResponse> {
             return localVarFp.getMailThreadMessages(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        getMailThreadMessagesWithHttpInfo(requestParameters: MailboxApiGetMailThreadMessagesRequest, ): Promise<ApiResponse<GetMailThreadMessagesResponse>> {
+            return localVarFp.getMailThreadMessagesWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns mail threads in a specified folder ordered by the most recent message within.
@@ -477,6 +563,9 @@ export const MailboxApiFactory = function (configuration?: Configuration, basePa
         getMailThreads(requestParameters: MailboxApiGetMailThreadsRequest, ): Promise<GetMailThreadResponse> {
             return localVarFp.getMailThreads(requestParameters.folder, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
+        getMailThreadsWithHttpInfo(requestParameters: MailboxApiGetMailThreadsRequest, ): Promise<ApiResponse<GetMailThreadResponse>> {
+            return localVarFp.getMailThreadsWithHttpInfo(requestParameters.folder, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates the properties of a mail thread.
          * @summary Update mail thread details
@@ -486,6 +575,9 @@ export const MailboxApiFactory = function (configuration?: Configuration, basePa
          */
         updateMailThreadDetails(requestParameters: MailboxApiUpdateMailThreadDetailsRequest, ): Promise<UpdateMailThreadResponse> {
             return localVarFp.updateMailThreadDetails(requestParameters.id, requestParameters.deal_id, requestParameters.lead_id, requestParameters.shared_flag, requestParameters.read_flag, requestParameters.archived_flag, ).then((request) => request(axios, basePath));
+        },
+        updateMailThreadDetailsWithHttpInfo(requestParameters: MailboxApiUpdateMailThreadDetailsRequest, ): Promise<ApiResponse<UpdateMailThreadResponse>> {
+            return localVarFp.updateMailThreadDetailsWithHttpInfo(requestParameters.id, requestParameters.deal_id, requestParameters.lead_id, requestParameters.shared_flag, requestParameters.read_flag, requestParameters.archived_flag, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -650,6 +742,18 @@ export class MailboxApi extends BaseAPI {
     }
 
     /**
+     * Same as `deleteMailThread`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {MailboxApiDeleteMailThreadRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof MailboxApi
+     */
+    public deleteMailThreadWithHttpInfo(requestParameters: MailboxApiDeleteMailThreadRequest, ) {
+        return MailboxApiFp(this.configuration).deleteMailThreadWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns data about a specific mail message.
      * @summary Get one mail message
      * @param {MailboxApiGetMailMessageRequest} requestParameters Request parameters.
@@ -659,6 +763,18 @@ export class MailboxApi extends BaseAPI {
      */
     public getMailMessage(requestParameters: MailboxApiGetMailMessageRequest, ) {
         return MailboxApiFp(this.configuration).getMailMessage(requestParameters.id, requestParameters.include_body, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getMailMessage`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {MailboxApiGetMailMessageRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof MailboxApi
+     */
+    public getMailMessageWithHttpInfo(requestParameters: MailboxApiGetMailMessageRequest, ) {
+        return MailboxApiFp(this.configuration).getMailMessageWithHttpInfo(requestParameters.id, requestParameters.include_body, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -674,6 +790,18 @@ export class MailboxApi extends BaseAPI {
     }
 
     /**
+     * Same as `getMailThread`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {MailboxApiGetMailThreadRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof MailboxApi
+     */
+    public getMailThreadWithHttpInfo(requestParameters: MailboxApiGetMailThreadRequest, ) {
+        return MailboxApiFp(this.configuration).getMailThreadWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns all the mail messages inside a specified mail thread.
      * @summary Get all mail messages of mail thread
      * @param {MailboxApiGetMailThreadMessagesRequest} requestParameters Request parameters.
@@ -683,6 +811,18 @@ export class MailboxApi extends BaseAPI {
      */
     public getMailThreadMessages(requestParameters: MailboxApiGetMailThreadMessagesRequest, ) {
         return MailboxApiFp(this.configuration).getMailThreadMessages(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getMailThreadMessages`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {MailboxApiGetMailThreadMessagesRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof MailboxApi
+     */
+    public getMailThreadMessagesWithHttpInfo(requestParameters: MailboxApiGetMailThreadMessagesRequest, ) {
+        return MailboxApiFp(this.configuration).getMailThreadMessagesWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -698,6 +838,18 @@ export class MailboxApi extends BaseAPI {
     }
 
     /**
+     * Same as `getMailThreads`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {MailboxApiGetMailThreadsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof MailboxApi
+     */
+    public getMailThreadsWithHttpInfo(requestParameters: MailboxApiGetMailThreadsRequest, ) {
+        return MailboxApiFp(this.configuration).getMailThreadsWithHttpInfo(requestParameters.folder, requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates the properties of a mail thread.
      * @summary Update mail thread details
      * @param {MailboxApiUpdateMailThreadDetailsRequest} requestParameters Request parameters.
@@ -707,5 +859,17 @@ export class MailboxApi extends BaseAPI {
      */
     public updateMailThreadDetails(requestParameters: MailboxApiUpdateMailThreadDetailsRequest, ) {
         return MailboxApiFp(this.configuration).updateMailThreadDetails(requestParameters.id, requestParameters.deal_id, requestParameters.lead_id, requestParameters.shared_flag, requestParameters.read_flag, requestParameters.archived_flag, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateMailThreadDetails`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {MailboxApiUpdateMailThreadDetailsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof MailboxApi
+     */
+    public updateMailThreadDetailsWithHttpInfo(requestParameters: MailboxApiUpdateMailThreadDetailsRequest, ) {
+        return MailboxApiFp(this.configuration).updateMailThreadDetailsWithHttpInfo(requestParameters.id, requestParameters.deal_id, requestParameters.lead_id, requestParameters.shared_flag, requestParameters.read_flag, requestParameters.archived_flag, ).then((request) => request(this.axios, this.basePath));
     }
 }

@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { GetStageDealsResponse } from '../models';
 /**
@@ -122,6 +122,22 @@ export const StagesApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getStageDeals(id, filter_id, user_id, everyone, start, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * Same as `getStageDeals`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get deals in a stage
+         * @param {number} id The ID of the stage
+         * @param {number} [filter_id] If supplied, only deals matching the given filter will be returned
+         * @param {number} [user_id] If supplied, &#x60;filter_id&#x60; will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned.
+         * @param {0 | 1} [everyone] If supplied, &#x60;filter_id&#x60; and &#x60;user_id&#x60; will not be considered – instead, deals owned by everyone will be returned
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] Items shown per page
+         * @deprecated
+         * @throws {RequiredError}
+         */
+        async getStageDealsWithHttpInfo(id: number, filter_id?: number, user_id?: number, everyone?: 0 | 1, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetStageDealsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getStageDeals(id, filter_id, user_id, everyone, start, limit, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
     }
 };
 
@@ -141,6 +157,9 @@ export const StagesApiFactory = function (configuration?: Configuration, basePat
          */
         getStageDeals(requestParameters: StagesApiGetStageDealsRequest, ): Promise<GetStageDealsResponse> {
             return localVarFp.getStageDeals(requestParameters.id, requestParameters.filter_id, requestParameters.user_id, requestParameters.everyone, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
+        },
+        getStageDealsWithHttpInfo(requestParameters: StagesApiGetStageDealsRequest, ): Promise<ApiResponse<GetStageDealsResponse>> {
+            return localVarFp.getStageDealsWithHttpInfo(requestParameters.id, requestParameters.filter_id, requestParameters.user_id, requestParameters.everyone, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -211,5 +230,17 @@ export class StagesApi extends BaseAPI {
      */
     public getStageDeals(requestParameters: StagesApiGetStageDealsRequest, ) {
         return StagesApiFp(this.configuration).getStageDeals(requestParameters.id, requestParameters.filter_id, requestParameters.user_id, requestParameters.everyone, requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getStageDeals`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {StagesApiGetStageDealsRequest} requestParameters Request parameters.
+     * @deprecated
+     * @throws {RequiredError}
+     * @memberof StagesApi
+     */
+    public getStageDealsWithHttpInfo(requestParameters: StagesApiGetStageDealsRequest, ) {
+        return StagesApiFp(this.configuration).getStageDealsWithHttpInfo(requestParameters.id, requestParameters.filter_id, requestParameters.user_id, requestParameters.everyone, requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
     }
 }

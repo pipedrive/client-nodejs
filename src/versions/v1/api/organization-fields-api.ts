@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { CreateFieldRequest } from '../models';
 // @ts-ignore
@@ -321,6 +321,17 @@ export const OrganizationFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addOrganizationField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a new organization field
+         * @param {CreateFieldRequest} [CreateFieldRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addOrganizationFieldWithHttpInfo(CreateFieldRequest?: CreateFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetFieldResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addOrganizationField(CreateFieldRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Marks a field as deleted. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/deleting-a-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">deleting a custom field</a>.
          * @summary Delete an organization field
          * @param {number} id The ID of the field
@@ -330,6 +341,17 @@ export const OrganizationFieldsApiFp = function(configuration?: Configuration) {
         async deleteOrganizationField(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteOrganizationField(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deleteOrganizationField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete an organization field
+         * @param {number} id The ID of the field
+
+         * @throws {RequiredError}
+         */
+        async deleteOrganizationFieldWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteOrganizationField(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Marks multiple fields as deleted.
@@ -343,6 +365,17 @@ export const OrganizationFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deleteOrganizationFields`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete multiple organization fields in bulk
+         * @param {Set<number>} ids The comma-separated field IDs to delete
+
+         * @throws {RequiredError}
+         */
+        async deleteOrganizationFieldsWithHttpInfo(ids: Set<number>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteFieldsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteOrganizationFields(ids, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns data about a specific organization field.
          * @summary Get one organization field
          * @param {number} id The ID of the field
@@ -352,6 +385,17 @@ export const OrganizationFieldsApiFp = function(configuration?: Configuration) {
         async getOrganizationField(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFieldResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationField(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getOrganizationField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get one organization field
+         * @param {number} id The ID of the field
+
+         * @throws {RequiredError}
+         */
+        async getOrganizationFieldWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetFieldResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationField(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns data about all organization fields.
@@ -366,6 +410,18 @@ export const OrganizationFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getOrganizationFields`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all organization fields
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] Items shown per page
+
+         * @throws {RequiredError}
+         */
+        async getOrganizationFieldsWithHttpInfo(start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetFieldsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationFields(start, limit, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates an organization field. For more information, see the tutorial for <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields\' values</a>.
          * @summary Update an organization field
          * @param {number} id The ID of the field
@@ -376,6 +432,18 @@ export const OrganizationFieldsApiFp = function(configuration?: Configuration) {
         async updateOrganizationField(id: number, UpdateFieldRequest?: UpdateFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFieldResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateOrganizationField(id, UpdateFieldRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateOrganizationField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update an organization field
+         * @param {number} id The ID of the field
+         * @param {UpdateFieldRequest} [UpdateFieldRequest] 
+
+         * @throws {RequiredError}
+         */
+        async updateOrganizationFieldWithHttpInfo(id: number, UpdateFieldRequest?: UpdateFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetFieldResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateOrganizationField(id, UpdateFieldRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -397,6 +465,9 @@ export const OrganizationFieldsApiFactory = function (configuration?: Configurat
         addOrganizationField(requestParameters: OrganizationFieldsApiAddOrganizationFieldRequest = {}, ): Promise<GetFieldResponse> {
             return localVarFp.addOrganizationField(requestParameters.CreateFieldRequest, ).then((request) => request(axios, basePath));
         },
+        addOrganizationFieldWithHttpInfo(requestParameters: OrganizationFieldsApiAddOrganizationFieldRequest = {}, ): Promise<ApiResponse<GetFieldResponse>> {
+            return localVarFp.addOrganizationFieldWithHttpInfo(requestParameters.CreateFieldRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Marks a field as deleted. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/deleting-a-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">deleting a custom field</a>.
          * @summary Delete an organization field
@@ -406,6 +477,9 @@ export const OrganizationFieldsApiFactory = function (configuration?: Configurat
          */
         deleteOrganizationField(requestParameters: OrganizationFieldsApiDeleteOrganizationFieldRequest, ): Promise<DeleteResponse> {
             return localVarFp.deleteOrganizationField(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        deleteOrganizationFieldWithHttpInfo(requestParameters: OrganizationFieldsApiDeleteOrganizationFieldRequest, ): Promise<ApiResponse<DeleteResponse>> {
+            return localVarFp.deleteOrganizationFieldWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Marks multiple fields as deleted.
@@ -417,6 +491,9 @@ export const OrganizationFieldsApiFactory = function (configuration?: Configurat
         deleteOrganizationFields(requestParameters: OrganizationFieldsApiDeleteOrganizationFieldsRequest, ): Promise<DeleteFieldsResponse> {
             return localVarFp.deleteOrganizationFields(requestParameters.ids, ).then((request) => request(axios, basePath));
         },
+        deleteOrganizationFieldsWithHttpInfo(requestParameters: OrganizationFieldsApiDeleteOrganizationFieldsRequest, ): Promise<ApiResponse<DeleteFieldsResponse>> {
+            return localVarFp.deleteOrganizationFieldsWithHttpInfo(requestParameters.ids, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns data about a specific organization field.
          * @summary Get one organization field
@@ -426,6 +503,9 @@ export const OrganizationFieldsApiFactory = function (configuration?: Configurat
          */
         getOrganizationField(requestParameters: OrganizationFieldsApiGetOrganizationFieldRequest, ): Promise<GetFieldResponse> {
             return localVarFp.getOrganizationField(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        getOrganizationFieldWithHttpInfo(requestParameters: OrganizationFieldsApiGetOrganizationFieldRequest, ): Promise<ApiResponse<GetFieldResponse>> {
+            return localVarFp.getOrganizationFieldWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns data about all organization fields.
@@ -437,6 +517,9 @@ export const OrganizationFieldsApiFactory = function (configuration?: Configurat
         getOrganizationFields(requestParameters: OrganizationFieldsApiGetOrganizationFieldsRequest = {}, ): Promise<GetFieldsResponse> {
             return localVarFp.getOrganizationFields(requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
+        getOrganizationFieldsWithHttpInfo(requestParameters: OrganizationFieldsApiGetOrganizationFieldsRequest = {}, ): Promise<ApiResponse<GetFieldsResponse>> {
+            return localVarFp.getOrganizationFieldsWithHttpInfo(requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates an organization field. For more information, see the tutorial for <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields\' values</a>.
          * @summary Update an organization field
@@ -446,6 +529,9 @@ export const OrganizationFieldsApiFactory = function (configuration?: Configurat
          */
         updateOrganizationField(requestParameters: OrganizationFieldsApiUpdateOrganizationFieldRequest, ): Promise<GetFieldResponse> {
             return localVarFp.updateOrganizationField(requestParameters.id, requestParameters.UpdateFieldRequest, ).then((request) => request(axios, basePath));
+        },
+        updateOrganizationFieldWithHttpInfo(requestParameters: OrganizationFieldsApiUpdateOrganizationFieldRequest, ): Promise<ApiResponse<GetFieldResponse>> {
+            return localVarFp.updateOrganizationFieldWithHttpInfo(requestParameters.id, requestParameters.UpdateFieldRequest, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -568,6 +654,18 @@ export class OrganizationFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `addOrganizationField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {OrganizationFieldsApiAddOrganizationFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationFieldsApi
+     */
+    public addOrganizationFieldWithHttpInfo(requestParameters: OrganizationFieldsApiAddOrganizationFieldRequest = {}, ) {
+        return OrganizationFieldsApiFp(this.configuration).addOrganizationFieldWithHttpInfo(requestParameters.CreateFieldRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Marks a field as deleted. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/deleting-a-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">deleting a custom field</a>.
      * @summary Delete an organization field
      * @param {OrganizationFieldsApiDeleteOrganizationFieldRequest} requestParameters Request parameters.
@@ -577,6 +675,18 @@ export class OrganizationFieldsApi extends BaseAPI {
      */
     public deleteOrganizationField(requestParameters: OrganizationFieldsApiDeleteOrganizationFieldRequest, ) {
         return OrganizationFieldsApiFp(this.configuration).deleteOrganizationField(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteOrganizationField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {OrganizationFieldsApiDeleteOrganizationFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationFieldsApi
+     */
+    public deleteOrganizationFieldWithHttpInfo(requestParameters: OrganizationFieldsApiDeleteOrganizationFieldRequest, ) {
+        return OrganizationFieldsApiFp(this.configuration).deleteOrganizationFieldWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -592,6 +702,18 @@ export class OrganizationFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `deleteOrganizationFields`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {OrganizationFieldsApiDeleteOrganizationFieldsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationFieldsApi
+     */
+    public deleteOrganizationFieldsWithHttpInfo(requestParameters: OrganizationFieldsApiDeleteOrganizationFieldsRequest, ) {
+        return OrganizationFieldsApiFp(this.configuration).deleteOrganizationFieldsWithHttpInfo(requestParameters.ids, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns data about a specific organization field.
      * @summary Get one organization field
      * @param {OrganizationFieldsApiGetOrganizationFieldRequest} requestParameters Request parameters.
@@ -601,6 +723,18 @@ export class OrganizationFieldsApi extends BaseAPI {
      */
     public getOrganizationField(requestParameters: OrganizationFieldsApiGetOrganizationFieldRequest, ) {
         return OrganizationFieldsApiFp(this.configuration).getOrganizationField(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getOrganizationField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {OrganizationFieldsApiGetOrganizationFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationFieldsApi
+     */
+    public getOrganizationFieldWithHttpInfo(requestParameters: OrganizationFieldsApiGetOrganizationFieldRequest, ) {
+        return OrganizationFieldsApiFp(this.configuration).getOrganizationFieldWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -616,6 +750,18 @@ export class OrganizationFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getOrganizationFields`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {OrganizationFieldsApiGetOrganizationFieldsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationFieldsApi
+     */
+    public getOrganizationFieldsWithHttpInfo(requestParameters: OrganizationFieldsApiGetOrganizationFieldsRequest = {}, ) {
+        return OrganizationFieldsApiFp(this.configuration).getOrganizationFieldsWithHttpInfo(requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates an organization field. For more information, see the tutorial for <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields\' values</a>.
      * @summary Update an organization field
      * @param {OrganizationFieldsApiUpdateOrganizationFieldRequest} requestParameters Request parameters.
@@ -625,5 +771,17 @@ export class OrganizationFieldsApi extends BaseAPI {
      */
     public updateOrganizationField(requestParameters: OrganizationFieldsApiUpdateOrganizationFieldRequest, ) {
         return OrganizationFieldsApiFp(this.configuration).updateOrganizationField(requestParameters.id, requestParameters.UpdateFieldRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateOrganizationField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {OrganizationFieldsApiUpdateOrganizationFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationFieldsApi
+     */
+    public updateOrganizationFieldWithHttpInfo(requestParameters: OrganizationFieldsApiUpdateOrganizationFieldRequest, ) {
+        return OrganizationFieldsApiFp(this.configuration).updateOrganizationFieldWithHttpInfo(requestParameters.id, requestParameters.UpdateFieldRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

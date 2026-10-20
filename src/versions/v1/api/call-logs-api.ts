@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddCallLogRequest } from '../models';
 // @ts-ignore
@@ -292,6 +292,17 @@ export const CallLogsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addCallLog`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a call log
+         * @param {AddCallLogRequest} [AddCallLogRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addCallLogWithHttpInfo(AddCallLogRequest?: AddCallLogRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetCallLogResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addCallLog(AddCallLogRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Adds an audio recording to the call log. That audio can be played by those who have access to the call log object.
          * @summary Attach an audio file to the call log
          * @param {string} id The ID received when you create the call log
@@ -302,6 +313,18 @@ export const CallLogsApiFp = function(configuration?: Configuration) {
         async addCallLogAudioFile(id: string, file: File, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<BaseResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addCallLogAudioFile(id, file, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `addCallLogAudioFile`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Attach an audio file to the call log
+         * @param {string} id The ID received when you create the call log
+         * @param {File} file Audio file supported by the HTML5 specification
+
+         * @throws {RequiredError}
+         */
+        async addCallLogAudioFileWithHttpInfo(id: string, file: File, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<BaseResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addCallLogAudioFile(id, file, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Deletes a call log. If there is an audio recording attached to it, it will also be deleted. The related activity will not be removed by this request. If you want to remove the related activities, please use the endpoint which is specific for activities.
@@ -315,6 +338,17 @@ export const CallLogsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deleteCallLog`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a call log
+         * @param {string} id The ID received when you create the call log
+
+         * @throws {RequiredError}
+         */
+        async deleteCallLogWithHttpInfo(id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<BaseResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCallLog(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns details of a specific call log.
          * @summary Get details of a call log
          * @param {string} id The ID received when you create the call log
@@ -324,6 +358,17 @@ export const CallLogsApiFp = function(configuration?: Configuration) {
         async getCallLog(id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetCallLogResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCallLog(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getCallLog`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get details of a call log
+         * @param {string} id The ID received when you create the call log
+
+         * @throws {RequiredError}
+         */
+        async getCallLogWithHttpInfo(id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetCallLogResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCallLog(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns all call logs assigned to a particular user.
@@ -336,6 +381,18 @@ export const CallLogsApiFp = function(configuration?: Configuration) {
         async getUserCallLogs(start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetCallLogsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUserCallLogs(start, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getUserCallLogs`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all call logs assigned to a particular user
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] For pagination, the limit of entries to be returned. The upper limit is 50.
+
+         * @throws {RequiredError}
+         */
+        async getUserCallLogsWithHttpInfo(start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetCallLogsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUserCallLogs(start, limit, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -357,6 +414,9 @@ export const CallLogsApiFactory = function (configuration?: Configuration, baseP
         addCallLog(requestParameters: CallLogsApiAddCallLogRequest = {}, ): Promise<GetCallLogResponse> {
             return localVarFp.addCallLog(requestParameters.AddCallLogRequest, ).then((request) => request(axios, basePath));
         },
+        addCallLogWithHttpInfo(requestParameters: CallLogsApiAddCallLogRequest = {}, ): Promise<ApiResponse<GetCallLogResponse>> {
+            return localVarFp.addCallLogWithHttpInfo(requestParameters.AddCallLogRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Adds an audio recording to the call log. That audio can be played by those who have access to the call log object.
          * @summary Attach an audio file to the call log
@@ -366,6 +426,9 @@ export const CallLogsApiFactory = function (configuration?: Configuration, baseP
          */
         addCallLogAudioFile(requestParameters: CallLogsApiAddCallLogAudioFileRequest, ): Promise<BaseResponse> {
             return localVarFp.addCallLogAudioFile(requestParameters.id, requestParameters.file, ).then((request) => request(axios, basePath));
+        },
+        addCallLogAudioFileWithHttpInfo(requestParameters: CallLogsApiAddCallLogAudioFileRequest, ): Promise<ApiResponse<BaseResponse>> {
+            return localVarFp.addCallLogAudioFileWithHttpInfo(requestParameters.id, requestParameters.file, ).then((request) => request(axios, basePath));
         },
         /**
          * Deletes a call log. If there is an audio recording attached to it, it will also be deleted. The related activity will not be removed by this request. If you want to remove the related activities, please use the endpoint which is specific for activities.
@@ -377,6 +440,9 @@ export const CallLogsApiFactory = function (configuration?: Configuration, baseP
         deleteCallLog(requestParameters: CallLogsApiDeleteCallLogRequest, ): Promise<BaseResponse> {
             return localVarFp.deleteCallLog(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        deleteCallLogWithHttpInfo(requestParameters: CallLogsApiDeleteCallLogRequest, ): Promise<ApiResponse<BaseResponse>> {
+            return localVarFp.deleteCallLogWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns details of a specific call log.
          * @summary Get details of a call log
@@ -387,6 +453,9 @@ export const CallLogsApiFactory = function (configuration?: Configuration, baseP
         getCallLog(requestParameters: CallLogsApiGetCallLogRequest, ): Promise<GetCallLogResponse> {
             return localVarFp.getCallLog(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getCallLogWithHttpInfo(requestParameters: CallLogsApiGetCallLogRequest, ): Promise<ApiResponse<GetCallLogResponse>> {
+            return localVarFp.getCallLogWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns all call logs assigned to a particular user.
          * @summary Get all call logs assigned to a particular user
@@ -396,6 +465,9 @@ export const CallLogsApiFactory = function (configuration?: Configuration, baseP
          */
         getUserCallLogs(requestParameters: CallLogsApiGetUserCallLogsRequest = {}, ): Promise<GetCallLogsResponse> {
             return localVarFp.getUserCallLogs(requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
+        },
+        getUserCallLogsWithHttpInfo(requestParameters: CallLogsApiGetUserCallLogsRequest = {}, ): Promise<ApiResponse<GetCallLogsResponse>> {
+            return localVarFp.getUserCallLogsWithHttpInfo(requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -504,6 +576,18 @@ export class CallLogsApi extends BaseAPI {
     }
 
     /**
+     * Same as `addCallLog`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {CallLogsApiAddCallLogRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof CallLogsApi
+     */
+    public addCallLogWithHttpInfo(requestParameters: CallLogsApiAddCallLogRequest = {}, ) {
+        return CallLogsApiFp(this.configuration).addCallLogWithHttpInfo(requestParameters.AddCallLogRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Adds an audio recording to the call log. That audio can be played by those who have access to the call log object.
      * @summary Attach an audio file to the call log
      * @param {CallLogsApiAddCallLogAudioFileRequest} requestParameters Request parameters.
@@ -513,6 +597,18 @@ export class CallLogsApi extends BaseAPI {
      */
     public addCallLogAudioFile(requestParameters: CallLogsApiAddCallLogAudioFileRequest, ) {
         return CallLogsApiFp(this.configuration).addCallLogAudioFile(requestParameters.id, requestParameters.file, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `addCallLogAudioFile`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {CallLogsApiAddCallLogAudioFileRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof CallLogsApi
+     */
+    public addCallLogAudioFileWithHttpInfo(requestParameters: CallLogsApiAddCallLogAudioFileRequest, ) {
+        return CallLogsApiFp(this.configuration).addCallLogAudioFileWithHttpInfo(requestParameters.id, requestParameters.file, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -528,6 +624,18 @@ export class CallLogsApi extends BaseAPI {
     }
 
     /**
+     * Same as `deleteCallLog`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {CallLogsApiDeleteCallLogRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof CallLogsApi
+     */
+    public deleteCallLogWithHttpInfo(requestParameters: CallLogsApiDeleteCallLogRequest, ) {
+        return CallLogsApiFp(this.configuration).deleteCallLogWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns details of a specific call log.
      * @summary Get details of a call log
      * @param {CallLogsApiGetCallLogRequest} requestParameters Request parameters.
@@ -540,6 +648,18 @@ export class CallLogsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getCallLog`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {CallLogsApiGetCallLogRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof CallLogsApi
+     */
+    public getCallLogWithHttpInfo(requestParameters: CallLogsApiGetCallLogRequest, ) {
+        return CallLogsApiFp(this.configuration).getCallLogWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns all call logs assigned to a particular user.
      * @summary Get all call logs assigned to a particular user
      * @param {CallLogsApiGetUserCallLogsRequest} requestParameters Request parameters.
@@ -549,5 +669,17 @@ export class CallLogsApi extends BaseAPI {
      */
     public getUserCallLogs(requestParameters: CallLogsApiGetUserCallLogsRequest = {}, ) {
         return CallLogsApiFp(this.configuration).getUserCallLogs(requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getUserCallLogs`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {CallLogsApiGetUserCallLogsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof CallLogsApi
+     */
+    public getUserCallLogsWithHttpInfo(requestParameters: CallLogsApiGetUserCallLogsRequest = {}, ) {
+        return CallLogsApiFp(this.configuration).getUserCallLogsWithHttpInfo(requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
     }
 }

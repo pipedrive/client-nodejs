@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { DeleteProductFieldResponse } from '../models';
 // @ts-ignore
@@ -323,6 +323,17 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addProductField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a new product field
+         * @param {ProductFieldAllOf} [ProductFieldAllOf] 
+
+         * @throws {RequiredError}
+         */
+        async addProductFieldWithHttpInfo(ProductFieldAllOf?: ProductFieldAllOf, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProductFieldResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addProductField(ProductFieldAllOf, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Marks a product field as deleted. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/deleting-a-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">deleting a custom field</a>.
          * @summary Delete a product field
          * @param {number} id The ID of the product field
@@ -332,6 +343,17 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
         async deleteProductField(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteProductFieldResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProductField(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deleteProductField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a product field
+         * @param {number} id The ID of the product field
+
+         * @throws {RequiredError}
+         */
+        async deleteProductFieldWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteProductFieldResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProductField(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Marks multiple fields as deleted.
@@ -345,6 +367,17 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deleteProductFields`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete multiple product fields in bulk
+         * @param {Set<number>} ids The comma-separated field IDs to delete
+
+         * @throws {RequiredError}
+         */
+        async deleteProductFieldsWithHttpInfo(ids: Set<number>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteProductFieldsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProductFields(ids, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns data about a specific product field.
          * @summary Get one product field
          * @param {number} id The ID of the product field
@@ -354,6 +387,17 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
         async getProductField(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductFieldResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProductField(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getProductField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get one product field
+         * @param {number} id The ID of the product field
+
+         * @throws {RequiredError}
+         */
+        async getProductFieldWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProductFieldResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProductField(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns data about all product fields.
@@ -368,6 +412,18 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getProductFields`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all product fields
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] Items shown per page
+
+         * @throws {RequiredError}
+         */
+        async getProductFieldsWithHttpInfo(start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProductFieldsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProductFields(start, limit, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates a product field. For more information, see the tutorial for <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields\' values</a>.
          * @summary Update a product field
          * @param {number} id The ID of the product field
@@ -378,6 +434,18 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
         async updateProductField(id: number, UpdateProductFieldResponse?: UpdateProductFieldResponse, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProductFieldResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateProductField(id, UpdateProductFieldResponse, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateProductField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update a product field
+         * @param {number} id The ID of the product field
+         * @param {UpdateProductFieldResponse} [UpdateProductFieldResponse] 
+
+         * @throws {RequiredError}
+         */
+        async updateProductFieldWithHttpInfo(id: number, UpdateProductFieldResponse?: UpdateProductFieldResponse, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProductFieldResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProductField(id, UpdateProductFieldResponse, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -399,6 +467,9 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
         addProductField(requestParameters: ProductFieldsApiAddProductFieldRequest = {}, ): Promise<GetProductFieldResponse> {
             return localVarFp.addProductField(requestParameters.ProductFieldAllOf, ).then((request) => request(axios, basePath));
         },
+        addProductFieldWithHttpInfo(requestParameters: ProductFieldsApiAddProductFieldRequest = {}, ): Promise<ApiResponse<GetProductFieldResponse>> {
+            return localVarFp.addProductFieldWithHttpInfo(requestParameters.ProductFieldAllOf, ).then((request) => request(axios, basePath));
+        },
         /**
          * Marks a product field as deleted. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/deleting-a-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">deleting a custom field</a>.
          * @summary Delete a product field
@@ -408,6 +479,9 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
          */
         deleteProductField(requestParameters: ProductFieldsApiDeleteProductFieldRequest, ): Promise<DeleteProductFieldResponse> {
             return localVarFp.deleteProductField(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        deleteProductFieldWithHttpInfo(requestParameters: ProductFieldsApiDeleteProductFieldRequest, ): Promise<ApiResponse<DeleteProductFieldResponse>> {
+            return localVarFp.deleteProductFieldWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Marks multiple fields as deleted.
@@ -419,6 +493,9 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
         deleteProductFields(requestParameters: ProductFieldsApiDeleteProductFieldsRequest, ): Promise<DeleteProductFieldsResponse> {
             return localVarFp.deleteProductFields(requestParameters.ids, ).then((request) => request(axios, basePath));
         },
+        deleteProductFieldsWithHttpInfo(requestParameters: ProductFieldsApiDeleteProductFieldsRequest, ): Promise<ApiResponse<DeleteProductFieldsResponse>> {
+            return localVarFp.deleteProductFieldsWithHttpInfo(requestParameters.ids, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns data about a specific product field.
          * @summary Get one product field
@@ -428,6 +505,9 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
          */
         getProductField(requestParameters: ProductFieldsApiGetProductFieldRequest, ): Promise<GetProductFieldResponse> {
             return localVarFp.getProductField(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        getProductFieldWithHttpInfo(requestParameters: ProductFieldsApiGetProductFieldRequest, ): Promise<ApiResponse<GetProductFieldResponse>> {
+            return localVarFp.getProductFieldWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns data about all product fields.
@@ -439,6 +519,9 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
         getProductFields(requestParameters: ProductFieldsApiGetProductFieldsRequest = {}, ): Promise<GetProductFieldsResponse> {
             return localVarFp.getProductFields(requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
+        getProductFieldsWithHttpInfo(requestParameters: ProductFieldsApiGetProductFieldsRequest = {}, ): Promise<ApiResponse<GetProductFieldsResponse>> {
+            return localVarFp.getProductFieldsWithHttpInfo(requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates a product field. For more information, see the tutorial for <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields\' values</a>.
          * @summary Update a product field
@@ -448,6 +531,9 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
          */
         updateProductField(requestParameters: ProductFieldsApiUpdateProductFieldRequest, ): Promise<GetProductFieldResponse> {
             return localVarFp.updateProductField(requestParameters.id, requestParameters.UpdateProductFieldResponse, ).then((request) => request(axios, basePath));
+        },
+        updateProductFieldWithHttpInfo(requestParameters: ProductFieldsApiUpdateProductFieldRequest, ): Promise<ApiResponse<GetProductFieldResponse>> {
+            return localVarFp.updateProductFieldWithHttpInfo(requestParameters.id, requestParameters.UpdateProductFieldResponse, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -570,6 +656,18 @@ export class ProductFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `addProductField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductFieldsApiAddProductFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductFieldsApi
+     */
+    public addProductFieldWithHttpInfo(requestParameters: ProductFieldsApiAddProductFieldRequest = {}, ) {
+        return ProductFieldsApiFp(this.configuration).addProductFieldWithHttpInfo(requestParameters.ProductFieldAllOf, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Marks a product field as deleted. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/deleting-a-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">deleting a custom field</a>.
      * @summary Delete a product field
      * @param {ProductFieldsApiDeleteProductFieldRequest} requestParameters Request parameters.
@@ -579,6 +677,18 @@ export class ProductFieldsApi extends BaseAPI {
      */
     public deleteProductField(requestParameters: ProductFieldsApiDeleteProductFieldRequest, ) {
         return ProductFieldsApiFp(this.configuration).deleteProductField(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteProductField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductFieldsApiDeleteProductFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductFieldsApi
+     */
+    public deleteProductFieldWithHttpInfo(requestParameters: ProductFieldsApiDeleteProductFieldRequest, ) {
+        return ProductFieldsApiFp(this.configuration).deleteProductFieldWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -594,6 +704,18 @@ export class ProductFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `deleteProductFields`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductFieldsApiDeleteProductFieldsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductFieldsApi
+     */
+    public deleteProductFieldsWithHttpInfo(requestParameters: ProductFieldsApiDeleteProductFieldsRequest, ) {
+        return ProductFieldsApiFp(this.configuration).deleteProductFieldsWithHttpInfo(requestParameters.ids, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns data about a specific product field.
      * @summary Get one product field
      * @param {ProductFieldsApiGetProductFieldRequest} requestParameters Request parameters.
@@ -603,6 +725,18 @@ export class ProductFieldsApi extends BaseAPI {
      */
     public getProductField(requestParameters: ProductFieldsApiGetProductFieldRequest, ) {
         return ProductFieldsApiFp(this.configuration).getProductField(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getProductField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductFieldsApiGetProductFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductFieldsApi
+     */
+    public getProductFieldWithHttpInfo(requestParameters: ProductFieldsApiGetProductFieldRequest, ) {
+        return ProductFieldsApiFp(this.configuration).getProductFieldWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -618,6 +752,18 @@ export class ProductFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getProductFields`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductFieldsApiGetProductFieldsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductFieldsApi
+     */
+    public getProductFieldsWithHttpInfo(requestParameters: ProductFieldsApiGetProductFieldsRequest = {}, ) {
+        return ProductFieldsApiFp(this.configuration).getProductFieldsWithHttpInfo(requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates a product field. For more information, see the tutorial for <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields\' values</a>.
      * @summary Update a product field
      * @param {ProductFieldsApiUpdateProductFieldRequest} requestParameters Request parameters.
@@ -627,5 +773,17 @@ export class ProductFieldsApi extends BaseAPI {
      */
     public updateProductField(requestParameters: ProductFieldsApiUpdateProductFieldRequest, ) {
         return ProductFieldsApiFp(this.configuration).updateProductField(requestParameters.id, requestParameters.UpdateProductFieldResponse, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateProductField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductFieldsApiUpdateProductFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductFieldsApi
+     */
+    public updateProductFieldWithHttpInfo(requestParameters: ProductFieldsApiUpdateProductFieldRequest, ) {
+        return ProductFieldsApiFp(this.configuration).updateProductFieldWithHttpInfo(requestParameters.id, requestParameters.UpdateProductFieldResponse, ).then((request) => request(this.axios, this.basePath));
     }
 }

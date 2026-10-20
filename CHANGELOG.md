@@ -7,6 +7,15 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Added
+- Every API method now has a `WithHttpInfo` variant (e.g. `getDealWithHttpInfo`) that resolves with `{ data, status, headers }`, so the HTTP status and response headers, such as rate limit headers, can be read. The existing methods are unchanged and still return only the response body.
+- When a `WithHttpInfo` call fails, the rejected error keeps its usual fields and also carries `$response: { status, headers }`, so headers on error responses (e.g. `Retry-After` on a 429) are available too.
+- Exported the `ApiResponse<T>` type for typing these results.
+Example usage, if you want to include it:
+```typescript
+const { data, status, headers } = await api.getDealWithHttpInfo({ id: 1 });
+console.log(headers['x-ratelimit-remaining']);
+```
 
 ## [36.0.1] - 2026-10-13
 ### Fixed

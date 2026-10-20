@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddDealFieldOptions200Response } from '../models';
 // @ts-ignore
@@ -438,6 +438,17 @@ export const PersonFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addPersonField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Create one person field
+         * @param {AddPersonFieldRequest} AddPersonFieldRequest 
+
+         * @throws {RequiredError}
+         */
+        async addPersonFieldWithHttpInfo(AddPersonFieldRequest: AddPersonFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddPersonField200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addPersonField(AddPersonFieldRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Adds new options to a person custom field that supports options (enum or set field types). This operation is atomic - all options are added or none are added. Returns only the newly added options.
          * @summary Add person field options in bulk
          * @param {string} field_code The unique code identifying the field
@@ -450,6 +461,18 @@ export const PersonFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addPersonFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add person field options in bulk
+         * @param {string} field_code The unique code identifying the field
+         * @param {Array<AddDealFieldOptionsRequestInner>} AddDealFieldOptionsRequestInner 
+
+         * @throws {RequiredError}
+         */
+        async addPersonFieldOptionsWithHttpInfo(field_code: string, AddDealFieldOptionsRequestInner: Array<AddDealFieldOptionsRequestInner>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddDealFieldOptions200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addPersonFieldOptions(field_code, AddDealFieldOptionsRequestInner, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Marks a custom field as deleted.
          * @summary Delete one person field
          * @param {string} field_code The unique code identifying the field
@@ -459,6 +482,17 @@ export const PersonFieldsApiFp = function(configuration?: Configuration) {
         async deletePersonField(field_code: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeletePersonField200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deletePersonField(field_code, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deletePersonField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete one person field
+         * @param {string} field_code The unique code identifying the field
+
+         * @throws {RequiredError}
+         */
+        async deletePersonFieldWithHttpInfo(field_code: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeletePersonField200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deletePersonField(field_code, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Removes existing options from a person custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the deleted options.
@@ -473,6 +507,18 @@ export const PersonFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deletePersonFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete person field options in bulk
+         * @param {string} field_code The unique code identifying the field
+         * @param {Array<DeleteDealFieldOptionsRequestInner>} DeleteDealFieldOptionsRequestInner 
+
+         * @throws {RequiredError}
+         */
+        async deletePersonFieldOptionsWithHttpInfo(field_code: string, DeleteDealFieldOptionsRequestInner: Array<DeleteDealFieldOptionsRequestInner>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddDealFieldOptions200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deletePersonFieldOptions(field_code, DeleteDealFieldOptionsRequestInner, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns metadata about a specific person field.
          * @summary Get one person field
          * @param {string} field_code The unique code identifying the field
@@ -483,6 +529,18 @@ export const PersonFieldsApiFp = function(configuration?: Configuration) {
         async getPersonField(field_code: string, include_fields?: Set<'ui_visibility' | 'important_fields' | 'required_fields'>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddPersonField200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonField(field_code, include_fields, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getPersonField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get one person field
+         * @param {string} field_code The unique code identifying the field
+         * @param {Set<'ui_visibility' | 'important_fields' | 'required_fields'>} [include_fields] Optional comma separated string array of additional data namespaces to include in response
+
+         * @throws {RequiredError}
+         */
+        async getPersonFieldWithHttpInfo(field_code: string, include_fields?: Set<'ui_visibility' | 'important_fields' | 'required_fields'>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddPersonField200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonField(field_code, include_fields, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns metadata about all person fields in the company.
@@ -498,6 +556,19 @@ export const PersonFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getPersonFields`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all person fields
+         * @param {Set<'ui_visibility' | 'important_fields' | 'required_fields'>} [include_fields] Optional comma separated string array of additional data namespaces to include in response
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getPersonFieldsWithHttpInfo(include_fields?: Set<'ui_visibility' | 'important_fields' | 'required_fields'>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetPersonFields200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonFields(include_fields, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates a person custom field. The field_code and field_type cannot be changed. At least one field must be provided in the request body.
          * @summary Update one person field
          * @param {string} field_code The unique code identifying the field
@@ -510,6 +581,18 @@ export const PersonFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `updatePersonField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update one person field
+         * @param {string} field_code The unique code identifying the field
+         * @param {UpdatePersonFieldRequest} UpdatePersonFieldRequest 
+
+         * @throws {RequiredError}
+         */
+        async updatePersonFieldWithHttpInfo(field_code: string, UpdatePersonFieldRequest: UpdatePersonFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddPersonField200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePersonField(field_code, UpdatePersonFieldRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates existing options for a person custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the updated options.
          * @summary Update person field options in bulk
          * @param {string} field_code The unique code identifying the field
@@ -520,6 +603,18 @@ export const PersonFieldsApiFp = function(configuration?: Configuration) {
         async updatePersonFieldOptions(field_code: string, UpdateDealFieldOptionsRequestInner: Array<UpdateDealFieldOptionsRequestInner>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddDealFieldOptions200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updatePersonFieldOptions(field_code, UpdateDealFieldOptionsRequestInner, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updatePersonFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update person field options in bulk
+         * @param {string} field_code The unique code identifying the field
+         * @param {Array<UpdateDealFieldOptionsRequestInner>} UpdateDealFieldOptionsRequestInner 
+
+         * @throws {RequiredError}
+         */
+        async updatePersonFieldOptionsWithHttpInfo(field_code: string, UpdateDealFieldOptionsRequestInner: Array<UpdateDealFieldOptionsRequestInner>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddDealFieldOptions200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePersonFieldOptions(field_code, UpdateDealFieldOptionsRequestInner, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -541,6 +636,9 @@ export const PersonFieldsApiFactory = function (configuration?: Configuration, b
         addPersonField(requestParameters: PersonFieldsApiAddPersonFieldRequest, ): Promise<AddPersonField200Response> {
             return localVarFp.addPersonField(requestParameters.AddPersonFieldRequest, ).then((request) => request(axios, basePath));
         },
+        addPersonFieldWithHttpInfo(requestParameters: PersonFieldsApiAddPersonFieldRequest, ): Promise<ApiResponse<AddPersonField200Response>> {
+            return localVarFp.addPersonFieldWithHttpInfo(requestParameters.AddPersonFieldRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Adds new options to a person custom field that supports options (enum or set field types). This operation is atomic - all options are added or none are added. Returns only the newly added options.
          * @summary Add person field options in bulk
@@ -550,6 +648,9 @@ export const PersonFieldsApiFactory = function (configuration?: Configuration, b
          */
         addPersonFieldOptions(requestParameters: PersonFieldsApiAddPersonFieldOptionsRequest, ): Promise<AddDealFieldOptions200Response> {
             return localVarFp.addPersonFieldOptions(requestParameters.field_code, requestParameters.AddDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
+        },
+        addPersonFieldOptionsWithHttpInfo(requestParameters: PersonFieldsApiAddPersonFieldOptionsRequest, ): Promise<ApiResponse<AddDealFieldOptions200Response>> {
+            return localVarFp.addPersonFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.AddDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
         },
         /**
          * Marks a custom field as deleted.
@@ -561,6 +662,9 @@ export const PersonFieldsApiFactory = function (configuration?: Configuration, b
         deletePersonField(requestParameters: PersonFieldsApiDeletePersonFieldRequest, ): Promise<DeletePersonField200Response> {
             return localVarFp.deletePersonField(requestParameters.field_code, ).then((request) => request(axios, basePath));
         },
+        deletePersonFieldWithHttpInfo(requestParameters: PersonFieldsApiDeletePersonFieldRequest, ): Promise<ApiResponse<DeletePersonField200Response>> {
+            return localVarFp.deletePersonFieldWithHttpInfo(requestParameters.field_code, ).then((request) => request(axios, basePath));
+        },
         /**
          * Removes existing options from a person custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the deleted options.
          * @summary Delete person field options in bulk
@@ -570,6 +674,9 @@ export const PersonFieldsApiFactory = function (configuration?: Configuration, b
          */
         deletePersonFieldOptions(requestParameters: PersonFieldsApiDeletePersonFieldOptionsRequest, ): Promise<AddDealFieldOptions200Response> {
             return localVarFp.deletePersonFieldOptions(requestParameters.field_code, requestParameters.DeleteDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
+        },
+        deletePersonFieldOptionsWithHttpInfo(requestParameters: PersonFieldsApiDeletePersonFieldOptionsRequest, ): Promise<ApiResponse<AddDealFieldOptions200Response>> {
+            return localVarFp.deletePersonFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.DeleteDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns metadata about a specific person field.
@@ -581,6 +688,9 @@ export const PersonFieldsApiFactory = function (configuration?: Configuration, b
         getPersonField(requestParameters: PersonFieldsApiGetPersonFieldRequest, ): Promise<AddPersonField200Response> {
             return localVarFp.getPersonField(requestParameters.field_code, requestParameters.include_fields, ).then((request) => request(axios, basePath));
         },
+        getPersonFieldWithHttpInfo(requestParameters: PersonFieldsApiGetPersonFieldRequest, ): Promise<ApiResponse<AddPersonField200Response>> {
+            return localVarFp.getPersonFieldWithHttpInfo(requestParameters.field_code, requestParameters.include_fields, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns metadata about all person fields in the company.
          * @summary Get all person fields
@@ -590,6 +700,9 @@ export const PersonFieldsApiFactory = function (configuration?: Configuration, b
          */
         getPersonFields(requestParameters: PersonFieldsApiGetPersonFieldsRequest = {}, ): Promise<GetPersonFields200Response> {
             return localVarFp.getPersonFields(requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
+        getPersonFieldsWithHttpInfo(requestParameters: PersonFieldsApiGetPersonFieldsRequest = {}, ): Promise<ApiResponse<GetPersonFields200Response>> {
+            return localVarFp.getPersonFieldsWithHttpInfo(requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
          * Updates a person custom field. The field_code and field_type cannot be changed. At least one field must be provided in the request body.
@@ -601,6 +714,9 @@ export const PersonFieldsApiFactory = function (configuration?: Configuration, b
         updatePersonField(requestParameters: PersonFieldsApiUpdatePersonFieldRequest, ): Promise<AddPersonField200Response> {
             return localVarFp.updatePersonField(requestParameters.field_code, requestParameters.UpdatePersonFieldRequest, ).then((request) => request(axios, basePath));
         },
+        updatePersonFieldWithHttpInfo(requestParameters: PersonFieldsApiUpdatePersonFieldRequest, ): Promise<ApiResponse<AddPersonField200Response>> {
+            return localVarFp.updatePersonFieldWithHttpInfo(requestParameters.field_code, requestParameters.UpdatePersonFieldRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates existing options for a person custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the updated options.
          * @summary Update person field options in bulk
@@ -610,6 +726,9 @@ export const PersonFieldsApiFactory = function (configuration?: Configuration, b
          */
         updatePersonFieldOptions(requestParameters: PersonFieldsApiUpdatePersonFieldOptionsRequest, ): Promise<AddDealFieldOptions200Response> {
             return localVarFp.updatePersonFieldOptions(requestParameters.field_code, requestParameters.UpdateDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
+        },
+        updatePersonFieldOptionsWithHttpInfo(requestParameters: PersonFieldsApiUpdatePersonFieldOptionsRequest, ): Promise<ApiResponse<AddDealFieldOptions200Response>> {
+            return localVarFp.updatePersonFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.UpdateDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -795,6 +914,18 @@ export class PersonFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `addPersonField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonFieldsApiAddPersonFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonFieldsApi
+     */
+    public addPersonFieldWithHttpInfo(requestParameters: PersonFieldsApiAddPersonFieldRequest, ) {
+        return PersonFieldsApiFp(this.configuration).addPersonFieldWithHttpInfo(requestParameters.AddPersonFieldRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Adds new options to a person custom field that supports options (enum or set field types). This operation is atomic - all options are added or none are added. Returns only the newly added options.
      * @summary Add person field options in bulk
      * @param {PersonFieldsApiAddPersonFieldOptionsRequest} requestParameters Request parameters.
@@ -804,6 +935,18 @@ export class PersonFieldsApi extends BaseAPI {
      */
     public addPersonFieldOptions(requestParameters: PersonFieldsApiAddPersonFieldOptionsRequest, ) {
         return PersonFieldsApiFp(this.configuration).addPersonFieldOptions(requestParameters.field_code, requestParameters.AddDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `addPersonFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonFieldsApiAddPersonFieldOptionsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonFieldsApi
+     */
+    public addPersonFieldOptionsWithHttpInfo(requestParameters: PersonFieldsApiAddPersonFieldOptionsRequest, ) {
+        return PersonFieldsApiFp(this.configuration).addPersonFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.AddDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -819,6 +962,18 @@ export class PersonFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `deletePersonField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonFieldsApiDeletePersonFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonFieldsApi
+     */
+    public deletePersonFieldWithHttpInfo(requestParameters: PersonFieldsApiDeletePersonFieldRequest, ) {
+        return PersonFieldsApiFp(this.configuration).deletePersonFieldWithHttpInfo(requestParameters.field_code, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Removes existing options from a person custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the deleted options.
      * @summary Delete person field options in bulk
      * @param {PersonFieldsApiDeletePersonFieldOptionsRequest} requestParameters Request parameters.
@@ -828,6 +983,18 @@ export class PersonFieldsApi extends BaseAPI {
      */
     public deletePersonFieldOptions(requestParameters: PersonFieldsApiDeletePersonFieldOptionsRequest, ) {
         return PersonFieldsApiFp(this.configuration).deletePersonFieldOptions(requestParameters.field_code, requestParameters.DeleteDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deletePersonFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonFieldsApiDeletePersonFieldOptionsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonFieldsApi
+     */
+    public deletePersonFieldOptionsWithHttpInfo(requestParameters: PersonFieldsApiDeletePersonFieldOptionsRequest, ) {
+        return PersonFieldsApiFp(this.configuration).deletePersonFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.DeleteDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -843,6 +1010,18 @@ export class PersonFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getPersonField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonFieldsApiGetPersonFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonFieldsApi
+     */
+    public getPersonFieldWithHttpInfo(requestParameters: PersonFieldsApiGetPersonFieldRequest, ) {
+        return PersonFieldsApiFp(this.configuration).getPersonFieldWithHttpInfo(requestParameters.field_code, requestParameters.include_fields, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns metadata about all person fields in the company.
      * @summary Get all person fields
      * @param {PersonFieldsApiGetPersonFieldsRequest} requestParameters Request parameters.
@@ -852,6 +1031,18 @@ export class PersonFieldsApi extends BaseAPI {
      */
     public getPersonFields(requestParameters: PersonFieldsApiGetPersonFieldsRequest = {}, ) {
         return PersonFieldsApiFp(this.configuration).getPersonFields(requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getPersonFields`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonFieldsApiGetPersonFieldsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonFieldsApi
+     */
+    public getPersonFieldsWithHttpInfo(requestParameters: PersonFieldsApiGetPersonFieldsRequest = {}, ) {
+        return PersonFieldsApiFp(this.configuration).getPersonFieldsWithHttpInfo(requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -867,6 +1058,18 @@ export class PersonFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `updatePersonField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonFieldsApiUpdatePersonFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonFieldsApi
+     */
+    public updatePersonFieldWithHttpInfo(requestParameters: PersonFieldsApiUpdatePersonFieldRequest, ) {
+        return PersonFieldsApiFp(this.configuration).updatePersonFieldWithHttpInfo(requestParameters.field_code, requestParameters.UpdatePersonFieldRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates existing options for a person custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the updated options.
      * @summary Update person field options in bulk
      * @param {PersonFieldsApiUpdatePersonFieldOptionsRequest} requestParameters Request parameters.
@@ -876,5 +1079,17 @@ export class PersonFieldsApi extends BaseAPI {
      */
     public updatePersonFieldOptions(requestParameters: PersonFieldsApiUpdatePersonFieldOptionsRequest, ) {
         return PersonFieldsApiFp(this.configuration).updatePersonFieldOptions(requestParameters.field_code, requestParameters.UpdateDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updatePersonFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonFieldsApiUpdatePersonFieldOptionsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonFieldsApi
+     */
+    public updatePersonFieldOptionsWithHttpInfo(requestParameters: PersonFieldsApiUpdatePersonFieldOptionsRequest, ) {
+        return PersonFieldsApiFp(this.configuration).updatePersonFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.UpdateDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
     }
 }
