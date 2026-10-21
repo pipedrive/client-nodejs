@@ -7,6 +7,13 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Fixed
+- Marked fields that can be `null` as `nullable: true` in Mailbox endpoints:
+  - `draft`, `from[].linked_person_id`, `from[].linked_person_name` (and the same for `to`, `cc`, `bcc`) in `GET /v1/mailbox/mailMessages/{id}`
+  - `template_id`, plus the same `draft` and participant `linked_person_id` / `linked_person_name` fields, in `GET /v1/deals/{id}/mailMessages`, `GET /v1/persons/{id}/mailMessages` and `GET /v1/organizations/{id}/mailMessages`
+  - `snippet_sent`, `last_message_received_timestamp`, `archived_flag`, `drafts_parties`, `parties.to[].linked_person_id` and `parties.to[].linked_person_name` (and the same for `parties.from`) in `GET /v1/mailbox/mailThreads`, `GET /v1/mailbox/mailThreads/{id}` and `PUT /v1/mailbox/mailThreads/{id}`
+  - `from[].linked_person_id` and `from[].linked_person_name` (and the same for `to`, `cc`, `bcc`) in `GET /v1/mailbox/mailThreads/{id}/mailMessages`
+  - `deal_id` and `lead_id` in the `PUT /v1/mailbox/mailThreads/{id}` request body, where `null` unlinks the deal or lead
 
 ## [36.1.0] - 2026-10-21
 ### Added

@@ -29,10 +29,10 @@ export interface MailThreadAllOf1 {
     */
     'parties'?: MailThreadAllOf1Parties;
     /**
-    * Parties of the drafted mail thread
+    * Parties of the drafted mail thread. `null` if the mail thread has no drafts.
     * @type {Array<object>}
     */
-    'drafts_parties'?: Array<object>;
+    'drafts_parties'?: Array<object> | null;
     /**
     * Folders in which messages from thread are being stored
     * @type {Array<string>}
@@ -52,7 +52,7 @@ export interface MailThreadAllOf1 {
     * A snippet from a message sent
     * @type {string}
     */
-    'snippet_sent'?: string;
+    'snippet_sent'?: string | null;
     /**
     * An amount of messages
     * @type {number}
@@ -69,10 +69,10 @@ export interface MailThreadAllOf1 {
     */
     'has_sent_flag'?: MailThreadAllOf1HasSentFlagConst;
     /**
-    * 
+    * Whether the mail thread is archived. `null` if the mail thread has not been explicitly archived or unarchived in Pipedrive.
     * @type {number}
     */
-    'archived_flag'?: MailThreadAllOf1ArchivedFlagConst;
+    'archived_flag'?: MailThreadAllOf1ArchivedFlagConst | null;
     /**
     * 
     * @type {number}
@@ -107,7 +107,7 @@ export interface MailThreadAllOf1 {
     * The last time when the mail thread has had a message received
     * @type {string}
     */
-    'last_message_received_timestamp'?: string;
+    'last_message_received_timestamp'?: string | null;
     /**
     * The time when the mail thread was inserted to database
     * @type {string}

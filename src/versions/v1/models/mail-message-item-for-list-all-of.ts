@@ -49,7 +49,7 @@ export interface MailMessageItemForListAllOf {
     * The ID of the mail template
     * @type {number}
     */
-    'template_id'?: number;
+    'template_id'?: number | null;
     /**
     * The add date and time of the Mail Message
     * @type {string}
