@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { GetFieldsResponse } from '../models';
 /**
@@ -87,6 +87,16 @@ export const ActivityFieldsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getActivityFields();
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * Same as `getActivityFields`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all activity fields
+
+         * @throws {RequiredError}
+         */
+        async getActivityFieldsWithHttpInfo(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetFieldsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getActivityFields();
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
     }
 };
 
@@ -105,6 +115,9 @@ export const ActivityFieldsApiFactory = function (configuration?: Configuration,
          */
         getActivityFields(): Promise<GetFieldsResponse> {
             return localVarFp.getActivityFields().then((request) => request(axios, basePath));
+        },
+        getActivityFieldsWithHttpInfo(): Promise<ApiResponse<GetFieldsResponse>> {
+            return localVarFp.getActivityFieldsWithHttpInfo().then((request) => request(axios, basePath));
         },
     };
 };
@@ -125,5 +138,16 @@ export class ActivityFieldsApi extends BaseAPI {
      */
     public getActivityFields() {
         return ActivityFieldsApiFp(this.configuration).getActivityFields().then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getActivityFields`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+
+     * @throws {RequiredError}
+     * @memberof ActivityFieldsApi
+     */
+    public getActivityFieldsWithHttpInfo() {
+        return ActivityFieldsApiFp(this.configuration).getActivityFieldsWithHttpInfo().then((request) => request(this.axios, this.basePath));
     }
 }

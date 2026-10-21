@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddPersonFollowerRequest } from '../models';
 // @ts-ignore
@@ -56,7 +56,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * Adds a follower to a person.
          * @summary Add a follower to a person
-         * @param {number} id The ID of the person
+         * @param {number} id The unique ID of the person
          * @param {AddPersonFollowerRequest} [AddPersonFollowerRequest] 
 
          * @throws {RequiredError}
@@ -101,7 +101,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * Adds a picture to a person. If a picture is already set, the old picture will be replaced. Added image (or the cropping parameters supplied with the request) should have an equal width and height and should be at least 128 pixels. GIF, JPG and PNG are accepted. All added images will be resized to 128 and 512 pixel wide squares.
          * @summary Add person picture
-         * @param {number} id The ID of the person
+         * @param {number} id The unique ID of the person
          * @param {File} file One image supplied in the multipart/form-data encoding
          * @param {number} [crop_x] X coordinate to where start cropping form (in pixels)
          * @param {number} [crop_y] Y coordinate to where start cropping form (in pixels)
@@ -173,7 +173,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * Deletes a follower from a person.
          * @summary Delete a follower from a person
-         * @param {number} id The ID of the person
+         * @param {number} id The unique ID of the person
          * @param {number} follower_id The ID of the relationship between the follower and the person
 
          * @throws {RequiredError}
@@ -218,7 +218,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * Deletes a person’s picture.
          * @summary Delete person picture
-         * @param {number} id The ID of the person
+         * @param {number} id The unique ID of the person
 
          * @throws {RequiredError}
          */
@@ -259,7 +259,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * Lists updates about field values of a person.
          * @summary List updates about person field values
-         * @param {number} id The ID of the person
+         * @param {number} id The unique ID of the person
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
          * @param {number} [limit] Items shown per page
 
@@ -310,7 +310,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * Lists files associated with a person.
          * @summary List files attached to a person
-         * @param {number} id The ID of the person
+         * @param {number} id The unique ID of the person
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page. Please note that a maximum value of 100 is allowed.
          * @param {string} [sort] Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;
@@ -366,7 +366,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * Lists the followers of a person.
          * @summary List followers of a person
-         * @param {number} id The ID of the person
+         * @param {number} id The unique ID of the person
 
          * @throws {RequiredError}
          */
@@ -407,7 +407,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * Lists mail messages associated with a person.
          * @summary List mail messages associated with a person
-         * @param {number} id The ID of the person
+         * @param {number} id The unique ID of the person
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
          * @param {0 | 1} [include_body] Whether to include the mail message body content in the response. &#x60;0&#x60; &#x3D; Don\&#39;t include, &#x60;1&#x60; &#x3D; Include.
@@ -463,7 +463,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * Lists products associated with a person.
          * @summary List products associated with a person
-         * @param {number} id The ID of the person
+         * @param {number} id The unique ID of the person
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
 
@@ -514,7 +514,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * Lists updates about a person.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint\'s response will also include updates for the `marketing_status` field.
          * @summary List updates about a person
-         * @param {number} id The ID of the person
+         * @param {number} id The unique ID of the person
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
          * @param {string} [all_changes] Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates.
@@ -575,7 +575,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * List users permitted to access a person.
          * @summary List permitted users
-         * @param {number} id The ID of the person
+         * @param {number} id The unique ID of the person
 
          * @throws {RequiredError}
          */
@@ -616,7 +616,7 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * Merges a person with another person. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/merging-two-persons\" target=\"_blank\" rel=\"noopener noreferrer\">merging two persons</a>.
          * @summary Merge two persons
-         * @param {number} id The ID of the person
+         * @param {number} id The unique ID of the person
          * @param {MergePersonsRequest} [MergePersonsRequest] 
 
          * @throws {RequiredError}
@@ -672,7 +672,7 @@ export const PersonsApiFp = function(configuration?: Configuration) {
         /**
          * Adds a follower to a person.
          * @summary Add a follower to a person
-         * @param {number} id The ID of the person
+         * @param {number} id The unique ID of the person
          * @param {AddPersonFollowerRequest} [AddPersonFollowerRequest] 
 
          * @throws {RequiredError}
@@ -682,9 +682,21 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addPersonFollower`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a follower to a person
+         * @param {number} id The unique ID of the person
+         * @param {AddPersonFollowerRequest} [AddPersonFollowerRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addPersonFollowerWithHttpInfo(id: number, AddPersonFollowerRequest?: AddPersonFollowerRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddPersonFollowerResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addPersonFollower(id, AddPersonFollowerRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Adds a picture to a person. If a picture is already set, the old picture will be replaced. Added image (or the cropping parameters supplied with the request) should have an equal width and height and should be at least 128 pixels. GIF, JPG and PNG are accepted. All added images will be resized to 128 and 512 pixel wide squares.
          * @summary Add person picture
-         * @param {number} id The ID of the person
+         * @param {number} id The unique ID of the person
          * @param {File} file One image supplied in the multipart/form-data encoding
          * @param {number} [crop_x] X coordinate to where start cropping form (in pixels)
          * @param {number} [crop_y] Y coordinate to where start cropping form (in pixels)
@@ -698,9 +710,25 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addPersonPicture`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add person picture
+         * @param {number} id The unique ID of the person
+         * @param {File} file One image supplied in the multipart/form-data encoding
+         * @param {number} [crop_x] X coordinate to where start cropping form (in pixels)
+         * @param {number} [crop_y] Y coordinate to where start cropping form (in pixels)
+         * @param {number} [crop_width] The width of the cropping area (in pixels)
+         * @param {number} [crop_height] The height of the cropping area (in pixels)
+
+         * @throws {RequiredError}
+         */
+        async addPersonPictureWithHttpInfo(id: number, file: File, crop_x?: number, crop_y?: number, crop_width?: number, crop_height?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddPersonPictureResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addPersonPicture(id, file, crop_x, crop_y, crop_width, crop_height, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Deletes a follower from a person.
          * @summary Delete a follower from a person
-         * @param {number} id The ID of the person
+         * @param {number} id The unique ID of the person
          * @param {number} follower_id The ID of the relationship between the follower and the person
 
          * @throws {RequiredError}
@@ -710,9 +738,21 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deletePersonFollower`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a follower from a person
+         * @param {number} id The unique ID of the person
+         * @param {number} follower_id The ID of the relationship between the follower and the person
+
+         * @throws {RequiredError}
+         */
+        async deletePersonFollowerWithHttpInfo(id: number, follower_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeletePersonResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deletePersonFollower(id, follower_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Deletes a person’s picture.
          * @summary Delete person picture
-         * @param {number} id The ID of the person
+         * @param {number} id The unique ID of the person
 
          * @throws {RequiredError}
          */
@@ -721,9 +761,20 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deletePersonPicture`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete person picture
+         * @param {number} id The unique ID of the person
+
+         * @throws {RequiredError}
+         */
+        async deletePersonPictureWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeletePersonResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deletePersonPicture(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Lists updates about field values of a person.
          * @summary List updates about person field values
-         * @param {number} id The ID of the person
+         * @param {number} id The unique ID of the person
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
          * @param {number} [limit] Items shown per page
 
@@ -734,9 +785,22 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getPersonChangelog`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List updates about person field values
+         * @param {number} id The unique ID of the person
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+         * @param {number} [limit] Items shown per page
+
+         * @throws {RequiredError}
+         */
+        async getPersonChangelogWithHttpInfo(id: number, cursor?: string, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetChangelogResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonChangelog(id, cursor, limit, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Lists files associated with a person.
          * @summary List files attached to a person
-         * @param {number} id The ID of the person
+         * @param {number} id The unique ID of the person
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page. Please note that a maximum value of 100 is allowed.
          * @param {string} [sort] Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;
@@ -748,9 +812,23 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getPersonFiles`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List files attached to a person
+         * @param {number} id The unique ID of the person
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] Items shown per page. Please note that a maximum value of 100 is allowed.
+         * @param {string} [sort] Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;
+
+         * @throws {RequiredError}
+         */
+        async getPersonFilesWithHttpInfo(id: number, start?: number, limit?: number, sort?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetAssociatedFilesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonFiles(id, start, limit, sort, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Lists the followers of a person.
          * @summary List followers of a person
-         * @param {number} id The ID of the person
+         * @param {number} id The unique ID of the person
 
          * @throws {RequiredError}
          */
@@ -759,9 +837,20 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getPersonFollowers`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List followers of a person
+         * @param {number} id The unique ID of the person
+
+         * @throws {RequiredError}
+         */
+        async getPersonFollowersWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetListFollowersResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonFollowers(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Lists mail messages associated with a person.
          * @summary List mail messages associated with a person
-         * @param {number} id The ID of the person
+         * @param {number} id The unique ID of the person
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
          * @param {0 | 1} [include_body] Whether to include the mail message body content in the response. &#x60;0&#x60; &#x3D; Don\&#39;t include, &#x60;1&#x60; &#x3D; Include.
@@ -773,9 +862,23 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getPersonMailMessages`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List mail messages associated with a person
+         * @param {number} id The unique ID of the person
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] Items shown per page
+         * @param {0 | 1} [include_body] Whether to include the mail message body content in the response. &#x60;0&#x60; &#x3D; Don\&#39;t include, &#x60;1&#x60; &#x3D; Include.
+
+         * @throws {RequiredError}
+         */
+        async getPersonMailMessagesWithHttpInfo(id: number, start?: number, limit?: number, include_body?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetAssociatedMailMessagesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonMailMessages(id, start, limit, include_body, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Lists products associated with a person.
          * @summary List products associated with a person
-         * @param {number} id The ID of the person
+         * @param {number} id The unique ID of the person
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
 
@@ -786,9 +889,22 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getPersonProducts`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List products associated with a person
+         * @param {number} id The unique ID of the person
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] Items shown per page
+
+         * @throws {RequiredError}
+         */
+        async getPersonProductsWithHttpInfo(id: number, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetPersonProductsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonProducts(id, start, limit, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Lists updates about a person.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint\'s response will also include updates for the `marketing_status` field.
          * @summary List updates about a person
-         * @param {number} id The ID of the person
+         * @param {number} id The unique ID of the person
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
          * @param {string} [all_changes] Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates.
@@ -801,9 +917,24 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getPersonUpdates`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List updates about a person
+         * @param {number} id The unique ID of the person
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] Items shown per page
+         * @param {string} [all_changes] Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates.
+         * @param {Set<string>} [items] A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change).
+
+         * @throws {RequiredError}
+         */
+        async getPersonUpdatesWithHttpInfo(id: number, start?: number, limit?: number, all_changes?: string, items?: Set<string>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetAssociatedPersonUpdatesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonUpdates(id, start, limit, all_changes, items, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * List users permitted to access a person.
          * @summary List permitted users
-         * @param {number} id The ID of the person
+         * @param {number} id The unique ID of the person
 
          * @throws {RequiredError}
          */
@@ -812,9 +943,20 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getPersonUsers`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List permitted users
+         * @param {number} id The unique ID of the person
+
+         * @throws {RequiredError}
+         */
+        async getPersonUsersWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetPermittedUsersResponse1>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonUsers(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Merges a person with another person. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/merging-two-persons\" target=\"_blank\" rel=\"noopener noreferrer\">merging two persons</a>.
          * @summary Merge two persons
-         * @param {number} id The ID of the person
+         * @param {number} id The unique ID of the person
          * @param {MergePersonsRequest} [MergePersonsRequest] 
 
          * @throws {RequiredError}
@@ -822,6 +964,18 @@ export const PersonsApiFp = function(configuration?: Configuration) {
         async mergePersons(id: number, MergePersonsRequest?: MergePersonsRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<MergePersonsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.mergePersons(id, MergePersonsRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `mergePersons`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Merge two persons
+         * @param {number} id The unique ID of the person
+         * @param {MergePersonsRequest} [MergePersonsRequest] 
+
+         * @throws {RequiredError}
+         */
+        async mergePersonsWithHttpInfo(id: number, MergePersonsRequest?: MergePersonsRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<MergePersonsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.mergePersons(id, MergePersonsRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -843,6 +997,9 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
         addPersonFollower(requestParameters: PersonsApiAddPersonFollowerRequest, ): Promise<AddPersonFollowerResponse> {
             return localVarFp.addPersonFollower(requestParameters.id, requestParameters.AddPersonFollowerRequest, ).then((request) => request(axios, basePath));
         },
+        addPersonFollowerWithHttpInfo(requestParameters: PersonsApiAddPersonFollowerRequest, ): Promise<ApiResponse<AddPersonFollowerResponse>> {
+            return localVarFp.addPersonFollowerWithHttpInfo(requestParameters.id, requestParameters.AddPersonFollowerRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Adds a picture to a person. If a picture is already set, the old picture will be replaced. Added image (or the cropping parameters supplied with the request) should have an equal width and height and should be at least 128 pixels. GIF, JPG and PNG are accepted. All added images will be resized to 128 and 512 pixel wide squares.
          * @summary Add person picture
@@ -852,6 +1009,9 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
          */
         addPersonPicture(requestParameters: PersonsApiAddPersonPictureRequest, ): Promise<AddPersonPictureResponse> {
             return localVarFp.addPersonPicture(requestParameters.id, requestParameters.file, requestParameters.crop_x, requestParameters.crop_y, requestParameters.crop_width, requestParameters.crop_height, ).then((request) => request(axios, basePath));
+        },
+        addPersonPictureWithHttpInfo(requestParameters: PersonsApiAddPersonPictureRequest, ): Promise<ApiResponse<AddPersonPictureResponse>> {
+            return localVarFp.addPersonPictureWithHttpInfo(requestParameters.id, requestParameters.file, requestParameters.crop_x, requestParameters.crop_y, requestParameters.crop_width, requestParameters.crop_height, ).then((request) => request(axios, basePath));
         },
         /**
          * Deletes a follower from a person.
@@ -863,6 +1023,9 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
         deletePersonFollower(requestParameters: PersonsApiDeletePersonFollowerRequest, ): Promise<DeletePersonResponse> {
             return localVarFp.deletePersonFollower(requestParameters.id, requestParameters.follower_id, ).then((request) => request(axios, basePath));
         },
+        deletePersonFollowerWithHttpInfo(requestParameters: PersonsApiDeletePersonFollowerRequest, ): Promise<ApiResponse<DeletePersonResponse>> {
+            return localVarFp.deletePersonFollowerWithHttpInfo(requestParameters.id, requestParameters.follower_id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Deletes a person’s picture.
          * @summary Delete person picture
@@ -872,6 +1035,9 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
          */
         deletePersonPicture(requestParameters: PersonsApiDeletePersonPictureRequest, ): Promise<DeletePersonResponse> {
             return localVarFp.deletePersonPicture(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        deletePersonPictureWithHttpInfo(requestParameters: PersonsApiDeletePersonPictureRequest, ): Promise<ApiResponse<DeletePersonResponse>> {
+            return localVarFp.deletePersonPictureWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Lists updates about field values of a person.
@@ -883,6 +1049,9 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
         getPersonChangelog(requestParameters: PersonsApiGetPersonChangelogRequest, ): Promise<GetChangelogResponse> {
             return localVarFp.getPersonChangelog(requestParameters.id, requestParameters.cursor, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
+        getPersonChangelogWithHttpInfo(requestParameters: PersonsApiGetPersonChangelogRequest, ): Promise<ApiResponse<GetChangelogResponse>> {
+            return localVarFp.getPersonChangelogWithHttpInfo(requestParameters.id, requestParameters.cursor, requestParameters.limit, ).then((request) => request(axios, basePath));
+        },
         /**
          * Lists files associated with a person.
          * @summary List files attached to a person
@@ -892,6 +1061,9 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
          */
         getPersonFiles(requestParameters: PersonsApiGetPersonFilesRequest, ): Promise<GetAssociatedFilesResponse> {
             return localVarFp.getPersonFiles(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.sort, ).then((request) => request(axios, basePath));
+        },
+        getPersonFilesWithHttpInfo(requestParameters: PersonsApiGetPersonFilesRequest, ): Promise<ApiResponse<GetAssociatedFilesResponse>> {
+            return localVarFp.getPersonFilesWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.sort, ).then((request) => request(axios, basePath));
         },
         /**
          * Lists the followers of a person.
@@ -903,6 +1075,9 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
         getPersonFollowers(requestParameters: PersonsApiGetPersonFollowersRequest, ): Promise<GetListFollowersResponse> {
             return localVarFp.getPersonFollowers(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getPersonFollowersWithHttpInfo(requestParameters: PersonsApiGetPersonFollowersRequest, ): Promise<ApiResponse<GetListFollowersResponse>> {
+            return localVarFp.getPersonFollowersWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Lists mail messages associated with a person.
          * @summary List mail messages associated with a person
@@ -912,6 +1087,9 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
          */
         getPersonMailMessages(requestParameters: PersonsApiGetPersonMailMessagesRequest, ): Promise<GetAssociatedMailMessagesResponse> {
             return localVarFp.getPersonMailMessages(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.include_body, ).then((request) => request(axios, basePath));
+        },
+        getPersonMailMessagesWithHttpInfo(requestParameters: PersonsApiGetPersonMailMessagesRequest, ): Promise<ApiResponse<GetAssociatedMailMessagesResponse>> {
+            return localVarFp.getPersonMailMessagesWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.include_body, ).then((request) => request(axios, basePath));
         },
         /**
          * Lists products associated with a person.
@@ -923,6 +1101,9 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
         getPersonProducts(requestParameters: PersonsApiGetPersonProductsRequest, ): Promise<GetPersonProductsResponse> {
             return localVarFp.getPersonProducts(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
+        getPersonProductsWithHttpInfo(requestParameters: PersonsApiGetPersonProductsRequest, ): Promise<ApiResponse<GetPersonProductsResponse>> {
+            return localVarFp.getPersonProductsWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
+        },
         /**
          * Lists updates about a person.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint\'s response will also include updates for the `marketing_status` field.
          * @summary List updates about a person
@@ -932,6 +1113,9 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
          */
         getPersonUpdates(requestParameters: PersonsApiGetPersonUpdatesRequest, ): Promise<GetAssociatedPersonUpdatesResponse> {
             return localVarFp.getPersonUpdates(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.all_changes, requestParameters.items, ).then((request) => request(axios, basePath));
+        },
+        getPersonUpdatesWithHttpInfo(requestParameters: PersonsApiGetPersonUpdatesRequest, ): Promise<ApiResponse<GetAssociatedPersonUpdatesResponse>> {
+            return localVarFp.getPersonUpdatesWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.all_changes, requestParameters.items, ).then((request) => request(axios, basePath));
         },
         /**
          * List users permitted to access a person.
@@ -943,6 +1127,9 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
         getPersonUsers(requestParameters: PersonsApiGetPersonUsersRequest, ): Promise<GetPermittedUsersResponse1> {
             return localVarFp.getPersonUsers(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getPersonUsersWithHttpInfo(requestParameters: PersonsApiGetPersonUsersRequest, ): Promise<ApiResponse<GetPermittedUsersResponse1>> {
+            return localVarFp.getPersonUsersWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Merges a person with another person. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/merging-two-persons\" target=\"_blank\" rel=\"noopener noreferrer\">merging two persons</a>.
          * @summary Merge two persons
@@ -952,6 +1139,9 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
          */
         mergePersons(requestParameters: PersonsApiMergePersonsRequest, ): Promise<MergePersonsResponse> {
             return localVarFp.mergePersons(requestParameters.id, requestParameters.MergePersonsRequest, ).then((request) => request(axios, basePath));
+        },
+        mergePersonsWithHttpInfo(requestParameters: PersonsApiMergePersonsRequest, ): Promise<ApiResponse<MergePersonsResponse>> {
+            return localVarFp.mergePersonsWithHttpInfo(requestParameters.id, requestParameters.MergePersonsRequest, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -963,7 +1153,7 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
  */
 export interface PersonsApiAddPersonFollowerRequest {
     /**
-     * The ID of the person
+     * The unique ID of the person
      * @type {number}
      * @memberof PersonsApiAddPersonFollower
      */
@@ -984,7 +1174,7 @@ export interface PersonsApiAddPersonFollowerRequest {
  */
 export interface PersonsApiAddPersonPictureRequest {
     /**
-     * The ID of the person
+     * The unique ID of the person
      * @type {number}
      * @memberof PersonsApiAddPersonPicture
      */
@@ -1033,7 +1223,7 @@ export interface PersonsApiAddPersonPictureRequest {
  */
 export interface PersonsApiDeletePersonFollowerRequest {
     /**
-     * The ID of the person
+     * The unique ID of the person
      * @type {number}
      * @memberof PersonsApiDeletePersonFollower
      */
@@ -1054,7 +1244,7 @@ export interface PersonsApiDeletePersonFollowerRequest {
  */
 export interface PersonsApiDeletePersonPictureRequest {
     /**
-     * The ID of the person
+     * The unique ID of the person
      * @type {number}
      * @memberof PersonsApiDeletePersonPicture
      */
@@ -1068,7 +1258,7 @@ export interface PersonsApiDeletePersonPictureRequest {
  */
 export interface PersonsApiGetPersonChangelogRequest {
     /**
-     * The ID of the person
+     * The unique ID of the person
      * @type {number}
      * @memberof PersonsApiGetPersonChangelog
      */
@@ -1096,7 +1286,7 @@ export interface PersonsApiGetPersonChangelogRequest {
  */
 export interface PersonsApiGetPersonFilesRequest {
     /**
-     * The ID of the person
+     * The unique ID of the person
      * @type {number}
      * @memberof PersonsApiGetPersonFiles
      */
@@ -1131,7 +1321,7 @@ export interface PersonsApiGetPersonFilesRequest {
  */
 export interface PersonsApiGetPersonFollowersRequest {
     /**
-     * The ID of the person
+     * The unique ID of the person
      * @type {number}
      * @memberof PersonsApiGetPersonFollowers
      */
@@ -1145,7 +1335,7 @@ export interface PersonsApiGetPersonFollowersRequest {
  */
 export interface PersonsApiGetPersonMailMessagesRequest {
     /**
-     * The ID of the person
+     * The unique ID of the person
      * @type {number}
      * @memberof PersonsApiGetPersonMailMessages
      */
@@ -1180,7 +1370,7 @@ export interface PersonsApiGetPersonMailMessagesRequest {
  */
 export interface PersonsApiGetPersonProductsRequest {
     /**
-     * The ID of the person
+     * The unique ID of the person
      * @type {number}
      * @memberof PersonsApiGetPersonProducts
      */
@@ -1208,7 +1398,7 @@ export interface PersonsApiGetPersonProductsRequest {
  */
 export interface PersonsApiGetPersonUpdatesRequest {
     /**
-     * The ID of the person
+     * The unique ID of the person
      * @type {number}
      * @memberof PersonsApiGetPersonUpdates
      */
@@ -1250,7 +1440,7 @@ export interface PersonsApiGetPersonUpdatesRequest {
  */
 export interface PersonsApiGetPersonUsersRequest {
     /**
-     * The ID of the person
+     * The unique ID of the person
      * @type {number}
      * @memberof PersonsApiGetPersonUsers
      */
@@ -1264,7 +1454,7 @@ export interface PersonsApiGetPersonUsersRequest {
  */
 export interface PersonsApiMergePersonsRequest {
     /**
-     * The ID of the person
+     * The unique ID of the person
      * @type {number}
      * @memberof PersonsApiMergePersons
      */
@@ -1298,6 +1488,18 @@ export class PersonsApi extends BaseAPI {
     }
 
     /**
+     * Same as `addPersonFollower`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonsApiAddPersonFollowerRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public addPersonFollowerWithHttpInfo(requestParameters: PersonsApiAddPersonFollowerRequest, ) {
+        return PersonsApiFp(this.configuration).addPersonFollowerWithHttpInfo(requestParameters.id, requestParameters.AddPersonFollowerRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Adds a picture to a person. If a picture is already set, the old picture will be replaced. Added image (or the cropping parameters supplied with the request) should have an equal width and height and should be at least 128 pixels. GIF, JPG and PNG are accepted. All added images will be resized to 128 and 512 pixel wide squares.
      * @summary Add person picture
      * @param {PersonsApiAddPersonPictureRequest} requestParameters Request parameters.
@@ -1307,6 +1509,18 @@ export class PersonsApi extends BaseAPI {
      */
     public addPersonPicture(requestParameters: PersonsApiAddPersonPictureRequest, ) {
         return PersonsApiFp(this.configuration).addPersonPicture(requestParameters.id, requestParameters.file, requestParameters.crop_x, requestParameters.crop_y, requestParameters.crop_width, requestParameters.crop_height, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `addPersonPicture`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonsApiAddPersonPictureRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public addPersonPictureWithHttpInfo(requestParameters: PersonsApiAddPersonPictureRequest, ) {
+        return PersonsApiFp(this.configuration).addPersonPictureWithHttpInfo(requestParameters.id, requestParameters.file, requestParameters.crop_x, requestParameters.crop_y, requestParameters.crop_width, requestParameters.crop_height, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1322,6 +1536,18 @@ export class PersonsApi extends BaseAPI {
     }
 
     /**
+     * Same as `deletePersonFollower`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonsApiDeletePersonFollowerRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public deletePersonFollowerWithHttpInfo(requestParameters: PersonsApiDeletePersonFollowerRequest, ) {
+        return PersonsApiFp(this.configuration).deletePersonFollowerWithHttpInfo(requestParameters.id, requestParameters.follower_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Deletes a person’s picture.
      * @summary Delete person picture
      * @param {PersonsApiDeletePersonPictureRequest} requestParameters Request parameters.
@@ -1331,6 +1557,18 @@ export class PersonsApi extends BaseAPI {
      */
     public deletePersonPicture(requestParameters: PersonsApiDeletePersonPictureRequest, ) {
         return PersonsApiFp(this.configuration).deletePersonPicture(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deletePersonPicture`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonsApiDeletePersonPictureRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public deletePersonPictureWithHttpInfo(requestParameters: PersonsApiDeletePersonPictureRequest, ) {
+        return PersonsApiFp(this.configuration).deletePersonPictureWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1346,6 +1584,18 @@ export class PersonsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getPersonChangelog`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonsApiGetPersonChangelogRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public getPersonChangelogWithHttpInfo(requestParameters: PersonsApiGetPersonChangelogRequest, ) {
+        return PersonsApiFp(this.configuration).getPersonChangelogWithHttpInfo(requestParameters.id, requestParameters.cursor, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Lists files associated with a person.
      * @summary List files attached to a person
      * @param {PersonsApiGetPersonFilesRequest} requestParameters Request parameters.
@@ -1355,6 +1605,18 @@ export class PersonsApi extends BaseAPI {
      */
     public getPersonFiles(requestParameters: PersonsApiGetPersonFilesRequest, ) {
         return PersonsApiFp(this.configuration).getPersonFiles(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.sort, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getPersonFiles`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonsApiGetPersonFilesRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public getPersonFilesWithHttpInfo(requestParameters: PersonsApiGetPersonFilesRequest, ) {
+        return PersonsApiFp(this.configuration).getPersonFilesWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.sort, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1370,6 +1632,18 @@ export class PersonsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getPersonFollowers`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonsApiGetPersonFollowersRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public getPersonFollowersWithHttpInfo(requestParameters: PersonsApiGetPersonFollowersRequest, ) {
+        return PersonsApiFp(this.configuration).getPersonFollowersWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Lists mail messages associated with a person.
      * @summary List mail messages associated with a person
      * @param {PersonsApiGetPersonMailMessagesRequest} requestParameters Request parameters.
@@ -1379,6 +1653,18 @@ export class PersonsApi extends BaseAPI {
      */
     public getPersonMailMessages(requestParameters: PersonsApiGetPersonMailMessagesRequest, ) {
         return PersonsApiFp(this.configuration).getPersonMailMessages(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.include_body, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getPersonMailMessages`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonsApiGetPersonMailMessagesRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public getPersonMailMessagesWithHttpInfo(requestParameters: PersonsApiGetPersonMailMessagesRequest, ) {
+        return PersonsApiFp(this.configuration).getPersonMailMessagesWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.include_body, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1394,6 +1680,18 @@ export class PersonsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getPersonProducts`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonsApiGetPersonProductsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public getPersonProductsWithHttpInfo(requestParameters: PersonsApiGetPersonProductsRequest, ) {
+        return PersonsApiFp(this.configuration).getPersonProductsWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Lists updates about a person.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint\'s response will also include updates for the `marketing_status` field.
      * @summary List updates about a person
      * @param {PersonsApiGetPersonUpdatesRequest} requestParameters Request parameters.
@@ -1403,6 +1701,18 @@ export class PersonsApi extends BaseAPI {
      */
     public getPersonUpdates(requestParameters: PersonsApiGetPersonUpdatesRequest, ) {
         return PersonsApiFp(this.configuration).getPersonUpdates(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.all_changes, requestParameters.items, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getPersonUpdates`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonsApiGetPersonUpdatesRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public getPersonUpdatesWithHttpInfo(requestParameters: PersonsApiGetPersonUpdatesRequest, ) {
+        return PersonsApiFp(this.configuration).getPersonUpdatesWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, requestParameters.all_changes, requestParameters.items, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1418,6 +1728,18 @@ export class PersonsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getPersonUsers`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonsApiGetPersonUsersRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public getPersonUsersWithHttpInfo(requestParameters: PersonsApiGetPersonUsersRequest, ) {
+        return PersonsApiFp(this.configuration).getPersonUsersWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Merges a person with another person. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/merging-two-persons\" target=\"_blank\" rel=\"noopener noreferrer\">merging two persons</a>.
      * @summary Merge two persons
      * @param {PersonsApiMergePersonsRequest} requestParameters Request parameters.
@@ -1427,5 +1749,17 @@ export class PersonsApi extends BaseAPI {
      */
     public mergePersons(requestParameters: PersonsApiMergePersonsRequest, ) {
         return PersonsApiFp(this.configuration).mergePersons(requestParameters.id, requestParameters.MergePersonsRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `mergePersons`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonsApiMergePersonsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonsApi
+     */
+    public mergePersonsWithHttpInfo(requestParameters: PersonsApiMergePersonsRequest, ) {
+        return PersonsApiFp(this.configuration).mergePersonsWithHttpInfo(requestParameters.id, requestParameters.MergePersonsRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

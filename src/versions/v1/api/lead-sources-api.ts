@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { GetLeadsSourceResponse } from '../models';
 /**
@@ -87,6 +87,16 @@ export const LeadSourcesApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getLeadSources();
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * Same as `getLeadSources`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all lead sources
+
+         * @throws {RequiredError}
+         */
+        async getLeadSourcesWithHttpInfo(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetLeadsSourceResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getLeadSources();
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
     }
 };
 
@@ -105,6 +115,9 @@ export const LeadSourcesApiFactory = function (configuration?: Configuration, ba
          */
         getLeadSources(): Promise<GetLeadsSourceResponse> {
             return localVarFp.getLeadSources().then((request) => request(axios, basePath));
+        },
+        getLeadSourcesWithHttpInfo(): Promise<ApiResponse<GetLeadsSourceResponse>> {
+            return localVarFp.getLeadSourcesWithHttpInfo().then((request) => request(axios, basePath));
         },
     };
 };
@@ -125,5 +138,16 @@ export class LeadSourcesApi extends BaseAPI {
      */
     public getLeadSources() {
         return LeadSourcesApiFp(this.configuration).getLeadSources().then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getLeadSources`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+
+     * @throws {RequiredError}
+     * @memberof LeadSourcesApi
+     */
+    public getLeadSourcesWithHttpInfo() {
+        return LeadSourcesApiFp(this.configuration).getLeadSourcesWithHttpInfo().then((request) => request(this.axios, this.basePath));
     }
 }

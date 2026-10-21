@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddConvertLeadToDealResponse } from '../models';
 // @ts-ignore
@@ -230,6 +230,18 @@ export const LeadsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `convertLeadToDeal`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Convert a lead to a deal
+         * @param {string} id The ID of the lead to convert
+         * @param {ConvertLeadToDealRequest} [ConvertLeadToDealRequest] 
+
+         * @throws {RequiredError}
+         */
+        async convertLeadToDealWithHttpInfo(id: string, ConvertLeadToDealRequest?: ConvertLeadToDealRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddConvertLeadToDealResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.convertLeadToDeal(id, ConvertLeadToDealRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns data about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Deal ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
          * @summary Get Lead conversion status
          * @param {string} id The ID of a lead
@@ -240,6 +252,18 @@ export const LeadsApiFp = function(configuration?: Configuration) {
         async getLeadConversionStatus(id: string, conversion_id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetConvertResponse1>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getLeadConversionStatus(id, conversion_id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getLeadConversionStatus`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get Lead conversion status
+         * @param {string} id The ID of a lead
+         * @param {string} conversion_id The ID of the conversion
+
+         * @throws {RequiredError}
+         */
+        async getLeadConversionStatusWithHttpInfo(id: string, conversion_id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetConvertResponse1>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getLeadConversionStatus(id, conversion_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Searches all leads by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found leads can be filtered by the person ID and the organization ID.
@@ -258,6 +282,24 @@ export const LeadsApiFp = function(configuration?: Configuration) {
         async searchLeads(term: string, fields?: Set<'custom_fields' | 'notes' | 'title'>, exact_match?: boolean, person_id?: number, organization_id?: number, include_fields?: Set<'lead.was_seen'>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetLeadSearchResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchLeads(term, fields, exact_match, person_id, organization_id, include_fields, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `searchLeads`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Search leads
+         * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
+         * @param {Set<'custom_fields' | 'notes' | 'title'>} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them.
+         * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
+         * @param {number} [person_id] Will filter leads by the provided person ID. The upper limit of found leads associated with the person is 2000.
+         * @param {number} [organization_id] Will filter leads by the provided organization ID. The upper limit of found leads associated with the organization is 2000.
+         * @param {Set<'lead.was_seen'>} [include_fields] Supports including optional fields in the results which are not provided by default
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async searchLeadsWithHttpInfo(term: string, fields?: Set<'custom_fields' | 'notes' | 'title'>, exact_match?: boolean, person_id?: number, organization_id?: number, include_fields?: Set<'lead.was_seen'>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetLeadSearchResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchLeads(term, fields, exact_match, person_id, organization_id, include_fields, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -279,6 +321,9 @@ export const LeadsApiFactory = function (configuration?: Configuration, basePath
         convertLeadToDeal(requestParameters: LeadsApiConvertLeadToDealRequest, ): Promise<AddConvertLeadToDealResponse> {
             return localVarFp.convertLeadToDeal(requestParameters.id, requestParameters.ConvertLeadToDealRequest, ).then((request) => request(axios, basePath));
         },
+        convertLeadToDealWithHttpInfo(requestParameters: LeadsApiConvertLeadToDealRequest, ): Promise<ApiResponse<AddConvertLeadToDealResponse>> {
+            return localVarFp.convertLeadToDealWithHttpInfo(requestParameters.id, requestParameters.ConvertLeadToDealRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns data about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Deal ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
          * @summary Get Lead conversion status
@@ -289,6 +334,9 @@ export const LeadsApiFactory = function (configuration?: Configuration, basePath
         getLeadConversionStatus(requestParameters: LeadsApiGetLeadConversionStatusRequest, ): Promise<GetConvertResponse1> {
             return localVarFp.getLeadConversionStatus(requestParameters.id, requestParameters.conversion_id, ).then((request) => request(axios, basePath));
         },
+        getLeadConversionStatusWithHttpInfo(requestParameters: LeadsApiGetLeadConversionStatusRequest, ): Promise<ApiResponse<GetConvertResponse1>> {
+            return localVarFp.getLeadConversionStatusWithHttpInfo(requestParameters.id, requestParameters.conversion_id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Searches all leads by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found leads can be filtered by the person ID and the organization ID.
          * @summary Search leads
@@ -298,6 +346,9 @@ export const LeadsApiFactory = function (configuration?: Configuration, basePath
          */
         searchLeads(requestParameters: LeadsApiSearchLeadsRequest, ): Promise<GetLeadSearchResponse> {
             return localVarFp.searchLeads(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.person_id, requestParameters.organization_id, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
+        searchLeadsWithHttpInfo(requestParameters: LeadsApiSearchLeadsRequest, ): Promise<ApiResponse<GetLeadSearchResponse>> {
+            return localVarFp.searchLeadsWithHttpInfo(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.person_id, requestParameters.organization_id, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -427,6 +478,18 @@ export class LeadsApi extends BaseAPI {
     }
 
     /**
+     * Same as `convertLeadToDeal`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {LeadsApiConvertLeadToDealRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof LeadsApi
+     */
+    public convertLeadToDealWithHttpInfo(requestParameters: LeadsApiConvertLeadToDealRequest, ) {
+        return LeadsApiFp(this.configuration).convertLeadToDealWithHttpInfo(requestParameters.id, requestParameters.ConvertLeadToDealRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns data about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Deal ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
      * @summary Get Lead conversion status
      * @param {LeadsApiGetLeadConversionStatusRequest} requestParameters Request parameters.
@@ -439,6 +502,18 @@ export class LeadsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getLeadConversionStatus`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {LeadsApiGetLeadConversionStatusRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof LeadsApi
+     */
+    public getLeadConversionStatusWithHttpInfo(requestParameters: LeadsApiGetLeadConversionStatusRequest, ) {
+        return LeadsApiFp(this.configuration).getLeadConversionStatusWithHttpInfo(requestParameters.id, requestParameters.conversion_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Searches all leads by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found leads can be filtered by the person ID and the organization ID.
      * @summary Search leads
      * @param {LeadsApiSearchLeadsRequest} requestParameters Request parameters.
@@ -448,5 +523,17 @@ export class LeadsApi extends BaseAPI {
      */
     public searchLeads(requestParameters: LeadsApiSearchLeadsRequest, ) {
         return LeadsApiFp(this.configuration).searchLeads(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.person_id, requestParameters.organization_id, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `searchLeads`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {LeadsApiSearchLeadsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof LeadsApi
+     */
+    public searchLeadsWithHttpInfo(requestParameters: LeadsApiSearchLeadsRequest, ) {
+        return LeadsApiFp(this.configuration).searchLeadsWithHttpInfo(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.person_id, requestParameters.organization_id, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
     }
 }

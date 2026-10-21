@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { GetProjectTemplateResponse } from '../models';
 // @ts-ignore
@@ -142,6 +142,17 @@ export const ProjectTemplatesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getProjectTemplate`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get details of a template
+         * @param {number} id The ID of the project template
+
+         * @throws {RequiredError}
+         */
+        async getProjectTemplateWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProjectTemplateResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectTemplate(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns all not deleted project templates. This is a cursor-paginated endpoint. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>.
          * @summary Get all project templates
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
@@ -152,6 +163,18 @@ export const ProjectTemplatesApiFp = function(configuration?: Configuration) {
         async getProjectTemplates(cursor?: string, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectTemplatesResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectTemplates(cursor, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getProjectTemplates`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all project templates
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, up to 500 items will be returned.
+
+         * @throws {RequiredError}
+         */
+        async getProjectTemplatesWithHttpInfo(cursor?: string, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProjectTemplatesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectTemplates(cursor, limit, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -173,6 +196,9 @@ export const ProjectTemplatesApiFactory = function (configuration?: Configuratio
         getProjectTemplate(requestParameters: ProjectTemplatesApiGetProjectTemplateRequest, ): Promise<GetProjectTemplateResponse> {
             return localVarFp.getProjectTemplate(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getProjectTemplateWithHttpInfo(requestParameters: ProjectTemplatesApiGetProjectTemplateRequest, ): Promise<ApiResponse<GetProjectTemplateResponse>> {
+            return localVarFp.getProjectTemplateWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns all not deleted project templates. This is a cursor-paginated endpoint. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>.
          * @summary Get all project templates
@@ -182,6 +208,9 @@ export const ProjectTemplatesApiFactory = function (configuration?: Configuratio
          */
         getProjectTemplates(requestParameters: ProjectTemplatesApiGetProjectTemplatesRequest = {}, ): Promise<GetProjectTemplatesResponse> {
             return localVarFp.getProjectTemplates(requestParameters.cursor, requestParameters.limit, ).then((request) => request(axios, basePath));
+        },
+        getProjectTemplatesWithHttpInfo(requestParameters: ProjectTemplatesApiGetProjectTemplatesRequest = {}, ): Promise<ApiResponse<GetProjectTemplatesResponse>> {
+            return localVarFp.getProjectTemplatesWithHttpInfo(requestParameters.cursor, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -241,6 +270,18 @@ export class ProjectTemplatesApi extends BaseAPI {
     }
 
     /**
+     * Same as `getProjectTemplate`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProjectTemplatesApiGetProjectTemplateRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProjectTemplatesApi
+     */
+    public getProjectTemplateWithHttpInfo(requestParameters: ProjectTemplatesApiGetProjectTemplateRequest, ) {
+        return ProjectTemplatesApiFp(this.configuration).getProjectTemplateWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns all not deleted project templates. This is a cursor-paginated endpoint. For more information, please refer to our documentation on <a href=\"https://pipedrive.readme.io/docs/core-api-concepts-pagination\" target=\"_blank\" rel=\"noopener noreferrer\">pagination</a>.
      * @summary Get all project templates
      * @param {ProjectTemplatesApiGetProjectTemplatesRequest} requestParameters Request parameters.
@@ -250,5 +291,17 @@ export class ProjectTemplatesApi extends BaseAPI {
      */
     public getProjectTemplates(requestParameters: ProjectTemplatesApiGetProjectTemplatesRequest = {}, ) {
         return ProjectTemplatesApiFp(this.configuration).getProjectTemplates(requestParameters.cursor, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getProjectTemplates`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProjectTemplatesApiGetProjectTemplatesRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProjectTemplatesApi
+     */
+    public getProjectTemplatesWithHttpInfo(requestParameters: ProjectTemplatesApiGetProjectTemplatesRequest = {}, ) {
+        return ProjectTemplatesApiFp(this.configuration).getProjectTemplatesWithHttpInfo(requestParameters.cursor, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
     }
 }

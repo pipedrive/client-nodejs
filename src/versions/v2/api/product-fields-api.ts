@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddDealFieldOptions200Response } from '../models';
 // @ts-ignore
@@ -438,6 +438,17 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addProductField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Create one product field
+         * @param {AddProductFieldRequest} AddProductFieldRequest 
+
+         * @throws {RequiredError}
+         */
+        async addProductFieldWithHttpInfo(AddProductFieldRequest: AddProductFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddProductField200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addProductField(AddProductFieldRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Adds new options to a product custom field that supports options (enum or set field types). This operation is atomic - all options are added or none are added. Returns only the newly added options.
          * @summary Add product field options in bulk
          * @param {string} field_code The unique code identifying the field
@@ -450,6 +461,18 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addProductFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add product field options in bulk
+         * @param {string} field_code The unique code identifying the field
+         * @param {Array<AddDealFieldOptionsRequestInner>} AddDealFieldOptionsRequestInner 
+
+         * @throws {RequiredError}
+         */
+        async addProductFieldOptionsWithHttpInfo(field_code: string, AddDealFieldOptionsRequestInner: Array<AddDealFieldOptionsRequestInner>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddDealFieldOptions200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addProductFieldOptions(field_code, AddDealFieldOptionsRequestInner, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Marks a custom field as deleted.
          * @summary Delete one product field
          * @param {string} field_code The unique code identifying the field
@@ -459,6 +482,17 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
         async deleteProductField(field_code: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeletePersonField200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProductField(field_code, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deleteProductField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete one product field
+         * @param {string} field_code The unique code identifying the field
+
+         * @throws {RequiredError}
+         */
+        async deleteProductFieldWithHttpInfo(field_code: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeletePersonField200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProductField(field_code, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Removes existing options from a product custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the deleted options.
@@ -473,6 +507,18 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deleteProductFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete product field options in bulk
+         * @param {string} field_code The unique code identifying the field
+         * @param {Array<DeleteDealFieldOptionsRequestInner>} DeleteDealFieldOptionsRequestInner 
+
+         * @throws {RequiredError}
+         */
+        async deleteProductFieldOptionsWithHttpInfo(field_code: string, DeleteDealFieldOptionsRequestInner: Array<DeleteDealFieldOptionsRequestInner>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddDealFieldOptions200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProductFieldOptions(field_code, DeleteDealFieldOptionsRequestInner, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns metadata about a specific product field.
          * @summary Get one product field
          * @param {string} field_code The unique code identifying the field
@@ -483,6 +529,18 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
         async getProductField(field_code: string, include_fields?: Set<'ui_visibility'>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddProductField200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProductField(field_code, include_fields, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getProductField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get one product field
+         * @param {string} field_code The unique code identifying the field
+         * @param {Set<'ui_visibility'>} [include_fields] Optional comma separated string array of additional data namespaces to include in response
+
+         * @throws {RequiredError}
+         */
+        async getProductFieldWithHttpInfo(field_code: string, include_fields?: Set<'ui_visibility'>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddProductField200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProductField(field_code, include_fields, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns metadata about all product fields in the company.
@@ -498,6 +556,19 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getProductFields`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all product fields
+         * @param {Set<'ui_visibility'>} [include_fields] Optional comma separated string array of additional data namespaces to include in response
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getProductFieldsWithHttpInfo(include_fields?: Set<'ui_visibility'>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProductFields200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProductFields(include_fields, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates a product custom field. The field_code and field_type cannot be changed. At least one field must be provided in the request body.
          * @summary Update one product field
          * @param {string} field_code The unique code identifying the field
@@ -510,6 +581,18 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `updateProductField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update one product field
+         * @param {string} field_code The unique code identifying the field
+         * @param {UpdateProductFieldRequest} UpdateProductFieldRequest 
+
+         * @throws {RequiredError}
+         */
+        async updateProductFieldWithHttpInfo(field_code: string, UpdateProductFieldRequest: UpdateProductFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddProductField200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProductField(field_code, UpdateProductFieldRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates existing options for a product custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the updated options.
          * @summary Update product field options in bulk
          * @param {string} field_code The unique code identifying the field
@@ -520,6 +603,18 @@ export const ProductFieldsApiFp = function(configuration?: Configuration) {
         async updateProductFieldOptions(field_code: string, UpdateDealFieldOptionsRequestInner: Array<UpdateDealFieldOptionsRequestInner>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddDealFieldOptions200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateProductFieldOptions(field_code, UpdateDealFieldOptionsRequestInner, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateProductFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update product field options in bulk
+         * @param {string} field_code The unique code identifying the field
+         * @param {Array<UpdateDealFieldOptionsRequestInner>} UpdateDealFieldOptionsRequestInner 
+
+         * @throws {RequiredError}
+         */
+        async updateProductFieldOptionsWithHttpInfo(field_code: string, UpdateDealFieldOptionsRequestInner: Array<UpdateDealFieldOptionsRequestInner>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddDealFieldOptions200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProductFieldOptions(field_code, UpdateDealFieldOptionsRequestInner, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -541,6 +636,9 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
         addProductField(requestParameters: ProductFieldsApiAddProductFieldRequest, ): Promise<AddProductField200Response> {
             return localVarFp.addProductField(requestParameters.AddProductFieldRequest, ).then((request) => request(axios, basePath));
         },
+        addProductFieldWithHttpInfo(requestParameters: ProductFieldsApiAddProductFieldRequest, ): Promise<ApiResponse<AddProductField200Response>> {
+            return localVarFp.addProductFieldWithHttpInfo(requestParameters.AddProductFieldRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Adds new options to a product custom field that supports options (enum or set field types). This operation is atomic - all options are added or none are added. Returns only the newly added options.
          * @summary Add product field options in bulk
@@ -550,6 +648,9 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
          */
         addProductFieldOptions(requestParameters: ProductFieldsApiAddProductFieldOptionsRequest, ): Promise<AddDealFieldOptions200Response> {
             return localVarFp.addProductFieldOptions(requestParameters.field_code, requestParameters.AddDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
+        },
+        addProductFieldOptionsWithHttpInfo(requestParameters: ProductFieldsApiAddProductFieldOptionsRequest, ): Promise<ApiResponse<AddDealFieldOptions200Response>> {
+            return localVarFp.addProductFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.AddDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
         },
         /**
          * Marks a custom field as deleted.
@@ -561,6 +662,9 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
         deleteProductField(requestParameters: ProductFieldsApiDeleteProductFieldRequest, ): Promise<DeletePersonField200Response> {
             return localVarFp.deleteProductField(requestParameters.field_code, ).then((request) => request(axios, basePath));
         },
+        deleteProductFieldWithHttpInfo(requestParameters: ProductFieldsApiDeleteProductFieldRequest, ): Promise<ApiResponse<DeletePersonField200Response>> {
+            return localVarFp.deleteProductFieldWithHttpInfo(requestParameters.field_code, ).then((request) => request(axios, basePath));
+        },
         /**
          * Removes existing options from a product custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the deleted options.
          * @summary Delete product field options in bulk
@@ -570,6 +674,9 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
          */
         deleteProductFieldOptions(requestParameters: ProductFieldsApiDeleteProductFieldOptionsRequest, ): Promise<AddDealFieldOptions200Response> {
             return localVarFp.deleteProductFieldOptions(requestParameters.field_code, requestParameters.DeleteDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
+        },
+        deleteProductFieldOptionsWithHttpInfo(requestParameters: ProductFieldsApiDeleteProductFieldOptionsRequest, ): Promise<ApiResponse<AddDealFieldOptions200Response>> {
+            return localVarFp.deleteProductFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.DeleteDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns metadata about a specific product field.
@@ -581,6 +688,9 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
         getProductField(requestParameters: ProductFieldsApiGetProductFieldRequest, ): Promise<AddProductField200Response> {
             return localVarFp.getProductField(requestParameters.field_code, requestParameters.include_fields, ).then((request) => request(axios, basePath));
         },
+        getProductFieldWithHttpInfo(requestParameters: ProductFieldsApiGetProductFieldRequest, ): Promise<ApiResponse<AddProductField200Response>> {
+            return localVarFp.getProductFieldWithHttpInfo(requestParameters.field_code, requestParameters.include_fields, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns metadata about all product fields in the company.
          * @summary Get all product fields
@@ -590,6 +700,9 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
          */
         getProductFields(requestParameters: ProductFieldsApiGetProductFieldsRequest = {}, ): Promise<GetProductFields200Response> {
             return localVarFp.getProductFields(requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
+        getProductFieldsWithHttpInfo(requestParameters: ProductFieldsApiGetProductFieldsRequest = {}, ): Promise<ApiResponse<GetProductFields200Response>> {
+            return localVarFp.getProductFieldsWithHttpInfo(requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
          * Updates a product custom field. The field_code and field_type cannot be changed. At least one field must be provided in the request body.
@@ -601,6 +714,9 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
         updateProductField(requestParameters: ProductFieldsApiUpdateProductFieldRequest, ): Promise<AddProductField200Response> {
             return localVarFp.updateProductField(requestParameters.field_code, requestParameters.UpdateProductFieldRequest, ).then((request) => request(axios, basePath));
         },
+        updateProductFieldWithHttpInfo(requestParameters: ProductFieldsApiUpdateProductFieldRequest, ): Promise<ApiResponse<AddProductField200Response>> {
+            return localVarFp.updateProductFieldWithHttpInfo(requestParameters.field_code, requestParameters.UpdateProductFieldRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates existing options for a product custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the updated options.
          * @summary Update product field options in bulk
@@ -610,6 +726,9 @@ export const ProductFieldsApiFactory = function (configuration?: Configuration, 
          */
         updateProductFieldOptions(requestParameters: ProductFieldsApiUpdateProductFieldOptionsRequest, ): Promise<AddDealFieldOptions200Response> {
             return localVarFp.updateProductFieldOptions(requestParameters.field_code, requestParameters.UpdateDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
+        },
+        updateProductFieldOptionsWithHttpInfo(requestParameters: ProductFieldsApiUpdateProductFieldOptionsRequest, ): Promise<ApiResponse<AddDealFieldOptions200Response>> {
+            return localVarFp.updateProductFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.UpdateDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -795,6 +914,18 @@ export class ProductFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `addProductField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductFieldsApiAddProductFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductFieldsApi
+     */
+    public addProductFieldWithHttpInfo(requestParameters: ProductFieldsApiAddProductFieldRequest, ) {
+        return ProductFieldsApiFp(this.configuration).addProductFieldWithHttpInfo(requestParameters.AddProductFieldRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Adds new options to a product custom field that supports options (enum or set field types). This operation is atomic - all options are added or none are added. Returns only the newly added options.
      * @summary Add product field options in bulk
      * @param {ProductFieldsApiAddProductFieldOptionsRequest} requestParameters Request parameters.
@@ -804,6 +935,18 @@ export class ProductFieldsApi extends BaseAPI {
      */
     public addProductFieldOptions(requestParameters: ProductFieldsApiAddProductFieldOptionsRequest, ) {
         return ProductFieldsApiFp(this.configuration).addProductFieldOptions(requestParameters.field_code, requestParameters.AddDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `addProductFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductFieldsApiAddProductFieldOptionsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductFieldsApi
+     */
+    public addProductFieldOptionsWithHttpInfo(requestParameters: ProductFieldsApiAddProductFieldOptionsRequest, ) {
+        return ProductFieldsApiFp(this.configuration).addProductFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.AddDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -819,6 +962,18 @@ export class ProductFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `deleteProductField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductFieldsApiDeleteProductFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductFieldsApi
+     */
+    public deleteProductFieldWithHttpInfo(requestParameters: ProductFieldsApiDeleteProductFieldRequest, ) {
+        return ProductFieldsApiFp(this.configuration).deleteProductFieldWithHttpInfo(requestParameters.field_code, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Removes existing options from a product custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the deleted options.
      * @summary Delete product field options in bulk
      * @param {ProductFieldsApiDeleteProductFieldOptionsRequest} requestParameters Request parameters.
@@ -828,6 +983,18 @@ export class ProductFieldsApi extends BaseAPI {
      */
     public deleteProductFieldOptions(requestParameters: ProductFieldsApiDeleteProductFieldOptionsRequest, ) {
         return ProductFieldsApiFp(this.configuration).deleteProductFieldOptions(requestParameters.field_code, requestParameters.DeleteDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteProductFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductFieldsApiDeleteProductFieldOptionsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductFieldsApi
+     */
+    public deleteProductFieldOptionsWithHttpInfo(requestParameters: ProductFieldsApiDeleteProductFieldOptionsRequest, ) {
+        return ProductFieldsApiFp(this.configuration).deleteProductFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.DeleteDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -843,6 +1010,18 @@ export class ProductFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getProductField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductFieldsApiGetProductFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductFieldsApi
+     */
+    public getProductFieldWithHttpInfo(requestParameters: ProductFieldsApiGetProductFieldRequest, ) {
+        return ProductFieldsApiFp(this.configuration).getProductFieldWithHttpInfo(requestParameters.field_code, requestParameters.include_fields, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns metadata about all product fields in the company.
      * @summary Get all product fields
      * @param {ProductFieldsApiGetProductFieldsRequest} requestParameters Request parameters.
@@ -852,6 +1031,18 @@ export class ProductFieldsApi extends BaseAPI {
      */
     public getProductFields(requestParameters: ProductFieldsApiGetProductFieldsRequest = {}, ) {
         return ProductFieldsApiFp(this.configuration).getProductFields(requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getProductFields`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductFieldsApiGetProductFieldsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductFieldsApi
+     */
+    public getProductFieldsWithHttpInfo(requestParameters: ProductFieldsApiGetProductFieldsRequest = {}, ) {
+        return ProductFieldsApiFp(this.configuration).getProductFieldsWithHttpInfo(requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -867,6 +1058,18 @@ export class ProductFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `updateProductField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductFieldsApiUpdateProductFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductFieldsApi
+     */
+    public updateProductFieldWithHttpInfo(requestParameters: ProductFieldsApiUpdateProductFieldRequest, ) {
+        return ProductFieldsApiFp(this.configuration).updateProductFieldWithHttpInfo(requestParameters.field_code, requestParameters.UpdateProductFieldRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates existing options for a product custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the updated options.
      * @summary Update product field options in bulk
      * @param {ProductFieldsApiUpdateProductFieldOptionsRequest} requestParameters Request parameters.
@@ -876,5 +1079,17 @@ export class ProductFieldsApi extends BaseAPI {
      */
     public updateProductFieldOptions(requestParameters: ProductFieldsApiUpdateProductFieldOptionsRequest, ) {
         return ProductFieldsApiFp(this.configuration).updateProductFieldOptions(requestParameters.field_code, requestParameters.UpdateDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateProductFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProductFieldsApiUpdateProductFieldOptionsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProductFieldsApi
+     */
+    public updateProductFieldOptionsWithHttpInfo(requestParameters: ProductFieldsApiUpdateProductFieldOptionsRequest, ) {
+        return ProductFieldsApiFp(this.configuration).updateProductFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.UpdateDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
     }
 }

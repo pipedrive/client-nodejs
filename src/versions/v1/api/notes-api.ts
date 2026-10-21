@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddNoteRequest } from '../models';
 // @ts-ignore
@@ -609,6 +609,17 @@ export const NotesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addNote`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a note
+         * @param {AddNoteRequest} [AddNoteRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addNoteWithHttpInfo(AddNoteRequest?: AddNoteRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertNoteResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addNote(AddNoteRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Adds a new comment to a note.
          * @summary Add a comment to a note
          * @param {number} id The ID of the note
@@ -619,6 +630,18 @@ export const NotesApiFp = function(configuration?: Configuration) {
         async addNoteComment(id: number, CommentPostPutObject?: CommentPostPutObject, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertCommentResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addNoteComment(id, CommentPostPutObject, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `addNoteComment`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a comment to a note
+         * @param {number} id The ID of the note
+         * @param {CommentPostPutObject} [CommentPostPutObject] 
+
+         * @throws {RequiredError}
+         */
+        async addNoteCommentWithHttpInfo(id: number, CommentPostPutObject?: CommentPostPutObject, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertCommentResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addNoteComment(id, CommentPostPutObject, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Deletes a comment.
@@ -633,6 +656,18 @@ export const NotesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deleteComment`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a comment related to a note
+         * @param {number} id The ID of the note
+         * @param {string} commentId The ID of the comment
+
+         * @throws {RequiredError}
+         */
+        async deleteCommentWithHttpInfo(id: number, commentId: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteCommentResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteComment(id, commentId, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Deletes a specific note.
          * @summary Delete a note
          * @param {number} id The ID of the note
@@ -642,6 +677,17 @@ export const NotesApiFp = function(configuration?: Configuration) {
         async deleteNote(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteNoteResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNote(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deleteNote`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a note
+         * @param {number} id The ID of the note
+
+         * @throws {RequiredError}
+         */
+        async deleteNoteWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteNoteResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNote(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns the details of a comment.
@@ -656,6 +702,18 @@ export const NotesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getComment`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get one comment
+         * @param {number} id The ID of the note
+         * @param {string} commentId The ID of the comment
+
+         * @throws {RequiredError}
+         */
+        async getCommentWithHttpInfo(id: number, commentId: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertCommentResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getComment(id, commentId, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns details about a specific note.
          * @summary Get one note
          * @param {number} id The ID of the note
@@ -665,6 +723,17 @@ export const NotesApiFp = function(configuration?: Configuration) {
         async getNote(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertNoteResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNote(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getNote`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get one note
+         * @param {number} id The ID of the note
+
+         * @throws {RequiredError}
+         */
+        async getNoteWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertNoteResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNote(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns all comments associated with a note.
@@ -678,6 +747,19 @@ export const NotesApiFp = function(configuration?: Configuration) {
         async getNoteComments(id: number, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetCommentsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNoteComments(id, start, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getNoteComments`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all comments for a note
+         * @param {number} id The ID of the note
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] Items shown per page
+
+         * @throws {RequiredError}
+         */
+        async getNoteCommentsWithHttpInfo(id: number, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetCommentsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNoteComments(id, start, limit, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns all notes.
@@ -709,6 +791,35 @@ export const NotesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getNotes`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all notes
+         * @param {number} [user_id] The ID of the user whose notes to fetch. If omitted, notes by all users will be returned.
+         * @param {string} [lead_id] The ID of the lead which notes to fetch. If omitted, notes about all leads will be returned.
+         * @param {number} [deal_id] The ID of the deal which notes to fetch. If omitted, notes about all deals will be returned.
+         * @param {number} [person_id] The ID of the person whose notes to fetch. If omitted, notes about all persons will be returned.
+         * @param {number} [org_id] The ID of the organization which notes to fetch. If omitted, notes about all organizations will be returned.
+         * @param {number} [project_id] The ID of the project which notes to fetch. If omitted, notes about all projects will be returned.
+         * @param {number} [task_id] The ID of the task which notes to fetch. If omitted, notes about all tasks will be returned.
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] Items shown per page
+         * @param {string} [sort] The field names and sorting mode separated by a comma (&#x60;field_name_1 ASC&#x60;, &#x60;field_name_2 DESC&#x60;). Only first-level field keys are supported (no nested keys). Supported fields: &#x60;id&#x60;, &#x60;user_id&#x60;, &#x60;deal_id&#x60;, &#x60;person_id&#x60;, &#x60;org_id&#x60;, &#x60;content&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;.
+         * @param {string} [start_date] The date in format of YYYY-MM-DD from which notes to fetch
+         * @param {string} [end_date] The date in format of YYYY-MM-DD until which notes to fetch to
+         * @param {string} [updated_since] If set, only notes with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
+         * @param {0 | 1} [pinned_to_lead_flag] If set, the results are filtered by note to lead pinning state
+         * @param {0 | 1} [pinned_to_deal_flag] If set, the results are filtered by note to deal pinning state
+         * @param {0 | 1} [pinned_to_organization_flag] If set, the results are filtered by note to organization pinning state
+         * @param {0 | 1} [pinned_to_person_flag] If set, the results are filtered by note to person pinning state
+         * @param {0 | 1} [pinned_to_project_flag] If set, the results are filtered by note to project pinning state
+         * @param {0 | 1} [pinned_to_task_flag] If set, the results are filtered by note to task pinning state
+
+         * @throws {RequiredError}
+         */
+        async getNotesWithHttpInfo(user_id?: number, lead_id?: string, deal_id?: number, person_id?: number, org_id?: number, project_id?: number, task_id?: number, start?: number, limit?: number, sort?: string, start_date?: string, end_date?: string, updated_since?: string, pinned_to_lead_flag?: 0 | 1, pinned_to_deal_flag?: 0 | 1, pinned_to_organization_flag?: 0 | 1, pinned_to_person_flag?: 0 | 1, pinned_to_project_flag?: 0 | 1, pinned_to_task_flag?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetNotesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNotes(user_id, lead_id, deal_id, person_id, org_id, project_id, task_id, start, limit, sort, start_date, end_date, updated_since, pinned_to_lead_flag, pinned_to_deal_flag, pinned_to_organization_flag, pinned_to_person_flag, pinned_to_project_flag, pinned_to_task_flag, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates a comment related to a note.
          * @summary Update a comment related to a note
          * @param {number} id The ID of the note
@@ -722,6 +833,19 @@ export const NotesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `updateCommentForNote`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update a comment related to a note
+         * @param {number} id The ID of the note
+         * @param {string} commentId The ID of the comment
+         * @param {CommentPostPutObject} [CommentPostPutObject] 
+
+         * @throws {RequiredError}
+         */
+        async updateCommentForNoteWithHttpInfo(id: number, commentId: string, CommentPostPutObject?: CommentPostPutObject, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertCommentResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateCommentForNote(id, commentId, CommentPostPutObject, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates a note.
          * @summary Update a note
          * @param {number} id The ID of the note
@@ -732,6 +856,18 @@ export const NotesApiFp = function(configuration?: Configuration) {
         async updateNote(id: number, NoteRequest?: NoteRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertNoteResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateNote(id, NoteRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateNote`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update a note
+         * @param {number} id The ID of the note
+         * @param {NoteRequest} [NoteRequest] 
+
+         * @throws {RequiredError}
+         */
+        async updateNoteWithHttpInfo(id: number, NoteRequest?: NoteRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertNoteResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateNote(id, NoteRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -753,6 +889,9 @@ export const NotesApiFactory = function (configuration?: Configuration, basePath
         addNote(requestParameters: NotesApiAddNoteRequest = {}, ): Promise<UpsertNoteResponse> {
             return localVarFp.addNote(requestParameters.AddNoteRequest, ).then((request) => request(axios, basePath));
         },
+        addNoteWithHttpInfo(requestParameters: NotesApiAddNoteRequest = {}, ): Promise<ApiResponse<UpsertNoteResponse>> {
+            return localVarFp.addNoteWithHttpInfo(requestParameters.AddNoteRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Adds a new comment to a note.
          * @summary Add a comment to a note
@@ -762,6 +901,9 @@ export const NotesApiFactory = function (configuration?: Configuration, basePath
          */
         addNoteComment(requestParameters: NotesApiAddNoteCommentRequest, ): Promise<UpsertCommentResponse> {
             return localVarFp.addNoteComment(requestParameters.id, requestParameters.CommentPostPutObject, ).then((request) => request(axios, basePath));
+        },
+        addNoteCommentWithHttpInfo(requestParameters: NotesApiAddNoteCommentRequest, ): Promise<ApiResponse<UpsertCommentResponse>> {
+            return localVarFp.addNoteCommentWithHttpInfo(requestParameters.id, requestParameters.CommentPostPutObject, ).then((request) => request(axios, basePath));
         },
         /**
          * Deletes a comment.
@@ -773,6 +915,9 @@ export const NotesApiFactory = function (configuration?: Configuration, basePath
         deleteComment(requestParameters: NotesApiDeleteCommentRequest, ): Promise<DeleteCommentResponse> {
             return localVarFp.deleteComment(requestParameters.id, requestParameters.commentId, ).then((request) => request(axios, basePath));
         },
+        deleteCommentWithHttpInfo(requestParameters: NotesApiDeleteCommentRequest, ): Promise<ApiResponse<DeleteCommentResponse>> {
+            return localVarFp.deleteCommentWithHttpInfo(requestParameters.id, requestParameters.commentId, ).then((request) => request(axios, basePath));
+        },
         /**
          * Deletes a specific note.
          * @summary Delete a note
@@ -782,6 +927,9 @@ export const NotesApiFactory = function (configuration?: Configuration, basePath
          */
         deleteNote(requestParameters: NotesApiDeleteNoteRequest, ): Promise<DeleteNoteResponse> {
             return localVarFp.deleteNote(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        deleteNoteWithHttpInfo(requestParameters: NotesApiDeleteNoteRequest, ): Promise<ApiResponse<DeleteNoteResponse>> {
+            return localVarFp.deleteNoteWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns the details of a comment.
@@ -793,6 +941,9 @@ export const NotesApiFactory = function (configuration?: Configuration, basePath
         getComment(requestParameters: NotesApiGetCommentRequest, ): Promise<UpsertCommentResponse> {
             return localVarFp.getComment(requestParameters.id, requestParameters.commentId, ).then((request) => request(axios, basePath));
         },
+        getCommentWithHttpInfo(requestParameters: NotesApiGetCommentRequest, ): Promise<ApiResponse<UpsertCommentResponse>> {
+            return localVarFp.getCommentWithHttpInfo(requestParameters.id, requestParameters.commentId, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns details about a specific note.
          * @summary Get one note
@@ -802,6 +953,9 @@ export const NotesApiFactory = function (configuration?: Configuration, basePath
          */
         getNote(requestParameters: NotesApiGetNoteRequest, ): Promise<UpsertNoteResponse> {
             return localVarFp.getNote(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        getNoteWithHttpInfo(requestParameters: NotesApiGetNoteRequest, ): Promise<ApiResponse<UpsertNoteResponse>> {
+            return localVarFp.getNoteWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns all comments associated with a note.
@@ -813,6 +967,9 @@ export const NotesApiFactory = function (configuration?: Configuration, basePath
         getNoteComments(requestParameters: NotesApiGetNoteCommentsRequest, ): Promise<GetCommentsResponse> {
             return localVarFp.getNoteComments(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
+        getNoteCommentsWithHttpInfo(requestParameters: NotesApiGetNoteCommentsRequest, ): Promise<ApiResponse<GetCommentsResponse>> {
+            return localVarFp.getNoteCommentsWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns all notes.
          * @summary Get all notes
@@ -822,6 +979,9 @@ export const NotesApiFactory = function (configuration?: Configuration, basePath
          */
         getNotes(requestParameters: NotesApiGetNotesRequest = {}, ): Promise<GetNotesResponse> {
             return localVarFp.getNotes(requestParameters.user_id, requestParameters.lead_id, requestParameters.deal_id, requestParameters.person_id, requestParameters.org_id, requestParameters.project_id, requestParameters.task_id, requestParameters.start, requestParameters.limit, requestParameters.sort, requestParameters.start_date, requestParameters.end_date, requestParameters.updated_since, requestParameters.pinned_to_lead_flag, requestParameters.pinned_to_deal_flag, requestParameters.pinned_to_organization_flag, requestParameters.pinned_to_person_flag, requestParameters.pinned_to_project_flag, requestParameters.pinned_to_task_flag, ).then((request) => request(axios, basePath));
+        },
+        getNotesWithHttpInfo(requestParameters: NotesApiGetNotesRequest = {}, ): Promise<ApiResponse<GetNotesResponse>> {
+            return localVarFp.getNotesWithHttpInfo(requestParameters.user_id, requestParameters.lead_id, requestParameters.deal_id, requestParameters.person_id, requestParameters.org_id, requestParameters.project_id, requestParameters.task_id, requestParameters.start, requestParameters.limit, requestParameters.sort, requestParameters.start_date, requestParameters.end_date, requestParameters.updated_since, requestParameters.pinned_to_lead_flag, requestParameters.pinned_to_deal_flag, requestParameters.pinned_to_organization_flag, requestParameters.pinned_to_person_flag, requestParameters.pinned_to_project_flag, requestParameters.pinned_to_task_flag, ).then((request) => request(axios, basePath));
         },
         /**
          * Updates a comment related to a note.
@@ -833,6 +993,9 @@ export const NotesApiFactory = function (configuration?: Configuration, basePath
         updateCommentForNote(requestParameters: NotesApiUpdateCommentForNoteRequest, ): Promise<UpsertCommentResponse> {
             return localVarFp.updateCommentForNote(requestParameters.id, requestParameters.commentId, requestParameters.CommentPostPutObject, ).then((request) => request(axios, basePath));
         },
+        updateCommentForNoteWithHttpInfo(requestParameters: NotesApiUpdateCommentForNoteRequest, ): Promise<ApiResponse<UpsertCommentResponse>> {
+            return localVarFp.updateCommentForNoteWithHttpInfo(requestParameters.id, requestParameters.commentId, requestParameters.CommentPostPutObject, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates a note.
          * @summary Update a note
@@ -842,6 +1005,9 @@ export const NotesApiFactory = function (configuration?: Configuration, basePath
          */
         updateNote(requestParameters: NotesApiUpdateNoteRequest, ): Promise<UpsertNoteResponse> {
             return localVarFp.updateNote(requestParameters.id, requestParameters.NoteRequest, ).then((request) => request(axios, basePath));
+        },
+        updateNoteWithHttpInfo(requestParameters: NotesApiUpdateNoteRequest, ): Promise<ApiResponse<UpsertNoteResponse>> {
+            return localVarFp.updateNoteWithHttpInfo(requestParameters.id, requestParameters.NoteRequest, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1188,6 +1354,18 @@ export class NotesApi extends BaseAPI {
     }
 
     /**
+     * Same as `addNote`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {NotesApiAddNoteRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof NotesApi
+     */
+    public addNoteWithHttpInfo(requestParameters: NotesApiAddNoteRequest = {}, ) {
+        return NotesApiFp(this.configuration).addNoteWithHttpInfo(requestParameters.AddNoteRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Adds a new comment to a note.
      * @summary Add a comment to a note
      * @param {NotesApiAddNoteCommentRequest} requestParameters Request parameters.
@@ -1197,6 +1375,18 @@ export class NotesApi extends BaseAPI {
      */
     public addNoteComment(requestParameters: NotesApiAddNoteCommentRequest, ) {
         return NotesApiFp(this.configuration).addNoteComment(requestParameters.id, requestParameters.CommentPostPutObject, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `addNoteComment`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {NotesApiAddNoteCommentRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof NotesApi
+     */
+    public addNoteCommentWithHttpInfo(requestParameters: NotesApiAddNoteCommentRequest, ) {
+        return NotesApiFp(this.configuration).addNoteCommentWithHttpInfo(requestParameters.id, requestParameters.CommentPostPutObject, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1212,6 +1402,18 @@ export class NotesApi extends BaseAPI {
     }
 
     /**
+     * Same as `deleteComment`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {NotesApiDeleteCommentRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof NotesApi
+     */
+    public deleteCommentWithHttpInfo(requestParameters: NotesApiDeleteCommentRequest, ) {
+        return NotesApiFp(this.configuration).deleteCommentWithHttpInfo(requestParameters.id, requestParameters.commentId, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Deletes a specific note.
      * @summary Delete a note
      * @param {NotesApiDeleteNoteRequest} requestParameters Request parameters.
@@ -1221,6 +1423,18 @@ export class NotesApi extends BaseAPI {
      */
     public deleteNote(requestParameters: NotesApiDeleteNoteRequest, ) {
         return NotesApiFp(this.configuration).deleteNote(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteNote`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {NotesApiDeleteNoteRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof NotesApi
+     */
+    public deleteNoteWithHttpInfo(requestParameters: NotesApiDeleteNoteRequest, ) {
+        return NotesApiFp(this.configuration).deleteNoteWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1236,6 +1450,18 @@ export class NotesApi extends BaseAPI {
     }
 
     /**
+     * Same as `getComment`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {NotesApiGetCommentRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof NotesApi
+     */
+    public getCommentWithHttpInfo(requestParameters: NotesApiGetCommentRequest, ) {
+        return NotesApiFp(this.configuration).getCommentWithHttpInfo(requestParameters.id, requestParameters.commentId, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns details about a specific note.
      * @summary Get one note
      * @param {NotesApiGetNoteRequest} requestParameters Request parameters.
@@ -1245,6 +1471,18 @@ export class NotesApi extends BaseAPI {
      */
     public getNote(requestParameters: NotesApiGetNoteRequest, ) {
         return NotesApiFp(this.configuration).getNote(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getNote`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {NotesApiGetNoteRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof NotesApi
+     */
+    public getNoteWithHttpInfo(requestParameters: NotesApiGetNoteRequest, ) {
+        return NotesApiFp(this.configuration).getNoteWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1260,6 +1498,18 @@ export class NotesApi extends BaseAPI {
     }
 
     /**
+     * Same as `getNoteComments`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {NotesApiGetNoteCommentsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof NotesApi
+     */
+    public getNoteCommentsWithHttpInfo(requestParameters: NotesApiGetNoteCommentsRequest, ) {
+        return NotesApiFp(this.configuration).getNoteCommentsWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns all notes.
      * @summary Get all notes
      * @param {NotesApiGetNotesRequest} requestParameters Request parameters.
@@ -1269,6 +1519,18 @@ export class NotesApi extends BaseAPI {
      */
     public getNotes(requestParameters: NotesApiGetNotesRequest = {}, ) {
         return NotesApiFp(this.configuration).getNotes(requestParameters.user_id, requestParameters.lead_id, requestParameters.deal_id, requestParameters.person_id, requestParameters.org_id, requestParameters.project_id, requestParameters.task_id, requestParameters.start, requestParameters.limit, requestParameters.sort, requestParameters.start_date, requestParameters.end_date, requestParameters.updated_since, requestParameters.pinned_to_lead_flag, requestParameters.pinned_to_deal_flag, requestParameters.pinned_to_organization_flag, requestParameters.pinned_to_person_flag, requestParameters.pinned_to_project_flag, requestParameters.pinned_to_task_flag, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getNotes`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {NotesApiGetNotesRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof NotesApi
+     */
+    public getNotesWithHttpInfo(requestParameters: NotesApiGetNotesRequest = {}, ) {
+        return NotesApiFp(this.configuration).getNotesWithHttpInfo(requestParameters.user_id, requestParameters.lead_id, requestParameters.deal_id, requestParameters.person_id, requestParameters.org_id, requestParameters.project_id, requestParameters.task_id, requestParameters.start, requestParameters.limit, requestParameters.sort, requestParameters.start_date, requestParameters.end_date, requestParameters.updated_since, requestParameters.pinned_to_lead_flag, requestParameters.pinned_to_deal_flag, requestParameters.pinned_to_organization_flag, requestParameters.pinned_to_person_flag, requestParameters.pinned_to_project_flag, requestParameters.pinned_to_task_flag, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1284,6 +1546,18 @@ export class NotesApi extends BaseAPI {
     }
 
     /**
+     * Same as `updateCommentForNote`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {NotesApiUpdateCommentForNoteRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof NotesApi
+     */
+    public updateCommentForNoteWithHttpInfo(requestParameters: NotesApiUpdateCommentForNoteRequest, ) {
+        return NotesApiFp(this.configuration).updateCommentForNoteWithHttpInfo(requestParameters.id, requestParameters.commentId, requestParameters.CommentPostPutObject, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates a note.
      * @summary Update a note
      * @param {NotesApiUpdateNoteRequest} requestParameters Request parameters.
@@ -1293,5 +1567,17 @@ export class NotesApi extends BaseAPI {
      */
     public updateNote(requestParameters: NotesApiUpdateNoteRequest, ) {
         return NotesApiFp(this.configuration).updateNote(requestParameters.id, requestParameters.NoteRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateNote`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {NotesApiUpdateNoteRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof NotesApi
+     */
+    public updateNoteWithHttpInfo(requestParameters: NotesApiUpdateNoteRequest, ) {
+        return NotesApiFp(this.configuration).updateNoteWithHttpInfo(requestParameters.id, requestParameters.NoteRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

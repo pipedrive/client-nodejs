@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { GetFieldsResponse } from '../models';
 /**
@@ -99,6 +99,18 @@ export const LeadFieldsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getLeadFields(start, limit, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * Same as `getLeadFields`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all lead fields
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] Items shown per page
+
+         * @throws {RequiredError}
+         */
+        async getLeadFieldsWithHttpInfo(start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetFieldsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getLeadFields(start, limit, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
     }
 };
 
@@ -118,6 +130,9 @@ export const LeadFieldsApiFactory = function (configuration?: Configuration, bas
          */
         getLeadFields(requestParameters: LeadFieldsApiGetLeadFieldsRequest = {}, ): Promise<GetFieldsResponse> {
             return localVarFp.getLeadFields(requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
+        },
+        getLeadFieldsWithHttpInfo(requestParameters: LeadFieldsApiGetLeadFieldsRequest = {}, ): Promise<ApiResponse<GetFieldsResponse>> {
+            return localVarFp.getLeadFieldsWithHttpInfo(requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -160,5 +175,17 @@ export class LeadFieldsApi extends BaseAPI {
      */
     public getLeadFields(requestParameters: LeadFieldsApiGetLeadFieldsRequest = {}, ) {
         return LeadFieldsApiFp(this.configuration).getLeadFields(requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getLeadFields`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {LeadFieldsApiGetLeadFieldsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof LeadFieldsApi
+     */
+    public getLeadFieldsWithHttpInfo(requestParameters: LeadFieldsApiGetLeadFieldsRequest = {}, ) {
+        return LeadFieldsApiFp(this.configuration).getLeadFieldsWithHttpInfo(requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
     }
 }

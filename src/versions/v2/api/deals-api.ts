@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddAdditionalDiscountRequestBody } from '../models';
 // @ts-ignore
@@ -920,7 +920,7 @@ export const DealsApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['organization_id'] = organization_id;
             }
 
-            if (status) {
+            if (status !== undefined) {
                 localVarQueryParameter['status'] = status;
             }
 
@@ -1064,6 +1064,17 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addDeal`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a new deal
+         * @param {AddDealRequest} [AddDealRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addDealWithHttpInfo(AddDealRequest?: AddDealRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertDealResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addDeal(AddDealRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Adds a user as a follower to the deal.
          * @summary Add a follower to a deal
          * @param {number} id The ID of the deal
@@ -1076,6 +1087,18 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addDealFollower`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a follower to a deal
+         * @param {number} id The ID of the deal
+         * @param {AddDealFollowerRequest} [AddDealFollowerRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addDealFollowerWithHttpInfo(id: number, AddDealFollowerRequest?: AddDealFollowerRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddFollowerResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addDealFollower(id, AddDealFollowerRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Initiates a conversion of a deal to a lead. The return value is an ID of a job that was assigned to perform the conversion. Related entities (notes, files, emails, activities, ...) are transferred during the process to the target entity. There are exceptions for entities like invoices or history that are not transferred and remain linked to the original deal. If the conversion is successful, the deal is marked as deleted. To retrieve the created entity ID and the result of the conversion, call the <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDealConversionStatus\">/api/v2/deals/{deal_id}/convert/status/{conversion_id}</a> endpoint.
          * @summary Convert a deal to a lead
          * @param {number} id The ID of the deal to convert
@@ -1085,6 +1108,17 @@ export const DealsApiFp = function(configuration?: Configuration) {
         async convertDealToLead(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddConvertDealToLeadResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.convertDealToLead(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `convertDealToLead`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Convert a deal to a lead
+         * @param {number} id The ID of the deal to convert
+
+         * @throws {RequiredError}
+         */
+        async convertDealToLeadWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddConvertDealToLeadResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.convertDealToLead(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Removes a discount from a deal, changing the deal value if the deal has one-time products attached.
@@ -1099,6 +1133,18 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deleteAdditionalDiscount`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a discount from a deal
+         * @param {number} id The ID of the deal
+         * @param {string} discount_id The ID of the discount
+
+         * @throws {RequiredError}
+         */
+        async deleteAdditionalDiscountWithHttpInfo(id: number, discount_id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteAdditionalDiscountResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAdditionalDiscount(id, discount_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Marks a deal as deleted. After 30 days, the deal will be permanently deleted.
          * @summary Delete a deal
          * @param {number} id The ID of the deal
@@ -1108,6 +1154,17 @@ export const DealsApiFp = function(configuration?: Configuration) {
         async deleteDeal(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteDealResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDeal(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deleteDeal`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a deal
+         * @param {number} id The ID of the deal
+
+         * @throws {RequiredError}
+         */
+        async deleteDealWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteDealResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDeal(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Deletes a user follower from the deal.
@@ -1122,6 +1179,18 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deleteDealFollower`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a follower from a deal
+         * @param {number} id The ID of the deal
+         * @param {number} follower_id The ID of the following user
+
+         * @throws {RequiredError}
+         */
+        async deleteDealFollowerWithHttpInfo(id: number, follower_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteFollowerResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDealFollower(id, follower_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Lists discounts attached to a deal.
          * @summary List discounts added to a deal
          * @param {number} id The ID of the deal
@@ -1131,6 +1200,17 @@ export const DealsApiFp = function(configuration?: Configuration) {
         async getAdditionalDiscounts(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetAdditionalDiscountsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAdditionalDiscounts(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getAdditionalDiscounts`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List discounts added to a deal
+         * @param {number} id The ID of the deal
+
+         * @throws {RequiredError}
+         */
+        async getAdditionalDiscountsWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetAdditionalDiscountsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAdditionalDiscounts(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns data about all archived deals.
@@ -1159,6 +1239,32 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getArchivedDeals`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all archived deals
+         * @param {number} [filter_id] If supplied, only deals matching the specified filter are returned
+         * @param {Set<number>} [ids] Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+         * @param {number} [owner_id] If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored.
+         * @param {number} [person_id] If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored.
+         * @param {number} [org_id] If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored.
+         * @param {number} [pipeline_id] If supplied, only deals in the specified pipeline are returned. If filter_id is provided, this is ignored.
+         * @param {number} [stage_id] If supplied, only deals in the specified stage are returned. If filter_id is provided, this is ignored.
+         * @param {Set<'open' | 'won' | 'lost' | 'deleted'>} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. Multiple statuses can be included as a comma separated array. If filter_id is provided, this is ignored.
+         * @param {string} [updated_since] If set, only deals with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
+         * @param {string} [updated_until] If set, only deals with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
+         * @param {'id' | 'update_time' | 'add_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
+         * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
+         * @param {Set<'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id'>} [include_fields] Optional comma separated string array of additional fields to include
+         * @param {Set<string>} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getArchivedDealsWithHttpInfo(filter_id?: number, ids?: Set<number>, owner_id?: number, person_id?: number, org_id?: number, pipeline_id?: number, stage_id?: number, status?: Set<'open' | 'won' | 'lost' | 'deleted'>, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id'>, custom_fields?: Set<string>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetDealsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getArchivedDeals(filter_id, ids, owner_id, person_id, org_id, pipeline_id, stage_id, status, updated_since, updated_until, sort_by, sort_direction, include_fields, custom_fields, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns the details of a specific deal.
          * @summary Get details of a deal
          * @param {number} id The ID of the deal
@@ -1174,6 +1280,21 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getDeal`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get details of a deal
+         * @param {number} id The ID of the deal
+         * @param {Set<'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id'>} [include_fields] Optional comma separated string array of additional fields to include
+         * @param {Set<string>} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+         * @param {boolean} [include_option_labels] When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
+         * @param {boolean} [include_labels] When provided with \&#39;true\&#39; value, response will include an array of label objects in the form of \&#39;{ id: number, label: string }\&#39;
+
+         * @throws {RequiredError}
+         */
+        async getDealWithHttpInfo(id: number, include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id'>, custom_fields?: Set<string>, include_option_labels?: boolean, include_labels?: boolean, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertDealResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDeal(id, include_fields, custom_fields, include_option_labels, include_labels, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns information about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Lead ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
          * @summary Get Deal conversion status
          * @param {number} id The ID of a deal
@@ -1184,6 +1305,18 @@ export const DealsApiFp = function(configuration?: Configuration) {
         async getDealConversionStatus(id: number, conversion_id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetConvertResponse1>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDealConversionStatus(id, conversion_id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getDealConversionStatus`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get Deal conversion status
+         * @param {number} id The ID of a deal
+         * @param {string} conversion_id The ID of the conversion
+
+         * @throws {RequiredError}
+         */
+        async getDealConversionStatusWithHttpInfo(id: number, conversion_id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetConvertResponse1>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealConversionStatus(id, conversion_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Lists users who are following the deal.
@@ -1199,6 +1332,19 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getDealFollowers`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List followers of a deal
+         * @param {number} id The ID of the deal
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getDealFollowersWithHttpInfo(id: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetFollowersResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealFollowers(id, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Lists changelogs about users have followed the deal.
          * @summary List followers changelog of a deal
          * @param {number} id The ID of the deal
@@ -1210,6 +1356,19 @@ export const DealsApiFp = function(configuration?: Configuration) {
         async getDealFollowersChangelog(id: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFollowerChangelogsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDealFollowersChangelog(id, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getDealFollowersChangelog`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List followers changelog of a deal
+         * @param {number} id The ID of the deal
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getDealFollowersChangelogWithHttpInfo(id: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetFollowerChangelogsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealFollowersChangelog(id, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns data about all not archived deals.
@@ -1240,6 +1399,34 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getDeals`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all deals
+         * @param {number} [filter_id] If supplied, only deals matching the specified filter are returned
+         * @param {Set<number>} [ids] Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+         * @param {number} [owner_id] If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored.
+         * @param {number} [person_id] If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored.
+         * @param {number} [org_id] If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored.
+         * @param {number} [pipeline_id] If supplied, only deals in the specified pipeline are returned. If filter_id is provided, this is ignored.
+         * @param {number} [stage_id] If supplied, only deals in the specified stage are returned. If filter_id is provided, this is ignored.
+         * @param {Set<'open' | 'won' | 'lost' | 'deleted'>} [status] Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. Multiple statuses can be included as a comma separated array. If filter_id is provided, this is ignored.
+         * @param {string} [updated_since] If set, only deals with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
+         * @param {string} [updated_until] If set, only deals with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
+         * @param {'id' | 'update_time' | 'add_time'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
+         * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
+         * @param {Set<'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id'>} [include_fields] Optional comma separated string array of additional fields to include
+         * @param {Set<string>} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+         * @param {boolean} [include_option_labels] When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
+         * @param {boolean} [include_labels] When provided with \&#39;true\&#39; value, response will include an array of label objects in the form of \&#39;{ id: number, label: string }\&#39;
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getDealsWithHttpInfo(filter_id?: number, ids?: Set<number>, owner_id?: number, person_id?: number, org_id?: number, pipeline_id?: number, stage_id?: number, status?: Set<'open' | 'won' | 'lost' | 'deleted'>, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time', sort_direction?: 'asc' | 'desc', include_fields?: Set<'next_activity_id' | 'last_activity_id' | 'first_won_time' | 'products_count' | 'files_count' | 'notes_count' | 'followers_count' | 'email_messages_count' | 'activities_count' | 'done_activities_count' | 'undone_activities_count' | 'participants_count' | 'last_incoming_mail_time' | 'last_outgoing_mail_time' | 'smart_bcc_email' | 'source_lead_id'>, custom_fields?: Set<string>, include_option_labels?: boolean, include_labels?: boolean, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetDealsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDeals(filter_id, ids, owner_id, person_id, org_id, pipeline_id, stage_id, status, updated_since, updated_until, sort_by, sort_direction, include_fields, custom_fields, include_option_labels, include_labels, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Adds a discount to a deal, changing the deal value if the deal has one-time products attached.
          * @summary Add a discount to a deal
          * @param {number} id The ID of the deal
@@ -1250,6 +1437,18 @@ export const DealsApiFp = function(configuration?: Configuration) {
         async postAdditionalDiscount(id: number, AddAdditionalDiscountRequestBody?: AddAdditionalDiscountRequestBody, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddAdditionalDiscountResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.postAdditionalDiscount(id, AddAdditionalDiscountRequestBody, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `postAdditionalDiscount`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a discount to a deal
+         * @param {number} id The ID of the deal
+         * @param {AddAdditionalDiscountRequestBody} [AddAdditionalDiscountRequestBody] 
+
+         * @throws {RequiredError}
+         */
+        async postAdditionalDiscountWithHttpInfo(id: number, AddAdditionalDiscountRequestBody?: AddAdditionalDiscountRequestBody, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddAdditionalDiscountResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.postAdditionalDiscount(id, AddAdditionalDiscountRequestBody, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Searches all deals by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found deals can be filtered by the person ID and the organization ID.
@@ -1271,6 +1470,25 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `searchDeals`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Search deals
+         * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
+         * @param {Set<'custom_fields' | 'notes' | 'title'>} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
+         * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
+         * @param {number} [person_id] Will filter deals by the provided person ID. The upper limit of found deals associated with the person is 2000.
+         * @param {number} [organization_id] Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000.
+         * @param {'open' | 'won' | 'lost'} [status] Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000.
+         * @param {Set<'deal.cc_email'>} [include_fields] Supports including optional fields in the results which are not provided by default
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async searchDealsWithHttpInfo(term: string, fields?: Set<'custom_fields' | 'notes' | 'title'>, exact_match?: boolean, person_id?: number, organization_id?: number, status?: 'open' | 'won' | 'lost', include_fields?: Set<'deal.cc_email'>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetDealSearchResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchDeals(term, fields, exact_match, person_id, organization_id, status, include_fields, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Edits a discount added to a deal, changing the deal value if the deal has one-time products attached.
          * @summary Update a discount added to a deal
          * @param {number} id The ID of the deal
@@ -1284,6 +1502,19 @@ export const DealsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `updateAdditionalDiscount`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update a discount added to a deal
+         * @param {number} id The ID of the deal
+         * @param {string} discount_id The ID of the discount
+         * @param {UpdateAdditionalDiscountRequestBody} [UpdateAdditionalDiscountRequestBody] 
+
+         * @throws {RequiredError}
+         */
+        async updateAdditionalDiscountWithHttpInfo(id: number, discount_id: string, UpdateAdditionalDiscountRequestBody?: UpdateAdditionalDiscountRequestBody, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpdateAdditionalDiscountResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAdditionalDiscount(id, discount_id, UpdateAdditionalDiscountRequestBody, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates the properties of a deal.
          * @summary Update a deal
          * @param {number} id The ID of the deal
@@ -1294,6 +1525,18 @@ export const DealsApiFp = function(configuration?: Configuration) {
         async updateDeal(id: number, UpdateDealRequest?: UpdateDealRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertDealResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateDeal(id, UpdateDealRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateDeal`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update a deal
+         * @param {number} id The ID of the deal
+         * @param {UpdateDealRequest} [UpdateDealRequest] 
+
+         * @throws {RequiredError}
+         */
+        async updateDealWithHttpInfo(id: number, UpdateDealRequest?: UpdateDealRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertDealResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateDeal(id, UpdateDealRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -1315,6 +1558,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
         addDeal(requestParameters: DealsApiAddDealRequest = {}, ): Promise<UpsertDealResponse> {
             return localVarFp.addDeal(requestParameters.AddDealRequest, ).then((request) => request(axios, basePath));
         },
+        addDealWithHttpInfo(requestParameters: DealsApiAddDealRequest = {}, ): Promise<ApiResponse<UpsertDealResponse>> {
+            return localVarFp.addDealWithHttpInfo(requestParameters.AddDealRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Adds a user as a follower to the deal.
          * @summary Add a follower to a deal
@@ -1324,6 +1570,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          */
         addDealFollower(requestParameters: DealsApiAddDealFollowerRequest, ): Promise<AddFollowerResponse> {
             return localVarFp.addDealFollower(requestParameters.id, requestParameters.AddDealFollowerRequest, ).then((request) => request(axios, basePath));
+        },
+        addDealFollowerWithHttpInfo(requestParameters: DealsApiAddDealFollowerRequest, ): Promise<ApiResponse<AddFollowerResponse>> {
+            return localVarFp.addDealFollowerWithHttpInfo(requestParameters.id, requestParameters.AddDealFollowerRequest, ).then((request) => request(axios, basePath));
         },
         /**
          * Initiates a conversion of a deal to a lead. The return value is an ID of a job that was assigned to perform the conversion. Related entities (notes, files, emails, activities, ...) are transferred during the process to the target entity. There are exceptions for entities like invoices or history that are not transferred and remain linked to the original deal. If the conversion is successful, the deal is marked as deleted. To retrieve the created entity ID and the result of the conversion, call the <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDealConversionStatus\">/api/v2/deals/{deal_id}/convert/status/{conversion_id}</a> endpoint.
@@ -1335,6 +1584,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
         convertDealToLead(requestParameters: DealsApiConvertDealToLeadRequest, ): Promise<AddConvertDealToLeadResponse> {
             return localVarFp.convertDealToLead(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        convertDealToLeadWithHttpInfo(requestParameters: DealsApiConvertDealToLeadRequest, ): Promise<ApiResponse<AddConvertDealToLeadResponse>> {
+            return localVarFp.convertDealToLeadWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Removes a discount from a deal, changing the deal value if the deal has one-time products attached.
          * @summary Delete a discount from a deal
@@ -1344,6 +1596,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          */
         deleteAdditionalDiscount(requestParameters: DealsApiDeleteAdditionalDiscountRequest, ): Promise<DeleteAdditionalDiscountResponse> {
             return localVarFp.deleteAdditionalDiscount(requestParameters.id, requestParameters.discount_id, ).then((request) => request(axios, basePath));
+        },
+        deleteAdditionalDiscountWithHttpInfo(requestParameters: DealsApiDeleteAdditionalDiscountRequest, ): Promise<ApiResponse<DeleteAdditionalDiscountResponse>> {
+            return localVarFp.deleteAdditionalDiscountWithHttpInfo(requestParameters.id, requestParameters.discount_id, ).then((request) => request(axios, basePath));
         },
         /**
          * Marks a deal as deleted. After 30 days, the deal will be permanently deleted.
@@ -1355,6 +1610,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
         deleteDeal(requestParameters: DealsApiDeleteDealRequest, ): Promise<DeleteDealResponse> {
             return localVarFp.deleteDeal(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        deleteDealWithHttpInfo(requestParameters: DealsApiDeleteDealRequest, ): Promise<ApiResponse<DeleteDealResponse>> {
+            return localVarFp.deleteDealWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Deletes a user follower from the deal.
          * @summary Delete a follower from a deal
@@ -1364,6 +1622,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          */
         deleteDealFollower(requestParameters: DealsApiDeleteDealFollowerRequest, ): Promise<DeleteFollowerResponse> {
             return localVarFp.deleteDealFollower(requestParameters.id, requestParameters.follower_id, ).then((request) => request(axios, basePath));
+        },
+        deleteDealFollowerWithHttpInfo(requestParameters: DealsApiDeleteDealFollowerRequest, ): Promise<ApiResponse<DeleteFollowerResponse>> {
+            return localVarFp.deleteDealFollowerWithHttpInfo(requestParameters.id, requestParameters.follower_id, ).then((request) => request(axios, basePath));
         },
         /**
          * Lists discounts attached to a deal.
@@ -1375,6 +1636,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
         getAdditionalDiscounts(requestParameters: DealsApiGetAdditionalDiscountsRequest, ): Promise<GetAdditionalDiscountsResponse> {
             return localVarFp.getAdditionalDiscounts(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getAdditionalDiscountsWithHttpInfo(requestParameters: DealsApiGetAdditionalDiscountsRequest, ): Promise<ApiResponse<GetAdditionalDiscountsResponse>> {
+            return localVarFp.getAdditionalDiscountsWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns data about all archived deals.
          * @summary Get all archived deals
@@ -1384,6 +1648,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          */
         getArchivedDeals(requestParameters: DealsApiGetArchivedDealsRequest = {}, ): Promise<GetDealsResponse> {
             return localVarFp.getArchivedDeals(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.person_id, requestParameters.org_id, requestParameters.pipeline_id, requestParameters.stage_id, requestParameters.status, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
+        getArchivedDealsWithHttpInfo(requestParameters: DealsApiGetArchivedDealsRequest = {}, ): Promise<ApiResponse<GetDealsResponse>> {
+            return localVarFp.getArchivedDealsWithHttpInfo(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.person_id, requestParameters.org_id, requestParameters.pipeline_id, requestParameters.stage_id, requestParameters.status, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns the details of a specific deal.
@@ -1395,6 +1662,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
         getDeal(requestParameters: DealsApiGetDealRequest, ): Promise<UpsertDealResponse> {
             return localVarFp.getDeal(requestParameters.id, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.include_option_labels, requestParameters.include_labels, ).then((request) => request(axios, basePath));
         },
+        getDealWithHttpInfo(requestParameters: DealsApiGetDealRequest, ): Promise<ApiResponse<UpsertDealResponse>> {
+            return localVarFp.getDealWithHttpInfo(requestParameters.id, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.include_option_labels, requestParameters.include_labels, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns information about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Lead ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
          * @summary Get Deal conversion status
@@ -1404,6 +1674,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          */
         getDealConversionStatus(requestParameters: DealsApiGetDealConversionStatusRequest, ): Promise<GetConvertResponse1> {
             return localVarFp.getDealConversionStatus(requestParameters.id, requestParameters.conversion_id, ).then((request) => request(axios, basePath));
+        },
+        getDealConversionStatusWithHttpInfo(requestParameters: DealsApiGetDealConversionStatusRequest, ): Promise<ApiResponse<GetConvertResponse1>> {
+            return localVarFp.getDealConversionStatusWithHttpInfo(requestParameters.id, requestParameters.conversion_id, ).then((request) => request(axios, basePath));
         },
         /**
          * Lists users who are following the deal.
@@ -1415,6 +1688,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
         getDealFollowers(requestParameters: DealsApiGetDealFollowersRequest, ): Promise<GetFollowersResponse> {
             return localVarFp.getDealFollowers(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
+        getDealFollowersWithHttpInfo(requestParameters: DealsApiGetDealFollowersRequest, ): Promise<ApiResponse<GetFollowersResponse>> {
+            return localVarFp.getDealFollowersWithHttpInfo(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
         /**
          * Lists changelogs about users have followed the deal.
          * @summary List followers changelog of a deal
@@ -1424,6 +1700,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          */
         getDealFollowersChangelog(requestParameters: DealsApiGetDealFollowersChangelogRequest, ): Promise<GetFollowerChangelogsResponse> {
             return localVarFp.getDealFollowersChangelog(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
+        getDealFollowersChangelogWithHttpInfo(requestParameters: DealsApiGetDealFollowersChangelogRequest, ): Promise<ApiResponse<GetFollowerChangelogsResponse>> {
+            return localVarFp.getDealFollowersChangelogWithHttpInfo(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns data about all not archived deals.
@@ -1435,6 +1714,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
         getDeals(requestParameters: DealsApiGetDealsRequest = {}, ): Promise<GetDealsResponse> {
             return localVarFp.getDeals(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.person_id, requestParameters.org_id, requestParameters.pipeline_id, requestParameters.stage_id, requestParameters.status, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.include_option_labels, requestParameters.include_labels, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
+        getDealsWithHttpInfo(requestParameters: DealsApiGetDealsRequest = {}, ): Promise<ApiResponse<GetDealsResponse>> {
+            return localVarFp.getDealsWithHttpInfo(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.person_id, requestParameters.org_id, requestParameters.pipeline_id, requestParameters.stage_id, requestParameters.status, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.include_option_labels, requestParameters.include_labels, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
         /**
          * Adds a discount to a deal, changing the deal value if the deal has one-time products attached.
          * @summary Add a discount to a deal
@@ -1444,6 +1726,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          */
         postAdditionalDiscount(requestParameters: DealsApiPostAdditionalDiscountRequest, ): Promise<AddAdditionalDiscountResponse> {
             return localVarFp.postAdditionalDiscount(requestParameters.id, requestParameters.AddAdditionalDiscountRequestBody, ).then((request) => request(axios, basePath));
+        },
+        postAdditionalDiscountWithHttpInfo(requestParameters: DealsApiPostAdditionalDiscountRequest, ): Promise<ApiResponse<AddAdditionalDiscountResponse>> {
+            return localVarFp.postAdditionalDiscountWithHttpInfo(requestParameters.id, requestParameters.AddAdditionalDiscountRequestBody, ).then((request) => request(axios, basePath));
         },
         /**
          * Searches all deals by title, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found deals can be filtered by the person ID and the organization ID.
@@ -1455,6 +1740,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
         searchDeals(requestParameters: DealsApiSearchDealsRequest, ): Promise<GetDealSearchResponse> {
             return localVarFp.searchDeals(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.person_id, requestParameters.organization_id, requestParameters.status, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
+        searchDealsWithHttpInfo(requestParameters: DealsApiSearchDealsRequest, ): Promise<ApiResponse<GetDealSearchResponse>> {
+            return localVarFp.searchDealsWithHttpInfo(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.person_id, requestParameters.organization_id, requestParameters.status, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
         /**
          * Edits a discount added to a deal, changing the deal value if the deal has one-time products attached.
          * @summary Update a discount added to a deal
@@ -1465,6 +1753,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
         updateAdditionalDiscount(requestParameters: DealsApiUpdateAdditionalDiscountRequest, ): Promise<UpdateAdditionalDiscountResponse> {
             return localVarFp.updateAdditionalDiscount(requestParameters.id, requestParameters.discount_id, requestParameters.UpdateAdditionalDiscountRequestBody, ).then((request) => request(axios, basePath));
         },
+        updateAdditionalDiscountWithHttpInfo(requestParameters: DealsApiUpdateAdditionalDiscountRequest, ): Promise<ApiResponse<UpdateAdditionalDiscountResponse>> {
+            return localVarFp.updateAdditionalDiscountWithHttpInfo(requestParameters.id, requestParameters.discount_id, requestParameters.UpdateAdditionalDiscountRequestBody, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates the properties of a deal.
          * @summary Update a deal
@@ -1474,6 +1765,9 @@ export const DealsApiFactory = function (configuration?: Configuration, basePath
          */
         updateDeal(requestParameters: DealsApiUpdateDealRequest, ): Promise<UpsertDealResponse> {
             return localVarFp.updateDeal(requestParameters.id, requestParameters.UpdateDealRequest, ).then((request) => request(axios, basePath));
+        },
+        updateDealWithHttpInfo(requestParameters: DealsApiUpdateDealRequest, ): Promise<ApiResponse<UpsertDealResponse>> {
+            return localVarFp.updateDealWithHttpInfo(requestParameters.id, requestParameters.UpdateDealRequest, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -2128,6 +2422,18 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
+     * Same as `addDeal`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiAddDealRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public addDealWithHttpInfo(requestParameters: DealsApiAddDealRequest = {}, ) {
+        return DealsApiFp(this.configuration).addDealWithHttpInfo(requestParameters.AddDealRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Adds a user as a follower to the deal.
      * @summary Add a follower to a deal
      * @param {DealsApiAddDealFollowerRequest} requestParameters Request parameters.
@@ -2137,6 +2443,18 @@ export class DealsApi extends BaseAPI {
      */
     public addDealFollower(requestParameters: DealsApiAddDealFollowerRequest, ) {
         return DealsApiFp(this.configuration).addDealFollower(requestParameters.id, requestParameters.AddDealFollowerRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `addDealFollower`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiAddDealFollowerRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public addDealFollowerWithHttpInfo(requestParameters: DealsApiAddDealFollowerRequest, ) {
+        return DealsApiFp(this.configuration).addDealFollowerWithHttpInfo(requestParameters.id, requestParameters.AddDealFollowerRequest, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2152,6 +2470,18 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
+     * Same as `convertDealToLead`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiConvertDealToLeadRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public convertDealToLeadWithHttpInfo(requestParameters: DealsApiConvertDealToLeadRequest, ) {
+        return DealsApiFp(this.configuration).convertDealToLeadWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Removes a discount from a deal, changing the deal value if the deal has one-time products attached.
      * @summary Delete a discount from a deal
      * @param {DealsApiDeleteAdditionalDiscountRequest} requestParameters Request parameters.
@@ -2161,6 +2491,18 @@ export class DealsApi extends BaseAPI {
      */
     public deleteAdditionalDiscount(requestParameters: DealsApiDeleteAdditionalDiscountRequest, ) {
         return DealsApiFp(this.configuration).deleteAdditionalDiscount(requestParameters.id, requestParameters.discount_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteAdditionalDiscount`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiDeleteAdditionalDiscountRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public deleteAdditionalDiscountWithHttpInfo(requestParameters: DealsApiDeleteAdditionalDiscountRequest, ) {
+        return DealsApiFp(this.configuration).deleteAdditionalDiscountWithHttpInfo(requestParameters.id, requestParameters.discount_id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2176,6 +2518,18 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
+     * Same as `deleteDeal`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiDeleteDealRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public deleteDealWithHttpInfo(requestParameters: DealsApiDeleteDealRequest, ) {
+        return DealsApiFp(this.configuration).deleteDealWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Deletes a user follower from the deal.
      * @summary Delete a follower from a deal
      * @param {DealsApiDeleteDealFollowerRequest} requestParameters Request parameters.
@@ -2185,6 +2539,18 @@ export class DealsApi extends BaseAPI {
      */
     public deleteDealFollower(requestParameters: DealsApiDeleteDealFollowerRequest, ) {
         return DealsApiFp(this.configuration).deleteDealFollower(requestParameters.id, requestParameters.follower_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteDealFollower`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiDeleteDealFollowerRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public deleteDealFollowerWithHttpInfo(requestParameters: DealsApiDeleteDealFollowerRequest, ) {
+        return DealsApiFp(this.configuration).deleteDealFollowerWithHttpInfo(requestParameters.id, requestParameters.follower_id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2200,6 +2566,18 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getAdditionalDiscounts`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiGetAdditionalDiscountsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public getAdditionalDiscountsWithHttpInfo(requestParameters: DealsApiGetAdditionalDiscountsRequest, ) {
+        return DealsApiFp(this.configuration).getAdditionalDiscountsWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns data about all archived deals.
      * @summary Get all archived deals
      * @param {DealsApiGetArchivedDealsRequest} requestParameters Request parameters.
@@ -2209,6 +2587,18 @@ export class DealsApi extends BaseAPI {
      */
     public getArchivedDeals(requestParameters: DealsApiGetArchivedDealsRequest = {}, ) {
         return DealsApiFp(this.configuration).getArchivedDeals(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.person_id, requestParameters.org_id, requestParameters.pipeline_id, requestParameters.stage_id, requestParameters.status, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getArchivedDeals`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiGetArchivedDealsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public getArchivedDealsWithHttpInfo(requestParameters: DealsApiGetArchivedDealsRequest = {}, ) {
+        return DealsApiFp(this.configuration).getArchivedDealsWithHttpInfo(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.person_id, requestParameters.org_id, requestParameters.pipeline_id, requestParameters.stage_id, requestParameters.status, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2224,6 +2614,18 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getDeal`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiGetDealRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public getDealWithHttpInfo(requestParameters: DealsApiGetDealRequest, ) {
+        return DealsApiFp(this.configuration).getDealWithHttpInfo(requestParameters.id, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.include_option_labels, requestParameters.include_labels, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns information about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Lead ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
      * @summary Get Deal conversion status
      * @param {DealsApiGetDealConversionStatusRequest} requestParameters Request parameters.
@@ -2233,6 +2635,18 @@ export class DealsApi extends BaseAPI {
      */
     public getDealConversionStatus(requestParameters: DealsApiGetDealConversionStatusRequest, ) {
         return DealsApiFp(this.configuration).getDealConversionStatus(requestParameters.id, requestParameters.conversion_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getDealConversionStatus`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiGetDealConversionStatusRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public getDealConversionStatusWithHttpInfo(requestParameters: DealsApiGetDealConversionStatusRequest, ) {
+        return DealsApiFp(this.configuration).getDealConversionStatusWithHttpInfo(requestParameters.id, requestParameters.conversion_id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2248,6 +2662,18 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getDealFollowers`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiGetDealFollowersRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public getDealFollowersWithHttpInfo(requestParameters: DealsApiGetDealFollowersRequest, ) {
+        return DealsApiFp(this.configuration).getDealFollowersWithHttpInfo(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Lists changelogs about users have followed the deal.
      * @summary List followers changelog of a deal
      * @param {DealsApiGetDealFollowersChangelogRequest} requestParameters Request parameters.
@@ -2257,6 +2683,18 @@ export class DealsApi extends BaseAPI {
      */
     public getDealFollowersChangelog(requestParameters: DealsApiGetDealFollowersChangelogRequest, ) {
         return DealsApiFp(this.configuration).getDealFollowersChangelog(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getDealFollowersChangelog`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiGetDealFollowersChangelogRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public getDealFollowersChangelogWithHttpInfo(requestParameters: DealsApiGetDealFollowersChangelogRequest, ) {
+        return DealsApiFp(this.configuration).getDealFollowersChangelogWithHttpInfo(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2272,6 +2710,18 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getDeals`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiGetDealsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public getDealsWithHttpInfo(requestParameters: DealsApiGetDealsRequest = {}, ) {
+        return DealsApiFp(this.configuration).getDealsWithHttpInfo(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.person_id, requestParameters.org_id, requestParameters.pipeline_id, requestParameters.stage_id, requestParameters.status, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.include_option_labels, requestParameters.include_labels, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Adds a discount to a deal, changing the deal value if the deal has one-time products attached.
      * @summary Add a discount to a deal
      * @param {DealsApiPostAdditionalDiscountRequest} requestParameters Request parameters.
@@ -2281,6 +2731,18 @@ export class DealsApi extends BaseAPI {
      */
     public postAdditionalDiscount(requestParameters: DealsApiPostAdditionalDiscountRequest, ) {
         return DealsApiFp(this.configuration).postAdditionalDiscount(requestParameters.id, requestParameters.AddAdditionalDiscountRequestBody, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `postAdditionalDiscount`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiPostAdditionalDiscountRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public postAdditionalDiscountWithHttpInfo(requestParameters: DealsApiPostAdditionalDiscountRequest, ) {
+        return DealsApiFp(this.configuration).postAdditionalDiscountWithHttpInfo(requestParameters.id, requestParameters.AddAdditionalDiscountRequestBody, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2296,6 +2758,18 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
+     * Same as `searchDeals`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiSearchDealsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public searchDealsWithHttpInfo(requestParameters: DealsApiSearchDealsRequest, ) {
+        return DealsApiFp(this.configuration).searchDealsWithHttpInfo(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.person_id, requestParameters.organization_id, requestParameters.status, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Edits a discount added to a deal, changing the deal value if the deal has one-time products attached.
      * @summary Update a discount added to a deal
      * @param {DealsApiUpdateAdditionalDiscountRequest} requestParameters Request parameters.
@@ -2308,6 +2782,18 @@ export class DealsApi extends BaseAPI {
     }
 
     /**
+     * Same as `updateAdditionalDiscount`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiUpdateAdditionalDiscountRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public updateAdditionalDiscountWithHttpInfo(requestParameters: DealsApiUpdateAdditionalDiscountRequest, ) {
+        return DealsApiFp(this.configuration).updateAdditionalDiscountWithHttpInfo(requestParameters.id, requestParameters.discount_id, requestParameters.UpdateAdditionalDiscountRequestBody, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates the properties of a deal.
      * @summary Update a deal
      * @param {DealsApiUpdateDealRequest} requestParameters Request parameters.
@@ -2317,5 +2803,17 @@ export class DealsApi extends BaseAPI {
      */
     public updateDeal(requestParameters: DealsApiUpdateDealRequest, ) {
         return DealsApiFp(this.configuration).updateDeal(requestParameters.id, requestParameters.UpdateDealRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateDeal`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealsApiUpdateDealRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealsApi
+     */
+    public updateDealWithHttpInfo(requestParameters: DealsApiUpdateDealRequest, ) {
+        return DealsApiFp(this.configuration).updateDealWithHttpInfo(requestParameters.id, requestParameters.UpdateDealRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

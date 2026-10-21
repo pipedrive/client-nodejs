@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { GetPipelineDealsConversionRatesInResponse } from '../models';
 // @ts-ignore
@@ -268,6 +268,20 @@ export const PipelinesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getPipelineConversionStatistics`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get deals conversion rates in pipeline
+         * @param {number} id The ID of the pipeline
+         * @param {string} start_date The start of the period. Date in format of YYYY-MM-DD.
+         * @param {string} end_date The end of the period. Date in format of YYYY-MM-DD.
+         * @param {number} [user_id] The ID of the user who\&#39;s pipeline metrics statistics to fetch. If omitted, the authorized user will be used.
+
+         * @throws {RequiredError}
+         */
+        async getPipelineConversionStatisticsWithHttpInfo(id: number, start_date: string, end_date: string, user_id?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetPipelineDealsConversionRatesInResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPipelineConversionStatistics(id, start_date, end_date, user_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Lists deals in a specific pipeline across all its stages. If no parameters are provided open deals owned by the authorized user will be returned. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?pipeline_id={id}</a> instead.
          * @summary Get deals in a pipeline
          * @param {number} id The ID of the pipeline
@@ -287,6 +301,25 @@ export const PipelinesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getPipelineDeals`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get deals in a pipeline
+         * @param {number} id The ID of the pipeline
+         * @param {number} [filter_id] If supplied, only deals matching the given filter will be returned
+         * @param {number} [user_id] If supplied, &#x60;filter_id&#x60; will not be considered and only deals owned by the given user will be returned. If omitted, deals owned by the authorized user will be returned.
+         * @param {0 | 1} [everyone] If supplied, &#x60;filter_id&#x60; and &#x60;user_id&#x60; will not be considered – instead, deals owned by everyone will be returned
+         * @param {number} [stage_id] If supplied, only deals within the given stage will be returned
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] Items shown per page
+         * @param {0 | 1} [get_summary] Whether to include a summary of the pipeline in the &#x60;additional_data&#x60; or not
+         * @param {string} [totals_convert_currency] The 3-letter currency code of any of the supported currencies. When supplied, &#x60;per_stages_converted&#x60; is returned inside &#x60;deals_summary&#x60; inside &#x60;additional_data&#x60; which contains the currency-converted total amounts in the given currency per each stage. You may also set this parameter to &#x60;default_currency&#x60; in which case users default currency is used. Only works when &#x60;get_summary&#x60; parameter flag is enabled.
+         * @deprecated
+         * @throws {RequiredError}
+         */
+        async getPipelineDealsWithHttpInfo(id: number, filter_id?: number, user_id?: number, everyone?: 0 | 1, stage_id?: number, start?: number, limit?: number, get_summary?: 0 | 1, totals_convert_currency?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetStageDealsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPipelineDeals(id, filter_id, user_id, everyone, stage_id, start, limit, get_summary, totals_convert_currency, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns statistics for deals movements for the given time period.
          * @summary Get deals movements in pipeline
          * @param {number} id The ID of the pipeline
@@ -299,6 +332,20 @@ export const PipelinesApiFp = function(configuration?: Configuration) {
         async getPipelineMovementStatistics(id: number, start_date: string, end_date: string, user_id?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPipelineDealsMovementsStatisticsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPipelineMovementStatistics(id, start_date, end_date, user_id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getPipelineMovementStatistics`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get deals movements in pipeline
+         * @param {number} id The ID of the pipeline
+         * @param {string} start_date The start of the period. Date in format of YYYY-MM-DD.
+         * @param {string} end_date The end of the period. Date in format of YYYY-MM-DD.
+         * @param {number} [user_id] The ID of the user who\&#39;s pipeline statistics to fetch. If omitted, the authorized user will be used.
+
+         * @throws {RequiredError}
+         */
+        async getPipelineMovementStatisticsWithHttpInfo(id: number, start_date: string, end_date: string, user_id?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetPipelineDealsMovementsStatisticsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPipelineMovementStatistics(id, start_date, end_date, user_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -320,6 +367,9 @@ export const PipelinesApiFactory = function (configuration?: Configuration, base
         getPipelineConversionStatistics(requestParameters: PipelinesApiGetPipelineConversionStatisticsRequest, ): Promise<GetPipelineDealsConversionRatesInResponse> {
             return localVarFp.getPipelineConversionStatistics(requestParameters.id, requestParameters.start_date, requestParameters.end_date, requestParameters.user_id, ).then((request) => request(axios, basePath));
         },
+        getPipelineConversionStatisticsWithHttpInfo(requestParameters: PipelinesApiGetPipelineConversionStatisticsRequest, ): Promise<ApiResponse<GetPipelineDealsConversionRatesInResponse>> {
+            return localVarFp.getPipelineConversionStatisticsWithHttpInfo(requestParameters.id, requestParameters.start_date, requestParameters.end_date, requestParameters.user_id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Lists deals in a specific pipeline across all its stages. If no parameters are provided open deals owned by the authorized user will be returned. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?pipeline_id={id}</a> instead.
          * @summary Get deals in a pipeline
@@ -330,6 +380,9 @@ export const PipelinesApiFactory = function (configuration?: Configuration, base
         getPipelineDeals(requestParameters: PipelinesApiGetPipelineDealsRequest, ): Promise<GetStageDealsResponse> {
             return localVarFp.getPipelineDeals(requestParameters.id, requestParameters.filter_id, requestParameters.user_id, requestParameters.everyone, requestParameters.stage_id, requestParameters.start, requestParameters.limit, requestParameters.get_summary, requestParameters.totals_convert_currency, ).then((request) => request(axios, basePath));
         },
+        getPipelineDealsWithHttpInfo(requestParameters: PipelinesApiGetPipelineDealsRequest, ): Promise<ApiResponse<GetStageDealsResponse>> {
+            return localVarFp.getPipelineDealsWithHttpInfo(requestParameters.id, requestParameters.filter_id, requestParameters.user_id, requestParameters.everyone, requestParameters.stage_id, requestParameters.start, requestParameters.limit, requestParameters.get_summary, requestParameters.totals_convert_currency, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns statistics for deals movements for the given time period.
          * @summary Get deals movements in pipeline
@@ -339,6 +392,9 @@ export const PipelinesApiFactory = function (configuration?: Configuration, base
          */
         getPipelineMovementStatistics(requestParameters: PipelinesApiGetPipelineMovementStatisticsRequest, ): Promise<GetPipelineDealsMovementsStatisticsResponse> {
             return localVarFp.getPipelineMovementStatistics(requestParameters.id, requestParameters.start_date, requestParameters.end_date, requestParameters.user_id, ).then((request) => request(axios, basePath));
+        },
+        getPipelineMovementStatisticsWithHttpInfo(requestParameters: PipelinesApiGetPipelineMovementStatisticsRequest, ): Promise<ApiResponse<GetPipelineDealsMovementsStatisticsResponse>> {
+            return localVarFp.getPipelineMovementStatisticsWithHttpInfo(requestParameters.id, requestParameters.start_date, requestParameters.end_date, requestParameters.user_id, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -503,6 +559,18 @@ export class PipelinesApi extends BaseAPI {
     }
 
     /**
+     * Same as `getPipelineConversionStatistics`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PipelinesApiGetPipelineConversionStatisticsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PipelinesApi
+     */
+    public getPipelineConversionStatisticsWithHttpInfo(requestParameters: PipelinesApiGetPipelineConversionStatisticsRequest, ) {
+        return PipelinesApiFp(this.configuration).getPipelineConversionStatisticsWithHttpInfo(requestParameters.id, requestParameters.start_date, requestParameters.end_date, requestParameters.user_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Lists deals in a specific pipeline across all its stages. If no parameters are provided open deals owned by the authorized user will be returned. <br>This endpoint has been deprecated. Please use <a href=\"https://developers.pipedrive.com/docs/api/v1/Deals#getDeals\" target=\"_blank\" rel=\"noopener noreferrer\">GET /api/v2/deals?pipeline_id={id}</a> instead.
      * @summary Get deals in a pipeline
      * @param {PipelinesApiGetPipelineDealsRequest} requestParameters Request parameters.
@@ -515,6 +583,18 @@ export class PipelinesApi extends BaseAPI {
     }
 
     /**
+     * Same as `getPipelineDeals`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PipelinesApiGetPipelineDealsRequest} requestParameters Request parameters.
+     * @deprecated
+     * @throws {RequiredError}
+     * @memberof PipelinesApi
+     */
+    public getPipelineDealsWithHttpInfo(requestParameters: PipelinesApiGetPipelineDealsRequest, ) {
+        return PipelinesApiFp(this.configuration).getPipelineDealsWithHttpInfo(requestParameters.id, requestParameters.filter_id, requestParameters.user_id, requestParameters.everyone, requestParameters.stage_id, requestParameters.start, requestParameters.limit, requestParameters.get_summary, requestParameters.totals_convert_currency, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns statistics for deals movements for the given time period.
      * @summary Get deals movements in pipeline
      * @param {PipelinesApiGetPipelineMovementStatisticsRequest} requestParameters Request parameters.
@@ -524,5 +604,17 @@ export class PipelinesApi extends BaseAPI {
      */
     public getPipelineMovementStatistics(requestParameters: PipelinesApiGetPipelineMovementStatisticsRequest, ) {
         return PipelinesApiFp(this.configuration).getPipelineMovementStatistics(requestParameters.id, requestParameters.start_date, requestParameters.end_date, requestParameters.user_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getPipelineMovementStatistics`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PipelinesApiGetPipelineMovementStatisticsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PipelinesApi
+     */
+    public getPipelineMovementStatisticsWithHttpInfo(requestParameters: PipelinesApiGetPipelineMovementStatisticsRequest, ) {
+        return PipelinesApiFp(this.configuration).getPipelineMovementStatisticsWithHttpInfo(requestParameters.id, requestParameters.start_date, requestParameters.end_date, requestParameters.user_id, ).then((request) => request(this.axios, this.basePath));
     }
 }

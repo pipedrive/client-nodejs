@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddDealProductRequest } from '../models';
 // @ts-ignore
@@ -422,6 +422,18 @@ export const DealProductsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addDealProduct`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a product to a deal
+         * @param {number} id The ID of the deal
+         * @param {AddDealProductRequest} [AddDealProductRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addDealProductWithHttpInfo(id: number, AddDealProductRequest?: AddDealProductRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddDealProductResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addDealProduct(id, AddDealProductRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Adds multiple products to a deal in a single request. Maximum of 100 products allowed per request.
          * @summary Add multiple products to a deal
          * @param {number} id The ID of the deal
@@ -432,6 +444,18 @@ export const DealProductsApiFp = function(configuration?: Configuration) {
         async addManyDealProducts(id: number, CreateManyDealProductRequest?: CreateManyDealProductRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddManyDealProductResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addManyDealProducts(id, CreateManyDealProductRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `addManyDealProducts`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add multiple products to a deal
+         * @param {number} id The ID of the deal
+         * @param {CreateManyDealProductRequest} [CreateManyDealProductRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addManyDealProductsWithHttpInfo(id: number, CreateManyDealProductRequest?: CreateManyDealProductRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddManyDealProductResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addManyDealProducts(id, CreateManyDealProductRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Deletes a product attachment from a deal, using the `product_attachment_id`.
@@ -446,6 +470,18 @@ export const DealProductsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deleteDealProduct`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete an attached product from a deal
+         * @param {number} id The ID of the deal
+         * @param {number} product_attachment_id The product attachment ID
+
+         * @throws {RequiredError}
+         */
+        async deleteDealProductWithHttpInfo(id: number, product_attachment_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteDealProductResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDealProduct(id, product_attachment_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Deletes multiple products from a deal. If no product IDs are specified, up to 100 products will be removed from the deal. A maximum of 100 product IDs can be provided per request.
          * @summary Delete many products from a deal
          * @param {number} id The ID of the deal
@@ -456,6 +492,18 @@ export const DealProductsApiFp = function(configuration?: Configuration) {
         async deleteManyDealProducts(id: number, ids?: Set<number>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteManyDealProductResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteManyDealProducts(id, ids, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deleteManyDealProducts`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete many products from a deal
+         * @param {number} id The ID of the deal
+         * @param {Set<number>} [ids] Comma-separated list of deal product IDs to delete. If not provided, all deal products will be deleted up to 100 items. Maximum 100 IDs allowed.
+
+         * @throws {RequiredError}
+         */
+        async deleteManyDealProductsWithHttpInfo(id: number, ids?: Set<number>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteManyDealProductResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteManyDealProducts(id, ids, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Lists products attached to a deal.
@@ -473,6 +521,21 @@ export const DealProductsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getDealProducts`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List products attached to a deal
+         * @param {number} id The ID of the deal
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {'id' | 'add_time' | 'update_time' | 'order_nr'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;order_nr&#x60;.
+         * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
+
+         * @throws {RequiredError}
+         */
+        async getDealProductsWithHttpInfo(id: number, cursor?: string, limit?: number, sort_by?: 'id' | 'add_time' | 'update_time' | 'order_nr', sort_direction?: 'asc' | 'desc', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetDealsProductsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealProducts(id, cursor, limit, sort_by, sort_direction, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns data about products attached to deals
          * @summary Get deal products of several deals
          * @param {Array<number>} deal_ids An array of integers with the IDs of the deals for which the attached products will be returned. A maximum of 100 deal IDs can be provided.
@@ -488,6 +551,21 @@ export const DealProductsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getDealsProducts`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get deal products of several deals
+         * @param {Array<number>} deal_ids An array of integers with the IDs of the deals for which the attached products will be returned. A maximum of 100 deal IDs can be provided.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {'id' | 'deal_id' | 'add_time' | 'update_time' | 'order_nr'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;deal_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;order_nr&#x60;.
+         * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
+
+         * @throws {RequiredError}
+         */
+        async getDealsProductsWithHttpInfo(deal_ids: Array<number>, cursor?: string, limit?: number, sort_by?: 'id' | 'deal_id' | 'add_time' | 'update_time' | 'order_nr', sort_direction?: 'asc' | 'desc', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetDealsProductsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealsProducts(deal_ids, cursor, limit, sort_by, sort_direction, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates the details of the product that has been attached to a deal.
          * @summary Update the product attached to a deal
          * @param {number} id The ID of the deal
@@ -499,6 +577,19 @@ export const DealProductsApiFp = function(configuration?: Configuration) {
         async updateDealProduct(id: number, product_attachment_id: number, UpdateDealProductRequest?: UpdateDealProductRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddDealProductResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateDealProduct(id, product_attachment_id, UpdateDealProductRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateDealProduct`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update the product attached to a deal
+         * @param {number} id The ID of the deal
+         * @param {number} product_attachment_id The ID of the deal-product (the ID of the product attached to the deal)
+         * @param {UpdateDealProductRequest} [UpdateDealProductRequest] 
+
+         * @throws {RequiredError}
+         */
+        async updateDealProductWithHttpInfo(id: number, product_attachment_id: number, UpdateDealProductRequest?: UpdateDealProductRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddDealProductResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateDealProduct(id, product_attachment_id, UpdateDealProductRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -520,6 +611,9 @@ export const DealProductsApiFactory = function (configuration?: Configuration, b
         addDealProduct(requestParameters: DealProductsApiAddDealProductRequest, ): Promise<AddDealProductResponse> {
             return localVarFp.addDealProduct(requestParameters.id, requestParameters.AddDealProductRequest, ).then((request) => request(axios, basePath));
         },
+        addDealProductWithHttpInfo(requestParameters: DealProductsApiAddDealProductRequest, ): Promise<ApiResponse<AddDealProductResponse>> {
+            return localVarFp.addDealProductWithHttpInfo(requestParameters.id, requestParameters.AddDealProductRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Adds multiple products to a deal in a single request. Maximum of 100 products allowed per request.
          * @summary Add multiple products to a deal
@@ -529,6 +623,9 @@ export const DealProductsApiFactory = function (configuration?: Configuration, b
          */
         addManyDealProducts(requestParameters: DealProductsApiAddManyDealProductsRequest, ): Promise<AddManyDealProductResponse> {
             return localVarFp.addManyDealProducts(requestParameters.id, requestParameters.CreateManyDealProductRequest, ).then((request) => request(axios, basePath));
+        },
+        addManyDealProductsWithHttpInfo(requestParameters: DealProductsApiAddManyDealProductsRequest, ): Promise<ApiResponse<AddManyDealProductResponse>> {
+            return localVarFp.addManyDealProductsWithHttpInfo(requestParameters.id, requestParameters.CreateManyDealProductRequest, ).then((request) => request(axios, basePath));
         },
         /**
          * Deletes a product attachment from a deal, using the `product_attachment_id`.
@@ -540,6 +637,9 @@ export const DealProductsApiFactory = function (configuration?: Configuration, b
         deleteDealProduct(requestParameters: DealProductsApiDeleteDealProductRequest, ): Promise<DeleteDealProductResponse> {
             return localVarFp.deleteDealProduct(requestParameters.id, requestParameters.product_attachment_id, ).then((request) => request(axios, basePath));
         },
+        deleteDealProductWithHttpInfo(requestParameters: DealProductsApiDeleteDealProductRequest, ): Promise<ApiResponse<DeleteDealProductResponse>> {
+            return localVarFp.deleteDealProductWithHttpInfo(requestParameters.id, requestParameters.product_attachment_id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Deletes multiple products from a deal. If no product IDs are specified, up to 100 products will be removed from the deal. A maximum of 100 product IDs can be provided per request.
          * @summary Delete many products from a deal
@@ -549,6 +649,9 @@ export const DealProductsApiFactory = function (configuration?: Configuration, b
          */
         deleteManyDealProducts(requestParameters: DealProductsApiDeleteManyDealProductsRequest, ): Promise<DeleteManyDealProductResponse> {
             return localVarFp.deleteManyDealProducts(requestParameters.id, requestParameters.ids, ).then((request) => request(axios, basePath));
+        },
+        deleteManyDealProductsWithHttpInfo(requestParameters: DealProductsApiDeleteManyDealProductsRequest, ): Promise<ApiResponse<DeleteManyDealProductResponse>> {
+            return localVarFp.deleteManyDealProductsWithHttpInfo(requestParameters.id, requestParameters.ids, ).then((request) => request(axios, basePath));
         },
         /**
          * Lists products attached to a deal.
@@ -560,6 +663,9 @@ export const DealProductsApiFactory = function (configuration?: Configuration, b
         getDealProducts(requestParameters: DealProductsApiGetDealProductsRequest, ): Promise<GetDealsProductsResponse> {
             return localVarFp.getDealProducts(requestParameters.id, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, ).then((request) => request(axios, basePath));
         },
+        getDealProductsWithHttpInfo(requestParameters: DealProductsApiGetDealProductsRequest, ): Promise<ApiResponse<GetDealsProductsResponse>> {
+            return localVarFp.getDealProductsWithHttpInfo(requestParameters.id, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns data about products attached to deals
          * @summary Get deal products of several deals
@@ -570,6 +676,9 @@ export const DealProductsApiFactory = function (configuration?: Configuration, b
         getDealsProducts(requestParameters: DealProductsApiGetDealsProductsRequest, ): Promise<GetDealsProductsResponse> {
             return localVarFp.getDealsProducts(requestParameters.deal_ids, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, ).then((request) => request(axios, basePath));
         },
+        getDealsProductsWithHttpInfo(requestParameters: DealProductsApiGetDealsProductsRequest, ): Promise<ApiResponse<GetDealsProductsResponse>> {
+            return localVarFp.getDealsProductsWithHttpInfo(requestParameters.deal_ids, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates the details of the product that has been attached to a deal.
          * @summary Update the product attached to a deal
@@ -579,6 +688,9 @@ export const DealProductsApiFactory = function (configuration?: Configuration, b
          */
         updateDealProduct(requestParameters: DealProductsApiUpdateDealProductRequest, ): Promise<AddDealProductResponse> {
             return localVarFp.updateDealProduct(requestParameters.id, requestParameters.product_attachment_id, requestParameters.UpdateDealProductRequest, ).then((request) => request(axios, basePath));
+        },
+        updateDealProductWithHttpInfo(requestParameters: DealProductsApiUpdateDealProductRequest, ): Promise<ApiResponse<AddDealProductResponse>> {
+            return localVarFp.updateDealProductWithHttpInfo(requestParameters.id, requestParameters.product_attachment_id, requestParameters.UpdateDealProductRequest, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -799,6 +911,18 @@ export class DealProductsApi extends BaseAPI {
     }
 
     /**
+     * Same as `addDealProduct`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealProductsApiAddDealProductRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealProductsApi
+     */
+    public addDealProductWithHttpInfo(requestParameters: DealProductsApiAddDealProductRequest, ) {
+        return DealProductsApiFp(this.configuration).addDealProductWithHttpInfo(requestParameters.id, requestParameters.AddDealProductRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Adds multiple products to a deal in a single request. Maximum of 100 products allowed per request.
      * @summary Add multiple products to a deal
      * @param {DealProductsApiAddManyDealProductsRequest} requestParameters Request parameters.
@@ -808,6 +932,18 @@ export class DealProductsApi extends BaseAPI {
      */
     public addManyDealProducts(requestParameters: DealProductsApiAddManyDealProductsRequest, ) {
         return DealProductsApiFp(this.configuration).addManyDealProducts(requestParameters.id, requestParameters.CreateManyDealProductRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `addManyDealProducts`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealProductsApiAddManyDealProductsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealProductsApi
+     */
+    public addManyDealProductsWithHttpInfo(requestParameters: DealProductsApiAddManyDealProductsRequest, ) {
+        return DealProductsApiFp(this.configuration).addManyDealProductsWithHttpInfo(requestParameters.id, requestParameters.CreateManyDealProductRequest, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -823,6 +959,18 @@ export class DealProductsApi extends BaseAPI {
     }
 
     /**
+     * Same as `deleteDealProduct`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealProductsApiDeleteDealProductRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealProductsApi
+     */
+    public deleteDealProductWithHttpInfo(requestParameters: DealProductsApiDeleteDealProductRequest, ) {
+        return DealProductsApiFp(this.configuration).deleteDealProductWithHttpInfo(requestParameters.id, requestParameters.product_attachment_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Deletes multiple products from a deal. If no product IDs are specified, up to 100 products will be removed from the deal. A maximum of 100 product IDs can be provided per request.
      * @summary Delete many products from a deal
      * @param {DealProductsApiDeleteManyDealProductsRequest} requestParameters Request parameters.
@@ -832,6 +980,18 @@ export class DealProductsApi extends BaseAPI {
      */
     public deleteManyDealProducts(requestParameters: DealProductsApiDeleteManyDealProductsRequest, ) {
         return DealProductsApiFp(this.configuration).deleteManyDealProducts(requestParameters.id, requestParameters.ids, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteManyDealProducts`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealProductsApiDeleteManyDealProductsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealProductsApi
+     */
+    public deleteManyDealProductsWithHttpInfo(requestParameters: DealProductsApiDeleteManyDealProductsRequest, ) {
+        return DealProductsApiFp(this.configuration).deleteManyDealProductsWithHttpInfo(requestParameters.id, requestParameters.ids, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -847,6 +1007,18 @@ export class DealProductsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getDealProducts`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealProductsApiGetDealProductsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealProductsApi
+     */
+    public getDealProductsWithHttpInfo(requestParameters: DealProductsApiGetDealProductsRequest, ) {
+        return DealProductsApiFp(this.configuration).getDealProductsWithHttpInfo(requestParameters.id, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns data about products attached to deals
      * @summary Get deal products of several deals
      * @param {DealProductsApiGetDealsProductsRequest} requestParameters Request parameters.
@@ -859,6 +1031,18 @@ export class DealProductsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getDealsProducts`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealProductsApiGetDealsProductsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealProductsApi
+     */
+    public getDealsProductsWithHttpInfo(requestParameters: DealProductsApiGetDealsProductsRequest, ) {
+        return DealProductsApiFp(this.configuration).getDealsProductsWithHttpInfo(requestParameters.deal_ids, requestParameters.cursor, requestParameters.limit, requestParameters.sort_by, requestParameters.sort_direction, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates the details of the product that has been attached to a deal.
      * @summary Update the product attached to a deal
      * @param {DealProductsApiUpdateDealProductRequest} requestParameters Request parameters.
@@ -868,5 +1052,17 @@ export class DealProductsApi extends BaseAPI {
      */
     public updateDealProduct(requestParameters: DealProductsApiUpdateDealProductRequest, ) {
         return DealProductsApiFp(this.configuration).updateDealProduct(requestParameters.id, requestParameters.product_attachment_id, requestParameters.UpdateDealProductRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateDealProduct`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealProductsApiUpdateDealProductRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealProductsApi
+     */
+    public updateDealProductWithHttpInfo(requestParameters: DealProductsApiUpdateDealProductRequest, ) {
+        return DealProductsApiFp(this.configuration).updateDealProductWithHttpInfo(requestParameters.id, requestParameters.product_attachment_id, requestParameters.UpdateDealProductRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

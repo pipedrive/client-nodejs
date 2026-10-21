@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddActivityRequest } from '../models';
 // @ts-ignore
@@ -343,6 +343,17 @@ export const ActivitiesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addActivity`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a new activity
+         * @param {AddActivityRequest} [AddActivityRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addActivityWithHttpInfo(AddActivityRequest?: AddActivityRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertActivityResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addActivity(AddActivityRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Marks an activity as deleted. After 30 days, the activity will be permanently deleted.
          * @summary Delete an activity
          * @param {number} id The ID of the activity
@@ -352,6 +363,17 @@ export const ActivitiesApiFp = function(configuration?: Configuration) {
         async deleteActivity(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteActivityResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteActivity(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deleteActivity`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete an activity
+         * @param {number} id The ID of the activity
+
+         * @throws {RequiredError}
+         */
+        async deleteActivityWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteActivityResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteActivity(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns data about all activities.
@@ -379,6 +401,31 @@ export const ActivitiesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getActivities`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all activities
+         * @param {number} [filter_id] If supplied, only activities matching the specified filter are returned
+         * @param {Set<number>} [ids] Optional comma separated array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
+         * @param {number} [owner_id] If supplied, only activities owned by the specified user are returned. If filter_id is provided, this is ignored.
+         * @param {number} [deal_id] If supplied, only activities linked to the specified deal are returned. If filter_id is provided, this is ignored.
+         * @param {string} [lead_id] If supplied, only activities linked to the specified lead are returned. If filter_id is provided, this is ignored.
+         * @param {number} [person_id] If supplied, only activities whose primary participant is the given person are returned. If filter_id is provided, this is ignored.
+         * @param {number} [org_id] If supplied, only activities linked to the specified organization are returned. If filter_id is provided, this is ignored.
+         * @param {boolean} [done] If supplied, only activities with specified \&#39;done\&#39; flag value are returned
+         * @param {string} [updated_since] If set, only activities with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
+         * @param {string} [updated_until] If set, only activities with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
+         * @param {'id' | 'update_time' | 'add_time' | 'due_date'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;, &#x60;due_date&#x60;.
+         * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
+         * @param {Set<'attendees'>} [include_fields] Optional comma separated string array of additional fields to include
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getActivitiesWithHttpInfo(filter_id?: number, ids?: Set<number>, owner_id?: number, deal_id?: number, lead_id?: string, person_id?: number, org_id?: number, done?: boolean, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time' | 'due_date', sort_direction?: 'asc' | 'desc', include_fields?: Set<'attendees'>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetActivitiesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getActivities(filter_id, ids, owner_id, deal_id, lead_id, person_id, org_id, done, updated_since, updated_until, sort_by, sort_direction, include_fields, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns the details of a specific activity.
          * @summary Get details of an activity
          * @param {number} id The ID of the activity
@@ -391,6 +438,18 @@ export const ActivitiesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getActivity`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get details of an activity
+         * @param {number} id The ID of the activity
+         * @param {Set<'attendees'>} [include_fields] Optional comma separated string array of additional fields to include
+
+         * @throws {RequiredError}
+         */
+        async getActivityWithHttpInfo(id: number, include_fields?: Set<'attendees'>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertActivityResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getActivity(id, include_fields, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates the properties of an activity.
          * @summary Update an activity
          * @param {number} id The ID of the activity
@@ -401,6 +460,18 @@ export const ActivitiesApiFp = function(configuration?: Configuration) {
         async updateActivity(id: number, AddActivityRequest?: AddActivityRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertActivityResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateActivity(id, AddActivityRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateActivity`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update an activity
+         * @param {number} id The ID of the activity
+         * @param {AddActivityRequest} [AddActivityRequest] 
+
+         * @throws {RequiredError}
+         */
+        async updateActivityWithHttpInfo(id: number, AddActivityRequest?: AddActivityRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertActivityResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateActivity(id, AddActivityRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -422,6 +493,9 @@ export const ActivitiesApiFactory = function (configuration?: Configuration, bas
         addActivity(requestParameters: ActivitiesApiAddActivityRequest = {}, ): Promise<UpsertActivityResponse> {
             return localVarFp.addActivity(requestParameters.AddActivityRequest, ).then((request) => request(axios, basePath));
         },
+        addActivityWithHttpInfo(requestParameters: ActivitiesApiAddActivityRequest = {}, ): Promise<ApiResponse<UpsertActivityResponse>> {
+            return localVarFp.addActivityWithHttpInfo(requestParameters.AddActivityRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Marks an activity as deleted. After 30 days, the activity will be permanently deleted.
          * @summary Delete an activity
@@ -431,6 +505,9 @@ export const ActivitiesApiFactory = function (configuration?: Configuration, bas
          */
         deleteActivity(requestParameters: ActivitiesApiDeleteActivityRequest, ): Promise<DeleteActivityResponse> {
             return localVarFp.deleteActivity(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        deleteActivityWithHttpInfo(requestParameters: ActivitiesApiDeleteActivityRequest, ): Promise<ApiResponse<DeleteActivityResponse>> {
+            return localVarFp.deleteActivityWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns data about all activities.
@@ -442,6 +519,9 @@ export const ActivitiesApiFactory = function (configuration?: Configuration, bas
         getActivities(requestParameters: ActivitiesApiGetActivitiesRequest = {}, ): Promise<GetActivitiesResponse> {
             return localVarFp.getActivities(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.deal_id, requestParameters.lead_id, requestParameters.person_id, requestParameters.org_id, requestParameters.done, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
+        getActivitiesWithHttpInfo(requestParameters: ActivitiesApiGetActivitiesRequest = {}, ): Promise<ApiResponse<GetActivitiesResponse>> {
+            return localVarFp.getActivitiesWithHttpInfo(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.deal_id, requestParameters.lead_id, requestParameters.person_id, requestParameters.org_id, requestParameters.done, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns the details of a specific activity.
          * @summary Get details of an activity
@@ -452,6 +532,9 @@ export const ActivitiesApiFactory = function (configuration?: Configuration, bas
         getActivity(requestParameters: ActivitiesApiGetActivityRequest, ): Promise<UpsertActivityResponse> {
             return localVarFp.getActivity(requestParameters.id, requestParameters.include_fields, ).then((request) => request(axios, basePath));
         },
+        getActivityWithHttpInfo(requestParameters: ActivitiesApiGetActivityRequest, ): Promise<ApiResponse<UpsertActivityResponse>> {
+            return localVarFp.getActivityWithHttpInfo(requestParameters.id, requestParameters.include_fields, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates the properties of an activity.
          * @summary Update an activity
@@ -461,6 +544,9 @@ export const ActivitiesApiFactory = function (configuration?: Configuration, bas
          */
         updateActivity(requestParameters: ActivitiesApiUpdateActivityRequest, ): Promise<UpsertActivityResponse> {
             return localVarFp.updateActivity(requestParameters.id, requestParameters.AddActivityRequest, ).then((request) => request(axios, basePath));
+        },
+        updateActivityWithHttpInfo(requestParameters: ActivitiesApiUpdateActivityRequest, ): Promise<ApiResponse<UpsertActivityResponse>> {
+            return localVarFp.updateActivityWithHttpInfo(requestParameters.id, requestParameters.AddActivityRequest, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -667,6 +753,18 @@ export class ActivitiesApi extends BaseAPI {
     }
 
     /**
+     * Same as `addActivity`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ActivitiesApiAddActivityRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ActivitiesApi
+     */
+    public addActivityWithHttpInfo(requestParameters: ActivitiesApiAddActivityRequest = {}, ) {
+        return ActivitiesApiFp(this.configuration).addActivityWithHttpInfo(requestParameters.AddActivityRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Marks an activity as deleted. After 30 days, the activity will be permanently deleted.
      * @summary Delete an activity
      * @param {ActivitiesApiDeleteActivityRequest} requestParameters Request parameters.
@@ -676,6 +774,18 @@ export class ActivitiesApi extends BaseAPI {
      */
     public deleteActivity(requestParameters: ActivitiesApiDeleteActivityRequest, ) {
         return ActivitiesApiFp(this.configuration).deleteActivity(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteActivity`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ActivitiesApiDeleteActivityRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ActivitiesApi
+     */
+    public deleteActivityWithHttpInfo(requestParameters: ActivitiesApiDeleteActivityRequest, ) {
+        return ActivitiesApiFp(this.configuration).deleteActivityWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -691,6 +801,18 @@ export class ActivitiesApi extends BaseAPI {
     }
 
     /**
+     * Same as `getActivities`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ActivitiesApiGetActivitiesRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ActivitiesApi
+     */
+    public getActivitiesWithHttpInfo(requestParameters: ActivitiesApiGetActivitiesRequest = {}, ) {
+        return ActivitiesApiFp(this.configuration).getActivitiesWithHttpInfo(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.deal_id, requestParameters.lead_id, requestParameters.person_id, requestParameters.org_id, requestParameters.done, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns the details of a specific activity.
      * @summary Get details of an activity
      * @param {ActivitiesApiGetActivityRequest} requestParameters Request parameters.
@@ -703,6 +825,18 @@ export class ActivitiesApi extends BaseAPI {
     }
 
     /**
+     * Same as `getActivity`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ActivitiesApiGetActivityRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ActivitiesApi
+     */
+    public getActivityWithHttpInfo(requestParameters: ActivitiesApiGetActivityRequest, ) {
+        return ActivitiesApiFp(this.configuration).getActivityWithHttpInfo(requestParameters.id, requestParameters.include_fields, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates the properties of an activity.
      * @summary Update an activity
      * @param {ActivitiesApiUpdateActivityRequest} requestParameters Request parameters.
@@ -712,5 +846,17 @@ export class ActivitiesApi extends BaseAPI {
      */
     public updateActivity(requestParameters: ActivitiesApiUpdateActivityRequest, ) {
         return ActivitiesApiFp(this.configuration).updateActivity(requestParameters.id, requestParameters.AddActivityRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateActivity`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ActivitiesApiUpdateActivityRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ActivitiesApi
+     */
+    public updateActivityWithHttpInfo(requestParameters: ActivitiesApiUpdateActivityRequest, ) {
+        return ActivitiesApiFp(this.configuration).updateActivityWithHttpInfo(requestParameters.id, requestParameters.AddActivityRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

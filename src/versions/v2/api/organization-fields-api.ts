@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddDealFieldOptions200Response } from '../models';
 // @ts-ignore
@@ -438,6 +438,17 @@ export const OrganizationFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addOrganizationField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Create one organization field
+         * @param {AddOrganizationFieldRequest} AddOrganizationFieldRequest 
+
+         * @throws {RequiredError}
+         */
+        async addOrganizationFieldWithHttpInfo(AddOrganizationFieldRequest: AddOrganizationFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddOrganizationField200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addOrganizationField(AddOrganizationFieldRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Adds new options to an organization custom field that supports options (enum or set field types). This operation is atomic - all options are added or none are added. Returns only the newly added options.
          * @summary Add organization field options in bulk
          * @param {string} field_code The unique code identifying the field
@@ -450,6 +461,18 @@ export const OrganizationFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addOrganizationFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add organization field options in bulk
+         * @param {string} field_code The unique code identifying the field
+         * @param {Array<AddDealFieldOptionsRequestInner>} AddDealFieldOptionsRequestInner 
+
+         * @throws {RequiredError}
+         */
+        async addOrganizationFieldOptionsWithHttpInfo(field_code: string, AddDealFieldOptionsRequestInner: Array<AddDealFieldOptionsRequestInner>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddDealFieldOptions200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addOrganizationFieldOptions(field_code, AddDealFieldOptionsRequestInner, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Marks a custom field as deleted.
          * @summary Delete one organization field
          * @param {string} field_code The unique code identifying the field
@@ -459,6 +482,17 @@ export const OrganizationFieldsApiFp = function(configuration?: Configuration) {
         async deleteOrganizationField(field_code: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeletePersonField200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteOrganizationField(field_code, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deleteOrganizationField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete one organization field
+         * @param {string} field_code The unique code identifying the field
+
+         * @throws {RequiredError}
+         */
+        async deleteOrganizationFieldWithHttpInfo(field_code: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeletePersonField200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteOrganizationField(field_code, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Removes existing options from an organization custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the deleted options.
@@ -473,6 +507,18 @@ export const OrganizationFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deleteOrganizationFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete organization field options in bulk
+         * @param {string} field_code The unique code identifying the field
+         * @param {Array<DeleteDealFieldOptionsRequestInner>} DeleteDealFieldOptionsRequestInner 
+
+         * @throws {RequiredError}
+         */
+        async deleteOrganizationFieldOptionsWithHttpInfo(field_code: string, DeleteDealFieldOptionsRequestInner: Array<DeleteDealFieldOptionsRequestInner>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddDealFieldOptions200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteOrganizationFieldOptions(field_code, DeleteDealFieldOptionsRequestInner, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns metadata about a specific organization field.
          * @summary Get one organization field
          * @param {string} field_code The unique code identifying the field
@@ -483,6 +529,18 @@ export const OrganizationFieldsApiFp = function(configuration?: Configuration) {
         async getOrganizationField(field_code: string, include_fields?: Set<'ui_visibility' | 'important_fields' | 'required_fields'>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddOrganizationField200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationField(field_code, include_fields, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getOrganizationField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get one organization field
+         * @param {string} field_code The unique code identifying the field
+         * @param {Set<'ui_visibility' | 'important_fields' | 'required_fields'>} [include_fields] Optional comma separated string array of additional data namespaces to include in response
+
+         * @throws {RequiredError}
+         */
+        async getOrganizationFieldWithHttpInfo(field_code: string, include_fields?: Set<'ui_visibility' | 'important_fields' | 'required_fields'>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddOrganizationField200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationField(field_code, include_fields, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns metadata about all organization fields in the company.
@@ -498,6 +556,19 @@ export const OrganizationFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getOrganizationFields`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all organization fields
+         * @param {Set<'ui_visibility' | 'important_fields' | 'required_fields'>} [include_fields] Optional comma separated string array of additional data namespaces to include in response
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getOrganizationFieldsWithHttpInfo(include_fields?: Set<'ui_visibility' | 'important_fields' | 'required_fields'>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetOrganizationFields200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationFields(include_fields, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates an organization custom field. The field_code and field_type cannot be changed. At least one field must be provided in the request body.
          * @summary Update one organization field
          * @param {string} field_code The unique code identifying the field
@@ -510,6 +581,18 @@ export const OrganizationFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `updateOrganizationField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update one organization field
+         * @param {string} field_code The unique code identifying the field
+         * @param {UpdateOrganizationFieldRequest} UpdateOrganizationFieldRequest 
+
+         * @throws {RequiredError}
+         */
+        async updateOrganizationFieldWithHttpInfo(field_code: string, UpdateOrganizationFieldRequest: UpdateOrganizationFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddOrganizationField200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateOrganizationField(field_code, UpdateOrganizationFieldRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates existing options for an organization custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the updated options.
          * @summary Update organization field options in bulk
          * @param {string} field_code The unique code identifying the field
@@ -520,6 +603,18 @@ export const OrganizationFieldsApiFp = function(configuration?: Configuration) {
         async updateOrganizationFieldOptions(field_code: string, UpdateDealFieldOptionsRequestInner: Array<UpdateDealFieldOptionsRequestInner>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddDealFieldOptions200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateOrganizationFieldOptions(field_code, UpdateDealFieldOptionsRequestInner, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateOrganizationFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update organization field options in bulk
+         * @param {string} field_code The unique code identifying the field
+         * @param {Array<UpdateDealFieldOptionsRequestInner>} UpdateDealFieldOptionsRequestInner 
+
+         * @throws {RequiredError}
+         */
+        async updateOrganizationFieldOptionsWithHttpInfo(field_code: string, UpdateDealFieldOptionsRequestInner: Array<UpdateDealFieldOptionsRequestInner>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddDealFieldOptions200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateOrganizationFieldOptions(field_code, UpdateDealFieldOptionsRequestInner, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -541,6 +636,9 @@ export const OrganizationFieldsApiFactory = function (configuration?: Configurat
         addOrganizationField(requestParameters: OrganizationFieldsApiAddOrganizationFieldRequest, ): Promise<AddOrganizationField200Response> {
             return localVarFp.addOrganizationField(requestParameters.AddOrganizationFieldRequest, ).then((request) => request(axios, basePath));
         },
+        addOrganizationFieldWithHttpInfo(requestParameters: OrganizationFieldsApiAddOrganizationFieldRequest, ): Promise<ApiResponse<AddOrganizationField200Response>> {
+            return localVarFp.addOrganizationFieldWithHttpInfo(requestParameters.AddOrganizationFieldRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Adds new options to an organization custom field that supports options (enum or set field types). This operation is atomic - all options are added or none are added. Returns only the newly added options.
          * @summary Add organization field options in bulk
@@ -550,6 +648,9 @@ export const OrganizationFieldsApiFactory = function (configuration?: Configurat
          */
         addOrganizationFieldOptions(requestParameters: OrganizationFieldsApiAddOrganizationFieldOptionsRequest, ): Promise<AddDealFieldOptions200Response> {
             return localVarFp.addOrganizationFieldOptions(requestParameters.field_code, requestParameters.AddDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
+        },
+        addOrganizationFieldOptionsWithHttpInfo(requestParameters: OrganizationFieldsApiAddOrganizationFieldOptionsRequest, ): Promise<ApiResponse<AddDealFieldOptions200Response>> {
+            return localVarFp.addOrganizationFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.AddDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
         },
         /**
          * Marks a custom field as deleted.
@@ -561,6 +662,9 @@ export const OrganizationFieldsApiFactory = function (configuration?: Configurat
         deleteOrganizationField(requestParameters: OrganizationFieldsApiDeleteOrganizationFieldRequest, ): Promise<DeletePersonField200Response> {
             return localVarFp.deleteOrganizationField(requestParameters.field_code, ).then((request) => request(axios, basePath));
         },
+        deleteOrganizationFieldWithHttpInfo(requestParameters: OrganizationFieldsApiDeleteOrganizationFieldRequest, ): Promise<ApiResponse<DeletePersonField200Response>> {
+            return localVarFp.deleteOrganizationFieldWithHttpInfo(requestParameters.field_code, ).then((request) => request(axios, basePath));
+        },
         /**
          * Removes existing options from an organization custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the deleted options.
          * @summary Delete organization field options in bulk
@@ -570,6 +674,9 @@ export const OrganizationFieldsApiFactory = function (configuration?: Configurat
          */
         deleteOrganizationFieldOptions(requestParameters: OrganizationFieldsApiDeleteOrganizationFieldOptionsRequest, ): Promise<AddDealFieldOptions200Response> {
             return localVarFp.deleteOrganizationFieldOptions(requestParameters.field_code, requestParameters.DeleteDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
+        },
+        deleteOrganizationFieldOptionsWithHttpInfo(requestParameters: OrganizationFieldsApiDeleteOrganizationFieldOptionsRequest, ): Promise<ApiResponse<AddDealFieldOptions200Response>> {
+            return localVarFp.deleteOrganizationFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.DeleteDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns metadata about a specific organization field.
@@ -581,6 +688,9 @@ export const OrganizationFieldsApiFactory = function (configuration?: Configurat
         getOrganizationField(requestParameters: OrganizationFieldsApiGetOrganizationFieldRequest, ): Promise<AddOrganizationField200Response> {
             return localVarFp.getOrganizationField(requestParameters.field_code, requestParameters.include_fields, ).then((request) => request(axios, basePath));
         },
+        getOrganizationFieldWithHttpInfo(requestParameters: OrganizationFieldsApiGetOrganizationFieldRequest, ): Promise<ApiResponse<AddOrganizationField200Response>> {
+            return localVarFp.getOrganizationFieldWithHttpInfo(requestParameters.field_code, requestParameters.include_fields, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns metadata about all organization fields in the company.
          * @summary Get all organization fields
@@ -590,6 +700,9 @@ export const OrganizationFieldsApiFactory = function (configuration?: Configurat
          */
         getOrganizationFields(requestParameters: OrganizationFieldsApiGetOrganizationFieldsRequest = {}, ): Promise<GetOrganizationFields200Response> {
             return localVarFp.getOrganizationFields(requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
+        getOrganizationFieldsWithHttpInfo(requestParameters: OrganizationFieldsApiGetOrganizationFieldsRequest = {}, ): Promise<ApiResponse<GetOrganizationFields200Response>> {
+            return localVarFp.getOrganizationFieldsWithHttpInfo(requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
          * Updates an organization custom field. The field_code and field_type cannot be changed. At least one field must be provided in the request body.
@@ -601,6 +714,9 @@ export const OrganizationFieldsApiFactory = function (configuration?: Configurat
         updateOrganizationField(requestParameters: OrganizationFieldsApiUpdateOrganizationFieldRequest, ): Promise<AddOrganizationField200Response> {
             return localVarFp.updateOrganizationField(requestParameters.field_code, requestParameters.UpdateOrganizationFieldRequest, ).then((request) => request(axios, basePath));
         },
+        updateOrganizationFieldWithHttpInfo(requestParameters: OrganizationFieldsApiUpdateOrganizationFieldRequest, ): Promise<ApiResponse<AddOrganizationField200Response>> {
+            return localVarFp.updateOrganizationFieldWithHttpInfo(requestParameters.field_code, requestParameters.UpdateOrganizationFieldRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates existing options for an organization custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the updated options.
          * @summary Update organization field options in bulk
@@ -610,6 +726,9 @@ export const OrganizationFieldsApiFactory = function (configuration?: Configurat
          */
         updateOrganizationFieldOptions(requestParameters: OrganizationFieldsApiUpdateOrganizationFieldOptionsRequest, ): Promise<AddDealFieldOptions200Response> {
             return localVarFp.updateOrganizationFieldOptions(requestParameters.field_code, requestParameters.UpdateDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
+        },
+        updateOrganizationFieldOptionsWithHttpInfo(requestParameters: OrganizationFieldsApiUpdateOrganizationFieldOptionsRequest, ): Promise<ApiResponse<AddDealFieldOptions200Response>> {
+            return localVarFp.updateOrganizationFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.UpdateDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -795,6 +914,18 @@ export class OrganizationFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `addOrganizationField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {OrganizationFieldsApiAddOrganizationFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationFieldsApi
+     */
+    public addOrganizationFieldWithHttpInfo(requestParameters: OrganizationFieldsApiAddOrganizationFieldRequest, ) {
+        return OrganizationFieldsApiFp(this.configuration).addOrganizationFieldWithHttpInfo(requestParameters.AddOrganizationFieldRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Adds new options to an organization custom field that supports options (enum or set field types). This operation is atomic - all options are added or none are added. Returns only the newly added options.
      * @summary Add organization field options in bulk
      * @param {OrganizationFieldsApiAddOrganizationFieldOptionsRequest} requestParameters Request parameters.
@@ -804,6 +935,18 @@ export class OrganizationFieldsApi extends BaseAPI {
      */
     public addOrganizationFieldOptions(requestParameters: OrganizationFieldsApiAddOrganizationFieldOptionsRequest, ) {
         return OrganizationFieldsApiFp(this.configuration).addOrganizationFieldOptions(requestParameters.field_code, requestParameters.AddDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `addOrganizationFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {OrganizationFieldsApiAddOrganizationFieldOptionsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationFieldsApi
+     */
+    public addOrganizationFieldOptionsWithHttpInfo(requestParameters: OrganizationFieldsApiAddOrganizationFieldOptionsRequest, ) {
+        return OrganizationFieldsApiFp(this.configuration).addOrganizationFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.AddDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -819,6 +962,18 @@ export class OrganizationFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `deleteOrganizationField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {OrganizationFieldsApiDeleteOrganizationFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationFieldsApi
+     */
+    public deleteOrganizationFieldWithHttpInfo(requestParameters: OrganizationFieldsApiDeleteOrganizationFieldRequest, ) {
+        return OrganizationFieldsApiFp(this.configuration).deleteOrganizationFieldWithHttpInfo(requestParameters.field_code, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Removes existing options from an organization custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the deleted options.
      * @summary Delete organization field options in bulk
      * @param {OrganizationFieldsApiDeleteOrganizationFieldOptionsRequest} requestParameters Request parameters.
@@ -828,6 +983,18 @@ export class OrganizationFieldsApi extends BaseAPI {
      */
     public deleteOrganizationFieldOptions(requestParameters: OrganizationFieldsApiDeleteOrganizationFieldOptionsRequest, ) {
         return OrganizationFieldsApiFp(this.configuration).deleteOrganizationFieldOptions(requestParameters.field_code, requestParameters.DeleteDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteOrganizationFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {OrganizationFieldsApiDeleteOrganizationFieldOptionsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationFieldsApi
+     */
+    public deleteOrganizationFieldOptionsWithHttpInfo(requestParameters: OrganizationFieldsApiDeleteOrganizationFieldOptionsRequest, ) {
+        return OrganizationFieldsApiFp(this.configuration).deleteOrganizationFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.DeleteDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -843,6 +1010,18 @@ export class OrganizationFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getOrganizationField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {OrganizationFieldsApiGetOrganizationFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationFieldsApi
+     */
+    public getOrganizationFieldWithHttpInfo(requestParameters: OrganizationFieldsApiGetOrganizationFieldRequest, ) {
+        return OrganizationFieldsApiFp(this.configuration).getOrganizationFieldWithHttpInfo(requestParameters.field_code, requestParameters.include_fields, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns metadata about all organization fields in the company.
      * @summary Get all organization fields
      * @param {OrganizationFieldsApiGetOrganizationFieldsRequest} requestParameters Request parameters.
@@ -852,6 +1031,18 @@ export class OrganizationFieldsApi extends BaseAPI {
      */
     public getOrganizationFields(requestParameters: OrganizationFieldsApiGetOrganizationFieldsRequest = {}, ) {
         return OrganizationFieldsApiFp(this.configuration).getOrganizationFields(requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getOrganizationFields`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {OrganizationFieldsApiGetOrganizationFieldsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationFieldsApi
+     */
+    public getOrganizationFieldsWithHttpInfo(requestParameters: OrganizationFieldsApiGetOrganizationFieldsRequest = {}, ) {
+        return OrganizationFieldsApiFp(this.configuration).getOrganizationFieldsWithHttpInfo(requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -867,6 +1058,18 @@ export class OrganizationFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `updateOrganizationField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {OrganizationFieldsApiUpdateOrganizationFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationFieldsApi
+     */
+    public updateOrganizationFieldWithHttpInfo(requestParameters: OrganizationFieldsApiUpdateOrganizationFieldRequest, ) {
+        return OrganizationFieldsApiFp(this.configuration).updateOrganizationFieldWithHttpInfo(requestParameters.field_code, requestParameters.UpdateOrganizationFieldRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates existing options for an organization custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the updated options.
      * @summary Update organization field options in bulk
      * @param {OrganizationFieldsApiUpdateOrganizationFieldOptionsRequest} requestParameters Request parameters.
@@ -876,5 +1079,17 @@ export class OrganizationFieldsApi extends BaseAPI {
      */
     public updateOrganizationFieldOptions(requestParameters: OrganizationFieldsApiUpdateOrganizationFieldOptionsRequest, ) {
         return OrganizationFieldsApiFp(this.configuration).updateOrganizationFieldOptions(requestParameters.field_code, requestParameters.UpdateDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateOrganizationFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {OrganizationFieldsApiUpdateOrganizationFieldOptionsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof OrganizationFieldsApi
+     */
+    public updateOrganizationFieldOptionsWithHttpInfo(requestParameters: OrganizationFieldsApiUpdateOrganizationFieldOptionsRequest, ) {
+        return OrganizationFieldsApiFp(this.configuration).updateOrganizationFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.UpdateDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
     }
 }

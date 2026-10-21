@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { GetUserConnectionsResponse } from '../models';
 // @ts-ignore
@@ -89,6 +89,16 @@ export const UserConnectionsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUserConnections();
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * Same as `getUserConnections`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all user connections
+
+         * @throws {RequiredError}
+         */
+        async getUserConnectionsWithHttpInfo(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetUserConnectionsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUserConnections();
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
     }
 };
 
@@ -107,6 +117,9 @@ export const UserConnectionsApiFactory = function (configuration?: Configuration
          */
         getUserConnections(): Promise<GetUserConnectionsResponse> {
             return localVarFp.getUserConnections().then((request) => request(axios, basePath));
+        },
+        getUserConnectionsWithHttpInfo(): Promise<ApiResponse<GetUserConnectionsResponse>> {
+            return localVarFp.getUserConnectionsWithHttpInfo().then((request) => request(axios, basePath));
         },
     };
 };
@@ -127,5 +140,16 @@ export class UserConnectionsApi extends BaseAPI {
      */
     public getUserConnections() {
         return UserConnectionsApiFp(this.configuration).getUserConnections().then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getUserConnections`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+
+     * @throws {RequiredError}
+     * @memberof UserConnectionsApi
+     */
+    public getUserConnectionsWithHttpInfo() {
+        return UserConnectionsApiFp(this.configuration).getUserConnectionsWithHttpInfo().then((request) => request(this.axios, this.basePath));
     }
 }

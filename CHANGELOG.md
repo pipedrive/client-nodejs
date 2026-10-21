@@ -8,6 +8,17 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [36.1.0] - 2026-10-21
+### Added
+- Every API method now has a `WithHttpInfo` variant (e.g. `getDealWithHttpInfo`) that resolves with `{ data, status, headers }`, so the HTTP status and response headers, such as rate limit headers, can be read. The existing methods are unchanged and still return only the response body.
+- When a `WithHttpInfo` call fails, the rejected error keeps its usual fields and also carries `$response: { status, headers }`, so headers on error responses (e.g. `Retry-After` on a 429) are available too.
+- Exported the `ApiResponse<T>` type for typing these results.
+Example usage, if you want to include it:
+```typescript
+const { data, status, headers } = await api.getDealWithHttpInfo({ id: 1 });
+console.log(headers['x-ratelimit-remaining']);
+```
+
 ## [36.0.1] - 2026-10-13
 ### Fixed
 - Fixed `nullable: true` handling for `BaseNote.deal` (`BaseNoteDealTitle`, returned by `GET /v1/notes`, `POST /v1/notes`, `GET /v1/notes/{id}`, `PUT /v1/notes/{id}`, and `GET /v1/recents`) and for the `person_id` and `org_id` fields (`DealPersonDataWithId`, `DealOrganizationDataWithId`, returned by `GET /v1/deals/archived` and `GET /v1/products/{id}/deals`)
@@ -1392,7 +1403,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v36.0.1...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v36.1.0...HEAD
+[36.1.0]: https://github.com/pipedrive/api-docs/compare/v36.0.1...v36.1.0
 [36.0.1]: https://github.com/pipedrive/api-docs/compare/v36.0.0...v36.0.1
 [36.0.0]: https://github.com/pipedrive/api-docs/compare/v35.1.2...v36.0.0
 [35.1.2]: https://github.com/pipedrive/api-docs/compare/v35.1.1...v35.1.2

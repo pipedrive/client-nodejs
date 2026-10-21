@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { GetCurrenciesResponse } from '../models';
 /**
@@ -93,6 +93,17 @@ export const CurrenciesApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCurrencies(term, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * Same as `getCurrencies`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all supported currencies
+         * @param {string} [term] Optional search term that is searched for from currency\&#39;s name and/or code
+
+         * @throws {RequiredError}
+         */
+        async getCurrenciesWithHttpInfo(term?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetCurrenciesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCurrencies(term, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
     }
 };
 
@@ -112,6 +123,9 @@ export const CurrenciesApiFactory = function (configuration?: Configuration, bas
          */
         getCurrencies(requestParameters: CurrenciesApiGetCurrenciesRequest = {}, ): Promise<GetCurrenciesResponse> {
             return localVarFp.getCurrencies(requestParameters.term, ).then((request) => request(axios, basePath));
+        },
+        getCurrenciesWithHttpInfo(requestParameters: CurrenciesApiGetCurrenciesRequest = {}, ): Promise<ApiResponse<GetCurrenciesResponse>> {
+            return localVarFp.getCurrenciesWithHttpInfo(requestParameters.term, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -147,5 +161,17 @@ export class CurrenciesApi extends BaseAPI {
      */
     public getCurrencies(requestParameters: CurrenciesApiGetCurrenciesRequest = {}, ) {
         return CurrenciesApiFp(this.configuration).getCurrencies(requestParameters.term, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getCurrencies`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {CurrenciesApiGetCurrenciesRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof CurrenciesApi
+     */
+    public getCurrenciesWithHttpInfo(requestParameters: CurrenciesApiGetCurrenciesRequest = {}, ) {
+        return CurrenciesApiFp(this.configuration).getCurrenciesWithHttpInfo(requestParameters.term, ).then((request) => request(this.axios, this.basePath));
     }
 }

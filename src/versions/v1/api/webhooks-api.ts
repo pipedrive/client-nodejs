@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddWebhookRequest } from '../models';
 // @ts-ignore
@@ -183,6 +183,17 @@ export const WebhooksApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addWebhook`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Create a new Webhook
+         * @param {AddWebhookRequest} [AddWebhookRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addWebhookWithHttpInfo(AddWebhookRequest?: AddWebhookRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetWebhookResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addWebhook(AddWebhookRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Deletes the specified Webhook.
          * @summary Delete existing Webhook
          * @param {number} id The ID of the Webhook to delete
@@ -194,6 +205,17 @@ export const WebhooksApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deleteWebhook`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete existing Webhook
+         * @param {number} id The ID of the Webhook to delete
+
+         * @throws {RequiredError}
+         */
+        async deleteWebhookWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<BaseResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWebhook(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns data about all the Webhooks of a company.
          * @summary Get all Webhooks
 
@@ -202,6 +224,16 @@ export const WebhooksApiFp = function(configuration?: Configuration) {
         async getWebhooks(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetWebhooksResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWebhooks();
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getWebhooks`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all Webhooks
+
+         * @throws {RequiredError}
+         */
+        async getWebhooksWithHttpInfo(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetWebhooksResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getWebhooks();
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -223,6 +255,9 @@ export const WebhooksApiFactory = function (configuration?: Configuration, baseP
         addWebhook(requestParameters: WebhooksApiAddWebhookRequest = {}, ): Promise<GetWebhookResponse> {
             return localVarFp.addWebhook(requestParameters.AddWebhookRequest, ).then((request) => request(axios, basePath));
         },
+        addWebhookWithHttpInfo(requestParameters: WebhooksApiAddWebhookRequest = {}, ): Promise<ApiResponse<GetWebhookResponse>> {
+            return localVarFp.addWebhookWithHttpInfo(requestParameters.AddWebhookRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Deletes the specified Webhook.
          * @summary Delete existing Webhook
@@ -233,6 +268,9 @@ export const WebhooksApiFactory = function (configuration?: Configuration, baseP
         deleteWebhook(requestParameters: WebhooksApiDeleteWebhookRequest, ): Promise<BaseResponse> {
             return localVarFp.deleteWebhook(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        deleteWebhookWithHttpInfo(requestParameters: WebhooksApiDeleteWebhookRequest, ): Promise<ApiResponse<BaseResponse>> {
+            return localVarFp.deleteWebhookWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns data about all the Webhooks of a company.
          * @summary Get all Webhooks
@@ -241,6 +279,9 @@ export const WebhooksApiFactory = function (configuration?: Configuration, baseP
          */
         getWebhooks(): Promise<GetWebhooksResponse> {
             return localVarFp.getWebhooks().then((request) => request(axios, basePath));
+        },
+        getWebhooksWithHttpInfo(): Promise<ApiResponse<GetWebhooksResponse>> {
+            return localVarFp.getWebhooksWithHttpInfo().then((request) => request(axios, basePath));
         },
     };
 };
@@ -293,6 +334,18 @@ export class WebhooksApi extends BaseAPI {
     }
 
     /**
+     * Same as `addWebhook`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {WebhooksApiAddWebhookRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof WebhooksApi
+     */
+    public addWebhookWithHttpInfo(requestParameters: WebhooksApiAddWebhookRequest = {}, ) {
+        return WebhooksApiFp(this.configuration).addWebhookWithHttpInfo(requestParameters.AddWebhookRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Deletes the specified Webhook.
      * @summary Delete existing Webhook
      * @param {WebhooksApiDeleteWebhookRequest} requestParameters Request parameters.
@@ -305,6 +358,18 @@ export class WebhooksApi extends BaseAPI {
     }
 
     /**
+     * Same as `deleteWebhook`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {WebhooksApiDeleteWebhookRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof WebhooksApi
+     */
+    public deleteWebhookWithHttpInfo(requestParameters: WebhooksApiDeleteWebhookRequest, ) {
+        return WebhooksApiFp(this.configuration).deleteWebhookWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns data about all the Webhooks of a company.
      * @summary Get all Webhooks
 
@@ -313,5 +378,16 @@ export class WebhooksApi extends BaseAPI {
      */
     public getWebhooks() {
         return WebhooksApiFp(this.configuration).getWebhooks().then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getWebhooks`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+
+     * @throws {RequiredError}
+     * @memberof WebhooksApi
+     */
+    public getWebhooksWithHttpInfo() {
+        return WebhooksApiFp(this.configuration).getWebhooksWithHttpInfo().then((request) => request(this.axios, this.basePath));
     }
 }

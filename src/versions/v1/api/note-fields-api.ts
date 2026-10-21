@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { GetNoteFieldsResponse } from '../models';
 /**
@@ -87,6 +87,16 @@ export const NoteFieldsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNoteFields();
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * Same as `getNoteFields`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all note fields
+
+         * @throws {RequiredError}
+         */
+        async getNoteFieldsWithHttpInfo(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetNoteFieldsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNoteFields();
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
     }
 };
 
@@ -105,6 +115,9 @@ export const NoteFieldsApiFactory = function (configuration?: Configuration, bas
          */
         getNoteFields(): Promise<GetNoteFieldsResponse> {
             return localVarFp.getNoteFields().then((request) => request(axios, basePath));
+        },
+        getNoteFieldsWithHttpInfo(): Promise<ApiResponse<GetNoteFieldsResponse>> {
+            return localVarFp.getNoteFieldsWithHttpInfo().then((request) => request(axios, basePath));
         },
     };
 };
@@ -125,5 +138,16 @@ export class NoteFieldsApi extends BaseAPI {
      */
     public getNoteFields() {
         return NoteFieldsApiFp(this.configuration).getNoteFields().then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getNoteFields`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+
+     * @throws {RequiredError}
+     * @memberof NoteFieldsApi
+     */
+    public getNoteFieldsWithHttpInfo() {
+        return NoteFieldsApiFp(this.configuration).getNoteFieldsWithHttpInfo().then((request) => request(this.axios, this.basePath));
     }
 }

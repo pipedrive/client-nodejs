@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { CreateFieldRequest } from '../models';
 // @ts-ignore
@@ -321,6 +321,17 @@ export const PersonFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addPersonField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a new person field
+         * @param {CreateFieldRequest} [CreateFieldRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addPersonFieldWithHttpInfo(CreateFieldRequest?: CreateFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetFieldResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addPersonField(CreateFieldRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Marks a field as deleted. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/deleting-a-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">deleting a custom field</a>.
          * @summary Delete a person field
          * @param {number} id The ID of the field
@@ -330,6 +341,17 @@ export const PersonFieldsApiFp = function(configuration?: Configuration) {
         async deletePersonField(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deletePersonField(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deletePersonField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a person field
+         * @param {number} id The ID of the field
+
+         * @throws {RequiredError}
+         */
+        async deletePersonFieldWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deletePersonField(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Marks multiple fields as deleted.
@@ -343,6 +365,17 @@ export const PersonFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deletePersonFields`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete multiple person fields in bulk
+         * @param {Set<number>} ids The comma-separated field IDs to delete
+
+         * @throws {RequiredError}
+         */
+        async deletePersonFieldsWithHttpInfo(ids: Set<number>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteFieldsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deletePersonFields(ids, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns data about a specific person field.
          * @summary Get one person field
          * @param {number} id The ID of the field
@@ -352,6 +385,17 @@ export const PersonFieldsApiFp = function(configuration?: Configuration) {
         async getPersonField(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFieldResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonField(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getPersonField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get one person field
+         * @param {number} id The ID of the field
+
+         * @throws {RequiredError}
+         */
+        async getPersonFieldWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetFieldResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonField(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns data about all person fields.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
@@ -366,6 +410,18 @@ export const PersonFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getPersonFields`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all person fields
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] Items shown per page
+
+         * @throws {RequiredError}
+         */
+        async getPersonFieldsWithHttpInfo(start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetFieldsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPersonFields(start, limit, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates a person field. For more information, see the tutorial for <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields\' values</a>.
          * @summary Update a person field
          * @param {number} id The ID of the field
@@ -376,6 +432,18 @@ export const PersonFieldsApiFp = function(configuration?: Configuration) {
         async updatePersonField(id: number, UpdateFieldRequest?: UpdateFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFieldResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updatePersonField(id, UpdateFieldRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updatePersonField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update a person field
+         * @param {number} id The ID of the field
+         * @param {UpdateFieldRequest} [UpdateFieldRequest] 
+
+         * @throws {RequiredError}
+         */
+        async updatePersonFieldWithHttpInfo(id: number, UpdateFieldRequest?: UpdateFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetFieldResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePersonField(id, UpdateFieldRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -397,6 +465,9 @@ export const PersonFieldsApiFactory = function (configuration?: Configuration, b
         addPersonField(requestParameters: PersonFieldsApiAddPersonFieldRequest = {}, ): Promise<GetFieldResponse> {
             return localVarFp.addPersonField(requestParameters.CreateFieldRequest, ).then((request) => request(axios, basePath));
         },
+        addPersonFieldWithHttpInfo(requestParameters: PersonFieldsApiAddPersonFieldRequest = {}, ): Promise<ApiResponse<GetFieldResponse>> {
+            return localVarFp.addPersonFieldWithHttpInfo(requestParameters.CreateFieldRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Marks a field as deleted. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/deleting-a-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">deleting a custom field</a>.
          * @summary Delete a person field
@@ -406,6 +477,9 @@ export const PersonFieldsApiFactory = function (configuration?: Configuration, b
          */
         deletePersonField(requestParameters: PersonFieldsApiDeletePersonFieldRequest, ): Promise<DeleteResponse> {
             return localVarFp.deletePersonField(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        deletePersonFieldWithHttpInfo(requestParameters: PersonFieldsApiDeletePersonFieldRequest, ): Promise<ApiResponse<DeleteResponse>> {
+            return localVarFp.deletePersonFieldWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Marks multiple fields as deleted.
@@ -417,6 +491,9 @@ export const PersonFieldsApiFactory = function (configuration?: Configuration, b
         deletePersonFields(requestParameters: PersonFieldsApiDeletePersonFieldsRequest, ): Promise<DeleteFieldsResponse> {
             return localVarFp.deletePersonFields(requestParameters.ids, ).then((request) => request(axios, basePath));
         },
+        deletePersonFieldsWithHttpInfo(requestParameters: PersonFieldsApiDeletePersonFieldsRequest, ): Promise<ApiResponse<DeleteFieldsResponse>> {
+            return localVarFp.deletePersonFieldsWithHttpInfo(requestParameters.ids, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns data about a specific person field.
          * @summary Get one person field
@@ -426,6 +503,9 @@ export const PersonFieldsApiFactory = function (configuration?: Configuration, b
          */
         getPersonField(requestParameters: PersonFieldsApiGetPersonFieldRequest, ): Promise<GetFieldResponse> {
             return localVarFp.getPersonField(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        getPersonFieldWithHttpInfo(requestParameters: PersonFieldsApiGetPersonFieldRequest, ): Promise<ApiResponse<GetFieldResponse>> {
+            return localVarFp.getPersonFieldWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns data about all person fields.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
@@ -437,6 +517,9 @@ export const PersonFieldsApiFactory = function (configuration?: Configuration, b
         getPersonFields(requestParameters: PersonFieldsApiGetPersonFieldsRequest = {}, ): Promise<GetFieldsResponse> {
             return localVarFp.getPersonFields(requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
+        getPersonFieldsWithHttpInfo(requestParameters: PersonFieldsApiGetPersonFieldsRequest = {}, ): Promise<ApiResponse<GetFieldsResponse>> {
+            return localVarFp.getPersonFieldsWithHttpInfo(requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates a person field. For more information, see the tutorial for <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields\' values</a>.
          * @summary Update a person field
@@ -446,6 +529,9 @@ export const PersonFieldsApiFactory = function (configuration?: Configuration, b
          */
         updatePersonField(requestParameters: PersonFieldsApiUpdatePersonFieldRequest, ): Promise<GetFieldResponse> {
             return localVarFp.updatePersonField(requestParameters.id, requestParameters.UpdateFieldRequest, ).then((request) => request(axios, basePath));
+        },
+        updatePersonFieldWithHttpInfo(requestParameters: PersonFieldsApiUpdatePersonFieldRequest, ): Promise<ApiResponse<GetFieldResponse>> {
+            return localVarFp.updatePersonFieldWithHttpInfo(requestParameters.id, requestParameters.UpdateFieldRequest, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -568,6 +654,18 @@ export class PersonFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `addPersonField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonFieldsApiAddPersonFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonFieldsApi
+     */
+    public addPersonFieldWithHttpInfo(requestParameters: PersonFieldsApiAddPersonFieldRequest = {}, ) {
+        return PersonFieldsApiFp(this.configuration).addPersonFieldWithHttpInfo(requestParameters.CreateFieldRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Marks a field as deleted. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/deleting-a-custom-field\" target=\"_blank\" rel=\"noopener noreferrer\">deleting a custom field</a>.
      * @summary Delete a person field
      * @param {PersonFieldsApiDeletePersonFieldRequest} requestParameters Request parameters.
@@ -577,6 +675,18 @@ export class PersonFieldsApi extends BaseAPI {
      */
     public deletePersonField(requestParameters: PersonFieldsApiDeletePersonFieldRequest, ) {
         return PersonFieldsApiFp(this.configuration).deletePersonField(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deletePersonField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonFieldsApiDeletePersonFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonFieldsApi
+     */
+    public deletePersonFieldWithHttpInfo(requestParameters: PersonFieldsApiDeletePersonFieldRequest, ) {
+        return PersonFieldsApiFp(this.configuration).deletePersonFieldWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -592,6 +702,18 @@ export class PersonFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `deletePersonFields`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonFieldsApiDeletePersonFieldsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonFieldsApi
+     */
+    public deletePersonFieldsWithHttpInfo(requestParameters: PersonFieldsApiDeletePersonFieldsRequest, ) {
+        return PersonFieldsApiFp(this.configuration).deletePersonFieldsWithHttpInfo(requestParameters.ids, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns data about a specific person field.
      * @summary Get one person field
      * @param {PersonFieldsApiGetPersonFieldRequest} requestParameters Request parameters.
@@ -601,6 +723,18 @@ export class PersonFieldsApi extends BaseAPI {
      */
     public getPersonField(requestParameters: PersonFieldsApiGetPersonFieldRequest, ) {
         return PersonFieldsApiFp(this.configuration).getPersonField(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getPersonField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonFieldsApiGetPersonFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonFieldsApi
+     */
+    public getPersonFieldWithHttpInfo(requestParameters: PersonFieldsApiGetPersonFieldRequest, ) {
+        return PersonFieldsApiFp(this.configuration).getPersonFieldWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -616,6 +750,18 @@ export class PersonFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getPersonFields`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonFieldsApiGetPersonFieldsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonFieldsApi
+     */
+    public getPersonFieldsWithHttpInfo(requestParameters: PersonFieldsApiGetPersonFieldsRequest = {}, ) {
+        return PersonFieldsApiFp(this.configuration).getPersonFieldsWithHttpInfo(requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates a person field. For more information, see the tutorial for <a href=\" https://pipedrive.readme.io/docs/updating-custom-field-value \" target=\"_blank\" rel=\"noopener noreferrer\">updating custom fields\' values</a>.
      * @summary Update a person field
      * @param {PersonFieldsApiUpdatePersonFieldRequest} requestParameters Request parameters.
@@ -625,5 +771,17 @@ export class PersonFieldsApi extends BaseAPI {
      */
     public updatePersonField(requestParameters: PersonFieldsApiUpdatePersonFieldRequest, ) {
         return PersonFieldsApiFp(this.configuration).updatePersonField(requestParameters.id, requestParameters.UpdateFieldRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updatePersonField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PersonFieldsApiUpdatePersonFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PersonFieldsApi
+     */
+    public updatePersonFieldWithHttpInfo(requestParameters: PersonFieldsApiUpdatePersonFieldRequest, ) {
+        return PersonFieldsApiFp(this.configuration).updatePersonFieldWithHttpInfo(requestParameters.id, requestParameters.UpdateFieldRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

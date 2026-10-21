@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddProjectRequest } from '../models';
 // @ts-ignore
@@ -582,6 +582,17 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addProject`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a project
+         * @param {AddProjectRequest} AddProjectRequest 
+
+         * @throws {RequiredError}
+         */
+        async addProjectWithHttpInfo(AddProjectRequest: AddProjectRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertProjectResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addProject(AddProjectRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Archives a project.
          * @summary Archive a project
          * @param {number} id The ID of the project
@@ -593,6 +604,17 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `archiveProject`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Archive a project
+         * @param {number} id The ID of the project
+
+         * @throws {RequiredError}
+         */
+        async archiveProjectWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertProjectResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.archiveProject(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Marks a project as deleted.
          * @summary Delete a project
          * @param {number} id The ID of the project
@@ -602,6 +624,17 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
         async deleteProject(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteProjectResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProject(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deleteProject`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a project
+         * @param {number} id The ID of the project
+
+         * @throws {RequiredError}
+         */
+        async deleteProjectWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteProjectResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProject(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns all archived projects.
@@ -619,6 +652,21 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getArchivedProjects`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all archived projects
+         * @param {number} [filter_id] If supplied, only projects matching the specified filter are returned
+         * @param {string} [status] If supplied, includes only projects with the specified statuses. Possible values are &#x60;open&#x60;, &#x60;completed&#x60;, &#x60;canceled&#x60; and &#x60;deleted&#x60;. By default &#x60;deleted&#x60; projects are not returned.
+         * @param {number} [phase_id] If supplied, only projects in the specified phase are returned
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getArchivedProjectsWithHttpInfo(filter_id?: number, status?: string, phase_id?: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProjectsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getArchivedProjects(filter_id, status, phase_id, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns the details of a specific project. Custom fields appear as keys inside the `custom_fields` object.
          * @summary Get details of a project
          * @param {number} id The ID of the project
@@ -628,6 +676,17 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
         async getProject(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertProjectResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProject(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getProject`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get details of a project
+         * @param {number} id The ID of the project
+
+         * @throws {RequiredError}
+         */
+        async getProjectWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertProjectResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProject(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Lists updates about field values of a project.
@@ -643,6 +702,19 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getProjectChangelog`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List updates about project field values
+         * @param {number} id The ID of the project
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getProjectChangelogWithHttpInfo(id: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProjectChangelogResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectChangelog(id, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Lists the users permitted to access a project.
          * @summary List permitted users
          * @param {number} id The ID of the project
@@ -652,6 +724,17 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
         async getProjectUsers(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectPermittedUsersResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectUsers(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getProjectUsers`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List permitted users
+         * @param {number} id The ID of the project
+
+         * @throws {RequiredError}
+         */
+        async getProjectUsersWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProjectPermittedUsersResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectUsers(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns all non-archived projects.
@@ -672,6 +755,24 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getProjects`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all projects
+         * @param {number} [filter_id] If supplied, only projects matching the specified filter are returned
+         * @param {string} [status] If supplied, includes only projects with the specified statuses. Possible values are &#x60;open&#x60;, &#x60;completed&#x60;, &#x60;canceled&#x60; and &#x60;deleted&#x60;. By default &#x60;deleted&#x60; projects are not returned.
+         * @param {number} [phase_id] If supplied, only projects in the specified phase are returned
+         * @param {number} [deal_id] If supplied, only projects associated with the specified deal are returned
+         * @param {number} [person_id] If supplied, only projects associated with the specified person are returned
+         * @param {number} [org_id] If supplied, only projects associated with the specified organization are returned
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getProjectsWithHttpInfo(filter_id?: number, status?: string, phase_id?: number, deal_id?: number, person_id?: number, org_id?: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProjectsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProjects(filter_id, status, phase_id, deal_id, person_id, org_id, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Searches all projects by title, description, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found projects can be filtered by person ID or organization ID.
          * @summary Search projects
          * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
@@ -689,6 +790,23 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `searchProjects`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Search projects
+         * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
+         * @param {Set<'custom_fields' | 'notes' | 'title' | 'description'>} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
+         * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
+         * @param {number} [person_id] Will filter projects by the provided person ID
+         * @param {number} [organization_id] Will filter projects by the provided organization ID
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async searchProjectsWithHttpInfo(term: string, fields?: Set<'custom_fields' | 'notes' | 'title' | 'description'>, exact_match?: boolean, person_id?: number, organization_id?: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProjectSearchResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchProjects(term, fields, exact_match, person_id, organization_id, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates the properties of a project.
          * @summary Update a project
          * @param {number} id The ID of the project
@@ -699,6 +817,18 @@ export const ProjectsApiFp = function(configuration?: Configuration) {
         async updateProject(id: number, UpdateProjectRequest?: UpdateProjectRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertProjectResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateProject(id, UpdateProjectRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateProject`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update a project
+         * @param {number} id The ID of the project
+         * @param {UpdateProjectRequest} [UpdateProjectRequest] 
+
+         * @throws {RequiredError}
+         */
+        async updateProjectWithHttpInfo(id: number, UpdateProjectRequest?: UpdateProjectRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertProjectResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProject(id, UpdateProjectRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -720,6 +850,9 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
         addProject(requestParameters: ProjectsApiAddProjectRequest, ): Promise<UpsertProjectResponse> {
             return localVarFp.addProject(requestParameters.AddProjectRequest, ).then((request) => request(axios, basePath));
         },
+        addProjectWithHttpInfo(requestParameters: ProjectsApiAddProjectRequest, ): Promise<ApiResponse<UpsertProjectResponse>> {
+            return localVarFp.addProjectWithHttpInfo(requestParameters.AddProjectRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Archives a project.
          * @summary Archive a project
@@ -729,6 +862,9 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
          */
         archiveProject(requestParameters: ProjectsApiArchiveProjectRequest, ): Promise<UpsertProjectResponse> {
             return localVarFp.archiveProject(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        archiveProjectWithHttpInfo(requestParameters: ProjectsApiArchiveProjectRequest, ): Promise<ApiResponse<UpsertProjectResponse>> {
+            return localVarFp.archiveProjectWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Marks a project as deleted.
@@ -740,6 +876,9 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
         deleteProject(requestParameters: ProjectsApiDeleteProjectRequest, ): Promise<DeleteProjectResponse> {
             return localVarFp.deleteProject(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        deleteProjectWithHttpInfo(requestParameters: ProjectsApiDeleteProjectRequest, ): Promise<ApiResponse<DeleteProjectResponse>> {
+            return localVarFp.deleteProjectWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns all archived projects.
          * @summary Get all archived projects
@@ -749,6 +888,9 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
          */
         getArchivedProjects(requestParameters: ProjectsApiGetArchivedProjectsRequest = {}, ): Promise<GetProjectsResponse> {
             return localVarFp.getArchivedProjects(requestParameters.filter_id, requestParameters.status, requestParameters.phase_id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
+        getArchivedProjectsWithHttpInfo(requestParameters: ProjectsApiGetArchivedProjectsRequest = {}, ): Promise<ApiResponse<GetProjectsResponse>> {
+            return localVarFp.getArchivedProjectsWithHttpInfo(requestParameters.filter_id, requestParameters.status, requestParameters.phase_id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns the details of a specific project. Custom fields appear as keys inside the `custom_fields` object.
@@ -760,6 +902,9 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
         getProject(requestParameters: ProjectsApiGetProjectRequest, ): Promise<UpsertProjectResponse> {
             return localVarFp.getProject(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getProjectWithHttpInfo(requestParameters: ProjectsApiGetProjectRequest, ): Promise<ApiResponse<UpsertProjectResponse>> {
+            return localVarFp.getProjectWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Lists updates about field values of a project.
          * @summary List updates about project field values
@@ -769,6 +914,9 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
          */
         getProjectChangelog(requestParameters: ProjectsApiGetProjectChangelogRequest, ): Promise<GetProjectChangelogResponse> {
             return localVarFp.getProjectChangelog(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
+        getProjectChangelogWithHttpInfo(requestParameters: ProjectsApiGetProjectChangelogRequest, ): Promise<ApiResponse<GetProjectChangelogResponse>> {
+            return localVarFp.getProjectChangelogWithHttpInfo(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
          * Lists the users permitted to access a project.
@@ -780,6 +928,9 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
         getProjectUsers(requestParameters: ProjectsApiGetProjectUsersRequest, ): Promise<GetProjectPermittedUsersResponse> {
             return localVarFp.getProjectUsers(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getProjectUsersWithHttpInfo(requestParameters: ProjectsApiGetProjectUsersRequest, ): Promise<ApiResponse<GetProjectPermittedUsersResponse>> {
+            return localVarFp.getProjectUsersWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns all non-archived projects.
          * @summary Get all projects
@@ -789,6 +940,9 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
          */
         getProjects(requestParameters: ProjectsApiGetProjectsRequest = {}, ): Promise<GetProjectsResponse> {
             return localVarFp.getProjects(requestParameters.filter_id, requestParameters.status, requestParameters.phase_id, requestParameters.deal_id, requestParameters.person_id, requestParameters.org_id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
+        getProjectsWithHttpInfo(requestParameters: ProjectsApiGetProjectsRequest = {}, ): Promise<ApiResponse<GetProjectsResponse>> {
+            return localVarFp.getProjectsWithHttpInfo(requestParameters.filter_id, requestParameters.status, requestParameters.phase_id, requestParameters.deal_id, requestParameters.person_id, requestParameters.org_id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
          * Searches all projects by title, description, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found projects can be filtered by person ID or organization ID.
@@ -800,6 +954,9 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
         searchProjects(requestParameters: ProjectsApiSearchProjectsRequest, ): Promise<GetProjectSearchResponse> {
             return localVarFp.searchProjects(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.person_id, requestParameters.organization_id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
+        searchProjectsWithHttpInfo(requestParameters: ProjectsApiSearchProjectsRequest, ): Promise<ApiResponse<GetProjectSearchResponse>> {
+            return localVarFp.searchProjectsWithHttpInfo(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.person_id, requestParameters.organization_id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates the properties of a project.
          * @summary Update a project
@@ -809,6 +966,9 @@ export const ProjectsApiFactory = function (configuration?: Configuration, baseP
          */
         updateProject(requestParameters: ProjectsApiUpdateProjectRequest, ): Promise<UpsertProjectResponse> {
             return localVarFp.updateProject(requestParameters.id, requestParameters.UpdateProjectRequest, ).then((request) => request(axios, basePath));
+        },
+        updateProjectWithHttpInfo(requestParameters: ProjectsApiUpdateProjectRequest, ): Promise<ApiResponse<UpsertProjectResponse>> {
+            return localVarFp.updateProjectWithHttpInfo(requestParameters.id, requestParameters.UpdateProjectRequest, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1113,6 +1273,18 @@ export class ProjectsApi extends BaseAPI {
     }
 
     /**
+     * Same as `addProject`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProjectsApiAddProjectRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProjectsApi
+     */
+    public addProjectWithHttpInfo(requestParameters: ProjectsApiAddProjectRequest, ) {
+        return ProjectsApiFp(this.configuration).addProjectWithHttpInfo(requestParameters.AddProjectRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Archives a project.
      * @summary Archive a project
      * @param {ProjectsApiArchiveProjectRequest} requestParameters Request parameters.
@@ -1122,6 +1294,18 @@ export class ProjectsApi extends BaseAPI {
      */
     public archiveProject(requestParameters: ProjectsApiArchiveProjectRequest, ) {
         return ProjectsApiFp(this.configuration).archiveProject(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `archiveProject`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProjectsApiArchiveProjectRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProjectsApi
+     */
+    public archiveProjectWithHttpInfo(requestParameters: ProjectsApiArchiveProjectRequest, ) {
+        return ProjectsApiFp(this.configuration).archiveProjectWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1137,6 +1321,18 @@ export class ProjectsApi extends BaseAPI {
     }
 
     /**
+     * Same as `deleteProject`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProjectsApiDeleteProjectRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProjectsApi
+     */
+    public deleteProjectWithHttpInfo(requestParameters: ProjectsApiDeleteProjectRequest, ) {
+        return ProjectsApiFp(this.configuration).deleteProjectWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns all archived projects.
      * @summary Get all archived projects
      * @param {ProjectsApiGetArchivedProjectsRequest} requestParameters Request parameters.
@@ -1146,6 +1342,18 @@ export class ProjectsApi extends BaseAPI {
      */
     public getArchivedProjects(requestParameters: ProjectsApiGetArchivedProjectsRequest = {}, ) {
         return ProjectsApiFp(this.configuration).getArchivedProjects(requestParameters.filter_id, requestParameters.status, requestParameters.phase_id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getArchivedProjects`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProjectsApiGetArchivedProjectsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProjectsApi
+     */
+    public getArchivedProjectsWithHttpInfo(requestParameters: ProjectsApiGetArchivedProjectsRequest = {}, ) {
+        return ProjectsApiFp(this.configuration).getArchivedProjectsWithHttpInfo(requestParameters.filter_id, requestParameters.status, requestParameters.phase_id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1161,6 +1369,18 @@ export class ProjectsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getProject`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProjectsApiGetProjectRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProjectsApi
+     */
+    public getProjectWithHttpInfo(requestParameters: ProjectsApiGetProjectRequest, ) {
+        return ProjectsApiFp(this.configuration).getProjectWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Lists updates about field values of a project.
      * @summary List updates about project field values
      * @param {ProjectsApiGetProjectChangelogRequest} requestParameters Request parameters.
@@ -1170,6 +1390,18 @@ export class ProjectsApi extends BaseAPI {
      */
     public getProjectChangelog(requestParameters: ProjectsApiGetProjectChangelogRequest, ) {
         return ProjectsApiFp(this.configuration).getProjectChangelog(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getProjectChangelog`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProjectsApiGetProjectChangelogRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProjectsApi
+     */
+    public getProjectChangelogWithHttpInfo(requestParameters: ProjectsApiGetProjectChangelogRequest, ) {
+        return ProjectsApiFp(this.configuration).getProjectChangelogWithHttpInfo(requestParameters.id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1185,6 +1417,18 @@ export class ProjectsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getProjectUsers`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProjectsApiGetProjectUsersRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProjectsApi
+     */
+    public getProjectUsersWithHttpInfo(requestParameters: ProjectsApiGetProjectUsersRequest, ) {
+        return ProjectsApiFp(this.configuration).getProjectUsersWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns all non-archived projects.
      * @summary Get all projects
      * @param {ProjectsApiGetProjectsRequest} requestParameters Request parameters.
@@ -1194,6 +1438,18 @@ export class ProjectsApi extends BaseAPI {
      */
     public getProjects(requestParameters: ProjectsApiGetProjectsRequest = {}, ) {
         return ProjectsApiFp(this.configuration).getProjects(requestParameters.filter_id, requestParameters.status, requestParameters.phase_id, requestParameters.deal_id, requestParameters.person_id, requestParameters.org_id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getProjects`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProjectsApiGetProjectsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProjectsApi
+     */
+    public getProjectsWithHttpInfo(requestParameters: ProjectsApiGetProjectsRequest = {}, ) {
+        return ProjectsApiFp(this.configuration).getProjectsWithHttpInfo(requestParameters.filter_id, requestParameters.status, requestParameters.phase_id, requestParameters.deal_id, requestParameters.person_id, requestParameters.org_id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1209,6 +1465,18 @@ export class ProjectsApi extends BaseAPI {
     }
 
     /**
+     * Same as `searchProjects`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProjectsApiSearchProjectsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProjectsApi
+     */
+    public searchProjectsWithHttpInfo(requestParameters: ProjectsApiSearchProjectsRequest, ) {
+        return ProjectsApiFp(this.configuration).searchProjectsWithHttpInfo(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.person_id, requestParameters.organization_id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates the properties of a project.
      * @summary Update a project
      * @param {ProjectsApiUpdateProjectRequest} requestParameters Request parameters.
@@ -1218,5 +1486,17 @@ export class ProjectsApi extends BaseAPI {
      */
     public updateProject(requestParameters: ProjectsApiUpdateProjectRequest, ) {
         return ProjectsApiFp(this.configuration).updateProject(requestParameters.id, requestParameters.UpdateProjectRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateProject`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProjectsApiUpdateProjectRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProjectsApi
+     */
+    public updateProjectWithHttpInfo(requestParameters: ProjectsApiUpdateProjectRequest, ) {
+        return ProjectsApiFp(this.configuration).updateProjectWithHttpInfo(requestParameters.id, requestParameters.UpdateProjectRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddFileResponse } from '../models';
 // @ts-ignore
@@ -529,6 +529,24 @@ export const FilesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addFile`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add file
+         * @param {File} file A single file, supplied in the multipart/form-data encoding and contained within the given boundaries
+         * @param {number} [deal_id] The ID of the deal to associate file(s) with
+         * @param {number} [person_id] The ID of the person to associate file(s) with
+         * @param {number} [org_id] The ID of the organization to associate file(s) with
+         * @param {number} [product_id] The ID of the product to associate file(s) with
+         * @param {number} [activity_id] The ID of the activity to associate file(s) with
+         * @param {string} [lead_id] The ID of the lead to associate file(s) with
+         * @param {number} [project_id] The ID of the project to associate file(s) with
+
+         * @throws {RequiredError}
+         */
+        async addFileWithHttpInfo(file: File, deal_id?: number, person_id?: number, org_id?: number, product_id?: number, activity_id?: number, lead_id?: string, project_id?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddFileResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addFile(file, deal_id, person_id, org_id, product_id, activity_id, lead_id, project_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Creates a new empty file in the remote location (`googledrive`) that will be linked to the item you supply. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-remote-file\" target=\"_blank\" rel=\"noopener noreferrer\">adding a remote file</a>.
          * @summary Create a remote file and link it to an item
          * @param {string} file_type The file type
@@ -544,6 +562,21 @@ export const FilesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addFileAndLinkIt`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Create a remote file and link it to an item
+         * @param {string} file_type The file type
+         * @param {string} title The title of the file
+         * @param {string} item_type The item type
+         * @param {number} item_id The ID of the item to associate the file with
+         * @param {string} remote_location The location type to send the file to. Only &#x60;googledrive&#x60; is supported at the moment.
+
+         * @throws {RequiredError}
+         */
+        async addFileAndLinkItWithHttpInfo(file_type: string, title: string, item_type: string, item_id: number, remote_location: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddRemoteFileAndLinkItToItemResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addFileAndLinkIt(file_type, title, item_type, item_id, remote_location, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Marks a file as deleted. After 30 days, the file will be permanently deleted.
          * @summary Delete a file
          * @param {number} id The ID of the file
@@ -553,6 +586,17 @@ export const FilesApiFp = function(configuration?: Configuration) {
         async deleteFile(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteFileResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteFile(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deleteFile`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a file
+         * @param {number} id The ID of the file
+
+         * @throws {RequiredError}
+         */
+        async deleteFileWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteFileResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteFile(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Initializes a file download.
@@ -566,6 +610,17 @@ export const FilesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `downloadFile`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Download one file
+         * @param {number} id The ID of the file
+
+         * @throws {RequiredError}
+         */
+        async downloadFileWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<string>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.downloadFile(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns data about a specific file.
          * @summary Get one file
          * @param {number} id The ID of the file
@@ -575,6 +630,17 @@ export const FilesApiFp = function(configuration?: Configuration) {
         async getFile(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFileResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getFile(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getFile`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get one file
+         * @param {number} id The ID of the file
+
+         * @throws {RequiredError}
+         */
+        async getFileWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetFileResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getFile(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns data about all files.
@@ -588,6 +654,19 @@ export const FilesApiFp = function(configuration?: Configuration) {
         async getFiles(start?: number, limit?: number, sort?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetFilesResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getFiles(start, limit, sort, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getFiles`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all files
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] Items shown per page. Please note that a maximum value of 100 is allowed.
+         * @param {string} [sort] Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;
+
+         * @throws {RequiredError}
+         */
+        async getFilesWithHttpInfo(start?: number, limit?: number, sort?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetFilesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getFiles(start, limit, sort, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Links an existing remote file (`googledrive`) to the item you supply. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-remote-file\" target=\"_blank\" rel=\"noopener noreferrer\">adding a remote file</a>.
@@ -604,6 +683,20 @@ export const FilesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `linkFileToItem`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Link a remote file to an item
+         * @param {string} item_type The item type
+         * @param {number} item_id The ID of the item to associate the file with
+         * @param {string} remote_id The remote item ID
+         * @param {string} remote_location The location type to send the file to. Only &#x60;googledrive&#x60; is supported at the moment.
+
+         * @throws {RequiredError}
+         */
+        async linkFileToItemWithHttpInfo(item_type: string, item_id: number, remote_id: string, remote_location: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetLinkRemoteFileToItemResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.linkFileToItem(item_type, item_id, remote_id, remote_location, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates the properties of a file.
          * @summary Update file details
          * @param {number} id The ID of the file
@@ -615,6 +708,19 @@ export const FilesApiFp = function(configuration?: Configuration) {
         async updateFile(id: number, name?: string, description?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateFileResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateFile(id, name, description, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateFile`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update file details
+         * @param {number} id The ID of the file
+         * @param {string} [name] The visible name of the file
+         * @param {string} [description] The description of the file
+
+         * @throws {RequiredError}
+         */
+        async updateFileWithHttpInfo(id: number, name?: string, description?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpdateFileResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateFile(id, name, description, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -636,6 +742,9 @@ export const FilesApiFactory = function (configuration?: Configuration, basePath
         addFile(requestParameters: FilesApiAddFileRequest, ): Promise<AddFileResponse> {
             return localVarFp.addFile(requestParameters.file, requestParameters.deal_id, requestParameters.person_id, requestParameters.org_id, requestParameters.product_id, requestParameters.activity_id, requestParameters.lead_id, requestParameters.project_id, ).then((request) => request(axios, basePath));
         },
+        addFileWithHttpInfo(requestParameters: FilesApiAddFileRequest, ): Promise<ApiResponse<AddFileResponse>> {
+            return localVarFp.addFileWithHttpInfo(requestParameters.file, requestParameters.deal_id, requestParameters.person_id, requestParameters.org_id, requestParameters.product_id, requestParameters.activity_id, requestParameters.lead_id, requestParameters.project_id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Creates a new empty file in the remote location (`googledrive`) that will be linked to the item you supply. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-remote-file\" target=\"_blank\" rel=\"noopener noreferrer\">adding a remote file</a>.
          * @summary Create a remote file and link it to an item
@@ -645,6 +754,9 @@ export const FilesApiFactory = function (configuration?: Configuration, basePath
          */
         addFileAndLinkIt(requestParameters: FilesApiAddFileAndLinkItRequest, ): Promise<AddRemoteFileAndLinkItToItemResponse> {
             return localVarFp.addFileAndLinkIt(requestParameters.file_type, requestParameters.title, requestParameters.item_type, requestParameters.item_id, requestParameters.remote_location, ).then((request) => request(axios, basePath));
+        },
+        addFileAndLinkItWithHttpInfo(requestParameters: FilesApiAddFileAndLinkItRequest, ): Promise<ApiResponse<AddRemoteFileAndLinkItToItemResponse>> {
+            return localVarFp.addFileAndLinkItWithHttpInfo(requestParameters.file_type, requestParameters.title, requestParameters.item_type, requestParameters.item_id, requestParameters.remote_location, ).then((request) => request(axios, basePath));
         },
         /**
          * Marks a file as deleted. After 30 days, the file will be permanently deleted.
@@ -656,6 +768,9 @@ export const FilesApiFactory = function (configuration?: Configuration, basePath
         deleteFile(requestParameters: FilesApiDeleteFileRequest, ): Promise<DeleteFileResponse> {
             return localVarFp.deleteFile(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        deleteFileWithHttpInfo(requestParameters: FilesApiDeleteFileRequest, ): Promise<ApiResponse<DeleteFileResponse>> {
+            return localVarFp.deleteFileWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Initializes a file download.
          * @summary Download one file
@@ -665,6 +780,9 @@ export const FilesApiFactory = function (configuration?: Configuration, basePath
          */
         downloadFile(requestParameters: FilesApiDownloadFileRequest, ): Promise<string> {
             return localVarFp.downloadFile(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        downloadFileWithHttpInfo(requestParameters: FilesApiDownloadFileRequest, ): Promise<ApiResponse<string>> {
+            return localVarFp.downloadFileWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns data about a specific file.
@@ -676,6 +794,9 @@ export const FilesApiFactory = function (configuration?: Configuration, basePath
         getFile(requestParameters: FilesApiGetFileRequest, ): Promise<GetFileResponse> {
             return localVarFp.getFile(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getFileWithHttpInfo(requestParameters: FilesApiGetFileRequest, ): Promise<ApiResponse<GetFileResponse>> {
+            return localVarFp.getFileWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns data about all files.
          * @summary Get all files
@@ -685,6 +806,9 @@ export const FilesApiFactory = function (configuration?: Configuration, basePath
          */
         getFiles(requestParameters: FilesApiGetFilesRequest = {}, ): Promise<GetFilesResponse> {
             return localVarFp.getFiles(requestParameters.start, requestParameters.limit, requestParameters.sort, ).then((request) => request(axios, basePath));
+        },
+        getFilesWithHttpInfo(requestParameters: FilesApiGetFilesRequest = {}, ): Promise<ApiResponse<GetFilesResponse>> {
+            return localVarFp.getFilesWithHttpInfo(requestParameters.start, requestParameters.limit, requestParameters.sort, ).then((request) => request(axios, basePath));
         },
         /**
          * Links an existing remote file (`googledrive`) to the item you supply. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-remote-file\" target=\"_blank\" rel=\"noopener noreferrer\">adding a remote file</a>.
@@ -696,6 +820,9 @@ export const FilesApiFactory = function (configuration?: Configuration, basePath
         linkFileToItem(requestParameters: FilesApiLinkFileToItemRequest, ): Promise<GetLinkRemoteFileToItemResponse> {
             return localVarFp.linkFileToItem(requestParameters.item_type, requestParameters.item_id, requestParameters.remote_id, requestParameters.remote_location, ).then((request) => request(axios, basePath));
         },
+        linkFileToItemWithHttpInfo(requestParameters: FilesApiLinkFileToItemRequest, ): Promise<ApiResponse<GetLinkRemoteFileToItemResponse>> {
+            return localVarFp.linkFileToItemWithHttpInfo(requestParameters.item_type, requestParameters.item_id, requestParameters.remote_id, requestParameters.remote_location, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates the properties of a file.
          * @summary Update file details
@@ -705,6 +832,9 @@ export const FilesApiFactory = function (configuration?: Configuration, basePath
          */
         updateFile(requestParameters: FilesApiUpdateFileRequest, ): Promise<UpdateFileResponse> {
             return localVarFp.updateFile(requestParameters.id, requestParameters.name, requestParameters.description, ).then((request) => request(axios, basePath));
+        },
+        updateFileWithHttpInfo(requestParameters: FilesApiUpdateFileRequest, ): Promise<ApiResponse<UpdateFileResponse>> {
+            return localVarFp.updateFileWithHttpInfo(requestParameters.id, requestParameters.name, requestParameters.description, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -967,6 +1097,18 @@ export class FilesApi extends BaseAPI {
     }
 
     /**
+     * Same as `addFile`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {FilesApiAddFileRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof FilesApi
+     */
+    public addFileWithHttpInfo(requestParameters: FilesApiAddFileRequest, ) {
+        return FilesApiFp(this.configuration).addFileWithHttpInfo(requestParameters.file, requestParameters.deal_id, requestParameters.person_id, requestParameters.org_id, requestParameters.product_id, requestParameters.activity_id, requestParameters.lead_id, requestParameters.project_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Creates a new empty file in the remote location (`googledrive`) that will be linked to the item you supply. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-remote-file\" target=\"_blank\" rel=\"noopener noreferrer\">adding a remote file</a>.
      * @summary Create a remote file and link it to an item
      * @param {FilesApiAddFileAndLinkItRequest} requestParameters Request parameters.
@@ -976,6 +1118,18 @@ export class FilesApi extends BaseAPI {
      */
     public addFileAndLinkIt(requestParameters: FilesApiAddFileAndLinkItRequest, ) {
         return FilesApiFp(this.configuration).addFileAndLinkIt(requestParameters.file_type, requestParameters.title, requestParameters.item_type, requestParameters.item_id, requestParameters.remote_location, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `addFileAndLinkIt`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {FilesApiAddFileAndLinkItRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof FilesApi
+     */
+    public addFileAndLinkItWithHttpInfo(requestParameters: FilesApiAddFileAndLinkItRequest, ) {
+        return FilesApiFp(this.configuration).addFileAndLinkItWithHttpInfo(requestParameters.file_type, requestParameters.title, requestParameters.item_type, requestParameters.item_id, requestParameters.remote_location, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -991,6 +1145,18 @@ export class FilesApi extends BaseAPI {
     }
 
     /**
+     * Same as `deleteFile`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {FilesApiDeleteFileRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof FilesApi
+     */
+    public deleteFileWithHttpInfo(requestParameters: FilesApiDeleteFileRequest, ) {
+        return FilesApiFp(this.configuration).deleteFileWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Initializes a file download.
      * @summary Download one file
      * @param {FilesApiDownloadFileRequest} requestParameters Request parameters.
@@ -1000,6 +1166,18 @@ export class FilesApi extends BaseAPI {
      */
     public downloadFile(requestParameters: FilesApiDownloadFileRequest, ) {
         return FilesApiFp(this.configuration).downloadFile(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `downloadFile`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {FilesApiDownloadFileRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof FilesApi
+     */
+    public downloadFileWithHttpInfo(requestParameters: FilesApiDownloadFileRequest, ) {
+        return FilesApiFp(this.configuration).downloadFileWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1015,6 +1193,18 @@ export class FilesApi extends BaseAPI {
     }
 
     /**
+     * Same as `getFile`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {FilesApiGetFileRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof FilesApi
+     */
+    public getFileWithHttpInfo(requestParameters: FilesApiGetFileRequest, ) {
+        return FilesApiFp(this.configuration).getFileWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns data about all files.
      * @summary Get all files
      * @param {FilesApiGetFilesRequest} requestParameters Request parameters.
@@ -1024,6 +1214,18 @@ export class FilesApi extends BaseAPI {
      */
     public getFiles(requestParameters: FilesApiGetFilesRequest = {}, ) {
         return FilesApiFp(this.configuration).getFiles(requestParameters.start, requestParameters.limit, requestParameters.sort, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getFiles`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {FilesApiGetFilesRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof FilesApi
+     */
+    public getFilesWithHttpInfo(requestParameters: FilesApiGetFilesRequest = {}, ) {
+        return FilesApiFp(this.configuration).getFilesWithHttpInfo(requestParameters.start, requestParameters.limit, requestParameters.sort, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1039,6 +1241,18 @@ export class FilesApi extends BaseAPI {
     }
 
     /**
+     * Same as `linkFileToItem`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {FilesApiLinkFileToItemRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof FilesApi
+     */
+    public linkFileToItemWithHttpInfo(requestParameters: FilesApiLinkFileToItemRequest, ) {
+        return FilesApiFp(this.configuration).linkFileToItemWithHttpInfo(requestParameters.item_type, requestParameters.item_id, requestParameters.remote_id, requestParameters.remote_location, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates the properties of a file.
      * @summary Update file details
      * @param {FilesApiUpdateFileRequest} requestParameters Request parameters.
@@ -1048,5 +1262,17 @@ export class FilesApi extends BaseAPI {
      */
     public updateFile(requestParameters: FilesApiUpdateFileRequest, ) {
         return FilesApiFp(this.configuration).updateFile(requestParameters.id, requestParameters.name, requestParameters.description, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateFile`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {FilesApiUpdateFileRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof FilesApi
+     */
+    public updateFileWithHttpInfo(requestParameters: FilesApiUpdateFileRequest, ) {
+        return FilesApiFp(this.configuration).updateFileWithHttpInfo(requestParameters.id, requestParameters.name, requestParameters.description, ).then((request) => request(this.axios, this.basePath));
     }
 }

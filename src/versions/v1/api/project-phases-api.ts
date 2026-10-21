@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { GetProjectPhaseResponse } from '../models';
 // @ts-ignore
@@ -139,6 +139,17 @@ export const ProjectPhasesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getProjectsPhase`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get details of a phase
+         * @param {number} id The ID of the project phase
+
+         * @throws {RequiredError}
+         */
+        async getProjectsPhaseWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProjectPhaseResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectsPhase(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns all active project phases under a specific board.
          * @summary Get project phases
          * @param {number} board_id ID of the board for which phases are requested
@@ -148,6 +159,17 @@ export const ProjectPhasesApiFp = function(configuration?: Configuration) {
         async getProjectsPhases(board_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectPhasesResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectsPhases(board_id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getProjectsPhases`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get project phases
+         * @param {number} board_id ID of the board for which phases are requested
+
+         * @throws {RequiredError}
+         */
+        async getProjectsPhasesWithHttpInfo(board_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProjectPhasesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectsPhases(board_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -169,6 +191,9 @@ export const ProjectPhasesApiFactory = function (configuration?: Configuration, 
         getProjectsPhase(requestParameters: ProjectPhasesApiGetProjectsPhaseRequest, ): Promise<GetProjectPhaseResponse> {
             return localVarFp.getProjectsPhase(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getProjectsPhaseWithHttpInfo(requestParameters: ProjectPhasesApiGetProjectsPhaseRequest, ): Promise<ApiResponse<GetProjectPhaseResponse>> {
+            return localVarFp.getProjectsPhaseWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns all active project phases under a specific board.
          * @summary Get project phases
@@ -178,6 +203,9 @@ export const ProjectPhasesApiFactory = function (configuration?: Configuration, 
          */
         getProjectsPhases(requestParameters: ProjectPhasesApiGetProjectsPhasesRequest, ): Promise<GetProjectPhasesResponse> {
             return localVarFp.getProjectsPhases(requestParameters.board_id, ).then((request) => request(axios, basePath));
+        },
+        getProjectsPhasesWithHttpInfo(requestParameters: ProjectPhasesApiGetProjectsPhasesRequest, ): Promise<ApiResponse<GetProjectPhasesResponse>> {
+            return localVarFp.getProjectsPhasesWithHttpInfo(requestParameters.board_id, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -230,6 +258,18 @@ export class ProjectPhasesApi extends BaseAPI {
     }
 
     /**
+     * Same as `getProjectsPhase`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProjectPhasesApiGetProjectsPhaseRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProjectPhasesApi
+     */
+    public getProjectsPhaseWithHttpInfo(requestParameters: ProjectPhasesApiGetProjectsPhaseRequest, ) {
+        return ProjectPhasesApiFp(this.configuration).getProjectsPhaseWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns all active project phases under a specific board.
      * @summary Get project phases
      * @param {ProjectPhasesApiGetProjectsPhasesRequest} requestParameters Request parameters.
@@ -239,5 +279,17 @@ export class ProjectPhasesApi extends BaseAPI {
      */
     public getProjectsPhases(requestParameters: ProjectPhasesApiGetProjectsPhasesRequest, ) {
         return ProjectPhasesApiFp(this.configuration).getProjectsPhases(requestParameters.board_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getProjectsPhases`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ProjectPhasesApiGetProjectsPhasesRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ProjectPhasesApi
+     */
+    public getProjectsPhasesWithHttpInfo(requestParameters: ProjectPhasesApiGetProjectsPhasesRequest, ) {
+        return ProjectPhasesApiFp(this.configuration).getProjectsPhasesWithHttpInfo(requestParameters.board_id, ).then((request) => request(this.axios, this.basePath));
     }
 }

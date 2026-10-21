@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddFilterRequest } from '../models';
 // @ts-ignore
@@ -371,6 +371,18 @@ export const FiltersApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addFilter`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a new filter
+         * @param {boolean} [include_field_code] If set to &#x60;true&#x60;, each condition in the response includes a &#x60;field_code&#x60; field identifying the field by its code name
+         * @param {AddFilterRequest} [AddFilterRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addFilterWithHttpInfo(include_field_code?: boolean, AddFilterRequest?: AddFilterRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddFiltersResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addFilter(include_field_code, AddFilterRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Marks a filter as deleted.
          * @summary Delete a filter
          * @param {number} id The ID of the filter
@@ -382,6 +394,17 @@ export const FiltersApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deleteFilter`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a filter
+         * @param {number} id The ID of the filter
+
+         * @throws {RequiredError}
+         */
+        async deleteFilterWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteFilterResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteFilter(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Marks multiple filters as deleted.
          * @summary Delete multiple filters in bulk
          * @param {Set<number>} ids The comma-separated filter IDs to delete
@@ -391,6 +414,17 @@ export const FiltersApiFp = function(configuration?: Configuration) {
         async deleteFilters(ids: Set<number>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteFiltersResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteFilters(ids, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deleteFilters`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete multiple filters in bulk
+         * @param {Set<number>} ids The comma-separated filter IDs to delete
+
+         * @throws {RequiredError}
+         */
+        async deleteFiltersWithHttpInfo(ids: Set<number>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteFiltersResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteFilters(ids, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns data about a specific filter. Note that this also returns the condition lines of the filter.
@@ -405,6 +439,18 @@ export const FiltersApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getFilter`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get one filter
+         * @param {number} id The ID of the filter
+         * @param {boolean} [include_field_code] If set to &#x60;true&#x60;, each condition in the response includes a &#x60;field_code&#x60; field identifying the field by its code name
+
+         * @throws {RequiredError}
+         */
+        async getFilterWithHttpInfo(id: number, include_field_code?: boolean, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetFiltersResponse1>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getFilter(id, include_field_code, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns all supported filter helpers. It helps to know what conditions and helpers are available when you want to <a href=\"/docs/api/v1/Filters#addFilter\">add</a> or <a href=\"/docs/api/v1/Filters#updateFilter\">update</a> filters. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-filter\" target=\"_blank\" rel=\"noopener noreferrer\">adding a filter</a>.
          * @summary Get all filter helpers
 
@@ -413,6 +459,16 @@ export const FiltersApiFp = function(configuration?: Configuration) {
         async getFilterHelpers(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getFilterHelpers();
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getFilterHelpers`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all filter helpers
+
+         * @throws {RequiredError}
+         */
+        async getFilterHelpersWithHttpInfo(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<object>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getFilterHelpers();
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns data about all filters.
@@ -426,6 +482,17 @@ export const FiltersApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getFilters`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all filters
+         * @param {'deals' | 'leads' | 'org' | 'people' | 'products' | 'activity' | 'projects'} [type] The types of filters to fetch
+
+         * @throws {RequiredError}
+         */
+        async getFiltersWithHttpInfo(type?: 'deals' | 'leads' | 'org' | 'people' | 'products' | 'activity' | 'projects', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetFiltersResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getFilters(type, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates an existing filter.
          * @summary Update filter
          * @param {number} id The ID of the filter
@@ -437,6 +504,19 @@ export const FiltersApiFp = function(configuration?: Configuration) {
         async updateFilter(id: number, include_field_code?: boolean, UpdateFilterRequest?: UpdateFilterRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddFiltersResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateFilter(id, include_field_code, UpdateFilterRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateFilter`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update filter
+         * @param {number} id The ID of the filter
+         * @param {boolean} [include_field_code] If set to &#x60;true&#x60;, each condition in the response includes a &#x60;field_code&#x60; field identifying the field by its code name
+         * @param {UpdateFilterRequest} [UpdateFilterRequest] 
+
+         * @throws {RequiredError}
+         */
+        async updateFilterWithHttpInfo(id: number, include_field_code?: boolean, UpdateFilterRequest?: UpdateFilterRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddFiltersResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateFilter(id, include_field_code, UpdateFilterRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -458,6 +538,9 @@ export const FiltersApiFactory = function (configuration?: Configuration, basePa
         addFilter(requestParameters: FiltersApiAddFilterRequest = {}, ): Promise<AddFiltersResponse> {
             return localVarFp.addFilter(requestParameters.include_field_code, requestParameters.AddFilterRequest, ).then((request) => request(axios, basePath));
         },
+        addFilterWithHttpInfo(requestParameters: FiltersApiAddFilterRequest = {}, ): Promise<ApiResponse<AddFiltersResponse>> {
+            return localVarFp.addFilterWithHttpInfo(requestParameters.include_field_code, requestParameters.AddFilterRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Marks a filter as deleted.
          * @summary Delete a filter
@@ -467,6 +550,9 @@ export const FiltersApiFactory = function (configuration?: Configuration, basePa
          */
         deleteFilter(requestParameters: FiltersApiDeleteFilterRequest, ): Promise<DeleteFilterResponse> {
             return localVarFp.deleteFilter(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        deleteFilterWithHttpInfo(requestParameters: FiltersApiDeleteFilterRequest, ): Promise<ApiResponse<DeleteFilterResponse>> {
+            return localVarFp.deleteFilterWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Marks multiple filters as deleted.
@@ -478,6 +564,9 @@ export const FiltersApiFactory = function (configuration?: Configuration, basePa
         deleteFilters(requestParameters: FiltersApiDeleteFiltersRequest, ): Promise<DeleteFiltersResponse> {
             return localVarFp.deleteFilters(requestParameters.ids, ).then((request) => request(axios, basePath));
         },
+        deleteFiltersWithHttpInfo(requestParameters: FiltersApiDeleteFiltersRequest, ): Promise<ApiResponse<DeleteFiltersResponse>> {
+            return localVarFp.deleteFiltersWithHttpInfo(requestParameters.ids, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns data about a specific filter. Note that this also returns the condition lines of the filter.
          * @summary Get one filter
@@ -488,6 +577,9 @@ export const FiltersApiFactory = function (configuration?: Configuration, basePa
         getFilter(requestParameters: FiltersApiGetFilterRequest, ): Promise<GetFiltersResponse1> {
             return localVarFp.getFilter(requestParameters.id, requestParameters.include_field_code, ).then((request) => request(axios, basePath));
         },
+        getFilterWithHttpInfo(requestParameters: FiltersApiGetFilterRequest, ): Promise<ApiResponse<GetFiltersResponse1>> {
+            return localVarFp.getFilterWithHttpInfo(requestParameters.id, requestParameters.include_field_code, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns all supported filter helpers. It helps to know what conditions and helpers are available when you want to <a href=\"/docs/api/v1/Filters#addFilter\">add</a> or <a href=\"/docs/api/v1/Filters#updateFilter\">update</a> filters. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-filter\" target=\"_blank\" rel=\"noopener noreferrer\">adding a filter</a>.
          * @summary Get all filter helpers
@@ -496,6 +588,9 @@ export const FiltersApiFactory = function (configuration?: Configuration, basePa
          */
         getFilterHelpers(): Promise<object> {
             return localVarFp.getFilterHelpers().then((request) => request(axios, basePath));
+        },
+        getFilterHelpersWithHttpInfo(): Promise<ApiResponse<object>> {
+            return localVarFp.getFilterHelpersWithHttpInfo().then((request) => request(axios, basePath));
         },
         /**
          * Returns data about all filters.
@@ -507,6 +602,9 @@ export const FiltersApiFactory = function (configuration?: Configuration, basePa
         getFilters(requestParameters: FiltersApiGetFiltersRequest = {}, ): Promise<GetFiltersResponse> {
             return localVarFp.getFilters(requestParameters.type, ).then((request) => request(axios, basePath));
         },
+        getFiltersWithHttpInfo(requestParameters: FiltersApiGetFiltersRequest = {}, ): Promise<ApiResponse<GetFiltersResponse>> {
+            return localVarFp.getFiltersWithHttpInfo(requestParameters.type, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates an existing filter.
          * @summary Update filter
@@ -516,6 +614,9 @@ export const FiltersApiFactory = function (configuration?: Configuration, basePa
          */
         updateFilter(requestParameters: FiltersApiUpdateFilterRequest, ): Promise<AddFiltersResponse> {
             return localVarFp.updateFilter(requestParameters.id, requestParameters.include_field_code, requestParameters.UpdateFilterRequest, ).then((request) => request(axios, basePath));
+        },
+        updateFilterWithHttpInfo(requestParameters: FiltersApiUpdateFilterRequest, ): Promise<ApiResponse<AddFiltersResponse>> {
+            return localVarFp.updateFilterWithHttpInfo(requestParameters.id, requestParameters.include_field_code, requestParameters.UpdateFilterRequest, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -652,6 +753,18 @@ export class FiltersApi extends BaseAPI {
     }
 
     /**
+     * Same as `addFilter`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {FiltersApiAddFilterRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof FiltersApi
+     */
+    public addFilterWithHttpInfo(requestParameters: FiltersApiAddFilterRequest = {}, ) {
+        return FiltersApiFp(this.configuration).addFilterWithHttpInfo(requestParameters.include_field_code, requestParameters.AddFilterRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Marks a filter as deleted.
      * @summary Delete a filter
      * @param {FiltersApiDeleteFilterRequest} requestParameters Request parameters.
@@ -661,6 +774,18 @@ export class FiltersApi extends BaseAPI {
      */
     public deleteFilter(requestParameters: FiltersApiDeleteFilterRequest, ) {
         return FiltersApiFp(this.configuration).deleteFilter(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteFilter`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {FiltersApiDeleteFilterRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof FiltersApi
+     */
+    public deleteFilterWithHttpInfo(requestParameters: FiltersApiDeleteFilterRequest, ) {
+        return FiltersApiFp(this.configuration).deleteFilterWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -676,6 +801,18 @@ export class FiltersApi extends BaseAPI {
     }
 
     /**
+     * Same as `deleteFilters`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {FiltersApiDeleteFiltersRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof FiltersApi
+     */
+    public deleteFiltersWithHttpInfo(requestParameters: FiltersApiDeleteFiltersRequest, ) {
+        return FiltersApiFp(this.configuration).deleteFiltersWithHttpInfo(requestParameters.ids, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns data about a specific filter. Note that this also returns the condition lines of the filter.
      * @summary Get one filter
      * @param {FiltersApiGetFilterRequest} requestParameters Request parameters.
@@ -688,6 +825,18 @@ export class FiltersApi extends BaseAPI {
     }
 
     /**
+     * Same as `getFilter`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {FiltersApiGetFilterRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof FiltersApi
+     */
+    public getFilterWithHttpInfo(requestParameters: FiltersApiGetFilterRequest, ) {
+        return FiltersApiFp(this.configuration).getFilterWithHttpInfo(requestParameters.id, requestParameters.include_field_code, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns all supported filter helpers. It helps to know what conditions and helpers are available when you want to <a href=\"/docs/api/v1/Filters#addFilter\">add</a> or <a href=\"/docs/api/v1/Filters#updateFilter\">update</a> filters. For more information, see the tutorial for <a href=\"https://pipedrive.readme.io/docs/adding-a-filter\" target=\"_blank\" rel=\"noopener noreferrer\">adding a filter</a>.
      * @summary Get all filter helpers
 
@@ -696,6 +845,17 @@ export class FiltersApi extends BaseAPI {
      */
     public getFilterHelpers() {
         return FiltersApiFp(this.configuration).getFilterHelpers().then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getFilterHelpers`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+
+     * @throws {RequiredError}
+     * @memberof FiltersApi
+     */
+    public getFilterHelpersWithHttpInfo() {
+        return FiltersApiFp(this.configuration).getFilterHelpersWithHttpInfo().then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -711,6 +871,18 @@ export class FiltersApi extends BaseAPI {
     }
 
     /**
+     * Same as `getFilters`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {FiltersApiGetFiltersRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof FiltersApi
+     */
+    public getFiltersWithHttpInfo(requestParameters: FiltersApiGetFiltersRequest = {}, ) {
+        return FiltersApiFp(this.configuration).getFiltersWithHttpInfo(requestParameters.type, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates an existing filter.
      * @summary Update filter
      * @param {FiltersApiUpdateFilterRequest} requestParameters Request parameters.
@@ -720,5 +892,17 @@ export class FiltersApi extends BaseAPI {
      */
     public updateFilter(requestParameters: FiltersApiUpdateFilterRequest, ) {
         return FiltersApiFp(this.configuration).updateFilter(requestParameters.id, requestParameters.include_field_code, requestParameters.UpdateFilterRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateFilter`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {FiltersApiUpdateFilterRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof FiltersApi
+     */
+    public updateFilterWithHttpInfo(requestParameters: FiltersApiUpdateFilterRequest, ) {
+        return FiltersApiFp(this.configuration).updateFilterWithHttpInfo(requestParameters.id, requestParameters.include_field_code, requestParameters.UpdateFilterRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

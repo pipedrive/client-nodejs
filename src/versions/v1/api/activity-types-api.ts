@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddActivityTypeRequest } from '../models';
 // @ts-ignore
@@ -222,6 +222,17 @@ export const ActivityTypesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addActivityType`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add new activity type
+         * @param {AddActivityTypeRequest} [AddActivityTypeRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addActivityTypeWithHttpInfo(AddActivityTypeRequest?: AddActivityTypeRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertActivityTypeResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addActivityType(AddActivityTypeRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Marks an activity type as deleted.
          * @summary Delete an activity type
          * @param {number} id The ID of the activity type
@@ -231,6 +242,17 @@ export const ActivityTypesApiFp = function(configuration?: Configuration) {
         async deleteActivityType(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertActivityTypeResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteActivityType(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deleteActivityType`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete an activity type
+         * @param {number} id The ID of the activity type
+
+         * @throws {RequiredError}
+         */
+        async deleteActivityTypeWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertActivityTypeResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteActivityType(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns all activity types.
@@ -243,6 +265,16 @@ export const ActivityTypesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getActivityTypes`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all activity types
+
+         * @throws {RequiredError}
+         */
+        async getActivityTypesWithHttpInfo(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetActivityTypesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getActivityTypes();
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates an activity type.
          * @summary Update an activity type
          * @param {number} id The ID of the activity type
@@ -253,6 +285,18 @@ export const ActivityTypesApiFp = function(configuration?: Configuration) {
         async updateActivityType(id: number, UpdateActivityTypeRequest?: UpdateActivityTypeRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertActivityTypeResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateActivityType(id, UpdateActivityTypeRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateActivityType`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update an activity type
+         * @param {number} id The ID of the activity type
+         * @param {UpdateActivityTypeRequest} [UpdateActivityTypeRequest] 
+
+         * @throws {RequiredError}
+         */
+        async updateActivityTypeWithHttpInfo(id: number, UpdateActivityTypeRequest?: UpdateActivityTypeRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertActivityTypeResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateActivityType(id, UpdateActivityTypeRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -274,6 +318,9 @@ export const ActivityTypesApiFactory = function (configuration?: Configuration, 
         addActivityType(requestParameters: ActivityTypesApiAddActivityTypeRequest = {}, ): Promise<UpsertActivityTypeResponse> {
             return localVarFp.addActivityType(requestParameters.AddActivityTypeRequest, ).then((request) => request(axios, basePath));
         },
+        addActivityTypeWithHttpInfo(requestParameters: ActivityTypesApiAddActivityTypeRequest = {}, ): Promise<ApiResponse<UpsertActivityTypeResponse>> {
+            return localVarFp.addActivityTypeWithHttpInfo(requestParameters.AddActivityTypeRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Marks an activity type as deleted.
          * @summary Delete an activity type
@@ -284,6 +331,9 @@ export const ActivityTypesApiFactory = function (configuration?: Configuration, 
         deleteActivityType(requestParameters: ActivityTypesApiDeleteActivityTypeRequest, ): Promise<UpsertActivityTypeResponse> {
             return localVarFp.deleteActivityType(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        deleteActivityTypeWithHttpInfo(requestParameters: ActivityTypesApiDeleteActivityTypeRequest, ): Promise<ApiResponse<UpsertActivityTypeResponse>> {
+            return localVarFp.deleteActivityTypeWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns all activity types.
          * @summary Get all activity types
@@ -292,6 +342,9 @@ export const ActivityTypesApiFactory = function (configuration?: Configuration, 
          */
         getActivityTypes(): Promise<GetActivityTypesResponse> {
             return localVarFp.getActivityTypes().then((request) => request(axios, basePath));
+        },
+        getActivityTypesWithHttpInfo(): Promise<ApiResponse<GetActivityTypesResponse>> {
+            return localVarFp.getActivityTypesWithHttpInfo().then((request) => request(axios, basePath));
         },
         /**
          * Updates an activity type.
@@ -302,6 +355,9 @@ export const ActivityTypesApiFactory = function (configuration?: Configuration, 
          */
         updateActivityType(requestParameters: ActivityTypesApiUpdateActivityTypeRequest, ): Promise<UpsertActivityTypeResponse> {
             return localVarFp.updateActivityType(requestParameters.id, requestParameters.UpdateActivityTypeRequest, ).then((request) => request(axios, basePath));
+        },
+        updateActivityTypeWithHttpInfo(requestParameters: ActivityTypesApiUpdateActivityTypeRequest, ): Promise<ApiResponse<UpsertActivityTypeResponse>> {
+            return localVarFp.updateActivityTypeWithHttpInfo(requestParameters.id, requestParameters.UpdateActivityTypeRequest, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -375,6 +431,18 @@ export class ActivityTypesApi extends BaseAPI {
     }
 
     /**
+     * Same as `addActivityType`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ActivityTypesApiAddActivityTypeRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ActivityTypesApi
+     */
+    public addActivityTypeWithHttpInfo(requestParameters: ActivityTypesApiAddActivityTypeRequest = {}, ) {
+        return ActivityTypesApiFp(this.configuration).addActivityTypeWithHttpInfo(requestParameters.AddActivityTypeRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Marks an activity type as deleted.
      * @summary Delete an activity type
      * @param {ActivityTypesApiDeleteActivityTypeRequest} requestParameters Request parameters.
@@ -384,6 +452,18 @@ export class ActivityTypesApi extends BaseAPI {
      */
     public deleteActivityType(requestParameters: ActivityTypesApiDeleteActivityTypeRequest, ) {
         return ActivityTypesApiFp(this.configuration).deleteActivityType(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteActivityType`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ActivityTypesApiDeleteActivityTypeRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ActivityTypesApi
+     */
+    public deleteActivityTypeWithHttpInfo(requestParameters: ActivityTypesApiDeleteActivityTypeRequest, ) {
+        return ActivityTypesApiFp(this.configuration).deleteActivityTypeWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -398,6 +478,17 @@ export class ActivityTypesApi extends BaseAPI {
     }
 
     /**
+     * Same as `getActivityTypes`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+
+     * @throws {RequiredError}
+     * @memberof ActivityTypesApi
+     */
+    public getActivityTypesWithHttpInfo() {
+        return ActivityTypesApiFp(this.configuration).getActivityTypesWithHttpInfo().then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates an activity type.
      * @summary Update an activity type
      * @param {ActivityTypesApiUpdateActivityTypeRequest} requestParameters Request parameters.
@@ -407,5 +498,17 @@ export class ActivityTypesApi extends BaseAPI {
      */
     public updateActivityType(requestParameters: ActivityTypesApiUpdateActivityTypeRequest, ) {
         return ActivityTypesApiFp(this.configuration).updateActivityType(requestParameters.id, requestParameters.UpdateActivityTypeRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateActivityType`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {ActivityTypesApiUpdateActivityTypeRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof ActivityTypesApi
+     */
+    public updateActivityTypeWithHttpInfo(requestParameters: ActivityTypesApiUpdateActivityTypeRequest, ) {
+        return ActivityTypesApiFp(this.configuration).updateActivityTypeWithHttpInfo(requestParameters.id, requestParameters.UpdateActivityTypeRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

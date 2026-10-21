@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddDealFieldOptions200Response } from '../models';
 // @ts-ignore
@@ -1201,6 +1201,17 @@ export const BetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addProjectBoard`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a project board
+         * @param {AddProjectBoardRequest} AddProjectBoardRequest 
+
+         * @throws {RequiredError}
+         */
+        async addProjectBoardWithHttpInfo(AddProjectBoardRequest: AddProjectBoardRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertProjectBoardResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addProjectBoard(AddProjectBoardRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Creates a new project custom field.
          * @summary Create one project field
          * @param {AddProjectFieldRequest} AddProjectFieldRequest 
@@ -1210,6 +1221,17 @@ export const BetaApiFp = function(configuration?: Configuration) {
         async addProjectField(AddProjectFieldRequest: AddProjectFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddProjectField200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addProjectField(AddProjectFieldRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `addProjectField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Create one project field
+         * @param {AddProjectFieldRequest} AddProjectFieldRequest 
+
+         * @throws {RequiredError}
+         */
+        async addProjectFieldWithHttpInfo(AddProjectFieldRequest: AddProjectFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddProjectField200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addProjectField(AddProjectFieldRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Adds new options to a project custom field that supports options (enum or set field types). This operation is atomic - all options are added or none are added. Returns only the newly added options.
@@ -1224,6 +1246,18 @@ export const BetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addProjectFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add project field options in bulk
+         * @param {string} field_code The unique code identifying the field
+         * @param {Array<AddDealFieldOptionsRequestInner>} AddDealFieldOptionsRequestInner 
+
+         * @throws {RequiredError}
+         */
+        async addProjectFieldOptionsWithHttpInfo(field_code: string, AddDealFieldOptionsRequestInner: Array<AddDealFieldOptionsRequestInner>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddDealFieldOptions200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addProjectFieldOptions(field_code, AddDealFieldOptionsRequestInner, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Adds a new project phase to a board.
          * @summary Add a project phase
          * @param {AddProjectPhaseRequest} AddProjectPhaseRequest 
@@ -1233,6 +1267,17 @@ export const BetaApiFp = function(configuration?: Configuration) {
         async addProjectPhase(AddProjectPhaseRequest: AddProjectPhaseRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertProjectPhaseResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addProjectPhase(AddProjectPhaseRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `addProjectPhase`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a project phase
+         * @param {AddProjectPhaseRequest} AddProjectPhaseRequest 
+
+         * @throws {RequiredError}
+         */
+        async addProjectPhaseWithHttpInfo(AddProjectPhaseRequest: AddProjectPhaseRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertProjectPhaseResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addProjectPhase(AddProjectPhaseRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Adds a new task.
@@ -1246,6 +1291,17 @@ export const BetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addTask`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a task
+         * @param {AddTaskRequest} AddTaskRequest 
+
+         * @throws {RequiredError}
+         */
+        async addTaskWithHttpInfo(AddTaskRequest: AddTaskRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddTaskResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addTask(AddTaskRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Marks a project board as deleted.
          * @summary Delete a project board
          * @param {number} id The ID of the project board
@@ -1257,6 +1313,17 @@ export const BetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deleteProjectBoard`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a project board
+         * @param {number} id The ID of the project board
+
+         * @throws {RequiredError}
+         */
+        async deleteProjectBoardWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteProjectBoardResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProjectBoard(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Marks a custom field as deleted.
          * @summary Delete one project field
          * @param {string} field_code The unique code identifying the field
@@ -1266,6 +1333,17 @@ export const BetaApiFp = function(configuration?: Configuration) {
         async deleteProjectField(field_code: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteProjectField200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProjectField(field_code, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deleteProjectField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete one project field
+         * @param {string} field_code The unique code identifying the field
+
+         * @throws {RequiredError}
+         */
+        async deleteProjectFieldWithHttpInfo(field_code: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteProjectField200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProjectField(field_code, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Removes existing options from a project custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the deleted options.
@@ -1280,6 +1358,18 @@ export const BetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deleteProjectFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete project field options in bulk
+         * @param {string} field_code The unique code identifying the field
+         * @param {Array<DeleteDealFieldOptionsRequestInner>} DeleteDealFieldOptionsRequestInner 
+
+         * @throws {RequiredError}
+         */
+        async deleteProjectFieldOptionsWithHttpInfo(field_code: string, DeleteDealFieldOptionsRequestInner: Array<DeleteDealFieldOptionsRequestInner>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddDealFieldOptions200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProjectFieldOptions(field_code, DeleteDealFieldOptionsRequestInner, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Marks a project phase as deleted.
          * @summary Delete a project phase
          * @param {number} id The ID of the project phase
@@ -1289,6 +1379,17 @@ export const BetaApiFp = function(configuration?: Configuration) {
         async deleteProjectPhase(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteProjectPhaseResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProjectPhase(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deleteProjectPhase`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a project phase
+         * @param {number} id The ID of the project phase
+
+         * @throws {RequiredError}
+         */
+        async deleteProjectPhaseWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteProjectPhaseResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProjectPhase(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Marks a task as deleted. If the task has subtasks, those will also be deleted.
@@ -1302,6 +1403,17 @@ export const BetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deleteTask`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a task
+         * @param {number} id The ID of the task
+
+         * @throws {RequiredError}
+         */
+        async deleteTaskWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteTaskResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTask(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns metadata about a specific project field.
          * @summary Get one project field
          * @param {string} field_code The unique code identifying the field
@@ -1311,6 +1423,17 @@ export const BetaApiFp = function(configuration?: Configuration) {
         async getProjectField(field_code: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddProjectField200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectField(field_code, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getProjectField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get one project field
+         * @param {string} field_code The unique code identifying the field
+
+         * @throws {RequiredError}
+         */
+        async getProjectFieldWithHttpInfo(field_code: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddProjectField200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectField(field_code, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns metadata about all project fields in the company.
@@ -1325,6 +1448,18 @@ export const BetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getProjectFields`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all project fields
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getProjectFieldsWithHttpInfo(limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProjectFields200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectFields(limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns the details of a specific project board.
          * @summary Get details of a project board
          * @param {number} id The ID of the project board
@@ -1336,6 +1471,17 @@ export const BetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getProjectsBoard`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get details of a project board
+         * @param {number} id The ID of the project board
+
+         * @throws {RequiredError}
+         */
+        async getProjectsBoardWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertProjectBoardResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectsBoard(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns all active project boards.
          * @summary Get all project boards
 
@@ -1344,6 +1490,16 @@ export const BetaApiFp = function(configuration?: Configuration) {
         async getProjectsBoards(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetProjectBoardsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectsBoards();
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getProjectsBoards`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all project boards
+
+         * @throws {RequiredError}
+         */
+        async getProjectsBoardsWithHttpInfo(): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProjectBoardsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectsBoards();
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns the details of a specific project phase.
@@ -1357,6 +1513,17 @@ export const BetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getProjectsPhase`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get details of a project phase
+         * @param {number} id The ID of the project phase
+
+         * @throws {RequiredError}
+         */
+        async getProjectsPhaseWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertProjectPhaseResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectsPhase(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns all active project phases under a specific board.
          * @summary Get project phases
          * @param {number} board_id The ID of the board for which phases are requested
@@ -1368,6 +1535,17 @@ export const BetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getProjectsPhases`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get project phases
+         * @param {number} board_id The ID of the board for which phases are requested
+
+         * @throws {RequiredError}
+         */
+        async getProjectsPhasesWithHttpInfo(board_id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProjectPhasesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProjectsPhases(board_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns the details of a specific task.
          * @summary Get details of a task
          * @param {number} id The ID of the task
@@ -1377,6 +1555,17 @@ export const BetaApiFp = function(configuration?: Configuration) {
         async getTask(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetTaskResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTask(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getTask`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get details of a task
+         * @param {number} id The ID of the task
+
+         * @throws {RequiredError}
+         */
+        async getTaskWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetTaskResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTask(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns all tasks.
@@ -1396,6 +1585,23 @@ export const BetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getTasks`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all tasks
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {boolean} [is_done] Whether the task is done or not. If omitted, both done and not done tasks are returned.
+         * @param {boolean} [is_milestone] Whether the task is a milestone or not. If omitted, both milestone and non-milestone tasks are returned.
+         * @param {number} [assignee_id] If supplied, only tasks assigned to this user are returned
+         * @param {number} [project_id] If supplied, only tasks belonging to this project are returned
+         * @param {string} [parent_task_id] If &#x60;null&#x60; is supplied, only root-level tasks (without a parent) are returned. If an integer is supplied, only subtasks of that specific task are returned. By default all tasks are returned.
+
+         * @throws {RequiredError}
+         */
+        async getTasksWithHttpInfo(cursor?: string, limit?: number, is_done?: boolean, is_milestone?: boolean, assignee_id?: number, project_id?: number, parent_task_id?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetTasksResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTasks(cursor, limit, is_done, is_milestone, assignee_id, project_id, parent_task_id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Searches all projects by title, description, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found projects can be filtered by person ID or organization ID.
          * @summary Search projects
          * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
@@ -1413,6 +1619,23 @@ export const BetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `searchProjects`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Search projects
+         * @param {string} term The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
+         * @param {Set<'custom_fields' | 'notes' | 'title' | 'description'>} [fields] A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
+         * @param {boolean} [exact_match] When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
+         * @param {number} [person_id] Will filter projects by the provided person ID
+         * @param {number} [organization_id] Will filter projects by the provided organization ID
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async searchProjectsWithHttpInfo(term: string, fields?: Set<'custom_fields' | 'notes' | 'title' | 'description'>, exact_match?: boolean, person_id?: number, organization_id?: number, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetProjectSearchResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchProjects(term, fields, exact_match, person_id, organization_id, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates the properties of a project board.
          * @summary Update a project board
          * @param {number} id The ID of the project board
@@ -1423,6 +1646,18 @@ export const BetaApiFp = function(configuration?: Configuration) {
         async updateProjectBoard(id: number, UpdateProjectBoardRequest?: UpdateProjectBoardRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertProjectBoardResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateProjectBoard(id, UpdateProjectBoardRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateProjectBoard`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update a project board
+         * @param {number} id The ID of the project board
+         * @param {UpdateProjectBoardRequest} [UpdateProjectBoardRequest] 
+
+         * @throws {RequiredError}
+         */
+        async updateProjectBoardWithHttpInfo(id: number, UpdateProjectBoardRequest?: UpdateProjectBoardRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertProjectBoardResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProjectBoard(id, UpdateProjectBoardRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Updates a project custom field. The field_code and field_type cannot be changed. At least one field must be provided in the request body.
@@ -1437,6 +1672,18 @@ export const BetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `updateProjectField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update one project field
+         * @param {string} field_code The unique code identifying the field
+         * @param {UpdateProjectFieldRequest} UpdateProjectFieldRequest 
+
+         * @throws {RequiredError}
+         */
+        async updateProjectFieldWithHttpInfo(field_code: string, UpdateProjectFieldRequest: UpdateProjectFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddProjectField200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProjectField(field_code, UpdateProjectFieldRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates existing options for a project custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the updated options.
          * @summary Update project field options in bulk
          * @param {string} field_code The unique code identifying the field
@@ -1447,6 +1694,18 @@ export const BetaApiFp = function(configuration?: Configuration) {
         async updateProjectFieldOptions(field_code: string, UpdateDealFieldOptionsRequestInner: Array<UpdateDealFieldOptionsRequestInner>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddDealFieldOptions200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateProjectFieldOptions(field_code, UpdateDealFieldOptionsRequestInner, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateProjectFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update project field options in bulk
+         * @param {string} field_code The unique code identifying the field
+         * @param {Array<UpdateDealFieldOptionsRequestInner>} UpdateDealFieldOptionsRequestInner 
+
+         * @throws {RequiredError}
+         */
+        async updateProjectFieldOptionsWithHttpInfo(field_code: string, UpdateDealFieldOptionsRequestInner: Array<UpdateDealFieldOptionsRequestInner>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddDealFieldOptions200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProjectFieldOptions(field_code, UpdateDealFieldOptionsRequestInner, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Updates the properties of a project phase.
@@ -1461,6 +1720,18 @@ export const BetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `updateProjectPhase`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update a project phase
+         * @param {number} id The ID of the project phase
+         * @param {UpdateProjectPhaseRequest} [UpdateProjectPhaseRequest] 
+
+         * @throws {RequiredError}
+         */
+        async updateProjectPhaseWithHttpInfo(id: number, UpdateProjectPhaseRequest?: UpdateProjectPhaseRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertProjectPhaseResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProjectPhase(id, UpdateProjectPhaseRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates a task.
          * @summary Update a task
          * @param {number} id The ID of the task
@@ -1471,6 +1742,18 @@ export const BetaApiFp = function(configuration?: Configuration) {
         async updateTask(id: number, UpdateTaskRequest?: UpdateTaskRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpdateTaskResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateTask(id, UpdateTaskRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateTask`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update a task
+         * @param {number} id The ID of the task
+         * @param {UpdateTaskRequest} [UpdateTaskRequest] 
+
+         * @throws {RequiredError}
+         */
+        async updateTaskWithHttpInfo(id: number, UpdateTaskRequest?: UpdateTaskRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpdateTaskResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTask(id, UpdateTaskRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -1492,6 +1775,9 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
         addProjectBoard(requestParameters: BetaApiAddProjectBoardRequest, ): Promise<UpsertProjectBoardResponse> {
             return localVarFp.addProjectBoard(requestParameters.AddProjectBoardRequest, ).then((request) => request(axios, basePath));
         },
+        addProjectBoardWithHttpInfo(requestParameters: BetaApiAddProjectBoardRequest, ): Promise<ApiResponse<UpsertProjectBoardResponse>> {
+            return localVarFp.addProjectBoardWithHttpInfo(requestParameters.AddProjectBoardRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Creates a new project custom field.
          * @summary Create one project field
@@ -1501,6 +1787,9 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
          */
         addProjectField(requestParameters: BetaApiAddProjectFieldRequest, ): Promise<AddProjectField200Response> {
             return localVarFp.addProjectField(requestParameters.AddProjectFieldRequest, ).then((request) => request(axios, basePath));
+        },
+        addProjectFieldWithHttpInfo(requestParameters: BetaApiAddProjectFieldRequest, ): Promise<ApiResponse<AddProjectField200Response>> {
+            return localVarFp.addProjectFieldWithHttpInfo(requestParameters.AddProjectFieldRequest, ).then((request) => request(axios, basePath));
         },
         /**
          * Adds new options to a project custom field that supports options (enum or set field types). This operation is atomic - all options are added or none are added. Returns only the newly added options.
@@ -1512,6 +1801,9 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
         addProjectFieldOptions(requestParameters: BetaApiAddProjectFieldOptionsRequest, ): Promise<AddDealFieldOptions200Response> {
             return localVarFp.addProjectFieldOptions(requestParameters.field_code, requestParameters.AddDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
         },
+        addProjectFieldOptionsWithHttpInfo(requestParameters: BetaApiAddProjectFieldOptionsRequest, ): Promise<ApiResponse<AddDealFieldOptions200Response>> {
+            return localVarFp.addProjectFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.AddDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
+        },
         /**
          * Adds a new project phase to a board.
          * @summary Add a project phase
@@ -1521,6 +1813,9 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
          */
         addProjectPhase(requestParameters: BetaApiAddProjectPhaseRequest, ): Promise<UpsertProjectPhaseResponse> {
             return localVarFp.addProjectPhase(requestParameters.AddProjectPhaseRequest, ).then((request) => request(axios, basePath));
+        },
+        addProjectPhaseWithHttpInfo(requestParameters: BetaApiAddProjectPhaseRequest, ): Promise<ApiResponse<UpsertProjectPhaseResponse>> {
+            return localVarFp.addProjectPhaseWithHttpInfo(requestParameters.AddProjectPhaseRequest, ).then((request) => request(axios, basePath));
         },
         /**
          * Adds a new task.
@@ -1532,6 +1827,9 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
         addTask(requestParameters: BetaApiAddTaskRequest, ): Promise<AddTaskResponse> {
             return localVarFp.addTask(requestParameters.AddTaskRequest, ).then((request) => request(axios, basePath));
         },
+        addTaskWithHttpInfo(requestParameters: BetaApiAddTaskRequest, ): Promise<ApiResponse<AddTaskResponse>> {
+            return localVarFp.addTaskWithHttpInfo(requestParameters.AddTaskRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Marks a project board as deleted.
          * @summary Delete a project board
@@ -1541,6 +1839,9 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
          */
         deleteProjectBoard(requestParameters: BetaApiDeleteProjectBoardRequest, ): Promise<DeleteProjectBoardResponse> {
             return localVarFp.deleteProjectBoard(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        deleteProjectBoardWithHttpInfo(requestParameters: BetaApiDeleteProjectBoardRequest, ): Promise<ApiResponse<DeleteProjectBoardResponse>> {
+            return localVarFp.deleteProjectBoardWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Marks a custom field as deleted.
@@ -1552,6 +1853,9 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
         deleteProjectField(requestParameters: BetaApiDeleteProjectFieldRequest, ): Promise<DeleteProjectField200Response> {
             return localVarFp.deleteProjectField(requestParameters.field_code, ).then((request) => request(axios, basePath));
         },
+        deleteProjectFieldWithHttpInfo(requestParameters: BetaApiDeleteProjectFieldRequest, ): Promise<ApiResponse<DeleteProjectField200Response>> {
+            return localVarFp.deleteProjectFieldWithHttpInfo(requestParameters.field_code, ).then((request) => request(axios, basePath));
+        },
         /**
          * Removes existing options from a project custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the deleted options.
          * @summary Delete project field options in bulk
@@ -1561,6 +1865,9 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
          */
         deleteProjectFieldOptions(requestParameters: BetaApiDeleteProjectFieldOptionsRequest, ): Promise<AddDealFieldOptions200Response> {
             return localVarFp.deleteProjectFieldOptions(requestParameters.field_code, requestParameters.DeleteDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
+        },
+        deleteProjectFieldOptionsWithHttpInfo(requestParameters: BetaApiDeleteProjectFieldOptionsRequest, ): Promise<ApiResponse<AddDealFieldOptions200Response>> {
+            return localVarFp.deleteProjectFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.DeleteDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
         },
         /**
          * Marks a project phase as deleted.
@@ -1572,6 +1879,9 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
         deleteProjectPhase(requestParameters: BetaApiDeleteProjectPhaseRequest, ): Promise<DeleteProjectPhaseResponse> {
             return localVarFp.deleteProjectPhase(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        deleteProjectPhaseWithHttpInfo(requestParameters: BetaApiDeleteProjectPhaseRequest, ): Promise<ApiResponse<DeleteProjectPhaseResponse>> {
+            return localVarFp.deleteProjectPhaseWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Marks a task as deleted. If the task has subtasks, those will also be deleted.
          * @summary Delete a task
@@ -1581,6 +1891,9 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
          */
         deleteTask(requestParameters: BetaApiDeleteTaskRequest, ): Promise<DeleteTaskResponse> {
             return localVarFp.deleteTask(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        deleteTaskWithHttpInfo(requestParameters: BetaApiDeleteTaskRequest, ): Promise<ApiResponse<DeleteTaskResponse>> {
+            return localVarFp.deleteTaskWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns metadata about a specific project field.
@@ -1592,6 +1905,9 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
         getProjectField(requestParameters: BetaApiGetProjectFieldRequest, ): Promise<AddProjectField200Response> {
             return localVarFp.getProjectField(requestParameters.field_code, ).then((request) => request(axios, basePath));
         },
+        getProjectFieldWithHttpInfo(requestParameters: BetaApiGetProjectFieldRequest, ): Promise<ApiResponse<AddProjectField200Response>> {
+            return localVarFp.getProjectFieldWithHttpInfo(requestParameters.field_code, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns metadata about all project fields in the company.
          * @summary Get all project fields
@@ -1601,6 +1917,9 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
          */
         getProjectFields(requestParameters: BetaApiGetProjectFieldsRequest = {}, ): Promise<GetProjectFields200Response> {
             return localVarFp.getProjectFields(requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
+        getProjectFieldsWithHttpInfo(requestParameters: BetaApiGetProjectFieldsRequest = {}, ): Promise<ApiResponse<GetProjectFields200Response>> {
+            return localVarFp.getProjectFieldsWithHttpInfo(requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns the details of a specific project board.
@@ -1612,6 +1931,9 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
         getProjectsBoard(requestParameters: BetaApiGetProjectsBoardRequest, ): Promise<UpsertProjectBoardResponse> {
             return localVarFp.getProjectsBoard(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getProjectsBoardWithHttpInfo(requestParameters: BetaApiGetProjectsBoardRequest, ): Promise<ApiResponse<UpsertProjectBoardResponse>> {
+            return localVarFp.getProjectsBoardWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns all active project boards.
          * @summary Get all project boards
@@ -1620,6 +1942,9 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
          */
         getProjectsBoards(): Promise<GetProjectBoardsResponse> {
             return localVarFp.getProjectsBoards().then((request) => request(axios, basePath));
+        },
+        getProjectsBoardsWithHttpInfo(): Promise<ApiResponse<GetProjectBoardsResponse>> {
+            return localVarFp.getProjectsBoardsWithHttpInfo().then((request) => request(axios, basePath));
         },
         /**
          * Returns the details of a specific project phase.
@@ -1631,6 +1956,9 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
         getProjectsPhase(requestParameters: BetaApiGetProjectsPhaseRequest, ): Promise<UpsertProjectPhaseResponse> {
             return localVarFp.getProjectsPhase(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getProjectsPhaseWithHttpInfo(requestParameters: BetaApiGetProjectsPhaseRequest, ): Promise<ApiResponse<UpsertProjectPhaseResponse>> {
+            return localVarFp.getProjectsPhaseWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns all active project phases under a specific board.
          * @summary Get project phases
@@ -1640,6 +1968,9 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
          */
         getProjectsPhases(requestParameters: BetaApiGetProjectsPhasesRequest, ): Promise<GetProjectPhasesResponse> {
             return localVarFp.getProjectsPhases(requestParameters.board_id, ).then((request) => request(axios, basePath));
+        },
+        getProjectsPhasesWithHttpInfo(requestParameters: BetaApiGetProjectsPhasesRequest, ): Promise<ApiResponse<GetProjectPhasesResponse>> {
+            return localVarFp.getProjectsPhasesWithHttpInfo(requestParameters.board_id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns the details of a specific task.
@@ -1651,6 +1982,9 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
         getTask(requestParameters: BetaApiGetTaskRequest, ): Promise<GetTaskResponse> {
             return localVarFp.getTask(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getTaskWithHttpInfo(requestParameters: BetaApiGetTaskRequest, ): Promise<ApiResponse<GetTaskResponse>> {
+            return localVarFp.getTaskWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns all tasks.
          * @summary Get all tasks
@@ -1660,6 +1994,9 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
          */
         getTasks(requestParameters: BetaApiGetTasksRequest = {}, ): Promise<GetTasksResponse> {
             return localVarFp.getTasks(requestParameters.cursor, requestParameters.limit, requestParameters.is_done, requestParameters.is_milestone, requestParameters.assignee_id, requestParameters.project_id, requestParameters.parent_task_id, ).then((request) => request(axios, basePath));
+        },
+        getTasksWithHttpInfo(requestParameters: BetaApiGetTasksRequest = {}, ): Promise<ApiResponse<GetTasksResponse>> {
+            return localVarFp.getTasksWithHttpInfo(requestParameters.cursor, requestParameters.limit, requestParameters.is_done, requestParameters.is_milestone, requestParameters.assignee_id, requestParameters.project_id, requestParameters.parent_task_id, ).then((request) => request(axios, basePath));
         },
         /**
          * Searches all projects by title, description, notes and/or custom fields. This endpoint is a wrapper of <a href=\"https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem\">/v1/itemSearch</a> with a narrower OAuth scope. Found projects can be filtered by person ID or organization ID.
@@ -1671,6 +2008,9 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
         searchProjects(requestParameters: BetaApiSearchProjectsRequest, ): Promise<GetProjectSearchResponse> {
             return localVarFp.searchProjects(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.person_id, requestParameters.organization_id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
+        searchProjectsWithHttpInfo(requestParameters: BetaApiSearchProjectsRequest, ): Promise<ApiResponse<GetProjectSearchResponse>> {
+            return localVarFp.searchProjectsWithHttpInfo(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.person_id, requestParameters.organization_id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates the properties of a project board.
          * @summary Update a project board
@@ -1680,6 +2020,9 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
          */
         updateProjectBoard(requestParameters: BetaApiUpdateProjectBoardRequest, ): Promise<UpsertProjectBoardResponse> {
             return localVarFp.updateProjectBoard(requestParameters.id, requestParameters.UpdateProjectBoardRequest, ).then((request) => request(axios, basePath));
+        },
+        updateProjectBoardWithHttpInfo(requestParameters: BetaApiUpdateProjectBoardRequest, ): Promise<ApiResponse<UpsertProjectBoardResponse>> {
+            return localVarFp.updateProjectBoardWithHttpInfo(requestParameters.id, requestParameters.UpdateProjectBoardRequest, ).then((request) => request(axios, basePath));
         },
         /**
          * Updates a project custom field. The field_code and field_type cannot be changed. At least one field must be provided in the request body.
@@ -1691,6 +2034,9 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
         updateProjectField(requestParameters: BetaApiUpdateProjectFieldRequest, ): Promise<AddProjectField200Response> {
             return localVarFp.updateProjectField(requestParameters.field_code, requestParameters.UpdateProjectFieldRequest, ).then((request) => request(axios, basePath));
         },
+        updateProjectFieldWithHttpInfo(requestParameters: BetaApiUpdateProjectFieldRequest, ): Promise<ApiResponse<AddProjectField200Response>> {
+            return localVarFp.updateProjectFieldWithHttpInfo(requestParameters.field_code, requestParameters.UpdateProjectFieldRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates existing options for a project custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the updated options.
          * @summary Update project field options in bulk
@@ -1700,6 +2046,9 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
          */
         updateProjectFieldOptions(requestParameters: BetaApiUpdateProjectFieldOptionsRequest, ): Promise<AddDealFieldOptions200Response> {
             return localVarFp.updateProjectFieldOptions(requestParameters.field_code, requestParameters.UpdateDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
+        },
+        updateProjectFieldOptionsWithHttpInfo(requestParameters: BetaApiUpdateProjectFieldOptionsRequest, ): Promise<ApiResponse<AddDealFieldOptions200Response>> {
+            return localVarFp.updateProjectFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.UpdateDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
         },
         /**
          * Updates the properties of a project phase.
@@ -1711,6 +2060,9 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
         updateProjectPhase(requestParameters: BetaApiUpdateProjectPhaseRequest, ): Promise<UpsertProjectPhaseResponse> {
             return localVarFp.updateProjectPhase(requestParameters.id, requestParameters.UpdateProjectPhaseRequest, ).then((request) => request(axios, basePath));
         },
+        updateProjectPhaseWithHttpInfo(requestParameters: BetaApiUpdateProjectPhaseRequest, ): Promise<ApiResponse<UpsertProjectPhaseResponse>> {
+            return localVarFp.updateProjectPhaseWithHttpInfo(requestParameters.id, requestParameters.UpdateProjectPhaseRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates a task.
          * @summary Update a task
@@ -1720,6 +2072,9 @@ export const BetaApiFactory = function (configuration?: Configuration, basePath?
          */
         updateTask(requestParameters: BetaApiUpdateTaskRequest, ): Promise<UpdateTaskResponse> {
             return localVarFp.updateTask(requestParameters.id, requestParameters.UpdateTaskRequest, ).then((request) => request(axios, basePath));
+        },
+        updateTaskWithHttpInfo(requestParameters: BetaApiUpdateTaskRequest, ): Promise<ApiResponse<UpdateTaskResponse>> {
+            return localVarFp.updateTaskWithHttpInfo(requestParameters.id, requestParameters.UpdateTaskRequest, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -2206,6 +2561,18 @@ export class BetaApi extends BaseAPI {
     }
 
     /**
+     * Same as `addProjectBoard`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {BetaApiAddProjectBoardRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public addProjectBoardWithHttpInfo(requestParameters: BetaApiAddProjectBoardRequest, ) {
+        return BetaApiFp(this.configuration).addProjectBoardWithHttpInfo(requestParameters.AddProjectBoardRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Creates a new project custom field.
      * @summary Create one project field
      * @param {BetaApiAddProjectFieldRequest} requestParameters Request parameters.
@@ -2215,6 +2582,18 @@ export class BetaApi extends BaseAPI {
      */
     public addProjectField(requestParameters: BetaApiAddProjectFieldRequest, ) {
         return BetaApiFp(this.configuration).addProjectField(requestParameters.AddProjectFieldRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `addProjectField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {BetaApiAddProjectFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public addProjectFieldWithHttpInfo(requestParameters: BetaApiAddProjectFieldRequest, ) {
+        return BetaApiFp(this.configuration).addProjectFieldWithHttpInfo(requestParameters.AddProjectFieldRequest, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2230,6 +2609,18 @@ export class BetaApi extends BaseAPI {
     }
 
     /**
+     * Same as `addProjectFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {BetaApiAddProjectFieldOptionsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public addProjectFieldOptionsWithHttpInfo(requestParameters: BetaApiAddProjectFieldOptionsRequest, ) {
+        return BetaApiFp(this.configuration).addProjectFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.AddDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Adds a new project phase to a board.
      * @summary Add a project phase
      * @param {BetaApiAddProjectPhaseRequest} requestParameters Request parameters.
@@ -2239,6 +2630,18 @@ export class BetaApi extends BaseAPI {
      */
     public addProjectPhase(requestParameters: BetaApiAddProjectPhaseRequest, ) {
         return BetaApiFp(this.configuration).addProjectPhase(requestParameters.AddProjectPhaseRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `addProjectPhase`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {BetaApiAddProjectPhaseRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public addProjectPhaseWithHttpInfo(requestParameters: BetaApiAddProjectPhaseRequest, ) {
+        return BetaApiFp(this.configuration).addProjectPhaseWithHttpInfo(requestParameters.AddProjectPhaseRequest, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2254,6 +2657,18 @@ export class BetaApi extends BaseAPI {
     }
 
     /**
+     * Same as `addTask`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {BetaApiAddTaskRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public addTaskWithHttpInfo(requestParameters: BetaApiAddTaskRequest, ) {
+        return BetaApiFp(this.configuration).addTaskWithHttpInfo(requestParameters.AddTaskRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Marks a project board as deleted.
      * @summary Delete a project board
      * @param {BetaApiDeleteProjectBoardRequest} requestParameters Request parameters.
@@ -2263,6 +2678,18 @@ export class BetaApi extends BaseAPI {
      */
     public deleteProjectBoard(requestParameters: BetaApiDeleteProjectBoardRequest, ) {
         return BetaApiFp(this.configuration).deleteProjectBoard(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteProjectBoard`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {BetaApiDeleteProjectBoardRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public deleteProjectBoardWithHttpInfo(requestParameters: BetaApiDeleteProjectBoardRequest, ) {
+        return BetaApiFp(this.configuration).deleteProjectBoardWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2278,6 +2705,18 @@ export class BetaApi extends BaseAPI {
     }
 
     /**
+     * Same as `deleteProjectField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {BetaApiDeleteProjectFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public deleteProjectFieldWithHttpInfo(requestParameters: BetaApiDeleteProjectFieldRequest, ) {
+        return BetaApiFp(this.configuration).deleteProjectFieldWithHttpInfo(requestParameters.field_code, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Removes existing options from a project custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the deleted options.
      * @summary Delete project field options in bulk
      * @param {BetaApiDeleteProjectFieldOptionsRequest} requestParameters Request parameters.
@@ -2287,6 +2726,18 @@ export class BetaApi extends BaseAPI {
      */
     public deleteProjectFieldOptions(requestParameters: BetaApiDeleteProjectFieldOptionsRequest, ) {
         return BetaApiFp(this.configuration).deleteProjectFieldOptions(requestParameters.field_code, requestParameters.DeleteDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteProjectFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {BetaApiDeleteProjectFieldOptionsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public deleteProjectFieldOptionsWithHttpInfo(requestParameters: BetaApiDeleteProjectFieldOptionsRequest, ) {
+        return BetaApiFp(this.configuration).deleteProjectFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.DeleteDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2302,6 +2753,18 @@ export class BetaApi extends BaseAPI {
     }
 
     /**
+     * Same as `deleteProjectPhase`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {BetaApiDeleteProjectPhaseRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public deleteProjectPhaseWithHttpInfo(requestParameters: BetaApiDeleteProjectPhaseRequest, ) {
+        return BetaApiFp(this.configuration).deleteProjectPhaseWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Marks a task as deleted. If the task has subtasks, those will also be deleted.
      * @summary Delete a task
      * @param {BetaApiDeleteTaskRequest} requestParameters Request parameters.
@@ -2311,6 +2774,18 @@ export class BetaApi extends BaseAPI {
      */
     public deleteTask(requestParameters: BetaApiDeleteTaskRequest, ) {
         return BetaApiFp(this.configuration).deleteTask(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteTask`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {BetaApiDeleteTaskRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public deleteTaskWithHttpInfo(requestParameters: BetaApiDeleteTaskRequest, ) {
+        return BetaApiFp(this.configuration).deleteTaskWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2326,6 +2801,18 @@ export class BetaApi extends BaseAPI {
     }
 
     /**
+     * Same as `getProjectField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {BetaApiGetProjectFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public getProjectFieldWithHttpInfo(requestParameters: BetaApiGetProjectFieldRequest, ) {
+        return BetaApiFp(this.configuration).getProjectFieldWithHttpInfo(requestParameters.field_code, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns metadata about all project fields in the company.
      * @summary Get all project fields
      * @param {BetaApiGetProjectFieldsRequest} requestParameters Request parameters.
@@ -2335,6 +2822,18 @@ export class BetaApi extends BaseAPI {
      */
     public getProjectFields(requestParameters: BetaApiGetProjectFieldsRequest = {}, ) {
         return BetaApiFp(this.configuration).getProjectFields(requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getProjectFields`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {BetaApiGetProjectFieldsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public getProjectFieldsWithHttpInfo(requestParameters: BetaApiGetProjectFieldsRequest = {}, ) {
+        return BetaApiFp(this.configuration).getProjectFieldsWithHttpInfo(requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2350,6 +2849,18 @@ export class BetaApi extends BaseAPI {
     }
 
     /**
+     * Same as `getProjectsBoard`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {BetaApiGetProjectsBoardRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public getProjectsBoardWithHttpInfo(requestParameters: BetaApiGetProjectsBoardRequest, ) {
+        return BetaApiFp(this.configuration).getProjectsBoardWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns all active project boards.
      * @summary Get all project boards
 
@@ -2358,6 +2869,17 @@ export class BetaApi extends BaseAPI {
      */
     public getProjectsBoards() {
         return BetaApiFp(this.configuration).getProjectsBoards().then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getProjectsBoards`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public getProjectsBoardsWithHttpInfo() {
+        return BetaApiFp(this.configuration).getProjectsBoardsWithHttpInfo().then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2373,6 +2895,18 @@ export class BetaApi extends BaseAPI {
     }
 
     /**
+     * Same as `getProjectsPhase`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {BetaApiGetProjectsPhaseRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public getProjectsPhaseWithHttpInfo(requestParameters: BetaApiGetProjectsPhaseRequest, ) {
+        return BetaApiFp(this.configuration).getProjectsPhaseWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns all active project phases under a specific board.
      * @summary Get project phases
      * @param {BetaApiGetProjectsPhasesRequest} requestParameters Request parameters.
@@ -2382,6 +2916,18 @@ export class BetaApi extends BaseAPI {
      */
     public getProjectsPhases(requestParameters: BetaApiGetProjectsPhasesRequest, ) {
         return BetaApiFp(this.configuration).getProjectsPhases(requestParameters.board_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getProjectsPhases`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {BetaApiGetProjectsPhasesRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public getProjectsPhasesWithHttpInfo(requestParameters: BetaApiGetProjectsPhasesRequest, ) {
+        return BetaApiFp(this.configuration).getProjectsPhasesWithHttpInfo(requestParameters.board_id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2397,6 +2943,18 @@ export class BetaApi extends BaseAPI {
     }
 
     /**
+     * Same as `getTask`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {BetaApiGetTaskRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public getTaskWithHttpInfo(requestParameters: BetaApiGetTaskRequest, ) {
+        return BetaApiFp(this.configuration).getTaskWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns all tasks.
      * @summary Get all tasks
      * @param {BetaApiGetTasksRequest} requestParameters Request parameters.
@@ -2406,6 +2964,18 @@ export class BetaApi extends BaseAPI {
      */
     public getTasks(requestParameters: BetaApiGetTasksRequest = {}, ) {
         return BetaApiFp(this.configuration).getTasks(requestParameters.cursor, requestParameters.limit, requestParameters.is_done, requestParameters.is_milestone, requestParameters.assignee_id, requestParameters.project_id, requestParameters.parent_task_id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getTasks`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {BetaApiGetTasksRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public getTasksWithHttpInfo(requestParameters: BetaApiGetTasksRequest = {}, ) {
+        return BetaApiFp(this.configuration).getTasksWithHttpInfo(requestParameters.cursor, requestParameters.limit, requestParameters.is_done, requestParameters.is_milestone, requestParameters.assignee_id, requestParameters.project_id, requestParameters.parent_task_id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2421,6 +2991,18 @@ export class BetaApi extends BaseAPI {
     }
 
     /**
+     * Same as `searchProjects`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {BetaApiSearchProjectsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public searchProjectsWithHttpInfo(requestParameters: BetaApiSearchProjectsRequest, ) {
+        return BetaApiFp(this.configuration).searchProjectsWithHttpInfo(requestParameters.term, requestParameters.fields, requestParameters.exact_match, requestParameters.person_id, requestParameters.organization_id, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates the properties of a project board.
      * @summary Update a project board
      * @param {BetaApiUpdateProjectBoardRequest} requestParameters Request parameters.
@@ -2430,6 +3012,18 @@ export class BetaApi extends BaseAPI {
      */
     public updateProjectBoard(requestParameters: BetaApiUpdateProjectBoardRequest, ) {
         return BetaApiFp(this.configuration).updateProjectBoard(requestParameters.id, requestParameters.UpdateProjectBoardRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateProjectBoard`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {BetaApiUpdateProjectBoardRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public updateProjectBoardWithHttpInfo(requestParameters: BetaApiUpdateProjectBoardRequest, ) {
+        return BetaApiFp(this.configuration).updateProjectBoardWithHttpInfo(requestParameters.id, requestParameters.UpdateProjectBoardRequest, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2445,6 +3039,18 @@ export class BetaApi extends BaseAPI {
     }
 
     /**
+     * Same as `updateProjectField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {BetaApiUpdateProjectFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public updateProjectFieldWithHttpInfo(requestParameters: BetaApiUpdateProjectFieldRequest, ) {
+        return BetaApiFp(this.configuration).updateProjectFieldWithHttpInfo(requestParameters.field_code, requestParameters.UpdateProjectFieldRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates existing options for a project custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the updated options.
      * @summary Update project field options in bulk
      * @param {BetaApiUpdateProjectFieldOptionsRequest} requestParameters Request parameters.
@@ -2454,6 +3060,18 @@ export class BetaApi extends BaseAPI {
      */
     public updateProjectFieldOptions(requestParameters: BetaApiUpdateProjectFieldOptionsRequest, ) {
         return BetaApiFp(this.configuration).updateProjectFieldOptions(requestParameters.field_code, requestParameters.UpdateDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateProjectFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {BetaApiUpdateProjectFieldOptionsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public updateProjectFieldOptionsWithHttpInfo(requestParameters: BetaApiUpdateProjectFieldOptionsRequest, ) {
+        return BetaApiFp(this.configuration).updateProjectFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.UpdateDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2469,6 +3087,18 @@ export class BetaApi extends BaseAPI {
     }
 
     /**
+     * Same as `updateProjectPhase`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {BetaApiUpdateProjectPhaseRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public updateProjectPhaseWithHttpInfo(requestParameters: BetaApiUpdateProjectPhaseRequest, ) {
+        return BetaApiFp(this.configuration).updateProjectPhaseWithHttpInfo(requestParameters.id, requestParameters.UpdateProjectPhaseRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates a task.
      * @summary Update a task
      * @param {BetaApiUpdateTaskRequest} requestParameters Request parameters.
@@ -2478,5 +3108,17 @@ export class BetaApi extends BaseAPI {
      */
     public updateTask(requestParameters: BetaApiUpdateTaskRequest, ) {
         return BetaApiFp(this.configuration).updateTask(requestParameters.id, requestParameters.UpdateTaskRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateTask`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {BetaApiUpdateTaskRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof BetaApi
+     */
+    public updateTaskWithHttpInfo(requestParameters: BetaApiUpdateTaskRequest, ) {
+        return BetaApiFp(this.configuration).updateTaskWithHttpInfo(requestParameters.id, requestParameters.UpdateTaskRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

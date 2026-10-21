@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { GetPermissionSetResponse } from '../models';
 // @ts-ignore
@@ -190,6 +190,17 @@ export const PermissionSetsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getPermissionSet`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get one permission set
+         * @param {string} id The ID of the permission set
+
+         * @throws {RequiredError}
+         */
+        async getPermissionSetWithHttpInfo(id: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetPermissionSetResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPermissionSet(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns the list of assignments for a permission set.
          * @summary List permission set assignments
          * @param {string} id The ID of the permission set
@@ -203,6 +214,19 @@ export const PermissionSetsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getPermissionSetAssignments`, but resolves with the response body together with the HTTP status and headers.
+         * @summary List permission set assignments
+         * @param {string} id The ID of the permission set
+         * @param {number} [start] Pagination start
+         * @param {number} [limit] Items shown per page
+
+         * @throws {RequiredError}
+         */
+        async getPermissionSetAssignmentsWithHttpInfo(id: string, start?: number, limit?: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetUserAssignmentsToPermissionSetResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPermissionSetAssignments(id, start, limit, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns data about all permission sets.
          * @summary Get all permission sets
          * @param {'sales' | 'projects' | 'campaigns' | 'global' | 'account_settings' | 'partnership' | 'nova'} [app] The app to filter the permission sets by
@@ -212,6 +236,17 @@ export const PermissionSetsApiFp = function(configuration?: Configuration) {
         async getPermissionSets(app?: 'sales' | 'projects' | 'campaigns' | 'global' | 'account_settings' | 'partnership' | 'nova', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetPermissionSetsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPermissionSets(app, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getPermissionSets`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all permission sets
+         * @param {'sales' | 'projects' | 'campaigns' | 'global' | 'account_settings' | 'partnership' | 'nova'} [app] The app to filter the permission sets by
+
+         * @throws {RequiredError}
+         */
+        async getPermissionSetsWithHttpInfo(app?: 'sales' | 'projects' | 'campaigns' | 'global' | 'account_settings' | 'partnership' | 'nova', ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetPermissionSetsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPermissionSets(app, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -233,6 +268,9 @@ export const PermissionSetsApiFactory = function (configuration?: Configuration,
         getPermissionSet(requestParameters: PermissionSetsApiGetPermissionSetRequest, ): Promise<GetPermissionSetResponse> {
             return localVarFp.getPermissionSet(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getPermissionSetWithHttpInfo(requestParameters: PermissionSetsApiGetPermissionSetRequest, ): Promise<ApiResponse<GetPermissionSetResponse>> {
+            return localVarFp.getPermissionSetWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns the list of assignments for a permission set.
          * @summary List permission set assignments
@@ -243,6 +281,9 @@ export const PermissionSetsApiFactory = function (configuration?: Configuration,
         getPermissionSetAssignments(requestParameters: PermissionSetsApiGetPermissionSetAssignmentsRequest, ): Promise<GetUserAssignmentsToPermissionSetResponse> {
             return localVarFp.getPermissionSetAssignments(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
+        getPermissionSetAssignmentsWithHttpInfo(requestParameters: PermissionSetsApiGetPermissionSetAssignmentsRequest, ): Promise<ApiResponse<GetUserAssignmentsToPermissionSetResponse>> {
+            return localVarFp.getPermissionSetAssignmentsWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns data about all permission sets.
          * @summary Get all permission sets
@@ -252,6 +293,9 @@ export const PermissionSetsApiFactory = function (configuration?: Configuration,
          */
         getPermissionSets(requestParameters: PermissionSetsApiGetPermissionSetsRequest = {}, ): Promise<GetPermissionSetsResponse> {
             return localVarFp.getPermissionSets(requestParameters.app, ).then((request) => request(axios, basePath));
+        },
+        getPermissionSetsWithHttpInfo(requestParameters: PermissionSetsApiGetPermissionSetsRequest = {}, ): Promise<ApiResponse<GetPermissionSetsResponse>> {
+            return localVarFp.getPermissionSetsWithHttpInfo(requestParameters.app, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -332,6 +376,18 @@ export class PermissionSetsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getPermissionSet`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PermissionSetsApiGetPermissionSetRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PermissionSetsApi
+     */
+    public getPermissionSetWithHttpInfo(requestParameters: PermissionSetsApiGetPermissionSetRequest, ) {
+        return PermissionSetsApiFp(this.configuration).getPermissionSetWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns the list of assignments for a permission set.
      * @summary List permission set assignments
      * @param {PermissionSetsApiGetPermissionSetAssignmentsRequest} requestParameters Request parameters.
@@ -344,6 +400,18 @@ export class PermissionSetsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getPermissionSetAssignments`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PermissionSetsApiGetPermissionSetAssignmentsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PermissionSetsApi
+     */
+    public getPermissionSetAssignmentsWithHttpInfo(requestParameters: PermissionSetsApiGetPermissionSetAssignmentsRequest, ) {
+        return PermissionSetsApiFp(this.configuration).getPermissionSetAssignmentsWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns data about all permission sets.
      * @summary Get all permission sets
      * @param {PermissionSetsApiGetPermissionSetsRequest} requestParameters Request parameters.
@@ -353,5 +421,17 @@ export class PermissionSetsApi extends BaseAPI {
      */
     public getPermissionSets(requestParameters: PermissionSetsApiGetPermissionSetsRequest = {}, ) {
         return PermissionSetsApiFp(this.configuration).getPermissionSets(requestParameters.app, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getPermissionSets`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {PermissionSetsApiGetPermissionSetsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof PermissionSetsApi
+     */
+    public getPermissionSetsWithHttpInfo(requestParameters: PermissionSetsApiGetPermissionSetsRequest = {}, ) {
+        return PermissionSetsApiFp(this.configuration).getPermissionSetsWithHttpInfo(requestParameters.app, ).then((request) => request(this.axios, this.basePath));
     }
 }

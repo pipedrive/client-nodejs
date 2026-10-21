@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddTeamRequest1 } from '../models';
 // @ts-ignore
@@ -427,6 +427,17 @@ export const LegacyTeamsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addTeam`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a new team
+         * @param {AddTeamRequest1} [AddTeamRequest1] 
+
+         * @throws {RequiredError}
+         */
+        async addTeamWithHttpInfo(AddTeamRequest1?: AddTeamRequest1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetTeamResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addTeam(AddTeamRequest1, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Adds users to an existing team.
          * @summary Add users to a team
          * @param {number} id The ID of the team
@@ -437,6 +448,18 @@ export const LegacyTeamsApiFp = function(configuration?: Configuration) {
         async addTeamUser(id: number, AddTeamUserRequest?: AddTeamUserRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UserIds>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addTeamUser(id, AddTeamUserRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `addTeamUser`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add users to a team
+         * @param {number} id The ID of the team
+         * @param {AddTeamUserRequest} [AddTeamUserRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addTeamUserWithHttpInfo(id: number, AddTeamUserRequest?: AddTeamUserRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UserIds>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addTeamUser(id, AddTeamUserRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Deletes users from an existing team.
@@ -451,6 +474,18 @@ export const LegacyTeamsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deleteTeamUser`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete users from a team
+         * @param {number} id The ID of the team
+         * @param {DeleteTeamUserRequest} [DeleteTeamUserRequest] 
+
+         * @throws {RequiredError}
+         */
+        async deleteTeamUserWithHttpInfo(id: number, DeleteTeamUserRequest?: DeleteTeamUserRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UserIds>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTeamUser(id, DeleteTeamUserRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns data about a specific team.
          * @summary Get a single team
          * @param {number} id The ID of the team
@@ -461,6 +496,18 @@ export const LegacyTeamsApiFp = function(configuration?: Configuration) {
         async getTeam(id: number, skip_users?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetTeamResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTeam(id, skip_users, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getTeam`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get a single team
+         * @param {number} id The ID of the team
+         * @param {0 | 1} [skip_users] When enabled, the teams will not include IDs of member users
+
+         * @throws {RequiredError}
+         */
+        async getTeamWithHttpInfo(id: number, skip_users?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetTeamResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTeam(id, skip_users, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns a list of all user IDs within a team.
@@ -474,6 +521,17 @@ export const LegacyTeamsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getTeamUsers`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all users in a team
+         * @param {number} id The ID of the team
+
+         * @throws {RequiredError}
+         */
+        async getTeamUsersWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UserIds>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTeamUsers(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns data about teams within the company.
          * @summary Get all teams
          * @param {'id' | 'name' | 'manager_id' | 'active_flag'} [order_by] The field name to sort returned teams by
@@ -484,6 +542,18 @@ export const LegacyTeamsApiFp = function(configuration?: Configuration) {
         async getTeams(order_by?: 'id' | 'name' | 'manager_id' | 'active_flag', skip_users?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetTeamsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTeams(order_by, skip_users, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getTeams`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all teams
+         * @param {'id' | 'name' | 'manager_id' | 'active_flag'} [order_by] The field name to sort returned teams by
+         * @param {0 | 1} [skip_users] When enabled, the teams will not include IDs of member users
+
+         * @throws {RequiredError}
+         */
+        async getTeamsWithHttpInfo(order_by?: 'id' | 'name' | 'manager_id' | 'active_flag', skip_users?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetTeamsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTeams(order_by, skip_users, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns data about all teams which have the specified user as a member.
@@ -499,6 +569,19 @@ export const LegacyTeamsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getUserTeams`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all teams of a user
+         * @param {number} id The ID of the user
+         * @param {'id' | 'name' | 'manager_id' | 'active_flag'} [order_by] The field name to sort returned teams by
+         * @param {0 | 1} [skip_users] When enabled, the teams will not include IDs of member users
+
+         * @throws {RequiredError}
+         */
+        async getUserTeamsWithHttpInfo(id: number, order_by?: 'id' | 'name' | 'manager_id' | 'active_flag', skip_users?: 0 | 1, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetTeamsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUserTeams(id, order_by, skip_users, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates an existing team and returns the updated object.
          * @summary Update a team
          * @param {number} id The ID of the team
@@ -509,6 +592,18 @@ export const LegacyTeamsApiFp = function(configuration?: Configuration) {
         async updateTeam(id: number, UpdateTeamRequest?: UpdateTeamRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetTeamResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateTeam(id, UpdateTeamRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateTeam`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update a team
+         * @param {number} id The ID of the team
+         * @param {UpdateTeamRequest} [UpdateTeamRequest] 
+
+         * @throws {RequiredError}
+         */
+        async updateTeamWithHttpInfo(id: number, UpdateTeamRequest?: UpdateTeamRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetTeamResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTeam(id, UpdateTeamRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -530,6 +625,9 @@ export const LegacyTeamsApiFactory = function (configuration?: Configuration, ba
         addTeam(requestParameters: LegacyTeamsApiAddTeamRequest = {}, ): Promise<GetTeamResponse> {
             return localVarFp.addTeam(requestParameters.AddTeamRequest1, ).then((request) => request(axios, basePath));
         },
+        addTeamWithHttpInfo(requestParameters: LegacyTeamsApiAddTeamRequest = {}, ): Promise<ApiResponse<GetTeamResponse>> {
+            return localVarFp.addTeamWithHttpInfo(requestParameters.AddTeamRequest1, ).then((request) => request(axios, basePath));
+        },
         /**
          * Adds users to an existing team.
          * @summary Add users to a team
@@ -539,6 +637,9 @@ export const LegacyTeamsApiFactory = function (configuration?: Configuration, ba
          */
         addTeamUser(requestParameters: LegacyTeamsApiAddTeamUserRequest, ): Promise<UserIds> {
             return localVarFp.addTeamUser(requestParameters.id, requestParameters.AddTeamUserRequest, ).then((request) => request(axios, basePath));
+        },
+        addTeamUserWithHttpInfo(requestParameters: LegacyTeamsApiAddTeamUserRequest, ): Promise<ApiResponse<UserIds>> {
+            return localVarFp.addTeamUserWithHttpInfo(requestParameters.id, requestParameters.AddTeamUserRequest, ).then((request) => request(axios, basePath));
         },
         /**
          * Deletes users from an existing team.
@@ -550,6 +651,9 @@ export const LegacyTeamsApiFactory = function (configuration?: Configuration, ba
         deleteTeamUser(requestParameters: LegacyTeamsApiDeleteTeamUserRequest, ): Promise<UserIds> {
             return localVarFp.deleteTeamUser(requestParameters.id, requestParameters.DeleteTeamUserRequest, ).then((request) => request(axios, basePath));
         },
+        deleteTeamUserWithHttpInfo(requestParameters: LegacyTeamsApiDeleteTeamUserRequest, ): Promise<ApiResponse<UserIds>> {
+            return localVarFp.deleteTeamUserWithHttpInfo(requestParameters.id, requestParameters.DeleteTeamUserRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns data about a specific team.
          * @summary Get a single team
@@ -559,6 +663,9 @@ export const LegacyTeamsApiFactory = function (configuration?: Configuration, ba
          */
         getTeam(requestParameters: LegacyTeamsApiGetTeamRequest, ): Promise<GetTeamResponse> {
             return localVarFp.getTeam(requestParameters.id, requestParameters.skip_users, ).then((request) => request(axios, basePath));
+        },
+        getTeamWithHttpInfo(requestParameters: LegacyTeamsApiGetTeamRequest, ): Promise<ApiResponse<GetTeamResponse>> {
+            return localVarFp.getTeamWithHttpInfo(requestParameters.id, requestParameters.skip_users, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns a list of all user IDs within a team.
@@ -570,6 +677,9 @@ export const LegacyTeamsApiFactory = function (configuration?: Configuration, ba
         getTeamUsers(requestParameters: LegacyTeamsApiGetTeamUsersRequest, ): Promise<UserIds> {
             return localVarFp.getTeamUsers(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getTeamUsersWithHttpInfo(requestParameters: LegacyTeamsApiGetTeamUsersRequest, ): Promise<ApiResponse<UserIds>> {
+            return localVarFp.getTeamUsersWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns data about teams within the company.
          * @summary Get all teams
@@ -579,6 +689,9 @@ export const LegacyTeamsApiFactory = function (configuration?: Configuration, ba
          */
         getTeams(requestParameters: LegacyTeamsApiGetTeamsRequest = {}, ): Promise<GetTeamsResponse> {
             return localVarFp.getTeams(requestParameters.order_by, requestParameters.skip_users, ).then((request) => request(axios, basePath));
+        },
+        getTeamsWithHttpInfo(requestParameters: LegacyTeamsApiGetTeamsRequest = {}, ): Promise<ApiResponse<GetTeamsResponse>> {
+            return localVarFp.getTeamsWithHttpInfo(requestParameters.order_by, requestParameters.skip_users, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns data about all teams which have the specified user as a member.
@@ -590,6 +703,9 @@ export const LegacyTeamsApiFactory = function (configuration?: Configuration, ba
         getUserTeams(requestParameters: LegacyTeamsApiGetUserTeamsRequest, ): Promise<GetTeamsResponse> {
             return localVarFp.getUserTeams(requestParameters.id, requestParameters.order_by, requestParameters.skip_users, ).then((request) => request(axios, basePath));
         },
+        getUserTeamsWithHttpInfo(requestParameters: LegacyTeamsApiGetUserTeamsRequest, ): Promise<ApiResponse<GetTeamsResponse>> {
+            return localVarFp.getUserTeamsWithHttpInfo(requestParameters.id, requestParameters.order_by, requestParameters.skip_users, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates an existing team and returns the updated object.
          * @summary Update a team
@@ -599,6 +715,9 @@ export const LegacyTeamsApiFactory = function (configuration?: Configuration, ba
          */
         updateTeam(requestParameters: LegacyTeamsApiUpdateTeamRequest, ): Promise<GetTeamResponse> {
             return localVarFp.updateTeam(requestParameters.id, requestParameters.UpdateTeamRequest, ).then((request) => request(axios, basePath));
+        },
+        updateTeamWithHttpInfo(requestParameters: LegacyTeamsApiUpdateTeamRequest, ): Promise<ApiResponse<GetTeamResponse>> {
+            return localVarFp.updateTeamWithHttpInfo(requestParameters.id, requestParameters.UpdateTeamRequest, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -784,6 +903,18 @@ export class LegacyTeamsApi extends BaseAPI {
     }
 
     /**
+     * Same as `addTeam`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {LegacyTeamsApiAddTeamRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof LegacyTeamsApi
+     */
+    public addTeamWithHttpInfo(requestParameters: LegacyTeamsApiAddTeamRequest = {}, ) {
+        return LegacyTeamsApiFp(this.configuration).addTeamWithHttpInfo(requestParameters.AddTeamRequest1, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Adds users to an existing team.
      * @summary Add users to a team
      * @param {LegacyTeamsApiAddTeamUserRequest} requestParameters Request parameters.
@@ -793,6 +924,18 @@ export class LegacyTeamsApi extends BaseAPI {
      */
     public addTeamUser(requestParameters: LegacyTeamsApiAddTeamUserRequest, ) {
         return LegacyTeamsApiFp(this.configuration).addTeamUser(requestParameters.id, requestParameters.AddTeamUserRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `addTeamUser`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {LegacyTeamsApiAddTeamUserRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof LegacyTeamsApi
+     */
+    public addTeamUserWithHttpInfo(requestParameters: LegacyTeamsApiAddTeamUserRequest, ) {
+        return LegacyTeamsApiFp(this.configuration).addTeamUserWithHttpInfo(requestParameters.id, requestParameters.AddTeamUserRequest, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -808,6 +951,18 @@ export class LegacyTeamsApi extends BaseAPI {
     }
 
     /**
+     * Same as `deleteTeamUser`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {LegacyTeamsApiDeleteTeamUserRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof LegacyTeamsApi
+     */
+    public deleteTeamUserWithHttpInfo(requestParameters: LegacyTeamsApiDeleteTeamUserRequest, ) {
+        return LegacyTeamsApiFp(this.configuration).deleteTeamUserWithHttpInfo(requestParameters.id, requestParameters.DeleteTeamUserRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns data about a specific team.
      * @summary Get a single team
      * @param {LegacyTeamsApiGetTeamRequest} requestParameters Request parameters.
@@ -817,6 +972,18 @@ export class LegacyTeamsApi extends BaseAPI {
      */
     public getTeam(requestParameters: LegacyTeamsApiGetTeamRequest, ) {
         return LegacyTeamsApiFp(this.configuration).getTeam(requestParameters.id, requestParameters.skip_users, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getTeam`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {LegacyTeamsApiGetTeamRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof LegacyTeamsApi
+     */
+    public getTeamWithHttpInfo(requestParameters: LegacyTeamsApiGetTeamRequest, ) {
+        return LegacyTeamsApiFp(this.configuration).getTeamWithHttpInfo(requestParameters.id, requestParameters.skip_users, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -832,6 +999,18 @@ export class LegacyTeamsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getTeamUsers`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {LegacyTeamsApiGetTeamUsersRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof LegacyTeamsApi
+     */
+    public getTeamUsersWithHttpInfo(requestParameters: LegacyTeamsApiGetTeamUsersRequest, ) {
+        return LegacyTeamsApiFp(this.configuration).getTeamUsersWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns data about teams within the company.
      * @summary Get all teams
      * @param {LegacyTeamsApiGetTeamsRequest} requestParameters Request parameters.
@@ -841,6 +1020,18 @@ export class LegacyTeamsApi extends BaseAPI {
      */
     public getTeams(requestParameters: LegacyTeamsApiGetTeamsRequest = {}, ) {
         return LegacyTeamsApiFp(this.configuration).getTeams(requestParameters.order_by, requestParameters.skip_users, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getTeams`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {LegacyTeamsApiGetTeamsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof LegacyTeamsApi
+     */
+    public getTeamsWithHttpInfo(requestParameters: LegacyTeamsApiGetTeamsRequest = {}, ) {
+        return LegacyTeamsApiFp(this.configuration).getTeamsWithHttpInfo(requestParameters.order_by, requestParameters.skip_users, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -856,6 +1047,18 @@ export class LegacyTeamsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getUserTeams`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {LegacyTeamsApiGetUserTeamsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof LegacyTeamsApi
+     */
+    public getUserTeamsWithHttpInfo(requestParameters: LegacyTeamsApiGetUserTeamsRequest, ) {
+        return LegacyTeamsApiFp(this.configuration).getUserTeamsWithHttpInfo(requestParameters.id, requestParameters.order_by, requestParameters.skip_users, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates an existing team and returns the updated object.
      * @summary Update a team
      * @param {LegacyTeamsApiUpdateTeamRequest} requestParameters Request parameters.
@@ -865,5 +1068,17 @@ export class LegacyTeamsApi extends BaseAPI {
      */
     public updateTeam(requestParameters: LegacyTeamsApiUpdateTeamRequest, ) {
         return LegacyTeamsApiFp(this.configuration).updateTeam(requestParameters.id, requestParameters.UpdateTeamRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateTeam`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {LegacyTeamsApiUpdateTeamRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof LegacyTeamsApi
+     */
+    public updateTeamWithHttpInfo(requestParameters: LegacyTeamsApiUpdateTeamRequest, ) {
+        return LegacyTeamsApiFp(this.configuration).updateTeamWithHttpInfo(requestParameters.id, requestParameters.UpdateTeamRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

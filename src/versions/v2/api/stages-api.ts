@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddStageRequest } from '../models';
 // @ts-ignore
@@ -290,6 +290,17 @@ export const StagesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addStage`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add a new stage
+         * @param {AddStageRequest} [AddStageRequest] 
+
+         * @throws {RequiredError}
+         */
+        async addStageWithHttpInfo(AddStageRequest?: AddStageRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertStageResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addStage(AddStageRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Marks a stage as deleted.
          * @summary Delete a stage
          * @param {number} id The ID of the stage
@@ -301,6 +312,17 @@ export const StagesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deleteStage`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete a stage
+         * @param {number} id The ID of the stage
+
+         * @throws {RequiredError}
+         */
+        async deleteStageWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteStageResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteStage(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns data about a specific stage.
          * @summary Get one stage
          * @param {number} id The ID of the stage
@@ -310,6 +332,17 @@ export const StagesApiFp = function(configuration?: Configuration) {
         async getStage(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertStageResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getStage(id, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getStage`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get one stage
+         * @param {number} id The ID of the stage
+
+         * @throws {RequiredError}
+         */
+        async getStageWithHttpInfo(id: number, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertStageResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getStage(id, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns data about all stages.
@@ -327,6 +360,21 @@ export const StagesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getStages`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all stages
+         * @param {number} [pipeline_id] The ID of the pipeline to fetch stages for. If omitted, stages for all pipelines will be fetched.
+         * @param {'id' | 'update_time' | 'add_time' | 'order_nr'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;, &#x60;order_nr&#x60;.
+         * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getStagesWithHttpInfo(pipeline_id?: number, sort_by?: 'id' | 'update_time' | 'add_time' | 'order_nr', sort_direction?: 'asc' | 'desc', limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetStagesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getStages(pipeline_id, sort_by, sort_direction, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates the properties of a stage.
          * @summary Update stage details
          * @param {number} id The ID of the stage
@@ -337,6 +385,18 @@ export const StagesApiFp = function(configuration?: Configuration) {
         async updateStage(id: number, UpdateStageRequest?: UpdateStageRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertStageResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateStage(id, UpdateStageRequest, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateStage`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update stage details
+         * @param {number} id The ID of the stage
+         * @param {UpdateStageRequest} [UpdateStageRequest] 
+
+         * @throws {RequiredError}
+         */
+        async updateStageWithHttpInfo(id: number, UpdateStageRequest?: UpdateStageRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertStageResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateStage(id, UpdateStageRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -358,6 +418,9 @@ export const StagesApiFactory = function (configuration?: Configuration, basePat
         addStage(requestParameters: StagesApiAddStageRequest = {}, ): Promise<UpsertStageResponse> {
             return localVarFp.addStage(requestParameters.AddStageRequest, ).then((request) => request(axios, basePath));
         },
+        addStageWithHttpInfo(requestParameters: StagesApiAddStageRequest = {}, ): Promise<ApiResponse<UpsertStageResponse>> {
+            return localVarFp.addStageWithHttpInfo(requestParameters.AddStageRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Marks a stage as deleted.
          * @summary Delete a stage
@@ -367,6 +430,9 @@ export const StagesApiFactory = function (configuration?: Configuration, basePat
          */
         deleteStage(requestParameters: StagesApiDeleteStageRequest, ): Promise<DeleteStageResponse> {
             return localVarFp.deleteStage(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
+        deleteStageWithHttpInfo(requestParameters: StagesApiDeleteStageRequest, ): Promise<ApiResponse<DeleteStageResponse>> {
+            return localVarFp.deleteStageWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns data about a specific stage.
@@ -378,6 +444,9 @@ export const StagesApiFactory = function (configuration?: Configuration, basePat
         getStage(requestParameters: StagesApiGetStageRequest, ): Promise<UpsertStageResponse> {
             return localVarFp.getStage(requestParameters.id, ).then((request) => request(axios, basePath));
         },
+        getStageWithHttpInfo(requestParameters: StagesApiGetStageRequest, ): Promise<ApiResponse<UpsertStageResponse>> {
+            return localVarFp.getStageWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns data about all stages.
          * @summary Get all stages
@@ -388,6 +457,9 @@ export const StagesApiFactory = function (configuration?: Configuration, basePat
         getStages(requestParameters: StagesApiGetStagesRequest = {}, ): Promise<GetStagesResponse> {
             return localVarFp.getStages(requestParameters.pipeline_id, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
+        getStagesWithHttpInfo(requestParameters: StagesApiGetStagesRequest = {}, ): Promise<ApiResponse<GetStagesResponse>> {
+            return localVarFp.getStagesWithHttpInfo(requestParameters.pipeline_id, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates the properties of a stage.
          * @summary Update stage details
@@ -397,6 +469,9 @@ export const StagesApiFactory = function (configuration?: Configuration, basePat
          */
         updateStage(requestParameters: StagesApiUpdateStageRequest, ): Promise<UpsertStageResponse> {
             return localVarFp.updateStage(requestParameters.id, requestParameters.UpdateStageRequest, ).then((request) => request(axios, basePath));
+        },
+        updateStageWithHttpInfo(requestParameters: StagesApiUpdateStageRequest, ): Promise<ApiResponse<UpsertStageResponse>> {
+            return localVarFp.updateStageWithHttpInfo(requestParameters.id, requestParameters.UpdateStageRequest, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -526,6 +601,18 @@ export class StagesApi extends BaseAPI {
     }
 
     /**
+     * Same as `addStage`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {StagesApiAddStageRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof StagesApi
+     */
+    public addStageWithHttpInfo(requestParameters: StagesApiAddStageRequest = {}, ) {
+        return StagesApiFp(this.configuration).addStageWithHttpInfo(requestParameters.AddStageRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Marks a stage as deleted.
      * @summary Delete a stage
      * @param {StagesApiDeleteStageRequest} requestParameters Request parameters.
@@ -535,6 +622,18 @@ export class StagesApi extends BaseAPI {
      */
     public deleteStage(requestParameters: StagesApiDeleteStageRequest, ) {
         return StagesApiFp(this.configuration).deleteStage(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteStage`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {StagesApiDeleteStageRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof StagesApi
+     */
+    public deleteStageWithHttpInfo(requestParameters: StagesApiDeleteStageRequest, ) {
+        return StagesApiFp(this.configuration).deleteStageWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -550,6 +649,18 @@ export class StagesApi extends BaseAPI {
     }
 
     /**
+     * Same as `getStage`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {StagesApiGetStageRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof StagesApi
+     */
+    public getStageWithHttpInfo(requestParameters: StagesApiGetStageRequest, ) {
+        return StagesApiFp(this.configuration).getStageWithHttpInfo(requestParameters.id, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns data about all stages.
      * @summary Get all stages
      * @param {StagesApiGetStagesRequest} requestParameters Request parameters.
@@ -562,6 +673,18 @@ export class StagesApi extends BaseAPI {
     }
 
     /**
+     * Same as `getStages`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {StagesApiGetStagesRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof StagesApi
+     */
+    public getStagesWithHttpInfo(requestParameters: StagesApiGetStagesRequest = {}, ) {
+        return StagesApiFp(this.configuration).getStagesWithHttpInfo(requestParameters.pipeline_id, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates the properties of a stage.
      * @summary Update stage details
      * @param {StagesApiUpdateStageRequest} requestParameters Request parameters.
@@ -571,5 +694,17 @@ export class StagesApi extends BaseAPI {
      */
     public updateStage(requestParameters: StagesApiUpdateStageRequest, ) {
         return StagesApiFp(this.configuration).updateStage(requestParameters.id, requestParameters.UpdateStageRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateStage`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {StagesApiUpdateStageRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof StagesApi
+     */
+    public updateStageWithHttpInfo(requestParameters: StagesApiUpdateStageRequest, ) {
+        return StagesApiFp(this.configuration).updateStageWithHttpInfo(requestParameters.id, requestParameters.UpdateStageRequest, ).then((request) => request(this.axios, this.basePath));
     }
 }

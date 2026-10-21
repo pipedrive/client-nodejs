@@ -20,7 +20,7 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ApiResponse } from '../base';
 // @ts-ignore
 import { AddDealField200Response } from '../models';
 // @ts-ignore
@@ -438,6 +438,17 @@ export const DealFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addDealField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Create one deal field
+         * @param {AddDealFieldRequest} AddDealFieldRequest 
+
+         * @throws {RequiredError}
+         */
+        async addDealFieldWithHttpInfo(AddDealFieldRequest: AddDealFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddDealField200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addDealField(AddDealFieldRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Adds new options to a deal custom field that supports options (enum or set field types). This operation is atomic - all options are added or none are added. Returns only the newly added options.
          * @summary Add deal field options in bulk
          * @param {string} field_code The unique code identifying the field
@@ -450,6 +461,18 @@ export const DealFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `addDealFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Add deal field options in bulk
+         * @param {string} field_code The unique code identifying the field
+         * @param {Array<AddDealFieldOptionsRequestInner>} AddDealFieldOptionsRequestInner 
+
+         * @throws {RequiredError}
+         */
+        async addDealFieldOptionsWithHttpInfo(field_code: string, AddDealFieldOptionsRequestInner: Array<AddDealFieldOptionsRequestInner>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddDealFieldOptions200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addDealFieldOptions(field_code, AddDealFieldOptionsRequestInner, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Marks a custom field as deleted.
          * @summary Delete one deal field
          * @param {string} field_code The unique code identifying the field
@@ -459,6 +482,17 @@ export const DealFieldsApiFp = function(configuration?: Configuration) {
         async deleteDealField(field_code: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<DeleteDealField200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDealField(field_code, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `deleteDealField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete one deal field
+         * @param {string} field_code The unique code identifying the field
+
+         * @throws {RequiredError}
+         */
+        async deleteDealFieldWithHttpInfo(field_code: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<DeleteDealField200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDealField(field_code, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Removes existing options from a deal custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the deleted options.
@@ -473,6 +507,18 @@ export const DealFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `deleteDealFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Delete deal field options in bulk
+         * @param {string} field_code The unique code identifying the field
+         * @param {Array<DeleteDealFieldOptionsRequestInner>} DeleteDealFieldOptionsRequestInner 
+
+         * @throws {RequiredError}
+         */
+        async deleteDealFieldOptionsWithHttpInfo(field_code: string, DeleteDealFieldOptionsRequestInner: Array<DeleteDealFieldOptionsRequestInner>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddDealFieldOptions200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDealFieldOptions(field_code, DeleteDealFieldOptionsRequestInner, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Returns metadata about a specific deal field.
          * @summary Get one deal field
          * @param {string} field_code The unique code identifying the field
@@ -483,6 +529,18 @@ export const DealFieldsApiFp = function(configuration?: Configuration) {
         async getDealField(field_code: string, include_fields?: Set<'ui_visibility' | 'important_fields' | 'required_fields'>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddDealField200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDealField(field_code, include_fields, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `getDealField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get one deal field
+         * @param {string} field_code The unique code identifying the field
+         * @param {Set<'ui_visibility' | 'important_fields' | 'required_fields'>} [include_fields] Optional comma separated string array of additional data namespaces to include in response
+
+         * @throws {RequiredError}
+         */
+        async getDealFieldWithHttpInfo(field_code: string, include_fields?: Set<'ui_visibility' | 'important_fields' | 'required_fields'>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddDealField200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealField(field_code, include_fields, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns metadata about all deal fields in the company.
@@ -498,6 +556,19 @@ export const DealFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `getDealFields`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Get all deal fields
+         * @param {Set<'ui_visibility' | 'important_fields' | 'required_fields'>} [include_fields] Optional comma separated string array of additional data namespaces to include in response
+         * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
+         * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
+
+         * @throws {RequiredError}
+         */
+        async getDealFieldsWithHttpInfo(include_fields?: Set<'ui_visibility' | 'important_fields' | 'required_fields'>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetDealFields200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDealFields(include_fields, limit, cursor, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates a deal custom field. The field_code and field_type cannot be changed. At least one field must be provided in the request body.
          * @summary Update one deal field
          * @param {string} field_code The unique code identifying the field
@@ -510,6 +581,18 @@ export const DealFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Same as `updateDealField`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update one deal field
+         * @param {string} field_code The unique code identifying the field
+         * @param {UpdateDealFieldRequest} UpdateDealFieldRequest 
+
+         * @throws {RequiredError}
+         */
+        async updateDealFieldWithHttpInfo(field_code: string, UpdateDealFieldRequest: UpdateDealFieldRequest, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddDealField200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateDealField(field_code, UpdateDealFieldRequest, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
+        },
+        /**
          * Updates existing options for a deal custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the updated options.
          * @summary Update deal field options in bulk
          * @param {string} field_code The unique code identifying the field
@@ -520,6 +603,18 @@ export const DealFieldsApiFp = function(configuration?: Configuration) {
         async updateDealFieldOptions(field_code: string, UpdateDealFieldOptionsRequestInner: Array<UpdateDealFieldOptionsRequestInner>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AddDealFieldOptions200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateDealFieldOptions(field_code, UpdateDealFieldOptionsRequestInner, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Same as `updateDealFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+         * @summary Update deal field options in bulk
+         * @param {string} field_code The unique code identifying the field
+         * @param {Array<UpdateDealFieldOptionsRequestInner>} UpdateDealFieldOptionsRequestInner 
+
+         * @throws {RequiredError}
+         */
+        async updateDealFieldOptionsWithHttpInfo(field_code: string, UpdateDealFieldOptionsRequestInner: Array<UpdateDealFieldOptionsRequestInner>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<AddDealFieldOptions200Response>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateDealFieldOptions(field_code, UpdateDealFieldOptionsRequestInner, );
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
     }
 };
@@ -541,6 +636,9 @@ export const DealFieldsApiFactory = function (configuration?: Configuration, bas
         addDealField(requestParameters: DealFieldsApiAddDealFieldRequest, ): Promise<AddDealField200Response> {
             return localVarFp.addDealField(requestParameters.AddDealFieldRequest, ).then((request) => request(axios, basePath));
         },
+        addDealFieldWithHttpInfo(requestParameters: DealFieldsApiAddDealFieldRequest, ): Promise<ApiResponse<AddDealField200Response>> {
+            return localVarFp.addDealFieldWithHttpInfo(requestParameters.AddDealFieldRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Adds new options to a deal custom field that supports options (enum or set field types). This operation is atomic - all options are added or none are added. Returns only the newly added options.
          * @summary Add deal field options in bulk
@@ -550,6 +648,9 @@ export const DealFieldsApiFactory = function (configuration?: Configuration, bas
          */
         addDealFieldOptions(requestParameters: DealFieldsApiAddDealFieldOptionsRequest, ): Promise<AddDealFieldOptions200Response> {
             return localVarFp.addDealFieldOptions(requestParameters.field_code, requestParameters.AddDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
+        },
+        addDealFieldOptionsWithHttpInfo(requestParameters: DealFieldsApiAddDealFieldOptionsRequest, ): Promise<ApiResponse<AddDealFieldOptions200Response>> {
+            return localVarFp.addDealFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.AddDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
         },
         /**
          * Marks a custom field as deleted.
@@ -561,6 +662,9 @@ export const DealFieldsApiFactory = function (configuration?: Configuration, bas
         deleteDealField(requestParameters: DealFieldsApiDeleteDealFieldRequest, ): Promise<DeleteDealField200Response> {
             return localVarFp.deleteDealField(requestParameters.field_code, ).then((request) => request(axios, basePath));
         },
+        deleteDealFieldWithHttpInfo(requestParameters: DealFieldsApiDeleteDealFieldRequest, ): Promise<ApiResponse<DeleteDealField200Response>> {
+            return localVarFp.deleteDealFieldWithHttpInfo(requestParameters.field_code, ).then((request) => request(axios, basePath));
+        },
         /**
          * Removes existing options from a deal custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the deleted options.
          * @summary Delete deal field options in bulk
@@ -570,6 +674,9 @@ export const DealFieldsApiFactory = function (configuration?: Configuration, bas
          */
         deleteDealFieldOptions(requestParameters: DealFieldsApiDeleteDealFieldOptionsRequest, ): Promise<AddDealFieldOptions200Response> {
             return localVarFp.deleteDealFieldOptions(requestParameters.field_code, requestParameters.DeleteDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
+        },
+        deleteDealFieldOptionsWithHttpInfo(requestParameters: DealFieldsApiDeleteDealFieldOptionsRequest, ): Promise<ApiResponse<AddDealFieldOptions200Response>> {
+            return localVarFp.deleteDealFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.DeleteDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns metadata about a specific deal field.
@@ -581,6 +688,9 @@ export const DealFieldsApiFactory = function (configuration?: Configuration, bas
         getDealField(requestParameters: DealFieldsApiGetDealFieldRequest, ): Promise<AddDealField200Response> {
             return localVarFp.getDealField(requestParameters.field_code, requestParameters.include_fields, ).then((request) => request(axios, basePath));
         },
+        getDealFieldWithHttpInfo(requestParameters: DealFieldsApiGetDealFieldRequest, ): Promise<ApiResponse<AddDealField200Response>> {
+            return localVarFp.getDealFieldWithHttpInfo(requestParameters.field_code, requestParameters.include_fields, ).then((request) => request(axios, basePath));
+        },
         /**
          * Returns metadata about all deal fields in the company.
          * @summary Get all deal fields
@@ -590,6 +700,9 @@ export const DealFieldsApiFactory = function (configuration?: Configuration, bas
          */
         getDealFields(requestParameters: DealFieldsApiGetDealFieldsRequest = {}, ): Promise<GetDealFields200Response> {
             return localVarFp.getDealFields(requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+        },
+        getDealFieldsWithHttpInfo(requestParameters: DealFieldsApiGetDealFieldsRequest = {}, ): Promise<ApiResponse<GetDealFields200Response>> {
+            return localVarFp.getDealFieldsWithHttpInfo(requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
          * Updates a deal custom field. The field_code and field_type cannot be changed. At least one field must be provided in the request body.
@@ -601,6 +714,9 @@ export const DealFieldsApiFactory = function (configuration?: Configuration, bas
         updateDealField(requestParameters: DealFieldsApiUpdateDealFieldRequest, ): Promise<AddDealField200Response> {
             return localVarFp.updateDealField(requestParameters.field_code, requestParameters.UpdateDealFieldRequest, ).then((request) => request(axios, basePath));
         },
+        updateDealFieldWithHttpInfo(requestParameters: DealFieldsApiUpdateDealFieldRequest, ): Promise<ApiResponse<AddDealField200Response>> {
+            return localVarFp.updateDealFieldWithHttpInfo(requestParameters.field_code, requestParameters.UpdateDealFieldRequest, ).then((request) => request(axios, basePath));
+        },
         /**
          * Updates existing options for a deal custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the updated options.
          * @summary Update deal field options in bulk
@@ -610,6 +726,9 @@ export const DealFieldsApiFactory = function (configuration?: Configuration, bas
          */
         updateDealFieldOptions(requestParameters: DealFieldsApiUpdateDealFieldOptionsRequest, ): Promise<AddDealFieldOptions200Response> {
             return localVarFp.updateDealFieldOptions(requestParameters.field_code, requestParameters.UpdateDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
+        },
+        updateDealFieldOptionsWithHttpInfo(requestParameters: DealFieldsApiUpdateDealFieldOptionsRequest, ): Promise<ApiResponse<AddDealFieldOptions200Response>> {
+            return localVarFp.updateDealFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.UpdateDealFieldOptionsRequestInner, ).then((request) => request(axios, basePath));
         },
     };
 };
@@ -795,6 +914,18 @@ export class DealFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `addDealField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealFieldsApiAddDealFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealFieldsApi
+     */
+    public addDealFieldWithHttpInfo(requestParameters: DealFieldsApiAddDealFieldRequest, ) {
+        return DealFieldsApiFp(this.configuration).addDealFieldWithHttpInfo(requestParameters.AddDealFieldRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Adds new options to a deal custom field that supports options (enum or set field types). This operation is atomic - all options are added or none are added. Returns only the newly added options.
      * @summary Add deal field options in bulk
      * @param {DealFieldsApiAddDealFieldOptionsRequest} requestParameters Request parameters.
@@ -804,6 +935,18 @@ export class DealFieldsApi extends BaseAPI {
      */
     public addDealFieldOptions(requestParameters: DealFieldsApiAddDealFieldOptionsRequest, ) {
         return DealFieldsApiFp(this.configuration).addDealFieldOptions(requestParameters.field_code, requestParameters.AddDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `addDealFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealFieldsApiAddDealFieldOptionsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealFieldsApi
+     */
+    public addDealFieldOptionsWithHttpInfo(requestParameters: DealFieldsApiAddDealFieldOptionsRequest, ) {
+        return DealFieldsApiFp(this.configuration).addDealFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.AddDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -819,6 +962,18 @@ export class DealFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `deleteDealField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealFieldsApiDeleteDealFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealFieldsApi
+     */
+    public deleteDealFieldWithHttpInfo(requestParameters: DealFieldsApiDeleteDealFieldRequest, ) {
+        return DealFieldsApiFp(this.configuration).deleteDealFieldWithHttpInfo(requestParameters.field_code, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Removes existing options from a deal custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the deleted options.
      * @summary Delete deal field options in bulk
      * @param {DealFieldsApiDeleteDealFieldOptionsRequest} requestParameters Request parameters.
@@ -828,6 +983,18 @@ export class DealFieldsApi extends BaseAPI {
      */
     public deleteDealFieldOptions(requestParameters: DealFieldsApiDeleteDealFieldOptionsRequest, ) {
         return DealFieldsApiFp(this.configuration).deleteDealFieldOptions(requestParameters.field_code, requestParameters.DeleteDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `deleteDealFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealFieldsApiDeleteDealFieldOptionsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealFieldsApi
+     */
+    public deleteDealFieldOptionsWithHttpInfo(requestParameters: DealFieldsApiDeleteDealFieldOptionsRequest, ) {
+        return DealFieldsApiFp(this.configuration).deleteDealFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.DeleteDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -843,6 +1010,18 @@ export class DealFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `getDealField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealFieldsApiGetDealFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealFieldsApi
+     */
+    public getDealFieldWithHttpInfo(requestParameters: DealFieldsApiGetDealFieldRequest, ) {
+        return DealFieldsApiFp(this.configuration).getDealFieldWithHttpInfo(requestParameters.field_code, requestParameters.include_fields, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns metadata about all deal fields in the company.
      * @summary Get all deal fields
      * @param {DealFieldsApiGetDealFieldsRequest} requestParameters Request parameters.
@@ -852,6 +1031,18 @@ export class DealFieldsApi extends BaseAPI {
      */
     public getDealFields(requestParameters: DealFieldsApiGetDealFieldsRequest = {}, ) {
         return DealFieldsApiFp(this.configuration).getDealFields(requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `getDealFields`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealFieldsApiGetDealFieldsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealFieldsApi
+     */
+    public getDealFieldsWithHttpInfo(requestParameters: DealFieldsApiGetDealFieldsRequest = {}, ) {
+        return DealFieldsApiFp(this.configuration).getDealFieldsWithHttpInfo(requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -867,6 +1058,18 @@ export class DealFieldsApi extends BaseAPI {
     }
 
     /**
+     * Same as `updateDealField`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealFieldsApiUpdateDealFieldRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealFieldsApi
+     */
+    public updateDealFieldWithHttpInfo(requestParameters: DealFieldsApiUpdateDealFieldRequest, ) {
+        return DealFieldsApiFp(this.configuration).updateDealFieldWithHttpInfo(requestParameters.field_code, requestParameters.UpdateDealFieldRequest, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates existing options for a deal custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the updated options.
      * @summary Update deal field options in bulk
      * @param {DealFieldsApiUpdateDealFieldOptionsRequest} requestParameters Request parameters.
@@ -876,5 +1079,17 @@ export class DealFieldsApi extends BaseAPI {
      */
     public updateDealFieldOptions(requestParameters: DealFieldsApiUpdateDealFieldOptionsRequest, ) {
         return DealFieldsApiFp(this.configuration).updateDealFieldOptions(requestParameters.field_code, requestParameters.UpdateDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Same as `updateDealFieldOptions`, but resolves with the response body together with the HTTP status and headers.
+     * Error rejections keep their usual shape and additionally carry `$response: { status, headers }`.
+     * @param {DealFieldsApiUpdateDealFieldOptionsRequest} requestParameters Request parameters.
+
+     * @throws {RequiredError}
+     * @memberof DealFieldsApi
+     */
+    public updateDealFieldOptionsWithHttpInfo(requestParameters: DealFieldsApiUpdateDealFieldOptionsRequest, ) {
+        return DealFieldsApiFp(this.configuration).updateDealFieldOptionsWithHttpInfo(requestParameters.field_code, requestParameters.UpdateDealFieldOptionsRequestInner, ).then((request) => request(this.axios, this.basePath));
     }
 }
