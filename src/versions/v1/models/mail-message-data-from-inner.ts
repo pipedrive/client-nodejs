@@ -39,12 +39,12 @@ export interface MailMessageDataFromInner {
     * ID of the linked person to the mail message
     * @type {number}
     */
-    'linked_person_id'?: number;
+    'linked_person_id'?: number | null;
     /**
     * Name of the linked person to the mail message
     * @type {string}
     */
-    'linked_person_name'?: string;
+    'linked_person_name'?: string | null;
     /**
     * ID of the mail message participant
     * @type {number}
