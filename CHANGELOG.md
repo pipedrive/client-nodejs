@@ -7,6 +7,11 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Fixed
+- Defined the properties of the `prices` array items in product variations (`price`, `cost`, `currency`, `direct_cost`, `notes`, plus `product_variation_id` in responses), which were previously an untyped object:
+  - Responses: `GET /api/v2/products/{id}/variations`, `POST /api/v2/products/{id}/variations`, `PATCH /api/v2/products/{id}/variations/{product_variation_id}`
+  - Request bodies: `POST /api/v2/products/{id}/variations`, `PATCH /api/v2/products/{id}/variations/{product_variation_id}` (`price` and `currency` are required)
+- Changed the type of `archived_flag` from `number` to `integer` (still nullable, `0` or `1`) in `GET /v1/mailbox/mailThreads`, `GET /v1/mailbox/mailThreads/{id}` and `PUT /v1/mailbox/mailThreads/{id}` responses
 
 ## [36.1.0] - 2026-10-21
 ### Added

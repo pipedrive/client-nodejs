@@ -49,12 +49,12 @@ export interface MailThreadAllOf1PartiesToInner {
     * ID of the linked person
     * @type {number}
     */
-    'linked_person_id'?: number;
+    'linked_person_id'?: number | null;
     /**
-    * Email of the linked person
+    * Name of the linked person
     * @type {string}
     */
-    'linked_person_name'?: string;
+    'linked_person_name'?: string | null;
     /**
     * ID of the mail message party
     * @type {number}
