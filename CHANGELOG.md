@@ -7,6 +7,9 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Added
+- Added optional `channel` and `channel_id` fields to the request bodies of `POST /api/v2/deals` and `PATCH /api/v2/deals/{id}`
+- Added optional `origin_id` field to the request body of `POST /api/v2/deals`
 
 ## [36.1.0] - 2026-10-21
 ### Added
