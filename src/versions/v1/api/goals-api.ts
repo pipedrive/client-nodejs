@@ -127,10 +127,11 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {string} id The ID of the goal that the results are looked for
          * @param {string} period_start The start date of the period for which to find the goal\&#39;s progress. Format: YYYY-MM-DD. This date must be the same or after the goal duration start date. 
          * @param {string} period_end The end date of the period for which to find the goal\&#39;s progress. Format: YYYY-MM-DD. This date must be the same or before the goal duration end date. 
+         * @param {string} [timezone] The IANA timezone to use when evaluating period boundaries (e.g. &#x60;America/Sao_Paulo&#x60;). The start and end of the period are interpreted in this timezone. If omitted, defaults to the timezone of the user making the request. 
 
          * @throws {RequiredError}
          */
-        getGoalResult: async (id: string, period_start: string, period_end: string, ): Promise<RequestArgs> => {
+        getGoalResult: async (id: string, period_start: string, period_end: string, timezone?: string, ): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getGoalResult', 'id', id)
             // verify required parameter 'period_start' is not null or undefined
@@ -167,6 +168,10 @@ export const GoalsApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['period.end'] = (period_end as any instanceof Date) ?
                     (period_end as any).toISOString().substr(0,10) :
                     period_end;
+            }
+
+            if (timezone !== undefined) {
+                localVarQueryParameter['timezone'] = timezone;
             }
 
 
@@ -392,11 +397,12 @@ export const GoalsApiFp = function(configuration?: Configuration) {
          * @param {string} id The ID of the goal that the results are looked for
          * @param {string} period_start The start date of the period for which to find the goal\&#39;s progress. Format: YYYY-MM-DD. This date must be the same or after the goal duration start date. 
          * @param {string} period_end The end date of the period for which to find the goal\&#39;s progress. Format: YYYY-MM-DD. This date must be the same or before the goal duration end date. 
+         * @param {string} [timezone] The IANA timezone to use when evaluating period boundaries (e.g. &#x60;America/Sao_Paulo&#x60;). The start and end of the period are interpreted in this timezone. If omitted, defaults to the timezone of the user making the request. 
 
          * @throws {RequiredError}
          */
-        async getGoalResult(id: string, period_start: string, period_end: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetGoalResultResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getGoalResult(id, period_start, period_end, );
+        async getGoalResult(id: string, period_start: string, period_end: string, timezone?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetGoalResultResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getGoalResult(id, period_start, period_end, timezone, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -405,11 +411,12 @@ export const GoalsApiFp = function(configuration?: Configuration) {
          * @param {string} id The ID of the goal that the results are looked for
          * @param {string} period_start The start date of the period for which to find the goal\&#39;s progress. Format: YYYY-MM-DD. This date must be the same or after the goal duration start date. 
          * @param {string} period_end The end date of the period for which to find the goal\&#39;s progress. Format: YYYY-MM-DD. This date must be the same or before the goal duration end date. 
+         * @param {string} [timezone] The IANA timezone to use when evaluating period boundaries (e.g. &#x60;America/Sao_Paulo&#x60;). The start and end of the period are interpreted in this timezone. If omitted, defaults to the timezone of the user making the request. 
 
          * @throws {RequiredError}
          */
-        async getGoalResultWithHttpInfo(id: string, period_start: string, period_end: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetGoalResultResponse>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getGoalResult(id, period_start, period_end, );
+        async getGoalResultWithHttpInfo(id: string, period_start: string, period_end: string, timezone?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetGoalResultResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getGoalResult(id, period_start, period_end, timezone, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
@@ -526,10 +533,10 @@ export const GoalsApiFactory = function (configuration?: Configuration, basePath
          * @throws {RequiredError}
          */
         getGoalResult(requestParameters: GoalsApiGetGoalResultRequest, ): Promise<GetGoalResultResponse> {
-            return localVarFp.getGoalResult(requestParameters.id, requestParameters.period_start, requestParameters.period_end, ).then((request) => request(axios, basePath));
+            return localVarFp.getGoalResult(requestParameters.id, requestParameters.period_start, requestParameters.period_end, requestParameters.timezone, ).then((request) => request(axios, basePath));
         },
         getGoalResultWithHttpInfo(requestParameters: GoalsApiGetGoalResultRequest, ): Promise<ApiResponse<GetGoalResultResponse>> {
-            return localVarFp.getGoalResultWithHttpInfo(requestParameters.id, requestParameters.period_start, requestParameters.period_end, ).then((request) => request(axios, basePath));
+            return localVarFp.getGoalResultWithHttpInfo(requestParameters.id, requestParameters.period_start, requestParameters.period_end, requestParameters.timezone, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns data about goals based on criteria. For searching, append `{searchField}={searchValue}` to the URL, where `searchField` can be any one of the lowest-level fields in dot-notation (e.g. `type.params.pipeline_id`; `title`). `searchValue` should be the value you are looking for on that field. Additionally, `is_active=<true|false>` can be provided to search for only active/inactive goals. When providing `period.start`, `period.end` must also be provided and vice versa.
@@ -614,6 +621,13 @@ export interface GoalsApiGetGoalResultRequest {
      * @memberof GoalsApiGetGoalResult
      */
     readonly period_end: string
+
+    /**
+     * The IANA timezone to use when evaluating period boundaries (e.g. &#x60;America/Sao_Paulo&#x60;). The start and end of the period are interpreted in this timezone. If omitted, defaults to the timezone of the user making the request. 
+     * @type {string}
+     * @memberof GoalsApiGetGoalResult
+     */
+    readonly timezone?: string
 }
 
 /**
@@ -799,7 +813,7 @@ export class GoalsApi extends BaseAPI {
      * @memberof GoalsApi
      */
     public getGoalResult(requestParameters: GoalsApiGetGoalResultRequest, ) {
-        return GoalsApiFp(this.configuration).getGoalResult(requestParameters.id, requestParameters.period_start, requestParameters.period_end, ).then((request) => request(this.axios, this.basePath));
+        return GoalsApiFp(this.configuration).getGoalResult(requestParameters.id, requestParameters.period_start, requestParameters.period_end, requestParameters.timezone, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -811,7 +825,7 @@ export class GoalsApi extends BaseAPI {
      * @memberof GoalsApi
      */
     public getGoalResultWithHttpInfo(requestParameters: GoalsApiGetGoalResultRequest, ) {
-        return GoalsApiFp(this.configuration).getGoalResultWithHttpInfo(requestParameters.id, requestParameters.period_start, requestParameters.period_end, ).then((request) => request(this.axios, this.basePath));
+        return GoalsApiFp(this.configuration).getGoalResultWithHttpInfo(requestParameters.id, requestParameters.period_start, requestParameters.period_end, requestParameters.timezone, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**

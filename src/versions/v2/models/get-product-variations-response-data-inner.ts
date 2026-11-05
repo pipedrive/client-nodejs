@@ -13,6 +13,9 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { ProductVariationPrice } from './product-variation-price';
 
 /**
 * 
@@ -36,9 +39,9 @@ export interface GetProductVariationsResponseDataInner {
     */
     'product_id'?: number;
     /**
-    * Array of objects, each containing: product_variation_id (number), currency (string), price (number), cost (number), direct_cost (number) , notes (string)
-    * @type {Array<object>}
+    * Array of prices of the product variation
+    * @type {Array<ProductVariationPrice>}
     */
-    'prices'?: Array<object>;
+    'prices'?: Array<ProductVariationPrice>;
 }
 

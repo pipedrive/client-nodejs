@@ -102,7 +102,7 @@ export interface MailMessageData {
     * If the mail message has a draft status then the value is the mail message object as JSON formatted string, otherwise `null`.
     * @type {string}
     */
-    'draft'?: string;
+    'draft'?: string | null;
     /**
     * 
     * @type {number}

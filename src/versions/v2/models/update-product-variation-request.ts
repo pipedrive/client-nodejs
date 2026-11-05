@@ -13,6 +13,9 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { ProductVariationPriceRequest } from './product-variation-price-request';
 
 /**
 * 
@@ -26,9 +29,9 @@ export interface UpdateProductVariationRequest {
     */
     'name'?: string;
     /**
-    * Array of objects, each containing: currency (string), price (number), cost (number, optional), direct_cost (number, optional), notes (string, optional). When prices is omitted altogether, a default price of 0, a default cost of 0, a default direct_cost of 0 and the user\'s default currency will be assigned.
-    * @type {Array<object>}
+    * Array of prices of the product variation. When prices is omitted altogether, a default price of 0, a default cost of 0, a default direct_cost of 0 and the user\'s default currency will be assigned.
+    * @type {Array<ProductVariationPriceRequest>}
     */
-    'prices'?: Array<object>;
+    'prices'?: Array<ProductVariationPriceRequest>;
 }
 
