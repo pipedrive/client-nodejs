@@ -61,11 +61,6 @@ export interface AddDealRequest {
     */
     'currency'?: string;
     /**
-    * Whether the deal is deleted or not
-    * @type {boolean}
-    */
-    'is_deleted'?: boolean;
-    /**
     * Whether the deal is archived or not
     * @type {boolean}
     */

@@ -61,7 +61,7 @@ export interface UpdateDealRequest {
     */
     'currency'?: string;
     /**
-    * Whether the deal is deleted or not
+    * Only used to restore a previously deleted deal. The only accepted value is `false`; omit the field otherwise.
     * @type {boolean}
     */
     'is_deleted'?: boolean;

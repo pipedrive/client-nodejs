@@ -8,6 +8,12 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [36.3.1] - 2026-11-06
+### Fixed
+- Corrected the `is_deleted` field in the request body of `PATCH /api/v2/deals/{id}`: it is only used to restore a deleted deal and accepts only `false`
+- Removed the `is_deleted` field from the request body of `POST /api/v2/deals`, as it is not applicable when creating a deal
+- Documented the maximum length of 100 characters for the `term` query parameter in the search endpoints: `/api/v2/deals/search`, `/api/v2/persons/search`, `/api/v2/organizations/search`, `/api/v2/products/search`, `/api/v2/leads/search`, `/api/v2/projects/search`, `/api/v2/itemSearch`, `/api/v2/itemSearch/field`
+
 ## [36.3.0] - 2026-11-06
 ### Added
 - Added optional `channel` and `channel_id` fields to the request bodies of `POST /api/v2/deals` and `PATCH /api/v2/deals/{id}`
@@ -1428,7 +1434,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v36.3.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v36.3.1...HEAD
+[36.3.1]: https://github.com/pipedrive/api-docs/compare/v36.3.0...v36.3.1
 [36.3.0]: https://github.com/pipedrive/api-docs/compare/v36.2.0...v36.3.0
 [36.2.0]: https://github.com/pipedrive/api-docs/compare/v36.1.2...v36.2.0
 [36.1.2]: https://github.com/pipedrive/api-docs/compare/v36.1.1...v36.1.2
