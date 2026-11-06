@@ -12,6 +12,31 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 - Removed the `is_deleted` field from the request body of `POST /api/v2/deals`, as it is not applicable when creating a deal
 - Documented the maximum length of 100 characters for the `term` query parameter in the search endpoints: `/api/v2/deals/search`, `/api/v2/persons/search`, `/api/v2/organizations/search`, `/api/v2/products/search`, `/api/v2/leads/search`, `/api/v2/projects/search`, `/api/v2/itemSearch`, `/api/v2/itemSearch/field`
 
+## [36.3.0] - 2026-11-06
+### Added
+- Added optional `channel` and `channel_id` fields to the request bodies of `POST /api/v2/deals` and `PATCH /api/v2/deals/{id}`
+- Added optional `origin_id` field to the request body of `POST /api/v2/deals`
+
+## [36.2.0] - 2026-11-06
+### Added
+- Added optional `timezone` parameter to `GET /v1/goals/{id}/results`. Accepts an IANA timezone name (e.g. `America/Sao_Paulo`). Defaults to the timezone of the requesting user. Period boundaries are now evaluated in the specified timezone instead of UTC, making results consistent with the Insights UI.
+
+## [36.1.2] - 2026-11-06
+### Fixed
+- Defined the properties of the `prices` array items in product variations (`price`, `cost`, `currency`, `direct_cost`, `notes`, plus `product_variation_id` in responses), which were previously an untyped object:
+  - Responses: `GET /api/v2/products/{id}/variations`, `POST /api/v2/products/{id}/variations`, `PATCH /api/v2/products/{id}/variations/{product_variation_id}`
+  - Request bodies: `POST /api/v2/products/{id}/variations`, `PATCH /api/v2/products/{id}/variations/{product_variation_id}` (`price` and `currency` are required)
+- Changed the type of `archived_flag` from `number` to `integer` (still nullable, `0` or `1`) in `GET /v1/mailbox/mailThreads`, `GET /v1/mailbox/mailThreads/{id}` and `PUT /v1/mailbox/mailThreads/{id}` responses
+
+## [36.1.1] - 2026-11-06
+### Fixed
+- Marked fields that can be `null` as `nullable: true` in Mailbox endpoints:
+  - `draft`, `from[].linked_person_id`, `from[].linked_person_name` (and the same for `to`, `cc`, `bcc`) in `GET /v1/mailbox/mailMessages/{id}`
+  - `template_id`, plus the same `draft` and participant `linked_person_id` / `linked_person_name` fields, in `GET /v1/deals/{id}/mailMessages`, `GET /v1/persons/{id}/mailMessages` and `GET /v1/organizations/{id}/mailMessages`
+  - `snippet_sent`, `last_message_received_timestamp`, `archived_flag`, `drafts_parties`, `parties.to[].linked_person_id` and `parties.to[].linked_person_name` (and the same for `parties.from`) in `GET /v1/mailbox/mailThreads`, `GET /v1/mailbox/mailThreads/{id}` and `PUT /v1/mailbox/mailThreads/{id}`
+  - `from[].linked_person_id` and `from[].linked_person_name` (and the same for `to`, `cc`, `bcc`) in `GET /v1/mailbox/mailThreads/{id}/mailMessages`
+  - `deal_id` and `lead_id` in the `PUT /v1/mailbox/mailThreads/{id}` request body, where `null` unlinks the deal or lead
+
 ## [36.1.0] - 2026-10-21
 ### Added
 - Every API method now has a `WithHttpInfo` variant (e.g. `getDealWithHttpInfo`) that resolves with `{ data, status, headers }`, so the HTTP status and response headers, such as rate limit headers, can be read. The existing methods are unchanged and still return only the response body.
@@ -1407,7 +1432,11 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v36.1.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v36.3.0...HEAD
+[36.3.0]: https://github.com/pipedrive/api-docs/compare/v36.2.0...v36.3.0
+[36.2.0]: https://github.com/pipedrive/api-docs/compare/v36.1.2...v36.2.0
+[36.1.2]: https://github.com/pipedrive/api-docs/compare/v36.1.1...v36.1.2
+[36.1.1]: https://github.com/pipedrive/api-docs/compare/v36.1.0...v36.1.1
 [36.1.0]: https://github.com/pipedrive/api-docs/compare/v36.0.1...v36.1.0
 [36.0.1]: https://github.com/pipedrive/api-docs/compare/v36.0.0...v36.0.1
 [36.0.0]: https://github.com/pipedrive/api-docs/compare/v35.1.2...v36.0.0
