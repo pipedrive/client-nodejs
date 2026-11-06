@@ -7,6 +7,10 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Fixed
+- Corrected the `is_deleted` field in the request body of `PATCH /api/v2/deals/{id}`: it is only used to restore a deleted deal and accepts only `false`
+- Removed the `is_deleted` field from the request body of `POST /api/v2/deals`, as it is not applicable when creating a deal
+- Documented the maximum length of 100 characters for the `term` query parameter in the search endpoints: `/api/v2/deals/search`, `/api/v2/persons/search`, `/api/v2/organizations/search`, `/api/v2/products/search`, `/api/v2/leads/search`, `/api/v2/projects/search`, `/api/v2/itemSearch`, `/api/v2/itemSearch/field`
 
 ## [36.1.0] - 2026-10-21
 ### Added
