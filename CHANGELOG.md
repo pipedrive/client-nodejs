@@ -8,6 +8,15 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [36.1.1] - 2026-11-06
+### Fixed
+- Marked fields that can be `null` as `nullable: true` in Mailbox endpoints:
+  - `draft`, `from[].linked_person_id`, `from[].linked_person_name` (and the same for `to`, `cc`, `bcc`) in `GET /v1/mailbox/mailMessages/{id}`
+  - `template_id`, plus the same `draft` and participant `linked_person_id` / `linked_person_name` fields, in `GET /v1/deals/{id}/mailMessages`, `GET /v1/persons/{id}/mailMessages` and `GET /v1/organizations/{id}/mailMessages`
+  - `snippet_sent`, `last_message_received_timestamp`, `archived_flag`, `drafts_parties`, `parties.to[].linked_person_id` and `parties.to[].linked_person_name` (and the same for `parties.from`) in `GET /v1/mailbox/mailThreads`, `GET /v1/mailbox/mailThreads/{id}` and `PUT /v1/mailbox/mailThreads/{id}`
+  - `from[].linked_person_id` and `from[].linked_person_name` (and the same for `to`, `cc`, `bcc`) in `GET /v1/mailbox/mailThreads/{id}/mailMessages`
+  - `deal_id` and `lead_id` in the `PUT /v1/mailbox/mailThreads/{id}` request body, where `null` unlinks the deal or lead
+
 ## [36.1.0] - 2026-10-21
 ### Added
 - Every API method now has a `WithHttpInfo` variant (e.g. `getDealWithHttpInfo`) that resolves with `{ data, status, headers }`, so the HTTP status and response headers, such as rate limit headers, can be read. The existing methods are unchanged and still return only the response body.
@@ -1403,7 +1412,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v36.1.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v36.1.1...HEAD
+[36.1.1]: https://github.com/pipedrive/api-docs/compare/v36.1.0...v36.1.1
 [36.1.0]: https://github.com/pipedrive/api-docs/compare/v36.0.1...v36.1.0
 [36.0.1]: https://github.com/pipedrive/api-docs/compare/v36.0.0...v36.0.1
 [36.0.0]: https://github.com/pipedrive/api-docs/compare/v35.1.2...v36.0.0
