@@ -8,6 +8,11 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [36.3.0] - 2026-11-06
+### Added
+- Added optional `channel` and `channel_id` fields to the request bodies of `POST /api/v2/deals` and `PATCH /api/v2/deals/{id}`
+- Added optional `origin_id` field to the request body of `POST /api/v2/deals`
+
 ## [36.2.0] - 2026-11-06
 ### Added
 - Added optional `timezone` parameter to `GET /v1/goals/{id}/results`. Accepts an IANA timezone name (e.g. `America/Sao_Paulo`). Defaults to the timezone of the requesting user. Period boundaries are now evaluated in the specified timezone instead of UTC, making results consistent with the Insights UI.
@@ -1423,7 +1428,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v36.2.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v36.3.0...HEAD
+[36.3.0]: https://github.com/pipedrive/api-docs/compare/v36.2.0...v36.3.0
 [36.2.0]: https://github.com/pipedrive/api-docs/compare/v36.1.2...v36.2.0
 [36.1.2]: https://github.com/pipedrive/api-docs/compare/v36.1.1...v36.1.2
 [36.1.1]: https://github.com/pipedrive/api-docs/compare/v36.1.0...v36.1.1

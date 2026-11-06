@@ -121,6 +121,16 @@ export interface UpdateDealRequest {
     */
     'label_ids'?: Array<number>;
     /**
+    * The ID of Marketing channel this deal was created from. Provided value must be one of the channels configured for your company. You can fetch allowed values with <a href=\"https://developers.pipedrive.com/docs/api/v1/DealFields#getDealField\" target=\"_blank\" rel=\"noopener noreferrer\">GET /v1/dealFields</a>.
+    * @type {number}
+    */
+    'channel'?: number | null;
+    /**
+    * The optional ID to further distinguish the Marketing channel.
+    * @type {string}
+    */
+    'channel_id'?: string | null;
+    /**
     * An object where each key represents a custom field. All custom fields are referenced as randomly generated 40-character hashes. To clear a custom field value, set it to `null`. For multi-option fields (field type `set`), use `null` to clear the selection — sending an empty array `[]` is not supported and will result in a validation error.
     * @type {{ [key: string]: any | undefined; }}
     */
