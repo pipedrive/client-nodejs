@@ -128,9 +128,35 @@ export interface Person {
     */
     'job_title'?: string;
     /**
+    * The email open tracking consent of the person, included if the company has the Email tracking consent setting enabled
+    * @type {string}
+    */
+    'track_open'?: PersonTrackOpenConst;
+    /**
+    * The email link click tracking consent of the person, included if the company has the Email tracking consent setting enabled
+    * @type {string}
+    */
+    'track_click'?: PersonTrackClickConst;
+    /**
     * An object where each key represents a custom field. All custom fields are referenced as randomly generated 40-character hashes. To clear a custom field value, set it to `null`. For multi-option fields (field type `set`), use `null` to clear the selection — sending an empty array `[]` is not supported and will result in a validation error.
     * @type {{ [key: string]: any | undefined; }}
     */
     'custom_fields'?: { [key: string]: any | undefined; };
 }
+
+                export const PersonTrackOpenConst = {
+                        no_preference_set: 'no_preference_set',
+                        consent_given: 'consent_given',
+                        consent_declined: 'consent_declined'
+                } as const;
+
+                export type PersonTrackOpenConst = typeof PersonTrackOpenConst[keyof typeof PersonTrackOpenConst];
+                export const PersonTrackClickConst = {
+                        no_preference_set: 'no_preference_set',
+                        consent_given: 'consent_given',
+                        consent_declined: 'consent_declined'
+                } as const;
+
+                export type PersonTrackClickConst = typeof PersonTrackClickConst[keyof typeof PersonTrackClickConst];
+
 

@@ -52,7 +52,7 @@ export interface OrganizationRelationshipWithCalculatedFieldsAllOf {
     * The last updated date and time of the relationship
     * @type {string}
     */
-    'update_time'?: string;
+    'update_time'?: string | null;
     /**
     * Whether the relationship is active or not
     * @type {string}
