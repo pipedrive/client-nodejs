@@ -3,7 +3,7 @@ name: On Pipedrive Bot PR opened
 # Auto-releases SDK release PRs ("Build N - version-X") opened by the api-docs bot.
 # Only the oldest open bot release PR is processed. If it is conflict-free, the
 # `npm-ready-for-publish` label is added with a GitHub App token so that
-# `cicd_npm-publish.yml` is triggered. If it has merge conflicts, a Slack alert is sent instead.
+# `cicd_npm-publish.yml` is triggered.
 
 on:
   pull_request:
@@ -23,7 +23,6 @@ permissions:
 env:
   BOT_LOGIN: pipedrive-github-actions-bot[bot]
   READY_LABEL: npm-ready-for-publish
-  SLACK_CHANNEL_ID: C03VBUTCHHU
 
 jobs:
   on_pr_opened:
@@ -51,7 +50,6 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           REPO: ${{ github.repository }}
-          EVENT_NAME: ${{ github.event_name }}
           EVENT_ACTION: ${{ github.event.action }}
           EVENT_PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
@@ -72,12 +70,6 @@ jobs:
             echo "PR #${EVENT_PR_NUMBER} waits in queue behind #${oldest}."
           fi
 
-          # Alert only when the event is about the oldest PR itself, or the queue moved (closed / manual run)
-          notify=false
-          if [ "${EVENT_NAME}" = "workflow_dispatch" ] || [ "${EVENT_ACTION}" = "closed" ] || [ "${EVENT_PR_NUMBER}" = "${oldest}" ]; then
-            notify=true
-          fi
-
           # GitHub computes mergeability asynchronously, poll while it is null
           mergeable=null
           for attempt in $(seq 1 12); do
@@ -96,11 +88,6 @@ jobs:
           {
             echo "number=${oldest}"
             echo "head_sha=$(jq -r '.head.sha' <<< "${pr}")"
-            echo "url=$(jq -r '.html_url' <<< "${pr}")"
-            echo "title<<EOF_TITLE"
-            jq -r '.title' <<< "${pr}"
-            echo "EOF_TITLE"
-            echo "notify=${notify}"
           } >> "$GITHUB_OUTPUT"
 
           echo "PR #${oldest}: mergeable=${mergeable}, mergeable_state=${mergeable_state}, ${READY_LABEL}=${has_ready_label}"
@@ -117,16 +104,6 @@ jobs:
             echo "::error::Could not determine mergeability of PR #${oldest}, re-run the workflow later."
             exit 1
           fi
-
-      - name: Notify Slack about merge conflicts
-        if: steps.queue.outputs.action == 'conflict' && steps.queue.outputs.notify == 'true'
-        uses: slackapi/slack-github-action@v2
-        with:
-          method: chat.postMessage
-          token: ${{ secrets.SLACK_BOT_TOKEN }}
-          payload: |
-            channel: ${{ env.SLACK_CHANNEL_ID }}
-            text: ${{ toJSON(format(':warning: client-nodejs SDK release PR has merge conflicts and was not released automatically: <{0}|#{1} {2}>. Please resolve the conflicts (usually in CHANGELOG.md) and push to the PR branch.', steps.queue.outputs.url, steps.queue.outputs.number, steps.queue.outputs.title)) }}
 
       - name: Checkout PR #${{ steps.queue.outputs.number }}
         if: steps.queue.outputs.action == 'release'
