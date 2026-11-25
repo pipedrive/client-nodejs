@@ -35,6 +35,22 @@ export interface Parameters {
 
 export type ParamKey = keyof Parameters;
 
+export type CodeChallengeMethod = 'S256' | 'plain';
+
+export interface AuthorizationUrlParameters {
+  /** Opaque value returned unchanged to the redirect URI. Use it to protect against CSRF. */
+  state?: string;
+  /** PKCE code challenge derived from the code verifier. See `OAuth2Configuration.generatePkce()`. */
+  codeChallenge?: string;
+  /** PKCE code challenge method. Sent only when `codeChallenge` is set. Defaults to `S256`. */
+  codeChallengeMethod?: CodeChallengeMethod;
+}
+
+export type PkcePair = {
+  codeVerifier: string;
+  codeChallenge: string;
+}
+
 export class OAuth2Configuration {
   public host: string;
   public clientId: string;
@@ -68,6 +84,50 @@ export class OAuth2Configuration {
     }&redirect_uri=${encodeURIComponent(this.redirectUri)}`;
   }
 
+  /**
+   * Builds the URL of the authorization page, optionally with `state` and PKCE parameters.
+   * @param {AuthorizationUrlParameters} params Optional `state`, `codeChallenge` and `codeChallengeMethod`.
+   * @returns {String} The authorization page URL.
+   */
+  public getAuthorizationUrl(params: AuthorizationUrlParameters = {}): string {
+    const { state, codeChallenge, codeChallengeMethod = 'S256' } = params;
+    const query: Record<string, string> = {
+      client_id: this.clientId,
+      redirect_uri: this.redirectUri,
+      response_type: 'code',
+    };
+
+    if (state) {
+      query.state = state;
+    }
+
+    if (codeChallenge) {
+      query.code_challenge = codeChallenge;
+      query.code_challenge_method = codeChallengeMethod;
+    }
+
+    return `${this.host}/oauth/authorize?${stringify(query)}`;
+  }
+
+  /**
+   * Generates a PKCE code verifier and its S256 code challenge (RFC 7636).
+   * Send `codeChallenge` with `getAuthorizationUrl()`, keep `codeVerifier` and pass it to `authorize()`.
+   * @returns {Promise<PkcePair>} The code verifier and code challenge, both base64url encoded.
+   */
+  public static async generatePkce(): Promise<PkcePair> {
+    const webCrypto = globalThis.crypto;
+
+    if (!webCrypto?.subtle) {
+      throw new Error("PKCE generation requires the Web Crypto API (globalThis.crypto).");
+    }
+
+    const codeVerifier = Buffer.from(webCrypto.getRandomValues(new Uint8Array(32))).toString("base64url");
+    const digest = await webCrypto.subtle.digest("SHA-256", new TextEncoder().encode(codeVerifier));
+    const codeChallenge = Buffer.from(digest).toString("base64url");
+
+    return { codeVerifier, codeChallenge };
+  }
+
   public getAccessToken = async (): Promise<string> => {
     if (this.shouldRefreshToken()) {
       const newToken = await this.tokenRefresh();
@@ -86,9 +146,10 @@ export class OAuth2Configuration {
   /**
    * Authorizes the authorization code sent by the server and returns OAuth 2 token.
    * @param {String} code The authorization code sent by the OAuth server.
+   * @param {String} codeVerifier The PKCE code verifier. Required if a code challenge was sent to the authorization page.
    * @returns {Object} The OAuth 2 token.
    */
-  public authorize = async (code: string): Promise<TokenResponse> => {
+  public authorize = async (code: string, codeVerifier?: string): Promise<TokenResponse> => {
     if (!code) {
       throw new Error("Authorization failed. Authorization code is not set.");
     }
@@ -105,6 +166,7 @@ export class OAuth2Configuration {
                 code,
                 redirect_uri: this.redirectUri,
                 grant_type: "authorization_code",
+                ...(codeVerifier ? { code_verifier: codeVerifier } : {}),
             }),
             {
             headers: {

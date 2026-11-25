@@ -8,6 +8,13 @@ For public Changelog covering all changes done to Pipedrive’s API, webhooks an
 
 ## [Unreleased]
 
+## [37.0.0] - 2026-11-25
+### Added
+- Documented new `track_open` and `track_click` fields on the Person object (enum: `no_preference_set`, `consent_given`, `consent_declined`). They are returned and accepted only if the company has the "Email tracking consent" setting enabled.
+### Changed
+- Updated v2 Persons endpoints to include the new fields: `GET /api/v2/persons`, `GET /api/v2/persons/{id}`, `POST /api/v2/persons` and `PATCH /api/v2/persons/{id}`. The `include_fields` query parameter now also accepts `track_open` and `track_click`.
+- Added `email_tracking_preference_change` to the possible values of the `items` query parameter of `GET /v1/persons/{id}/flow` and `GET /v1/deals/{id}/flow`, and updated the description of `GET /v1/personFields` (`getPersonFields`) to mention the new fields.
+
 ## [36.4.0] - 2026-11-25
 ### Added
 - Documented new `track_open` and `track_click` fields on the Person object (enum: `no_preference_set`, `consent_given`, `consent_declined`). They are returned and accepted only if the company has the "Email tracking consent" setting enabled.
@@ -1441,7 +1448,8 @@ Those fields will be formatted as "2020-07-13" instead of "2020-07-13T00:00:00.0
 * Fixed `GET /goal/:id/results` error handling in case when there are no existing stages connected to specified goal
 * Fixed typo in lead example response (`crrency` to `currency`)
 
-[Unreleased]: https://github.com/pipedrive/api-docs/compare/v36.4.0...HEAD
+[Unreleased]: https://github.com/pipedrive/api-docs/compare/v37.0.0...HEAD
+[37.0.0]: https://github.com/pipedrive/api-docs/compare/v36.4.0...v37.0.0
 [36.4.0]: https://github.com/pipedrive/api-docs/compare/v36.3.1...v36.4.0
 [36.3.1]: https://github.com/pipedrive/api-docs/compare/v36.3.0...v36.3.1
 [36.3.0]: https://github.com/pipedrive/api-docs/compare/v36.2.0...v36.3.0
