@@ -24,56 +24,56 @@ export interface OrganizationCountAndAddressInfoAllOf1 {
     * The full address of the organization
     * @type {string}
     */
-    'address'?: string;
+    'address'?: string | null;
     /**
     * The sub-premise of the organization location
     * @type {string}
     */
-    'address_subpremise'?: string;
+    'address_subpremise'?: string | null;
     /**
     * The street number of the organization location
     * @type {string}
     */
-    'address_street_number'?: string;
+    'address_street_number'?: string | null;
     /**
     * The route of the organization location
     * @type {string}
     */
-    'address_route'?: string;
+    'address_route'?: string | null;
     /**
     * The sub-locality of the organization location
     * @type {string}
     */
-    'address_sublocality'?: string;
+    'address_sublocality'?: string | null;
     /**
     * The locality of the organization location
     * @type {string}
     */
-    'address_locality'?: string;
+    'address_locality'?: string | null;
     /**
     * The level 1 admin area of the organization location
     * @type {string}
     */
-    'address_admin_area_level_1'?: string;
+    'address_admin_area_level_1'?: string | null;
     /**
     * The level 2 admin area of the organization location
     * @type {string}
     */
-    'address_admin_area_level_2'?: string;
+    'address_admin_area_level_2'?: string | null;
     /**
     * The country of the organization location
     * @type {string}
     */
-    'address_country'?: string;
+    'address_country'?: string | null;
     /**
     * The postal code of the organization location
     * @type {string}
     */
-    'address_postal_code'?: string;
+    'address_postal_code'?: string | null;
     /**
     * The formatted organization location
     * @type {string}
     */
-    'address_formatted_address'?: string;
+    'address_formatted_address'?: string | null;
 }
 

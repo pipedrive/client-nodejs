@@ -103,6 +103,16 @@ export interface AddPersonRequest {
     */
     'marketing_status'?: AddPersonRequestMarketingStatusConst;
     /**
+    * The email open tracking consent of the person. Only accepted if the company has the Email tracking consent setting enabled.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`no_preference_set`</td><td>The person has not set a preference</td></tr><tr><td>`consent_given`</td><td>The person has given consent</td></tr><tr><td>`consent_declined`</td><td>The person has declined consent</td></tr></table>
+    * @type {string}
+    */
+    'track_open'?: AddPersonRequestTrackOpenConst;
+    /**
+    * The email link click tracking consent of the person. Only accepted if the company has the Email tracking consent setting enabled.<table><tr><th>Value</th><th>Description</th></tr><tr><td>`no_preference_set`</td><td>The person has not set a preference</td></tr><tr><td>`consent_given`</td><td>The person has given consent</td></tr><tr><td>`consent_declined`</td><td>The person has declined consent</td></tr></table>
+    * @type {string}
+    */
+    'track_click'?: AddPersonRequestTrackClickConst;
+    /**
     * An object where each key represents a custom field. All custom fields are referenced as randomly generated 40-character hashes. To clear a custom field value, set it to `null`. For multi-option fields (field type `set`), use `null` to clear the selection — sending an empty array `[]` is not supported and will result in a validation error.
     * @type {{ [key: string]: any | undefined; }}
     */
@@ -117,5 +127,19 @@ export interface AddPersonRequest {
                 } as const;
 
                 export type AddPersonRequestMarketingStatusConst = typeof AddPersonRequestMarketingStatusConst[keyof typeof AddPersonRequestMarketingStatusConst];
+                export const AddPersonRequestTrackOpenConst = {
+                        no_preference_set: 'no_preference_set',
+                        consent_given: 'consent_given',
+                        consent_declined: 'consent_declined'
+                } as const;
+
+                export type AddPersonRequestTrackOpenConst = typeof AddPersonRequestTrackOpenConst[keyof typeof AddPersonRequestTrackOpenConst];
+                export const AddPersonRequestTrackClickConst = {
+                        no_preference_set: 'no_preference_set',
+                        consent_given: 'consent_given',
+                        consent_declined: 'consent_declined'
+                } as const;
+
+                export type AddPersonRequestTrackClickConst = typeof AddPersonRequestTrackClickConst[keyof typeof AddPersonRequestTrackClickConst];
 
 
