@@ -1,50 +1,169 @@
 name: On Pipedrive Bot PR opened
 
+# Auto-releases SDK release PRs ("Build N - version-X") opened by the api-docs bot.
+# Only the oldest open bot release PR is processed. If it is conflict-free, the
+# `npm-ready-for-publish` label is added with a GitHub App token so that
+# `cicd_npm-publish.yml` is triggered. If it has merge conflicts, a Slack alert is sent instead.
+
 on:
   pull_request:
-    types: [labeled]
+    types: [labeled, synchronize, reopened, closed]
     branches:
       - master
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  pull-requests: read
+
+env:
+  BOT_LOGIN: pipedrive-github-actions-bot[bot]
+  READY_LABEL: npm-ready-for-publish
+  SLACK_CHANNEL_ID: C03VBUTCHHU
 
 jobs:
   on_pr_opened:
     if: |
-      github.actor == 'pipedrive-bot' &&
-      !contains(github.event.pull_request.labels.*.name, 'npm-ready-for-publish') && (
-         contains(github.event.pull_request.labels.*.name, 'npm-version-patch') ||
-         contains(github.event.pull_request.labels.*.name, 'npm-version-minor') ||
-         contains(github.event.pull_request.labels.*.name, 'npm-version-major')
+      github.event_name == 'workflow_dispatch' || (
+        github.event.pull_request.user.login == 'pipedrive-github-actions-bot[bot]' && (
+          github.event.action == 'closed' || (
+            !contains(github.event.pull_request.labels.*.name, 'npm-ready-for-publish') && (
+              contains(github.event.pull_request.labels.*.name, 'npm-version-patch') ||
+              contains(github.event.pull_request.labels.*.name, 'npm-version-minor') ||
+              contains(github.event.pull_request.labels.*.name, 'npm-version-major')
+            ) && (
+              github.event.action != 'labeled' ||
+              startsWith(github.event.label.name, 'npm-version-')
+            )
+          )
+        )
       )
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
-      - name: Checkout ${{ github.repository }} current branch "${{ github.head_ref }}"
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          ref: ${{ github.head_ref }}
-          persist-credentials: false
-
-      - name: Read .nvmrc
-        run: echo ::set-output name=NVMRC::$(cat .nvmrc)
-        id: nvm
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '${{ steps.nvm.outputs.NVMRC }}'
-
-      - uses: actions/cache@v4
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-
-      - run: npm install
-
-      - run: npx changelog-updater --check
-
-      - name: Approve PR and add publish label
+      - name: Find oldest bot release PR and check merge conflicts
+        id: queue
         shell: bash
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_ACTION: ${{ github.event.action }}
+          EVENT_PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
-          gh pr review ${{ github.event.number }} --approve --body "Approved by automation"
-          gh pr edit ${{ github.event.number }} --add-label "npm-ready-for-publish"
+          set -euo pipefail
+
+          oldest=$(gh api --paginate "repos/${REPO}/pulls?state=open&base=master&per_page=100" \
+            --jq ".[] | select(.user.login == \"${BOT_LOGIN}\") | select(any(.labels[].name; startswith(\"npm-version-\"))) | .number" \
+            | sort -n | head -n 1)
+
+          if [ -z "${oldest}" ]; then
+            echo "No open bot release PRs, nothing to do."
+            echo "action=none" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "Oldest open bot release PR: #${oldest}"
+          if [ -n "${EVENT_PR_NUMBER}" ] && [ "${EVENT_ACTION}" != "closed" ] && [ "${EVENT_PR_NUMBER}" != "${oldest}" ]; then
+            echo "PR #${EVENT_PR_NUMBER} waits in queue behind #${oldest}."
+          fi
+
+          # Alert only when the event is about the oldest PR itself, or the queue moved (closed / manual run)
+          notify=false
+          if [ "${EVENT_NAME}" = "workflow_dispatch" ] || [ "${EVENT_ACTION}" = "closed" ] || [ "${EVENT_PR_NUMBER}" = "${oldest}" ]; then
+            notify=true
+          fi
+
+          # GitHub computes mergeability asynchronously, poll while it is null
+          mergeable=null
+          for attempt in $(seq 1 12); do
+            pr=$(gh api "repos/${REPO}/pulls/${oldest}")
+            mergeable=$(jq -r '.mergeable' <<< "${pr}")
+            if [ "${mergeable}" != "null" ]; then
+              break
+            fi
+            echo "Mergeability of #${oldest} not computed yet (attempt ${attempt}), waiting..."
+            sleep 10
+          done
+
+          mergeable_state=$(jq -r '.mergeable_state' <<< "${pr}")
+          has_ready_label=$(jq -r --arg label "${READY_LABEL}" 'any(.labels[].name; . == $label)' <<< "${pr}")
+
+          {
+            echo "number=${oldest}"
+            echo "head_sha=$(jq -r '.head.sha' <<< "${pr}")"
+            echo "url=$(jq -r '.html_url' <<< "${pr}")"
+            echo "title<<EOF_TITLE"
+            jq -r '.title' <<< "${pr}"
+            echo "EOF_TITLE"
+            echo "notify=${notify}"
+          } >> "$GITHUB_OUTPUT"
+
+          echo "PR #${oldest}: mergeable=${mergeable}, mergeable_state=${mergeable_state}, ${READY_LABEL}=${has_ready_label}"
+
+          if [ "${has_ready_label}" = "true" ]; then
+            echo "PR #${oldest} already has ${READY_LABEL}, publishing is in progress."
+            echo "action=none" >> "$GITHUB_OUTPUT"
+          elif [ "${mergeable}" = "false" ] || [ "${mergeable_state}" = "dirty" ]; then
+            echo "::warning::PR #${oldest} has merge conflicts, it will not be released automatically."
+            echo "action=conflict" >> "$GITHUB_OUTPUT"
+          elif [ "${mergeable}" = "true" ]; then
+            echo "action=release" >> "$GITHUB_OUTPUT"
+          else
+            echo "::error::Could not determine mergeability of PR #${oldest}, re-run the workflow later."
+            exit 1
+          fi
+
+      - name: Notify Slack about merge conflicts
+        if: steps.queue.outputs.action == 'conflict' && steps.queue.outputs.notify == 'true'
+        uses: slackapi/slack-github-action@v2
+        with:
+          method: chat.postMessage
+          token: ${{ secrets.SLACK_BOT_TOKEN }}
+          payload: |
+            channel: ${{ env.SLACK_CHANNEL_ID }}
+            text: ${{ toJSON(format(':warning: client-nodejs SDK release PR has merge conflicts and was not released automatically: <{0}|#{1} {2}>. Please resolve the conflicts (usually in CHANGELOG.md) and push to the PR branch.', steps.queue.outputs.url, steps.queue.outputs.number, steps.queue.outputs.title)) }}
+
+      - name: Checkout PR #${{ steps.queue.outputs.number }}
+        if: steps.queue.outputs.action == 'release'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ steps.queue.outputs.head_sha }}
+          persist-credentials: false
+
+      - uses: actions/setup-node@v4
+        if: steps.queue.outputs.action == 'release'
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - if: steps.queue.outputs.action == 'release'
+        run: npm ci --ignore-scripts
+
+      - if: steps.queue.outputs.action == 'release'
+        run: npx changelog-updater --check
+
+      - name: Get Pipedrive GitHub Actions Bot Token
+        if: steps.queue.outputs.action == 'release'
+        uses: actions/create-github-app-token@v3
+        id: app-token
+        with:
+          client-id: ${{ vars.PD_PUBLIC_GHA_BOT_CLIENT_ID }}
+          private-key: ${{ secrets.PD_PUBLIC_GHA_BOT_APPLICATION_PRIVATE_KEY_PEM }}
+          owner: ${{ github.repository_owner }}
+          repositories: ${{ github.event.repository.name }}
+
+      # Label must be added with an App token: events created with GITHUB_TOKEN do not trigger cicd_npm-publish.yml
+      - name: Add publish label
+        if: steps.queue.outputs.action == 'release'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ steps.queue.outputs.number }}
+        run: gh pr edit "${PR_NUMBER}" --repo "${REPO}" --add-label "${READY_LABEL}"
