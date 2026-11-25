@@ -104,6 +104,22 @@ To obtain user's consent, you must redirect the user to the authorization page. 
 const authUrl = oauth2.authorizationUrl;
 ```
 
+To add a `state` value (recommended, to protect against CSRF) or PKCE parameters, use `getAuthorizationUrl()` instead. See [Using PKCE](#using-pkce).
+
+```typescript
+import { randomUUID } from 'crypto';
+
+// generate an unpredictable state per login and keep it until the user comes back
+const state = randomUUID();
+req.session.oauthState = state;
+const authUrl = oauth2.getAuthorizationUrl({ state });
+
+// in the redirect URI handler, reject the callback unless the state matches
+if (!req.session.oauthState || req.query.state !== req.session.oauthState) {
+  throw new Error('Invalid OAuth state');
+}
+```
+
 #### 2. Handle the OAuth server response
 
 Once the user responds to the consent request, the OAuth 2.0 server responds to your application's access request by using the URL specified in the request.
@@ -129,6 +145,34 @@ const token = await oauth2.authorize(code);
 ```
 
 The Node.js SDK supports only promises. So, the authorize call returns a promise.
+
+### Using PKCE
+
+PKCE ([RFC 7636](https://datatracker.ietf.org/doc/html/rfc7636)) protects the authorization code from being used by anyone other than the app that requested it. PKCE is optional unless your app requires it, and then the `S256` method must be used.
+
+1. Generate a code verifier and its code challenge, and keep the verifier (for example, in the user's session) until the user comes back to your redirect URI.
+2. Send the code challenge to the authorization page.
+3. Send the code verifier when you exchange the authorization code.
+
+```typescript
+import { randomUUID } from 'crypto';
+
+const state = randomUUID();
+const { codeVerifier, codeChallenge } = await OAuth2Configuration.generatePkce();
+req.session.oauthState = state;
+req.session.codeVerifier = codeVerifier;
+
+// codeChallengeMethod defaults to 'S256'
+const authUrl = oauth2.getAuthorizationUrl({ state, codeChallenge });
+
+// later, in the redirect URI handler
+if (!req.session.oauthState || req.query.state !== req.session.oauthState) {
+  throw new Error('Invalid OAuth state');
+}
+const token = await oauth2.authorize(req.query.code, req.session.codeVerifier);
+```
+
+`generatePkce()` uses the Web Crypto API (`globalThis.crypto`), available in Node.js 19 and later.
 
 ### Refreshing token
 

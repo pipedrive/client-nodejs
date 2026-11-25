@@ -34,17 +34,17 @@ export interface RecentsDataInnerAnyOf9Data {
     * The product code
     * @type {string}
     */
-    'code'?: string;
+    'code'?: string | null;
     /**
     * The description of the product
     * @type {string}
     */
-    'description'?: string;
+    'description'?: string | null;
     /**
     * The unit in which this product is sold
     * @type {string}
     */
-    'unit'?: string;
+    'unit'?: string | null;
     /**
     * The tax percentage
     * @type {number}
@@ -54,7 +54,7 @@ export interface RecentsDataInnerAnyOf9Data {
     * The category of the product
     * @type {string}
     */
-    'category'?: string;
+    'category'?: string | null;
     /**
     * Whether this product will be made active or not
     * @type {boolean}

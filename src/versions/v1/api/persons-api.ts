@@ -512,13 +512,13 @@ export const PersonsApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Lists updates about a person.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint\'s response will also include updates for the `marketing_status` field.
+         * Lists updates about a person.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint\'s response will also include updates for the `marketing_status` field.<br>If the company has the Email tracking consent setting enabled, the response can also include updates to `track_open` and `track_click` fields.
          * @summary List updates about a person
          * @param {number} id The unique ID of the person
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
          * @param {string} [all_changes] Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates.
-         * @param {Set<string>} [items] A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change).
+         * @param {Set<string>} [items] A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change, email_tracking_preference_change).
 
          * @throws {RequiredError}
          */
@@ -902,13 +902,13 @@ export const PersonsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
-         * Lists updates about a person.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint\'s response will also include updates for the `marketing_status` field.
+         * Lists updates about a person.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint\'s response will also include updates for the `marketing_status` field.<br>If the company has the Email tracking consent setting enabled, the response can also include updates to `track_open` and `track_click` fields.
          * @summary List updates about a person
          * @param {number} id The unique ID of the person
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
          * @param {string} [all_changes] Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates.
-         * @param {Set<string>} [items] A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change).
+         * @param {Set<string>} [items] A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change, email_tracking_preference_change).
 
          * @throws {RequiredError}
          */
@@ -923,7 +923,7 @@ export const PersonsApiFp = function(configuration?: Configuration) {
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
          * @param {string} [all_changes] Whether to show custom field updates or not. 1 &#x3D; Include custom field changes. If omitted returns changes without custom field updates.
-         * @param {Set<string>} [items] A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change).
+         * @param {Set<string>} [items] A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change, email_tracking_preference_change).
 
          * @throws {RequiredError}
          */
@@ -1105,7 +1105,7 @@ export const PersonsApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getPersonProductsWithHttpInfo(requestParameters.id, requestParameters.start, requestParameters.limit, ).then((request) => request(axios, basePath));
         },
         /**
-         * Lists updates about a person.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint\'s response will also include updates for the `marketing_status` field.
+         * Lists updates about a person.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint\'s response will also include updates for the `marketing_status` field.<br>If the company has the Email tracking consent setting enabled, the response can also include updates to `track_open` and `track_click` fields.
          * @summary List updates about a person
          * @param {PersonsApiGetPersonUpdatesRequest} requestParameters Request parameters.
 
@@ -1426,7 +1426,7 @@ export interface PersonsApiGetPersonUpdatesRequest {
     readonly all_changes?: string
 
     /**
-     * A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change).
+     * A comma-separated string for filtering out item specific updates. (Possible values - call, activity, plannedActivity, change, note, deal, file, dealChange, personChange, organizationChange, follower, dealFollower, personFollower, organizationFollower, participant, comment, mailMessage, mailMessageWithAttachment, invoice, document, marketing_campaign_stat, marketing_status_change, email_tracking_preference_change).
      * @type {Set<string>}
      * @memberof PersonsApiGetPersonUpdates
      */
@@ -1692,7 +1692,7 @@ export class PersonsApi extends BaseAPI {
     }
 
     /**
-     * Lists updates about a person.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint\'s response will also include updates for the `marketing_status` field.
+     * Lists updates about a person.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint\'s response will also include updates for the `marketing_status` field.<br>If the company has the Email tracking consent setting enabled, the response can also include updates to `track_open` and `track_click` fields.
      * @summary List updates about a person
      * @param {PersonsApiGetPersonUpdatesRequest} requestParameters Request parameters.
 

@@ -7,6 +7,11 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Added
+- Documented new `track_open` and `track_click` fields on the Person object (enum: `no_preference_set`, `consent_given`, `consent_declined`). They are returned and accepted only if the company has the "Email tracking consent" setting enabled.
+### Changed
+- Updated v2 Persons endpoints to include the new fields: `GET /api/v2/persons`, `GET /api/v2/persons/{id}`, `POST /api/v2/persons` and `PATCH /api/v2/persons/{id}`. The `include_fields` query parameter now also accepts `track_open` and `track_click`.
+- Added `email_tracking_preference_change` to the possible values of the `items` query parameter of `GET /v1/persons/{id}/flow` and `GET /v1/deals/{id}/flow`, and updated the description of `GET /v1/personFields` (`getPersonFields`) to mention the new fields.
 
 ## [36.3.1] - 2026-11-06
 ### Fixed

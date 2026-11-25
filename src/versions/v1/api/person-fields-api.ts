@@ -207,7 +207,7 @@ export const PersonFieldsApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * Returns data about all person fields.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
+         * Returns data about all person fields.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `marketing_status` field.<br>If the company has the Email tracking consent setting enabled, then this endpoint will also return the `track_open` and `track_click` fields.
          * @summary Get all person fields
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
@@ -398,7 +398,7 @@ export const PersonFieldsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
-         * Returns data about all person fields.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
+         * Returns data about all person fields.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `marketing_status` field.<br>If the company has the Email tracking consent setting enabled, then this endpoint will also return the `track_open` and `track_click` fields.
          * @summary Get all person fields
          * @param {number} [start] Pagination start
          * @param {number} [limit] Items shown per page
@@ -508,7 +508,7 @@ export const PersonFieldsApiFactory = function (configuration?: Configuration, b
             return localVarFp.getPersonFieldWithHttpInfo(requestParameters.id, ).then((request) => request(axios, basePath));
         },
         /**
-         * Returns data about all person fields.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
+         * Returns data about all person fields.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `marketing_status` field.<br>If the company has the Email tracking consent setting enabled, then this endpoint will also return the `track_open` and `track_click` fields.
          * @summary Get all person fields
          * @param {PersonFieldsApiGetPersonFieldsRequest} requestParameters Request parameters.
 
@@ -738,7 +738,7 @@ export class PersonFieldsApi extends BaseAPI {
     }
 
     /**
-     * Returns data about all person fields.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `data.marketing_status` field.
+     * Returns data about all person fields.<br>If a company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also return the `marketing_status` field.<br>If the company has the Email tracking consent setting enabled, then this endpoint will also return the `track_open` and `track_click` fields.
      * @summary Get all person fields
      * @param {PersonFieldsApiGetPersonFieldsRequest} requestParameters Request parameters.
 
