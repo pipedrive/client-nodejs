@@ -7,6 +7,12 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Added
+- Documented activity custom fields in the v2 Activities API:
+  - `custom_fields` object in the request bodies of `POST /api/v2/activities` and `PATCH /api/v2/activities/{id}` and in activity responses
+  - `custom_fields` and `include_option_labels` query parameters on `GET /api/v2/activities` and `GET /api/v2/activities/{id}`
+  - `ui_visibility.show_in_activity_types` (availability of a custom field per activity type) on `GET /api/v2/activityFields` and `GET /api/v2/activityFields/{field_code}`
+- Documented the `required_on_creation` and `required_on_completion` rules (per activity type) on `GET /api/v2/activityFields` and `GET /api/v2/activityFields/{field_code}`. They are returned when requested via the `include_fields` query parameter.
 
 ## [37.0.0] - 2026-11-25
 ### Added

@@ -35,11 +35,11 @@ export const ActivityFieldsApiAxiosParamCreator = function (configuration?: Conf
          * Returns metadata about a specific activity field.
          * @summary Get one activity field
          * @param {string} field_code The unique code identifying the field
-         * @param {Set<'ui_visibility'>} [include_fields] Optional comma separated string array of additional data namespaces to include in response
+         * @param {Set<'ui_visibility' | 'required_on_creation' | 'required_on_completion'>} [include_fields] Optional comma separated string array of additional data namespaces to include in response
 
          * @throws {RequiredError}
          */
-        getActivityField: async (field_code: string, include_fields?: Set<'ui_visibility'>, ): Promise<RequestArgs> => {
+        getActivityField: async (field_code: string, include_fields?: Set<'ui_visibility' | 'required_on_creation' | 'required_on_completion'>, ): Promise<RequestArgs> => {
             // verify required parameter 'field_code' is not null or undefined
             assertParamExists('getActivityField', 'field_code', field_code)
             const localVarPath = `/activityFields/{field_code}`
@@ -80,13 +80,13 @@ export const ActivityFieldsApiAxiosParamCreator = function (configuration?: Conf
         /**
          * Returns metadata about all activity fields in the company.
          * @summary Get all activity fields
-         * @param {Set<'ui_visibility'>} [include_fields] Optional comma separated string array of additional data namespaces to include in response
+         * @param {Set<'ui_visibility' | 'required_on_creation' | 'required_on_completion'>} [include_fields] Optional comma separated string array of additional data namespaces to include in response
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        getActivityFields: async (include_fields?: Set<'ui_visibility'>, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+        getActivityFields: async (include_fields?: Set<'ui_visibility' | 'required_on_creation' | 'required_on_completion'>, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
             const localVarPath = `/activityFields`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -144,11 +144,11 @@ export const ActivityFieldsApiFp = function(configuration?: Configuration) {
          * Returns metadata about a specific activity field.
          * @summary Get one activity field
          * @param {string} field_code The unique code identifying the field
-         * @param {Set<'ui_visibility'>} [include_fields] Optional comma separated string array of additional data namespaces to include in response
+         * @param {Set<'ui_visibility' | 'required_on_creation' | 'required_on_completion'>} [include_fields] Optional comma separated string array of additional data namespaces to include in response
 
          * @throws {RequiredError}
          */
-        async getActivityField(field_code: string, include_fields?: Set<'ui_visibility'>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivityField200Response>> {
+        async getActivityField(field_code: string, include_fields?: Set<'ui_visibility' | 'required_on_creation' | 'required_on_completion'>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivityField200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getActivityField(field_code, include_fields, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -156,37 +156,37 @@ export const ActivityFieldsApiFp = function(configuration?: Configuration) {
          * Same as `getActivityField`, but resolves with the response body together with the HTTP status and headers.
          * @summary Get one activity field
          * @param {string} field_code The unique code identifying the field
-         * @param {Set<'ui_visibility'>} [include_fields] Optional comma separated string array of additional data namespaces to include in response
+         * @param {Set<'ui_visibility' | 'required_on_creation' | 'required_on_completion'>} [include_fields] Optional comma separated string array of additional data namespaces to include in response
 
          * @throws {RequiredError}
          */
-        async getActivityFieldWithHttpInfo(field_code: string, include_fields?: Set<'ui_visibility'>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetActivityField200Response>>> {
+        async getActivityFieldWithHttpInfo(field_code: string, include_fields?: Set<'ui_visibility' | 'required_on_creation' | 'required_on_completion'>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetActivityField200Response>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getActivityField(field_code, include_fields, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
          * Returns metadata about all activity fields in the company.
          * @summary Get all activity fields
-         * @param {Set<'ui_visibility'>} [include_fields] Optional comma separated string array of additional data namespaces to include in response
+         * @param {Set<'ui_visibility' | 'required_on_creation' | 'required_on_completion'>} [include_fields] Optional comma separated string array of additional data namespaces to include in response
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        async getActivityFields(include_fields?: Set<'ui_visibility'>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivityFields200Response>> {
+        async getActivityFields(include_fields?: Set<'ui_visibility' | 'required_on_creation' | 'required_on_completion'>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivityFields200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getActivityFields(include_fields, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Same as `getActivityFields`, but resolves with the response body together with the HTTP status and headers.
          * @summary Get all activity fields
-         * @param {Set<'ui_visibility'>} [include_fields] Optional comma separated string array of additional data namespaces to include in response
+         * @param {Set<'ui_visibility' | 'required_on_creation' | 'required_on_completion'>} [include_fields] Optional comma separated string array of additional data namespaces to include in response
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        async getActivityFieldsWithHttpInfo(include_fields?: Set<'ui_visibility'>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetActivityFields200Response>>> {
+        async getActivityFieldsWithHttpInfo(include_fields?: Set<'ui_visibility' | 'required_on_creation' | 'required_on_completion'>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetActivityFields200Response>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getActivityFields(include_fields, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
@@ -244,10 +244,10 @@ export interface ActivityFieldsApiGetActivityFieldRequest {
 
     /**
      * Optional comma separated string array of additional data namespaces to include in response
-     * @type {Set<'ui_visibility'>}
+     * @type {Set<'ui_visibility' | 'required_on_creation' | 'required_on_completion'>}
      * @memberof ActivityFieldsApiGetActivityField
      */
-    readonly include_fields?: Set<'ui_visibility'>
+    readonly include_fields?: Set<'ui_visibility' | 'required_on_creation' | 'required_on_completion'>
 }
 
 /**
@@ -258,10 +258,10 @@ export interface ActivityFieldsApiGetActivityFieldRequest {
 export interface ActivityFieldsApiGetActivityFieldsRequest {
     /**
      * Optional comma separated string array of additional data namespaces to include in response
-     * @type {Set<'ui_visibility'>}
+     * @type {Set<'ui_visibility' | 'required_on_creation' | 'required_on_completion'>}
      * @memberof ActivityFieldsApiGetActivityFields
      */
-    readonly include_fields?: Set<'ui_visibility'>
+    readonly include_fields?: Set<'ui_visibility' | 'required_on_creation' | 'required_on_completion'>
 
     /**
      * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
