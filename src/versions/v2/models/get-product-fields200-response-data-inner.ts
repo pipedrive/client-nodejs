@@ -21,7 +21,7 @@ import { GetActivityFields200ResponseDataInnerOptionsInner } from './get-activit
 import { GetActivityFields200ResponseDataInnerSubfieldsInner } from './get-activity-fields200-response-data-inner-subfields-inner';
 // May contain unused imports in some cases
 // @ts-ignore
-import { GetActivityFields200ResponseDataInnerUiVisibility } from './get-activity-fields200-response-data-inner-ui-visibility';
+import { GetProductFields200ResponseDataInnerUiVisibility } from './get-product-fields200-response-data-inner-ui-visibility';
 
 /**
 * 
@@ -66,9 +66,9 @@ export interface GetProductFields200ResponseDataInner {
     'subfields'?: Array<GetActivityFields200ResponseDataInnerSubfieldsInner> | null;
     /**
     * 
-    * @type {GetActivityFields200ResponseDataInnerUiVisibility}
+    * @type {GetProductFields200ResponseDataInnerUiVisibility}
     */
-    'ui_visibility'?: GetActivityFields200ResponseDataInnerUiVisibility;
+    'ui_visibility'?: GetProductFields200ResponseDataInnerUiVisibility;
 }
 
                 export const GetProductFields200ResponseDataInnerFieldTypeConst = {

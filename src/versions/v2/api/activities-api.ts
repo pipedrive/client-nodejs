@@ -133,12 +133,14 @@ export const ActivitiesApiAxiosParamCreator = function (configuration?: Configur
          * @param {'id' | 'update_time' | 'add_time' | 'due_date'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;, &#x60;due_date&#x60;.
          * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
          * @param {Set<'attendees'>} [include_fields] Optional comma separated string array of additional fields to include
+         * @param {Set<string>} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+         * @param {boolean} [include_option_labels] When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        getActivities: async (filter_id?: number, ids?: Set<number>, owner_id?: number, deal_id?: number, lead_id?: string, person_id?: number, org_id?: number, done?: boolean, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time' | 'due_date', sort_direction?: 'asc' | 'desc', include_fields?: Set<'attendees'>, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
+        getActivities: async (filter_id?: number, ids?: Set<number>, owner_id?: number, deal_id?: number, lead_id?: string, person_id?: number, org_id?: number, done?: boolean, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time' | 'due_date', sort_direction?: 'asc' | 'desc', include_fields?: Set<'attendees'>, custom_fields?: Set<string>, include_option_labels?: boolean, limit?: number, cursor?: string, ): Promise<RequestArgs> => {
             const localVarPath = `/activities`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -210,6 +212,14 @@ export const ActivitiesApiAxiosParamCreator = function (configuration?: Configur
                 localVarQueryParameter['include_fields'] = Array.from(include_fields).join(COLLECTION_FORMATS.csv);
             }
 
+            if (custom_fields) {
+                localVarQueryParameter['custom_fields'] = Array.from(custom_fields).join(COLLECTION_FORMATS.csv);
+            }
+
+            if (include_option_labels !== undefined) {
+                localVarQueryParameter['include_option_labels'] = include_option_labels;
+            }
+
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
@@ -234,10 +244,12 @@ export const ActivitiesApiAxiosParamCreator = function (configuration?: Configur
          * @summary Get details of an activity
          * @param {number} id The ID of the activity
          * @param {Set<'attendees'>} [include_fields] Optional comma separated string array of additional fields to include
+         * @param {Set<string>} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+         * @param {boolean} [include_option_labels] When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
 
          * @throws {RequiredError}
          */
-        getActivity: async (id: number, include_fields?: Set<'attendees'>, ): Promise<RequestArgs> => {
+        getActivity: async (id: number, include_fields?: Set<'attendees'>, custom_fields?: Set<string>, include_option_labels?: boolean, ): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getActivity', 'id', id)
             const localVarPath = `/activities/{id}`
@@ -262,6 +274,14 @@ export const ActivitiesApiAxiosParamCreator = function (configuration?: Configur
 
             if (include_fields) {
                 localVarQueryParameter['include_fields'] = Array.from(include_fields).join(COLLECTION_FORMATS.csv);
+            }
+
+            if (custom_fields) {
+                localVarQueryParameter['custom_fields'] = Array.from(custom_fields).join(COLLECTION_FORMATS.csv);
+            }
+
+            if (include_option_labels !== undefined) {
+                localVarQueryParameter['include_option_labels'] = include_option_labels;
             }
 
 
@@ -391,13 +411,15 @@ export const ActivitiesApiFp = function(configuration?: Configuration) {
          * @param {'id' | 'update_time' | 'add_time' | 'due_date'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;, &#x60;due_date&#x60;.
          * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
          * @param {Set<'attendees'>} [include_fields] Optional comma separated string array of additional fields to include
+         * @param {Set<string>} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+         * @param {boolean} [include_option_labels] When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        async getActivities(filter_id?: number, ids?: Set<number>, owner_id?: number, deal_id?: number, lead_id?: string, person_id?: number, org_id?: number, done?: boolean, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time' | 'due_date', sort_direction?: 'asc' | 'desc', include_fields?: Set<'attendees'>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivitiesResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getActivities(filter_id, ids, owner_id, deal_id, lead_id, person_id, org_id, done, updated_since, updated_until, sort_by, sort_direction, include_fields, limit, cursor, );
+        async getActivities(filter_id?: number, ids?: Set<number>, owner_id?: number, deal_id?: number, lead_id?: string, person_id?: number, org_id?: number, done?: boolean, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time' | 'due_date', sort_direction?: 'asc' | 'desc', include_fields?: Set<'attendees'>, custom_fields?: Set<string>, include_option_labels?: boolean, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<GetActivitiesResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getActivities(filter_id, ids, owner_id, deal_id, lead_id, person_id, org_id, done, updated_since, updated_until, sort_by, sort_direction, include_fields, custom_fields, include_option_labels, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -416,13 +438,15 @@ export const ActivitiesApiFp = function(configuration?: Configuration) {
          * @param {'id' | 'update_time' | 'add_time' | 'due_date'} [sort_by] The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;, &#x60;due_date&#x60;.
          * @param {'asc' | 'desc'} [sort_direction] The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
          * @param {Set<'attendees'>} [include_fields] Optional comma separated string array of additional fields to include
+         * @param {Set<string>} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+         * @param {boolean} [include_option_labels] When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
          * @param {number} [limit] For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
          * @param {string} [cursor] For pagination, the marker (an opaque string value) representing the first item on the next page
 
          * @throws {RequiredError}
          */
-        async getActivitiesWithHttpInfo(filter_id?: number, ids?: Set<number>, owner_id?: number, deal_id?: number, lead_id?: string, person_id?: number, org_id?: number, done?: boolean, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time' | 'due_date', sort_direction?: 'asc' | 'desc', include_fields?: Set<'attendees'>, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetActivitiesResponse>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getActivities(filter_id, ids, owner_id, deal_id, lead_id, person_id, org_id, done, updated_since, updated_until, sort_by, sort_direction, include_fields, limit, cursor, );
+        async getActivitiesWithHttpInfo(filter_id?: number, ids?: Set<number>, owner_id?: number, deal_id?: number, lead_id?: string, person_id?: number, org_id?: number, done?: boolean, updated_since?: string, updated_until?: string, sort_by?: 'id' | 'update_time' | 'add_time' | 'due_date', sort_direction?: 'asc' | 'desc', include_fields?: Set<'attendees'>, custom_fields?: Set<string>, include_option_labels?: boolean, limit?: number, cursor?: string, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<GetActivitiesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getActivities(filter_id, ids, owner_id, deal_id, lead_id, person_id, org_id, done, updated_since, updated_until, sort_by, sort_direction, include_fields, custom_fields, include_option_labels, limit, cursor, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
@@ -430,11 +454,13 @@ export const ActivitiesApiFp = function(configuration?: Configuration) {
          * @summary Get details of an activity
          * @param {number} id The ID of the activity
          * @param {Set<'attendees'>} [include_fields] Optional comma separated string array of additional fields to include
+         * @param {Set<string>} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+         * @param {boolean} [include_option_labels] When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
 
          * @throws {RequiredError}
          */
-        async getActivity(id: number, include_fields?: Set<'attendees'>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertActivityResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getActivity(id, include_fields, );
+        async getActivity(id: number, include_fields?: Set<'attendees'>, custom_fields?: Set<string>, include_option_labels?: boolean, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<UpsertActivityResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getActivity(id, include_fields, custom_fields, include_option_labels, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -442,11 +468,13 @@ export const ActivitiesApiFp = function(configuration?: Configuration) {
          * @summary Get details of an activity
          * @param {number} id The ID of the activity
          * @param {Set<'attendees'>} [include_fields] Optional comma separated string array of additional fields to include
+         * @param {Set<string>} [custom_fields] Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+         * @param {boolean} [include_option_labels] When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
 
          * @throws {RequiredError}
          */
-        async getActivityWithHttpInfo(id: number, include_fields?: Set<'attendees'>, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertActivityResponse>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getActivity(id, include_fields, );
+        async getActivityWithHttpInfo(id: number, include_fields?: Set<'attendees'>, custom_fields?: Set<string>, include_option_labels?: boolean, ): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<ApiResponse<UpsertActivityResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getActivity(id, include_fields, custom_fields, include_option_labels, );
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration, true);
         },
         /**
@@ -517,10 +545,10 @@ export const ActivitiesApiFactory = function (configuration?: Configuration, bas
          * @throws {RequiredError}
          */
         getActivities(requestParameters: ActivitiesApiGetActivitiesRequest = {}, ): Promise<GetActivitiesResponse> {
-            return localVarFp.getActivities(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.deal_id, requestParameters.lead_id, requestParameters.person_id, requestParameters.org_id, requestParameters.done, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+            return localVarFp.getActivities(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.deal_id, requestParameters.lead_id, requestParameters.person_id, requestParameters.org_id, requestParameters.done, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.include_option_labels, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         getActivitiesWithHttpInfo(requestParameters: ActivitiesApiGetActivitiesRequest = {}, ): Promise<ApiResponse<GetActivitiesResponse>> {
-            return localVarFp.getActivitiesWithHttpInfo(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.deal_id, requestParameters.lead_id, requestParameters.person_id, requestParameters.org_id, requestParameters.done, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
+            return localVarFp.getActivitiesWithHttpInfo(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.deal_id, requestParameters.lead_id, requestParameters.person_id, requestParameters.org_id, requestParameters.done, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.include_option_labels, requestParameters.limit, requestParameters.cursor, ).then((request) => request(axios, basePath));
         },
         /**
          * Returns the details of a specific activity.
@@ -530,10 +558,10 @@ export const ActivitiesApiFactory = function (configuration?: Configuration, bas
          * @throws {RequiredError}
          */
         getActivity(requestParameters: ActivitiesApiGetActivityRequest, ): Promise<UpsertActivityResponse> {
-            return localVarFp.getActivity(requestParameters.id, requestParameters.include_fields, ).then((request) => request(axios, basePath));
+            return localVarFp.getActivity(requestParameters.id, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.include_option_labels, ).then((request) => request(axios, basePath));
         },
         getActivityWithHttpInfo(requestParameters: ActivitiesApiGetActivityRequest, ): Promise<ApiResponse<UpsertActivityResponse>> {
-            return localVarFp.getActivityWithHttpInfo(requestParameters.id, requestParameters.include_fields, ).then((request) => request(axios, basePath));
+            return localVarFp.getActivityWithHttpInfo(requestParameters.id, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.include_option_labels, ).then((request) => request(axios, basePath));
         },
         /**
          * Updates the properties of an activity.
@@ -677,6 +705,20 @@ export interface ActivitiesApiGetActivitiesRequest {
     readonly include_fields?: Set<'attendees'>
 
     /**
+     * Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+     * @type {Set<string>}
+     * @memberof ActivitiesApiGetActivities
+     */
+    readonly custom_fields?: Set<string>
+
+    /**
+     * When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
+     * @type {boolean}
+     * @memberof ActivitiesApiGetActivities
+     */
+    readonly include_option_labels?: boolean
+
+    /**
      * For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
      * @type {number}
      * @memberof ActivitiesApiGetActivities
@@ -710,6 +752,20 @@ export interface ActivitiesApiGetActivityRequest {
      * @memberof ActivitiesApiGetActivity
      */
     readonly include_fields?: Set<'attendees'>
+
+    /**
+     * Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
+     * @type {Set<string>}
+     * @memberof ActivitiesApiGetActivity
+     */
+    readonly custom_fields?: Set<string>
+
+    /**
+     * When provided with a \&#39;true\&#39; value, single option and multiple option custom fields values contain objects in the form of \&#39;{ id: number, label: string }\&#39; instead of plain id
+     * @type {boolean}
+     * @memberof ActivitiesApiGetActivity
+     */
+    readonly include_option_labels?: boolean
 }
 
 /**
@@ -797,7 +853,7 @@ export class ActivitiesApi extends BaseAPI {
      * @memberof ActivitiesApi
      */
     public getActivities(requestParameters: ActivitiesApiGetActivitiesRequest = {}, ) {
-        return ActivitiesApiFp(this.configuration).getActivities(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.deal_id, requestParameters.lead_id, requestParameters.person_id, requestParameters.org_id, requestParameters.done, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+        return ActivitiesApiFp(this.configuration).getActivities(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.deal_id, requestParameters.lead_id, requestParameters.person_id, requestParameters.org_id, requestParameters.done, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.include_option_labels, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -809,7 +865,7 @@ export class ActivitiesApi extends BaseAPI {
      * @memberof ActivitiesApi
      */
     public getActivitiesWithHttpInfo(requestParameters: ActivitiesApiGetActivitiesRequest = {}, ) {
-        return ActivitiesApiFp(this.configuration).getActivitiesWithHttpInfo(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.deal_id, requestParameters.lead_id, requestParameters.person_id, requestParameters.org_id, requestParameters.done, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
+        return ActivitiesApiFp(this.configuration).getActivitiesWithHttpInfo(requestParameters.filter_id, requestParameters.ids, requestParameters.owner_id, requestParameters.deal_id, requestParameters.lead_id, requestParameters.person_id, requestParameters.org_id, requestParameters.done, requestParameters.updated_since, requestParameters.updated_until, requestParameters.sort_by, requestParameters.sort_direction, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.include_option_labels, requestParameters.limit, requestParameters.cursor, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -821,7 +877,7 @@ export class ActivitiesApi extends BaseAPI {
      * @memberof ActivitiesApi
      */
     public getActivity(requestParameters: ActivitiesApiGetActivityRequest, ) {
-        return ActivitiesApiFp(this.configuration).getActivity(requestParameters.id, requestParameters.include_fields, ).then((request) => request(this.axios, this.basePath));
+        return ActivitiesApiFp(this.configuration).getActivity(requestParameters.id, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.include_option_labels, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -833,7 +889,7 @@ export class ActivitiesApi extends BaseAPI {
      * @memberof ActivitiesApi
      */
     public getActivityWithHttpInfo(requestParameters: ActivitiesApiGetActivityRequest, ) {
-        return ActivitiesApiFp(this.configuration).getActivityWithHttpInfo(requestParameters.id, requestParameters.include_fields, ).then((request) => request(this.axios, this.basePath));
+        return ActivitiesApiFp(this.configuration).getActivityWithHttpInfo(requestParameters.id, requestParameters.include_fields, requestParameters.custom_fields, requestParameters.include_option_labels, ).then((request) => request(this.axios, this.basePath));
     }
 
     /**
