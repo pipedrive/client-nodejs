@@ -18,6 +18,12 @@
 import { GetActivityFields200ResponseDataInnerOptionsInner } from './get-activity-fields200-response-data-inner-options-inner';
 // May contain unused imports in some cases
 // @ts-ignore
+import { GetActivityFields200ResponseDataInnerRequiredOnCompletion } from './get-activity-fields200-response-data-inner-required-on-completion';
+// May contain unused imports in some cases
+// @ts-ignore
+import { GetActivityFields200ResponseDataInnerRequiredOnCreation } from './get-activity-fields200-response-data-inner-required-on-creation';
+// May contain unused imports in some cases
+// @ts-ignore
 import { GetActivityFields200ResponseDataInnerSubfieldsInner } from './get-activity-fields200-response-data-inner-subfields-inner';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -69,6 +75,16 @@ export interface GetActivityFields200ResponseDataInner {
     * @type {GetActivityFields200ResponseDataInnerUiVisibility}
     */
     'ui_visibility'?: GetActivityFields200ResponseDataInnerUiVisibility;
+    /**
+    * 
+    * @type {GetActivityFields200ResponseDataInnerRequiredOnCreation}
+    */
+    'required_on_creation'?: GetActivityFields200ResponseDataInnerRequiredOnCreation;
+    /**
+    * 
+    * @type {GetActivityFields200ResponseDataInnerRequiredOnCompletion}
+    */
+    'required_on_completion'?: GetActivityFields200ResponseDataInnerRequiredOnCompletion;
 }
 
                 export const GetActivityFields200ResponseDataInnerFieldTypeConst = {

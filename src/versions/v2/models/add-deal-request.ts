@@ -29,7 +29,7 @@ export interface AddDealRequest {
     * The ID of the user who owns the deal
     * @type {number}
     */
-    'owner_id'?: number;
+    'owner_id'?: number | null;
     /**
     * The ID of the person linked to the deal
     * @type {number}
@@ -44,12 +44,12 @@ export interface AddDealRequest {
     * The ID of the pipeline associated with the deal
     * @type {number}
     */
-    'pipeline_id'?: number;
+    'pipeline_id'?: number | null;
     /**
     * The ID of the deal stage
     * @type {number}
     */
-    'stage_id'?: number;
+    'stage_id'?: number | null;
     /**
     * The value of the deal
     * @type {number}
@@ -59,12 +59,12 @@ export interface AddDealRequest {
     * The currency associated with the deal
     * @type {string}
     */
-    'currency'?: string;
+    'currency'?: string | null;
     /**
     * Whether the deal is archived or not
     * @type {boolean}
     */
-    'is_archived'?: boolean;
+    'is_archived'?: boolean | null;
     /**
     * The optional date and time of archiving the deal in UTC. Format: YYYY-MM-DD HH:MM:SS. If omitted and `is_archived` is true, it will be set to the current date and time.
     * @type {string}
@@ -74,47 +74,47 @@ export interface AddDealRequest {
     * The status of the deal
     * @type {string}
     */
-    'status'?: string;
+    'status'?: string | null;
     /**
     * The success probability percentage of the deal
     * @type {number}
     */
-    'probability'?: number;
+    'probability'?: number | null;
     /**
     * The reason for losing the deal. Can only be set if deal status is lost.
     * @type {string}
     */
-    'lost_reason'?: string;
+    'lost_reason'?: string | null;
     /**
     * The visibility of the deal
     * @type {number}
     */
-    'visible_to'?: number;
+    'visible_to'?: number | null;
     /**
     * The date and time of closing the deal. Can only be set if deal status is won or lost.
     * @type {string}
     */
-    'close_time'?: string;
+    'close_time'?: string | null;
     /**
     * The date and time of changing the deal status as won. Can only be set if deal status is won.
     * @type {string}
     */
-    'won_time'?: string;
+    'won_time'?: string | null;
     /**
     * The date and time of changing the deal status as lost. Can only be set if deal status is lost.
     * @type {string}
     */
-    'lost_time'?: string;
+    'lost_time'?: string | null;
     /**
     * The expected close date of the deal
     * @type {string}
     */
-    'expected_close_date'?: string;
+    'expected_close_date'?: string | null;
     /**
     * The IDs of labels assigned to the deal
     * @type {Array<number>}
     */
-    'label_ids'?: Array<number>;
+    'label_ids'?: Array<number> | null;
     /**
     * The ID of Marketing channel this deal was created from. Provided value must be one of the channels configured for your company. You can fetch allowed values with <a href=\"https://developers.pipedrive.com/docs/api/v1/DealFields#getDealField\" target=\"_blank\" rel=\"noopener noreferrer\">GET /v1/dealFields</a>.
     * @type {number}

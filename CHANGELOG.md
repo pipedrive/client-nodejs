@@ -7,6 +7,10 @@ The file format of it is based on [Keep a Changelog](http://keepachangelog.com/e
 For public Changelog covering all changes done to Pipedrive’s API, webhooks and app extensions platforms, see [public Changelog](https://pipedrive.readme.io/docs/changelog) with discussion area in [Developers Community](https://devcommunity.pipedrive.com/c/documentation/changelog/19).
 
 ## [Unreleased]
+### Fixed
+- Fixed the v2 Deals schemas to match real API behavior:
+  - Changed `probability` from `number` to `integer` in `deals` endpoints
+  - Marked optional fields as nullable in the `POST /api/v2/deals` request body: `owner_id`, `pipeline_id`, `stage_id`, `currency`, `is_archived`, `status`, `probability`, `lost_reason`, `visible_to`, `close_time`, `won_time`, `lost_time`, `expected_close_date`, and `label_ids`
 
 ## [37.0.0] - 2026-11-25
 ### Added
