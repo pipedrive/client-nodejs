@@ -13,6 +13,9 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { GetActivityFields200ResponseDataInnerUiVisibilityShowInActivityTypes } from './get-activity-fields200-response-data-inner-ui-visibility-show-in-activity-types';
 
 /**
 * UI visibility settings (only included when requested via include_fields parameter)
@@ -30,5 +33,10 @@ export interface GetActivityFields200ResponseDataInnerUiVisibility {
     * @type {boolean}
     */
     'details_visible_flag'?: boolean;
+    /**
+    * 
+    * @type {GetActivityFields200ResponseDataInnerUiVisibilityShowInActivityTypes}
+    */
+    'show_in_activity_types'?: GetActivityFields200ResponseDataInnerUiVisibilityShowInActivityTypes;
 }
 
